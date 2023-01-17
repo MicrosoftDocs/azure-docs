@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/09/2022
+ms.date: 11/15/2022
 ms.author: radeltch
 ---
 
@@ -22,24 +22,24 @@ ms.author: radeltch
 [anf-azure-doc]:/azure/azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
 
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[1410736]: https://launchpad.support.sap.com/#/notes/1410736
+[1900823]: https://launchpad.support.sap.com/#/notes/1900823
+[2292690]: https://launchpad.support.sap.com/#/notes/2292690
+[2455582]: https://launchpad.support.sap.com/#/notes/2455582
+[2593824]: https://launchpad.support.sap.com/#/notes/2593824
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[sap-swcenter]: https://support.sap.com/en/my-support/software-downloads.html
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[1410736]:https://launchpad.support.sap.com/#/notes/1410736
-[1900823]:https://launchpad.support.sap.com/#/notes/1900823
-[2292690]:https://launchpad.support.sap.com/#/notes/2292690
-[2455582]:https://launchpad.support.sap.com/#/notes/2455582
-[2593824]:https://launchpad.support.sap.com/#/notes/2593824
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
-
-[sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
+[2447641]: https://access.redhat.com/solutions/2447641
 
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
@@ -326,10 +326,10 @@ Configure and prepare your OS by doing the following steps:
     yum install nfs-utils
     </code></pre>
 
-3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
 
     <pre><code>
-    vi /etc/sysctl.d/netapp-hana.conf
+    vi /etc/sysctl.d/91-NetApp-HANA.conf
     # Add the following entries in the configuration file
     net.core.rmem_max = 16777216
     net.core.wmem_max = 16777216
@@ -369,7 +369,7 @@ Configure and prepare your OS by doing the following steps:
 
 6. **[A]** Red Hat for HANA configuration.
 
-    Configure RHEL as described in SAP Note [2292690], [2455582], [2593824] and <https://access.redhat.com/solutions/2447641>.
+    Configure RHEL as described in SAP Note [2292690], [2455582], [2593824], and Red Hat note [2447641].
 
     > [!NOTE]
     > If installing HANA 2.0 SP04 you will be required to install package `compat-sap-c++-7` as described in SAP note [2593824], before you can install SAP HANA. 
@@ -447,6 +447,8 @@ Configure and prepare your OS by doing the following steps:
     # Mount all volumes
     sudo mount -a 
     </code></pre>
+
+   For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.  
 
 7. **[1]** Mount the node-specific volumes on **hanadb1**.  
 

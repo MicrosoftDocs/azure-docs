@@ -1,8 +1,8 @@
 ---
 title: Amazon S3 multi-cloud scanning connector for Microsoft Purview
 description: This how-to guide describes details of how to scan Amazon S3 buckets in Microsoft Purview.
-author: batamig
-ms.author: bagol
+author: aashishr
+ms.author: aashishr
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
@@ -26,10 +26,9 @@ For this service, use Microsoft Purview to provide a Microsoft account with secu
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| Yes | Yes | Yes | Yes | Yes | No | Limited** |
-|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| Yes | Yes | Yes | Yes | Yes | No | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 

@@ -5,7 +5,7 @@ keywords: vm sizes, cluster sizes, cluster configuration
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 11/19/2022
 ---
 # Selecting the right VM size for your Azure HDInsight cluster
 
@@ -51,8 +51,7 @@ The following table describes the cluster types and node types, which can be cre
 | Kafka | All | F4 and above | no | no |
 | HBase | All | F4 and above | no | no |
 | LLAP | disabled | no | no | no |
-| Storm | disabled | no | no | no |
-| ML Service | HDI 3.6 ONLY | F4 and above | no | no |
+
 
 To see the specifications of each F-series SKU, see [F-series VM sizes](https://azure.microsoft.com/blog/f-series-vm-size/).
 

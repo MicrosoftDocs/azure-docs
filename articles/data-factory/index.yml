@@ -41,30 +41,24 @@ landingContent:
         links:
           - text: Pipelines and activities in Azure Data Factory
             url: ./concepts-pipelines-activities.md    
+          - text: Pipeline execution and triggers
+            url: ./concepts-pipeline-execution-triggers.md
       - linkListType: quickstart
         links:
-          - text: Azure Data Factory UI
+          - text: Create an Azure Data Factory with UI
             url: ./quickstart-create-data-factory-portal.md
-          - text: Copy Data tool
-            url: ./quickstart-create-data-factory-copy-data-tool.md
-          - text: Azure PowerShell
-            url: ./quickstart-create-data-factory-powershell.md
-          - text: .NET
-            url: ./quickstart-create-data-factory-dot-net.md
-          - text: Python
-            url: ./quickstart-create-data-factory-python.md
-          - text: Rest
-            url: ./quickstart-create-data-factory-rest-api.md
-          - text: Resource manager template
+          - text: Create an Azure Data Factory with an ARM template
             url: ./quickstart-create-data-factory-resource-manager-template.md
+          - text: Use the Copy Data tool
+            url: ./quickstart-hello-world-copy-data-tool.md
       - linkListType: how-to-guide
         links:
           - text: Expressions and functions in Azure Data Factory
             url: ./control-flow-expression-language-functions.md
-      - linkListType: learn
+      - linkListType: tutorial
         links:
-          - text: Introduction to Azure Data Factory
-            url: /learn/modules/intro-to-azure-data-factory/
+          - text: Learn data integration at scale with Azure Data Factory
+            url: /training/paths/data-integration-scale-azure-data-factory/
   - title: Data movement
     linkLists:
       - linkListType: overview
@@ -76,29 +70,29 @@ landingContent:
           - text: Copy activity overview
             url: ./copy-activity-overview.md
           - text: Copy performance tuning
-            url: ./copy-activity-performance.md            
+            url: ./copy-activity-performance.md   
+          - text: Lookup activity overview
+            url: ./control-flow-lookup-activity.md   
+          - text: SAP Knowledge Center
+            url: ./industry-sap-overview.md      
       - linkListType: tutorial
         links:
           - text: Copy data in cloud
             url: ./tutorial-copy-data-tool.md
-          - text: Copy on-premises data to cloud
-            url: ./tutorial-hybrid-copy-data-tool.md
           - text: Copy data in bulk
             url: ./tutorial-bulk-copy-portal.md
           - text: Copy data incrementally
             url: ./tutorial-incremental-copy-overview.md
-          - text: Load ADLS Gen2
-            url: ./load-azure-data-lake-storage-gen2.md
-          - text: Load Azure Synapse Analytics
-            url: ./load-azure-sql-data-warehouse.md
-          - text: Load SAP BW
-            url: ./load-sap-bw-data.md
+          - text: Copy data from a SharePoint Online List
+            url: ./connector-sharepoint-online-list.md
   - title: Data transformation
     linkLists:
       - linkListType: tutorial
         links:
           - text: Create data flow
             url: ./data-flow-create.md
+          - text: Copy and transform data from a REST endpoint
+            url: ./connector-rest.md
           - text: Data flow expression language
             url: ./data-transformation-functions.md
           - text: Debug data flow
@@ -114,13 +108,15 @@ landingContent:
           - text: What are mapping data flows?
             url: ./concepts-data-flow-overview.md
           - text: Data transformation expressions in mapping data flow
-            url: ./data-transformation-functions.md          
+            url: ./data-transformation-functions.md 
+          - text: Change Data Capture (CDC)
+            url: ./concepts-change-data-capture.md
   - title: Lift and shift SSIS packages
     linkLists:
       - linkListType: overview
         links:
-          - text: Migrate SSIS packages to Azure SQL Managed Instance
-            url: ./scenario-ssis-migration-ssisdb-mi.md
+          - text: SSIS migration assessment rules
+            url: ./scenario-ssis-migration-rules.md
       - linkListType: concept
         links:
           - text: Integration runtime in Azure Data Factory

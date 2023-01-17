@@ -6,7 +6,7 @@ metadata:
   keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
   documentationcenter: ''
   author: billmath
-  manager: karenhoran
+  manager: amycolannino
   ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
   ms.service: active-directory
   ms.workload: identity
@@ -91,7 +91,7 @@ sections:
           The password expiry does not trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user will be able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
 
           For more details please check the documentation below:
-          [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md#revocation)
+          [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md)
 
      
       - question: |

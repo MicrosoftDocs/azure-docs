@@ -1,9 +1,8 @@
 ---
-title: "Quickstart: Add sign in with Microsoft to an Android app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Add sign in with Microsoft to an Android app"
 description: In this quickstart, learn how Android applications can call an API that requires access tokens issued by the Microsoft identity platform.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,7 +10,7 @@ ms.topic: portal
 ms.workload: identity
 ms.date: 02/15/2022
 ROBOTS: NOINDEX
-ms.author: marsma
+ms.author: henrymbugua
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:Android", has-adal-ref, mode-api
 #Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform.
 ---
@@ -24,7 +23,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup display-on-portal"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 > 
 > In this quickstart, you download and run a code sample that demonstrates how an Android application can sign in users and get an access token to call the Microsoft Graph API. 
@@ -42,7 +41,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > ### Step 1: Configure your application in the Azure portal
 > For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
 > 
-> <button id="makechanges" class="nextstepaction" class="configure-app-button"> Make this change for me </button>
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-android/green-check.png) Your application is configured with these attributes
@@ -50,7 +49,9 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > ### Step 2: Download the project
 > 
 > Run the project using Android Studio.
-> <a href='https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip'><button id="downloadsample" class="download-sample-button">Download the code sample</button></a>
+> 
+> > [!div class="nextstepaction"]
+> > <button id="downloadsample" class="download-sample-button">Download the code sample</button>
 > 
 > 
 > ### Step 3: Your app is configured and ready to run

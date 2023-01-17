@@ -7,11 +7,13 @@ ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
 ms.topic: how-to
-ms.date: 03/30/2020 
+ms.date: 06/24/2022
 ms.custom: devx-track-azurecli
 ---
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure CLI
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 Learn how to use the Azure CLI to set up and manage data encryption for your Azure Database for PostgreSQL Single server.
 
@@ -148,6 +150,7 @@ Use one of the pre-created Azure Resource Manager templates to provision the ser
 This Azure Resource Manager template creates an Azure Database for PostgreSQL Single server and uses the **KeyVault** and **Key** passed as parameters to enable data encryption on the server.
 
 ### For an existing server
+
 Additionally, you can use Azure Resource Manager templates to enable data encryption on your existing Azure Database for PostgreSQL Single servers.
 
 * Pass the Resource ID of the Azure Key Vault key that you copied earlier under the `Uri` property in the properties object.

@@ -5,12 +5,12 @@ metadata:
   services: active-directory
   documentationcenter: ''
   author: rolyon
-  manager: karenhoran
+  manager: amycolannino
   ms.service: active-directory
   ms.topic: faq
   ms.subservice: roles
   ms.workload: identity
-  ms.date: 03/22/2022
+  ms.date: 06/30/2022
   ms.author: rolyon
   ms.reviewer: anandy
   ms.custom: oldportal;it-pro;
@@ -54,7 +54,7 @@ sections:
       - question: |
           What does it mean to add a group to an administrative unit?
         answer: |
-          Adding a group to an administrative unit brings the group itself into the management scope of any *User Administrator* who is also scoped to that administrative unit. User administrators for the administrative unit can manage the name and membership of the group itself. It does not grant the *User Administrator* permissions to manage the users of the group (for example, to reset their passwords). To grant the *User Administrator* the ability to manage users, the users have to be direct members of the administrative unit.
+          Adding a group to an administrative unit brings the group itself into the management scope of the administrative unit, but **not** the members of the group. For more information, see [Administrative units in Azure Active Directory](administrative-units.md#groups).
 
       - question: |
           Can a resource (user, group, or device) be a member of more than one administrative unit?

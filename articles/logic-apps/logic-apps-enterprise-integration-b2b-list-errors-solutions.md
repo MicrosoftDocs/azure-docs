@@ -7,12 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/02/2017
+ms.date: 08/23/2022
 ---
 
 # B2B errors and solutions for Azure Logic Apps
 
-This article helps you troubleshoot errors that might happen in Logic Apps B2B 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
+This article helps you troubleshoot errors that might happen in Azure Logic Apps B2B 
 scenarios and suggests appropriate actions for correcting those errors.
 
 ## Agreement resolution

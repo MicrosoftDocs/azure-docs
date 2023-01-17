@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 
 ms.author: kengaderdus
-ms.date: 03/31/2022
+ms.date: 06/21/2022
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory

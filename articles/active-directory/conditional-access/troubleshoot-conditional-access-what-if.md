@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 03/04/2022
+ms.date: 06/17/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -23,22 +23,22 @@ The What If tool is located in the **Azure portal** > **Azure Active Directory**
 
 ![Conditional Access What If tool at default state](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 
-> [!NOTE]
-> The What If tool currently does not evaluate policies in report-only mode.
-
 ## Gathering information
 
-The What If tool requires only a **User** to get started. 
+The What If tool requires only a **User** or **Workload identity** to get started. 
 
 The following additional information is optional but will help to narrow the scope for specific cases.
 
-* Cloud apps or actions
+* Cloud apps, actions, or authentication context
 * IP address 
 * Country/Region
 * Device platform
-* Client apps (preview)
-* Device state (preview) 
+* Client apps
+* Device state
 * Sign-in risk
+* User risk level
+* Service principal risk (Preview)
+* Filter for devices
 
 This information can be gathered from the user, their device, or the Azure AD sign-ins log.
 
@@ -52,11 +52,11 @@ At any point, you can select **Reset** to clear any criteria input and return to
 
 ### Policies that will apply
 
-This list will show which Conditional Access policies would apply given the conditions. The list will include both the grant and session controls that apply. Examples include requiring multi-factor authentication to access a specific application.
+This list will show which Conditional Access policies would apply given the conditions. The list will include both the grant and session controls that apply including those from policies in report-only mode. Examples include requiring multi-factor authentication to access a specific application. 
 
 ### Policies that will not apply
 
-This list will show Conditional Access policies that wouldn't apply if the conditions applied. The list will include any policies and the reason why they don't apply. Examples include users and groups that may be excluded from a policy.
+This list will show Conditional Access policies that wouldn't apply if the conditions applied. The list will include any policies and the reason why they don't apply including those from policies in report-only mode. Examples include users and groups that may be excluded from a policy.
 
 ## Use case
 
@@ -72,7 +72,7 @@ This test could be expanded to incorporate other data points to narrow the scope
 
 ## Next steps
 
-* [What is Conditional Access?](overview.md)
+* [What is Conditional Access report-only mode?](concept-conditional-access-report-only.md)
 * [What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
 * [What is a device identity?](../devices/overview.md)
 * [How it works: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

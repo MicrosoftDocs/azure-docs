@@ -1,11 +1,11 @@
 ---
 title: Onboard on-premises servers in VMware virtual environment to Azure Arc   
 description: Onboard on-premises servers in VMware virtual environment to Azure Arc    
-author: deseelam
-ms.author: deseelam
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 10/10/2022
+ms.custom: engagement-fy23
 ---
 
 # Onboard on-premises servers in VMware virtual environment to Azure Arc   
@@ -122,7 +122,7 @@ Once the vCenter Server discovery has been completed, software inventory (discov
 
 If you receive an error when onboarding to Azure Arc using the Azure Migrate appliance, the following section can help identify the probable cause and suggested steps to resolve your problem. 
 
-If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc ](../azure-arc/servers/troubleshoot-agent-onboard.md)
+If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc](../azure-arc/servers/troubleshoot-agent-onboard.md).
 
 ### Error 60001 - UnableToConnectToPhysicalServer  
 

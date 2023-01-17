@@ -6,21 +6,22 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 10/21/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage SAP HANA in Microsoft Purview (Preview)
+# Connect to and manage SAP HANA in Microsoft Purview
 
 This article outlines how to register SAP HANA, and how to authenticate and interact with SAP HANA in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 ## Supported capabilities
 
-|**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No |
+|**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**| **Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No|No | No |
+
+>[!NOTE]
+>Supported version for SAP HANA is 15.
 
 When scanning SAP HANA source, Microsoft Purview supports extracting technical metadata including:
 
@@ -103,7 +104,7 @@ This section describes how to register a SAP HANA in Microsoft Purview by using 
 
 ## Scan
 
-Use the following steps to scan SAP HANA databases to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md).
+Use the following steps to scan SAP HANA databases to automatically identify assets. For more information about scanning in general, see [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md).
 
 ### Authentication for a scan
 

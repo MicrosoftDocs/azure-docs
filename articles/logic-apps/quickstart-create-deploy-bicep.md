@@ -1,17 +1,17 @@
 ---
 title: Quickstart - Create Consumption logic app workflow with Bicep
 description: How to create and deploy a Consumption logic app workflow with Bicep.
-author: schaffererin
 services: logic-apps
 ms.suite: integration
 ms.topic: quickstart
-ms.author: v-eschaffer
 ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 04/07/2022
+ms.date: 08/20/2022
 #Customer intent: As a developer, I want to create and deploy an automated workflow in multi-tenant Azure Logic Apps with Bicep.
 ---
 
 # Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with Bicep
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 [Azure Logic Apps](logic-apps-overview.md) is a cloud service that helps you create and run automated workflows that integrate data, apps, cloud-based services, and on-premises systems by choosing from [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). This quickstart focuses on the process for deploying a Bicep file to create a basic [Consumption logic app workflow](logic-apps-overview.md#resource-environment-differences) that checks the status for Azure on an hourly schedule and runs in [multi-tenant Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
 

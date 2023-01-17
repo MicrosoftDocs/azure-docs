@@ -71,12 +71,11 @@ spec:
         - name: powershell
           image: mcr.microsoft.com/powershell:lts-nanoserver-1809
           securityContext:
-            privileged: true
             windowsOptions:
               hostProcess: true
               runAsUserName: "NT AUTHORITY\\SYSTEM"
           command:
-            - pwsh.exe
+            - powershell.exe
             - -command
             - |
               $AdminRights = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")
@@ -111,7 +110,7 @@ NAME                                  READY   STATUS    RESTARTS   AGE
 privileged-daemonset-12345            1/1     Running   0          2m13s
 ```
 
-Use `kubctl log` to view the logs of the pod and verify the pod has administrator rights:
+Use `kubectl log` to view the logs of the pod and verify the pod has administrator rights:
 
 ```output
 $ kubectl logs privileged-daemonset-12345 --namespace kube-system

@@ -4,8 +4,9 @@ description: Guidance for troubleshooting issues on Windows Arc-enabled server w
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 5/9/2022
+ms.date: 7/19/2022
 ms.custom: references_region
+ms.reviewer: shseth
 
 ---
 
@@ -19,12 +20,21 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  
 
 2. **Verify that the extension was successfully installed and provisioned, which installs the agent binaries on your machine**:  
-	1. Open Azure portal > select your Arc-enabled server > Open **Settings** : **Extensions** blade from left menu > 'AzureMonitorWindowsAgent'should show up with Status: 'Succeeded'  
+	1. Open Azure portal > select your Arc-enabled server > Open **Settings** : **Extensions** from the pane on the left > 'AzureMonitorWindowsAgent'should show up with Status: 'Succeeded'  
 	2. If not, check if the Arc agent (Connected Machine Agent) is able to connect to Azure and the extension service is running. 
 		```azurecli
 		azcmagent show
 		```   
-		If you see `Agent Status: Disconnected`, [file a ticket](#file-a-ticket) with **Summary** as 'Arc agent or extensions service not working' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.
+		You should see the below output:
+		```
+		Resource Name                           : <server name>
+		[...]
+		Dependent Service Status
+		  Agent Service (himds)                 : running
+		  GC Service (gcarcservice)             : running
+		  Extension Service (extensionservice)  : running
+		```
+		If instead you see `Agent Status: Disconnected` or any other status, [file a ticket](#file-a-ticket) with **Summary** as 'Arc agent or extensions service not working' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.
 	3. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up, [uninstall and install the extension](./azure-monitor-agent-manage.md) again and repeat the verification to see the extension show up. 
 	4. If not, check if you see any errors in extension logs located at `C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent` on your machine  
 	5. If none of the above works, [file a ticket](#file-a-ticket) with **Summary** as 'AMA extension fails to install or provision' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.  
@@ -32,7 +42,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 3. **Verify that the agent is running**:  
 	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace using the query below. Skip if 'Custom Metrics' is the only destination in the DCR:
 		```Kusto
-		Heartbeat | where Category == "Azure Monitor Agent" and 'Computer' == "<computer-name>" | take 10
+		Heartbeat | where Category == "Azure Monitor Agent" and Computer == "<computer-name>" | take 10
 		```	
 	2. If not, open Task Manager and check if 'MonAgentCore.exe' process is running. If it is, wait for 5 minutes for heartbeat to show up.  
 	3. If not, check if you see any errors in core agent logs located at `C:\Resources\Directory\AMADataStore\Configuration` on your machine  
@@ -41,7 +51,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 4. **Verify that the DCR exists and is associated with the Arc-enabled server:**  
 	1. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
 	2. On your Arc-enabled server, verify the existence of the file `C:\Resources\Directory\AMADataStore\mcs\mcsconfig.latest.xml`. If this file doesn't exist, the Arc-enabled server may not be associated with a DCR. 
-	3. Open Azure portal > select your data collection rule > Open **Configuration** : **Resources** blade from left menu > You should see the Arc-enabled server listed here  
+	3. Open Azure portal > select your data collection rule > Open **Configuration** : **Resources** from the pane on the left > You should see the Arc-enabled server listed here  
 	4. If not listed, click 'Add' and select your Arc-enabled server from the resource picker. Repeat across all DCRs.
 	5. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'DCR not found or associated' and **Problem type** as 'I need help configuring data collection from a VM'.
 

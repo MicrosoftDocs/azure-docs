@@ -24,7 +24,7 @@ Use the following URL when creating your API request. Replace the placeholder va
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `myProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) released.  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) released.  | `2022-05-01` |
 
 ### Headers
 
@@ -41,7 +41,7 @@ Use the following sample JSON as your body.
 ```json
 {
   "api-version":"{API-VERSION}" ,
-    "stringIndexType": "Utf16CodeUnit",
+   "stringIndexType": "Utf16CodeUnit",
     "metadata": {
         "projectKind": "conversation",
         "settings": {
@@ -53,6 +53,7 @@ Use the following sample JSON as your body.
         "language": "{LANGUAGE-CODE}"
     },
   "assets": {
+     "projectKind": "luis",
     "intents": [
       {
         "category": "Read"
@@ -95,7 +96,7 @@ Use the following sample JSON as your body.
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| `api-version` | `{API-VERSION}` | The version of the API you are calling. The version used here must be the same API version in the URL. | `2022-03-01-preview` |
+| `api-version` | `{API-VERSION}` | The version of the API you are calling. The version used here must be the same API version in the URL. | `2022-05-01` |
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `EmailApp` |
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the utterances used in your project. If your project is a multilingual project, choose the [language code](../../language-support.md) of the majority of the utterances. |`en-us`|
 | `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any [supported language](../../language-support.md); not necessarily a language included in your training documents.  | `true`|

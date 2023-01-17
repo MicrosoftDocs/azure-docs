@@ -3,19 +3,15 @@ title: How long does Azure AD store reporting data? | Microsoft Docs
 description: Learn how long Azure stores the various types of reporting data. 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: 
 ms.topic: reference
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/05/2020
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -23,14 +19,14 @@ ms.collection: M365-identity-device-management
 # How long does Azure AD store reporting data?
 
 
-In this article, you learn about the data retention policies for the different activity reports in Azure Active Directory. 
+In this article, you learn about the data retention policies for the different activity reports in Azure Active Directory (Azure AD). 
 
 ### When does Azure AD start collecting data?
 
 | Azure AD Edition | Collection Start |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | When you sign up for a subscription |
-| Azure AD Free| The first time you open the [Azure Active Directory blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](./overview-reports.md)  |
+| Azure AD Free| The first time you open [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](./overview-reports.md)  |
 
 ---
 
@@ -79,6 +75,6 @@ You can retain the audit and sign-in activity data for longer than the default r
 
 ### Can I see last month's data after getting an Azure AD premium license?
 
-**No**, you can't. Azure stores up to seven days of activity data for a free version. This means, when you switch from a free to a to a premium version, you can only see up to 7 days of data.
+**No**, you can't. Azure stores up to seven days of activity data for a free version. When you switch from a free to a premium version, you can only see up to 7 days of data.
 
 ---

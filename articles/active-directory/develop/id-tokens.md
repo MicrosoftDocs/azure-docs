@@ -1,6 +1,5 @@
 ---
-title: Microsoft identity platform ID tokens | Azure
-titleSuffix: Microsoft identity platform
+title: Microsoft identity platform ID tokens
 description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints.
 services: active-directory
 author: nickludwig
@@ -85,7 +84,7 @@ The table below shows the claims that are in most ID tokens by default (except w
 |`roles`| Array of strings | The set of roles that were assigned to the user who is logging in. |
 |`rh` | Opaque String |An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`sub` | String | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. If a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be wanted depending on your architecture and privacy requirements. |
-|`tid` | String, a GUID | Represents the tenant that the user is signing in to. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user is signing in to. For sign-ins to the personal Microsoft account tenant (services like Xbox, Teams for Life, or Outlook), the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. To receive this claim, your app must request the `profile` scope. |
+|`tid` | String, a GUID | Represents the tenant that the user is signing in to. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user is signing in to. For sign-ins to the personal Microsoft account tenant (services like Xbox, Teams for Life, or Outlook), the value is `9188040d-6c67-4c5b-b112-36a304b66dad`.|
 | `unique_name` | String | Only present in v1.0 tokens. Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and should be used only for display purposes. |
 | `uti` | String | Token identifier claim, equivalent to `jti` in the JWT specification. Unique, per-token identifier that is case-sensitive.|
 |`ver` | String, either 1.0 or 2.0 | Indicates the version of the id_token. |
@@ -94,7 +93,7 @@ The table below shows the claims that are in most ID tokens by default (except w
 
 ### Using claims to reliably identify a user (Subject and Object ID)
 
-When identifying a user (say, looking them up in a database, or deciding what permissions they have), it's critical to use information that will remain constant and unique across time. Legacy applications sometimes use fields like the email address, a phone number, or the UPN.  All of these can change over time, and can also be reused over time . For example, when an employee changes their name, or an employee is given an email address that matches that of a previous, no longer present employee. Therefore, it is **critical** that your application not use human-readable data to identify a user - human readable generally means someone will read it, and want to change it. Instead, use the claims provided by the OIDC standard, or the extension claims provided by Microsoft - the `sub` and `oid` claims.
+When identifying a user (say, looking them up in a database, or deciding what permissions they have), it's critical to use information that will remain constant and unique across time. Legacy applications sometimes use fields like the email address, a phone number, or the UPN.  All of these can change over time, and can also be reused over time. For example, when an employee changes their name, or an employee is given an email address that matches that of a previous, no longer present employee. Therefore, it is **critical** that your application not use human-readable data to identify a user - human readable generally means someone will read it, and want to change it. Instead, use the claims provided by the OIDC standard, or the extension claims provided by Microsoft - the `sub` and `oid` claims.
 
 To correctly store information per-user,  use `sub` or `oid` alone (which as GUIDs are unique), with `tid` used for routing or sharding if needed.  If you need to share data across services, `oid`+`tid` is best as all apps get the same `oid` and `tid` claims for a given user acting in a given tenant.  The `sub` claim in the Microsoft identity platform is "pair-wise" - it is unique based on a combination of the token recipient, tenant, and user.  Therefore, two apps that request ID tokens for a given user will receive different `sub` claims, but the same `oid` claims for that user.
 
@@ -131,9 +130,9 @@ You can adjust the lifetime of an ID token to control how often the client appli
 
 ## Validating an ID token
 
-Validating an ID token is similar to the first step of [validating an access token](access-tokens.md#validating-tokens). Your client can check whether the token has been tampered with. It can also validate the issuer to ensure that the correct issuer has sent back the token. Because ID tokens are always a JWT token, many libraries exist to validate these tokens - we recommend you use one of these rather than doing it yourself.  Note that only confidential clients (those with a secret) should validate ID tokens.  Public applications (code running entirely on a device or network you don't control such as a user's browser or their home network) don't benefit from validating the ID token. This is because a malicious user can intercept and edit the keys used for validation of the token.
+Validating an ID token is similar to the first step of [validating an access token](access-tokens.md). Your client can check whether the token has been tampered with. It can also validate the issuer to ensure that the correct issuer has sent back the token. Because ID tokens are always a JWT token, many libraries exist to validate these tokens - we recommend you use one of these rather than doing it yourself.  Note that only confidential clients (those with a secret) should validate ID tokens.  Public applications (code running entirely on a device or network you don't control such as a user's browser or their home network) don't benefit from validating the ID token. This is because a malicious user can intercept and edit the keys used for validation of the token.
 
-To manually validate the token, see the steps details in [validating an access token](access-tokens.md#validating-tokens). The following JWT claims should be validated in the ID token After validating the signature on the token. These claims may also be validated by your token validation library:
+To manually validate the token, see the steps details in [validating an access token](access-tokens.md). The following JWT claims should be validated in the ID token After validating the signature on the token. These claims may also be validated by your token validation library:
 
 * Timestamps: the `iat`, `nbf`, and `exp` timestamps should all fall before or after the current time, as appropriate.
 * Audience: the `aud` claim should match the app ID for your application.

@@ -1,6 +1,4 @@
 ---
-author: jasonwhowell
-ms.author: jasonh
 ms.service: hdinsight
 ms.topic: include
 ms.date: 06/30/2021

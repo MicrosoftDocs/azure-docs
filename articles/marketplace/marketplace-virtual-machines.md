@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/15/2022
+ms.date: 08/22/2022
 ---
 
 # Plan a virtual machine offer
@@ -107,6 +107,13 @@ Private plans restrict the discovery and deployment of your solution to a specif
 
 For more information, see [Plans and pricing for commercial marketplace offers](plans-pricing.md) and [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
+### Hidden plans
+
+A hidden plan is not visible on Azure Marketplace and can only be deployed through a Solution Template, Managed Application, Azure CLI or Azure PowerShell. Hiding a plan is useful when trying to limit exposure to customers that would normally be searching or browsing for it directly via Azure Marketplace.
+
+> [!NOTE]
+> A hidden plan is different from a private plan. When a plan is publicly available but hidden, it is still available for any Azure customer to deploy via Solution Template, Managed Application, Azure CLI or Azure PowerShell. However, a plan can be both hidden and private, in which case only the customers configured in the private audience can deploy via these methods.
+
 ### Licensing models
 
 As you prepare to publish a new offer, you need to make pricing-related decisions by selecting the appropriate licensing model.
@@ -142,7 +149,9 @@ You can enable a test drive that lets customers try your offer prior to purchase
 
 ## Customer leads
 
-When you're publishing an offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive (see the preceding section). Otherwise, connecting to a CRM is optional.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Legal contracts
 

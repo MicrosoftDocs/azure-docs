@@ -38,7 +38,7 @@ This quickstart uses two Java applications:
 
 * Make sure that port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
 
@@ -85,7 +85,7 @@ You also need a _service connection string_ to enable the back-end application t
 **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
 ```azurecli-interactive
-az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
+az iot hub connection-string show --policy-name service --hub-name {YourIoTHubName} --output table
 ```
 
 Make a note of the service connection string, which looks like:

@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 11/17/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: vmahtani
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
@@ -52,7 +52,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within minutes after a critical event. 
 
 > [!NOTE] 
-> Teams and SharePoint Online do not support user risk events.
+> SharePoint Online doesn't support user risk events.
 
 ### Conditional Access policy evaluation
 
@@ -121,7 +121,7 @@ If you aren't using CAE-capable clients, your default access token lifetime will
 
 ### User condition change flow
 
-In the following example, a Conditional Access administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
+In the following example, a Conditional Access Administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
 
 ![User condition event flow](./media/concept-continuous-access-evaluation/user-condition-change-flow.png)
 
@@ -147,7 +147,7 @@ Customers who have configured CAE settings under Security before have to migrate
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
 1.	Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**. 
 1.	You'll then see the option to **Migrate** your policy. This action is the only one that you’ll have access to at this point.
-1. Browse to **Conditional Access** and you'll find a new policy named **CA policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
+1. Browse to **Conditional Access** and you'll find a new policy named **Conditional Access policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
 
 The following table describes the migration experience of each customer group based on previously configured CAE settings. 
 
@@ -171,19 +171,34 @@ When Conditional Access policy or group membership changes need to be applied to
 - Run the [revoke-mgusersign PowerShell command](/powershell/module/microsoft.graph.users.actions/revoke-mgusersign) to revoke all refresh tokens of a specified user.
 - Select "Revoke Session" on the user profile page in the Azure portal to revoke the user's session to ensure that the updated policies will be applied immediately.
 
-### IP address variation
+### IP address variation and networks with IP address shared or unknown egress IPs 
 
-Your identity provider and resource providers may see different IP addresses. This mismatch may happen because of:
+Modern networks often optimize connectivity and network paths for applications differently. This optimization frequently causes variations of the routing and source IP addresses of connections, as seen by your identity provider and resource providers. You may observe this split path or IP address variation in multiple network topologies, including, but not limited to: 
 
-- Network proxy implementations in your organization
-- Incorrect IPv4/IPv6 configurations between your identity provider and resource provider
- 
-Examples:
+- On-premises and cloud-based proxies.
+- Virtual private network (VPN) implementations, like split tunneling.
+- Software defined wide area network (SD-WAN) deployments.
+- Load balanced or redundant network egress network topologies, like those using [SNAT](https://wikipedia.org/wiki/Network_address_translation#SNAT). 
+- Branch office deployments that allow direct internet connectivity for specific applications.
+- Networks that support IPv6 clients.
+- Other topologies, which handle application or resource traffic differently from traffic to the identity provider.
 
-- Your identity provider sees one IP address from the client while your resource provider sees a different IP address from the client after passing through a proxy.
-- The IP address your identity provider sees is part of an allowed IP range in policy but the IP address from the resource provider isn't.
+In addition to IP variations, customers also may employ network solutions and services that: 
 
-To avoid infinite loops because of these scenarios, Azure AD issues a one hour CAE token and won't enforce client location change. In this case, security is improved compared to traditional one hour tokens since we're still evaluating the [other events](#critical-event-evaluation) besides client location change events.
+- Use IP addresses that may be shared with other customers. For example, cloud-based proxy services where egress IP addresses are shared between customers.
+- Use easily varied or undefinable IP addresses. For example, topologies where there are large, dynamic sets of egress IP addresses used, like large enterprise scenarios or split VPN and local egress network traffic.
+
+Networks where egress IP addresses may change frequently or are shared may affect Azure AD Conditional Access and Continues Access Evaluation (CAE). This variability can affect how these features work, and their recommended configurations.
+
+The following table summarizes Conditional Access and CAE feature behaviors and recommendations for different types of network deployments: 
+
+| Network Type | Example | IPs seen by Azure AD | IPs seen by RP | Applicable CA Configuration (Trusted Named Location) | CAE enforcement | CAE access token | Recommendations |
+|---|---|---|---|---|---|---|---|
+| 1. Egress IPs are dedicated and enumerable for both Azure AD and all RPs traffic | All to network traffic to Azure AD and RPs egresses through 1.1.1.1 and/or 2.2.2.2 | 1.1.1.1 | 2.2.2.2 | 1.1.1.1 <br> 2.2.2.2 | Critical Events <br> IP location Changes | Long lived – up to 28 hours | If CA Named Locations are defined, ensure that they contain all possible egress IPs (seen by Azure AD and all RPs) |
+| 2. Egress IPs are dedicated and enumerable for Azure AD, but not for RPs traffic | Network traffic to Azure AD egresses through 1.1.1.1. RP traffic egresses through x.x.x.x | 1.1.1.1 | x.x.x.x | 1.1.1.1 | Critical Events | Default access token lifetime – 1 hour | Do not add non dedicated or non-enumerable egress IPs (x.x.x.x) into Trusted Named Location CA rules as it can weaken security |
+| 3. Egress IPs are non-dedicated/shared or not enumerable for both Azure AD and RPs traffic | Network traffic to Azure AD egresses through y.y.y.y. RP traffic egresses through x.x.x.x | y.y.y.y | x.x.x.x | N/A -no IP CA policies/Trusted Locations configured | Critical Events | Long lived – up to 28 hours | Do not add non dedicated or non-enumerable egress IPs (x.x.x.x/y.y.y.y) into Trusted Named Location CA rules as it can weaken security |
+
+Networks and network services used by clients connecting to identity and resource providers continue to evolve and change in response to modern trends. These changes may affect Conditional Access and CAE configurations that rely on the underlying IP addresses. When deciding on these configurations, factor in future changes in technology and upkeep of the defined list of addresses in your plan.
 
 ### Supported location policies
 

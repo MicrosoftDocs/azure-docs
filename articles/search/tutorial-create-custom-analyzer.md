@@ -3,11 +3,11 @@ title: 'Tutorial: create a custom analyzer'
 titleSuffix: Azure Cognitive Search
 description: Learn how to build a custom analyzer to improve the quality of search results in Azure Cognitive Search.
 
-author: dereklegenzoff
-ms.author: delegenz
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/29/2021
+ms.date: 01/05/2023
 ---
 
 # Tutorial: Create a custom analyzer for phone numbers
@@ -244,7 +244,7 @@ All of search comes down to searching for the terms stored in the inverted index
 
 1. The query is parsed and the query terms are analyzed.
 1. The inverted index is then scanned for documents with matching terms.
-1. Finally, the retrieved documents are ranked by the [similarity algorithm](index-ranking-similarity.md).
+1. Finally, the retrieved documents are ranked by the [scoring algorithm](index-ranking-similarity.md).
 
   :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagram of Analyzer process ranking similarity":::
 

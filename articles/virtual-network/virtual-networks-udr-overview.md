@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn how Azure routes virtual network traffic, and how you can customize Azure's routing.
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 manager: 
 ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2022
-ms.author: mbender
+ms.author: allensu
 
 ---
 
@@ -38,7 +38,7 @@ Each route contains an address prefix and next hop type. When traffic leaving a 
 
 The next hop types listed in the previous table represent how Azure routes traffic destined for the address prefix listed. Explanations for the next hop types follow:
 
-* **Virtual network**: Routes traffic between address ranges within the [address space](manage-virtual-network.md#add-or-remove-an-address-range) of a virtual network. Azure creates a route with an address prefix that corresponds to each address range defined within the address space of a virtual network. If the virtual network address space has multiple address ranges defined, Azure creates an individual route for each address range. Azure automatically routes traffic between subnets using the routes created for each address range. You don't need to define gateways for Azure to route traffic between subnets. Though a virtual network contains subnets, and each subnet has a defined address range, Azure doesn't* create default routes for subnet address ranges, because each subnet address range is within an address range of the address space of a virtual network.
+* **Virtual network**: Routes traffic between address ranges within the [address space](manage-virtual-network.md#add-or-remove-an-address-range) of a virtual network. Azure creates a route with an address prefix that corresponds to each address range defined within the address space of a virtual network. If the virtual network address space has multiple address ranges defined, Azure creates an individual route for each address range. Azure automatically routes traffic between subnets using the routes created for each address range. You don't need to define gateways for Azure to route traffic between subnets. Though a virtual network contains subnets, and each subnet has a defined address range, Azure doesn't create default routes for subnet address ranges. This is because each subnet address range is within an address range of the address space of a virtual network.
 * **Internet**: Routes traffic specified by the address prefix to the Internet. The system default route specifies the 0.0.0.0/0 address prefix. If you don't override Azure's default routes, Azure routes traffic for any address not specified by an address range within a virtual network, to the Internet, with one exception. If the destination address is for one of Azure's services, Azure routes the traffic directly to the service over Azure's backbone network, rather than routing the traffic to the Internet. Traffic between Azure services doesn't traverse the Internet, regardless of which Azure region the virtual network exists in, or which Azure region an instance of the Azure service is deployed in. You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](#custom-routes).  
 * **None**: Traffic routed to the **None** next hop type is dropped, rather than routed outside the subnet. Azure automatically creates default routes for the following address prefixes:  
 
@@ -79,7 +79,7 @@ You can specify the following next hop types when creating a user-defined route:
     * The [private IP address](./ip-services/private-ip-addresses.md) of a network interface attached to a virtual machine. Any network interface attached to a virtual machine that forwards network traffic to an address other than its own must have the Azure *Enable IP forwarding* option enabled for it. The setting disables Azure's check of the source and destination for a network interface. Learn more about how to [enable IP forwarding for a network interface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Though *Enable IP forwarding* is an Azure setting, you may also need to enable IP forwarding within the virtual machine's operating system for the appliance to forward traffic between private IP addresses assigned to Azure network interfaces. If the appliance must route traffic to a public IP address, it must either proxy the traffic, or network address translate the private IP address of the source's private IP address to its own private IP address, which Azure then network address translates to a public IP address, before sending the traffic to the Internet. To determine required settings within the virtual machine, see the documentation for your operating system or network application. To understand outbound connections in Azure, see [Understanding outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
       > [!NOTE]
-      > Deploy a virtual appliance into a different subnet then the resources that route through the virtual appliance are deployed in. Deploying the virtual appliance to the same subnet, then applying a route table to the subnet that routes traffic through the virtual appliance, can result in routing loops, where traffic never leaves the subnet.
+      > Deploy a virtual appliance into a different subnet than the resources that route through the virtual appliance. Deploying the virtual appliance to the same subnet then applying a route table to the subnet that routes traffic through the virtual appliance can result in routing loops where traffic never leaves the subnet.
       > 
       > A next hop private IP address must have direct connectivity without having to route through ExpressRoute Gateway or Virtual WAN. Setting the next hop to an IP address without direct connectivity results in an invalid user-defined routing configuration. 
 
@@ -117,11 +117,6 @@ The same command for CLI will be:
 ```azurecli-interactive
 az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
 ```
-
-
-#### Known Issues (April 2021)
-
-When BGP routes are present or a Service Endpoint is configured on your subnet, routes may not be evaluated with the correct priority. This feature doesn't currently work for dual stack (IPv4+IPv6) virtual networks. A fix for these scenarios is currently in progress </br>
 
 ## Next hop types across Azure tools
 

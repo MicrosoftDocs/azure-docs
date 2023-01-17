@@ -1,11 +1,11 @@
 ---
 title: Azure Monitor for existing Operations Manager customers
 description: Guidance for existing users of Operations Manager to transition monitoring of certain workloads to Azure Monitor as part of a transition to the cloud.
-
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/05/2022
+ms.reviewer: bwren
 
 ---
 
@@ -15,14 +15,17 @@ This article provides guidance for customers who currently use [System Center Op
 The specific recommendations made in this article will change as Azure Monitor and Operations Manager add features. The fundamental strategy though will remain consistent.
 
 > [!IMPORTANT]
-> There is a cost to implementing several Azure Monitor features described here, so you should evaluate their value before deploying across your entire environment.
+> There is a cost to implementing several Azure Monitor features described here, so you should evaluate their value before deploying across your entire environment. See [Cost optimization and Azure Monitor](best-practices-cost.md) for strategies for reducing your cost for Azure Monitor.
 
 ## Prerequisites
 This article assumes that you already use [Operations Manager](/system-center/scom) and at least have a basic understanding of [Azure Monitor](overview.md). For a complete comparison between the two, see [Cloud monitoring guide: Monitoring platforms overview](/azure/cloud-adoption-framework/manage/monitor/platform-overview). That article details specific feature differences between to the two to help you understand some of the recommendations made here. 
 
 
 ## General strategy
-There are no migration tools to convert assets from Operations Manager to Azure Monitor since the platforms are fundamentally different. Your migration will instead constitute a [standard Azure Monitor implementation](best-practices.md) while you continue to use Operations Manager. As you customize Azure Monitor to meet your requirements for different applications and components and as it gains more features, then you can start to retire different management packs and agents in Operations Manager.
+Your migration will instead constitute a [standard Azure Monitor implementation](best-practices.md) while you continue to use Operations Manager. As you customize Azure Monitor to meet your requirements for different applications and components and as it gains more features, then you can start to retire different management packs and agents in Operations Manager.
+
+> [!IMPORTANT]
+> [Azure Monitor SCOM Managed Instance (preview)](vm/scom-managed-instance-overview.md) is now in public preview. This allows you to move your existing SCOM environment into the Azure portal with Azure Monitor while continuing to use the same management packs. The rest of the recommendations in this article still apply as you migrate your monitoring logic into Azure Monitor. 
 
 The general strategy recommended in this article is the same as in the [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/), which recommends a [Hybrid cloud monitoring](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) strategy that allows you to make a gradual transition to the cloud. Even though some features may overlap, this strategy will allow you to maintain your existing business processes as you become more familiar with the new platform. Only move away from Operations Manager functionality as you can replace it with Azure Monitor. Using multiple monitoring tools does add complexity, but it allows you to take advantage of Azure Monitor's ability to monitor next generation cloud workloads while retaining Operations Manager's ability to monitor server software and infrastructure components that may be on-premises or in other clouds. 
 
@@ -85,30 +88,36 @@ The [Azure management pack](https://www.microsoft.com/download/details.aspx?id=5
 ## Monitor server software and local infrastructure
 When you move machines to the cloud, the monitoring requirements for their software don't change. You no longer need to monitor their physical components since they're virtualized, but the guest operating system and its workloads have the same requirements regardless of their environment.
 
-[VM insights](vm/vminsights-overview.md) is the primary feature in Azure Monitor for monitoring virtual machines and their guest operating system and workloads. Similar to Operations Manager, VM insights uses an agent to collect data from the guest operating system of virtual machines. This is the same performance and event data typically used by management packs for analysis and alerting. There aren't preexisting rules though to identify and alert on issues for the business applications and server software running in those machines. You must create your own alert rules to be proactively notified of any detected issues.
+The [Azure Monitor agent](agents/agents-overview.md) uses [data collection rules](essentials/data-collection-rule-overview.md) to collect data from the guest operating system of virtual machines. This is the same performance and event data typically used by management packs for analysis and alerting. [VM insights](vm/vminsights-overview.md) allows you to easily deploy and manage the agent and gets you started with preexisting data collection rules and performance views. 
+
+> [!NOTE]
+> Azure Monitor previously used the same Microsoft Management Agent (referred to as the Log Analytics agent in Azure Monitor) as Operations Manager. The Azure Monitor agent can coexist with this agent on the same machine during migration.
+
 
 [![VM insights performance](media/azure-monitor-operations-manager/vm-insights-performance.png)](media/azure-monitor-operations-manager/vm-insights-performance.png#lightbox)
 
-Azure Monitor also doesn't measure the health of different applications and services running on a virtual machine. Metric alerts can automatically resolve when a value drops below a threshold, but Azure Monitor doesn't currently have the ability to define health criteria for applications and services running on the machine, nor does it provide health rollup to group the health of related components.
 
-Monitoring the software on your machines in a hybrid environment will typically use a combination of VM insights and Operations Manager, depending on the requirements of each machine and on your maturity developing operational processes around Azure Monitor. The Microsoft Management Agent (referred to as the Log Analytics agent in Azure Monitor) is used by both platforms so that a single machine can be simultaneously monitored by both.
-
-> [!NOTE]
-> In the future, VM insights will transition to the [Azure Monitor agent](agents/azure-monitor-agent-overview.md), which is currently in public preview. It will be compatible  with the Microsoft Monitoring Agent so the same virtual machine will continue to be able to be monitored by both platforms.
-
-Continue to use Operations Manager for functionality that cannot yet be provided by Azure Monitor. This includes management packs for critical server software like IIS, SQL Server, or Exchange. You may also have custom management packs developed for on-premises infrastructure that can't be reached with Azure Monitor. Also continue to use Operations Manager if it is tightly integrated into your operational processes until you can transition to modernizing your service operations where Azure Monitor and other Azure services can augment or replace. 
-
-Use Azure Monitor fo VMs to enhance your current monitoring even if it doesn't immediately replace Operations Manager. Examples of features unique to Azure Monitor include the following:
+Examples of features unique to Azure Monitor include the following:
 
 - Discover and monitor relationships between virtual machines and their external dependencies.
 - View aggregated performance data across multiple virtual machines in interactive charts and workbooks.
 - Use [log queries](logs/log-query-overview.md) to interactively analyze telemetry from your virtual machines with data from your other Azure resources.
 - Create [log alert rules](alerts/alerts-log-query.md) based on complex logic across multiple virtual machines.
 
+In addition to Azure virtual machines, Azure Monitor can monitor machines on-premises and in other clouds using [Azure Arc-enabled servers](../azure-arc/servers/overview.md). Azure Arc-enabled servers allow you to manage your Windows and Linux machines hosted outside of Azure, on your corporate network, or other cloud provider consistent with how you manage native Azure virtual machines.
+
 [![VM insights map](media/azure-monitor-operations-manager/vm-insights-map.png)](media/azure-monitor-operations-manager/vm-insights-map.png#lightbox)
 
-In addition to Azure virtual machines, VM insights can monitor machines on-premises and in other clouds using [Azure Arc-enabled servers](../azure-arc/servers/overview.md). Azure Arc-enabled servers allow you to manage your Windows and Linux machines hosted outside of Azure, on your corporate network, or other cloud provider consistent with how you manage native Azure virtual machines.
 
+
+Azure Monitor though doesn't have preexisting rules to identify and alert on issues for the business applications and server software running in your virtual machines. You must create your own alert rules to be proactively notified of any detected issues.
+
+
+Azure Monitor also doesn't measure the health of different applications and services running on a virtual machine. Metric alerts can automatically resolve when a value drops below a threshold, but Azure Monitor doesn't currently have the ability to define health criteria for applications and services running on the machine, nor does it provide health rollup to group the health of related components.
+
+Monitoring the software on your machines in a hybrid environment will often use a combination of Azure Monitor and Operations Manager, depending on the requirements of each machine and on your maturity developing operational processes around Azure Monitor. 
+
+Continue to use Operations Manager for functionality that cannot yet be provided by Azure Monitor. This includes management packs for critical server software like IIS, SQL Server, or Exchange. You may also have custom management packs developed for on-premises infrastructure that can't be reached with Azure Monitor. Also continue to use Operations Manager if it is tightly integrated into your operational processes until you can transition to modernizing your service operations where Azure Monitor and other Azure services can augment or replace. Use Azure Monitor to enhance your current monitoring even if it doesn't immediately replace Operations Manager. 
 
 
 ## Monitor business applications
@@ -120,7 +129,7 @@ If your monitoring of a business application is limited to functionality provide
 - Collect detailed application usage and performance data such as response time, failure rates, and request rates.
 - Collect browser data such as page views and load performance.
 - Detect exceptions and drill into stack trace and related requests.
-- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](app/proactive-diagnostics.md).
+- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](alerts/proactive-diagnostics.md).
 - Use [metrics explorer](essentials/metrics-getting-started.md) to interactively analyze performance data.
 - Use [log queries](logs/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and VM insights.
 
@@ -131,7 +140,7 @@ There are certain scenarios though where you may need to continue using Operatio
 -  [Availability tests](app/monitor-web-app-availability.md), which allow you to monitor and alert on the availability and responsiveness of your applications require incoming requests from the IP addresses of web test agents. If your policy won't allow such access, you may need to keep using [Web Application Availability Monitors](/system-center/scom/web-application-availability-monitoring-template) in Operations Manager.
 - In Operations Manager you can set any polling interval for availability tests, with many customers checking every 60-120 seconds. Application Insights has a minimum polling interval of 5 minutes which may be too long for some customers.
 - A significant amount of monitoring in Operations Manager is performed by collecting events generated by applications and by running scripts on the local agent. These aren't standard options in Application Insights, so you could require custom work to achieve your business requirements. This might include custom alert rules using event data stored in a Log Analytics workspace and scripts launched in a virtual machines guest using [hybrid runbook worker](../automation/automation-hybrid-runbook-worker.md).
-- Depending on the language that your application is written in, you may be limited in the [instrumentation you can use with Application Insights](app/platforms.md).
+- Depending on the language that your application is written in, you may be limited in the [instrumentation you can use with Application Insights](app/app-insights-overview.md#supported-languages).
 
 Following the basic strategy in the other sections of this guide, continue to use Operations Manager for your business applications, but take advantage of additional features provided by Application Insights. As you're able to replace critical functionality with Azure Monitor, you can start to retire your custom management packs.
 

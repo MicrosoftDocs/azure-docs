@@ -2,12 +2,12 @@
 title: Deprecation of Azure Site Recovery data encryption feature | Microsoft Docs
 description: Details regarig Azure Site Recovery data encryption feature 
 services: site-recovery
-author: Sharmistha-Rai
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: sharrai  
+ms.author: ankitadutta  
 
 ---
 # Deprecation of Site Recovery data encryption feature
@@ -31,7 +31,7 @@ To continue successful failover operations, and replications follow the steps me
 
 Follow these steps for each VM: 
 1.	[Disable replication](./site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
-2.	[Create a new replication policy](./hyper-v-azure-tutorial.md#set-up-a-replication-policy).
+2.	[Create a new replication policy](./hyper-v-azure-tutorial.md#replication-policy).
 3.	[Enable replication](./hyper-v-vmm-azure-tutorial.md#enable-replication) and select a storage account with SSE enabled.
 
 After completing the initial replication to storage accounts with SSE enabled, your VMs will be using Encryption at Rest with Azure Site Recovery.

@@ -21,3 +21,4 @@ ms.custom: "include file"
 | Maximum number of extensions | 10 |
 | Maximum size of extension settings | 32 Kb |
 | Maximum number of Log Analytics workspaces | 10 |
+| Maximum number of characters in a transformation | 15,360 |

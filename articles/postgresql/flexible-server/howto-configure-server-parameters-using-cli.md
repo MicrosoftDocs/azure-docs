@@ -13,6 +13,8 @@ ms.custom: devx-track-azurecli
 
 # Customize server parameters for Azure Database for PostgreSQL - Flexible Server using Azure CLI
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 You can list, show, and update configuration parameters for an Azure PostgreSQL server using the Command Line Interface (Azure CLI). A subset of engine parameters is exposed at server-level and can be modified. 
 
 ## Prerequisites
@@ -57,7 +59,7 @@ If you want to reset the value of a parameter, you simply choose to leave out th
 az postgres flexible-server parameter set --name log_min_messages --resource-group myresourcegroup --server-name mydemoserver
 ```
 
-This command resets the **log\_min\_messages** parameter to the default value **WARNING**. For more information on server parameters and permissible values, see PostgreSQL documentation on [Setting Parameters](https://www.postgresql.org/docs/12/config-setting.html).
+This command resets the **log\_min\_messages** parameter to the default value **WARNING**. For more information on server parameters and permissible values, see PostgreSQL documentation on [Setting Parameters](https://www.postgresql.org/docs/current/config-setting.html).
 
 ## Next steps
 

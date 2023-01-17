@@ -1,3 +1,5 @@
+- name: Point cloud rendering
+  href: point-cloud-rendering.md
 - name: Cut planes
   href: cut-planes.md
 - name: Debug Rendering

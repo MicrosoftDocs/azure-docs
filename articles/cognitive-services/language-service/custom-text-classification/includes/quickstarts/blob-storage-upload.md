@@ -43,9 +43,11 @@ The provided sample dataset contains about 210 documents, each of which is an ab
 
 ---
 
-2. In the [Azure portal](https://portal.azure.com), navigate to the storage account you created, and select it.
+2. In the [Azure portal](https://portal.azure.com), navigate to the storage account you created, and select it. You can do this by clicking **Storage accounts** and typing your storage account name into **Filter for any field**.
 
-3. In your storage account, select **Containers** from the left menu, located below **Data storage**. On the screen that appears, select **+ Container**. Give the container the name *example-data* and leave the default **Public access level**.
+    if your resource group does not show up, make sure the **Subscription equals** filter is set to **All**.
+
+3. In your storage account, select **Containers** from the left menu, located below **Data storage**. On the screen that appears, select **+ Container**. Give the container the name **example-data** and leave the default **Public access level**.
 
     :::image type="content" source="../../media/storage-screen.png" alt-text="A screenshot showing the main page for a storage account." lightbox="../../media/storage-screen.png":::
 

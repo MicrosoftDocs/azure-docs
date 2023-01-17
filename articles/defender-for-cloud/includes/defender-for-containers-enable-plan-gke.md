@@ -1,17 +1,17 @@
 ---
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 03/01/2022
-author: elazark
-ms.author: elazarK
+ms.date: 07/14/2022
+ms.author: benmansheim
+author: bmansheim
 ---
 
 ## Protect Google Kubernetes Engine (GKE) clusters
 
 > [!IMPORTANT]
-> If you haven't already connected a GCP project, do so now using the instructions in [Connect your GCP projects to Microsoft Defender for Cloud](../quickstart-onboard-gcp.md).
+> If you haven't already connected a GCP project, [connect your GCP projects to Microsoft Defender for Cloud](../quickstart-onboard-gcp.md).
 
-To protect your GKE clusters, you will need to enable the Containers plan on the relevant GCP project.
+To protect your GKE clusters, you'll need to enable the Containers plan on the relevant GCP project.
 
 **To protect Google Kubernetes Engine (GKE) clusters**:
 
@@ -43,7 +43,7 @@ The connector will update after the script executes. This process can take up to
 
 ### Deploy the solution to specific clusters
 
-If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](../quickstart-onboard-gcp.md#configure-the-containers-plan), or afterwards. You will need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your your GKE clusters to get the full security value out of Defender for Containers.
+If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](../quickstart-onboard-gcp.md#configure-the-containers-plan), or afterwards. You'll need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your GKE clusters to get the full security value out of Defender for Containers.
 
 There are 2 dedicated Defender for Cloud recommendations you can use to install the extensions (and Arc if necessary):
 -	`GKE clusters should have Microsoft Defender's extension for Azure Arc installed`
@@ -90,8 +90,8 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 
 1. Select the :::image type="icon" source="../media/defender-for-containers-enable-plan-gke/add-filter.png" border="false"::: button.
 
-1. In the Filter drop-down menu, select **Resource type.**
+1. In the Filter dropdown menu, select **Resource type.**
 
-1. In the Value drop-down menu, select **GCP GKE Cluster**.
+1. In the Value dropdown menu, select **GCP GKE Cluster**.
 
 1. Select **Ok**.

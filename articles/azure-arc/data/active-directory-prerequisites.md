@@ -3,11 +3,11 @@ title: Deploy Azure Arc-enabled data services in Active Directory authentication
 description: Deploy Azure Arc-enabled data services in Active Directory authentication - prerequisites
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+ms.subservice: azure-arc-data-sqlmi
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
-ms.date: 04/21/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
@@ -118,7 +118,6 @@ Whether you have created a new account for the DSA or are using an existing Acti
        - **Write all properties**
        - **Create User objects**
        - **Delete User objects**
-       - **Reset Password for Descendant User objects**
 
     - Select **OK**.
 

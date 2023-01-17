@@ -7,11 +7,11 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ---
 
-1. Go to your project settings page in [Language Studio](https://aka.ms/languageStudio).
+1. Go to your **project settings** page in [Language Studio](https://aka.ms/languageStudio).
 
 2. You can see project details.
 

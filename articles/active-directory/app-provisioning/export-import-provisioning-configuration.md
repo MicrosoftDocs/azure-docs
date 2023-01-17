@@ -3,12 +3,12 @@ title: Export Application Provisioning configuration and roll back to a known go
 description: Learn how to export your Application Provisioning configuration and roll back to a known good state for disaster recovery in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---

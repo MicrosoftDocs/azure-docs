@@ -1,65 +1,78 @@
 ---
 title: Create trends and statistics reports in Defender for IoT
 description: Gain insight into network activity, statistics, and trends by using Defender for IoT Trends and Statistics widgets.
-ms.date: 02/01/2022
+ms.date: 12/05/2022
 ms.topic: how-to
 ---
 
-# Create trends and statistics dashboards
+# Create trends and statistics reports
 
-This article describes how to create dashboards on your sensor console to get insight into network trends and statistics.
+Trends and statistics reports are dashboards that provide insight into network trends in traffic detected by a specific OT network sensor.
 
+Create custom dashboards to track specific data needed by your organization, such as traffic, device state, alerts, connectivity, or protocols.
 
-## Before you start
+## Prerequisites
 
-You need Administrator or Security Analyst permissions to create dashboards.
+To create trends and statistics dashboards, you must be able to access the OT network sensor you want to generate data for, as an **Administrator** or **Security Analyst** user.
 
-## Create dashboards
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 
-You can create many different types of dashboard. Based on traffic, device state, alerts, connectivity, and protocol.
+## Create custom dashboards
 
-1. On your Defender for IoT sensor console, select **Trends & Statistics** > **Create Dashboard**.
+Sign into your OT sensor and select **Trends & Statistics** > **Create Dashboard**.
 
-1. In the **Create Dashboard** pane that appears  on the right:
+1. In the **Create Dashboard** pane, in the **Dashboard name** field, enter a meaningful name for your dashboard.
 
-    - In the **Dashboard name** field, enter a meaningful name for your dashboard.
-    - (Optional) Filter the widgets displayed by selecting a category or protocol from the **Dashboard widget type** menu.
-    - Scroll down as needed and select the widget you want to add. Each widget has a short description and indicates whether it focuses on operations, security, or traffic.
-    - Select **Save** to start your new dashboard.
+1. From the **Dashboard widget type** menu, either leave **All** selected, or select a specific type of widget to view.
 
-1. Your widget is added to the new dashboard. Use the toolbar at the top of page to continue modifying your dashboard.
+1. Scroll down the list of available widgets and select any widget you want to add to your dashboard.
 
-By default, results are displayed for detections for over the last seven days. Select the **Filter** button at the top left of each widget to change this range.
+1. When you're done, select **Save** to add your dashboard to the drop-down menu under the toolbar.
 
-> [!NOTE]
-> The time shown in the widget is set according to the sensor machine's time.
->
+1. Use any of the following tools to modify your dashboard:
 
-## Sample widgets
+    | Tool | Description |
+    |---------|---------|
+    | :::image type="icon" source="media/how-to-generate-reports/edit-layout-icon.png" border="false"::: **Edit dashboards layout** | Change the layout of the gadgets in your selected dashboard. |
+    | :::image type="icon" source="media/how-to-generate-reports/add-icon.png" border="false"::: **Add widget** | Add another widget to your selected dashboard. |
+    | :::image type="icon" source="media/how-to-generate-reports/edit-icon.png" border="false"::: **Edit dashboard** | Edit the name of your selected dashboard. |
+    | :::image type="icon" source="media/how-to-generate-reports/delete-icon.png" border="false"::: **Delete dashboard** | Delete the selected dashboard. |
+    | :::image type="icon" source="media/how-to-generate-reports/default-icon.png" border="false"::: **Set as Default** | Set the selected dashboard as your default dashboard. |
+
+Timestamps shown in each widget are set according to the sensor’s machine time.
+
+By default, results display detections for the current day. Select the :::image type="icon" source="media/how-to-generate-reports/filter-icon.png" border="false"::: **Filter** icon at the top left of each widget to change this range. You can view data for up to a maximum of 14 days.
+
+For example:
+
+:::image type="content" source="media/how-to-generate-reports/custom-dashboard-widgets.png" alt-text="Screenshot of a widget in a custom dashboard." lightbox="media/how-to-generate-reports/custom-dashboard-widgets.png":::
+
+## Commonly used dashboard widgets
 
 The following table summarizes common use cases for dashboard widgets.
 
-Widget name | Sample use case
---- | ---
-Busy devices | Lists the five busiest devices. In **Edit** mode, you can filter by known protocols.
-Total bandwidth | Tracks the bandwidth in Mbps (megabits per second). The bandwidth is indicated on the y-axis, with the date appearing on the x-axis. **Edit** mode allows you to filter results.
-Channels bandwidth | Displays the top five traffic channels. You can filter by Address, and set the number of Presented Results. Select the down arrow to show more channels.
-Traffic by port | Displays the traffic by port, which is indicated by a pie chart with each port designated by a different color. The amount of traffic in each port is proportional to the size of its part of the pie.
-New devices | Displays the new devices bar chart, which indicates how many new devices were discovered on a particular date.
-Protocol dissection | Displays a pie chart that provides you with a look at the traffic per protocol, dissected by function codes, and services. The size of each slice of the pie is proportional to the amount of traffic relative to the other slices.
-Active TCP connections | Displays a chart that shows the number of active TCP connections in the system.
-Incident by type | Displays a pie chart that shows the number of incidents by type. This is the number of alerts generated by each engine over a predefined time period.
-Devices by vendor | Displays a pie chart that shows the number of devices by vendor. The number of devices for a specific vendor is proportional to the size of that device’s vendor part of the disk relative to other device vendors.
-Number of devices per VLAN | Displays a pie chart that shows the number of discovered devices per VLAN. The size of each slice of the pie is proportional to the number of discovered devices relative to the other slices. Each VLAN appears with the VLAN tag assigned by the sensor or name that you have manually added.
-Top bandwidth by VLAN | Displays the bandwidth consumption by VLAN. By default, the widget shows five VLANs with the highest bandwidth usage. You can filter the data by the period presented in the widget. Select the down arrow to show more results.
-
+| Widget name | Sample use case |
+| --- | --- |
+| **Busy devices** | Lists the five busiest devices. In **Edit** mode, you can filter by known protocols. |
+| **Total bandwidth** | Tracks the bandwidth in Mbps (megabits per second). The bandwidth is indicated on the y-axis, with the date appearing on the x-axis. **Edit** mode allows you to filter results. |
+| **Channels bandwidth** | Displays the top five traffic channels. You can filter by Address, and set the number of Presented Results. Select the down arrow to show more channels. |
+| **Traffic by port** | Displays the traffic by port using a pie chart where each port is a different color. For each port, the size of its slice of the pie reflects the amount of traffic in it. |
+| **New devices** | Displays the new devices bar chart, showing how many new devices were discovered on a particular date. |
+| **Protocol dissection** | Displays a pie chart showing the traffic per protocol, dissected by function codes and services. The size of each slice of the pie reflects the relative amount of traffic in it compared to the other slices. |
+| **Active TCP connections** | Displays a chart showing the number of active TCP connections in the system. |
+| **Incident by type** | Displays a pie chart showing the number of incidents by type. This is the number of alerts generated by each engine over a predefined time period. |
+| **Devices by vendor** | Displays a pie chart showing the number of devices by vendor. For each vendor, the size of their slice of the pie reflects the number of their devices. |
+| **Number of devices per VLAN** | Displays a pie chart showing the number of discovered devices per VLAN. The size of each slice of the pie reflects the relative number of discovered device compared to the other slices. Each VLAN appears with the VLAN tag assigned by the sensor or the name that you've manually added. |
+| **Top bandwidth by VLAN** | Displays the bandwidth consumption by VLAN. By default, the widget shows five VLANs with the highest bandwidth usage. You can filter the data by the period presented in the widget. Select the down arrow to show more results. |
 
 ## Next steps
 
-For more information, see:
+- View additional reports based on cloud-connected sensors in the Azure portal. For more information, see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)
 
-- [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+- Continue creating other reports for more security data from your OT sensor. For more information, see:
 
-- [Sensor data mining queries](how-to-create-data-mining-queries.md)
-
-- [Attack vector reporting](how-to-create-attack-vector-reports.md)
+    - [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+    
+    - [Sensor data mining queries](how-to-create-data-mining-queries.md)
+    
+    - [Attack vector reporting](how-to-create-attack-vector-reports.md)

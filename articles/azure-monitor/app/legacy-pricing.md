@@ -3,6 +3,7 @@ title: Application Insights legacy enterprise (per node) pricing tier
 description: Describes the legacy pricing tier for Application Insights.
 ms.topic: conceptual
 ms.date: 02/18/2022
+ms.reviewer: dalek
 ---
  
 # Application Insights legacy enterprise (per node) pricing tier

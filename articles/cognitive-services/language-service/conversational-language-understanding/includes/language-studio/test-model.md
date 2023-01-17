@@ -5,14 +5,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/12/2022
+ms.date: 10/26/2022
 ms.author: aahi
 ---
 
 
 ## Test the model
 
-To test your model from the Language studio
+To test your model from Language studio
 
 1. Select **Test model** from the left side menu.
 
@@ -22,7 +22,7 @@ To test your model from the Language studio
 
 5. From deployment name dropdown, select your deployment name.
 
-6. In the text box, enter an utterance to test.
+6. In the text box, enter an utterance to test. For example, if you created an application for email-related utterances you could type *Delete this email*. 
 
 7. From the top menu, click on **Run the test**.
 

@@ -3,42 +3,29 @@ title: Work with anomaly detection analytics rules in Microsoft Sentinel | Micro
 description: This article explains how to view, create, manage, assess, and fine-tune anomaly detection analytics rules in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 01/30/2022
+ms.date: 11/02/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Work with anomaly detection analytics rules in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> - Anomaly rules are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules are enabled, or activated, by default, so they will generate anomalies out-of-the-box. You can find and query these anomalies in the **Anomalies** table in the **Logs** section.
 
 ## View customizable anomaly rule templates
 
-Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules must be activated before they will generate anomalies, which you can find in the **Anomalies** table in the **Logs** section.
+You can now find anomaly rules displayed in a grid in the **Anomalies** tab in the **Analytics** page. The list can be filtered by the following criteria:
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+- **Status** - whether the rule is enabled or disabled.
 
-1. On the **Analytics** page, select the **Rule templates** tab.
+- **Tactics** - the MITRE ATT&CK framework tactics covered by the anomaly.
 
-1. Filter the list for **Anomaly** templates:
+- **Techniques** - the MITRE ATT&CK framework techniques covered by the anomaly.
 
-    1. Select the **Rule type** filter, then the drop-down list that appears below.
+- **Data sources** - the type of logs that need to be ingested and analyzed for the anomaly to be defined.
 
-    1. Unmark **Select all**, then mark **Anomaly**.
-
-    1. If necessary, select the top of the drop-down list to retract it, then select **OK**.
-
-## Activate anomaly rules
-
-When you select one of the rule templates, you will see the following information in the details pane, along with a **Create rule** button:
+When you select a rule, you will see the following information in the details pane:
 
 - **Description** explains how the anomaly works and the data it requires.
-
-- **Data sources** indicates the type of logs that need to be ingested in order to be analyzed.
 
 - **Tactics and techniques** are the MITRE ATT&CK framework tactics and techniques covered by the anomaly.
 
@@ -48,28 +35,22 @@ When you select one of the rule templates, you will see the following informatio
 
 - **Rule frequency** is the time between log processing jobs that find the anomalies.
 
+- **Rule status** tells you whether the rule runs in **Production** or **Flighting** (staging) mode when enabled.
+
 - **Anomaly version** shows the version of the template that is used by a rule. If you want to change the version used by a rule that is already active, you must recreate the rule.
 
-- **Template last updated** is the date the anomaly version was changed.
+The rules that come with Microsoft Sentinel out of the box cannot be edited or deleted. To customize a rule, you must first create a duplicate of the rule, and then customize the duplicate. [See the complete instructions](#tune-anomaly-rules).
 
-Complete the following steps to activate a rule:
+> [!NOTE]
+> **Why is there an Edit button if the rule can't be edited?**
+>
+> While you can't change the configuration of an out-of-the-box anomaly rule, you can do two things:
+>
+> 1. You can toggle the **rule status** of the rule between **Production** and **Flighting**.
+>
+> 1. You can submit feedback to Microsoft on your experience with customizable anomalies.
 
-1. Choose a rule template that is not already labeled **IN USE**. Select the **Create rule** button to open the rule creation wizard.
 
-    The wizard for each rule template will be slightly different, but it has three steps or tabs: **General**, **Configuration**, **Review and create**.
-
-    You can't change any of the values in the wizard; you first have to create and activate the rule.
-
-1. Cycle through the tabs, wait for the "Validation passed" message on the **Review and create** tab, and select the **Create** button.
-
-    You can only create one active rule from each template. Once you complete the wizard, an active anomaly rule is created in the **Active rules** tab, and the template (in the **Rule templates** tab) will be marked **IN USE**.
-
-    > [!NOTE]
-    > Assuming the required data is available, the new rule may still take up to 24 hours to appear in the **Active rules** tab. To view the new rules, select the Active rules tab and filter it the same way you filtered the Rule templates list above.
-
-Once the anomaly rule is activated, detected anomalies will be stored in the **Anomalies** table in the **Logs** section of your Microsoft Sentinel workspace.
-
-Each anomaly rule has a training period, and anomalies will not appear in the table until after that training period. You can find the training period in the description of each anomaly rule.
 
 ## Assess the quality of anomalies
 
@@ -77,11 +58,9 @@ You can see how well an anomaly rule is performing by reviewing a sample of the 
 
 1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
-1. On the **Analytics** page, check that the **Active rules** tab is selected.
+1. On the **Analytics** page, select the **Anomalies** tab.
 
-1. Filter the list for **Anomaly** rules (as above).
-
-1. Select the rule you want to assess, and copy its name from the top of the details pane to the right.
+1. Select the rule you want to assess, and copy its ID from the top of the details pane to the right.
 
 1. From the Microsoft Sentinel navigation menu, select **Logs**.
 
@@ -95,9 +74,9 @@ You can see how well an anomaly rule is performing by reviewing a sample of the 
 
     ```kusto
     Anomalies 
-    | where AnomalyTemplateName contains "________________________________"
+    | where RuleId contains "<RuleId>"
     ```
-    Paste the rule name you copied above in place of the underscores between the quotation marks.
+    Paste the rule ID you copied above in place of `<RuleId>` between the quotation marks.
 
 1. Select **Run**. 
 
@@ -117,11 +96,16 @@ The original anomaly rule will keep running until you either disable or delete i
 
 This is by design, to give you the opportunity to compare the results generated by the original configuration and the new one. Duplicate rules are disabled by default. You can only make one customized copy of any given anomaly rule. Attempts to make a second copy will fail.
 
-1. To change the configuration of an anomaly rule, select the anomaly rule in the **Active rules** tab.
+1. To change the configuration of an anomaly rule, select the rule from the list in the **Anomalies** tab.
 
-1. Right-click anywhere on the row of the rule, or left-click the ellipsis (...) at the end of the row, then select **Duplicate**.
+1. Right-click anywhere on the row of the rule, or left-click the ellipsis (...) at the end of the row, then select **Duplicate** from the context menu.
 
-1. The new copy of the rule will have the suffix " - Customized" in the rule name. To actually customize this rule, select this rule and select **Edit**.
+    A new rule will appear in the list, with the following characteristics:
+    - The rule name will be the same as the original, with " - Customized" appended to the end.
+    - The rule's status will be **Disabled**.
+    - The **FLGT** badge will appear at the beginning of the row to indicate that the rule is in Flighting mode.
+
+1. To customize this rule, select the rule and select **Edit** in the details pane, or from the rule's context menu.
 
 1. The rule opens in the Analytics rule wizard. Here you can change the parameters of the rule and its threshold. The parameters that can be changed vary with each anomaly type and algorithm.
 
@@ -129,13 +113,20 @@ This is by design, to give you the opportunity to compare the results generated 
 
 1. Enable the customized rule to generate results. Some of your changes may require the rule to run again, so you must wait for it to finish and come back to check the results on the logs page. The customized anomaly rule runs in **Flighting** (testing) mode by default. The original rule continues to run in **Production** mode by default.
 
-1. To compare the results, go back to the Anomalies table in **Logs** to [assess the new rule as before](#assess-the-quality-of-anomalies), only look for rows with the original rule name as well as the duplicate rule name with " - Customized" appended to it in the **AnomalyTemplateName** column.
+1. To compare the results, go back to the Anomalies table in **Logs** to [assess the new rule as before](#assess-the-quality-of-anomalies), only use the following query instead to look for anomalies generated by the original rule as well as the duplicate rule.
 
-    If you are satisfied with the results for the customized rule, you can go back to the **Active rules** tab, select on the customized rule, select the **Edit** button and on the **General** tab switch it from **Flighting** to **Production**. The original rule will automatically change to **Flighting** since you can't have two versions of the same rule in production at the same time. 
+    ```kusto
+    Anomalies 
+    | where AnomalyTemplateId contains "<RuleId>"
+    ```
+    Paste the rule ID you copied from the original rule in place of `<RuleId>` between the quotation marks. The value of `AnomalyTemplateId` in both the original and duplicate rules is identical to the value of `RuleId` in the original rule.
+
+If you are satisfied with the results for the customized rule, you can go back to the **Anomalies** tab, select the customized rule, select the **Edit** button and on the **General** tab switch it from **Flighting** to **Production**. The original rule will automatically change to **Flighting** since you can't have two versions of the same rule in production at the same time. 
 
 ## Next steps
 
 In this document, you learned how to work with customizable anomaly detection analytics rules in Microsoft Sentinel.
 
 - Get some background information about [customizable anomalies](soc-ml-anomalies.md).
+- View the [available anomaly types](anomalies-reference.md) in Microsoft Sentinel.
 - Explore other [analytics rule types](detect-threats-built-in.md).

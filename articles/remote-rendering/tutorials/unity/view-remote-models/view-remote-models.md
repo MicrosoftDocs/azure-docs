@@ -436,7 +436,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         //Implement me
     }
 
-    public void StopRemoteSession()
+    public async void StopRemoteSession()
     {
         //Implement me
     }
@@ -470,7 +470,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <summary>
     /// Connects the local runtime to the current active session, if there's a session available
     /// </summary>
-    public void ConnectRuntimeToRemoteSession()
+    public async void ConnectRuntimeToRemoteSession()
     {
         //Implement me
     }
@@ -668,11 +668,11 @@ public async void JoinRemoteSession()
     }
 }
 
-public void StopRemoteSession()
+public async void StopRemoteSession()
 {
     if (ARRSessionService.CurrentActiveSession != null)
     {
-        ARRSessionService.CurrentActiveSession.StopAsync();
+        await ARRSessionService.CurrentActiveSession.StopAsync();
     }
 }
 ```
@@ -697,7 +697,7 @@ The application also needs to listen for events about the connection between the
 /// <summary>
 /// Connects the local runtime to the current active session, if there's a session available
 /// </summary>
-public void ConnectRuntimeToRemoteSession()
+public async void ConnectRuntimeToRemoteSession()
 {
     if (ARRSessionService == null || ARRSessionService.CurrentActiveSession == null)
     {
@@ -705,12 +705,11 @@ public void ConnectRuntimeToRemoteSession()
         return;
     }
 
-    //Connect the local runtime to the currently connected session
-    //This session is set when connecting to a new or existing session
+    // Connect the local runtime to the currently connected session
+    // This session is set when connecting to a new or existing session
 
     ARRSessionService.CurrentActiveSession.ConnectionStatusChanged += OnLocalRuntimeStatusChanged;
-    ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
-    CurrentCoordinatorState = RemoteRenderingState.ConnectingToRuntime;
+    await ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
 }
 
 public void DisconnectRuntimeFromRemoteSession()

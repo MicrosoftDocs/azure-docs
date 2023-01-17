@@ -1,9 +1,8 @@
 ---
-title: "Tutorial: Create an Android app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create an Android app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build an Android app that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 11/26/2019
-ms.author: marsma
+ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40, has-adal-ref
 ---

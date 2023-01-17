@@ -55,6 +55,7 @@
 | Web Application Firewall (WAF) policy per subscription | 100 | 100 |
 | WAF custom rules per policy | 100 | 100 |
 | WAF match conditions per custom rule | 10 | 10 |
+| WAF custom regex rules per policy | 5 | 5 |
 | WAF IP address ranges per match conditions | 600 | 600 |
 | WAF string match values per match condition | 10 | 10 |
 | WAF string match value length | 256 | 256 |

@@ -22,8 +22,8 @@ Before you start configuring DCRs for data transformation:
 - **Learn more about data transformation and DCRs in Azure Monitor and Microsoft Sentinel**. For more information, see:
 
     - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
-    - [Custom logs API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
-    - [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
+    - [Logs ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/logs-ingestion-api-overview.md)
+    - [Transformations in Azure Monitor Logs (preview)](../azure-monitor/essentials/data-collection-transformations.md)
     - [Data transformation in Microsoft Sentinel (preview)](data-transformation.md)
 
 - **Verify data connector support**. Make sure that your data connectors are supported for data transformation.
@@ -34,7 +34,7 @@ Before you start configuring DCRs for data transformation:
 
 | If you are ingesting | Ingestion-time transformation is... | Use this DCR type |
 | -------------------- | ---------------------------- | ----------------- |
-| **Custom data** through <br>the **DCR-based API** | <li>Required<li>Included in the DCR that defines the data model | Standard DCR |
+| **Custom data** through <br>the [**Log Ingestion API**](../azure-monitor/logs/logs-ingestion-api-overview.md) | <li>Required<li>Included in the DCR that defines the data model | Standard DCR |
 | **Built-in data types** <br>(Syslog, CommonSecurityLog, WindowsEvent, SecurityEvent) <br>using the legacy **Log Analytics Agent (MMA)** | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
 | **Built-in data types** <br>from most other sources | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
 
@@ -45,20 +45,20 @@ Before you start configuring DCRs for data transformation:
 
 Use the following procedures from the Log Analytics and Azure Monitor documentation to configure your data transformation DCRs:
 
-[Direct ingestion through the DCR-based Custom Logs API](../azure-monitor/logs/custom-logs-overview.md):
-- Walk through a tutorial for [ingesting custom logs using the Azure portal](../azure-monitor/logs/tutorial-custom-logs.md).
-- Walk through a tutorial for [ingesting custom logs using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-custom-logs-api.md).
+[Direct ingestion through the Log Ingestion API](../azure-monitor/logs/logs-ingestion-api-overview.md):
+- Walk through a tutorial for [ingesting logs using the Azure portal](../azure-monitor/logs/tutorial-logs-ingestion-portal.md).
+- Walk through a tutorial for [ingesting logs using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-logs-ingestion-api.md).
 
-[Ingestion-time data transformation](../azure-monitor/logs/ingestion-time-transformations.md):
-- Walk through a tutorial for [configuring ingestion-time transformation using the Azure portal](../azure-monitor/logs/tutorial-ingestion-time-transformations.md).
-- Walk through a tutorial for [configuring ingestion-time transformation using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-ingestion-time-transformations-api.md).- 
+[Workspace transformations](../azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr):
+- Walk through a tutorial for [configuring workspace transformation using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
+- Walk through a tutorial for [configuring workspace transformation using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-workspace-transformations-api.md).- 
 
 [More on data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md):
 - [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
-- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
+- [Data collection transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-transformations.md)
 
 
-When you're done, come back to Microsoft Sentinel to verify that your data is being ingested based on your newly-configured transformation. It make take up to 60 minutes for the data transformation configurations to apply.
+When you're done, come back to Microsoft Sentinel to verify that your data is being ingested based on your newly configured transformation. It may take up to 60 minutes for the data transformation configurations to apply.
 
 
 ## Migrate to ingestion-time data transformation
@@ -78,8 +78,7 @@ Use one of the following methods:
 For more information about data transformation and DCRs, see:
 
 - [Custom data ingestion and transformation in Microsoft Sentinel (preview)](data-transformation.md)
-- [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
-- [Custom logs API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
-- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
+- [Data collection transformations in Azure Monitor Logs (preview)](../azure-monitor/essentials/data-collection-transformations.md)
+- [Logs ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/logs-ingestion-api-overview.md)
 - [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
 - [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)

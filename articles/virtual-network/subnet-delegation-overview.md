@@ -3,14 +3,14 @@ title: What is subnet delegation in Azure virtual network?
 description: Learn about subnet delegation in Azure virtual network
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 manager: mtillman
 ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2020
-ms.author: mbender
+ms.author: allensu
 
 ---
 # What is subnet delegation?

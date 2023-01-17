@@ -2,9 +2,9 @@
 title: H-series - Azure Virtual Machines
 description: Specifications for the H-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 09/11/2021
+ms.date: 12/19/2022
 ms.reviewer: jushiman
 ---
 

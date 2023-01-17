@@ -21,19 +21,21 @@ Get started with the Azure Key Vault secret client library for Python. Follow th
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7+ or 3.6+](/azure/developer/python/configure-local-development-environment).
-- [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
-This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) in a Linux terminal window.
+This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) in a Linux terminal window.
 
 
 ## Set up your local environment
-This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme).
+This quickstart is using Azure Identity library with Azure CLI or Azure PowerShell to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme).
 
 ### Sign in to Azure
 
-1. Run the `login` command.
+### [Azure CLI](#tab/azure-cli)
 
-    ```azurecli-interactive
+1. Run the `az login` command.
+
+    ```azurecli
     az login
     ```
 
@@ -43,6 +45,23 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
     authorization code displayed in your terminal.
 
 2. Sign in with your account credentials in the browser.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+1. Run the `Connect-AzAccount` command.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    If the PowerShell can open your default browser, it will do so and load an Azure sign-in page.
+
+    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
+    authorization code displayed in your terminal.
+
+2. Sign in with your account credentials in the browser.
+
+---
 
 ### Install the packages
 
@@ -73,9 +92,19 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 Create an access policy for your key vault that grants secret permission to your user account.
 
+### [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az keyvault set-policy --name <your-unique-keyvault-name> --upn user@domain.com --secret-permissions delete get list set
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToSecrets delete,get,list,set
+```
+
+---
 
 ## Create the sample code
 
@@ -124,7 +153,7 @@ Make sure the code in the previous section is in a file named *kv_secrets.py*. T
 python kv_secrets.py
 ```
 
-- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#grant-access-to-your-key-vault).
+- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` or `Set-AzKeyVaultAccessPolicy` command](#grant-access-to-your-key-vault).
 - Re-running the code with the same secret name may produce the error, "(Conflict) Secret \<name\> is currently in a deleted but recoverable state." Use a different secret name.
 
 ## Code details
@@ -162,7 +191,7 @@ retrieved_secret = client.get_secret(secretName)
 
 The secret value is contained in `retrieved_secret.value`.
 
-You can also retrieve a secret with the the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+You can also retrieve a secret with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) or the Azure PowerShell command [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
 
 ### Delete a secret
 
@@ -175,7 +204,7 @@ deleted_secret = poller.result()
 
 The `begin_delete_secret` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the secret had been removed with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+You can verify that the secret had been removed with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) or the Azure PowerShell command [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
 
 Once deleted, a secret remains in a deleted but recoverable state for a time. If you run the code again, use a different secret name.
 
@@ -185,9 +214,19 @@ If you want to also experiment with [certificates](../certificates/quick-create-
 
 Otherwise, when you're finished with the resources created in this article, use the following command to delete the resource group and all its contained resources:
 
+### [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az group delete --resource-group myResourceGroup
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name myResourceGroup
+```
+
+---
 
 ## Next steps
 

@@ -220,7 +220,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
                 .then(function (response) {
                     const token = response["token"];
                     const subdomain = response["subdomain"];
-                    // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
+                    // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
                     const data = {
                         title: $("#ir-title").text(),
                         chunks: [{
@@ -228,7 +228,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
                             mimeType: "text/html"
                         }]
                     };
-                    // Learn more about options https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
+                    // Learn more about options https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
                     const options = {
                         "onExit": exitCallback,
                         "uiZIndex": 2000

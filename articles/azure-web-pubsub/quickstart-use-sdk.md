@@ -16,7 +16,7 @@ This quickstart shows you how to publish messages to the clients using service S
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -139,7 +139,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
       console.log('Usage: node publish <message>');
       return 1;
     }
-    const hub = "pubsub";
+    const hub = "myHub1";
     let service = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
     service.sendToAll(process.argv[2], { contentType: "text/plain" });

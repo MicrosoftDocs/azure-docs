@@ -3,7 +3,7 @@ title: 'Move Azure AD Connect database from SQL Server Express to SQL Server. | 
 description: This document describes how to move the Azure AD Connect database from the local SQL Server Express server to a remote SQL Server.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -44,7 +44,7 @@ Use the following steps to move the Azure AD Connect database to a remote SQL Se
 12.	On the **Install required components** screen, the **Use an existing SQL Server** option is enabled. Specify the name of the SQL server that is hosting the ADSync database. If the SQL engine instance used to host the ADSync database is not the default instance on the SQL server, you must specify the SQL engine instance name. Further, if SQL browsing is not enabled, you must also specify the SQL engine instance port number. For example:			
     ![Screenshot that shows the "Install required components" page.](./media/how-to-connect-install-move-db/db4.png)           
 
-13.	On the **Connect to Azure AD** screen, you must provide the credentials of a global admin of your Azure AD directory. The recommendation is to use an account in the default onmicrosoft.com domain. This account is only used to create a service account in Azure AD and is not used after the wizard has completed.
+13.	On the **Connect to Azure AD** screen, you must provide the credentials of a Hybrid Identity Administrator of your Azure AD directory. The recommendation is to use an account in the default onmicrosoft.com domain. This account is only used to create a service account in Azure AD and is not used after the wizard has completed.
     ![Connect](./media/how-to-connect-install-move-db/db5.png)
  
 14.	On the **Connect your directories** screen, the existing AD forest configured for directory synchronization is listed with a red cross icon beside it. To synchronize changes from an on-premises AD forest, an AD DS account is required. The Azure AD Connect wizard is unable to retrieve the credentials of the AD DS account stored in the ADSync database because the credentials are encrypted and can only be decrypted by the previous Azure AD Connect server. Click **Change Credentials** to specify the AD DS account for the AD forest.

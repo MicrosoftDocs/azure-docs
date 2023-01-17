@@ -74,6 +74,12 @@ Private plans will also appear in search results and can be deployed via command
 
 [![[Private offers appearing in search results.]](media/marketplace-publishers-guide/private-product.png)](media/marketplace-publishers-guide/private-product.png#lightbox)
 
+## Next steps
+
+**Video tutorials**
+
+- [Publishing a Private SaaS plan](https://go.microsoft.com/fwlink/?linkid=2196256)
+
 <!---
 ## Next steps
 

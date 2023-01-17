@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 12/06/2021
+ms.date: 06/06/2022
 ms.author: duau
 ms.custom: mvc
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -149,9 +149,9 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-access-policy-settings.png" alt-text="Select service principal of Azure CDN" border="true":::
 
-4. Select **Certificate permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the certificates.
+4. Select **Certificate permissions**. Select the check box for **Get** to allow CDN permissions to get the certificates.
 
-5. Select **Secret permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the secrets:
+5. Select **Secret permissions**. Select the check box for **Get** to allow CDN permissions to get the secrets:
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Select permissions for CDN to keyvault" border="true":::
 
@@ -180,7 +180,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
     - The available certificate/secret versions.
 
     > [!NOTE]
-    > In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed.
+    > In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed.
 
 5. Select **On** to enable HTTPS.
 

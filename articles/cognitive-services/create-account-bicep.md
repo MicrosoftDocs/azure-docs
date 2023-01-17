@@ -3,27 +3,29 @@ title: Create an Azure Cognitive Services resource using Bicep | Microsoft Docs
 description: Create an Azure Cognitive Service resource with Bicep.
 keywords: cognitive services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
 services: cognitive-services
-author: schaffererin
+author: aahill
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 04/29/2022
-ms.author: v-eschaffer
+ms.author: aahi
 ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Create a Cognitive Services resource using Bicep
 
-This quickstart describes how to use Bicep to create Cognitive Services.
+Follow this quickstart to create Cognitive Services resource using Bicep.
 
-Azure Cognitive Services are cloud-base services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
+Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
-Create a resource using Bicep. This multi-service resource lets you:
+[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+
+## Things to consider
+
+Using Bicep to create a Cognitive Service resource lets you create a multi-service resource. This enables you to:
 
 * Access multiple Azure Cognitive Services with a single key and endpoint.
 * Consolidate billing from the services you use.
 * [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
-
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -35,8 +37,9 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/main.bicep":::
 
-One Azure resource is defined in the Bicep file:
-* [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): creates a Cognitive Services resource.
+One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is a Cognitive Services resource. The `kind` field in the Bicep file defines the type of resource.
+
+[!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
 ## Deploy the Bicep file
 

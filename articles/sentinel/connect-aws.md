@@ -3,14 +3,13 @@ title: Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service l
 description: Use the AWS connector to delegate Microsoft Sentinel access to AWS resource logs, creating a trust relationship between Amazon Web Services and Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/18/2021
+ms.date: 12/12/2022
 ms.author: yelevin
+---
 
 ---
 
 # Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Use the Amazon Web Services (AWS) connectors to pull AWS service logs into Microsoft Sentinel. These connectors work by granting Microsoft Sentinel access to your AWS resource logs. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. This is accomplished on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
 
@@ -28,7 +27,7 @@ This connector is available in two versions: the legacy connector for CloudTrail
 
 This document explains how to configure the new AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side.
 
-1. In your AWS environment:
+- In your AWS environment:
 
     - Configure your AWS service(s) to send logs to an **S3 bucket**.
 
@@ -38,7 +37,7 @@ This document explains how to configure the new AWS S3 connector. The process of
 
     - Attach the appropriate **IAM permissions policies** to grant Microsoft Sentinel access to the appropriate resources (S3 bucket, SQS).
 
-1. In Microsoft Sentinel:
+- In Microsoft Sentinel:
 
     - Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal. See the instructions below.
 
@@ -48,7 +47,7 @@ We have made available, in our GitHub repository, a script that **automates the 
 
 ## Architecture overview
 
-This graphic and the following text shows how the parts of this connector solution interact.
+This graphic and the following text show how the parts of this connector solution interact.
 
 :::image type="content" source="media/connect-aws/s3-connector-architecture.png" alt-text="Screenshot of A W S S 3 connector architecture.":::
 
@@ -105,7 +104,7 @@ To run the script to set up the connector, use the following steps:
 
 1. The script will prompt you to enter your Workspace ID. This ID appears on the connector page. Copy it and paste it at the prompt of the script.
 
-   :::image type="content" source="media/connect-aws/aws-run-script.png" alt-text="Screenshot of command to run setup script and workspace I D." lightbox="media/connect-aws/aws-run-script.png":::
+   :::image type="content" source="media/connect-aws/aws-run-script.png" alt-text="Screenshot of command to run setup script and workspace ID." lightbox="media/connect-aws/aws-run-script.png":::
 
 1. When the script finishes running, copy the **Role ARN** and the **SQS URL** from the script's output (see example in first screenshot below) and paste them in their respective fields in the connector page under **2. Add connection** (see second screenshot below).
 
@@ -159,21 +158,19 @@ The manual setup consists of the following steps:
 
    :::image type="content" source="media/connect-aws/aws-enter-account.png" alt-text="Screenshot of A W S role configuration screen.":::
 
-1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that you copied from the AWS connector page in the Microsoft Sentinel portal and pasted aside. Then select **Next: Permissions**.
+1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that you copied from the AWS connector page in the Microsoft Sentinel portal and pasted aside. Then select **Next**.
 
    :::image type="content" source="media/connect-aws/aws-enter-external-id.png" alt-text="Screenshot of continuation of A W S role configuration screen.":::
 
-1. Skip the next step, **Attach permissions policies**, for now. You'll come back to it later [when instructed](#apply-iam-permissions-policies). Select **Next: Tags**.
+1. Enter a **Role name**.
 
-   :::image type="content" source="media/connect-aws/aws-skip-permissions.png" alt-text="Screenshot of Next: Tags.":::
+   :::image type="content" source="media/connect-aws/aws-create-role.png" alt-text="Screenshot of role naming screen.":::
 
-1. Enter a **Tag** (optional). Then select **Next: Review**.
+1. Add **Permissions** and enter a **Tag** (optional). Then select **Create Role**.
 
    :::image type="content" source="media/connect-aws/aws-add-tags.png" alt-text="Screenshot of tags screen.":::
 
-1. Enter a **Role name** and select **Create role**.
-
-   :::image type="content" source="media/connect-aws/aws-create-role.png" alt-text="Screenshot of role naming screen.":::
+1. [Apply IAM permissions policies](/azure/sentinel/connect-aws?tabs=s3&branch=main). For information on these and additional policies that should be applied for ingesting the different types of AWS service logs, see the [AWS S3 connector permissions policies page](/azure/sentinel/connect-aws?tabs=s3) in our GitHub repo.
 
 1. In the **Roles** list, select the new role you created.
 
@@ -240,22 +237,9 @@ Permissions policies that must be applied to the [Microsoft Sentinel role you cr
 
 - Similarly, a single SQS queue can serve only one path in an S3 bucket, so if for any reason you are storing logs in multiple paths, each path requires its own dedicated SQS queue.
 
-### Troubleshooting steps
+### Troubleshooting
 
-1. **Verify that log data exists in your S3 bucket.**
-
-   View the S3 bucket dashboard and verify that data is flowing to it. If not, check that you have set up the AWS service correctly.
-
-1. **Verify that messages are arriving in the SQS queue.**
-
-   View the AWS SQS queue dashboard - under the Monitoring tab, you should see traffic in the "Number Of Messages Sent" graph widget. If you see no traffic, check that S3 PUT object notification is configured correctly. 
-
-1. **Verify that messages are being read from the SQS queue.**
-
-   Check the "Number of Messages Received" and "Number of Messages Deleted" widgets in the queue dashboard. If there are no notifications under messages deleted," then check health messages. It's possible that some permissions are missing. Check your IAM configurations. 
-
-For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md).
-
+Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troubleshoot.md).
 
 # [CloudTrail connector (legacy)](#tab/ct)
 
@@ -288,7 +272,7 @@ You must have write permission on the Microsoft Sentinel workspace.
 
    :::image type="content" source="media/connect-aws/aws-enter-account.png" alt-text="Screenshot of A W S role configuration screen.":::
 
-1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that can be found in the AWS connector page in Microsoft Sentinel. This identifies *your specific Microsoft Sentinel account* to AWS. Then select **Next: Permissions**.
+1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that can be found in the AWS connector page in Microsoft Sentinel. This identifies *your specific Microsoft Sentinel account* to AWS. Then select **Next**.
 
    :::image type="content" source="media/connect-aws/aws-enter-external-id.png" alt-text="Screenshot of continuation of A W S role configuration screen.":::
 
@@ -329,3 +313,4 @@ In this document, you learned how to connect to AWS resources to ingest their lo
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
+

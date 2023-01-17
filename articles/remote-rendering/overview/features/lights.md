@@ -9,10 +9,10 @@ ms.topic: article
 
 # Scene lighting
 
-By default the remotely rendered objects are lit using a [sky light](sky.md). For most applications this is already sufficient, but you can add further light sources to the scene.
+By default the remotely rendered objects are lit using a [sky light](sky.md). For most applications, a static sky light is already sufficient, but you can add further dynamic light sources to the scene.
 
 > [!IMPORTANT]
-> Only [PBR materials](pbr-materials.md) are affected by light sources. [Color materials](color-materials.md) always appear fully bright.
+> Only [PBR materials](pbr-materials.md) are affected by light sources. [Color materials](color-materials.md) and point clouds always appear fully bright.
 
 > [!NOTE]
 > Casting shadows is currently not supported. Azure Remote Rendering is optimized to render huge amounts of geometry, utilizing multiple GPUs if necessary. Traditional approaches for shadow casting do not work well in such scenarios.
@@ -33,7 +33,7 @@ In Azure Remote Rendering the `PointLightComponent` can not only emit light from
 
 * **Radius:** The default radius is zero, in which case the light acts as a point light. If the radius is larger than zero, it acts as spherical light source, which changes the appearance of specular highlights.
 
-* **Length:** If both `Length` and `Radius` are non-zero, the light acts as a tube light. This can be used to simulate neon tubes.
+* **Length:** If both `Length` and `Radius` are non-zero, the light acts as a tube light. This combination can be used to simulate neon tubes.
 
 * **AttenuationCutoff:** If left to (0,0) the attenuation of the light only depends on its `Intensity`. However, you can provide custom min/max distances over which the light's intensity is scaled linearly down to 0. This feature can be used to enforce a smaller range of influence of a specific light.
 

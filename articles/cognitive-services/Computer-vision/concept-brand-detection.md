@@ -9,11 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 07/05/2022
 ms.author: pafarley
 ---
 
-# Detect popular brands in images
+# Brand detection
 
 Brand detection is a specialized mode of [object detection](concept-object-detection.md) that uses a database of thousands of global logos to identify commercial brands in images or video. You can use this feature, for example, to discover which brands are most popular on social media or most prevalent in media product placement.
 

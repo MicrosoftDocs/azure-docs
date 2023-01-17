@@ -2,7 +2,7 @@
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 08/11/2022
 ---
 # About SQL Server Backup in Azure VMs
 
@@ -16,7 +16,7 @@ ms.date: 08/20/2021
 >[!Note]
 >Snapshot-based backup for SQL databases in Azure VM is now in preview. This unique offering combines the goodness of snapshots, leading to a better RTO and low impact on the server along with the benefits of frequent log backups for low RPO. For any queries/access, write to us at  [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
-To view the backup and restore scenarios that we support today, refer to the [support matrix](sql-support-matrix.md#scenario-support).
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support).
 
 ## Backup process
 

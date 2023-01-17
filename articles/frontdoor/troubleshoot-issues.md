@@ -141,7 +141,7 @@ Responses to these requests might also contain an HTML error page in the respons
 
 There are several possible causes for this symptom. The overall reason is that your HTTP request isn't fully RFC-compliant.
 
-An example of noncompliance is a `POST` request sent without either a **Content-Length** or a **Transfer-Encoding** header. An example would be using `curl -X POST https://example-front-door.domain.com`. This request doesn't meet the requirements set out in [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2). Azure Front Door would block it with an HTTP 411 response.
+An example of noncompliance is a `POST` request sent without either a **Content-Length** or a **Transfer-Encoding** header. An example would be using `curl -X POST https://example-front-door.domain.com`. This request doesn't meet the requirements set out in [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2). Azure Front Door would block it with an HTTP 411 response. Such requests will not be logged.
 
 This behavior is separate from the web application firewall (WAF) functionality of Azure Front Door. Currently, there's no way to disable this behavior. All HTTP requests must meet the requirements, even if the WAF functionality isn't in use.
 

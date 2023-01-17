@@ -1,26 +1,26 @@
 ---
-title: Restrict access to PaaS resources - tutorial - Azure portal
+title: 'Tutorial: Restrict access to PaaS resources with service endpoints - Azure portal'
 description: In this tutorial, you learn how to limit and restrict network access to Azure resources, such as an Azure Storage, with virtual network service endpoints using the Azure portal.
-services: virtual-network
 documentationcenter: virtual-network
-author: mbender-ms
+author: asudbring
+ms.author: allensu
 manager: kumudD
-editor: ''
 tags: azure-resource-manager
-# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
-
-ms.assetid: 
+services: virtual-network
 ms.service: virtual-network
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 05/17/2022
-ms.author: mbender
+ms.date: 06/29/2022
+ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ---
 
 # Tutorial: Restrict network access to PaaS resources with virtual network service endpoints using the Azure portal
 
-Virtual network service endpoints enable you to limit network access to some Azure service resources to a virtual network subnet. You can also remove internet access to the resources. Service endpoints provide direct connection from your virtual network to supported Azure services, allowing you to use your virtual network's private address space to access the Azure services. Traffic destined to Azure resources through service endpoints always stays on the Microsoft Azure backbone network. In this tutorial, you learn how to:
+Virtual network service endpoints enable you to limit network access to some Azure service resources to a virtual network subnet. You can also remove internet access to the resources. Service endpoints provide direct connection from your virtual network to supported Azure services, allowing you to use your virtual network's private address space to access the Azure services. Traffic destined to Azure resources through service endpoints always stays on the Microsoft Azure backbone network.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network with one subnet
@@ -30,15 +30,23 @@ Virtual network service endpoints enable you to limit network access to some Azu
 > * Confirm access to a resource from a subnet
 > * Confirm access is denied to a resource from a subnet and the internet
 
-If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) or [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
+This tutorial uses the Azure portal. You can also complete it using the [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) or [PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Prerequisites
+
+- An Azure subscription
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
+
 ## Create a virtual network
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. From the Azure portal menu, select **+ Create a resource**.
 
-1. Select **+ Create a resource** on the upper left corner of the Azure portal. Search for **Virtual Network**, and then select **Create**.
+1. Search for *Virtual Network*, and then select **Create**.
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-resources.png" alt-text="Screenshot of search for virtual network in create a resource page.":::    
 
@@ -46,10 +54,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    | Setting | Value |
    |----|----|
-   | Subscription | Select your subscription|
+   | Subscription | Select your subscription. |
    | Resource group | Select **Create new** and enter *myResourceGroup*.|
-   | Name | Enter *myVirtualNetwork* |
-   | Region | Select **(US) East US** |
+   | Name | Enter *myVirtualNetwork*. |
+   | Region | Select **East US** |
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png" alt-text="Screenshot of basics tab for create a virtual network.":::  
 
@@ -71,13 +79,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Service endpoints are enabled per service, per subnet. To create a subnet and enable a service endpoint for the subnet:
 
-1. If you're not already on the virtual network resource page, you can search for the newly created network in the box at the top of the portal. Enter *myVirtualNetwork*, and select it from the list.
+1. If you're not already on the virtual network resource page, you can search for the newly created virtual network in the box at the top of the portal. Enter *myVirtualNetwork*, and select it from the list.
 
-1. Select **Subnets** under *Settings*, and then select **+ Subnet**, as shown:
+1. Select **Subnets** under **Settings**, and then select **+ Subnet**, as shown:
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/add-subnet.png" alt-text="Screenshot of adding subnet to an existing virtual network.":::
 
-1. On the **Add subnet** page, select or enter the following information, and then select **Save**:
+1. On the **Add subnet** page, enter or select the following information, and then select **Save**:
 
     | Setting |Value |
     | --- | --- |
@@ -114,7 +122,7 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 1. Select **Review + create**, and when the validation check is passed, select **Create**.
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-nsg-page.png" alt-text="Screenshot of create an network security group page.":::
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-nsg-page.png" alt-text="Screenshot of create a network security group page.":::
 
 1. After the network security group is created, select **Go to resource** or search for *myNsgPrivate* at the top of the Azure portal.
 
@@ -309,7 +317,7 @@ To test network access to a storage account, deploy a VM to each subnet.
 
 ### Create the second virtual machine
 
-1. Repeat steps 1-5 to create a second virtual machine. In step 3, name the virtual machine *myVmPrivate* and set *NIC network security group* to **None**. In step 4, select the **Private** subnet.
+1. Repeat steps 1-5 to create a second virtual machine. In step 3, name the virtual machine *myVmPrivate*. In step 4, select the **Private** subnet and set *NIC network security group* to **None**.
 
    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/virtual-machine-2-networking.png" alt-text="Screenshot of create private virtual machine network settings." lightbox="./media/tutorial-restrict-network-access-to-resources/virtual-machine-2-networking-expanded.png":::
 

@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 09/22/2022
 ---
 
 # Transform data in Azure Data Factory and Azure Synapse Analytics

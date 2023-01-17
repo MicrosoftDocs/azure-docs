@@ -10,11 +10,14 @@ ms.author: nikuklic
 ## Sample Code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling)
 
+> [!NOTE] 
+> Outbound calling to a telephone number can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-pstn--page). The UI Library enables developers to add a call client that is PSTN enabled into their application with only a couple lines of code.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A phone number acquired in your Communication Services resource. [how to get a phone number](../get-phone-number.md).
+- A [phone number acquired](../get-phone-number.md) in your Communication Services resource, or Azure Communication Services [direct routing configured](../../../concepts/telephony/direct-routing-provisioning.md)
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 
 [!INCLUDE [Calling with JavaScript](../../voice-video-calling/includes/get-started/get-started-javascript-setup.md)]

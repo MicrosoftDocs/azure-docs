@@ -10,8 +10,10 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-In the **App Service** section of the Azure Tools extension:
+In the Azure Tools extension:
 
-1. Locate your web app and right-click to bring up the context menu.
+1. Expand **RESOURCES**. (Make sure resources are sorted by resource type.)
+
+1. Right-click your web app to bring up the context menu.
 
 1. Select **Deploy to Web App...** from the menu.

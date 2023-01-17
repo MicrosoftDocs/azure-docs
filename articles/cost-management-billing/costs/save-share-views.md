@@ -1,6 +1,6 @@
 ---
 title: Save and share customized views
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article explains how to save and share a customized view with others.
 author: bandersmsft
 ms.author: banders

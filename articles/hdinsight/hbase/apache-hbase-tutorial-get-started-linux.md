@@ -42,10 +42,10 @@ The following procedure uses an Azure Resource Manager template to create an HBa
     |Resource group|Create an Azure Resource management group or use an existing one.|
     |Location|Specify the location of the resource group. |
     |ClusterName|Enter a name for the HBase cluster.|
-    |Cluster login name and password|The default login name is **admin**.|
-    |SSH username and password|The default username is **sshuser**.|
+    |Cluster login name and password|The default login name is `admin`.|
+    |SSH username and password|The default username is `sshuser`.|
 
-    Other parameters are optional.  
+    Other parameters are optional.
 
     Each cluster has an Azure Storage account dependency. After you delete a cluster, the data stays in the storage account. The cluster default storage account name is the cluster name with "store" appended. It's hardcoded in the template variables section.
 

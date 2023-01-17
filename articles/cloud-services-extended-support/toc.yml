@@ -55,7 +55,7 @@
       href: schema-cscfg-role.md
     - name: NetworkConfiguration schema
       href: schema-cscfg-networkconfiguration.md
-- name: How To
+- name: Migration
   items:
   - name: Migrate to Azure Cloud Services (extended support)
     items:
@@ -71,6 +71,10 @@
       href: post-migration-changes.md
     - name: Common errors and known issues
       href: in-place-migration-common-errors.md
+  - name: Feature Support for CSES
+    href: feature-support-analysis.md
+- name: How To
+  items:
   - name: Apply extensions
     items:
     - name: Apply Remote Desktop extension
@@ -114,7 +118,7 @@
   - name: REST
     href: /rest/api/compute/cloud-services
   - name: .NET
-    href: /dotnet/api/overview/azure/virtualmachines/management
+    href: /dotnet/api/overview/azure/virtualmachines#management-apis
   - name: SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
   - name: CLI
@@ -124,7 +128,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Learning path
-    href: /learn/paths/az-900-describe-cloud-concepts/
+    href: /training/paths/az-900-describe-cloud-concepts/
   - name: Microsoft Q&A
     href: /answers/topics/azure-cloud-services.html
   - name: Pricing

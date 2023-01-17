@@ -1,11 +1,14 @@
 ---
 title: Overview of the Reliable Service programming model 
 description: Learn about Service Fabric's Reliable Service programming model, and get started writing your own services.
-author: masnider
 ms.topic: conceptual
-ms.date: 3/9/2018
-ms.author: masnider
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Reliable Services overview
 
 Azure Service Fabric simplifies writing and managing stateless and stateful services. This topic covers:

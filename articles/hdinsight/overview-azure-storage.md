@@ -4,7 +4,7 @@ description: Overview of Azure Storage in HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/21/2020
+ms.date: 05/30/2022
 ---
 
 # Azure Storage overview in HDInsight

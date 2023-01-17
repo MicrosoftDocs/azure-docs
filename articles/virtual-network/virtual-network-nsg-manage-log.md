@@ -3,13 +3,13 @@ title: Diagnostic resource logging for a network security group
 titlesuffix: Azure Virtual Network
 description: Learn how to enable event and rule counter diagnostic resource logs for an Azure network security group.
 services: virtual-network
-author: mbender-ms
+author: asudbring
 manager: mtillman
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
-ms.author: mbender 
+ms.author: allensu 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -29,9 +29,9 @@ Resource logging is enabled separately for *each* NSG you want to collect diagno
 
 ## Enable logging
 
-You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to enable resource logging.
+You can use the [Azure portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to enable resource logging.
 
-### Azure Portal
+### Azure portal
 
 1. Sign in to the [portal](https://portal.azure.com).
 2. Select **All services**, then type *network security groups*. When **Network security groups** appear in the search results, select it.
@@ -55,7 +55,7 @@ You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the
 
 You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-To enable resource logging, you need the Id of an existing NSG. If you don't have an existing NSG, you can create one with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+To enable resource logging, you need the ID of an existing NSG. If you don't have an existing NSG, you can create one with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
 Retrieve the network security group that you want to enable resource logging for with [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). For example, to retrieve an NSG named *myNsg* that exists in a resource group named *myResourceGroup*, enter the following command:
 
@@ -84,7 +84,7 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-If you only want to log data for one category or the other, rather than both, add the `-Categories` option to the previous command, followed by *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) or [Event Hub](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
+If you only want to log data for one category or the other, rather than both, add the `-Categories` option to the previous command, followed by *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) or [Event Hubs](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
 
 View and analyze logs. For more information, see [View and analyze logs](#view-and-analyze-logs).
 
@@ -92,7 +92,7 @@ View and analyze logs. For more information, see [View and analyze logs](#view-a
 
 You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the Azure CLI from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run the CLI from your computer, you need version 2.0.38 or later. Run `az --version` on your computer, to find the installed version. If you need to upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the CLI locally, you also need to run `az login` to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-To enable resource logging, you need the Id of an existing NSG. If you don't have an existing NSG, you can create one with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
+To enable resource logging, you need the ID of an existing NSG. If you don't have an existing NSG, you can create one with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
 Retrieve the network security group that you want to enable resource logging for with [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show). For example, to retrieve an NSG named *myNsg* that exists in a resource group named *myResourceGroup*, enter the following command:
 
@@ -119,7 +119,7 @@ az monitor diagnostic-settings create \
 
 If you don't have an existing workspace, you can create one using the [Azure portal](../azure-monitor/logs/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). There are two categories of logging you can enable logs for.
 
-If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) or [Event Hub](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
+If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) or [Event Hubs](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
 
 View and analyze logs. For more information, see [View and analyze logs](#view-and-analyze-logs).
 
@@ -127,7 +127,7 @@ View and analyze logs. For more information, see [View and analyze logs](#view-a
 
 Diagnostics data can be:
 - [Written to an Azure Storage account](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage), for auditing or manual inspection. You can specify the retention time (in days) using resource diagnostic settings.
-- [Streamed to an Event hub](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs) for ingestion by a third-party service, or custom analytics solution, such as PowerBI.
+- [Streamed to an Event hub](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs) for ingestion by a third-party service, or custom analytics solution, such as Power BI.
 - [Written to Azure Monitor logs](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
 
 ## Log categories
@@ -195,7 +195,7 @@ The rule counter log contains information about each rule applied to resources. 
 ## View and analyze logs
 
 To learn how to view resource log data, see [Azure platform logs overview](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you send diagnostics data to:
-- **Azure Monitor logs**: You can use the [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
+- **Azure Monitor logs**: You can use the [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
 ) solution for enhanced insights. The solution provides visualizations for NSG rules that allow or deny traffic, per MAC address, of the network interface in a virtual machine.
 - **Azure Storage account**: Data is written to a PT1H.json file. You can find the:
   - Event log in the following path: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`

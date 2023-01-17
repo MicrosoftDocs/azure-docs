@@ -3,7 +3,7 @@ title: Azure Virtual Desktop MSIX app attach portal - Azure
 description: How to set up MSIX app attach for Azure Virtual Desktop using the Azure portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 01/12/2023
 ms.author: helohr
 manager: femila
 ---
@@ -20,7 +20,7 @@ Here's what you need to configure MSIX app attach:
 - The MSIX packaging tool.
 - An MSIX-packaged application expanded into an MSIX image that's uploaded into a file share.
 - A file share in your Azure Virtual Desktop deployment where the MSIX package will be stored.
-- The file share where you uploaded the MSIX image must also be accessible to all virtual machines (VMs) in the host pool. Users will need read-only permissions to access the image.
+- [The file share where you uploaded the MSIX image](app-attach-file-share.md) must also be accessible to all virtual machines (VMs) in the host pool. Users will need read-only permissions to access the image.
 - If the certificate isn't publicly trusted, follow the instructions in [Install certificates](app-attach.md#install-certificates).
 
 ## Turn off automatic updates for MSIX app attach applications
@@ -30,8 +30,7 @@ Before you get started, you must disable automatic updates for MSIX app attach a
 ```cmd
 rem Disable Store auto update:
 
-reg add HKLM\Software\Policies\Microsoft\WindowsStore /v AutoDownload /t REG_DWORD /d 0 /f
-Schtasks /Change /Tn "\Microsoft\Windows\WindowsUpdate\Automatic app update" /Disable
+reg add HKLM\Software\Policies\Microsoft\WindowsStore /v AutoDownload /t REG_DWORD /d 2 /f
 Schtasks /Change /Tn "\Microsoft\Windows\WindowsUpdate\Scheduled Start" /Disable
 
 rem Disable Content Delivery auto download apps that they want to promote to users:
@@ -41,19 +40,6 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
 
 ```
-
-## Configure the MSIX app attach management interface
-
-Next, you'll need to download and configure the the MSIX app attach management interface for the Azure portal.
-
-To set up the management interface:
-
-1. [Open the Azure portal](https://portal.azure.com).
-2. If you get a prompt asking if you consider the extension trustworthy, select **Allow**.
-
-      > [!div class="mx-imgBorder"]
-      > ![A screenshot of the untrusted extensions window. "Allow" is highlighted in red.](media/untrusted-extensions.png)
-
 
 ## Add an MSIX image to the host pool
 
@@ -152,9 +138,6 @@ To publish the apps:
 ## Assign a user to an app group
 
 After assigning MSIX apps to an app group, you'll need to grant users access to them. You can assign access by adding users or user groups to an app group with published MSIX applications. Follow the instructions in [Manage app groups with the Azure portal](manage-app-groups.md) to assign your users to an app group.
-
->[!NOTE]
->MSIX app attach remote apps may disappear from the feed when you test remote apps during public preview. The apps don't appear because the host pool you're using in the evaluation environment is being served by an RD Broker in the production environment. Because the RD Broker in the production environment doesn't register the presence of the MSIX app attach remote apps, the apps won't appear in the feed.
 
 ## Change MSIX package state
 

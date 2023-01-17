@@ -1,9 +1,8 @@
 ---
-title: Troubleshoot TLS/SSL issues (MSAL iOS/macOS) | Azure
-titleSuffix: Microsoft identity platform
+title: Troubleshoot TLS/SSL issues (MSAL iOS/macOS)
 description: Learn what to do about various problems using TLS/SSL certificates with the MSAL.Objective-C library.
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/28/2019
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: aaddev
 ---
 

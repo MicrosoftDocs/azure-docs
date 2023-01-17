@@ -213,7 +213,7 @@ Use the following steps to add xID as a claims provider:
 
 ## Step 4: Add a user journey
 
-At this point, you've set up the identity provider, but it's not yet available on any of the sign-in pages. If you have a custom user journey, continue to [step 4](#step-4-add-the-identity-provider-to-a-user-journey). Otherwise, create a duplicate of an existing template user journey as follows:
+At this point, you've set up the identity provider, but it's not yet available on any of the sign-in pages. If you have a custom user journey, continue to [step 5](#step-5-add-the-identity-provider-to-a-user-journey). Otherwise, create a duplicate of an existing template user journey as follows:
 
 1. Open the `TrustFrameworkBase.xml` file from the starter pack.
 
@@ -237,7 +237,7 @@ Now that you have a user journey add the new identity provider to the user journ
 
    The following XML demonstrates the orchestration steps of a user journey with xID identity provider:
 
-  ```xml
+   ```xml
 
     <UserJourney Id="CombinedSignInAndSignUp">
       <OrchestrationSteps>

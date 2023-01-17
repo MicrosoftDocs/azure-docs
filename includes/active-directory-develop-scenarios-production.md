@@ -19,7 +19,7 @@ ms.custom: include file
 
 ## Enable logging
 
-To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging is each library is covered in the following articles:
+To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging in each library is covered in the following articles:
 
 :::row:::
     :::column:::

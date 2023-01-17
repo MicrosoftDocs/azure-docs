@@ -12,16 +12,13 @@ fluid.url: https://fluidframework.com/docs/apis/azure-client/itokenprovider/
 
 # How to: Validate a User Created a Document
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
-When creating a document in Azure Fluid Relay, the JWT provided by the `ITokenProvider` for the creation request can only be used once. After creating a document, the client must generate a new JWT that contains the document ID provided by the service at creation time. If an application has an authorization service that manages document access control, it will need to know who created a document with a given ID in order to authorize the generation of a new JWT for access to that document.
+When you create a document in Azure Fluid Relay, the JWT provided by the [ITokenProvider](https://fluidframework.com/docs/apis/azure-client/itokenprovider-interface) for the creation request can only be used once. After creating a document, the client must generate a new JWT that contains the document ID provided by the service at creation time. If an application has an authorization service that manages document access control, it will need to know who created a document with a given ID in order to authorize the generation of a new JWT for access to that document.
 
 ## Inform an Authorization Service when a document is Created
 
-An application can tie into the document creation lifecycle by implementing a public `documentPostCreateCallback()` property in its `TokenProvider`. This callback will be triggered directly after creating the document, before a client requests the new JWT it needs to gain read/write permissions to the document that was created.
+An application can tie into the document creation lifecycle by implementing a public [documentPostCreateCallback()](https://fluidframework.com/docs/apis/azure-client/itokenprovider-interface#documentpostcreatecallback-methodsignature) method in its `TokenProvider`. This callback will be triggered directly after creating the document, before a client requests the new JWT it needs to gain read/write permissions to the document that was created.
 
-The `documentPostCreateCallback()` receives 2 parameters: 1) the ID of the document that was created and 2) a JWT signed by the service with no permission scopes. The authorization service can verify the given JWT and use the information in the JWT to grant the correct user permissions for the newly created document.
+The `documentPostCreateCallback()` receives two parameters: 1) the ID of the document that was created and 2) a JWT signed by the service with no permission scopes. The authorization service can verify the given JWT and use the information in the JWT to grant the correct user permissions for the newly created document.
 
 ### Create an endpoint for your document creation callback
 
@@ -110,7 +107,7 @@ export default httpTrigger;
 
 ### Implement the `documentPostCreateCallback`
 
-This example implementation below extends the [AzureFunctionTokenProvider](https://fluidframework.com/docs/apis/azure-client/azurefunctiontokenprovider/) and uses the [axios](https://www.npmjs.com/package/axios) library to make a simple HTTP request to the Azure Function used for generating tokens.
+This example implementation below extends the [AzureFunctionTokenProvider](https://fluidframework.com/docs/apis/azure-client/azurefunctiontokenprovider-class) and uses the [axios](https://www.npmjs.com/package/axios) library to make a HTTP request to the Azure Function used for generating tokens.
 
 ```typescript
 import { AzureFunctionTokenProvider, AzureMember } from "@fluidframework/azure-client";

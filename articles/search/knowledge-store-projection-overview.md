@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 10/25/2022
 ---
 
 # Knowledge store "projections" in Azure Cognitive Search
@@ -138,7 +138,7 @@ Projections have a lifecycle that is tied to the source data in your data source
 
 After the indexer is run, connect to projections and consume the data in other apps and workloads.
 
-+ Use [Storage Browser](knowledge-store-view-storage-explorer.md) to verify object creation and content.
++ Use Azure portal to verify object creation and content in Azure Storage.
 
 + Use [Power BI for data exploration](knowledge-store-connect-power-bi.md). This tool works best when the data is in Azure Table Storage. Within Power BI, you can manipulate data into new tables that are easier to query and analyze.
 
@@ -165,6 +165,8 @@ Recall that projections are exclusive to knowledge stores, and are not used to s
 1. If you're adding projections to an existing skillset, [update the skillset](/rest/api/searchservice/update-skillset) and [run the indexer](/rest/api/searchservice/run-indexer).
 
 1. Check your results in Azure Storage. On subsequent runs, avoid naming collisions by deleting objects in Azure Storage or changing project names in the skillset.
+
+1. If you are using [Table projections](knowledge-store-projections-examples.md#define-a-table-projection) check [Understanding the Table Service data model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) to make sure your data requirements are within Table storage documented limits.
 
 ## Next steps
 

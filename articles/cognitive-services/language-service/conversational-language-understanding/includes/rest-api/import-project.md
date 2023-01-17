@@ -24,7 +24,7 @@ Use the following URL when creating your API request. Replace the placeholder va
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `myProject` |
-|`{API-VERSION}`     | The version of the API you're calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data).  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you're calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data).  | `2022-05-01` |
 
 ### Headers
 
@@ -40,51 +40,51 @@ Use the following sample JSON as your body.
 
 ```json
 {
-  "api-version":"{API-VERSION}" ,
-    "stringIndexType": "Utf16CodeUnit",
-    "metadata": {
-        "projectKind": "conversation",
-        "settings": {
-            "confidenceThreshold": 0.7
-        },
-        "projectName": "{PROJECT-NAME}",
-        "multilingual": true,
-        "description": "Trying out CLU",
-        "language": "{LANGUAGE-CODE}"
+  "projectFileVersion": "{API-VERSION}",
+  "stringIndexType": "Utf16CodeUnit",
+  "metadata": {
+    "projectKind": "Conversation",
+    "settings": {
+      "confidenceThreshold": 0.7
     },
+    "projectName": "{PROJECT-NAME}",
+    "multilingual": true,
+    "description": "Trying out CLU",
+    "language": "{LANGUAGE-CODE}"
+  },
   "assets": {
+    "projectKind": "Conversation",
     "intents": [
       {
-        "category": "Read"
+        "category": "intent1"
       },
       {
-        "category": "Delete"
+        "category": "intent2"
       }
     ],
     "entities": [
       {
-        "category": "Sender"
+        "category": "entity1"
       }
     ],
     "utterances": [
       {
-        "text": "Open Blake's email",
-        "language": "{LANGUAGE-CODE}",
+        "text": "text1",
         "dataset": "{DATASET}",
-        "intent": "Read",
+        "intent": "intent1",
         "entities": [
           {
-            "category": "Sender",
+            "category": "entity1",
             "offset": 5,
             "length": 5
           }
         ]
       },
       {
-        "text": "Delete last email",
+        "text": "text2",
         "language": "{LANGUAGE-CODE}",
         "dataset": "{DATASET}",
-        "intent": "Attach",
+        "intent": "intent2",
         "entities": []
       }
     ]
@@ -95,7 +95,7 @@ Use the following sample JSON as your body.
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| api-version | `{API-VERSION}` | The version of the API you're calling. The version used here must be the same API model version in the URL. See the [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) article to learn more.  | `2022-03-01-preview` |
+| api-version | `{API-VERSION}` | The version of the API you're calling. The version used here must be the same API model version in the URL. See the [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) article to learn more.  | `2022-05-01` |
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `EmailApp` |
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the utterances used in your project. If your project is a multilingual project, choose the [language code](../../language-support.md) of the majority of the utterances. |`en-us`|
 | `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset. When your model is deployed, you can query the model in any [supported language](../../language-support.md#multi-lingual-option). This includes languages that aren't included in your training documents.  | `true`|

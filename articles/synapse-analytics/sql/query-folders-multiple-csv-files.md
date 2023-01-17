@@ -207,7 +207,7 @@ Since you have only one folder that matches the criteria, the query result is th
 
 ## Traverse folders recursively
 
-Serverless SQL pool can recursively traverse folders if you specify /** at the end of path. The following query will read all files from all folders and subfolders located in the *csv* folder.
+Serverless SQL pool can recursively traverse folders if you specify /** at the end of path. The following query will read all files from all folders and subfolders located in the *csv/taxi* folder.
 
 ```sql
 SELECT

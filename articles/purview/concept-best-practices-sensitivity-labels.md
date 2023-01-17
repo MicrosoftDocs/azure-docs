@@ -12,6 +12,9 @@ ms.custom: ignite-fall-2021
 
 # Labeling best practices for the data map
 
+>[!NOTE]
+>These best practices cover applying labels to the data map in [Microsoft Purview unified data governance solutions](how-to-automatically-label-your-content.md). For more information about labeling in Microsoft Purview risk and compliance solutions, [go here](/microsoft-365/compliance/apply-sensitivity-label-automatically). For more information about Microsoft Purview in general, [go here](/purview/purview).
+
 The Microsoft Purview Data Map supports labeling structured and unstructured data stored across various data sources. Labeling data within the data map allows users to easily find data that matches predefined autolabeling rules that were configured in the Microsoft Purview compliance portal. The data map extends the use of sensitivity labels from Microsoft Purview Information Protection to assets stored in infrastructure cloud locations and structured data sources.
 
 ## Protect personal data with custom sensitivity labels for Microsoft Purview
@@ -42,10 +45,10 @@ The following sections walk you through the process of implementing labeling for
 - When you configure sensitivity labels for the Microsoft Purview Data Map, you might define autolabeling rules for files, database columns, or both within the label properties. Microsoft Purview labels files within the Microsoft Purview Data Map. When the autolabeling rule is configured, Microsoft Purview automatically applies the label or recommends that the label is applied.
 
    > [!WARNING]
-   > If you haven't configured autolabeling for files and emails on your sensitivity labels, users might be affected within your Office and Microsoft 365 environment. You can test autolabeling on database columns without affecting users.
+   > If you haven't configured autolabeling for items on your sensitivity labels, users might be affected within your Office and Microsoft 365 environment. You can test autolabeling on database columns without affecting users.
 
 - If you're defining new autolabeling rules for files when you configure labels for the Microsoft Purview Data Map, make sure that you have the condition for applying the label set appropriately.
-- You can set the detection criteria to **All of these** or **Any of these** in the upper right of the autolabeling for files and emails page of the label properties.
+- You can set the detection criteria to **All of these** or **Any of these** in the upper right of the autolabeling for items page of the label properties.
 - The default setting for detection criteria is **All of these**. This setting means that the asset must contain all the specified sensitive information types for the label to be applied. While the default setting might be valid in some instances, many customers want to use **Any of these**. Then if at least one asset is found, the label is applied.
 
    :::image type="content" source="media/concept-best-practices/label-detection-criteria.png" alt-text="Screenshot that shows detection criteria for a label.":::

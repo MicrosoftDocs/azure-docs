@@ -1,18 +1,20 @@
 ---
 title: Data encryption - Azure portal - Azure Database for MySQL
 description: Learn how to set up and manage data encryption for your Azure Database for MySQL by using the Azure portal.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
+author: mksuni
+ms.author: sumuth
 ms.topic: how-to
-ms.date: 01/13/2020 
 ms.custom: devx-track-azurecli
+ms.date: 06/20/2022
 ---
 
 # Data encryption for Azure Database for MySQL by using the Azure portal
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Learn how to use the Azure portal to set up and manage data encryption for your Azure Database for MySQL.
 

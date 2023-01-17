@@ -2,7 +2,7 @@
 title: Authenticate access to Azure Event Hubs with shared access signatures
 description: This article shows you how to authenticate access to Event Hubs resources using shared access signatures.
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 09/16/2022
 ms.devlang: csharp, java, javascript, php
 ms.custom: devx-track-js, devx-track-csharp
 ---
@@ -72,18 +72,43 @@ Following section shows generating a SAS token using shared access signature pol
 
 ```javascript
 function createSharedAccessToken(uri, saName, saKey) { 
-    if (!uri || !saName || !saKey) { 
-            throw "Missing required parameter"; 
-        } 
-    var encoded = encodeURIComponent(uri); 
-    var now = new Date(); 
-    var week = 60*60*24*7;
-    var ttl = Math.round(now.getTime() / 1000) + week;
-    var signature = encoded + '\n' + ttl; 
-    var signatureUTF8 = utf8.encode(signature); 
-    var hash = crypto.createHmac('sha256', saKey).update(signatureUTF8).digest('base64'); 
-    return 'SharedAccessSignature sr=' + encoded + '&sig=' +  
-        encodeURIComponent(hash) + '&se=' + ttl + '&skn=' + saName; 
+  if (!uri || !saName || !saKey) { 
+          throw "Missing required parameter"; 
+      } 
+  var encoded = encodeURIComponent(uri); 
+  var now = new Date(); 
+  var week = 60*60*24*7;
+  var ttl = Math.round(now.getTime() / 1000) + week;
+  var signature = encoded + '\n' + ttl; 
+  var hash = crypto.createHmac('sha256', saKey).update(signature, 'utf8').digest('base64'); 
+  return 'SharedAccessSignature sr=' + encoded + '&sig=' +  
+      encodeURIComponent(hash) + '&se=' + ttl + '&skn=' + saName; 
+}
+```
+
+To use a policy name and a key value to connect to an event hub, use the `EventHubProducerClient` constructor that takes the `AzureNamedKeyCredential` parameter.
+
+```javascript
+const producer = new EventHubProducerClient("NAMESPACE NAME.servicebus.windows.net", eventHubName, new AzureNamedKeyCredential("POLICYNAME", "KEYVALUE"));
+```
+
+You'll need to add a reference to `AzureNamedKeyCredential`.
+
+```javascript
+const { AzureNamedKeyCredential } = require("@azure/core-auth");
+```
+
+To use a SAS token that you generated using the code above, use the `EventHubProducerClient` constructor that takes the `AzureSASCredential` parameter.
+
+```javascript
+var token = createSharedAccessToken("https://NAMESPACENAME.servicebus.windows.net", "POLICYNAME", "KEYVALUE");
+const producer = new EventHubProducerClient("NAMESPACENAME.servicebus.windows.net", eventHubName, new AzureSASCredential(token));
+```
+
+You'll need to add a reference to `AzureSASCredential`.
+
+```javascript
+const { AzureSASCredential } = require("@azure/core-auth");
 ```
 
 #### JAVA

@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 11/9/2022
 ---
 # Stream data as input into Stream Analytics
 
@@ -20,7 +20,7 @@ These input resources can live in the same Azure subscription as your Stream Ana
 
 ### Compression
 
-Stream Analytics supports compression across all data stream input sources. Supported compression types are: None, GZip, and Deflate compression. Support for compression is not available for reference data. If the input format is Avro data that is compressed, it's handled transparently. You don't need to specify compression type with Avro serialization. 
+Stream Analytics supports compression across all data stream input sources. Supported compression types are: None, Gzip, and Deflate compression. Support for compression isn't available for reference data. If the input format is Avro data that is compressed, it's handled transparently. You don't need to specify compression type with Avro serialization. 
 
 ## Create, edit, or test inputs
 
@@ -37,7 +37,7 @@ Azure Event Hubs provides highly scalable publish-subscribe event investors. An 
 
 ### Event Hubs Consumer groups
 
-You should configure each Stream Analytics event hub input to have its own consumer group. When a job contains a self-join or has multiple inputs, some inputs might be read by more than one reader downstream. This situation impacts the number of readers in a single consumer group. To avoid exceeding the Event Hubs limit of five readers per consumer group per partition, it's a best practice to designate a consumer group for each Stream Analytics job. There is also a limit of 20 consumer groups for a Standard tier event hub. For more information, see [Troubleshoot Azure Stream Analytics inputs](stream-analytics-troubleshoot-input.md).
+You should configure each Stream Analytics event hub input to have its own consumer group. When a job contains a self-join or has multiple inputs, some inputs might be read by more than one reader downstream. This situation impacts the number of readers in a single consumer group. To avoid exceeding the Event Hubs limit of five readers per consumer group per partition, it's a best practice to designate a consumer group for each Stream Analytics job. There's also a limit of 20 consumer groups for a Standard tier event hub. For more information, see [Troubleshoot Azure Stream Analytics inputs](stream-analytics-troubleshoot-input.md).
 
 ### Create an input from Event Hubs
 
@@ -47,16 +47,16 @@ The following table explains each property in the **New input** page in the Azur
 | --- | --- |
 | **Input alias** |A friendly name that you use in the job's query to reference this input. |
 | **Subscription** | Choose the subscription in which the Event hub resource exists. | 
-| **Event Hub namespace** | The Event Hub namespace is a container for a set of messaging entities. When you create a new event hub, you also create the namespace. |
+| **Event Hub namespace** | The Event Hubs namespace is a container for a set of messaging entities. When you create a new event hub, you also create the namespace. |
 | **Event Hub name** | The name of the event hub to use as input. |
-| **Event Hub policy name** | The shared access policy that provides access to the Event Hub. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated, unless you select the option to provide the Event Hub settings manually.|
-| **Event Hub consumer group** (recommended) | It is highly recommended to use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group.  |
-| **Partition key** | This is an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. This is used for improving the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to "PartitionId". |
-| **Event serialization format** | The serialization format (JSON, CSV, Avro, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
+| **Event Hub policy name** | The shared access policy that provides access to the Event Hubs. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated, unless you select the option to provide the Event Hubs settings manually.|
+| **Event Hub consumer group** (recommended) | It's highly recommended to use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group.  |
+| **Partition key** | It is an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. It is used for improving the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to "PartitionId". |
+| **Event serialization format** | The serialization format (JSON, CSV, Avro, Parquet, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
-| **Event compression type** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
+| **Event compression type** | The compression type used to read the incoming data stream, such as None (default), Gzip, or Deflate. |
 
-When your data comes from an Event Hub stream input, you have access to the following metadata fields in your Stream Analytics query:
+When your data comes from an Event Hubs stream input, you have access to the following metadata fields in your Stream Analytics query:
 
 | Property | Description |
 | --- | --- |
@@ -100,11 +100,11 @@ The following table explains each property in the **New input** page in the Azur
 | **Endpoint** | The endpoint for the IoT Hub.|
 | **Shared access policy name** | The shared access policy that provides access to the IoT Hub. Each shared access policy has a name, permissions that you set, and access keys. |
 | **Shared access policy key** | The shared access key used to authorize access to the IoT Hub.  This option is automatically populated in unless you select the option to provide the Iot Hub settings manually. |
-| **Consumer group** | It is highly recommended that you use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless you specify otherwise.  |
-| **Partition key** | This is an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. This is used for improving the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to "PartitionId". |
-| **Event serialization format** | The serialization format (JSON, CSV, Avro, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
+| **Consumer group** | It's highly recommended that you use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless you specify otherwise.  |
+| **Partition key** | It is an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. It is used for improving the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to "PartitionId". |
+| **Event serialization format** | The serialization format (JSON, CSV, Avro, Parquet, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
-| **Event compression type** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
+| **Event compression type** | The compression type used to read the incoming data stream, such as None (default), Gzip, or Deflate. |
 
 
 When you use stream data from an IoT Hub, you have access to the following metadata fields in your Stream Analytics query:
@@ -122,7 +122,7 @@ When you use stream data from an IoT Hub, you have access to the following metad
 
 
 ## Stream data from Blob storage or Data Lake Storage Gen2
-For scenarios with large quantities of unstructured data to store in the cloud, Azure Blob storage or Azure Data Lake Storage Gen2 (ADLS Gen2) offers a cost-effective and scalable solution. Data in Blob storage or ADLS Gen2 is usually considered data at rest; however, this data can be processed as a data stream by Stream Analytics. 
+For scenarios with large quantities of unstructured data to store in the cloud, Azure Blob storage or Azure Data Lake Storage Gen2 (ADLS Gen2) offers a cost-effective and scalable solution. Data in Blob storage or ADLS Gen2 is considered data at rest; however, this data can be processed as a data stream by Stream Analytics. 
 
 Log processing is a commonly used scenario for using such inputs with Stream Analytics. In this scenario, telemetry data files have been captured from a system and need to be parsed and processed to extract meaningful data.
 
@@ -130,16 +130,16 @@ The default timestamp of a Blob storage or ADLS Gen2 event in Stream Analytics i
 
 If a blob is uploaded to a storage account container at 13:00, and the Azure Stream Analytics job is started using *Custom Time* at 13:00 or earlier, the blob will be picked up as its modified time falls inside the job run period.
 
-If an Azure Stream Analytics job is started using *Now* at 13:00, and a blob is uploaded to the storage account container at 13:01, Azure Stream Analytics will pick up the blob. The timestamp assigned to each blob is based only on `BlobLastModifiedTime`. The folder the blob is in has no relation to the the timestamp assigned. For example, if there is a blob *2019/10-01/00/b1.txt* with a `BlobLastModifiedTime` of 2019-11-11, then the timestamp assigned to this blob is 2019-11-11.
+If an Azure Stream Analytics job is started using *Now* at 13:00, and a blob is uploaded to the storage account container at 13:01, Azure Stream Analytics will pick up the blob. The timestamp assigned to each blob is based only on `BlobLastModifiedTime`. The folder the blob is in has no relation to the timestamp assigned. For example, if there's a blob *2019/10-01/00/b1.txt* with a `BlobLastModifiedTime` of 2019-11-11, then the timestamp assigned to this blob is 2019-11-11.
 
-To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](/stream-analytics-query/stream-analytics-query-language-reference) keyword. A Stream Analytics job pulls data from Azure Blob storage or ADLS Gen2 input every second if the blob file is available. If the blob file is unavailable, there is an exponential backoff with a maximum time delay of 90 seconds.
+To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](/stream-analytics-query/stream-analytics-query-language-reference) keyword. A Stream Analytics job pulls data from Azure Blob storage or ADLS Gen2 input every second if the blob file is available. If the blob file is unavailable, there's an exponential backoff with a maximum time delay of 90 seconds.
 
 CSV-formatted inputs require a header row to define fields for the data set, and all header row fields must be unique.
 
 > [!NOTE]
 > Stream Analytics does not support adding content to an existing blob file. Stream Analytics will view each file only once, and any changes that occur in the file after the job has read the data are not processed. Best practice is to upload all the data for a blob file at once and then add additional newer events to a different, new blob file.
 
-In scenarios where many blobs are continuously added and Stream Analytics is processing the blobs as they are added, it's possible for some blobs to be skipped in rare cases due to the granularity of the `BlobLastModifiedTime`. You can mitigate this by uploading blobs at least two seconds apart. If this option is not feasible, you can use Event Hubs to stream large volumes of events.
+In scenarios where many blobs are continuously added and Stream Analytics is processing the blobs as they're added, it's possible for some blobs to be skipped in rare cases due to the granularity of the `BlobLastModifiedTime`. You can mitigate this case by uploading blobs at least two seconds apart. If this option isn't feasible, you can use Event Hubs to stream large volumes of events.
 
 ### Configure Blob storage as a stream input 
 
@@ -152,14 +152,14 @@ The following table explains each property in the **New input** page in the Azur
 | **Storage account** | The name of the storage account where the blob files are located. |
 | **Storage account key** | The secret key associated with the storage account. This option is automatically populated in unless you select the option to provide the settings manually. |
 | **Container** | Containers provide a logical grouping for blobs. You can choose either **Use existing** container or  **Create new** to have a new container created.|
-| **Path pattern** (optional) | The file path used to locate the blobs within the specified container. If you want to read blobs from the root of the container, do not set a path pattern. Within the path, you can specify one or more instances of the following three variables: `{date}`, `{time}`, or `{partition}`<br/><br/>Example 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Example 2: `cluster1/logs/{date}`<br/><br/>The `*` character is not an allowed value for the path prefix. Only valid <a HREF="/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata">Azure blob characters</a> are allowed. Do not include container names or file names. |
+| **Path pattern** (optional) | The file path used to locate the blobs within the specified container. If you want to read blobs from the root of the container, don't set a path pattern. Within the path, you can specify one or more instances of the following three variables: `{date}`, `{time}`, or `{partition}`<br/><br/>Example 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Example 2: `cluster1/logs/{date}`<br/><br/>The `*` character isn't an allowed value for the path prefix. Only valid <a href="/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata">Azure blob characters</a> are allowed. Don't include container names or file names. |
 | **Date format** (optional) | If you use the date variable in the path, the date format in which the files are organized. Example: `YYYY/MM/DD` <br/><br/> When blob input has `{date}` or `{time}` in its path, the folders are looked at in ascending time order.|
 | **Time format** (optional) |  If you use the time variable in the path, the time format in which the files are organized. Currently the only supported value is `HH` for hours. |
-| **Partition key** | This is an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. This is used for improving the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to "PartitionId". |
+| **Partition key** | It is an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. It is used for improving the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to "PartitionId". |
 | **Count of input partitions** | This field is present only when {partition} is present in path pattern. The value of this property is an integer >=1. Wherever {partition} appears in pathPattern, a number between 0 and the value of this field -1 will be used. |
-| **Event serialization format** | The serialization format (JSON, CSV, Avro, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
+| **Event serialization format** | The serialization format (JSON, CSV, Avro, Parquet, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | For CSV and JSON, UTF-8 is currently the only supported encoding format. |
-| **Compression** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
+| **Compression** | The compression type used to read the incoming data stream, such as None (default), Gzip, or Deflate. |
 
 When your data comes from a Blob storage source, you have access to the following metadata fields in your Stream Analytics query:
 

@@ -3,7 +3,7 @@ title: Azure IoT Central data integration guide | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to integrate your IoT Central application with other services to extend its capabilities.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/04/2022
+ms.date: 06/03/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -108,7 +108,7 @@ Scenarios that process IoT data outside of IoT Central to extract business value
 
   For example, use the IoT Central continuous data export feature to continuously ingest your IoT data into an Azure Synapse store. Then use Azure Data Factory to bring data from external systems into the Azure Synapse store. Use the Azure Synapse store with Power BI to generate your business reports.
 
-To learn more, see [Transform data for IoT Central](howto-transform-data.md). For a complete, end-to-end sample, see the [IoT Central Compute](https://github.com/iot-for-all/iot-central-compute) GitHub repository.
+To learn more, see [Transform data for IoT Central](howto-transform-data.md). For a complete, end-to-end sample, see the [IoT Central Compute](https://github.com/Azure/iot-central-compute) GitHub repository.
 
 ## Integrate with other services
 
@@ -120,7 +120,7 @@ You can use the data export and rules capabilities in IoT Central to integrate w
 - [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](howto-create-custom-rules.md)
 - [Extend Azure IoT Central with custom analytics using Azure Databricks](howto-create-custom-analytics.md)
 
-You can use IoT Edge devices connected to your IoT Central application to integrate with [Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-docs/overview.md). To learn more, see the [Azure IoT Central gateway module for Azure Video Analyzer](https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md) on GitHub.
+You can use IoT Edge devices connected to your IoT Central application to integrate with [Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-docs/overview.md).
 
 ## Integrate with companion applications
 

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 08/05/2022
 ---
 
 # Data transformation expressions in mapping data flow

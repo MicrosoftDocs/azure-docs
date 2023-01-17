@@ -3,11 +3,11 @@ title: 'On-demand provisioning in Azure AD Connect cloud sync'
 description: This article describes how to use the cloud sync feature of Azure AD Connect to test configuration changes.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 01/11/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

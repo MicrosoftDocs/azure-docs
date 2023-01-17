@@ -1,14 +1,13 @@
 ---
 title: Increase resilience of authentication and authorization applications you develop
-titleSuffix: Microsoft identity platform
 description: Overview of our resilience guidance for application development using Azure Active Directory and the Microsoft identity platform
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals 
 ms.workload: identity
 ms.topic: how-to
-author: knicholasa
-ms.author: nichola
+author: janicericketts
+ms.author: jricketts
 manager: martinco
 ms.date: 11/23/2020
 ---

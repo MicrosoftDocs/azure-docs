@@ -1,12 +1,14 @@
 ---
-title: Matched person
+title: Enable the matched person insight
 description: The topic explains how to use a match observed people feature. These are people that are detected in the video with the corresponding faces ("People" insight).
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/10/2021
 ms.author: juliako
 ---
 
-# Matched person (preview)
+# Enable the matched person insight (preview)
+
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 Azure Video Indexer matches observed people that were detected in the video with the corresponding faces ("People" insight). To produce the matching algorithm, the bounding boxes for both the faces and the observed people are assigned spatially along the video. The API returns the confidence level of each matching.
 
@@ -93,10 +95,10 @@ The following JSON response illustrates what Azure Video Indexer returns when tr
 
 It's important to note the limitations of Mapped person, to avoid or mitigate the effects of miss matches between people or people who have no matches.
  
-**Precondition** for the matching is that the person that showing in the Observed person was detected and can be found in the People insight.  
+**Precondition** for the matching is that the person that showing in the observed faces was detected and can be found in the People insight.  
 **Pose**: The tracks are optimized to handle observed people who most often appear on the front.  
-**Obstructions**: There may be miss matching between persons and observed people where there are obstruction (people or faces overlapping each other).  
-**Spatial allocation per frame**: There may be miss matching where different people appear in the same spatial position relatively to the frame in a short time.
+**Obstructions**: There is no match between faces and observed people where there are obstruction (people or faces overlapping each other).  
+**Spatial allocation per frame**: There is no match where different people appear in the same spatial position relatively to the frame in a short time.
 
 See the limitations of Observed people: [Trace observed people in a video](observed-people-tracing.md)
 

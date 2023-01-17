@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/26/2022
+ms.date: 07/11/2022
 ---
 
 # Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics
@@ -18,12 +18,16 @@ This article outlines how to use Copy Activity in Azure Data Factory and Synapse
 
 ## Supported capabilities
 
-This Google BigQuery connector is supported for the following activities:
+This Google BigQuery connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-You can copy data from Google BigQuery to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 The service provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
 
@@ -117,7 +121,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
-| keyFilePath | The full path to the .p12 key file that is used to authenticate the service account email address. | No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address. | No |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
 
@@ -133,7 +137,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
             "requestGoogleDriveScope" : true,
             "authenticationType" : "ServiceAuthentication",
             "email": "<email>",
-            "keyFilePath": "<.p12 key path on the IR machine>"
+            "keyFilePath": "<.p12 or .json key path on the IR machine>"
         },
         "connectVia": {
             "referenceName": "<name of Self-hosted Integration Runtime>",

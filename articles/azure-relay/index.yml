@@ -68,7 +68,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Expose hybrid services securely with Azure Relay
-            url: /learn/modules/expose-hybrid-services-with-azure-relay/
+            url: /training/modules/expose-hybrid-services-with-azure-relay/
 
   # Card
   - title: Security

@@ -2,7 +2,11 @@
 title: Tutorial - Prepare container image for deployment
 description: Azure Container Instances tutorial part 1 of 3 - Prepare an app in a container image for deployment to Azure Container Instances
 ms.topic: tutorial
-ms.date: 03/21/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: "seodec18, mvc, devx-track-js"
 ---
 
@@ -122,7 +126,8 @@ In this tutorial, you created a container image that can be deployed in Azure Co
 
 Advance to the next tutorial in the series to learn about storing your container image in Azure Container Registry:
 
-[Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
+> [!div class="nextstepaction"]
+> [Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png

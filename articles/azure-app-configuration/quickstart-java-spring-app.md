@@ -39,9 +39,9 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 
 ## Create a Spring Boot app
 
-Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boot project.
+To create a new Spring Boot project:
 
-1. Browse to <https://start.spring.io/>.
+1. Browse to the [Spring Initializr](https://start.spring.io).
 
 1. Specify the following options:
 

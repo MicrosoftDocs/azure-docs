@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.author: mesameki
 author: mesameki
-ms.reviewer: ssalgado
-ms.date: 10/21/2021
+ms.reviewer: lagayhar
+ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml, sdkv1, event-tier1-build-2022
 ---
@@ -207,8 +207,8 @@ The following example shows how to use the fairness package. We will upload mode
     If you complete the previous steps (uploading generated fairness insights to Azure Machine Learning), you can view the fairness dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is the same visualization dashboard provided in Fairlearn, enabling you to analyze the disparities among your sensitive feature's subgroups (e.g., male vs. female).
     Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
 
-    * **Experiments pane (Preview)**
-    1. Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
+    * **Jobs pane (Preview)**
+    1. Select **Jobs** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
     1. Select a particular experiment to view all the runs in that experiment.
     1. Select a run, and then the **Fairness** tab to the explanation visualization dashboard.
     1. Once landing on the **Fairness** tab, click on a **fairness id** from the menu on the right.
@@ -224,7 +224,7 @@ The following example shows how to use the fairness package. We will upload mode
     1. If you registered your original model by following the previous steps, you can select **Models** in the left pane to view it.
     1. Select a model, and then the **Fairness** tab to view the explanation visualization dashboard.
 
-    To learn more about the visualization dashboard and what it contains, check out Fairlearn's [user guide](https://fairlearn.org/main/user_guide/assessment.html#fairlearn-dashboard).
+    To learn more about the visualization dashboard and what it contains, check out Fairlearn's [user guide](https://fairlearn.org/main/user_guide/assessment/index.html#fairlearn-dashboard).
 
 ## Upload fairness insights for multiple models
 

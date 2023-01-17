@@ -8,8 +8,7 @@ manager: barbkess
 editor: TomSh
 
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -55,7 +54,7 @@ Multi-Factor Authentication helps safeguard access to data and applications whil
 
 Learn more:
 
-* [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+* [Multi-Factor Authentication](/azure/multi-factor-authentication/)
 * [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
@@ -114,7 +113,7 @@ Learn more:
 
 Microsoft Defender for Cloud helps you prevent, detect, and respond to threats. Defender for Cloud gives you increased visibility into, and control over, the security of your Azure resources as well as those in your hybrid cloud environment. 
 
-Defender for Cloud performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Azure Security Benchmark](../benchmarks/introduction.md) to provide detailed security recommendations tailored for your environment.
+Defender for Cloud performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) to provide detailed security recommendations tailored for your environment.
 
 Defender for Cloud helps you optimize and monitor the security of your Azure resources by:
 

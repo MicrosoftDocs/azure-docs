@@ -3,12 +3,12 @@ title: How to troubleshoot Azure Data Catalog
 description: This article describes common troubleshooting concerns for Azure Data Catalog resources. 
 ms.service: data-catalog
 ms.topic: troubleshooting
-ms.date: 02/10/2022
+ms.date: 12/15/2022
 ---
 
 # Troubleshooting Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 This article describes common troubleshooting concerns for Azure Data Catalog resources. 
 

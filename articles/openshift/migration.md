@@ -1,8 +1,8 @@
 ---
 title: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
 description: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: konghot
+ms.author: pkonghot
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/13/2020
@@ -115,12 +115,12 @@ Once you have your target cluster properly configured for your workload, [connec
 ## Delete your source cluster
 Once you've confirmed that your Azure Red Hat OpenShift 4 cluster is properly set up, delete your Azure Red Hat OpenShift 3.11 cluster.
 
+```azurecli
+az aro delete --name $CLUSTER_NAME
+              --resource-group $RESOURCE_GROUP
+              [--no-wait]
+              [--yes]
 ```
-az openshift delete --name $CLUSTER_NAME
-                    --resource-group $RESOURCE_GROUP
-                    [--no-wait]
-                    [--subscription]
-                    [--yes]
-```
+
 ## Next steps
 Check out Red Hat OpenShift documentation [here](https://docs.openshift.com/container-platform/4.6/welcome/index.html).

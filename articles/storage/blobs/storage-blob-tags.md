@@ -2,15 +2,14 @@
 title: Use blob index tags to find data in Azure Blob Storage (.NET)
 description: Learn how to categorize, manage, and query for blob objects by using the .NET client library.  
 services: storage
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Use blob index tags to manage and find data in Azure Blob Storage (.NET)

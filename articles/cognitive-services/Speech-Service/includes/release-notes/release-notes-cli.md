@@ -6,6 +6,49 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.24.0: October 2022 release
+
+Uses Speech SDK 1.24.0.
+
+#### New features
+
+- Expanded "spx check" to support JMESPath queries against all spx events
+
+#### Bug fixes
+
+- Various improvements to robustness against JMESPath query evaluations
+- Fix for truncations to file writes that may occur on resource-constrained machines
+
+### Speech CLI 1.23.0: July 2022 release
+
+Uses Speech SDK 1.23.0.
+
+#### New features
+
+- Better caption (`--output vtt` and `--output srt`) large result splitting (37 char max, 3 lines)
+- Documented `spx synthesize` `--format` options (see `spx help synthesize format`)
+- Documented majority of `spx csr` commands/options (see `spx help csr`)
+- Added `spx csr model copy` command (see `spx help csr model copy`)
+- Added `--check result` option using JMES queries (see `spx help check result`)
+- Improved error messages when specifying invalid command options
+- Moved from .NET Core 3.1 to .NET 6.0. In order to run Speech CLI, you will need to install the [.NET 6.0 Runtime](https://dotnet.microsoft.com/download/dotnet/6.0/runtime) (or above).
+
+#### Bug fixes
+
+- Updated all URLs to remove language (e.g. en-US)
+- Fixed version info to report properly in all cases (previously it sometimes showed a blank)
+
+### Speech CLI 1.22.0: June 2022 release
+
+Uses Speech SDK 1.22.0.
+
+#### New features
+
+- Added `spx init` command to guide users through the Speech resource key creation without going to Azure Web Portal.
+- Speech docker containers now have Azure CLI included, so the `spx init` command will work out of the box.
+- Added timestamp as an event output option, to make SPX more useful when calculating latencies.
+
+
 ### Speech CLI 1.21.0: April 2022 release
 
 Uses Speech SDK 1.21.0.

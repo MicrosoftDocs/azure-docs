@@ -93,7 +93,7 @@ You can now explore the scene graph by selecting the new node and clicking **Sho
 
 ![Unity Hierarchy](./media/unity-hierarchy.png)
 
-There is a [cut plane](../overview/features/cut-planes.md) object in the scene. Try enabling it in its properties and moving it around:
+There is a [cut plane](../overview/features/cut-planes.md) object in the scene. Try enabling it by checking the box in front of **CutPlane** under Inspector pane and move around:
 
 ![Changing the cut plane](media/arr-sample-unity-cutplane.png)
 

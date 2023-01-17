@@ -2,11 +2,11 @@
 title: "Quickstart: Create a public load balancer - Azure CLI"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a public load balancer using the Azure CLI
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/16/2022
-ms.author: allensu
+ms.author: mbender
 ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
@@ -17,7 +17,7 @@ Get started with Azure Load Balancer by using the Azure CLI to create a public l
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

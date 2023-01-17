@@ -4,9 +4,9 @@ description: Configure Power BI app offer listing details on Microsoft AppSource
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 05/26/2021
+author: trkeya
+ms.author: trkeya
+ms.date: 6/20/2022
 ---
 
 # Configure Power BI app offer listing details

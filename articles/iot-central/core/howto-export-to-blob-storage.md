@@ -2,8 +2,8 @@
 title: Export data to Blob Storage IoT Central | Microsoft Docs
 description: How to use the new data export to export your IoT data to Blob Storage
 services: iot-central
-author: v-krishnag
-ms.author: v-krishnag
+author: dominicbetts
+ms.author: dobett
 ms.date: 04/28/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -14,6 +14,8 @@ ms.service: iot-central
 This article describes how to configure data export to send data to the  Blob Storage service.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
+
+To learn how to manage data export by using the IoT Central REST API, see [How to use the IoT Central REST API to manage data exports.](../core/howto-manage-data-export-with-rest-api.md)
 
 ## Set up a Blob Storage export destination
 
@@ -261,6 +263,30 @@ The following example shows an exported device lifecycle message received in Azu
   "enrichments": {
     "userSpecifiedKey": "sampleValue"
   }
+}
+```
+
+[!INCLUDE [iot-central-data-export-audit-logs](../../../includes/iot-central-data-export-audit-logs.md)]
+
+The following example shows an exported audit log message received in Azure Blob Storage:
+
+```json
+{
+  "actor": {
+    "id": "test-audit",
+    "type": "apiToken"
+    },
+  "applicationId": "570c2d7b-1111-2222-abcd-000000000000",
+  "enqueuedTime": "2022-07-25T21:54:40.000Z",
+  "enrichments": {},
+  "messageSource": "audit",
+  "messageType": "created",
+  "resource": {
+    "displayName": "Sensor 1",
+    "id": "sensor",
+    "type": "device"    
+  },
+  "schema": "default@v1"
 }
 ```
 

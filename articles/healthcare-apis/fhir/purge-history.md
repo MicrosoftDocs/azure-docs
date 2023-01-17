@@ -1,17 +1,17 @@
 ---
 title: Purge history operation for Azure Health Data Services FHIR service
 description: This article describes the $purge-history operation for the FHIR service.
-author: stevewohl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/05/2022
-ms.author: mikaelw
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
 # Purge history operation
 
-`$purge-history` is an operation that allows you to delete the history of a single FHIR resource. This operation isn't defined in the FHIR specification, but it's useful for [history management](fhir-versioning-policy-and-history-management.md) in large FHIR service instances.
+`$purge-history` is an operation that allows you to delete the history of a single Fast Healthcare Interoperability Resources (FHIR&#174;) resource. This operation isn't defined in the FHIR specification, but it's useful for [history management](fhir-versioning-policy-and-history-management.md) in large FHIR service instances.
 
 ## Overview of purge history
 
@@ -45,3 +45,5 @@ In this article, you learned how to purge the history for resources in the FHIR 
 
 >[!div class="nextstepaction"]
 >[FHIR REST API capabilities for Azure Health Data Services FHIR service](fhir-rest-api-capabilities.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

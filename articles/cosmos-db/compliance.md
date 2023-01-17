@@ -1,17 +1,18 @@
 ---
 title: Azure Cosmos DB compliance 
 description: This article describes compliance coverage for Azure Cosmos DB.
-author: ThomasWeiss
-ms.author: thweiss
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/11/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Compliance in Azure Cosmos DB 
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB is available in all Azure regions. Microsoft makes the following Azure cloud environments available to customers:
 

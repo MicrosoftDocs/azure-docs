@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
+
 This article describes how to use the Azure CLI command-line interface to create Azure Data Lake Analytics accounts, submit USQL jobs, and catalogs. The job reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file.
 
 ## Prerequisites

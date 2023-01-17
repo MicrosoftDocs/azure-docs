@@ -1,15 +1,13 @@
 ---
-
 title: Microsoft peering policy
 titleSuffix: Azure
 description: Microsoft peering policy
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.author: prmitiki
-
+ms.author: halkazwini
 ---
 
 # Peering policy

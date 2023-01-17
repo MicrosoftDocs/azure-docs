@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 11/10/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -24,7 +24,7 @@ Before creating a custom text classification model, you need to have labeled dat
 Before you can label data, you need:
 
 * [A successfully created project](create-project.md) with a configured Azure blob storage account, 
-* Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
+* Documents containing text data that have [been uploaded](design-schema.md#data-preparation) to your storage account.
 
 See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
@@ -58,8 +58,6 @@ Use the following steps to label your data:
 
 4. In the right side pane, **Add class** to your project so you can start labeling your data with them.
 
-    :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing the data tagging screen" lightbox="../media/tag-1.png":::
-
 5. Start labeling your files.
 
     # [Multi label classification](#tab/multi-classification)
@@ -83,7 +81,9 @@ Use the following steps to label your data:
     > [!TIP]
     > If you are planning on using **Automatic** data spliting use the default option of assigning all the documents into your training set.
 
-8. Under the **Distribution** pivot you can view the distribution of your labeled documents across training and testing sets. You can learn more about the training testing sets and how they are used [here](train-model.md#data-splitting).
+8. Under the **Distribution** pivot you can view the distribution across training and testing sets. You have two options for viewing:
+   * *Total instances* where you can view count of all labeled instances of a specific class.
+   * *documents with at least one label* where each document is counted if it contains at least one labeled instance of this class.
 
 9. While you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
 

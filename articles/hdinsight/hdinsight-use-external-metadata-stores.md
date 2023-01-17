@@ -4,10 +4,13 @@ description: Use external metadata stores with Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/05/2022
+ms.date: 06/08/2022
 ---
 
 # Use external metadata stores in Azure HDInsight
+
+> [!IMPORTANT]
+> The default metastore provides a basic tier Azure SQL Database with only **5 DTU and 2 GB data max size (NOT UPGRADEABLE)**! Use this for QA and testing purposes only. **For production or large workloads, we recommend migrating to an external metastore!**
 
 HDInsight allows you to take control of your data and metadata with external data stores. This feature is available for [Apache Hive metastore](#custom-metastore), [Apache Oozie metastore](#apache-oozie-metastore), and [Apache Ambari database](#custom-ambari-db).
 
@@ -22,18 +25,17 @@ There are two ways you can set up a metastore for your HDInsight clusters:
 
 ## Default metastore
 
-> [!IMPORTANT]
-> The default metastore provides a basic tier Azure SQL Database with only **5 DTU and 2 GB data max size (NOT UPGRADEABLE)**! Use this for QA and testing purposes only. **For production or large workloads, we recommend migrating to an external metastore!**
-
 By default, HDInsight creates a metastore with every cluster type. You can instead specify a custom metastore. The default metastore includes the following considerations:
+
+* Limited resources. See notice at the top of the page.
 
 * No additional cost. HDInsight creates a metastore with every cluster type without any additional cost to you.
 
-* Each default metastore is part of the cluster lifecycle. When you delete a cluster, the corresponding metastore and metadata are also deleted.
+* The default metastore is part of the cluster lifecycle. When you delete a cluster, the corresponding metastore and metadata are also deleted.
 
-* You can't share the default metastore with other clusters.
+* The default metastore is recommended only for simple workloads. Workloads that don't require multiple clusters and don't need metadata preserved beyond the cluster's lifecycle.
 
-* Default metastore is recommended only for simple workloads. Workloads that don't require multiple clusters and don't need metadata preserved beyond the cluster's lifecycle.
+* The default metastore can't be shared with other clusters.
 
 ## Custom metastore
 

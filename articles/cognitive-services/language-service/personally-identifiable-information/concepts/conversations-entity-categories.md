@@ -3,13 +3,13 @@ title: Entity categories recognized by Conversational Personally Identifiable In
 titleSuffix: Azure Cognitive Services
 description: Learn about the entities the Conversational PII feature (preview) can recognize from conversation inputs.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 05/15/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-pii
 ---
 
@@ -23,7 +23,7 @@ The PII preview feature includes the ability to detect personal (`PII`) informat
 
 The following entity categories are returned when you're sending API requests PII feature.
 
-## Category: Person
+## Category: Name
 
 This category contains the following entity:
 
@@ -31,7 +31,7 @@ This category contains the following entity:
     :::column span="":::
         **Entity**
 
-        Person
+        Name
 
     :::column-end:::
     :::column span="2":::
@@ -39,7 +39,7 @@ This category contains the following entity:
 
         All first, middle, last or full name is considered PII regardless of whether it is the speaker’s name, the agent’s name, someone else’s name or a different version of the speaker’s full name (Chris vs. Christopher). 
 
-        To get this entity category, add `Person` to the `pii-categories` parameter. `Person` will be returned in the API response if detected.
+        To get this entity category, add `Name` to the `pii-categories` parameter. `Name` will be returned in the API response if detected.
       
     :::column-end:::
     

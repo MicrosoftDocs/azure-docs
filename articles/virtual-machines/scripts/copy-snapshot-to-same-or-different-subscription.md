@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Copy (or move) snapshot of a managed disk
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.topic: sample
 ms.workload: infrastructure
@@ -26,7 +26,7 @@ This script copies a snapshot of a managed disk to same or different subscriptio
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

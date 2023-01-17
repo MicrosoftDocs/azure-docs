@@ -2,13 +2,16 @@
 title: Deploy a Service Fabric managed cluster using Azure Resource Manager
 description: Learn how to create a Service Fabric managed cluster with an Azure Resource Manager template
 ms.topic: quickstart
-ms.date: 5/10/2021
-ms.custom: mode-other
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Quickstart: Deploy a Service Fabric managed cluster with an Azure Resource Manager template
 
-Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience. Service Fabric managed clusters are a fully encapsulated resource that enable you to deploy a single Service Fabric cluster resource rather than having to deploy all of the underlying resources that make up a Service Fabric cluster. This article describes how to do deploy a Service Fabric managed cluster for testing in Azure using an Azure Resource Manager template (ARM template).
+Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience. A Service Fabric managed cluster is a fully encapsulated resource that enables you to deploy a single Service Fabric cluster resource rather than having to deploy all of the underlying resources that make up a Service Fabric cluster. This article describes how to do deploy a Service Fabric managed cluster for testing in Azure using an Azure Resource Manager template (ARM template).
 
 The three-node Basic SKU cluster deployed in this tutorial is only intended to be used for instructional purposes (rather than production workloads). For further information, see  [Service Fabric managed cluster SKUs](overview-managed-cluster.md#service-fabric-managed-cluster-skus).
 

@@ -42,7 +42,7 @@
                             },
                             {
                                 "name": "ConnectionString",
-                                "secretref": "queue-connection-string"
+                                "secretRef": "queue-connection-string"
                             }
                         ]
                     }

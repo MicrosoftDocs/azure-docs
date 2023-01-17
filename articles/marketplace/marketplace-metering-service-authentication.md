@@ -4,7 +4,7 @@ description: Metering service authentication strategies supported in Azure Marke
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/13/2022
 author: arifgani
 ms.author: argani
 ---

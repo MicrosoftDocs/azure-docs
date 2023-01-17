@@ -4,7 +4,7 @@ description: Use Azure Resource Manager and Azure CLI to deploy resources to Azu
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 07/08/2022
 ms.custom: devx-track-azurecli, seo-azure-cli
 ---
 
@@ -110,7 +110,7 @@ az deployment group create \
 
 If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass the array in the format: `exampleArray="['value1','value2']"`.
 
-You can also get the contents of file and provide that content as an inline parameter.
+You can also get the contents of file and provide that content as an inline parameter. Preface the file name with **@**.
 
 ```azurecli-interactive
 az deployment group create \
@@ -152,6 +152,15 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 
 Use double quotes around the JSON that you want to pass into the object.
 
+If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass the object in the following format:
+
+```azurecli
+$tags="{'Owner':'Contoso','Cost Center':'2345-324'}"
+az deployment group create --name addstorage  --resource-group myResourceGroup \
+--template-file $bicepFile \
+--parameters resourceName=abcdef4556 resourceTags=$tags
+```
+
 You can use a variable to contain the parameter values. In Bash, set the variable to all of the parameter values and add it to the deployment command.
 
 ```azurecli-interactive
@@ -171,14 +180,14 @@ Rather than passing parameters as inline values in your script, you may find it 
 
 For more information about the parameter file, see [Create Resource Manager parameter file](./parameter-files.md).
 
-To pass a local parameter file, use `@` to specify a local file named _storage.parameters.json_.
+To pass a local parameter file, specify the path and file name. The following example shows a parameter file named _storage.parameters.json_. The file is in the same directory where the command is run.
 
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.bicep \
-  --parameters @storage.parameters.json
+  --parameters storage.parameters.json
 ```
 
 ## Preview changes

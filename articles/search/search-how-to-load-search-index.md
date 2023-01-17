@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 10/21/2022
 ---
 
 # Load data into a search index in Azure Cognitive Search
@@ -17,9 +17,9 @@ This article explains how to import, refresh, and manage content in a predefined
 
 A search service imports and indexes text in JSON, used in full text search or knowledge mining scenarios. Text content is obtainable from alphanumeric fields in the external data source, metadata that's useful in search scenarios, or enriched content created by a [skillset](cognitive-search-working-with-skillsets.md) (skills can extract or infer textual descriptions from images and unstructured content).
 
-Once data is indexed, the physical data structures of the index are locked in. For guidance on what can and cannot be changed, see [Drop and rebuild an index](search-howto-reindex.md).
+Once data is indexed, the physical data structures of the index are locked in. For guidance on what can and can't be changed, see [Drop and rebuild an index](search-howto-reindex.md).
 
-Indexing is not a background process. A search service will balance indexing and query workloads, but if [query latency is too high](search-performance-analysis.md#impact-of-indexing-on-queries), you can either [add capacity](search-capacity-planning.md#add-or-reduce-replicas-and-partitions) or identify periods of low query activity for loading an index.
+Indexing isn't a background process. A search service will balance indexing and query workloads, but if [query latency is too high](search-performance-analysis.md#impact-of-indexing-on-queries), you can either [add capacity](search-capacity-planning.md#add-or-reduce-replicas-and-partitions) or identify periods of low query activity for loading an index.
 
 ## Load documents
 
@@ -29,15 +29,15 @@ You can prepare these documents yourself, but if content resides in a [supported
 
 ### [**Azure portal**](#tab/portal)
 
-Using Azure portal, the sole means for loading an index is the [Import Data wizard](search-import-data-portal.md). The wizard creates objects. If you want to load an existing index, you will need to use an alternative approach.
+Using Azure portal, the sole means for loading an index is an indexer or running the [Import Data wizard](search-import-data-portal.md). The wizard creates objects. If you want to load an existing index, you'll need to use an alternative approach.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index.
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, select **Import data** on the command bar to create and populate a search index. You can follow this link to review the workflow: [Quickstart: Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md).
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
-1. Follow this link to review the workflow: [Quickstart: Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md).
+1. Alternatively, you can [reset and run an indexer](search-howto-run-reset-indexers.md), which is useful if you're adding fields incrementally. Reset forces the indexer to start over, picking up all fields from all source documents.
 
 ### [**REST**](#tab/import-rest)
 
@@ -79,7 +79,7 @@ Using Azure portal, the sole means for loading an index is the [Import Data wiza
     GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2020-06-30
     ```
 
-When the document key or ID is new, **null** becomes the value for any field that is unspecified in the document. For actions on an existing document, updated values replace the previous values. Any fields that were not specified in a "merge" or "mergeUpload" are left intact in the search index.
+When the document key or ID is new, **null** becomes the value for any field that is unspecified in the document. For actions on an existing document, updated values replace the previous values. Any fields that weren't specified in a "merge" or "mergeUpload" are left intact in the search index.
 
 ### [**.NET SDK (C#)**](#tab/importcsharp)
 

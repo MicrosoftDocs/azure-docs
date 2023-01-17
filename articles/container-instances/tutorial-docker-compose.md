@@ -2,8 +2,11 @@
 title: Tutorial - Use Docker Compose to deploy multi-container group
 description: Use Docker Compose to build and run a multi-container application and then bring up the application in to Azure Container Instances
 ms.topic: tutorial
-ms.date: 10/28/2020
-ms.custom: 
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Tutorial: Deploy a multi-container group using Docker Compose 
@@ -164,7 +167,7 @@ It can take a few minutes to push to the registry.
 To verify the image is stored in your registry, run the [az acr repository show](/cli/azure/acr/repository#az-acr-repository-show) command:
 
 ```azurecli
-az acr repository show --name <acrName> --repository azure-vote-front
+az acr repository show --name <acrName> --repository azuredocs/azure-vote-front
 ```
 
 [!INCLUDE [container-instances-create-docker-context](../../includes/container-instances-create-docker-context.md)]

@@ -23,7 +23,7 @@ Some common reasons for reusing the technical configuration settings from anothe
 - Your solution behaves differently based on the plan the user chooses to deploy. For example, the software is the same, but features vary by plan.
 
 > [!NOTE]
-> If you would like to use a public plan to create a private plan with a different price, consider creating a private offer instead of reusing the technical configuration. Learn more about [the difference between private plans and private offers](/azure/marketplace/isv-customer-faq). Learn more about [how to create a private offer](/azure/marketplace/isv-customer).
+> If you would like to use a public plan to create a private plan with a different price, consider creating a private offer instead of reusing the technical configuration. Learn more about [the difference between private plans and private offers](./isv-customer-faq.yml). Learn more about [how to create a private offer](./isv-customer.md).
 
 Leverage [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) (IMDS) to identify which plan your solution is deployed within to validate license or enabling of appropriate features.
 
@@ -55,23 +55,23 @@ Here is a list of properties that can be selected for your VM. Enable the proper
     
     - Python version above 2.6+
 
-    For more information, see [VM Extension](/azure/marketplace/azure-vm-certification-faq).
+    For more information, see [VM Extension](./azure-vm-certification-faq.yml).
 
-- **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](/azure/backup/backup-azure-vms-introduction).
+- **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](../backup/backup-azure-vms-introduction.md).
 
-- **Supports accelerated networking**: The VM images in this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about [accelerated networking for Linux](/azure/virtual-network/create-vm-accelerated-networking-cli). Learn more about [accelerated networking for Windows](/azure/virtual-network/create-vm-accelerated-networking-powershell).
+- **Supports accelerated networking**: The VM images in this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about [accelerated networking for Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Learn more about [accelerated networking for Windows](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
 - **Is a network virtual appliance**: A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about [network virtual appliances](https://go.microsoft.com/fwlink/?linkid=2155373).
 
 - **Supports NVMe** - Enable this property if the images in this plan support NVMe disk interface. The NVMe interface offers higher and consistent IOPS and bandwidth relative to legacy SCSI interface.
 
-- **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about [cloud-init configuration](/azure/virtual-machines/linux/using-cloud-init).
+- **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about [cloud-init configuration](../virtual-machines/linux/using-cloud-init.md).
 
 - **Supports hibernation** – The images in this plan support hibernation/resume.
 
 - **Remote desktop/SSH not supported**: Enable this property if any of the following conditions are true:
 
-    - Virtual machines deployed with these images don't allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](/azure/marketplace/azure-vm-certification-faq#locked-down-or-ssh-disabled-offer.md). Images that are published with either SSH disabled (for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios to restrict access to users. During validation checks, Locked down VMs might not allow execution of certain certification commands.
+    - Virtual machines deployed with these images don't allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](./azure-vm-certification-faq.yml#locked-down-or-ssh-disabled-offer). Images that are published with either SSH disabled (for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios to restrict access to users. During validation checks, Locked down VMs might not allow execution of certain certification commands.
 
     - Image does not support sampleuser while deploying.
     - Image has limited access.
@@ -90,12 +90,12 @@ Below are examples (non-exhaustive) that might require custom templates for depl
 
 ## Image types
 
-Generations of a virtual machine defines the virtual hardware it uses. Based on your customer’s needs, you can publish a Generation 1 VM, Generation 2 VM, or both. To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](/azure/virtual-machines/generation-2).
+Generations of a virtual machine defines the virtual hardware it uses. Based on your customer’s needs, you can publish a Generation 1 VM, Generation 2 VM, or both. To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
 When creating a new plan, select an Image type from the drop-down menu. You can choose either X64 Gen 1 or X64 Gen 2. To add another image type to a plan, select **+Add image type**. You will need to provide a SKU ID for each new image type that is added.
 
 > [!NOTE]
-> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page. Learn more about [deprecating plans](/azure/marketplace/deprecate-vm).
+> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page. Learn more about [deprecating plans](./deprecate-vm.md).
 >
 
 ## VM images
@@ -105,7 +105,7 @@ To add a new image version, click **+Add VM image**. This will open a panel in w
 Keep in mind the following when publishing VM images:
 
 1.	Provide only one new VM image per image type in a given submission.
-2.	After an image has been published, you can't edit it, but you can deprecate it. Deprecating a version prevents both new and existing users from deploying a new instance of the deprecated version. Learn more about [deprecating VM images](/azure/marketplace/deprecate-vm).
+2.	After an image has been published, you can't edit it, but you can deprecate it. Deprecating a version prevents both new and existing users from deploying a new instance of the deprecated version. Learn more about [deprecating VM images](./deprecate-vm.md).
 3.	You can add up to 16 data disks for each VM image provided. Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can’t remove disks that are part of an image, but they can always add disks during or after deployment.
 
 > [!NOTE]

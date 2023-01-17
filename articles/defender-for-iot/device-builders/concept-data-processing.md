@@ -1,13 +1,13 @@
 ---
 title: Data processing and residency
 description: Microsoft Defender for IoT data processing, and residency can occur in regions that are different than the IoT Hub's region.
-ms.date: 12/19/2021
+ms.date: 01/12/2023
 ms.topic: conceptual
 ---
 
 # Data processing and residency
 
-Microsoft Defender for IoT is a separate service which adds an extra layer of threat protection to the Azure IoT Hub, IoT Edge, and your devices. Defender for IoT may process, and store your data within a different geographic location than your IoT Hub.
+Microsoft Defender for IoT is a separate service, which adds an extra layer of threat protection to the Azure IoT Hub, IoT Edge, and your devices. Defender for IoT may process, and store your data within a different geographic location than your IoT Hub.
 
 Mapping between the IoT Hub, and Microsoft Defender for IoT's regions is as follows:
 

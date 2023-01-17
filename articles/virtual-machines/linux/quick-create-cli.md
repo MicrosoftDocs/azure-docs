@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 03/30/2021
+ms.date: 06/01/2022
 ms.author: cynthn
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, mode-api
 ---
@@ -17,7 +17,7 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, seo-py
 
 This quickstart shows you how to use the Azure CLI to deploy a Linux virtual machine (VM) in Azure. The Azure CLI is used to create and manage Azure resources via either the command line or scripts.
 
-In this tutorial, we will be installing the latest Ubuntu LTS image. To show the VM in action, you'll connect to it using SSH and install the NGINX web server.
+In this tutorial, we will be installing the latest Debian image. To show the VM in action, you'll connect to it using SSH and install the NGINX web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -47,7 +47,7 @@ The following example creates a VM named *myVM* and adds a user account named *a
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --image UbuntuLTS \
+  --image Debian \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -67,9 +67,19 @@ It takes a few minutes to create the VM and supporting resources. The following 
 }
 ```
 
-Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
+Make a note of the `publicIpAddress` to use later.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+## Install web server
+
+To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package.
+
+```azurecli-interactive
+az vm run-command invoke \
+   -g myResourceGroup \
+   -n myVM \
+   --command-id RunShellScript \
+   --scripts "sudo apt-get update && sudo apt-get install -y nginx"
+```
 
 ## Open port 80 for web traffic
 
@@ -79,30 +89,11 @@ By default, only SSH connections are opened when you create a Linux VM in Azure.
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## Connect to virtual machine
-
-SSH to your VM as normal. Replace the IP address in the example with the public IP address of your VM as noted in the previous output:
-
-```bash
-ssh azureuser@40.68.254.142
-```
-
-## Install web server
-
-To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package.
-
-```bash
-sudo apt-get -y update
-sudo apt-get -y install nginx
-```
-
-When done, type `exit` to leave the SSH session.
-
 ## View the web server in action
 
 Use a web browser of your choice to view the default NGINX welcome page. Use the public IP address of your VM as the web address. The following example shows the default NGINX web site:
 
-![View the NGINX welcome page](./media/quick-create-cli/view-the-nginx-welcome-page.png)
+![Screenshot showing the N G I N X default web page.](./media/quick-create-cli/nginix-welcome-page-debian.png)
 
 ## Clean up resources
 
@@ -114,8 +105,10 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you deployed a simple virtual machine, open a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this quickstart, you deployed a simple virtual machine, opened a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
+
+

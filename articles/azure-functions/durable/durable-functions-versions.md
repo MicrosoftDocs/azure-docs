@@ -3,7 +3,7 @@ title: Durable Functions versions overview - Azure Functions
 description: Learn about Durable Functions versions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 05/06/2022
 ms.author: azfuncdf
 ---
 
@@ -43,24 +43,40 @@ Install the latest 2.x version of the Durable Functions bindings extension in yo
 
 #### JavaScript, Python, and PowerShell
 
-Durable Functions 2.x is available in version 2.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles).
+Durable Functions 2.x is available starting in version 2.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles).
 
-Python support in Durable Functions requires Durable Functions 2.x.
+Python support in Durable Functions requires Durable Functions 2.x or greater.
 
-To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 2.x (`[2.*, 3.0.0)`).
+To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 3.x (`[3.*, 4.0.0)`).
 
 ```json
 {
     "version": "2.0",
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
+        "version": "[3.*, 4.0.0)"
     }
 }
 ```
 
 > [!NOTE]
 > If Visual Studio Code is not displaying the correct templates after you change the extension bundle version, reload the window by running the *Developer: Reload Window* command (<kbd>Ctrl+R</kbd> on Windows and Linux, <kbd>Command+R</kbd> on macOS).
+
+#### Java (preview)
+
+Durable Functions 2.x is available starting in version 4.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles). You must use the Azure Functions 3.0 runtime or greater to execute Java functions.
+
+To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 4.x (`[4.*, 5.0.0)`). Because Java support is currently in preview, you must also use the `Microsoft.Azure.Functions.ExtensionBundle.Preview` bundle, which is different from product-ready bundles.
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+        "version": "[4.*, 5.0.0)"
+    }
+}
+```
 
 #### .NET
 
@@ -88,7 +104,7 @@ In version 1.x, if a task hub name wasn't specified in host.json, it was default
 
 #### Public interface changes (.NET only)
 
-In version 1.x, the various _context_ objects supported by Durable Functions have abstract base classes intended for use in unit testing. As part of Durable Functions 2.x, these abstract base classes are replaced with interfaces.
+In version 1.x, the various *context* objects supported by Durable Functions have abstract base classes intended for use in unit testing. As part of Durable Functions 2.x, these abstract base classes are replaced with interfaces.
 
 The following table represents the main changes:
 

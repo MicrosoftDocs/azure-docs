@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/27/2022
+ms.date: 12/12/2022
 ms.custom: mvc, subject-rbac-steps
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
@@ -79,13 +79,9 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-## Prepare physical servers
+## Prepare Windows server
 
-Set up an account that the appliance can use to access the physical servers.
-
-**Windows servers**
-
-For Windows servers, use a domain account for domain-joined servers, and a local account for servers that are not domain-joined. The user account can be created in one of the two ways:
+For Windows servers, use a domain account for domain-joined servers, and a local account for servers that aren't domain-joined. The user account can be created in one of the two ways:
 
 ### Option 1
 
@@ -103,48 +99,33 @@ For Windows servers, use a domain account for domain-joined servers, and a local
     > [!Note]
     > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
 
-**Linux servers**
+> [!Note]
+> To discover SQL Server databases on Windows Servers, both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager. Azure Migrate requires a Windows user account that is a member of the sysadmin server role.
 
-For Linux servers, you can create a user account in one of three ways:
+## Prepare Linux server
+
+For Linux servers, you can create a user account in one of two ways:
 
 ### Option 1
-- You need a root account on the servers that you want to discover. This account can be used to pull configuration and performance metadata and perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
+- You need a sudo user account on the servers that you want to discover. This account can be used to pull configuration and performance metadata and perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
+- You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
+- Make sure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
+- The Linux OS distributions that are supported for discovery by Azure Migrate using an account with sudo access are listed [here](migrate-support-matrix-physical.md#option-1-1).
 
 > [!Note]
-> If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Windows servers, it recommended to use Option 1.
+> If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Linux servers, it recommended to use Option 1.
 
 ### Option 2
-- To discover the configuration and performance metadata from Linux servers, you can provide a user account with sudo permissions.
-- The support to add a user account with sudo access is provided by default with the new appliance installer script downloaded from portal after July 20,2021.
-- For older appliances, you can enable the capability by following these steps:
-    1. On the server running the appliance, open the Registry Editor.
-    1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
-    1. Create a registry key ‘isSudo’ with DWORD value of 1.
+- If you can't provide user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry on the appliance server and provide a non-root account with the required capabilities using the following commands:
 
-    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support.":::
+    **Command** | **Purpose**
+    --- | --- |
+    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data
+    setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br> cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br> cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data
+    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
+    chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
 
-- You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata). Make sure that you have enabled 'NOPASSWD' for the account to run the required commands without prompting for a password every time sudo command is invoked.
-- The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
-
-    Operating system | Versions 
-    --- | ---
-    Red Hat Enterprise Linux | 6,7,8
-    Cent OS | 6.6, 8.2
-    Ubuntu | 14.04,16.04,18.04
-    SUSE Linux | 11.4, 12.4
-    Debian | 7, 10
-    Amazon Linux | 2.0.2021
-    CoreOS Container | 2345.3.0
-
-### Option 3
-- If you cannot provide root account or user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry and provide a non-root account with the required capabilities using the following commands:
-
-**Command** | **Purpose**
---- | --- |
-setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data
-setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br> cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br> cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data
-setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
-chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
+- To perform agentless dependency analysis on the server, ensure that you also set the required permissions on /bin/netstat and /bin/ls files by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
 
 ## Set up a project
 
@@ -157,6 +138,9 @@ Set up a new project.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
    ![Screenshot of project name and region.](./media/tutorial-discover-physical/new-project.png)
+
+   > [!Note]
+   > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
@@ -182,10 +166,10 @@ To set up the appliance, you:
 
 1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
-3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of physical or virtual servers. The name should be alphanumeric with 14 characters or fewer.
-1. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
+3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up for discovery of physical or virtual servers. The name should be alphanumeric with 14 characters or fewer.
+1. Select **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
 1. After the successful creation of the Azure resources, a **project key** is generated.
-1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
+1. Copy the key as you'll need it to complete the registration of the appliance during its configuration.
 
     [ ![Selections for Generate Key.](./media/tutorial-assess-physical/generate-key-physical-inline-1.png)](./media/tutorial-assess-physical/generate-key-physical-expanded-1.png#lightbox)
 
@@ -205,7 +189,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277c53620db299f57e3ac5a65569e9720f06190a245476810b36bf651c8b795b
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.
@@ -290,46 +274,60 @@ You can *rerun prerequisites* at any time during appliance configuration to chec
 
 Now, connect from the appliance to the physical servers to be discovered, and start the discovery.
 
-1. In **Step 1: Provide credentials for discovery of Windows and Linux physical or virtual servers​**, click on **Add credentials**.
-1. For Windows server, select the source type as **Windows Server**, specify a friendly name for credentials, add the username and password. Click on **Save**.
-1. If you are using password-based authentication for Linux server, select the source type as **Linux Server (Password-based)**, specify a friendly name for credentials, add the username and password. Click on **Save**.
-1. If you are using SSH key-based authentication for Linux server, you can select source type as **Linux Server (SSH key-based)**, specify a friendly name for credentials, add the username, browse and select the SSH private key file. Click on **Save**.
+1. In **Step 1: Provide credentials for discovery of Windows and Linux physical or virtual servers​**, select **Add credentials**.
+1. For Windows server, select the source type as **Windows Server**, specify a friendly name for credentials, add the username and password. Select **Save**.
+1. If you're using password-based authentication for Linux server, select the source type as **Linux Server (Password-based)**, specify a friendly name for credentials, add the username and password. Select **Save**.
+1. If you're using SSH key-based authentication for Linux server, you can select source type as **Linux Server (SSH key-based)**, specify a friendly name for credentials, add the username, browse and select the SSH private key file. Select **Save**.
 
     - Azure Migrate supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA, and ed25519 algorithms.
-    - Currently Azure Migrate does not support passphrase-based SSH key. Use an SSH key without a passphrase.
-    - Currently Azure Migrate does not support SSH private key file generated by PuTTY.
+    - Currently Azure Migrate doesn't support passphrase-based SSH key. Use an SSH key without a passphrase.
+    - Currently Azure Migrate doesn't support SSH private key file generated by PuTTY.
     - The SSH key file supports CRLF to mark a line break in the text file that you upload. SSH keys created on Linux systems most commonly have LF as their newline character so you can convert them to CRLF by opening the file in vim, typing `:set textmode` and saving the file.
+    - If your Linux servers support the older version of RSA key, you can generate the key using the `$ ssh-keygen -m PEM -t rsa -b 4096` command.
     - Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
     
     ![Screenshot of SSH private key supported format.](./media/tutorial-discover-physical/key-format.png)
 
-1. If you want to add multiple credentials at once, click on **Add more** to save and add more credentials. Multiple credentials are supported for physical servers discovery.
-1. In **Step 2:Provide physical or virtual server details​**, click on **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
-1. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide server details through **Import CSV**.
+1. If you want to add multiple credentials at once, select **Add more** to save and add more credentials. Multiple credentials are supported for physical servers discovery.
+   > [!Note]
+   > By default, the credentials will be used to gather data about the installed applications, roles, and features, and also to collect dependency data from Windows and Linux servers, unless you disable the slider to not perform these features (as instructed in the last step).
+1. In **Step 2:Provide physical or virtual server details​**, select **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
+1. You can either **Add single item** at a time or **Add multiple items** in one go. There's also an option to provide server details through **Import CSV**.
 
 
-    - If you choose **Add single item**, you can choose the OS type, specify friendly name for credentials, add server **IP address/FQDN** and click on **Save**.
-    - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. **Verify** the added records and click on **Save**.
-    - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and click on **Save**.
+    - If you choose **Add single item**, you can choose the OS type, specify friendly name for credentials, add server **IP address/FQDN** and select **Save**.
+    - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. **Verify** the added records and select **Save**.
+    - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and select **Save**.
 
 1. On clicking Save, the appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
     - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
-    - To remove a server, click on **Delete**.
+    - To remove a server, select **Delete**.
 1. You can **revalidate** the connectivity to servers anytime before starting the discovery.
 1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
 
     :::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
+1. To perform discovery of SQL Server instances and databases, you can add additional credentials (Windows domain/non-domain, SQL authentication credentials) and the appliance will attempt to automatically map the credentials to the SQL servers. If you add domain credentials, the appliance will authenticate the credentials against Active Directory of the domain to prevent any user accounts from locking out. To check validation of the domain credentials, follow these steps:
+  - In the configuration manager credentials table, see **Validation status** for domain credentials. Only the domain credentials are validated.
+  - If validation fails, you can select a Failed status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
+
+
 
 ### Start discovery
 
-Click on **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
+select **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
 
 ## How discovery works
 
 * It takes approximately 2 minutes to complete discovery of 100 servers and their metadata to appear in the Azure portal.
 * [Software inventory](how-to-discover-applications.md) (discovery of installed applications) is automatically initiated when the discovery of servers is finished.
+* [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
+* Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
 * The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
+* SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
+* By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
+
+    :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Screenshot that shows how to edit SQL Server connection properties.":::
 
 ## Verify servers in the portal
 

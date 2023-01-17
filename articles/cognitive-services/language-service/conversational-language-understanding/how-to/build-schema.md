@@ -43,7 +43,7 @@ They might create an intent to represent each of these actions. They might also 
 
 To build a project schema within [Language Studio](https://aka.ms/languageStudio):
 
-1. Select **Build schema** from the left side menu.
+1. Select **Schema definition** from the left side menu.
 
 2. From the top pivots, you can change the view to be **Intents** or **Entities**.
 

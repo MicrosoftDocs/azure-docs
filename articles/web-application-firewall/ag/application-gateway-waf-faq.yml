@@ -85,6 +85,15 @@ sections:
           
           No, WAF does not store customer data.
 
+      - question: |
+          How does the Azure WAF work with WebSockets?
+        answer: |
+          Azure Application Gateway natively supports WebSocket. WebSocket on Azure WAF on Azure Application Gateway does not require any additional configuration to work. However, the WebSocket traffic is not inspected by WAF. After the initial handshake between client and server, the data exchange between client and server can be of any format, for example binary or encrypted. So Azure WAF can't always parse the data, it just acts as a pass-through proxy for the data.
+
+          For more information, see [Overview of WebSocket support in Application Gateway](../../application-gateway/application-gateway-websocket.md).
+
+
+
 additionalContent: |
 
   ## Next steps

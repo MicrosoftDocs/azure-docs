@@ -6,11 +6,13 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
-ms.date: 05/17/2022 
+ms.date: 06/24/2022
 ms.custom: kr2b-contr-experiment
 ---
 
 # Restart an Azure Database for PostgreSQL server using PowerShell
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 This topic describes how you can restart an Azure Database for PostgreSQL server. You may need to restart your server for maintenance reasons, which causes a short outage during the operation.
 

@@ -50,7 +50,7 @@ In this step, you'll export the trace from the distributed tracing web GUI and s
 
 You can now upload the trace to the container you created in [Create a storage account and blob container in Azure](#create-a-storage-account-and-blob-container-in-azure).
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to your Storage account resource.
 1. In the **Resource** menu, select **Containers**.
 

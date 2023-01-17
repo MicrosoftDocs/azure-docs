@@ -140,7 +140,7 @@ To enable successful interaction with Azure Synapse Dedicated SQL Pool, followin
 
 ## API documentation
 
-Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/latest/scala/index.html).
+Azure Synapse Dedicated SQL Pool Connector for Apache Spark - API Documentation.
 
 ### Configuration options
 
@@ -195,17 +195,22 @@ This section presents reference code templates to describe how to use and invoke
 
 #### Read Request - `synapsesql` method signature
 
+##### [Scala](#tab/scala)
+
 ```Scala
 synapsesql(tableName:String) => org.apache.spark.sql.DataFrame
 ```
 
+##### [Python](#tab/python)
+
 ```python
 synapsesql(table_name: str) -> org.apache.spark.sql.DataFrame
 ```
+---
 
 #### Read using Azure AD based authentication
 
-##### [Scala](#tab/scala)
+##### [Scala](#tab/scala1)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -234,7 +239,7 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-##### [Python](#tab/python)
+##### [Python](#tab/python1)
 
 ```python
 # Add required imports
@@ -261,10 +266,11 @@ dfToReadFromTable = (spark.read
 # Show contents of the dataframe
 dfToReadFromTable.show()
 ```
+---
 
 #### Read using basic authentication
 
-##### [Scala](#tab/scala1)
+##### [Scala](#tab/scala2)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -298,7 +304,7 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-##### [Python](#tab/python1)
+##### [Python](#tab/python2)
 
 ```python
 # Add required imports
@@ -316,7 +322,7 @@ dfToReadFromTable = (spark.read
                      # Set user's password to the database
                      .option(Constants.PASSWORD, "<user_password>")
                      # Set name of the data source definition that is defined with database scoped credentials.
-                     # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+                     # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
                      # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
                      # Three-part table name from where data will be read.
@@ -332,6 +338,7 @@ dfToReadFromTable = (spark.read
 dfToReadFromTable.show()
 
 ```
+---
 
 ### Write to Azure Synapse Dedicated SQL Pool
 
@@ -349,6 +356,8 @@ synapsesql(tableName:String,
 
 * Spark Pool Version 3.1.2
 
+##### [Scala](#tab/scala3)
+
 ```Scala
 synapsesql(tableName:String, 
            tableType:String = Constants.INTERNAL, 
@@ -356,15 +365,18 @@ synapsesql(tableName:String,
            callBackHandle=Option[(Map[String, Any], Option[Throwable])=>Unit]):Unit
 ```
 
+##### [Python](#tab/python3)
+
 ```python
 synapsesql(table_name: str, table_type: str = Constants.INTERNAL, location: str = None) -> None
 ```
+---
 
 #### Write using Azure AD based authentication
 
 Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
-##### [Scala](#tab/scala2)
+##### [Scala](#tab/scala4)
 
 ```Scala
 //Add required imports
@@ -423,7 +435,7 @@ readDF.
 if(errorDuringWrite.isDefined) throw errorDuringWrite.get
 ```
 
-##### [Python](#tab/python2)
+##### [Python](#tab/python4)
 
 ```python
 
@@ -460,7 +472,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
  # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
  .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
  # Set name of the data source definition that is defined with database scoped credentials.
- # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+ # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
  .option(Constants.DATA_SOURCE, "<data_source_name>")
  # Choose a save mode that is apt for your use case.
  # Options for save modes are "error" or "errorifexists" (default), "overwrite", "append", "ignore".    
@@ -475,12 +487,13 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
              "/path/to/external/table"))
 
 ```
+---
 
 #### Write using basic authentication
 
 Following code snippet replaces the write definition described in the [Write using Azure AD based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
 
-##### [Scala](#tab/scala3)
+##### [Scala](#tab/scala5)
 
 ```Scala
 //Define write options to use SQL basic authentication
@@ -509,7 +522,7 @@ readDF.
                 callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
 ```
 
-##### [Python](#tab/python3)
+##### [Python](#tab/python5)
 
 ```python
 # Write using Basic Auth to Internal table
@@ -553,7 +566,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
  # Set user's password to the database
  .option(Constants.PASSWORD, "<user_password>")
  # Set name of the data source with database scoped credentials for external table.
- # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+ # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
  .option(Constants.DATA_SOURCE, "<data_source_name>")
  # For Basic Auth, need the storage account key for the storage account where the data will be staged
  .option(Constants.STAGING_STORAGE_ACCOUNT_KEY,"<storage_account_key>")
@@ -570,6 +583,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
              "/path/to/external/table"))
 
 ```
+---
 
 In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from an Azure Data Lake Storage Gen2 data source using Service Principal credentials:
 
@@ -700,9 +714,9 @@ Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched i
 
 * Now, change the language preference on the Notebook to `PySpark (Python)` and fetch data from the registered view `<temporary_view_name>`
 
-    ```Python
+```Python
         spark.sql("select * from <temporary_view_name>").show()
-    ```
+```
 
 ### Response handling
 

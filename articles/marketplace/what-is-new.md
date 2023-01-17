@@ -5,7 +5,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 08/24/2022
 ---
 
 # What's new in the Microsoft commercial marketplace
@@ -16,6 +16,8 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Offers | ISVs can now publish 1-year and 3-year prices for their Virtual Machine plans to let customers save money when they commit for a long-term agreement. To learn more, see [Plan a virtual machine offer](azure-vm-plan-pricing-and-availability.md#configure-reservation-pricing-optional). | 2022-08-24 |
+| Offers | Software as a service (SaaS) plans now support 2-year and 3-year billing term with upfront, monthly or annually payment options. To learn more, see [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#saas-billing-terms-and-payment-options). | 2022-08-01 |
 | Offers | ISVs can now offer custom prices, terms, conditions, and pricing for a specific customer through private offers. See [ISV to customer private offers](isv-customer.md) and the [FAQ](isv-customer-faq.yml). | 2022-04-06 |
 | Offers | Publishers can now [change transactable offer and plan pricing](price-changes.md) without having to discontinue an offer and recreate it with new pricing (also see [this FAQ](price-changes-faq.yml)). | 2022-03-30 |
 | Offers | An ISV can now specify time-bound margins for CSP partners to incentivize them to sell it to their customers. When their partner makes a sale to a customer, Microsoft will pay the ISV the wholesale price. See [ISV to CSP Partner private offers](./isv-csp-reseller.md) and [the FAQs](./isv-csp-faq.yml). | 2022-02-15 |
@@ -43,12 +45,13 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Policy | We've updated the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For change history, see [Change history for Microsoft Publisher Agreement version 8.0 – Octrober 2022 update](/legal/marketplace/mpa-change-history-october-2022). | 2022-09-14 |
 | Policy | We've updated the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For change history, see [Change history for Microsoft Publisher Agreement version 8.0 – May 2022 update](/legal/marketplace/mpa-change-history-may-2022). | 2022-04-15 |
 | Offers | Added new articles to lead you step-by-step through the process of [testing a SaaS offer](test-saas-overview.md). | 2022-03-30 |
 | Payouts | We updated the payment schedule for [Payout schedules and processes](/partner-center/payout-policy-details). | 2022-01-19 |
 | Analytics | Added questions and answers to the [Commercial marketplace analytics FAQ](./analytics-faq.yml), such as enrolling in the commercial marketplace, where to create a marketplace offer, getting started with programmatic access to commercial marketplace analytics reports, and more. | 2022-01-07 |
 | Offers | Added a new article, [Troubleshooting Private Plans in the commercial marketplace](azure-private-plan-troubleshooting.md). | 2021-12-13 |
-| Offers | We have updated the names of [Dynamics 365](./marketplace-dynamics-365.md#licensing-options) offer types:<br><br>-Dynamics 365 for Customer Engagement &amp; PowerApps is now **Dynamics 365 apps on Dataverse and Power Apps**<br>- Dynamics 365 for operations is now **Dynamics 365 Operations Apps**<br>- Dynamics 365 business central is now **Dynamics 365 Business Central** | 2021-12-03 |
+| Offers | We have updated the names of [Dynamics 365](./marketplace-dynamics-365.md#listing-options) offer types:<br><br>-Dynamics 365 for Customer Engagement &amp; PowerApps is now **Dynamics 365 apps on Dataverse and Power Apps**<br>- Dynamics 365 for operations is now **Dynamics 365 Operations Apps**<br>- Dynamics 365 business central is now **Dynamics 365 Business Central** | 2021-12-03 |
 | Policy | We’ve created an [FAQ topic](/legal/marketplace/mpa-faq) to answer publisher questions about the Microsoft Publisher Agreement. | 2021-09-27 |
 | Policy | We've updated the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For change history, see [Microsoft Publisher Agreement Version 8.0 – October 2021 Update](/legal/marketplace/mpa-change-history-oct-2021). | 2021-09-14 |
 | Policy | Updated [certification](/legal/marketplace/certification-policies) policy for September; see [change history](/legal/marketplace/offer-policies-change-history). | 2021-09-10 |

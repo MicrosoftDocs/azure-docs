@@ -3,18 +3,11 @@ title: Use customizable anomalies to detect threats in Microsoft Sentinel | Micr
 description: This article explains how to use the new customizable anomaly detection capabilities in Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 11/02/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Use customizable anomalies to detect threats in Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> - Customizable anomalies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## What are customizable anomalies?
 
@@ -28,9 +21,15 @@ With attackers and defenders constantly fighting for advantage in the cybersecur
 
 Anomalies can be powerful tools, but they are notoriously very noisy. They typically require a lot of tedious tuning for specific environments or complex post-processing. Microsoft Sentinel customizable anomaly templates are tuned by our data science team to provide out-of-the box value, but should you need to tune them further, the process is simple and requires no knowledge of machine learning. The thresholds and parameters for many of the anomalies can be configured and fine-tuned through the already familiar analytics rule user interface. The performance of the original threshold and parameters can be compared to the new ones within the interface and further tuned as necessary during a testing, or flighting, phase. Once the anomaly meets the performance objectives, the anomaly with the new threshold or parameters can be promoted to production with the click of a button. Microsoft Sentinel customizable anomalies enable you to get the benefit of anomalies without the hard work.
 
+## UEBA anomalies
+
+Some of the anomalies detected by Microsoft Sentinel come from its [User and Entity Behavior Analytics (UEBA) engine](identify-threats-with-entity-behavior-analytics.md), which detects anomalies based on dynamic baselines created for each entity across various data inputs. Each entity's baseline behavior is set according to its own historical activities, those of its peers, and those of the organization as a whole. Anomalies can be triggered by the correlation of different attributes such as action type, geo-location, device, resource, ISP, and more.
+
 ## Next steps
 
 In this document, you learned how to take advantage of customizable anomalies in Microsoft Sentinel.
 
 - Learn how to [view, create, manage, and fine-tune anomaly rules](work-with-anomaly-rules.md).
+- Learn about [User and Entity Behavior Analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md).
+- See the list of [currently supported anomalies](anomalies-reference.md).
 - Learn about [other types of analytics rules](detect-threats-built-in.md).

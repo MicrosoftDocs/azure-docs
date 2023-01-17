@@ -1,13 +1,13 @@
 ---
 title: Planning a Power BI visual offer in Partner Center for Microsoft AppSource
 description: Learn what information you'll need on hand to submit your Power BI visual offer in Partner Center.
-author: posurnis
-ms.author: posurnis
+author: trkeya
+ms.author: trkeya
 ms.reviewer: pooja.surnis
-ms.service: powerbi
-ms.subservice: powerbi-custom-visuals
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 06/29/2022
 ---
 
 # Plan a Power BI visual offer
@@ -41,6 +41,12 @@ These are the key publishing steps covered in the next several topics:
 The technical requirements to get a Power BI visual offer published are detailed in [Technical configuration of a Power BI visual offer](power-bi-visual-technical-configuration.md).
 
 Before submitting a Power BI visual to AppSource, ensure you've read the Power BI visuals [guidelines](/power-bi/developer/visuals/guidelines-powerbi-visuals) and [tested](/power-bi/developer/visuals/submission-testing) your visual.
+
+## Customer leads
+
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Legal contracts
 

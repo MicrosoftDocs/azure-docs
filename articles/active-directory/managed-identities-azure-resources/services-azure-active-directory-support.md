@@ -8,7 +8,7 @@ ms.date: 02/01/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: karenhoran
+manager: amycolannino
 ---
 
 # Azure services that support Azure AD authentication
@@ -24,6 +24,7 @@ The following services support Azure AD authentication. New services are added t
 | Azure Container Registry        | [Authenticate with an Azure container registry](../../container-registry/container-registry-authentication.md)                                                                       |
 | Azure Cognitive Services        | [Authenticate requests to Azure Cognitive Services](../../cognitive-services/authentication.md?tabs=powershell#authenticate-with-azure-active-directory)                                                                          |
 | Azure Communication Services    | [Authenticate to Azure Communication Services](../../communication-services/concepts/authentication.md)   |
+| Azure Cosmos DB                 | [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](../../cosmos-db/how-to-setup-rbac.md) |
 | Azure Databricks                | [Authenticate using Azure Active Directory tokens](/azure/databricks/dev-tools/api/latest/aad/)
 | Azure Data Explorer             | [How-To Authenticate with Azure Active Directory for Azure Data Explorer Access](/azure/data-explorer/kusto/management/access-control/how-to-authenticate-with-aad)                                                                                                     |
 | Azure Data Lake Storage Gen1    | [Authentication with Azure Data Lake Storage Gen1 using Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)                                                                                                  |

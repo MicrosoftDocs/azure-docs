@@ -14,7 +14,7 @@ ms.custom: devx-track-python
 
 # Manage software environments in Azure Machine Learning studio
 
-In this article, learn how to create and manage Azure Machine Learning [environments](/python/api/azureml-core/azureml.core.environment.environment) in the Azure Machine Learning studio. Use the environments to track and reproduce your projects' software dependencies as they evolve.
+In this article, learn how to create and manage Azure Machine Learning [environments](/python/api/azure-ai-ml/azure.ai.ml.entities.environment) in the Azure Machine Learning studio. Use the environments to track and reproduce your projects' software dependencies as they evolve.
 
 The examples in this article show how to:
 
@@ -28,11 +28,11 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+* An [Azure Machine Learning workspace](quickstart-create-resources.md).
 
 ## Browse curated environments
 
-Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost and support training and inferencing scenarios. 
+Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the job preparation cost and support training and inferencing scenarios. 
 
 Click on an environment to see detailed information about its contents. For more information, see [Azure Machine Learning curated environments](resource-curated-environments.md). 
 

@@ -3,15 +3,15 @@ title: Create or edit a dynamic group and get status - Azure AD | Microsoft Docs
 description: How to create or update a group membership rule in the Azure portal, and check its processing status.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/05/2022
-ms.author: curtand
+ms.date: 11/14/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Create or update a dynamic group in Azure Active Directory
 
-In Azure Active Directory (Azure AD), you can use rules to determine group membership based on user or device properties. This article tells how to set up a rule for a dynamic group in the Azure portal. Dynamic membership is supported for security groups and Microsoft 365 Groups. When a group membership rule is applied, user and device attributes are evaluated for matches with the membership rule. When an attribute changes for a user or device, all dynamic group rules in the organization are processed for membership changes. Users and devices are added or removed if they meet the conditions for a group. Security groups can be used for either devices or users, but Microsoft 365 Groups can be only user groups. Using Dynamic groups requires Azure AD premium P1 license or Intune for Education license. See [Dynamic membership rules for groups](./groups-dynamic-membership.md) for more details. 
+You can use rules to determine group membership based on user or device properties In Azure Active Directory (Azure AD), part of Microsoft Entra. This article tells how to set up a rule for a dynamic group in the Azure portal. Dynamic membership is supported for security groups and Microsoft 365 Groups. When a group membership rule is applied, user and device attributes are evaluated for matches with the membership rule. When an attribute changes for a user or device, all dynamic group rules in the organization are processed for membership changes. Users and devices are added or removed if they meet the conditions for a group. Security groups can be used for either devices or users, but Microsoft 365 Groups can be only user groups. Using Dynamic groups requires Azure AD premium P1 license or Intune for Education license. See [Dynamic membership rules for groups](./groups-dynamic-membership.md) for more details. 
 
 ## Rule builder in the Azure portal
 
@@ -90,6 +90,9 @@ The following status messages can be shown for **Dynamic rule processing** statu
 - **Update complete**: Processing has completed and all applicable updates have been made.
 - **Processing error**:  Processing couldn't be completed because of an error evaluating the membership rule.
 - **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
+
+>[!NOTE]
+>In this screen you now may also choose to **Pause processing**. Previously, this option was only available through the modification of the membershipRuleProcessingState property. Global admins, group admins, user admins, and Intune admins can manage this setting and can pause and resume dynamic group processing. Group owners without the correct roles do not have the rights needed to edit this setting.
 
 The following status messages can be shown for **Last membership change** status:
 

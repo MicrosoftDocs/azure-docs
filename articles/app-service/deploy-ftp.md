@@ -42,7 +42,7 @@ In the same management page for your app where you copied the deployment credent
 
 # [Azure CLI](#tab/cli)
 
-Run the [az webapp deployment list-publishing-profiles](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command. The following example uses a [JMES path](https://jmespath.org/) to extract the FTP/S endpoints from the output.
+Run the [az webapp deployment list-publishing-profiles](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command. The following example uses a [JMESPath query](/cli/azure/query-azure-cli) to extract the FTP/S endpoints from the output.
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app-name> --resource-group <group-name> --query "[?ends_with(profileName, 'FTP')].{profileName: profileName, publishUrl: publishUrl}"
