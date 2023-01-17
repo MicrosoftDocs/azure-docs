@@ -309,8 +309,8 @@ Using your favorite IDE, create a new Java project, and add a *pom.xml* file in 
         </dependency>
         <dependency>
             <groupId>com.azure</groupId>
-            <artifactId>azure-identity-providers-jdbc-mysql</artifactId>
-            <version>1.0.0-beta.1</version>
+            <artifactId>azure-identity-extensions</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>
@@ -361,19 +361,19 @@ Run the following script in the project root directory to create a *src/main/res
 mkdir -p src/main/resources && touch src/main/resources/database.properties
 
 cat << EOF > src/main/resources/database.properties
-url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
+url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}
 EOF
 ```
 
 > [!NOTE]
-> If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin" in the url.
+> If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin" in the url.
 
 ```bash
 mkdir -p src/main/resources && touch src/main/resources/database.properties
 
 cat << EOF > src/main/resources/database.properties
-url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?sslMode=REQUIRED&serverTimezone=UTC&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
+url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?sslMode=REQUIRED&serverTimezone=UTC&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}
 EOF
 ```
