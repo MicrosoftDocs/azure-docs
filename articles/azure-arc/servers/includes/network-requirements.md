@@ -1,7 +1,7 @@
 ---
 ms.service: azure-arc
 ms.topic: include
-ms.date: 12/13/2022
+ms.date: 01/17/2023
 ---
 
 Arc-enabled server endpoints are required for all server based Arc offerings. 
