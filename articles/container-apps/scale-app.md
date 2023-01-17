@@ -291,19 +291,19 @@ First, you'll define the type and metadata of the scale rule.
 
 1. From the KEDA scaler specification, find the `type` value.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
+    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
 
 1. In the ARM template, enter the scaler `type` value into the `custom.type` property of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="6":::
+    :::code language="json" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="6":::
 
 1. From the KEDA scaler specification, find the `metadata` values.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
+    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
 
 1. In the ARM template, add all metadata values to the `custom.metadata` section of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="8,9,10":::
+    :::code language="json" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="8,9,10":::
 
 ### Authentication
 
@@ -316,7 +316,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. From the KEDA specification, find each `secretTargetRef` of the `TriggerAuthentication` object and its associated secret.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-auth.yml" highlight="8,16,17,18":::
+    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-auth.yml" highlight="8,16,17,18":::
 
 1. In the ARM template, add all entries to the `auth` array of the scale rule.
 
@@ -326,7 +326,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
     1. Set the value of the `secretRef` property to the name of the Container Apps secret.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-azure-service-bus-rule-1.json" highlight="10,11,12,13,32,33,34,35":::
+    :::code language="json" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-rule-1.json" highlight="10,11,12,13,32,33,34,35":::
 
     Some scalers support metadata with the `FromEnv` suffix to reference a value in an environment variable. Container Apps looks at the first container listed in the ARM template for the environment variable.
 
@@ -338,21 +338,21 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. From the KEDA scaler specification, find the `type` value.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
+    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
 
 1. In the CLI command, set the `--scale-rule-type` parameter to the specification `type` value.
 
-    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="10":::
+    :::code language="bash" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-cli.bash" highlight="10":::
 
 1. From the KEDA scaler specification, find the `metadata` values.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
+    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
 
 1. In the CLI command, set the `--scale-rule-metadata` parameter to the metadata values.
 
     You'll need to transform the values from a YAML format to a key/value pair for use on the command line. Separate each key/value pair with a space.
 
-    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="11,12,13":::
+    :::code language="bash" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-cli.bash" highlight="11,12,13":::
 
 ### Authentication
 
@@ -363,7 +363,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject` specification. Identify each `secretTargetRef` of the `TriggerAuthentication` object.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-auth.yml" highlight="8,16,17,18":::
+    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-auth.yml" highlight="8,16,17,18":::
 
 1. In your container app, create the [secrets](./manage-secrets.md) that match the `secretTargetRef` properties.
 
@@ -373,7 +373,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
     1. Create an authentication entry with the `--scale-rule-auth` parameter. If there are multiple entries, separate them with a space.
 
-    :::code language="bash" source="../../includes/container-apps/container-apps-azure-service-bus-cli.txt" highlight="8,14":::
+    :::code language="bash" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-cli.bash" highlight="8,14":::
 
 ::: zone-end
 
@@ -399,13 +399,13 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. From the KEDA scaler specification, find the `type` value.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
+    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
 
 1. In the *Custom rule type* box, enter the scaler `type` value.
 
 1. From the KEDA scaler specification, find the `metadata` values.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
+    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6":::
 
 1. In the portal, find the *Metadata* section and select **Add**. Enter the name and value for each item in the KEDA `ScaledObject` specification metadata section.
 
