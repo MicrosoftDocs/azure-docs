@@ -58,7 +58,7 @@ diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
 az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
 ```
 
-## Checking status - CLI
+## Check status - CLI
 
 If you want to check the status of a snapshot and ensure they've completed, use the following scripts.
 
