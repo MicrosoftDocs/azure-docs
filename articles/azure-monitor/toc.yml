@@ -556,6 +556,22 @@ items:
       href: app/app-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#application-insights
+    - name: Tutorials
+      items:
+        - name: Application Insights SDK for ASP.NET Core applications
+          href: app/tutorial-asp-net-core.md
+        - name: Custom metrics with .NET and .NET Core
+          href: app/tutorial-asp-net-custom-metrics.md
+        - name: Find application run-time exceptions
+          href: app/tutorial-runtime-exceptions.md
+        - name: Find application performance issues
+          href: app/tutorial-performance.md
+        - name: Understand application users
+          href: app/tutorial-users.md
+        - name: Dashboard with application data
+          href: app/tutorial-app-dashboards.md
+        - name: Monitor mobile or UWP application
+          href: app/mobile-center-quickstart.md
     - name: Auto-instrumentation
       items:
       - name: Overview
@@ -924,22 +940,7 @@ items:
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
-    - name: Tutorials
-      items:
-        - name: Application Insights SDK for ASP.NET Core applications
-          href: app/tutorial-asp-net-core.md
-        - name: Custom metrics with .NET and .NET Core
-          href: app/tutorial-asp-net-custom-metrics.md
-        - name: Find application run-time exceptions
-          href: app/tutorial-runtime-exceptions.md
-        - name: Find application performance issues
-          href: app/tutorial-performance.md
-        - name: Understand application users
-          href: app/tutorial-users.md
-        - name: Dashboard with application data
-          href: app/tutorial-app-dashboards.md
-        - name: Monitor mobile or UWP application
-          href: app/mobile-center-quickstart.md
+ 
   - name: Container insights
     items:
     - name: Overview
