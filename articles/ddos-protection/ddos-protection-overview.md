@@ -7,7 +7,6 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 11/14/2022
 ms.author: abell
