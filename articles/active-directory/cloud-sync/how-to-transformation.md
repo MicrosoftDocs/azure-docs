@@ -4,7 +4,7 @@ description: This article describes how to use transformations to alter the defa
 author: billmath
 ms.author: billmath
 manager: amycolannino
-ms.date: 12/02/2019
+ms.date: 01/11/2023
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs

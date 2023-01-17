@@ -43,7 +43,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 | Network configuration | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet | Additional hop adds minor latency |
 | Kubernetes Network Policies | Azure Network Policies, Calico | Calico |
-| OS platforms supported | Linux only | Linux only |
+| OS platforms supported | Linux and Windows | Linux only |
 
 ## IP address planning
 
@@ -84,10 +84,8 @@ Use the traditional VNet option when:
 
 ## Limitations with Azure CNI Overlay
 
-The overlay solution has the following limitations today
+The overlay solution has the following limitations:
 
-* Only available for Linux and not for Windows.
-* You can't deploy multiple overlay clusters on the same subnet.
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
 
@@ -129,31 +127,15 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Set up overlay clusters
 
-The following steps create a new virtual network with a subnet for the cluster nodes and an AKS cluster that uses Azure CNI Overlay.
+Create a cluster with Azure CNI Overlay. Use the argument `--network-plugin-mode` to specify that this is an overlay cluster. If the pod CIDR is not specified then AKS assigns a default space, viz. 10.244.0.0/16. Replace the values for the variables `clusterName`, `resourceGroup`, and `location`.
 
-1. Create a virtual network with a subnet for the cluster nodes. Replace the values for the variables `resourceGroup`, `vnet` and `location`.
+```azurecli-interactive
+clusterName="myOverlayCluster"
+resourceGroup="myResourceGroup"
+location="westcentralus"
 
-    ```azurecli-interactive
-    resourceGroup="myResourceGroup"
-    vnet="myVirtualNetwork"
-    location="westcentralus"
-    
-    # Create the resource group
-    az group create --name $resourceGroup --location $location
-    
-    # Create a VNet and a subnet for the cluster nodes 
-    az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none
-    az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefix 10.10.0.0/16 -o none
-    ```
-
-2. Create a cluster with Azure CNI Overlay. Use the argument `--network-plugin-mode` to specify that this is an overlay cluster. If the pod CIDR is not specified then AKS assigns a default space, viz. 10.244.0.0/16. Replace the values for the variables `clusterName` and `subscription`.
-
-    ```azurecli-interactive
-    clusterName="myOverlayCluster"
-    subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
-    
-    az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet
-    ```
+az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16
+```
 
 ## Next steps
 
