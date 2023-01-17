@@ -108,7 +108,7 @@ msalInstance
 
 Invoke [handleRedirectPromise][msal-js-handleredirectpromise] when the application uses redirect flows. When using redirect flows, `handleRedirectPromise` should be run on every page load.
 
-Three outcomes possible are possible from the promise:
+Three outcomes are possible from the promise:
 
 - `.then` is invoked and `tokenResponse` is truthy: The application is returning from a redirect operation that was successful.
 - `.then` is invoked and `tokenResponse` is falsy (`null`): The application isn't returning from a redirect operation.
