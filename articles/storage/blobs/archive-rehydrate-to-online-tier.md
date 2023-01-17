@@ -7,7 +7,7 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 01/17/2023
 ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: powershell, azurecli
