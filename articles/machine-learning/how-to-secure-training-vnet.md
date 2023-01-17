@@ -333,13 +333,13 @@ Allow Azure Machine Learning to communicate with the SSH port on the VM or clust
 
 Keep the default outbound rules for the network security group. For more information, see the default security rules in [Security groups](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
-If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [required public internet access](#required-public-internet-access) section.
+If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [required public internet access](#required-public-internet-access-to-train-models) section.
 
 ### Attach the VM or HDInsight cluster
 
 Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Manage compute resources for model training and deployment in studio](how-to-create-attach-compute-studio.md).
 
-## Required public internet access to train models.
+## Required public internet access to train models
 
 > [!IMPORTANT]
 > While previous sections of this article describe configurations required to **create** compute resources, the configuration information in this section is required to **use** these resources to train models.
