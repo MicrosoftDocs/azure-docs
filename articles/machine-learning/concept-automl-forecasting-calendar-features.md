@@ -38,7 +38,7 @@ Th following table shows the full set of AutoML's standard calendar features alo
 |`minute`|Numeric feature representing the minute within the hour. It takes values 0 through 59.|25|
 |`second`|Numeric feature representing the second of the given datetime. In the case where only date format is provided, then it is assumed as 0. It takes values 0 through 59.|30|
 |`am_pm`|Numeric feature indicating whether the time is in the morning or evening. It is 0 for times before 12PM and 1 for times after 12PM. |0|
-|`am_pm_lbl`|String feature indicating whether the time is the in morning or evening.|'am'|
+|`am_pm_lbl`|String feature indicating whether the time is in the morning or evening.|'am'|
 |`hour12`|Numeric feature representing the hour of the day on a 12 hour clock. It takes values 0 through 12 for first half of the day and 1 through 11 for second half.|0|
 |`wday`|Numeric feature representing the day of the week.  It takes values 0 through 6, where 0 corresponds to Monday. |5|
 |`wday_lbl`|String feature representing name of the day of the week. |
