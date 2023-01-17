@@ -18,16 +18,16 @@ In this how-to guide, you'll carry out the steps you need to complete before you
 
 ## Prerequisites
 
-- You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+- Complete the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - Identify the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](/azure/active-directory/roles/permissions-reference.md#application-developer) that include the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator.
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](/azure/active-directory/roles/permissions-reference.md#application-developer) that have the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator.
 - Ensure your local machine has admin kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires an admin kubeconfig file. Contact your trials engineer for instructions on how to obtain this. <!-- TODO: update this to remove need for support -->
 
 ## Configure domain system name (DNS) for local monitoring IP
 
 When registering your application and configuring redirect URIs, you'll need your redirect URIs to contain a domain name rather than an IP address for accessing the local monitoring tools.
 
-In your local DNS server, configure the IP address for accessing local monitoring tools, which you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network), to resolve to a domain name of your choice.
+In the authoritative DNS server for the DNS zone you want to create the DNS record in, configure a DNS record to resolve the domain name to the IP address used for accessing local monitoring tools, which you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
 
 ## Register application
 
@@ -41,10 +41,10 @@ You'll now register a new local monitoring application with Azure AD to establis
 
     1. In *Add credentials*, follow the steps to add a client secret. Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
 
-1. Follow [App roles UI](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to create three roles for your application (Admin, Viewer and Editor) with the following configuration:
+1. Follow [App roles UI](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to create three roles for your application (Admin, Viewer, and Editor) with the following configuration:
 
     - In **Allowed member types**, select **Users/Groups**.
-    - In **Value**, enter one of **Admin**, **Viewer** and **Editor** for each role you're creating.
+    - In **Value**, enter one of **Admin**, **Viewer**, and **Editor** for each role you're creating.
     - In **Do you want to enable this app role?**, ensure the checkbox is selected.
 
 1. Follow [Assign users and groups to roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#assign-users-and-groups-to-roles) to assign users and groups to the roles you created.
@@ -71,7 +71,7 @@ To support Azure AD on Azure Private 5G Core applications, you'll need two files
     
     `$ echo -n  <Value> | base64`
 
-1. Create a Kubernetes secret for distributed tracing by creating a *secret-azure-ad-sas.yaml* file containing the Base64-encoded values. The secret must be named **sas-auth-secrets**.
+1. Create a file to configure distributed tracing by creating a *secret-azure-ad-sas.yaml* file containing the Base64-encoded values. The secret must be named **sas-auth-secrets**.
 
     ```yml
     apiVersion: v1
@@ -109,7 +109,7 @@ To support Azure AD on Azure Private 5G Core applications, you'll need two files
 
     `kubectl apply -f  /home/centos/secret-azure-ad-grafana.yaml --kubeconfig=<admin kubeconfig>`
 
-1. Use the following commands to verify if the Secret Objects were applied correctly, specifying your deployment namespace and the admin kubeconfig filename. You should see the correct **Name**, **Namespace** and **Type** values, along with the size of the encoded values.
+1. Use the following commands to verify if the Secret Objects were applied correctly, specifying your deployment namespace and the admin kubeconfig filename. You should see the correct **Name**, **Namespace**, and **Type** values, along with the size of the encoded values.
 
     `kubectl describe secrets -n <deployment namespace> sas-auth-secrets --kubeconfig=<admin kubeconfig>`
 
