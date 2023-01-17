@@ -61,17 +61,9 @@ Learn more about what you can do with [similar incidents](investigate-incidents.
 
 Next, having the broad outlines of what happened (or is still happening), and having a better understanding of the context, you’ll be curious about what interesting information Microsoft Sentinel has already found out for you. It automatically asks the big questions about the entities in your incident and shows the top answers in the **Top insights** widget, visible on the right side of the incident details page. This widget shows a collection of insights based on both machine-learning analysis and the curation of top teams of security experts.
 
-These are the same insights that appear on [entity pages](entity-pages.md#entity-insights), but in this context, insights for all the entities in the incident are presented together, giving you a more complete picture of what's happening.
+These are a specially selected subset of the insights that appear on [entity pages](entity-pages.md#entity-insights), but in this context, insights for all the entities in the incident are presented together, giving you a more complete picture of what's happening. The full set of insights appears on the **Entities tab**, for each entity separately&mdash;see below.
 
-Here are some examples of the questions answered in the **Top entities** widget:
-
-- Is the entity on any watchlists?
-- Is the entity on any threat intelligence lists?
-- Did any unusually rare actions occur on this host entity?
-- Did the user entity sign into Azure in an anomalous way?
-- Were any unusual actions taken on this user account entity? And by whom?
-- Are there vulnerabilities on this host entity? ***(is this really one of them? -YL)***
-- Have there been an unusually high number of security events on this host entity?
+The **Top insights** widget answers questions about the entity relating to its behavior in comparison to its peers and its own history, its presence on watchlists or in threat intelligence, or any other sort of unusual occurrence relating to it.
 
 Most of these insights contain links to more information. These links open the Logs panel in-context, where you'll see the source query for that insight along with its results. 
 
@@ -82,7 +74,7 @@ Now that you have some context and some basic questions answered, you’ll want 
 The **Entities tab** contains a list of all the entities in the incident. When an entity in the list is selected, a side panel opens containing a display based on the [entity page](entity-pages.md). The side panel contains three cards:
 - **Info** contains basic information about the entity. For a user account entity this might be things like the username, domain name, security identifier (SID), organizational information, security information, and more.
 - **Timeline** contains a list of the alerts that feature this entity and activities the entity has done, as collected from logs in which the entity appears.
-- **Insights** contains results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources.
+- **Insights** contains answers to questions about the entity relating to its behavior in comparison to its peers and its own history, its presence on watchlists or in threat intelligence, or any other sort of unusual occurrence relating to it. These answers are the results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources.
 
 Depending on the entity type, you can take a number of further actions from this side panel:
 - Pivot to the entity's full [entity page](entity-pages.md) to get even more details over a longer timespan or launch the graphical investigation tool centered on that entity.
