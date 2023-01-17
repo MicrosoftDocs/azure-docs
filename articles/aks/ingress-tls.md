@@ -2,7 +2,7 @@
 title: Use TLS with an ingress controller on Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an ingress controller that uses TLS in an Azure Kubernetes Service (AKS) cluster.
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 author: asudbring
 ms.author: allensu
