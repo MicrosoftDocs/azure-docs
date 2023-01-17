@@ -13,13 +13,13 @@ ms.reviewer: aul
 >[!NOTE]
 >Support for monitoring AKS hybrid clusters is currently in preview. We recommend only using preview features in safe testing environments.
 
-[Azure Monitor container insights](./container-insights-overview.md) provides a rich monitoring experience for [AKS hybrid clusters (preview)](/azure/aks/hybrid/aks-hybrid-options-overview). This article describes how to setup Container insights to monitor an AKS hybrid cluster.
+[Azure Monitor container insights](./container-insights-overview.md) provides a rich monitoring experience for [AKS hybrid clusters (preview)](/azure/aks/hybrid/aks-hybrid-options-overview). This article describes how to set up Container insights to monitor an AKS hybrid cluster.
 
 ## Supported configurations
 
 - Azure Monitor container insights supports monitoring only Linux containers.
 
-## Pre-requisites
+## Prerequisites
 
 - Pre-requisites listed under the [generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
 - Log Analytics workspace. Azure Monitor Container Insights supports a Log Analytics workspace in the regions listed under Azure [products by region page](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). You can create your own workspace using [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md), or [Azure portal](../logs/quick-create-workspace.md).
