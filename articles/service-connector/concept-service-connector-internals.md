@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022, engagement-fy23
 ms.topic: conceptual
-ms.date: 17/01/2023
+ms.date: 01/17/2023
 ---
 
 # Service Connector internals
