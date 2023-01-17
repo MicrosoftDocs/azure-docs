@@ -151,7 +151,7 @@ Browsing through a long list of changes in the entire subscription is time consu
 | Subscription | This filter is in-sync with the Azure portal subscription selector. It supports multiple-subscription selection. |
 | Time range | Specifies how far back the UI display changes, up to 14 days. By default, it’s set to the past 24 hours. |
 | Resource group | Select the resource group to scope the changes. By default, all resource groups are selected. |
-| Change level | Controls which levels of changes to display. Levels include: important, normal, and noisy. <ul><li>Important: related to availability and security</li><li>Noisy: Read-only properties that are unlikely to cause any issues</li></ul> By default, important and normal levels are checked. |
+| Change level | Controls which levels of changes to display. Levels include: important, normal, and noisy. </br> **Important:** related to availability and security </br> **Noisy:** Read-only properties that are unlikely to cause any issues </br> By default, important and normal levels are checked. |
 | Resource | Select **Add filter** to use this filter. </br> Filter the changes to specific resources. Helpful if you already know which resources to look at for changes. [If the filter is only returning 1,000 resources, see the corresponding solution in troubleshooting guide](./change-analysis-troubleshoot.md#cant-filter-to-your-resource-to-view-changes). |
 | Resource type | Select **Add filter** to use this filter. </br> Filter the changes to specific resource types. |
 
@@ -171,7 +171,7 @@ Once you have applied filters to the Change Analysis homepage:
 1. Enter a name for the pin. 
 1. Click **OK** to proceed.
 
-   :::image type="content" source="./media/change-analysis/click-pin-menu.png" alt-text="Screenshot of selecting Pin current filters button in Change Analysis":::
+   :::image type="content" source="./media/change-analysis/click-pin-menu.png" alt-text="Screenshot of selecting Pin current filters button in Change Analysis.":::
 
 A side pane will open to configure the dashboard where you'll place your pin. You can select one of two dashboard types:
 
