@@ -58,10 +58,10 @@ Follow these steps to make a user eligible member or owner of a group. You will 
 1. Select **Next**.
 
 1. In the Assignment type list, select Eligible or Active. Privileged Identity Management provides two distinct assignment types:
-    - Eligible assignment requires member/owner to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
+    - Eligible assignment requires member or owner to perform an activation to use the role. Activations may also require providing a multi-factor authentication (MFA), providing a business justification, or requesting approval from designated approvers.
     > [!IMPORTANT]
     > For groups used for elevating into Azure AD roles, Microsoft recommends that you require an approval process for eligible member assignments. Assignments that can be activated without approval can leave you vulnerable to a security risk from another administrator with permission to reset an eligible user's passwords.
-    - Active assignments don't require the member to perform any action to use the role. Members/owners assigned as active have the privileges assigned to the role at all times.
+    - Active assignments don't require the member to perform any activations to use the role. Members or owners assigned as active have the privileges assigned to the role at all times.
 
 1.	If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox. Depending on the group's settings, the check box might not appear or might not be editable. For more information, check out the [Configure privileged access group settings (preview) in Privileged Identity Management](groups-role-settings.md#assignment-duration) article.
 
