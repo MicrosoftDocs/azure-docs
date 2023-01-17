@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/08/2022
+ms.date: 01/09/2023
 ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to understand X.509 Public Key Infrastructure (PKI) and public key cryptography so I can use X.509 certificates to authenticate devices to an IoT hub.
