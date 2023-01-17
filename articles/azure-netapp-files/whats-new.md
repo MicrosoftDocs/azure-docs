@@ -23,7 +23,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md#2-tib-capacity-pool) (Preview)
 
-    Azure NetApp Files now supports capacity pool sizes starting at 2 TiB.
+    Azure NetApp Files now supports a lower limit of 2 TiB for capacity pool sizing with Standard network features.
 
 ## December 2022
 
