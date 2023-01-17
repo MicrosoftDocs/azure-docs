@@ -183,7 +183,7 @@ Start by navigating to your Azure Digital Twins instance in the Azure portal (yo
 
     Select **Create a connection**. Doing so will begin the process of creating a data history connection.
 
-2. **(SOME USERS)** If you **don't** already have a [managed identity enabled for your Azure Digital Twins instance](how-to-route-with-managed-identity.md), you'll see this page first, asking you to turn on Identity for the instance as the first step for the data history connection.
+2. **(SOME USERS)** If you **don't** already have a [managed identity enabled for your Azure Digital Twins instance](how-to-set-up-instance-portal.md#enabledisable-managed-identity-for-the-instance), you'll see this page first, asking you to turn on Identity for the instance as the first step for the data history connection.
 
     :::image type="content"  source="media/how-to-use-data-history/authentication.png" alt-text="Screenshot of the Azure portal showing the first step in the data history connection setup, Authentication." lightbox="media/how-to-use-data-history/authentication.png":::
 

@@ -55,7 +55,7 @@ To define an event route, developers first must define endpoints. An *endpoint* 
 * Event Hubs
 * Service Bus
 
-To [create an endpoint](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins), you can use the Azure Digital Twins REST APIs, CLI commands, or the Azure portal.
+To [create an endpoint](how-to-manage-endpoints.md), you can use the Azure Digital Twins REST APIs, CLI commands, or the Azure portal.
 
 When defining an endpoint, you'll need to provide:
 * The endpoint's name
@@ -73,7 +73,7 @@ The endpoint APIs that are available in control plane are:
 
 ## Create an event route
  
-To [create an event route](how-to-manage-routes.md#create-an-event-route), you can use the Azure Digital Twins REST APIs, CLI commands, or the Azure portal.
+To [create an event route](how-to-manage-routes.md), you can use the Azure Digital Twins REST APIs, CLI commands, or the Azure portal.
 
 Here's an example of creating an event route within a client application, using the `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) call: 
 
@@ -102,7 +102,7 @@ Before setting the dead-letter location, you must have a storage account with a 
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md)
 
-To learn how to set up an endpoint with dead-lettering, see [Manage endpoints and routes in Azure Digital Twins](how-to-manage-routes.md#create-an-endpoint-with-dead-lettering).
+To learn how to set up an endpoint with dead-lettering, see [Endpoint options: Dead-lettering](how-to-manage-endpoints.md#endpoint-options-dead-lettering).
 
 ### Types of event messages
 
@@ -113,7 +113,7 @@ Different types of events in IoT Hub and Azure Digital Twins produce different t
 ## Next steps
 
 Continue to the step-by-step instructions for setting up endpoints and event routes:
-* [Manage endpoints and routes](how-to-manage-routes.md)
+* [Manage endpoints](how-to-manage-endpoints.md) and [Manage routes and filters](how-to-manage-routes.md)
 
 Or, follow this walkthrough to set up an Azure Function for twin-to-twin event handling within Azure Digital Twins:
 * [Set up twin-to-twin event handling](how-to-send-twin-to-twin-events.md).

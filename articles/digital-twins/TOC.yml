@@ -123,10 +123,10 @@
       href: how-to-integrate-logic-apps.md
   - name: Connect output
     items:
-    - name: Manage endpoints and routes
+    - name: Manage endpoints
+      href: how-to-manage-endpoints.md
+    - name: Manage routes and filters
       href: how-to-manage-routes.md
-    - name: Route events with a managed identity
-      href: how-to-route-with-managed-identity.md
     - name: Use data history with Azure Data Explorer
       href: how-to-use-data-history.md
     - name: Integrate with Azure Time Series Insights
