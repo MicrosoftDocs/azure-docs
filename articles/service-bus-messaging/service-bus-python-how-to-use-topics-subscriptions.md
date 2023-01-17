@@ -290,16 +290,42 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
 1. Similar to the send sample, add `import` statements, define constants that you should replace with your own values, and define a credential.
 
-```python
-TBD
-```
+    ```python
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+    from azure.identity.aio import DefaultAzureCredential
+    
+    FULLY_QUALIFIED_NAMESPACE = "FULLY_QUALIFIED_NAMESPACE"
+    SUBSCRIPTION_NAME = "SUBSCRIPTION_NAME"
+    TOPIC_NAME = "TOPIC_NAME"
+    
+    credential = DefaultAzureCredential()
+    ```
 
 2. Create a Service Bus client and then a subscription receiver object to receive messages.
 
-```python
-TBD
-```
-
+    ```python
+    async def run():
+        # create a Service Bus client using the connection string
+        async with ServiceBusClient(
+            fully_qualified_namespace=FULLY_QUALIFIED_NAMESPACE,
+            credential=credential,
+            logging_enable=True) as servicebus_client:
+    
+            async with servicebus_client:
+                # get the Subscription Receiver object for the subscription    
+                receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, 
+                subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
+                async with receiver:
+                    received_msgs = await receiver.receive_messages(max_wait_time=5, max_message_count=20)
+                    for msg in received_msgs:
+                        print("Received: " + str(msg))
+                        # complete the message so that the message is removed from the subscription
+                        await receiver.complete_message(msg)
+        # Close credential when no longer needed.
+            await credential.close()
+    ```
+    
 3. Call the `run` method.
 
     ```python
