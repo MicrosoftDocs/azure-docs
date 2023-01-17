@@ -24,7 +24,7 @@ The Azure Functions trigger and bindings for Azure Cosmos DB depend on the exten
 
 The key functionality of the extension package is to provide support for the Azure Functions trigger and bindings for Azure Cosmos DB. The package also includes the [Azure Cosmos DB .NET SDK](sdk-dotnet-core-v2.md), which is helpful if you want to interact with Azure Cosmos DB programmatically without using the trigger and bindings.
 
-If you want to use the Azure Cosmos DB SDK, make sure that you don't add to your project another NuGet package reference. Instead, let the SDK reference resolve through the Azure Functions extension package. Consume the Azure Cosmos DB SDK separately from the trigger and bindings
+If you want to use the Azure Cosmos DB SDK, make sure that you don't add to your project another NuGet package reference. Instead, let the SDK reference resolve through the Azure Functions extension package. Consume the Azure Cosmos DB SDK separately from the trigger and bindings.
 
 Additionally, if you're manually creating your own instance of the [Azure Cosmos DB SDK client](./sdk-dotnet-core-v2.md), you should follow the pattern of having only one instance of the client and [use a singleton pattern approach](../../azure-functions/manage-connections.md?tabs=csharp#azure-cosmos-db-clients). This process avoids the potential socket issues in your operations.
 
@@ -35,8 +35,8 @@ Additionally, if you're manually creating your own instance of the [Azure Cosmos
 The Azure function fails with the following error message: "Either the source collection 'collection-name' (in database 'database-name') or the lease collection 'collection2-name' (in database 'database2-name') doesn't exist. Both collections must exist before the listener starts. To automatically create the lease collection, set 'CreateLeaseCollectionIfNotExists' to 'true'."
 
 This error means that one or both of the Azure Cosmos DB containers that are required for the trigger to work either:
-* Don't exist, or
-* Aren't reachable to the Azure function. 
+* Don't exist
+* Aren't reachable to the Azure function 
 
 The error text itself tells you which Azure Cosmos DB database and container the trigger is looking for, based on your configuration.
 
@@ -44,7 +44,7 @@ To resolve this issue:
 
 1. Verify the `ConnectionStringSetting` attribute and that it references a setting that exists in your Azure function app. 
 
-   The value on this attribute shouldn't be the Connection String itself, but the name of the Configuration Setting.
+   The value on this attribute shouldn't be the connection string itself, but the name of the configuration setting.
 
 1. Verify that the `databaseName` and `collectionName` values exist in your Azure Cosmos DB account. 
 
@@ -116,7 +116,7 @@ The concept of a *change* is an operation on a document. The most common scenari
 
 * The document is being updated. The change feed can contain multiple operations for the same documents. If the document is receiving updates, it can pick up multiple events (one for each update). One easy way to distinguish among different operations for the same document is to track the `_lsn` [property for each change](../change-feed.md#change-feed-and-_etag-_lsn-or-_ts). If the properties don't match, the changes are different.
 
-* If you're identifying documents only by `id`, remember that the unique identifier for a document is the `id` and its partition key (two documents can have the same `id` but a different partition key).
+* If you're identifying documents only by `id`, remember that the unique identifier for a document is the `id` and its partition key. (Two documents can have the same `id` but a different partition key.)
 
 ### Some changes are missing in your trigger
 
