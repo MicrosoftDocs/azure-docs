@@ -112,7 +112,7 @@ The builder is a resource that continuously contributes to your deployments. The
 
 You can't delete a builder when existing active deployments are built by the builder. To delete such a builder, save the configuration as a new builder first. After you deploy apps with the new builder, the deployments are linked to the new builder. You can then migrate the deployments under the previous builder to the new builder, and then delete the original builder.
 
-For more details about deploying a polyglot app, see  [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md).
+For more information about deploying a polyglot app, see  [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md).
 
 ## Real-time build logs
 
