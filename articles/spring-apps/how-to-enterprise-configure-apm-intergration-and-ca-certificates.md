@@ -17,17 +17,17 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to configure APM integration and CA certificates in Azure Spring Apps Enterprise tier.
+This article shows you how to configure application performance monitor (APM) integration and certificate authority (CA) certificates in Azure Spring Apps Enterprise tier.
 
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
-## Supported Scenarios - APM and CA Certificates Integration
+## Supported scenarios - APM and CA certificates integration
 
 Azure Spring Apps Enterprise tier uses buildpack bindings to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html) and other Cloud Native Buildpack like [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates).
 
-Currently, below APM types and CA certificates are supported:
+Currently, the following APM types and CA certificates are supported:
 
 - [ApplicationInsights](#use-application-insights)
 - [Dynatrace](#use-dynatrace)
@@ -36,7 +36,7 @@ Currently, below APM types and CA certificates are supported:
 - [ElasticAPM](#use-elasticapm)
 - [CACertificates](#use-ca-certificates)
 
-CA Certificates is supported for all language family buildpacks, but not all support APMs. The following table shows the binding types that are supported by Tanzu language family buildpacks.
+CA Certificates are supported for all language family buildpacks, but not all supported APMs. The following table shows the binding types that are supported by Tanzu language family buildpacks.
 
 | Buildpack                                             | ApplicationInsights | NewRelic | AppDynamics | Dynatrace | ElasticAPM |
 |-------------------------------------------------------|---------------------|----------|-------------|-----------|------------|
@@ -49,49 +49,103 @@ CA Certificates is supported for all language family buildpacks, but not all sup
 
 ### Use Application Insights
 
-| Supported language | Required environment variables                                                                                 | Other environment variables                                                                                         |
-|--------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| Java               | 1. connection-string (Upper case key or use "_" to replace "-" is also acceptable) <br> 2. sampling-percentage | [Application Insights Overview](/azure/azure-monitor/app/app-insights-overview?tabs=net) |
+The following languages are supported:
+
+- Java
+
+The following list shows the required environment variables:
+
+- `connection-string`
+- `sampling-percentage`
+
+Upper-case keys are allowed, and you can also replace `_` with `-`.
+
+For other supported environment variables, see [Application Insights Overview](/azure/azure-monitor/app/app-insights-overview?tabs=net).
 
 ### Use Dynatrace
 
-| Supported language                                   | Required environment variables                                                                                                                       | Other environment variables                                                                             |
-|------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| Java<br> Dotnet<br> Go<br> NodeJS<br> WebServers<br> | 1. api-url OR environment-id (used in build step) <br> 2. api-token (used in build step) <br> 3. TENANT <br> 4. TENANTTOKEN <br> 5. CONNECTION_POINT | [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar) |
+The following languages are supported:
+
+- Java
+- .NET
+- Go
+- Node.js
+- WebServers
+
+The following list shows the required environment variables:
+
+- `api-url` or `environment-id` (used in build step)
+- `api-token` (used in build step)
+- `TENANT`
+- `TENANTTOKEN`
+- `CONNECTION_POINT`
+
+For other supported environment variables, see [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar).
 
 ### Use New Relic
 
-| Supported Language | Required environment variables | Other environment variables|
-|-------|------|------|
-| Java <br> NodeJS<br> | 1. license_key <br> 2. app_name <br>| [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
+The following languages are supported:
+
+- Java
+- Node.js
+
+The following list shows the required environment variables:
+
+- `license_key`
+- `app_name`
+
+For other supported environment variables, see [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 ### Use ElasticAPM
 
-| Supported Language | Required environment variables | Other environment variables|
-|-------|------|------|
-| Java <br> NodeJS<br> | 1. service_name<br> 2. application_packages <br> 3. server_url | [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
+The following languages are supported:
+
+- Java
+- Node.js
+
+The following list shows the required environment variables:
+
+- `service_name`
+- `application_packages`
+- `server_url`
+
+For other supported environment variables, see [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
 ### Use AppDynamics
 
-| Supported Language | Required environment variables | Other environment variables|
-|-------|------|------|
-| Java <br> NodeJS<br> |1. agent_application_name <br> 2. agent_tier_name <br> 3. agent_node_name <br> 4. agent_account_name <br> 5. agent_account_access_key <br> 6. controller_host_name <br> 7. controller_ssl_enabled <br> 8. controller_port <br> | [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
+The following languages are supported:
+
+- Java
+- Node.js
+
+The following list shows the required environment variables:
+
+- `agent_application_name`
+- `agent_tier_name`
+- `agent_node_name`
+- `agent_account_name`
+- `agent_account_access_key`
+- `controller_host_name`
+- `controller_ssl_enabled`
+- `controller_port`
+
+For other supported environment variables, see [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties).
 
 ### Use CA certificates
 
-CA Certificates uses [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates) to support providing CA certificates to the system truststore at build and runtime.
+CA certificates use [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates) to support providing CA certificates to the system trust store at build and runtime.
 
-In Azure Spring Apps Enterprise tier, the CA certificates will use the `public key certificates` in `TLS/SSL settings`
+In Azure Spring Apps Enterprise tier, the CA certificates will use the **Public Key Certificates** tab on the **TLS/SSL settings** page in the Azure portal, as shown in the following screenshot:
 
 :::image type="content" source="media/how-to-enterprise-build-service/public-key-certificates.png" alt-text="Screenshot of Azure portal showing the public key certificates in SSL/TLS setting page." lightbox="media/how-to-enterprise-build-service/public-key-certificates.png":::
 
-It can be configured in `Edit binding` page. The `succeeded` certificates are shown in CA Certificates list
+You can configure the CA certificates on the **Edit binding** page. The `succeeded` certificates are shown in the **CA Certificates** list.
 
 :::image type="content" source="media/how-to-enterprise-build-service/ca-certificates-buildpack-binding.png" alt-text="Screenshot of Azure portal showing edit CA Certificates buildpack binding." lightbox="media/how-to-enterprise-build-service/ca-certificates-buildpack-binding.png":::
 
 ## Manage APM integration and CA certificates in Azure Spring Apps
 
-In context here, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against CA Certificates type. For APM integration, please follow above per APM instructions to configure necessary environment variables or secrets.
+In the current context, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against the CA Certificates type. For APM integration, follow the earlier instructions to the configure necessary environment variables or secrets for your APM.
 
 To edit buildpack bindings for the builder, select **Edit**. After a builder is bound to the buildpack bindings, the buildpack bindings are enabled for an app deployed with the builder.
 
@@ -118,11 +172,11 @@ Follow these steps to view the current buildpack bindings:
 
 ### Create a buildpack binding
 
-To create a buildpack binding, select **Unbound** on the **Edit Bindings** page, specify binding properties, and then select **Save**.
+To create a buildpack binding, select **Unbound** on the **Edit Bindings** page, specify the binding properties, and then select **Save**.
 
 ### Unbind a buildpack binding
 
-You can unbind a buildpack binding by using the **Unbind binding** command, or by editing binding properties.
+You can unbind a buildpack binding by using the **Unbind binding** command, or by editing the binding properties.
 
 To use the **Unbind binding** command, select the **Bound** hyperlink, and then select **Unbind binding**.
 
@@ -138,7 +192,7 @@ When you unbind a binding, the bind status changes from **Bound** to **Unbound**
 
 ### View buildpack bindings using the Azure CLI
 
-View the current buildpack bindings using the following command:
+View the current buildpack bindings by using the following command:
 
 ```azurecli
 az spring build-service builder buildpack-binding list \
@@ -149,7 +203,7 @@ az spring build-service builder buildpack-binding list \
 
 ### Create a binding
 
-Use this command to change the binding from **Unbound** to **Bound** status:
+Use this command to change the binding from *Unbound* to *Bound* status:
 
 ```azurecli
 az spring build-service builder buildpack-binding create \
@@ -166,7 +220,7 @@ For information on the `properties` and `secrets` parameters for your buildpack,
 
 ### Show the details for a specific binding
 
-You can view the details of a specific binding using the following command:
+You can view the details of a specific binding by using the following command:
 
 ```azurecli
 az spring build-service builder buildpack-binding show \
@@ -178,7 +232,7 @@ az spring build-service builder buildpack-binding show \
 
 ### Edit the properties of a binding
 
-You can change a binding's properties using the following command:
+You can change a binding's properties by using the following command:
 
 ```azurecli
 az spring build-service builder buildpack-binding set \
@@ -195,7 +249,7 @@ For more information on the `properties` and `secrets` parameters for your build
 
 ### Delete a binding
 
-Use the following command to change the binding status from **Bound** to **Unbound**.
+Use the following command to change the binding status from *Bound* to *Unbound*.
 
 ```azurecli
 az spring build-service builder buildpack-binding delete \
@@ -204,6 +258,8 @@ az spring build-service builder buildpack-binding delete \
     --name <your-buildpack-binding-name> \
     --builder-name <your-builder-name>
 ```
+
+---
 
 ## Next steps
 

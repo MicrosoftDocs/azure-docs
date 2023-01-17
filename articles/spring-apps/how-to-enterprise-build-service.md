@@ -77,7 +77,7 @@ For more information about deploying a polyglot app, see [How to deploy polyglot
 
 ## Configure APM integration and CA certificates
 
-By leveraging Tanzu Partner Buildpacks and CA Certificates Buildpack, Enterprise tier provides a simplified configuration experience to support APM integration and CA certificates integration scenarios for polyglot apps. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
+By leveraging Tanzu Partner Buildpacks and CA Certificates Buildpack, Enterprise tier provides a simplified configuration experience to support application performance monitor (APM) integration and certificate authority (CA) certificates integration scenarios for polyglot apps. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 ## Manage custom builders
 
