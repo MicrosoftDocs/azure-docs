@@ -36,15 +36,17 @@ When a file upload fails because of an error, you'll receive a notification in t
 
 **Retryable errors**: If you can fix the error in the current order, the notification looks similar to the following one. The current order status is **Data copy halted**. You can either choose to resolve the error or proceed with data erasure without making any change. If you select **Resolve error**, a **Resolve error** screen will tell you how to resolve each error. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
 
-![Screenshot of a Data Box order with retryable upload errors. The Data Copy Halted status and notification are highlighted.](media/data-box-troubleshoot-data-upload/data-box-retryable-errors-01.png)
- 
-**Non-retryable errors:** If the error can't be fixed in the current order, the notification looks similar to the following one. The current order status is **Data copy completed with errors. Device pending data erasure**. The errors are listed in the data copy log, which you can open using the **Copy Log Path**. For guidance on resolving the errors, see [Summary of upload errors](#summary-of-upload-errors).
+![Screenshot of a Data Box Disk order with retryable upload errors.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-01.png)
 
-![Screenshot of a Data Box order with retryable upload errors. TELL WHAT IS HIGHLIGHTED.](media/data-box-troubleshoot-data-upload/copy-completed-with-errors-notification-01.png)
+ 
+**Non-retryable errors:** If the error can't be fixed in the current order, the notification looks similar to the following one. The current order status is **Data copy halted for disks in this order. Provide your input by selecting Resolve in Data copy details**. The errors are listed in the data copy log, which you can open using the **Copy Log Path**. For guidance on resolving the errors, see [Summary of upload errors](#summary-of-upload-errors).
+
+![Screenshot of a Data Box Disk order with Resolve errors pane.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-non-retriable-errors-01.png)
+
 
 You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
-After you review the errors and confirm you're ready to proceed, the data is secure erased from the device. If you don't respond to the notification, the order is completed automatically after 14 days. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
+After you review the errors and confirm you're ready to proceed, the data is secure erased from the device. If you don't respond to the notification, the order is completed automatically after 14 days.
 
 
 ## Review errors and proceed
@@ -59,25 +61,26 @@ To resolve retryable copy errors during an upload, do these steps:
 
 1. Open your order in the Azure portal.
 
-   If any retryable copy errors prevented files from uploading, you'll see the following notification. The current order status will be **Data copy halted**.
+   If any retryable copy errors prevented files from uploading, you'll see the following notification. The current order status will be **Data copy halted for disks in this order**.
 
-   ![Screenshot of a Data Box order with data upload halted by retryable copy errors. The Data Copy Halted status and notification are highlighted.](media/data-box-troubleshoot-data-upload/data-box-retryable-errors-01.png)
+   ![Screenshot of a Data Box Disk order with retryable upload errors. Error is highlighted.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-01.png)
 
-1. Select **Resolve error** to view help for the errors.
+1. Select **Resolve** to view help for the errors.
+
+   ![Screenshot of a Data Box Disk order with retryable upload error.Resolve option is highlighted.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-02.png)
 
    Your screen will look similar to the one below. In the example, the **Enable large file share** error can be resolved by toggling **Not enabled** for each storage account.
 
-   The screen tells how to recover from two other copy errors: a missing storage account and a missing access key.
+   ![Screenshot of a Data Box Disk order with Resolve errors pane.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-03.png)
 
-   For each error, there's a **Learn more** link to get more information.
+
+   You can then select **Proceed with data copy** or **Skip and proceed with data erasure**. If you opt for **Proceed with data copy**, you can select if you want to address the error for **Selected disk** or **All disks**.
  
-   ![Screenshot of the Resolve Errors pane for multiple retryable errors from a Data Box upload. The Not Enabled buttons, confirmation prompt, and Proceed button are highlighted.](media/data-box-troubleshoot-data-upload/data-box-retryable-errors-02.png)
+   ![Screenshot of the Resolve Errors pane. The Resolution option is highlighted.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-04.png)
 
 1. After you resolve the errors, select the check box by **I confirm that the errors have been resolved**. Then select **Proceed**.
 
    The order status changes to **Data copy error resolved**. The data copy will proceed within 24 hours.
-
-   ![Screenshot of a Data Box order with Data Copy Resolved status. The order status and schedule for proceeding are highlighted.](media/data-box-troubleshoot-data-upload/data-box-retryable-errors-03.png)
 
    > [!NOTE]
    > If you don't resolve all of the retryable errors, this process will repeat after the data copy proceeds. To proceed without resolving any of the retryable errors, select **Skip and proceed with data erasure** on the **Overview** screen.
@@ -87,7 +90,9 @@ To resolve retryable copy errors during an upload, do these steps:
 
 The following errors can't be resolved in the current order. The order will be completed automatically after 14 days. By acting on the notification, you can move things along more quickly.
 
-[!INCLUDE [data-box-review-nonretryable-errors](../../includes/data-box-review-nonretryable-errors.md)]
+If the error can't be fixed in the current order, the notification looks similar to the following one. The current order status is **Data copy halted for disks in this order. Provide your input by selecting Resolve in Data copy details**. The errors are listed in the data copy log, which you can open using the **Copy Log Path**. For guidance on resolving the errors, see [Summary of upload errors](#summary-of-upload-errors).
+
+![Screenshot of a Data Box Disk order with Resolve errors pane for non-retryable error.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-non-retriable-errors-01.png)
 
 ---
 
@@ -142,17 +147,6 @@ Other REST API errors might occur during data uploads. For more information, see
 **Error description:** Most file naming issues are caught during the **Prepare to ship** phase or fixed automatically during the upload (resulting in a **Copy with warnings** status). When an invalid file name is not caught, the file fails to upload to Azure.
 
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new order, rename the listed files to meet naming requirements for Azure Files. For naming requirements, see [Directory and File Names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
-
-
-<!--TEMPORARILY REMOVED. Product team may restore later. ### Bad Request (File property failure for Azure Files)
-
-**Error category:** UploadErrorCloudHttp 
-
-**Error code:** 400
-
-**Error description:** Data import will fail if the upload of file properties fails for Azure Files.  
-
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, *GET TROUBLESHOOTING*.-->
 
 
 ### The value for one of the HTTP headers is not in the correct format
@@ -227,5 +221,4 @@ Other REST API errors might occur during data uploads. For more information, see
 
 ## Next steps
 
-- [Review common REST API errors](/rest/api/storageservices/common-rest-api-error-codes).
-- [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-has-uploaded-to-azure)
+- [Verify data upload to Azure](data-box-disk-deploy-upload-verify.md)
