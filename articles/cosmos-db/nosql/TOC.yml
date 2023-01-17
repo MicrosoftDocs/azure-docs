@@ -747,6 +747,8 @@
           items:
             - name: Use Always Encrypted
               href: ../how-to-always-encrypted.md
+            - name: Self-Serve minimum TLS version enforcement
+              href: ../self-serve-min-tls-enforcement.md
             - name: Configure customer-managed keys with Azure key vault
               href: ../how-to-setup-customer-managed-keys.md
             - name: Configure customer-managed keys with Azure managed HSM key vault
