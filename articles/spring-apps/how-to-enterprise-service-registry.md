@@ -453,7 +453,7 @@ In this way, you can obtain detailed information from the program as needed.
 
 ## Enable/Disable Service Registry after service creation
 
-You can enable/disable Service Registry after service creation using Azure portal or Azure CLI. Please unbind all of your apps to Service Registry before deleting it.
+You can enable/disable Service Registry after service creation using Azure portal or Azure CLI. Before disabling it, it's required to unbind all of your apps to Service Registry.
 
 ### [Azure portal](#tab/Portal)
 
