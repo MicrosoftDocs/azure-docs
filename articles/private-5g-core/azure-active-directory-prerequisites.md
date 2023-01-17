@@ -21,7 +21,7 @@ In this how-to guide, you'll carry out the steps you need to complete before you
 - Complete the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - Identify the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](/azure/active-directory/roles/permissions-reference.md#application-developer) that have the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator.
-- Ensure your local machine has admin kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires an admin kubeconfig file. Contact your trials engineer for instructions on how to obtain this. <!-- TODO: update this to remove need for support -->
+- Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file. <!-- TODO: See <link> for instructions on how to obtain this. -->
 
 ## Configure domain system name (DNS) for local monitoring IP
 
@@ -65,35 +65,34 @@ You'll now register a new local monitoring application with Azure AD to establis
 
 ## Create Kubernetes Secret Objects
 
-To support Azure AD on Azure Private 5G Core applications, you'll need two files containing Kubernetes secrets.
+To support Azure AD on Azure Private 5G Core applications, you'll need a YAML file containing Kubernetes secrets.
 
 1. Convert each of the values you collected in [Collect the information for Kubernetes Secret Objects](#collect-the-information-for-kubernetes-secret-objects) into Base64 format. For example, you can run the following command in a Linux shell:
     
     `$ echo -n  <Value> | base64`
 
-1. Create a file to configure distributed tracing by creating a *secret-azure-ad-sas.yaml* file containing the Base64-encoded values. The secret must be named **sas-auth-secrets**.
+1. Create a *secret-azure-ad-local-monitoring.yaml* file containing the Base64-encoded values to configure distributed tracing and the packet core dashboards. The secret for distributed tracing must be named **sas-auth-secrets**, and the secret for the packet core dashboards must be named **grafana-auth-secrets**.
 
     ```yml
     apiVersion: v1
     kind: Secret
     metadata:
         name: sas-auth-secrets
-        namespace: <deployment namespace>
+        namespace: core
     type: Opaque
     data:
         client_id: <Base64-encoded client ID>
         client_secret: <Base64-encoded client secret>
         redirect_uri_root: <Base64-encoded distributed tracing redirect URI root>
         tenant_id: <Base64-encoded tenant ID>
-    ```
-1. Create a Kubernetes secret for the packet core dashboards by creating a *secret-azure-ad-grafana.yaml* file containing the Base64-encoded values. The secret must be named **grafana-auth-secrets**.
 
-    ```yml
+    ---
+
     apiVersion: v1
     kind: Secret
     metadata:
         name: grafana-auth-secrets
-        namespace: <deployment namespace>
+        namespace: core
     type: Opaque
     data:
         client_id: <Base64-encoded client ID>
@@ -103,17 +102,15 @@ To support Azure AD on Azure Private 5G Core applications, you'll need two files
         root_url: <Base64-encoded packet core dashboards redirect URI root>
     ```
 
-1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the admin kubeconfig filename.
+1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
     
-    `kubectl apply -f  /home/centos/secret-azure-ad-sas.yaml --kubeconfig=<admin kubeconfig>`
+    `kubectl apply -f  /home/centos/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
 
-    `kubectl apply -f  /home/centos/secret-azure-ad-grafana.yaml --kubeconfig=<admin kubeconfig>`
+1. Use the following commands to verify if the Secret Objects were applied correctly, specifying the core kubeconfig filename. You should see the correct **Name**, **Namespace**, and **Type** values, along with the size of the encoded values.
 
-1. Use the following commands to verify if the Secret Objects were applied correctly, specifying your deployment namespace and the admin kubeconfig filename. You should see the correct **Name**, **Namespace**, and **Type** values, along with the size of the encoded values.
+    `kubectl describe secrets -n core sas-auth-secrets --kubeconfig=<core kubeconfig>`
 
-    `kubectl describe secrets -n <deployment namespace> sas-auth-secrets --kubeconfig=<admin kubeconfig>`
-
-    `kubectl describe secrets -n <deployment namespace> grafana-auth-secrets --kubeconfig=<admin kubeconfig>`
+    `kubectl describe secrets -n core grafana-auth-secrets --kubeconfig=<core kubeconfig>`
 
 ## Next steps
 

@@ -49,7 +49,7 @@ As these credentials are highly sensitive, Azure Private 5G Core won't allow use
 
 ## Access to local monitoring tools
 
-### Certificate attestation
+### Secure connectivity using TLS/SSL certificates
 
 Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by HTTPS. You can provide your own HTTPS certificate to attest access to your local diagnostics tools. Providing a certificate signed by a globally known and trusted certificate authority (CA) grants additional security to your deployment; we recommend this option over using a certificate signed by its own private key (self-signed).
 

@@ -27,7 +27,7 @@ The following functions aren't supported while in disconnected mode:
 
 ## Monitoring and troubleshooting during disconnects
 
-Azure Active Directory based sign on for distributed tracing and packet core dashboards won't be available while in disconnected mode. However, you can configure username and password access to each of these tools if you plan to require access during periods of disconnect.
+While in disconnected mode, you won't be able to change the local monitoring authentication method or sign in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) using Azure Active Directory. If you expect to need access to your local monitoring tools while the ASE is disconnected, you can change your authentication method to local usernames and passwords by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
 Once the disconnect ends, log analytics on Azure will update with the stored data, excluding rate and gauge type metrics.
 

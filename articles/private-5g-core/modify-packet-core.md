@@ -29,7 +29,7 @@ If you want to modify a packet core instance's local access configuration, follo
 
 - If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the new values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools and you're making a change that triggers a packet core reinstall, ensure your local machine has admin kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires an admin kubeconfig file. Contact your trials engineer for instructions on how to obtain this. <!-- TODO: update this to remove need for support -->
+- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools and you're making a change that triggers a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file. <!-- TODO: See <link> for instructions on how to obtain this. -->
 
 ## Plan a maintenance window
 
@@ -49,7 +49,7 @@ The following list contains the data that will be lost over a packet core reinst
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
     
-    - If you use Azure AD, save a copy of the two Kubernetes Secret Object YAML files you created in [Create Kubernetes Secret Objects](azure-active-directory-prerequisites.md#create-kubernetes-secret-objects).
+    - If you use Azure AD, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](azure-active-directory-prerequisites.md#create-kubernetes-secret-objects).
     - If you use local usernames and passwords and want to keep using the same credentials, save a copy of the current passwords to a secure location.
 
 1. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
@@ -151,11 +151,9 @@ If you made changes that triggered a packet core reinstall, reconfigure your dep
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
     
-    - If you use Azure AD, in a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, reapply the Secret Object for both distributed tracing and the packet core dashboards, specifying the admin kubeconfig filename. 
+    - If you use Azure AD, in a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, reapply the Secret Object for distributed tracing and the packet core dashboards, specifying the core kubeconfig filename. 
     
-       `kubectl apply -f  /home/centos/secret-azure-ad-sas.yaml --kubeconfig=<admin kubeconfig>`
-    
-       `kubectl apply -f  /home/centos/secret-azure-ad-grafana.yaml --kubeconfig=<admin kubeconfig>`
+       `kubectl apply -f  /home/centos/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
 
     - If you use local usernames and passwords, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your local monitoring tools.
 
