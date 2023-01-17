@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor workspace overview (preview)
 description: Overview of Azure Monitor workspace, which is a unique environment for data collected by Azure Monitor.
-author: bwren 
+author: edbaynash 
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 10/05/2022
@@ -21,24 +21,39 @@ The following table lists the contents of Azure Monitor workspaces. This table w
 | Prometheus metrics | Native platform metrics<br>Native custom metrics<br>Prometheus metrics |
 
 
-## Workspace design
-A single Azure Monitor workspace can collect data from multiple sources, but there may be circumstances where you require multiple workspaces to address your particular business requirements. Azure Monitor workspace design is similar to [Log Analytics workspace design](../logs/workspace-design.md), and you choose to match that design. Since Azure Monitor workspaces currently only contain Prometheus metrics, and metric data is typically not as sensitive as log data, you may choose to further consolidate your Azure Monitor workspaces for simplicity.
+## Azure Monitor workspace architecture 
 
-There are several reasons that you may consider creating additional workspaces including the following.
+While a single Azure Monitor workspace may be sufficient for many use cases using Azure Monitor, many organizations will create multiple workspaces to better meet their needs Presented here are a set of criteria for determining whether to use a single Azure Monitor workspace, or multiple Azure Monitor workspaces, and the configuration and placement of those accounts to meet your requirements. 
 
-| Criteria | Description |
-|:---|:---|
-| Azure tenants | If you have multiple Azure tenants, you'll usually create a workspace in each because several data sources can only send monitoring data to a workspace in the same Azure tenant. |
-| Azure regions | Each workspace resides in a particular Azure region, and you may have regulatory or compliance requirements to store data in particular locations. |
-| Data ownership | You may choose to create separate workspaces to define data ownership, for example by subsidiaries or affiliated companies. |
-| Multiple environments | You may have Azure Monitor workspaces supporting different environments such as test, pre-production, and production. |
-| Logical boundaries | You may choose to separate your data based on logical boundaries such as application team or company division. |
-| Workspace limits | See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for current capacity limits related to Azure Monitor workspaces. If your capacity reaches 80%, you should consider creating multiple workspaces according to logical boundaries that make sense for your organization.  |
+### Design criteria 
 
+As you identify the right criteria to create additional Azure Monitor workspaces, your design should use the fewest number that will match your requirements while optimizing for minimal administrative management overhead. 
 
-> [!NOTE]
-> You cannot currently query across multiple Azure Monitor workspaces.
+The following table briefly presents the criteria that you should consider in designing your Azure Monitor workspace architecture.  
 
+|Criteria|Description|
+|---|---|
+|Segregate by logical boundaries |Create separate Azure Monitor workspaces for operational data based on logical boundaries, for example, a role, application type, type of metric etc.|
+|Azure tenants | For multiple Azure tenants, create an Azure Monitor workspace in each tenant. Data sources can only send monitoring data to an Azure Monitor workspace in the same Azure tenant. |
+|Azure regions |Each Azure Monitor workspace resides in a particular Azure region. Regulatory or compliance requirements may dictate the storage of data in particular locations. |
+|Data ownership |Create separate Azure Monitor workspaces to define data ownership, for example by subsidiaries or affiliated companies.| 
+
+### Growing account capacity  
+
+Upon creating a new Azure Monitor workspace, it is assigned a default quota/limit for metrics. As your product grows and you need more metrics, you can ask for this limit to be increased to an upper threshold of 50 million events or active time series. If your capacity needs grow exceptionally large, and your data ingestion needs can no longer be met by a single Azure Monitor workspace, you may need to consider creating multiple Azure Monitor workspaces. 
+
+### Multiple Azure Monitor workspaces  
+
+When an Azure Monitor workspace reaches 80% of its max capacity, and/or depending on your current and forecasted metric volume, it is recommended to split the Azure Monitor workspace into multiple workspaces. Based on logical separation, determine which logical grouping makes more sense for your business. For example, a company using Azure cloud service can logically separate its metrics in Azure Monitor workspaces by grouping them by application. By doing this, all the telemetric data can be managed and queried in an efficient way. 
+
+In special scenarios, splitting Azure Monitor workspace into multiple workspaces can be necessary because of one or more reasons listed below: 
+1. Monitoring data in sovereign clouds – Create Azure Monitor workspace(s) in each corresponding sovereign cloud.  
+
+1. Compliance/Regulatory requirements that mandate storage of data in specific regions – Create an Azure Monitor workspace per region as per requirements. Need for managing the scale of metrics for large services or financial institutions with regional accounts. 
+1. Separating metric data in test, pre-production, and production environments 
+
+>[!Note] 
+> When splitting Azure Monitor workspaces, keep in mind that creating a single query across multiple Azure Monitor workspaces is not supported. Setting up Grafana with each workspace as a dedicated data source which will allow for querying both workspaces in a single Grafana panel. 
 
 ## Limitations
 See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
