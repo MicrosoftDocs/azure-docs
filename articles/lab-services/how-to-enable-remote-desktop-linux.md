@@ -105,7 +105,7 @@ To set up the GNOME or MATE graphical desktops on Ubuntu, see [Install and confi
 
 ### Using RDP with Ubuntu
 
-In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance. If you use RDP and notice latency when interacting with the graphical desktop environment, consider trying [X2Go](#x2go-setup) for improved performance.
+In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance. If you use RDP and notice latency when interacting with the graphical desktop environment, consider trying [X2Go](#setting-up-x2go) for improved performance.
 
 ## Next steps
 
