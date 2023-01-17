@@ -127,4 +127,4 @@ In your first phase, target IT, usability, and other users who can test and prov
 
 Widen the pilot to larger groups of users by using dynamic membership, or by manually adding users to the targeted group(s).
 
-Learn more: [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)]
+Learn more: [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
