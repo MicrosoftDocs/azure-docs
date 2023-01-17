@@ -57,17 +57,6 @@ When you're ready to use Language Studio features on your own text data, you wil
 
 4. Select **Done**. Your resource will be created, and you will be able to use the different features offered by the Language service with your own text.
 
-
-<!--
-5. This feature has a section for entering text, uploading a file, or choosing a text sample to demonstrate how the feature works. To try the demo, you will need to choose a resource and acknowledge it will incur usage according to your [pricing tier](https://aka.ms/unifiedLanguagePricing).
-
-    :::image type="content" source="./media/language-studio-feature.png" alt-text="A screenshot showing a feature in Language Studio" lightbox="./media/language-studio-feature.png":::
-
-6. After sending text, you'll be able to see a visualization, along with the JSON response. At the bottom of the page, you'll see next steps and the cURL command for the API request you just sent.
-
-    :::image type="content" source="./media/language-studio-feature-result.png" alt-text="A screenshot showing the result of a feature in Language Studio" lightbox="./media/language-studio-feature-result.png":::
--->
-
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
