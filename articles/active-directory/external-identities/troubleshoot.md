@@ -7,8 +7,8 @@ ms.subservice: B2B
 ms.topic: troubleshooting
 ms.date: 08/30/2022
 tags: active-directory
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 ms.custom: engagement-fy23, it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ---
