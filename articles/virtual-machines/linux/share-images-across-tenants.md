@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 01/13/2023
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli
 author: sandeepraichura

@@ -1,11 +1,11 @@
 ---
-title: Share gallery images to another tenant using an app registration
+title: "PowerShell: Share gallery images to another tenant using an app registration"
 description: Learn how to share an Azure Compute Gallery to another tenant using an app registration.
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/13/2023
 author: sandeepraichura
 ms.author: saraic
 ms.reviewer: cynthn 

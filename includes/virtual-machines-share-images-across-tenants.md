@@ -11,7 +11,7 @@
 ---
 
 
-But, if you want to share images outside of your Azure tenant, at scale, you should create an app registration to facilitate sharing.  Using an app registration can enable more complex sharing scenarios, like: 
+But, if you want to share images outside of your Azure tenant, at scale, you should create an app registration.  Using an app registration can enable more complex sharing scenarios, like:
 
 * Managing shared images when one company acquires another, and the Azure infrastructure is spread across separate tenants. 
 * Azure Partners manage Azure infrastructure on behalf of their customers. Customization of images is done within the partners tenant, but the infrastructure deployments will happen in the customer's tenant. 
