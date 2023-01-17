@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
-ms.date: 07/13/2022
+ms.date: 01/18/2023
 ---
 
 # Outputs from Azure Stream Analytics
@@ -31,9 +31,9 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 |[Azure Event Hubs](event-hubs-output.md)|Yes, need to set the partition key column in output configuration.|Access key, </br> Managed Identity|
 |[Power BI](power-bi-output.md)|No|Azure Active Directory user, </br> Managed Identity|
 |[Azure Table storage](table-storage-output.md)|Yes|Account key|
-|[Azure Service Bus queues](service-bus-queues-output.md)|Yes|Access key|
-|[Azure Service Bus topics](service-bus-topics-output.md)|Yes|Access key|
-|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Access key|
+|[Azure Service Bus queues](service-bus-queues-output.md)|Yes|Access key, </br> Managed Identity|
+|[Azure Service Bus topics](service-bus-topics-output.md)|Yes|Access key, </br> Managed Identity|
+|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Access key, </br> Managed Identity|
 |[Azure Functions](azure-functions-output.md)|Yes|Access key|
 
 > [!IMPORTANT] 
