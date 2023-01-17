@@ -22,17 +22,18 @@ ms.devlang: azurecli
 > * [SDK v1](./v1/how-to-secure-training-vnet.md)
 > * [SDK v2 (current version)](how-to-secure-training-vnet.md)
 
-Azure Machine Learning compute instance and compute cluster can be used to securely train models in a virtual network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The following table lists the differences between these configurations:
+Azure Machine Learning compute instance and compute cluster can be used to securely train models in a virtual network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The general differences between the two are:
 
-* **No public IP**: We recommend this configuration if you want to prohibit the use of public IP addresses in your environment, remove inbound communication to the VNet from the public internet, and reduce the cost of networking resources.
-* **Public IP**: If you want to have virtual network protection for your compute instance/cluster.
+* **No public IP**: Reduces costs as it doesn't have the same networking resource requirements. Improves security by removing the requirement for inbound traffic from the internet. However, there are additional configuration changes required to enable outbound access to required resources (Azure Active Directory, Azure Resource Manager, etc.).
+* **Public IP**: Works by default, but costs more due to additional Azure networking resources. Requires inbound communication from the public internet.
 
-The following table contains the differences between these configurations with regards to required inbound and outbound traffic to the public network:
+The following table contains the differences between these configurations:
 
-| Direction | With public IP | Without public IP |
+| Configuration | With public IP | Without public IP |
 | ----- | ----- | ----- |
 | Inbound traffic | AzureMachineLearning | None |
-| Outbound traffic | AzureMachineLearning<br>BatchNodeManagement | AzureMachineLearning<br>BatchNodeManagement<br>Virtual Network NAT gateway or Firewall to allow AzureML required outbound traffic. |
+| Outbound traffic | By default, can access the public internet with no restrictions.<br>You can restrict what it accesses. | By default, it cannot access the public internet since there is no public IP resource.<br>You need a Virtual Network NAT gateway or Firewall to route outbound traffic to required resources on the internet. |
+| Azure networking resources | Public IP address, load balancer, network interface | None |
 
 You can also use Azure Databricks or HDInsight to train models in a virtual network.
 
@@ -81,27 +82,9 @@ In this article you learn how to secure the following training compute resources
 
 ## Limitations
 
-* If put multiple compute instances/clusters in one virtual network, you may need to request a quota increase for one or more of your resources. The Machine Learning compute instance or cluster automatically allocates networking resources __in the resource group that contains the virtual network__. For each compute instance or cluster, the service allocates the following resources:
 
-    * If your compute instance/cluster is configured with a public IP address, a network security group (NSG) is created. This NSG allows inbound TCP traffic on port 44224 from the `AzureMachineLearning` service tag.
 
-        > [!IMPORTANT]
-        > Compute instance and compute cluster automatically create an NSG with the required rules.
-        > 
-        > If you have another NSG at the subnet level, the rules in the subnet level NSG mustn't conflict with the rules in the automatically created NSG.
-        >
-        > To learn how the NSGs filter your network traffic, see [How network security groups filter network traffic](../virtual-network/network-security-group-how-it-works.md).
 
-    * One load balancer
-
-    For compute clusters, these resources are deleted every time the cluster scales down to 0 nodes and created when scaling up.
-
-    For a compute instance, these resources are kept until the instance is deleted. Stopping the instance doesn't remove the resources. 
-
-    > [!IMPORTANT]
-    > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
-
-* To create a compute cluster or instance without a public IP address, your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 * __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
 
@@ -115,95 +98,6 @@ In this article you learn how to secure the following training compute resources
 
 * Compute cluster/instance deployment in virtual network isn't supported with Azure Lighthouse.
 
-## Required public internet access
-
-[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
-
-For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
-
-## Compute instance/cluster with public IP
-
-The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to using a public IP with compute instances/clusters:
-
-+ In your VNet, allow **inbound** TCP traffic on port **44224** from the `AzureMachineLearning` service tag.
-    > [!IMPORTANT]
-    > The compute instance/cluster is dynamically assigned an IP address when it is created. Since the address is not known before creation, and inbound access is required as part of the creation process, you cannot statically assign it on your firewall. Instead, if you are using a firewall with the VNet you must create a user-defined route to allow this inbound traffic.
-+ In your VNet, allow **outbound** traffic to the following service tags:
-
-    | Service tag | Protocol | Port | Notes |
-    | ----- |:-----:|:-----:| ----- |
-    | `AzureMachineLearning` | TCP<br>UDP | 443/8787/18881<br>5831 | Communication with the Azure Machine Learning service.|
-    | `BatchNodeManagement.<region>` | ANY | 443| Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
-    | `Storage.<region>` | TCP | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
-
-    > [!IMPORTANT]
-    > The outbound access to `Storage.<region>` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. This feature is currently in preview. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
-
-    | FQDN | Protocol | Port | Notes |
-    | ---- |:----:|:----:| ---- |
-    | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. |
-    | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
-    | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
-    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
-    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
-    | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
-    | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
-    | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
-
-Use the following information to create a compute instance or cluster with a public IP address in the VNet:
-
-> [!TIP]
-> During creation, a network security group (NSG) is automatically created with the minimum inbound and outbound communications required for compute creation. It allows internet outbound and it is associated with the NIC for your compute. You can also create your own NSG at the subnet level. For more information, see [How network security groups filter network traffic](/azure/virtual-network/network-security-group-how-it-works).
-
-# [Azure CLI](#tab/cli)
-
-In the `az ml compute create` command, replace the following values:
-
-* `rg`: The resource group that the compute will be created in.
-* `ws`: The Azure Machine Learning workspace name.
-* `yourvnet`: The Azure Virtual Network.
-* `yoursubnet`: The subnet to use for the compute.
-* `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
-
-```azurecli
-az ml compute create --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute or ComputeInstance
-```
-
-# [Python](#tab/python)
-
-> [!IMPORTANT]
-> The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
-
-```python
-from azure.ai.ml.entities import AmlCompute
-
-# specify aml compute name.
-cpu_compute_target = "cpu-cluster"
-
-try:
-    ml_client.compute.get(cpu_compute_target)
-except Exception:
-    print("Creating a new cpu compute target...")
-    # Replace "yourvnet" and "yoursubnet" with your VNet and subnet.
-    compute = AmlCompute(
-        name=cpu_compute_target, size="STANDARD_D2_V2", min_instances=0, max_instances=4,
-        vnet_name="yourvnet", subnet_name="yoursubnet"
-    )
-    ml_client.compute.begin_create_or_update(compute).result()
-```
-
-# [Studio](#tab/azure-studio)
-
-1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com), and then select your subscription and workspace.
-1. Select the **Compute** page from the left navigation bar.
-1. Select the **+ New** from the navigation bar of compute instance or compute cluster.
-1. Configure the VM size and configuration you need, then select **Next**.
-1. From the **Advanced Settings**, Select **Enable virtual network** and then select your virtual network and subnet.
-
-    :::image type="content" source="tbu" alt-text="A screenshot of how to configure a compute instance/cluster in a VNet with a public IP." lightbox="tbu":::
-
----
-
 ## Compute instance/cluster with no public IP
 
 > [!IMPORTANT]
@@ -211,7 +105,9 @@ except Exception:
 > 
 > For existing compute clusters configured for no public IP, once the cluster has been reduced to 0 nodes (requires the minimum nodes to be configured as 0), it will take advantage of the new architecture the next time nodes are allocated after the subscription is allowlisted.
 
-The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to using a compute instances/clusters configured for no public IP:
+The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** a compute instances/clusters configured for no public IP:
+
++ Your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 + In your VNet, allow **outbound** traffic to the following service tags or fully qualified domain names (FQDN):
 
@@ -222,7 +118,7 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `Storage.<region>` | TCP | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
 
     > [!IMPORTANT]
-    > The outbound access to `Storage.<region>` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. This feature is currently in preview. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
+    > The outbound access to `Storage.<region>` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
 
     | FQDN | Protocol | Port | Notes |
     | ---- |:----:|:----:| ---- |
@@ -292,6 +188,105 @@ except Exception:
 
 ---
 
+## Compute instance/cluster with public IP
+
+The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** compute instances/clusters that have a public IP:
+
++ If you put multiple compute instances/clusters in one virtual network, you may need to request a quota increase for one or more of your resources. The Machine Learning compute instance or cluster automatically allocates networking resources __in the resource group that contains the virtual network__. For each compute instance or cluster, the service allocates the following resources:
+
+    * A network security group (NSG) is automatically created. This NSG allows inbound TCP traffic on port 44224 from the `AzureMachineLearning` service tag.
+
+        > [!IMPORTANT]
+        > Compute instance and compute cluster automatically create an NSG with the required rules.
+        > 
+        > If you have another NSG at the subnet level, the rules in the subnet level NSG mustn't conflict with the rules in the automatically created NSG.
+        >
+        > To learn how the NSGs filter your network traffic, see [How network security groups filter network traffic](../virtual-network/network-security-group-how-it-works.md).
+
+    * One load balancer
+
+    For compute clusters, these resources are deleted every time the cluster scales down to 0 nodes and created when scaling up.
+
+    For a compute instance, these resources are kept until the instance is deleted. Stopping the instance doesn't remove the resources. 
+
+    > [!IMPORTANT]
+    > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
+
++ In your VNet, allow **inbound** TCP traffic on port **44224** from the `AzureMachineLearning` service tag.
+    > [!IMPORTANT]
+    > The compute instance/cluster is dynamically assigned an IP address when it is created. Since the address is not known before creation, and inbound access is required as part of the creation process, you cannot statically assign it on your firewall. Instead, if you are using a firewall with the VNet you must create a user-defined route to allow this inbound traffic.
++ In your VNet, allow **outbound** traffic to the following service tags:
+
+    | Service tag | Protocol | Port | Notes |
+    | ----- |:-----:|:-----:| ----- |
+    | `AzureMachineLearning` | TCP<br>UDP | 443/8787/18881<br>5831 | Communication with the Azure Machine Learning service.|
+    | `BatchNodeManagement.<region>` | ANY | 443| Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
+    | `Storage.<region>` | TCP | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
+
+    > [!IMPORTANT]
+    > The outbound access to `Storage.<region>` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
+
+    | FQDN | Protocol | Port | Notes |
+    | ---- |:----:|:----:| ---- |
+    | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. |
+    | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
+    | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
+    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
+    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
+    | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
+    | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
+    | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
+
+Use the following information to create a compute instance or cluster with a public IP address in the VNet:
+
+# [Azure CLI](#tab/cli)
+
+In the `az ml compute create` command, replace the following values:
+
+* `rg`: The resource group that the compute will be created in.
+* `ws`: The Azure Machine Learning workspace name.
+* `yourvnet`: The Azure Virtual Network.
+* `yoursubnet`: The subnet to use for the compute.
+* `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
+
+```azurecli
+az ml compute create --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute or ComputeInstance
+```
+
+# [Python](#tab/python)
+
+> [!IMPORTANT]
+> The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
+
+```python
+from azure.ai.ml.entities import AmlCompute
+
+# specify aml compute name.
+cpu_compute_target = "cpu-cluster"
+
+try:
+    ml_client.compute.get(cpu_compute_target)
+except Exception:
+    print("Creating a new cpu compute target...")
+    # Replace "yourvnet" and "yoursubnet" with your VNet and subnet.
+    compute = AmlCompute(
+        name=cpu_compute_target, size="STANDARD_D2_V2", min_instances=0, max_instances=4,
+        vnet_name="yourvnet", subnet_name="yoursubnet"
+    )
+    ml_client.compute.begin_create_or_update(compute).result()
+```
+
+# [Studio](#tab/azure-studio)
+
+1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com), and then select your subscription and workspace.
+1. Select the **Compute** page from the left navigation bar.
+1. Select the **+ New** from the navigation bar of compute instance or compute cluster.
+1. Configure the VM size and configuration you need, then select **Next**.
+1. From the **Advanced Settings**, Select **Enable virtual network** and then select your virtual network and subnet.
+
+    :::image type="content" source="tbu" alt-text="A screenshot of how to configure a compute instance/cluster in a VNet with a public IP." lightbox="tbu":::
+
+---
 
 ## Azure Databricks
 
@@ -344,6 +339,14 @@ If you don't want to use the default outbound rules and you do want to limit the
 
 Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Manage compute resources for model training and deployment in studio](how-to-create-attach-compute-studio.md).
 
+## Required public internet access to train models.
+
+> [!IMPORTANT]
+> While previous sections of this article describe configurations required to **create** compute resources, the configuration information in this section is required to **use** these resources to train models.
+
+[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
+
+For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 ## Next steps
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
