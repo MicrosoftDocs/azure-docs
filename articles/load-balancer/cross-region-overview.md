@@ -139,7 +139,7 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * Private or internal load balancer can't be added to the backend pool of a cross-region load balancer 
 
-* Cross-region IPv6 frontend IP configurations aren't supported. 
+* NAT64 transaltion isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
 
 * UDP traffic isn't supported on Cross-region Load Balancer. 
 
