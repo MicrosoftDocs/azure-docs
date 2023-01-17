@@ -107,7 +107,7 @@ Hybrid Azure AD join replaces Okta device trust on Windows. Conditional Access p
 
 If you deployed hybrid Azure AD join, you can deploy another group policy to complete auto-enrollment of these devices in Intune.
 
-* [What is device enrollment in Intune?](mem/intune/enrollment/device-enrollment)
+* [Enrollment in Microsoft Intune](/mem/intune/enrollment/)
 * [Quickstart: Set up automatic enrollment for Windows 10/11 devices](/mem/intune/enrollment/quickstart-setup-auto-enrollment)
 * [Enroll Android devices](/mem/intune/enrollment/android-enroll)
 * [Enroll iOS/iPadOS devices in Intune](/mem/intune/enrollment/ios-enroll)
