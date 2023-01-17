@@ -20,3 +20,5 @@ items:
     href: ./dynatrace/index.yml
   - name: NGINXaaS - Azure Native ISV Service
     href: ./nginx/index.yml
+  - name: Azure Native New Relic Service
+    href: ./new-relic/index.yml
