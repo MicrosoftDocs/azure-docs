@@ -14,21 +14,6 @@ ms.date: 01/17/2023
 
 Azure Machine Learning designer components (Designer) allows users to create machine learning projects using a drag and drop interface. Follow this link to reach the Designer studio. Follow this link to [learn more about Designer.] (..//concept-designer)
 
-----Add link to interface
-
-Search your desired component you would like to use to create a pipeline. Drag the component into the work space.
-
-----Add steps on how to use each component
-
->[!Note]
-> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible. 
->
->Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
->
->
->Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
->
->This article applies to classic prebuilt components. 
 
 This reference content provides the technical background on each of the classic custom (v2) components available in Azure Machine Learning designer.
 
@@ -36,7 +21,7 @@ This reference content provides the technical background on each of the classic 
 Each component represents a set of code that can run independently and perform a machine learning task, given the required inputs. A component might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 
 For help with choosing algorithms, see 
-* [How to select algorithms](../how-to-select-algorithms.md)
+* [How to select algorithms](..//how-to-select-algorithms.md)
 
 > [!TIP]
 > In any pipeline in the designer, you can get information about a specific component. Select the **Learn more** link in the component card when hovering on the component in the component list, or in the right pane of the component.
@@ -56,4 +41,4 @@ For help with choosing algorithms, see
 
 ## Next steps
 
-* [Tutorial: Build a model in designer to predict auto prices](../tutorial-designer-automobile-price-train-score.md)
+* [Tutorial: Build a model in designer to predict auto prices](../../tutorial-designer-automobile-price-train-score.md)
