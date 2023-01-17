@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to group costs using tag inheritance.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/08/2022
+ms.date: 01/09/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -17,7 +17,11 @@ Azure tags are widely used to group costs to align with different business units
 
 This article explains how to use the tag inheritance setting in Cost Management. When enabled, tag inheritance applies resource group and subscription tags to child resource usage records. You don't have to tag every resource or rely on resources that emit usage to have their own tags.
 
-Tag inheritance is available for customers with an Enterprise Account (EA) or a Microsoft Customer Agreement (MCA) account.
+Tag inheritance is available for the following billing account types:
+
+- Enterprise Agreement (EA)
+- Microsoft Customer Agreement (MCA)
+- Microsoft Partner Agreement (MPA) with Azure plan subscriptions
 
 ## Required permissions
 

@@ -7,7 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 author: samuel100
-ms.author: franksolomon
+ms.author: samkemp
+ms.reviewer: franksolomon
 ms.date: 11/17/2022
 ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
@@ -67,7 +68,7 @@ path_on_datastore '<path>'
 uri = f'azureml://subscriptions/{subscription}/resourcegroups/{resource_group}/workspaces/{workspace}/datastores/{datastore_name}/paths/{path_on_datastore}'. 
 ```
 
-These Datastore URIs are a known implementation of [Filesystem spec](https://filesystem-spec.readthedocs.io/latest/index.html#) (`fsspec`): A unified pythonic interface to local, remote and embedded file systems and bytes storage.
+These Datastore URIs are a known implementation of [Filesystem spec](https://filesystem-spec.readthedocs.io/en/latest/index.html) (`fsspec`): A unified pythonic interface to local, remote and embedded file systems and bytes storage.
 
 The Azure ML Datastore implementation of `fsspec` automatically handles credential/identity passthrough used by the Azure ML datastore. This means you don't need to expose account keys in your scripts or do additional sign-in procedures on a compute instance.
 
