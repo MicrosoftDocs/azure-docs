@@ -1,5 +1,7 @@
 - name: Designer algorithms & components (V2)
   href: component-reference-v2.md
+- name: Switch to Designer v1 documentation
+  href: ../component-reference/component-reference.md
 - name: AutoML
   items:
   - name: Classification
