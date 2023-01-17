@@ -31,27 +31,23 @@ In this tutorial, you complete the following steps:
 > [!NOTE]
 > This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. You can find pre-built Python samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples). 
 
-
 ## Prerequisites
 
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Python 3.7 or higher, with the [Azure Python SDK][/azure/developer/python/sdk/azure-sdk-overview] package installed.
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
-To use this quickstart with your own Azure account, you need:
+To follow this quickstart using authentication passwordless and your own Azure account, you need to:
+
 * Install [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
 * Sign in with your Azure account at the terminal or command prompt with `az login`. 
-* Use the same account when you add the appropriate role to your resource.
-* Run the code in the same terminal or command prompt.
-* Note down your **topic** name and **subscription** for your Service Bus namespace. You'll need that in the code.  
+* Use the same account when you add the appropriate role to your resource later in the tutorial.
+* Run the tutorial code in the same terminal or command prompt.
 
 ### [Connection string](#tab/connection-string)
 
-Note the following, which you'll use this tutorial:
-* Service Bus namespace **connection string** 
-* Service Bus namespace **topic** name you created
-* Service Bus namespace **subscription** 
+To follow this quickstart using a connection string to authentication, you won't need to install Azure CLI. In a later step, you'll copy the connection string from the Azure portal and paste it into the code.
 
 ---
 
