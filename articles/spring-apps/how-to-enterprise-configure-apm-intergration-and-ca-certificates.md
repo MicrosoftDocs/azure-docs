@@ -34,9 +34,9 @@ Currently, the following APM types and CA certificates are supported:
 - [AppDynamics](#use-appdynamics)
 - [NewRelic](#use-new-relic)
 - [ElasticAPM](#use-elasticapm)
-- [CACertificates](#use-ca-certificates)
+- [CA certificates](#use-ca-certificates)
 
-CA Certificates are supported for all language family buildpacks, but not all supported APMs. The following table shows the binding types that are supported by Tanzu language family buildpacks.
+CA Certificates are supported for all language family buildpacks, but not all supported APMs. The following table shows the binding types supported by Tanzu language family buildpacks.
 
 | Buildpack                                             | ApplicationInsights | NewRelic | AppDynamics | Dynatrace | ElasticAPM |
 |-------------------------------------------------------|---------------------|----------|-------------|-----------|------------|
@@ -145,7 +145,7 @@ You can configure the CA certificates on the **Edit binding** page. The `succeed
 
 ## Manage APM integration and CA certificates in Azure Spring Apps
 
-In the current context, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against the CA Certificates type. For APM integration, follow the earlier instructions to the configure necessary environment variables or secrets for your APM.
+In the current context, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against the CA Certificates type. For APM integration, follow the earlier instructions configure the necessary environment variables or secrets for your APM.
 
 To edit buildpack bindings for the builder, select **Edit**. After a builder is bound to the buildpack bindings, the buildpack bindings are enabled for an app deployed with the builder.
 

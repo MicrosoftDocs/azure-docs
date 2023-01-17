@@ -34,7 +34,7 @@ A [Builder](https://docs.vmware.com/en/Tanzu-Build-Service/1.6/vmware-tanzu-buil
 
 Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps.
 
-The follow table shows the build agent pool scale set sizes that are available:
+The following table shows the build agent pool scale set sizes available:
 
 | Scale Set | CPU/Gi        |
 |-----------|---------------|
@@ -77,11 +77,11 @@ For more information about deploying a polyglot app, see [How to deploy polyglot
 
 ## Configure APM integration and CA certificates
 
-By leveraging Tanzu Partner Buildpacks and CA Certificates Buildpack, Enterprise tier provides a simplified configuration experience to support application performance monitor (APM) integration and certificate authority (CA) certificates integration scenarios for polyglot apps. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
+By using Tanzu Partner Buildpacks and CA Certificates Buildpack, Enterprise tier provides a simplified configuration experience to support application performance monitor (APM) integration and certificate authority (CA) certificates integration scenarios for polyglot apps. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 ## Manage custom builders
 
-As an alternative to the the `default` builder, you can create custom builders with the provided buildpacks.
+As an alternative to the `default` builder, you can create custom builders with the provided buildpacks.
 
 All the builders configured in an Azure Spring Apps service instance are listed in the **Build Service** section under **VMware Tanzu components**, as shown in the following screenshot:
 

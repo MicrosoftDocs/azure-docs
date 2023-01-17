@@ -17,7 +17,7 @@ ms.custom: event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to deploy your static files to Azure Spring Apps Enterprise tier, leveraging Tanzu Web Servers buildpack. This approach is useful if you have applications that are purely for holding static files like HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically-configured web server (HTTPD and NGINX) to serve those assets.
+This article shows you how to deploy your static files to Azure Spring Apps Enterprise tier using the Tanzu Web Servers buildpack. This approach is useful if you have applications that are purely for holding static files like HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically-configured web server (HTTPD and NGINX) to serve those assets.
 
 ## Prerequisites
 
@@ -129,18 +129,18 @@ For more information, see the [Buildpack bindings](how-to-enterprise-build-servi
 
 Your deployment of static files to Azure Spring Apps Enterprise tier may generate the following common build errors:
 
-- ERROR: No buildpack groups passed detection.
-- ERROR: Please check that you're running against the correct path.
-- ERROR: failed to detect: no buildpacks participating
+- `ERROR: No buildpack groups passed detection.`
+- `ERROR: Please check that you're running against the correct path.`
+- `ERROR: failed to detect: no buildpacks participating`
 
 The root cause of these errors is that the web server type isn't specified. To resolve these errors, set the environment variable `BP_WEB_SERVER` to *nginx* or *httpd*.
 
 The following table describes common deployment errors when you deploy static files to Azure Spring Apps Enterprise tier.
 
-| Error message                                                                       | Root cause                                                          | Solution                                                                                                                                                                                                                                                                          |
-|-------------------------------------------------------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *112404: Exit code 0: purposely stopped, please refer to `https://aka.ms/exitcode`* | The web server failed to start.                                     | Validate your server configuration file to see if there's a configuration error. Then, check whether your configuration file conforms to the restrictions described in the [Using a customized server configuration file](#using-a-customized-server-configuration-file) section. |
-| *mkdir() "/var/client_body_temp" failed (13: Permission denied)*                    | The web server doesn't have write permission to the specified path. | Configure the path under the directory */tmp*; for example: */tmp/client_body_temp*.                                                                                                                                                                                              |
+| Error message                                                                     | Root cause                                                          | Solution                                                                                                                                                                                                                                                                          |
+|-----------------------------------------------------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `112404: Exit code 0: purposely stopped, please refer to https://aka.ms/exitcode` | The web server failed to start.                                     | Validate your server configuration file to see if there's a configuration error. Then, check whether your configuration file conforms to the restrictions described in the [Using a customized server configuration file](#using-a-customized-server-configuration-file) section. |
+| `mkdir() "/var/client_body_temp" failed (13: Permission denied)`                  | The web server doesn't have write permission to the specified path. | Configure the path under the directory */tmp*; for example: */tmp/client_body_temp*.                                                                                                                                                                                              |
 
 ## Next steps
 
