@@ -24,6 +24,14 @@ and [resources](https://kubernetes.io/docs/concepts/configuration/manage-resourc
 
 In short, a `nodeSelector` lets you specify which node a pod should run on.  The node must have a corresponding label.  In the `resources` section, you can set the compute resources (CPU, memory and NVIDIA GPU) for the pod.
 
+>[!IMPORTANT]
+> 
+> If you have [specified a nodeSelector when deploying the AzureML extension](./how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings), the nodeSelector will be applied to all instance types.  This means that:
+> - For each instance type creating, the specified nodeSelector should be a subset of the extension-specified nodeSelector. 
+> - If you use an instance type **with nodeSelector**, the workload will run on any node matching both the extension-specified nodeSelector and the instance type-specified nodeSelector.
+> - If you use an instance type **without a nodeSelector**, the workload will run on any node mathcing the extension-specified nodeSelector.
+
+
 ## Default instance type
 
 By default, a `defaultinstancetype` with the following definition is created when you attach a Kubernetes cluster to an AzureML workspace:

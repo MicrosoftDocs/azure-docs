@@ -9,6 +9,8 @@ items:
     href: observability-data.md
   - name: What can you monitor?
     href: monitor-reference.md
+  - name: Optimize costs
+    href: best-practices-cost.md
   - name: What's new?
     href: whats-new.md
 - name: Concepts
@@ -44,8 +46,6 @@ items:
     href: essentials/tutorial-metrics.md
   - name: Collect and view resource logs
     href: essentials/tutorial-resource-logs.md
-  - name: Detect and analyze anomalies in Azure Monitor Logs
-    href: logs/kql-machine-learning-azure-monitor.md
   - name: Create a metric alert
     href: alerts/tutorial-metric-alert.md
   - name: Create a log query alert
@@ -56,16 +56,16 @@ items:
       items:
       - name: Overview
         href: vm/monitor-virtual-machine.md
-      - name: Configure monitoring
-        href: vm/monitor-virtual-machine-configure.md
+      - name: Deploy agents
+        href: vm/monitor-virtual-machine-agent.md
+      - name: Collect data
+        href: vm/monitor-virtual-machine-data-collection.md
       - name: Analyze data
         href: vm/monitor-virtual-machine-analyze.md
-      - name: Monitor security
-        href: vm/monitor-virtual-machine-security.md
       - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
-      - name: Monitor workloads
-        href: vm/monitor-virtual-machine-workloads.md
+      - name: Migrate management pack logic
+        href: vm/monitor-virtual-machine-management-packs.md
     - name: Enable recommended alerts
       href: vm/tutorial-monitor-vm-alert-recommended.md
     - name: Create availability alert
@@ -966,6 +966,8 @@ items:
         href: containers/container-insights-enable-aks.md
       - name: Azure Arc-enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
+      - name: AKS hybrid cluster
+        href: containers/container-insights-enable-provisioned-clusters.md
       - name: Hybrid cluster
         href: containers/container-insights-hybrid-setup.md
       - name: Enable with Azure Policy
@@ -1234,9 +1236,11 @@ items:
         href: /azure/data-explorer/kusto/query/
       - name: Sample queries
         href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+      - name: Detect and analyze anomalies in log data
+        href: logs/kql-machine-learning-azure-monitor.md
       - name: Standard columns
         href: logs/log-standard-columns.md
-      - name: Query Basic Logs
+      - name: Query Basic logs
         href: logs/basic-logs-query.md
       - name: Audit queries
         href: logs/query-audit.md
@@ -1301,10 +1305,6 @@ items:
       href: change/change-analysis-enable.md
     - name: Visualizations
       href: change/change-analysis-visualizations.md
-    - name: Custom filters
-      href: change/change-analysis-custom-filters.md
-    - name: Pin and share changes via Azure dashboard
-      href: change/change-analysis-query.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
 - name: Respond
@@ -1684,8 +1684,6 @@ items:
     items:
     - name: View and estimate charges
       href: usage-estimated-costs.md
-    - name: Optimize costs
-      href: best-practices-cost.md
     - name: Legacy Application Insights pricing
       href: app/legacy-pricing.md
     - name: Azure Monitor Pricing page
