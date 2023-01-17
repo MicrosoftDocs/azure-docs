@@ -12,6 +12,7 @@ ms.workload: infrastructure-services
 ms.date: 11/14/2022
 ms.author: abell
 ---
+
 # What is Azure DDoS Protection?
 
 Distributed denial of service (DDoS) attacks are some of the largest availability and security concerns facing customers that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
