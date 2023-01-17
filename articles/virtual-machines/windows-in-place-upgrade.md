@@ -9,7 +9,9 @@ ms.author: cynthn
 
 ---
 
-# In-place upgrade for VMs running Windows Server in Azure 
+# In-place upgrade for VMs running Windows Server in Azure
+
+An in-place upgrade allows you to go from an older operating system to a newer one while keeping your settings, server roles, and data intact. This article will teach you how to move your Azure VMs to a later version of Windows Server using an in-place upgrade.
 
 Before you begin an in-place upgrade:
 
@@ -150,7 +152,7 @@ New-AzDisk -ResourceGroupName $resourceGroup `
 
 Attach the upgrade media for the target Windows Server version to the VM which will be upgraded. This can be done while the VM is in the running or stopped state.
 
-### Portal Instructions
+### Portal instructions
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
