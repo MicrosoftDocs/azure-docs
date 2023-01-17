@@ -13,7 +13,7 @@ This topic describes the networking requirements for using the Connected Machine
 
 [!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
 
-[!INCLUDE [network-requirements](includes/network-requirements.md)]
+[!INCLUDE [network-requirements](./includes/network-requirements.md)]
 
 ## Next steps
 
