@@ -21,7 +21,7 @@ In this article, you'll learn how to deploy an R model to a managed endpoint (We
 
 - An [Azure Machine Learning workspace](quickstart-create-resources.md).
 - Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
-- [An R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment)
+- At least one custom environment associated with your workspace. Create [an R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment), or any other custom environment if you don't have one.
 - An understanding of the [R `plumber` package](https://www.rplumber.io/index.html)
 - A model that you've trained and [packaged with `crate`](how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package).
 
@@ -189,12 +189,23 @@ You'll see a confirmation that the model is registered.
 
 ## Build container
 
+These steps assume you have an Azure Container Registry associated with your workspace, which is created when you create your first custom environment.  To see if you have a custom environment:
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+1. Select your workspace if necessary.
+1. On the left navigation, select **Environments**.
+1. On the top, select **Custom environments**.
+1. If you see custom environments, nothing more is needed.
+1. If you don't see any custom environments, create [an R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment), or any other custom environment.  (You *won't* use this environment for deployment, but you *will* use the container registry that is also created for you.)
+
+Once you have verified that you have at lease one custom environment, use the following steps to build a container.
+
 1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
 
     ```azurecli
     az login --identity
     ```
-    
+
     If you're not on the compute instance, omit `--identity` and follow the prompt to open a browser window to authenticate.
 
 1. If you have multiple Azure subscriptions, set the active subscription to the one you're using for your workspace. (You can skip this step if you only have access to a single subscription.)  Replace `<SUBSCRIPTION-NAME>` with your subscription name.  Also remove the brackets `<>`.
