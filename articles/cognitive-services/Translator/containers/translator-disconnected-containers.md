@@ -50,7 +50,7 @@ Access is limited to customers that meet the following requirements:
 
     > [!NOTE]
     >
-    > * You will only see the option to purchase a commitment tier only if you have been approved by Microsoft.
+    > * You will only see the option to purchase a commitment tier if you have been approved by Microsoft.
 
     :::image type="content" source="../media/create-resource-offline-container.png" alt-text="A screenshot showing resource creation on the Azure portal.":::
 
