@@ -25,7 +25,9 @@ In this how-to, you'll learn how to configure the SDKs used by your application 
 
 ## Prerequisites
 
-- Provision your app using the Azure portal. For more information about app provision, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
+This how-to assumes you know how to:
+
+- Provision your app using the Azure portal. For more information, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
 - Integrate your application with the [MSAL for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 
 ## Methods for single sign-on
