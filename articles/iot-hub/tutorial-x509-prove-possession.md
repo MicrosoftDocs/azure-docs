@@ -47,11 +47,11 @@ If you didn't choose to automatically verify your certificate during upload, you
 
 5. There are three ways to generate a verification certificate:
 
-    * If you are using the PowerShell script supplied by Microsoft, run `New-CACertsVerificationCert "<verification code>"` to create a certificate named `VerifyCert4.cer`, replacing `<verification code>` with the previously-generated verification code. For more information, see [Using Microsoft-supplied Scripts](tutorial-x509-scripts.md).
+    * If you're using the PowerShell script supplied by Microsoft, run `New-CACertsVerificationCert "<verification code>"` to create a certificate named `VerifyCert4.cer`, replacing `<verification code>` with the previously generated verification code. For more information, see [Using Microsoft-supplied Scripts](tutorial-x509-scripts.md).
 
-    * If you are using the Bash script supplied by Microsoft, run `./certGen.sh create_verification_certificate "<verification code>"` to create a certificate named `verification-code.cert.pem`, replacing `<verification code>` with the previously-generated verification code. For more information, see [Using Microsoft-supplied Scripts](tutorial-x509-scripts.md).
+    * If you're using the Bash script supplied by Microsoft, run `./certGen.sh create_verification_certificate "<verification code>"` to create a certificate named `verification-code.cert.pem`, replacing `<verification code>` with the previously generated verification code. For more information, see [Using Microsoft-supplied Scripts](tutorial-x509-scripts.md).
 
-    * If you are using OpenSSL to generate your certificates, you must first generate a private key and then a certificate signing request (CSR) file, replacing `<verification code>` with the previously-generated verification code:
+    * If you're using OpenSSL to generate your certificates, you must first generate a private key, then generate a certificate signing request (CSR) file. In the following example, replace `<verification code>` with the previously generated verification code:
 
       ```bash
       $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
@@ -74,7 +74,7 @@ If you didn't choose to automatically verify your certificate during upload, you
  
       ```
 
-      Then, create a certificate using the appropriate configuration file for either the root CA or the subordinate CA, as well as the CSR file. The following example demonstrates how to use OpenSSL to create the certificate from a root CA configuration file and the CSR file.
+      Then, create a certificate using the appropriate configuration file for either the root CA or the subordinate CA, and the CSR file. The following example demonstrates how to use OpenSSL to create the certificate from a root CA configuration file and the CSR file.
 
       ```bash
       openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext

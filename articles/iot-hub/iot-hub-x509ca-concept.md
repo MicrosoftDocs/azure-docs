@@ -117,7 +117,7 @@ This process relies on the assumption that the unique device public/private key 
 
 ## Device connection
 
-Once the top level CA certificate is registered to IoT Hub and the devices have their unique certificates, how do they connect? By simply registering an X.509 CA certificate to IoT Hub one time, how do potentially millions of devices connect and get authenticated from the first time? Simple: through the same certificate upload and proof-of-possession flow we earlier encountered with registering the X.509 CA certificate.
+Once the top level CA certificate is registered to IoT Hub and the devices have their unique certificates, how do they connect? By registering an X.509 CA certificate to IoT Hub one time, how do potentially millions of devices connect and get authenticated from the first time? Through the same certificate upload and proof-of-possession flow we earlier encountered with registering the X.509 CA certificate.
 
 Devices manufactured for X.509 CA authentication are equipped with unique device certificates and a certificate chain from their respective manufacturing supply chain. Device connection, even for the first time, happens in a two-step process: certificate chain upload and proof-of-possession.
 
