@@ -487,6 +487,7 @@ version of a package on subsequent builds of an environment. This behavior can l
 
 ### UTF-8 decoding error
 - Failed to decode a character used in your conda specification. Make sure all characters used are in the UTF-8 character set.
+- The error message in the build log will provide the location of the issue.
 
 ### *Pip issues*
 ### Pip not specified
