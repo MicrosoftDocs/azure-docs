@@ -250,8 +250,8 @@ The following example uses the `AsFormUrlEncodedContent()` expression to access 
 </set-body>
 ```
 
-### Transfrom JSON body to URL-encoded form data
-The following example accesses the request body as JSON and tranforms it to URL-encoded form data (content type `application/x-www-form-urlencoded`). We are preserving the original request body so that we can access it later in the pipeline.
+### Transform JObject body to URL-encoded form data
+The following example accesses the request body as a JObject and transforms it to URL-encoded form data (content type `application/x-www-form-urlencoded`). We are preserving the original request body so that we can access it later in the pipeline.
 
 ```xml
 <set-body> 
