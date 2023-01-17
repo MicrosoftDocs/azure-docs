@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: article
-ms.date: 12/07/2022
+ms.date: 01/17/2023
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.custom: engagement-fy23, references_regions
@@ -43,13 +43,13 @@ Azure Site Recovery allows you to perform global disaster recovery. You can repl
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, West US 3, Central US, North Central US
 Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, France Central, Switzerland North, Germany West Central, UAE North (UAE is treated as part of the Europe geo cluster)
 Asia | South India, Central India, West India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Qatar Central
-JIO | JIO India West<br/><br/>Replication cannot be done between JIO and non-JIO regions for Virtual Machines present in JIO subscriptions. This is because JIO subscriptions can have resources only in JIO regions.
+JIO | JIO India West<br/><br/>Replication can't be done between JIO and non-JIO regions for Virtual Machines present in JIO subscriptions. This is because JIO subscriptions can have resources only in JIO regions.
 Australia    | Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germany    | Germany Central, Germany Northeast
 China | China East, China North, China North2, China East2
 Brazil | Brazil South
-Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers, UAE Central for UAE North customers.<br/><br/> To use restricted regions as your primary or recovery region, please get yourselves allowlisted by raising a request [here](/troubleshoot/azure/general/region-access-request-process) for both source and target subscriptions.
+Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers, UAE Central for UAE North customers.<br/><br/> To use restricted regions as your primary or recovery region, get yourselves allowlisted by raising a request [here](/troubleshoot/azure/general/region-access-request-process) for both source and target subscriptions.
 
 >[!NOTE]
 >
@@ -69,10 +69,10 @@ Premium storage | Supported | Use Premium Block Blob storage accounts to get Hig
 Region |  Same region as virtual machine  | Cache storage account should be in the same region as the virtual machine being protected.
 Subscription  | Can be different from source virtual machines | Cache storage account need not be in the same subscription as the source virtual machine(s).
 Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Do not restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
-Soft delete | Not supported | Soft delete is not supported because once it is enabled on cache storage account, it increases cost. Azure Site Recovery performs very frequent creates/deletes of log files while replicating causing costs to increase.
+Soft delete | Not supported | Soft delete is not supported because once it is enabled on cache storage account, it increases cost. Azure Site Recovery performs frequent creates/deletes of log files while replicating causing costs to increase.
 Encryption at rest (CMK) | Supported | Storage account encryption can be configured with customer managed keys (CMK)
 
-The table below lists the limits in terms of number of disks that can replicate to a single storage account.
+The following table lists the limits in terms of number of disks that can replicate to a single storage account.
 
 **Storage account type**    |    **Churn = 4 MBps per disk**    |    **Churn = 8 MBps per disk**
 ---    |    ---    |    ---
@@ -81,7 +81,7 @@ V2 storage account    |    750 disks    |    375 disks
 
 As average churn on the disks increases, the number of disks that a storage account can support decreases. The above table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
 
-Please note that the above limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
+Note that the above limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
 
 ## Replicated machine operating systems
 
@@ -241,7 +241,7 @@ Availability sets | Supported | If you enable replication for an Azure VM with t
 Availability zones | Supported |
 Dedicated Hosts | Not supported |
 Hybrid Use Benefit (HUB) | Supported | If the source VM has a HUB license enabled, a test failover or failed over VM also uses the HUB license.
-Virtual machine scale set Flex | Availability scenario - supported. Scalability scenario - not supported. |
+Virtual machine Scale Set Flex | Availability scenario - supported. Scalability scenario - not supported. |
 Azure gallery images - Microsoft published | Supported | Supported if the VM runs on a supported operating system.
 Azure Gallery images - Third party published | Supported | Supported if the VM runs on a supported operating system.
 Custom images - Third party published | Supported | Supported if the VM runs on a supported operating system.
@@ -256,7 +256,7 @@ Tags  | Supported | User-generated tags applied on source virtual machines are c
 
 **Action** | **Details**
 -- | ---
-Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM is not supported. Resizing should be performed before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, changes aren't captured by Site Recovery, and failback will be to the original VM size.<br/><br/> If resizing to >=4 TB, please note Azure guidance on disk caching [here](../virtual-machines/premium-storage-performance.md). 
+Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM is not supported. Resizing should be performed before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, changes aren't captured by Site Recovery, and failback will be to the original VM size.<br/><br/> If resizing to >=4 TB, note Azure guidance on disk caching [here](../virtual-machines/premium-storage-performance.md). 
 Add a disk to a replicated VM | Supported
 Offline changes to protected disks | Disconnecting disks and making offline modifications to them require triggering a full resync.
 Disk caching | Disk Caching is not supported for disks 4 TiB and larger. If multiple disks are attached to your VM, each disk that is smaller than 4 TiB will support caching. Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting. Not following those recommendations could lead to data corruption.
@@ -363,7 +363,7 @@ Traffic Manager     | Supported | You can preconfigure Traffic Manager so that t
 Azure DNS | Supported |
 Custom DNS    | Supported |
 Unauthenticated proxy | Supported | [Learn more](./azure-to-azure-about-networking.md)
-Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it cannot be replicated using Azure Site Recovery.
+Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it can't be replicated using Azure Site Recovery.
 VPN site-to-site connection to on-premises<br/><br/>(with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site Recovery traffic is not routed to on-premises. [Learn more](./azure-to-azure-about-networking.md)
 VNET to VNET connection    | Supported | [Learn more](./azure-to-azure-about-networking.md)
 Virtual Network Service Endpoints | Supported | If you are restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
