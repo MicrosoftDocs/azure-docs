@@ -4,21 +4,21 @@ titleSuffix: Defender for Cloud
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 12/07/2022
+ms.date: 01/17/2023
 ---
 
 
 # Reference list of attack paths and cloud security graph components
 
-This article lists the attack paths, connections and insights you might see in Microsoft Defender for Cloud related to Defender for Cloud Security Posture Management (CSPM). What you are shown in your environment depends on the resources you're protecting and your customized configuration. You will need to [enable Defender for CSPM](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) to view your attack paths. Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md).
+This article lists the attack paths, connections and insights you might see in Microsoft Defender for Cloud related to Defender for Cloud Security Posture Management (CSPM). What you are shown in your environment depends on the resources you're protecting and your customized configuration. You'll need to [enable Defender for CSPM](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) to view your attack paths. Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
 
-To learn about how to respond to these attack paths, see [Identify and remediate attack paths](how-to-manage-attack-path.md).
+To learn about how to [Identify and remediate attack paths](how-to-manage-attack-path.md).
 
 ## Attack paths
 
 ### Azure VMs
 
-Prerequisite: For a list of prerequisites see the [Availability](how-to-manage-attack-path.md#availability) table for attack paths.
+Prerequisite: For a list of prerequisites, see the [Availability table](how-to-manage-attack-path.md#availability) for attack paths.
 
 | Attack Path Display Name | Attack Path Description |
 |--|--|
@@ -73,7 +73,7 @@ Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-f
 Prerequisite: [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This will also give you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer.
 
 | Attack Path Display Name	| Attack Path Description |
-|--|--|--|
+|--|--|
 | Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | Internet exposed Kubernetes pod '\[pod name]' in namespace '\[namespace]' is running a container '\[container name]' using image '\[image name]' which has vulnerabilities allowing remote code execution |
 | Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | Kubernetes pod '\[pod name]' in namespace '\[namespace]' with host network access enabled is exposed to the internet via the host network. The pod is running container '\[container name]' using image '\[image name]' which has vulnerabilities allowing remote code execution |
 
@@ -89,14 +89,14 @@ This section  lists all of the cloud security graph components (connections & in
 | Contains sensitive data | Indicates that a resource contains sensitive data based on Microsoft Purview scan and applicable only if Microsoft Purview is enabled. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). | Azure SQL Server, Azure Storage Account, AWS S3 bucket. |
 | Has tags | List the resource tags of the cloud resource | All Azure and AWS resources. |
 | Installed software | List all software installed on the machine. This is applicable only for VMs that have Threat and vulnerability management integration with Defender for Cloud enabled and are connected to Defender for Cloud. | Azure virtual machine, AWS EC2 |
-| Allows public access | Indicates that a public read access is allowed to the data store with no authorization required | Azure storage account, AWS S3 bucjet |
+| Allows public access | Indicates that a public read access is allowed to the data store with no authorization required | Azure storage account, AWS S3 bucket |
 | Doesn't have MFA enabled | Indicates that the user account does not have a multi-factor authentication solution enabled | AAD User account, IAM user |
 | Is external user | Indicates that the user account is outside the organization's domain | AAD User account |
 | Is managed | Indicates that an identity is managed by the cloud provider | Azure Managed Identity |
 | Contains common usernames | Indicates that a SQL server has user accounts with common usernames which are prone to brute force attacks. | SQL on VM |
 | Can execute code on the host | Indicates that a SQL server allows executing code on the underlying VM using a built-in mechanism such as xp_cmdshell. | SQL on VM |
 | Has vulnerabilities | indicates that the resource SQL server has vulnerabilities detected | SQL on VM |
-| DEASM findings | Microsft Defender External Attack Surface Management (DEASM) internet scanning findings | Public IP |
+| DEASM findings | Microsoft Defender External Attack Surface Management (DEASM) internet scanning findings | Public IP |
 | Privileged container | Indicates that a Kubernetes container runs in a privileged mode | Kubernetes container |
 | Uses host network | Indicates that a Kubernetes pod uses the network namespace of its host machine | Kubernetes pod |
 | Has high severity vulnerabilities | Indicates that a resource has high severity vulnerabilities | Azure VM, AWS EC2, Kubernetes image |
