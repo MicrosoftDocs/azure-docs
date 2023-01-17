@@ -72,15 +72,15 @@ Before following the steps in this article, make sure you have the following pre
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
-* If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
+<!-- * If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
 
    ```azurecli
    az account set --subscription <subscription ID>
    az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
-   ```
+   ``` -->
 
 > [!IMPORTANT]
-> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
+> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
 
 ---
 
@@ -195,6 +195,29 @@ If you cloned the sample repo, you already have copies of the files for this exa
 
 # [ARM template](#tab/arm)
 
+Set the following environment variables, as they are used in the examples in this article. Replace the values with your Azure subscription ID, the Azure region where your workspace is located, the resource group that contains the workspace, and the workspace name:
+
+    ```bash
+    export SUBSCRIPTION_ID="your Azure subscription ID"
+    export LOCATION="Azure region where your workspace is located"
+    export RESOURCE_GROUP="Azure resource group that contains your workspace"
+    export WORKSPACE="Azure Machine Learning workspace name"
+    ```
+
+A couple of the template examples require you to upload files to the Azure Blob store for your workspace. The following steps will query the workspace and store this information in environment variables used in the examples:
+
+1. Get an access token:
+
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_access_token":::
+
+1. Set the REST API version:
+
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="api_version":::
+
+1. Get the storage information:
+
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_storage_details":::
+
 ### Clone the sample repository
 
 To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the samples directory:
@@ -209,7 +232,13 @@ cd azureml-examples
 
 ---
 
-## Define the endpoint and deployment
+## Define the endpoint
+
+To define an endpoint, you need to specify:
+
+* Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+* Authentication mode: The authentication method for the endpoint. Choose between key-based authentication and AzureML token-based authentication. A key doesn't expire, but an AzureML token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+* Optionally, you can add a description and tags to your endpoint.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -221,72 +250,27 @@ For Unix, run this command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
 
-> [!NOTE]
-> Endpoint names must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+### Configure the endpoint
 
-### Configure the endpoint and deployment
-
-The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* file: 
+The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* file:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
-> [!NOTE]
-> For a full description of the YAML, see [Online endpoint YAML reference](reference-yaml-endpoint-online.md).
-
-The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the YAML example in [Prepare your system](#prepare-your-system) or the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
 
 | Key         | Description                                                                                                                                                                                                                                                 |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$schema`   | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding example in a browser.                                                                                                                   |
-| `name`      | The name of the endpoint. It must be unique in the Azure region.<br>Naming rules are defined under [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                               |
-| `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. `key` doesn't expire, but `aml_token` does expire. (Get the most recent token by using the `az ml online-endpoint get-credentials` command.) |
-
-The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:
-
-- Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
-- The code that's required to score the model. In this case, we have a *score.py* file.
-- An environment in which your model runs. As you'll see, the environment might be a Docker image with Conda dependencies, or it might be a Dockerfile.
-- Settings to specify the instance type and scaling capacity.
-
-The following snippet shows the *endpoints/online/managed/sample/blue-deployment.yml* file, with all the required inputs: 
-
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
-
-The table describes the attributes of a `deployment`:
-
-| Key                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                              | The name of the deployment.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `model`                             | In this example, we specify the model properties inline: `path`. Model files are automatically uploaded and registered with an autogenerated name. For related best practices, see the tip in the next section.                                                                                                                                                                                                                                 |
-| `code_configuration.code.path`      | The directory on the local development environment that contains all the Python source code for scoring the model. You can use nested directories and packages.                                                                                                                                                                                                                                                                                 |
-| `code_configuration.scoring_script` | The Python file that's in the `code_configuration.code.path` scoring directory on the local development environment. This Python code must have an `init()` function and a `run()` function. The function `init()` will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
-| `environment`                       | Contains the details of the environment to host the model and code. In this example, we have inline definitions that include the`path`. We'll use `environment.docker.image` for the image. The `conda_file` dependencies will be installed on top of the image. For more information, see the tip in the next section.                                                                                                                         |
-| `instance_type`                     | The VM SKU that will host your deployment instances. For more information, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                                                                 |
-| `instance_count`                    | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `instance_count` to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                                                                  |
-
-During deployment, the local files such as the Python source for the scoring model, are uploaded from the development environment.
-
-For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md).
-
-> [!NOTE]
-> To use Kubernetes instead of managed endpoints as a compute target:
-> 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-kubernetes-to-workspace.md).
-> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-endpoint.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-blue-deployment.yml) that has additional properties applicable to Kubernetes deployment.
->
-> All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
+| `$schema`   | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding code snippet in a browser.                                                                                                                   |
+| `name`      | The name of the endpoint.                                               |
+| `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for AzureML token-based authentication. To get the most recent token, use the `az ml online-endpoint get-credentials` command. |
 
 # [Python](#tab/python)
 
-In this article, we first define names of the online endpoint and deployment.
+### Configure an endpoint
 
-1. Define an endpoint:
+In this article, we first define the name of the online endpoint.
 
-    > [!NOTE]
-    > * `endpoint_name`: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
-    > * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
-    > * Optionally, you can add a description and tags to your endpoint.
-
-      ```python
+    ```python
     # Define an endpoint name
     endpoint_name = "my-endpoint"
 
@@ -303,69 +287,13 @@ In this article, we first define names of the online endpoint and deployment.
     )
     ```
 
-1. Define deployment (with name for deployment)
-
-    A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
-
-    The example contains all the files needed to deploy a model to an online endpoint. To deploy a model, you must have:
-
-    * Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
-    * The code that's required to score the model. In this case, we have a *score.py* file.
-    * An environment in which your model runs. As you'll see, the environment might be a Docker image with Conda dependencies, or it might be a Dockerfile.
-    * Settings to specify the instance type and scaling capacity.
-
-    **Key aspects of deployment**
-    * `name` - Name of the deployment.
-    * `endpoint_name` - Name of the endpoint to create the deployment under.
-    * `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
-    * `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.
-    * `code_configuration` - the configuration for the source code and scoring script
-        * `path`- Path to the source code directory for scoring the model
-        * `scoring_script` - Relative path to the scoring file in the source code directory
-    * `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
-    * `instance_count` - The number of instances to use for the deployment
-
-    ```python
-    model = Model(path="../model-1/model/sklearn_regression_model.pkl")
-    env = Environment(
-        conda_file="../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
-    )
-
-    blue_deployment = ManagedOnlineDeployment(
-        name="blue",
-        endpoint_name=endpoint_name,
-        model=model,
-        environment=env,
-        code_configuration=CodeConfiguration(
-            code="../model-1/onlinescoring", scoring_script="score.py"
-        ),
-        instance_type="Standard_DS2_v2",
-        instance_count=1,
-    )
-    ```
+For the authentication mode, we've used `key` for key-based authentication. To use AzureML token-based authentication, use `aml_token`.
 
 # [Studio](#tab/azure-studio)
 
-You'll define the endpoint name and the deployment name in the AzureML studio at the same time that you create them. To deploy a model, you must have:
+### Configure an endpoint
 
-- Model files (or the name and version of a model that's already registered in your workspace).
-- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. The scoring script is in the `azureml-examples/cli/endpoints/online/model-1/onlinescoring/score.py` file from the repo you cloned (or downloaded) earlier.
-- An environment in which the model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
-- Settings to specify the instance type and scaling capacity.
-
-**Key aspects of a deployment**
-
-* `name` - Name of the deployment.
-* `endpoint_name` - Name of the endpoint to create the deployment under.
-* `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
-* `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. For more information on creating an environment, see 
-[Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
-* `code_configuration` - the configuration for the source code and scoring script.
-    * `path`- Path to the source code directory for scoring the model.
-    * `scoring_script` - Relative path to the scoring file in the source code directory.
-* `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
-* `instance_count` - The number of instances to use for the deployment.
+When deploying to Azure, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
 
 # [ARM template](#tab/arm)
 
@@ -377,33 +305,90 @@ For Unix, run this command:
 
 :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" ID="set_endpoint_name":::
 
+### Configure the endpoint
+
+To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json).
+
+## Define the deployment
+
+A deployment is a set of resources required for hosting the model that does the actual inferencing. To deploy a model, you must have:
+
+- Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
+- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. In this example, we have a *score.py* file.
+- An environment in which your model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
+- Settings to specify the instance type and scaling capacity.
+
+The following table describes the key attributes of a `deployment`:
+
+| Attribute      | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name           | The name of the deployment.                                                                                                                                                                                                                                                                                                                                                                    |
+| Endpoint name  | The name of the endpoint to create the deployment under.                                                                                                                                                                                                                                                                                                                                       |
+| Model          | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.                                                                                                                                                                                                                                    |
+| Code path      | The path to the directory on the local development environment that contains all the Python source code for scoring the model. You can use nested directories and packages.                                                                                                                                                                                                                    |
+| Scoring script | The relative path to the scoring file in the source code directory. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
+| Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.                                                                                                                                                                                                                 |
+| Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
+| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |  |                                                                                 |
+# [Azure CLI](#tab/azure-cli)
+
+### Configure a deployment
+
+The following snippet shows the *endpoints/online/managed/sample/blue-deployment.yml* file, with all the required inputs to configure a deployment:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
+
 > [!NOTE]
-> Endpoint names must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+> In the _blue-deployment.yml_ file, we've specified the following deployment attributes:
+> * `model` - In this example, we specify the model properties inline using the `path`. Model files are automatically uploaded and registered with an autogenerated name.
+> * `environment` - In this example, we have inline definitions that include the `path`. We'll use `environment.docker.image` for the image. The `conda_file` dependencies will be installed on top of the image.
 
-Also set the following environment variables, as they are used in the examples in this article. Replace the values with your Azure subscription ID, the Azure region where your workspace is located, the resource group that contains the workspace, and the workspace name:
+During deployment, the local files such as the Python source for the scoring model, are uploaded from the development environment.
 
-```bash
-export SUBSCRIPTION_ID="your Azure subscription ID"
-export LOCATION="Azure region where your workspace is located"
-export RESOURCE_GROUP="Azure resource group that contains your workspace"
-export WORKSPACE="Azure Machine Learning workspace name"
+For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md).
+
+> [!NOTE]
+> To use Kubernetes instead of managed endpoints as a compute target:
+> 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-kubernetes-to-workspace.md).
+> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-endpoint.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-blue-deployment.yml) that has additional properties applicable to Kubernetes deployment.
+>
+> All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
+
+# [Python](#tab/python)
+
+### Configure a deployment
+
+To configure a deployment:
+
+```python
+model = Model(path="../model-1/model/sklearn_regression_model.pkl")
+env = Environment(
+    conda_file="../model-1/environment/conda.yml",
+    image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
+)
+
+blue_deployment = ManagedOnlineDeployment(
+    name="blue",
+    endpoint_name=endpoint_name,
+    model=model,
+    environment=env,
+    code_configuration=CodeConfiguration(
+        code="../model-1/onlinescoring", scoring_script="score.py"
+    ),
+    instance_type="Standard_DS2_v2",
+    instance_count=1,
+)
 ```
 
-A couple of the template examples require you to upload files to the Azure Blob store for your workspace. The following steps will query the workspace and store this information in environment variables used in the examples:
+# [Studio](#tab/azure-studio)
 
-1. Get an access token:
+### Configure a deployment
 
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_access_token":::
+When deploying to Azure, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
 
-1. Set the REST API version:
+# [ARM template](#tab/arm)
 
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="api_version":::
-
-1. Get the storage information:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_storage_details":::
-
-### Configure the endpoint and deployment
+### Configure the deployment
 
 To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json).
 
