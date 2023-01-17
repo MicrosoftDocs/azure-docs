@@ -193,7 +193,7 @@ sections:
           - The client will receive a HTTP "421 Misdirected Request" error code response. 
           - Azure Front Door will log the block in the diagnostic logs under the "Error Info" property with the value **SSLMismatchedSNI**.
           
-          For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/en-us/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/).
+          For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/).
  
       - question: |
           What TLS versions are supported by Azure Front Door?
@@ -229,8 +229,9 @@ sections:
       - question: |
           Can I set alerts with Azure Front Door?
         answer:  |
-          Yes, Azure Front Door does support alerts. Alerts are configured on metrics. For reference to create alerts, please check [Configure alerts](./standard-premium/how-to-monitor-metrics.md#configure-alerts-in-azure-portal).
-          And for more information about metrics available on Front Door diagnostic monitoring refer to [Front Door metrics](./front-door-diagnostics.md#metrics).
+          Yes, Azure Front Door does support alerts. Alerts are configured based on [metrics or logs](front-door-diagnostics.md).
+          
+          For information about how to create alerts for Azure Front Door Standard and Premium, please see [Configure alerts](./standard-premium/how-to-monitor-metrics.md#configure-alerts-in-the-azure-portal).
       
 additionalContent: |
 

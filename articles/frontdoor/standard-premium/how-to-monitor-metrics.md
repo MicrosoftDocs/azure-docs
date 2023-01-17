@@ -10,7 +10,7 @@ ms.date: 03/20/2022
 ms.author: yuajia
 ---
 
-# Real-time Monitoring in Azure Front Door
+# Real-time monitoring in Azure Front Door
 
 Azure Front Door is integrated with Azure Monitor.  You can use metrics in real time to measure traffic to your application, and to track, troubleshoot, and debug issues.  
 

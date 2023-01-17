@@ -170,7 +170,7 @@
       - name: Understand billing
         href: billing.md
       - name: Logs and metrics
-        href: logs-metrics.md
+        href: front-door-diagnostics.md?pivots=front-door-standard-premium
       - name: Best practices
         href: best-practices.md
       - name: Scenarios

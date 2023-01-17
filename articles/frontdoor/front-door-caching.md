@@ -195,11 +195,17 @@ In addition, Front Door attaches the `X-Cache` header to all responses. The `X-C
 - `PRIVATE_NOSTORE`: Request can't be cached because the *Cache-Control* response header is set to either *private* or *no-store*.
 - `CONFIG_NOCACHE`: Request is configured to not cache in the Front Door profile.
 
-::: zone pivot="front-door-standard-premium"
-
 ## Logs and reports
 
-The [Front Door Access Log](standard-premium/how-to-logs.md#access-log) includes the cache status for each request. Also, [reports](standard-premium/how-to-reports.md#caching) include information about how Front Door's cache is used in your application.
+::: zone pivot="front-door-standard-premium"
+
+The [access log](front-door-diagnostics.md#access-log) includes the cache status for each request. Also, [reports](standard-premium/how-to-reports.md#caching) include information about how Azure Front Door's cache is used in your application.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+The [access log](front-door-diagnostics.md#access-log) includes the cache status for each request.
 
 ::: zone-end
 

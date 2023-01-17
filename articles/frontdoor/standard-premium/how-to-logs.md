@@ -11,7 +11,7 @@ ms.author: duau
 
 # Configure Azure Front Door logs
 
-Azure Front Door captures several types of logs. Logs can help you monitor your application, track requests, and debug your Front Door configuration. For more information about Azure Front Door's logs, see [Logs and metrics tracked by Azure Front Door](../logs-metrics.md).
+Azure Front Door captures several types of logs. Logs can help you monitor your application, track requests, and debug your Front Door configuration. For more information about Azure Front Door's logs, see [Monitor metrics and logs in Azure Front Door](../front-door-diagnostics.md).
 
 Access logs, health probe logs, and WAF logs aren't enabled by default. In this article, you'll learn how to enable diagnostic logs for your Azure Front Door profile.
 
