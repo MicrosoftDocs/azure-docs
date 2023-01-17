@@ -190,7 +190,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
 ### [Connection string](#tab/connection-string)
 
-1. Add the following import statement. 
+1. Add the following `import` statements.
 
     ```python
     import asyncio
@@ -304,14 +304,14 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
     ```python
     async def run():
-        # create a Service Bus client using the connection string
+        # create a Service Bus client using the credential
         async with ServiceBusClient(
             fully_qualified_namespace=FULLY_QUALIFIED_NAMESPACE,
             credential=credential,
             logging_enable=True) as servicebus_client:
     
             async with servicebus_client:
-                # get the Subscription Receiver object for the subscription    
+                # get the Subscription Receiver object for the subscription
                 receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, 
                 subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
                 async with receiver:
@@ -353,7 +353,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
             logging_enable=True) as servicebus_client:
     
             async with servicebus_client:
-                # get the Subscription Receiver object for the subscription    
+                # get the Subscription Receiver object for the subscription
                 receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, 
                 subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
                 async with receiver:
