@@ -33,14 +33,14 @@ In this tutorial, you complete the following steps:
 
 ## Prerequisites
 
-- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- An [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Python 3.7 or higher, with the [Azure Python SDK][/azure/developer/python/sdk/azure-sdk-overview] package installed.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
 To follow this quickstart using authentication passwordless and your own Azure account:
 
-* Install [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
+* Install the [Azure CLI](/cli/azure/install-azure-cli).
 * Sign in with your Azure account at the terminal or command prompt with `az login`. 
 * Use the same account when you add the appropriate role to your resource later in the tutorial.
 * Run the tutorial code in the same terminal or command prompt.
