@@ -72,7 +72,7 @@ For each data network that you want to configure, collect all the values in the 
 
 You can use a storage account and user assigned managed identity, with write access to the storage account, to gather diagnostics packages for the site.
 
-If you don't want to configure diagnostics package gathering at this stage, you do not need to collect anything. You'll be able to change this configuration later.
+If you don't want to configure diagnostics package gathering at this stage, you do not need to collect anything. You can configure this later using the same process.
 
 If you want to configure diagnostics package gathering during site creation, follow the steps below.
 
@@ -83,7 +83,7 @@ If you want to configure diagnostics package gathering during site creation, fol
     1. If you would like the content of your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
     1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your diagnostics.
 1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with write access to the storage account created above.
-1. Navigate to the **Packet core control plane** resource.
+1. Navigate to the **Packet core control plane** resource for the site.
 1. Assign the user-assigned managed identity you created to the **Packet core control plane** resource.
 
 ## Collect local monitoring values
