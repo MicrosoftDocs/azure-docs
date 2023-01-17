@@ -11,7 +11,7 @@ ms.date: 10/24/2022
 
 # Trusted Hardware Identity Management
 
-The Trusted Hardware Identity Management (THIM) service handles cache management of certificates for all Trusted Execution Environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions.
+The Trusted Hardware Identity Management (THIM) service handles cache management of certificates for all trusted execution environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions.
 
 ## THIM & attestation interactions
 
