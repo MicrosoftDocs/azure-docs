@@ -34,3 +34,9 @@ items:
     href: plan-and-manage-costs.md
   - name: Get support or request changes
     href: request-changes.md
+- name: Resources
+  items:
+  - name: Overview of Operator Connect
+    href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect
+  - name: Overview of Teams Phone Mobile
+    href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/teams-phone-mobile
