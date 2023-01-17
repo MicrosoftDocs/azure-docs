@@ -1,20 +1,22 @@
 ---
-title: Move your resources to a different region
+title: Move Azure Private 5G Core private mobile network resources between regions
 titleSuffix: Azure Private 5G Core Preview
-description: In this how-to guide, you'll learn how to move your Azure Private 5G Core resources to a different region.
+description: In this how-to guide, you'll learn how to move your private mobile network resources to a different region.
 author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 01/04/2023
-ms.custom: template-how-to
+ms.custom: subject-moving-resources
 ---
 
-# Move your Azure Private 5G Core resources to a different region
+# Move your private mobile network resources to a different region
 
-In this how-to guide, you'll learn how to move your Azure Private 5G Core resources to a different region. This involves exporting your resources from the source region's resource group and recreating them in a new resource group deployed in the target region.
+In this how-to guide, you'll learn how to move your private mobile network resources to a different region. This involves exporting your resources from the source region's resource group and recreating them in a new resource group deployed in the target region.
 
-If you also want to move your Arc-enabled Kubernetes cluster, contact your support representative. 
+You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to create a backup of your deployment, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+
+If you also want to move your Arc-enabled Kubernetes cluster, contact your support representative.
 
 ## Prerequisites
 
@@ -22,15 +24,6 @@ If you also want to move your Arc-enabled Kubernetes cluster, contact your suppo
 - Refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) to ensure Azure Private 5G Core supports the region to which you want to move your resources.
 - Verify pricing and charges associated with the target region to which you want to move your resources.
 - Choose a name for your new resource group in the target region. This must be different to the source region's resource group name.
-- If you want to move your Arc-enabled Kubernetes cluster, ensure you have access to [Azure CLI](/cli/azure/get-started-with-azure-cli).
-
-## Plan a maintenance window
-
-Depending on the resources you want to move and whether you want the deployment in the source region to remain operational during and after the region move, you may need to plan for a service outage.
-
-If you're moving your Arc-enabled Kubernetes cluster, we recommend performing the move during a maintenance window to minimize the impact on your service. You should allow up to two hours for the process to complete. <!-- TODO: check outage time advice -->
-
-If you're not moving your Arc-enabled Kubernetes cluster and you want the deployment in the source region to remain operational during the region move, you'll have the option to move your resources without causing an outage in the original deployment. This will involve making additional changes to your deployment's template to delete all SIMs and custom location entries.
 
 ## Back up deployment information
 
@@ -44,22 +37,14 @@ The following list contains the data that will be lost over the region move. Bac
 
 ## Prepare to move your resources
 
-### Optionally, delete the custom location
-
-Only follow this step if you want to move your Arc-enabled Kubernetes cluster. Deleting the custom location will initiate an outage in the source region.
-
-1. Log in to Azure CLI.
-1. Delete the custom location you want to move:
-
-    ```azurecli
-    az customlocation delete -n <custom location name> -g <resource group name> 
-    ```
-
 ### Remove SIMs and custom location
 
-If you want to avoid an outage in the source region's deployment during the region move, skip this step. You'll need to make additional modifications to the export template in [Prepare template](#prepare-template).
+> [!IMPORTANT]
+> Completing this step will initiate an outage in the source region.
+> 
+> If you want your source deployment to stay operational during the region move, skip this step and move to [Generate template](#generate-template). You'll need to make additional modifications to the template in [Prepare template](#prepare-template).
 
-Before moving your resources, you'll need to delete all SIMs in your deployment. If you didn't delete the custom location in the previous step, you'll also need to uninstall all packet core instances you want to move by changing their **Custom ARC location** field to **None**. 
+Before moving your resources, you'll need to delete all SIMs in your deployment. You'll also need to uninstall all packet core instances you want to move by changing their **Custom ARC location** field to **None**. 
 
 1. Follow [Delete SIMs](manage-existing-sims.md#delete-sims) to delete all the SIMs in your deployment.
 1. For each site that you want to move, follow [Modify the packet core instance in a site](modify-packet-core.md) to modify your packet core instance with the changes below. You can ignore the sections about attaching and modifying data networks.
@@ -83,19 +68,12 @@ Your mobile network resources can now be exported via an Azure Resource Manager 
 
 ## Move resources to a new region
 
-### Optionally, move the Arc-enabled Kubernetes cluster
-
-You can skip this step if you don't want to move your Arc-enabled Kubernetes cluster
-
-1. Move the Arc-enabled Kubernetes cluster by following the steps in [Move Arc-enabled Kubernetes clusters across Azure regions](/azure/azure-arc/kubernetes/move-regions).
-1. Follow the steps in TODO <!-- TODO: link to MOP once ASE setup docs are ready --> to recreate the Arc-enabled Kubernetes cluster. 
-
 ### Prepare template
 
 You'll need to customize your template to ensure all your resources are correctly deployed to the new region.
 
 1. Open the *template.json* file you downloaded in [Generate template](#generate-template).
-1. Find every instance of the original region's code name and replace it with the target region you're moving your deployment to. This involves updating the **location** parameter for every resource. See TODO:link for instructions on how to obtain the target region's code name.
+1. Find every instance of the original region's code name and replace it with the target region you're moving your deployment to. This involves updating the **location** parameter for every resource. See [Region code names](region-code-names.md) for instructions on how to obtain the target region's code name.
 1. Find every instance of the original region's resource group name and replace it with the target region's resource group name you defined in [Prerequisites](#prerequisites).
 1. If you skipped [Remove SIMs and custom location](#remove-sims-and-custom-location) because you need your deployment to stay online in the original region, make the additional changes to the template:
     1. Remove all the SIM resources.
@@ -118,7 +96,7 @@ You'll need to customize your template to ensure all your resources are correctl
 
 ## Configure custom location
 
-You can now install your packet core instances in the new region. If you moved your Arc-enabled Kubernetes cluster, you'll also need to reinstall the packet core instances that use it in the original region.
+You can now install your packet core instances in the new region.
 
 For each site in your deployment, follow [Modify the packet core instance in a site](modify-packet-core.md) to reconfigure your packet core custom location. In *Modify the packet core configuration*, set the **Custom ARC location** field to the custom location value you noted down in [Remove SIMs and custom location](#remove-sims-and-custom-location). You can ignore the sections about attaching and modifying data networks.
 
@@ -136,8 +114,11 @@ Configure your deployment in the new region using the information you gathered i
 1. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
 1. If you have UEs that require manual operations to recover from a packet core outage, follow their recovery steps.
 
+## Verify
+
+Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your deployment is operating normally after the region move.
+
 ## Next steps
 
-- Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your deployment is operating normally after the region move.
-- If you no longer require a deployment in the source region, [delete the original resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+If you no longer require a deployment in the source region, [delete the original resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 <!-- TODO: Learn more about reliability in Azure Private 5G Core. -->
