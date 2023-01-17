@@ -23,7 +23,7 @@ There are several different ways to install and run Azurite on your local system
 
 ### [Visual Studio](#tab/visual-studio)
 
-Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). If you are running an earlier version of Visual Studio, you'll need to install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite GitHub repository. 
+Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). If you're running an earlier version of Visual Studio, you'll need to install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite GitHub repository. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -100,7 +100,7 @@ With a few configurations, Azure Functions or ASP.NET projects start Azurite aut
 
 #### Running Azurite from the command line
 
-You can find the Azurite executable file in the extensions folder of your Visual Studio installation. The specific location can vary based on which version of Visual Studio you have installed. For example, if you've installed Visual Studio 2022 professional edition on a Windows computer or Virtual Machine (VM), you would find the Azurite executable file at this location: 
+You can find the Azurite executable file in the extensions folder of your Visual Studio installation. The specific location can vary based on which version of Visual Studio is installed. For example, if you've installed Visual Studio 2022 professional edition on a Windows computer or Virtual Machine (VM), you would find the Azurite executable file at this location: 
 
 `C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator`.  
 
@@ -115,15 +115,13 @@ Open the required location and start the `azurite.exe`. After you run the execut
 
 #### Running Azurite from an Azure Functions project
 
-In Visual Studio 2022, create an **Azure Functions** project. As you create the project, choose the **Storage Emulator**.
+In Visual Studio 2022, create an **Azure Functions** project. While setting the project options, mark the box labeled **Use Azurite for runtime storage account**.
 
-> [!div class="mx-imgBorder"]
-> ![Storage emulator option in Azure Functions project](media/storage-use-azurite/visual-studio-azure-function-project-settings.png)
+:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions.png" alt-text="A screenshot showing how to set Azurite to be the runtime storage account for an Azure Functions project.":::
 
-After you create the project, Azurite starts automatically. 
+After you create the project, Azurite starts automatically. The output looks similar to the following screenshot:
 
-> [!div class="mx-imgBorder"]
-> ![Azurite command-line output in Azure Functions project](media/storage-use-azurite/output-window-azure-functions-project.png)
+:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions.png" alt-text="A screenshot showing output after setting Azurite to be the runtime storage account for an Azure Functions project.":::
 
 #### Running Azurite from an ASP.NET project
 
@@ -434,7 +432,7 @@ azurite --skipApiVersionCheck
 
 ### Disable Production Style Url
 
-**Optional**. When using the fully-qualified domain name instead of the IP in request Uri host, by default Azurite will parse the storage account name from request Uri host. You can force the parsing of the storage account name from request Uri path by using `--disableProductStyleUrl`:
+**Optional**. When using the fully qualified domain name instead of the IP in request Uri host, by default Azurite will parse the storage account name from request Uri host. You can force the parsing of the storage account name from request Uri path by using `--disableProductStyleUrl`:
 
 ```cmd
 azurite --disableProductStyleUrl
@@ -729,9 +727,9 @@ Start Azurite and use a customized connection string to access your account. The
 DefaultEndpointsProtocol=http;AccountName=account1;AccountKey=key1;BlobEndpoint=http://account1.blob.localhost:10000;QueueEndpoint=http://account1.queue.localhost:10001;TableEndpoint=http://account1.table.localhost:10002;
 ```
 
-Do not access default account in this way with Azure Storage Explorer. There is a bug that Storage Explorer is always adding account name in URL path, causing failures.
+Don't access default account in this way with Azure Storage Explorer. There's a bug that Storage Explorer is always adding account name in URL path, causing failures.
 
-By default, when using Azurite with a production-style URL, the account name should be the host name in fully-qualified domain name such as "http://devstoreaccount1.blob.localhost:10000/container". To use production-style URL with account name in the URL path such as "http://foo.bar.com:10000/devstoreaccount1/container", make sure to use the `--disableProductStyleUrl` parameter when you start Azurite.
+By default, when using Azurite with a production-style URL, the account name should be the host name in fully qualified domain name such as "http://devstoreaccount1.blob.localhost:10000/container". To use production-style URL with account name in the URL path such as "http://foo.bar.com:10000/devstoreaccount1/container", make sure to use the `--disableProductStyleUrl` parameter when you start Azurite.
 
 If use `host.docker.internal` as request Uri host (For example: `http://host.docker.internal:10000/devstoreaccount1/container`), Azurite will always get the account name from the request Uri path. This is true regardless of whether you use the `--disableProductStyleUrl` parameter when you start Azurite. 
 
