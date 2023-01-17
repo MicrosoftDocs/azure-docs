@@ -58,6 +58,31 @@ diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
 az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
 ```
 
+## Checking status - CLI
+
+If you want to check the status of a snapshot and ensure they've completed, use the following scripts.
+
+First, get a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following script to list your existing incremental snapshots:
+
+
+```azurecli
+# Declare variables and create snapshot list
+subscriptionId="yourSubscriptionId"
+resourceGroupName="yourResourceGroupNameHere"
+diskName="yourDiskNameHere"
+
+az account set --subscription $subscriptionId
+
+diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
+
+az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
+```
+
+Now that you have a list of snapshots, you can check the `CompletionPercent` property of an snapshot to get its status. Replace `$sourceSnapshotName` with the name of your snapshot. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
+
+```azurecli
+az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [completionPercent] -o tsv
+```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -103,6 +128,38 @@ foreach ($snapshot in $snapshots)
 }
 
 $incrementalSnapshots
+```
+
+## Check status - PowerShell
+
+
+If you want to check the status of a snapshot and ensure they've completed, use the following scripts.
+
+First, get a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following script to list your existing incremental snapshots:
+
+```azurepowershell
+$resourceGroupName = "yourResourceGroupNameHere"
+
+$snapshots = Get-AzSnapshot -ResourceGroupName $resourceGroupName
+
+$incrementalSnapshots = New-Object System.Collections.ArrayList
+
+foreach ($snapshot in $snapshots)
+{
+if($snapshot.Incremental -and $snapshot.CreationData.SourceResourceId -eq $yourDisk.Id -and $snapshot.CreationData.SourceUniqueId -eq $yourDisk.UniqueId){
+$incrementalSnapshots.Add($snapshot)
+}
+}
+
+$incrementalSnapshots
+```
+
+Now that you have a list of snapshots, you can check the `CompletionPercent` property of an individual snapshot to get its status. Replace `$snapshotName` with the name of your snapshot, then run the following script to get the snapshot's status. The snapshot process must be complete for the snapshot to be used for restoring a disk or generating a SAS to download the snapshot.
+
+```azurepowershell
+$targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
+
+$targetSnapshot.CompletionPercent
 ```
 
 # [Portal](#tab/azure-portal)
