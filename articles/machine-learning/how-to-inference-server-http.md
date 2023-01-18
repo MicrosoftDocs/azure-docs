@@ -155,13 +155,18 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
     **launch.json**
     ```json
     {
-        "name": "Debug score.py",
-        "type": "python",
-        "request": "launch",
-        "module": "azureml_inference_server_http.amlserver",
-        "args": [
-            "--entry_script",
-            "score.py"
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Debug score.py",
+                "type": "python",
+                "request": "launch",
+                "module": "azureml_inference_server_http.amlserver",
+                "args": [
+                    "--entry_script",
+                    "score.py"
+                ]
+            }
         ]
     }
     ```
