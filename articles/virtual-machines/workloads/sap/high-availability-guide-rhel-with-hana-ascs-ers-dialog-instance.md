@@ -1,6 +1,6 @@
 ---
 title: Deploy SAP ASCS/SCS and SAP ERS with SAP HANA high availability VMs on RHEL | Microsoft Docs
-description: Configure SAP ASCS/SCS and SAP ERS with SAP HANA high availability VMs on RHEL
+description: Configure SAP ASCS/SCS and SAP ERS with SAP HANA high availability VMs on RHEL.
 services: virtual-machines-linux,virtual-network,storage
 documentationcenter: saponazure
 author: apmsft
@@ -83,7 +83,7 @@ The example shown in this article to describe deployment uses following system i
 * To install additional application servers on separate VMs, you can either use NFS shares or local managed disk for instance directory filesystem. If you're installing additional application servers for SAP J2EE system, `/usr/sap/<SID>/J<nr>` on NFS on Azure Files isn't supported.
 * Refer [NFS on Azure Files consideration](high-availability-guide-rhel-nfs-azure-files.md#important-considerations-for-nfs-on-azure-files-shares) and [Azure NetApp Files consideration](high-availability-guide-rhel-netapp-files.md#important-considerations), as same consideration applies for this setup as well.
 
-## Pre-requisites
+## Prerequisites
 
 The configuration described in this article is an addition to your already configured SAP HANA cluster setup. In this configuration, SAP ASCS/SCS and ERS will be installed on a virtual hostname and its instance directory is managed by the cluster.
 
