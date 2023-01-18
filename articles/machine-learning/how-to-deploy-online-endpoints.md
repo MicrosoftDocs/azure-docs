@@ -498,6 +498,8 @@ Currently, you can specify only one model per deployment in the deployment defin
 
 To use more than one model in a deployment, register a model folder that contains all the models as files or subdirectories. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure will be retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment (CLI example)](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel) and [Deploy multiple models to one deployment (SDK example)](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container-multimodel.ipynb).
 
+---
+
 ## Understand the scoring script
 
 > [!TIP]
