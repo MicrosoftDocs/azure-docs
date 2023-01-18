@@ -3,7 +3,7 @@ title: AWS ECR coverage in Defender for Containers | Defender for Cloud in the f
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about AWS ECR coverage in Defender for Containers
 ms.topic: reference
-ms.date: 01/16/2023
+ms.date: 01/18/2023
 ---
 
 # Enhancements in Defender for SQL vulnerability assessment | Defender for Cloud in the field
@@ -13,11 +13,11 @@ ms.date: 01/16/2023
 <br>
 <iframe src="https://aka.ms/docs/player?id=919f847f-4b19-4440-aede-a0917e1d7019" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [00:00](/shows/mdc-in-the-field/defender-sql-enhancements#time=00m00s) - Intro
-- [01:44](/shows/mdc-in-the-field/defender-sql-enhancements#time=01m44s) - Introducing AWS ECR coverage
-- [03:38](/shows/mdc-in-the-field/defender-sql-enhancements#time=03m38s) -  How new repos or images are discovered after the initial assessment
-- [04:22](/shows/mdc-in-the-field/defender-sql-enhancements#time=04m22s) - Scanning frequency
-- [07:33](/shows/mdc-in-the-field/defender-sql-enhancements#time=07m33s) - Demonstration
+- [00:00](/shows/mdc-in-the-field/aws-ecr#time=00m00s) - Intro
+- [01:44](/shows/mdc-in-the-field/aws-ecr#time=01m44s) - Introducing AWS ECR coverage
+- [03:38](/shows/mdc-in-the-field/aws-ecr#time=03m38s) -  How new repos or images are discovered after the initial assessment
+- [04:22](/shows/mdc-in-the-field/aws-ecr#time=04m22s) - Scanning frequency
+- [07:33](/shows/mdc-in-the-field/aws-ecr#time=07m33s) - Demonstration
 
 
 ## Recommended resources
