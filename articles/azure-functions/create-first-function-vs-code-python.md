@@ -99,6 +99,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     Your function code should now look like the following example:
 
     ```python
+    app = func.FunctionApp()
     @app.function_name(name="HttpTrigger1")
     @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
     def test_function(req: func.HttpRequest) -> func.HttpResponse:

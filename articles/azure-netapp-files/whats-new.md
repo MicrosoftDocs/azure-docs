@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 12/15/2022
+ms.date: 12/21/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -21,7 +21,26 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## December 2022
 
-  * [Cross-zone replication](create-cross-zone-replication.md) (Preview)
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 7](azacsnap-introduction.md) 
+    
+    Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases in Linux environments. 
+
+    AzAcSnap 7 is being released with the following fixes and improvements: 
+    * Shortening of snapshot names
+    * Restore (`-c restore`) improvements
+    * Test (`-c test`) improvements 
+    * Validation improvements 
+    * Timeout improvements 
+    * Azure Backup integration improvements 
+    * Features moved to GA (generally available):
+        None
+    * The following features are now in preview: 
+        * Preliminary support for [Azure NetApp Files backup](backup-introduction.md)
+        * [IBM Db2 database](https://www.ibm.com/products/db2) support adding options to configure, test, and snapshot backup IBM Db2 in an application consistent manner
+
+    Download the latest release of the installer [here](https://aka.ms/azacsnapinstaller). 
+
+* [Cross-zone replication](create-cross-zone-replication.md) (Preview)
 
     With Azure’s push towards the use of availability zones (AZs) the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](cross-zone-replication-introduction.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way.
 

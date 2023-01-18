@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 Use this quickstart to create a Text Analytics for health application with the client library for .NET. In the following example, you will create a C# application that can identify medical [entities](../../concepts/health-entity-categories.md), [relations](../../concepts/relation-extraction.md), and [assertions](../../concepts/assertion-detection.md) that appear in text.
 
-[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+
 
 
 ## Prerequisites
@@ -180,6 +180,9 @@ Results of Azure Text Analytics for health async model, version: "2022-03-01"
       Associated Entity Text: twice daily
       Associated Entity Category: Frequency
 ```
+
+> [!TIP]
+> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](../../how-to/call-api.md) on how to use FHIR structuring in your API call.
 
 ## Clean up resources
 
