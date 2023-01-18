@@ -64,7 +64,7 @@ Here are the primary constraints with using B2B collaboration across multiple te
 
 ## B2B direct connect
 
-To enable users across tenants to collaborate in [Teams Connect shared channels](/microsoftteams/platform/concepts/build-and-test/shared-channels?branch=main), you can use [Azure AD B2B direct connect](../external-identities/b2b-direct-connect-overview.md). B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Azure AD organization for seamless collaboration in Teams. When the trust is established, the B2B direct connect user has single sign-on access using credentials from their home tenant.
+To enable users across tenants to collaborate in [Teams Connect shared channels](/microsoftteams/platform/concepts/build-and-test/shared-channels), you can use [Azure AD B2B direct connect](../external-identities/b2b-direct-connect-overview.md). B2B direct connect is a feature of External Identities that lets you set up a mutual trust relationship with another Azure AD organization for seamless collaboration in Teams. When the trust is established, the B2B direct connect user has single sign-on access using credentials from their home tenant.
 
 Here is the primary constraint with using B2B direct connect across multiple tenants:
 

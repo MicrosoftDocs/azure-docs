@@ -77,13 +77,13 @@ The following table shows the parts of cross-tenant synchronization and which te
 
 [!INCLUDE [cross-tenant-synchronization-include](../includes/cross-tenant-synchronization-include.md)]
 
-To configure this setting using Microsoft Graph, see the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true&branch=pr-en-us-19433) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
+To configure this setting using Microsoft Graph, see the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
 ## Automatic redemption setting
 
 [!INCLUDE [automatic-redemption-include](../includes/automatic-redemption-include.md)]
 
-To configure this setting using Microsoft Graph, see the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true&branch=pr-en-us-18162) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
+To configure this setting using Microsoft Graph, see the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
 #### How do users know what tenants they belong to?
 
@@ -220,7 +220,7 @@ Does cross-tenant synchronization resolve any present [B2B collaboration](../ext
 
 How does cross-tenant synchronization relate to [B2B direct connect](../external-identities/b2b-direct-connect-overview.md)?
 
-- B2B direct connect is the underlying identity technology required for [Teams Connect shared channels](/microsoftteams/platform/concepts/build-and-test/shared-channels?branch=main).
+- B2B direct connect is the underlying identity technology required for [Teams Connect shared channels](/microsoftteams/platform/concepts/build-and-test/shared-channels).
 - We recommend B2B collaboration for all other cross-tenant application access scenarios, including both Microsoft and non-Microsoft applications.
 - B2B direct connect and cross-tenant synchronization are designed to co-exist, and you can enable them both for broad coverage of cross-tenant scenarios.
 
@@ -245,7 +245,7 @@ Does cross-tenant synchronization enhance any current Teams experiences?
 
 What federation options are supported for users in the target tenant back to the source tenant?
 
-- For each internal user in the source tenant, cross-tenant synchronization creates a federated external user (commonly used in B2B) in the target. It supports syncing internal users. This includes internal users federated to other identity systems using domain federation (such as [Active Directory Federation Services](/windows-server/identity/ad-fs/ad-fs-overview?branch=main)). It does not support syncing external users.
+- For each internal user in the source tenant, cross-tenant synchronization creates a federated external user (commonly used in B2B) in the target. It supports syncing internal users. This includes internal users federated to other identity systems using domain federation (such as [Active Directory Federation Services](/windows-server/identity/ad-fs/ad-fs-overview)). It does not support syncing external users.
 
 Does cross-tenant synchronization leverage System for Cross-Domain Identity Management (SCIM)?
 

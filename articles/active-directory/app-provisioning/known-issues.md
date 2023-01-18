@@ -66,8 +66,8 @@ Configuring synchronization from the target tenant isn't supported. All configur
 
 - B2B users are unable to manage certain Microsoft 365 services in remote tenants (such as Exchange Online), as there is no directory picker.
 - Azure Virtual Desktop currently doesn't support B2B users.
-- B2B users with UserType Member are not currently supported in Power BI. For more information, see [Distribute Power BI content to external guest users using Azure Active Directory B2B](/power-bi/guidance/whitepaper-azure-b2b-power-bi?branch=main)
-- Converting a guest account into an Azure AD member account or converting an Azure AD member account into a guest is not supported by Teams. For more information, see [Guest access in Microsoft Teams](/microsoftteams/guest-access?branch=main).
+- B2B users with UserType Member are not currently supported in Power BI. For more information, see [Distribute Power BI content to external guest users using Azure Active Directory B2B](/power-bi/guidance/whitepaper-azure-b2b-power-bi)
+- Converting a guest account into an Azure AD member account or converting an Azure AD member account into a guest is not supported by Teams. For more information, see [Guest access in Microsoft Teams](/microsoftteams/guest-access).
 ::: zone-end
 
 ## Authorization 

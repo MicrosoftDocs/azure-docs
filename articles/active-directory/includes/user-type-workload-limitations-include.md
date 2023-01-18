@@ -13,6 +13,6 @@ ms.custom: include file
 
 | App or service | Limitations |
 | --- | --- |
-| Microsoft Teams | <ul><li>External member is not supported in [Teams Connect shared channels](/microsoftteams/platform/concepts/build-and-test/shared-channels?branch=main).</li><li>Converting an external guest into an external member or converting an external member into an external guest is not currently supported by Teams. For more information, see [Guest access in Microsoft Teams](/microsoftteams/guest-access?branch=main).</li></ul> |
-| Power BI | <ul><li>External member is not supported in Power BI. For more information, see [Distribute Power BI content to external guest users using Azure Active Directory B2B](/power-bi/guidance/whitepaper-azure-b2b-power-bi?branch=main).</li></ul> |
+| Microsoft Teams | <ul><li>External member is not supported in [Teams Connect shared channels](/microsoftteams/platform/concepts/build-and-test/shared-channels).</li><li>Converting an external guest into an external member or converting an external member into an external guest is not currently supported by Teams. For more information, see [Guest access in Microsoft Teams](/microsoftteams/guest-access).</li></ul> |
+| Power BI | <ul><li>External member is not supported in Power BI. For more information, see [Distribute Power BI content to external guest users using Azure Active Directory B2B](/power-bi/guidance/whitepaper-azure-b2b-power-bi).</li></ul> |
 | Azure Virtual Desktop | <ul><li>External member and external guest are not supported in Azure Virtual Desktop.</li></ul> |

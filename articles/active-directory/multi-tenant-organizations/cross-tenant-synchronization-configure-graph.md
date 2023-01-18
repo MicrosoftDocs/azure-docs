@@ -53,7 +53,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-1. Use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true&branch=pr-en-us-18162) API to create a new partner configuration in a cross-tenant access policy between the target tenant and the source tenant.
+1. Use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the target tenant and the source tenant.
 
     **Request**
 
@@ -94,7 +94,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     ```
 
-1. Use the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true&branch=pr-en-us-19433) API to enable user synchronization in the target tenant.
+1. Use the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true) API to enable user synchronization in the target tenant.
 
     **Request**
     
@@ -120,7 +120,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-1. Use the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true&branch=pr-en-us-18162) API to automatically redeem invitations and suppress consent prompts for inbound access.
+1. Use the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true) API to automatically redeem invitations and suppress consent prompts for inbound access.
 
     **Request**
     
@@ -149,7 +149,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. Sign in to the source tenant.
 
-2. Use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true&branch=pr-en-us-18162) API to create a new partner configuration in a cross-tenant access policy between the source tenant and the target tenant.
+2. Use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the source tenant and the target tenant.
 
     **Request**
 
@@ -190,7 +190,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     ```
 
-3. Use the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true&branch=pr-en-us-18162) API to automatically redeem invitations and suppress consent prompts for outbound access.
+3. Use the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true) API to automatically redeem invitations and suppress consent prompts for outbound access.
 
     **Request**
     
@@ -216,7 +216,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. In the source tenant, use the [applicationTemplate: instantiate](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&preserve-view=true&branch=main) API to add an instance of a configuration application from the Azure AD application gallery into your tenant.
+1. In the source tenant, use the [applicationTemplate: instantiate](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&preserve-view=true) API to add an instance of a configuration application from the Azure AD application gallery into your tenant.
     
     **Request**
     
@@ -297,7 +297,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
     Be sure to use the service principal object ID instead of the application ID.
 
-2. In the source tenant, use the [synchronizationJob: validateCredentials](/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&preserve-view=true&branch=main) API to test the connection to the target tenant and validate the credentials.
+2. In the source tenant, use the [synchronizationJob: validateCredentials](/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&preserve-view=true) API to test the connection to the target tenant and validate the credentials.
 
     **Request**
     
@@ -333,7 +333,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 For cross-tenant synchronization to work, at least one internal user must be assigned to the configuration.
 
-1. In the source tenant, use the [Grant an appRoleAssignment for a service principal](/graph/api/serviceprincipal-post-approleassignedto?branch=main) API to assign an internal user to the configuration.
+1. In the source tenant, use the [Grant an appRoleAssignment for a service principal](/graph/api/serviceprincipal-post-approleassignedto) API to assign an internal user to the configuration.
 
     **Request**
     
@@ -373,11 +373,11 @@ For cross-tenant synchronization to work, at least one internal user must be ass
 
 In the source tenant, to enable provisioning, create a provisioning job.
 
-1. Determine the [synchronization template](/graph/api/resources/synchronization-synchronizationtemplate?view=graph-rest-beta&preserve-view=true&branch=main) to use, such as `Azure2Azure`.
+1. Determine the [synchronization template](/graph/api/resources/synchronization-synchronizationtemplate?view=graph-rest-beta&preserve-view=true) to use, such as `Azure2Azure`.
 
     A template has pre-configured synchronization settings. 
     
-1. In the source tenant, use the [Create synchronizationJob](/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&preserve-view=true&branch=main) API to create a provisioning job based on a template.
+1. In the source tenant, use the [Create synchronizationJob](/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&preserve-view=true) API to create a provisioning job based on a template.
 
     **Request**
     
@@ -435,7 +435,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. Use the [synchronization: secrets](/graph/api/synchronization-synchronization-secrets?view=graph-rest-beta&preserve-view=true&branch=main) API to save your credentials.
+1. Use the [synchronization: secrets](/graph/api/synchronization-synchronization-secrets?view=graph-rest-beta&preserve-view=true) API to save your credentials.
 
     **Request**
     
@@ -477,7 +477,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
 
 Now that you have a configuration, you can test on-demand provisioning with one of your users.
 
-1. Use the [synchronizationJob: provisionOnDemand](/graph/api/synchronization-synchronizationjob-provision-on-demand?view=graph-rest-beta&preserve-view=true&branch=main) API to provision a test user on demand.
+1. Use the [synchronizationJob: provisionOnDemand](/graph/api/synchronization-synchronizationjob-provision-on-demand?view=graph-rest-beta&preserve-view=true) API to provision a test user on demand.
 
     **Request**
     
@@ -504,7 +504,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. Now that the provisioning job is configured, use the [Start synchronizationJob](/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&preserve-view=true&branch=main) API to start the provisioning job.
+1. Now that the provisioning job is configured, use the [Start synchronizationJob](/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&preserve-view=true) API to start the provisioning job.
 
     **Request**
     
@@ -523,7 +523,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. Now that the provisioning job is running, use the [Get synchronizationJob](/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&preserve-view=true&branch=main) API to monitor the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system.
+1. Now that the provisioning job is running, use the [Get synchronizationJob](/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&preserve-view=true) API to monitor the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system.
 
     **Request**
     
@@ -591,7 +591,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     }
     ```
 
-1. In addition to monitoring the status of the provisioning job, use the [List provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?branch=main) API to retrieve the provisioning logs and get all the provisioning events that occur. For example, query for a particular user and determine if they were successfully provisioned.
+1. In addition to monitoring the status of the provisioning job, use the [List provisioningObjectSummary](/graph/api/provisioningobjectsummary-list) API to retrieve the provisioning logs and get all the provisioning events that occur. For example, query for a particular user and determine if they were successfully provisioned.
 
     **Request**
     
@@ -730,5 +730,5 @@ Either the signed-in user does not have sufficient privileges, or you need to co
 
 ## Next steps
 
-- [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true&branch=main)
+- [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)
 - [Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory](../app-provisioning/use-scim-to-provision-users-and-groups.md)
