@@ -70,10 +70,10 @@ To learn more about these capabilities, see [Manage Spark pool packages](./apach
 Please follow the steps below if you have trouble to identify the required dependencies:
 
 - **Step1: Run the following script to set up a local Python environment same with Synapse Spark environment**
-The setup script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml) which is the list of libraries shipped in the default python env in Synapse spark.
+The setup script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml) which is the list of libraries shipped in the default Python env in Synapse spark.
 
  ```powershell
-    # one-time synapse python setup
+    # one-time synapse Python setup
     wget Synapse-Python38-CPU.yml
     sudo bash Miniforge3-Linux-x86_64.sh -b -p /usr/lib/miniforge3
     export PATH="/usr/lib/miniforge3/bin:$PATH"

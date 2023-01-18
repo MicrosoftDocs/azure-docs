@@ -25,7 +25,10 @@ The IoT Hub team will begin migrating IoT hubs by region on **February 15, 2023*
 
 ### Request an extension
 
-This TLS certificate migration is critical for the security of our customers and Microsoft's infrastructure, and is time-bound by the expiration of the Baltimore CyberTrust Root certificate. Therefore, there's little extra time that we can provide for customers that don't think their devices will be ready by February 15, 2023. If you absolutely can't meet the February 2023 target date, [fill out this form](https://aka.ms/BaltimoreAllow) with the details of your extension request, and then [email us](mailto:iot-ca-updates@microsoft.com?subject=Requesting%20extension%20for%20Baltimore%20migration) with a message indicating that you have completed the form, along with your company name. We can flag the specific hubs to be migrated later in the rollout window.
+This TLS certificate migration is critical for the security of our customers and Microsoft's infrastructure, and is time-bound by the expiration of the Baltimore CyberTrust Root certificate. Therefore, there's little extra time that we can provide for customers that don't think their devices will be ready by February 15, 2023. If you absolutely can't meet the February 2023 target date, [fill out this form](https://aka.ms/BaltimoreAllow) with the details of your extension request, and then [email us](mailto:iot-ca-updates@microsoft.com?subject=Requesting%20extension%20for%20Baltimore%20migration) with a message that indicates you've completed the form, along with your company name. We can flag the specific hubs to be migrated later in the rollout window.
+
+> [!NOTE]
+> We are collecting this information to help with the Baltimore migration. We will hold onto this information until October 15th, 2023, when this migration is slated to complete. If you would like us to delete this information, please [email us](mailto:iot-ca-updates@microsoft.com) and we can assist you. For any additional questions about the Microsoft privacy policy, see the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
 
 ## Required steps
 

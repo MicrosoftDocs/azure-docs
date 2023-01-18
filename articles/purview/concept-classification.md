@@ -49,5 +49,6 @@ Custom classification rules can be based on a *regular expression* pattern or *d
 
 * [Read about classification best practices](concept-best-practices-classification.md)
 * [Create custom classifications](create-a-custom-classification-and-classification-rule.md)
-* [Apply classifications](apply-classifications.md)
+* [Automatically apply classifications](apply-classifications.md)
+* [Manually apply classifications](manually-apply-classifications.md)
 * [Use the Microsoft Purview governance portal](use-azure-purview-studio.md)
