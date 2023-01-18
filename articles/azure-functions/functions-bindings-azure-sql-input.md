@@ -23,9 +23,9 @@ For information on setup and configuration details, see the [overview](./functio
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
-
 # [In-process](#tab/in-process)
+
+More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 
 This section contains the following examples:
 
@@ -120,6 +120,8 @@ The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In t
 :::code language="csharp" source="~/functions-sql-todo-sample/DeleteToDo.cs" range="4-30":::
 
 # [Isolated process](#tab/isolated-process)
+
+More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-outofproc).
 
 This section contains the following examples:
 

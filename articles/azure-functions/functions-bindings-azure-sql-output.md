@@ -23,9 +23,9 @@ For information on setup and configuration details, see the [overview](./functio
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
-
 # [In-process](#tab/in-process)
+
+More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 
 This section contains the following examples:
 
@@ -156,6 +156,7 @@ namespace AzureSQLSamples
 
 # [Isolated process](#tab/isolated-process)
 
+More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-outofproc).
 
 This section contains the following examples:
 
