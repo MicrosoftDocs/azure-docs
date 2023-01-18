@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 The serverless function you create provides an API that lets you determine whether an emergency repair on a wind turbine is cost-effective. Because both the function app and API Management instance you create use consumption plans, your cost for completing this tutorial is minimal.
 
 > [!NOTE]
-> The OpenAPI and API Management integration featured in this article is currently in preview. This method for exposing a serverless API is only supported for [in-process](functions-dotnet-class-library.md) C# class library functions. [isolated worker process](dotnet-isolated-process-guide.md) C# class library functions and all other language runtimes should instead [use Azure API Management integration from the portal](functions-openapi-definition.md). 
+> The OpenAPI and API Management integration featured in this article is currently in preview. This method for exposing a serverless API is only supported for [in-process](functions-dotnet-class-library.md) C# class library functions. [Isolated worker process](dotnet-isolated-process-guide.md) C# class library functions and all other language runtimes should instead [use Azure API Management integration from the portal](functions-openapi-definition.md). 
 
 ## Prerequisites
 
