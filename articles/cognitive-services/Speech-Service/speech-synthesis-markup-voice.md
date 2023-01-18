@@ -24,7 +24,6 @@ At least one `voice` element must be specified within each SSML [speak](speech-s
 
 You can include multiple `voice` elements in a single SSML document. Each `voice` element can specify a different voice. You can also use the same voice multiple times with different settings, such as when you [change the silence duration](speech-synthesis-markup-structure.md#add-silence) between sentences.
 
-Regarding the `effect` attribute of the `voice` element, it is an audio effect processor. This attribute is used to enhance the auditory quality of the synthesized speech output from various device. In a practical environment, the audience's auditory experience may be degraded due to the distortion of playback from various devices in different scenarios. For example, the synthesized speech from car speaker may sound dull and muffled due to environmental factors such as speaker response, room reverberation, and background noise. The driver usually has to turn up the volume to hear more clearly. In such a case, the `effect` processor can make the sound clearer by compensating the distortion of playback without any manual operation. 
 
 Usage of the `voice` element's attributes are described in the following table.
 
