@@ -16,7 +16,8 @@ ms.author: banders
 You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). Direct Enterprise customer can now manage Enterprise Agreement(EA) enrollment in [Azure portal](https://portal.azure.com/).
 You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks by using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
 
-**Note:** If you have multiple EA billing accounts in your organization, you will need to grant the EA roles to Azure service principal names (SPNs) individually in each EA billing account.
+[!NOTE]
+If you have multiple EA billing accounts in your organization, you will need to grant the EA roles to Azure service principal names (SPNs) individually in each EA billing account.
 
 Before you begin, ensure that you're familiar with the following articles:
 
@@ -39,14 +40,14 @@ Here's an example of the application registration page.
 
 ### Find your SPN and tenant ID
 
-You also need the object ID of the SPN and the tenant ID of the app. You need this information for permission assignment operations later in this article. All applications that get registered in AAD, in the tenant, two types of objects get created once the app registration is done:
+You also need the object ID of the SPN and the tenant ID of the app. You need this information for permission assignment operations later in this article. All applications that get registered in Azure Active Directory, in the tenant, two types of objects get created once the app registration is done:
 
 -Application Object     
 -Service Principal Object
 
-The Application Object ID is what you see under App Registrations in AAD and this object ID should **not** be used to grant any EA Roles.
+The Application Object ID is what you see under App Registrations in Azure Active Directory and this object ID should **not** be used to grant any EA Roles.
 
-The Service Principal Object is what you see under the Enterprise Registration blade in AAD. This Object ID should be used while granting any EA Roles to the SPN.
+The Service Principal Object is what you see under the Enterprise Registration blade in Azure Active Directory. This Object ID should be used while granting any EA Roles to the SPN.
 
 1. Open Azure Active Directory, and then select **Enterprise applications**.
 1. Find your app in the list.
@@ -80,7 +81,7 @@ Later in this article, you'll give permission to the Azure AD app to act by usin
 - A DepartmentReader role can be assigned to an SPN only by a user who has an enrollment writer or department writer role.
 - A SubscriptionCreator role can be assigned to an SPN only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
 - The EA purchaser role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
-- While granting any EA Roles to the SPN, it required this property billingRoleAssignmentName. This parameter is a unique GUID that you need to provide. You can generate a GUID using the New-Guid PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
+- While granting any EA roles to the SPN, you must use the billingRoleAssignmentName required property. The parameter is a unique GUID that you must provide. You can generate a GUID using the [New-Guid](https://github.com/en-us/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
 An SPN can have only one role.
 
