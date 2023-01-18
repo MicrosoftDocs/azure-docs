@@ -151,7 +151,7 @@ function TransformPolicyToPremium {
                         ThreatIntelMode = $Policy.ThreatIntelMode
 						ThreatIntelWhitelist = $Policy.ThreatIntelWhitelist
 						PrivateRange = $Policy.PrivateRange
-                        DnsSetting = $Policy.DnsSettings
+                        			DnsSetting = $Policy.DnsSettings
 						SqlSetting = $Policy.SqlSetting
 						ExplicitProxy  = $Policy.ExplicitProxy 
 						DefaultProfile  = $Policy.DefaultProfile 
