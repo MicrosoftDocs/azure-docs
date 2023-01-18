@@ -57,7 +57,6 @@ Responding to systemic identity compromises should include the steps shown in th
 |**Investigate your environment**   | After you have secured communications on your core investigation team, you can start looking for initial access points and persistence techniques. [Identify your indications of compromise](#identify-indications-of-compromise), and then look for initial access points and persistence. At the same time, start [establishing continuous monitoring operations](#establish-continuous-monitoring) during your recovery efforts.        |
 |**Improve security posture**     | [Enable security features and capabilities](#improve-security-posture) following best practice recommendations for improved system security moving forward.  <br><br>Make sure to continue your [continuous monitoring](#establish-continuous-monitoring) efforts as time goes on and the security landscape changes.    |
 |**Regain / retain control**     |  You must regain administrative control of your environment from the attacker. After you have control again and have refreshed your system's security posture, make sure to [remediate or block](#remediate-and-retain-administrative-control) all possible persistence techniques and new initial access exploits.       |
-|     |         |
 
 ## Establish secure communications
 
@@ -158,7 +157,6 @@ Review administrative rights in both your cloud and on-premises environments. Fo
 |**All Enterprise applications**     | Review for delegated permissions and consent grants that allow any of the following actions: <br><br>  - Modifying privileged users and roles <br>- Reading or accessing all mailboxes <br>- Sending or forwarding email on behalf of other users <br>- Accessing all OneDrive or SharePoint site content <br>- Adding service principals that can read/write to the directory      |
 |**Microsoft 365 environments**     |Review access and configuration settings for your Microsoft 365 environment, including: <br>- SharePoint Online Sharing <br>- Microsoft Teams <br>- Power Apps <br>- Microsoft OneDrive for Business          |
 | **Review user accounts in your environments**   |- Review and remove guest user accounts that are no longer needed. <br>- Review email configurations for delegates, mailbox folder permissions, ActiveSync mobile device registrations, Inbox rules, and Outlook on the Web options. <br>- Review ApplicationImpersonation rights and reduce any use of legacy authentication as much as possible. <br>- Validate that MFA is enforced and that both MFA and self-service password reset (SSPR) contact information for all users is correct.         |
-|     |         |
 
 ## Establish continuous monitoring
 
@@ -217,7 +215,6 @@ The following table describes more methods for using Azure Active directory logs
 |**Detect credentials for OAuth applications**     |  Attackers who have gained control of a privileged account may search for an application with the ability to access any user's email in the organization, and then add attacker-controlled credentials to that application. <br><br>For example, you may want to search for any of the following activities, which would be consistent with attacker behavior: <br>- Adding or updating service principal credentials <br>- Updating application certificates and secrets <br>- Adding an app role assignment grant to a user <br>- Adding Oauth2PermissionGrant |
 |**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Microsoft Purview Audit (Premium) features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
 |**Detect non-interactive sign-ins to service principals**     | The Azure Active Directory sign-in reports provide details about any non-interactive sign-ins that used service principal credentials.  For example, you can use the sign-in reports to find valuable data for your investigation, such as an IP address used by the attacker to access email applications.        |
-|     |         |
 
 
 ## Improve security posture
@@ -321,7 +318,6 @@ In addition to the recommendations listed earlier in this article, we also recom
 |**Enforce MFA**     | Enforce Multi-Factor Authentication (MFA) across all elevated users in the tenant. We recommend enforcing MFA across all users in the tenant.       |
 |**Limit administrative access**     |    Implement [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) (PIM) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
 |**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles <br>- Reading, sending email, or accessing all mailboxes <br>- Accessing OneDrive, Teams, or SharePoint content <br>- Adding Service Principals that can read/write to the directory <br>- Application Permissions versus Delegated Access       |
-|     |         |
 
 ### On-premises remediation activities
 
@@ -335,7 +331,6 @@ In addition to the recommendations listed earlier in this article, we also recom
 |**Reset the krbtgt account**     | Reset the **krbtgt** account twice using the [New-KrbtgtKeys](https://github.com/microsoft/New-KrbtgtKeys.ps1/blob/master/New-KrbtgtKeys.ps1) script. <br><br>**Note**: If you are using Read-Only Domain Controllers, you will need to run the script separately for Read-Write Domain Controllers and for Read-Only Domain Controllers.        |
 |**Schedule a system restart**     |   After you validate that no persistence mechanisms created by the attacker exist or remain on your system, schedule a system restart to assist with removing memory-resident malware. |
 |**Reset the DSRM password**     |  Reset each domain controller’s DSRM (Directory Services Restore Mode) password to something unique and complex.       |
-|     |         |
 
 ### Remediate or block persistence discovered during investigation
 
