@@ -48,7 +48,7 @@ passwordless-user@contoso.com AzureCloud  456e5515-431d-4a70-874d-bdae2ba97c1d <
 
 Ensure that your Azure tenant has the service principal for the Azure Database for PostgreSQL Flexible Server. This only needs to be done once per Azure tenant. First, check for the existence of the service principal in your tenant with this command. The specific ObjectId value is for the Azure Database for PostgreSQL Flexible Server service principal.
 ```
-Get-AzureADServicePrincipal -ObjectId 0049e2e2-fcea-4bc4-af90-bdb29a9bbe98
+Get-AzureADServicePrincipal -ObjectId 97deb67a-332c-456a-9ef4-3a95eb59c74b
 ```
 If the service principal exists, you'll see the following output.
 ```
