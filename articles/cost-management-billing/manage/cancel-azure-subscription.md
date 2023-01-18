@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 01/17/2023
 ms.author: banders
 ---
 
@@ -32,7 +32,7 @@ If you cancel an Azure Support plan, you're billed for the rest of the month. Ca
 
 ## Who can cancel a subscription?
 
-The table below describes the permission required to cancel a subscription.
+The following table describes the permission required to cancel a subscription.
 
 |Subscription type     |Who can cancel  |
 |---------|---------|
@@ -100,9 +100,11 @@ Depending on your subscription type, you may not be able to delete a subscriptio
       - If **Delete resources** doesn't display a green check mark, then you have resources that must be deleted in order to delete the subscription. You can select **View resources** to navigate to the Resources page to manually delete the resources. After resource deletion, you might need to wait 10 minutes for resource deletion status to update in order to delete the subscription.
       - If **Manual deletion date** doesn't display a green check mark, you must wait the required period before you can delete the subscription.  
 
-
 >[!NOTE]
-> 90 days after you cancel a subscription, the subscription is automatically deleted.
+> - 90 days after you cancel a subscription, the subscription is automatically deleted.
+> - If you have deleted all resources but the Delete your subscription page shows that you still have active resources, you might have active *hidden resources*. You can't delete a subscription if you have active hidden resources. To delete them, navigate to **Subscriptions** > select the subscription > **Resources**. At the top of the page, select **Manage view** and then select **Show hidden types**. Then, delete the resources.
+
+
 
 ## Reactivate a subscription
 
