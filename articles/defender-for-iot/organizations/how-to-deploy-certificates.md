@@ -121,13 +121,13 @@ If your OT sensors and on-premises management consoles can't access your CRL ser
 
 - **Use a proxy server that can access the CRL on port 80**
 
-    For more information, see [Forward OT alert information].
+    For more information, see [Forward OT alert information](how-to-forward-alert-information-to-partners.md).
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
 
-## Import the SSL/TLS certificate to a trusted store
+## Import the SSL/TLS certificate
 
-After creating your certificate, import it to a trusted storage location. For example:
+After creating your certificate, [import it to your OT sensor](references-work-with-defender-for-iot-cli-commands.md#tlsssl-certificate-commands) or to a trusted storage location. For example:
 
 1. Open the security certificate file and, in the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**.
 
