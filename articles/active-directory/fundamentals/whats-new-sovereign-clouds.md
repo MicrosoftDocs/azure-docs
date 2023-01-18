@@ -24,6 +24,16 @@ This page is updated monthly, so revisit it regularly.
 
 ## December 2022
 
+### General availability - Risk-based Conditional Access for workload identities
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+Customers can now bring one of the most powerful forms of access control in the industry to workload identities. Conditional Access supports risk-based policies for workload identities. Organizations can block sign-in attempts when Identity Protection detects compromised apps or services. For more information, see: [Create a risk-based Conditional Access policy](../conditional-access/workload-identity#create-a-risk-based-conditional-access-policy).
+
+---
+
 ### General availability - API to recover accidentally deleted Service Principals
 
 **Type:** New feature  
