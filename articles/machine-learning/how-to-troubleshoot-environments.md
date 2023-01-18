@@ -1060,4 +1060,4 @@ Try the following
 pip install --ignore-installed [package]
 ```
 
-Try creating a separate environment using conda instead
+Try creating a separate environment using conda
