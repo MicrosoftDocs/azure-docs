@@ -22,6 +22,28 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly.
 
 
+## December 2022
+
+### General availability - API to recover accidentally deleted Service Principals
+
+**Type:** New feature  
+**Service category:** Enterprise Apps        
+**Product capability:** Identity Lifecycle Management     
+
+Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. This isn't applicable to security groups, which are deleted permanently. A recently deleted item will remain available for up to 30 days. After 30 days, the item is permanently deleted. For more information, see: [servicePrincipal resource type](/graph/api/resources/serviceprincipal).
+
+---
+
+### General availability - Using Staged rollout to test Cert Based Authentication (CBA)
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)     
+**Product capability:** Identity Security & Protection   
+
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business much easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
+
+---
+
 ## November 2022
 
 ### General availability - Windows Hello for Business, cloud Kerberos trust deployment
