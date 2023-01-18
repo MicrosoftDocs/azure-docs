@@ -16,7 +16,7 @@ ms.reviewer: ardhanap, brianokoyo, jesakowi
 
 # Publisher verification
 
-Publisher verification gives app users and organization admins information about the authenticity of a developer's organization who publishes an app that integrates with the Microsoft identity platform.
+Publisher verification gives app users and organization admins information about the authenticity of the developer's organization, who publishes an app that integrates with the Microsoft identity platform.
 
 An app that's publisher verified means that the app's publisher(app developer) has verified the authenticity of their organization with Microsoft. Verifying an app includes using a [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership) account that's been [verified](/partner-center/verification-responses) and associating the MPN account with an app registration.
 
