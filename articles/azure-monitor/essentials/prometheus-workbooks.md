@@ -1,39 +1,42 @@
 ---
 title: Query Prometheus metrics using Azure workbooks (preview)
 description: Query Prometheus metrics in the portal using Azure Workbooks.
-author: aul
+author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 01/18/2023
+ms.author: edbaynash
 ---
 
 # Query Prometheus metrics using Azure workbooks (preview)
 
-Using the power of [Azure Workbooks](../visualize/workbooks-overview.md), you can easily create dashboards powered by Azure Monitor managed service for Prometheus.
+Create dashboards powered by Azure Monitor managed service for Prometheus using [Azure Workbooks](../visualize/workbooks-overview.md).
+This article introduces workbooks for Azure Monitor workspaces and shows you how to query Prometheus metrics using Azure workbooks and PromQL query language.
 
 ## Pre-requisites
-
--	You must either have an Azure Monitor workspace or create a new one.
+To query Prometheus metrics from an Azure Monitor workspace you need the following:
+-	An Azure Monitor workspace. To create an Azure Monitor workspace see [Create an Azure Monitor Workspace](./azure-monitor-workspace-overview?tabs=azure-portal.md#create-an-azure-monitor-workspace)
 -	Your Azure Monitor workspace must be [collecting Prometheus metrics](./prometheus-metrics-enable.md) from an AKS cluster.
--	You must have the Monitoring Data Reader role on the Azure Monitor workspace.
+-	You have the Monitoring Data Reader role assigned for the Azure Monitor workspace.
 
 > [!NOTE]
-> Querying data from an Azure Monitor workspace is a data plane operation, so even if you are an owner or have elevated control plane access, you must assign the Monitoring Data Reader role. Read more about [Azure control and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md).
+> Querying data from an Azure Monitor workspace is a data plane operation. Even if you are an owner or have elevated control plane access, you still need to assign the Monitoring Data Reader role. For more information, see [Azure control and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
 ## Prometheus Explorer workbook
-Every Azure Monitor workspace comes with an out of the box exploration workbook to query your Prometheus metrics. In the lefthand menu, there will be a menu item titled Prometheus Explorer as well as a workbook with the same name in the Workbooks gallery menu item.
+Azure Monitor workspaces include an exploration workbook to query your Prometheus metrics. 
+
+1. From the Azure Monitor workspace overviw page, select **Workbooks**
+1. Select the **Prometheus Explorer** workbook tile.
 
 ![Screenshot that shows Azure Monitor workspace gallery](./media/prometheus-workbooks/prometheus-gallery.png)
 
-Once you select the Prometheus Explorer, it will open up a workbook with the following input options:
--	Time Range
-    - Allows you to change how far back you query the metrics
--	PromQL
-    - The inputted query for pulling the Prometheus metrics. Learn more about [PromQL](https://aka.ms/azureprometheus-promio-promql).
--	Graph/Grid/Dimensions
-    - Toggles between different output types to match your visualization needs
+A workbook has the following input options:
+-	**Time Range**. Select the nuber of hours or days  that you want to include in your query. Select *Custom* to set a start and end time.
+-	**PromQL**. Enter the PromQL query to retrieve your data. For more information about PromQL, see Querying Prometheus]](https://prometheus.io/docs/prometheus/latest/querying/basics/#querying-prometheus).
+-	**Graph**, **Grid**, and **Dimensions** tabs. Swithc between a graphic , tabular and dimensional view of the query output.
 
 ![Screenshot that shows PromQL explorer](./media/prometheus-workbooks/prometheus-explorer.png)
 
+>>>>>>>>>>https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-getting-started
 ## Create your own Prometheus workbook
 
 Workbooks supports many other great visualizations and Azure integrations, to set up your own workbook, learn more about [creating your own Azure Workbooks](../visualize/workbooks-create-workbook.md).
