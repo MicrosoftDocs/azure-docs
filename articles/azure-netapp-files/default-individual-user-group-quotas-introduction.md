@@ -19,6 +19,8 @@ ms.author: anfdocs
 
 User and group quotas enable you to restrict the logical space that a user or group can use in a volume. Quotas apply to a specific Azure NetApp Files volume. 
 
+## Types of quotas
+
 The following are the types of quotas based on the targets that they apply to for a volume: 
 * **Individual user quota**   
     The target is a user. The user can be specified by a UNIX UID or a Windows SID. 
