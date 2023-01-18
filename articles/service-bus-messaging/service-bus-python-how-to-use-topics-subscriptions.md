@@ -57,7 +57,7 @@ To follow this quickstart using authentication passwordless and your own Azure a
 * Run the tutorial code in the same terminal or command prompt.
 
 >[!IMPORTANT]
-> Make sure to sign in with `az login`. The `DefaultAzureCredential` used in the passwordless code uses these credentials to authenticate with Azure.
+> Make sure you sign in with `az login`. The `DefaultAzureCredential` in the passwordless code uses the Azure CLI credentials to authenticate with Azure.
 
 To use the passwordless code, you'll need to specify a:
 
