@@ -250,14 +250,15 @@ The following example uses the `AsFormUrlEncodedContent()` expression to access 
 </set-body>
 ```
 
-### Transform JObject body to URL-encoded form data
-The following example accesses the request body as a JObject and transforms it to URL-encoded form data (content type `application/x-www-form-urlencoded`). We are preserving the original request body so that we can access it later in the pipeline.
+### Access and return body as URL-encoded form data
+The following example uses the `AsFormUrlEncodedContent()` expression to access the request body as URL-encoded form data (content type `application/x-www-form-urlencoded`), adds data to the payload, and returns URL-encoded form data. Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
 
 ```xml
 <set-body> 
 @{ 
-    JObject inBody = context.Request.Body.As<JObject>(preserveContent: true); 
-    return inBody.ToFormUrlEncodedContent(); 
+    var body = context.Request.Body.AsFormUrlEncodedContent();
+    body ["newKey"].Add ("newValue");
+    return body.ToFormUrlEncodedContent(); 
 } 
 </set-body>
 ```
