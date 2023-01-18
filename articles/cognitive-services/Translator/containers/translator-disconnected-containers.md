@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 # Use Translator containers in disconnected environments
 
- Azure Cognitive Services Translator containers allow you to use Translator Service APIs with the benefits of containerization. Translator disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Translator Service features for a fixed fee, at a predictable total cost, based on the needs of your workload.
+ Azure Cognitive Services Translator containers allow you to use Translator Service APIs with the benefits of containerization. Disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Translator Service features for a fixed fee, at a predictable total cost, based on the needs of your workload.
 
 ## Get started
 
