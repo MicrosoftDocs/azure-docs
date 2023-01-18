@@ -29,6 +29,28 @@ The CSI storage driver support on AKS allows you to natively use:
 - You need the Azure CLI version 2.42 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 - If the open-source CSI Blob storage driver is installed on your cluster, uninstall it before enabling the Azure Blob storage driver.
 
+## Enable CSI storage drivers on an existing cluster
+
+To enable CSI storage drivers on a new cluster, include one of the following parameters depending on the storage system:
+
+* `--enable-disk-driver` allows you to enable the [Azure Disks CSI driver][azure-disk-csi].
+* `--enable-file-driver` allows you to enable the [Azure Files CSI driver][azure-files-csi].
+* `--enable-blob-driver` allows you to enable the [Azure Blob storage CSI driver][azure-blob-csi].
+* `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller].
+
+```azurecli
+az aks update -n myAKSCluster -g myResourceGroup --enable-disk-driver --enable-file-driver --enable-blob-driver --enable-snapshot-controller
+```
+
+It may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example is resembles the section indicating the results when enabling the Blob storage CSI driver:
+
+```output
+"storageProfile": {
+    "blobCsiDriver": {
+      "enabled": true
+    },
+```
+
 ## Disable CSI storage drivers on a new or existing cluster
 
 To disable CSI storage drivers on a new cluster, include one of the following parameters depending on the storage system:
@@ -46,19 +68,6 @@ To disable CSI storage drivers on an existing cluster, use one of the parameters
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --disable-disk-driver --disable-file-driver --disable-blob-driver --disable-snapshot-controller 
-```
-
-## Enable CSI storage drivers on an existing cluster
-
-To enable CSI storage drivers on a new cluster, include one of the following parameters depending on the storage system:
-
-* `--enable-disk-driver` allows you to enable the [Azure Disks CSI driver][azure-disk-csi].
-* `--enable-file-driver` allows you to enable the [Azure Files CSI driver][azure-files-csi].
-* `--enable-blob-driver` allows you to enable the [Azure Blob storage CSI driver][azure-blob-csi].
-* `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller].
-
-```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --enable-disk-driver --enable-file-driver --enable-blob-driver --enable-snapshot-controller
 ```
 
 ## Migrate custom in-tree storage classes to CSI
