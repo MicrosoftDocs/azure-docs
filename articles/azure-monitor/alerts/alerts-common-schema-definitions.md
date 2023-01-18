@@ -102,6 +102,9 @@ Any alert instance describes the resource that was affected and the cause of the
     "alertTargetIDs": [
       "/subscriptions/<subscription ID>/resourceGroups/aimon-rg/providers/Microsoft.Insights/components/ai-orion-int-fe"
     ],
+    "configurationItems": [
+      "ai-orion-int-fe"
+    ],
     "originAlertId": "74ff8faa0c79db6084969cf7c72b0710e51aec70b4f332c719ab5307227a984f",
     "firedDateTime": "2019-03-26T05:25:50.4994863Z",
     "description": "Test Metric alert",
