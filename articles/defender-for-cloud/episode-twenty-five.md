@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 01/18/2023
 ---
 
-# Enhancements in Defender for SQL vulnerability assessment | Defender for Cloud in the field
+# AWS ECR Coverage in Defender for Containers | Defender for Cloud in the field
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Tomer Spivak joins Yuri Diogenes to talk about the new AWS ECR coverage in Defender for Containers. Tomer explains how Defender for Containers performs vulnerability assessment for ECR workloads in AWS and how to enable this capability. Tomer demonstrates the user experience in Defender for Cloud, showing the vulnerability findings in the dashboard and the onboarding process.
 <br>
