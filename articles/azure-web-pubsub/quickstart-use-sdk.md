@@ -162,7 +162,7 @@ The connection to the Web PubSub service is established when you see a JSON mess
 
 ## Publish messages using service SDK
 
-You'll create a client that uses the Azure Web PubSub SDK to publish a message to all connected clients.
+You'll use the Azure Web PubSub SDK to publish a message to all the clients connected to the hub.
 
 ### Set up the project to publish messages
 
