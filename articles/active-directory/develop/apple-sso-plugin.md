@@ -256,7 +256,7 @@ Disable app prompt and select an account from the list of matching SSO accounts 
 
 ##### Apps that use a Microsoft identity platform library:
 
-Following settings are not recommended if [App protection policies](./mem/intune/apps/app-protection-policy) are in use. 
+Following settings are not recommended if [App protection policies](/mem/intune/apps/app-protection-policy) are in use. 
 
 Disable the app prompt and display the account picker:
 
