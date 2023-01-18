@@ -81,7 +81,7 @@ To upload a VHD file by using Storage Explorer:
 
     1. Select **...** next to **Selected files**. Go to the VHD file on your computer, select the file, and then select **Open**.
 
-    1. For **Blob type**, select **Page Blob**
+    1. For **Blob type**, select **Page Blob**.
 
     1. Select **Upload**.
 
@@ -89,7 +89,7 @@ To upload a VHD file by using Storage Explorer:
 
 1. Check the **Activities** pane at the bottom of Storage Explorer to see the upload status. Uploading the VHD file might take a long time, depending on the size of the VHD file and your connection speed.
 
-:::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-status.png" alt-text="Screenshot that shows the Activities pane with upload status.":::
+   :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-status.png" alt-text="Screenshot that shows the Activities pane with upload status.":::
 
 ## Next steps
 
