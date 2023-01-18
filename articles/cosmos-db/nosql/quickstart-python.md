@@ -93,7 +93,7 @@ For this sample code, the container will use the category as a logical partition
 
 ## [Passwordless](#tab/passwordless)
 
-[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
+[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/python-default-azure-credential-overview.md)]
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
