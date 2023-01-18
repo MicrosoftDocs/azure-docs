@@ -88,6 +88,8 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 ---
 
+[!INCLUDE [arc-region-note](../includes/arc-region-note.md)]
+
 ## Azure Active Directory authentication option
 
 ### [Azure CLI](#tab/azure-cli)
