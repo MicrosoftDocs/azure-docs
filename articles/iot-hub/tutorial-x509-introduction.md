@@ -31,30 +31,30 @@ Before starting any of the articles in this tutorial, you should be familiar wit
 
 - To understand X.509 certificate chains and how they're used with IoT Hub, see [X.509 CA certificates for IoT Hub](iot-hub-x509ca-concept.md). Make sure you have a clear understanding of this article before you proceed.
 
-- For an introduction to concepts that underlie the use of X.509 certificates, see [Understand Public Key Cryptography and X.509 Public Key Infrastructure](iot-hub-x509-certificate-concepts.md).
+- For an introduction to concepts that underlie the use of X.509 certificates, see [Understand public key cryptography and X.509 public key infrastructure](iot-hub-x509-certificate-concepts.md).
 
-- For a quick review of the fields that can be present in an X.509 certificate, see the [Certificate fields](tutorial-x509-certificates.md#certificate-fields) section of [Tutorial: Understanding X.509 Public Key Certificates](tutorial-x509-certificates.md).
+- For a quick review of the fields that can be present in an X.509 certificate, see the [Certificate fields](tutorial-x509-certificates.md#certificate-fields) section of [Tutorial: Understand X.509 public key certificates](tutorial-x509-certificates.md).
 
 ## X.509 certificate scenario paths
 
-Using a self-signed certificate to authenticate a device provides a quick and easy way to test IoT Hub features. Self-signed certificates shouldn't be used in production as they provide less security than a certificate chain anchored with a CA-signed certificate backed by a PKI. To learn more about creating and using a self-signed X.509 certificate to authenticate with IoT Hub, see [Creating self-signed certificates](tutorial-x509-self-sign.md).
+Using a self-signed certificate to authenticate a device provides a quick and easy way to test IoT Hub features. Self-signed certificates shouldn't be used in production as they provide less security than a certificate chain anchored with a CA-signed certificate backed by a PKI. To learn more about creating and using a self-signed X.509 certificate to authenticate with IoT Hub, see [Tutorial: Use OpenSSL to create self-signed certificates](tutorial-x509-self-sign.md).
 
 Using a CA-signed certificate chain backed by a PKI to authenticate a device provides the best level of security for your devices:
 
-- In production, we recommend you get your X.509 CA certificates from a public root certificate authority. Purchasing a CA certificate has the benefit of the root CA acting as a trusted third party to vouch for the legitimacy of your devices. If you already have an X.509 CA certificate, and you know how to create and sign device certificates into a certificate chain, follow the instructions in [Upload and verify a CA certificate](/tutorial-x509-prove-possession.md) to upload your CA certificate to your IoT hub. Then, follow the instructions in [Tutorial: Testing certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
+- In production, we recommend you get your X.509 CA certificates from a public root certificate authority. Purchasing a CA certificate has the benefit of the root CA acting as a trusted third party to vouch for the legitimacy of your devices. If you already have an X.509 CA certificate, and you know how to create and sign device certificates into a certificate chain, follow the instructions in [Tutorial: Upload and verify a CA certificate to IoT Hub](/tutorial-x509-prove-possession.md) to upload your CA certificate to your IoT hub. Then, follow the instructions in [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
 
-- For testing purposes, we recommend using OpenSSL to create an X.509 certificate chain. OpenSSL is used widely across the industry to work with X.509 certificates. You can follow the steps in [Tutorial: Using OpenSSL to create test certificates](tutorial-x509-openssl.md) to create a root CA and intermediate CA certificate with which to create and sign device certificates. The tutorial also shows how to upload and verify a CA certificate. Then, follow the instructions in [Tutorial: Testing certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
+- For testing purposes, we recommend using OpenSSL to create an X.509 certificate chain. OpenSSL is used widely across the industry to work with X.509 certificates. You can follow the steps in [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md) to create a root CA and intermediate CA certificate with which to create and sign device certificates. The tutorial also shows how to upload and verify a CA certificate. Then, follow the instructions in [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
 
-- Several of the Azure IoT SDKs provide convenience scripts to help you create test certificate chains. For instructions about how to create certificate chains in PowerShell or Bash using scripts provided in the Azure IoT C SDK, see [Tutorial: Using Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md). The tutorial also shows how to upload and verify a CA certificate. Then follow the instructions in [Tutorial: Testing certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
+- Several of the Azure IoT SDKs provide convenience scripts to help you create test certificate chains. For instructions about how to create certificate chains in PowerShell or Bash using scripts provided in the Azure IoT C SDK, see [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md). The tutorial also shows how to upload and verify a CA certificate. Then follow the instructions in [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to authenticate a device with your IoT hub.
 
 ## Next steps
 
-To learn more about the fields that make up an X.509 certificate, see [Understanding X.509 Public Key Certificates](tutorial-x509-certificates.md).
+To learn more about the fields that make up an X.509 certificate, see [Tutorial: Understand X.509 public key certificates](tutorial-x509-certificates.md).
 
 If you're already familiar with X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT hub, see the following articles:
 
-* [Using Microsoft-Supplied Scripts to Create Test Certificates](tutorial-x509-scripts.md)
-* [Using OpenSSL to Create Test Certificates](tutorial-x509-openssl.md)
-* [Using OpenSSL to Create Self-Signed Test Certificates](tutorial-x509-self-sign.md)
+* [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md)
+* [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md)
+* [Tutorial: Use OpenSSL to create self-signed certificates](tutorial-x509-self-sign.md)
 
 If you have a root CA certificate or subordinate CA certificate and you want to upload it to your IoT hub, you must verify that you own that certificate. For more information, see [Tutorial: Upload and verify a CA certificate to IoT Hub](tutorial-x509-prove-possession.md).

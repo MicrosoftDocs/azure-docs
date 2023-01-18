@@ -12,7 +12,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to show me how to test that my certificate authenticates my device.
 ---
 
-# Tutorial: Testing certificate authentication
+# Tutorial: Test certificate authentication
 
 You can use the following C# code example to test that your certificate can authenticate your device to your IoT Hub. Note that you must do the following before you run the test code:
 

@@ -12,7 +12,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to X.509 Public Key certificates.
 ---
 
-# Tutorial: Understanding X.509 Public Key Certificates
+# Tutorial: Understand X.509 public key certificates
 
 X.509 certificates are digital documents that represent a user, computer, service, or device. They're issued by a certification authority (CA), subordinate CA, or registration authority and contain the public key of the certificate subject. They don't contain the subject's private key, which must be stored securely. Public key certificates are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). They're digitally signed and, in general, contain the following information:
 
@@ -108,10 +108,10 @@ For more information, see the following articles:
 
 ## Next steps
 
-If you want to generate test certificates that you can use to authenticate devices to your IoT Hub, see the following articles:
+If you're already familiar with X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT hub, see the following articles:
 
-* [Tutorial: Using Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md)
-* [Tutorial: Using OpenSSL to create test certificates](tutorial-x509-openssl.md)
-* [Tutorial: Using OpenSSL to create self-signed certificates](tutorial-x509-self-sign.md)
+* [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md)
+* [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md)
+* [Tutorial: Use OpenSSL to create self-signed certificates](tutorial-x509-self-sign.md)
 
-If you have a certification authority (CA) certificate or subordinate CA certificate and you want to upload it to your IoT hub and prove that you own it, see [Tutorial: Proving possession of a CA certificate](tutorial-x509-prove-possession.md).
+If you have a root CA certificate or subordinate CA certificate and you want to upload it to your IoT hub, you must verify that you own that certificate. For more information, see [Tutorial: Upload and verify a CA certificate to IoT Hub](tutorial-x509-prove-possession.md).

@@ -1,5 +1,5 @@
 ---
-title: Understand Cryptography and X.509 certificates for Azure IoT Hub | Microsoft Docs
+title: Understand cryptography and X.509 certificates for Azure IoT Hub | Microsoft Docs
 description: Understand cryptography and X.509 PKI for Azure IoT Hub
 author: kgremban
 ms.service: iot-hub
@@ -11,7 +11,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to understand X.509 Public Key Infrastructure (PKI) and public key cryptography so I can use X.509 certificates to authenticate devices to an IoT hub.
 ---
 
-# Understanding Public Key Cryptography and X.509 Public Key Infrastructure
+# Understand public key cryptography and X.509 public key infrastructure
 
 You can use X.509 certificates to authenticate devices to an Azure IoT hub. A certificate is a digital document that contains the device's public key and can be used to verify that the device is what it claims to be. X.509 certificates and certificate revocation lists (CRLs) are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). Certificates are just one part of an X.509 public key infrastructure (PKI). To understand X.509 PKI, you need to understand cryptographic algorithms, cryptographic keys, certificates, and certificate authorities (CAs):
 
@@ -117,12 +117,12 @@ Digital signing can be used to determine whether the data has been modified in t
 
 ## Next steps
 
-To learn more about the fields that make up an X.509 certificate, see [Understanding X.509 Public Key Certificates](tutorial-x509-certificates.md).
+To learn more about the fields that make up an X.509 certificate, see [Tutorial: Understand X.509 public key certificates](tutorial-x509-certificates.md).
 
 If you're already familiar with X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT hub, see the following articles:
 
-* [Using Microsoft-Supplied Scripts to Create Test Certificates](tutorial-x509-scripts.md)
-* [Using OpenSSL to Create Test Certificates](tutorial-x509-openssl.md)
-* [Using OpenSSL to Create Self-Signed Test Certificates](tutorial-x509-self-sign.md)
+* [Tutorial: Use Microsoft-supplied scripts to create test certificates](tutorial-x509-scripts.md)
+* [Tutorial: Use OpenSSL to create test certificates](tutorial-x509-openssl.md)
+* [Tutorial: Use OpenSSL to create self-signed certificates](tutorial-x509-self-sign.md)
 
 If you have a root CA certificate or subordinate CA certificate and you want to upload it to your IoT hub, you must verify that you own that certificate. For more information, see [Tutorial: Upload and verify a CA certificate to IoT Hub](tutorial-x509-prove-possession.md).

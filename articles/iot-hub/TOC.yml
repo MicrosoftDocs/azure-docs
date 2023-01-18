@@ -42,24 +42,24 @@
     - name: Data visualization in Power BI
       displayName: Stream Analytics
       href: iot-hub-live-data-visualization-in-power-bi.md
-    - name: Using X.509 certificates
+    - name: Use X.509 certificates
       items:
         - name: Introduction
           displayName: X.509 certificates
           href: tutorial-x509-introduction.md
-        - name: Using OpenSSL
+        - name: Use OpenSSL to create test certificates
           displayName: X.509 certificates, root CA
           href: tutorial-x509-openssl.md
-        - name: Using the supplied scripts
+        - name: Use Microsoft-supplied scripts to create test certificates
           displayName: PowerShell scripts, Windows Certificate Store, CA certificate
           href: tutorial-x509-scripts.md
-        - name: Creating self-signed certificates
+        - name: Create self-signed certificates
           displayName: X.509 certificates, OpenSSL, CSR, thumbprint
           href: tutorial-x509-self-sign.md
         - name: Upload and verify CA certificates
           displayName: root certification authority (CA), verify certificate, manual verification, verification code, certificate signing request (CSR)
           href: tutorial-x509-prove-possession.md
-        - name: Testing authentication
+        - name: Test certificate authentication
           displayName: X.509 certificates
           href: tutorial-x509-test-certificate.md
 - name: Concepts
