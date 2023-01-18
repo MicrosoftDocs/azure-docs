@@ -23,6 +23,11 @@ Named Entity Recognition (NER) is one of the features offered by [Azure Cognitiv
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
+
+## Get started with named entity recognition
+
+[!INCLUDE [development options](./includes/development-options.md)]
+
 [!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 
 ## Responsible AI 
