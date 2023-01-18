@@ -271,9 +271,7 @@ Learn more: [How UPN changes affect the OneDrive URL and OneDrive features](/sha
 
 ## Teams Meeting Notes known issues and workarounds 
 
-Use Teams Meeting Notes to take and share notes. 
-
-Learn more: [Take meeting notes in Teams](/office/take-meeting-notes-in-teams-3eadf032-0ef8-4d60-9e21-0691d317d103).  
+Use Teams Meeting Notes to take and share notes.  
 
 ### Known issues
 
