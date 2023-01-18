@@ -50,7 +50,7 @@ Account          Environment TenantId          TenantDomain                     
 Ensure that your Azure tenant has the service principal for the Azure Database for PostgreSQL Flexible Server. This only needs to be done once per Azure tenant. First, check for the existence of the service principal in your tenant with this command. The ObjectId value is for the Azure Database for PostgreSQL Flexible Server service principal.
 
 > [!NOTE]  
-> The following script is an example of a created app registration you can use for testing. If you want to apply your ids, you need to use your own app registration object and application id.
+> The following script is an example of a created Azure App Registration you can use for testing. If you want to apply your ids, you need to use your own App Registration object and application id.
 
 ```powershell
 Get-AzureADServicePrincipal -ObjectId 97deb67a-332c-456a-9ef4-3a95eb59c74b
@@ -92,10 +92,14 @@ To set the Azure AD admin during server provisioning, follow these steps:
 1. In the Azure portal, during server provisioning, select either **PostgreSQL and Azure Active Directory authentication** or **Azure Active Directory authentication only** as the authentication method.
 1. On the **Set admin** tab, select a valid Azure AD user, group, service principal, or managed identity in the customer tenant to be the Azure AD administrator.
 
-   You can optionally add a local PostgreSQL admin account if you prefer using the **PostgreSQL and Azure Active Directory authentication** method.
+  You can optionally add a local PostgreSQL admin account if you prefer using the **PostgreSQL and Azure Active Directory authentication** method.
 
-   > [!NOTE]  
-   > You can add only one Azure admin user during server provisioning. You can add multiple Azure AD admin users after the Server is created.
+  > [!NOTE]  
+  > You can add only one Azure admin user during server provisioning. You can add multiple Azure AD admin users after the Server is created.
+
+
+  :::image type="content" source="media/how-to-configure-sign-in-Azure-ad-authentication/set-Azure-ad-admin-server-creation.png" alt-text="Screenshot that shows selections for setting an Azure AD admin during server provisioning.]":::
+
 
 To set the Azure AD administrator after server creation, follow these steps:
 
@@ -104,12 +108,16 @@ To set the Azure AD administrator after server creation, follow these steps:
 1. Select **Add Azure AD Admins**. Then select a valid Azure AD user, group, service principal, or managed identity in the customer tenant to be an Azure AD administrator.
 1. Select **Save**.
 
+  :::image type="content" source="media/how-to-configure-sign-in-Azure-ad-authentication/set-Azure-ad-admin.png" alt-text="Screenshot that shows selections for setting an Azure AD admin after server creation.":::
+
 > [!IMPORTANT]  
 > When setting the administrator, a new user is added to Azure Database for PostgreSQL - Flexible Server with full administrator permissions.
 
 ## Connect to Azure Database for PostgreSQL by using Azure AD
 
 The following high-level diagram summarizes the workflow of using Azure AD authentication with Azure Database for PostgreSQL:
+
+  :::image type="content" source="media/how-to-configure-sign-in-Azure-ad-authentication/authentication-flow.png" alt-text="Diagram of authentication flow between Azure Active Directory, the user's computer, and the server.":::
 
 Azure AD integration works with standard PostgreSQL tools like psql, which aren't Azure AD aware and support only specifying the username and password when you're connecting to PostgreSQL. As shown in the preceding diagram, the Azure AD token is passed as the password.
 
