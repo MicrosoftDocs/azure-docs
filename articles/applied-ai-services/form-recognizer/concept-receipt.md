@@ -11,7 +11,7 @@ ms.date: 11/14/2022
 ms.author: lajanuar
 recommendations: false
 ---
-<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD033 -->
 
 # Azure Form Recognizer receipt model
 
@@ -167,14 +167,9 @@ The receipt model supports all English receipts and the following locales:
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
 |English (India|`en-in`|
-|English (United Arab Emirates)|`en-ae`|
-|English (United States)|`en-us`|
-|Japanese|`ja`|
-|French |`fr` |
-|French (Canada)|`fr-ca`|
-|Dutch|`nl`|
-|Portuguese (Brazil)|`pt-br`|
-|Spanish |`es` |
+|English (United States)| `en-us`|
+|French | 'fr' |
+|Spanish | `es` |
 
 ::: moniker-end
 
