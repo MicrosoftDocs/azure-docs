@@ -103,6 +103,23 @@ You should set these up in addition to the [ports required for Azure Stack Edge 
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
 | All IP traffic       | Port 6 (Data network)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
 
+### Outbound firewall ports required
+
+Review and apply the firewall recommendations for the following services:
+
+- [Azure Stack Edge](https://learn.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-system-requirements#url-patterns-for-firewall-rules)
+- [Azure Arc-enabled Kubernetes](https://learn.microsoft.com/en-gb/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements)
+
+The following table contains the ports you need to open and their URL patterns for Azure Private 5G Core's outbound traffic.
+
+| Port | URL pattern | Description|
+|--|--|--|
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+
 ## Order and set up your Azure Stack Edge Pro device(s)
 
 Do the following for each site you want to add to your private mobile network. Detailed instructions for how to carry out each step are included in the **Detailed instructions** column where applicable.
