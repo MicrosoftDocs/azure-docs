@@ -59,6 +59,7 @@ To use the Microsoft Enterprise SSO plug-in for Apple devices:
 ## Enable the SSO plug-in
 
 Use the following information to enable the SSO plug-in by using MDM.
+
 ### Microsoft Intune configuration
 
 If you use Microsoft Intune as your MDM service, you can use built-in configuration profile settings to enable the Microsoft Enterprise SSO plug-in:
@@ -111,6 +112,9 @@ Your organization likely uses the Authenticator app for scenarios like multifact
 
 Use the following parameters to configure the Microsoft Enterprise SSO plug-in for apps that don't use a Microsoft identity platform library.
 
+>[!IMPORTANT]
+> You don't need to add apps that use a Microsoft identity platform library to this allow-list. Those apps will participate in SSO by default. Most of the Microsoft-built apps use a Microsoft identity platform library. 
+
 #### Enable SSO for all managed apps
 
 - **Key**: `Enable_SSO_On_All_ManagedApps`
@@ -150,7 +154,7 @@ To *disable* SSO for Safari or Safari View Service, you must explicitly do so by
 
 #### Enable SSO through cookies for a specific application
 
-Some apps that have advanced network settings might experience unexpected issues when they're enabled for SSO. For example, you might see an error indicating that a network request was canceled or interrupted.
+Some iOS apps that have advanced network settings might experience unexpected issues when they're enabled for SSO. For example, you might see an error indicating that a network request was canceled or interrupted.
 
 If your users have problems signing in to an application even after you've enabled it through the other settings, try adding it to the `AppCookieSSOAllowList` to resolve the issues.
 
@@ -235,7 +239,9 @@ If an application prompts your users to sign in even though the Microsoft Enterp
 
 These parameters specify whether the SSO extension should prevent native and web applications from bypassing SSO at the protocol layer and forcing the display of a sign-in prompt to the user.
 
-For a consistent SSO experience across all apps on the device, we recommend you enable one of these settings, which are disabled by default.
+For a consistent SSO experience across all apps on the device, we recommend you enable one of these settings for apps that don't use a Microsoft identity platform library. You should only enable this for apps that use a Microsoft identity platform library if your users are experiencing unexpected prompts. 
+
+##### Apps that don't use a Microsoft identity platform library:
   
 Disable the app prompt and display the account picker:
 
@@ -246,23 +252,79 @@ Disable the app prompt and display the account picker:
 Disable app prompt and select an account from the list of matching SSO accounts automatically:
 - **Key**: `disable_explicit_app_prompt_and_autologin`
 - **Type**: `Integer`
-- **Value**: 1 or 0
+- **Value**: 1 or 0. This value is set to 0 by default.
+
+##### Apps that use a Microsoft identity platform library:
+
+Disable the app prompt and display the account picker:
+
+- **Key**: `disable_explicit_native_app_prompt`
+- **Type**: `Integer`
+- **Value**: 1 or 0. This value is set to 0 by default.
+  
+Disable app prompt and select an account from the list of matching SSO accounts automatically:
+- **Key**: `disable_explicit_native_app_prompt_and_autologin`
+- **Type**: `Integer`
+- **Value**: 1 or 0. This value is set to 0 by default.
 
 #### Unexpected SAML application prompts
 
 If an application prompts your users to sign in even though the Microsoft Enterprise SSO plug-in works for other applications on the device, the app might be bypassing SSO at the protocol layer. If the application is using SAML protocol, the Microsoft Enteprise SSO plug-in will not be able to provide SSO to such apps. Application vendor should be notified about this behavior and make a change in their app to not bypass SSO.
 
 #### Change iOS experience for MSAL-enabled applications
-TBD
 
-#### Configure device registration
-TBD
+Apps that use a Microsoft identity platform library will always invoke SSO extension natively for interactive requests. On some iOS devices, it might be not desirable. Specifically, if user also needs to complete the multi-factor authentication inside the Microsoft Authenticator app, an interactive redirect to that app might provide a better user experience. 
+
+This behavior can be configured using the `disable_inapp_sso_signin` flag. If this flag is enabled, apps that use a Microsoft identity platform library will redirect to the Microsoft Authenticator app for all interactive requests. This flag will not impact silent token requests from those apps, behavior of apps that don't use a Microsoft identity platform library, or macOS apps. This flag is disabled by default. 
+
+- **Key**: `disable_inapp_sso_signin`
+- **Type**: `Integer`
+- **Value**: 1 or 0. This value is set to 0 by default.
+
+disable_inapp_sso_signin
+
+#### Configure AAD device registration
+For Intune-managed devices, the Microsoft Enterprise SSO plug-in can perform AAD device registration when a user is trying to access resources. This enables a more streamlined end-user experience. 
+
+Use the following configuration to enable Just in Time Registration for iOS/iPadOS with Microsoft Intune:
+
+- **Key**: `device_registration`
+- **Type**: `String`
+- **Value**: {{DEVICEREGISTRATION}}
+
+Learn more about Just in Time Registration [here](https://techcommunity.microsoft.com/t5/intune-customer-success/just-in-time-registration-for-ios-ipados-with-microsoft-intune/ba-p/3660843). 
 
 #### Conditional access policies and password changes
-TBD
+Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [AzureAD conditional access policies](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to achieve compatibility. 
+
+Compatible events and policies are documented below. 
+
+##### Password change and token revocation
+When a user resets their password, all tokens that were issued before that will be revoked. If a user is trying to access a resource after a password reset event, user would normally need to sign in again in each of the apps. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to sign in in the first application that participates in SSO. Microsoft Enteprise SSO plug-in will show its own user interface on top of the application that is currently active. 
+
+##### Azure AD Multi-Factor Authentication
+[Multi-factor authentication](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks) is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or a fingerprint scan. Multi-factor authentication can be enabled for specific resources. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to perform multi-factor authentication in the first application that requires it. Microsoft Enteprise SSO plug-in will show its own user interface on top of the application that is currently active. 
+
+##### User sign-in frequency
+[Sign-in frequency](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime#user-sign-in-frequency) defines the time period before a user is asked to sign in again when attempting to access a resource. If a user is trying to access a resource after the time period has passed in various apps, user would normally need to sign in again in each of those apps. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to sign in in the first application that participates in SSO. Microsoft Enteprise SSO plug-in will show its own user interface on top of the application that is currently active. 
 
 ### Required network configuration
-TBD
+The Microsoft Enterprise SSO plug-in relies on Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) framework. Apple's enterprise single sign-on framework makes sure that only an approved SSO plug-in can work for each identity provider by utilizing a technology called [associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains). To verify identity of the SSO plug-in, each Apple device will send a network request to an endpoint that is owned by the identity provider and read information about approved SSO plug-ins. In addition to reaching out directly to the identity provider, Apple has also implemented additional caching for this information. 
+
+For the SSO plug-in to function properly, Apple devices should be allowed to reach to both identity provider URLs and its own URLs without additional interception. This means that those URLs need to be excluded from network proxies, interception and other enteprise systems. 
+
+Here is the minimum set of URLs that need to be allowed for the SSO plug-in to function:
+  - `*.cdn-apple.com`
+  - `*.networking.apple`
+  - `login.microsoftonline.com`
+  - `login.microsoft.com`
+  - `sts.windows.net`
+  - `login.partner.microsoftonline.cn`
+  - `login.chinacloudapi.cn`
+  - `login.microsoftonline.us`
+  - `login-us.microsoftonline.com`
+
+Additional Apple's URLs that may need to be allowed are documented here: https://support.apple.com/en-us/HT210060
 
 #### Use Intune for simplified configuration
 
