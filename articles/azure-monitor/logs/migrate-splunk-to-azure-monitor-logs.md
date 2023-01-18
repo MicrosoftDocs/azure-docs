@@ -102,7 +102,7 @@ To ingest data from your Splunk deployment:
     
        or
     
-    1.  you can [collect custom log data directly with the Logs Ingestion API](../logs/tutorial-logs-ingestion-api.md). 
+    1. Collect the exported data directly with the Logs Ingestion API, as described in [Send data to Azure Monitor Logs by using a REST API](../logs/tutorial-logs-ingestion-api.md). 
 
     :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
 
