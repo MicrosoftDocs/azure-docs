@@ -14,20 +14,20 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 
 # Tutorial: Test certificate authentication
 
-You can use the following C# code example to test that your certificate can authenticate your device to your IoT Hub. Note that you must do the following before you run the test code:
+You can use the following C# code example to test that your certificate can authenticate your device to your IoT hub. Note that you must complete the following prerequisites before you run the test code:
 
 * Create a root CA or subordinate CA certificate.
-* Upload your CA certificate to your IoT Hub.
+* Upload your CA certificate to your IoT hub.
 * Prove that you possess the CA certificate.
-* Add a device to your IoT Hub.
-* Create a device certificate with the same device ID as your your device.
+* Add a device to your IoT hub.
+* Create a device certificate with the same device ID as your device.
 
 >[!IMPORTANT]
->The authentication process checks that your device is associated with the correct IoT Hub name. 
+>The authentication process checks that your device is associated with the correct IoT hub name. 
 
 ## Code Example
 
-The following code example shows how to create a C# application to simulate the X.509 device registered for your IoT hub. The example sends temperature and humidity values from the simulated device to your hub. In this tutorial, we will create only the device application. It is left as an exercise to the readers to create the IoT Hub service application that will send responses to the events sent by this simulated device.
+The following code example shows how to create a C# application to simulate the X.509 device registered for your IoT hub. The example sends temperature and humidity values from the simulated device to your hub. In this tutorial, we will create only the device application. It is left as an exercise to the readers to create the IoT Hub service application that sends responses to the events sent by this simulated device.
 
 1. Open Visual Studio, select **Create a new project**, and then choose the **Console App (.NET Framework)** project template. Select **Next**.
 
@@ -72,7 +72,7 @@ namespace SimulateX509Device
             string dataBuffer;
             Console.WriteLine("Device sending {0} messages to IoTHub...\n", MESSAGE_COUNT);
 
-            // Iterate MESSAGE_COUNT times to set randomm termperature and humidity values.
+            // Iterate MESSAGE_COUNT times to set random temperature and humidity values.
             for (int count = 0; count < MESSAGE_COUNT; count++)
             {
                 // Set random values for temperature and humidity.
