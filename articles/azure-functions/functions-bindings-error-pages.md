@@ -8,7 +8,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure Functions error handling and retries
 
-Handling errors in Azure Functions is important to help you avoid lost data, missed events, and to monitor the health of your application. It's also an important way to help you understand the retry behaviors of event-based triggers.
+Handling errors in Azure Functions is important to help you avoid lost data, avoid missed events, and monitor the health of your application. It's also an important way to help you understand the retry behaviors of event-based triggers.
 
 This article describes general strategies for error handling and the available retry strategies. 
 
