@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Azure Cosmos DB for NoSQL client library for Python
-description: Learn how to build a .NET app to manage Azure Cosmos DB for NoSQL account resources and data in this quickstart.
+description: Learn how to build a Python app to manage Azure Cosmos DB for NoSQL account resources and data in this quickstart.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
@@ -20,7 +20,7 @@ ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-
 Get started with the Azure Cosmos DB client library for Python to create databases, containers, and items within your account. Follow these steps to install the package and try out example code for basic tasks.
 
 > [!NOTE]
-> The [example code snippets](https://github.com/azure-samples/cosmos-db-nosql-python-samples) are available on GitHub as a .NET project.
+> The [example code snippets](https://github.com/azure-samples/cosmos-db-nosql-python-samples) are available on GitHub as a Python project.
 
 [API reference documentation](/python/api/azure-cosmos/azure.cosmos) | [Library source code](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos) | [Package (PyPI)](https://pypi.org/project/azure-cosmos) | [Samples](samples-python.md)
 
@@ -39,7 +39,7 @@ Get started with the Azure Cosmos DB client library for Python to create databas
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos DB account and setting up a project that uses Azure Cosmos DB for NoSQL client library for .NET to manage resources.
+This section walks you through creating an Azure Cosmos DB account and setting up a project that uses Azure Cosmos DB for NoSQL client library for Python to manage resources.
 
 ### Create an Azure Cosmos DB account
 
@@ -93,7 +93,7 @@ For this sample code, the container will use the category as a logical partition
 
 ## [Passwordless](#tab/passwordless)
 
-[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/python-default-azure-credential-overview.md)]
+[!INCLUDE [python-default-azure-credential-overview](../../../includes/passwordless/python-default-azure-credential-overview.md)]
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
