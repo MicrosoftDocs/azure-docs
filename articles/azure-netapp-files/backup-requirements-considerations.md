@@ -28,7 +28,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * There can be a delay of up to 5 minutes in displaying a backup after the backup is actually completed.
 
-* For large volumes (greater than 10 TB), it can take multiple hours to transfer all the data from the backup media.
+* For volumes larger than 10 TB, it can take multiple hours to transfer all the data from the backup media.
 
 * Currently, the Azure NetApp Files backup feature supports backing up the daily, weekly, and monthly local snapshots created by the associated snapshot policy to the Azure storage. Hourly backups are not currently supported.
 

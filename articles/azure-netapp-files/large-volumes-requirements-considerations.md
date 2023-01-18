@@ -19,10 +19,7 @@ ms.author: anfdocs
 
 This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
 
->[!NOTE]
->The large volumes feature for Azure NetApp Files is currently in  preview. This preview is offered under the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). No registration is required to use large volumes.
-
-<!-- ## Register the feature 
+## Register the feature 
 
 The large volumes feature for Azure NetApp Files is currently in public preview. This preview is offered under the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and is controlled via Azure Feature Exposure Control (AFEC) settings on a per subscription basis. 
 
