@@ -25,7 +25,9 @@ In this how-to, you'll learn how to configure the SDKs used by your application 
 
 ## Prerequisites
 
-- Provision your app using the Azure portal. For more information about app provision, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
+This how-to assumes you know how to:
+
+- Provision your app using the Azure portal. For more information, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
 - Integrate your application with the [MSAL for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 
 ## Methods for SSO
@@ -114,7 +116,7 @@ Once you've generated a signature hash with _keytool_, use the Azure portal to g
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you registered your application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
-1. In **App registrations**, select your application.
+1. Under **Manage**, select **App registrations**, then select your application.
 1. Under **Manage**, select **Authentication** > **Add a platform** > **Android**.
 1. In the **Configure your Android app** pane that opens, enter the **Signature hash** that you generated earlier and a **Package name**.
 1. Select the **Configure** button.
