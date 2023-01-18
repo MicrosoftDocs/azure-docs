@@ -140,7 +140,7 @@ If you want to configure automatic renewal, or if you want to manually renew you
 
 1. In the search bar, search for and select **App Service Domains**.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domain.png" alt-text="A screenshot showing how to open the App Service domain view.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view.":::
 
 1. Select the domain you want to configure.
 
@@ -164,7 +164,7 @@ In Azure, DNS records for an App Service Domain are managed using [Azure DNS](ht
 
 1. In the search bar, search for and select **App Service Domains**.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domain.png" alt-text="A screenshot showing how to open the App Service domain view in the manage custom DNS records section.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view in the manage custom DNS records section.":::
 
 1. Select the domain you want to configure.
 
@@ -180,7 +180,7 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 1. In the search bar, search for and select **App Service Domains**.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domain.png" alt-text="A screenshot showing how to open the App Service domain view in the manage custom DNS records section.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view in the manage custom DNS records section.":::
 
 1. Select the domain you want to configure.
 
