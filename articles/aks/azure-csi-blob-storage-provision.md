@@ -232,15 +232,9 @@ This section provides guidance for cluster administrators who want to create one
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
-<<<<<<< HEAD:articles/aks/azure-csi-blob-storage-provision.md
 |volumeHandle | Specify a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: `{account-name}_{container-name}`.<br> Note: The `#` character is reserved for internal use and can't be used in a volume handle. | Yes ||
 |volumeAttributes.resourceGroup | Specify Azure resource group name. | myResourceGroup | No | If empty, driver uses the same resource group name as current cluster.|
 |volumeAttributes.storageAccount | Specify an existing Azure storage account name. | storageAccountName | Yes ||
-=======
-|volumeHandle | Specify a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: {account-name}_{container-name}. Note: The # character is reserved for internal use and can't be used in a volume handle. | Yes ||
-|volumeAttributes.resourceGroup | Specify Azure resource group name. | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
-|volumeAttributes.storageAccount | Specify existing Azure storage account name. | storageAccountName | Yes ||
->>>>>>> 3a1fc562051a3466a2a415327481907f9608bd8b:articles/aks/azure-csi-blob-storage-static.md
 |volumeAttributes.containerName | Specify existing container name. | container | Yes ||
 |volumeAttributes.protocol | Specify blobfuse mount or NFS v3 mount. | `fuse`, `nfs` | No | `fuse`|
 |--- | **Following parameters are only for blobfuse** | --- | --- | --- |
@@ -405,11 +399,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
       csi:
         driver: blob.csi.azure.com
         readOnly: false
-<<<<<<< HEAD:articles/aks/azure-csi-blob-storage-provision.md
         # volumeid has to be unique for every identical storage blob container in the cluster
-=======
-        # make sure volumeid is unique for every identical storage blob container in the cluster
->>>>>>> 3a1fc562051a3466a2a415327481907f9608bd8b:articles/aks/azure-csi-blob-storage-static.md
         # character `#` is reserved for internal use and cannot be used in volumehandle
         volumeHandle: unique-volumeid
         volumeAttributes:
