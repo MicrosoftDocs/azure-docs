@@ -791,9 +791,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 
 Use the studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You can't create an empty managed online endpoint.
 
-One way to create a managed online endpoint in the studio is from the **Models** page. This method also provides an easy way to add a model to an existing managed online deployment.
-
-To deploy the model named `model-1` that you registered previously in the [Register the model](#register-the-model) section:
+One way to create a managed online endpoint in the studio is from the **Models** page. This method also provides an easy way to add a model to an existing managed online deployment. To deploy the model named `model-1` that you registered previously in the [Register the model](#register-the-model) section:
 
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Models** page.
