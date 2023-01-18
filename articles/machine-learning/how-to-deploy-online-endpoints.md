@@ -197,12 +197,12 @@ If you cloned the sample repo, you already have copies of the files for this exa
 
 Set the following environment variables, as they are used in the examples in this article. Replace the values with your Azure subscription ID, the Azure region where your workspace is located, the resource group that contains the workspace, and the workspace name:
 
-    ```bash
-    export SUBSCRIPTION_ID="your Azure subscription ID"
-    export LOCATION="Azure region where your workspace is located"
-    export RESOURCE_GROUP="Azure resource group that contains your workspace"
-    export WORKSPACE="Azure Machine Learning workspace name"
-    ```
+```bash
+export SUBSCRIPTION_ID="your Azure subscription ID"
+export LOCATION="Azure region where your workspace is located"
+export RESOURCE_GROUP="Azure resource group that contains your workspace"
+export WORKSPACE="Azure Machine Learning workspace name"
+```
 
 A couple of the template examples require you to upload files to the Azure Blob store for your workspace. The following steps will query the workspace and store this information in environment variables used in the examples:
 
@@ -270,22 +270,22 @@ The reference for the endpoint YAML format is described in the following table. 
 
 In this article, we first define the name of the online endpoint.
 
-    ```python
-    # Define an endpoint name
-    endpoint_name = "my-endpoint"
+```python
+# Define an endpoint name
+endpoint_name = "my-endpoint"
 
-    # Example way to define a random name
-    import datetime
+# Example way to define a random name
+import datetime
 
-    endpoint_name = "endpt-" + datetime.datetime.now().strftime("%m%d%H%M%f")
+endpoint_name = "endpt-" + datetime.datetime.now().strftime("%m%d%H%M%f")
 
-    # create an online endpoint
-    endpoint = ManagedOnlineEndpoint(
-        name = endpoint_name, 
-        description="this is a sample endpoint"
-        auth_mode="key"
-    )
-    ```
+# create an online endpoint
+endpoint = ManagedOnlineEndpoint(
+    name = endpoint_name, 
+    description="this is a sample endpoint"
+    auth_mode="key"
+)
+```
 
 For the authentication mode, we've used `key` for key-based authentication. To use AzureML token-based authentication, use `aml_token`.
 
@@ -309,6 +309,8 @@ For Unix, run this command:
 
 To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json).
 
+---
+
 ## Define the deployment
 
 A deployment is a set of resources required for hosting the model that does the actual inferencing. To deploy a model, you must have:
@@ -329,7 +331,8 @@ The following table describes the key attributes of a `deployment`:
 | Scoring script | The relative path to the scoring file in the source code directory. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
 | Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.                                                                                                                                                                                                                 |
 | Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
-| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |  |                                                                                 |
+| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |
+
 # [Azure CLI](#tab/azure-cli)
 
 ### Configure a deployment
