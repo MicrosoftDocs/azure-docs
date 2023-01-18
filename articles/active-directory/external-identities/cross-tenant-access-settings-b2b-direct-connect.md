@@ -177,7 +177,7 @@ With inbound settings, you select which external users and groups will be able t
 
    - **Trust hybrid Azure AD joined devices**: Allows your Conditional Access policies to trust hybrid Azure AD joined device claims from an external organization when their users access your resources.
 
-    ![Screenshot showing inbound trust settings](media/cross-tenant-access-settings-b2b-direct-connect/inbound-trust-settings.png)
+    ![Screenshot showing inbound trust settings.](media/cross-tenant-access-settings-b2b-direct-connect/inbound-trust-settings.png)
 
 1. (This step applies to **Organizational settings** only.) Review the consent prompt option:
 

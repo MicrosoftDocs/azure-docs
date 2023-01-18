@@ -27,14 +27,14 @@ Because this configuration is widely used with the *Workday to Active Directory 
 1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For e.g. if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
 1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it will be used in Graph Explorer operations.
 
-   ![Workday App Service Principal ID](./media/skip-out-of-scope-deletions/wd_export_01.png)
+   ![Screenshot of Workday App Service Principal ID.](./media/skip-out-of-scope-deletions/wd_export_01.png)
 
 ## Step 2: Sign into Microsoft Graph Explorer
 
 1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Admin or App Admin credentials.
 
-    ![Graph Sign-in](./media/skip-out-of-scope-deletions/wd_export_02.png)
+    ![Screenshot of Microsoft Graph Explorer Sign-in.](./media/skip-out-of-scope-deletions/wd_export_02.png)
 
 1. Upon successful sign-in, you'll see the user account details in the left-hand pane.
 
@@ -46,11 +46,11 @@ In the Microsoft Graph Explorer, run the following GET query replacing [serviceP
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
-   ![GET job query](./media/skip-out-of-scope-deletions/skip-03.png)
+   ![Screenshot of GET job query.](./media/skip-out-of-scope-deletions/skip-03.png)
 
 Copy the Response into a text file. It will look like the JSON text shown below, with values highlighted in yellow specific to your deployment. Add the lines highlighted in green to the end and update the Workday connection password highlighted in blue. 
 
-   ![GET job response](./media/skip-out-of-scope-deletions/skip-04.png)
+   ![Screenshot of GET job response.](./media/skip-out-of-scope-deletions/skip-04.png)
 
 Here's the JSON block to add to the mapping. 
 
@@ -72,13 +72,13 @@ In the URL below replace [servicePrincipalId]  with the **ServicePrincipalId** e
 ```
 Copy the updated text from Step 3 into the "Request Body". 
 
-   ![PUT request](./media/skip-out-of-scope-deletions/skip-05.png)
+   ![Screenshot of PUT request.](./media/skip-out-of-scope-deletions/skip-05.png)
 
 Click on “Run Query”. 
 
 You should get the output as "Success – Status Code 204". If you receive an error, you may need to check that your account has Read/Write permissions for ServicePrincipalEndpoint. You can find this permission by clicking on the *Modify permissions* tab in Graph Explorer.
 
-   ![PUT response](./media/skip-out-of-scope-deletions/skip-06.png)
+   ![Screenshot of PUT response.](./media/skip-out-of-scope-deletions/skip-06.png)
 
 ## Step 5: Verify that out of scope users don’t get disabled
 
@@ -88,6 +88,6 @@ You can test this flag results in expected behavior by updating your scoping rul
 
 In the next provisioning cycle, the Azure AD provisioning service will identify that the user 21173 has gone out of scope and if the SkipOutOfScopeDeletions property is enabled, then the synchronization rule for that user will display a message as shown below: 
 
-   ![Scoping example](./media/skip-out-of-scope-deletions/skip-08.png)
+   ![Screenshot of scoping example.](./media/skip-out-of-scope-deletions/skip-08.png)
 
 

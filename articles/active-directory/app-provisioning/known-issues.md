@@ -60,7 +60,7 @@ For more information, see [About the Exchange Online PowerShell module](/powersh
 
 ### Configuring synchronization from target tenant
 
-Configuring synchronization from the target tenant isn't supported. All configuration must be done in the source tenant. Note that the target administrator is able to turn off cross-tenant synchronization at any time.
+Configuring synchronization from the target tenant isn't supported. All configurations must be done in the source tenant. Note that the target administrator is able to turn off cross-tenant synchronization at any time.
 
 ### Usage of Azure AD B2B collaboration for cross-tenant access
 
