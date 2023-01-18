@@ -37,13 +37,13 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 1. Under **Azure services**, select **Azure AD B2C**.
 1. Select **API connectors**, and then select **New API connector**.
 
-   ![Screenshot showing the API connectors page in the Azure portal with the New API Connector button highlighted](media/add-api-connector-token-enrichment/api-connector-new.png)
+   ![Screenshot showing the API connectors page in the Azure portal with the New API Connector button highlighted.](media/add-api-connector-token-enrichment/api-connector-new.png)
 
 1. Provide a display name for the call. For example, **Enrich token from external source**.
 1. Provide the **Endpoint URL** for the API call.
 1. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 
-   ![Screenshot showing sample authentication configuration for an API connector](media/add-api-connector-token-enrichment/api-connector-config.png)
+   ![Screenshot showing sample authentication configuration for an API connector.](media/add-api-connector-token-enrichment/api-connector-config.png)
 
 1. Select **Save**.
 
@@ -56,7 +56,7 @@ Follow these steps to add an API connector to a sign-up user flow.
 1. Select **User flows**, and then select the user flow you want to add the API connector to.
 1. Select **API connectors**, and then select the API endpoint you want to invoke at the **Before sending the token (preview)** step in the user flow:
 
-   ![Screenshot of selecting an API connector for a user flow step](media/add-api-connector-token-enrichment/api-connectors-user-flow-select.png)
+   ![Screenshot of selecting an API connector for a user flow step.](media/add-api-connector-token-enrichment/api-connectors-user-flow-select.png)
 
 1. Select **Save**.
 
@@ -119,10 +119,10 @@ Content-type: application/json
 ```
 | Parameter                                          | Type              | Required | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-git | version     | String | Yes      | The version of your API.                                                    |
+| version     | String | Yes      | The version of your API.                                                    |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | They can be returned in the token if selected as an **Application claim**.                                        |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. They can returned in the token if selected as an **Application claim**.  |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. They can be returned in the token if selected as an **Application claim**.  |
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 
@@ -329,7 +329,7 @@ Additionally, Azure AD B2C logs metadata about the API transactions that happen 
 1. Under **Activities**, select **Audit logs**.
 1. Filter the list view: For **Date**, select the time interval you want, and for **Activity**, select **An API was called as part of a user flow**.
 1. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and a retry occurs, it's still represented as a single row. The `numberOfAttempts` indicates the number of times your API was called. This value can be `1`or `2`. Other information about the API call is detailed in the logs.
-   ![Screenshot of an example audit log with API connector transaction](media/add-api-connector-token-enrichment/example-anonymized-audit-log.png)
+   ![Screenshot of an example audit log with API connector transaction.](media/add-api-connector-token-enrichment/example-anonymized-audit-log.png)
 ::: zone-end
 ## Next steps
 ::: zone pivot="b2c-user-flow"
