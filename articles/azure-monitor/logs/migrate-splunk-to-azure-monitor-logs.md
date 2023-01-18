@@ -17,17 +17,18 @@ ms.date: 11/22/2022
 
 Azure Monitor Logs collects data from a wide variety of sources, including Windows Event logs, Syslog, and custom logs, to provide a unified view of all Azure and non-Azure resources. Native integration to Azure services, such as Azure Security Center and Azure Sentinel, and built-in machine learning capabilities, help you identify patterns and anomalies in log data, troubleshoot and perform root cause analysis, and respond to incidents.
 
+This article explains how to migrate your Splunk Cloud, Observability, or Enterprise deployment to Azure Monitor Logs for logging and log data analysis. 
+
+For information on migrating your Security Information and Event Management deployment from Splunk SIEM to Azure Sentinel, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
+
+## Compare offerings
+
 |Splunk offering|Azure offering|
 |---|---|
 |Splunk, Splunk Cloud|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multi-cloud, and on-premises environments.|
 |Splunk Observability|[Azure Monitor's Container Insights feature](../containers/container-insights-overview.md) monitors the performance of container workloads deployed to the cloud.|
 |Splunk Enterprise|[Azure Monitor](../overview.md) offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights-and-curated-visualizations), and [alerts and response](../overview.md#respond-to-critical-situations) capabilities.  |
 |Splunk Enterprise Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that provides intelligent security analytics and threat intelligence across the enterprise.|
-
-This article explains how to migrate your Splunk Cloud, Observability, or Enterprise deployment to Azure Monitor Logs for logging and log data analysis. 
-
-For information on migrating your Security Information and Event Management deployment from Splunk SIEM to Azure Sentinel, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
-
 ## Introduction to key concepts
 
 |Azure Monitor Logs |Similar Splunk concept|Description|
@@ -41,7 +42,7 @@ For information on migrating your Security Information and Event Management depl
 |[Data collection rules](../essentials/data-collection-rule-overview.md)|Data inputs|Define which data to collect, how to transform that data, and where to send the data. |
 |[Kusto Query Language (KQL)](/azure/kusto/query/)|Splunk Search Processing Language (SPL)|Azure Monitor Logs uses a large subset of KQL that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. Use the [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet) to translate your Splunk SPL knowledge to KQL. You can also [learn KQL with tutorials](../logs/get-started-queries.md) and [KQL training modules](/training/modules/analyze-logs-with-kql/).|
 |[Log Analytics](../logs/log-analytics-tutorial.md)|Splunk Web, Search app, Pivot tool|A tool in the Azure portal for editing and running log queries in Azure Monitor Logs. Log Analytics also provides a rich set of tools for exploring and visualizing data without using KQL.|
-|[Cost optimization](../../azure-monitor/best-practices-cost.md)||Optimize your costs by understanding [Azure Monitor Logs cost calculations](../logs/cost-logs.md) and following [best practices for optimizing costs in Azure Monitor](../../azure-monitor/best-practices-cost.md). |
+|[Cost optimization](../../azure-monitor/best-practices-cost.md)||Azure Monitor provides [tools and best practices to help you understand, monitor, and optimize your costs](../../azure-monitor/best-practices-cost.md) based on your needs. |
 
 ## 1. Set up a Log Analytics workspace
 
