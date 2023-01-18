@@ -1,8 +1,11 @@
 ---
 title: Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
-services: container-service
-ms.topic: article
+author: asudbring
+ms.author: allensu
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.custom: references_regions
 ms.date: 12/12/2022
 ---
@@ -43,7 +46,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 | Network configuration | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet | Additional hop adds minor latency |
 | Kubernetes Network Policies | Azure Network Policies, Calico | Calico |
-| OS platforms supported | Linux only | Linux only |
+| OS platforms supported | Linux and Windows | Linux only |
 
 ## IP address planning
 
@@ -84,10 +87,8 @@ Use the traditional VNet option when:
 
 ## Limitations with Azure CNI Overlay
 
-The overlay solution has the following limitations today
+The overlay solution has the following limitations:
 
-* Only available for Linux and not for Windows.
-* You can't deploy multiple overlay clusters on the same subnet.
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
 
