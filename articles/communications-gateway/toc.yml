@@ -20,8 +20,8 @@ items:
     href: onboarding.md
   - name: Interoperability with Microsoft Operator Connect and Teams Phone Mobile
     href: interoperability.md
-  - name: Resiliency and redundancy
-    href: resiliency.md
+  - name: Reliability
+    href: ../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
   - name: Emergency calling
     href: emergency-calling.md
   - name: Limits, quotas and restrictions
