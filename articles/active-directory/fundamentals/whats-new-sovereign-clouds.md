@@ -24,7 +24,7 @@ This page is updated monthly, so revisit it regularly.
 
 ## December 2022
 
-### General availability - Risk-based Conditional Access for workload identities
+### General Availability - Risk-based Conditional Access for workload identities
 
 **Type:** New feature  
 **Service category:** Conditional Access          
@@ -34,7 +34,7 @@ Customers can now bring one of the most powerful forms of access control in the 
 
 ---
 
-### General availability - API to recover accidentally deleted Service Principals
+### General Availability - API to recover accidentally deleted Service Principals
 
 **Type:** New feature  
 **Service category:** Enterprise Apps        
@@ -44,7 +44,7 @@ Restore a recently deleted application, group, servicePrincipal, administrative 
 
 ---
 
-### General availability - Using Staged rollout to test Cert Based Authentication (CBA)
+### General Availability - Using Staged rollout to test Cert Based Authentication (CBA)
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)     
@@ -56,7 +56,7 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 
 ## November 2022
 
-### General availability - Windows Hello for Business, cloud Kerberos trust deployment
+### General Availability - Windows Hello for Business, cloud Kerberos trust deployment
 
 
 
@@ -68,7 +68,7 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 
 ---
 
-### General availability - Expression builder with Application Provisioning
+### General Availability - Expression builder with Application Provisioning
 
 **Type:** Changed feature  
 **Service category:** Provisioning  
@@ -80,7 +80,7 @@ Accidental deletion of users in your apps or in your on-premises directory could
 
 ---
 
-### General availability - SSPR writeback is now available for disconnected forests using Azure AD Connect Cloud sync
+### General Availability - SSPR writeback is now available for disconnected forests using Azure AD Connect Cloud sync
 
 
 
@@ -92,7 +92,7 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 
 ---
 
-### General availability - Prevent accidental deletions
+### General Availability - Prevent accidental deletions
 
 
 
@@ -108,7 +108,7 @@ For more information, see: [Enable accidental deletions prevention in the Azure 
 
 ---
 
-### General availability - Create group in administrative unit
+### General Availability - Create group in administrative unit
 
 **Type:** New feature  
 **Service category:** RBAC       
@@ -119,7 +119,7 @@ Groups Administrators and other roles scoped to an administrative unit can now c
  
 ---
 
-### General availability - Number matching for Microsoft Authenticator notifications
+### General Availability - Number matching for Microsoft Authenticator notifications
 
 
 
@@ -136,7 +136,7 @@ For more information, see: [How to use number matching in multifactor authentica
 
 ---
 
-### General availability - Additional context in Microsoft Authenticator notifications
+### General Availability - Additional context in Microsoft Authenticator notifications
 
 
 
