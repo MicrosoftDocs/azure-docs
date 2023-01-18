@@ -196,7 +196,7 @@ Upon provisioning of your gateway, you will notice a resource tag is automatical
 //Add Image Reference
 The resource tag is cosmetic to confirm the gateway has been provisioned with the capabilities to configure any combination of the private only gateway features. Modification or deletion of the tag or value does not change any functional workings of the gateway. The tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.
 
-## Network Security Group Changes
+## Network Security Group Control
 Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, nor require outbound access to the internet.  The only required rule is Allow inbound from AzureLoadBalancer to ensure health probes can reach the gateway.
 
 Here is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, you add additional rules to allow client traffic to reach the listener of the gateway.
@@ -207,7 +207,7 @@ Here is an example of the most restrictive set of inbound rules, denying all tra
 > Application Gateway will provide an error asking to ensure the allow LoadBalanceRule is specified if a DenyAll rule inadvertently restricts access to health probes.
 
 
-## Route Table Changes
+## Route Table Control
 In the current offering of Application Gateway, association of a route table with a rule (or creation of rule) defined as 0.0.0.0/0 with a next hop as virtual appliance is unsupported to ensure proper management of Application Gateway.
 
 After registration of the public preview feature, the ability to forward traffic to a virtual appliance via use of a route table with a rule defined as 0.0.0.0/0 with a next hop to Virtual Appliance or via Forced Tunneling (0.0.0.0/0 route) through route advertisements learned via VPN, ExpressRoute, Route Server, or Virtual WAN is possible.
