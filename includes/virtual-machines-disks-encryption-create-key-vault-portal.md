@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/16/2022
+ ms.date: 01/17/2023
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -30,7 +30,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 1. Select **Review + Create**, verify your choices, then select **Create**.
 
-    ![Screenshot of the Azure Key Vault creation experience. Showing the particular values you create](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png)
+    ![Screenshot of the Azure Key Vault creation experience. Showing the particular values you create.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png)
 
 1. Once your key vault finishes deploying, select it.
 1. Select **Keys** under **Settings**.
@@ -41,7 +41,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 1. Leave both **Key Type** set to **RSA** and **RSA Key Size** set to **2048**.
 1. Fill in the remaining selections as you like and then select **Create**.
 
-    ![Screenshot of the create a key pane that appears once generate/import button is selected](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
+    ![Screenshot of the create a key pane that appears once generate/import button is selected.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
 
 ### Add an Azure RBAC role
 
@@ -55,14 +55,13 @@ Now that you've created the Azure key vault and a key, you must add an Azure RBA
 1. Search for **Disk Encryption Sets** and select it.
 1. On the **Disk Encryption Sets** pane select **+Create**.
 1. Select your resource group, name your encryption set, and select the same region as your key vault.
-1. For **SSE Encryption type**, select **Encryption at-rest with a customer-managed key**.
+1. For **Encryption type**, select **Encryption at-rest with a customer-managed key**.
 
     > [!NOTE]
     > Once you create a disk encryption set with a particular encryption type, it cannot be changed. If you want to use a different encryption type, you must create a new disk encryption set.
 
-1. Select **Click to select a key**.
+1. Make sure **Select Azure key vault and key** is selected.
 1. Select the key vault and key you created previously, and the version.
-1. Press **Select**.
 1. If you want to enable [automatic rotation of customer managed keys](../articles/virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys), select **Auto key rotation**.
 1. Select **Review + Create** and then **Create**.
 

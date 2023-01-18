@@ -3,7 +3,7 @@ title: Azure portal - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks through the Azure portal.
 author: roygara
 
-ms.date: 06/16/2022
+ms.date: 01/17/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -38,17 +38,16 @@ The following sections cover how to enable and use customer-managed keys for man
 Now that you've created and set up your key vault and the disk encryption set, you can deploy a VM using the encryption.
 The VM deployment process is similar to the standard deployment process, the only differences are that you need to deploy the VM in the same region as your other resources and you opt to use a customer managed key.
 
-1. Search for **Virtual Machines** and select **+ Add** to create a VM.
-1. On the **Basic** blade, select the same region as your disk encryption set and Azure Key Vault.
-1. Fill in the other values on the **Basic** blade as you like.
+1. Search for **Virtual Machines** and select **+ Create** to create a VM.
+1. On the **Basic** pane, select the same region as your disk encryption set and Azure Key Vault.
+1. Fill in the other values on the **Basic** pane as you like.
 
     ![Screenshot of the VM creation experience, with the region value highlighted.](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-vm-region.png)
 
-1. On the **Disks** blade, select **Encryption at rest with a customer-managed key**.
-1. Select your disk encryption set in the **Disk encryption set** drop-down.
+1. On the **Disks** pane, for **Key management** select your disk encryption set, key vault, and key in the drop-down.
 1. Make the remaining selections as you like.
 
-    ![Screenshot of the VM creation experience, the disks blade. With the disk encryption set drop-down highlighted.](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-vm-select-customer-managed-key-disk-encryption-set.png)
+    ![Screenshot of the VM creation experience, the disks pane. Customer managed keys selected.](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-vm-select-customer-managed-key-disk-encryption-set.png)
 
 ## Enable on an existing disk
 
@@ -62,15 +61,15 @@ The VM deployment process is similar to the standard deployment process, the onl
 
 1. After the VM has finished stopping, select **Disks** and then select the disk you want to encrypt.
 
-    ![Screenshot of your example VM, with the Disks blade open. The OS disk is highlighted, as an example disk for you to select.](media/virtual-machines-disk-encryption-portal/server-side-encryption-existing-disk-select.png)
+    ![Screenshot of your example VM, with the Disks pane open. The OS disk is highlighted, as an example disk for you to select.](media/virtual-machines-disk-encryption-portal/server-side-encryption-existing-disk-select.png)
 
-1. Select **Encryption** and select **Encryption at rest with a customer-managed key** and then select your disk encryption set in the drop-down list.
+1. Select **Encryption** and under **Key management** select your key vault and key in the drop-down list, under **Customer-managed key**.
 1. Select **Save**.
 
-    ![Screenshot of your example OS disk. The encryption blade is open, encryption at rest with a customer-managed key is selected, as well as your example Azure Key Vault. After making those selections, the save button is selected.](media/virtual-machines-disk-encryption-portal/server-side-encryption-encrypt-existing-disk-customer-managed-key.png)
+    ![Screenshot of your example OS disk. The encryption pane is open, encryption at rest with a customer-managed key is selected, as well as your example Azure Key Vault. After making those selections, the save button is selected.](media/virtual-machines-disk-encryption-portal/server-side-encryption-encrypt-existing-disk-customer-managed-key.png)
 
 1. Repeat this process for any other disks attached to the VM you'd like to encrypt.
-1. When your disks finish switching over to customer-managed keys, if there are no there no other attached disks you'd like to encrypt, you may start your VM.
+1. When your disks finish switching over to customer-managed keys, if there are no there no other attached disks you'd like to encrypt, start your VM.
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with the managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
