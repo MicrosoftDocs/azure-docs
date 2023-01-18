@@ -990,9 +990,9 @@ This issue can happen when there's a package specified in your conda environment
 
 **Troubleshooting steps**
 
-Use a different version of the package that is compatible with your specified Python version
+Use a different version of the package that's compatible with your specified Python version
 
-Alternatively, use a different version of Python that is compatible with the package you've specified
+Alternatively, use a different version of Python that's compatible with the package you've specified
 * If you're changing your Python version, use a version that's supported and that isn't nearing its end-of-life soon
 * See Python [end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
 
