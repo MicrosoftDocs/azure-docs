@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: how-to
-ms.date: 01/17/2023
+ms.date: 01/18/2023
 ms.author: henrymbugua
 ---
 
@@ -28,7 +28,7 @@ In this how-to, you'll learn how to configure the SDKs used by your application 
 - Provision your app using the Azure portal. For more information about app provision, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
 - Integrate your application with the [MSAL for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 
-## Methods for single sign-on
+## Methods for SSO
 
 There are two ways for applications using MSAL for Android to achieve SSO:
 
@@ -52,7 +52,7 @@ We recommend that you use one of Microsoft's authentication brokers to participa
 
 On Android, the Microsoft Authentication Broker is a component that's included in the [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) and [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) apps.
 
-The following diagram illustrates the relationship between your app, the Microsoft Authentication Library (MSAL), and Microsoft's authentication brokers.
+The following diagram illustrates the relationship between your app, the MSAL, and Microsoft's authentication brokers.
 
 ![Diagram showing how an application relates to MSAL, broker apps, and the Android account manager.](./media/brokered-auth/brokered-deployment-diagram.png)
 
@@ -167,7 +167,7 @@ MSAL supports authorization using a `WebView`, or the system browser. The image 
 
 ![MSAL login examples](./media/authorization-agents/sign-in-ui.jpg)
 
-### Single sign-on implications
+### SSO implications
 
 By default, applications integrated with MSAL use the system browser's Custom Tabs to authorize. Unlike WebViews, Custom Tabs share a cookie jar with the default system browser enabling fewer sign-ins with web or other native apps that have integrated with Custom Tabs.
 
