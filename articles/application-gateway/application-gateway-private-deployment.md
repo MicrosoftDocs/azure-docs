@@ -224,6 +224,9 @@ While in public preview, the following limitations are known.
 1. Private Endpoint connectivity via Global VNet Peering
 If Application Gateway has a backend target or key vault reference to a private endpoint located in a vnet that is accessible via global vnet peering, traffic will be dropped and result in unhealthy status.
 
+1. Private IP frontend configuration only with AGIC
+AGIC does not currently support private IP frontend only deployments.
+
 1.	Backend Health status typo
 If backend health is unknown due to DNS resolution or other reason, the error message will erroneously state that you need a NSG and to eliminate route tables. The message to require NSG rules or eliminate the UDR is incorrect and can be ignored. This issue will be fixed in a future release.
 
