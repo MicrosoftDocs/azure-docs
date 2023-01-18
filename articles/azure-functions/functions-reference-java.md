@@ -215,7 +215,7 @@ You can provide other arguments to the JVM by using one of the following applica
 | [Consumption plan](./consumption-plan.md) | `languageWorkers__java__arguments` | This setting does increase the cold start times for Java functions running in a Consumption plan. |
 | [Premium plan](./functions-premium-plan.md)<br/>[Dedicated plan](./dedicated-plan.md) | `JAVA_OPTS` | |
 
-The following examples show you how to add these settings. To learn more about working with application settings, see the [Work with application settings](./functions-how-to-use-azure-function-app-settings.md#settings) section.
+The following sections show you how to add these settings. To learn more about working with application settings, see the [Work with application settings](./functions-how-to-use-azure-function-app-settings.md#settings) section.
 
 ### Azure portal
 
