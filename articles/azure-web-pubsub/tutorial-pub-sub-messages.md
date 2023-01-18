@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Subscribe to receive messages using standard WebSocket protocol
 > * Publish messages using Web PubSub service SDK
 
-[!INCLUDE [azure-web-pubsub-tutorial-prerequisites](/includes/cli-prerequisites.md)]
+[!INCLUDE [azure-web-pubsub-tutorial-prerequisites](./includes/cli-prerequisites.md)]
 
 If creating the project on a local machine, you'll need to install the dependencies for the language you're using:
 
@@ -47,7 +47,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 # [Local Azure CLI](#tab/LocalBash)
 
-[!INCLUDE [azure-web-pubsub-az-cli-setup](/includes/cli-setup.md)]
+[!INCLUDE [azure-web-pubsub-az-cli-setup](./includes/cli-setup.md)]
 
 # [Azure Cloud Shell ](#tab/Cloud)
 
