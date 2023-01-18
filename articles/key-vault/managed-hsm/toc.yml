@@ -47,6 +47,8 @@ items:
     href: multi-region-replication.md 
   - name: Integrate Managed HSM with Azure Policy
     href: azure-policy.md
+  - name: Allow key management operations through ARM
+    href: authorize-arm.md
 
 - name: Concepts 
   items:
