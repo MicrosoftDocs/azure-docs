@@ -8,7 +8,7 @@ ms.author: eur
 ---
 
 | Locale (BCP-47) | Language | Custom Neural Voice feature |
-| ----- | ----- | ----- | ----- |
+| ----- | ----- | ----- |
 | `ar-EG` | Arabic (Egypt) | Custom Neural Voice Pro |
 | `ar-SA` | Arabic (Saudi Arabia) | Custom Neural Voice Pro |
 | `bg-BG` | Bulgarian (Bulgaria) | Custom Neural Voice Pro |
