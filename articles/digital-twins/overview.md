@@ -102,7 +102,7 @@ The following diagram shows where Azure Digital Twins might lie in the context o
 
 ## Resources
 
-Here are some resources that may be useful while working with Azure Digital Twins. You can view more resources under the **Resources** header in the table of contents for this documentation set.
+This section highlights some resources that may be useful while working with Azure Digital Twins. You can view additional resources in the **Resources** section of this this documentation set (accessible through the navigation links to the left).
 
 ### Service limits
 
