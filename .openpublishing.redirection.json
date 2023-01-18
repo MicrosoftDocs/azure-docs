@@ -29554,6 +29554,11 @@
           "source_path": "articles/dotnet-develop-multitenant-applications.md",
           "redirect_URL": "/azure/architecture/guide/multitenant/overview",
           "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/communication-services/quickstarts/voice-video-calling/get-started-android-webview.md",
+          "redirect_URL": "articles/communication-services/quickstarts/voice-video-calling/get-started-webview.md",
+          "redirect_document_id": false
         }
     ]
 }
