@@ -13,64 +13,27 @@ ms.date: 01/17/2023
 
 # Index large data sets in Azure Cognitive Search
 
-If you have big data or complex data in a search indexing pipeline, this article describes the strategies for accommodating long running processes on Azure Cognitive Search.
+If your search solution includes indexing big data or complex data, this article describes the strategies for accommodating long running processes on Azure Cognitive Search.
 
-This article assumes familiarity with the [two basic approaches for importing data](search-what-is-data-import.md): pushing data into an index, or pulling in data using a [search indexer](search-indexer-overview.md) on a supported data source.
+This article assumes familiarity with the [two basic approaches for importing data](search-what-is-data-import.md): pushing data into an index, or pulling in data using a [search indexer](search-indexer-overview.md) on a supported data source. The strategy you choose will be determined by the indexing approach you're already using. If your scenario involves computationally intensive [AI enrichment](cognitive-search-concept-intro.md), then your strategy must include indexers, given the skillset dependency on indexers.
 
-Be sure to also review [Tips for better performance](search-performance-tips.md) for best practices on index and query design.
+This article complements [Tips for better performance](search-performance-tips.md), which offers best practices on index and query design. A well-designed index that includes only the fields and attributes you need is an important prerequisite for large-scale indexing.
 
 > [!NOTE]
 > The strategies described in this article assume a single large data source. If your solution requires indexing from multiple data sources, see [Index multiple data sources in Azure Cognitive Search](https://github.com/Azure-Samples/azure-cognitive-search-multiple-containers-indexer/blob/main/README.md) for a recommended approach.
 
-## Strategies for pull mode indexing with indexers
+## Index large data using the push APIs
 
-[Indexers](search-indexer-overview.md) have several capabilities that are useful for long-running processes:
+"Push" APIs, such as [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (Azure SDK for .NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), are the most prevalent form of indexing in Cognitive Search. For solutions that use a push API, the strategy for long-running indexing will have one or both of the following components:
 
-+ Batching documents
-+ Parallel indexing over partitioned data
-+ Scheduling and integration with change detection logic to index just new and change documents over time
-
-If your scenario involves computationally intensive [AI enrichment](cognitive-search-concept-intro.md), then your strategy must include indexers, due to the skillset dependency on indexers.
-
-The ["How to use indexers for long running jobs"](#how-to-use-indexers-for-long-running-jobs) section in this article describes each approach.
-
-## Strategies for push mode indexing
-
-If you aren't using indexers, then you're importing data through the push APIs, such as [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (Azure SDK for .NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments).
-
-For push mode indexing, a strategy for long-running indexing will have one or both of the following components:
-
-+ Batching documents
-+ Managing threads
-
-The ["How to index large data using the push API"](#how-to-index-large-datasets-with-the-push-api) section provides details. 
-
-## Strategies for big data on Spark
-
-If you have a big data architecture and your data is on a Spark cluster, we recommend [SynapseML for loading and indexing data](search-synapseml-cognitive-services.md). The tutorial includes steps for calling Cognitive Services for AI enrichment, but you can also use the AzureSearchWriter API for text indexing.
-
-<!-- Azure Cognitive Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index. You can *push* your data into the index programmatically, or point an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
-
-As data volumes grow or processing needs change, you might find that simple indexing strategies are no longer practical. For Azure Cognitive Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
-
-The same techniques used for long-running processes. In particular, the steps outlined in [parallel indexing](#run-indexers-in-parallel) are helpful for computationally intensive indexing, such as image analysis or natural language processing in an [AI enrichment pipeline](cognitive-search-concept-intro.md).
-
-The following sections explain techniques for indexing large amounts of data for both push and pull approaches. You should also review [Tips for improving performance](search-performance-tips.md) for more best practices.
-
-For C# tutorials, code samples, and alternative strategies, see:
-
-+ [Tutorial: Optimize indexing workloads](tutorial-optimize-indexing-push-api.md)
-+ [Tutorial: Index at scale using SynapseML and Apache Spark](search-synapseml-cognitive-services.md) -->
-
-## How to index large datasets with the "push" API
-
-When pushing large data volumes into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (Azure SDK for .NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), batching documents and managing threads are two techniques that improve indexing speed.
++ Batch documents
++ Manage threads
 
 ### Batch multiple documents per request
 
-One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method](/dotnet/api/azure.search.documents.searchclient.indexdocuments) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
+A simple mechanism for indexing a large quantity of data is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method](/dotnet/api/azure.search.documents.searchclient.indexdocuments) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
 
-Using batches to index documents will significantly improve indexing performance. Determining the optimal batch size for your data is a key component of optimizing indexing speeds. The two primary factors influencing the optimal batch size are:
+Batching documents will significantly shorten the amount of time it takes to work through a large data volume. Determining the optimal batch size for your data is a key component of optimizing indexing speeds. The two primary factors influencing the optimal batch size are:
 
 + The schema of your index
 + The size of your data
@@ -93,15 +56,17 @@ Indexers have built-in thread management, but when you're using the push APIs, y
 
 The Azure .NET SDK automatically retries 503s and other failed requests, but you'll need to implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy.
 
-## How to use indexers for long-running jobs
+## Index with indexers and the "pull" APIs
 
-This section explains how to use the built-in capabilities of [Indexers](search-indexer-overview.md) for accommodating larger data sets:
+[Indexers](search-indexer-overview.md) have several capabilities that are useful for long-running processes:
 
-+ Indexer schedules allow you to parcel out indexing at regular intervals so that you can spread it out over time.
++ Batching documents
++ Parallel indexing over partitioned data
++ Scheduling and integration with change detection logic to index just new and change documents over time
 
-+ Scheduled indexing can resume at the last known stopping point. If a data source isn't fully scanned within the processing window, the indexer picks up wherever it left off at the last job.
+Indexer schedules allow you to parcel out indexing at regular intervals. Scheduled indexing can resume at the last known stopping point. If a data source isn't fully scanned within the processing window, the indexer picks up wherever it left off at the last job.
 
-+ Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob Storage, create a [data source](/rest/api/searchservice/create-data-source) for each partition, and then run multiple indexers in parallel. 
+Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob Storage, create a [data source](/rest/api/searchservice/create-data-source) for each partition, and then [run the indexers in parallel](search-howto-run-reset-indexers.md), subject to the number of search units of your search service.
 
 ### Check indexer batch size
 
@@ -150,7 +115,7 @@ If your data source is an [Azure Blob Storage container](../storage/blobs/storag
 
 1. Specify the same target search index in each indexer.
 
-1. Schedule the indexers. 
+1. Schedule the indexers.
 
 1. Review indexer status and execution history for confirmation.
 
@@ -160,9 +125,27 @@ Second, Azure Cognitive Search doesn't lock the index for updates. Concurrent wr
 
 Although multiple indexer-data-source sets can target the same index, be careful of indexer runs that can overwrite existing values in the index. If a second indexer-data-source targets the same documents and fields, any values from the first run will be overwritten. Field values are replaced in full; an indexer can't merge values from multiple runs into the same field.
 
+## Index big data on Spark
+
+If you have a big data architecture and your data is on a Spark cluster, we recommend [SynapseML for loading and indexing data](search-synapseml-cognitive-services.md). The tutorial includes steps for calling Cognitive Services for AI enrichment, but you can also use the AzureSearchWriter API for text indexing.
+
 ## See also
 
 + [Tips for improving performance](search-performance-tips.md)
 + [Performance analysis](search-performance-analysis.md)
 + [Indexer overview](search-indexer-overview.md)
 + [Monitor indexer status](search-howto-monitor-indexers.md)
+
+
+<!-- Azure Cognitive Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index. You can *push* your data into the index programmatically, or point an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
+
+As data volumes grow or processing needs change, you might find that simple indexing strategies are no longer practical. For Azure Cognitive Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
+
+The same techniques used for long-running processes. In particular, the steps outlined in [parallel indexing](#run-indexers-in-parallel) are helpful for computationally intensive indexing, such as image analysis or natural language processing in an [AI enrichment pipeline](cognitive-search-concept-intro.md).
+
+The following sections explain techniques for indexing large amounts of data for both push and pull approaches. You should also review [Tips for improving performance](search-performance-tips.md) for more best practices.
+
+For C# tutorials, code samples, and alternative strategies, see:
+
++ [Tutorial: Optimize indexing workloads](tutorial-optimize-indexing-push-api.md)
++ [Tutorial: Index at scale using SynapseML and Apache Spark](search-synapseml-cognitive-services.md) -->
