@@ -30,7 +30,7 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 
 ## Ubuntu (18.02 or higher)
 
-1. Edit the `**/etc/dhcp/dhclient.conf**` file, and add the following line:
+1. Edit the **`/etc/dhcp/dhclient.conf`** file, and add the following line:
 
     ```config
     timeout 10;
@@ -63,18 +63,7 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
     sudo apt install net-tools
     ```
 
-    ```bash
-    azureuser@TestVM:~$ ifconfig
-    
-    eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 10.1.0.4  netmask 255.255.255.0  broadcast 10.1.0.255
-        inet6 fe80::20d:3aff:feec:fd2  prefixlen 64  scopeid 0x20<link>
-        ether 00:0d:3a:ec:0f:d2  txqueuelen 1000  (Ethernet)
-        RX packets 279  bytes 86034 (86.0 KB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 329  bytes 96704 (96.7 KB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-    ```
+    :::image type="content" source="./media/load-balancer-ipv6-for-linux/ipv6-ip-address-ifconfig.png" alt-text="Screenshot of ifconfig showing IPv6 IP address.":::
 
 ## Debian
 
