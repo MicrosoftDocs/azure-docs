@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 01/09/2023
+ms.date: 01/17/2023
 ms.custom: template-concept, ignite-2022
 ---
 
@@ -26,20 +26,6 @@ Azure DDoS Network Protection, combined with application design best practices, 
 > [!NOTE]
 > DDoS IP Protection is currently only available in Azure Preview PowerShell.
 
-DDoS IP Protection is currently available in the following regions.
-
-| Americas         | Europe               | Middle East   | Africa             | Asia Pacific        |
-|------------------|----------------------|---------------|--------------------|---------------------|
-| West Central US  | France Central       | UAE Central   | South Africa North | Australia Central   |
-| North Central US | Germany West Central | Qatar Central |                    | Korea Central       |
-| West US          | Switzerland North    |               |                    | Japan East          |
-| West US 3        | France South         |               |                    | West India          |
-|                  | Norway East          |               |                    | Jio India Central    |
-|                  | Sweden Central       |               |                    | Australia Central 2 |
-|                  | Germany North        |               |                    |                     |
-
-
- 
 ## SKUs
 
 Azure DDoS Protection supports two SKU Types, DDoS IP Protection and DDoS Network Protection. The SKU is configured in the Azure portal during the workflow when you configure Azure DDoS Protection.
