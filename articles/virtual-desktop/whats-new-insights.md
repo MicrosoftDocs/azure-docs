@@ -34,7 +34,7 @@ This update was released in October 2022 and has the following changes:
 
 - Added Windows 7 end of life reporting for client operating system and a dynamic notification box as a reminder of the deprecation timeframe for Windows 7 support for Azure Virtual Desktop.
 
-- ## Version 1.3.0
+## Version 1.3.0
 
 This update was released in September 2022 and has the following changes:
 
