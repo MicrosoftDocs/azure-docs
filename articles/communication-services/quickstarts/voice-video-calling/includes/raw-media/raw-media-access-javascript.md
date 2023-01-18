@@ -12,7 +12,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-As a developer you can access the raw media for incoming and outgoing audio and video media content during a call. Access to ACS client side Raw audio and video enables developers an almost unlimited array of ability to view and edit audio and video content that happens within the ACS caling SDK. In this quickstart, you'll learn how to implement raw media access using the Azure Communication Services calling SDK for WebJS.
+As a developer you can access the raw media for incoming and outgoing audio and video media content during a call. Access to ACS client side Raw audio and video enables developers an almost unlimited array of ability to view and edit audio and video content that happens within the ACS calling SDK. In this quickstart, you'll learn how to implement raw media access using the Azure Communication Services calling SDK for WebJS.
 
 ## Prerequisites
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
@@ -112,7 +112,7 @@ call.on("stateChanged", callStateChangedHandler);
 ## Accessing Raw video
 Raw video media gives you the instance of MediaStream object (See JavaScript documentation for further reference). Raw video media gives access specifically to incoming and outgoing call MediaStream object. For Raw Video, developers can use the incoming and outgoing raw MediaStream to apply filters by using Machine Learning to process frames of the video.
 
-Proccessed Raw outgoing video frames can be sent as an outgoing video of the sender. Proccessed Raw incoming video frames can be rendered on reciever side.
+Processed Raw outgoing video frames can be sent as an outgoing video of the sender. Processed Raw incoming video frames can be rendered on receiver side.
 
 ### Place a call with custom video stream
 
