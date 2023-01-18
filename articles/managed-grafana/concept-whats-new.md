@@ -1,10 +1,9 @@
 ---
-title: What's New in Azure Managed Grafana
+title: What's new in Azure Managed Grafana
 description: Recent updates for Azure Managed Grafana
 author: maud-lv
-
 ms.author: malev
-ms.service: cache
+ms.service: managed-grafana
 ms.topic: conceptual
 ms.date: 01/18/2023
 
@@ -22,7 +21,7 @@ For more information, go to [Subscribe to Grafana Enterprise](how-to-grafana-ent
 
 ### Support for service accounts
 
-Grafana Enterprise is now supported.
+Service accounts are now supported.
 
 For more information, go to [How to use service accounts](how-to-service-accounts.md).
 
