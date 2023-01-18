@@ -123,7 +123,7 @@ Azure AD B2C projects start with one or more client applications.
 * Confirm the number of users accessing applications
 * Determine the IdP types needed:
   * For example, Facebook, local account, and Active Directory Federation Services (AD FS)
-  * See, [Active Directory Federation Services](../../windows-server/identity/active-directory-federation-services.md)
+  * See, [Active Directory Federation Services](../../windows-server/identity/active-directory-federation-services)
 * Outline the claim schema required from your application, Azure AD B2C, and IdPs if applicable
   * See, [ClaimsSchema](../../active-directory-b2c/claimsschema.md)
 * Determine the information to collect during sign-in and sign-up 
