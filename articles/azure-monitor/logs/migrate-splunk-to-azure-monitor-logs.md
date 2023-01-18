@@ -17,9 +17,9 @@ ms.date: 11/22/2022
 
 Azure Monitor Logs collects data from a wide variety of sources, including Windows Event logs, Syslog, and custom logs, to provide a unified view of all Azure and non-Azure resources. Native integration to Azure services, such as Azure Security Center and Azure Sentinel, and built-in machine learning capabilities, help you identify patterns and anomalies in log data, troubleshoot and perform root cause analysis, and respond to incidents.
 
-This article explains how to migrate your Splunk Cloud, Observability, or Enterprise deployment to Azure Monitor Logs for logging and log data analysis. 
+This article explains how to migrate your Splunk, Splunk Cloud, or Enterprise deployment to Azure Monitor Logs for logging and log data analysis. 
 
-For information on migrating your Security Information and Event Management deployment from Splunk SIEM to Azure Sentinel, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
+For information on migrating your Security Information and Event Management (SIEM) deployment from Splunk Enterprise Security to Azure Sentinel, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
 
 ## Compare offerings
 
