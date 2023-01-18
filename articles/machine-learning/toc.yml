@@ -136,6 +136,20 @@
             - name: Automated ML overview
               displayName: automl, auto ml
               href: concept-automated-ml.md
+            - name: Time series forecasting
+              items:
+              - name: Overview of forecasting methods
+                displayName: auto ML, time series, forecasting, methods
+                href: concept-automl-forecasting-methods.md
+              - name: Model sweeping and selection
+                displayName: auto ML, time series, forecasting, model selection, sweeping
+                href: concept-automl-forecasting-sweeping.md
+              - name: Calendar features
+                displayName: auto ML, time series, calendar features, holiday features
+                href: concept-automl-forecasting-calendar-features.md
+              - name: Lag features
+                displayName: auto ML, time series, lags
+                href: concept-automl-forecasting-lags.md
             - name: Overfitting & imbalanced data
               displayName: automl, auto ml, risks
               href: concept-manage-ml-pitfalls.md
