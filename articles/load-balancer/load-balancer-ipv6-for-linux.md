@@ -56,7 +56,7 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 
 4. Use **`ifconfig`** to verify virtual machine received IPv6 address.
 
-If **`ifconfig`** isn't installed, run the following commands:
+    If **`ifconfig`** isn't installed, run the following commands:
 
     ```bash
     sudo apt update
