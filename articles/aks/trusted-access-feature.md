@@ -4,7 +4,7 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 services: container-service
 ms.topic: article
-ms.date: 01/16/2023
+ms.date: 01/18/2023
 ms.author: schaffererin
 ---
 
@@ -36,25 +36,36 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
   * To learn about what roles to use in various scenarios, check out TBD.
 * If you're using Azure CLI, the **aks-preview** extension version **0.5.74 or later** is required.
 
-    Install the extension:
-  
-    ```azurecli
-    az extension add --name aks-preview
-    ```
+First, install the aks-preview extension by running the following command:
 
-    If you already have the extension, install any available updates:
+```azurecli
+az extension add --name aks-preview
+```
 
-    ```azurecli
-    az extension update --name aks-preview
-    ```
+Run the following command to update to the latest version of the extension released:
 
-* You must register the appropriate feature flags.
+```azurecli
+az extension update --name aks-preview
+```
 
-    | Name | Version | Region availability |
-    |---|---|---|
-    | Control plane Role | 2022-05-02-preview | All regions |
-    | Control plane Role Binding | 2022-05-02-preview | All regions |
-    | Data plane | v1 | Ready in eastus2euap, centraluseuap |
+Then register the `TrustedAccessPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
 
 ## Create an AKS cluster
 
@@ -135,3 +146,10 @@ For more information on AKS and AzureML, see:
 * [Introduction to Kubernetes compute target in AzureML](../machine-learning/how-to-attach-kubernetes-anywhere.md)
 * [Deploy and manage cluster extensions for AKS](/cluster-extensions.md)
 * [Deploy AzureML extension on AKS or Arc Kubernetes cluster](../machine-learning/how-to-deploy-kubernetes-extension.md)
+
+
+
+
+<!-- LINKS -->
+
+[az-feature-register]: /cli/azure/feature#az-feature-register
