@@ -34,7 +34,7 @@ AutoML creates a number of pipelines in parallel that try different algorithms a
 
 1. For **classification**, you can also enable deep learning.
     
-        If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options](/how-to-configure-cross-validation-data-splits.md).
+If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options](/how-to-configure-cross-validation-data-splits.md).
 
 
 1. (Optional) View addition configuration settings: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
@@ -52,13 +52,13 @@ AutoML creates a number of pipelines in parallel that try different algorithms a
 
     1. Specify the type of validation to be used for your training job. [Learn more about cross validation](/how-to-configure-cross-validation-data-splits.md#prerequisites). 
     
-    1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that was recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-job-results-preview).
+    1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that was recommended by automated ML. 
     
         >[!IMPORTANT]
         > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
         
         * Test data is considered a separate from training and validation, so as to not bias the results of the test job of the recommended model. [Learn more about bias during model validation](/concept-automated-ml.md#training-validation-and-test-data).
-        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](./v1/how-to-create-register-datasets.md#tabulardataset).         
+        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](../v1/how-to-create-register-datasets.md#tabulardataset).         
         * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
         * The test dataset should not be the same as the training dataset or the validation dataset.
        

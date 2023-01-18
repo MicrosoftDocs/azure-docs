@@ -1,16 +1,17 @@
 ---
-title:  "Algorithm & component reference (V2)"
-description: Learn about the Azure Machine Learning designer components that you can use to create your own machine learning projects. (V2)
+title:  "Algorithm & component reference (v2)"
+description: Learn about the Azure Machine Learning designer components that you can use to create your own machine learning projects. (v2)
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
-
+ms.author: shoja
+author: shouryaj
+ms.reviewer: ssalgadodev
 ms.date: 01/17/2023
 ---
-# Algorithm & component reference for Azure Machine Learning designer (V2)
+# Algorithm & component reference for Azure Machine Learning designer (v2)
 
 Azure Machine Learning designer components (Designer) allows users to create machine learning projects using a drag and drop interface. Follow this link to reach the Designer studio. Follow this link to [learn more about Designer.] (..//concept-designer)
 
@@ -45,4 +46,4 @@ For help with choosing algorithms, see
 
 ## Next steps
 
-* [Tutorial: Build a model in designer to predict auto prices](../../tutorial-designer-automobile-price-train-score.md)
+* [Tutorial: Build a model in designer to predict auto prices](../tutorial-designer-automobile-price-train-score.md)
