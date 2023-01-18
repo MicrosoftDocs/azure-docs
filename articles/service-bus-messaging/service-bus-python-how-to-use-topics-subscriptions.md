@@ -36,21 +36,6 @@ In this tutorial, you complete the following steps:
 - An [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Python 3.7 or higher, with the [Azure Python SDK][/azure/developer/python/sdk/azure-sdk-overview] package installed.
 
-### [Passwordless (Recommended)](#tab/passwordless)
-
-To follow this quickstart using authentication passwordless and your own Azure account:
-
-* Install the [Azure CLI](/cli/azure/install-azure-cli).
-* Sign in with your Azure account at the terminal or command prompt with `az login`. 
-* Use the same account when you add the appropriate role to your resource later in the tutorial.
-* Run the tutorial code in the same terminal or command prompt.
-
-### [Connection string](#tab/connection-string)
-
-To follow this quickstart using a connection string to authenticate, you don't use your own Azure account. Instead, in a later step, you'll copy the connection string from the Azure portal and use it in the code.
-
----
-
 >[!NOTE]
 > This tutorial works with samples that you can copy and run using Python. For instructions on how to create a Python application, see [Create and deploy a Python application to an Azure Website](../app-service/quickstart-python.md). For more information about installing packages used in this tutorial, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
 
@@ -60,7 +45,39 @@ To follow this quickstart using a connection string to authenticate, you don't u
 
 [!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
 
-## Use pip to install packages
+## Code setup 
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+To follow this quickstart using authentication passwordless and your own Azure account:
+
+* Install the [Azure CLI](/cli/azure/install-azure-cli).
+* Sign in with your Azure account at the terminal or command prompt with `az login`. 
+* Use the same account when you add the appropriate role to your resource later in the tutorial.
+* Run the tutorial code in the same terminal or command prompt.
+
+>[!IMPORTANT]
+> Make sure to sign in with `az login`. The `DefaultAzureCredential` used in the passwordless code uses these credentials to authenticate with Azure.
+
+To use the passwordless code, you'll need to specify:
+
+* A fully qualified service bus namespace
+* A topic name
+* A subscription name
+
+### [Connection string](#tab/connection-string)
+
+To follow this quickstart using a connection string to authenticate, you don't use your own Azure account. Instead, in a later step, you'll copy the connection string from the Azure portal and use it in the code.
+
+To use the connection code, you'll need to specify:
+
+* Connection string
+* Topic name
+* Subscription name.
+
+---
+
+### Use pip to install packages
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
