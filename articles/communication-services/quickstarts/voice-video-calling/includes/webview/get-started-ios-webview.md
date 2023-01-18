@@ -5,14 +5,14 @@ titleSuffix: An Azure Communication Services document
 description: In this quickstart, you'll learn how to integrate Azure Communication Calling WebJS SDK in an iOS WKWebView environment
 author: sloanster
 services: azure-communication-services
-ms.date: 1/13/2023
+ms.date: 01/13/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 # iOS WebView quickstart
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 iOS WKWebView allows you to embed web content seamlessly into your app UI.
 If you want to develop an ACS calling application on iOS, besides using the Azure Communication Calling iOS SDK, you can also use Azure Communication Calling Web SDK with iOS WKWebView. In this quickstart, you'll learn how to run webapps developed with the Azure Communication Calling Web SDK in an iOS WKWebView environment.
@@ -21,7 +21,7 @@ If you want to develop an ACS calling application on iOS, besides using the Azur
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [XCode](https://developer.apple.com/xcode/), for creating your iOS application.
-- A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../samples/web-calling-sample.md).
+- A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../../../samples/web-calling-sample.md).
 
 This quickstart guide assumes that you are familiar with iOS application development. We'll mention the necessary configuration and tips when developing iOS WKWebView application for ACS Calling SDK.
 
@@ -124,10 +124,3 @@ This is also iOS app behavior. When switching to other audio/video app, the conn
 This is usually not a problem if the app only stays in background for a short time. When the app comes back to foreground, the call will recover.
 If the app stays in background for a longer period, the server will think the user is away and remove the user from the participants list.
 In this case, when the user switches the WkWebView app back to foreground, the call will disconnect and won't recover.
-
-## Next steps
-
-For more information, see the following articles:
-
-- Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
-- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
