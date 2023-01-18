@@ -1,5 +1,4 @@
 ---
-author: EMaher
 ms.service: lab-services
 ms.date: 01/17/2023
 ms.topic: include
