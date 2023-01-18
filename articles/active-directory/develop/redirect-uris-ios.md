@@ -20,7 +20,7 @@ ms.custom: aaddev, has-adal-ref
 
 When a user authenticates, Azure Active Directory (Azure AD) sends the token to the app by using the redirect URI registered with the Azure AD application.
 
-The MSAL requires that the redirect URI is registered with the Azure AD app in a specific format. MSAL uses a default redirect URI, if you don't specify one. The format is `msauth.[Your_Bundle_Id]://auth`.
+The MSAL requires that the redirect URI be registered with the Azure AD app in a specific format. MSAL uses a default redirect URI, if you don't specify one. The format is `msauth.[Your_Bundle_Id]://auth`.
 
 The default redirect URI format works for most apps and scenarios, including brokered authentication and system web view. Use the default format whenever possible.
 
