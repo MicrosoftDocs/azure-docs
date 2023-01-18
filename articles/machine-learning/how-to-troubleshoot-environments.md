@@ -958,8 +958,8 @@ Many issues could cause a horovod failure, and there's a comprehensive list of t
 This issue can happen when the conda command isn't recognized during conda environment creation or update.
 
 **Potential causes:**
-* You thought conda was installed in the base image you're using, but it isn't installed
-* conda isn't installed in your Dockerfile steps before you try to execute a conda command
+* conda isn't installed in the base image you're using
+* conda isn't installed via your Dockerfile before you try to execute the conda command
 * conda isn't included in or wasn't added to your path
 
 **Affected areas (symptoms):**
@@ -990,7 +990,7 @@ This issue can happen when there's a package specified in your conda environment
 
 **Troubleshooting steps**
 
-Use a different version of the package you've included that's compatible with your specified Python version
+Use a different version of the package that is compatible with your specified Python version
 
 Alternatively, use a different version of Python that is compatible with the package you've specified
 * If you're changing your Python version, use a version that's supported and that isn't nearing its end-of-life soon
@@ -1010,11 +1010,7 @@ This issue can happen when a package is specified on the command line using "<" 
 
 **Troubleshooting steps**
 
-Add quotes around the package specification
-
-```
-conda install -y "pip<=20.1.1"
-```
+Add quotes around the package specification. For example, change `conda install -y pip<=20.1.1` to `conda install -y "pip<=20.1.1"`.
 
 ### *Pip issues during build*
 ### Failed to install packages
