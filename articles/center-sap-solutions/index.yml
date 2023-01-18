@@ -10,40 +10,40 @@ metadata:
   author: lauradolan
   ms.author: ladolan
   ms.date: 01/11/2022
-  
+
 landingContent:
   - title: SAP workload on Azure VMs
     linkLists:
       - linkListType: overview
         links:
           - text: Get started with SAP workload on Azure VMs
-            url: ../virtual-machines/workloads/sap/get-started.md
+            url: ./workloads/get-started.md
           - text: Documentation change log
-            url: ../virtual-machines/workloads/sap/get-started.md#change-log
+            url: ./workloads/get-started.md#change-log
           - text: Certifications
-            url: ../virtual-machines/workloads/sap/certifications.md
+            url: ./workloads/certifications.md
           - text: Supported SAP scenarios
-            url: ../virtual-machines/workloads/sap/planning-supported-configurations.md
+            url: ./workloads/planning-supported-configurations.md
           - text: Supported SAP software
-            url: ../virtual-machines/workloads/sap/supported-product-on-azure.md
+            url: ./workloads/supported-product-on-azure.md
       - linkListType: concept
         links:
           - text: PLanning guidance
-            url: ../virtual-machines/workloads/sap/planning-guide.md
+            url: ./workloads/planning-guide.md
           - text: Azure storage types for SAP workload
-            url: ../virtual-machines/workloads/sap/planning-guide-storage.md
+            url: ./workloads/planning-guide-storage.md
           - text: Azure storage types for SAP workload
-            url: ../virtual-machines/workloads/sap/planning-guide-storage.md
+            url: ./workloads/planning-guide-storage.md
           - text: High availability for SAP components
-            url: ../virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios.md
+            url: ./workloads/sap-high-availability-architecture-scenarios.md
           - text: Azure Availability Zones for SAP workload
-            url: ../virtual-machines/workloads/sap/high-availability-zones.md
+            url: ./workloads/high-availability-zones.md
       - linkListType: how-to-guide
         links:
           - text: VM deployment guide
-            url: ../virtual-machines/workloads/sap/deployment-guide.md
+            url: ./workloads/deployment-guide.md
           - text: DBMS deployment guide
-            url: ../virtual-machines/workloads/sap/dbms-guide-general.md
+            url: ./workloads/dbms-guide-general.md
 
   - title: About Azure Center for SAP solutions
     linkLists:
@@ -77,52 +77,52 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Monitor for SAP
-            url: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md
+            url: ./monitor/about-azure-monitor-sap-solutions.md
           - text: Frequently asked questions
-            url: ../virtual-machines/workloads/sap/azure-monitor-faq.yml
+            url: ./monitor/faq.yml
       - linkListType: concept
         links:
           - text: Provider in Monitor for SAP solutions
-            url: ../virtual-machines/workloads/sap/azure-monitor-providers.md
+            url: ./monitor/providers.md
       - linkListType: how-to-guide
         links:
           - text: Get started with Monitor for SAP solutions - Azure Portal
-            url: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md
+            url: ./monitor/quickstart-portal.md
           - text: Get started with Monitor for SAP solutions - PowerShell
-            url: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart-powershell.md
+            url: ./monitor/quickstart-powershell.md
 
   - title: Deployment automation framework for SAP
     linkLists:
       - linkListType: overview
         links:
           - text: About deployment automation framework
-            url: ../virtual-machines/workloads/sap/automation-deployment-framework.md
+            url: ./automation/deployment-framework.md
           - text: Frequently asked questions
-            url: ../virtual-machines/workloads/sap/automation-faq.yml
+            url: ./automation/faq.yml
       - linkListType: concept
         links:
           - text: Supported platform and features
-            url: ../virtual-machines/workloads/sap/automation-supportability.md
+            url: ./automation/supportability.md
           - text: Get started with the automation framework
-            url: ../virtual-machines/workloads/sap/automation-get-started.md
+            url: ./automation/get-started.md
 
   - title: SAP on Azure Large Instances
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Large Instances for SAP
-            url: ../virtual-machines/workloads/sap/hana-overview-architecture.md
+            url: ./large-instances/hana-overview-architecture.md
           - text: Certifications
-            url: ../virtual-machines/workloads/sap/hana-certification.md 
+            url: ./large-instances/hana-certification.md 
           - text: Supported Scenarios
-            url: ../virtual-machines/workloads/sap/hana-supported-scenario.md      
+            url: ./large-instances/hana-supported-scenario.md      
           - text: Available SKUs of Azure Large Instances
-            url: ../virtual-machines/workloads/sap/hana-available-skus.md 
+            url: ./large-instances/hana-available-skus.md 
       - linkListType: concept
         links:
           - text: Architecture
-            url: ../virtual-machines/workloads/sap/hana-architecture.md 
+            url: ./large-instances/hana-architecture.md 
       - linkListType: how-to-guide
         links:
           - text: VM deployment guide
-            url: ../virtual-machines/workloads/sap/hana-example-installation.md  
+            url: ./large-instances/hana-example-installation.md  
