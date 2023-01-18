@@ -33,10 +33,12 @@ The following illustration shows an example of an Azure Spring Apps virtual netw
 
 :::image type="content" source="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" lightbox="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" alt-text="Architecture diagram that shows user-defined routing.":::
 
-* Public ingress traffic must flow firewall filters.
+This diagram illustrates the following features of the architecture:
+
+* Public ingress traffic must flow through firewall filters.
 * Each Azure Spring Apps instance is isolated within a dedicated subnet.
 * The firewall is owned and managed by customers. 
-* Ensure the firewall builds a healthy environment for all functions you need.
+* This structure ensures that the firewall enables a healthy environment for all the functions you need.
 
 ### Define environment variables
 
