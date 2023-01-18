@@ -53,6 +53,7 @@ The API for MongoDB implements the wire protocol for MongoDB. This implementatio
 
 The API for MongoDB is compatible with the following MongoDB server versions:
 
+- [Version 5.0 (limited preview)](../access-previews.md)
 - [Version 4.2](feature-support-42.md)
 - [Version 4.0](feature-support-40.md)
 - [Version 3.6](feature-support-36.md)
