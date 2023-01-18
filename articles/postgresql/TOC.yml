@@ -617,12 +617,12 @@
     - name: Enable Authentication
       items:
       - name: Configure Azure AD integration
-          href: flexible-server/how-to-configure-sign-in-azure-ad-authentication.md
-          displayName: application development, azure ad, active directory
-        - name: Connect with Managed Identity
-          href: flexible-server/how-to-connect-with-managed-identity.md
-        - name: Manage Azure AD users
-          href: flexible-server/how-to-manage-azure-ad-users.md
+        href: flexible-server/how-to-configure-sign-in-azure-ad-authentication.md
+        displayName: application development, azure ad, active directory
+      - name: Connect with Managed Identity
+        href: flexible-server/how-to-connect-with-managed-identity.md
+      - name: Manage Azure AD users
+        href: flexible-server/how-to-manage-azure-ad-users.md
     - name: Scale a server
       items:
       - name: Azure portal
