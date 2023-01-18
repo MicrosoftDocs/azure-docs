@@ -12,13 +12,13 @@ ms.collection:
 
 # Monitor Zero Trust (TIC 3.0) security architectures with Microsoft Sentinel
 
-[Zero Trust](/security/zero-trust/zero-trust-overview) is a security strategy for designing and implementing security principles that asumes breach, and verifies each request as though it originated fron an uncontrolled network. A Zero Trust model implements the following security principles:
+[Zero Trust](/security/zero-trust/zero-trust-overview) is a security strategy for designing and implementing security principles that assumes breach, and verifies each request as though it originated from an uncontrolled network. A Zero Trust model implements the following security principles:
 
 - **Verify explicitly**: Always authenticate and authorize based on all available data points.
 - **Use least privilege access**: Limit user access with Just-In-Time and Just-Enough-Access (JIT/JEA), risk-based adaptive policies, and data protection.
 - **Assume breach**: Minimize blast radius and segment access. Verify end-to-end encryption and use analytics to get visibility, drive threat detection, and improve defenses.
 
-This article describes how to use the Microsoft Sentinel **Zero Trust (TIC 3.0)** solution, which helps governenance and compliance teams monitor and respond to Zero Trust requirements according to the [TRUSTED INTERNET CONNECTIONS (TIC) 3.0](https://www.cisa.gov/tic) initiative. 
+This article describes how to use the Microsoft Sentinel **Zero Trust (TIC 3.0)** solution, which helps governance and compliance teams monitor and respond to Zero Trust requirements according to the [TRUSTED INTERNET CONNECTIONS (TIC) 3.0](https://www.cisa.gov/tic) initiative. 
 
 [Microsoft Sentinel solutions](sentinel-solutions.md) are sets of bundled content, pre-configured for a specific set of data. The **Zero Trust (TIC 3.0)** solution includes a workbook, analytics rules, and a playbook, which provide an automated visualization of Zero Trust principles, cross-walked to the Trust Internet Connections framework, helping organizations to monitor configurations over time.
 
@@ -54,7 +54,7 @@ Before installing the **Zero Trust (TIC 3.0)** solution, make sure you have the 
 
 - **Required user permissions**. To install the **Zero Trust (TIC 3.0)** solution, you must have access to your Microsoft Sentinel workspace with [Security Reader](../active-directory/roles/permissions-reference.md#security-reader) permissions.
 
-The **Zero Trust (TIC 3.0)** solution is also is enhanced by integrations with other Microsoft Services, such as:
+The **Zero Trust (TIC 3.0)** solution is also enhanced by integrations with other Microsoft Services, such as:
 
 - [Microsoft 365 Defender](https://www.microsoft.com/microsoft-365/security/microsoft-365-defender)
 - [Microsoft Information Protection](https://azure.microsoft.com/services/information-protection/)
