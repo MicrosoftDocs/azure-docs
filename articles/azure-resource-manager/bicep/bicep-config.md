@@ -2,7 +2,7 @@
 title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
-ms.date: 01/17/2023
+ms.date: 01/18/2023
 ---
 
 # Configure your Bicep environment
@@ -25,7 +25,7 @@ The Bicep extension for Visual Studio Code supports intellisense for your `bicep
 
 ## Configure Bicep modules
 
-When working with [modules](modules.md), you can add aliases for module paths. These aliases simplify your Bicep file because you don't have to repeat complicated paths. You can also configure cloud profile and  credential precedence for authenticating to Azure from Bicep CLI and Visual Studio Code. The credentials are used to publish modules to registries and to restore external modules to the local cache when using the insert resource function.For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
+When working with [modules](modules.md), you can add aliases for module paths. These aliases simplify your Bicep file because you don't have to repeat complicated paths. You can also configure cloud profile and  credential precedence for authenticating to Azure from Bicep CLI and Visual Studio Code. The credentials are used to publish modules to registries and to restore external modules to the local cache when using the insert resource function. For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
 
 ## Configure Linter rules
 
@@ -33,7 +33,7 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 ## Enable experimental features
 
-The following sample enables the [user-defined types in Bicep](https://aka.ms/bicepCustomTypes). 
+The following sample enables the [user-defined types in Bicep](https://aka.ms/bicepCustomTypes).
 
 ```json
 {
