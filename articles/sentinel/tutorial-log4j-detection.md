@@ -32,9 +32,23 @@ To complete this tutorial, make sure you have:
 
 - An Azure user with the [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role assigned on the Log Analytics workspace where Microsoft Sentinel is deployed. 
 
-- XYZ data connectors connected (and being used)
+- The following data sources are referenced in this rule. The more of these you have deployed connectors for, the more effective the rule will be. You must have at least one.
 
-    When using analytics rules to detect threats from Microsoft Sentinel, make sure that you enable all rules associated with your connected data sources in order to ensure full security coverage for your environment. The most efficient way to enable analytics rules is directly from the data connector page, which lists any related rules. For more information, see [Connect data sources](connect-data-sources.md).
+    | Data source | Log Analytics tables referenced |
+    | ---- | ---- |
+    | **Office 365** | OfficeActivity (SharePoint)<br>OfficeActivity (Exchange)<br>OfficeActivity (Teams) |
+    | **DNS** | DnsEvents |
+    | **Azure Monitor** (VM Insights) | VMConnection |
+    | **Cisco ASA** | CommonSecurityLog (Cisco) |
+    | **Palo Alto Networks (Firewall)** | CommonSecurityLog (PaloAlto) |
+    | **Security Events** | SecurityEvents |
+    | **Azure Active Directory** | SigninLogs<br>AADNonInteractiveUserSignInLogs |
+    | **Azure Monitor (WireData)** | WireData |
+    | **Azure Monitor (IIS)** | W3CIISLog |
+    | **Azure Activity** | AzureActivity |
+    | **Amazon Web Services** | AWSCloudTrail |
+    | **Microsoft 365 Defender** | DeviceNetworkEvents |
+    | **Azure Firewall** | AzureDiagnostics (Azure Firewall) |
 
 ## Sign in to the Azure portal and Microsoft Sentinel
 
@@ -46,7 +60,7 @@ To complete this tutorial, make sure you have:
 
 1. On the **Microsoft Sentinel | Overview** page, select **Analytics** from the navigation menu, under **Configuration**.
 
-## Create a Scheduled analytics rule from a template
+## Create a scheduled analytics rule from a template
 
 1. From the **Analytics** page, select the **Rule templates** tab.
 
@@ -68,7 +82,9 @@ To complete this tutorial, make sure you have:
 
 ## Review rule query logic and configuration of settings
 
-In the **Set rule logic** tab, review the query as it appears under the **Rule query** heading. To see more of the query text at one time, select the diagonal double-arrow icon at the upper right corner of the query window to expand the window to a larger size.
+- In the **Set rule logic** tab, review the query as it appears under the **Rule query** heading. 
+
+    To see more of the query text at one time, select the diagonal double-arrow icon at the upper right corner of the query window to expand the window to a larger size.
 
    :::image type="content" source="media/tutorial-log4j-detection/set-rule-logic-tab.png" alt-text="Screenshot of the Set rule logic tab of the Analytics rule wizard." lightbox="media/tutorial-log4j-detection/set-rule-logic-tab.png":::
 
@@ -182,7 +198,7 @@ If you're not going to continue to use this analytics rule, delete (or at least 
 
 Now that you've learned how to search for exploits of a common vulnerability using analytics rules, learn more about what you can do with analytics in Microsoft Sentinel:
 
-- Learn about the full range of settings and configurations in [Scheduled analytics rules](detect-threats-custom.md).
+- Learn about the full range of settings and configurations in [scheduled analytics rules](detect-threats-custom.md).
 - In particular, learn more about the different types of alert enrichment you saw here:
     - [Entity mapping](map-data-fields-to-entities.md)
     - [Custom details](surface-custom-details-in-alerts.md)
