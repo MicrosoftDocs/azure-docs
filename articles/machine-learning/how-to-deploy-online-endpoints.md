@@ -806,10 +806,10 @@ One way to create a managed online endpoint in the studio is from the **Models**
 
 1. Enter an __Endpoint name__.
 
-> [!NOTE]
-> * Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
-> * Authentication type: The authentication method for the endpoint. Choose between key-based authentication and AzureML token-based authentication. A `key` doesn't expire, but an AzureML token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
-> * Optionally, you can add a description and tags to your endpoint.
+    > [!NOTE]
+    > * Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+    > * Authentication type: The authentication method for the endpoint. Choose between key-based authentication and AzureML token-based authentication. A `key` doesn't expire, but an AzureML token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+    > * Optionally, you can add a description and tags to your endpoint.
 
 1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
 1. Select __Next__, until you get to the "Deployment" page. Here, check the box to __Enable Application Insights diagnostics and data collection__.
@@ -827,7 +827,7 @@ Alternatively, you can create a managed online endpoint from the **Endpoints** p
 1. In the left navigation bar, select the **Endpoints** page.
 1. Select **+ Create**.
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
+    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
 
 This opens up a window for you to specify details about your endpoint and deployment. Enter settings for your endpoint and deployment as described above, accepting defaults until you're prompted to __Create__  the deployment.
 
