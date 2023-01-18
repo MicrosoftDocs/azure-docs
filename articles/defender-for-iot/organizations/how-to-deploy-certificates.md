@@ -52,7 +52,7 @@ Create self-signed SSL/TLS certificates by first downloading a security certific
 
 1. Select the :::image type="icon" source="media/how-to-deploy-certificates/warning-icon.png" border="false"::: **Not secure** alert in the address bar of your web browser, then select the **>** icon next to the warning message **"Your connection to this site isn't secure"**. For example:
 
-    :::image type="content" source="media/how-to-deploy-certificates/connection-is-not-secure.png" alt-text="Screenshot of web page with a Not secure warning in the address bar." lightbox="media/how-to-activate-and-set-up-your-sensor/connection-is-not-secure.png":::
+    :::image type="content" source="media/how-to-deploy-certificates/connection-is-not-secure.png" alt-text="Screenshot of web page with a Not secure warning in the address bar." lightbox="media/how-to-deploy-certificates/connection-is-not-secure.png":::
 
 1. Select the :::image type="icon" source="media/how-to-deploy-certificates/show-certificate-icon.png" border="false"::: **Show certificate** icon to view the security certificate for this website.
 
@@ -139,7 +139,7 @@ After creating your certificate, import it to a trusted storage location. For ex
 
 1. Select **Place all certificates in the following store**, then **Browse**, and then select the **Trusted Root Certification Authorities** store. When you're done, select **Next**. For example:
 
-    :::image type="content" source="media/how-to-deploy-certificates/certificate-store-trusted-root.png" alt-text="Screenshot of the certificate store screen where you can browse to the trusted root folder." lightbox="media/how-to-activate-and-set-up-your-sensor/certificate-store-trusted-root.png":::
+    :::image type="content" source="media/how-to-deploy-certificates/certificate-store-trusted-root.png" alt-text="Screenshot of the certificate store screen where you can browse to the trusted root folder." lightbox="media/how-to-deploy-certificates/certificate-store-trusted-root.png":::
 
 1. Select **Finish** to complete the import.
 
@@ -204,7 +204,7 @@ If these tests fail, review [certificate file parameter requirements](#verify-ce
 
 1. Select the error message to expand it, and then copy the string next to **Subject**. For example:
 
-    :::image type="content" source="media/how-to-deploy-certificates/connection-is-not-private-subject.png" alt-text="Screenshot of the connection isn't private screen with the details expanded." lightbox="media/how-to-activate-and-set-up-your-sensor/connection-is-not-private-subject.png":::
+    :::image type="content" source="media/how-to-deploy-certificates/connection-is-not-private-subject.png" alt-text="Screenshot of the connection isn't private screen with the details expanded." lightbox="media/how-to-deploy-certificates/connection-is-not-private-subject.png":::
 
     The subject string should match the **CN** string in the security certificate's details.
 
@@ -212,7 +212,7 @@ If these tests fail, review [certificate file parameter requirements](#verify-ce
 
 1. In the hosts file, add in a line at the end of document with the sensor's IP address and the SSL certificate's common name that you copied in the previous steps. When you're done, save the changes. For example:
 
-    :::image type="content" source="media/how-to-deploy-certificates/hosts-file.png" alt-text="Screenshot of the hosts file." lightbox="media/how-to-activate-and-set-up-your-sensor/hosts-file.png":::
+    :::image type="content" source="media/how-to-deploy-certificates/hosts-file.png" alt-text="Screenshot of the hosts file." lightbox="media/how-to-deploy-certificates/hosts-file.png":::
 
 ## Deploy an SSL/TLS certificate
 
