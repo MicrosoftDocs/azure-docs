@@ -207,7 +207,7 @@ Begin by adding an API route.
 
 :::image type="content" source="media/deploy-nextjs/nextjs-api-route-display.png" alt-text="Display the output from the API route":::
 
-## Troubleshooting Next.js server 500 errors
+## Enable logging for Next.js
 
 Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom start up script. To learn more:
 
