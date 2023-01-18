@@ -120,7 +120,7 @@ In this section, you create two Azure VPN Gateway local network gateways. The co
    
 > [!IMPORTANT] 
 > 
-> Please be aware that when configuring a BGP Over IPsec connection to a Public IP that is NOT a vWAN Gateway Public IP address with the remote ASN '65515', the Local Network Gateway deployment will fail as the ASN '65515' is a documented reserved ASN as depicted in [What Autonomous Systems Can I use](../vpn-gateway/vpn-gateway-vpn-faq.md#bgp-and-routing). However, when the Local Network Gateway reads the vWAN Public address with the remote ASN '65515', this restriction is lifted by the platform.
+> Please be aware that when configuring a BGP Over IPsec connection to a Public IP that is NOT a vWAN Gateway Public IP address with the remote ASN '65515', the Local Network Gateway deployment will fail as the ASN '65515' is a documented reserved ASN as depicted in [What Autonomous Systems Can I use](../vpn-gateway/vpn-gateway-vpn-faq.md#bgp). However, when the Local Network Gateway reads the vWAN Public address with the remote ASN '65515', this restriction is lifted by the platform.
 > 
    
 
