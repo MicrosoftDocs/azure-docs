@@ -256,7 +256,7 @@ Disable app prompt and select an account from the list of matching SSO accounts 
 
 ##### Apps that use a Microsoft identity platform library:
 
-Following settings are not recommended if [App protection policies](https://learn.microsoft.com/en-us/mem/intune/apps/app-protection-policy) are in use. 
+Following settings are not recommended if [App protection policies](/mem/intune/apps/app-protection-policy) are in use. 
 
 Disable the app prompt and display the account picker:
 
@@ -295,7 +295,7 @@ Use the following configuration to enable Just in Time Registration for iOS/iPad
 Learn more about Just in Time Registration [here](https://techcommunity.microsoft.com/t5/intune-customer-success/just-in-time-registration-for-ios-ipados-with-microsoft-intune/ba-p/3660843). 
 
 #### Conditional access policies and password changes
-Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [AzureAD conditional access policies](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to achieve compatibility. 
+Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [AzureAD conditional access policies](/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to achieve compatibility. 
 
 Compatible events and policies are documented below. 
 
@@ -303,10 +303,10 @@ Compatible events and policies are documented below.
 When a user resets their password, all tokens that were issued before that will be revoked. If a user is trying to access a resource after a password reset event, user would normally need to sign in again in each of the apps. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to sign in the first application that participates in SSO. Microsoft Enteprise SSO plug-in will show its own user interface on top of the application that is currently active. 
 
 ##### Azure AD Multi-Factor Authentication
-[Multi-factor authentication](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks) is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or a fingerprint scan. Multi-factor authentication can be enabled for specific resources. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to perform multi-factor authentication in the first application that requires it. Microsoft Enteprise SSO plug-in will show its own user interface on top of the application that is currently active. 
+[Multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or a fingerprint scan. Multi-factor authentication can be enabled for specific resources. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to perform multi-factor authentication in the first application that requires it. Microsoft Enteprise SSO plug-in will show its own user interface on top of the application that is currently active. 
 
 ##### User sign-in frequency
-[Sign-in frequency](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime#user-sign-in-frequency) defines the time period before a user is asked to sign in again when attempting to access a resource. If a user is trying to access a resource after the time period has passed in various apps, user would normally need to sign in again in each of those apps. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to sign in in the first application that participates in SSO. Microsoft Enteprise SSO plug-in will show its own user interface on top of the application that is currently active. 
+[Sign-in frequency](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime#user-sign-in-frequency) defines the time period before a user is asked to sign in again when attempting to access a resource. If a user is trying to access a resource after the time period has passed in various apps, user would normally need to sign in again in each of those apps. When the Microsoft Enterprise SSO plug-in is enabled, user will be asked to sign in in the first application that participates in SSO. Microsoft Enteprise SSO plug-in will show its own user interface on top of the application that is currently active. 
 
 ### Required network configuration
 The Microsoft Enterprise SSO plug-in relies on Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) framework. Apple's enterprise single sign-on framework makes sure that only an approved SSO plug-in can work for each identity provider by utilizing a technology called [associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains). To verify identity of the SSO plug-in, each Apple device will send a network request to an endpoint that is owned by the identity provider and read information about approved SSO plug-ins. In addition to reaching out directly to the identity provider, Apple has also implemented additional caching for this information. 
