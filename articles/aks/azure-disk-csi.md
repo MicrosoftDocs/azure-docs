@@ -1,9 +1,8 @@
 ---
 title: Use Container Storage Interface (CSI) driver for Azure Disks on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Disks in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 12/15/2022
+ms.date: 01/18/2023
 ---
 
 # Use the Azure Disks Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -33,6 +32,9 @@ In addition to in-tree driver features, Azure Disks CSI driver supports the foll
 - [Volume clone](#clone-volumes)
 - [Resize disk PV without downtime(Preview)](#resize-a-persistent-volume-without-downtime-preview)
 
+> [!NOTE]
+> Depending on the VM SKU that's being used, the Azure Disks CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
+
 ## Storage class driver dynamic disks parameters
 
 |Name | Meaning | Available Value | Mandatory | Default value
@@ -58,7 +60,7 @@ In addition to in-tree driver features, Azure Disks CSI driver supports the foll
 
 ## Use CSI persistent volumes with Azure Disks
 
-A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to dynamically create PVs with Azure disk for use by a single pod in an AKS cluster. For static provisioning, see [Create a static volume with Azure Disks](azure-disk-volume.md).
+A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to dynamically create PVs with Azure disk for use by a single pod in an AKS cluster. For static provisioning, see [Create a static volume with Azure Disks](azure-csi-disk-storage-provision.md#statically-provision-a-volume).
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 

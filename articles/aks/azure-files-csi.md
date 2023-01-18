@@ -1,9 +1,8 @@
 ---
 title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 12/15/2022
+ms.date: 01/18/2023
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
