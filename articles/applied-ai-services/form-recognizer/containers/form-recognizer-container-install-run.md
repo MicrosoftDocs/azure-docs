@@ -546,7 +546,7 @@ $docker-compose up
 
 ## The Sample Labeling tool and Azure Container Instances (ACI)
 
-To learn how to use the Sample Labeling tool with an Azure Container Instance, *see*. [Deploy the Sample Labeling tool](../deploy-label-tool.md#deploy-with-azure-container-instances-aci).
+To learn how to use the Sample Labeling tool with an Azure Container Instance, *see*, [Deploy the Sample Labeling tool](../deploy-label-tool.md#deploy-with-azure-container-instances-aci).
 
 ## Validate that the service is running
 
