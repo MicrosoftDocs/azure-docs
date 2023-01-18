@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial 
-ms.date: 01/09/2023
+ms.date: 01/17/2023
 ms.custom: template-tutorial 
 ---
 
