@@ -88,6 +88,8 @@ Before following the steps in this article, make sure you have the following pre
 
 # [Azure CLI](#tab/azure-cli)
 
+### Set environment variables
+
 If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
 
    ```azurecli
@@ -194,6 +196,8 @@ If you cloned the sample repo, you already have copies of the files for this exa
 1. Locate the folder `/cli/endpoints/online/model-1/model` and the file `/cli/endpoints/online/model-1/onlinescoring/score.py`.
 
 # [ARM template](#tab/arm)
+
+### Set environment variables
 
 Set the following environment variables, as they are used in the examples in this article. Replace the values with your Azure subscription ID, the Azure region where your workspace is located, the resource group that contains the workspace, and the workspace name:
 
@@ -320,7 +324,7 @@ A deployment is a set of resources required for hosting the model that does the 
 - An environment in which your model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
 - Settings to specify the instance type and scaling capacity.
 
-The following table describes the key attributes of a `deployment`:
+The following table describes the key attributes of a deployment:
 
 | Attribute      | Description                                                                                                                                                                                                                                                                                                                                                                                    |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -403,7 +407,7 @@ To define the endpoint and deployment, this article uses the Azure Resource Mana
 
 In this example, we specify the `path` (where to upload files from) inline. The CLI automatically uploads the files and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the YAML. Use the form `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
 
-For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
+For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`. For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
 
 # [Python](#tab/python)
 
@@ -411,8 +415,7 @@ In this example, we specify the `path` (where to upload files from) inline. The 
 
 For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk)
 
-For more information on creating an environment, see 
-[Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment)
+For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment)
 
 # [Studio](#tab/azure-studio)
 
@@ -437,6 +440,8 @@ To register the example model, follow these steps:
 
 For more information on working with registered models, see [Register and work with models](how-to-manage-models.md).
 
+For information on creating an environment in the studio, see [Create an environment](how-to-manage-environments-in-studio.md#create-an-environment).
+
 # [ARM template](#tab/arm)
 
 1. To register the model using a template, you must first upload the model file to an Azure Blob store. The following example uses the `az storage blob upload-batch` command to upload a file to the default storage for your workspace:
@@ -459,16 +464,39 @@ For more information on working with registered models, see [Register and work w
 
 ### Use different CPU and GPU instance types and images
 
-The preceding definition uses a general-purpose type `Standard_DS2_v2` instance (see `instance_type` in the YAML definition) and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest` (see `image` in the YAML definition). For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
+# [Azure CLI](#tab/azure-cli)
+
+The preceding definition in the _blue-deployment.yml_ file uses a general-purpose type `Standard_DS2_v2` instance and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`. For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
 
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
 > [!NOTE]
 > To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md)
 
+# [Python](#tab/python)
+
+The preceding definition of the `blue_deployment` uses a general-purpose type `Standard_DS2_v2` instance and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`. For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
+
+For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
+
+> [!NOTE]
+> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md)
+
+# [Studio](#tab/azure-studio)
+
+When using the studio to deploy to Azure, you'll be prompted to specify the compute properties (instance type and instance count) and environment to use for your deployment.
+
+For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For more information on environments, see [Manage software environments in Azure Machine Learning studio](how-to-manage-environments-in-studio.md).
+
+# [ARM template](#tab/arm)
+
+Add info here.
+
 ### Use more than one model in a deployment
 
-Currently, you can specify only one model per deployment in the deployment definition (either with YAML definition with CLI, or any other client tools). If you have more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment (CLI example)](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel), [Deploy multiple models to one deployment (SDK example)](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container-multimodel.ipynb).
+Currently, you can specify only one model per deployment in the deployment definition. This is true for the YAML definition with CLI, Python SDk, or any of the other client tools.
+
+To use more than one model in a deployment, register a model folder that contains all the models as files or subdirectories. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure will be retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment (CLI example)](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel) and [Deploy multiple models to one deployment (SDK example)](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container-multimodel.ipynb).
 
 ## Understand the scoring script
 
@@ -476,7 +504,7 @@ Currently, you can specify only one model per deployment in the deployment defin
 > The format of the scoring script for online endpoints is the same format that's used in the preceding version of the CLI and in the Python SDK.
 
 # [Azure CLI](#tab/azure-cli)
-As noted earlier, the script specified in `code_configuration.scoring_script` must have an `init()` function and a `run()` function.
+As noted earlier, the scoring script specified in `code_configuration.scoring_script` must have an `init()` function and a `run()` function.
 
 # [Python](#tab/python)
 The scoring script must have an `init()` function and a `run()` function.
@@ -504,7 +532,7 @@ This example uses the [score.py file](https://github.com/Azure/azureml-examples/
 __score.py__
 :::code language="python" source="~/azureml-examples-main/cli/endpoints/online/model-1/onlinescoring/score.py" :::
 
-The `init()` function is called when the container is initialized or started. Initialization typically occurs shortly after the deployment is created or updated. Write logic here for global initialization operations like caching the model in memory (as we do in this example). The `run()` function is called for every invocation of the endpoint and should do the actual scoring and prediction. In the example, we extract the data from the JSON input, call the scikit-learn model's `predict()` method, and then return the result.
+The `init()` function is called when the container is initialized or started. Initialization typically occurs shortly after the deployment is created or updated. Write logic here for global initialization operations like caching the model in memory (as we do in this example). The `run()` function is called for every invocation of the endpoint, and it does the actual scoring and prediction. In this example, we'll extract data from a JSON input, call the scikit-learn model's `predict()` method, and then return the result.
 
 ## Deploy and debug locally by using local endpoints
 
