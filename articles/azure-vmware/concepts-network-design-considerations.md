@@ -6,17 +6,21 @@ ms.service: azure-vmware
 ms.date: 1/10/2023
 ---
 
-# Azure VMware Solution network design considerations
+# Network design considerations for Azure VMware Solution
 
-Azure VMware Solution offers a VMware private cloud environment accessible for users and applications from on-premises and Azure-based environments or resources. The connectivity is delivered through networking services such as Azure ExpressRoute and VPN connections. There are several networking considerations to review before setting up your Azure VMware Solution environment. This article provides solutions for use cases you may encounter when configuring your networking with Azure VMware Solution.
+Azure VMware Solution offers a VMware private cloud environment that users and applications can access from on-premises and Azure-based environments or resources. The connectivity is delivered through networking services such as Azure ExpressRoute and VPN connections. 
+
+There are several networking considerations to review before you set up your Azure VMware Solution environment. This article provides solutions for use cases that you might encounter when configuring your networking with Azure VMware Solution.
 
 ## Azure VMware Solution compatibility with AS-Path Prepend
 
-Azure VMware Solution is compatible with AS-Path Prepend for redundant ExpressRoute configurations with the caveat of not honoring the outbound path selection from Azure towards on-premises. If you're running two or more ExpressRoute paths between on-premises and Azure, and the listed [Prerequisites](#prerequisites) are not met, you may experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution. The connectivity issue is caused when Azure VMware Solution doesn't see the AS-Path Prepend and uses equal cost multi-pathing (ECMP) to send traffic towards your environment over both ExpressRoute circuits. That action causes issues with stateful firewall inspection.
+Azure VMware Solution is compatible with AS-Path Prepend for redundant ExpressRoute configurations, with the caveat of not honoring the outbound path selection from Azure toward on-premises. If you're running two or more ExpressRoute paths between on-premises and Azure, and you don't meet the listed [prerequisites](#prerequisites), you might experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution. 
+
+The connectivity problem happens when Azure VMware Solution doesn't notice AS-Path Prepend and uses equal-cost multipath (ECMP) routing to send traffic toward your environment over both ExpressRoute circuits. That action causes problems with stateful firewall inspection.
 
 ### Prerequisites
 
-For AS-Path Prepend, you'll need to verify that all of the following listed connections are true:
+For AS-Path Prepend, verify that all of the following listed connections are true:
 
 > [!div class="checklist"]
 > * Both or all circuits are connected to Azure VMware Solution with ExpressRoute Global Reach.
@@ -24,24 +28,22 @@ For AS-Path Prepend, you'll need to verify that all of the following listed conn
 > * Stateful firewalls are in the network path.
 > * You're using AS-Path Prepend to force Azure to prefer one path over others.
 
-Either 2 or 4 byte Public ASN numbers should be used and be compatible with Azure VMware Solution. If you don't own a Public ASN to use for prepending, open a [Microsoft Customer Support Ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to view options.
+Use either 2-byte or 4-byte public ASN numbers, and make sure that they're compatible with Azure VMware Solution. If you don't own a public ASN to use for prepending, open a [Microsoft support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to view options.
 
-## Management VMs and default routes from on-premises
+## Provide routes for on-premises networks
 
 > [!IMPORTANT]
-> Azure VMware Solution Management VMs will not honor a default route from on-premises.
+> Azure VMware Solution management virtual machines (VMs) won't honor a default route from on-premises.
 
-If you're routing back to your on-premises networks using only a default route advertised towards Azure, the vCenter Server and NSX-T Manager VMs won't be compatible with that route.
+If you're routing back to your on-premises networks by using only a default route advertised toward Azure, vCenter Server and NSX-T Manager VMs won't be compatible with that route.
 
-**Solution**
-
-To reach vCenter Server and NSX-T Manager, more specific routes from on-premises need to be provided to allow traffic to have a return path route to those networks.
+To reach vCenter Server and NSX-T Manager, provide specific routes from on-premises to allow traffic to have a return path to those networks.
 
 ## Use a default route to Azure VMware Solution for internet traffic inspection
 
-Certain deployments require inspecting all egress traffic from Azure VMware Solution towards the Internet. While it's possible to create Network Virtual Appliances (NVAs) in Azure VMware Solution, there are use cases when these appliances already exist in Azure that can be applied to inspect Internet traffic from Azure VMware Solution. In this case, a default route can be injected from the NVA in Azure to attract traffic from Azure VMware Solution and inspect it before sending it out to the public Internet.
+Certain deployments require inspecting all egress traffic from Azure VMware Solution toward the nternet. Although it's possible to create network virtual appliances (NVAs) in Azure VMware Solution, there are use cases where these appliances already exist in Azure that can be applied to inspect Internet traffic from Azure VMware Solution. In this case, a default route can be injected from the NVA in Azure to attract traffic from Azure VMware Solution and inspect it before sending it out to the public Internet.
 
-The following diagram describes a basic hub and spoke topology connected to an Azure VMware Solution cloud and to an on-premises network through ExpressRoute. The diagram shows how the default route (`0.0.0.0/0`) is originated by the NVA in Azure, and propagated by Azure Route Server to Azure VMware Solution through ExpressRoute.
+The following diagram describes a basic hub-and-spoke topology connected to an Azure VMware Solution cloud and to an on-premises network through ExpressRoute. The diagram shows how the default route (`0.0.0.0/0`) is originated by the NVA in Azure, and propagated by Azure Route Server to Azure VMware Solution through ExpressRoute.
 
 :::image type="content" source="media/concepts-network-design/vmware-solution-default.png" alt-text="Diagram of Azure VMware Solution with Route Server and default route." lightbox="media/concepts-network-design/vmware-solution-default.png":::
 
@@ -54,33 +56,33 @@ Communication between Azure VMware Solution and the on-premises network usually 
 
 There are two main scenarios for this connectivity pattern:
 
-- Organizations may have the requirement to send traffic between Azure VMware Solution and the on-premises network through an NVA (typically a firewall).
+- Organizations might have the requirement to send traffic between Azure VMware Solution and the on-premises network through an NVA (typically a firewall).
 - ExpressRoute Global Reach might not be available in a particular region to interconnect the ExpressRoute circuits of Azure VMware Solution and the on-premises network.
 
-There are two topologies you can apply to meet all requirements for these two scenarios. The first is a [Supernet topology](#supernet-design-topology) and the second is a [Transit spoke virtual network topology](#transit-spoke-virtual-network-topology).
+There are two topologies you can apply to meet all requirements for these two scenarios. The first is a [supernet topology](#supernet-design-topology) and the second is a [transit spoke virtual network topology](#transit-spoke-virtual-network-topology).
 
 > [!IMPORTANT]
 > The preferred option to connect Azure VMware Solution and on-premises environments is a direct ExpressRoute Global Reach connection. The patterns described in this document add considerable complexity to the environment.
 
 ### Supernet design topology
 
-If both ExpressRoute circuits (to Azure VMware Solution and to on-premises) are terminated in the same ExpressRoute gateway, you can assume that the gateway is going to route packets across them. However, an ExpressRoute gateway isn't designed to do that. You need to hairpin the traffic to an NVA that can route the traffic. There are two requirements to hairpin network traffic to an NVA:
+If both ExpressRoute circuits (to Azure VMware Solution and to on-premises) are terminated in the same ExpressRoute gateway, you can assume that the gateway is going to route packets across them. However, an ExpressRoute gateway isn't designed to do that. You need to hairpin the traffic to an NVA that can route the traffic. 
+
+There are two requirements to hairpin network traffic to an NVA:
 
 - The NVA should advertise a supernet for the Azure VMware Solution and on-premises prefixes.
 
     You could use a supernet that includes both Azure VMware Solution and on-premises prefixes, or individual prefixes for Azure VMware Solution and on-premises (always less specific that the actual prefixes advertised over ExpressRoute). Keep in mind that all supernet prefixes advertised to Route Server are going to be propagated both to Azure VMware Solution and on-premises.
-- UDRs in the GatewaySubnet that exactly match the prefixes advertised from Azure VMware Solution and on-premises will cause hairpin traffic from the GatewaySubnet to the NVA.
+- UDRs in the gateway subnet that exactly match the prefixes advertised from Azure VMware Solution and on-premises will cause hairpin traffic from the gateway subnet to the NVA.
 
-**This topology results in high management overhead for large networks that change over time. Note that there are specific limitations to be considered.**
+This topology results in high management overhead for large networks that change over time. Consider these limitations:
 
-**Limitations**
-
-- Anytime a workload segment is created in Azure VMware Solution, UDRs may need to be added to ensure traffic from Azure VMware Solution is transiting through the NVA.
-- If your on-premises environment has a large number of routes that change, BGP and UDR configuration in the supernet may need to be updated.
-- Since there's a single ExpressRoute Gateway that processes network traffic in both directions, performance may be limited.
+- Anytime a workload segment is created in Azure VMware Solution, UDRs might need to be added to ensure traffic from Azure VMware Solution is transiting through the NVA.
+- If your on-premises environment has a large number of routes that change, BGP and UDR configuration in the supernet might need to be updated.
+- Since there's a single ExpressRoute Gateway that processes network traffic in both directions, performance might be limited.
 - There's an Azure Virtual Network limit of 400 UDRs.
 
-The following diagram demonstrates how the NVA needs to advertise more generic (less specific) prefixes that include the networks from on-premises and Azure VMware Solution. Be careful with this approach as the NVA could potentially attract traffic that it shouldn't (since it's advertising wider ranges, for example: the whole `10.0.0.0/8` network).
+The following diagram demonstrates how the NVA needs to advertise more generic (less specific) prefixes that include the networks from on-premises and Azure VMware Solution. Be careful with this approach as the NVA could potentially attract traffic that it shouldn't (because it's advertising wider ranges, for example: the whole `10.0.0.0/8` network).
 
 :::image type="content" source="media/concepts-network-design/vmware-solution-to-on-premises-hairpin.png" alt-text="Diagram of Azure VMware Solution to on-premises communication with Route Server in a single region." lightbox="media/concepts-network-design/vmware-solution-to-on-premises-hairpin.png":::
 
@@ -102,12 +104,12 @@ There's an alternative to using an overlay. Apply secondary NICs in the NVA that
 
 **This topology requires a complex initial set-up. Once the set-up is complete, the topology works as expected with minimal management overhead. See the following list of specific set-up complexities.**
 
-- There's an extra cost for an additional transit Virtual Network that includes an Azure Route Server, ExpressRoute Gateway, and another NVA. The NVAs may also need to use large VM sizes to meet throughput requirements.
+- There's an extra cost for an additional transit Virtual Network that includes an Azure Route Server, ExpressRoute Gateway, and another NVA. The NVAs might also need to use large VM sizes to meet throughput requirements.
 - There's IPSec or VxLAN tunneling between the two NVAs required which means that the NVAs are also in the datapath. Depending on the type of NVA you're using, it can result in custom and complex configuration on those NVAs.
 
 ## Next steps
 
-Now that you've covered Azure VMware Solution network design considerations, you may want to learn more about:
+Now that you've covered Azure VMware Solution network design considerations, you might want to learn more about:
 
 - [Network interconnectivity concepts - Azure VMware Solution](concepts-networking.md)
 - [Plan the Azure VMware Solution deployment](plan-private-cloud-deployment.md)
@@ -115,5 +117,5 @@ Now that you've covered Azure VMware Solution network design considerations, you
 
 ## Recommended content
 
-- [Tutorial - Configure networking for your VMware private cloud in Azure - Azure VMware Solution](tutorial-network-checklist.md)
+- [Tutorial: Networking planning checklist for Azure VMware Solution](tutorial-network-checklist.md)
 
