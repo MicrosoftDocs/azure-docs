@@ -202,7 +202,7 @@ Request throttling in a self-hosted gateway can be enabled by using the API Mana
 * Port 4290 (UDP), for the rate limiting synchronization
 * Port 4291 (UDP), for sending heartbeats to other instances
 
-Configure these settings, for example, using the default [Helm chart deployment](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) for Kubernetes or using the Azure portal [deployment templates](../articles/api-management/how-to-deploy-self-hosted-gateway-kubernetes.md).
+Configure these settings, for example, using the default [Helm chart deployment](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) for Kubernetes or using the Azure portal [deployment templates](how-to-deploy-self-hosted-gateway-kubernetes.md).
 
 > [!NOTE]
 > Rate limit counts don't synchronize with other gateways, including the managed gateway in the cloud.
