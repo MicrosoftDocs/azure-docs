@@ -125,7 +125,7 @@ This section contains the following examples:
 
 * [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-c-oop)
 * [HTTP trigger, get multiple rows from route data](#http-trigger-get-multiple-items-from-route-data-c-oop)
-* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-oop)
+* [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-c-oop)
 
 The examples refer to a `ToDoItem` class and a corresponding database table:
 

@@ -178,7 +178,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 :::code language="csharp" source="~/functions-sql-todo-sample/PostToDo.cs" range="4-49":::
 
-<a id="http-trigger-write-to-two-tables-c"></a>
+<a id="http-trigger-write-to-two-tables-c-oop"></a>
 
 ### HTTP trigger, write to two tables
 
@@ -253,7 +253,7 @@ namespace AzureSQL.ToDo
 }
 ```
 
-<a id="http-trigger-write-records-using-iasynccollector-c"></a>
+<a id="http-trigger-write-records-using-iasynccollector-c-oop"></a>
 
 ### HTTP trigger, write records using IAsyncCollector
 
