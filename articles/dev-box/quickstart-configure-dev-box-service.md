@@ -174,7 +174,7 @@ The following steps show you how to create and configure a dev box definition. Y
    |**Compute**|Select the compute combination for your dev box definition.||
    |**Storage**|Select the amount of storage for your dev box definition.||
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/VS+win11-default-image.png" alt-text="Screenshot showing the Create dev box definition page.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/recommended-test-image.png" alt-text="Screenshot showing the Create dev box definition page.":::
 
 1. Select **Create**.
 

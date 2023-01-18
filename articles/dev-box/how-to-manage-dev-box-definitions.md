@@ -74,7 +74,7 @@ If you don't have an available dev center, follow the steps in [Quickstart: Conf
    |**Compute**|Select the compute combination for your dev box definition.|
    |**Storage**|Select the amount of storage for your dev box definition.|
 
-   :::image type="content" source="./media/how-to-manage-dev-box-definitions/VS+win11-default-image.png" alt-text="Screenshot showing the Create dev box definition page.":::
+   :::image type="content" source="./media/how-to-manage-dev-box-definitions/recommended-test-image.png" alt-text="Screenshot showing the Create dev box definition page.":::
 
 1. To create the dev box definition, select **Create**.
 
