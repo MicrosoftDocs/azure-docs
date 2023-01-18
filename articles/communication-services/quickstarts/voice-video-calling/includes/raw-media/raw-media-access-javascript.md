@@ -18,10 +18,10 @@ As a developer you can access the raw media for incoming and outgoing audio and 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 >[!IMPORTANT]
-> The the quick start examples here are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling Web SDK. Make sure to use that version when trying this quickstart.
+> The quick start examples here are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the calling Web SDK. Make sure to use that version or newer when trying this quickstart.
 
 ## Accessing Raw audio
-Accessing Raw audio media gives access to the incoming call audio stream and the ability to send custom outgoing audio stream during a call.
+Accessing Raw audio media gives access to the incoming call audio stream and the ability to view and send custom outgoing audio stream during a call.
 
 ### Place a call with custom audio stream
 Developers can start a call with a custom audio stream instead of using user's microphone device.
