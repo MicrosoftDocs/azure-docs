@@ -26,7 +26,6 @@ For information on migrating your Security Information and Event Management depl
 |Splunk offering|Azure offering|
 |---|---|
 |Splunk, Splunk Cloud|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multi-cloud, and on-premises environments.|
-|Splunk Observability|[Azure Monitor's Container Insights feature](../containers/container-insights-overview.md) monitors the performance of container workloads deployed to the cloud.|
 |Splunk Enterprise|[Azure Monitor](../overview.md) offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights-and-curated-visualizations), and [alerts and response](../overview.md#respond-to-critical-situations) capabilities.  |
 |Splunk Enterprise Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that provides intelligent security analytics and threat intelligence across the enterprise.|
 ## Introduction to key concepts
@@ -39,7 +38,7 @@ For information on migrating your Security Information and Event Management depl
 |[Archiving and quick access to archived data](../logs/data-retention-archive.md)|Data bucket states (hot, worm, cold, thawed) and archiving |The cost-effective archive option keeps your logs in your Log Analytics workspace and lets you access archived log data immediately, when you need it. Archive configuration changes are effective immediately because data isn't physically transferred to external storage. You can [restore archived data](../logs/restore.md) or run a [search job](../logs/search-jobs.md) to make a specific time range of archived data available for real-time analysis. |
 |[Access control](../logs/manage-access.md)|Role-based user access|Role-based access control lets you define which people in your organization have access to read, write, and perform operations in a Log Analytics workspace. You can configure permissions at the workspace level, at the resource level, and at the table level, so you have granular control over specific resources and log types.|
 |[Data transformations](../essentials/data-collection-transformations.md)|Transforms, field extractions |Transformations let you filter or modify incoming data before it's sent to a Log Analytics workspace. Use transformations to remove sensitive data, enrich data in your Log Analytics workspace, perform calculations, and filter out data you don't need to reduce data costs. |
-|[Data collection rules](../essentials/data-collection-rule-overview.md)|Data inputs|Define which data to collect, how to transform that data, and where to send the data. |
+|[Data collection rules](../essentials/data-collection-rule-overview.md)|Data inputs, data pipeline|Define which data to collect, how to transform that data, and where to send the data. |
 |[Kusto Query Language (KQL)](/azure/kusto/query/)|Splunk Search Processing Language (SPL)|Azure Monitor Logs uses a large subset of KQL that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. Use the [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet) to translate your Splunk SPL knowledge to KQL. You can also [learn KQL with tutorials](../logs/get-started-queries.md) and [KQL training modules](/training/modules/analyze-logs-with-kql/).|
 |[Log Analytics](../logs/log-analytics-tutorial.md)|Splunk Web, Search app, Pivot tool|A tool in the Azure portal for editing and running log queries in Azure Monitor Logs. Log Analytics also provides a rich set of tools for exploring and visualizing data without using KQL.|
 |[Cost optimization](../../azure-monitor/best-practices-cost.md)||Azure Monitor provides [tools and best practices to help you understand, monitor, and optimize your costs](../../azure-monitor/best-practices-cost.md) based on your needs. |
@@ -116,13 +115,13 @@ To collect data from a resource:
 
 This table lists the tools to use to collect data from various resource types.  
 
-| Resource type | Data collection tool | Collected data |
+| Resource type | Data collection tool |Similar Splunk tool| Collected data |
 | --- | --- | --- |
-| **Azure** | [Diagnostic settings](../essentials/diagnostic-settings.md)  | **Azure tenant** - Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
-| **Application** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring data. |
-| **Container** |[Container insights](../containers/container-insights-overview.md)| Container performance data. |
-| **Operating system** | [Azure Monitor Agent](../vm/monitor-virtual-machine-agent.md) | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
-| **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
+| **Azure** | [Diagnostic settings](../essentials/diagnostic-settings.md)  | | **Azure tenant** - Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
+| **Application** | [Application insights](../app/app-insights-overview.md) |Splunk Application Performance Monitoring| Application performance monitoring data. |
+| **Container** |[Container insights](../containers/container-insights-overview.md)|Splunk App for Infrastructure| Container performance data. |
+| **Operating system** | [Azure Monitor Agent](../vm/monitor-virtual-machine-agent.md) |Universal Forwarder, Heavy Forwarder | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
+| **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) |HTTP Event Collector (HEC)| File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
 
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png" alt-text="Diagram that shows various data sources being connected to Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png":::
 ## 5. Test and operationalize your Azure Monitor deployment
