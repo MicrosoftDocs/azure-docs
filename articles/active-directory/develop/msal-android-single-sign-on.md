@@ -205,7 +205,7 @@ Because it's impossible for MSAL to specify the exact browser package to use on 
 
 MSAL primarily retrieves the default browser from the package manager and checks if it is in a tested list of safe browsers. If not, MSAL falls back on using the Webview rather than launching another non-default browser from the safe list. The default browser will be chosen regardless of whether it supports custom tabs. If the browser supports Custom Tabs, MSAL will launch the Custom Tab. Custom Tabs have a look and feel closer to an in-app `WebView` and allow basic UI customization. See [Custom Tabs in Android](https://developer.chrome.com/multidevice/android/customtabs) to learn more.
 
-If there are no browser packages on the device, MSAL uses the in-app `WebView`. If the device default setting isn't changed, the same browser should be launched for each sign in to ensure SSO experience.
+If there are no browser packages on the device, MSAL uses the in-app `WebView`. If the device default setting isn't changed, the same browser should be launched for each sign-in to ensure SSO experience.
 
 #### Tested Browsers
 
