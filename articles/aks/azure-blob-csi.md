@@ -1,9 +1,8 @@
 ---
 title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 01/05/2023
+ms.date: 01/18/2023
 author: mgoedtel
 
 ---

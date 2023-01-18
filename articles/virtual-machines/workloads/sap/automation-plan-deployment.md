@@ -20,7 +20,7 @@ For generic SAP on Azure design considerations, visit [Introduction to an SAP ad
 
 ## Control Plane planning
 
-You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](/azure/virtual-machines/workloads/sap/automation-configure-control-plane.md).
+You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](./automation-configure-control-plane.md).
 
 Before you design your control plane, consider the following questions:
 
@@ -94,11 +94,11 @@ The workload zone provides the following services for the SAP Applications:
 
 Before you design your workload zone layout, consider the following questions:
 
-* How many workload zones does your scenario require?
 * In which regions do you need to deploy workloads?
-* How is DNS handled?
-* What storage type do you need for the shared storage?
-* What's your [deployment scenario](#supported-deployment-scenarios)?
+* How many workload zones does your scenario require (development, quality assurance, production etc)?
+* Are you deploying into new Virtual networks or are you using existing virtual networks 
+* How is DNS configured (integrate with existing DNS or deploy a Private DNS zone in the control plane)?
+* What storage type do you need for the shared storage (Azure Files NFS, Azure NetApp Files)?
 
 For more information, see [how to configure a workload zone deployment for automation](automation-deploy-workload-zone.md).
 
