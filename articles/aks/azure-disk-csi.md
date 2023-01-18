@@ -460,3 +460,4 @@ The output of the command resembles the following example:
 [az-on-demand-bursting]: ../virtual-machines/disk-bursting.md#on-demand-bursting
 [enable-on-demand-bursting]: ../virtual-machines/disks-enable-bursting.md?tabs=azure-cli
 [az-premium-ssd]: ../virtual-machines/disks-types.md#premium-ssds
+[general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md

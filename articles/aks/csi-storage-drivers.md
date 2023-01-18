@@ -65,56 +65,7 @@ az aks update -n myAKSCluster -g myResourceGroup --enable-disk-driver --enable-f
 
 If you've created in-tree driver storage classes, those storage classes continue to work since CSI migration is turned on after upgrading your cluster to 1.21.x. If you want to use CSI features you'll need to perform the migration.
 
-Migrating these storage classes involves deleting the existing ones, and re-creating them with the provisioner set to **disk.csi.azure.com** if using Azure Disks, and **files.csi.azure.com** if using Azure Files.
-
-### Migrate storage class provisioner
-
-The following example YAML manifest shows the difference between the in-tree storage class definition configured to use Azure Disks, and the equivalent using a CSI storage class definition. The CSI storage system supports the same features as the in-tree drivers, so the only change needed would be the value for `provisioner`.
-
-#### Original in-tree storage class definition
-
-```yaml
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: custom-managed-premium
-provisioner: kubernetes.io/azure-disk
-reclaimPolicy: Delete
-parameters:
-  storageAccountType: Premium_LRS
-```
-
-#### CSI storage class definition
-
-```yaml
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: custom-managed-premium
-provisioner: disk.csi.azure.com
-reclaimPolicy: Delete
-parameters:
-  storageAccountType: Premium_LRS
-```
-
-The CSI storage system supports the same features as the in-tree drivers, so the only change needed would be the provisioner.
-
-## Migrate in-tree persistent volumes
-
-> [!IMPORTANT]
-> If your in-tree persistent volume `reclaimPolicy` is set to **Delete**, you need to change its policy to **Retain** to persist your data. This can be achieved using a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
->
-> ```bash
-> kubectl patch pv pv-azuredisk --type merge --patch '{"spec": {"persistentVolumeReclaimPolicy": "Retain"}}'
-> ```
-
-### Migrate in-tree Azure Disks persistent volumes
-
-If you have in-tree Azure Disks persistent volumes, get `diskURI` from in-tree persistent volumes and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes.
-
-### Migrate in-tree Azure File persistent volumes
-
-If you have in-tree Azure File persistent volumes, get `secretName`, `shareName` from in-tree persistent volumes and then follow this [guide][azure-file-static-mount] to set up CSI driver persistent volumes
+To review the migration options for your storage classes and upgrade your cluster to use Azure Disks and Azure Files CSI drivers, see [Migrate from in-tree to CSI drivers][migrate-from-in-tree-csi-drivers].
 
 ## Next steps
 
@@ -136,3 +87,4 @@ If you have in-tree Azure File persistent volumes, get `secretName`, `shareName`
 [azure-blob-csi]: azure-blob-csi.md
 [azure-disk-csi]: azure-disk-csi.md
 [azure-files-csi]: azure-files-csi.md
+[migrate-from-in-tree-csi-drivers]: csi-migrate-in-tree-volumes.md
