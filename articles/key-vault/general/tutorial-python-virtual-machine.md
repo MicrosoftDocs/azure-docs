@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 01/17/2023
 ms.author: mbaldwin
 ms.devlang: python
 ms.custom: mvc, devx-track-python, devx-track-azurecli
@@ -156,7 +156,7 @@ The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 
 ## Clean up resources
 
-When they are no longer needed, delete the virtual machine and your key vault.  You can do this quickly by simply deleting the resource group to which they belong:
+When they're no longer needed, delete the virtual machine and your key vault. You can be done quickly by deleting the resource group to which they belong:
 
 ```azurecli
 az group delete -g myResourceGroup
