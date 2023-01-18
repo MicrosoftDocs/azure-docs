@@ -74,11 +74,9 @@ Each IP address must come from the pool you assigned for static IP address alloc
 
 Only carry out this step if you decided in [Prerequisites](#prerequisites) to use a JSON file to provision your SIMs. Otherwise, you can skip to [Begin provisioning the SIMs in the Azure portal](#begin-provisioning-the-sims-in-the-azure-portal).
 
-Prepare the JSON file using the information you collected for your SIMs in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims). The example file below shows the required format. It contains the parameters required to provision two SIMs (`SIM1` and `SIM2`). 
+Prepare the JSON file using the information you collected for your SIMs in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims). The example file below shows the required format. It contains the parameters required to provision two SIMs (`SIM1` and `SIM2`).
 
-If you don't want to assign an ICCID value to a SIM, you can delete the `integratedCircuitCardIdentifier` parameter for that SIM. Similarly, delete the `simPolicyId` parameter if you don't want to assign a SIM policy to a SIM.
-
-If you don't want to configure static IP addresses for a SIM, delete the `staticIpConfiguration` parameter. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to the same SIM, you can include additional `attachedDataNetworkId`, `sliceId` and `staticIpAddress` parameters for each IP address under `staticIpConfiguration`.
+If you don't want to configure static IP addresses for a SIM, delete the `staticIpConfiguration` parameter for that SIM. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to the same SIM, you can include additional `attachedDataNetworkId`, `sliceId` and `staticIpAddress` parameters for each IP address under `staticIpConfiguration`.
 
 ```json
 [

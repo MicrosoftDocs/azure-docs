@@ -60,9 +60,7 @@ Each IP address must come from the pool you assigned for static IP address alloc
 
 Use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to create a JSON array containing properties for each of the SIMs you want to provision. The following is an example of an array containing properties for two SIMs (`SIM1` and `SIM2`).
 
-If you don't want to assign an ICCID value to a SIM, you can delete the `integratedCircuitCardIdentifier` parameter for that SIM. Similarly, delete the `simPolicyId` parameter if you don't want to assign a SIM policy to a SIM.
-
-If you don't want to configure static IP addresses for a SIM, delete the `staticIpConfiguration` parameter. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to the same SIM, you can include additional `attachedDataNetworkId`, `sliceId` and `staticIpAddress` parameters for each IP address under `staticIpConfiguration`.
+If you don't want to configure static IP addresses for a SIM, delete the `staticIpConfiguration` parameter for that SIM. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to the same SIM, you can include additional `attachedDataNetworkId`, `sliceId` and `staticIpAddress` parameters for each IP address under `staticIpConfiguration`.
 
 ```json
 [
