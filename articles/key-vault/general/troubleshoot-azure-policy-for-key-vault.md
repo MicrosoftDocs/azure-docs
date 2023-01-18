@@ -28,7 +28,7 @@ When you enable logging, a new container called **AzurePolicyEvaluationDetails**
 
 Individual blobs are stored as text, formatted as a JSON blob.
 
-Let's look at an example log entry for a Key policy : [Keys should have expiration date set](azure-policy.md). This policy evaluates all keys in your key vaults and flags keys that do not have an expiration date set as non-compliant.
+Let's look at an example log entry for a Key policy: [Keys should have expiration date set](azure-policy.md). This policy evaluates all keys in your key vaults and flags keys that do not have an expiration date set as non-compliant.
 
 ```json
 {
