@@ -113,7 +113,7 @@ Follow the steps below for requesting AMD collateral in a confidential container
       ```
     The following output example shows the single node created in the previous steps. Make sure the node status is Ready: 
     | NAME | STATUS | ROLES | AGE | VERSION |
-    |-------|------|-----|-----|------|
+    |--|--|--|--|--|
     | aks-nodepool1-31718369-0 | Ready | agent | 6m44s | v1.12.8 |
 
 2. Once the AKS cluster is created, create a curl.yaml file with the following content. It defines a job that runs a curl container to fetch AMD collateral from the THIM endpoint. For more information about Kubernetes Jobs, please see [Kuberenetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/job/). 
