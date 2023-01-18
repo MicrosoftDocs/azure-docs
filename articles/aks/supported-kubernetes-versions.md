@@ -185,6 +185,9 @@ Get-AzAksVersion -Location eastus
 
 ## AKS Kubernetes release calendar
 
+> [!NOTE]
+> AKS follows 12 months of support for a GA Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#faq).
+
 For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
