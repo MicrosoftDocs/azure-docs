@@ -29,7 +29,7 @@ To perform the procedures described in this article, make sure that:
 
     For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-## Create SSL/TLS certificates
+## Create CA-signed SSL/TLS certificates
 
 Use a certificate management platform, such as an automated PKI management platform, to create a certificate. Verify that the certificate meets [certificate file requirements](#verify-certificate-file-parameter-requirements), and then [test the certificate](#test-your-ssltls-certificates) file you created when you're done.
 
