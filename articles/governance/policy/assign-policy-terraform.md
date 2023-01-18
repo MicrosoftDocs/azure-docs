@@ -43,7 +43,7 @@ for Azure Policy use the
 > To create a Policy Assignment at a Management Group use the [azurerm_management_group_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_policy_assignment) resource, for a Resource Group use the [azurerm_resource_group_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group_policy_assignment) and for a Subscription use the [azurerm_subscription_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription_policy_assignment) resource.
    
 
-    ```terraform
+  ```terraform
     provider "azurerm" {
       features {}
     }
@@ -64,8 +64,7 @@ for Azure Policy use the
      description = "Shows all virtual machines not using managed disks" 
      display_name = "Audit VMs without managed disks assignment" 
     }
-    ```
-
+   ```
 1. Create `variables.tf` with the following code:
 
    ```terraform
