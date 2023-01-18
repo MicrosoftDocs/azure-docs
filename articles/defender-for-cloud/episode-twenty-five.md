@@ -21,7 +21,7 @@ ms.date: 01/18/2023
 
 
 ## Recommended resources
-  - [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-elastic) about AWS ECR Coverage in Defender for Containers.
+  - [Learn more](defender-for-containers-vulnerability-assessment-elastic.md) about AWS ECR Coverage in Defender for Containers.
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)
