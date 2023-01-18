@@ -127,7 +127,7 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
 ## Enable registry keys for optional features
 
-If you want to use certain optional features for Azure Virtual Desktop, you'll need to enable certain registry keys. The following instructions only apply to Windows client devices and session host VMs.
+If you want to use certain optional features for Teams on Azure Virtual Desktop, you'll need to enable certain registry keys. The following instructions only apply to Windows client devices and session host VMs.
 
 ### Enable hardware encode for teams on Azure Virtual Desktop
 
