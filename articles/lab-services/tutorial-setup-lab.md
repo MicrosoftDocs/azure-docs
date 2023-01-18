@@ -1,15 +1,22 @@
 ---
-title: Create a lab using Azure Lab Services | Microsoft Docs
+title: Create and publish a lab
+titleSuffix: Azure Lab Services
 description: In this tutorial, you use Azure Lab Services to set up a lab with virtual machines that are used by students in your class. 
 ms.topic: tutorial
-ms.date: 1/21/2022
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
+ms.date: 1/18/2023
 ---
 
-# Tutorial: Create and publish a lab
+# Tutorial: Create and publish a lab in Azure Lab Services
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-In this tutorial, you set up a lab with virtual machines that are used by students in the classroom by doing the following actions:
+In this tutorial, you use Azure Lab Services to set up a lab with virtual machines that are used by students in the classroom. You use the Azure Lab Services website to create a lab from a virtual machine image and configure a schedule for automatically starting and stopping the lab VMs. Finally, you add and invite users to the lab to let them access the lab VMs.
+
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a lab
@@ -20,8 +27,8 @@ In this tutorial, you set up a lab with virtual machines that are used by studen
 
 ## Prerequisites
 
-* A lab plan.  To create a lab plan, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
-* Permission to create a lab.  You must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor.  For more information, see [Azure Lab Services built-in roles](administrator-guide.md#rbac-roles). The user account used to create a lab plan will already have the required permissions to create a lab.
+* A lab plan. To create a lab plan, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+* Permission to create a lab. You must be a member of one of these Azure Active Directory roles in the lab plan: Owner, Lab Creator, or Contributor. For more information, see [Azure Lab Services built-in roles](administrator-guide.md#rbac-roles). The user account that created the lab plan already has the required permissions to create a lab.
 
 Here's the typical workflow when using Azure Lab Services:
 
