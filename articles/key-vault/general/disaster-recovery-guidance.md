@@ -22,15 +22,20 @@ The contents of your key vault are replicated within the region and to a seconda
 
 If individual components within the key vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You don't need to take any action to start this process, it happens automatically and will be transparent to you.
 
-In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (*failed over*) to a secondary region, except in these regions:
+## Failover
 
-- Brazil South
-- Brazil Southeast
-- Qatar Central (no paired region)
-- Poland Central (no paired region)
-- West US 3
+In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (*failed over*) to a secondary region (except as noted). When the primary region is available again, requests are routed back (*failed back*) to the primary region. Again, you don't need to take any action because this happens automatically.
 
-When the primary region is available again, requests are routed back (*failed back*) to the primary region. Again, you don't need to take any action because this happens automatically.
+> [!IMPORTANT]
+> Failover is not supported in:
+>
+> - Brazil South
+> - Brazil Southeast
+> - Qatar Central (no paired region)
+> - Poland Central (no paired region)
+> - West US 3
+>
+> All other regions use read-access geo-redundant storage (RA-GRS). For more information, see [Azure Storage redundancy: Redundancy in a secondary region](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region).
 
 In the Brazil South and Qatar Central region, you must plan for the recovery of your Azure key vaults in a region failure scenario. To back up and restore your Azure key vault to a region of your choice, complete the steps that are detailed in [Azure Key Vault backup](backup.md).
 
@@ -56,6 +61,9 @@ There are a few caveats to be aware of:
   * Sign
   * Backup
 
-* During failover, you will not be able to make changes to key vault properties. You will not be able to change access policy or firewall configurations and settings.
+During failover, you will not be able to make changes to key vault properties. You will not be able to change access policy or firewall configurations and settings.
 
-* After a failover is failed back, all request types (including read *and* write requests) are available.
+After a failover is failed back, all request types (including read *and* write requests) are available.
+
+## Next steps
+
