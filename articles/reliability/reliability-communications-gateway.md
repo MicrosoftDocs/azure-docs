@@ -5,7 +5,9 @@ author: nslack
 ms.author: nickslack
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.custom: subject-reliability
+ms.custom:
+  - subject-reliability
+  - references_regions
 ms.date: 01/12/2023
 ---
 
