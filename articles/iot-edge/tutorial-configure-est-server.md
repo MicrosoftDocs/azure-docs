@@ -130,11 +130,13 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
 
 Each device requires the Certificate Authority (CA) certificate that is associated to a device identity certificate.
 
-1. On the IoT Edge device, create the `/var/aziot` directory if it doesn't exist then change directory to it.
+1. On the IoT Edge device, create the `/var/aziot/certs` directory if it doesn't exist then change directory to it.
 
     ```bash
-    # Create the /var/aziot/certs directory if it doesn't exist
-    sudo mkdir -p /var/aziot/certs
+   # If the certificate directory doen't exist, create, set ownership, and set permissions
+   sudo mkdir -p /var/aziot/certs
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chmod 755 /var/aziot/certs
 
     # Change directory to /var/aziot/certs
     cd /var/aziot/certs
@@ -146,11 +148,14 @@ Each device requires the Certificate Authority (CA) certificate that is associat
     openssl s_client -showcerts -verify 5 -connect localhost:8085 < /dev/null | sudo awk '/BEGIN/,/END/{ if(/BEGIN/){a++}; out="cert"a".pem"; print >out}' && sudo cp cert2.pem cacert.crt.pem
     ```
 
-1. Certificates should be owned by the key service user **aziotks**. Set the ownership to **aziotks** for all the certificate files.
+1. Certificates should be owned by the key service user **aziotcs**. Set the ownership to **aziotcs** for all the certificate files and set permissions. For more information about certificate ownership and permissions, see [Permission requirements](how-to-manage-device-certificates.md#permission-requirements).
 
-    ```bash
-    sudo chown aziotks:aziotks /var/aziot/certs/*.pem
-    ```
+   ```bash
+   # Give aziotcs ownership to certificates
+   sudo chown -R aziotcs:aziotcs /var/aziot/certs
+   # Read and write for aziotcs, read-only for others
+   sudo find /var/aziot/certs -type f -name "*.*" -exec chmod 644 {} \;
+   ```
 
 ## Provision IoT Edge device using DPS
 
