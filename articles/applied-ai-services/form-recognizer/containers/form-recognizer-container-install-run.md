@@ -544,9 +544,10 @@ $docker-compose up
 * You can choose to analyze the file of your choice against the trained model.
 
 ---
-  
-[How to deploy the Form Recognizer Sample Labeling tool \- Azure Applied AI Services \| Microsoft Learn](https://review.learn.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/deploy-label-tool?view=form-recog-2.1.0&branch=main#deploy-with-azure-container-instances-aci)
-   
+
+## The Sample Labeling tool and Azure Container Instances (ACI)
+
+To learn how to use the Sample Labeling tool with an Azure Container Instance, *see*. [Deploy the Sample Labeling tool](../deploy-label-tool.md#deploy-with-azure-container-instances-aci).
 
 ## Validate that the service is running
 

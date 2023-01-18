@@ -167,9 +167,14 @@ The receipt model supports all English receipts and the following locales:
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
 |English (India|`en-in`|
-|English (United States)| `en-us`|
-|French | 'fr' |
-|Spanish | `es` |
+|English (United Arab Emirates)|`en-ae`|
+|English (United States)|`en-us`|
+|Japanese|`ja`|
+|French |`fr` |
+|French (Canada)|`fr-ca`|
+|Dutch|`nl`|
+|Portuguese (Brazil)|`pt-br`|
+|Spanish |`es` |
 
 ::: moniker-end
 
