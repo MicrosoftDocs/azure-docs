@@ -30,7 +30,7 @@ This page is updated monthly, so revisit it regularly.
 **Service category:** Conditional Access          
 **Product capability:** Identity Security & Protection     
 
-Customers can now bring one of the most powerful forms of access control in the industry to workload identities. Conditional Access supports risk-based policies for workload identities. Organizations can block sign-in attempts when Identity Protection detects compromised apps or services. For more information, see: [Create a risk-based Conditional Access policy](../conditional-access/workload-identity#create-a-risk-based-conditional-access-policy).
+Customers can now bring one of the most powerful forms of access control in the industry to workload identities. Conditional Access supports risk-based policies for workload identities. Organizations can block sign-in attempts when Identity Protection detects compromised apps or services. For more information, see: [Create a risk-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-risk-based-conditional-access-policy).
 
 ---
 
@@ -50,7 +50,7 @@ Restore a recently deleted application, group, servicePrincipal, administrative 
 **Service category:** Authentications (Logins)     
 **Product capability:** Identity Security & Protection   
 
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business much easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business much easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
 
 ---
 
