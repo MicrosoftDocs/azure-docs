@@ -12,27 +12,26 @@ ms.custom: template-how-to
 
 # Modify the billing plan in a site
 
-The *site plan* determines the throughput and the number of devices each site supports. The plan you selected when creating the site can be easily updated to support your deployment requirements as they change. In this how-to guide, you'll learn how to modify the billing plan in a site using the Azure portal.
-
-<!-- TODO: add note to external pricing documentation once available.
-> [!IMPORTANT]
-> Modifying the the site plan will affect how much you're charged. Refer to [Azure Private 5G Core pricing](https://azure.microsoft.com/products/private-5g-core/#pricing) for more information. -->
+The *site plan* determines the throughput, the number of devices and the number of radio access network (RAN) connections each site supports. The plan you selected when creating the site can be easily updated to support your deployment requirements as they change. In this how-to guide, you'll learn how to modify the billing plan in a site using the Azure portal.
 
 ## Prerequisites
 
-Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
+- Verify pricing and charges associated with the site plan to which you want to move.
 
 ## Choose the new site plan
 
 Use the following table to choose the new site plan that will best fit your requirements.
 
-| Site Plan | Throughput | Activated SIMs |
-|------|------|------|
-| G1 |  1 Gbps | 100 |
-| G2 |  2 Gbps | 200 |
-| G3 |  3 Gbps | 300 |
-| G4 |  4 Gbps | 400 |
-| G5 |  5 Gbps | 500 |
+| Site Plan | Throughput | Activated SIMs | RANs |
+|------|------|------|------|
+| G0 |  100 Mbps | 20 | 2 |
+| G1 |  1 Gbps | 100 | 5 |
+| G2 |  2 Gbps | 200 | 10 |
+| G3 |  3 Gbps | 300 | Unlimited |
+| G4 |  4 Gbps | 400 | Unlimited |
+| G5 |  5 Gbps | 500 | Unlimited |
+| G10 |  10 Gbps | 1000 | Unlimited |
 
 ## View the current site plan
 
@@ -43,8 +42,7 @@ You can view your current site plan in the Azure portal.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-1. In the resource menu, select **Sites**.
-1. Select the site you're interested in.
+1. Select the **Sites** page, then select the site you're interested in.
 
     :::image type="content" source="media/mobile-network-sites.png" alt-text="Screenshot of the Azure portal showing the Sites view in the Mobile Network resource.":::
 
