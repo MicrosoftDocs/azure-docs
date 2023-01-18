@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 07/27/2022
+ms.date: 01/18/2023
 ms.author: jboback
 ms.custom: language-service-key-phrase, ignite-fall-2021
 keywords: on-premises, Docker, container, natural language processing
@@ -46,6 +46,12 @@ The following table describes the minimum and recommended specifications for the
 | **Key Phrase Extraction**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+
+## The key phrase extraction container
+
+The key phrase extraction container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `keyphrase`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/keyphrase/tags/list).
 
 ## Get the container image with `docker pull`
 
