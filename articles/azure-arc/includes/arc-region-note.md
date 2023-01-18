@@ -1,4 +1,6 @@
 ---
+author: MikeRayMSFT
+ms.author: mikeray
 ms.service: azure-arc
 ms.topic: include
 ms.date: 12/13/2022
