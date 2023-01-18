@@ -128,6 +128,26 @@ Now you can modify the scoring script (`score.py`) and test your changes by runn
 There are two ways to use Visual Studio Code (VSCode) and [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) to debug with [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package. 
 
 -  Start the AzureML Inference Server in a command line and use VSCode + Python Extension to attach to the process.
+   1. Add below configuration to `launch.json` in VSCode:
+       ```json
+           {
+           "configurations": [
+               {
+                   "name": "Python: Attach using Process Id",
+                   "type": "python",
+                   "request": "attach",
+                   "processId": "${command:pickProcess}",
+                   "justMyCode": true
+               },
+           ]
+       }
+       ```
+   1. Start the inference server using CLI (Windows PowerShell)
+   1. Start debugging session in VSCode.
+      1. In VSCode select "Run" -> "Start Debugging"
+      1. Enter the process Id using the logs displayed in CLI.
+
+
 -  Set up the `launch.json` in the VSCode and starts the AzureML Inference Server within VSCode.
 
 **launch.json**
