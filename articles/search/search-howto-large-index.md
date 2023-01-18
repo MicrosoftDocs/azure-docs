@@ -62,11 +62,11 @@ The Azure .NET SDK automatically retries 503s and other failed requests, but you
 
 + Batching documents
 + Parallel indexing over partitioned data
-+ Scheduling and integration with change detection logic to index just new and change documents over time
++ Scheduling and change detection for indexing just new and change documents over time
 
-Indexer schedules can resume processing at the last known stopping point. If data isn't fully indexed within the processing window, the indexer picks up wherever it left off on the next run.
+Indexer schedules can resume processing at the last known stopping point. If data isn't fully indexed within the processing window, the indexer picks up wherever it left off on the next run, assuming you're using a data source that provides change detection.
 
-Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob Storage, create a [data source](/rest/api/searchservice/create-data-source) for each partition, and then [run the indexers in parallel](search-howto-run-reset-indexers.md), subject to the number of search units of your search service.
+Partitioning data into smaller individual data sources enables parallel processing. You can break up source data, such as into multiple containers in Azure Blob Storage, create a [data source](/rest/api/searchservice/create-data-source) for each partition, and then [run the indexers in parallel](search-howto-run-reset-indexers.md), subject to the number of search units of your search service.
 
 ### Check indexer batch size
 
