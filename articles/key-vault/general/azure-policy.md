@@ -93,8 +93,7 @@ Promote the use of short-lived certificates to mitigate undetected attacks, by m
 | Policy | Effects |
 |--|--|
 | [**[Preview]**: Certificates should have the specified maximum validity period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a075868-4c26-42ef-914c-5bc007359560) | Effects: Audit (_Default_), Deny, Disabled
-| [**[Preview]**: Certificates should not expire within the specified number of days
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff772fb64-8e40-40ad-87bc-7706e1949427) | Effects: Audit (_Default_), Deny, Disabled
+| [**[Preview]**: Certificates should not expire within the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff772fb64-8e40-40ad-87bc-7706e1949427) | Effects: Audit (_Default_), Deny, Disabled
 | [Certificates should have the specified lifetime action triggers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12ef42cb-9903-4e39-9c26-422d29570417) | Effects: Audit (_Default_), Deny, Disabled
 
 > [!NOTE]
@@ -106,10 +105,8 @@ Audit or enforce the selection of a specific certificate authority to issue your
 
 | Policy | Effects |
 |--|--|
-| [Certificates should be issued by the specified integrated certificate authority
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e826246-c976-48f6-b03e-619bb92b3d82) | Audit (_Default_), Deny, Disabled
-| [Certificates should be issued by the specified non-integrated certificate authority
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa22f4a40-01d3-4c7d-8071-da157eeff341) | Audit (_Default_), Deny, Disabled
+| [Certificates should be issued by the specified integrated certificate authority](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e826246-c976-48f6-b03e-619bb92b3d82) | Audit (_Default_), Deny, Disabled
+| [Certificates should be issued by the specified non-integrated certificate authority](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa22f4a40-01d3-4c7d-8071-da157eeff341) | Audit (_Default_), Deny, Disabled
 
 #### Certificate Attributes
 
@@ -117,12 +114,9 @@ Restrict the type of your key vault's certificates to be RSA, ECC, or HSM-backed
 
 | Policy | Effects |
 |--|--|
-| [Certificates should use allowed key types
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1151cede-290b-4ba0-8b38-0ad145ac888f) | Audit (_Default_), Deny, Disabled
-| [Certificates using elliptic curve cryptography should have allowed curve names
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd78111f-4953-4367-9fd5-7e08808b54bf) | Audit (_Default_), Deny, Disabled
-| [Certificates using RSA cryptography should have the specified minimum key size
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0) | Audit (_Default_), Deny, Disabled
+| [Certificates should use allowed key types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1151cede-290b-4ba0-8b38-0ad145ac888f) | Audit (_Default_), Deny, Disabled
+| [Certificates using elliptic curve cryptography should have allowed curve names](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd78111f-4953-4367-9fd5-7e08808b54bf) | Audit (_Default_), Deny, Disabled
+| [Certificates using RSA cryptography should have the specified minimum key size](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0) | Audit (_Default_), Deny, Disabled
 
 ### Keys
 
@@ -251,13 +245,15 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 ## Feature Limitations
 
 Assigning a policy with a "deny" effect may take up to 30 mins (average case) and 1 hour (worst case) to start denying the creation of non-compliant resources. The delay refers to following scenarios -
-1.	A new policy is assigned
-2.	An existing policy assignment is modified
-3.	A new KeyVault (resource) is created in a scope with existing policies.
+1. A new policy is assigned.
+2. An existing policy assignment is modified.
+3. A new KeyVault (resource) is created in a scope with existing policies.
 
-The policy evaluation of existing components in a vault may take up to 1 hour (average case) and 2 hours (worst case) before compliance results are viewable in the portal UI. 
+The policy evaluation of existing components in a vault may take up to 1 hour (average case) and 2 hours (worst case) before compliance results are viewable in the portal UI.
+
 If the compliance results show up as "Not Started" it may be due to the following reasons:
-- The policy valuation has not completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario. 
+
+- The policy valuation has not completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario.
 - There are no key vaults in the scope of the policy assignment.
 - There are no key vaults with certificates within the scope of the policy assignment.
 
