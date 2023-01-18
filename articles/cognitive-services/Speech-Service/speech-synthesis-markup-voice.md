@@ -81,7 +81,7 @@ This example uses a custom voice named "my-custom-voice".
 
 #### Audio effect example
 
-You use the `effect` attribute to optimize the auditory experience for different voices. The following SSML example uses the `effect` attribute with the configuration in car scenarios.
+You use the `effect` attribute to optimize the auditory experience for scenarios such as cars and telecommunications. The following SSML example uses the `effect` attribute with the configuration in car scenarios.
     
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
