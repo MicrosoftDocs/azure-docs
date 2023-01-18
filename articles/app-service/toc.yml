@@ -44,6 +44,8 @@
       href: app-service-web-tutorial-custom-domain.md
     - name: Secure domain with TLS/SSL
       href: configure-ssl-bindings.md
+    - name: Create multi-region app
+      href: tutorial-multi-region-app.md
     - name: App with DB
       items:
         - name: ASP.NET Core with SQL DB
