@@ -323,6 +323,34 @@ Cloud role name overrides allow you to override the [default cloud role name](#c
 }
 ```
 
+## Connection string configured at runtime
+
+Starting from version 3.4.8, if you need the ability to configure the connection string at runtime,
+add this property to your json configuration:
+
+```json
+{
+  "connectionStringConfiguredAtRuntime": true
+}
+```
+
+and add `applicationinsights-core` to your application:
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-core</artifactId>
+  <version>3.4.8</version>
+</dependency>
+```
+
+and use the static `configure(String)` method in the class
+`com.microsoft.applicationinsights.connectionstring.ConnectionString`.
+
+> [!NOTE]
+> Any telemetry that is captured prior to configuring the connection string will be dropped,
+> so it is best to configure it as early as possible in your application startup.
+
 ## Autocollect InProc dependencies (preview)
 
 Starting from version 3.2.0, if you want to capture controller "InProc" dependencies, use the following configuration:
