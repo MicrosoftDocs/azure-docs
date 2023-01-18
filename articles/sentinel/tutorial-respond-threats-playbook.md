@@ -2,10 +2,9 @@
 title: Use playbooks with automation rules in Microsoft Sentinel
 description: Use this tutorial to help you use playbooks together with automation rules in Microsoft Sentinel to automate your incident response and remediate security threats.
 author: yelevin
-ms.topic: tutorial
-ms.custom: mvc, ignite-fall-2021
-ms.date: 02/21/2022
 ms.author: yelevin
+ms.topic: tutorial
+ms.date: 01/17/2023
 ---
 
 # Tutorial: Use playbooks with automation rules in Microsoft Sentinel
@@ -320,6 +319,20 @@ You can also manually run a playbook on demand, on both incidents (in Preview) a
 
 ### Run a playbook manually on an alert
 
+# [NEW Incident details page](#tab/incidents)
+
+1. In the **Incidents** page, select an incident.
+
+1. Select **View full details** at the bottom of the incident details pane.
+
+1. In the incident details page, in the **Incident timeline** widget, choose the alert you want to run the playbook on. Select the three dots at the end of the alert's line and choose **Run playbook** from the pop-up menu.
+
+1. The **Alert playbooks** pane will open. You'll see a list of all playbooks configured with the **Microsoft Sentinel Alert** Logic Apps trigger that you have access to.
+
+1. Select **Run** on the line of a specific playbook to run it immediately.
+
+# [Investigation graph](#tab/cases)
+
 1. In the **Incidents** page, select an incident.
 
 1. Select **View full details** at the bottom of the incident details pane.
@@ -329,6 +342,8 @@ You can also manually run a playbook on demand, on both incidents (in Preview) a
 1. The **Alert playbooks** pane will open. You'll see a list of all playbooks configured with the **Microsoft Sentinel Alert** Logic Apps trigger that you have access to.
 
 1. Select **Run** on the line of a specific playbook to run it immediately.
+
+---
 
 You can see the run history for playbooks on an alert by selecting the **Runs** tab on the **Alert playbooks** pane. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run will open the full run log in Logic Apps.
 
@@ -352,12 +367,22 @@ You can see the run history for playbooks on an incident by selecting the **Runs
 
 1. Select an entity in one of the following ways, depending on your originating context:
 
-    **If you're in an incident's details page:**
+    **If you're in an incident's details page (new version, now in Preview):**
+    1. In the **Entities** widget in the **Overview** tab, find an entity from the list (don't select it).
+    1. Select the three dots to the right of the entity.
+    1. Select **Run playbook (Preview)** from the pop-up menu and continue with step 2 below.  
+    If you selected the entity and entered the **Entities tab** of the incident details page, continue with the next line below.
+    1. Find an entity from the list (don't select it).
+    1. Select the three dots to the right of the entity.
+    1. Select **Run playbook (Preview)** from the pop-up menu.  
+    If you selected the entity and entered its entity page, select the **Run playbook (Preview)** button in the left-hand panel.
+
+    **If you're in an incident's details page (legacy version):**
     1. Select the incident's **Entities** tab.
     1. Find an entity from the list (don't select it).
     1. Select the **Run playbook (Preview)** link at the end of its line in the list.  
     If you selected the entity and entered its entity page, select the **Run playbook (Preview)** button in the left-hand panel.
-    
+
     **If you're in the Investigation graph:**
     1. Select an entity in the graph.
     1. Select the **Run playbook (Preview)** button in the entity side panel.  
