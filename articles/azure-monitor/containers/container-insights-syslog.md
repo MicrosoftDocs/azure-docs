@@ -82,10 +82,24 @@ The following table provides different examples of log queries that retrieve Sys
 | Syslog </br> &#124; summarize AggregatedValue = count() by Computer |Count of Syslog records by computer |
 | Syslog </br> &#124; summarize AggregatedValue = count() by Facility |Count of Syslog records by facility |  
 
-## Editing you Syslog collection settings
+## Editing your Syslog collection settings
 
-* Image 1 - Data Collection Rules under Azure Monitor
-* Image 2 - Editing an individual Syslog data collection rule 
+Image 1 - Data Collection Rules under Azure Monitor
+
+:::image type="content" source="media/container-insights-syslog/DCR1.png" lightbox="media/container-insights-syslog/DCR1.png" alt-text="TBA" border="false":::
+
+Image 2 - Editing an individual Syslog data collection rule 
+
+:::image type="content" source="media/container-insights-syslog/DCR2.png" lightbox="media/container-insights-syslog/DCR2.png" alt-text="TBA" border="false":::
+
+Image 3 - TBA
+
+:::image type="content" source="media/container-insights-syslog/DCR3.png" lightbox="media/container-insights-syslog/DCR3.png" alt-text="TBA" border="false":::
+
+Image 4 - TBA
+
+:::image type="content" source="media/container-insights-syslog/DCR4.png" lightbox="media/container-insights-syslog/DCR4.png" alt-text="TBA" border="false":::
+
 
 ## How Syslog data is collected
 
