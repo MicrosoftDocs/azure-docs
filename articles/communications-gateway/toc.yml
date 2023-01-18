@@ -22,6 +22,8 @@ items:
     href: interoperability.md
   - name: Resiliency and redundancy
     href: resiliency.md
+  - name: Security
+    href: security.md
   - name: Emergency calling
     href: emergency-calling.md
   - name: Limits, quotas and restrictions
