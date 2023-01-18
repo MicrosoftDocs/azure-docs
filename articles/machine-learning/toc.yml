@@ -66,10 +66,10 @@
       href: quickstart-create-resources.md
     - name: Set up your development environment
       items:
-      - name: Set up your cloud workstation
-        href: quickstart-run-notebooks.md
-      - name: Configure Apache Spark jobs (preview)
-        href: quickstart-spark-jobs.md
+        - name: Set up your cloud workstation
+          href: quickstart-run-notebooks.md
+        - name: Configure Apache Spark jobs (preview)
+          href: quickstart-spark-jobs.md
 - name: Quickstart
   expanded: true
   items:
