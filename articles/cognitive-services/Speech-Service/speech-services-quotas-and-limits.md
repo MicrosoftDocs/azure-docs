@@ -247,8 +247,8 @@ Initiate the increase of the limit for concurrent requests for your resource, or
 1. In **Problem subtype**, select either:
    - **Quota or concurrent requests increase** for an increase request.
    - **Quota or usage validation** to check the existing limit.
-1. Select **Next: Solutions**. Proceed further with the request creation.
-1. On the **Details** tab, in the **Description** field, enter the following:
+1. On the **Recommended solution** tab, select **Next**. 
+1. On the **Additional details** tab, fill in all the required items. And in the **Details** field, enter the following:
    - A note that the request is about the text-to-speech quota.
    - Choose either the prebuilt voice or custom voice.
    - The Azure resource information you [collected previously](#prepare-the-required-information).
