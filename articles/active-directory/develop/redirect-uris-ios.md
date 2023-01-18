@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/17/2023
+ms.date: 01/18/2023
 ms.author: henrymbugua
 ms.reviewer: jak
 ms.custom: aaddev, has-adal-ref
@@ -30,7 +30,7 @@ However, you may need to change the redirect URI for advanced scenarios, as desc
 
 ### Cross-app single sign-on (SSO)
 
-For the Microsoft identity platform to share tokens across apps, each app needs to have the same client ID or application ID. The client ID is the unique identifier provided when you registered your app in the portal (not the application bundle ID that you register per app with Apple).
+For the Microsoft identity platform to share tokens across apps, each app needs to have the same client ID or application ID. The client ID is the unique identifier provided when you registered your app in the Azure portal (not the application bundle ID that you register per app with Apple).
 
 The redirect URIs need to be different for each iOS app. This allows the Microsoft identity service to uniquely identify different apps that share an application ID. Each application can have multiple redirect URIs registered in the Azure portal. Each app in your suite will have a different redirect URI. For example:
 
@@ -43,9 +43,9 @@ App1 uses redirect `msauth.com.contoso.app1://auth`.\
 App2 uses `msauth.com.contoso.app2://auth`.\
 App3 uses `msauth.com.contoso.app3://auth`.
 
-### Migrating from Microsoft Authentication Library to MSAL
+### Migrating from ADAL to MSAL
 
-When migrating code that used the Azure Active Directory Authentication Library (Microsoft Authentication Library) to MSAL, you may already have a redirect URI configured for your app. You can continue using the same redirect URI as long as your ADAL app was configured to support brokered scenarios and your redirect URI satisfies the MSAL redirect URI format requirements.
+When migrating code that used the Azure Active Directory Authentication Library (ADAL) to MSAL, you may already have a redirect URI configured for your app. You can continue using the same redirect URI as long as your ADAL app was configured to support brokered scenarios and your redirect URI satisfies the MSAL redirect URI format requirements.
 
 ## MSAL redirect URI format requirements
 
