@@ -37,9 +37,9 @@ Here's a subset of the basic structure and syntax of an SSML document:
         <lang xml:lang="string"></lang>
         <lexicon uri="string"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML"></math>
+        <mstts:audioduration value="string"/>
         <mstts:express-as style="string" styledegree="value" role="string"></mstts:express-as>
         <mstts:silence type="string" value="string"/>
-        <mstts:audioduration value="string"/>
         <mstts:viseme type="string"/>
         <p></p>
         <phoneme alphabet="string" ph="string"></phoneme>
@@ -59,10 +59,10 @@ Some examples of contents that are allowed in each element are described in the 
 - `lang`: This element can contain all other elements except `mstts:backgroundaudio`, `voice`, and `speak`.
 - `lexicon`: This element can't contain text or any other elements.
 - `math`: This element can only contain text and MathML elements.
+- `mstts:audioduration`: This element can't contain text or any other elements.
 - `mstts:backgroundaudio`: This element can't contain text or any other elements.
 - `mstts:express-as`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `mstts:silence`: This element can't contain text or any other elements.
-- `mstts:audioduration`: This element can't contain text or any other elements.
 - `mstts:viseme`: This element can't contain text or any other elements.
 - `p`: This element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, `mstts:express-as`, and `s`.
 - `phoneme`: This element can only contain text and no other elements.
