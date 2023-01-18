@@ -32,7 +32,7 @@ For the following versions, consider using the work-around in the next section:
 - Windows Server 2012 Standard
 - Windows Server 2008 R2 Datacenter
 - Windows Server 2008 R2 Standard
-### Work-around
+### Workaround
 To work around this issue, create an Azure VM that's running a supported version. And then either migrate the workload (Method 1, preferred), or download and upgrade the VHD of the VM (Method 2).
 To prevent data loss, back up the Windows 10 VM by using [Azure Backup](../backup/backup-overview.md). Or use a third-party backup solution from [Azure Marketplace Backup & Recovery](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=Backup+&exp=ubp8).
 #### Method 1: Deploy a newer system and migrate the workload
@@ -68,7 +68,7 @@ We recommend that you create a snapshot of your operating system disk and any da
  
 ## Create upgrade media disk
 
-To perform an in-place upgrade the upgrade media must be attached to the VM as a Managed Disk. To create the upgrade media, use the following PowerShell script with the specific variables configured for the desired upgrade media. The created upgrade media disk can be used to upgrade multiple VMs, but it can only be used to upgrade a single VM at a time. To upgrade multiple VMs simultaneously multiple upgrade disks must be created for each simultaneous upgrade.
+To perform an in-place upgrade the upgrade media must be attached to the VM as a Managed Disk. To create the upgrade media, modify the following sample PowerShell script for Windows Server 2022 with the specific variables configured for the desired upgrade media (sku/location/etc). The created upgrade media disk can be used to upgrade multiple VMs, but it can only be used to upgrade a single VM at a time. To upgrade multiple VMs simultaneously multiple upgrade disks must be created for each simultaneous upgrade.
 
 | Parameter | Definition |
 |---|---|
