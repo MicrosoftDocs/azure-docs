@@ -208,28 +208,28 @@ Functions lets you customize the Java virtual machine (JVM) used to run your Jav
 * `-Djava.net.preferIPv4Stack=true`
 * `-jar`
 
-You can provide additional arguments in an app setting. You can add app settings to your function app deployed to Azure in the Azure portal or the Azure CLI.
-*  In Windows/Linux dedicated and premium plan, use app setting named `JAVA_OPTS`
-*  In the Windows Consumption plan, use app setting named `languageWorkers:java:arguments`.
-*  In the Linux Consumption plan, use app setting named `languageWorkers__java__arguments`.
+You can provide additional arguments to the JVM by using one of the following application settings, depending on the plan type: 
 
-> [!IMPORTANT]  
-> In the Consumption plan, this setting does increase the cold start times for Java functions.
+| Plan type | Setting name | Comment |
+| --- | --- | 
+| [Consumption plan](./consumption-plan.md) | `languageWorkers__java__arguments` | This setting does increase the cold start times for Java functions running in a Consumption plan. |
+| [Premium plan](./functions-premium-plan.md)<br/>[Dedicated plan](./dedicated-plan.md) | `JAVA_OPTS` | |
+
+The following examples show you how to add these settings. To learn more about working with application settings, see the [Work with application settings](./functions-how-to-use-azure-function-app-settings.md#settings) section.
 
 ### Azure portal
 
-In the [Azure portal](https://portal.azure.com), use the [Application Settings tab](functions-how-to-use-azure-function-app-settings.md#settings) to add the `JAVA_OPTS` setting.
+In the [Azure portal](https://portal.azure.com), use the [Application Settings tab](functions-how-to-use-azure-function-app-settings.md#settings) to add either the `languageWorkers__java__arguments` or the `JAVA_OPTS` setting.
 
 ### Azure CLI
 
-You can use the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command to set `JAVA_OPTS`, as in the following example:
+You can use the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command to add these settings, as shown in the following example for the `-Djava.awt.headless=true` option:
 
 # [Consumption plan](#tab/consumption/bash)
 
 ```azurecli-interactive
 az functionapp config appsettings set \
-    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
-    "WEBSITE_USE_PLACEHOLDER=0" \
+    --settings "languageWorkers__java__arguments=-Djava.awt.headless=true" \
     --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
 
@@ -237,8 +237,7 @@ az functionapp config appsettings set \
 
 ```azurecli-interactive
 az functionapp config appsettings set ^
-    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
-    "WEBSITE_USE_PLACEHOLDER=0" ^
+    --settings "languageWorkers__java__arguments=-Djava.awt.headless=true" ^
     --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
 
