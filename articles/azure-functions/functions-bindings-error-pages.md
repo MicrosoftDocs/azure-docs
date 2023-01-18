@@ -46,7 +46,7 @@ The occurrence of errors when you're processing data can be a problem for your f
 
 There are two kinds of retries available for your functions: 
 * Built-in retry behaviors of individual trigger extensions
-* Retry policies 
+* Retry policies provided by the Functions runtime
 
 The following table indicates which triggers support retries and where the retry behavior is configured. It also links to more information about errors that come from the underlying services.
 
