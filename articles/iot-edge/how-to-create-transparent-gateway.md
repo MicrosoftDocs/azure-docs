@@ -135,12 +135,12 @@ If you don't have your own certificate authority and want to use demo certificat
    # Give aziotcs ownership to certificates
    # Read and write for aziotcs, read-only for others
    sudo chown -R aziotcs:aziotcs /var/aziot/certs
-   sudo chmod 644 /var/aziot/certs/*
+   sudo find /var/aziot/certs -type f -name "*.*" -exec chmod 644 {} \;
 
    # Give aziotks ownership to private keys
    # Read and write for aziotks, no permission for others
    sudo chown -R aziotks:aziotks /var/aziot/secrets
-   sudo chmod 600 /var/aziot/secrets/*
+    sudo find /var/aziot/secrets -type f -name "*.*" -exec chmod 600 {} \;
    ```
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
