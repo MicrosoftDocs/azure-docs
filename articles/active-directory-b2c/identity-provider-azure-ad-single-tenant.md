@@ -3,14 +3,14 @@ title: Set up sign-in for an Azure AD organization
 titleSuffix: Azure AD B2C
 description: Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/11/2022
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
