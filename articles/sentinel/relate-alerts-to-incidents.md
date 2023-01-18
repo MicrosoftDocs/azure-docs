@@ -21,7 +21,7 @@ One thing that this feature allows you to do is to include alerts from one data 
 
 This feature is built into the latest version of the Microsoft Sentinel API, which means that it's available to the Logic Apps connector for Microsoft Sentinel. So you can use playbooks to automatically add an alert to an incident if certain conditions are met.
 
-You can also use this automation to add alerts to [manually-created incidents](create-incident-manually.md), to create custom correlations, or to define custom criteria for grouping alerts into incidents when they're created.
+You can also use this automation to add alerts to [manually created incidents](create-incident-manually.md), to create custom correlations, or to define custom criteria for grouping alerts into incidents when they're created.
 
 ### Limitations
 

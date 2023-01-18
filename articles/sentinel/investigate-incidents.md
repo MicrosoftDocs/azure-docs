@@ -275,7 +275,7 @@ Select an entity to see its full details. When you select an entity, you will mo
 
 The **Entities tab** shows a list of all the entities in the incident.
 
-:::image type="content" source="media/investigate-incidents/entities-tab.png" alt-text="Screenshot of entities tab in incident details page.":::
+:::image type="content" source="media/investigate-incidents/entities-tab.png" alt-text="Screenshot of entities tab in incident details page." lightbox="media/investigate-incidents/entities-tab.png":::
 
 Like the entities widget, this list can also be searched and filtered by entity type. Searches and filters applied in one list won't apply to the other.
 
@@ -329,7 +329,7 @@ However you end up on the Logs panel, if you've run a query whose results you wa
 
 1. After creating the bookmark (or if you choose not to), select **Done** to close the **Logs** panel.
 
-:::image type="content" source="media/investigate-incidents/logs-panel.png" alt-text="Screenshot of Logs panel open in incident details page.":::
+:::image type="content" source="media/investigate-incidents/logs-panel.png" alt-text="Screenshot of Logs panel open in incident details page." lightbox="media/investigate-incidents/logs-panel.png":::
 
 ## Audit and comment on incidents
 
@@ -421,7 +421,7 @@ To use the investigation graph:
 
     For example, you can request related alerts. If you select an exploration query, the resulting entitles are added back to the graph. In this example, selecting **Related alerts** returned the following alerts into the graph:
 
-    :::image type="content" source="media/investigate-incidents/related-alerts.png" alt-text="Screenshot: view related alerts" lightbox="media/investigate-incidents/related-alerts.png":::
+    :::image type="content" source="media/investigate-incidents/related-alerts.png" alt-text="Screenshot: view related alerts." lightbox="media/investigate-incidents/related-alerts.png":::
 
     See that the related alerts appear connected to the entity by dotted lines.
 

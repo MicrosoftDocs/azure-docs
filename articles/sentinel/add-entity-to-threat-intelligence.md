@@ -83,12 +83,12 @@ Whichever of the two interfaces you choose, you will end up here:
         - Optional; automatically populated by the **incident ID**. You can add others.
     
     - **Name**
-        - Name of the indicator - this is what will be displayed in your list of indicators.
+        - Name of the indicator&mdash;this is what will be displayed in your list of indicators.
         - Optional; automatically populated by the **incident name.**
     
     - **Created by**
         - Creator of the indicator.
-        - Optional; automatically-populated by the user logged into Microsoft Sentinel.
+        - Optional; automatically populated by the user logged into Microsoft Sentinel.
 
     Fill in the remaining fields accordingly.
 
