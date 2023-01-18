@@ -72,6 +72,8 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 1. From the Microsoft Sentinel portal, select **Data connectors**.
 1. In the search bar, type *Microsoft Sentinel for SAP*.
 1. Select the **Microsoft Sentinel for SAP** connector and select **Open connector**.
+
+    You create an agent and SAP system under the **Configuration** area.
     
     [TBD - screenshot]
 
@@ -101,8 +103,6 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 1. In your VM, open a terminal and run the command you copied in the previous step.
 
     The new agent is visible in the table under **Add an API based collector agent**. This table displays the agent name and health status for agents you deploy via the UI only. 
-
-    [TBD - screenshot]
     
     If you need to copy your command again, select **View** [TBD - screenshot] to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 

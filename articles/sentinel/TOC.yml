@@ -468,8 +468,8 @@
         items:
         - name: Deploy via UI
           href: sap/deploy-data-connector-agent-container.md
-        - name: Deploy manually
-          href: sap/deploy-data-connector-agent-container-manual.md
+        - name: Deploy with other methods
+          href: sap/deploy-data-connector-agent-container-other-methods.md
       - name: Deploy SAP security content
         href: sap/deploy-sap-security-content.md
       - name: Configure the solution
