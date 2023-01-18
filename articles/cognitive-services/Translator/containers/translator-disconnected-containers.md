@@ -46,7 +46,7 @@ Access is limited to customers that meet the following requirements:
 
 1. Create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
 
-2. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
+1. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
 
     > [!NOTE]
     >
@@ -54,7 +54,7 @@ Access is limited to customers that meet the following requirements:
 
     :::image type="content" source="../media/create-resource-offline-container.png" alt-text="A screenshot showing resource creation on the Azure portal.":::
 
-3. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**.
+1. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**.
 
 ## Gather required parameters
 
@@ -64,7 +64,7 @@ There are three required parameters for all Cognitive Services' containers:
 * The endpoint URL for your resource from the Azure portal.
 * The API key for your resource from the Azure portal.
 
-Both the endpoint URL and API key are needed when you first run the container to configure it for disconnected usage. You can find the key and endpoint on the **Key and endpoint** page for your resource in the Azure portal.
+Both the endpoint URL and API key are needed when you first run the container to configure it for disconnected usage. You can find the key and endpoint on the **Key and endpoint** page for your resource in the Azure portal:
 
   :::image type="content" source="../media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
@@ -97,7 +97,7 @@ Now that you've downloaded your container, you'll need to execute the `docker ru
 > [!IMPORTANT]
 > The `docker run` command will generate a template that you can use to run the container. The template contains parameters you'll need for the downloaded models and configuration file. Make sure you save this template.
 
-The following example shows the formatting of the `docker run` command with placeholder values. Replace these placeholder values with your own values.
+The following example shows the formatting for the `docker run` command with placeholder values. Replace these placeholder values with your own values.
 
 | Placeholder | Value | Format|
 |-------------|-------|---|
@@ -105,10 +105,10 @@ The following example shows the formatting of the `docker run` command with plac
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
  | `{MODEL_MOUNT_PATH}`| The path where the machine translation models will be downloaded, and mounted.  Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, in the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`32-character-string`|
+| `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`{string}`|
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 
-  **Example `docker pull` command**
+  **Example `docker run` command**
 
 ```docker
 
