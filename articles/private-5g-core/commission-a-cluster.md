@@ -2,11 +2,11 @@
 title: Commission a cluster 
 titleSuffix: Azure Private 5G Core Preview
 description: This how-to guide shows how to commission an Azure Stack Edge (or possible AKS) cluster in your private mobile network. 
-author: lauraallan
-ms.author: lauraallan
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 01/31/2023
 ms.custom: template-how-to 
 ---
 
