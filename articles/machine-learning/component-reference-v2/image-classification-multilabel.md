@@ -1,7 +1,7 @@
 ---
-title:  "AutoML Image Classification Multilable"
+title:  "AutoML Image Classification Multi-lable"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the AutoML Image Classification Multilable component in Azure Machine Learning to create a classifier using ML Table data.
+description: Learn how to use the AutoML Image Classification Multi-lable component in Azure Machine Learning to create a classifier using ML Table data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,11 +12,11 @@ ms.reviewer: ssalgadodev
 ms.date: 12/1/2022
 ---
 
-# AutoML Image Classification Multilable
+# AutoML Image Classification Multi-lable
 
 This article describes a component in Azure Machine Learning designer.
 
-Use this component to create a machine learning model that is based on the AutoML Image Classification Multilable.
+Use this component to create a machine learning model that is based on the AutoML Image Classification Multi-lable.
 
 Multi-label image classification is a computer vision task where the goal is to predict a set of labels associated with each individual image. You may consider using multi-label classification where you need to determine several properties of a given image.
 
@@ -38,7 +38,7 @@ AutoML runs a number of trials (specified in `max_trials`) in parallel (`specifi
 
 
 
-1.  Add the **AutoML Image Classification Multilable** component to your pipeline.
+1.  Add the **AutoML Image Classification Multi-lable** component to your pipeline.
 
 1.  Specify the **Target Column** you want the model to output 
 

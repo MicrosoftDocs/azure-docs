@@ -61,9 +61,6 @@ If deep learning is enabled, validation is limited to _train_validation split_. 
         * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](../v1/how-to-create-register-datasets.md#tabulardataset).         
         * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
         * The test dataset should not be the same as the training dataset or the validation dataset.
-       
-        
-        ![Screenshot shows the form where to select validation data and test data](/media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
      
 
 ## Next steps

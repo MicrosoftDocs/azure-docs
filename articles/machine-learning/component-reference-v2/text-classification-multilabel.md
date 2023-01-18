@@ -1,7 +1,7 @@
 ---
-title:  "AutoML Text Multilabel Classification"
+title:  "AutoML Text Multi-label Classification"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the AutoML Text Multilabel Classification component in Azure Machine Learning to create a classifier using ML Table data.
+description: Learn how to use the AutoML Text Multi-label Classification component in Azure Machine Learning to create a classifier using ML Table data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,13 +12,13 @@ ms.reviewer: ssalgadodev
 ms.date: 12/1/2022
 ---
 
-# AutoML Text Multilabel Classification
+# AutoML Text Multi-label Classification
 
 This article describes a component in Azure Machine Learning designer.
 
-Use this component to create a machine learning model that is based on the AutoML Text Multilabel Classification.
+Use this component to create a machine learning model that is based on the AutoML Text Multi-label Classification.
 
-Multilabel text classification is for use cases where each example may be assigned more than one label, as opposed to single-label multiclass text classification where every example is labeled with the single most probable class.
+Multi-label text classification is for use cases where each example may be assigned more than one label, as opposed to single-label multiclass text classification where every example is labeled with the single most probable class.
 
 ## How to configure 
 
@@ -27,7 +27,7 @@ This component trains an NLP classification model on text data. Text classificat
 This model requires a training and a validation dataset. The datasets must be in ML Table format.
 
 
-1.  Add the **AutoML Text Multilabel Classification** component to your pipeline.
+1.  Add the **AutoML Text Multi-label Classification** component to your pipeline.
 
 1.  Specify the **Target Column** you want the model to output 
 
