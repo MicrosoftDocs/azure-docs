@@ -18,7 +18,7 @@ Azure Web PubSub helps you manage WebSocket clients. This quickstart shows you h
 ## Prerequisites
 
 - An Azure subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Either a Bash or Powershell command shell.
+- Either a Bash or PowerShell command shell.
 - A file editor such as VSCode.
 - Azure CLI [install the Azure CLI](/cli/azure/install-azure-cli)
 
@@ -43,7 +43,7 @@ Next, install or update the Azure Web PubSub extension for the CLI.
 az extension add --name webpubsub --upgrade
 ```
 
-Set the following environment variables.  The replace the \<placeholder\> with a unique Web PubSub name. 
+Set the following environment variables.  Replace the \<placeholder\> with a unique Web PubSub name. 
 
 # [Bash](#tab/bash)
 
@@ -154,12 +154,11 @@ The connection to the Web PubSub service is established when you see a JSON mess
 
 ## Publish messages using service SDK
 
-You will use the Azure Web PubSub SDK to publish a message to all connected clients.
-
-First, open another command shell.
+You'll use the Azure Web PubSub SDK to publish a message to all connected clients.
 
 ### Set up the project to publish messages
 
+Start by opening another command shell.
 Select the language for your project.  The dependencies for each language are installed in the steps for that language.
 
 # [C#](#tab/csharp)

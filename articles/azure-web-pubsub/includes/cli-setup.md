@@ -9,7 +9,7 @@ ms.custom: devx-track-azurecli
 
 ## Azure CLI Setup for local development
 
-Follow these steps to setup the Azure CLI and your project environment.
+Follow these steps to set up the Azure CLI and your project environment.
 
 1. Upgrade to the latest version of the Azure CLI. 
 

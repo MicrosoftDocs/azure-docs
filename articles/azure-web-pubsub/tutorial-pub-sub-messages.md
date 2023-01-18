@@ -5,12 +5,12 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 11/01/2021
+ms.date: 01/17/2023
 ---
 
 # Tutorial: Publish and subscribe messages using WebSocket API and Azure Web PubSub service SDK
 
-The Azure Web PubSub service helps you easily build real-time web messaging applications. In this tutorial, you'll learn how to subscribe to the service using WebSocket API and publish messages and using the Web PubSub service SDK.
+The Azure Web PubSub service helps you to easily build real-time web messaging applications. In this tutorial, you'll learn how to subscribe to the service using WebSocket API and publish messages using the Web PubSub service SDK.
 
 In this tutorial, you learn how to:
 
@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Subscribe to receive messages using standard WebSocket protocol
 > * Publish messages using Web PubSub service SDK
 
-[!INCLUDE [azure-web-pubsub-tutorial-prerequisites](../../includes/azure-web-pubsub-tutorial-prerequisites.md)]
+[!INCLUDE [azure-web-pubsub-tutorial-prerequisites](/includes/cli-prerequisites.md)]
 
 If creating the project on a local machine, you'll need to install the dependencies for the language you're using:
 
@@ -47,7 +47,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 # [Local Azure CLI](#tab/LocalBash)
 
-[!INCLUDE [azure-web-pubsub-az-cli-setup](../../includes/azure-web-pubsub-az-cli-setup.md)]
+[!INCLUDE [azure-web-pubsub-az-cli-setup](/includes/cli-setup.md)]
 
 # [Azure Cloud Shell ](#tab/Cloud)
 
