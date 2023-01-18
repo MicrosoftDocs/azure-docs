@@ -219,10 +219,10 @@ While in public preview, the following limitations are known.
 [Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
 
 1.	Private Endpoint Network Policy is unsupported
-Private endpoint policy applied to subnets containing Private Endpoints is unsupported for this preview.  If enabled, traffic from Application Gateway to Private Endpoints may be dropped, resulting in unhealthy backend health.  If the subnet is enabled for private endpoint network policy, you will need to provision a new subnet with private endpoint network policy disabled. Changed Enabled to Disabled on an existing subnet will still result in private endpoints dropping traffic.
+[Private endpoint network policy](../private-link/disable-private-endpoint-network-policy.md) applied to subnets containing Private Endpoints is unsupported for this preview.  If enabled, traffic from Application Gateway to Private Endpoints may be dropped, resulting in unhealthy backend health.  If the subnet is enabled for private endpoint network policy, you will need to provision a new subnet with private endpoint network policy disabled. Changed Enabled to Disabled on an existing subnet will still result in private endpoints dropping traffic.
 
 1. Private Endpoint connectivity via Global VNet Peering
-If Application Gateway has a backend target or key vault reference via private endpoint, that must traverse global vnet peering, traffic will be dropped in result in unhealthy status.
+If Application Gateway has a backend target or key vault reference to a private endpoint located in a vnet that is accessible via global vnet peering, traffic will be dropped and result in unhealthy status.
 
 1.	Backend Health status typo
 If backend health is unknown due to DNS resolution or other reason, the error message will erroneously state that you need a NSG and to eliminate route tables. The message to require NSG rules or eliminate the UDR is incorrect and can be ignored. This issue will be fixed in a future release.
