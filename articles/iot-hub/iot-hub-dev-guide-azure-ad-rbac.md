@@ -101,7 +101,7 @@ By default, IoT Hub supports service API access through both Azure AD and [share
 1. On the left pane, select **Shared access policies**.
 1. Under **Connect using shared access policies**, select **Deny**, and review the warning.
     :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot that shows how to turn off IoT Hub shared access policies." border="true":::
-   
+
    > [!WARNING]
    > By denying connections using shared access policies, all users and services that connect using this method lose access immediately. Notably, since Device Provisioning Service (DPS) only supports linking IoT hubs using shared access policies, all device provisioning flows will fail with "unauthorized" error. Proceed carefully and plan to replace access with Azure AD role based access. **Do not proceed if you use DPS**.
 
