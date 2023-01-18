@@ -129,40 +129,42 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
 
 -  Start the AzureML Inference Server in a command line and use VS Code + Python Extension to attach to the process.
    1. Add below configuration to `launch.json` in VS Code:
-       ```json
-           {
-           "configurations": [
-               {
-                   "name": "Python: Attach using Process Id",
-                   "type": "python",
-                   "request": "attach",
-                   "processId": "${command:pickProcess}",
-                   "justMyCode": true
-               },
-           ]
-       }
-       ```
-   1. Start the inference server using CLI (Windows PowerShell)
+        
+        **launch.json**
+        ```json
+        {
+            "configurations": [
+                {
+                    "name": "Python: Attach using Process Id",
+                    "type": "python",
+                    "request": "attach",
+                    "processId": "${command:pickProcess}",
+                    "justMyCode": true
+                },
+            ]
+        }
+        ```
+   1. Start the inference server using CLI.
    1. Start debugging session in VS Code.
-      1. In VS Code select "Run" -> "Start Debugging"
-      1. Enter the process Id using the logs displayed in CLI.
+      1. In VS Code, select "Run" -> "Start Debugging"
+      1. Enter the process Id using the logs (from the inference server) displayed in CLI.
 
 
--  Set up the `launch.json` in the VS Code and starts the AzureML Inference Server within VS Code.
+-  Set up the `launch.json` in the VS Code and starts the AzureML Inference HTTP Server within VS Code.
 
-**launch.json**
-```json
-{
-    "name": "Debug score.py",
-    "type": "python",
-    "request": "launch",
-    "module": "azureml_inference_server_http.amlserver",
-    "args": [
-        "--entry_script",
-        "score.py"
-    ]
-}
-```
+    **launch.json**
+    ```json
+    {
+        "name": "Debug score.py",
+        "type": "python",
+        "request": "launch",
+        "module": "azureml_inference_server_http.amlserver",
+        "args": [
+            "--entry_script",
+            "score.py"
+        ]
+    }
+    ```
 
 In both ways, you can set breakpoint and debug step by step.
 
