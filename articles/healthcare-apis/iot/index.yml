@@ -25,8 +25,8 @@ landingContent:
         links:
           - text: What is the MedTech service?
             url: overview.md
-          - text: The MedTech service data flow
-            url: data-flow.md
+          - text: Understand the MedTech service
+            url: understand-service.md
       - linkListType: quickstart
         links:
           - text: Get started with the MedTech service

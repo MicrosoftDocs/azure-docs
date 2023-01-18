@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 1/18/2023
 ms.author: jasteppe
 ---
 
@@ -120,7 +120,7 @@ If you choose to include your Log Analytics workspace as a destination option fo
 > [!TIP]
 > To learn about how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 >
-> To learn about how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot the MedTech service error messages and conditions](troubleshoot-error-messages-and-conditions.md).
+> To learn about how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot MedTech service errors](troubleshoot-errors.md).
 
 ## Next steps
 

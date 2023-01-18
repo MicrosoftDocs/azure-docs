@@ -17,7 +17,7 @@ For enhanced workflows and ease of use, you can use the MedTech service to recei
 :::image type="content" source="media\device-messages-through-iot-hub\data-flow-diagram.png" border="false" alt-text="Diagram of the IoT message data flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\data-flow-diagram.png":::
 
 > [!TIP]
-> To learn more about how the MedTech service transforms and persists device messages into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR Observations, see [The MedTech service data flow](data-flow.md). 
+> To learn more about how the MedTech service transforms and persists device messages into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR Observations, see [Understand the MedTech service](understand-service.md). 
 
 
 In this tutorial, you learn how to:

@@ -139,7 +139,7 @@ The MedTech service processes the data in five steps:
 
 If the processing was successful and you didn't get any error messages, your device data is now a FHIR service [Observation](http://hl7.org/fhir/observation.html) resource.
 
-For more information on the data flow through MedTech, see [The MedTech service data flow](data-flow.md).
+For more information on the MedTech service device message processing, see [Understand the MedTech service](understand-service.md).
 
 ## Step 6: Verify the processed data
 

@@ -5,13 +5,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 1/12/2023
+ms.date: 1/18/2023
 ms.author: jasteppe
 ---
 
 # How to use custom functions with device mappings
 
-Many functions are available when using **JMESPath** as the expression language. Besides the functions available as part of the JMESPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](how-to-configure-device-mappings.md) during the device message [normalization](data-flow.md#normalize) process.
+Many functions are available when using **JMESPath** as the expression language. Besides the functions available as part of the JMESPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](how-to-configure-device-mappings.md) during the device message [normalization](understand-service.md#normalize) process.
 
 > [!TIP]
 > For more information on JMESPath functions, see the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions).
