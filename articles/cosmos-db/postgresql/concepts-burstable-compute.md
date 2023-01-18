@@ -36,11 +36,11 @@ accumulated and used credits respectively.
 >   1. a single node cluster with regular (non-burstable) compute; or
 >   2. a multi-node cluster.
 >
-> You also can't go back from regular (non-burstable) single node to burstable
-> compute.
+> You also can't go back from a regular (non-burstable) single node to
+> burstable compute.
 
 **Next steps**
 
-* See the [Limits and limitations](reference-limits.md#burstable-compute) of
+* See the [limits and limitations](reference-limits.md#burstable-compute) of
   burstable compute.
 * Review available [cluster metrics](concepts-monitoring.md#metrics).
