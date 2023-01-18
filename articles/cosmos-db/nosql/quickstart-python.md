@@ -126,7 +126,7 @@ from azure.cosmos import CosmosClient, PartitionKey
 from azure.identity import DefaultAzureCredential
 ```
 
-Create variables for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variables using `os.environ`.
+Create a variable for the `COSMOS_ENDPOINT` and using `os.environ` and specify the `DefaultAzureCredential` as the credential type.
 
 ```python
 endpoint = os.environ["COSMOS_ENDPOINT"]
