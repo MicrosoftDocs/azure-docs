@@ -87,7 +87,7 @@ This table lists Splunk artifacts and links to guidance for setting up the equiv
 |Namespaces|You can grant or limit permission to artifacts in Azure Monitor based on [access control](../logs/manage-access.md) you define on your [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) or [Azure resource groups](../../azure-resource-manager/management/manage-resource-groups-portal.md).|
 |Permissions|[Access management](../logs/manage-access.md)|
 |Reports|Azure Monitor offers a range of options for analyzing, visualizing, and sharing data, including:<br><br>- [Integration with Grafana](../visualize/grafana-plugin.md)- [Insights](../insights/insights-overview.md)<br>- [Workbooks](../visualize/workbooks-overview.md)<br>- [Dashboards](../visualize/tutorial-logs-dashboards.md)<br>- [Integration with Power BI](../logs/log-powerbi.md)<br>- [Integration with Excel](../logs/log-excel.md)|
-|Searches|[Saved queries](../logs/save-query.md)|
+|Searches|[Queries](../logs/log-query-overview.md)|
 |Source types|[Define your data model in your Log Analytics workspace](../logs/manage-logs-tables.md). Use [ingestion-time transformations](../essentials/data-collection-transformations.md) to filter, format, or modify incoming data.|
 |Universal forwarder| Azure Monitor provides a number of [data collection tools](#4-collect-data) designed for specific resources.| 
 
