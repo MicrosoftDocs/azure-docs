@@ -517,7 +517,7 @@ GET on `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/provi
 ```
 
 ### Health State isn't showing up
-If Health State isn't showing up in Azure Portal or via GET call, check to ensure that the VM is upgraded to the latest model. If the VM isn't on the latest model, upgrade the VM and the health status will come up.
+If Health State isn't showing up in Azure portal or via GET call, check to ensure that the VM is upgraded to the latest model. If the VM isn't on the latest model, upgrade the VM and the health status will come up.
 
 ### Extension execution output log
 Extension execution output is logged to files found in the following directories:
