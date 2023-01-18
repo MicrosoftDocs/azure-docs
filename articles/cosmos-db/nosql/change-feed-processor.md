@@ -41,7 +41,7 @@ Each range is being read in parallel and its progress is maintained separately f
 
 ### [.NET](#tab/dotnet)
 
-The point of entry is always the monitored container, from a `Container` instance you call `GetChangeFeedProcessorBuilder`:
+The change feed processor in .NET is currently only available for [latest version mode](change-feed-latest-version.md). The point of entry is always the monitored container, from a `Container` instance you call `GetChangeFeedProcessorBuilder`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -140,7 +140,7 @@ The change feed processor will be initialized and start reading changes from the
 
 ### [Java](#tab/java)
 
-An example of a delegate implementation would be:
+An example of a delegate implementation when reading the change feed in [latest version mode](change-feed-latest-version.md) would be:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=Delegate)]
 
@@ -148,12 +148,16 @@ An example of a delegate implementation would be:
 > In the above we pass a variable `options` of type `ChangeFeedProcessorOptions`, which can be used to set various values including `setStartFromBeginning`:
 > [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=ChangeFeedProcessorOptions)]
 
-We assign this to a `changeFeedProcessorInstance`, passing parameters of compute instance name (`hostName`), the monitored container (here called `feedContainer`) and the `leaseContainer`. We then start the change feed processor:
+The delegate implementation for reading the change feed in [all versions and deletes mode](change-feed-all-versions-and-deletes.md) is similar, but instead of calling `.handleChanges()` you call `.handleAllVersionsAndDeletesChanges()`. An example of this would be:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessorForAllVersionsAndDeletesMode.java?name=Delegate)]
+ 
+In either change feed mode, you can assign this to a `changeFeedProcessorInstance`, passing parameters of compute instance name (`hostName`), the monitored container (here called `feedContainer`) and the `leaseContainer`. We then start the change feed processor:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=StartChangeFeedProcessor)]
 
 >[!NOTE]
-> The above code snippets are taken from a sample in GitHub, which you can find [here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java).
+> The above code snippets are taken from a sample in GitHub, which you can find the sample for [latest version mode here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java) or [all versions and deletes mode here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessorForAllVersionsAndDeletesMode.java).
 
 ## Processing life cycle
 
@@ -214,6 +218,9 @@ Operations on the lease container (updating and maintaining state) consume [requ
 ## Starting time
 
 By default, when a change feed processor starts the first time, it will initialize the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
+
+> [!NOTE]
+> Modifying the starting time of the change feed processor is not available when you are using [all versions and deletes mode](change-feed-all-versions-and-deletes.md). Currently, you must use the default start time.
 
 ### Reading from a previous date and time
 

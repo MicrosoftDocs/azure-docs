@@ -35,23 +35,28 @@ You can work with change feed using the following options:
 * [Using change feed with change feed processor](change-feed-processor.md) 
 * [Using change feed with pull model](nosql/change-feed-pull-model.md) 
 
-Change feed is available for each logical partition key within the container, and it can be distributed across one or more consumers for parallel processing as shown in the image below.
+Change feed is available for partition key ranges of an Azure Cosmos DB container. This allows it to be distributed across one or more consumers for parallel processing as shown in the image below.  
 
 :::image type="content" source="./media/change-feed/changefeedvisual.png" alt-text="Distributed processing of Azure Cosmos DB change feed" border="false":::
+
+> [!NOTE]
+> Partition key ranges map to physical partitions when using the [change feed processor](nosql/change-feed-processor.md) and `FeedRanges` when using the [pull model](nosql/change-feed-pull-model.md).
 
 ## Features of change feed
 
 * Change feed is enabled by default for all Azure Cosmos DB accounts. 
 
-* You can use your [provisioned throughput](request-units.md) to read from the change feed, just like any other Azure Cosmos DB operation, in any of the regions associated with your Azure Cosmos DB database.
+* You can use your [provisioned throughput](request-units.md) to read from the change feed, just like any other Azure Cosmos DB operation, in any of the regions associated with your Azure Cosmos DB account.
 
 * The change feed includes inserts and update operations made to items within the container. If you are using [all versions and deletes mode (preview)](#all-versions-and-deletes-mode-preview), you will also get changes from delete operations and TTL expirations.
 
-* Each change included in the change log appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. [using change feed with change feed processor](change-feed-processor.md).
+* Each change appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. [using change feed with change feed processor](change-feed-processor.md).
 
-* Changes are available in parallel for all logical partition keys of an Azure Cosmos DB container. This capability allows changes from large containers to be processed in parallel by multiple consumers.
+* Changes from different partitions can be processed in parallel by multiple consumers. 
 
-* Applications can request multiple change feeds on the same container simultaneously. ChangeFeedOptions.StartTime can be used to provide an initial starting point. For example, to find the continuation token corresponding to a given clock time. The ContinuationToken, if specified, takes precedence over the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs.
+* Applications can request multiple change feeds on the same container simultaneously. 
+
+* The starting point for change feed can be customized to be from the beginning of the container, from a point in time, or from "now". The precision of the start time is ~5 secs.
 
 ### Sort order of items in change feed
 
@@ -67,7 +72,7 @@ In a multi-region Azure Cosmos DB account, if a write-region fails over, change 
 
 ## Change feed modes
 
-There are two change feed modes available: latest version mode and all versions and deletes mode. The mode that change feed is read in determines which operations changes are captured from as well as the metadata available for each change. It is possible to consume the change feed in different modes across multiple applications for the same Azure Cosmos DB account.
+There are two change feed modes available: latest version mode and all versions and deletes mode. The mode that change feed is read in determines which operations changes are captured from as well as the metadata available for each change. It is possible to consume the change feed in different modes across multiple applications for the same Azure Cosmos DB container.
 
 ### Latest version mode
 

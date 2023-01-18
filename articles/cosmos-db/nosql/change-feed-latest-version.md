@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/09/2023
 ---
 # Change feed mode latest version in Azure Cosmos DB
-[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin](includes/appliesto-nosql-mongodb-cassandra-gremlin.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin](../includes/appliesto-nosql-mongodb-cassandra-gremlin.md)]
 
 Latest version mode for the Azure Cosmos DB change feed is a persistent record of changes to items from creates and updates. You will get the latest version of each item in the container. Deletes are not captured as changes, but when an item is deleted it will no longer be available in the feed. Latest version change feed mode is enabled by default and can be used by all Azure Cosmos DB accounts except API for Table accounts. This mode was previously referred to as *Incremental* and was the default way to consume the change feed.
 
