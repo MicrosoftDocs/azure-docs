@@ -17,21 +17,21 @@ Historically, Application Gateway v2 SKUs, and to a certain extend v1, has requi
 1) Network Security Group associations require rules to allow inbound access from GatewayManager and Outbound access to Internet.
 1) When introducing a default route (0.0.0.0/0) to forward traffic anywhere other than the internet, metrics, monitoring, and updates of the gateway result in a failed status.
 
-Application Gateway v2 can now address each of these items to further eliminate risk of data exfilitration and control privacy of communication from within the virtual network. These changes include the following capabilities:
+Application Gateway v2 can now address each of these items to further eliminate risk of data exfiltration and control privacy of communication from within the virtual network. These changes include the following capabilities:
 
 1) Private IP only frontend IP configuration
    1) No public IP resource required
 1) Elimination of inbound traffic from GatewayManager service tag via Network Security Group
 1) Ability to define a _Deny All_ outbound NSG rule to restrict egress traffic to the Internet
-1) Support for manipulation of the default route (0.0.0.0/0) from, but not limited to, VPN, ExpressRoute, Azure Route Server, Azure Virtual WAN, or Route Table rules.
-1) Full support for DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers)
+1) Ability to multiple the default route out to the internet (0.0.0.0/0)
+1) DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers), including private link private DNS zones.
 
 Each of these features can be enabled independently. For example, if a public IP should be used to allow traffic inbound from the internet, but you want to define a _Deny All_ outbound rule in the network security group configuration to further prevent data exfiltration, that is a valid configuration.
 
 # Onboard to public preview
 The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, is currently in public preview.  To join the public preview, you can opt-in to the experience via Azure PowerShell, Azure CLI, or REST API.
 
-When joining the preview, please note that all new gateways will begin to provision with the ability to enable any combination of the features above.  If you wish to offboard from the new functionality / return to the current generall available functionality of Application Gateway, you may do so by unregistering the feature.
+When joining the preview, note that all new gateways will begin to provision with the ability to enable any combination of the NSG, Route Table, or private IP configuration features.  If you wish to offboard from the new functionality / return to the current generall available functionality of Application Gateway, you may do so by unregistering the feature.
 
 ## Register to the preview
 
@@ -189,17 +189,17 @@ The following regions are available for public preview.  Provisioning in regions
 -	West US 2
 
 ## Configuration of network controls
-After registration in to the public preview, configuration of NSG / Route Table/ and Application Gateway may be conducted as expected, via all experiences (REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal).  No API changes or command changes are introduced with this public preview.
+After registration in to the public preview, configuration of NSG / Route Table / and private IP frontend configuration can be conducted via all experiences (REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal).  No API or command changes are introduced with this public preview.
 
 ## Resource Changes
 Upon provisioning of your gateway, you will notice a resource tag is automatically provisioned with the name of **EnhancedNetworkControl** and value of **True**.
 //Add Image Reference
-The resource tag is cosmetic to confirm the gateway has been provisioned with the capabilities to configure any combination of the private only gateway features. Modification or deletion of the tag or value does not change any functional workings of the gateway. The tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.
+The resource tag is cosmetic to confirm the gateway has been provisioned with the capabilities to configure any combination of the private only gateway features. Modification or deletion of the tag or value does not change any functional workings of the gateway. The tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
 
 ## Network Security Group Control
 Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, nor require outbound access to the internet.  The only required rule is Allow inbound from AzureLoadBalancer to ensure health probes can reach the gateway.
 
-Here is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, you add additional rules to allow client traffic to reach the listener of the gateway.
+Here is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
 
 // Add image reference
 
@@ -210,7 +210,9 @@ Here is an example of the most restrictive set of inbound rules, denying all tra
 ## Route Table Control
 In the current offering of Application Gateway, association of a route table with a rule (or creation of rule) defined as 0.0.0.0/0 with a next hop as virtual appliance is unsupported to ensure proper management of Application Gateway.
 
-After registration of the public preview feature, the ability to forward traffic to a virtual appliance via use of a route table with a rule defined as 0.0.0.0/0 with a next hop to Virtual Appliance or via Forced Tunneling (0.0.0.0/0 route) through route advertisements learned via VPN, ExpressRoute, Route Server, or Virtual WAN is possible.
+After registration of the public preview feature, the ability to forward traffic to a virtual appliance is now possible via definition of a route table rule defining 0.0.0.0/0 with a next hop to Virtual Appliance.
+
+Forced Tunneling, learning of 0.0.0.0/0 route through BGP advertisied, will not affect Application Gateway health and be honored for traffic flow. This scenario may be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
 
 ## Limitations / Known Issues
 While in public preview, the following limitations are known.
