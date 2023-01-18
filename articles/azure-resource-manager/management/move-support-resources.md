@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 01/05/2023
 ---
 
 # Move operation support for resources
@@ -1293,7 +1293,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | networkinterfaces | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. |
 > | networkprofiles | No | No | No |
 > | networksecuritygroups | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NSGs). |
-> | networkwatchers | No | No | No |
+> | networkwatchers | **Yes** | No | No |
 > | networkwatchers / connectionmonitors | **Yes** | No | No |
 > | networkwatchers / flowlogs | **Yes** | No | No |
 > | networkwatchers / pingmeshes | **Yes** | No | No |

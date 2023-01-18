@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 01/18/2023
 ms.author: jasteppe
 ---
 
@@ -14,13 +14,13 @@ ms.author: jasteppe
 
 This article provides an overview of the MedTech service data flow. You'll learn about the different data processing stages within the MedTech service that transforms device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
-Data from health-related devices or medical devices flows through a path in which the MedTech service transforms data into FHIR, and then data is stored on and accessed from the FHIR service. The health data path follows these steps in this order: ingest, normalize, group, transform, and persist. Health data is retrieved from the device in the first step of ingestion. After the data is received, it's processed, or normalized per a user-selected/user-created schema template called the device mapping. Normalized health data is simpler to process and can be grouped. In the next step, health data is grouped into three Operate parameters. After the health data is normalized and grouped, it can be processed or transformed through a FHIR destination mapping, and then saved or persisted on the FHIR service.
+Data from devices flows through a path in which the MedTech service transforms data into FHIR, and then data is stored on and accessed from the FHIR service. The data path follows these steps in this order: ingest, normalize, group, transform, and persist. Data is retrieved from the device in the first step of ingestion. After the data is received, it's processed, or normalized per a user-selected/user-created schema template called the device mapping. Normalized data is simpler to process and can be grouped. In the next step, data is grouped into three Operate parameters. After the data is normalized and grouped, it can be processed or transformed through a FHIR destination mapping, and then saved or persisted on the FHIR service.
 
-This article goes into more depth about each step in the data flow. The next steps are [Deploy the MedTech service using the Azure portal](deploy-iot-connector-in-azure.md) by using a device mapping (the normalization step) and a FHIR destination mapping (the transformation step).
+This article goes into more depth about each step in the data flow. The next steps are [Choose a deployment method for the MedTech service](deploy-new-choose.md) by using a device mapping (the normalization step) and a FHIR destination mapping (the transformation step).
 
-This next section of the article describes the stages that IoMT (Internet of Medical Things) device data goes through as it processed through the MedTech service.
+This next section of the article describes the stages that IoT (Internet of Things) device data goes through as it processed through the MedTech service.
 
-:::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="Screenshot of IoMT data as it flows from IoT devices into an Azure event hub. IoMT data is ingested by the MedTech service as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
+:::image type="content" source="media/data-flow/iot-data-flow.png" alt-text="Screenshot of IoMT data as it flows from IoT devices into an Azure event hub. IoMT data is ingested by the MedTech service as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/data-flow/iot-data-flow.png":::
 
 ## Ingest
 Ingest is the first stage where device data is received into the MedTech service. The ingestion endpoint for device data is hosted on an [Azure Event Hubs](../../event-hubs/index.yml). The Azure Event Hubs platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device data gets processed.
@@ -53,7 +53,7 @@ At this point, [Device](https://www.hl7.org/fhir/device.html) resource, along wi
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients it is advised you create a virtual device resource that is specific to the patient and send virtual device identifier in the message payload. The virtual device can be linked to the actual device resource as a parent.
 
-If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of `Resolution Type` set at the time of creation. When set to `Lookup`, the specific message is ignored, and the pipeline will continue to process other incoming messages. If set to `Create`, the MedTech service will create a bare-bones Device and Patient resources on the FHIR service.  
+If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of `Resolution Type` set at the time of creation. When set to `Lookup`, the specific message is ignored, and the pipeline will continue to process other incoming messages. If set to `Create`, the MedTech service will create a bare-bones Device and Consumer resources on the FHIR service.  
 
 ## Persist
 Once the Observation FHIR resource is generated in the Transform stage, the resource is saved into the FHIR service. If the Observation FHIR resource is new, it will be created on the FHIR service. If the Observation FHIR resource already existed, it will get updated.
