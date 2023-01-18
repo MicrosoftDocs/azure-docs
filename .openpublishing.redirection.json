@@ -29557,7 +29557,7 @@
         },
         {
           "source_path": "articles/communication-services/quickstarts/voice-video-calling/get-started-android-webview.md",
-          "redirect_URL": "/azure/communication-services/quickstarts/voice-video-calling/get-started-webview.md",
+          "redirect_URL": "/azure/communication-services/quickstarts/voice-video-calling/get-started-webview?pivots=platform-android",
           "redirect_document_id": false
         }
     ]
