@@ -13,9 +13,9 @@ ms.date: 01/17/2023
 
 # Index large data sets in Azure Cognitive Search
 
-If your search solution includes indexing big data or complex data, this article describes the strategies for accommodating long running processes on Azure Cognitive Search.
+If your search solution requirements include indexing big data or complex data, this article describes the strategies for accommodating long running processes on Azure Cognitive Search.
 
-This article assumes familiarity with the [two basic approaches for importing data](search-what-is-data-import.md): pushing data into an index, or pulling in data using a [search indexer](search-indexer-overview.md) on a supported data source. The strategy you choose will be determined by the indexing approach you're already using. If your scenario involves computationally intensive [AI enrichment](cognitive-search-concept-intro.md), then your strategy must include indexers, given the skillset dependency on indexers.
+This article assumes familiarity with the [two basic approaches for importing data](search-what-is-data-import.md): pushing data into an index, or pulling in data from a supported data source using a [search indexer](search-indexer-overview.md). The strategy you choose will be determined by the indexing approach you're already using. If your scenario involves computationally intensive [AI enrichment](cognitive-search-concept-intro.md), then your strategy must include indexers, given the skillset dependency on indexers.
 
 This article complements [Tips for better performance](search-performance-tips.md), which offers best practices on index and query design. A well-designed index that includes only the fields and attributes you need is an important prerequisite for large-scale indexing.
 
@@ -26,8 +26,8 @@ This article complements [Tips for better performance](search-performance-tips.m
 
 "Push" APIs, such as [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (Azure SDK for .NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), are the most prevalent form of indexing in Cognitive Search. For solutions that use a push API, the strategy for long-running indexing will have one or both of the following components:
 
-+ Batch documents
-+ Manage threads
++ Batching documents
++ Managing threads
 
 ### Batch multiple documents per request
 
@@ -64,7 +64,7 @@ The Azure .NET SDK automatically retries 503s and other failed requests, but you
 + Parallel indexing over partitioned data
 + Scheduling and integration with change detection logic to index just new and change documents over time
 
-Indexer schedules allow you to parcel out indexing at regular intervals. Scheduled indexing can resume at the last known stopping point. If a data source isn't fully scanned within the processing window, the indexer picks up wherever it left off at the last job.
+Indexer schedules can resume processing at the last known stopping point. If data isn't fully indexed within the processing window, the indexer picks up wherever it left off on the next run.
 
 Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob Storage, create a [data source](/rest/api/searchservice/create-data-source) for each partition, and then [run the indexers in parallel](search-howto-run-reset-indexers.md), subject to the number of search units of your search service.
 
