@@ -22,6 +22,8 @@ items:
     href: interoperability.md
   - name: Reliability
     href: ../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
+  - name: Security
+    href: security.md
   - name: Emergency calling
     href: emergency-calling.md
   - name: Limits, quotas and restrictions
