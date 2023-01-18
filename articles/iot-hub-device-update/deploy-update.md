@@ -92,6 +92,25 @@ An Azure CLI environment:
 
 # [Azure CLI](#tab/cli)
 
+ 
+
+The [`az iot du device group list`](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) to verify the best available update for your group. The command takes the following arguments:
+
+* `--account`: The Device Update account name.
+* `--instance`: The Device Update instance name.
+* `--group-id`: The device group ID that you're targeting with this deployment. This ID is the value of the **ADUGroup** tag, or `$default` for devices with no tag.
+* `--best-updates`: This flag indicates the command should fetch the best available updates for the device group including a count of how many devices need each update. 
+* `--resource-group -g': Device Update account resource group name.
+* '--update-compliance': This flag indicates the command should fetch device group update compliance information such as how many devices are on their latest update, how many need new updates, and how many are in progress on receiving a new update.
+
+```azurecli
+az iot du device group list \
+    --account <Device Update account name> \
+    --instance <Device Update instance name>\
+    --gid <device group id>\
+    --best-updates {false, true}
+```
+
 Use [az iot du device deployment create](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create) to create a deployment for a device group.
 
 The `device deployment create` command takes the following arguments:
