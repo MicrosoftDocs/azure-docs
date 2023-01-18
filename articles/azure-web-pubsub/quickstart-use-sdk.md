@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Quickstart: Publish messages using the Azure Web PubSub service SDK
 
-Azure Web PubSub helps you manage WebSocket clients. This quickstart shows you how to publish messages to the WebSocket clients using Azure Web PubSub service SDK.
+Azure Web PubSub helps you manage WebSocket clients. This quickstart shows you how to publish messages to WebSocket clients using Azure Web PubSub service SDK.
 
 
 ## Prerequisites
@@ -20,7 +20,7 @@ Azure Web PubSub helps you manage WebSocket clients. This quickstart shows you h
 - An Azure subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Either a Bash or PowerShell command shell.
 - A file editor such as VSCode.
-- Azure CLI [install the Azure CLI](/cli/azure/install-azure-cli)
+- Azure CLI: [install the Azure CLI](/cli/azure/install-azure-cli)
 
 
 ## Setup
@@ -48,8 +48,8 @@ Set the following environment variables.  Replace the \<placeholder\> with a uni
 # [Bash](#tab/bash)
 
 ```azurecli
-RESOURCE_GROUP="my-container-apps"
-LOCATION="canadacentral"
+RESOURCE_GROUP="webpubsub-resource-group"
+LOCATION="EastUS"
 WEB_PUBSUB_NAME=<your-unique-name>
 ```
 
@@ -81,20 +81,28 @@ az group create -Location $Location -Name $ResourceGroupName
 
 ---
 
-## Create and start a Web PubSub service instance
+## Deploy a Web PubSub service instance
 
-Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command to create and start the Web PubSub service.
+Use the `az webpubsub create` command to create and deploy a Web PubSub service instance.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-az webpubsub create --name $WEB_PUBSUB_NAME --resource-group $RESOURCE_GROUP --location LOCATION --sku Free_F1
+az webpubsub create \
+  --name $WEB_PUBSUB_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --location LOCATION \
+  --sku Free_F1
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-az webpubsub create --name $WebPubSubName -Location $Location --resource-group $ResourceGroupName -sku Free_F1
+az webpubsub create `
+  --name $WebPubSubName `
+  --location $Location `
+  --resource-group $ResourceGroupName `
+  --sku Free_F1
 ```
 
 ---
@@ -118,7 +126,7 @@ $connection_string = (az webpubsub key show --name $WebPubSubName --resource-gro
 
 ---
 
-## Connect a client to the instance
+## Connect a client to the service instance
 
 Create a Web PubSub client. The client maintains a connection to the service until it's terminated.
 
@@ -146,7 +154,7 @@ az webpubsub client start `
 
 ---
 
-The connection to the Web PubSub service is established when you see a JSON message indicating that the client is now successfully connected, and is assigned with a unique `connectionId`:
+The connection to the Web PubSub service is established when you see a JSON message indicating that the client is now successfully connected, and is assigned a unique `connectionId`:
 
 ```json
 {"type":"system","event":"connected","userId":"user1","connectionId":"<your_unique_connection_id>"}
@@ -154,7 +162,7 @@ The connection to the Web PubSub service is established when you see a JSON mess
 
 ## Publish messages using service SDK
 
-You'll use the Azure Web PubSub SDK to publish a message to all connected clients.
+You'll create a client that uses the Azure Web PubSub SDK to publish a message to all connected clients.
 
 ### Set up the project to publish messages
 
@@ -163,7 +171,7 @@ Select the language for your project.  The dependencies for each language are in
 
 # [C#](#tab/csharp)
 
-1. Add a new project `publisher` and the SDK package `Azure.Messaging.WebPubSub`.
+1. Add a new project named `publisher` and the SDK package `Azure.Messaging.WebPubSub`.
 
     ```bash
     mkdir publisher
@@ -172,7 +180,7 @@ Select the language for your project.  The dependencies for each language are in
     dotnet add package Azure.Messaging.WebPubSub
     ```
 
-1. Update the `Program.cs` file to use the `WebPubSubServiceClient` class and send messages to the clients.  Replace the code in the `Program.cs` file with the following code.
+1. Update the `Program.cs` file to use the `WebPubSubServiceClient` class to send messages to the clients.  Replace the code in the `Program.cs` file with the following code.
 
     ```csharp
     using System;
@@ -211,7 +219,7 @@ Select the language for your project.  The dependencies for each language are in
     dotnet run $connection_string "myHub1" "Hello World"
     ```
 
-1. The previous command shell shows the received message.
+1. The previous command shell containing the Web PubSub client shows the received message.
 
     ```json
     {"type":"message","from":"server","dataType":"text","data":"Hello World"}
@@ -219,7 +227,7 @@ Select the language for your project.  The dependencies for each language are in
 
 # [JavaScript](#tab/javascript)
 
-1. Create a new folder `publisher` for this project and install required dependencies:
+1. Create a new folder named `publisher` for this project and install required dependencies:
 
     ```bash
     mkdir publisher
@@ -252,7 +260,7 @@ Select the language for your project.  The dependencies for each language are in
     node publish "Hello World"
     ```
 
-1. The previous command shell shows the received message.
+1. The previous command shell containing the Web PubSub client shows the received message.
 
     ```json
     {"type":"message","from":"server","dataType":"text","data":"Hello World"}
@@ -260,7 +268,7 @@ Select the language for your project.  The dependencies for each language are in
 
 # [Python](#tab/python)
 
-1. Create a new folder `publisher` for this project and install required dependencies:
+1. Create a new folder named `publisher` for this project and install required dependencies:
 
     ```bash
     mkdir publisher
@@ -301,7 +309,7 @@ Select the language for your project.  The dependencies for each language are in
     python publish.py $connection_string "myHub1" "Hello World"
     ```
 
-1. The previous command shell shows the received message.
+1. The previous command shell containing the Web PubSub client shows the received message.
 
     ```json
     {"type":"message","from":"server","dataType":"text","data":"Hello World"}
@@ -309,14 +317,14 @@ Select the language for your project.  The dependencies for each language are in
 
 # [Java](#tab/java)
 
-1. Use Maven to create a new console app `webpubsub-quickstart-publisher` and change to the *webpubsub-quickstart-publisher* directory:
+1. Use Maven to create a new console app named `webpubsub-quickstart-publisher` and go to the *webpubsub-quickstart-publisher* directory:
 
     ```console
     mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.quickstart --define artifactId=webpubsub-quickstart-publisher --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
     cd webpubsub-quickstart-publisher
     ```
 
-1. Add Azure Web PubSub SDK to the `dependencies` node of `pom.xml`:
+1. Add the Azure Web PubSub SDK to the `dependencies` node of `pom.xml`:
 
     ```xml
     <dependency>
@@ -326,7 +334,9 @@ Select the language for your project.  The dependencies for each language are in
     </dependency>
     ```
 
-1. Use Azure Web PubSub SDK to publish a message to the service. Navigate to the */src/main/java/com/webpubsub/quickstart* directory.  Replace the contents in the *App.java* file with the following code:
+1. Use the Azure Web PubSub SDK to publish a message to the service. 
+1. Go to the */src/main/java/com/webpubsub/quickstart* directory.  
+1. Replace the contents in the *App.java* file with the following code:
 
     ```java
     package com.webpubsub.quickstart;
@@ -357,7 +367,7 @@ Select the language for your project.  The dependencies for each language are in
 
     ```
 
-    The `service.sendToAll()` call simply sends a message to all connected clients in a hub.
+    This code uses the Azure Web PubSub SDK to publish a message to the service. The `service.sendToAll()` call simply sends a message to all connected clients in a hub.
 
 1. Go to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
 
@@ -377,7 +387,7 @@ Select the language for your project.  The dependencies for each language are in
     mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="$connection_string 'myHub1' 'Hello World'"
     ```
 
-1. The previous command shell shows the received message.
+1. The previous command shell containing the Web PubSub client shows the received message.
 
     ```json
     {"type":"message","from":"server","dataType":"text","data":"Hello World"}
