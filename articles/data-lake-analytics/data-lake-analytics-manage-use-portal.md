@@ -10,7 +10,7 @@ ms.custom: subject-rbac-steps
 # Manage Azure Data Lake Analytics using the Azure portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
 
 This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs by using the Azure portal.
 
