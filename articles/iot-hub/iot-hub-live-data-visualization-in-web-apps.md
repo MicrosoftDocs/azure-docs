@@ -32,7 +32,7 @@ In this article, you learn how to visualize real-time sensor data that your IoT 
 
 * The steps in this article assume a Windows development machine; however, you can easily perform these steps on a Linux system in your preferred shell.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Add a consumer group to your IoT hub
 

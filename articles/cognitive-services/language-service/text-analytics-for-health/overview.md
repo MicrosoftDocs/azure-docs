@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 01/04/2023
+ms.date: 01/06/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -38,8 +38,6 @@ Additionally, Text Analytics for health can return the processed output using th
 
 > [!VIDEO https://learn.microsoft.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
-
-
 ## Usage scenarios
 
 Text Analytics for health can be used in multiple scenarios across a variety of industries.
@@ -59,18 +57,10 @@ Some common customer motivations for using Text Analytics for health include:
 |Review and report medical information|Support solutions for reporting and flagging possible errors in medical information resulting from reviewal processes such as quality assurance.|
 |Assist with decision support|Enable solutions that provide humans with assistive information relating to patients’ medical information for faster and more reliable decisions.|
 
+## Get started with Text Analytics for health
 
+[!INCLUDE [Development options](./includes/development-options.md)] 
 
-## Get started with Text analytics for health
-
-To use this feature, all you need is to submit raw unstructured text for analysis and handl. Analysis is performed as-is, with no additional customization to the model used on your data. There are three ways to get started Text Analytics for health:
-
-
-|Development option  |Description  | Links | 
-|---------|---------|---------|
-| Language Studio    | A web-based platform that enables you to try Text Analytics for health without needing to write any code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/healthAnalysis) <br> • [Quickstart: Use Language Studio](../language-studio.md) |
-| REST API or Client library (Azure SDK)     | Integrate Text Analytics for health into your applications using the REST API or the client library, available in a variety of development languages. | • [Quickstart: Use Text Analytics for health](quickstart.md)  |
-| Docker container | Use the available Docker container to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons. | • [How to deploy on-premises](how-to/use-containers.md) |
 
 ## Input requirements and service limits
 

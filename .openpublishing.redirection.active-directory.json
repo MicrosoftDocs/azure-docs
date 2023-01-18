@@ -56,6 +56,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/otsuka-shokai-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/netsuite-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/tutorial-onboard-custom-workflow-graph.md",
       "redirect_url": "/graph/tutorial-lifecycle-workflows-onboard-custom-workflow",
       "redirect_document_id": false
@@ -1942,8 +1952,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-add-user-without-invite.md",
-      "redirect_url": "/azure/active-directory/b2b/add-user-without-invite",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-allow-deny-list.md",
@@ -3908,8 +3918,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/add-user-without-invite.md",
-      "redirect_url": "/azure/active-directory/external-identities/add-user-without-invite",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/allow-deny-list.md",
@@ -4089,7 +4099,7 @@
     {
       "source_path_from_root": "/articles/active-directory/b2b/redemption-experience.md",
       "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/self-service-portal.md",
@@ -4362,8 +4372,28 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/workbook-legacy authentication.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/workbook-legacy-authentication",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-missing-audit-data.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reports-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/tutorial-access-api-with-certificates.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-graph-api.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/concept-reporting-api.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api",
       "redirect_document_id": false
     },
     {

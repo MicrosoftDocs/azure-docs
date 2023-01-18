@@ -83,7 +83,7 @@ IMDS is **not** intended to be used behind a proxy and doing so is unsupported. 
 
 ## Rate limiting
 
-In general, requests to IMDS are limited to 5 requests per second (on a per VM basis). Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#managed-identity) category are limited to 20 requests per second and 5 concurrent requests.
+In general, requests to IMDS are limited to 5 requests per second (on a per VM basis). Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#managed-identity) category are limited to 20 requests per second and 5 concurrent requests (on a per VM basis).
 
 ## HTTP verbs
 

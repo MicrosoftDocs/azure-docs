@@ -253,7 +253,7 @@ Instead of directly configuring the schema of the table, you can use the portal 
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData.value with 
+    | parse RawData with 
     ClientIP:string
     ' ' *
     ' ' *
