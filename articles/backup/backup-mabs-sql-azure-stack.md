@@ -183,5 +183,5 @@ To recover a protected entity (SQL Server database) from Azure, follow these ste
 
 ## Next steps
 
-- [Back- up files and application](backup-mabs-files-applications-azure-stack.md) article.
+- [Back up files and application](backup-mabs-files-applications-azure-stack.md) article.
 - [Back up SharePoint on Azure Stack](backup-mabs-sharepoint-azure-stack.md) article.
