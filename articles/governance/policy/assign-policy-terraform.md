@@ -43,7 +43,7 @@ for Azure Policy use the
 > To create a Policy Assignment at a Management Group use the [azurerm_management_group_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_policy_assignment) resource, for a Resource Group use the [azurerm_resource_group_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group_policy_assignment) and for a Subscription use the [azurerm_subscription_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription_policy_assignment) resource.
    
 
-    ```hcl
+    ```terraform
     provider "azurerm" {
       features {}
     }
@@ -68,7 +68,7 @@ for Azure Policy use the
 
 1. Create `variables.tf` with the following code:
 
-   ```hcl
+   ```terraform
    variable "cust_scope" {
        default = "{scope}"
    }
@@ -84,7 +84,7 @@ for Azure Policy use the
 
 1. Create `output.tf` with the following code:
 
-   ```hcl
+   ```terraform
    output "assignment_id" {
        value = azurerm_resource_policy_assignment.auditvms.id
    }
@@ -144,7 +144,7 @@ returned.
 ## Identify non-compliant resources
 
 To view the resources that aren't compliant under this new assignment, use the _assignment\_id_
-returned by `terraform apply`. With it, run the following command to get the resource IDs of the
+returned by ```terraform apply```. With it, run the following command to get the resource IDs of the
 non-compliant resources that are output into a JSON file:
 
 ```console
