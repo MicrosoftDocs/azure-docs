@@ -27,7 +27,10 @@ A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-You can also use the Microsoft.Extensions.Logging.ApplicationInsights package to capture logs. For more information, see [Application Insights logging with .NET](ilogger.md). For an example, see [Console application](ilogger.md#console-application).
+> [!NOTE]
+> This article describes how to use the Microsoft.ApplicationInsights.AspNetCore package, which enables the full Application Insights feature set. When you install this package, you automatically install the Microsoft.Extensions.Logging.ApplicationInsights package. If you are using the full feature set, see [Application Insights logging with .NET](ilogger.md) to learn more about capturing logs.
+
+> If you only want to use Application Insights for logging, use the Microsoft.Extensions.Logging.ApplicationInsights package alone. For more information, see [Application Insights logging with .NET](ilogger.md). For an example, see [Console application](ilogger.md#console-application).
 
 ## Supported scenarios
 
