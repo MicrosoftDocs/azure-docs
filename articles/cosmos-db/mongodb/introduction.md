@@ -7,7 +7,7 @@ ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
-ms.date: 11/30/2022
+ms.date: 01/18/2023
 ms.custom: ignite-2022
 ---
 
