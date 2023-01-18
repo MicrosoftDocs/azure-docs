@@ -25,6 +25,20 @@ baseline when your workload requires higher CPU performance. You can use the
 **CPU credits remaining** and **CPU credits consumed** metrics to track
 accumulated and used credits respectively.
 
+> [!IMPORTANT]
+>
+> Scaling for burstable compute is available, but only in certain combinations:
+>
+> * You can change 1 vCore burstable to 2 vCore burstable, and the other way
+>   around.
+> * You can convert a burstable (1 or 2 vCores) single node configuration to
+>   either
+>   1. a single node cluster with regular (non-burstable) compute; or
+>   2. a multi-node cluster.
+>
+> You also can't go back from regular (non-burstable) single node to burstable
+> compute.
+
 **Next steps**
 
 * See the [Limits and limitations](reference-limits.md#burstable-compute) of
