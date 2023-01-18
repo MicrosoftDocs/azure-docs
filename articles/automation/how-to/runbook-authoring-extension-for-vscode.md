@@ -35,21 +35,29 @@ following these steps:
 To view all the resources within your Automation account, you must connect to your Azure account. Follow the steps to connect to Azure from Visual Studio Code:
 
 1. You can sign in to Azure from the Azure Automation extension or the Command Palette.
-    - To sign in from the Azure Automation extension: select **Sign in to Azure**. </br> or </br>
+    - To sign in from the Azure Automation extension: select **Sign in to Azure**. 
+   
+      Or
+
     - To sign in from the Command Palette: from the menu bar, go to **View > Command Palette** and enter **Azure:Sign-in**.
+
 1.  Follow the sign in instructions to sign in to Azure.
     After you're connected, you will find the Azure account name on the status bar of Visual Studio Code. 
 
 ## Select subscriptions
 
-When you sign in for the first time, the extension loads only the default subscription resources and Automation accounts. To add or remove subscriptions, follow the steps:
+When you sign in for the first time, the extension loads only the default subscription resources and Automation accounts. To add or remove subscriptions, follow these steps:
 
 1. You can use the Command Palette or the window footer to start the subscription command.
-    - To sign in from Command Palette - from the menu bar, go to **View > Command Palette** and enter **Azure: Select**. </br> or </br>
-    - To sign in from window footer - In the window footer, select the segment that matches **Azure: <your account>**.
+    - To sign in from Command Palette - from the menu bar, go to **View > Command Palette** and enter **Azure: Select Subscriptions**.
+    
+      Or
+
+    - To sign in from window footer - In the window footer, select the segment that matches **Azure: your account**.
+
 1. Use the filter to find the subscriptions by name.
-1. Check or uncheck from each subscription to set the subscriptions shows by extension.
-1. Select **OK** after you have completed the adding or removing the subscriptions.
+1. Check or uncheck each subscription to add or remove them from the list of subscriptions shown by Azure Automation extension.
+1. Select **OK** after you have completed adding or removing the subscriptions.
 
 
 ## Using the Azure Automation extension
