@@ -256,6 +256,8 @@ Disable app prompt and select an account from the list of matching SSO accounts 
 
 ##### Apps that use a Microsoft identity platform library:
 
+Following settings are not recommended if [App protection policies](https://learn.microsoft.com/en-us/mem/intune/apps/app-protection-policy) are in use. 
+
 Disable the app prompt and display the account picker:
 
 - **Key**: `disable_explicit_native_app_prompt`
@@ -280,8 +282,6 @@ This behavior can be configured using the `disable_inapp_sso_signin` flag. If th
 - **Key**: `disable_inapp_sso_signin`
 - **Type**: `Integer`
 - **Value**: 1 or 0. This value is set to 0 by default.
-
-disable_inapp_sso_signin
 
 #### Configure AAD device registration
 For Intune-managed devices, the Microsoft Enterprise SSO plug-in can perform AAD device registration when a user is trying to access resources. This enables a more streamlined end-user experience. 
