@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Track a web app outage using Change Analysis
-description: Tutorial on how to identify the root cause of a web app outage using Azure Monitor Change Analysis.
-ms.topic: tutorial
+title: Track a web app outage using Change Analysis
+description: Describes how to identify the root cause of a web app outage using Azure Monitor Change Analysis.
+ms.topic: how-to
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
@@ -11,11 +11,11 @@ ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
 
-# Tutorial: Track a web app outage using Change Analysis
+# Track a web app outage using Change Analysis
 
 When issues happen, one of the first things to check is what changed in application, configuration and resources to triage and root cause issues. Change Analysis provides a centralized view of the changes in your subscriptions for up to the past 14 days to provide the history of changes for troubleshooting issues.  
 
-In this tutorial, you will: 
+To track an outage, we will: 
 
 > [!div class="checklist"]
 > - Clone, create, and deploy a [sample web application](https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample) with a storage account.
