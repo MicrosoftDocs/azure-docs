@@ -59,21 +59,21 @@ To follow this quickstart using authentication passwordless and your own Azure a
 >[!IMPORTANT]
 > Make sure to sign in with `az login`. The `DefaultAzureCredential` used in the passwordless code uses these credentials to authenticate with Azure.
 
-To use the passwordless code, you'll need to specify:
+To use the passwordless code, you'll need to specify a:
 
-* A fully qualified service bus namespace
-* A topic name
-* A subscription name
+* fully qualified service bus namespace, for example: *\<service-bus-namespace>.servicebus.windows.net*
+* topic name
+* subscription name
 
 ### [Connection string](#tab/connection-string)
 
-To follow this quickstart using a connection string to authenticate, you don't use your own Azure account. Instead, in a later step, you'll copy the connection string from the Azure portal and use it in the code.
+To follow this quickstart using a connection string to authenticate, you don't use your own Azure account. Instead, you'll use the connection string for the service bus namespace.
 
-To use the connection code, you'll need to specify:
+To use the connection code, you'll need to specify a:
 
-* Connection string
-* Topic name
-* Subscription name.
+* connection string
+* topic name
+* subscription name
 
 ---
 
