@@ -37,7 +37,7 @@ This section will show you how to install the Teams desktop app on your Windows 
 
 To enable media optimization for Teams, set the following registry key on the host VM:
 
-1. From the start menu, run **Registry Editor** as an administrator. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams`. Create the Teams key if it doesn't already exist. 
+1. From the start menu, run **Registry Editor** as an administrator. Go to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams`. Create the Teams key if it doesn't already exist. 
 
 2. Create the following value for the Teams key:
 
@@ -162,7 +162,7 @@ You can disable desktop screen sharing for Teams on Azure Virtual Desktop. To en
 To disable desktop screen share:
 
 1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
-1. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
+1. Go to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
 1. Add the **DisableRAILScreensharing** as a DWORD value.
 1. Set the value to **1** to disable desktop screen share.
 
@@ -176,7 +176,7 @@ You can disable application window sharing for Teams on Azure Virtual Desktop. T
 To disable application window sharing:
 
 1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
-1. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
+1. Go to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
 1. Add the **DisableRAILAppSharing** as a DWORD value.
 1. Set the value to **1** to disable application window sharing.
 
