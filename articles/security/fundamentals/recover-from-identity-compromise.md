@@ -236,7 +236,7 @@ We recommend the following actions to ensure your general security posture:
 
 - **Review [Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score)** for security fundamentals recommendations customized for the Microsoft products and services you consume.
 
-- **Ensure that your organization has extended detection and response (XDR) and security information and event management (SIEM) solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender), [Microsoft Sentinel](../../sentinel/overview.md), and [Microsoft Defender for IoT](../../defender-for-iot/organizations).
+- **Ensure that your organization has extended detection and response (XDR) and security information and event management (SIEM) solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender), [Microsoft Sentinel](../../sentinel/overview.md), and [Microsoft Defender for IoT](/azure/defender-for-iot/organizations/).
 
 - **Review Microsoft’s [Enterprise access model](/security/compass/privileged-access-access-model)**.
 
