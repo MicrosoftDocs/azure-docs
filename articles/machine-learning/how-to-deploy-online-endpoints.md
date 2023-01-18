@@ -492,9 +492,11 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 Add info here.
 
+---
+
 ### Use more than one model in a deployment
 
-Currently, you can specify only one model per deployment in the deployment definition. This is true for the YAML definition with CLI, Python SDk, or any of the other client tools.
+Currently, you can specify only one model per deployment in the deployment definition when you use the Azure CLI, Python SDK, or any of the other client tools.
 
 To use more than one model in a deployment, register a model folder that contains all the models as files or subdirectories. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure will be retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment (CLI example)](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel) and [Deploy multiple models to one deployment (SDK example)](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container-multimodel.ipynb).
 
@@ -534,7 +536,9 @@ This example uses the [score.py file](https://github.com/Azure/azureml-examples/
 __score.py__
 :::code language="python" source="~/azureml-examples-main/cli/endpoints/online/model-1/onlinescoring/score.py" :::
 
-The `init()` function is called when the container is initialized or started. Initialization typically occurs shortly after the deployment is created or updated. Write logic here for global initialization operations like caching the model in memory (as we do in this example). The `run()` function is called for every invocation of the endpoint, and it does the actual scoring and prediction. In this example, we'll extract data from a JSON input, call the scikit-learn model's `predict()` method, and then return the result.
+The `init()` function is called when the container is initialized or started. Initialization typically occurs shortly after the deployment is created or updated. The `init` function is the place to write logic for global initialization operations like caching the model in memory (as we do in this example). 
+
+The `run()` function is called for every invocation of the endpoint, and it does the actual scoring and prediction. In this example, we'll extract data from a JSON input, call the scikit-learn model's `predict()` method, and then return the result.
 
 ## Deploy and debug locally by using local endpoints
 
@@ -787,40 +791,47 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 
 Use the studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You can't create an empty managed online endpoint.
 
+One way to create a managed online endpoint in the studio is from the **Models** page. This method also provides an easy way to add a model to an existing managed online deployment.
+
+To deploy the model named `model-1` that you registered previously in the [Register the model](#register-the-model) section:
+
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
-1. In the left navigation bar, select the **Endpoints** page.
-1. Select **+ Create**.
+1. In the left navigation bar, select the **Models** page.
+1. Select the model named `model-1` by checking the circle next to its name.
+1. Select **Deploy** > **Deploy to real-time endpoint**.
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
+    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
+    
+    This opens up a window where you can specify details about your endpoint.
 
-This opens up a window where you can specify details about your endpoint.
+    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" lightbox="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" lightbox="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
+1. Enter an __Endpoint name__.
 
 > [!NOTE]
 > * Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
 > * Authentication type: The authentication method for the endpoint. Choose between key-based authentication and AzureML token-based authentication. A `key` doesn't expire, but an AzureML token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 > * Optionally, you can add a description and tags to your endpoint.
 
-1. Use the **Next** button at the bottom of the window to move through the pages as you provide more specifications to create the endpoint and deployment. 
-1. When you get to the *Review* page, use the **Create** button to create the endpoint and deployment.
-
-Alternatively, you can create a managed online endpoint from the **Models** page in the studio. This method also provides an easy way to add a model to an existing managed online deployment.
-
-1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
-1. In the left navigation bar, select the **Models** page.
-1. Select a model by checking the circle next to the model name.
-1. Select **Deploy** > **Deploy to real-time endpoint**.
-
-    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
-
-1. Enter an __Endpoint name__ and select __Managed__ as the compute type.
-1. Select __Next__, accepting defaults, until you're prompted for the environment. Here, select the following:
+1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
+1. Select __Next__, until you get to the "Deployment" page. Here, check the box to __Enable Application Insights diagnostics and data collection__.
+1. Select __Next__ to go to the "Environment" page. Here, select the following:
 
     * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
     * __Choose an environment__ section: Select the **Scikit-learn 0.24.1** curated environment.
 
-1. Select __Next__, accepting defaults, until you're prompted to create the deployment. Select the __Create__ button.
+1. Select __Next__, accepting defaults, until you're prompted to create the deployment.
+1. Review your deployment settings and select the __Create__ button.
+
+Alternatively, you can create a managed online endpoint from the **Endpoints** page in the studio.
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select **+ Create**.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
+
+This opens up a window for you to specify details about your endpoint and deployment. Enter settings for your endpoint and deployment as described above, accepting defaults until you're prompted to __Create__  the deployment.
 
 # [ARM template](#tab/arm)
 
