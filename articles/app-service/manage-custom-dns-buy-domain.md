@@ -3,7 +3,7 @@ title: Buy a custom domain
 description: Learn how to buy an App Service domain and use it as a custom domain for your app Azure App Service. 
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
-ms.date: 01/16/2023
+ms.date: 01/31/2023
 ms.custom: seodec18
 
 ---
@@ -17,7 +17,7 @@ To complete this tutorial:
 
 * [Create an App Service app](./index.yml), or use an app that you created for another tutorial. The app should be in an Azure Public region. At this time, Azure National Clouds are not supported.
 * The web app's [App Service plan](overview-hosting-plans.md) must be a paid tier and not **Free (F1)**. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
-* [Remove the spending limit on your subscription](../cost-management-billing/manage/spending-limit.md#remove). You cannot buy App Service domains with free subscription credits.
+* [Remove the spending limit on your subscription](../cost-management-billing/manage/spending-limit.md#remove). You can't buy App Service domains with free subscription credits.
 
 ## 1. Buy an App Service domain
 
@@ -30,7 +30,7 @@ For pricing information on App Service domains, visit the [App Service Pricing p
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-app-service-domain.png" alt-text="A screenshot showing how to open the App Service domain create wizard.":::
 
     > [!NOTE]
-    > You can also create an App Service domain independently from an app by going to the App Service Domains view and click **Add**, or navigating to [the create page directly](https://portal.azure.com/#create/Microsoft.Domain). But since it's independent from your app, you won't be able to assign hostnames like `www` to your app as if you launch it from your app's **Custom domains** page.
+    > You can also create an App Service domain independently from an app by going to the App Service Domains view and select **Add**, or navigating to [the create page directly](https://portal.azure.com/#create/Microsoft.Domain). But since it's independent from your app, you won't be able to assign hostnames like `www` to your app as if you launch it from your app's **Custom domains** page.
 
 1. In the **Basics** tab, configure the settings using the following table:
 
@@ -38,7 +38,7 @@ For pricing information on App Service domains, visit the [App Service Pricing p
    | -------- | ----------- |
    | **Subscription** | The subscription to use to buy the domain. |
    | **Resource Group** | The resource group to put the domain in. For example, the resource group your app is in. |
-   | **Domain** | Type the domain you want. For example, **contoso.com**. If the domain you want is not available, you can select from a list of suggestions of available domains, or try a different domain. |
+   | **Domain** | Type the domain you want. For example, **contoso.com**. If the domain you want isn't available, you can select from a list of suggestions of available domains, or try a different domain. |
 
     > [!NOTE]
     > The following [top-level domains](https://wikipedia.org/wiki/Top-level_domain) are supported by App Service domains: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_, and _co.in_.
@@ -47,7 +47,7 @@ For pricing information on App Service domains, visit the [App Service Pricing p
     
 1. Select **Next: Contact information** and supply your information as required by [ICANN](https://go.microsoft.com/fwlink/?linkid=2116641) for the domain registration. 
 
-    It is important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to buy the domain.
+    It's important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to buy the domain.
 
 1. Select **Next: Hostname assignment** and verify the default hostnames to map to your app:
 
@@ -66,16 +66,16 @@ For pricing information on App Service domains, visit the [App Service Pricing p
    | **Auto renewal** | Enabled by default. Your App Service domain is registered to you at one-year increments. Auto renewal makes sure that your domain registration doesn't expire and that you retain ownership of the domain. Your Azure subscription is automatically charged the yearly domain registration fee at the time of renewal. To opt out, select **Disable**. If auto-renewal is disabled, you can [renew it manually](#renew-the-domain). |
    | **Privacy protection** | Enabled by default. Privacy protection hides your domain registration contact information from the WHOIS database. Privacy protection is already included in the yearly domain registration fee. To opt out, select **Disable**. |
 
-1. Select **Next: Tags** and set the tags you want for your App Service domain. Tagging is not required for using App Service domains, but is a [feature in Azure that helps you manage your resources](../azure-resource-manager/management/tag-resources.md).
+1. Select **Next: Tags** and set the tags you want for your App Service domain. Tagging isn't required for using App Service domains, but is a [feature in Azure that helps you manage your resources](../azure-resource-manager/management/tag-resources.md).
 
-1. Select **Next: Review + create** and review your domain order. When finished, click **Create**.
+1. Select **Next: Review + create** and review your domain order. When finished, select **Create**.
 
     > [!NOTE]
     > App Service Domains use GoDaddy for domain registration and Azure DNS to host the domains. In addition to the yearly domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
     >
     >
 
-1. When the domain registration is complete, you see a **Go to resource** button. Select it to see it's management page.
+1. When the domain registration is complete, you see a **Go to resource** button. Select it to see its management page.
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/deployment-complete.png" alt-text="A screenshot showing App Service domain creation completed.":::
 
@@ -134,7 +134,7 @@ The create wizard already lets you map the root domain (like `contoso.com`) and 
 
 ## Renew the domain
 
-The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically which will charge your payment method when your domain renews the following year. You can also manually renew your domain name.
+The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically, which will charge your payment method when your domain renews the following year. You can also manually renew your domain name.
 
 If you want to configure automatic renewal, or if you want to manually renew your domain, follow the steps here.
 
@@ -149,10 +149,10 @@ If you want to configure automatic renewal, or if you want to manually renew you
     :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png" alt-text="Screenshot that shows the option to automatically renew your domain.":::
 
     > [!NOTE]
-    > When navigating away from the page, disregard the "Your unsaved edits will be discarded" error by clicking **OK**.
+    > When navigating away from the page, disregard the "Your unsaved edits will be discarded" error by selecting **OK**.
     >
 
-To manually renew your domain, select **Renew domain**. However, this button is not active until 90 days before the domain's expiration date.
+To manually renew your domain, select **Renew domain**. However, this button isn't active until 90 days before the domain's expiration date.
 
 If your domain renewal is successful, you receive an email notification within 24 hours. 
 
@@ -176,7 +176,7 @@ For information on how to edit DNS records, see [How to manage DNS Zones in the 
 
 ## Cancel purchase (delete domain)
 
-After you purchase the App Service Domain, you have five days to cancel your purchase for a full refund. After five days, you can delete the App Service Domain, but cannot receive a refund.
+After you purchase the App Service Domain, you have five days to cancel your purchase for a full refund. After five days, you can delete the App Service Domain, but can't receive a refund.
 
 1. In the search bar, search for and select **App Service Domains**.
 
@@ -188,11 +188,11 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
     A delete lock has been created for your domain. As long as a delete lock exists, you can't delete the App Service domain.
 
-1. Click **Delete** to remove the lock.
+1. Select **Delete** to remove the lock.
 
 1. In the domain's left navigation, select **Overview**. 
 
-1. If the cancellation period on the purchased domain has not elapsed, select **Cancel purchase**. Otherwise, you see a **Delete** button instead. To delete the domain without a refund, select **Delete**.
+1. If the cancellation period on the purchased domain hasn't elapsed, select **Cancel purchase**. Otherwise, you see a **Delete** button instead. To delete the domain without a refund, select **Delete**.
 
     :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png" alt-text="Screenshot that shows where to delete or cancel a purchased domain.":::
 
