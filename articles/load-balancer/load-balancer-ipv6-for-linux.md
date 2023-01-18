@@ -28,7 +28,7 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 > [!WARNING]
 > By improperly editing network configuration files, you can lose network access to your VM. We recommended that you test your configuration changes on non-production systems. The instructions in this article have been tested on the latest versions of the Linux images in the Azure Marketplace. For more detailed instructions, consult the documentation for your own version of Linux.
 
-## Ubuntu (18.02 or higher)
+## Ubuntu (18.04 or higher)
 
 1. Edit the **`/etc/dhcp/dhclient.conf`** file, and add the following line:
 
