@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Modify the billing plan in a site
 
-The *site plan* determines the throughput, the number of devices and the number of radio access network (RAN) connections each site supports. The plan you selected when creating the site can be easily updated to support your deployment requirements as they change. In this how-to guide, you'll learn how to modify the billing plan in a site using the Azure portal.
+The *site plan* determines the throughput, the number of devices and the number of radio access network (RAN) connections each site supports. The plan you selected when creating the site can be updated to support your deployment requirements as they change. In this how-to guide, you'll learn how to modify the billing plan in a site using the Azure portal.
 
 ## Prerequisites
 
@@ -63,12 +63,9 @@ To modify your site plan:
 
     :::image type="content" source="media/modify-site-plan/site-plan-selection-tab.png" alt-text="Screenshot of the Azure portal showing the Site Plan screen.":::
 
-4. Wait while the Azure portal redeploys the packet core instance with the new configuration. You'll see a confirmation screen when the deployment is complete.
+4. Wait while the Azure portal applies the new site plan configuration to your site. You'll see a confirmation screen when the deployment is complete.
 5. Navigate to the **Mobile Network Site** resource as described in [View the current site plan](#view-the-current-site-plan). Check that the field under **Site Plan** contains the updated information.
 
 ## Next steps
 
-Use Azure Monitor or the packet core dashboards to confirm your packet core instance is operating normally after you modify the site plan.
-<!-- TODO: add link to platform metrics -->
-- [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
-- [Packet core dashboards](packet-core-dashboards.md)
+Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify the site plan.
