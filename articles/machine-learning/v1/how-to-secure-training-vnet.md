@@ -96,9 +96,7 @@ For information on using a firewall solution, see [Use a firewall with Azure Mac
 
 ## Compute instance/cluster with no public IP
 
-while creating a compute instance or compute cluster with no public IP was available as a public preview for SDK v1, the general availability for this feature is only available in SDK v2, Azure CLI v2, or the Azure Machine Learning studio UI.
-
-For information on creating a compute instance or cluster with no public IP, see the v2 version of [Secure an Azure Machine Learning training environment](../how-to-secure-training-vnet.md) article.
+To create a compute instance or compute cluster with no public IP, use the Azure Machine Learning studio UI, SDK v2, or Azure CLI extension for ML v2. For information on creating a compute instance or cluster with no public IP, see the v2 version of [Secure an Azure Machine Learning training environment](../how-to-secure-training-vnet.md) article.
 
 
 ## Compute instance/cluster with public IP
