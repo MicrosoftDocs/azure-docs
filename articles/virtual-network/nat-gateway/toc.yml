@@ -23,6 +23,8 @@ items:
   items:
   - name: Use a NAT gateway with a hub and spoke network
     href: tutorial-hub-spoke-route-nat.md
+  - name: Use a NAT gateway with Azure Firewall
+    href: tutorial-hub-spoke-nat-firewall.md
   - name: Integrate NAT gateway public load balancer
     href: tutorial-nat-gateway-load-balancer-public-portal.md
   - name: Integrate NAT gateway internal load balancer
