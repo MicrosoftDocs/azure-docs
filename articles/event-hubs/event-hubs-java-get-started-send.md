@@ -2,7 +2,7 @@
 title: Send or receive events from Azure Event Hubs using Java (latest)
 description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs using the latest azure-messaging-eventhubs package.
 ms.topic: quickstart
-ms.date: 10/10/2022
+ms.date: 12/21/2022
 ms.devlang: java
 ms.custom: devx-track-java, mode-api
 ---
@@ -30,11 +30,11 @@ This section shows you how to create a Java application to send events an event 
 First, create a new **Maven** project for a console/shell application in your favorite Java development environment. Update the `pom.xml` file with the following dependency. The Java client library for Event Hubs is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-eventhubs). 
 
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-eventhubs</artifactId>
-    <version>5.7.0</version>
-</dependency>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs</artifactId>
+		    <version>5.15.0</version>
+		</dependency>
 ```
 
 > [!NOTE]
@@ -137,18 +137,18 @@ Add the following dependencies in the pom.xml file.
 - [azure-messaging-eventhubs-checkpointstore-blob](https://search.maven.org/search?q=a:azure-messaging-eventhubs-checkpointstore-blob)
 
 ```xml
-<dependencies>
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-messaging-eventhubs</artifactId>
-        <version>5.7.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-        <version>1.6.0</version>
-    </dependency>
-</dependencies>
+	<dependencies>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs</artifactId>
+		    <version>5.15.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+		    <version>1.16.1</version>
+		</dependency>
+	</dependencies>
 ```
 
 1. Add the following **import** statements at the top of the Java file.

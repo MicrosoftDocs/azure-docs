@@ -200,7 +200,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.PrivateDns
     - name: .NET
-      href: /dotnet/api/overview/azure/privatedns/management
+      href: /dotnet/api/overview/azure/resourcemanager.privatedns-readme
     - name: REST
       href: /rest/api/dns/privatedns/privatezones
   - name: Private resolver

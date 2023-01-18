@@ -35,6 +35,17 @@ Given the above examples, the following scenarios will trigger an `IncomingCall`
 > [!NOTE]
 > An important concept to remember is that an Azure Communication Services identity can be a user or application. Although there is no ability to explicitly assign an identity to a user or application in the platform, this can be done by your own application or supporting infrastructure. Please review the [identity concepts guide](../identity-model.md) for more information on this topic.
 
+## Register an Event Grid resource provider
+
+If you haven't previously used Event Grid in your Azure subscription, you might need to register your Event Grid resource provider. To register the provider, follow these steps:
+
+1. Go to the Azure portal.
+2. On the left menu, select **Subscriptions**.
+3. Select the subscription that you use for Event Grid.
+4. On the left menu, under **Settings**, select **Resource providers**.
+5. Find **Microsoft.EventGrid**.
+6. If your resource provider isn't registered, select **Register**.
+
 ## Receiving an incoming call notification from Event Grid
 
 Since Azure Communication Services relies on Event Grid to deliver the `IncomingCall` notification through a subscription, how you choose to handle the notification is up to you. Additionally, since the Call Automation API relies specifically on Webhook callbacks for events, a common Event Grid subscription used would be a 'Webhook'. However, you could choose any one of the available subscription types offered by the service.

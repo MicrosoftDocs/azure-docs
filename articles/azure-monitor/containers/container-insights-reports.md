@@ -37,6 +37,14 @@ To create a custom workbook based on any of these workbooks, select the **View W
 >[!NOTE]
 > In accordance with the Kubernetes [upstream announcement](https://kubernetes.io/blog/2020/12/16/third-party-device-metrics-reaches-ga/#nvidia-gpu-metrics-deprecated), GPU metrics collection will be disabled out of the box. For instructions on how to continue collecting your GPU metrics, see [Configure GPU monitoring with Container insights](./container-insights-gpu-monitoring.md).
 
+- **Subnet IP Usage**: Interactive IP usage charts for each node within a cluster by the following perspectives:
+ 
+    - IPs allocated from subnet.
+    - IPs assigned to a pod.
+
+>[!NOTE]
+> By default 16 IP's are allocated from subnet to each node. This cannot be modified to be less than 16. For instructions on how to enable subnet IP usage metrics, see [Monitor IP Subnet Usage](../../aks/configure-azure-cni.md#monitor-ip-subnet-usage).
+
 ## Resource Monitoring workbooks
 
 - **Deployments**: Status of your deployments and horizontal pod autoscaler (HPA) including custom HPAs.
@@ -64,7 +72,7 @@ To create a custom workbook based on any of these workbooks, select the **View W
 
 ## Networking workbooks
 
-- **NPM Configuration**: Monitoring of your network configurations, which are configured through the network policy manager (NPM) for the:
+- **NPM Configuration**: Monitoring of your network configurations, which are configured through the network policy manager (npm) for the:
 
   - Summary information about overall configuration complexity.
   - Policy, rule, and set counts over time, allowing insight into the relationship between the three and adding a dimension of time to debugging a configuration.

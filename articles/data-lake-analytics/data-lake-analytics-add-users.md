@@ -9,6 +9,8 @@ ms.date: 05/24/2018
 
 # Adding a user in the Azure portal
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## Start the Add User Wizard
 1. Open your Azure Data Lake Analytics via https://portal.azure.com.
 2. Click **Add User Wizard**.

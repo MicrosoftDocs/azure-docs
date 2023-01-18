@@ -72,7 +72,7 @@ The endpoint URI uses the following format, where the `Data Collection Endpoint`
 ```
 
 > [!NOTE]
-> You can retrieve the immutable ID from the JSON view of the DCR. For more information, see [Collect information from DCR](tutorial-logs-ingestion-portal.md#collect-information-from-dcr).
+> You can retrieve the immutable ID from the JSON view of the DCR. For more information, see [Collect information from the DCR](tutorial-logs-ingestion-portal.md#collect-information-from-the-dcr).
 
 ### Headers
 
@@ -85,7 +85,7 @@ The endpoint URI uses the following format, where the `Data Collection Endpoint`
 
 ### Body
 
-The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR.
+The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR. Additionally, it is important to ensure that the request body is properly encoded in UTF-8 to prevent any issues with data transmission.
 
 ## Sample call
 

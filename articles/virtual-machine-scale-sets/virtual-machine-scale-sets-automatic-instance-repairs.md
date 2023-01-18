@@ -235,23 +235,6 @@ GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provider
 }
 ```
 
-Use *setOrchestrationServiceState* API with API version 2019-12-01 or higher on a Virtual Machine Scale Set to set the state of automatic repairs. Once the scale set is opted into the automatic repairs feature, you can use this API to suspend or resume automatic repairs for your scale set.
-
- ```http
- POST '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/setOrchestrationServiceState?api-version=2019-12-01'
- ```
-
-```json
-{
-  "orchestrationServices": [
-    {
-      "serviceName": "AutomaticRepairs",
-      "serviceState": "Suspend"
-    }
-  ]
-}
-```
-
 ### Azure CLI
 
 Use [get-instance-view](/cli/azure/vmss#az-vmss-get-instance-view) cmdlet to view the *serviceState* for automatic instance repairs.

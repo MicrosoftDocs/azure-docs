@@ -47,15 +47,15 @@ Four Azure resources are defined in the template.
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json)
 
 2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
-    
+
     | Field | Value |
     |--|--|
     | **Subscription** | Select the Azure subscription you used to create your private mobile network. |
     | **Resource group** | Select the resource group containing the mobile network resource representing your private mobile network. |
-    | **Region** | Select **East US**. |
-    | **Location** | Enter *eastus*. |
+    | **Region** | Select the region in which you deployed the private mobile network. |
+    | **Location** | Enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*. |
     | **Existing Mobile Network Name** | Enter the name of the mobile network resource representing your private mobile network. |
-    | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
+    | **Existing Data Network Name** | Enter the name of the data network. This value must match the name you used when creating the data network. |
     | **Site Name** | Enter a name for your site.|
     | **Site Plan** | Enter the billing plan for your site. This can be one of: G1, G2, G3, G4, or G5. |
     | **Azure Stack Edge Device** | Enter the resource ID of the Azure Stack Edge resource in the site. |
