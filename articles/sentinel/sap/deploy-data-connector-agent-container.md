@@ -62,6 +62,69 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 ## Deploy the data connector agent container via the UI
 
+### Prerequisites
+
+- Follow the [Microsoft Sentinel Solution for SAP deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
+- Assign the VM from which you're deploying the agent with read-write access to the relevant Azure Key Vault. You select the Key Vault when you [create a new agent](#create-a-new-agent).
+
+### Deploy the data connector agent
+
+1. From the Microsoft Sentinel portal, select **Data connectors**.
+1. In the search bar, type *Microsoft Sentinel for SAP*.
+1. Select the **Microsoft Sentinel for SAP** connector and select **Open connector**.
+    
+    [TBD - screenshot]
+
+1. Deploy the agent. To add a system, you must add an agent first. 
+    
+    1. Create a new agent
+    1. Create a new SAP system
+
+#### Create a new agent
+
+1. In the **Configuration** area, select **Add new agent (Preview)**.
+    
+    [TBD - screenshot]
+
+1. Under **Create a collector agent** on the right, define the agent details:
+    - Type the agent name, and select the subscription and key vault.
+    - Under **NWRFC SDK zip file path on the agent VM**, type a path that contains the SAP NetWeaver Remote Function Call (RFC), Software Development Kit (SDK) archive (.zip file). For example, *src/test/NWRFC.zip*.
+    - To ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), select **Enable SNC connection support**. If you select this option, under **SAP Cryptographic Library path on the agent VM**, provide the path that contains the `sapgenpse` binary and `libsapcrypto.so` library.
+       
+        Learn more about [deploying the connector over a SNC connection](deployment-solution-configuration.md).
+
+    - To deploy the container and create SAP systems via managed identity, leave the default option **Managed Identity**, selected. To deploy the container and create SAP systems via a registered application, select **Application Identity**.
+        - If you select **Application Identity**, provide the application ID and secret.
+
+1. Select **Create**.
+1. Under **Just one step before we finish**, click **Copy** [TBD - screenshot] next to **Agent command**.
+1. In your VM, open a terminal and run the command you copied in the previous step.
+
+    The new agent is visible in the table under **Add an API based collector agent**. This table displays the agent name and health status for agents you deploy via the UI only. 
+
+    [TBD - screenshot]
+    
+    If you need to copy your command again, select **View** [TBD - screenshot] to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+
+#### Create a new system
+
+1. In the **Configuration** area, select **Add new system (Preview)**.
+
+    [TBD - screenshot]
+
+1. Under **Select an agent**, select the [agent you created in the previous step](#create-a-new-agent).
+1. Under **System identifier**, select the server type and provide the server details.
+1. Select **Next: Authentication**.
+1. For basic authentication, provide the user and password, or select **SNC** and provide the certificate details.
+1. Select **Next: Logs**.
+1. Select which logs you want to pull from SAP, and select **Next: Review and create**.
+1. Review the settings you defined. Select **Previous** to modify any settings, or select **Deploy** to deploy the system.
+
+The configuration you defined is deployed into Azure Key Vault. Once you run the command and the agent runs again, the **Health** status changes to **System healthy**. The agent pulls the configuration from Azure Key Vault, after which the agent sends a new heartbeat. 
+
+You can now see the agent name in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the UI or via other methods. Learn more about how to [monitor your SAP system health] TBD - add link.
+
+[TBD - screenshot]
 
 ## Next steps
 

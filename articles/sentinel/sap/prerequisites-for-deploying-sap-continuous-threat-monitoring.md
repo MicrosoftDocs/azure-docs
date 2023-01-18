@@ -37,11 +37,11 @@ To successfully deploy the Microsoft Sentinel Solution for SAP, you must meet th
 
 ### Azure prerequisites
 
-| Prerequisite | Description |
-| ---- | ----------- |
-| **Access to Microsoft Sentinel** | Make a note of your Microsoft Sentinel *workspace ID* and *primary key*.<br>You can find these details in Microsoft Sentinel: from the navigation menu, select **Settings** > **Workspace settings** > **Agents management**. Copy the *Workspace ID* and *Primary key* and paste them aside for use during the deployment process. |
-| *[Optional]* **Permissions to create Azure resources** | At a minimum, you must have the necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see the [Microsoft Sentinel content hub catalog](../sentinel-solutions-catalog.md). |
-| *[Optional]* **Permissions to create an Azure key vault or access an existing one** | The recommended deployment scenario is to use Azure Key Vault to store secrets required to connect to your SAP system. For more information, see the [Azure Key Vault documentation](../../key-vault/index.yml). |
+| Prerequisite | Description |Required/optional |
+| ---- | ----------- |----------- |
+| **Access to Microsoft Sentinel** | Make a note of your Microsoft Sentinel *workspace ID* and *primary key*.<br>You can find these details in Microsoft Sentinel: from the navigation menu, select **Settings** > **Workspace settings** > **Agents management**. Copy the *Workspace ID* and *Primary key* and paste them aside for use during the deployment process. |Required |
+| **Permissions to create Azure resources** | At a minimum, you must have the necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see the [Microsoft Sentinel content hub catalog](../sentinel-solutions-catalog.md). |<ul><li>Required if you plan to [deploy the data connector agent via the UI](deploy-data-connector-agent-container.md).</li><li>Optional if you plan to [deploy the data connector agent using other methods](deploy-data-connector-agent-container-manual.md)</li></ul>. |
+| **Permissions to create an Azure key vault or access an existing one** | The recommended deployment scenario is to use Azure Key Vault to store secrets required to connect to your SAP system. For more information, see the [Azure Key Vault documentation](../../key-vault/index.yml). |<ul><li>Required if you plan to [deploy the data connector agent via the UI](deploy-data-connector-agent-container.md).</li><li>Optional if you plan to [deploy the data connector agent using other methods](deploy-data-connector-agent-container-manual.md)</li></ul>. |
 
 ### System prerequisites
 
