@@ -26,7 +26,7 @@ Before you begin an in-place upgrade:
 - Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed. 
 
 ## Windows versions not yet supported for in-place upgrade
-For the following versions, consider using the [workaround](#work-around) later in this article:
+For the following versions, consider using the [workaround](#workaround) later in this article:
 
 - Windows Server 2012 Datacenter
 - Windows Server 2012 Standard
