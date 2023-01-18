@@ -76,7 +76,7 @@ To set up a Log Analytics workspace for data collection:
 
 To migrate most Splunk artifacts, you need to translate Splunk Processing Language (SPL) to Kusto Query Language (KQL). For more information, see the [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet) and [Get started with log queries in Azure Monitor](../logs/get-started-queries.md).
 
-This table lists Splunk artifacts and provides links to guidance on how to set up the equivalent artifacts in Azure Monitor:
+This table lists Splunk artifacts and links to guidance for setting up the equivalent artifacts in Azure Monitor:
 
 |Splunk artifact| Azure Monitor artifact|
 |---|---|
