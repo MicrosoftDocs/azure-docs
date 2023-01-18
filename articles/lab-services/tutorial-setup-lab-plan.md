@@ -39,18 +39,22 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
 
     :::image type="content" source="./media/tutorial-setup-lab-plan/select-lab-plans-service.png" alt-text="Screenshot of how to search for and create a lab plan by using the Azure Marketplace.":::
 
-1. On the **Basics** tab of the **Create a lab plan** page, do the following actions:
-    1. Select the **Azure subscription** in which you want to create the lab plan.
-    1. For **Resource group**, select an existing resource group or select **Create new**, and enter a name for the new resource group.
-    1. For **Name**, enter a lab plan name. For more information about naming restrictions, see [Microsoft.LabServices resource name rules](../azure-resource-manager/management/resource-name-rules.md#microsoftlabservices).
-    1. For **Region**, select a location/region in which you want to create the lab plan.
-    1. Select **Review + Create**. When the validation succeeds, select **Create**.
+1. On the **Basics** tab of the **Create a lab plan** page, provide the following information:
 
-        :::image type="content" source="./media/tutorial-setup-lab-plan/lab-plan-basics-page.png" alt-text="Screenshot that shows the Basics tab to create a new lab plan in the Azure portal.":::
+    | Field        | Description                |
+    | ------------ | -------------------------- |
+    | **Subscription** | Select the Azure subscription that you want to use to create the lab plan. |
+    | **Resource group** | Select an existing resource group or select **Create new**, and enter a name for the new resource group. |
+    | **Name** | Enter a unique lab plan name. <br/>For more information about naming restrictions, see [Microsoft.LabServices resource name rules](../azure-resource-manager/management/resource-name-rules.md#microsoftlabservices). |
+    | **Region** | Select a geographic location to host your lab plan. |
 
-    1. Review the summary, and then select **Create** to start the creation of the lab plan.
+1. After you're finished configuring the resource, select **Review + Create**.
 
-1. When the deployment is complete, select **Go to resource** under **Next steps**.
+    :::image type="content" source="./media/tutorial-setup-lab-plan/lab-plan-basics-page.png" alt-text="Screenshot that shows the Basics tab to create a new lab plan in the Azure portal.":::
+
+1. Review all the configuration settings and select **Create** to start the deployment of the Lab Plan.
+
+1. To view the new resource, select **Go to resource**.
 
     :::image type="content" source="./media/tutorial-setup-lab-plan/go-to-lab-plan.png" alt-text="Screenshot that shows the resource deployment completion page in the Azure portal.":::
 
