@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse, ignite-2022
-ms.date: 09/09/2021
+ms.date: 01/18/2023
 ---
 
 # Copy data from or to MongoDB Atlas using Azure Data Factory or Synapse Analytics
