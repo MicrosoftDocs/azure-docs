@@ -49,9 +49,9 @@ In Active Directory, the default UPN suffix is the domain DNS name where you cre
 
 For example, if you add labs.contoso.com and change the user UPNs and email to reflect that, the result is: username@labs.contoso.com.
 
->[!IMPORTANT]
-> If you change the suffix in Active Directory, add and verify a matching custom domain name in Azure AD. 
-> [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md)
+   >[!IMPORTANT]
+   > If you change the suffix in Active Directory, add and verify a matching custom domain name in Azure AD. 
+   > [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md)
 
    ![Screenshot of the Add customer domain option, under Custom domain names.](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 
@@ -120,7 +120,7 @@ Users might experience single sign-on issues with applications that depend on Az
 
 ### Workaround
 
-Allow enough time for the UPN change to sync to Azure AD. After you verify the new UPN appears in the Azure portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can verify using PowerShell. See, [Get-AzureADUser](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0&preserve-view=true). After users sign in with a new UPN, references to the old UPN might appear on the **Access work or school** Windows setting.
+Allow enough time for the UPN change to sync to Azure AD. After you verify the new UPN appears in the Azure portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can verify using PowerShell. See, [Get-AzureADUser](../../powershell/module/azuread/get-azureaduser?view=azureadps-2.0&preserve-view=true). After users sign in with a new UPN, references to the old UPN might appear on the **Access work or school** Windows setting.
 
    ![Screenshot of User-1 and Other-user domains, on the sign-in screen.](./media/howto-troubleshoot-upn-changes/other-user.png)
 
@@ -162,8 +162,8 @@ Your organization might use Mobile Application Management (MAM) to protect corpo
 
 Learn more: 
 
-* [App protection policies overview](/mem/intune/apps/app-protection-policy)
-* [Frequently asked questions about MAM and app protection](/mem/intune/apps/mam-faq)
+* [App protection policies overview](../../mem/intune/apps/app-protection-policy)
+* [Frequently asked questions about MAM and app protection](../../mem/intune/apps/mam-faq)
 
 ### Workaround
 
