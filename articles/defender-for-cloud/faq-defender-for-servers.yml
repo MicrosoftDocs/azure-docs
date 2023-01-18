@@ -58,7 +58,7 @@ sections:
       - question: |
           Do I need to enable Defender for Servers on the subscription and on the workspace?
         answer: |
-          When you enable a Defender for Servers plan at the subscription level, Defender for Cloud automatically enables the plan on your default workspaces. If you use a custom workspace, select the workspace to enable the plan. Here's more information:
+          Defender for Servers Plan 1 does not depend on Log Analytics. When you enable Defender for Servers Plan 2 at the subscription level, Defender for Cloud automatically enables the plan on your default Log Analytics workspaces. If you use a custom workspace, make sure you enable the plan on the workspace. Here's more information:
           
           - If you turn on Defender for Servers for a subscription and for a connected custom workspace, you aren't charged for both. The system identifies unique VMs.
           - If you enable Defender for Servers on cross-subscription workspaces:
