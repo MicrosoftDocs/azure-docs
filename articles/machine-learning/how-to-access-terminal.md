@@ -63,7 +63,6 @@ Access all Git operations from the terminal. All Git files and folders will be s
 
 To integrate Git with your Azure Machine Learning workspace, see  [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
-
 ## Install packages
 
  Install packages from a terminal window. Install Python packages into the **Python 3.8 - AzureML** environment.  Install R packages into the **R** environment.
@@ -79,7 +78,7 @@ Or you can install packages directly in Jupyter Notebook, RStudio, or Posit Work
 ## Add new kernels
 
 > [!WARNING]
->  While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
+> While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
 
 To add a new Jupyter kernel to the compute instance:
 
@@ -106,12 +105,14 @@ To add a new Jupyter kernel to the compute instance:
 Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 
 ### Remove added kernels
+
 > [!WARNING]
->  While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
+> While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
 
 To remove an added Jupyter kernel from the compute instance, you must remove the kernelspec, and (optionally) the conda environment. You can also choose to keep the conda environment. You must remove the kernelspec, or your kernel will still be selectable and cause unexpected behavior.
 
 To remove the kernelspec:
+
 1. Use the terminal window to list and find the kernelspec:
 
     ```shell
@@ -125,13 +126,14 @@ To remove the kernelspec:
     ```
 
 To also remove the conda environment:
+
 1. Use the terminal window to list and find the conda environment:
 
     ```shell
     conda env list
     ```
 
-3. Remove the conda environment, replacing ENV_NAME with the conda environment you'd like to remove:
+1. Remove the conda environment, replacing ENV_NAME with the conda environment you'd like to remove:
 
     ```shell
     conda env remove -n ENV_NAME
@@ -141,41 +143,11 @@ Upon refresh, the kernel list in your notebooks view should reflect the changes 
 
 ## Manage terminal sessions
 
-Terminal sessions can stay active if terminal tabs are not properly closed. Too many active terminal sessions can impact the performance of your compute instance. 
+Terminal sessions can stay active if terminal tabs are not properly closed. Too many active terminal sessions can impact the performance of your compute instance.
 
 Select **Manage active sessions** in the terminal toolbar to see a list of all active terminal sessions and shut down the sessions you no longer need.
 
-Learn more about terminal and notebook sessions [on the next docs page]()
+Learn more about how to manage sessions running on your compute at [Managing notebook and terminal sessions](how-to-manage-compute-sessions.md).
 
 > [!WARNING]
->  Make sure you close any sessions you no longer need to preserve your compute instance's resources and optimize your performance.
-
-
-
-
-## Managing notebook and terminal sessions
-
-Notebook and terminal sessions run on the compute and represent and preserve the current state of your notebook or terminal.
-
-When you re-open a notebook, or reconnect to a terminal session, this allows you to reconnect to the previous session state (including command history, execution history, and defined variables). However, too many active sessions may slow down the performance of your compute. This may make terminal or cell typing feel laggy, or cause terminal commands to feel slow or notebook execution to take longer than expected. 
-
-There is a session management panel in the Azure Machine Learning studio that can help you manage your active sessions and optimize the performance of your compute instance. You can navigate to this session management panel from the compute toolbar of either a terminal tab or a notebook tab.
-
-> [!NOTE]
-> For optimal performance, we recommend you don’t keep more than ten active sessions - and the fewer the better.
-
-    <insert screenshot of session management panel>
-    
-### Terminal sessions
-Terminal sessions are terminated when you close a terminal tab in the Azure Machine Learning studio. If you navigate away from the Azure Machine Learning studio without closing it, the session may remain open and should be shut down if no longer needed. 
-
-Select **Manage active sessions** in the terminal toolbar to see a list of all active terminal sessions. You can see below that the icon shows the count of active terminal sessions.
-    
-    <insert screenshot of terminal compute toolbar with "Manage active sessions" hovered>
-
-### Notebook sessions
-In contrast, notebook sessions are kept active unless they are shut down explicitly. This enables you to reconnect to your previous notebook session state, and means that when you close a notebook tab, the session is kept active. If you'd like to reconnect to a notebook and have access to previously-defined variables and execution state, you will benefit from the active session. However, keeping too many notebook sessions open can slow down the performance of your compute.
-
-Select **Manage active sessions** in the notebook toolbar to see a list of all active notebook sessions. You can see below that the icon shows the count of active notebook sessions.
-
-    <insert screenshot of terminal compute toolbar with "Manage active sessions" hovered>
+> Make sure you close any sessions you no longer need to preserve your compute instance's resources and optimize your performance.
