@@ -39,7 +39,7 @@ Health data is collected in the *SentinelHealth* table in your Log Analytics wor
 
 **Did an analytics rule run as expected?**
 
-[Did my analytics rule run when it was supposed to, and did it generate results](monitor-analytics-rule-health.md)?
+[Did my analytics rule run when it was supposed to, and did it generate results](monitor-analytics-rule-health.md)? If you're expecting to see particular incidents in your queue but you don't, you want to know whether the rule ran but didn't find anything (or enough things), or didn't run at all.
 
 ## How Microsoft Sentinel presents health data
 
