@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Advanced Security Information Model (ASIM) known issues (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The following are the Advanced Security Information Model (ASIM) known issues and limitations:
 
 ## Time picker set to a custom range
