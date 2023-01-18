@@ -50,7 +50,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
 |  Maximum number of manual backups per volume per day |  5  |  Y  |
 
-\* 2 TiB capacity pool limits are currently in preview. To set your capacity pool size lower than 4 TiB, you must first [register the feature](azure-netapp-files-set-up-capacity-pool.md#2-tib-capacity-pool). Capacity pools smaller than 4TiB are only supported for volumes configured with Standard network features.
+\* [!INCLUDE [Limitations for capacity pool minimum of 2 TiB](includes/2-tib-capacity-pool.md)]
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 

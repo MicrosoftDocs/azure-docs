@@ -74,7 +74,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
      The minimum capacity pool size is 2 TiB. You can change the size of a capacity pool in 1-TiB increments.
 
     >[!NOTE]
-    >2 TiB capacity pool sizing is currently in preview. If you want to set your capacity pool size below 4 TiB, you must first [register the 2 TiB capacity pool feature](#2-tib-capacity-pool).
+    >[!INCLUDE [Limitations for capacity pool minimum of 2 TiB](includes/2-tib-capacity-pool.md)]
 
    * **QoS**   
      Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  
