@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 01/18/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
@@ -61,8 +61,8 @@ Users sign in to Azure AD with their userPrincipalName attribute value.
 
 When you use Azure AD with on-premises Active Directory, user accounts are synchronized by using the Azure AD Connect service. The Azure AD Connect wizard uses the userPrincipalName attribute from the on-premises Active Directory as the UPN in Azure AD. You can change it to a different attribute in a custom installation.
 
->[!NOTE]
-> Define a process for when you update a User Principal Name (UPN) of a user, or for your organization. 
+   >[!NOTE]
+   > Define a process for when you update a User Principal Name (UPN) of a user, or for your organization. 
 
 When you synchronize user accounts from Active Directory to Azure AD, ensure the UPNs in Active Directory map to verified domains in Azure AD.
 
