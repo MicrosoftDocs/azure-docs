@@ -20,6 +20,8 @@ Fix Hypothesis mode issue
 
 Fix HTTP Proxy issue
 
+Add CNV Disconnected container support to TTS Frontend
+
 Add support for these locale-voices:
 - da-DK-ChristelNeural
 - da-DK-JeppeNeural
