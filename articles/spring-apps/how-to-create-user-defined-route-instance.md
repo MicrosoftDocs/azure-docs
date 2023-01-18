@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: yinglzh
 ms.service: spring-apps
 ms.topic: article
-ms.date: 09/25/2021
+ms.date: 01/17/2023
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
@@ -33,9 +33,10 @@ The following illustration shows an example of an Azure Spring Apps virtual netw
 
 :::image type="content" source="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" lightbox="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" alt-text="Architecture diagram that shows user-defined routing.":::
 
-* Public Ingress is forced to flow through firewall filters
-  * ASA instance is isolated dedicated subnets.
-  * The firewall is owned and managed by customers. Please ensure it builds a healthy envrioment for all functions you need.
+* Public ingress traffic must flow firewall filters.
+* Each Azure Spring Apps instance is isolated within a dedicated subnet.
+* The firewall is owned and managed by customers. 
+* Ensure the firewall builds a healthy environment for all functions you need.
 
 ### Define environment variables
 
@@ -265,7 +266,7 @@ az network vnet subnet update
 
 ### Add a role for an Azure Spring Apps resource provider
 
-The following example shows how to add a role for the Azure Spring Apps resource provider, which is represented by the string e8de9221-a19c-4c81-b814-fd37c6caf9d2 for all users:
+The following example shows how to add a role for the Azure Spring Apps resource provider. The role is assigned to all users identified by the string `e8de9221-a19c-4c81-b814-fd37c6caf9d2`:
 
 ```azurecli
 VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
