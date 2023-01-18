@@ -150,4 +150,4 @@ With current functionality there are some restrictions:
 ## Next steps
 
 - [Learn about frontend IP address configuration](configuration-frontend-ip.md).
-- [Learn about private Application Gateway deployments](application-gateway-private-deployment.md).
+- [Learn about private Application Gateway deployment](application-gateway-private-deployment.md).
