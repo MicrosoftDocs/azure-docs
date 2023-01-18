@@ -230,12 +230,12 @@ Use the following CLI commands to uninstall Azure Monitor Agent on Azure virtual
 
 - Windows
   ```azurecli
-  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> -name AzureMonitorWindowsAgent
+  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> --name AzureMonitorWindowsAgent
   ```
 
 - Linux
   ```azurecli
-  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> -name AzureMonitorLinuxAgent
+  az vm extension delete --resource-group <resource-group-name> --vm-name <virtual-machine-name> --name AzureMonitorLinuxAgent
   ```
 
 ### Uninstall on Azure Arc-enabled servers
