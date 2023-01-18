@@ -70,7 +70,7 @@ Upon authorization, you will be billed the fees associated with each relevant gr
 
 ## Step 5 - Spacecraft is authorized
 
-Once the licenses are in place, the spacecraft object will be updated by Azure Orbital to represent the licenses held at the specified ground stations. Refer to (to add link to spacecraft concept) To understand how the authorizations are applied, see [Spacecraft Object](./spacecraft-object.md).
+Once the licenses are in place, the spacecraft object will be updated by Azure Orbital to represent the licenses held at the specified ground stations. To understand how the authorizations are applied, see [Spacecraft Object](./spacecraft-object.md).
 
 ## FAQ
 
