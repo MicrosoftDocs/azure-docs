@@ -3,7 +3,7 @@ title: About Microsoft Sentinel content and solutions | Microsoft Docs
 description: This article describes Microsoft Sentinel content and solutions, which customers can use to find data analysis tools packaged together with data connectors.
 author: cwatson-cat
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 01/05/2023
 ms.author: cwatson
 ---
 
