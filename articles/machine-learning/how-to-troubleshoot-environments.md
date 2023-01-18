@@ -581,7 +581,7 @@ If you suspect that the path name to your container registry is incorrect
 * For a registry `my-registry.io` and image `test/image` with tag `3.2`, a valid image path would be `my-registry.io/test/image:3.2`
 * See [registry path documentation](https://aka.ms/azureml/environment/docker-registries)
 
-If your container registry is behind a virtual network and is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
 * Configure the container registry by using the service endpoint (public access) from the portal and retry
 * After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
 
@@ -930,6 +930,7 @@ If your container registry is behind a virtual network or is using a private end
 * After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
 
 If you aren't using a virtual network, or if you've configured it correctly
-* Try pushing your image again. Log in to your ACR using `docker login`
-* For image name "helloworld", 'docker push helloworld'
-* See [docker push documentation](https://docs.docker.com/engine/reference/commandline/push/)
+* Get credentials for your workspace ACR from Azure Portal.
+* Log in to your ACR using `docker login <myregistry.azurecr.io> -u -p`
+* For image name "helloworld", `docker push helloworld`
+* See [Quickstart: Build and run a container image using Azure Container Registry Tasks](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-quickstart-task-cli)
