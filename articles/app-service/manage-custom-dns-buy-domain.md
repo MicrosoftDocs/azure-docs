@@ -13,13 +13,11 @@ App Service domains are custom domains that are managed directly in Azure. They 
 
 ## Prerequisites
 
-To complete this tutorial:
-
 * [Create an App Service app](./index.yml), or use an app that you created for another tutorial. The app should be in an Azure Public region. At this time, Azure National Clouds are not supported.
 * The web app's [App Service plan](overview-hosting-plans.md) must be a paid tier and not **Free (F1)**. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
 * [Remove the spending limit on your subscription](../cost-management-billing/manage/spending-limit.md#remove). You can't buy App Service domains with free subscription credits.
 
-## 1. Buy an App Service domain
+## Buy and map an App Service domain
 
 For pricing information on App Service domains, visit the [App Service Pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/) and scroll down to App Service Domain.
 
@@ -27,7 +25,7 @@ For pricing information on App Service domains, visit the [App Service Pricing p
 1. In the left menu for your app, select **Custom domains**.
 1. Select **Buy App Service domain**.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-app-service-domain.png" alt-text="A screenshot showing how to open the App Service domain create wizard.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-app-service-domain.png" alt-text="A screenshot showing how to open the App Service domain wizard." border="true":::
 
     > [!NOTE]
     > You can also create an App Service domain independently from an app by going to the App Service Domains view and select **Add**, or navigating to [the create page directly](https://portal.azure.com/#create/Microsoft.Domain). But since it's independent from your app, you won't be able to assign hostnames like `www` to your app as if you launch it from your app's **Custom domains** page.
@@ -57,7 +55,7 @@ For pricing information on App Service domains, visit the [App Service Pricing p
    | **'www' subdomain** | If you buy the `contoso.com` domain, the `www` subdomain would be `www.contoso.com`. Select **No** if you don't want to map it to your app. |
 
     > [!NOTE]
-    > If you didn't launch the create wizard from an app's **Custom domains** page, you won't see this tab. You can still add them later by following the steps at [TODO]().
+    > If you didn't launch the App Service domain wizard from an app's **Custom domains** page, you won't see this tab. You can still add them later by following the steps at [TODO]().
 
 1. Select **Next: Advanced** and configure the optional settings:  
 
@@ -77,7 +75,7 @@ For pricing information on App Service domains, visit the [App Service Pricing p
 
 1. When the domain registration is complete, you see a **Go to resource** button. Select it to see its management page.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/deployment-complete.png" alt-text="A screenshot showing App Service domain creation completed.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/deployment-complete.png" alt-text="A screenshot showing App Service domain creation completed." border="true":::
 
 You're now ready to assign an App Service app to this custom domain.
 
@@ -86,15 +84,15 @@ You're now ready to assign an App Service app to this custom domain.
 > 
 > If you have made payments and are still running into this error, you can contact support and provide proof of payments.
 
-## Map a hostname to an app
+## Map a hostname manually
 
-The create wizard already lets you map the root domain (like `contoso.com`) and the `www` subdomain (like `www.contoso.com`) to your app. You can map any other subdomain to your app, like `shoppingcart` (as in `shoppingcart.contoso.com`).
+If launched from an app's **Custom domains** page, the App Service domain wizard already lets you map the root domain (like `contoso.com`) and the `www` subdomain (like `www.contoso.com`) to your app. You can map any other subdomain to your app, like `shoppingcart` (as in `shoppingcart.contoso.com`).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your app's management page.
 1. In the left menu for your app, select **Custom domains**.
 1. Select **Add custom domain**.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-custom-domain.png" alt-text="A screenshot showing how to open the Add custom domain dialog.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-custom-domain.png" alt-text="A screenshot showing how to open the Add custom domain dialog." border="true":::
 
 1. For **Domain provider**, select **App Service Domain**.
 
@@ -119,13 +117,13 @@ The create wizard already lets you map the root domain (like `contoso.com`) and 
 
 1. Select **Add**.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/map-app-service-domain-to-app.png" alt-text="A screenshot showing how to map an App Service domain in the Add custom domain dialog.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/map-app-service-domain-to-app.png" alt-text="A screenshot showing how to map an App Service domain in the Add custom domain dialog." border="true":::
 
 1. You should see the custom domain added to the list. You may also see a red X with **No binding**. 
 
     If you selected **App Service Managed Certificate** earlier, wait a few minutes for App Service to create the managed certificate for your custom domain. When the process is complete, the red X becomes a green check mark with **Secured**. If you selected **Add certificate later**, this red X will remain until you [add a private certificate for the domain](configure-ssl-certificate.md) and [configure the binding](configure-ssl-bindings.md).
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-app-service-domain-hostname-complete.png" alt-text="A screenshot showing the custom domains page with the new secured custom domain.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-app-service-domain-hostname-complete.png" alt-text="A screenshot showing the custom domains page with the new secured custom domain." border="true":::
 
     > [!NOTE]
     > Unless you configure a certificate binding for your custom domain, Any HTTPS request from a browser to the domain will receive an error or warning, depending on the browser.
@@ -140,13 +138,13 @@ If you want to configure automatic renewal, or if you want to manually renew you
 
 1. In the search bar, search for and select **App Service Domains**.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view." border="true":::
 
 1. Select the domain you want to configure.
 
 1. From the left navigation of the domain, select **Domain renewal**. To start renewing your domain automatically, select **On**, otherwise select **Off**. The setting takes effect immediately. If automatic renewal is enabled, on the day after your domain expiration date, Azure attempts to bill you for the domain name renewal.
 
-    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png" alt-text="Screenshot that shows the option to automatically renew your domain.":::
+    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png" alt-text="Screenshot that shows the option to automatically renew your domain." border="true":::
 
     > [!NOTE]
     > When navigating away from the page, disregard the "Your unsaved edits will be discarded" error by selecting **OK**.
@@ -164,7 +162,7 @@ In Azure, DNS records for an App Service Domain are managed using [Azure DNS](ht
 
 1. In the search bar, search for and select **App Service Domains**.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view in the manage custom DNS records section.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view in the manage custom DNS records section." border="true":::
 
 1. Select the domain you want to configure.
 
@@ -180,7 +178,7 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 1. In the search bar, search for and select **App Service Domains**.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view in the manage custom DNS records section.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view in the manage custom DNS records section." border="true":::
 
 1. Select the domain you want to configure.
 
@@ -194,7 +192,7 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 1. If the cancellation period on the purchased domain hasn't elapsed, select **Cancel purchase**. Otherwise, you see a **Delete** button instead. To delete the domain without a refund, select **Delete**.
 
-    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png" alt-text="Screenshot that shows where to delete or cancel a purchased domain.":::
+    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png" alt-text="Screenshot that shows where to delete or cancel a purchased domain." border="true":::
 
 1. Confirm the operation by selecting **Yes**.
 

@@ -40,7 +40,7 @@
       href: quickstart-arc.md
 - name: Tutorials
   items:
-    - name: Secure app with domain and certificate
+    - name: Add domain and certificate
       href: tutorial-secure-domain-certificate.md
     - name: App with DB
       items:
