@@ -52,13 +52,29 @@ This section walks you through creating an Azure Cosmos DB account and setting u
 
 Create a new Python code file (*app.py*) in an empty folder using your preferred integrated development environment (IDE).
 
-### Install the package
+### Install packages
 
-Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) PyPI package to the Python app. Use the `pip install` command to install the package.
+Use the `pip install` command to install packages you'll need in the tutorial.
+
+### [Passwordless](#tab/passwordless)
+
+Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) and ['azure-identity`](https://pypi.org/project/azure-identity) PyPI packages to the Python app. 
+
+```bash
+pip install azure-cosmos
+pip install azure-identity
+```
+
+### [Connection String](#tab/connection-string)
+
+Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) PyPI package to the Python app. 
 
 ```bash
 pip install azure-cosmos
 ```
+
+---
+
 
 ### Configure environment variables
 
@@ -101,13 +117,27 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the `Azure.Identity` NuGet package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
+From the project directory, open the *app.py* file. In your editor, add modules to work with Cosmos as well as authenticate to Azure. You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the [`azure-identity`](https://pypi.org/project/azure-identity/) package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
 
 ```python
+import os
+import json
+from azure.cosmos import CosmosClient, PartitionKey
 from azure.identity import DefaultAzureCredential
 ```
 
-Missing code goes here.
+Create variables for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variables using `os.environ`.
+
+```python
+endpoint = os.environ["COSMOS_ENDPOINT"]
+credential = DefaultAzureCredential()
+```
+
+Create a new client instance using the `CosmosClient` class constructor and the two variables you created as parameters.
+
+```python
+client = CosmosClient(url=endpoint, credential=credential)
+```
 
 ## [Connection String](#tab/connection-string)
 
