@@ -40,7 +40,7 @@ The following table presents criteria to consider when designing an Azure Monito
 
 ### Growing account capacity  
 
-Azure Monitor workspaces have [default quotas and limitations](../service-limits.md#ingestion) for metrics. As your product grows and you need more metrics, you can request an increase to 50 million events or active time series. If your capacity needs grow exceptionally large, and your data ingestion needs can no longer be met by a single Azure Monitor workspace, consider creating multiple Azure Monitor workspaces. 
+Azure Monitor workspaces have default quotas and limitations for metrics. As your product grows and you need more metrics, you can request an increase to 50 million events or active time series. If your capacity needs grow exceptionally large, and your data ingestion needs can no longer be met by a single Azure Monitor workspace, consider creating multiple Azure Monitor workspaces. 
 
 ### Multiple Azure Monitor workspaces  
 
@@ -62,7 +62,7 @@ See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for 
 - Azure monitor workspaces are currently only supported in public clouds.
 - Azure monitor workspaces don't currently support being moved into a different subscription or resource group once created.
 
-
+>>>>>>>>>>>>>>>>> Split this out to a new articlee
 ## Create an Azure Monitor workspace
 In addition to the methods below, you may be given the option to create a new Azure Monitor workspace in the Azure portal as part of a configuration that requires one. For example, when you configure Azure Monitor managed service for Prometheus, you can select an existing Azure Monitor workspace or create a new one.
 
