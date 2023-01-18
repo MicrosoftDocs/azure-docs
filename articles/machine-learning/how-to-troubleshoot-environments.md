@@ -1010,7 +1010,8 @@ This issue can happen when a package is specified on the command line using "<" 
 
 **Troubleshooting steps**
 
-Add quotes around the package specification. For example, change `conda install -y pip<=20.1.1` to `conda install -y "pip<=20.1.1"`.
+Add quotes around the package specification
+* For example, change `conda install -y pip<=20.1.1` to `conda install -y "pip<=20.1.1"`.
 
 ### *Pip issues during build*
 ### Failed to install packages
