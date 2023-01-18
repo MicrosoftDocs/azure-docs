@@ -423,6 +423,9 @@
             - name: Use a terminal
               displayName: git, github, clone, kernel, package
               href: how-to-access-terminal.md
+            - name: Manage compute sessions
+              displayName: sessions, terminal, kernel
+              href: how-to-manage-compute-sessions.md
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
