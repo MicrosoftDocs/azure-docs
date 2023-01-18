@@ -10,16 +10,49 @@ metadata:
   author: lauradolan
   ms.author: ladolan
   ms.date: 01/11/2022
-
+  
 landingContent:
-  - title: About SAP on Azure
+  - title: SAP workload on Azure VMs
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Get started with SAP workload on Azure VMs
+            url: ../virtual-machines/workloads/sap/get-started.md
+          - text: Documentation change log
+            url: ../virtual-machines/workloads/sap/get-started.md#change-log
+          - text: Certifications
+            url: ../virtual-machines/workloads/sap/certifications.md
+          - text: Supported SAP scenarios
+            url: ../virtual-machines/workloads/sap/planning-supported-configurations.md
+          - text: Supported SAP software
+            url: ../virtual-machines/workloads/sap/supported-product-on-azure.md
+      - linkListType: concept
+        links:
+          - text: PLanning guidance
+            url: ../virtual-machines/workloads/sap/planning-guide.md
+          - text: Azure storage types for SAP workload
+            url: ../virtual-machines/workloads/sap/planning-guide-storage.md
+          - text: Azure storage types for SAP workload
+            url: ../virtual-machines/workloads/sap/planning-guide-storage.md
+          - text: High availability for SAP components
+            url: ../virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios.md
+          - text: Azure Availability Zones for SAP workload
+            url: ../virtual-machines/workloads/sap/high-availability-zones.md
+      - linkListType: how-to-guide
+        links:
+          - text: VM deployment guide
+            url: ../virtual-machines/workloads/sap/deployment-guide.md
+          - text: DBMS deployment guide
+            url: ../virtual-machines/workloads/sap/dbms-guide-general.md
+
+  - title: About Azure Center for SAP solutions
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Center for SAP solutions?
             url: overview.md
           - text: Frequently asked questions (FAQ)
-            url: faq.yml     
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Prepare for deployment
@@ -30,11 +63,6 @@ landingContent:
             url: install-software.md
           - text: Register existing SAP system
             url: register-existing-system.md
-
-  - title: Manage SAP systems
-    linkLists:
-      - linkListType: how-to-guide
-        links:
           - text: Start and stop SAP systems
             url: start-stop-sap-systems.md
           - text: Manage Virtual Instance for SAP solutions
@@ -44,36 +72,57 @@ landingContent:
           - text: View cost analysis for SAP system
             url: view-cost-analysis.md
 
-  - title: Automate SAP deployment
+  - title: Monitor for SAP solutions
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Monitor for SAP
+            url: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md
+          - text: Frequently asked questions
+            url: ../virtual-machines/workloads/sap/azure-monitor-faq.yml
       - linkListType: concept
         links:
-          - text: About SAP on Azure deployment automation framework
-            url: ./automation/deployment-framework.md
-          - text: SAP on Azure Deployment Automation Framework for Azure FAQ
-            url: ./automation/faq.yml
+          - text: Provider in Monitor for SAP solutions
+            url: ../virtual-machines/workloads/sap/azure-monitor-providers.md
       - linkListType: how-to-guide
         links:
-          - text: Get started with deployment automation framework
-            url: ./automation/get-started.md
-          - text: Plan your automated deployment
-            url: ./automation/plan-deployment.md
+          - text: Get started with Monitor for SAP solutions - Azure Portal
+            url: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md
+          - text: Get started with Monitor for SAP solutions - PowerShell
+            url: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart-powershell.md
 
-  - title: Monitor SAP systems
+  - title: Deployment automation framework for SAP
     linkLists:
+      - linkListType: overview
+        links:
+          - text: About deployment automation framework
+            url: ../virtual-machines/workloads/sap/automation-deployment-framework.md
+          - text: Frequently asked questions
+            url: ../virtual-machines/workloads/sap/automation-faq.yml
       - linkListType: concept
         links:
-          - text: About Azure Monitor for SAP solutions
-            url: ./monitor/about-azure-monitor-sap-solutions.md
-          - text: What are providers in Azure Monitor for SAP solutions?
-            url: ./monitor/providers.md
-          - text: Azure Monitor for SAP solutions FAQ
-            url: ./monitor/faq.yml
+          - text: Supported platform and features
+            url: ../virtual-machines/workloads/sap/automation-supportability.md
+          - text: Get started with the automation framework
+            url: ../virtual-machines/workloads/sap/automation-get-started.md
+
+  - title: SAP on Azure Large Instances
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Large Instances for SAP
+            url: ../virtual-machines/workloads/sap/hana-overview-architecture.md
+          - text: Certifications
+            url: ../virtual-machines/workloads/sap/hana-certification.md 
+          - text: Supported Scenarios
+            url: ../virtual-machines/workloads/sap/hana-supported-scenario.md      
+          - text: Available SKUs of Azure Large Instances
+            url: ../virtual-machines/workloads/sap/hana-available-skus.md 
+      - linkListType: concept
+        links:
+          - text: Architecture
+            url: ../virtual-machines/workloads/sap/hana-architecture.md 
       - linkListType: how-to-guide
         links:
-          - text: Monitor SAP system in Azure portal
-            url: monitor-portal.md
-          - text: Set up Azure Monitor for SAP solutions
-            url: ./monitor/set-up-network.md
-          - text: Configure monitoring alerts in Azure portal
-            url: ./monitor/get-alerts-portal.md
+          - text: VM deployment guide
+            url: ../virtual-machines/workloads/sap/hana-example-installation.md  
