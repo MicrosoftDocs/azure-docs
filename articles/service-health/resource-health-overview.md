@@ -89,7 +89,7 @@ To open Resource Health for one resource:
 
 ![Opening Resource Health from the resource view](./media/resource-health-overview/from-resource-blade.png)
 
-:::image type="content" source="./media/resource-health-overview/resource-health-history-grid.png" alt-text="Screenshot of the Resource Health pane in the Azure portal. The Unavailable message and Download as PDF and Share/Manage RCA buttons are highlighted.":::
+:::image type="content" source="./media/resource-health-overview/resource-health-history-grid.png" lightbox="./media/resource-health-overview/resource-health-history-grid.png" alt-text="Screenshot of the Resource Health pane in the Azure portal. The Unavailable message and Download as PDF and Share/Manage RCA buttons are highlighted.":::
 
 You can also access Resource Health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
