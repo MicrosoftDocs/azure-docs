@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# iOS WebView quickstart
+## iOS WebView
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
@@ -121,6 +121,6 @@ This is iOS WkWebView system behavior, and the microphone isn't muted by ACS Cal
 
 ### Connection drops soon after the app goes to background
 This is also iOS app behavior. When we switch to other audio/video app, the connection will drop around 30 seconds later.
-This is not a problem if the app only stays in background for a short time. When the app comes back to foreground, the call will recover.
+This isn't a problem if the app only stays in background for a short time. When the app comes back to foreground, the call will recover.
 If the app stays in background for a longer period, the server will think the user is away and remove the user from the participants list.
 In this case, when the user switches the WkWebView app back to foreground, the call will disconnect and won't recover.
