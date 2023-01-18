@@ -134,9 +134,6 @@ For more detailed setup instructions, see the [Netherite getting started documen
 
 To use the MSSQL storage provider, you must first add a reference to the [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) NuGet package in your **csproj** file (.NET apps) or your **extensions.proj** file (JavaScript, Python, and PowerShell apps).
 
-> [!NOTE]
-> The MSSQL storage provider is not yet supported in apps that use [extension bundles](../functions-bindings-register.md#extension-bundles).
-
 The following example shows the minimum configuration required to enable the MSSQL storage provider.
 
 ```json
