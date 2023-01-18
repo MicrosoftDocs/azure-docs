@@ -27,6 +27,10 @@ The following table describes B2B collaboration users based on how they authenti
 - **Internal guest**: Before Azure AD B2B collaboration was available, it was common to collaborate with distributors, suppliers, vendors, and others by setting up internal credentials for them and designating them as guests by setting the user object UserType to Guest. If you have internal guest users like these, you can invite them to use B2B collaboration instead so they can use their own credentials, allowing their external identity provider to manage authentication and their account lifecycle.
 - **Internal member**: These users are generally considered employees of your organization. The user authenticates internally via Azure AD, and the user object created in the resource Azure AD directory has a UserType of Member.
 
+The user type you choose has the following limitations for apps or services (but are not limited to):
+    
+[!INCLUDE [user-type-workload-limitations-include](../includes/user-type-workload-limitations-include.md)]
+
 > [!IMPORTANT]
 > The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 

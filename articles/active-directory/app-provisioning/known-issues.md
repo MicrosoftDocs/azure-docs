@@ -1,6 +1,6 @@
 ---
-title: Known issues for application provisioning in Azure Active Directory
-description: Learn about known issues when you work with automated application provisioning in Azure Active Directory.
+title: Known issues for provisioning in Azure Active Directory
+description: Learn about known issues when you work with automated application provisioning or cross-tenant synchronization in Azure Active Directory.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
@@ -10,19 +10,73 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/20/2022
 ms.reviewer: arvinh
+zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
-# Known issues for application provisioning in Azure Active Directory
-This article discusses known issues to be aware of when you work with app provisioning. To provide feedback about the application provisioning service on UserVoice, see [Azure Active Directory (Azure AD) application provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). We watch UserVoice closely so that we can improve the service.
+# Known issues for provisioning in Azure Active Directory
+
+::: zone pivot="cross-tenant-synchronization"
+> [!IMPORTANT]
+> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+::: zone-end
+
+This article discusses known issues to be aware of when you work with app provisioning or cross-tenant synchronization. To provide feedback about the application provisioning service on UserVoice, see [Azure Active Directory (Azure AD) application provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). We watch UserVoice closely so that we can improve the service.
 
 > [!NOTE]
 > This article isn't a comprehensive list of known issues. If you know of an issue that isn't listed, provide feedback at the bottom of the page.
 
+::: zone pivot="cross-tenant-synchronization"
+## Cross-tenant synchronization
+
+### Unsupported synchronization scenarios
+
+- Synchronizing groups, devices, and contacts into another tenant
+- Synchronizing users across clouds
+- Synchronizing photos across tenants
+- Synchronizing contacts and converting contacts to B2B users
+
+### Provisioning users
+
+An external user from the source (home) tenant cannot be provisioned into another tenant. Internal guest users from the source tenant cannot be provisioned into another tenant. Only internal member users from the source tenant can be provisioned into the target tenant. For more information, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
+
+### Provisioning manager attributes
+
+Provisioning manager attributes isn't supported.
+
+### Universal people search
+
+It is possible for synchronized users to appear in the global address list (GAL) of the target tenant for people search scenarios, but it is not enabled by default. In attribute mappings for a configuration, you must update the value for the **showInAddressList** attribute. Set the mapping type as constant with a default value of `True`. For any newly created B2B collaboration users, the showInAddressList attribute will be set to true and they will appear in people search scenarios. For more information, see [Configure cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings).
+
+For existing B2B collaboration users, the showInAddressList attribute will be updated as long as the B2B collaboration user does not have a mailbox enabled in the target tenant. If the mailbox is enabled in the target tenant, use the [Set-MailUser](/powershell/module/exchange/set-mailuser) PowerShell cmdlet to set the HiddenFromAddressListsEnabled property to a value of $false.
+
+`Set-MailUser [GuestUserUPN] -HiddenFromAddressListsEnabled:$false`
+
+Where [GuestUserUPN] is the calculated UserPrincipalName. Example:  
+
+`Set-MailUser guestuser1_contoso.com#EXT#@fabricam.onmicrosoft.com -HiddenFromAddressListsEnabled:$false`
+
+For more information, see [About the Exchange Online PowerShell module](/powershell/exchange/exchange-online-powershell-v2).
+
+### Configuring synchronization from target tenant
+
+Configuring synchronization from the target tenant isn't supported. All configuration must be done in the source tenant. Note that the target administrator is able to turn off cross-tenant synchronization at any time.
+
+### Usage of Azure AD B2B collaboration for cross-tenant access
+
+- B2B users are unable to manage certain Microsoft 365 services in remote tenants (such as Exchange Online), as there is no directory picker.
+- Azure Virtual Desktop currently doesn't support B2B users.
+- B2B users with UserType Member are not currently supported in Power BI. For more information, see [Distribute Power BI content to external guest users using Azure Active Directory B2B](/power-bi/guidance/whitepaper-azure-b2b-power-bi?branch=main)
+- Converting a guest account into an Azure AD member account or converting an Azure AD member account into a guest is not supported by Teams. For more information, see [Guest access in Microsoft Teams](/microsoftteams/guest-access?branch=main).
+::: zone-end
+
 ## Authorization 
 
+::: zone pivot="app-provisioning"
 #### Unable to save
 
 The tenant URL, secret token, and notification email must be filled in to save. You can't provide only one of them. 
+::: zone-end
 
 #### Unable to change provisioning mode back to manual
 
@@ -63,9 +117,11 @@ Multivalue directory extensions can't be used in attribute mappings or scoping f
 - Provisioning to B2C tenants isn't supported because of the size of the tenants.
 - Not all provisioning apps are available in all clouds. For example, Atlassian isn't yet available in the Government cloud. We're working with app developers to onboard their apps to all clouds.
 
+::: zone pivot="app-provisioning"
 #### Automatic provisioning isn't available on my OIDC-based application
 
 If you create an app registration, the corresponding service principal in enterprise apps won't be enabled for automatic user provisioning. You'll need to either request the app be added to the gallery, if intended for use by multiple organizations, or create a second non-gallery app for provisioning.
+::: zone-end
 
 #### The provisioning interval is fixed
 
@@ -91,13 +147,14 @@ When a group is in scope and a member is out of scope, the group will be provisi
 
 If a user and their manager are both in scope for provisioning, the service provisions the user and then updates the manager. If on day one the user is in scope and the manager is out of scope, we'll provision the user without the manager reference. When the manager comes into scope, the manager reference won't be updated until you restart provisioning and cause the service to reevaluate all the users again. 
 
-#### Global reader
+#### Global Reader
 
-The global reader role is unable to read the provisioning configuration. Please create a custom role with the `microsoft.directory/applications/synchronization/standard/read` permission in order to read the provisioning configuration from the Azure Portal. 
+The Global Reader role is unable to read the provisioning configuration. Please create a custom role with the `microsoft.directory/applications/synchronization/standard/read` permission in order to read the provisioning configuration from the Azure Portal. 
 
 #### Microsoft Azure Government Cloud
 Credentials, including the secret token, notification email, and SSO certificate notification emails together have a 1KB limit in the Microsoft Azure Government Cloud. 
 
+::: zone pivot="app-provisioning"
 ## On-premises application provisioning
 The following information is a current list of known limitations with the Azure AD ECMA Connector Host and on-premises application provisioning.
 
@@ -140,6 +197,7 @@ The following attributes and objects aren't supported:
 
 #### ECMA Host
 The ECMA host does not support updating the password in the connectivity page of the wizard. Please create a new connector when changing the password. 
+::: zone-end
 
 ## Next steps
 [How provisioning works](how-provisioning-works.md)

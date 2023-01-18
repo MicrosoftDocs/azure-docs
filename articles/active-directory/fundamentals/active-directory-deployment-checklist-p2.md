@@ -71,6 +71,7 @@ Next, we add to the foundation laid in phase 1 by importing our users and enabli
 | [Decide on device management strategy](../devices/overview.md) | Decide what your organization allows regarding devices. Registering vs joining, Bring Your Own Device vs company provided. | |
 | [Deploy Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare for passwordless authentication using Windows Hello | |
 | [Deploy passwordless authentication methods for your users](../authentication/concept-authentication-passwordless.md) | Provide your users with convenient passwordless authentication methods | Azure AD Premium P1 |
+| [Configure cross-tenant synchronization (preview)](../multi-tenant-organizations/cross-tenant-synchronization-configure.md) | For multi-tenant organization scenarios, enable users to collaborate across tenants. (Currently in preview.) | Azure AD Premium P1 |
 
 ## Phase 3: Manage applications
 
