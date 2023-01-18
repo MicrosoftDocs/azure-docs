@@ -153,6 +153,7 @@ You can create an Azure support request to increase the adjustable limits from t
 ## Next steps  
 
 - [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+- [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
 - [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
 - [Regional capacity quota for Azure NetApp Files](regional-capacity-quota.md)
 - [Request region access for Azure NetApp Files](request-region-access.md)

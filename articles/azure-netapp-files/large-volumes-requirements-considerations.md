@@ -3,7 +3,7 @@ title: Requirements and considerations for large volumes | Microsoft Docs
 description: Describes the requirements and considerations you need to be aware of before using large volumes.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-hchen
+author: b-ahibbard
 manager: ''
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.date: 01/19/2023
 ms.author: anfdocs
 ---
-# Requirements and considerations for large volumes 
+# Requirements and considerations for large volumes (preview)
 
 This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
 
@@ -47,7 +47,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Requirements and considerations
 
-* Existing volumes cannot be resized over 100 TiB. You cannot convert Azure NetApp Files to large volumes.
+* Existing regular volumes cannot be resized over 100 TiB. You cannot convert regular Azure NetApp Files volumes to large volumes.
 * Large volumes must be created at a size greater than 100 TiB. A single volume cannot exceed 500 TiB.  
 * Large volume cannot be resized below 100 TiB and can only be resized up to 30% of lowest provisioned size. 
 * You cannot create a large volume from a backup.
@@ -64,7 +64,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 | Premium | 100 to 500 | 6,400 | 
 | Ultra | 100 to 500 | 10,240 | 
 
-### Configure large volumes 
+## Configure large volumes 
 
 >[!IMPORTANT]
 >Before you can use large volumes, you must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase).
@@ -72,11 +72,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 Once your capacity quota has increased, you can create volumes that are up to 500 TiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Once created, you can manage your large volumes in the same manner as regular volumes. 
 
 ## Next steps
+
 * [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Create an NFS volume](azure-netapp-files-create-volumes.md)
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
-
-
-[Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
