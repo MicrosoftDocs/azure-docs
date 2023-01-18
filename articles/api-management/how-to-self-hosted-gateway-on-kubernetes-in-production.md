@@ -173,6 +173,16 @@ By default, a self-hosted gateway is deployed with a **RollingUpdate** deploymen
 
 We recommend reducing container logs to warnings (`warn`) to improve for performance. Learn more in our [self-hosted gateway configuration reference](self-hosted-gateway-settings-reference.md).
 
+## Request throttling
+
+Request throttling in a self-hosted gateway can be enabled by using the API Management [rate-limit](rate-limit-policy.md) or [rate-limit-by-key](rate-limit-by-key-policy.md) policy. Configure rate limit counts to synchronize among gateway instances across cluster nodes by exposing the following ports in the Kubernetes deployment for instance discovery:
+
+* Port 4290 (UDP), for the rate limiting synchronization
+* Port 4291 (UDP), for sending heartbeats to other instances
+
+> [!NOTE]
+> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)]
+
 ## Security
 The self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
 
@@ -195,17 +205,6 @@ securityContext:
 > [!WARNING]
 > When using local CA certificates, the self-hosted gateway must run with user ID (UID) `1001` in order to manage the CA certificates otherwise the gateway will not start up.
 
-## Request throttling
-
-Request throttling in a self-hosted gateway can be enabled by using the API Management [rate-limit](rate-limit-policy.md) or [rate-limit-by-key](rate-limit-by-key-policy.md) policy. Configure rate limit counts to synchronize locally (among gateway instances across cluster nodes) by exposing the following ports in the Kubernetes deployment for instance discovery:
-
-* Port 4290 (UDP), for the rate limiting synchronization
-* Port 4291 (UDP), for sending heartbeats to other instances
-
-Configure these settings, for example, using the default [Helm chart deployment](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) for Kubernetes or using the Azure portal [deployment templates](how-to-deploy-self-hosted-gateway-kubernetes.md).
-
-> [!NOTE]
-> Rate limit counts don't synchronize with other gateways, including the managed gateway in the cloud.
 
 ## Next steps
 

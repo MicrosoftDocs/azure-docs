@@ -58,7 +58,8 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ### Usage notes
 
-* [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)]
+* [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
+
 
 ## Example
 
