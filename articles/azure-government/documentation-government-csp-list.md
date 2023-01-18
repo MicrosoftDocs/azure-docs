@@ -414,7 +414,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[SyCom Technologies](https://www.sycomtech.com)|
 |[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
-|[Systems Engineering Inc](https://www.seisystems.com)|
+|[Systems Engineering Inc](https://www.systemsengineering.com)|
 |[Systems Solutions Inc](https://www.ssi-net.com/)|
 |[Syvantis Technologies, Inc.](https://www.syvantis.com)|
 |[Taborda Solutions](https://tabordasolutions.com)|
