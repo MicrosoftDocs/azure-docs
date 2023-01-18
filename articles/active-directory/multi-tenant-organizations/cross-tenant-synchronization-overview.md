@@ -60,13 +60,13 @@ When you configure cross-tenant synchronization, you define a trust relationship
 
 - Based on the Azure AD provisioning engine.
 - Is a push process from the source tenant, not a pull process from the target tenant.
-- Supports pushing only internal members from the source tenant. It does not support syncing external users from the source tenant.
-- Users in scope for synchronization is configured in the source tenant.
+- Supports pushing only internal members from the source tenant. It doesn't support syncing external users from the source tenant.
+- Users in scope for synchronization are configured in the source tenant.
 - Attribute mapping is configured in the source tenant.
 - Extension attributes are supported.
 - Target tenant administrators can stop a synchronization at any time.
 
-The following table shows the parts of cross-tenant synchronization and which tenant they are configured.
+The following table shows the parts of cross-tenant synchronization and which tenant they're configured.
 
 | Tenant | Cross-tenant<br/>access settings | Automatic redemption | Sync settings<br/>configuration | Users in scope |
 | :---: | :---: | :---: | :---: | :---: |
@@ -97,7 +97,7 @@ Here are the basic steps to get started using cross-tenant synchronization.
 
 #### Step 1: Define how to structure the tenants in your organization
 
-Cross-tenant synchronization provides a flexible solution to enable collaboration, but every organization is different. For example, you might have a central tenant, satellite tenants, or sort of mesh of tenants. Cross-tenant synchronization supports any of these topologies. For more information, see [Topologies for cross-tenant synchronization](cross-tenant-synchronization-topology.md).
+Cross-tenant synchronization provides a flexible solution to enable collaboration, but every organization is different. For example, you might have a central tenant, satellite tenants, or sort of a mesh of tenants. Cross-tenant synchronization supports any of these topologies. For more information, see [Topologies for cross-tenant synchronization](cross-tenant-synchronization-topology.md).
 
 :::image type="content" source="./media/cross-tenant-synchronization-overview/topology-all.png" alt-text="Diagram that shows different tenant topologies.":::
 
@@ -115,7 +115,7 @@ In any source tenant, navigate to the **Cross-tenant access settings** page and 
 - What attributes you want to include
 - Any transformations
 
-For anyone that has used Azure AD to [provision identities into a SaaS application](../app-provisioning/user-provisioning.md), this experience will be familiar. Once you have synchronization configured, you can start testing with a few users and make sure they are created with all the attributes that you need. When testing is complete, you can quickly add additional users to synchronize and roll out across your organization. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
+For anyone that has used Azure AD to [provision identities into a SaaS application](../app-provisioning/user-provisioning.md), this experience will be familiar. Once you have synchronization configured, you can start testing with a few users and make sure they're created with all the attributes that you need. When testing is complete, you can quickly add additional users to synchronize and roll out across your organization. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
 :::image type="content" source="./media/cross-tenant-synchronization-overview/configure-source.png" alt-text="Diagram that shows a cross-tenant synchronization job configured in the source tenant.":::
 
@@ -131,13 +131,13 @@ Which clouds can cross-tenant synchronization be used in?
 
 - Cross-tenant synchronization is supported within the commercial and Azure Government clouds.
 - Synchronization is only supported between two tenants in the same cloud.
-- Cross-cloud (such as public cloud to Azure Government) is not currently supported.
+- Cross-cloud (such as public cloud to Azure Government) isn't currently supported.
 
 #### Synchronization frequency
 
 How often does cross-tenant synchronization run?
 
-- The sync interval is currently fixed to start at 40 minute intervals. Sync duration varies based on the number of in-scope users. The initial sync cycle is likely to take significantly longer than the following incremental sync cycles.
+- The sync interval is currently fixed to start at 40-minute intervals. Sync duration varies based on the number of in-scope users. The initial sync cycle is likely to take significantly longer than the following incremental sync cycles.
 
 #### Scope
 
@@ -157,17 +157,17 @@ If the sync relationship is severed, are external users previously managed by cr
 
 What object types can be synchronized?
 
-- Azure AD users can be synchronized between tenants. (Groups, devices, and contacts are not currently supported.)
+- Azure AD users can be synchronized between tenants. (Groups, devices, and contacts aren't currently supported.)
 
 What user types can be synchronized?
 
-- Internal members can be synchronized from source tenants. Internal guests cannot be synchronized from source tenants.
+- Internal members can be synchronized from source tenants. Internal guests can't be synchronized from source tenants.
 - Users can be synchronized to target tenants as external members (default) or external guests.
 - For more information about the UserType definitions, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
 
 I have existing B2B collaboration users. What will happen to them?
 
-- Cross-tenant synchronization will match the user and make any necessary updates to the user, such as update the display name. By default, the UserType will not be updated from guest to member, but you can configure this in the attribute mappings.
+- Cross-tenant synchronization will match the user and make any necessary updates to the user, such as update the display name. By default, the UserType won't be updated from guest to member, but you can configure this in the attribute mappings.
 
 #### Attributes
 
@@ -175,18 +175,18 @@ What user attributes can be synchronized?
 
 - Cross-tenant synchronization will sync commonly used attributes on the user object in Azure AD, including (but not limited to) displayName, userPrincipalName, and directory extension attributes.
 
-What attributes cannot be synchronized?
+What attributes can't be synchronized?
 
-- Attributes including (but not limited to) managers, photos, custom security attributes, and user attributes outside of the directory cannot be synchronized by cross-tenant synchronization.
+- Attributes including (but not limited to) managers, photos, custom security attributes, and user attributes outside of the directory can't be synchronized by cross-tenant synchronization.
 
 Can I control where user attributes are sourced/managed?
 
-- Cross-tenant synchronization does not offer direct control over source of authority. The user and its attributes are deemed authoritative at the source tenant. There are parallel source of authority workstreams that will evolve source of authority controls for users down to the attribute level and a user object at the source may ultimately reflect multiple underlying sources. For the tenant-to-tenant process, this is still treated as the source tenant's values being authoritative for the sync process (even if pieces actually originate elsewhere) into the target tenant. Currently, there is no support for reversing the sync process's source of authority.
-- Cross-tenant synchronization only supports source of authority at the object level. That means all attributes of a user must come from the same source, including credentials. It is not possible to reverse the source of authority or federation direction of a synchronized object.
+- Cross-tenant synchronization doesn't offer direct control over source of authority. The user and its attributes are deemed authoritative at the source tenant. There are parallel source of authority workstreams that will evolve source of authority controls for users down to the attribute level and a user object at the source may ultimately reflect multiple underlying sources. For the tenant-to-tenant process, this is still treated as the source tenant's values being authoritative for the sync process (even if pieces actually originate elsewhere) into the target tenant. Currently, there's no support for reversing the sync process's source of authority.
+- Cross-tenant synchronization only supports source of authority at the object level. That means all attributes of a user must come from the same source, including credentials. It isn't possible to reverse the source of authority or federation direction of a synchronized object.
 
 What happens if attributes for a synced user are changed in the target tenant?
 
-- Cross-tenant synchronization does not query for changes in the target. If no changes are made to the synced user in the source tenant, then user attribute changes made in the target tenant will persist. However, if changes are made to the user in the source tenant, then during the next synchronization cycle, the user in the target tenant will be updated to match the user in the source tenant.
+- Cross-tenant synchronization doesn't query for changes in the target. If no changes are made to the synced user in the source tenant, then user attribute changes made in the target tenant will persist. However, if changes are made to the user in the source tenant, then during the next synchronization cycle, the user in the target tenant will be updated to match the user in the source tenant.
 
 Can the target tenant manually block sign-in for a specific home/source tenant user that is synced?
 
@@ -197,7 +197,7 @@ Can the target tenant manually block sign-in for a specific home/source tenant u
 Can I sync a mesh between multiple tenants?
 
 - Cross-tenant synchronization is configured as a single-direction peer-to-peer sync, meaning sync is configured between one source and one target tenant. Multiple instances of cross-tenant synchronization can be configured to sync from a single source to multiple targets and from multiple sources into a single target. But only one sync instance can exist between a source and a target.
-- Cross-tenant synchronization only synchronizes users that are internal to the home/source tenant, ensuring that you cannot end up with a loop where a user is written back to the same tenant.
+- Cross-tenant synchronization only synchronizes users that are internal to the home/source tenant, ensuring that you can't end up with a loop where a user is written back to the same tenant.
 - Multiple topologies are supported. For more information, see [Topologies for cross-tenant synchronization](cross-tenant-synchronization-topology.md).
 
 Can I use cross-tenant synchronization across organizations (outside my multi-tenant organization)?
@@ -206,13 +206,13 @@ Can I use cross-tenant synchronization across organizations (outside my multi-te
 
 Can cross-tenant synchronization be used to migrate users from one tenant to another tenant?
 
--  No. Cross-tenant synchronization is not a migration tool because the source tenant is required for synchronized users to authenticate. In addition, tenant migrations would require migrating user data such as SharePoint and OneDrive.
+-  No. Cross-tenant synchronization isn't a migration tool because the source tenant is required for synchronized users to authenticate. In addition, tenant migrations would require migrating user data such as SharePoint and OneDrive.
 
 #### B2B collaboration
 
 Does cross-tenant synchronization resolve any present [B2B collaboration](../external-identities/what-is-b2b.md) limitations?
 
-- Since cross-tenant synchronization is built on existing B2B collaboration technology, existing limitations apply. Examples include (but are not limited to):
+- Since cross-tenant synchronization is built on existing B2B collaboration technology, existing limitations apply. Examples include (but aren't limited to):
 
     [!INCLUDE [user-type-workload-limitations-include](../includes/user-type-workload-limitations-include.md)]
 
@@ -224,9 +224,9 @@ How does cross-tenant synchronization relate to [B2B direct connect](../external
 - We recommend B2B collaboration for all other cross-tenant application access scenarios, including both Microsoft and non-Microsoft applications.
 - B2B direct connect and cross-tenant synchronization are designed to co-exist, and you can enable them both for broad coverage of cross-tenant scenarios.
 
-We are trying to determine the extent to which we will need to utilize cross-tenant synchronization in our multi-tenant organization. Do you plan to extend support for B2B direct connect beyond Teams Connect?
+We're trying to determine the extent to which we'll need to utilize cross-tenant synchronization in our multi-tenant organization. Do you plan to extend support for B2B direct connect beyond Teams Connect?
 
-- There is no plan to extend support for B2B direct connect beyond Teams Connect shared channels.
+- There's no plan to extend support for B2B direct connect beyond Teams Connect shared channels.
 
 #### Microsoft 365
 
@@ -245,9 +245,9 @@ Does cross-tenant synchronization enhance any current Teams experiences?
 
 What federation options are supported for users in the target tenant back to the source tenant?
 
-- For each internal user in the source tenant, cross-tenant synchronization creates a federated external user (commonly used in B2B) in the target. It supports syncing internal users. This includes internal users federated to other identity systems using domain federation (such as [Active Directory Federation Services](/windows-server/identity/ad-fs/ad-fs-overview)). It does not support syncing external users.
+- For each internal user in the source tenant, cross-tenant synchronization creates a federated external user (commonly used in B2B) in the target. It supports syncing internal users. This includes internal users federated to other identity systems using domain federation (such as [Active Directory Federation Services](/windows-server/identity/ad-fs/ad-fs-overview)). It doesn't support syncing external users.
 
-Does cross-tenant synchronization leverage System for Cross-Domain Identity Management (SCIM)?
+Does cross-tenant synchronization use System for Cross-Domain Identity Management (SCIM)?
 
 - No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../fundamentals/sync-scim.md).
 

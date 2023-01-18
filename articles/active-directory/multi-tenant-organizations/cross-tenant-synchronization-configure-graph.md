@@ -717,11 +717,11 @@ message: Insufficient privileges to complete the operation.
 
 **Cause**
 
-Either the signed-in user does not have sufficient privileges, or you need to consent to one of the required permissions.
+Either the signed-in user doesn't have sufficient privileges, or you need to consent to one of the required permissions.
 
 **Solution**
 
-1. Make sure you are assigned the [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role or another Azure AD role with privileges.
+1. Make sure you're assigned the [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role or another Azure AD role with privileges.
 
 2. In [Microsoft Graph Explorer tool](https://aka.ms/ge), make sure you consent to the required permissions:
 

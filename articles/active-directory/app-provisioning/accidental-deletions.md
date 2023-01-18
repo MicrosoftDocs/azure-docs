@@ -61,7 +61,7 @@ threshold.
 When the deletion threshold is met, the job will go into quarantine and a notification email will be sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
 
 ## Recovering from an accidental deletion
-If you encounter an accidental deletion you'll see it on the provisioning status page.  It will say **Provisioning has been quarantined. See quarantine details for more information**.
+If you encounter an accidental deletion, you'll see it on the provisioning status page.  It will say **Provisioning has been quarantined. See quarantine details for more information**.
 
 You can click either **Allow deletes** or **View provisioning logs**.
 
@@ -78,7 +78,7 @@ The **Allow deletes** action will delete the objects that triggered the accident
 If you don't want to allow the deletions, you need to do the following:
 - Investigate the source of the deletions. You can use the provisioning logs for details.
 - Prevent the deletion by assigning the user / group to the application (or configuration) again, restoring the user / group, or updating your provisioning configuration.
-- Once you've made the necessary changes to prevent the user / group from being deleted, restart provisioning. Please don't restart provisioning until you've made the necessary changes to prevent the users / groups from being deleted. 
+- Once you've made the necessary changes to prevent the user / group from being deleted, restart provisioning. Don't restart provisioning until you've made the necessary changes to prevent the users / groups from being deleted. 
 
 
 ### Test deletion prevention
@@ -103,7 +103,7 @@ application (or target tenant) could include: unassigning the user from the appl
 evaluated for deletion count towards the deletion threshold. In addition to deletions, the same functionality also works for disables.
 
 ### What is the interval that the deletion threshold is evaluated on?
-It is evaluated each cycle. If the number of deletions doesn't exceed the threshold during a 
+It's evaluated each cycle. If the number of deletions doesn't exceed the threshold during a 
 single cycle, the “circuit breaker” won’t be triggered. If multiple cycles are needed to reach a 
 steady state, the deletion threshold will be evaluated per cycle.
 

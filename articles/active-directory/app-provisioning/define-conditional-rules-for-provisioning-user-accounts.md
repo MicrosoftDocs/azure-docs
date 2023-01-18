@@ -38,7 +38,7 @@ Scoping filters can be used differently depending on the type of provisioning co
 
 * **Inbound provisioning from HCM applications to Azure AD and Active Directory**. When an [HCM application such as Workday](../saas-apps/workday-tutorial.md) is the source system, scoping filters are the primary method for determining which users should be provisioned from the HCM application to Active Directory or Azure AD.
 
-By default, Azure AD provisioning connectors do not have any attribute-based scoping filters configured. 
+By default, Azure AD provisioning connectors don't have any attribute-based scoping filters configured. 
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"

@@ -175,7 +175,7 @@ The Azure AD provisioning service allows you to define who will be provisioned i
 - Based on assignment to the configuration
 - Based on attributes of the user
 
-Start small. Test with a small set of users before rolling out to everyone. When the scope for provisioning is set to assigned users and groups, you can control it by assigning one or two users to the configuration. You can further refine who is in scope for provisioning by creating an attribute-based scoping filters, described in the [next step](#step-8-optional-define-who-is-in-scope-for-provisioning-with-scoping-filters).
+Start small. Test with a small set of users before rolling out to everyone. When the scope for provisioning is set to assigned users and groups, you can control it by assigning one or two users to the configuration. You can further refine who is in scope for provisioning by creating attribute-based scoping filters, described in the [next step](#step-8-optional-define-who-is-in-scope-for-provisioning-with-scoping-filters).
 
 1. Select **Provisioning** and expand the **Settings** section.
 
@@ -198,7 +198,7 @@ Start small. Test with a small set of users before rolling out to everyone. When
 
 1. On the **Users and groups** pane, search for and select one or more internal users or groups you want to assign to the configuration.
 
-    If you select a group to assign to the configuration, only users that are direct members in the group will be in scope for provisioning. You can select a static group or a dynamic group. The assignment does not cascade to nested groups.
+    If you select a group to assign to the configuration, only users that are direct members in the group will be in scope for provisioning. You can select a static group or a dynamic group. The assignment doesn't cascade to nested groups.
 
 1. Select **Select**.
 
@@ -234,7 +234,7 @@ Regardless of the value you selected for **Scope** in the previous step, you can
 
 1. Select **Ok** and **Save** to save any changes.
 
-    If you added a filter, you will see a message that saving your changes will result in all assigned users and groups being resynchronized. This may take a long time depending on the size of your directory.
+    If you added a filter, you'll see a message that saving your changes will result in all assigned users and groups being resynchronized. This may take a long time depending on the size of your directory.
 
 1. Select **Yes** and close the **Attribute Mapping** page.
 
@@ -265,7 +265,7 @@ Attribute mappings allow you to define how data should flow between the source t
     | **Member** | Default. Users will be created as external member (B2B collaboration users) in the target tenant. Users will be able to function as any internal member of the target tenant. |
     | **Guest** | Users will be created as external guests (B2B collaboration users) in the target tenant. |
 
-    The user type you choose has the following limitations for apps or services (but are not limited to):
+    The user type you choose has the following limitations for apps or services (but aren't limited to):
     
     [!INCLUDE [user-type-workload-limitations-include](../includes/user-type-workload-limitations-include.md)]
 
@@ -334,7 +334,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/provision-on-demand-provision.png" alt-text="Screenshot of the Perform action page that shows the test user and list of modified attributes." lightbox="./media/cross-tenant-synchronization-configure/provision-on-demand-provision.png":::
 
-    If the user is not in scope, you'll see a page with information about why test user was skipped.
+    If the user isn't in scope, you'll see a page with information about why test user was skipped.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/provision-on-demand-provision-skipped.png" alt-text="Screenshot of the Determine if user is in scope page that shows information about why test user was skipped." lightbox="./media/cross-tenant-synchronization-configure/provision-on-demand-provision-skipped.png":::
 
@@ -372,7 +372,7 @@ The provisioning job starts the initial synchronization cycle of all users defin
 
 Once you've started a provisioning job, you can monitor the status.
 
-1. In the source tenant, on the **Overview** page, check the progress bar to see the status of the provisioning cycle and how close it is to completion. For more information, see [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md).
+1. In the source tenant, on the **Overview** page, check the progress bar to see the status of the provisioning cycle and how close it's to completion. For more information, see [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md).
 
     If provisioning seems to be in an unhealthy state, the configuration will go into quarantine. For more information, see [Application provisioning in quarantine status](../app-provisioning/application-provisioning-quarantine-status.md).
 
@@ -396,7 +396,7 @@ Once you've started a provisioning job, you can monitor the status.
 
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-Even though users are being provisioned in the target tenant, they still might be able to remove themselves. If users remove themselves and they are in scope, they will be provisioned again during the next provisioning cycle. If you want to disallow the ability for users to remove themselves from your organization, you must configure the **External user leave settings**.
+Even though users are being provisioned in the target tenant, they still might be able to remove themselves. If users remove themselves and they are in scope, they'll be provisioned again during the next provisioning cycle. If you want to disallow the ability for users to remove themselves from your organization, you must configure the **External user leave settings**.
 
 1. In the target tenant, select **Azure Active Directory**.
 
@@ -410,7 +410,7 @@ This setting also applies to B2B collaboration and B2B direct connect, so if you
 
 #### Symptom - Test connection fails with AzureDirectoryB2BManagementPolicyCheckFailure
 
-When configuring cross-tenant synchronization in the source tenant and you test the the connection, it fails with the following error message:
+When configuring cross-tenant synchronization in the source tenant and you test the connection, it fails with the following error message:
 
 ```
 You appear to have entered invalid credentials. Please confirm you are using the correct information for an administrative account.
@@ -422,7 +422,7 @@ Details: Policy permitting auto-redemption of invitations not configured.
 
 **Cause**
 
-This error indicates the policy to automatically redeem invitations in both the source and target tenants was not set up.
+This error indicates the policy to automatically redeem invitations in both the source and target tenants wasn't set up.
 
 **Solution**
 
@@ -436,7 +436,7 @@ When configuring cross-tenant synchronization, the suppress consent prompt check
 
 **Cause**
 
-Your tenant does not have an Azure AD Premium P1 or P2 license.
+Your tenant doesn't have an Azure AD Premium P1 or P2 license.
 
 **Solution**
 

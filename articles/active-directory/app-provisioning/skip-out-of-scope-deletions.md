@@ -18,7 +18,7 @@ By default, the Azure AD provisioning engine soft deletes or disables users that
 
 This article describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to set the flag ***SkipOutOfScopeDeletions*** that controls the processing of accounts that go out of scope. 
 * If ***SkipOutOfScopeDeletions*** is set to 0 (false), accounts that go out of scope will be disabled in the target.
-* If ***SkipOutOfScopeDeletions*** is set to 1 (true), accounts that go out of scope will not be disabled in the target. This flag is set at the *Provisioning App* level and can be configured using the Graph API. 
+* If ***SkipOutOfScopeDeletions*** is set to 1 (true), accounts that go out of scope won't be disabled in the target. This flag is set at the *Provisioning App* level and can be configured using the Graph API. 
 
 Because this configuration is widely used with the *Workday to Active Directory user provisioning* app, the following steps include screenshots of the Workday application. However, the configuration can also be used with *all other apps*, such as ServiceNow, Salesforce, and Dropbox and [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md). Note that in order to successfully complete this procedure you must have first set up app provisioning for the app. Each app has its own configuration article. For example, to configure the Workday application, see [Tutorial: Configure Workday to Azure AD user provisioning](../saas-apps/workday-inbound-cloud-only-tutorial.md).
 
@@ -36,7 +36,7 @@ Because this configuration is widely used with the *Workday to Active Directory 
 
     ![Graph Sign-in](./media/skip-out-of-scope-deletions/wd_export_02.png)
 
-1. Upon successful sign-in, you will see the user account details in the left-hand pane.
+1. Upon successful sign-in, you'll see the user account details in the left-hand pane.
 
 ## Step 3: Get existing app credentials and connectivity details
 
@@ -52,7 +52,7 @@ Copy the Response into a text file. It will look like the JSON text shown below,
 
    ![GET job response](./media/skip-out-of-scope-deletions/skip-04.png)
 
-Here is the JSON block to add to the mapping. 
+Here's the JSON block to add to the mapping. 
 
 ```json
         {
@@ -76,13 +76,13 @@ Copy the updated text from Step 3 into the "Request Body".
 
 Click on “Run Query”. 
 
-You should get the output as "Success – Status Code 204". If you receive an error you may need to check that your account has Read/Write permissions for ServicePrincipalEndpoint. You can find this permission by clicking on the *Modify permissions* tab in Graph Explorer.
+You should get the output as "Success – Status Code 204". If you receive an error, you may need to check that your account has Read/Write permissions for ServicePrincipalEndpoint. You can find this permission by clicking on the *Modify permissions* tab in Graph Explorer.
 
    ![PUT response](./media/skip-out-of-scope-deletions/skip-06.png)
 
 ## Step 5: Verify that out of scope users don’t get disabled
 
-You can test this flag results in expected behavior by updating your scoping rules to skip a specific user. In the example below, we are excluding the employee with ID 21173 (who was earlier in scope) by adding a new scoping rule: 
+You can test this flag results in expected behavior by updating your scoping rules to skip a specific user. In the example below, we're excluding the employee with ID 21173 (who was earlier in scope) by adding a new scoping rule: 
 
    ![Screenshot that shows the "Add Scoping Filter" section with an example user highlighted.](./media/skip-out-of-scope-deletions/skip-07.png)
 

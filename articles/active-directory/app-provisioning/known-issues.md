@@ -38,7 +38,7 @@ This article discusses known issues to be aware of when you work with app provis
 
 ### Provisioning users
 
-An external user from the source (home) tenant cannot be provisioned into another tenant. Internal guest users from the source tenant cannot be provisioned into another tenant. Only internal member users from the source tenant can be provisioned into the target tenant. For more information, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
+An external user from the source (home) tenant can't be provisioned into another tenant. Internal guest users from the source tenant can't be provisioned into another tenant. Only internal member users from the source tenant can be provisioned into the target tenant. For more information, see [Properties of an Azure Active Directory B2B collaboration user](../external-identities/user-properties.md).
 
 ### Provisioning manager attributes
 
@@ -46,9 +46,9 @@ Provisioning manager attributes isn't supported.
 
 ### Universal people search
 
-It is possible for synchronized users to appear in the global address list (GAL) of the target tenant for people search scenarios, but it is not enabled by default. In attribute mappings for a configuration, you must update the value for the **showInAddressList** attribute. Set the mapping type as constant with a default value of `True`. For any newly created B2B collaboration users, the showInAddressList attribute will be set to true and they will appear in people search scenarios. For more information, see [Configure cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings).
+It's possible for synchronized users to appear in the global address list (GAL) of the target tenant for people search scenarios, but it isn't enabled by default. In attribute mappings for a configuration, you must update the value for the **showInAddressList** attribute. Set the mapping type as constant with a default value of `True`. For any newly created B2B collaboration users, the showInAddressList attribute will be set to true and they'll appear in people search scenarios. For more information, see [Configure cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings).
 
-For existing B2B collaboration users, the showInAddressList attribute will be updated as long as the B2B collaboration user does not have a mailbox enabled in the target tenant. If the mailbox is enabled in the target tenant, use the [Set-MailUser](/powershell/module/exchange/set-mailuser) PowerShell cmdlet to set the HiddenFromAddressListsEnabled property to a value of $false.
+For existing B2B collaboration users, the showInAddressList attribute will be updated as long as the B2B collaboration user doesn't have a mailbox enabled in the target tenant. If the mailbox is enabled in the target tenant, use the [Set-MailUser](/powershell/module/exchange/set-mailuser) PowerShell cmdlet to set the HiddenFromAddressListsEnabled property to a value of $false.
 
 `Set-MailUser [GuestUserUPN] -HiddenFromAddressListsEnabled:$false`
 
@@ -64,10 +64,10 @@ Configuring synchronization from the target tenant isn't supported. All configur
 
 ### Usage of Azure AD B2B collaboration for cross-tenant access
 
-- B2B users are unable to manage certain Microsoft 365 services in remote tenants (such as Exchange Online), as there is no directory picker.
+- B2B users are unable to manage certain Microsoft 365 services in remote tenants (such as Exchange Online), as there's no directory picker.
 - Azure Virtual Desktop currently doesn't support B2B users.
-- B2B users with UserType Member are not currently supported in Power BI. For more information, see [Distribute Power BI content to external guest users using Azure Active Directory B2B](/power-bi/guidance/whitepaper-azure-b2b-power-bi)
-- Converting a guest account into an Azure AD member account or converting an Azure AD member account into a guest is not supported by Teams. For more information, see [Guest access in Microsoft Teams](/microsoftteams/guest-access).
+- B2B users with UserType Member aren't currently supported in Power BI. For more information, see [Distribute Power BI content to external guest users using Azure Active Directory B2B](/power-bi/guidance/whitepaper-azure-b2b-power-bi)
+- Converting a guest account into an Azure AD member account or converting an Azure AD member account into a guest isn't supported by Teams. For more information, see [Guest access in Microsoft Teams](/microsoftteams/guest-access).
 ::: zone-end
 
 ## Authorization 
@@ -149,7 +149,7 @@ If a user and their manager are both in scope for provisioning, the service prov
 
 #### Global Reader
 
-The Global Reader role is unable to read the provisioning configuration. Please create a custom role with the `microsoft.directory/applications/synchronization/standard/read` permission in order to read the provisioning configuration from the Azure Portal. 
+The Global Reader role is unable to read the provisioning configuration. Create a custom role with the `microsoft.directory/applications/synchronization/standard/read` permission in order to read the provisioning configuration from the Azure portal. 
 
 #### Microsoft Azure Government Cloud
 Credentials, including the secret token, notification email, and SSO certificate notification emails together have a 1KB limit in the Microsoft Azure Government Cloud. 
@@ -180,7 +180,7 @@ The following attributes and objects aren't supported:
    - Groups.
    - Complex anchors (for example, ObjectTypeName+UserName).
    - Binary attributes.
-   - On-premises applications are sometimes not federated with Azure AD and require local passwords. The on-premises provisioning preview does not support password synchronization. Provisioning initial one-time passwords is supported. Please ensure that you are using the [Redact](./functions-for-customizing-application-data.md#redact) function to redact the passwords from the logs. In the SQL and LDAP connectors, the passwords are not exported on the initial call to the application, but rather a second call with set password.   
+   - On-premises applications are sometimes not federated with Azure AD and require local passwords. The on-premises provisioning preview doesn't support password synchronization. Provisioning initial one-time passwords is supported. Ensure that you're using the [Redact](./functions-for-customizing-application-data.md#redact) function to redact the passwords from the logs. In the SQL and LDAP connectors, the passwords aren't exported on the initial call to the application, but rather a second call with set password.   
 
 #### SSL certificates
    The Azure AD ECMA Connector Host currently requires either an SSL certificate to be trusted by Azure or the provisioning agent to be used. The certificate subject must match the host name the Azure AD ECMA Connector Host is installed on.
@@ -192,11 +192,11 @@ The following attributes and objects aren't supported:
    The attributes that the target application supports are discovered and surfaced in the Azure portal in **Attribute Mappings**. Newly added attributes will continue to be discovered. If an attribute type has changed, for example, string to Boolean, and the attribute is part of the mappings, the type won't change automatically in the Azure portal. Customers will need to go into advanced settings in mappings and manually update the attribute type.
 
 #### Provisioning agent
-- The agent does not currently support auto update for the on-prem application provisioning scenario. We are actively working to close this gap and ensure that auto update is enabled by default and required for all customers. 
-- The same provisioning agent cannot be used for on-prem app provisioning and cloud sync / HR- driven provisioning. 
+- The agent doesn't currently support auto update for the on-premises application provisioning scenario. We're actively working to close this gap and ensure that auto update is enabled by default and required for all customers. 
+- The same provisioning agent can't be used for on-premises app provisioning and cloud sync / HR- driven provisioning. 
 
 #### ECMA Host
-The ECMA host does not support updating the password in the connectivity page of the wizard. Please create a new connector when changing the password. 
+The ECMA host doesn't support updating the password in the connectivity page of the wizard. Create a new connector when changing the password. 
 ::: zone-end
 
 ## Next steps

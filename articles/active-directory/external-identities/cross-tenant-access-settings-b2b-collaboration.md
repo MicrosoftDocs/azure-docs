@@ -187,7 +187,7 @@ With inbound settings, you select which external users and groups will be able t
 
 1. (This step applies to **Organizational settings** only.) Review the consent prompt option:
 
-   - **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant**: Select this checkbox if you want to automatically redeem invitations so users from the specified tenant don't have to accept the consent prompt when they are added to this tenant using B2B collaboration. This setting will only suppress the consent prompt if the specified tenant checks this setting for outbound access as well.
+   - **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant**: Select this checkbox if you want to automatically redeem invitations so users from the specified tenant don't have to accept the consent prompt when they're added to this tenant using B2B collaboration. This setting will only suppress the consent prompt if the specified tenant checks this setting for outbound access as well.
 
     ![Screenshot that shows the inbound suppress consent prompt check box.](../includes/media/external-identities/inbound-consent-prompt-setting.png)
 
@@ -281,7 +281,7 @@ With outbound settings, you select which of your users and groups will be able t
 
 1. Review the consent prompt option:
 
-   - **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant**: Select this checkbox if you want to automatically redeem invitations so users from this tenant don't have to accept the consent prompt when they are added to the specified tenant using B2B collaboration. This setting will only suppress the consent prompt if the specified tenant checks this setting for inbound access as well.
+   - **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant**: Select this checkbox if you want to automatically redeem invitations so users from this tenant don't have to accept the consent prompt when they're added to the specified tenant using B2B collaboration. This setting will only suppress the consent prompt if the specified tenant checks this setting for inbound access as well.
 
     ![Screenshot that shows the outbound suppress consent prompt check box.](../includes/media/external-identities/outbound-consent-prompt-setting.png)
 
