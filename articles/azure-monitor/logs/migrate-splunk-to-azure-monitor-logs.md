@@ -15,7 +15,7 @@ ms.date: 11/22/2022
 
 [Azure Monitor Logs](../logs/data-platform-logs.md) is a cloud-based managed monitoring and observability service that provides many advantages in terms of cost management, scalability, flexibility, integration, and low maintenance overhead. The service is designed to handle large amounts of data and scale easily to meet the needs of organizations of all sizes.
 
-Azure Monitor Logs collects data from a wide variety of sources, including Windows Event logs, Syslog, and custom logs, to provide a unified view of all Azure and non-Azure resources. Native integration to Azure services, such as Azure Security Center and Azure Sentinel, and built-in machine learning capabilities, help you identify patterns and anomalies in log data, troubleshoot and perform root cause analysis, and respond to incidents.
+Azure Monitor Logs collects data from a wide variety of sources, including Windows Event logs, Syslog, and custom logs, to provide a unified view of all Azure and non-Azure resources. Using a sophisticated query language and curated visualization you can quickly analyze millions of records to identify, understand, and respond to critical patterns in your monitoring data.
 
 This article explains how to migrate your Splunk, Splunk Cloud, or Enterprise deployment to Azure Monitor Logs for logging and log data analysis. 
 
@@ -25,7 +25,7 @@ For information on migrating your Security Information and Event Management (SIE
 
 |Splunk offering|Azure offering|
 |---|---|
-|Splunk, Splunk Cloud|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multi-cloud, and on-premises environments.|
+|Splunk, Splunk Cloud|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multicloud, and on-premises environments.|
 |Splunk Enterprise|[Azure Monitor](../overview.md) offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights-and-curated-visualizations), and [alerts and response](../overview.md#respond-to-critical-situations) capabilities.  |
 |Splunk Enterprise Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that provides intelligent security analytics and threat intelligence across the enterprise.|
 ## Introduction to key concepts
@@ -57,7 +57,7 @@ To set up a Log Analytics workspace for data collection:
 
 1. Configure your Log Analytics workspace, including:
     1. [Pricing tier](../logs/change-pricing-tier.md).
-    1. [Link your Log Analytics workspace to a dedicated cluster](../logs/availability-zones.md) to take advantage of advanced capabilities, if you're eligible based on pricing tier.
+    1. [Link your Log Analytics workspace to a dedicated cluster](../logs/availability-zones.md) to take advantage of advanced capabilities, if you're eligible, based on pricing tier.
     1. [Daily cap](../logs/daily-cap.md).
     1. [Data retention](../logs/data-retention-archive.md).
     1. [Network isolation](../logs/private-link-security.md).
