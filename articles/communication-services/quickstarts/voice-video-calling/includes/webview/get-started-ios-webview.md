@@ -23,7 +23,7 @@ If you want to develop an ACS calling application on iOS, besides using the Azur
 - [XCode](https://developer.apple.com/xcode/), for creating your iOS application.
 - A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../../../samples/web-calling-sample.md).
 
-This quickstart guide assumes that you are familiar with iOS application development. We'll mention the necessary configuration and tips when developing iOS WKWebView application for ACS Calling SDK.
+This quickstart guide assumes that you're familiar with iOS application development. We'll mention the necessary configuration and tips when developing iOS WKWebView application for ACS Calling SDK.
 
 ## Add keys in Info.plist
 
@@ -42,11 +42,11 @@ To make a video call, make sure you have the following keys added to the Info.pl
 ```
 
 ## Handle permission prompt
-On iOS Safari, users can see permission prompt more frequent than on other platforms. It is because Safari doesn't keep permissions for a long time unless there is a stream acquired.
+On iOS Safari, users can see permission prompt more frequent than on other platforms. It is because Safari doesn't keep permissions for a long time unless there's a stream acquired.
 
 WKWebView provides a way to handle browser permission prompt by using [WKUIDelegate.webView](https://developer.apple.com/documentation/webkit/wkuidelegate/3763087-webview). This API is only available on iOS 15.0+.
 
-Here is an example. In this example, the browser permission is granted in `decisionHandler`, so users will not see browser permission prompt after they grant the app permissions.
+Here's an example. In this example, the browser permission is granted in `decisionHandler`, so users won't see browser permission prompt after they grant the app permissions.
 
 ```swift
 import WebKit
@@ -117,10 +117,10 @@ let webView = WKWebView(frame: CGRect(), configuration: configuration)
 
 ### Microphone is muted when app goes to background
 When a user locks the screen or WkWebView app goes to background, the microphone input will be muted until the app comes back to foreground.
-This is iOS WkWebView system behavior, and the microphone is not muted by ACS Calling Web SDK.
+This is iOS WkWebView system behavior, and the microphone isn't muted by ACS Calling Web SDK.
 
 ### Connection drops soon after the app goes to background
-This is also iOS app behavior. When switching to other audio/video app, the connection will drop around 30 seconds later.
-This is usually not a problem if the app only stays in background for a short time. When the app comes back to foreground, the call will recover.
+This is also iOS app behavior. When we switch to other audio/video app, the connection will drop around 30 seconds later.
+This is not a problem if the app only stays in background for a short time. When the app comes back to foreground, the call will recover.
 If the app stays in background for a longer period, the server will think the user is away and remove the user from the participants list.
 In this case, when the user switches the WkWebView app back to foreground, the call will disconnect and won't recover.
