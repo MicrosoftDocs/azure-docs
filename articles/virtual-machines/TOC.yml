@@ -1224,7 +1224,7 @@
           href: ./linux/how-to-verify-encryption-status.md
         - name: How to configure LVM RAID on crypt
           href: ./linux/how-to-configure-lvm-raid-on-crypt.md
-        - name: How to resize encrypted lvm volumes
+        - name: How to resize encrypted LVM volumes
           href: ./linux/how-to-resize-encrypted-lvm.md
         - name: Disk encryption troubleshooting
           href: ./linux/disk-encryption-troubleshooting.md
@@ -1755,6 +1755,8 @@
       - name: ARM Template 
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-template.md
+  - name: Windows Server in-place upgrade
+    href: windows-in-place-upgrade.md
   - name: Automatic VM guest patching
     items:
     - name: Overview
