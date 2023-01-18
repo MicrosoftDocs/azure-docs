@@ -10,13 +10,11 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-## Android WebView
-
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 Webview technology is an embeddable browser that can be integrated directly into a native mobile application. If you want to develop an ACS calling application directly a native Android application, besides using the Azure Communication Calling Android SDK, you can also use Azure Communication Calling Web SDK on Android WebView. In this quickstart, you'll learn how to run webapps developed with the Azure Communication Calling Web SDK in an Android WebView environment.
 
 ## Prerequisites
+[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
