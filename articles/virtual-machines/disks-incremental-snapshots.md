@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/23/2023
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions
 ms.devlang: azurecli
 ---
 
