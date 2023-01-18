@@ -47,11 +47,11 @@ To use a Spark job definition activity for Synapse in a pipeline, complete the f
 2. Select the **Azure Synapse Analytics (Artifacts)** tab to select or create a new Azure Synapse Analytics linked service that will execute the Spark job definition activity.
 
     
-    :::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity.png" alt-text="Shows the UI for the linked service tab for a spark job definition activity.":::
+    :::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity.png" alt-text="Screenshot that shows the UI for the linked service tab for a spark job definition activity.":::
 
 ## Settings tab
 
-1. Select the new Spark job definition activity on the canvas if isn't already selected. 
+1. Select the new Spark job definition activity on the canvas if it isn't already selected. 
 
 2. Select the **Settings** tab.
 
@@ -75,17 +75,17 @@ To use a Spark job definition activity for Synapse in a pipeline, complete the f
      |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.|
     |Spark configuration| Specify values for Spark configuration properties listed in the topic: Spark Configuration - Application properties. Users can use default configuration and customized configuration. |
 
-    :::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity-settings.png" alt-text="Shows the UI for the spark job definition activity.":::
+    :::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity-settings.png" alt-text="Screenshot that shows the UI for the spark job definition activity.":::
 
 5. You can add dynamic content by clicking the **Add Dynamic Content** button or by pressing the shortcut key <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. In the **Add Dynamic Content** page, you can use any combination of expressions, functions, and system variables to add to dynamic content.
 
-    :::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity-add-dynamic-content.png" alt-text="Displays the UI for adding dynamic content to Spark job definition activities.":::
+    :::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity-add-dynamic-content.png" alt-text="Screenshot that displays the UI for adding dynamic content to Spark job definition activities.":::
 
 ## User properties tab
 
 You can add properties for Apache Spark job definition activity in this panel.
 
-:::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity-user-properties.png" alt-text="Shows the UI for the properties for a spark job definition activity.":::
+:::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity-user-properties.png" alt-text="Screenshot that shows the UI for the properties for a spark job definition activity.":::
 
 ## Azure Synapse spark job definition activity definition
 
@@ -138,9 +138,9 @@ definition:
 
 Go to Pipeline runs under the **Monitor** tab, you'll see the pipeline you've triggered. Open the pipeline that contains Azure Synapse Spark job definition activity to see the run history.
 
-:::image type="content" source="./media/transform-data-synapse-spark-job-definition/input-output-sjd.png" alt-text="Shows the UI for the input and output for a spark job definition activity runs.":::
+:::image type="content" source="./media/transform-data-synapse-spark-job-definition/input-output-sjd.png" alt-text="Screenshot that shows the UI for the input and output for a spark job definition activity runs.":::
 
 You can see the notebook activity **input** or **output** by selecting the input or Output button. If your pipeline failed with a user error, select the **output** to check the **result** field to see the detailed user error traceback.
 
 
-:::image type="content" source="./media/transform-data-synapse-spark-job-definition/sjd-output-user-error.png" alt-text="Shows the UI for the output user error for a spark job definition activity runs.":::
+:::image type="content" source="./media/transform-data-synapse-spark-job-definition/sjd-output-user-error.png" alt-text="Screenshot that shows the UI for the output user error for a spark job definition activity runs.":::
