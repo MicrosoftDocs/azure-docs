@@ -66,7 +66,7 @@ Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-f
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
-| Internet exposed AWS S3 Bucket with sensitive data is publicly accessible | S3 bucket '\[BucketName]' with sensitive data is reachable from the internet and allows public read access without authorization required. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
+| Internet exposed AWS S3 Bucket with sensitive data is publicly accessible | An S3 bucket with sensitive data is reachable from the internet and allows public read access without authorization required. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
 
 ### Azure containers
 
@@ -74,8 +74,8 @@ Prerequisite: [Enable Defender for Containers](defender-for-containers-enable.md
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
-| Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | Internet exposed Kubernetes pod '\[pod name]' in namespace '\[namespace]' is running a container '\[container name]' using image '\[image name]' which has vulnerabilities allowing remote code execution |
-| Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | Kubernetes pod '\[pod name]' in namespace '\[namespace]' with host network access enabled is exposed to the internet via the host network. The pod is running container '\[container name]' using image '\[image name]' which has vulnerabilities allowing remote code execution |
+| Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | An internet exposed Kubernetes pod in a namespace is running a container using an image which has vulnerabilities allowing remote code execution |
+| Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | A Kubernetes pod in a namespace with host network access enabled is exposed to the internet via the host network. The pod is running a container using an image which has vulnerabilities allowing remote code execution |
 
 ## Cloud security graph components list
 
@@ -85,9 +85,9 @@ This section  lists all of the cloud security graph components (connections & in
 
 | Insight | Description | Supported entities |
 |--|--|--|
-| Exposed to the internet | Indicates that a resource is exposed to the internet. Supports port filtering | Azure virtual machine, AWS EC2, Azure storage account, Azure SQL server, Azure Cosmos DB, AWS S3, Kubernetes pod. |
-| Contains sensitive data | Indicates that a resource contains sensitive data based on Microsoft Purview scan and applicable only if Microsoft Purview is enabled. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). | Azure SQL Server, Azure Storage Account, AWS S3 bucket. |
-| Has tags | List the resource tags of the cloud resource | All Azure and AWS resources. |
+| Exposed to the internet | Indicates that a resource is exposed to the internet. Supports port filtering | Azure virtual machine, AWS EC2, Azure storage account, Azure SQL server, Azure Cosmos DB, AWS S3, Kubernetes pod |
+| Contains sensitive data | Indicates that a resource contains sensitive data based on Microsoft Purview scan and applicable only if Microsoft Purview is enabled. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). | Azure SQL Server, Azure Storage Account, AWS S3 bucket |
+| Has tags | List the resource tags of the cloud resource | All Azure and AWS resources |
 | Installed software | List all software installed on the machine. This is applicable only for VMs that have Threat and vulnerability management integration with Defender for Cloud enabled and are connected to Defender for Cloud. | Azure virtual machine, AWS EC2 |
 | Allows public access | Indicates that a public read access is allowed to the data store with no authorization required | Azure storage account, AWS S3 bucket |
 | Doesn't have MFA enabled | Indicates that the user account does not have a multi-factor authentication solution enabled | AAD User account, IAM user |
@@ -108,7 +108,7 @@ This section  lists all of the cloud security graph components (connections & in
 
 | Connection | Description | Source entity types | Destination entity types |
 |--|--|--|--|
-| Can authenticate as | Indicates that an Azure resource can authenticate to an identity and use its privileges | Azure VM, Azure VMSS, Azure Storage Account, Azure App Services, SQL Servers | AAD Managed identity |
+| Can authenticate as | Indicates that an Azure resource can authenticate to an identity and use its privileges | Azure VM, Azure VMSS, Azure Storage Account, Azure App Services, SQL Servers | AAD managed identity |
 | Has permission to | Indicates that an identity has permissions to a resource or a group of resources | AAD user account, Managed Identity, IAM user, EC2 instance | All Azure & AWS resources|
 | Contains | Indicates that the source entity contains the target entity | Azure subscription, Azure resource group, AWS account, Kubernetes namespace, Kubernetes pod, Kubernetes cluster, GitHub owner, Azure DevOps project, Azure DevOps organization | All Azure & AWS resources, All Kubernetes entities, All DevOps entities |
 | Routes traffic to | Indicates that the source entity can route network traffic to the target entity | Public IP, Load Balancer, VNET, Subnet, VPC, Internet Gateway, Kubernetes service, Kubernetes pod| Azure VM, Azure VMSS, AWS EC2, Subnet, Load Balancer, Internet gateway, Kubernetes pod, Kubernetes service |
