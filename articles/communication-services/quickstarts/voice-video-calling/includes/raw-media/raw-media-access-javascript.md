@@ -12,13 +12,13 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-As a developer you can access the raw media for incoming and outgoing audio and video media content during a call. Access to ACS client side Raw audio and video enables developers an almost unlimited array of abilty to view and edit audio and video content that happens within the ACS caling SDK. In this quickstart, you'll learn how to implement raw media access using the Azure Communication Services Calling SDK for WebJS.
+As a developer you can access the raw media for incoming and outgoing audio and video media content during a call. Access to ACS client side Raw audio and video enables developers an almost unlimited array of ability to view and edit audio and video content that happens within the ACS caling SDK. In this quickstart, you'll learn how to implement raw media access using the Azure Communication Services calling SDK for WebJS.
 
 ## Prerequisites
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 >[!IMPORTANT]
-> The the quick start examples here are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling Web SDK. Make sure to use that version when trying the instructions below.
+> The the quick start examples here are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling Web SDK. Make sure to use that version when trying this quickstart.
 
 ## Accessing Raw audio
 Accessing Raw audio media gives access to the incoming call audio stream and the ability to send custom outgoing audio stream during a call.
@@ -110,7 +110,7 @@ call.on("stateChanged", callStateChangedHandler);
 ```
 
 ## Accessing Raw video
-Raw video media gives you the instance of MediaStream object (See JavaScript documentation for further refrence). Raw video media gives access specifically to incoming and outgoing call MediaStream object. For Raw Video, developers can use the incoming and outgoing raw MediaStream to apply filters by using Machine Learning to process frames of the video.
+Raw video media gives you the instance of MediaStream object (See JavaScript documentation for further reference). Raw video media gives access specifically to incoming and outgoing call MediaStream object. For Raw Video, developers can use the incoming and outgoing raw MediaStream to apply filters by using Machine Learning to process frames of the video.
 
 Proccessed Raw outgoing video frames can be sent as an outgoing video of the sender. Proccessed Raw incoming video frames can be rendered on reciever side.
 
@@ -119,7 +119,7 @@ Proccessed Raw outgoing video frames can be sent as an outgoing video of the sen
 Developers can access the raw outgoing call video stream. Developers have access to MediaStream of the outgoing raw video stream on which they can process frames using Machine Learning and apply filters. 
 The processed outgoing video can then be sent as sender video stream.
 
-In a given example below user is sent canvas data as outgoing video.
+In this example a user is sent canvas data as outgoing video.
 
 ```js
 const createVideoMediaStreamToSend = () => {
