@@ -2,7 +2,7 @@
 title: Supported resources for Azure Red Hat OpenShift 3.11
 description: Understand which Azure regions and virtual machine sizes are supported by Microsoft Azure Red Hat OpenShift.
 author: johnmarco
-ms.author: pjohnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/15/2019

@@ -5,7 +5,7 @@ ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 4/12/2021
 author: johnmarco
-ms.author: pjohnmarco
+ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, RACI, support
 ---
 

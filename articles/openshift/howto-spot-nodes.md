@@ -2,7 +2,7 @@
 title: Use Azure Spot Virtual Machines in an Azure Red Hat OpenShift (ARO) cluster
 description: Discover how to utilize Azure Spot Virtual Machines in Azure Red Hat OpenShift (ARO)
 author: johnmarco
-ms.author: pjohnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: spot, nodes, aro, deploy, openshift, red hat
 ms.topic: how-to
