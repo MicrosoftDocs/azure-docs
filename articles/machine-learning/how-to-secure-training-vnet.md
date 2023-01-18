@@ -82,10 +82,6 @@ In this article you learn how to secure the following training compute resources
 
 ## Limitations
 
-
-
-
-
 * __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
 
     * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
@@ -184,7 +180,7 @@ except Exception:
 1. Configure the VM size and configuration you need, then select **Next**.
 1. From the **Advanced Settings**, Select **Enable virtual network**, your virtual network and subnet, and finally select the **No Public IP** option under the VNet/subnet section.
 
-    :::image type="content" source="tbu" alt-text="A screenshot of how to configure no public IP for compute instance and compute cluster." lightbox="tbu":::
+    :::image type="content" source="./media/how-to-secure-training-vnet/no-public-ip.png" alt-text="A screenshot of how to configure no public IP for compute instance and compute cluster." lightbox="./media/how-to-secure-training-vnet/no-public-ip.png":::
 
 ---
 
@@ -284,7 +280,7 @@ except Exception:
 1. Configure the VM size and configuration you need, then select **Next**.
 1. From the **Advanced Settings**, Select **Enable virtual network** and then select your virtual network and subnet.
 
-    :::image type="content" source="tbu" alt-text="A screenshot of how to configure a compute instance/cluster in a VNet with a public IP." lightbox="tbu":::
+    :::image type="content" source="./media/how-to-secure-training-vnet/with-public-ip.png" alt-text="A screenshot of how to configure a compute instance/cluster in a VNet with a public IP." lightbox="./media/how-to-secure-training-vnet/with-public-ip.png":::
 
 ---
 
