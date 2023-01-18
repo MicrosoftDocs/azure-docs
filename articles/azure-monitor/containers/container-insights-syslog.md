@@ -41,16 +41,35 @@ az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring --enable-sys
 
 Syslog can be accessed from your Log Analytics workspace using the portal by selecting the relevant subscription. 
 
-* Image 1 - Log query section in Azure Monitor
-* Image 2 - Pre-built queries in portal
-* Image 3 - Syslog query loaded in the query editor 
+Image 1 - Log query section in Azure Monitor
 
+:::image type="content" source="media/container-insights-syslog/AzMon1.png" lightbox="media/container-insights-syslog/AzMon1.png" alt-text="TBA" border="false":::  
+
+Image 2 - Pre-built queries in portal
+
+:::image type="content" source="media/container-insights-syslog/AzMon2.png" lightbox="media/container-insights-syslog/AzMon2.png" alt-text="TBA" border="false":::  
+  
+Image 3 - Syslog query loaded in the query editor 
+
+:::image type="content" source="media/container-insights-syslog/AzMon3.png" lightbox="media/container-insights-syslog/AzMon3.png" alt-text="TBA" border="false":::    
+  
 ### AKS Cluster view
- 
-* Image 1 - Cluster overview
-* Image 2 - Logs tab under Monitoring section
-* Image 3 - Query editor
-* Image 4 - Syslog query loaded in the query editor 
+
+Image 1 - Cluster overview
+
+:::image type="content" source="media/container-insights-syslog/AKS1.png" lightbox="media/container-insights-syslog/AKS1.png" alt-text="TBA" border="false":::  
+  
+Image 2 - Logs tab under Monitoring section
+
+:::image type="content" source="media/container-insights-syslog/AKS2.png" lightbox="media/container-insights-syslog/AKS2.png" alt-text="TBA" border="false":::  
+  
+Image 3 - Query editor
+
+:::image type="content" source="media/container-insights-syslog/AKS3.png" lightbox="media/container-insights-syslog/AKS3.png" alt-text="TBA" border="false":::  
+  
+Image 4 - Syslog query loaded in the query editor 
+  
+:::image type="content" source="media/container-insights-syslog/AKS4.png" lightbox="media/container-insights-syslog/AKS4.png" alt-text="TBA" border="false":::
   
 ### Sample queries
   
