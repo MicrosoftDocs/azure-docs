@@ -16,9 +16,9 @@ Trusted Access eliminates the following concerns:
 
 * Azure services may be unable to access your api-servers when the authorized IP range is enabled, or in private clusters unless you implement a complex private endpoint access model.
 
-* clusterAdmin kubeconfig in Azure services creates a risks or privilege escalation and leaking kubeconfig.
+* clusterAdmin kubeconfig in Azure services creates risks or privilege escalation and leaking kubeconfig.
 
-  * Azure services may have to implement high-privileged service-to-service permissions.
+  * For example, you may have to implement high-privileged service-to-service permissions, which aren't ideal during audit reviews.
 
 This article shows you how to use the AKS Trusted Access feature to enable your Azure resources to access your AKS clusters.
 
@@ -26,14 +26,14 @@ This article shows you how to use the AKS Trusted Access feature to enable your 
 
 ## Trusted Access feature overview
 
-Trusted Access enables you to give explicit consent to your system-assigned MSI of allowed resources to access your AKS clusters using an Azure resource *RoleBinding*. Your Azure resources access AKS clusters through the AKS regional gateway via system-assigned MSI authentication with the appropriate Kubernetes permissions via an Azure resource *Role*. The Trusted Access feature allows you to access AKS clusters with different configurations, including but not limited to [private clusters](private-clusters.md), [clusters with local accounts disabled](https://azure.microsoft.com/updates/public-preview-create-aks-clusters-without-local-user-accounts-2/), [Azure AD clusters](azure-ad-integration-cli.md), and [authorized IP range clusters](api-server-authorized-ip-ranges.md).
+Trusted Access enables you to give explicit consent to your system-assigned MSI of allowed resources to access your AKS clusters using an Azure resource *RoleBinding*. Your Azure resources access AKS clusters through the AKS regional gateway via system-assigned MSI authentication with the appropriate Kubernetes permissions via an Azure resource *Role*. The Trusted Access feature allows you to access AKS clusters with different configurations, including but not limited to [private clusters](private-clusters.md), [clusters with local accounts disabled](managed-aad.md#disable-local-accounts), [Azure AD clusters](azure-ad-integration-cli.md), and [authorized IP range clusters](api-server-authorized-ip-ranges.md).
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Resource types that support [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
-* Pre-defined roles with appropriate [AKS permissions](concepts-identity.md).
-  * To learn about what roles to use in various scenarios, check out TBD.
+* Pre-defined Roles with appropriate [AKS permissions](concepts-identity.md).
+  * To learn about what Roles to use in various scenarios, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
 * If you're using Azure CLI, the **aks-preview** extension version **0.5.74 or later** is required.
 
     Install the extension:
@@ -62,21 +62,21 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 
 ## Select the required Trusted Access Roles
 
-The roles you select depend on the different Azure services. Azure Machine Learning (AzureML) now supports access to AKS clusters with the Trusted Access feature. To preview this feature in AzureML, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
+The Roles you select depend on the different Azure services. These services help create Roles and RoleBindings, which build the connection from the partner service to AKS.
+
+Azure Machine Learning (AzureML) now supports access to AKS clusters with the Trusted Access feature. If you want to preview the Trusted Access feature in AzureML, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
 
 ## Create a Trusted Access RoleBinding
 
-After confirming which role to use, use the Azure CLI to create a Trusted Access RoleBinding under an AKS cluster. The RoleBinding associates your selected role with the partner service.
-
-### Azure CLI
+After confirming which Role to use, use the Azure CLI to create a Trusted Access RoleBinding in an AKS cluster. The RoleBinding associates your selected Role with the partner service.
 
 ```azurecli
-az aks trustedaccess rolebinding create  --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <rolebinding name> -s <connected service resource ID> --roles <role name1, rolename2>
-```
+# Create a Trusted Access RoleBinding in an AKS cluster
 
-### Sample Azure CLI command
+az aks trustedaccess rolebinding create  --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <rolebinding name> -s <connected service resource ID> --roles <rolename1, rolename2>
 
-```azurecli
+# Sample command
+
 az aks trustedaccess rolebinding create \
 -g myResourceGroup \
 --cluster-name myAKSCluster -n test-binding \
@@ -88,19 +88,19 @@ az aks trustedaccess rolebinding create \
 
 ## Update an existing Trusted Access RoleBinding
 
-For an existing RoleBinding with associated source service, you can update the rolebinding with new roles.
+For an existing RoleBinding with associated source service, you can update the RoleBinding with new Roles.
 
 > [!NOTE]
-> The new RoleBinding may take up to 5 minutes to take effect as addon manager updates clusters every 5 mintes. Before new RoleBinding takes effect, the old RoleBinding still works.
-
-### Azure CLI
+> The new RoleBinding may take up to 5 minutes to take effect as addon manager updates clusters every 5 minutes. Before the new RoleBinding takes effect, the old RoleBinding still works.
+>
+> You can use `az aks trusted access rolebinding list --name <rolebinding name> --resource-group <resource group>` to check the current RoleBinding.
 
 ```azurecli
 # Update RoleBinding command
 
 az aks trustedaccess rolebinding update --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <existing rolebinding name>  --roles <new role name1, newrolename2>
 
-# Update RoleBinding command with sample resource group, cluster, and roles
+# Update RoleBinding command with sample resource group, cluster, and Roles
 
 az aks trustedaccess rolebinding update \
 --resource-group myResourceGroup \
@@ -110,12 +110,12 @@ az aks trustedaccess rolebinding update \
 
 ---
 
-## Check the Trusted Access RoleBinding for a cluster
+## Show the Trusted Access RoleBinding for a cluster
 
-Use the Azure CLI to check the Trusted Access RoleBindings for a cluster.
+Use the Azure CLI to show the Trusted Access RoleBindings for a cluster.
 
 ```azurecli
-az aks trustedaccess rolebinding list --name <rolebinding name> --resource-group <AKS resource group>
+az aks trustedaccess rolebinding show --name <rolebinding name> --resource-group <AKS resource group> --cluster-name <AKS cluster name>
 ```
 
 ---
@@ -125,7 +125,7 @@ az aks trustedaccess rolebinding list --name <rolebinding name> --resource-group
 Use the Azure CLI to list your specific Trusted Access RoleBinding.
 
 ```azurecli
-az aks trustedaccess rolebinding show --name <rolebinding name> --resource-group <AKS resource group> --cluster-name <AKS cluster name>
+az aks trustedaccess rolebinding list --name <rolebinding name> --resource-group <AKS resource group>
 ```
 
 ## Next steps
