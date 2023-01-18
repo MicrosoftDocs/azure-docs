@@ -15,7 +15,11 @@ ms.date: 01/17/2023
 Azure Machine Learning designer components (Designer) allows users to create machine learning projects using a drag and drop interface. Follow this link to reach the Designer studio. Follow this link to [learn more about Designer.] (..//concept-designer)
 
 
-This reference content provides the technical background on each of the classic custom (v2) components available in Azure Machine Learning designer.
+This reference content provides the technical background on each of the custom components (v2) available in Azure Machine Learning designer.
+
+The below image shows how you would navigate to Custom components in AzureML Studio
+
+:::image type="content" source="media/designer-new-pipeline.png" alt-text="Diagram showing the Designer UI for selecting a custom component.":::
 
 
 Each component represents a set of code that can run independently and perform a machine learning task, given the required inputs. A component might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
