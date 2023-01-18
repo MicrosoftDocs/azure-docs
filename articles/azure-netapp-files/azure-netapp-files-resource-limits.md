@@ -34,12 +34,14 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
 |  Minimum size of a single capacity pool   |  4 TiB     |    No  |
 |  Maximum size of a single capacity pool    |  500 TiB   |   Yes   |
-|  Minimum size of a single volume    |    100 GiB    |    No    |
-|  Maximum size of a single volume     |    500 TiB*    |    No    |
+|  Minimum size of a single regular volume    |    100 GiB    |    No    |
+|  Maximum size of a single regular volume     |    100 TiB    |    No    |
+|  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) |     102,401 GiB |     No |
+|  Maximum size of a single large volume     |    500 TiB    |    No    |
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
 |  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](#directory-limit).  |    No    |   
-|  Maximum number of files ([`maxfiles`](#maxfiles)) per volume     |    106,255,630    |    Yes    |    
+|  Maximum number of files [`maxfiles`](#maxfiles) per volume     |    106,255,630    |    Yes    |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
@@ -49,8 +51,6 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of protected volume  |  100 TiB  |  N  |
 |  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
 |  Maximum number of manual backups per volume per day |  5  |  Y  |
-
-\* The maximum size of a regular volume is 100 TiB. You can create a [large volume](large-volumes-requirements-considerations.md) with a size of between 100 TiB and 500 TiB. Once you create a large volume, you cannot resize it to less than 100 TiB. 
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 

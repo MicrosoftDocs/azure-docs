@@ -47,9 +47,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * Existing regular volumes cannot be resized over 100 TiB. You cannot convert regular Azure NetApp Files volumes to large volumes.
 * Large volumes must be created at a size greater than 100 TiB. A single volume cannot exceed 500 TiB.  
 * Large volume cannot be resized below 100 TiB and can only be resized up to 30% of lowest provisioned size. 
-* You cannot create a large volume from a backup.
-* You cannot create a backup from a large volume.
-<!-- * You cannot use Standard storage with cool access with large volumes. -->
+* Large volumes are currently not supported with Azure NetApp Files backup.
+<!-- * Large volumes are currently not supported with Standard storage with cool access. -->
 * Large volumes are not currently supported with cross-region replication.
 * You cannot create a large volume with application volume groups.
 * Large volumes are not currently supported with cross-zone replication.
@@ -66,7 +65,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 >[!IMPORTANT]
 >Before you can use large volumes, you must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase).
 
-Once your capacity quota has increased, you can create volumes that are up to 500 TiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Once created, you can manage your large volumes in the same manner as regular volumes. 
+Once your [regional capacity quota](regional-capacity-quota.md) has increased, you can create volumes that are up to 500 TiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Once created, you can manage your large volumes in the same manner as regular volumes. 
 
 ## Next steps
 
