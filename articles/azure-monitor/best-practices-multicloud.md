@@ -8,25 +8,41 @@ ms.reviewer: bwren
 ---
 
 # Multicloud monitoring with Azure Monitor
-In addition to monitoring services and application in Azure, Azure Monitor can provide a complete monitoring for your resources and applications running in other clouds. This article describes features of Azure Monitor that allow you to provide complete monitoring across your AWS and GCP environments.
+Most customer environments include in multiple clouds. In addition to Azure, you may have applications and other resources in Amazon Web Services (AWS) and Google Cloud Platform (GCP)
+
+In addition to monitoring services and application in Azure, Azure Monitor can provide complete monitoring for your resources and applications running in other clouds. This article describes features of Azure Monitor that allow you to provide complete monitoring across your AWS and GCP environments.
 
 
 ## Azure Arc
-
+Azure Arc simplifies governance and management by delivering a consistent multi-cloud management platform. 
 
 ## Virtual machines
-To onboard AWS EC2 or GCP VM instances into Azure Monitor, you will need to deploy the Azure Arc agent, and the Azure Monitor Agent. 
-
-Azure Arc-enabled servers lets you manage virtual machines hosted on another cloud provider with a management experience consistent with how you manage native Azure virtual machines. This includes using standard Azure constructs such as Azure Policy and applying tags.
-
+Using [Azure Arc-enabled servers](../azure-arc/servers/overview.md), [VM insights](vm/vminsights-overview.md) in Azure Monitor provides a consistent experience between both Azure virtual machines and your AWS EC2 or GCP VM instances. You can view your hybrid machines right alongside your Azure machines and onboard them using identical methods. This includes using standard Azure constructs such as Azure Policy and applying tags.
 
 - [Overview of Azure Arc-enabled servers](../azure-arc/servers/overview.md)
 - [Plan and deploy Azure Arc-enabled servers](../azure-arc/servers/plan-at-scale-deployment.md)
 
-Azure Monitor agent is required to collect data from the guest operating system and workloads running on the virtual machine.
+The Azure Monitor agent installed by VM insights collects data from the client operating system of virtual machines regardless of their location. Use the same [data collection rules](essentials/data-collection-rule-overview.md) that define your data collection across all of the virtual machines across your different cloud environments.
 
 - [Azure Monitor Agent overview](agents/agents-overview.md)
 - [Manage Azure Monitor Agent](agents/azure-monitor-agent-manage.md)
+- [Collect events and performance counters from virtual machines with Azure Monitor Agent](agents/data-collection-rule-azure-monitor-agent.md)
+
+
+
+## Kubernetes
+Using [Azure Arc-enabled Kubernetes](../azure-arc/servers/overview.md), [Container insights](containers/container-insights-overview.md) in Azure Monitor provides a consistent experience between both [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) and Kubernetes clusters in your AWS EC2 or GCP VM instances. You can view your hybrid clusters right alongside your Azure machines and onboard them using identical methods. This includes using standard Azure constructs such as Azure Policy and applying tags.
+
+- [Overview of Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
+- [Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
+
+The Azure Monitor agent installed by Container insights collects data from the client operating system of virtual machines regardless of their location. 
+
+- [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](containers/container-insights-enable-arc-enabled-clusters.md)
+- [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](../aks/monitor-aks.md)
+
+## Applications
+A feature of Azure Monitor, Application Insights is an extensible Application Performance Management (APM) service for developers and DevOps professionals, which provides telemetry insights and information, in order to better understand how applications are performing and to identify areas for optimization.
 
 
 
@@ -36,21 +52,6 @@ If you are using Defender for Cloud, you can connect your AWS account and GCP pr
 - [Connect your AWS accounts to Microsoft Defender for Cloud](../defender-for-cloud/quickstart-onboard-aws.md)
 - [Connect your GCP projects to Microsoft Defender for Cloud](../defender-for-cloud/quickstart-onboard-gcp.md)
 
-
-
-## Containers
-Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running on other public cloud providers such as GCP or AWS to Azure Arc.
-
-- [Overview of Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
-- [Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
-
-Once your Kubernetes cluster is available in Azure using Azure Arc-enabled Kubernetes, you can enable monitoring using Container insights.
-
-- [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](containers/container-insights-enable-arc-enabled-clusters.md)
-
-
-## Applications
-A feature of Azure Monitor, Application Insights is an extensible Application Performance Management (APM) service for developers and DevOps professionals, which provides telemetry insights and information, in order to better understand how applications are performing and to identify areas for optimization.
 
 
 
