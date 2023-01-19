@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 12/08/2022
+ms.date: 01/19/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -19,6 +19,7 @@ The listed features were released in the last three months. For information abou
 ## January 2023
 
 - [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
+- [Audit and monitor the health of your analytics rules (Preview)](#audit-and-monitor-the-health-of-your-analytics-rules-preview)
 - [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
 
 ### New incident investigation experience (Preview)
@@ -32,6 +33,16 @@ While triaging, investigating, and responding to a security incident, analysts r
 Learn more about the new investigation experience:
 - [Understand Microsoft Sentinel's incident investigation and case management capabilities](incident-investigation.md)
 - [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
+
+### Audit and monitor the health of your analytics rules (Preview)
+
+Microsoft Sentinel's **health monitoring feature is now available for analytics rules** in addition to automation rules, playbooks, and data connectors. Also now available for the first time, and currently only for analytics rules, is Microsoft Sentinel's **audit feature**. The audit feature collects information about any changes made to Sentinel resources (analytics rules) so that you can discover any unauthorized actions or tampering with the service.
+
+Learn more about [auditing and health monitoring in Microsoft Sentinel](health-audit.md):
+- [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
+- [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md)
+
+
 
 ### Microsoft Purview Information Protection connector (Preview)
 

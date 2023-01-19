@@ -14,16 +14,11 @@ To ensure proper functioning and performance of your security orchestration, aut
 
 Set up notifications of health events for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
 
-This article describes how to use Microsoft Sentinel's health monitoring features to keep track of your automation rules and playbooks' health from within Microsoft Sentinel.
+This article describes how to use Microsoft Sentinel's [health monitoring features](health-audit.md) to keep track of your automation rules and playbooks' health from within Microsoft Sentinel.
 
 ## Summary
 
-Automation health monitoring in Microsoft Sentinel has two parts:
 
-| Feature | Table | Coverage | Enable from |
-| - | - | - | - |
-| **Microsoft Sentinel automation health logs** | *SentinelHealth* | - Automation rules run<br>- Playbooks triggered | Microsoft Sentinel settings > Health monitoring |
-| **Azure Logic Apps diagnostics logs** | *AzureDiagnostics* | - Playbook run started/ended<br>- Playbook actions/triggers started/ended | Logic Apps resource > [Diagnostics settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=portal#create-diagnostic-settings) |
 
 
 - **Microsoft Sentinel automation health logs:**
