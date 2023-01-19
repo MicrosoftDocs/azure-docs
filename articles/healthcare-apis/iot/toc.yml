@@ -36,8 +36,8 @@ items:
 - name: Tutorials
   expanded: true
   items:
-  - name: Receive device data through Azure IoT Hub
-    href: device-data-through-iot-hub.md 
+  - name: Receive device messages through Azure IoT Hub
+    href: device-messages-through-iot-hub.md 
 - name: How-to guides
   expanded: true
   items: 

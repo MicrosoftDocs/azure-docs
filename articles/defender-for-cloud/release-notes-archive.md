@@ -82,7 +82,6 @@ The effect for the Key Vault recommendations listed here was changed to "audit":
 | Key Vault secrets should have an expiration date | 14257785-9437-97fa-11ae-898cfb24302b |
 | Key Vault keys should have an expiration date | 1aabfa0d-7585-f9f5-1d92-ecb40291d9f2 |
 
-
 ### Deprecate API App policies for App Service
 
 We deprecated the following policies to corresponding policies that already exist to include API apps:

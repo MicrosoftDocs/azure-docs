@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/27/2022
+ms.date: 1/18/2023
 ms.author: jasteppe
 ---
 
@@ -14,7 +14,7 @@ ms.author: jasteppe
 
 For enhanced workflows and ease of use, you can use the MedTech service to receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template creates an IoT hub to create and manage devices, and then routes device messages to an event hub in Azure Event Hubs for the MedTech service to pick up.
 
-:::image type="content" source="media\device-data-through-iot-hub\data-flow-diagram.png" border="false" alt-text="Diagram of the IoT message data flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-data-through-iot-hub\data-flow-diagram.png":::
+:::image type="content" source="media\device-messages-through-iot-hub\data-flow-diagram.png" border="false" alt-text="Diagram of the IoT message data flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\data-flow-diagram.png":::
 
 > [!TIP]
 > To learn more about how the MedTech service transforms and persists device messages into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR Observations, see [The MedTech service data flow](data-flow.md). 
@@ -82,23 +82,23 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
    - **Destination Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
    
-   :::image type="content" source="media\device-data-through-iot-hub\deploy-template-options.png" alt-text="Screenshot that shows deployment options for the MedTech service for Health Data Services in the Azure portal." lightbox="media\device-data-through-iot-hub\deploy-template-options.png":::
+   :::image type="content" source="media\device-messages-through-iot-hub\deploy-template-options.png" alt-text="Screenshot that shows deployment options for the MedTech service for Health Data Services in the Azure portal." lightbox="media\device-messages-through-iot-hub\deploy-template-options.png":::
 
 2. To validate your configuration, select **Review + create**.
 
-   :::image type="content" source="media\device-data-through-iot-hub\review-and-create-button.png" alt-text="Screenshot that shows the Review + create button selected in the Azure portal.":::
+   :::image type="content" source="media\device-messages-through-iot-hub\review-and-create-button.png" alt-text="Screenshot that shows the Review + create button selected in the Azure portal.":::
 
 3. In **Review + create**, check the template validation status. If validation is successful, the template displays **Validation Passed**. If validation fails, fix the detail that's indicated in the error message, and then select **Review + create** again.
 
-   :::image type="content" source="media\device-data-through-iot-hub\validation-complete.png" alt-text="Screenshot that shows the Review + create pane displaying the Validation Passed message.":::
+   :::image type="content" source="media\device-messages-through-iot-hub\validation-complete.png" alt-text="Screenshot that shows the Review + create pane displaying the Validation Passed message.":::
 
 4. After a successful validation, to begin the deployment, select **Create**.
 
-   :::image type="content" source="media\device-data-through-iot-hub\create-button.png" alt-text="Screenshot that shows the highlighted Create button.":::
+   :::image type="content" source="media\device-messages-through-iot-hub\create-button.png" alt-text="Screenshot that shows the highlighted Create button.":::
 
 5. In a few minutes, the Azure portal displays the message that your deployment is completed.
 
-   :::image type="content" source="media\device-data-through-iot-hub\deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
+   :::image type="content" source="media\device-messages-through-iot-hub\deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
 
    > [!IMPORTANT]
    > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
@@ -156,7 +156,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 2. In Explorer, in **Azure IoT Hub**, select **…** and choose **Select IoT Hub**.
 
-   :::image type="content" source="media\device-data-through-iot-hub\select-iot-hub.png" alt-text="Screenshot of Visual Studio Code with the Azure IoT Hub extension with the deployed IoT hub selected." lightbox="media\device-data-through-iot-hub\select-iot-hub.png":::
+   :::image type="content" source="media\device-messages-through-iot-hub\select-iot-hub.png" alt-text="Screenshot of Visual Studio Code with the Azure IoT Hub extension with the deployed IoT hub selected." lightbox="media\device-messages-through-iot-hub\select-iot-hub.png":::
 
 3. Select the Azure subscription where your IoT hub was provisioned.
   
@@ -164,14 +164,14 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 5. In Explorer, in **Azure IoT Hub**, select **…** and choose **Create Device**. An example device name is *iot-001*.
 
-   :::image type="content" source="media\device-data-through-iot-hub\create-device.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension with Create device selected." lightbox="media\device-data-through-iot-hub\create-device.png":::
+   :::image type="content" source="media\device-messages-through-iot-hub\create-device.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension with Create device selected." lightbox="media\device-messages-through-iot-hub\create-device.png":::
 
 6. To send a test message from the device to your IoT hub, right-click the device and select **Send D2C Message to IoT Hub**.
 
    > [!NOTE]
    > In this device-to-cloud (D2C) example, *cloud* is the IoT hub in the Azure IoT Hub that receives the device message. Azure IoT Hub supports two-way communications. To set up a cloud-to-device (C2D) scenario, select **Send C2D Message to Device Cloud**.
 
-   :::image type="content" source="media\device-data-through-iot-hub\select-device-to-cloud-message.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension and the Send D2C Message to IoT Hub option selected." lightbox="media\device-data-through-iot-hub\select-device-to-cloud-message.png":::
+   :::image type="content" source="media\device-messages-through-iot-hub\select-device-to-cloud-message.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension and the Send D2C Message to IoT Hub option selected." lightbox="media\device-messages-through-iot-hub\select-device-to-cloud-message.png":::
 
 7. In **Send D2C Messages**, select or enter the following values:
 
@@ -203,7 +203,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 8. To begin the process of sending a test message to your IoT hub, select **Send**.
 
-   :::image type="content" source="media\device-data-through-iot-hub\select-device-to-cloud-message-options.png" alt-text="Screenshot that shows Visual Studio code with the Azure IoT Hub extension with the device message options selected." lightbox="media\device-data-through-iot-hub\select-device-to-cloud-message-options.png":::
+   :::image type="content" source="media\device-messages-through-iot-hub\select-device-to-cloud-message-options.png" alt-text="Screenshot that shows Visual Studio code with the Azure IoT Hub extension with the device message options selected." lightbox="media\device-messages-through-iot-hub\select-device-to-cloud-message-options.png":::
 
    After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
 
@@ -221,9 +221,9 @@ For your MedTech service metrics, you can see that your MedTech service complete
 - **Number of Measurements**: Created five measurements.
 - **Number of FHIR resources**: Created five FHIR resources that are persisted in your FHIR service.
 
-:::image type="content" source="media\device-data-through-iot-hub\metrics-tile-one.png" alt-text="Screenshot that shows a MedTech service metrics tile and test data metrics." lightbox="media\device-data-through-iot-hub\metrics-tile-one.png":::
+:::image type="content" source="media\device-messages-through-iot-hub\metrics-tile-one.png" alt-text="Screenshot that shows a MedTech service metrics tile and test data metrics." lightbox="media\device-messages-through-iot-hub\metrics-tile-one.png":::
 
-:::image type="content" source="media\device-data-through-iot-hub\metrics-tile-two.png" alt-text="Screenshot that shows a second MedTech service metrics tile and test data metrics." lightbox="media\device-data-through-iot-hub\metrics-tile-two.png":::
+:::image type="content" source="media\device-messages-through-iot-hub\metrics-tile-two.png" alt-text="Screenshot that shows a second MedTech service metrics tile and test data metrics." lightbox="media\device-messages-through-iot-hub\metrics-tile-two.png":::
 
 ## View test data in the FHIR service
 

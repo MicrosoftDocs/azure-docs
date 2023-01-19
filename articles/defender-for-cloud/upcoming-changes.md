@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/16/2023
+ms.date: 01/18/2023
 
 ---
 
@@ -85,7 +85,7 @@ You can learn more about [Microsoft Defender for Endpoint onboarding options](in
 
 You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-alerts-to-be-deprecated) that are set to be deprecated.
 
-
+Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-servers-security-alerts-improvements/ba-p/3714175).
 ## Next steps
 
 For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).
