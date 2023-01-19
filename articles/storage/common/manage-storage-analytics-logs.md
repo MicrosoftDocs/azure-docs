@@ -56,6 +56,9 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
    The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
    For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
+   
+     > [!NOTE]
+     > Please note that for Classic storage accounts diagnostic $logs container would be appear only in Azure Storage Explorer (Not among Portal containers or Storage Explorer preview).
 
 ### [PowerShell](#tab/azure-powershell)
 
