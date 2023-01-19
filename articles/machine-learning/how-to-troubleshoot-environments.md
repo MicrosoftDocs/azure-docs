@@ -931,7 +931,8 @@ This issue can happen when a Docker image fails to be stored (pushed) to a conta
 <!--/issueDescription-->
 
 **Troubleshooting steps**  
-You could retry the environment build if you suspect this is a transient issue with the workspace's ACR.  
+
+Retry the environment build if you suspect this is a transient issue with the workspace's Azure Container Registry (ACR)  
 
 If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
 * Configure the container registry by using the service endpoint (public access) from the portal and retry
