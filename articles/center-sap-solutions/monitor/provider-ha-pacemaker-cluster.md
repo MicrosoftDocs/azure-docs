@@ -87,11 +87,11 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 
     1. For SUSE-based clusters, enter `http://<IP-address> :9664/metrics`.
 
-    ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for SUSE-based clusters.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-suse.png)
+    ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for SUSE-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-suse.png)
 
     1. For RHEL-based clusters, enter `http://<'IP address'>:44322/metrics?names=ha_cluster`.
 
-    ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for RHEL-based clusters.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-rhel.png)
+    ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for RHEL-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-rhel.png)
 
 
 1. Enter the system identifiers, host names, and cluster names. For the system identifier, enter a unique SAP system identifier for each cluster. For the hostname, the value refers to an actual hostname in the VM. Use `hostname -s` for SUSE- and RHEL-based clusters.

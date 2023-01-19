@@ -38,7 +38,7 @@ This article describes how to install and configure SAP HANA along with ASCS/SCS
 * [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux](planning-guide.md)
 * [Azure Virtual Machines deployment for SAP on Linux](deployment-guide.md)
-* [Azure Virtual Machines DBMS deployment for SAP on Linux](dbms_guide_general.md)
+* [Azure Virtual Machines DBMS deployment for SAP on Linux](dbms-guide-general.md)
 * [SAP Netweaver in pacemaker cluster](https://access.redhat.com/articles/3150081)
 * General RHEL documentation
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -52,7 +52,7 @@ This article describes how to install and configure SAP HANA along with ASCS/SCS
 
 This article describes the cost optimization scenario where you deploy SAP HANA, SAP ASCS/SCS and SAP ERS instances in the same high availability setup.  To minimize the number of VMs for a single SAP system, you want to install SAP ASCS/SCS and SAP ERS on the same hosts where SAP HANA is running. With SAP HANA being configured in high availability cluster setup, you want SAP ASCS/SCS and SAP ERS to be managed by cluster as well. The configuration is basically an addition to already configured SAP HANA cluster setup. In this setup SAP ASCS/SCS and SAP ERS will be installed on a virtual hostname and its instance directory is managed by the cluster.
 
-The presented architecture showcases [NFS on Azure Files](../../../storage/files/files-nfs-protocol.md) or [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) for highly available instance directory for the setup.
+The presented architecture showcases [NFS on Azure Files](../../storage/files/files-nfs-protocol.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for highly available instance directory for the setup.
 
 The example shown in this article to describe deployment uses following system information -
 
@@ -125,7 +125,7 @@ Once you've Installed, configured and set-up the **HANA Cluster**, follow the st
 
 > [!IMPORTANT]
 >
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
 >
@@ -133,7 +133,7 @@ Once you've Installed, configured and set-up the **HANA Cluster**, follow the st
 
 > [!IMPORTANT]
 >
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md).
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ## SAP ASCS/SCS and ERS Setup
 
