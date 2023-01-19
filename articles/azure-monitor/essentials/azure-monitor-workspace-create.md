@@ -14,6 +14,7 @@ This article shows you how to create and delete an Azure Monitor workspace and l
 
 In addition to the methods below, you may be given the option to create a new Azure Monitor workspace in the Azure portal as part of a configuration that requires one. For example, when you configure Azure Monitor managed service for Prometheus, you can select an existing Azure Monitor workspace or create a new one.
 
+## Create an Azure Monitor workspace
 ### [Azure portal](#tab/azure-portal)
 
 1. Open the **Azure Monitor workspaces** menu in the Azure portal.
@@ -122,7 +123,25 @@ Connect an Azure Monitor workspace to an [Azure Managed Grafana](../../managed-g
 4. Select a Grafana workspace.
 
 ### [CLI](#tab/cli)
-To be completed.
+If the Azure Monitor workspace is linked to one or more Grafana workspaces, then the data will be available in Grafana.
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
+
+This creates a link between the Azure Monitor workspace and the Grafana workspace.
+```azurecli
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id 
+<azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
+```
+Output
+```JSON
+"azureMonitorProfile": {
+    "metrics": {
+        "enabled": true,
+        "kubeStateMetrics": {
+            "metricAnnotationsAllowList": "",
+            "metricLabelsAllowlist": ""
+        }
+    }
+}
 
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
