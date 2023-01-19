@@ -3,7 +3,7 @@ title: Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AK
 description: Learn about and deploy the Container Storage Interface (CSI) drivers for Azure Disks and Azure Files in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 01/04/2023
+ms.date: 01/19/2023
 
 ---
 
@@ -18,7 +18,7 @@ The CSI storage driver support on AKS allows you to natively use:
 - [**Azure Blob storage**](azure-blob-csi.md) can be used to mount Blob storage (or object storage) as a file system into a container or pod. Using Blob storage enables your cluster to support  applications that work with large unstructured datasets like log file data, images or documents, HPC, and others. Additionally, if you ingest data into [Azure Data Lake storage](../storage/blobs/data-lake-storage-introduction.md), you can directly mount and use it in AKS without configuring another interim filesystem.
 
 > [!IMPORTANT]
-> Starting with Kubernetes version 1.25, in-tree persistent volume types *kubernetes.io/azure-disk* and *kubernetes.io/azure-file* are deprecated and will no longer be supported. Removing these drivers following their deprecation is not planned, however you should migrate to the corresponding CSI drivers *disks.csi.azure.com* and *file.csi.azure.com*.
+> Starting with Kubernetes version 1.26, in-tree persistent volume types *kubernetes.io/azure-disk* and *kubernetes.io/azure-file* are deprecated and will no longer be supported. Removing these drivers following their deprecation is not planned, however you should migrate to the corresponding CSI drivers *disks.csi.azure.com* and *file.csi.azure.com*. To review the migration options for your storage classes and upgrade your cluster to use Azure Disks and Azure Files CSI drivers, see [Migrate from in-tree to CSI drivers][migrate-from-in-tree-to-csi-drivers].
 >
 > *In-tree drivers* refers to the storage drivers that are part of the core Kubernetes code opposed to the CSI drivers, which are plug-ins.
 
@@ -137,3 +137,4 @@ If you have in-tree Azure File persistent volumes, get `secretName`, `shareName`
 [azure-blob-csi]: azure-blob-csi.md
 [azure-disk-csi]: azure-disk-csi.md
 [azure-files-csi]: azure-files-csi.md
+[migrate-from-in-tree-to-csi-drivers]: csi-migrate-in-tree-volumes.md
