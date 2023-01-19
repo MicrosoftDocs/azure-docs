@@ -31,7 +31,7 @@ The security tokens are issued by the Azure AD Authentication Services. Informat
 
 **Auditing**: Access is audited. For example, authorized actions such as create user and password reset create an audit trail that can be used by a tenant administrator to manage compliance efforts or investigations. Tenant administrators can generate audit reports by using the Azure AD audit API.  
 
-Learn more: [Azure Active Directory audit report events](../../azure/active-directory/active-directory-reporting-audit-events.md)
+Learn more: [Azure Active Directory audit report events](../active-directory/active-directory-reporting-audit-events.md)
 
 **Tenant Isolation**: Enforcement of security in Azure AD multi-tenant environment helps achieve two primary goals:  
 
@@ -82,6 +82,6 @@ For more information about Secret encryption at rest, see the following table.
 ## Resources
 * [Azure AD and data residency](azure-ad-data-residency.md)
 * [Microsoft Service Trust Documents](https://servicetrust.microsoft.com/Documents/TrustDocuments)
-* [Microsoft Azure Trust Center](https://azure.microsoft.com/en-us/overview/trusted-cloud/)
+* [Microsoft Azure Trust Center](https://azure.microsoft.com/overview/trusted-cloud/)
 * [Where is my data? - Office 365 documentation](http://o365datacentermap.azurewebsites.net/)
 * [Recover from deletions in Azure Active Directory](recover-from-deletions.md)
