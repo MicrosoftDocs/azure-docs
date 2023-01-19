@@ -45,7 +45,7 @@ For information on migrating your Security Information and Event Management (SIE
 
 ## 1. Understand your current usage
 
-Knowing your current usage in Splunk can help you make a decision about which [pricing tier](../logs/change-pricing-tier.md) to select in Azure Monitor and estimate your future costs:
+Knowing your current usage in Splunk will help you decide which [pricing tier](../logs/change-pricing-tier.md) to select in Azure Monitor and estimate your future costs:
 
 1. [Follow Splunk guidance](https://docs.splunk.com/Documentation/Splunk/latest/Admin/AboutSplunksLicenseUsageReportView) to view your usage report.
 1. [Estimate Azure Monitor usage and costs](../usage-estimated-costs.md#estimate-azure-monitor-usage-and-costs) using the [Pricing Calculator](https://azure.microsoft.com/en-in/pricing/calculator/?service=monitor). 
