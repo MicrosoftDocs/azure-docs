@@ -104,6 +104,7 @@
       href: user-flow-overview.md
     - name: Custom policy overview
       href: custom-policy-overview.md
+      displayName: extend, extensibility
   - name: API Connectors
     href: api-connectors-overview.md
     displayName: REST API, web API, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration
