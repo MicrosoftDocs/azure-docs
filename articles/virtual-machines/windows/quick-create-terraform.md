@@ -80,11 +80,13 @@ In this article, you learn how to:
 
 ## Verify the results
 
-Once the Terraform execution plan has been applied, there will be two outputs showing the public IP address of the virtual machine and the resource group name. Make note of the `public_ip_address` value.
+Run the following command to get the VM's public IP address and make note of it:
 
-## View the web server in action
+```azurecli-interactive
+echo $(terraform output -raw public_ip_address)
+```
 
-With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained in a previous step. The following example shows the default IIS web site:
+With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained from the previous command. The following example shows the default IIS web site:
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png)
 
