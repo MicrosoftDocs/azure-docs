@@ -79,7 +79,7 @@ The following sections walk you through the key features of the application.
 
 After you deploy the application template, it comes with a sample smart meter, a device model, and a dashboard.
 
-Adatum is a fictitious energy company that monitors and manages smart meters. On the dashboard for monitoring smart meters, you see properties, data, and sample commands for meters. The dashboard enables operators and support teams to proactively perform the following activities before they become support incidents:
+Adatum is a fictitious energy company that monitors and manages smart meters. The dashboard for monitoring smart meters shows properties, data, and sample commands for meters. The dashboard enables operators and support teams to proactively perform the following activities before they become support incidents:
 
 * Review the latest meter info and its installed [location](../core/howto-use-location-data.md) on the map.
 * Proactively check the meter network and connection status.
