@@ -15,7 +15,7 @@ ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other, ignite-2022
 #Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---
 
-# Create workspace resources you need to get started with Azure Machine Learning
+# Create resources you need to get started
 
 In this article, you'll create the resources you need to start working with Azure Machine Learning.
 
