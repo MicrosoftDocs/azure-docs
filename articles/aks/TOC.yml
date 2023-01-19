@@ -6,7 +6,7 @@
       href: intro-kubernetes.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
-    - name: Supported Kubernetes version
+    - name: Supported Kubernetes versions
       href: supported-kubernetes-versions.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
@@ -94,7 +94,7 @@
       href: concepts-network.md
     - name: Storage
       href: concepts-storage.md
-    - name: Scale
+    - name: Scaling
       href: concepts-scale.md
     - name: Node auto-repair
       href: node-auto-repair.md
@@ -238,14 +238,10 @@
           items:
             - name: Node pool snapshot
               href: node-pool-snapshot.md
-            - name: Use Dedicated Hosts with AKS
-              href: use-azure-dedicated-hosts.md
             - name: Use multiple node pools
               href: use-multiple-node-pools.md
             - name: Use spot node pools
               href: spot-node-pool.md
-            - name: Use Confidential Virtual Machines
-              href: use-cvm.md
             - name: Use system node pools
               href: use-system-pools.md
             - name: Use instance-level public IP addresses
@@ -324,6 +320,10 @@
               maintainContext: true
         - name: Node security
           items:
+            - name: Use Confidential Virtual Machines
+              href: use-cvm.md
+            - name: Use Dedicated Hosts with AKS
+              href: use-azure-dedicated-hosts.md
             - name: BYOK for disks
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
@@ -433,6 +433,8 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
+            - name: Migrate from in-tree driver to CSI driver
+              href: csi-migrate-in-tree-volumes.md
             - name: Azure Disks CSI driver
               href: azure-disk-csi.md
             - name: Azure Files CSI driver

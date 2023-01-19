@@ -10,12 +10,12 @@ ms.topic: reference
 This article describes the **HPE ProLiant DL20 Gen10** appliance for OT sensors in an enterprise deployment.
 
 > [!NOTE]
-> Legacy appliances are certified but aren't currently offered as preconfigured appliances.
+> Legacy appliances are certified but aren't currently offered as pre-configured appliances.
 
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | E1800 |
-|**Performance** | Max bandwidth: 1 Gbp/s <br>Max devices: 10,000 |
+|**Performance** | Max bandwidth: 1 Gbps <br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: 1U <br> Ports: 8x RJ45 or 6x SFP (OPT)|
 |**Status** | Supported, not available pre-configured |
 
