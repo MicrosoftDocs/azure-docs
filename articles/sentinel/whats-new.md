@@ -167,7 +167,7 @@ In the meantime, or if you've built any custom queries or rules directly referen
     | project-away AadTenantId, AadUserId, AccountTenantId, AccountObjectId
     ```
 
-For information on looking up data to replace enrichment fields removed from the UEBA UserPeerAnalytics table, See [Heads up: Name fields being removed from UEBA UserPeerAnalytics table](#heads-up-name-fields-being-removed-from-ueba-userpeeranalytics-table) for a sample query.
+For information on looking up data to replace enrichment fields removed from the UEBA UserPeerAnalytics table, See [Heads up: Name fields being removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table) for a sample query.
 
 ### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 
