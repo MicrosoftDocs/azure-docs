@@ -287,8 +287,8 @@ An AutoML training job uses a primary metric for model optimization and hyperpar
 
 * [Accuracy](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) for image classification
 * [Intersection over union](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html) for image classification multilabel
-* [Mean average precision](how-to-understand-automated-ml#object-detection-and-instance-segmentation-metrics) for image object detection
-* [Mean average precision](how-to-understand-automated-ml#object-detection-and-instance-segmentation-metrics) for image instance segmentation
+* [Mean average precision](how-to-understand-automated-ml.md#object-detection-and-instance-segmentation-metrics) for image object detection
+* [Mean average precision](how-to-understand-automated-ml.md#object-detection-and-instance-segmentation-metrics) for image instance segmentation
     
 ### Job limits
 
