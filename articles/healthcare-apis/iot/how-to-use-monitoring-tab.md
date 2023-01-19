@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
@@ -42,7 +42,7 @@ In this article, you'll learn how to use the MedTech service monitoring tab in t
    :::image type="content" source="media\how-to-use-monitoring-tab\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\how-to-use-monitoring-tab\pin-metrics-to-dashboard.png":::
    
    > [!TIP]
-   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started)
+   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md)
 
 ## Available metrics for the MedTech service
 
@@ -62,7 +62,7 @@ Metric category|Metric name|Metric description|
 
 ## Next steps
 
-In this article, you learned about how to use the MedTech service monitoring tab.
+In this article, you learned how to use the MedTech service monitoring tab.
 
 To learn how to configure the MedTech service metrics, see
 
