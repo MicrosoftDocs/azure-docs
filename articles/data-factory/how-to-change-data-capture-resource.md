@@ -1,6 +1,6 @@
 ---
 title: Capture changed data with Change Data Capture
-description:  This tutorial provides step-by-step instructions on how to capture changed data from ADLS Gen2 to SQL DB using Change Data Capture
+description: This tutorial provides step-by-step instructions on how to capture changed data from ADLS Gen2 to SQL DB using a Change data capture resource.
 author: n0elleli
 ms.author: noelleli
 ms.reviewer: 
@@ -11,13 +11,13 @@ ms.custom: seo-lt-2019
 ms.date: 01/04/2023
 ---
 
-# How to capture changed data from ADLS Gen2 to SQL DB using Change Data Capture
+# How to capture changed data from ADLS Gen2 to SQL DB using a Change data capture resource
 [!INCLUDE[appliesto-adf-asa-md]]
 
-In this tutorial, you will use the Azure Data Factory user interface (UI) to create a new Change Data Capture artifact that picks up changed data from an Azure Data Lake Storage (ADLS) Gen2 source to a SQL Database. The configuration pattern in this tutorial can be modified and expanded upon. 
+In this tutorial, you will use the Azure Data Factory user interface (UI) to create a new Change data capture resource that picks up changed data from an Azure Data Lake Storage (ADLS) Gen2 source to a SQL Database. The configuration pattern in this tutorial can be modified and expanded upon. 
 
 In this tutorial, you follow these steps:
-* Create a change data capture artifact.
+* Create a change data capture resource.
 * Monitor change data capture activity.
 
 ## Pre-requisites
@@ -60,9 +60,9 @@ In this tutorial, you follow these steps:
 > [!NOTE]
 > You can choose to add multiple source folders with the **+** button. The other sources must also use the same linked service that you’ve already selected. 
 
-8.	You will then be prompted to name your CDC artifact. By default, the name will be set to “adfcdc” and continue to increment up by 1. You can replace this default name with your own. 
+8.	You will then be prompted to name your CDC resource. By default, the name will be set to “adfcdc” and continue to increment up by 1. You can replace this default name with your own. 
 
-  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-9.png" alt-text="Screenshot of the text box to update the name of the artifact.":::
+  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-9.png" alt-text="Screenshot of the text box to update the name of the resource.":::
 
 9.	Then, select a **Target type** using the drop-down selection. For this tutorial, we will select **Azure SQL Database**. 
 
@@ -83,7 +83,7 @@ In this tutorial, you follow these steps:
 > [!NOTE]
 > You can choose multiple target tables from your SQL DB. Use the check boxes to select all targets. 
 
-13.	You will automatically land in a new change data capture tab, where you can configure your new artifact. 
+13.	You will automatically land in a new change data capture tab, where you can configure your new resource. 
 
   :::image type="content" source="media/adf-cdc/adf-cdc-artifact-14.png" alt-text="Screenshot of the change data capture studio.":::
  
@@ -132,13 +132,13 @@ For example, if you select 30 minutes, every 30 minutes, your change data captur
 :::image type="content" source="media/adf-cdc/adf-cdc-artifact-24.png" alt-text="Screenshot of the publish button at the top of the canvas.":::
 
 > [!NOTE] 
-> If you do not publish your changes, your CDC artifact will not start, and you will get an error. 
+> If you do not publish your changes, your CDC resource will not start, and you will get an error. 
 
 21.	Click **Start** to start running your **Change data capture**. 
 
   :::image type="content" source="media/adf-cdc/adf-cdc-artifact-25.png" alt-text="Screenshot of the start button at the top of the canvas.":::
 
-  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-26.png" alt-text="Screenshot of an actively running change data capture artifact.":::
+  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-26.png" alt-text="Screenshot of an actively running change data capture resource.":::
 
 ## Monitor your Change data capture
 
@@ -148,7 +148,7 @@ For example, if you select 30 minutes, every 30 minutes, your change data captur
  
   :::image type="content" source="media/adf-cdc/adf-cdc-artifact-28.png" alt-text="Screenshot of the monitoring button at the top of the change data capture canvas.":::
 
-2.	Select **Change data capture** to view your CDC artifacts. 
+2.	Select **Change data capture** to view your CDC resources. 
 
   :::image type="content" source="media/adf-cdc/adf-cdc-artifact-29.png" alt-text="Screenshot of the Change data capture monitoring section.":::
  
@@ -169,4 +169,4 @@ For example, if you select 30 minutes, every 30 minutes, your change data captur
   
   
 ## Next steps
-- [Learn more about the change data capture artifact](concepts-change-data-capture-artifact.md).
+- [Learn more about the change data capture resource](concepts-change-data-capture-resource.md).
