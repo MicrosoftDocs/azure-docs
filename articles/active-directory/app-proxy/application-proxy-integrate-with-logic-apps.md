@@ -122,7 +122,7 @@ When a new Enterprise Application is created, a matching App Registration is als
 
     1. *Method*: Select the desired HTTP method to be sent to the internal API
 
-    2. *URI*: Fill in with the *public* FQDN of your application registered in Azure AD, along with the additional URI required for API access (e.g. *sampleapp1.msappproxy.net/api/1/status)
+    2. *URI*: Fill in with the *public* FQDN of your application registered in Azure AD, along with the additional URI required for API access (e.g. *sampleapp1.msappproxy.net/api/1/status*)
 
         > [!NOTE]
         > Specific values for API will depend on your internal application. Refer to your application's documentation for more information.
@@ -141,7 +141,7 @@ When a new Enterprise Application is created, a matching App Registration is als
 
     9. For the authentication, fill the following details:
 
-        1. *Authority*: Enter *https://login.windows.net
+        1. *Authority*: Enter *https://login.windows.net*
 
         2. *Tenant*: Enter the **Directory (tenant) ID** noted in *Configure the Application Access*
 
