@@ -520,7 +520,7 @@ Structured logging (attaching custom dimensions to your logs) can be accomplishe
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.7</version>
+      <version>3.4.8</version>
     </dependency>
     ```
 

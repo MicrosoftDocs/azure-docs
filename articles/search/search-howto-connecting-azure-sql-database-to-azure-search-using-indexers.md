@@ -36,7 +36,7 @@ This article also provides:
 
 + Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md).
 
-To work through the examples in this article, you'll need a REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md). 
+To work through the examples in this article, you'll need a REST client, such as [Postman](search-get-started-rest.md). 
 
 Other approaches for creating an Azure SQL indexer include Azure SDKs or [Import data wizard](search-get-started-portal.md) in the Azure portal. If you're using Azure portal, make sure that access to all public networks is enabled in the Azure SQL firewall and that the client has access via an inbound rule.
 
