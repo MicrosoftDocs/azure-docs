@@ -43,7 +43,11 @@ Microsoft Purview Data Sharing only stores metadata about your share. It doesn't
 * Share data from ADLS Gen2 or Blob storage in-place without data duplication.
 * Share data with multiple recipients.
 * Access shared data in near real time.
+<<<<<<< HEAD
 * Manage sharing relationships and keep track of who the data is shared with/from, for each ADLSGen2 or Blob Storage account.
+=======
+* Manage sharing relationships and keep track of who the data is shared with/from.
+>>>>>>> ba4b9de973b78919daeea4c4419e6eba3813e947
 * Terminate share access at any time.
 * Flexible experience through Microsoft Purview governance portal or via REST APIs.
 
