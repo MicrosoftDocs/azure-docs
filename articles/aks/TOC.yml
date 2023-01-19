@@ -441,19 +441,21 @@
               items:
                 - name: Azure Blob CSI driver
                   href: azure-blob-csi.md
-                - name: Provision legacy Azure Blob storage
+                - name: Provision Azure Blob storage
                   href: azure-csi-blob-storage-provision.md
             - name: On Azure Files
               items:
                 - name: Azure Files CSI driver
                   href: azure-files-csi.md
-                - name: Provision legacy Azure Files storage
+                - name: Provision Azure Files storage
                   href: azure-csi-files-storage-provision.md
+            - name: Provision Azure NetApp Files storage
+              href: azure-netapp-files.md 
         - name: Block storage
           items:
             - name: Azure Disks CSI driver
               href: azure-disk-csi.md
-            - name: Provision legacy Azure Disks storage
+            - name: Provision Azure Disks storage
               href: azure-csi-disk-storage-provision.md
         - name: Other storage options
           items:
