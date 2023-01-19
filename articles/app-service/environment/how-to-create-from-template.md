@@ -1,5 +1,5 @@
 ---
-title: Create an App Service Environment (ASE) v3 with ARM
+title: Create an App Service Environment (ASE) v3 with Azure Resource Manager
 description: Learn how to create an external or ILB App Service Environment v3 by using an Azure Resource Manager template.
 author: madsd
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.author: madsd
 ---
 # Create an App Service Environment by using an Azure Resource Manager template
 
-App Service Environment cas be created using an Azure Resource Manager template. This allows you to do repeatable deployment.
+App Service Environment can be created using an Azure Resource Manager template. This allows you to do repeatable deployment.
 
 > [!NOTE]
 > This article is about App Service Environment v3, which is used with isolated v2 App Service plans.
@@ -19,21 +19,17 @@ Azure App Service Environment can be created with an internet-accessible endpoin
 
 An ASE can be created by using the Azure portal or an Azure Resource Manager template. This article walks through the steps and syntax you need to create an External ASE or ILB ASE with Resource Manager templates. Learn [how to create an App Service Environment in Azure portal](./creation.md).
 
-When you create an App Service Environment in the Azure portal, you can create your virtual network at the same time or choose a preexisting virtual network to deploy into. 
+When you create an App Service Environment in the Azure portal, you can create your virtual network at the same time or choose a pre-existing virtual network to deploy into. 
 
 When you create an App Service Environment from a template, you must start with: 
 
 * An Azure Virtual Network.
 * A subnet in that virtual network. We recommend a subnet size of `/24` with 256 addresses to accommodate future growth and scaling needs. After the App Service Environment is created, you can't change the size.
-* When you creating an App Service Environment into preexisting virtual network and subnet, the existing resource group name, virtual network name and subnet name are required.
-* The subscription you want to deploy into.
 * The location you want to deploy into.
-
-To automate your App Service Environment creation, follow they guidelines in the sections below. 
 
 ## Configuring the App Service Environment
 
-The core Resource Manager template that creates an App Service Environment looks like this:
+The basic Resource Manager template that creates an App Service Environment looks like this:
 
 ```json
 {
@@ -56,24 +52,24 @@ The core Resource Manager template that creates an App Service Environment looks
 }
 ```
 
-Besides the core properties, there are many additional configuration options that you can use to configure your App Service Environment.
+In addition to the core properties, there are other configuration options that you can use to configure your App Service Environment.
 
-* *name*: Required. This parameter defines an unique App Service Environment name. 
-* *virtualNetwork -> id*: Required. Specifies the resource id of the subnet. Subnet must be empty and delegated to Microsoft.Web/hostingEnvironments
-* *internalLoadBalancingMode*: Required. In most cases, set this to "Web, Publishing", which means both HTTP/HTTPS traffic and FTP traffic is on an internal VIP (Internal Load Balancer). If this property is set to "None", all traffic remains on the public VIP (External Load Balancer).
-* *zoneRedundant*: Optional. Defines with true/false if the App Service Environment will be deployed into Availability Zones (AZ). Refer to to [this article](./zone-redundancy.md) for more information.
-* *dedicatedHostCount*: Optional. In most cases, set this to 0 or left out. You can set it to 2 if you want to deploy your App Service Environment with physical hardware isolation on dedicated hosts. 
+* *name*: Required. This parameter defines a unique App Service Environment name. 
+* *virtualNetwork -> id*: Required. Specifies the resource ID of the subnet. Subnet must be empty and delegated to Microsoft.Web/hostingEnvironments
+* *internalLoadBalancingMode*: Required. In most cases, set this property to "Web, Publishing", which means both HTTP/HTTPS traffic and FTP traffic is on an internal VIP (Internal Load Balancer). If this property is set to "None", all traffic remains on the public VIP (External Load Balancer).
+* *zoneRedundant*: Optional. Defines with true/false if the App Service Environment will be deployed into Availability Zones (AZ). For more information, see [zone redundancy](./zone-redundancy.md).
+* *dedicatedHostCount*: Optional. In most cases, set this property to 0 or left out. You can set it to 2 if you want to deploy your App Service Environment with physical hardware isolation on dedicated hosts. 
 * *upgradePreference*: Optional. Defines if upgrade is started automatically or a 15 day windows to start the deployment is given. Valid values are "None", "Early", "Late", "Manual". More information [about upgrade preference](./how-to-upgrade-preference.md).
-* *clusterSettings*: Optional. Various cluster settings exist to tailor the specific instance. These settings can impact the functionality of the instance and can take several hours to apply. See more information about [cluster settings here](./app-service-app-service-environment-custom-settings.md).
-* *networkingConfiguration -> allowNewPrivateEndpointConnections*: Optional. See [networking configuration](./configure-network-settings.md#allow-new-private-endpoint-connections) for more information about this property.
-* *networkingConfiguration -> remoteDebugEnabled*: Optional. See [networking configuration](./configure-network-settings.md#remote-debugging-access) for more information about this property.
-* *networkingConfiguration -> ftpEnabled*: Optional. See [networking configuration](./configure-network-settings.md#ftp-access) for more information about this property.
-* *networkingConfiguration -> inboundIpAddressOverride*: Optional. Allow you to create an App Service Environment with your own Azure Public IP address (specify the resource id) or define a static IP for ILB deployments. This cannot be changed after the App Service Environment is created.
-* *customDnsSuffixConfiguration*: Optional. Allows you to specify a custom domain suffix for the App Service Environment. Requires a valid certificate from a Key Vault and access using a Managed Identity. See [configuration custom domain suffix](./how-to-custom-domain-suffix.md) for more information about the specific parameters.
+* *clusterSettings*: Optional. For more information, see [cluster settings](./app-service-app-service-environment-custom-settings.md).
+* *networkingConfiguration -> allowNewPrivateEndpointConnections*: Optional. For more information, see [networking configuration](./configure-network-settings.md#allow-new-private-endpoint-connections).
+* *networkingConfiguration -> remoteDebugEnabled*: Optional. For more information, see [networking configuration](./configure-network-settings.md#remote-debugging-access).
+* *networkingConfiguration -> ftpEnabled*: Optional. For more information, see [networking configuration](./configure-network-settings.md#ftp-access).
+* *networkingConfiguration -> inboundIpAddressOverride*: Optional. Allow you to create an App Service Environment with your own Azure Public IP address (specify the resource ID) or define a static IP for ILB deployments. This setting can't be changed after the App Service Environment is created.
+* *customDnsSuffixConfiguration*: Optional. Allows you to specify a custom domain suffix for the App Service Environment. Requires a valid certificate from a Key Vault and access using a Managed Identity. For more information about the specific parameters, see [configuration custom domain suffix](./how-to-custom-domain-suffix.md).
 
 ### Deploying the App Service Environment
 
-After creating the ARM template, for example named *azuredeploy.json* and optionally a parameters file for example named *azuredeploy.parameters.json*, you can create the App Service Environment by using the Azure CLI code snippet below. Change the file paths to match the Resource Manager template-file locations on your machine. Remember to supply your own value for the resource group name:
+After creating the ARM template, for example named *azuredeploy.json* and optionally a parameters file for example named *azuredeploy.parameters.json*, you can create the App Service Environment by using the Azure CLI code snippet. Change the file paths to match the Resource Manager template-file locations on your machine. Remember to supply your own value for the resource group name:
 
 ```bash
 templatePath="PATH/azuredeploy.json"

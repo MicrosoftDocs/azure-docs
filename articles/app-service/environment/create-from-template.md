@@ -1,5 +1,5 @@
 ---
-title: Create an ASE with ARM
+title: Create an ASE with Azure Resource Manager
 description: Learn how to create an external or ILB App Service environment by using an Azure Resource Manager template.
 author: madsd
 
@@ -21,17 +21,16 @@ Azure App Service environments (ASEs) can be created with an internet-accessible
 
 An ASE can be created by using the Azure portal or an Azure Resource Manager template. This article walks through the steps and syntax you need to create an External ASE or ILB ASE with Resource Manager templates. To learn how to create an ASEv2 in the Azure portal, see [Make an External ASE][MakeExternalASE] or [Make an ILB ASE][MakeILBASE].
 
-When you create an ASE in the Azure portal, you can create your virtual network at the same time or choose a preexisting virtual network to deploy into. 
+When you create an ASE in the Azure portal, you can create your virtual network at the same time or choose a pre-existing virtual network to deploy into. 
 
 When you create an ASE from a template, you must start with: 
 
 * An Azure Virtual Network.
 * A subnet in that virtual network. We recommend an ASE subnet size of `/24` with 256 addresses to accommodate future growth and scaling needs. After the ASE is created, you can't change the size.
-* When you creating an ASE into preexisting virtual network and subnet, the existing resource group name, virtual network name and subnet name are required.
 * The subscription you want to deploy into.
 * The location you want to deploy into.
 
-To automate your ASE creation, follow they guidelines in the sections below. If you are creating an ILB ASEv2 with custom dnsSuffix (for example, `internal-contoso.com`), there are a few more things to do.
+To automate your ASE creation, follow they guidelines in the following sections. If you're creating an ILB ASEv2 with custom dnsSuffix (for example, `internal-contoso.com`), there are a few more things to do.
 
 1. After your ILB ASE with custom dnsSuffix is created, an TLS/SSL certificate that matches your ILB ASE domain should be uploaded.
 
@@ -44,7 +43,7 @@ A Resource Manager template that creates an ASE and its associated parameters fi
 If you want to make an ASE, use these Resource Manager template [ASEv2][quickstartilbasecreate] example. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE with an existing subnet.
 
 ### Parameters
-* *aseName*: This parameter defines an unique ASE name.
+* *aseName*: This parameter defines a unique ASE name.
 * *location*: This parameter defines the location of the App Service Environment.
 * *existingVirtualNetworkName*: This parameter defines the virtual network name of the existing virtual network and subnet where ASE will reside.
 * *existingVirtualNetworkResourceGroup*: his parameter defines the resource group name of the existing virtual network and subnet where ASE will reside.
@@ -72,7 +71,7 @@ Obtain a valid TLS/SSL certificate by using internal certificate authorities, pu
 * **Subject**: This attribute must be set to **.your-root-domain-here.com*.
 * **Subject Alternative Name**: This attribute must include both **.your-root-domain-here.com* and **.scm.your-root-domain-here.com*. TLS connections to the SCM/Kudu site associated with each app use an address of the form *your-app-name.scm.your-root-domain-here.com*.
 
-With a valid TLS/SSL certificate in hand, two additional preparatory steps are needed. Convert/save the TLS/SSL certificate as a .pfx file. Remember that the .pfx file must include all intermediate and root certificates. Secure it with a password.
+With a valid TLS/SSL certificate in hand, two more preparatory steps are needed. Convert/save the TLS/SSL certificate as a .pfx file. Remember that the .pfx file must include all intermediate and root certificates. Secure it with a password.
 
 The .pfx file needs to be converted into a base64 string because the TLS/SSL certificate is uploaded by using a Resource Manager template. Because Resource Manager templates are text files, the .pfx file must be converted into a base64 string. This way it can be included as a parameter of the template.
 
@@ -148,7 +147,7 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-It takes roughly 40 minutes per ASE front end to apply the change. For example, for a default-sized ASE that uses two front ends, the template takes around one hour and 20 minutes to complete. While the template is running, the ASE can't scale.  
+It takes roughly 40 minutes per ASE front end to apply the change. For example, for a default-sized ASE that uses two front ends, the template takes around 1 hour and 20 minutes to complete. While the template is running, the ASE can't scale.  
 
 After the template finishes, apps on the ILB ASE can be accessed over HTTPS. The connections are secured by using the default TLS/SSL certificate. The default TLS/SSL certificate is used when apps on the ILB ASE are addressed by using a combination of the application name plus the default host name. For example, `https://mycustomapp.internal-contoso.com` uses the default TLS/SSL certificate for **.internal-contoso.com*.
 
