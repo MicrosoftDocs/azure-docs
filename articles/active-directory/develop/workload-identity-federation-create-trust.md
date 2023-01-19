@@ -209,7 +209,7 @@ az ad app federated-credential create --id f6475511-fd81-4965-a00e-41e7792b7b9c 
 ("credential.json" contains the following content)
 {
     "name": "Testing",
-    "issuer": "https://token.actions.githubusercontent.com/",
+    "issuer": "https://token.actions.githubusercontent.com",
     "subject": "repo:octo-org/octo-repo:environment:Production",
     "description": "Testing",
     "audiences": [
