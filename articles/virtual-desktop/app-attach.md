@@ -227,7 +227,7 @@ To install the license files, you'll need to use a PowerShell script that calls 
 
 Here's how to set up the licenses for offline use:
 
-1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](https://learn.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Update the following variables in the script for step 3:
       - `$contentID` is the ContentID value from the Unencoded license file (.xml). You can open the license file in a text editor of your choice.
       - `$licenseBlob` is the entire string for the license blob in the Encoded license file (.bin). You can open the encoded license file in a text editor of your choice.
