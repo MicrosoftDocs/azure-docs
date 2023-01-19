@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/19/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -145,9 +145,7 @@ Use the following steps to assign static IP pools in the local UI of your device
    1. **Second virtual network** – Name is **N3** and associated with **vswitch-port5**.
    1. **Third virtual network** – Name is **N6** and associated with **vswitch-port6**.
  
-      [![Screenshots that show the Add virtual network dialogs in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-virtual-networks.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-virtual-networks.png#lightbox)
-
-    1. Once all three virtual networks are configured, they'll be listed under the virtual networks, as follows: 
+   1. Once all three virtual networks are configured, they'll be listed under the virtual networks, as follows: 
  
        [![Screenshot that shows the Advanced networking page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-advanced-networking.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-advanced-networking.png#lightbox)
 
@@ -162,7 +160,7 @@ Use the following steps to assign static IP pools in the local UI of your device
    > [!NOTE]
    > You can't modify the IP pool settings once the AKS cluster is deployed.
 
-    [![Screenshot that shows the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png#lightbox)
+    [![Screenshot that shows the Kubernetes page with virtual networks in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-virtual-networks-2.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-virtual-networks-2.png#lightbox)
 
 ## Configure the compute virtual switch
 
@@ -170,7 +168,9 @@ Use this step to configure the virtual switch for Kubernetes compute traffic.
 
 1. In the local UI of your device, go to the **Kubernetes** page.
 
-1. Select **Modify** to configure a virtual switch for Kubernetes compute traffic. 
+1. Select **Modify** to configure a virtual switch for Kubernetes compute traffic.
+
+    [![Screenshot that shows the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png#lightbox)
 
 1. Enable the compute on a port that has internet access. For example, in this case, port 2 that was connected to the internet is enabled for compute. Internet access allows you to retrieve container images from AKS. 
 
@@ -189,10 +189,6 @@ Use this step to configure the virtual switch for Kubernetes compute traffic.
 1. For the Kubernetes external service IPs, supply static IPs for services that are exposed outside the Kubernetes cluster. Each such service requires one IP. 
 
     [![Screenshot that shows the Compute virtual switch options on the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page-compute-virtual-switch.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page-compute-virtual-switch.png#lightbox)
-
-   The page will update as shown below:
-
-   [![Screenshot that shows virtual networks on the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-virtual-networks.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-virtual-networks.png#lightbox)
 
 ## Enable VM cloud management
 
