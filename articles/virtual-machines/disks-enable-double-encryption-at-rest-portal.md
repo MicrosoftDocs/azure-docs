@@ -53,8 +53,7 @@ Azure Disk Storage supports double encryption at rest for managed disks. For con
 
 1. Navigate to your disk.
 1. Select **Encryption**.
-1. For **Key management**, select **Double encryption with platform-managed and customer-managed keys**.
-1. Select your disk encryption set.
+1. For **Key management**, select one of the keys under **Platform-managed and customer-managed keys**.
 1. select **Save**.
 
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Screenshot of the encryption blade for your managed disk, the aforementioned encryption type is highlighted." lightbox="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png":::
