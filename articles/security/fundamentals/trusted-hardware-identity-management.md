@@ -89,9 +89,9 @@ curl GET "http://169.254.169.254/metadata/THIM/amd/certification" -H "Metadata: 
 ### How do I request AMD collateral in an Azure Kuberenetes Service (AKS) Container on a Confidential Virtual Machine (CVM) node?
 
 Follow the steps below for requesting AMD collateral in a confidential container. 
-1. Start by creating an AKS cluster on CVM mode or adding a CVM node pool to the existing cluster
+1. Start by creating an AKS cluster on CVM mode or adding a CVM node pool to the existing cluster.
     1. Create an AKS Cluster on CVM node.
-       1. Create a resource group in one of the CVM supported regions
+       1. Create a resource group in one of the CVM supported regions.
          ```bash
          az group create --resource-group <RG_NAME> --location <LOCATION> 
          ```
@@ -142,9 +142,9 @@ Follow the steps below for requesting AMD collateral in a confidential container
     
     **Arguments**
     | Name | Type | Description |
-    |-------|------|------------|
+    | -- | -- | -- |
     | Metadata | Boolean | Setting to True to allow for collateral to be returned |
-3. Run the job by applying the curl.yaml
+3. Run the job by applying the curl.yaml.
     ```bash
     kubectl apply -f curl.yaml 
     ```
@@ -155,7 +155,7 @@ Follow the steps below for requesting AMD collateral in a confidential container
     
     **Example Response**
     | Name | Ready | Status | Restarts | Age |
-    |-----|------|------|------|-----|
+    | -- | -- | -- | -- | -- |
     | Curl-w7nt8  | 0/1 | Completed | 0 | 72s |
 5. Run the following command to get the job logs and validate if it is working. A successful output should include vcekCert, tcbm and certificateChain.
     ```bash
