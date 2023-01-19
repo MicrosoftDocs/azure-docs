@@ -1,13 +1,18 @@
 ---
-title: Troubleshooting lab creation
-description: This guide helps to fix common issues you might experience when using Azure Lab Services to create labs.
-ms.topic: how-to
-ms.date: 07/14/2022
+title: Troubleshoot lab creation
+titleSuffix: Azure Lab Services
+description: Learn how to resolve common issues with creating a lab in Azure Lab Services.
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
+ms.topic: troubleshooting
+ms.date: 01/19/2023
 ---
 
-# Troubleshooting lab creation in Azure Lab Services
+# Troubleshoot lab creation in Azure Lab Services
 
-This article provides several common reasons why an educator might not be able to create a lab successfully and what to do to resolve the issue.
+In this article, you learn how to resolve common issues with creating a lab in Azure Lab Services.
 
 ## You can't see a virtual machine image
 
