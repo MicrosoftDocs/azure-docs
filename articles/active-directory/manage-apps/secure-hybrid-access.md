@@ -23,7 +23,7 @@ In this article, learn to protect your on-premises and cloud legacy authenticati
   
 * **[Secure hybrid access through Azure AD partner integrations](#partner-integrations-for-apps-on-premises-and-legacy-authentication)**:
   * [Pre-built solutions](#secure-hybrid-access-through-azure-ad-partner-integrations)
-  * [Conditional Access policies per application](../secure-hybrid-access-integrations.md#connect-apps-to-azure-ad-with-legacy-authentication)
+  * [Conditional Access policies per application](../secure-hybrid-access-integrations#connect-apps-to-azure-ad-with-legacy-authentication)
   * [What is Conditional Access?](../conditional-access/overview.md)
  
 In addition to Application Proxy, you can strengthen your security posture with [Identity Protection](../identity-protection/overview-identity-protection.md). 
@@ -65,7 +65,7 @@ Microsoft partners with various companies that deliver pre-built solutions for o
 
 ### Secure hybrid access through Azure AD partner integrations
 
-The following partners offer solutions to support [Conditional Access policies per application](../secure-hybrid-access-integrations.md#connect-apps-to-azure-ad-with-legacy-authentication). Use the tables in the following two sections to learn about the partners and Azure AD integration documentation.
+The following partners offer solutions to support [Conditional Access policies per application](../secure-hybrid-access-integrations#connect-apps-to-azure-ad-with-legacy-authentication). Use the tables in the following two sections to learn about the partners and Azure AD integration documentation.
 
 |Partner|Integration documentation|
 |---|---|
