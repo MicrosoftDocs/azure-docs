@@ -119,12 +119,14 @@ Once the upgrade completes, check if your deployment is operating normally.
 
 If you encountered issues after the upgrade, you can roll back the packet core instance to the previous version.
 
-Note that any configuration you set while your packet core instance was running a newer version will be lost if you roll back to a version that doesn't support this configuration. Check the packet core release notes for information on when new features were introduced.
+If any of the configuration you set while your packet core instance was running a newer version isn't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
 
 > [!NOTE]
-> You can roll back your packet core instance to version [PMN-4-18-0](azure-private-5g-core-release-notes-2210.md) or later.
+> You can roll back your packet core instance to version [PMN-2211-0](azure-private-5g-core-release-notes-2211.md) or later.
 
 1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
+1. TODO
+<!-- 
 1. Select the following link to sign in to Azure and open the template.
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-update-packet-core-control-plane%2FcreateUiDefinition.json)
@@ -145,7 +147,7 @@ Note that any configuration you set while your packet core instance was running 
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
 1. Once your configuration has been validated, select **Create** to upgrade the packet core instance. The Azure portal will display a confirmation screen when the packet core instance has been downgraded.
-1. Follow the steps in [Verify upgrade](#verify-upgrade) to check if the rollback was successful.
+1. Follow the steps in [Verify upgrade](#verify-upgrade) to check if the rollback was successful. -->
 
 ## Next steps
 

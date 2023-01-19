@@ -122,10 +122,10 @@ If any of the configuration you set while your packet core instance was running 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/roll-back-packet-core.png" alt-text="Screenshot of the Azure portal showing the Rollback version option.":::
 
 1. In the **Confirm reinstall** field, type **yes**.
-    <!-- TODO: update screenshot
+
     :::image type="content" source="media/upgrade-packet-core-azure-portal/downgrade-packet-core-version.png" alt-text="Screenshot of the Azure portal showing the Rollback packet core screen.":::
-    -->
-1. Select **Modify**.
+
+1. Select **Roll back packet core**.
 1. Azure will now redeploy the packet core instance at the new software version. The Azure portal will display the following confirmation screen when this deployment is complete.
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
