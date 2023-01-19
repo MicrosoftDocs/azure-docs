@@ -122,18 +122,20 @@ From the project directory, open the *app.py* file. In your editor, add modules 
 ```python
 import os
 import json
-from azure.cosmos import CosmosClient, PartitionKey
+from azure.cosmos import CosmosClient
 from azure.identity import DefaultAzureCredential
 ```
 
-Create a variable for the `COSMOS_ENDPOINT` and using `os.environ` and specify the `DefaultAzureCredential` as the credential type.
+Create environment variables that specify your Cosmos DB endpoint, database name, and container name. Also, specify the `DefaultAzureCredential` as the credential type.
 
 ```python
 endpoint = os.environ["COSMOS_ENDPOINT"]
+database_name = os.environ["COSMOS_DATABASE"]
+container_name = os.environ["COSMOS_CONTAINER"]
 credential = DefaultAzureCredential()
 ```
 
-Create a new client instance using the `CosmosClient` class constructor and the two variables you created as parameters.
+Create a new client instance using the `CosmosClient` object.
 
 ```python
 client = CosmosClient(url=endpoint, credential=credential)
@@ -143,25 +145,87 @@ client = CosmosClient(url=endpoint, credential=credential)
 
 From the project directory, open the *app.py* file. In your editor, import the `os` and `json` modules. Then, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` module.
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="imports":::
+```python
+import os
+import json
+from azure.cosmos import CosmosClient
+```
+Create environment variables for the Cosmos DB endpoint, key, database name, and database container.
 
-Create variables for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variables using `os.environ`.
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="environment_variables":::
+```python
+endpoint = os.environ["COSMOS_ENDPOINT"]
+key = os.environ["COSMOS_KEY"]
+database_name = os.environ["COSMOS_DATABASE"]
+container_name = os.environ["COSMOS_CONTAINER"]
+```
 
 Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the two variables you created as parameters.
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_client":::
+```python
+client = CosmosClient(url=endpoint, credential=key)
+```
 
 ---
 
 ### Create a database
 
+## [Passwordless](#tab/passwordless)
+
+The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
+
+> - [Azure CLI scripts](manage-with-cli.md)
+> - [Azure PowerShell scripts](manage-with-powershell.md)
+> - [Azure Resource Manager templates (ARM templates)](manage-with-templates.md)
+> - [Azure Resource Manager .NET client library](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
+
+The Azure CLI approach is used in for this quickstart and passwordless access. Use the [`az cosmosdb sql database create`](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) command to create a Cosmos DB NoSQL database.
+
+```azurecli
+# Create a SQL API database `
+az cosmosdb sql database create `
+    --account-name <cosmos-db-account-name> `
+    --resource-group <resource-group-name> `
+    --name cosmicworks
+```
+
+The command line above is for PowerShell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for Bash, use backslash ("\"). Or, remove the continuation characters and enter the command on one line.
+
+## [Connection String](#tab/connection-string)
+
 Use the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#azure-cosmos-cosmos-client-cosmosclient-create-database-if-not-exists) method to create a new database if it doesn't already exist. This method will return a [`DatabaseProxy`](/python/api/azure-cosmos/azure.cosmos.databaseproxy) reference to the existing or newly created database.
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_database":::
 
+---
+
 ### Create a container
+
+## [Passwordless](#tab/passwordless)
+
+The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
+
+> - [Azure CLI scripts](manage-with-cli.md)
+> - [Azure PowerShell scripts](manage-with-powershell.md)
+> - [Azure Resource Manager templates (ARM templates)](manage-with-templates.md)
+> - [Azure Resource Manager .NET client library](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
+
+The Azure CLI approach is used in this example. Use the [`az cosmosdb sql container create`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) command to create a Cosmos DB container.
+
+```azurecli
+# Create a SQL API container
+az cosmosdb sql container create `
+    --account-name <cosmos-db-account-name> `
+    --resource-group <resource-group-name> `
+    --database-name cosmicworks `
+    --partition-key-path "/categoryId" `
+    --name products
+```
+
+The command line above is for PowerShell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for Bash, use backslash ("\"). Or, remove the continuation characters and enter the command on one line. For Bash, you'll need to add `MSYS_NO_PATHCONV=1` before the command so that Bash deals with the partition key correctly.
+
+After the resources have been created, use classes from the `Microsoft.Azure.Cosmos` client libraries to connect to and query the database.
+
+## [Connection String](#tab/connection-string)
 
 The [`PartitionKey`](/python/api/azure-cosmos/azure.cosmos.partitionkey) class defines a partition key path that you can use when creating a container.
 
@@ -170,6 +234,8 @@ The [`PartitionKey`](/python/api/azure-cosmos/azure.cosmos.partitionkey) class d
 The [`Databaseproxy.create_container_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.databaseproxy#azure-cosmos-databaseproxy-create-container-if-not-exists) method will create a new container if it doesn't already exist. This method will also return a [`ContainerProxy`](/python/api/azure-cosmos/azure.cosmos.containerproxy) reference to the container.
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_container":::
+
+---
 
 ### Create an item
 
