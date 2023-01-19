@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 01/17/2023
+ ms.date: 01/19/2023
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -13,10 +13,10 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 ## Set up your Azure Key Vault
 
-1. Sign into the [Azure portal](https://aka.ms/diskencryptionupdates).
+1. Sign into the [Azure portal](https://portal.azure.com).
 1. Search for and select **Key Vaults**.
 
-    [![Screenshot of the Azure portal with the search dialog box expanded.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png" alt-text="Screenshot of the Azure portal with the search dialog box expanded." lightbox="media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png":::
 
     > [!IMPORTANT]
     > Your disk encryption set, VM, disks, and snapshots must all be in the same region and subscription for deployment to succeed. Azure Key Vaults may be used from a different subscription but must be in the same region and tenant as your disk encryption set.
@@ -30,18 +30,18 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 1. Select **Review + Create**, verify your choices, then select **Create**.
 
-    ![Screenshot of the Azure Key Vault creation experience. Showing the particular values you create.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png)
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png" alt-text="Screenshot of the Azure Key Vault creation experience, showing the particular values you create." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png":::
 
 1. Once your key vault finishes deploying, select it.
 1. Select **Keys** under **Settings**.
 1. Select **Generate/Import**.
 
-    ![Screenshot of the Key Vault resource settings pane. Shows the generate/import button inside settings.](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png)
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png" alt-text="Screenshot of the Key Vault resource settings pane, shows the generate/import button inside settings." lightbox="media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png":::
 
 1. Leave both **Key Type** set to **RSA** and **RSA Key Size** set to **2048**.
 1. Fill in the remaining selections as you like and then select **Create**.
 
-    ![Screenshot of the create a key pane that appears once generate/import button is selected.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png" alt-text="Screenshot of the create a key pane that appears once generate/import button is selected." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png":::
 
 ### Add an Azure RBAC role
 

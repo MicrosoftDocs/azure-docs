@@ -3,7 +3,7 @@ title: Enable double encryption at rest - Azure portal - managed disks
 description: Enable double encryption at rest for your managed disk data using the Azure portal.
 author: roygara
 
-ms.date: 06/29/2021
+ms.date: 01/19/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -19,14 +19,10 @@ Azure Disk Storage supports double encryption at rest for managed disks. For con
 
 ## Getting started
 
-1. Sign in to the [Azure portal](https://aka.ms/diskencryptionupdates).
-
-    > [!IMPORTANT]
-    > You must use the [provided link](https://aka.ms/diskencryptionupdates) to access the Azure portal. Double encryption at rest is not currently visible in the public Azure portal without using the link.
-
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Disk Encryption Sets**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-encryption-sets-search.png" alt-text="Screenshot of the main Azure portal, disk encryption sets is highlighted in the search bar.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-encryption-sets-search.png" alt-text="Screenshot of the main Azure portal, disk encryption sets is highlighted in the search bar." lightbox="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-encryption-sets-search.png":::
 
 1. Select **+ Create**.
 1. Select one of the supported regions.
@@ -53,7 +49,7 @@ Azure Disk Storage supports double encryption at rest for managed disks. For con
 
     A notification should pop up and succeed. Doing this will allow you to use the disk encryption set with your key vault.
     
-    ![Screenshot of successful permission and role assignment for your key vault.](media/virtual-machines-disks-double-encryption-at-rest-portal/disk-encryption-notification-success.png)
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/disk-encryption-notification-success.png" alt-text="Screenshot of successful permission and role assignment for your key vault." lightbox="media/virtual-machines-disks-double-encryption-at-rest-portal/disk-encryption-notification-success.png":::
 
 1. Navigate to your disk.
 1. Select **Encryption**.
@@ -61,7 +57,7 @@ Azure Disk Storage supports double encryption at rest for managed disks. For con
 1. Select your disk encryption set.
 1. select **Save**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Screenshot of the encryption blade for your managed disk, the aforementioned encryption type is highlighted.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Screenshot of the encryption blade for your managed disk, the aforementioned encryption type is highlighted." lightbox="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png":::
 
 You have now enabled double encryption at rest on your managed disk.
 
