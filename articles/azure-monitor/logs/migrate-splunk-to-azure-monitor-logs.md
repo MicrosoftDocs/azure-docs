@@ -123,7 +123,7 @@ This table lists the tools Azure Monitor provides for collecting data from vario
 
 ## 5. Transition to Azure Monitor Logs
 
-A common approach is to transition gradually to Azure Monitor Logs, while maintaining historical data in Splunk. During this period, you can: 
+A common approach is to transition to Azure Monitor Logs gradually, while maintaining historical data in Splunk. During this period, you can: 
 
 1. Use the [Log ingestion API](../logs/logs-ingestion-api-overview.md) to ingest data from Splunk. 
 1. Use [Log Analytics workspace data export](../logs/logs-data-export.md) to export data out of Azure Monitor.  
