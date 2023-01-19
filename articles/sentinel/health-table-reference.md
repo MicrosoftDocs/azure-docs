@@ -114,3 +114,4 @@ Extended properties for analytics rules reflect certain [rule settings](detect-t
 - [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
 - Monitor the [health of your data connectors](monitor-data-connector-health.md).
 - Monitor the [health of your automation rules and playbooks](monitor-automation-health.md).
+- Monitor the health and integrity of your [analytics rules](monitor-analytics-rule-integrity.md).

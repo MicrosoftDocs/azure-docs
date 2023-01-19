@@ -1,16 +1,15 @@
 ---
-title: Turn on health monitoring in Microsoft Sentinel
+title: Turn on auditing and health monitoring in Microsoft Sentinel
 description: Monitor supported data connectors by using the SentinelHealth data table.
-ms.topic: how-to
-ms.date: 11/07/2022
 author: limwainstein
 ms.author: lwainstein
-ms.service: microsoft-sentinel
+ms.topic: how-to
+ms.date: 01/19/2023
 ---
 
-# Turn on health monitoring for Microsoft Sentinel (preview)
+# Turn on auditing and health monitoring for Microsoft Sentinel (preview)
 
-Monitor the health of supported Microsoft Sentinel resources by turning on the health monitoring feature in Microsoft Sentinel's **Settings** page. Get insights on health drifts, such as the latest failure events or changes from success to failure states, and use this information to create notifications and other automated actions.
+Monitor the health of supported Microsoft Sentinel resources by turning on the auditing and health monitoring feature in Microsoft Sentinel's **Settings** page. Get insights on health drifts, such as the latest failure events or changes from success to failure states, and use this information to create notifications and other automated actions.
 
 To get health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace.
 
@@ -30,25 +29,31 @@ To configure the retention time for your health events, see [Configure data rete
 > The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## Turn on health monitoring for your workspace
+## Turn on auditing and health monitoring for your workspace
 
 1. In Microsoft Sentinel, under the **Configuration** menu on the left, select **Settings**.
 
 1. Select **Settings** from the banner.
 
-1. Scroll down to the **Health monitoring** section that appears below, and select it to expand.
+1. Scroll down to the **Auditing and health monitoring** section that appears below, and select it to expand.
 
-1. Select **Configure Diagnostic Settings**.
+1. Select **Enable** to enable auditing and health monitoring across all resource types, or the **Configure diagnostic settings** link to enable health monitoring only for the data collector and automation resources, or to configure advanced options.
 
     :::image type="content" source="media/enable-monitoring/enable-health-monitoring.png" alt-text="Screenshot shows how to get to the health monitoring settings.":::
 
-1. In the **Diagnostic settings** screen, select **+ Add diagnostic setting**.
+    If you selected **Enable**, then the button will gray out and change to read **Enabling...** and then **Enabled**. At that point, auditing and health monitoring is enabled, and you're done! The appropriate diagnostic settings were added behind the scenes, and you can view and edit them by selecting the **Configure diagnostic settings** link.
+
+1. If you selected **Configure diagnostic settings**, then in the **Diagnostic settings** screen, select **+ Add diagnostic setting**.
+
+    (If you're editing an existing setting, select it from the list of diagnostic settings.)
 
     - In the **Diagnostic setting name** field, enter a meaningful name for your setting.
 
     - In the **Logs** column, select the appropriate **Categories** for the resource types you want to monitor, for example **Data Collection - Connectors**.
 
     - Under **Destination details**, select **Send to Log Analytics workspace**, and select your **Subscription** and **Log Analytics workspace** from the dropdown menus.
+
+        :::image type="content" source="media/enable-monitoring/diagnostic-settings.png" alt-text="Screenshot of diagnostic settings screen for enabling auditing and health monitoring.":::
 
 1. Select **Save** on the top banner to save your new setting.
 
