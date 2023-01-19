@@ -11,6 +11,14 @@ Activity detected by your Microsoft Defender for IoT sensors is recorded in the 
 
 The event timeline provides a chronological view of all activity that took place in the network. Use the timeline during investigations, to understand and analyze the chain of events that preceded and followed an attack or incident.
 
+View your events in the timeline, and analyze your data and investigate incidents with the event timeline in the following ways:
+
+- [Audit user activity](track-user-activity.md)
+
+- [View details and manage alerts](how-to-view-alerts.md#view-details-and-remediate-a-specific-alert)
+
+- [Analyze programming details and changes](how-to-analyze-programming-details-changes.md)
+
 ## Permissions
 
 Administrator or Security Analyst permissions are required to perform the procedures described in this article.
@@ -80,30 +88,14 @@ In addition to viewing the events that the sensor has detected, you can manually
 
 1. Select **Save** to add the event to the timeline.
 
-## Analyze data and investigate incidents with the event timeline
-
-### Audit user activity
-
-[Audit user activity](track-user-activity.md)
-
-### View and manage alerts
-
-[View details and remediate a specific alert](how-to-view-alerts.md#view-details-and-remediate-a-specific-alert)
-
-### Analyze programming
-
-[Analyze programming details and changes](how-to-analyze-programming-details-changes.md)
-
 ## Maximum event capacity
 
 The maximum number of events shown in the event timeline is dependent on [the hardware profile](ot-appliance-sizing.md) selected during sensor installation.
 Each profile has a maximum capacity of events that will show on the event timeline. Once the maximum event capacity is reached, the oldest events will be rolled over and deprecated.
 
-For more information on the maximum event capacity for each hardware profile, see here (or add here?)
+For more information on the maximum event capacity for each hardware profile, see (data retention xref)
 
 ## Next steps
-
-For more information, see:
 
 [Audit user activity](track-user-activity.md)
 
