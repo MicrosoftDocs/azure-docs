@@ -100,20 +100,25 @@ To delete an enterprise application, you need:
 :::zone pivot="ms-graph"
 
 Delete an enterprise application using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-1. To get the list of applications in your tenant, run the following query.
+1. 1. To get the list of applications in your tenant, run the following query.
+
    
-   ```http
-   GET /servicePrincipals
+```http
+      GET 
    ```
+
 1. Record the ID of the enterprise app you want to delete.
 1. Delete the enterprise application.
-   
-   ```http
-   DELETE /servicePrincipals/{id}
+
+1. 
+```http
+      DELETE 
    ```
+
 
 :::zone-end
 
 ## Next steps
 
 - [Restore a deleted enterprise application](restore-application.md)
+
