@@ -80,8 +80,8 @@ To create a network connection, you must have:
 
 - An existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md) to create them. 
 - A configured and working Hybrid AD join or Azure AD join.
-    - **Hybrid AD join:** To learn how to join your AD DS domain-joined computers to Azure AD from an on-premises Active Directory Domain Services (AD DS) environment, see [Plan your hybrid Azure Active Directory join deployment](/azure/active-directory/devices/hybrid-azuread-join-plan).
-    - **Azure AD join:** To learn how to join devices directly to Azure Active Directory (Azure AD), see [Plan your Azure Active Directory join deployment](/azure/active-directory/devices/azureadjoin-plan).
+    - **Hybrid AD join:** To learn how to join your AD DS domain-joined computers to Azure AD from an on-premises Active Directory Domain Services (AD DS) environment, see [Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-azuread-join-plan.md).
+    - **Azure AD join:** To learn how to join devices directly to Azure Active Directory (Azure AD), see [Plan your Azure Active Directory join deployment](../active-directory/devices/azureadjoin-plan.md).
 - If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 
 Follow these steps to create a network connection:
@@ -169,12 +169,12 @@ The following steps show you how to create and configure a dev box definition. Y
    |Name|Value|Note|
    |----|----|----|
    |**Name**|Enter a descriptive name for your dev box definition.|
-   |**Image**|Select the base operating system for the dev box. You can select an image from the Azure Marketplace or from an Azure Compute Gallery. </br> If you're creating a dev box definition for testing purposes, consider using the **Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. |To use custom images while creating a dev box definition, you can attach an Azure Compute Gallery that has the custom images. Learn [How to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
+   |**Image**|Select the base operating system for the dev box. You can select an image from the Azure Marketplace or from an Azure Compute Gallery. </br> If you're creating a dev box definition for testing purposes, consider using the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. |To use custom images while creating a dev box definition, you can attach an Azure Compute Gallery that has the custom images. Learn [How to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
    |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes won't be modified when an image version is updated.|
    |**Compute**|Select the compute combination for your dev box definition.||
    |**Storage**|Select the amount of storage for your dev box definition.||
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-box-definition-page.png" alt-text="Screenshot showing the Create dev box definition page.":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/recommended-test-image.png" alt-text="Screenshot showing the Create dev box definition page.":::
 
 1. Select **Create**.
 
@@ -216,4 +216,3 @@ To learn about how to manage dev box projects, advance to the next quickstart:
 
 > [!div class="nextstepaction"]
 > [Configure a dev box project](./quickstart-configure-dev-box-project.md)
-

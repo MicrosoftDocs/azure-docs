@@ -183,7 +183,7 @@ To delete a specific federated identity credential, select the **Delete** icon f
 - [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli#create-a-user-assigned-managed-identity-1)
 - Find the object ID of the user-assigned managed identity, which you need in the following steps.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
