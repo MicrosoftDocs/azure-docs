@@ -53,9 +53,9 @@ When you configure Private Link even for a single resource, traffic to the follo
 * **The query endpoint**: The endpoint handling queries to both Application Insights and Log Analytics resources is global.
 
 > [!IMPORTANT]
-> Creating a private link affects traffic to *all* monitoring resources, not only resources in your AMPLS. Effectively, it will cause all query requests and ingestion to Application Insights components to go through private IPs. It doesn't mean the Private Link validation applies to all these requests.</br>
+> Creating a private link affects traffic to *all* monitoring resources, not only resources in your AMPLS. Effectively, it will cause all query requests and ingestion to Application Insights components to go through private IPs. It doesn't mean the private link validation applies to all these requests.</br>
 >
->Resources not added to the AMPLS can only be reached if the AMPLS access mode is Open and the target resource accepts traffic from public networks. When you use the private IP, *Private Link validations don't apply to resources not in the AMPLS*. To learn more, see [Private Link access modes](#private-link-access-modes-private-only-vs-open).
+>Resources not added to the AMPLS can only be reached if the AMPLS access mode is Open and the target resource accepts traffic from public networks. When you use the private IP, *private link validations don't apply to resources not in the AMPLS*. To learn more, see [Private Link access modes](#private-link-access-modes-private-only-vs-open).
 
 ### Resource-specific endpoints
 Log Analytics endpoints are workspace specific, except for the query endpoint discussed earlier. As a result, adding a specific Log Analytics workspace to the AMPLS will send ingestion requests to this workspace over the private link. Ingestion to other workspaces will continue to use the public endpoints.
@@ -87,7 +87,7 @@ Although Log Analytics query requests are affected by the AMPLS access mode sett
 >
 
 ## Next steps
-- [Design your Private Link setup](private-link-design.md).
+- [Design your Azure Private Link setup](private-link-design.md).
 - Learn how to [configure your private link](private-link-configure.md).
 - Learn about [private storage](private-storage.md) for custom logs and customer-managed keys.
 <h3><a id="connect-to-a-private-endpoint"></a></h3>

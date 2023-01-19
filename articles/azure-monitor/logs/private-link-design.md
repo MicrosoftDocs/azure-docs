@@ -7,9 +7,9 @@ ms.topic: conceptual
 ms.date: 12/14/2022
 ---
 
-# Design your Private Link setup
+# Design your Azure Private Link setup
 
-Before you set up your Azure Private Link instance, consider your network topology and your DNS routing topology.
+Before you set up your instance of Azure Private Link, consider your network topology and your DNS routing topology.
 
 As discussed in [Use Azure Private Link to connect networks to Azure Monitor](private-link-security.md), setting up a private link affects traffic to all Azure Monitor resources. That's especially true for Application Insights resources. It also affects not only the network connected to the private endpoint but also all other networks that share the same DNS.
 

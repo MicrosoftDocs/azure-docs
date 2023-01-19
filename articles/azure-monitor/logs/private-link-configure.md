@@ -10,7 +10,7 @@ ms.date: 1/5/2022
 # Configure your private link
 Configuring an instance of Azure Private Link requires you to:
 
-* Create an Azure Monitor private link scope (AMPLS) with resources.
+* Create an Azure Monitor Private Link Scope (AMPLS) with resources.
 * Create a private endpoint on your network and connect it to the scope.
 * Configure the required access on your Azure Monitor resources.
 
@@ -19,7 +19,7 @@ This article reviews how configuration is done through the Azure portal. It prov
 ## Create a private link connection through the Azure portal
 In this section, we review the step-by-step process of setting up a private link through the Azure portal. To create and manage a private link by using the command line or an ARM template, see [Use APIs and command line](#use-apis-and-command-line).
 
-### Create an Azure Monitor private link scope
+### Create an Azure Monitor Private Link Scope
 
 1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**.
 
@@ -30,7 +30,7 @@ In this section, we review the step-by-step process of setting up a private link
 1. Give the AMPLS a name. Use a meaningful and clear name like *AppServerProdTelem*.
 1. Select **Review + create**.
 
-   ![Screenshot that shows creating an Azure Monitor private link scope.](./media/private-link-security/ampls-create-1d.png)
+   ![Screenshot that shows creating an Azure Monitor Private Link Scope.](./media/private-link-security/ampls-create-1d.png)
 
 1. Let the validation pass and select **Create**.
 
@@ -50,7 +50,7 @@ Connect Azure Monitor resources like Log Analytics workspaces, Application Insig
 
 Now that you have resources connected to your AMPLS, create a private endpoint to connect your network. You can do this task in the [Azure portal Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) or inside your AMPLS, as done in this example.
 
-1. In your scope resource, select **Private Endpoint connections** in the resource menu on the left. Select **Private Endpoint** to start the endpoint creation process. You can also approve connections that were started in the Private Link Center here by selecting them and selecting **Approve**.
+1. In your scope resource, select **Private Endpoint connections** from the resource menu on the left. Select **Private Endpoint** to start the endpoint creation process. You can also approve connections that were started in the Private Link Center here by selecting them and selecting **Approve**.
 
     :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-connect-3.png" alt-text="Screenshot that shows Private Endpoint connections." lightbox="./media/private-link-security/ampls-select-private-endpoint-connect-3.png":::
 
@@ -59,9 +59,9 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 1. Select **Next: Resource**.
 
 1. On the **Resource** tab:
-   1. Select the subscription that contains your Azure Monitor private link scope resource.
+   1. Select the subscription that contains your Azure Monitor Private Link Scope resource.
    1. For **Resource type**, select **Microsoft.insights/privateLinkScopes**.
-   1. From the **Resource** dropdown, select the private link scope you created earlier.
+   1. From the **Resource** dropdown, select the Private Link Scope you created earlier.
    1. Select **Next: Virtual Network**.
 
       :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-create-4.png" alt-text="Screenshot that shows the Create a private endpoint page in the Azure portal with the Resource tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-4.png":::
@@ -94,12 +94,12 @@ Go to the Azure portal. On your resource's menu, find **Network Isolation** on t
 
 ![Screenshot that shows Network Isolation.](./media/private-link-security/ampls-network-isolation.png)
 
-### Connected Azure Monitor private link scopes
-Here you can review and configure the resource's connections to AMPLSs. Connecting to AMPLSs allows traffic from the virtual network connected to each AMPLS to reach the resource. It has the same effect as connecting it from the scope as we did in the section [Connect Azure Monitor resources](#connect-azure-monitor-resources).
+### Connected Azure Monitor Private Link Scopes
+Here you can review and configure the resource's connections to an AMPLS. Connecting to an AMPLS allows traffic from the virtual network connected to each AMPLS to reach the resource. It has the same effect as connecting it from the scope as we did in the section [Connect Azure Monitor resources](#connect-azure-monitor-resources).
 
 To add a new connection, select **Add** and select the AMPLS. Select **Apply** to connect it. Your resource can connect to five AMPLS objects, as mentioned in [Consider AMPLS limits](./private-link-design.md#consider-ampls-limits).
 
-### Virtual networks access configuration: Manage access from outside of private link scopes
+### Virtual networks access configuration: Manage access from outside of a Private Link Scope
 The settings on the bottom part of this page control access from public networks, meaning networks not connected to the listed scopes.
 
 If you set **Accept data ingestion from public networks not connected through a Private Link Scope** to **No**, clients like machines or SDKs outside of the connected scopes can't upload data or send logs to the resource.
@@ -112,8 +112,8 @@ That data includes access to logs, metrics, and the live metrics stream. It also
 
 You can automate the process described earlier by using ARM templates, REST, and command-line interfaces.
 
-### Create and manage private link scopes
-To create and manage private link scopes, use the [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) or the [Azure CLI (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
+### Create and manage Private Link Scopes
+To create and manage Private Link Scopes, use the [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) or the [Azure CLI (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
 #### Create an AMPLS with Open access modes: CLI example
 The following CLI command creates a new AMPLS resource named `"my-scope"`, with both query and ingestion access modes set to `Open`.
