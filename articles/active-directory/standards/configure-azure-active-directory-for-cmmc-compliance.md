@@ -44,8 +44,8 @@ The remaining articles in this series provide guidance and links to resources, o
 
 Learn more:
 
-* DoD CMMC website - [Office of the Under Secretary of Defense for Acquisition & Sustainment Cybersecurity Maturity Model Certification](https://www.acq.osd.mil/cmmc/index.html)
-* Microsoft Download Center - [Microsoft Product Placemat for CMMC Level 3 (preview)](https://www.microsoft.com/download/details.aspx?id=102536)
+* DoD CMMC website - [Office of the Under Secretary of Defense for Acquisition & Sustainment Cybersecurity Maturity Model Certification](https://dodcio.defense.gov/CMMC/)
+* Microsoft Download Center - [Microsoft Product Placemat for CMMC 2.0 (preview)](https://www.microsoft.com/download/details.aspx?id=102536)
 
 ### Next steps
 

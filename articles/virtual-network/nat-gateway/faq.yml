@@ -54,7 +54,7 @@ sections:
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
-          No, the address of an existing public IP can't be changed. A different or additional IP can be added to NAT gateway.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
+          No, the address of an existing public IP can't be changed. A different or additional IP can be added to NAT gateway.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
 
       - question: If multiple public IP addresses are assigned to a NAT gateway resource, which public IPs will be used by my subnet resources?
         answer: |
@@ -98,7 +98,7 @@ sections:
 
       - question: How does Virtual Network NAT gateway work with availability zones?   
         answer: |
-          Virtual Network NAT can be zonal or placed in "no zone". See [NAT gateway and availability zones](/azure/virtual-network/nat-gateway/nat-availability-zones) for more information. 
+          Virtual Network NAT can be zonal or placed in "no zone". See [NAT gateway and availability zones](./nat-availability-zones.md) for more information. 
 
           A "no zone" NAT gateway is placed into a zone for you by Azure and does not give a guarantee of redundancy.
 
@@ -112,7 +112,7 @@ sections:
       
       - question: How does NAT gateway work with virtual networks that are peered to one another?
         answer: |
-          NAT gateway cannot be directly associated to subnets across multiple virtual networks. Virtual networks in a hub and spoke model with Azure Firewall can provide outbound connectivity from spoke VNets when NAT gateway is attached to the Azure Firewall subnet in the Hub VNet. To learn more see, [Scale SNAT ports with Azure Virtual Network NAT](/azure/firewall/integrate-with-nat-gateway). 
+          NAT gateway cannot be directly associated to subnets across multiple virtual networks. Virtual networks in a hub and spoke model with Azure Firewall can provide outbound connectivity from spoke VNets when NAT gateway is attached to the Azure Firewall subnet in the Hub VNet. To learn more see, [Scale SNAT ports with Azure Virtual Network NAT](../../firewall/integrate-with-nat-gateway.md). 
       
       - question: How can I obtain logs for my NAT gateway resource?  
         answer: |
@@ -122,7 +122,7 @@ sections:
       
       - question: How do I delete a NAT gateway resource?
         answer: |
-          To delete a NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted. See [remove a NAT gateway from an existing subnet and delete the resource](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step-by-step guidance.
+          To delete a NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted. See [remove a NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step-by-step guidance.
       
   - name: NAT gateway integration with other Azure services
     questions:  
