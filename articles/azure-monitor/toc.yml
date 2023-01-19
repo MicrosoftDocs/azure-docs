@@ -11,7 +11,7 @@ items:
     href: monitor-reference.md
   - name: Getting started
     items:
-    - name: Overview
+    - name: Get started with Azure Monitor
       href: getting-started.md
     - name: Planning
       href: best-practices-plan.md
@@ -21,8 +21,8 @@ items:
       href: best-practices-analysis.md
     - name: Alerts and automated actions
       href: best-practices-alerts.md
-  - name: Optimize costs
-    href: best-practices-cost.md
+    - name: Optimize costs
+      href: best-practices-cost.md
   - name: What's new?
     href: whats-new.md
 - name: Concepts
