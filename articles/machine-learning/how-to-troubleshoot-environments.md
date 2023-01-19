@@ -490,27 +490,12 @@ version of a package on subsequent builds of an environment. This behavior can l
 This issue can happen when there's a failure decoding a character in your conda specification. 
 
 **Potential causes:**
-* The entity you're trying to decode with utf-8 is encoded with a different character encoding method (for example, trying to decode a utf-16 file with the utf-8 codec)
-* There is a character in the entity you're trying to decode that isn't in the utf-8 character set 
+* Your conda YAML file contains characters that aren't compatible with UTF-8.
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
 * Failure in running jobs because it will implicitly build the environment in the first step.
 <!--/issueDescription--> 
-
-**Troubleshooting steps** 
-
-When you haven't specified the character encoding to use
-* There's a possibility that utf-8 was used as a default when another encoding method should be used
-* If applicable, specify the appropriate encoding method (utf-8, utf-16, etc.) as a parameter wherever you're attempting to decode 
-
-Review the following for solutions to additional issues that could be causing your problem
-* [non-ascii character issue](https://stackoverflow.com/questions/22216076/unicodedecodeerror-utf8-codec-cant-decode-byte-0xa5-in-position-0-invalid-s)
-* [utf-8 codec can't decode byte 0xff issue](https://stackoverflow.com/questions/55563399/how-to-solve-unicodedecodeerror-utf-8-codec-cant-decode-byte-0xff-in-positio) 
-
-**Resources**
-* [chardet Python library](https://pypi.org/project/chardet/)
-* pandas documentation [read_csv example](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#:~:text=encodingstr%2C%20optional)
 
 ### *Pip issues*
 ### Pip not specified
