@@ -278,6 +278,8 @@ items:
         href: workloads/high-availability-guide-rhel-ibm-db2-luw.md
       - name: Install PAS and AAS with SAP NetWeaver HA cluster - RHEL
         href: workloads/high-availability-guide-rhel-with-dialog-instance.md
+      - name: Install SAP NetWeaver with HANA HA cluster - RHEL
+        href: workloads/high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md 
       - name: SAP application layer
         items:
         - name: Install HA SAP NetWeaver with NFS on Azure Files

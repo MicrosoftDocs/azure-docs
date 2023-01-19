@@ -320,6 +320,9 @@
       - name: NGINX
         tocHref: /azure/partner-solutions/nginx/
         topicHref: /azure/partner-solutions/nginx/nginx-overview
+      - name: Qumulo
+        tocHref: /azure/partner-solutions/qumulo/
+        topicHref: /azure/partner-solutions/nginx/qumulo-overview
       - name: New Relic
         tocHref: /azure/partner-solutions/new-relic/
         topicHref: /azure/partner-solutions/new-relic/new-relic-overview
