@@ -151,7 +151,7 @@ $connection_string = (az webpubsub key show --name $WebPubSubName --resource-gro
 
 Create a Web PubSub client. The client maintains a connection to the service until it's terminated.
 
-Use the `az webpubsub client` command to start a WebSocket client connection to the service. The client will provide a hub that is used for groups of client connections.
+Use the `az webpubsub client` command to start a WebSocket client connection to the service. The clients always connect to a hub, so provide a hub name for the client to connect to.
 
 # [Bash](#tab/bash)
 
@@ -183,7 +183,9 @@ The connection to the Web PubSub service is established when you see a JSON mess
 
 ## 4. Publish messages using service SDK
 
-You'll create a client that uses the Azure Web PubSub SDK to publish a message to all connected clients.   For this project, you'll need to open another command shell.
+You'll use the Azure Web PubSub SDK to publish a message to all the clients connected to the hub.
+
+### Set up the project to publish messages
 
 Select the language for your project.  The dependencies for each language are installed in the steps for that language.
 
