@@ -11,12 +11,18 @@ ms.author: duau
 
 # Azure Front Door reports
 
-Azure Front Door analytics reports provide a built-in and all-around view of how your Azure Front Door behaves along with associated Web Application Firewall metrics. You can also take advantage of Access Logs to do further troubleshooting and debugging. Azure Front Door Analytics reports include traffic reports and security reports.
+Azure Front Door analytics reports provide a built-in, all-around view of how your Azure Front Door profile behaves, along with associated web application firewall (WAF) metrics.
 
-| Reports | Details |
+You can also take advantage of [Azure Front Door's logs](../front-door-diagnostics.md?TODO stadard premium) to do further troubleshooting and debugging.
+
+## Reports
+
+The built-in reports include information about your traffic and your application's security.
+
+| Traffic report | Details |
 |---------|---------|
-| Overview of key metrics | Shows overall data that got sent from Azure Front Door edges to clients<br/>- Peak bandwidth<br/>- Requests <br/>- Cache hit ratio<br/> - Total latency<br/>- 5XX error rate |
-| Traffic by Domain | - Provides an overview of all the domains under the profile<br/>- Breakdown of data transferred out from AFD edge to client<br/>- Total requests<br/>- 3XX/4XX/5XX response code by domains |
+| Overview of key metrics | Shows overall data that were sent from Azure Front Door edge points of presence (PoPs) to clients, including:<ul><li>Peak bandwidth</li><li>Requests</li><li>Cache hit ratio</li><li>Total latency</li><li>5XX error rate</li></ul> |
+| Traffic by Domain | Provides an overview of all the domains within your Azure Front Door profile:<ul><li>Breakdown of data transferred out from the Azure Front Door edge to the client.</li><li>Total requests</li><li>3XX/4XX/5XX response code by domains</li></ul> |
 | Traffic by Location | - Shows a map view of request and usage by top countries/regions<br/>- Trend view of top countries/regions |
 | Usage | - Displays data transfer out from Azure Front Door edge to clients<br/>- Data transfer out from origin to AFD edge<br/>- Bandwidth from AFD edge to clients<br/>- Bandwidth from origin to AFD edge<br/>- Requests<br/>- Total latency<br/>- Request count trend by HTTP status code |
 | Caching | - Shows cache hit ratio by request count<br/>- Trend view of hit and miss requests |
@@ -24,7 +30,7 @@ Azure Front Door analytics reports provide a built-in and all-around view of how
 | Top Referrer | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the top 50 referrers that generate traffic. |
 | Top User Agent | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the top 50 user agents that were used to request content. |
 
-| Security reports | Details |
+| Security report | Details |
 |---------|---------|
 | Overview of key metrics | - Shows matched WAF rules<br/>- Matched OWASP rules<br/>- Matched BOT rules<br/>- Matched custom rules |
 | Metrics by dimensions | - Breakdown of matched WAF rules trend by action<br/>- Doughnut chart of events by Rule Set Type and event by rule group<br/>- Break down list of top events by rule ID, countries/regions, IP address, URL, and user agent  |
@@ -32,11 +38,16 @@ Azure Front Door analytics reports provide a built-in and all-around view of how
 > [!NOTE]
 > Security reports are only available with Azure Front Door Premium tier.
 
-Most of the reports are based on access logs and are offered free of charge to customers on Azure Front Door. Customer doesn’t have to enable access logs or do any configuration to view these reports. Reports are accessible through portal and API. CSV download is also supported. 
+Reports are free of charge. Most reports are based on access log data, but you don't need to enable access logs or make any configuration changes to use the reports.
 
+## Access reports
+
+Reports are accessible through the Azure portal and through the Azure Resource Manager API. You can also download reports as CSV files.
+
+<!-- TODO here down -->
 Reports support any selected date range from the previous 90 days. With data points of every 5 mins, every hour, or every day based on the date range selected. Normally, you can view data with delay of within an hour and occasionally with delay of up to a few hours. 
 
-## Access Reports using the Azure portal
+### Access reports by using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select your Azure Front Door Standard/Premium profile.
 
