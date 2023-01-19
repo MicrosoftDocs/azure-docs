@@ -257,7 +257,7 @@ The following example uses the `AsFormUrlEncodedContent()` expression to access 
 <set-body> 
 @{ 
     var body = context.Request.Body.AsFormUrlEncodedContent();
-    body ["newKey"].Add ("newValue");
+    body["newKey"].Add("newValue");
     return body.ToFormUrlEncodedContent(); 
 } 
 </set-body>
