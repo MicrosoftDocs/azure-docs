@@ -145,15 +145,7 @@ client = CosmosClient(url=endpoint, credential=credential)
 
 From the project directory, open the *app.py* file. In your editor, import the `os` and `json` modules. Then, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` module.
 
-#### [Sync](#tab/sync)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="imports":::
-
-#### [Async](#tab/async)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" id="imports":::
-
----
+[!INCLUDE [sync async code imports](./includes/quickstart-python/connection-string-sync-async-code-imports.md)]
 
 Create constants for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variables using `os.environ`.
 
@@ -215,15 +207,7 @@ The command line above is for PowerShell, on multiple lines for clarity. For oth
 
 Use the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#azure-cosmos-cosmos-client-cosmosclient-create-database-if-not-exists) method to create a new database if it doesn't already exist. This method will return a [`DatabaseProxy`](/python/api/azure-cosmos/azure.cosmos.databaseproxy) reference to the existing or newly created database.
 
-#### [Sync](#tab/sync)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_database":::
-
-#### [Async](#tab/async)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="28-29":::
-
----
+[!INCLUDE [sync async code create database](./includes/quickstart-python/connection-string-sync-async-code-create-database.md)]
 
 ### Create a container
 
