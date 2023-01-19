@@ -93,9 +93,7 @@ call.feature(Features.LiveStream).on('participantCountChanged', e => {
 );
 ```
 
-`call.feature(Features.LiveStream).participantCount` represents the total count of participants in streaming media lane. Contoso can find out the count of participants in real-time media lane by subtracting from the total participants. So, number of real-time media participants = `call.totalParticipantCount` - `call.feature(Features.LiveStream).participantCount`
-
-```
+`call.feature(Features.LiveStream).participantCount` represents the total count of participants in streaming media lane. Contoso can find out the count of participants in real-time media lane by subtracting from the total participants. So, number of real-time media participants = `call.totalParticipantCount` - `call.feature(Features.LiveStream).participantCount`.
 
 ## Next steps
 For more information, see the following articles:
