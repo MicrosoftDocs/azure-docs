@@ -14,9 +14,9 @@ manager: abjork
 
 Smart meters enable not only automated billing, but also advanced metering use cases like real-time readings and bidirectional communication. 
 
-An application template enables utilities and partners to monitor the status and data of smart meters, along with defining alarms and notifications. It provides sample commands, such as disconnecting a meter and updating software. You can set up the meter data to egress to other business applications, and to develop custom solutions.
+An application template enables utilities and partners to monitor the status and data of smart meters, along with defining alarms and notifications. The template provides sample commands, such as disconnecting a meter and updating software. You can set up the meter data to egress to other business applications, and to develop custom solutions.
 
-The app's key functionalities include:
+The application's key functionalities include:
 
 - Sample device model for meters
 - Meter info and live status
@@ -25,9 +25,17 @@ The app's key functionalities include:
 - Built-in visualization and dashboards
 - Extensibility for custom solution development
 
+In this tutorial, you learn how to:
+
+- Create an application for monitoring smart meters.
+- Walk through the application.
+- Clean up resources.
+
+## Application architecture
+
 :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="Diagram of the architecture of a smart-meter application." border="false":::
 
-This architecture consists of the following components. Some solutions might not require every component listed here.
+The architecture of the application consists of the following components. Some solutions might not require every component listed here.
 
 ### Smart meters and connectivity
 
@@ -37,7 +45,7 @@ Typically, a meter uses a gateway or bridge to connect to an Azure IoT Central a
 
 ### Azure IoT Central platform
 
-When you build an Internet of Things (IoT) solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. With Azure IoT Central, you can easily connect, monitor, and manage your IoT assets at scale. 
+When you build an Internet of Things (IoT) solution, Azure IoT Central simplifies the build process and helps reduce the burden and costs of IoT management, operations, and development. With Azure IoT Central, you can easily connect, monitor, and manage your IoT assets at scale. 
 
 After you connect your smart meters to Azure IoT Central, the application template uses built-in features such as device models, commands, and dashboards. The application template also uses the Azure IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization.
 
@@ -45,13 +53,7 @@ After you connect your smart meters to Azure IoT Central, the application templa
 
 The Azure IoT Central platform provides two extensibility options: Continuous Data Export and APIs. Customers and partners can choose between these options to customize their solutions for their specific needs. 
 
-For example, a partner might configure Continuous Data Export with Azure Data Lake Storage. That partner can then use Data Lake Storage for long-term data retention and other cold path storage scenarios, such batch processing, auditing and reporting.
-
-In this tutorial, you learn how to:
-
-- Create an application for monitoring smart meters.
-- Walk through the application.
-- Clean up resources.
+For example, a partner might configure Continuous Data Export with Azure Data Lake Storage. That partner can then use Data Lake Storage for long-term data retention and other scenarios for cold path storage, such batch processing, auditing and reporting.
 
 ## Prerequisites
 
@@ -75,7 +77,7 @@ The following sections walk you through the key features of the application.
 
 ### Dashboard
 
-After you deploy the application template, it comes with a sample smart-meter device, a device model, and a dashboard.
+After you deploy the application template, it comes with a sample smart meter, a device model, and a dashboard.
 
 Adatum is a fictitious energy company that monitors and manages smart meters. On the dashboard for monitoring smart meters, you see properties, data, and sample commands for meters. The dashboard enables operators and support teams to proactively perform the following activities before they become support incidents:
 
@@ -84,13 +86,13 @@ Adatum is a fictitious energy company that monitors and manages smart meters. On
 * Monitor minimum and maximum voltage readings for network health.
 * Review the energy, power, and voltage trends to catch any anomalous patterns.
 * Track the total energy consumption for planning and billing purposes.
-* Perform command and control operations, such as reconnecting a meter and updating firmware version. In the template, the command buttons show the possible functionalities and don't send real commands.
+* Perform command and control operations, such as reconnecting a meter and updating a firmware version. In the template, the command buttons show the possible functionalities and don't send real commands.
 
 :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png" alt-text="Screenshot that shows the dashboard for monitoring smart meters." lightbox="media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png":::
 
 ### Devices
 
-The app comes with a sample smart-meter device. You can see available devices by selecting the **Devices** tab.
+The application comes with a sample smart-meter device. You can see available devices by selecting **Devices** on the left menu.
 
 :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-devices.png" alt-text="Screenshot that shows smart-meter devices." lightbox="media/tutorial-iot-central-smart-meter/smart-meter-devices.png":::
 
@@ -100,7 +102,7 @@ Select the link for sample device **SM0123456789** to see the device details. Yo
 
 ### Device template
 
-Select the **Device templates** tab to see the model of the smart-meter device. The model has a predefined interface for data, properties, commands, and views.
+Select **Device templates** on the left menu to see the model of the smart meter. The model has a predefined interface for data, properties, commands, and views.
 
 :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-template.png" alt-text="Screenshot that shows a template for a smart-meter device." lightbox="media/tutorial-iot-central-smart-meter/smart-meter-device-template.png":::
 
@@ -114,4 +116,4 @@ Select the **Device templates** tab to see the model of the smart-meter device. 
 
 ## Next steps
 
-> [Tutorial: Deploy and walk through a Solar panel application template](tutorial-solar-panel-app.md)
+> [Tutorial: Deploy and walk through a solar panel application template](tutorial-solar-panel-app.md)
