@@ -99,6 +99,9 @@ You have a choice of operating systems that you can use for session hosts to pro
 
 > [!IMPORTANT]
 > - Azure Virtual Desktop doesn't support 32-bit operating systems or SKUs not listed in the previous table.
+>
+> - Support for Windows 7 ended on January 10, 2023.
+>
 > - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) are not supported.
 
 You can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or your own custom images stored in an Azure Compute Gallery, as a managed image, or storage blob. To learn more about how to create custom images, see:

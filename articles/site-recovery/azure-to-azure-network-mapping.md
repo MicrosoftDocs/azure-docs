@@ -20,7 +20,7 @@ Before you map networks, you should have [Azure VNets](../virtual-network/virtua
 
 ## Set up network mapping manually (Optional)
 
->[!NOTE
+>[!NOTE]
 > Replication can now be done between any two Azure regions around the world. Customers are no longer limited to enabling replication within their continent.
 
 Map networks as follows:
