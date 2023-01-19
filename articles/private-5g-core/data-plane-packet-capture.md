@@ -33,17 +33,17 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 
 1. View the list of interfaces that can be monitored:
 
-    `upft.py list`.
+    `upft list`.
 
 1. Either:
-    - Run `upftdump.py` with any parameters that you would usually pass to tcpdump. In particular, `-i` to specify the interface, and `-w` to specify where to write to. Close the UPFT tool when done by pressing <kbd>Ctrl + C</kbd>.
+    - Run `upftdump` with any parameters that you would usually pass to tcpdump. In particular, `-i` to specify the interface, and `-w` to specify where to write to. Close the UPFT tool when done by pressing <kbd>Ctrl + C</kbd>.
     - Or if you wish to enable packet capture and run tcpdump separately:
-        1. Enable packet capture by running `upft.py start <interface> <duration>`, where
+        1. Enable packet capture by running `upft start <interface> <duration>`, where
             - \<interface\> specifies the interface or interfaces to enable capture on. You can specify `any` to enable packet capture on all possible interfaces.
             - \<duration\> specifies the time in seconds before packet capture automatically disables.
         1. Type *yes* when prompted and then press <kbd>Enter</kbd> to continue.
         1. Run `tcpdump` on the interface.
-        1. Once complete, run `upft.py stop <interface>` to disable packet capture if the timer has not expired.
+        1. Once complete, run `upft stop <interface>` to disable packet capture if the timer has not expired.
 1. Leave the container:
 
     `exit`
@@ -51,6 +51,12 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 1. Copy the output files:
 
     `kubectl cp -n core core-upf-pp-0: <path to output file> <location to copy to> -c troubleshooter`.
+
+    The `tcpdump` may have been stopped in the middle of writing a packet, which can cause this step to produce an error stating `unexpected EOF`. However, your file should have copied successfully, but you can check your target output file to confirm.
+
+1. Remove the output files:
+
+    `kubectl exec -it -n core core-upf-pp-0 -c troubleshooter – bash rm`
 
 ## Next steps
 
