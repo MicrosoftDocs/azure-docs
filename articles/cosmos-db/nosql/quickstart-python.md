@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/03/2022
+ms.date: 1/17/2023
 ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api, ignite-2022, devguide-python, cosmos-db-dev-journey
 ---
 
@@ -89,6 +89,8 @@ For this sample code, the container will use the category as a logical partition
 
 ### Authenticate the client
 
+#### [Sync](#tab/sync)
+
 From the project directory, open the *app.py* file. In your editor, import the `os` and `json` modules. Then, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` module.
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="imports":::
@@ -101,13 +103,45 @@ Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_client":::
 
+#### [Async](#tab/async)
+
+From the project directory, open the *app.py* file. In your editor, import the `os`, `json`, and `asyncio` modules. Then, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` module.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" id="imports":::
+
+Create variables for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variables using `os.environ`.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" id="environment_variables":::
+
+Create constants for Database and Container names.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" id="constants":::
+
+Define a coroutine function and create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the environment variables you created as parameters.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="24-26":::
+
+---
+
 ### Create a database
+
+#### [Sync](#tab/sync)
 
 Use the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#azure-cosmos-cosmos-client-cosmosclient-create-database-if-not-exists) method to create a new database if it doesn't already exist. This method will return a [`DatabaseProxy`](/python/api/azure-cosmos/azure.cosmos.databaseproxy) reference to the existing or newly created database.
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_database":::
 
+#### [Async](#tab/async)
+
+Use the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#azure-cosmos-cosmos-client-cosmosclient-create-database-if-not-exists) method to create a new database if it doesn't already exist. This method will return a [`DatabaseProxy`](/python/api/azure-cosmos/azure.cosmos.databaseproxy) reference to the existing or newly created database.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="28-29":::
+
+---
+
 ### Create a container
+
+#### [Sync](#tab/sync)
 
 The [`PartitionKey`](/python/api/azure-cosmos/azure.cosmos.partitionkey) class defines a partition key path that you can use when creating a container.
 
@@ -117,7 +151,21 @@ The [`Databaseproxy.create_container_if_not_exists`](/python/api/azure-cosmos/az
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_container":::
 
+#### [Async](#tab/async)
+
+The [`PartitionKey`](/python/api/azure-cosmos/azure.cosmos.partitionkey) class defines a partition key path that you can use when creating a container.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="31":::
+
+The [`Databaseproxy.create_container_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.databaseproxy#azure-cosmos-databaseproxy-create-container-if-not-exists) method will create a new container if it doesn't already exist. This method will also return a [`ContainerProxy`](/python/api/azure-cosmos/azure.cosmos.containerproxy) reference to the container.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="33-36":::
+
+---
+
 ### Create an item
+
+#### [Sync](#tab/sync)
 
 Create a new item in the container by first creating a new variable (`newItem`) with a sample item defined. In this example, the unique identifier of this item is `70b63682-b93a-4c77-aad2-65501347265f`. The partition key value is derived from the `/categoryId` path, so it would be `61dba35b-4f02-45c5-b648-c6badc0cbd79`.
 
@@ -130,15 +178,40 @@ Create an item in the container by using the [`ContainerProxy.create_item`](/pyt
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_item":::
 
+#### [Async](#tab/async)
+
+Create a new item in the container by first creating a new variable (`newItem`) with a sample item defined. In this example, the unique identifier of this item is `70b63682-b93a-4c77-aad2-65501347265f`. The partition key value is derived from the `/categoryId` path, so it would be `61dba35b-4f02-45c5-b648-c6badc0cbd79`.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="38-45":::
+
+> [!TIP]
+> The remaining fields are flexible and you can define as many or as few as you want. You can even combine different item schemas in the same container.
+
+Create an item in the container by using the [`ContainerProxy.create_item`](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-create-item) method passing in the variable you already created.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="47":::
+
+---
+
 ### Get an item
 
 In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [`ContainerProxy.read_item`](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-read-item) passing in both values to return an item as a dictionary of strings and values (`dict[str, Any]`).
 
+#### [Sync](#tab/sync)
+
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="read_item":::
 
-In this example, the dictionary result is saved to a variable named `existingItem`.
+#### [Async](#tab/async)
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="49-53":::
+
+---
+
+In this example, the dictionary result is saved to a variable named `existing_item`.
 
 ### Query items
+
+#### [Sync](#tab/sync)
 
 After you insert an item, you can run a query to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM products p WHERE p.categoryId = "61dba35b-4f02-45c5-b648-c6badc0cbd79"``. This example uses query parameterization to construct the query. The query uses a string of the SQL query, and a dictionary of query parameters.
 
@@ -155,6 +228,28 @@ Finally, use a for loop to iterate over the results in each page and perform var
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="iterate_query_results":::
 
 In this example, `json.dumps` is used to print the item to the console in a human-readable way.
+
+#### [Async](#tab/async)
+
+After you insert an item, you can run a query to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM products p WHERE p.categoryId = "61dba35b-4f02-45c5-b648-c6badc0cbd79"``. This example uses query parameterization to construct the query. The query uses a string of the SQL query, and a dictionary of query parameters.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="55-57":::
+
+This example dictionary included the `@categoryId` query parameter and the corresponding value `61dba35b-4f02-45c5-b648-c6badc0cbd79`.
+
+Once the query is defined, call [`ContainerProxy.query_items`](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-query-items) to run the query and return the results as a paged set of items (`ItemPage[Dict[str, Any]]`).
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="59-61":::
+
+Finally, use a for loop to iterate over the results in each page and perform various actions.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="62-64":::
+
+Run the async function.
+
+:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="70":::
+
+---
 
 ## Run the code
 
