@@ -17,6 +17,9 @@ This article describes how to use the following features, which allow you to per
 - [**Use the SAP data connector page**](#use-the-sap-data-connector). Review the **System Health** area under the Microsoft Sentinel for SAP connector to get information on the health of your connected SAP systems.
 - [**Use the Data collection health check alert rule**](#use-an-alert-rule-template). Get proactive alerts on the health of the SAP agent's data collection.
 
+> [!IMPORTANT]
+> Monitoring the health of your SAP systems is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Use the SAP data connector
 
 1. From the Microsoft Sentinel portal, select **Data connectors**.

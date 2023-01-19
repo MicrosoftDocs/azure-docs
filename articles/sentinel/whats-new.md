@@ -18,10 +18,10 @@ The listed features were released in the last three months. For information abou
 
 ## January 2023
 
-- [Monitor SAP system health](#monitor-sap-system-health)
+- [Monitor SAP system health (Preview)](#monitor-sap-system-health-preview)
 - [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
 
-### Monitor SAP system health
+### Monitor SAP system health (Preview)
 
 To ensure proper functioning and performance of your SAP systems, you can now [monitor health information for your SAP systems](monitor-sap-system-health.md) under the SAP data connector, and use an alert rule template to get information about the health of the SAP agent's data collection.
 
