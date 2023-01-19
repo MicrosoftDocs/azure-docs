@@ -26,7 +26,7 @@ Azure Monitor Agent (AMA) replaces the Log Analytics Agent (MMA/OMS) for Windows
 ## Using AMA Migration Helper 
 
 AMA Migration Helper is a workbook-based Azure Monitor solution that helps you **discover what to migrate** and **track progress** as you move from Log Analytics Agent to Azure Monitor Agent. Use this single pane of glass view to expedite and track the status of your agent migration journey. 
-The helper now supports multiple subscriptions, and include **automatic migration recommendations** based on your usage.
+The helper now supports multiple subscriptions, and includes **automatic migration recommendations** based on your usage.
 
 You can access the workbook **[here](https://portal.azure.com/#view/AppInsightsExtension/UsageNotebookBlade/ComponentId/Azure%20Monitor/ConfigurationId/community-Workbooks%2FAzure%20Monitor%20-%20Agents%2FAgent%20Migration%20Tracker/Type/workbook/WorkbookTemplateName/AMA%20Migration%20Helper)**, or find it on the Azure portal under **Monitor** > **Workbooks** > **Public Templates** > **Azure Monitor essentials** > **AMA Migration Helper**.
 
