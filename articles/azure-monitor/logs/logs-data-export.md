@@ -43,7 +43,7 @@ Log Analytics workspace data export continuously exports data that's sent to you
 - Currently, data export isn't supported in China.
 
 ## Data completeness
-Data export is optimized for moving large data volumes to your destinations. In certain retry conditions, it can include a fraction of duplicated records. The export operation might fail when ingress limits are reached. For more information, see [Create or update a data export rule](#create-or-update-a-data-export-rule). In such a case, a retry continues for up to 30 minutes. If the destination is still unavailable, data will be discarded until the destination becomes available.
+Data export is optimized for moving large data volumes to your destinations. The export operation might fail for destinations capacity or availability, and a retry process continues for up to 12-hours. For more information, see [Create or update a data export rule](#create-or-update-a-data-export-rule) for destination limits and recommended alerts. If the destinations are still unavailable after the retry period, data is discarded. In certain retry conditions, retry can cause a fraction of duplicated records.
 
 ## Pricing model
 Data export charges are based on the volume of data exported measured in bytes. The size of data exported by Log Analytics Data Export is the number of bytes in the exported JSON-formatted data. Data volume is measured in GB (10^9 bytes).
