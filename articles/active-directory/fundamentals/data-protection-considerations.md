@@ -57,7 +57,7 @@ Customer-facing web services are secured with the Transport Layer Security (TLS)
 
 **Secret Storage**: Azure AD Service back-end uses encryption to store sensitive material for service use, such as certificates, keys, credentials, and hashes using Microsoft proprietary technology. The store used depends on the service, the operation, the scope of the secret (user-wide or tenant-wide), and other requirements.  
 
-These stores are operated by a security-focused group for the Azure fabric/service (the Azure Security Team) via automation and workflows, including certificate request, renewal, revocation, and destruction. 
+These stores are operated by a security-focused group via established automation and workflows, including certificate request, renewal, revocation, and destruction. 
 
 There is activity auditing related to these stores/workflows/processes, and there is no standing access. Access is request- and approval-based, and for a limited amount of time.  
 
