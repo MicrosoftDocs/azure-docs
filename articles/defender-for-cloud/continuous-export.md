@@ -182,6 +182,46 @@ To export data to an Azure Event hub or Log Analytics workspace in a different t
 
 You can also configure export to another tenant through the REST API. For more information, see the automations [REST API](/rest/api/defenderforcloud/automations/create-or-update?tabs=HTTP).
 
+## Continuously export to an Event Hub behind a firewall
+
+You can enable continuous export as a trusted service, so that you can send data to an Event Hub that has an Azure Firewall enabled. 
+
+**To grant access to continuous export as a trusted service**: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
+
+1. Select the relevant resource.
+
+1. Select **Continuous export**.
+
+1. Select **Export as a trusted service**.
+
+    :::image type="content" source="media/continuous-export/export-as-trusted.png" alt-text="Screenshot that shows where the checkbox is located to select export as trusted service.":::
+
+You'll now need to add the relevant role assignment on the destination Event Hub.
+
+**To add the relevant role assignment on the destination Event Hub**:
+
+1. Navigate to the selected Event Hub. 
+    
+1. Select **Access Control** > **Add role assignment** 
+    
+    :::image type="content" source="media/continuous-export/add-role-assignment.png" alt-text="Screenshot that shows where the add role assignment button is found." lightbox="media/continuous-export/add-role-assignment.png":::
+    
+1. Select **Azure Event Hubs Data Sender**.
+    
+1. Select the **Members** tab.
+    
+1. Select **+ Select members**. 
+    
+1. Search for and select **Windows Azure Security Resource Provider**.
+
+    :::image type="content" source="media/continuous-export/windows-security-resource.png" alt-text="Screenshot that shows you where to enter and search for Windows Azure Security Resource Provider." lightbox="media/continuous-export/windows-security-resource.png":::
+
+1. Select **Review + assign**.
+
 ##  View exported alerts and recommendations in Azure Monitor
 
 You might also choose to view exported Security Alerts and/or recommendations in [Azure Monitor](../azure-monitor/alerts/alerts-overview.md).
