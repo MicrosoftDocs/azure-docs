@@ -25,11 +25,11 @@ Temporary disks and ephemeral OS disks are encrypted at rest with platform-manag
 
 ### Supported VM sizes
 
-Legacy VM Sizes are not supported. You can find the list of supported VM sizes by either using the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) or [Azure CLI](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes).
+Legacy VM Sizes aren't supported. You can find the list of supported VM sizes by either using the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) or [Azure CLI](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes).
 
 ## Prerequisites
 
-You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Use the following steps to enable the feature for your subscription:
+You must enable the feature for your subscription before you can use encryption at host for either your VM or virtual machine scale set. Use the following steps to enable the feature for your subscription:
 
 1. **Azure portal**: Select the Cloud Shell icon on the [Azure portal](https://portal.azure.com):
 
@@ -51,7 +51,7 @@ You must enable the feature for your subscription before you use the EncryptionA
 
     ---
 
-1.	Confirm that the registration state is **Registered** (takes a few minutes) using the command below before trying out the feature.
+1.	Confirm that the registration state is **Registered** (registration may take a few minutes) using the following command before trying out the feature.
 
     ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -69,9 +69,9 @@ You must enable the feature for your subscription before you use the EncryptionA
 ## Deploy a VM with platform-managed keys
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for **Virtual Machines** and select **+ Add** to create a VM.
-1. Create a new virtual machine, select an appropriate region and a supported VM size.
-1. Fill in the other values on the **Basic** pane as you like, then proceed to the **Disks** pane.
+1. Search for **Virtual Machines** and select **+ Create** to create a VM.
+1. Select an appropriate region and a supported VM size.
+1. Fill in the other values on the **Basic** pane as you like, and then proceed to the **Disks** pane.
 
     :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Screenshot of the virtual machine creation basics pane, region and VM size are highlighted." lightbox="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png":::
 
@@ -82,7 +82,7 @@ You must enable the feature for your subscription before you use the EncryptionA
 
 1. For the rest of the VM deployment process, make selections that fit your environment, and complete the deployment.
 
-You have now deployed a VM with encryption at host enabled, and the cache for the disk is encrypted using platform-managed keys.
+You've now deployed a VM with encryption at host enabled, and the cache for the disk is encrypted using platform-managed keys.
 
 ## Deploy a VM with customer-managed keys
 
@@ -113,7 +113,7 @@ Now that you've setup an Azure Key Vault and disk encryption set, you can deploy
 
 1. For the rest of the VM deployment process, make selections that fit your environment, and complete the deployment.
 
-You have now deployed a VM with encryption at host enabled using customer-managed keys.
+You've now deployed a VM with encryption at host enabled using customer-managed keys.
 
 ## Disable host based encryption
 

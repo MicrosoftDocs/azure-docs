@@ -9,7 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-Setting up customer-managed keys for your disks will require you to create resources in a particular order, if you're doing it for the first time. First, you will need to create and set up an Azure Key Vault.
+Setting up customer-managed keys for your disks requires you to create resources in a particular order, if you're doing it for the first time. First, you'll need to create and set up an Azure Key Vault.
 
 ## Set up your Azure Key Vault
 
@@ -53,7 +53,7 @@ Now that you've created the Azure key vault and a key, you must add an Azure RBA
 ## Set up your disk encryption set
 
 1. Search for **Disk Encryption Sets** and select it.
-1. On the **Disk Encryption Sets** pane select **+Create**.
+1. On the **Disk Encryption Sets** pane, select **+Create**.
 1. Select your resource group, name your encryption set, and select the same region as your key vault.
 1. For **Encryption type**, select **Encryption at-rest with a customer-managed key**.
 
@@ -67,7 +67,7 @@ Now that you've created the Azure key vault and a key, you must add an Azure RBA
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png" alt-text="Screenshot of the disk encryption creation pane. Showing the subscription, resource group, disk encryption set name, region, and key vault + key selector." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png":::
 
-1. Navigate to the disk encryption set once it is deployed, and select the displayed alert.
+1. Navigate to the disk encryption set once it's deployed, and select the displayed alert.
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png" alt-text="Screenshot of user selecting the 'To associate a disk, image, or snapshot with this disk encryption set, you must grant permissions to the key vault' alert." lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png":::
 

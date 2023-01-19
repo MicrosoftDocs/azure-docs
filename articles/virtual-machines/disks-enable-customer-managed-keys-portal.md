@@ -14,13 +14,13 @@ ms.subservice: disks
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 
 
-Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the **Customer-managed keys** section of our disk encryption article: [Customer-managed keys](disk-encryption.md#customer-managed-keys)
+Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, and other managed disk encryption types, see the **Customer-managed keys** section of our disk encryption article: [Customer-managed keys](disk-encryption.md#customer-managed-keys)
 
 ## Restrictions
 
 For now, customer-managed keys have the following restrictions:
 
-- If this feature is enabled for your disk, you cannot disable it.
+- If this feature is enabled for your disk, you can't disable it.
     If you need to work around this, you must copy all the data to an entirely different managed disk that isn't using customer-managed keys:
 
     - For Linux: [Copy a managed disk](./linux/disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)
@@ -52,14 +52,14 @@ The VM deployment process is similar to the standard deployment process, the onl
 ## Enable on an existing disk
 
 > [!CAUTION]
-> Enabling disk encryption on any disks attached to a VM will require that you stop the VM.
+> Enabling disk encryption on any disks attached to a VM requires you to stop the VM.
     
 1. Navigate to a VM that is in the same region as one of your disk encryption sets.
 1. Open the VM and select **Stop**.
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-stop-vm-to-encrypt-disk-fix.png" alt-text="Screenshot of the main overlay for your example VM, with the Stop button highlighted." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-stop-vm-to-encrypt-disk-fix.png":::
 
-1. After the VM has finished stopping, select **Disks** and then select the disk you want to encrypt.
+1. After the VM has finished stopping, select **Disks**, and then select the disk you want to encrypt.
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-existing-disk-select.png" alt-text="Screenshot of your example VM, with the Disks pane open, the OS disk is highlighted, as an example disk for you to select." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-existing-disk-select.png":::
 
