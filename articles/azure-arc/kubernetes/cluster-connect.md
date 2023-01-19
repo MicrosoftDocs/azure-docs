@@ -88,6 +88,8 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 ---
 
+[!INCLUDE [arc-region-note](../includes/arc-region-note.md)]
+
 ## Azure Active Directory authentication option
 
 ### [Azure CLI](#tab/azure-cli)
