@@ -22,7 +22,9 @@ The custom domain suffix defines a root domain that can be used by the App Servi
 
 The custom domain suffix is for the App Service Environment. This feature is different from a custom domain binding on an App Service. For more information on custom domain bindings, see [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md).
 
-If the certificate used for the custom domain suffix contains a Subject Alternate Name (SAN) entry for **.scm.CUSTOM-DOMAIN*, the scm site will then also be reachable from *APP-NAME.scm.CUSTOM-DOMAIN*. You can only access scm over custom domain using basic authentication. Single sign-on is only possible with the default root domain.
+If the certificate used for the custom domain suffix contains a Subject Alternate Name (SAN) entry for **.scm.CUSTOM-DOMAIN*, the scm site will then also be reachable from *APP-NAME.scm.CUSTOM-DOMAIN*. You can only access scm over custom domain using basic authentication. Single sign-on is only possible with the default root domain. 
+
+Unlike earlier versions, the FTPS endpoints for your App Services on your App Service Environment v3 can only be reached using the default domain suffix.
 
 ## Prerequisites
 
