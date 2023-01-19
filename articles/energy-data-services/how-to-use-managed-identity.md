@@ -84,7 +84,9 @@ Retrieve the application ID of the user-assigned identity by using the object ID
 Next, add the application ID to the appropriate groups that will use the entitlement service to access Microsoft Energy Data Services APIs. The following example adds the application ID to two groups:
 
 * users@[partition ID].dataservices.energy
-* users.datalake.editors@[partition ID].dataservices.energy 
+* users.datalake.editors@[partition ID].dataservices.energy
+
+To add the application ID:
 
 1. Gather the following information: 
 
@@ -101,7 +103,7 @@ Next, add the application ID to the appropriate groups that will use the entitle
    > [!NOTE]
    > In the following commands, be sure to use the application ID of the managed identity and not the object ID. 
 
-   a. To add the application ID to the users@[partition ID].dataservices.energy group, run the following CURL command via Bash in Azure:
+   1. To add the application ID to the users@[partition ID].dataservices.energy group, run the following cURL command via Bash in Azure:
 
       ```bash
        curl --location --request POST 'https://<Microsoft Energy Data Services URI>/api/entitlements/v2/groups/users@ <data-partition-id>.dataservices.energy/members' \
@@ -116,14 +118,14 @@ Next, add the application ID to the appropriate groups that will use the entitle
 
       Here's a sample response:
 
-      ```JSON 
+      ```json 
       {
           "email": "<application ID of the managed identity>",
           "role": "MEMBER"
           }
       ```
    
-   b. To add the application ID to the users.datalake.editors@[partition ID].dataservices.energy group, run the following CURL command via Bash in Azure:
+   1. To add the application ID to the users.datalake.editors@[partition ID].dataservices.energy group, run the following cURL command via Bash in Azure:
 
       ```bash
        curl --location --request POST 'https://<Microsoft Energy Data Services URI>/api/entitlements/v2/groups/ users.datalake.editors@ <data-partition-id>.dataservices.energy/members' \
@@ -138,7 +140,7 @@ Next, add the application ID to the appropriate groups that will use the entitle
 
       Here's a sample response:
 
-      ```JSON
+      ```json
       {
           "email": "<application ID of the managed identity>",
           "role": "MEMBER"
@@ -149,7 +151,7 @@ Next, add the application ID to the appropriate groups that will use the entitle
 
 Now Azure Functions is ready to access Microsoft Energy Data Services APIs.  
 
-The Azure function generates a token by using the user-assigned identity. The function uses the application ID present in the Microsoft Energy Data Services instance while generating the token.
+The Azure function generates a token by using the user-assigned identity. The function uses the application ID that's present in the Microsoft Energy Data Services instance while generating the token.
 
 Here's an example of the Azure function code:
 
@@ -184,7 +186,7 @@ You should get the following successful response from Azure Functions:
 
 [![Screenshot of a success message from Azure Functions.](media/how-to-use-managed-identity/5-azure-function-success.png)](media/how-to-use-managed-identity/5-azure-function-success.png#lightbox)
  
-With the preceding steps completed, can now use Azure Functions to access Microsoft Energy Data Services APIs with appropriate use of managed identities.
+With the preceding steps completed, you can now use Azure Functions to access Microsoft Energy Data Services APIs with appropriate use of managed identities.
 
 ## Next steps
 
