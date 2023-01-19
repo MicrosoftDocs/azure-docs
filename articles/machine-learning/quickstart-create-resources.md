@@ -1,11 +1,11 @@
 ---
-title: "Quickstart: Create workspace resources"
+title: "Create workspace resources"
 titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and cloud resources that can be used to train machine learning models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: quickstart
+ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
@@ -15,9 +15,9 @@ ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other, ignite-2022
 #Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---
 
-# Quickstart: Create workspace resources you need to get started with Azure Machine Learning
+# Create workspace resources you need to get started with Azure Machine Learning
 
-In this quickstart, you'll create:
+In this article, you'll create the resources you need to start working with Azure Machine Learning.
 
 * A *workspace*.  To use Azure Machine Learning, you'll first need a workspace.  The workspace is the central place to view and manage all the artifacts and resources you create. 
 * A *compute instance*.  A compute instance is a pre-configured cloud-computing resource that you can use to train, automate, manage, and track machine learning models. A compute instance is the quickest way to start using the Azure Machine Learning SDKs and CLIs. You'll use it to run Jupyter notebooks and Python scripts in the rest of the tutorials.

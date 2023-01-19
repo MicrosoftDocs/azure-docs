@@ -1,11 +1,11 @@
 ---
-title: "Quickstart: Set up your cloud workstation"
+title: "Set up your cloud workstation"
 titleSuffix: Azure Machine Learning
 description: Add and edit files, install packages, and run code from your workstation in the cloud. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: quickstart
+ms.topic: tutorial
 author: lebaro-msft
 ms.author: lebaro
 ms.reviewer: sgilley
@@ -13,13 +13,13 @@ ms.date: 01/04/2023
 #Customer intent: As a data scientist, I want to know how to use my cloud workstation to upload my files and run code.
 ---
 
-# Quickstart: Set up your Azure Machine Learning cloud workstation
+# Set up your Azure Machine Learning cloud workstation
  
-Learn how to run notebooks and scripts in the Azure Machine Learning cloud.  
+Learn how use the Azure Machine Learning cloud as your development environment to run notebooks and scripts.
 
 You'll use a *compute instance*.  A compute instance is a pre-configured cloud-computing resource that you can use to train, automate, manage, and track machine learning models.
 
-In this quickstart, you'll:
+In this quickstart, you'll use your workspace and compute instance to:
 
 * Upload files to the cloud
 * Run a Jupyter notebook on the compute instance
@@ -30,7 +30,7 @@ Finally, you'll see how to use included sample notebooks to learn more about Azu
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Run the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md) to create a workspace and a compute instance.
+- Run [Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md) to create a workspace and a compute instance.
 
 ## Upload files
 
