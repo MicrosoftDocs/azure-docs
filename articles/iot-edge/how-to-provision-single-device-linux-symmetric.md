@@ -42,7 +42,7 @@ This article covers using symmetric keys as your authentication method. If you w
 
 ## Prerequisites
 
-This article shows how to register your IoT Edge device and install IoT Edge (also called IoT Edge runtime) on it. Make sure you have the device management tool of your choice and device requirements before you register and install your device.
+This article shows how to register your IoT Edge device and install IoT Edge (also called IoT Edge runtime) on your device. Make sure you have the device management tool of your choice, for example Azure CLI, and device requirements before you register and install your device.
 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](includes/iot-edge-prerequisites-register-device.md)]
@@ -71,7 +71,7 @@ Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
 ## Provision the device with its cloud identity
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to set up the device with its cloud identity and authentication information.
+Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
@@ -111,21 +111,21 @@ After entering the provisioning information in the configuration file, restart t
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
-You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
+1. You can quickly configure your IoT Edge device with symmetric key authentication using the following command. Replace `PASTE_DEVICE_CONNECTION_STRING_HERE` with your own connection string.
 
    ```bash
-   sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
+   sudo iotedge config mp --connection-string `PASTE_DEVICE_CONNECTION_STRING_HERE`
    ```
 
-   The `iotedge config mp` command creates a configuration file on the device and enters your connection string in the file.
+   This `iotedge config mp` command creates a configuration file on the device and enters your connection string in the configuration file.
 
-Apply the configuration changes.
+1. Apply the configuration changes.
 
    ```bash
    sudo iotedge config apply
    ```
 
-If you want to see the configuration file, you can open it:
+1. To view the configuration file, you can open it:
 
    ```bash
    sudo nano /etc/aziot/config.toml
@@ -138,10 +138,10 @@ If you want to see the configuration file, you can open it:
 
 Verify that the runtime was successfully installed and configured on your IoT Edge device.
 
->[!TIP]
->You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
+> [!TIP]
+> You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
 
-Check to see that the IoT Edge system service is running.
+1. Check to see that the IoT Edge system service is running.
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
@@ -159,62 +159,81 @@ Check to see that the IoT Edge system service is running.
    sudo iotedge system status
    ```
 
-A successful status response is `Ok`.
+   A successful status response is `Ok`.
 
 ::: moniker-end
 
-If you need to troubleshoot the service, retrieve the service logs.
+1. To troubleshoot the service, retrieve the service logs.
 
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
+   <!-- 1.1 -->
+   ::: moniker range="iotedge-2018-06"
 
    ```bash
    journalctl -u iotedge
    ```
 
-::: moniker-end
+   ::: moniker-end
 
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
+   <!-- iotedge-2020-11 -->
+   ::: moniker range=">=iotedge-2020-11"
 
    ```bash
    sudo iotedge system logs
    ```
 
-::: moniker-end
+   ::: moniker-end
 
-Use the `check` tool to verify configuration and connection status of the device.
+1. Use the `check` tool to verify configuration and connection status of the device.
 
    ```bash
    sudo iotedge check
    ```
 
->[!TIP]
->Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
+   You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red).
 
->[!NOTE]
->On a newly provisioned device, you may see an error related to IoT Edge Hub:
->
->**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
->
->**Could not check current state of edgeHub container**
->
->This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+   :::image type="content" source="media/how-to-provision-single-device-linux-symmetrical/config-checks.png" alt-text="Screenshot of sample responses from the 'check' command.":::
 
-View all the modules running on your IoT Edge device. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
+   >[!TIP]
+   >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
+
+   >[!NOTE]
+   >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+   >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+   >**Could not check current state of edgeHub container**
+   >
+   >This error is expected on a newly provisioned device because the IoT Edge Hub module is not yet running. You need to deploy your device and then deploy the IoT Edge modules.
+   >
+   >Use the `az deployment group create` command to deploy your device. For more information, see [Deploy the IoT Edge device](quickstart-linux.md#deploy-the-iot-edge-device).
+   >
+   >To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
+   >1. Select **Devices** from the IoT Hub menu.
+   >1. Select your device to open its page.
+   >1. Select the **Set Modules** tab.
+   >1. Since we want to deploy the IoT Edge default modules (edgeAgent and edgeHub), we don't need to add any modules to this pane, so select **Review + create** at the bottom.
+   >1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.
+   >For more information, see [Deploy a module](/quickstart-linux#deploy-a-module.md).
+
+1. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
+
+   Check that your device and modules are deployed and running, by viewing your device page in the Azure portal.
+
+   :::image type="content" source="media/how-to-provision-single-device-linux-symmetrical/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal.":::   
+
+   Once your modules are deployed and running, list them in your device or virtual machine with the following command:
 
    ```bash
    sudo iotedge list
    ```
 
-When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+   >[!NOTE]
+   >When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 ## Offline or specific version installation (optional)
 
 The steps in this section are for scenarios not covered by the standard installation steps. This may include:
 
-* Install IoT Edge while offline
-* Install a release candidate version
+* Installing IoT Edge while offline
+* Installing a release candidate version
 
 Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
