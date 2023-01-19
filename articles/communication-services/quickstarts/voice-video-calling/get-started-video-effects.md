@@ -11,14 +11,11 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
-zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 
 # QuickStart: Add video effects to your video calls
-::: zone pivot="platform-web"
 [!INCLUDE [Video effects with JavaScript](./includes/video-effects/video-effects-javascript.md)]
-::: zone-end
 
 
 ## Next steps
