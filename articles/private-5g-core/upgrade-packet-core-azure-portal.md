@@ -110,7 +110,7 @@ Once the upgrade completes, check if your deployment is operating normally.
 
 If you encountered issues after the upgrade, you can roll back the packet core instance to the version you were previously running.
 
-Note that any configuration you set while your packet core instance was running a newer version will be lost if you roll back to a version that doesn't support this configuration. Check the packet core release notes for information on when new features were introduced.
+If any of the configuration you set while your packet core instance was running a newer version isn't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
 
 > [!NOTE]
 > You can roll back your packet core instance to version [PMN-2211-0](azure-private-5g-core-release-notes-2211.md) or later.
@@ -121,10 +121,10 @@ Note that any configuration you set while your packet core instance was running 
 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/roll-back-packet-core.png" alt-text="Screenshot of the Azure portal showing the Rollback version option.":::
 
-1. From the **New version** list, select the packet core version you want to downgrade to.
-
-    :::image type="content" source="media/upgrade-packet-core-azure-portal/downgrade-packet-core-version.png" alt-text="Screenshot of the Azure portal showing the New version field on the Upgrade packet core version screen. A down-level version is selected.":::
-
+1. In the **Confirm reinstall** field, type **yes**.
+    <!-- TODO: update screenshot
+    :::image type="content" source="media/upgrade-packet-core-azure-portal/downgrade-packet-core-version.png" alt-text="Screenshot of the Azure portal showing the Rollback packet core screen.":::
+    -->
 1. Select **Modify**.
 1. Azure will now redeploy the packet core instance at the new software version. The Azure portal will display the following confirmation screen when this deployment is complete.
 
