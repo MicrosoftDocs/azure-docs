@@ -29,7 +29,7 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 
 1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, enter the UPF-PP troubleshooter pod:
 
-    `kubectl exec -it -n core core-upf-pp-0 -c troubleshooter – bash`.
+    `kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- bash`.
 
 1. View the list of interfaces that can be monitored:
 
