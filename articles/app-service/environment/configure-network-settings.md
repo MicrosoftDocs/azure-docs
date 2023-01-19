@@ -123,7 +123,7 @@ The setting is also available for configuration through Azure portal at the App 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an App Service Environment from a template](create-from-template.md)
+> [Create an App Service Environment from a template](./how-to-create-from-template.md)
 
 > [!div class="nextstepaction"]
 > [Deploy your app to Azure App Service using FTP](../deploy-ftp.md)

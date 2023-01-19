@@ -5,21 +5,21 @@ author: madsd
 
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
-ms.date: 10/11/2021
+ms.date: 01/20/2023
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurepowershell
 ---
 # Create an ASE by using an Azure Resource Manager template
 
 ## Overview
-> [!NOTE]
-> This article is about the App Service Environment v2 and App Service Environment v3 which are used with Isolated App Service plans
-> 
+
+> [!IMPORTANT]
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
 Azure App Service environments (ASEs) can be created with an internet-accessible endpoint or an endpoint on an internal address in an Azure Virtual Network. When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE on an internal IP address is called an ILB ASE. The ASE with a public endpoint is called an External ASE. 
 
 An ASE can be created by using the Azure portal or an Azure Resource Manager template. This article walks through the steps and syntax you need to create an External ASE or ILB ASE with Resource Manager templates. To learn how to create an ASEv2 in the Azure portal, see [Make an External ASE][MakeExternalASE] or [Make an ILB ASE][MakeILBASE].
-To learn how to create an ASEv3 in Azure portal, see [Create ASEv3][Create ASEv3].
 
 When you create an ASE in the Azure portal, you can create your virtual network at the same time or choose a preexisting virtual network to deploy into. 
 
@@ -39,20 +39,11 @@ To automate your ASE creation, follow they guidelines in the sections below. If 
 
 
 ## Create the ASE
-A Resource Manager template that creates an ASE and its associated parameters file is available on GitHub for [ASEv3][asev3quickstarts] and [ASEv2][quickstartasev2create].
+A Resource Manager template that creates an ASE and its associated parameters file is available on GitHub for [ASEv2][quickstartasev2create].
 
-If you want to make an ASE, use these Resource Manager template [ASEv3][asev3quickstarts] or [ASEv2][quickstartilbasecreate] example. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE with an existing subnet.
-### ASEv3 parameters
-* *aseName*: Required. This parameter defines an unique ASE name. 
-* *internalLoadBalancingMode*: Required. In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443. If this property is set to 0, the HTTP/HTTPS traffic remains on the public VIP.
-* *zoneRedundant*: Required. In most cases, set this to false, which means the ASE will not be deployed into Availability Zones(AZ). Zonal ASEs can be deployed in some regions, you can refer to [this][AZ Support for ASEv3].
-* *dedicatedHostCount*: Required. In most cases, set this to 0, which means the ASE will be deployed as normal without dedicated hosts deployed.
-* *useExistingVnetandSubnet*: Required. Set to true if using an existing virtual network and subnet. 
-* *vNetResourceGroupName*: Required if using an existing virtual network and subnet. This parameter defines the resource group name of the existing virtual network and subnet where ASE will reside.
-* *virtualNetworkName*: Required if using an existing virtual network and subnet. This parameter defines the virtual network name of the existing virtual network and subnet where ASE will reside.
-* *subnetName*: Required if using an existing virtual network and subnet. This parameter defines the subnet name of the existing virtual network and subnet where ASE will reside.
-* *createPrivateDNS*: Set to true if you want to create a private DNS zone after ASEv3 created. For an ILB ASE, when set this parameter to true, it will create a private DNS zone as ASE name with *appserviceenvironment.net* DNS suffix. 
-### ASEv2 parameters
+If you want to make an ASE, use these Resource Manager template [ASEv2][quickstartilbasecreate] example. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE with an existing subnet.
+
+### Parameters
 * *aseName*: This parameter defines an unique ASE name.
 * *location*: This parameter defines the location of the App Service Environment.
 * *existingVirtualNetworkName*: This parameter defines the virtual network name of the existing virtual network and subnet where ASE will reside.
@@ -189,6 +180,3 @@ However, just like apps that run on the public multitenant service, developers c
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
-[Create ASEv3]: creation.md
-[asev3quickstarts]: https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create
-[AZ Support for ASEv3]: zone-redundancy.md
