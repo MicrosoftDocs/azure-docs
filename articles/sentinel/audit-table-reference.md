@@ -37,19 +37,42 @@ The following table describes the columns and data generated in the SentinelAudi
 | **WorkspaceId**          | String         | The workspace GUID on which the audit issue occurred. The full Azure Resource Identifier is available in the [SentinelResourceID](#sentinelresourceid_audit) column. |
 | **SentinelResourceType** | String         | The Microsoft Sentinel resource type being monitored.          |
 | **SentinelResourceKind** | String         | The specific type of resource being monitored. For example, for analytics rules: `NRT`. |
-| **CorrelationId**        | GUID           | The event correlation ID. For example, `f509674e-257a-4ec2-9834-940ded9ac587`. |
-| **ExtendedProperties**   | Dynamic (json) | A JSON bag that varies by the [OperationName](#operationname_audit) value and the [Status](#status_audit) of the event. |
+| **CorrelationId**        | String         | The event correlation ID in GUID format.                       |
+| **ExtendedProperties**   | Dynamic (json) | A JSON bag that varies by the [OperationName](#operationname_audit) value and the [Status](#status_audit) of the event.<br>See [Extended properties](#extended-properties) for details. |
+| **Type** | String | `SentinelAudit` |
 
-### Extended properties
+## Operation names for different resource types
 
-| ColumnName               | ColumnType     | Description |
-| ------------------------ | -------------- | ----------------------------------------------------------------------- |
-| **Status reason**        | String         | The reason why the operation failed. For example: `No permissions`.     |
-| **SubscriptionId**       | GUID           | The subscription ID of the workspace on which the audit issue occurred. |
-| **ResourceGroupName**    | String         | Resource group of the workspace on which the audit issue occurred.      |
-| **WorkspaceName**        | String         | Resource group of the workspace on which the audit issue occurred.      |
-| **CallerName**           | String         | The user or application that initiated the action.                      |
-| **Property diff**        | Array\[String\] | An array of the properties that changed on the relevant resource. For example: `['custom_details','look_back']`. |
-| **Resource Pre change**  | Dynamic (json) | The JSON bag that includes the rule, before the change.                 |
-| **Resource post change** | Dynamic (json) | The JSON bag that includes the rule, after the change.                  |
-| **OperationType**        | Enum           | The type of operation that the user performed. Possible values are `Read`, `Write`, or `Run` - relevant for playbooks. |
+| Resource types       | Operation names | Statuses |
+| -------------------- | --------------- | -------- |
+| **[Analytics rules](monitor-analytics-rule-integrity.md)** | - `Microsoft.SecurityInsights/alertRules/Write`<br>- `Microsoft.SecurityInsights/alertRules/Delete`<br>- ***OTHERS??? -YL*** | Success<br>Failure |
+
+## Extended properties
+
+### Analytics rules
+
+Extended properties for analytics rules reflect certain [rule settings](detect-threats-custom.md).
+
+| ColumnName               | ColumnType     | Description                                                     |
+| ------------------------ | -------------- | --------------------------------------------------------------- |
+| **CallerIpAddress**      | String         | The IP address from which the action was initiated.             |
+| **CallerName**           | String         | The user or application that initiated the action.              |
+| **OriginalResourceState** | Dynamic (json) | A JSON bag that describes the rule before the change.          |
+| **Reason**               | String     | The reason why the operation failed. For example: `No permissions`. |
+| **ResourceDiffMemberNames** | Array\[String\] | An array of the properties that changed on the relevant resource. For example: `['custom_details','look_back']`. |
+| **ResourceDisplayName**  | String         | Name of the analytics rule on which the audit issue occurred.   |
+| **ResourceGroupName**    | String      | Resource group of the workspace on which the audit issue occurred. |
+| **ResourceId**      | String     | The resource ID of the analytics rule on which the audit issue occurred. |
+| **SubscriptionId**  | String      | The subscription ID of the workspace on which the audit issue occurred. |
+| **UpdatedResourceState** | Dynamic (json) | A JSON bag that describes the rule after the change.            |
+| **Uri**                  | String         | The full-path resource ID of the analytics rule.                |
+| **WorkspaceId**        | String       | The resource ID of the workspace on which the audit issue occurred. |
+| **WorkspaceName**        | String         | The name of the workspace on which the audit issue occurred.    |
+
+
+## Next steps
+
+- Learn about [health monitoring in Microsoft Sentinel](health-audit.md).
+- [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
+- Monitor the [health of your data connectors](monitor-data-connector-health.md).
+- Monitor the [health of your automation rules and playbooks](monitor-automation-health.md).
