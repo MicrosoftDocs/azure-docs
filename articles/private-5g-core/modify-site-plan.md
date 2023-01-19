@@ -1,7 +1,7 @@
 ---
 title: Modify a site plan
 titleSuffix: Azure Private 5G Core
-description: In this how-to guide, you'll learn how to modify the billing plan in a site using the Azure portal. 
+description: In this how-to guide, you'll learn how to modify a site plan using the Azure portal. 
 author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
@@ -10,9 +10,9 @@ ms.date: 10/13/2022
 ms.custom: template-how-to
 ---
 
-# Modify the billing plan in a site
+# Modify a site plan
 
-The *site plan* determines the throughput, the number of devices and the number of radio access network (RAN) connections each site supports. The plan you selected when creating the site can be updated to support your deployment requirements as they change. In this how-to guide, you'll learn how to modify the billing plan in a site using the Azure portal.
+The *site plan* determines the throughput, the number of devices and the number of radio access network (RAN) connections each site supports. The plan you selected when creating the site can be updated to support your deployment requirements as they change. In this how-to guide, you'll learn how to modify a site plan using the Azure portal.
 
 ## Prerequisites
 
