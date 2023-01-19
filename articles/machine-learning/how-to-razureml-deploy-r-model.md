@@ -198,7 +198,7 @@ These steps assume you have an Azure Container Registry associated with your wor
 1. If you see custom environments, nothing more is needed.
 1. If you don't see any custom environments, create [an R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment), or any other custom environment.  (You *won't* use this environment for deployment, but you *will* use the container registry that is also created for you.)
 
-Once you have verified that you have at lease one custom environment, use the following steps to build a container.
+Once you have verified that you have at least one custom environment, use the following steps to build a container.
 
 1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
 
