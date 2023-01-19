@@ -160,7 +160,7 @@ The `tcp` section defines a TCP scale rule.
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `concurrentRequests`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
+| `concurrentConnections`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
 
 ```json
 {
@@ -178,7 +178,7 @@ The `tcp` section defines a TCP scale rule.
             "name": "tcp-rule",
             "tcp": {
               "metadata": {
-                "concurrentRequests": "100"
+                "concurrentConnections": "100"
               }
             }
           }]
