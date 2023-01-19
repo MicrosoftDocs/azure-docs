@@ -48,7 +48,7 @@ Access logs, health probe logs, and WAF logs aren't enabled by default. In this 
 
 1. Click on **Save**.
 
-## Activity logs
+## View your activity logs
 
 To view activity logs:
 

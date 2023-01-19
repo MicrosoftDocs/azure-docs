@@ -53,7 +53,7 @@ Logs track all requests that pass through Azure Front Door. Logs can take a few 
 There are multiple Front Door logs, which you can use for different purposes:
 
 - [Access logs](#access-log) can be used to identify slow requests, determine error rates, and understand how Front Door's caching behavior is working for your solution.
-- Web application firewall (WAF) logs can be used to detect potential attacks, as well as false positive detections that might indicate legitimate requests that the WAF blocked. TODO more info link
+- Web application firewall (WAF) logs can be used to detect potential attacks, as well as false positive detections that might indicate legitimate requests that the WAF blocked. For more information on the WAF logs, see [Azure Web Application Firewall monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md).
 - [Health probe logs](#health-probe-log) can be used to identify origins that are unhealthy or that don't respond to requests from some of Front Door's geographically distributed PoPs.
 - [Activity logs](#activity-logs) provide visibility into the operations performed on your Azure resources, such as configuration changes to your Azure Front Door profile.
 
@@ -85,41 +85,42 @@ Information about every request is logged into the access log. Each access log e
 | Endpoint | The domain name of the Azure Front Door endpoint, such as `contoso-123.z01.azurefd.net`. |
 | HttpStatusCode | The HTTP status code returned from Azure Front Door. If the request to the origin timed out, the value for the HttpStatusCode field is **0**.|
 | Pop | The Azure Front Door edge point of presence (PoP) that responded to the user request.  |
-| Cache Status | How the request was handled by the Azure Front Door cache. Possible values are: <ul><li>**HIT** and **REMOTE_HIT**: The HTTP request was served from the Azure Front Door cache.</li><li>**MISS**: The HTTP request was served from origin. </li><li> **PARTIAL_HIT**: Some of the bytes were served from the Fornt Door edge PoP cache, and other bytes were served from the origin. This status indicates an [object chunking](TODO) scenario. </li><li> **CACHE_NOCONFIG**: The request was forwarded without without caching settings, including bypass scenarios. </li><li> **PRIVATE_NOSTORE**: There was no cache configured in the caching settings by the customer. </li><li> **N/A**: The request was denied by a signed URL or the Rules Engine.</li></ul> |
+| Cache Status | How the request was handled by the Azure Front Door cache. Possible values are: <ul><li>**HIT** and **REMOTE_HIT**: The HTTP request was served from the Azure Front Door cache.</li><li>**MISS**: The HTTP request was served from origin. </li><li> **PARTIAL_HIT**: Some of the bytes were served from the Fornt Door edge PoP cache, and other bytes were served from the origin. This status indicates an [object chunking](./front-door-caching.md#delivery-of-large-files) scenario. </li><li> **CACHE_NOCONFIG**: The request was forwarded without without caching settings, including bypass scenarios. </li><li> **PRIVATE_NOSTORE**: There was no cache configured in the caching settings by the customer. </li><li> **N/A**: The request was denied by a signed URL or the Rules Engine.</li></ul> |
 | MatchedRulesSetName | The names of the Rules Engine rules that were processed. |
 | RouteName | The name of the route that the request matched. |
 | ClientPort | The IP port of the client that made the request. |
 | Referrer | The URL of the site that originated the request. |
 | TimetoFirstByte | The length of time, in milliseconds, from when the Azure Front Door edge received the request to the time the first byte was sent to client, as measured by Azure Front Door. This property doesn't measure the client data. |
 | ErrorInfo | If an error occurred during the processing of the request, this field provides detailed information about the error. Possible values are: <!-- TODO tidy this list --> <br> **NoError**: Indicates no error was found. <br> **CertificateError**: Generic SSL certificate error. <br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. <br> **ClientDisconnected**: Request failure because of client network connection. <br> **ClientGeoBlocked**: The client was blocked due geographical location of the IP. <br> **UnspecifiedClientError**: Generic client error. <br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. <br> **DNSFailure**: DNS Failure. <br> **DNSTimeout**: The DNS query to resolve the backend timed out. <br> **DNSNameNotResolved**: The server name or address couldn't be resolved. <br> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. <br> **OriginConnectionError**: Generic origin connection error. <br> **OriginConnectionRefused**: The connection with the origin wasn't established. <br> **OriginError**: Generic origin error. <br> **OriginInvalidRequest**: An invalid request was sent to the origin. <br> **ResponseHeaderTooBig**: The origin returned a too large of a response header. <br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. <br> **OriginTimeout**: The timeout period for origin request expired. <br> **ResponseHeaderTooBig**: The origin returned a too large of a response header. <br> **RestrictedIP**: The request was blocked because of restricted IP. <br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. <br> **SSLInvalidRootCA**: The RootCA was invalid. <br> **SSLInvalidCipher**: Cipher was invalid for which the HTTPS connection was established. <br> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. <br> **OriginConnectionRefused**: The connection with the origin wasn't established. <br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
-| OriginURL | The full URL of the origin where the request was sent. The URL is composed of the scheme, host header, port, path, and query string. <br> **URL rewrite**: If the request URL was rewritten by the Rules Engine, the path refers to the rewritten path. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](TODO). |
-| OriginIP | The IP address of the origin that served the request. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](TODO). |
-| OriginName| The full hostname (DNS name) of the origin. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](TODO). |
+| OriginURL | The full URL of the origin where the request was sent. The URL is composed of the scheme, host header, port, path, and query string. <br> **URL rewrite**: If the request URL was rewritten by the Rules Engine, the path refers to the rewritten path. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
+| OriginIP | The IP address of the origin that served the request. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
+| OriginName| The full hostname (DNS name) of the origin. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
 
 ## Health probe log
 
-Health probe logs provide logging for every failed probe to help you diagnose your origin. The logs will provide you information that you can use to bring the origin back to service. Some scenarios this log can be useful for are:
+Health probe logs provide logging for every failed probe to help you diagnose your origin. The logs provide you with information that you can use to bring the origin back to a healty status.
 
-* You noticed Azure Front Door traffic was sent to some of the origins. For example, only three out of four origins receiving traffic. You want to know if the origins are receiving probes and if not the reason for the failure.  
+Some scenarios this log can be useful for are:
 
-* You noticed the origin health percentage is lower than expected and want to know which origin failed and the reason of the failure.
+- You noticed Azure Front Door traffic was sent to a subset of the origins. For example, you might have noticed that only three out of four origins receive traffic. You want to know if the origins are receiving and responding to health probes so you know whether the origins are healthy.
+- You noticed the origin health percentage metric is lower than you expected. You want to know which origins are recorded as unhealthy and the reason for the health probe failures.
 
 Each health probe log entry has the following schema:
 
 | Property | Description |
 | --- | --- |
-| HealthProbeId  | A unique ID to identify the request. |
-| Time | Probe complete time |
-| HttpMethod | HTTP method used by the health probe request. Values include GET and HEAD, based on health probe configurations. |
-| Result | Status of health probe to origin, which is either success, or a description of the error the probe received. |
-| HttpStatusCode  | The HTTP status code returned from the origin. |
-| ProbeURL (target) | The full URL of the origin where requests are being sent. Composed of the scheme, host header, path, and query string. |
-| OriginName  | The origin where requests are being sent. This field helps locate origins of interest if origin is configured to FDQN. |
-| POP | The edge pop, which sent out the probe request. |
-| Origin IP | Target origin IP. This field is useful in locating origins of interest if you configure origin using FDQN. |
-| TotalLatency | The time from AFDX edge sends the request to origin to the time origin sends the last response to AFDX edge. |
-| ConnectionLatency| Duration Time spent on setting up the TCP connection to send the HTTP Probe request to origin. | 
-| DNSResolution Latency | Duration Time spent on DNS resolution if the origin is configured to be an FDQN instead of IP. N/A if the origin is configured to IP. |
+| HealthProbeId  | A unique ID to identify the health probe request. |
+| Time | The date and time when the health probe was sent (in UTC). |
+| HttpMethod | The HTTP method used by the health probe request. Values include **GET** and **HEAD**, based on the health probe's configuration. |
+| Result | The status of health probe. The value is either **success** or a description of the error the probe received. |
+| HttpStatusCode  | The HTTP status code returned by the origin. |
+| ProbeURL | The full target URL to where the probe request was sent. The URL is composed of the scheme, host header, path, and query string. |
+| OriginName  | The name of the origin that the health probe was sent to. This field helps you to locate origins of interest if origin is configured to use an FDQN. |
+| POP | The edge PoP that sent the probe request. |
+| Origin IP | The IP address of the origin that the health probe was sent to. |
+| TotalLatency | The time from when the Azure Front Door edge sent the health probe request to the origin to when the origin sent the last response to Azure Front Door. |
+| ConnectionLatency| The time spent setting up the TCP connection to send the HTTP probe request to the origin. | 
+| DNSResolution Latency | The time spent on DNS resolution. This field only has a value if the origin is configured to be an FDQN instead of an IP address. If the origin is configured to use an IP address, the value is **N/A**. |
 
 The following example JSON snippet shows a health probe log entry for a failed health probe request.
 
@@ -155,10 +156,12 @@ For more information on the Front Door web application firewall (WAF) logs, see 
 
 ## Activity logs
 
-Activity logs provide information about the operations done to manage your Azure Front Door Standard/Premium. The logs include details about each write operation that was performed on an Azure Front Door resource, including when the operation occurred, who performed it, and what the operation was. Access activity logs in your Front Door or all the logs of your Azure resources in Azure Monitor.
+Activity logs provide information about the management operations on your Azure Front Door resources. The logs include details about each write operation that was performed on an Azure Front Door resource, including when the operation occurred, who performed it, and what the operation was.
 
 > [!NOTE]
-> Activity logs don't include read operations. They also don't include operations that you perform by using either the Azure portal or the original Management API.
+> Activity logs don't include read operations. They also might not include all operations that you perform by using either the Azure portal or classic management APIs.
+
+For more information, see [View your activity logs](./standard-premium/how-to-logs.md#view-your-activity-logs).
 
 ## Next steps
 
