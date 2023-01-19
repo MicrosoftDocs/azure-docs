@@ -71,7 +71,7 @@ In addition to the core properties, there are other configuration options that y
 
 After creating the ARM template, for example named *azuredeploy.json* and optionally a parameters file for example named *azuredeploy.parameters.json*, you can create the App Service Environment by using the Azure CLI code snippet. Change the file paths to match the Resource Manager template-file locations on your machine. Remember to supply your own value for the resource group name:
 
-```bash
+```azurecli
 templatePath="PATH/azuredeploy.json"
 parameterPath="PATH/azuredeploy.parameters.json"
 
