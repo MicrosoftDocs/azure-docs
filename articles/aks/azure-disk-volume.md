@@ -130,7 +130,7 @@ following command:
     pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
     ```
 
-5. Create a *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For example:
+5. Create an *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For example:
 
     ```yaml
     apiVersion: v1

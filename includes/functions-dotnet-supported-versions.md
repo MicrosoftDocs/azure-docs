@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/8/2022
+ms.date: 01/16/2023
 ms.author: glenga
 ---
 
@@ -18,13 +18,8 @@ The following table shows the highest level of .NET Core or .NET Framework that 
 | Functions runtime version | In-process<br/>([.NET class library](../articles/azure-functions/functions-dotnet-class-library.md)) | Isolated worker process<br/>([.NET Isolated](../articles/azure-functions/dotnet-isolated-process-guide.md)) |
 | ---- | ---- | --- |
 | Functions 4.x | .NET 6.0 | .NET 6.0<br/>.NET 7.0 (GA)<sup>1</sup><br/>.NET Framework 4.8 (GA)<sup>1</sup> |
-| Functions 3.x | .NET Core 3.1 | 
-| Functions 2.x | .NET Core 2.1<sup>2</sup> | n/a |
 | Functions 1.x | .NET Framework 4.8 | n/a |
 
-
-<sup>1</sup> Build process also requires [.NET 6 SDK](https://dotnet.microsoft.com/download). Support for .NET Framework 4.8 is in GA. 
-
-<sup>2</sup> For details, see [Functions v2.x considerations](../articles/azure-functions/functions-dotnet-class-library.md#functions-v2x-considerations).     
+<sup>1</sup> Build process also requires [.NET 6 SDK](https://dotnet.microsoft.com/download).    
 
 For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).

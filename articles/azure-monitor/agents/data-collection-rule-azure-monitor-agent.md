@@ -26,7 +26,7 @@ To complete this procedure, you need:
 You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace.
 
 > [!NOTE]
-> To send data across tenants, you must first enable [Azure Lighthouse](/azure/lighthouse/overview).
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 ### [Portal](#tab/portal)
 
 1. On the **Monitor** menu, select **Data Collection Rules**.
