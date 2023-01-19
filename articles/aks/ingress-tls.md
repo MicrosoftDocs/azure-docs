@@ -127,7 +127,7 @@ DNS_LABEL="<DNS_LABEL>"
 NAMESPACE="ingress-basic"
 STATIC_IP=<STATIC_IP>
 
-helm upgrade nginx-ingress ingress-nginx/ingress-nginx \
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
   --namespace $NAMESPACE \
   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL \
   --set controller.service.loadBalancerIP=$STATIC_IP
@@ -162,7 +162,7 @@ $DnsLabel = "<DNS_LABEL>"
 $Namespace = "ingress-basic"
 $StaticIP = "<STATIC_IP>"
 
-helm upgrade nginx-ingress ingress-nginx/ingress-nginx `
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
   --namespace $Namespace `
   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
   --set controller.service.loadBalancerIP=$StaticIP
@@ -172,17 +172,17 @@ helm upgrade nginx-ingress ingress-nginx/ingress-nginx `
 
 For more information, see [Use a static public IP address and DNS label with the AKS load balancer][aks-static-ip].
 
-## Use a dynamic IP address
+#### Use a dynamic public IP address
 
-An Azure public IP address is created for the ingress controller upon creation. This public IP address is static for the lifespan of the ingress controller. If you delete the ingress controller, the public IP address assignment will be lost. If you create another ingress controller, a new public IP address will be assigned.
+An Azure public IP address is created for your ingress controller upon creation. The public IP address is static for the lifespan of your ingress controller. The public IP address does *not* remain if you delete your ingress controller. If you create a new ingress controller, it will be assigned a new public IP address.
 
-To get the public IP address, use the `kubectl get service` command.
+Use the `kubectl get service` command to get the public IP address for your ingress controller.
 
 ```console
 kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 ```
 
-The example output shows the details about the ingress controller.
+Your output should look similar to the following example output:
 
 ```console
 NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
@@ -191,7 +191,7 @@ nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_I
 
 ### Add an A record to your DNS zone
 
-If you're using a custom domain, you need to add an *A* record to your DNS zone. Otherwise, you need to configure the public IP address with an FQDN.
+If you're using a custom domain, you need to add an *A* record to your DNS zone. If you're not using a custom domain, you can configure the public IP address with an FQDN.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -222,14 +222,18 @@ New-AzDnsRecordSet -Name "*" `
 
 ---
 
-### Configure an FQDN for the ingress controller
+### Configure an FQDN for your ingress controller
 
-Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain. Your FQDN should follow this form: `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`. You can configure it using one of the following methods:
+Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain by setting a DNS label. Your FQDN should follow this form: `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`. Your DNS label must be unique within its Azure location.
 
-* Set the DNS label using the Azure CLI or Azure PowerShell.
+You can configure your FQDN using one of the following methods:
+
+* Set the DNS label using Azure CLI or Azure PowerShell.
 * Set the DNS label using Helm chart settings.
 
-#### Method 1: Set the DNS label using the Azure CLI or Azure PowerShell
+For more information, see [Public IP address DNS name labels](../virtual-network/ip-services/public-ip-addresses.md#dns-name-label).
+
+#### Set the DNS label using Azure CLI or Azure PowerShell
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -269,19 +273,19 @@ Write-Output $UpdatedPublicIp.DnsSettings.Fqdn
 
 ---
 
-#### Method 2: Set the DNS label using Helm chart settings
+#### Set the DNS label using Helm chart settings
 
-You can pass an annotation setting to your Helm chart configuration by using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter. This parameter can be set when the ingress controller is first deployed, or it can be configured later.
+You can pass an annotation setting to your Helm chart configuration using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter. This parameter can be set when the ingress controller is first deployed, or it can be configured later.
 
 The following example shows how to update this setting after the controller has been deployed.
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```bash
-DNS_LABEL="demo-aks-ingress"
+DNS_LABEL="<DNS_LABEL>"
 NAMESPACE="ingress-basic"
 
-helm upgrade nginx-ingress ingress-nginx/ingress-nginx \
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
   --namespace $NAMESPACE \
   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL
 ```
@@ -289,10 +293,10 @@ helm upgrade nginx-ingress ingress-nginx/ingress-nginx \
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$DnsLabel = "demo-aks-ingress"
+$DnsLabel = "<DNS_LABEL>"
 $Namespace = "ingress-basic"
 
-helm upgrade nginx-ingress ingress-nginx/ingress-nginx `
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
   --namespace $Namespace `
   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel
 ```
