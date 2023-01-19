@@ -88,69 +88,46 @@ Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName 
 
 ## Ingress controller configuration options
 
-An NGINX ingress controller is created with a new public IP address assignment by default. This public IP address is only static for the lifespan of the ingress controller. If you delete the ingress controller, the public IP address assignment will be lost. If you create another ingress controller, a new public IP address will be assigned.
+You can configure your NGINX ingress controller using either a static public IP address or a dynamic public IP address. If you're using a custom domain, you need to add an A record to your DNS zone. If you're not using a custom domain, you can configure a fully qualified domain name (FQDN) for the ingress controller IP address.
 
-You can configure your ingress controller using one of the following methods:
+### Create a static or dynamic public IP address
 
-* A dynamic public IP address.
-* A static public IP address.
+#### Use a static public IP address
 
-## Use a static public IP address
+You can configure your ingress controller with a static public IP address. The static public IP address remains if you delete your ingress controller. The IP address does *not* remain if you delete your AKS cluster.
 
-A common configuration requirement is to provide the NGINX ingress controller an existing static public IP address. The static public IP address remains if the ingress controller is deleted.
-
-Follow the commands to create an IP address that will be deleted if you delete your AKS cluster.
+When you upgrade your ingress controller, you must pass a parameter to the Helm release to ensure the ingress controller service is made aware of the load balancer that will be allocated to it. For the HTTPS certificates to work correctly, you use a DNS label to configure an FQDN for the ingress controller IP address.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Get the resource group name of the AKS cluster with the [`az aks show`][az-aks-show] command.
+1. Get the resource group name of the AKS cluster with the [`az aks show`][az-aks-show] command.
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 ```
 
-Next, create a public IP address with the *static* allocation method using the [`az network public-ip create`][az-network-public-ip-create] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
+2. Create a public IP address with the *static* allocation method using the [`az network public-ip create`][az-network-public-ip-create] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
 
 ```azurecli-interactive
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-Get the resource group name of the AKS cluster with the [`Get-AzAksCluster`][get-az-aks-cluster] command.
-
-```azurepowershell-interactive
-(Get-AzAksCluster -ResourceGroupName $ResourceGroup -Name myAKSCluster).NodeResourceGroup
-```
-
-Next, create a public IP address with the *static* allocation method using the [`New-AzPublicIpAddress`][new-az-public-ip-address] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
-
-```azurepowershell-interactive
-(New-AzPublicIpAddress -ResourceGroupName MC_myResourceGroup_myAKSCluster_eastus -Name myAKSPublicIP -Sku Standard -AllocationMethod Static -Location eastus).IpAddress
-```
-
----
 
 > [!NOTE]
 > Alternatively, you can create an IP address in a different resource group, which you can manage separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following are true:
 >
 > * The cluster identity used by the AKS cluster has delegated permissions to the resource group, such as *Network Contributor*.
 > * Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-resource-group"="<RESOURCE_GROUP>"` parameter. Replace `<RESOURCE_GROUP>` with the name of the resource group where the IP address resides.
->
 
-You must pass a parameter to the Helm release when you upgrade the ingress controller. Passing a parameter ensures that the ingress controller service is made aware of the load balancer that will be allocated to it. For the HTTPS certificates to work correctly, a DNS name label is used to configure a fully qualified domain name (FQDN) for the ingress controller IP address.
+3. Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="<DNS_LABEL>"` parameter. The DNS label can be set either when the ingress controller is first deployed, or it can be configured later.
 
-1. Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="<DNS_LABEL>"` parameter. The DNS label can be set either when the ingress controller is first deployed, or it can be configured later.
-2. Add the `--set controller.service.loadBalancerIP="<STATIC_IP>"` parameter. Specify your own public IP address that was created in the previous step.
+4. Add the `--set controller.service.loadBalancerIP="<STATIC_IP>"` parameter. Specify your own public IP address that was created in the previous step.
 
-### [Azure CLI](#tab/azure-cli)
-
-```azurecli
-DNS_LABEL="demo-aks-ingress"
+```azurecli-interactive
+DNS_LABEL="<DNS_LABEL>"
 NAMESPACE="ingress-basic"
 STATIC_IP=<STATIC_IP>
 
-helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
+helm upgrade nginx-ingress ingress-nginx/ingress-nginx \
   --namespace $NAMESPACE \
   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL \
   --set controller.service.loadBalancerIP=$STATIC_IP
@@ -158,12 +135,34 @@ helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
-$DnsLabel = "demo-aks-ingress"
+1. Get the resource group name of the AKS cluster with the [`Get-AzAksCluster`][get-az-aks-cluster] command.
+
+```azurepowershell-interactive
+(Get-AzAksCluster -ResourceGroupName $ResourceGroup -Name myAKSCluster).NodeResourceGroup
+```
+
+2. Create a public IP address with the *static* allocation method using the [`New-AzPublicIpAddress`][new-az-public-ip-address] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
+
+```azurepowershell-interactive
+(New-AzPublicIpAddress -ResourceGroupName MC_myResourceGroup_myAKSCluster_eastus -Name myAKSPublicIP -Sku Standard -AllocationMethod Static -Location eastus).IpAddress
+```
+
+> [!NOTE]
+> Alternatively, you can create an IP address in a different resource group, which you can manage separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following are true:
+>
+> * The cluster identity used by the AKS cluster has delegated permissions to the resource group, such as *Network Contributor*.
+> * Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-resource-group"="<RESOURCE_GROUP>"` parameter. Replace `<RESOURCE_GROUP>` with the name of the resource group where the IP address resides.
+
+3. Add the --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="<DNS_LABEL>" parameter. The DNS label can be set either when the ingress controller is first deployed, or it can be configured later.
+
+4. Add the --set controller.service.loadBalancerIP="<STATIC_IP>" parameter. Specify your own public IP address that was created in the previous step.
+
+```azurepowershell-interactive
+$DnsLabel = "<DNS_LABEL>"
 $Namespace = "ingress-basic"
 $StaticIP = "<STATIC_IP>"
 
-helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
+helm upgrade nginx-ingress ingress-nginx/ingress-nginx `
   --namespace $Namespace `
   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
   --set controller.service.loadBalancerIP=$StaticIP
