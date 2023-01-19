@@ -29,59 +29,37 @@ To perform the procedures described in this article, make sure that:
 
     For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-## Create CA-signed SSL/TLS certificates
+## Deploy an SSL/TLS certificate
 
-Use a certificate management platform, such as an automated PKI management platform, to create a certificate. Verify that the certificate meets [certificate file requirements](#verify-certificate-file-parameter-requirements), and then [test the certificate](#test-your-ssltls-certificates) file you created when you're done.
+After you've created your SSL/TLS certificate as required and have it installed on a trusted storage, deploy it to your OT sensor or on-premises management console.
 
-If you are not carrying out certificate validation, remove the CRL URL reference in the certificate. For more information, see [certificate file requirements](#verify-certificate-file-parameter-requirements).
+### Import the SSL/TLS certificate
 
-Consult a security, PKI, or other qualified certificate lead if you don't have an application that can automatically create certificates.
+**To deploy a certificate on an OT sensor**:
 
-You can also convert existing certificate files if you don't want to create new ones.
+1. Sign into your OT sensor and select **System settings** > **Basic** > **SSL/TLS certificate**
 
-## Create self-signed SSL/TLS certificates
+1. In the **SSL/TLS certificate** pane, enter your certificate name and passphrase, and then upload the files you'd created earlier.
 
-Create self-signed SSL/TLS certificates by first downloading a security certificate from the OT sensor or on-premises management console and then exporting it to the required file types.
+    Select **Enable certificate validation** to validate the certificate against a [CRL server](#verify-crl-server-access).
 
-> [!NOTE]
-> While you can use a locally-generated and self-signed certificate, we do not recommend this option.
+1. Select **Save** to save your certificate settings.
 
-### Download a security certificate
+**To deploy a certificate on an on-premises management console sensor**:
 
-1. After [installing your OT sensor software](ot-deploy/install-software-ot-sensor.md) or [on-premises management console](ot-deploy/install-software-on-premises-management-console.md), go to the sensor's or on-premises management console's IP address in a browser.
+1. Sign into your OT sensor and select **System settings** > **SSL/TLS certificates**.
 
-1. Select the :::image type="icon" source="media/how-to-deploy-certificates/warning-icon.png" border="false"::: **Not secure** alert in the address bar of your web browser, then select the **>** icon next to the warning message **"Your connection to this site isn't secure"**. For example:
+1. In the **SSL/TLS Certificates** dialog, select **Add Certificate**.
 
-    :::image type="content" source="media/how-to-deploy-certificates/connection-is-not-secure.png" alt-text="Screenshot of web page with a Not secure warning in the address bar." lightbox="media/how-to-deploy-certificates/connection-is-not-secure.png":::
+1. In the **Import a trusted CA-signed certificate** area, enter a certificate name and optional passphrase, and then upload the files you'd created earlier.
 
-1. Select the :::image type="icon" source="media/how-to-deploy-certificates/show-certificate-icon.png" border="false"::: **Show certificate** icon to view the security certificate for this website.
+1. Select the **Enable certificate validation** option to validate the certificate against a [CRL server](#verify-crl-server-access).
 
-1. In the **Certificate viewer** pane, select the **Details** tab, then select **Export** to save the file on your local machine.
+1. Select **Save** to save your certificate settings.
 
-### Export an SSL/TLS certificate
+You can also [import the certificate to your OT sensor using CLI commands](references-work-with-defender-for-iot-cli-commands.md#tlsssl-certificate-commands).
 
-Use a certificate management platform to create the following types of SSL/TLS certificate files:
-
-| File type  | Description  |
-|---------|---------|
-| **.crt – certificate container file** | A `.pem`, or `.der` file, with a different extension for support in Windows Explorer.|
-| **.key – Private key file** | A key file is in the same format as a `.pem` file, with a different extension for support in Windows Explorer.|
-| **.pem – certificate container file (optional)** | Optional. A text file with a Base64-encoding of the certificate text, and a plain-text header and footer to mark the beginning and end of the certificate. |
-
-For example:
-
-1. Open the downloaded certificate file and select the **Details** tab > **Copy to file** to run the **Certificate Export Wizard**.
-
-1. In the **Certificate Export Wizard**, select **Next** > **DER encoded binary X.509 (.CER)** > and then select **Next** again.
-
-1. In the **File to Export** screen, select **Browse**, choose a location to store the certificate, and then select **Next**.
-
-1. Select **Finish** to export the certificate.
-
-> [!NOTE]
-> You may need to convert existing files types to supported types.
-
-## Verify certificate file parameter requirements
+### Verify certificate file parameter requirements
 
 Verify that the certificates meet the following requirements:
 
@@ -106,9 +84,9 @@ Verify that the certificates meet the following requirements:
 
 - **Key file requirements**: Use either RSA 2048 bits or 4096 bits. Using a key length of 4096 bits will slow down the SSL handshake at the start of each connection, and increase the CPU usage during handshakes.
 
-- (Optional) Create a certificate chain, which is a `.pem` file that contains the certificates of all the certificate authorities in the chain of trust that led to your certificate. Certificate chain files support bag attributes. <!--what is this and why do we care?-->
+- (Optional) Create a certificate chain, which is a `.pem` file that contains the certificates of all the certificate authorities in the chain of trust that led to your certificate. Certificate chain files support bag attributes.
 
-## Verify CRL server access
+### Verify CRL server access
 
 If your organization validates certificates, your OT sensors and on-premises management console must be able to access the CRL server defined by the certificate.  By default, certificates access the CRL server URL via HTTP port 80. However, some organizational security policies block access to this port.
 
@@ -125,27 +103,49 @@ If your OT sensors and on-premises management consoles can't access your CRL ser
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
 
-## Import the SSL/TLS certificate
+## Create a certificate
 
-After creating your certificate, [import it to your OT sensor](references-work-with-defender-for-iot-cli-commands.md#tlsssl-certificate-commands) or to a trusted storage location. For example:
+Add description.
 
-1. Open the security certificate file and, in the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**.
+### Create CA-signed SSL/TLS certificates
 
-1. In **Store Location**, select **Local Machine**, then select **Next**.
+Use a certificate management platform, such as an automated PKI management platform, to create a certificate. Verify that the certificate meets [certificate file requirements](#verify-certificate-file-parameter-requirements), and then [test the certificate](#test-your-ssltls-certificates) file you created when you're done.
 
-1. If a **User Allow Control** prompt appears, select **Yes** to allow the app to make changes to your device.
+If you aren't carrying out certificate validation, remove the CRL URL reference in the certificate. For more information, see [certificate file requirements](#verify-certificate-file-parameter-requirements).
 
-1. In the **Certificate Store** screen, select **Automatically select the certificate store based on the type of certificate**, then select **Next**.
+Consult a security, PKI, or other qualified certificate lead if you don't have an application that can automatically create certificates.
 
-1. Select **Place all certificates in the following store**, then **Browse**, and then select the **Trusted Root Certification Authorities** store. When you're done, select **Next**. For example:
+You can also convert existing certificate files if you don't want to create new ones.
 
-    :::image type="content" source="media/how-to-deploy-certificates/certificate-store-trusted-root.png" alt-text="Screenshot of the certificate store screen where you can browse to the trusted root folder." lightbox="media/how-to-deploy-certificates/certificate-store-trusted-root.png":::
+### Create self-signed SSL/TLS certificates
 
-1. Select **Finish** to complete the import.
+Create self-signed SSL/TLS certificates by first [downloading a security certificate](#import-a-downloaded-security-certificate-to-a-trusted-store) from the OT sensor or on-premises management console and then exporting it to the required file types.
 
-## Test your SSL/TLS certificates
+> [!NOTE]
+> While you can use a locally-generated and self-signed certificate, we do not recommend this option.
 
-Use the following procedures to test certificates before deploying them to your OT sensors and on-premises management consoles.
+**Export as a certificate file:**
+
+Use a certificate management platform to create the following types of SSL/TLS certificate files:
+
+| File type  | Description  |
+|---------|---------|
+| **.crt – certificate container file** | A `.pem`, or `.der` file, with a different extension for support in Windows Explorer.|
+| **.key – Private key file** | A key file is in the same format as a `.pem` file, with a different extension for support in Windows Explorer.|
+| **.pem – certificate container file (optional)** | Optional. A text file with a Base64-encoding of the certificate text, and a plain-text header and footer to mark the beginning and end of the certificate. |
+
+For example:
+
+1. Open the downloaded certificate file and select the **Details** tab > **Copy to file** to run the **Certificate Export Wizard**.
+
+1. In the **Certificate Export Wizard**, select **Next** > **DER encoded binary X.509 (.CER)** > and then select **Next** again.
+
+1. In the **File to Export** screen, select **Browse**, choose a location to store the certificate, and then select **Next**.
+
+1. Select **Finish** to export the certificate.
+
+> [!NOTE]
+> You may need to convert existing files types to supported types.
 
 ### Check your certificate against a sample
 
@@ -184,7 +184,7 @@ zhJp150DfUzXY+2sV7Uqnel9aEU2Hlc/63EnaoSrxx6TEYYT/rPKSYL+++8=
 -----END CERTIFICATE-----
 ```
 
-### Test certificates without a `.csr` or private key file
+### Test your SSL/TLS certificates
 
 If you want to check the information within the certificate `.csr` file or private key file, use the following CLI commands:
 
@@ -194,9 +194,43 @@ If you want to check the information within the certificate `.csr` file or priva
 
 If these tests fail, review [certificate file parameter requirements](#verify-certificate-file-parameter-requirements) to verify that your file parameters are accurate, or consult your certificate specialist.
 
+## Troubleshoot
+
+### Import a downloaded security certificate to a trusted store
+
+**Download a security certificate:**
+
+1. After [installing your OT sensor software](ot-deploy/install-software-ot-sensor.md) or [on-premises management console](ot-deploy/install-software-on-premises-management-console.md), go to the sensor's or on-premises management console's IP address in a browser.
+
+1. Select the :::image type="icon" source="media/how-to-deploy-certificates/warning-icon.png" border="false"::: **Not secure** alert in the address bar of your web browser, then select the **>** icon next to the warning message **"Your connection to this site isn't secure"**. For example:
+
+    :::image type="content" source="media/how-to-deploy-certificates/connection-is-not-secure.png" alt-text="Screenshot of web page with a Not secure warning in the address bar." lightbox="media/how-to-deploy-certificates/connection-is-not-secure.png":::
+
+1. Select the :::image type="icon" source="media/how-to-deploy-certificates/show-certificate-icon.png" border="false"::: **Show certificate** icon to view the security certificate for this website.
+
+1. In the **Certificate viewer** pane, select the **Details** tab, then select **Export** to save the file on your local machine.
+
+**Import the sensor's locally signed certificate to your certificate store:**
+
+After creating your locally signed certificate, import it to a trusted storage location. For example:
+
+1. Open the security certificate file and, in the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**.
+
+1. In **Store Location**, select **Local Machine**, then select **Next**.
+
+1. If a **User Allow Control** prompt appears, select **Yes** to allow the app to make changes to your device.
+
+1. In the **Certificate Store** screen, select **Automatically select the certificate store based on the type of certificate**, then select **Next**.
+
+1. Select **Place all certificates in the following store**, then **Browse**, and then select the **Trusted Root Certification Authorities** store. When you're done, select **Next**. For example:
+
+    :::image type="content" source="media/how-to-deploy-certificates/certificate-store-trusted-root.png" alt-text="Screenshot of the certificate store screen where you can browse to the trusted root folder." lightbox="media/how-to-deploy-certificates/certificate-store-trusted-root.png":::
+
+1. Select **Finish** to complete the import.
+
 ### Validate the certificate's common name
 
-1. To view the certificate's common name, open the certificate file and select the **Details** tab and then select the **Subject** field.
+1. To view the certificate's common name, open the certificate file and select the Details tab, and then select the **Subject** field.
 
     The certificate's common name will then appear next to **CN**.
 
@@ -213,32 +247,6 @@ If these tests fail, review [certificate file parameter requirements](#verify-ce
 1. In the hosts file, add in a line at the end of document with the sensor's IP address and the SSL certificate's common name that you copied in the previous steps. When you're done, save the changes. For example:
 
     :::image type="content" source="media/how-to-deploy-certificates/hosts-file.png" alt-text="Screenshot of the hosts file." lightbox="media/how-to-deploy-certificates/hosts-file.png":::
-
-## Deploy an SSL/TLS certificate
-
-After you've created your SSL/TLS certificate as required and have it installed on a trusted storage, deploy it to your OT sensor or on-premises management console.
-
-**To deploy a certificate on an OT sensor**:
-
-1. Sign into your OT sensor and select **System settings** > **Basic** > **SSL/TLS certificate**
-
-1. In the **SSL/TLS certificate** pane, enter your certificate name and passphrase, and then upload the files you'd created earlier.
-
-    Select **Enable certificate validation** to validate the certificate against a [CRL server](#verify-crl-server-access).
-
-1. Select **Save** to save your certificate settings.
-
-**To deploy a certificate on an on-premises management console sensor**:
-
-1. Sign into your OT sensor and select **System settings** > **SSL/TLS certificates**.
-
-1. In the **SSL/TLS Certificates** dialog, select **Add Certificate**.
-
-1. In the **Import a trusted CA-signed certificate** area, enter a certificate name and optional passphrase, and then upload the files you'd created earlier.
-
-1. Select the **Enable certificate validation** option to validate the certificate against a [CRL server](#verify-crl-server-access).
-
-1. Select **Save** to save your certificate settings.
 
 ## Troubleshoot certificate upload errors
 
