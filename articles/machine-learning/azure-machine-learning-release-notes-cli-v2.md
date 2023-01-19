@@ -10,7 +10,7 @@ ms.topic: reference
 ms.author: hancwang
 author: luigiw
 ms.reviewer: larryfr
-ms.date: 04/12/2022
+ms.date: 11/08/2022
 ---
 
 # Azure Machine Learning CLI (v2) release notes
