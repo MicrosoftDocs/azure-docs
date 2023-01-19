@@ -92,22 +92,7 @@ This table lists Splunk artifacts and links to guidance for setting up the equiv
 |Data collections methods| See [Collect data](#4-collect-data) for Azure Monitor tools designed for specific resources.| 
 
 For information on migrating Splunk SIEM artifacts, including detection rules and SOAR automation, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
-## 3. Ingest historical data
-
-To ingest data from your Splunk deployment:
-
-1. Export your historical data from Splunk, using one of the [Splunk export methods](https://docs.splunk.com/Documentation/Splunk/8.2.5/Search/Exportsearchresults). The output format should be CSV.
-1. To collect the data:
-    1. Use Azure Monitor Agent to collect the data you export from Splunk, as described in [Collect text logs with Azure Monitor Agent](../agents/data-collection-text-log.md).
-    
-       or
-    
-    1. Collect the exported data directly with the Logs Ingestion API, as described in [Send data to Azure Monitor Logs by using a REST API](../logs/tutorial-logs-ingestion-api.md). 
-
-    :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
-
-1. For a short period, you might want to run both your Azure Monitor and Splunk deployments in parallel. Use the [Log ingestion API](../logs/logs-ingestion-api-overview.md) to ingest data from Splunk. Use [Log Analytics workspace data export](../logs/logs-data-export.md) to export data out of Azure Monitor.  
-## 4. Collect data
+## 3. Collect data
 
 Azure Monitor provides tools for collecting data from log [data sources](../data-sources.md) on Azure and non-Azure resources in your environment. 
 
@@ -128,6 +113,26 @@ This table lists the tools Azure Monitor provides for collecting data from vario
 | **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) |HTTP Event Collector (HEC)| File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
 
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png" alt-text="Diagram that shows various data sources being connected to Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png":::
+
+## 4. Transition to Azure Monitor Logs
+
+A common approach is to transition gradually to Azure Monitor Logs, while maintaining historical data in Splunk. During this period, you can: 
+
+1. Use the [Log ingestion API](../logs/logs-ingestion-api-overview.md) to ingest data from Splunk. 
+1. Use [Log Analytics workspace data export](../logs/logs-data-export.md) to export data out of Azure Monitor.  
+
+To export your historical data from Splunk: 
+
+1. Use one of the [Splunk export methods](https://docs.splunk.com/Documentation/Splunk/8.2.5/Search/Exportsearchresults) to export data in CSV format.
+1. To collect the exported data:
+    1. Use Azure Monitor Agent to collect the data you export from Splunk, as described in [Collect text logs with Azure Monitor Agent](../agents/data-collection-text-log.md).
+    
+       or
+    
+    1. Collect the exported data directly with the Logs Ingestion API, as described in [Send data to Azure Monitor Logs by using a REST API](../logs/tutorial-logs-ingestion-api.md). 
+
+    :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
+
 ## Next steps
 
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
