@@ -4,7 +4,7 @@ description: Learn how to configure continuous export of security alerts and rec
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 01/19/2023
 ---
 # Continuously export Microsoft Defender for Cloud data
 
