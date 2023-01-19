@@ -16,26 +16,25 @@ ms.collection: M365-identity-device-management
 
 In this article, learn to protect your on-premises and cloud legacy authentication applications by connecting them to Azure Active Directory (Azure AD).
 
-* **Application Proxy**:
+* **[Application Proxy](#secure-hybrid-access-with-application-proxy)**:
+  * [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md)
   * Protect users, apps, and data in the cloud and on-premises 
   * Use it to publish on-premises web applications externally
-  * [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md)
-* **Secure hybrid access through Azure AD partner integrations**:
-  * Pre-built solutions
-  * Conditional Access policies per application
+  
+* **[Secure hybrid access through Azure AD partner integrations](#partner-integrations-for-apps:-on-premises-and-legacy-authentication)**:
+  * [Pre-built solutions](#secure-hybrid-access-through-azure-ad-partner-integrations)
+  * [Conditional Access policies per application](../secure-hybrid-access-integrations.md#connect-apps-to-azure-ad-with-legacy-authentication)
   * [What is Conditional Access?](../conditional-access/overview.md)
-  * Azure AD integration documentation
-
-In addition to Application Proxy, you can strengthen your security posture with Identity Protection. 
+ 
+In addition to Application Proxy, you can strengthen your security posture with [Identity Protection](../identity-protection/overview-identity-protection.md). 
 
 Learn more:
 
-* [What is Identity Protection?](../identity-protection/overview-identity-protection.md)
 * [Using Azure AD Application Proxy to publish on-premises apps for remote users](../app-proxy/what-is-application-proxy.md)
 
 ## Single sign-on and multi-factor authentication
 
-With Azure AD as an identity provider (IdP), you can use modern authentication and authorization methods like single sign-on (SSO) and Azure AD Multi-Factor Authentication (MFA) to secure legacy, on-premises applications.
+With Azure AD as an identity provider (IdP), you can use modern authentication and authorization methods like [single sign-on (SSO)](what-is-single-sign-on.md) and [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md) to secure legacy, on-premises applications.
 
 Learn more:
 
