@@ -8,15 +8,15 @@ ms.reviewer: damendo
 
 # Syslog collection with Container Insights
 
-Container Insights offers the ability to collect Syslog events from your Linux nodes in AKS. Customers can use Syslog for monitoring security and health events. 
+Container Insights offers the ability to collect Syslog events from your Linux nodes in AKS. Customers can use Syslog for monitoring security and health events, typically by ingesting syslog into SIEM systems like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
 
 ## Pre-requisites 
 
-1.	You will need to have managed identity authentication enabled on your cluster. See [migrate your AKS cluster to managed identity authentication](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-enable-existing-clusters?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: This which will create a Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>`
+1.	You will need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-enable-existing-clusters?tabs=azure-cli#migrate-to-managed-identity-authentication). ~~Note: This which will create a Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>`~~
 2.	Minimum versions of Azure components
-  - **Azure CLI**: Az CLI minimum version required is >= 2.43.0 See [Release notes & updates – Azure CLI | Microsoft Learn](https://learn.microsoft.com/en-us/cli/azure/release-notes-azure-cli#aks-1)
-  - **Azure CLI AKS-Preview Extension**: AKS-Preview CLI extension minimum version required is >= 0.5.121 See [azure-cli-extensions/HISTORY.rst at main · Azure/azure-cli-extensions (github.com)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05121)
-  - **Linux image version**: The AKS node linux image min version should be >= 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images - Azure Kubernetes Service | Microsoft Learn](https://learn.microsoft.com/en-us/azure/aks/node-image-upgrade)
+  - **Azure CLI**: Minimum version required for Azure CLI is [2.43.0 (link to release notes)](https://learn.microsoft.com/en-us/cli/azure/release-notes-azure-cli#december-06-2022). See [How to update the Azure CLI](https://learn.microsoft.com/cli/azure/update-azure-cli)) for upgrade instructions. 
+  - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [0.5.121 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05121). See [How to update extensions](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
+  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/en-us/azure/aks/node-image-upgrade) for upgrade help. 
 
 ## How to enable Syslog
   
@@ -105,8 +105,8 @@ Image 4 - TBA
 
 ## Known limitations
 
-- During Public Preview, Syslog collection can only be enabled from command line. Enablement from the Azure Portal will be added before GA release. 
-- Container restart data loss – Container restarts can lead to syslog data loss, this is a known issue and will be fixed before GA release. 
+- *Onboarding* - Syslog collection can only be enabled from command line. Enablement from the Azure Portal will be added before GA release. 
+- *Container restart data loss* – Container restarts can lead to syslog data loss, this is a known issue and will be fixed before GA release. 
 
 ## Next steps
 
