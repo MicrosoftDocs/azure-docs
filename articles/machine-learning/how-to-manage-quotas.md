@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: SimranArora904
 ms.author: siarora
+ms.reviewer: larryfr
 ms.date: 11/28/2022
 ms.topic: how-to
 ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022

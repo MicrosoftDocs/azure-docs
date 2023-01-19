@@ -7,6 +7,26 @@ ms.author: eur
 ---
 
 
+### 2023-January release
+
+#### New container versions
+
+Add support for latest model versions:
+- Custom speech-to-text 3.10.0
+- Speech-to-text 3.10.0
+- Text-to-speech 2.9.0
+
+Fix Hypothesis mode issue
+
+Fix HTTP Proxy issue
+
+Add CNV Disconnected container support to TTS Frontend
+
+Add support for these locale-voices:
+- da-DK-ChristelNeural
+- da-DK-JeppeNeural
+- en-IN-PrabhatNeural
+
 ### 2022-December release
 
 #### New container versions
@@ -75,7 +95,7 @@ Regular monthly updates including security upgrades and vulnerability fixes.
 
 #### Neural text-to-speech v2.5.0
 
-Add support for these [prebuilt neural voices](../../language-support.md?tabs=stt-tts):
+Add support for these [prebuilt neural voices](../../language-support.md?tabs=tts):
    * `az-az-babekneural`
    * `az-az-banuneural`
    * `fa-ir-dilaraneural`
