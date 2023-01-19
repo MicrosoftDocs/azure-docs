@@ -53,6 +53,8 @@ System health checks include the following:
 
 Verify that the system is up and running prior to testing the system's sanity.
 
+For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
+
 **To test the system's sanity**:
 
 1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user *support*.

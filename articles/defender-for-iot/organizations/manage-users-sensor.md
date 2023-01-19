@@ -170,7 +170,7 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
 Use the OT sensor's CLI access to define the number of maximum failed sign-ins before an OT sensor will prevent the user from signing in again from the same IP address.
 
-For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md).
+For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md) and [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
 **Prerequisites**: This procedure is available for the *cyberx* user only.
 
@@ -186,7 +186,7 @@ For more information, see [Defender for IoT CLI users and access](references-wor
 
 ## Control user session timeouts
 
-By default, on-premises users are signed out of their sessions after 30 minutes of inactivity. Admin users can use the local CLI access to either turn this feature on or off, or to adjust the inactivity thresholds. For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md).
+By default, on-premises users are signed out of their sessions after 30 minutes of inactivity. Admin users can use the local CLI access to either turn this feature on or off, or to adjust the inactivity thresholds. For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md) and [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
 > [!NOTE]
 > Any changes made to user session timeouts are reset to defaults when you [update the OT monitoring software](update-ot-software.md).
