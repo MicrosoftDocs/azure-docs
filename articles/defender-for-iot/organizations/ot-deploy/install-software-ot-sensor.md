@@ -143,6 +143,8 @@ This procedure describes how to install OT monitoring software on a sensor.
 
 Make sure that your sensor is connected to your network, and then you can sign in to your sensor via a network-connected browser. For more information, see [Activate and set up your sensor](../how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor).
 
+[!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
