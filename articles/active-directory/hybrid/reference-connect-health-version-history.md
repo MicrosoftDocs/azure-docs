@@ -12,7 +12,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 08/10/2020
+ms.date: 01/19/2023
 ms.author: billmath
 
 ms.collection: M365-identity-device-management

@@ -14,6 +14,8 @@ To access the Defender for IoT CLI, you'll need access to the sensor or on-premi
 - For OT sensors or the on-premises management console, you'll need to sign in as a [privileged user](#privileged-user-access-for-ot-monitoring).
 - For Enterprise IoT sensors, you can sign in as any user.
 
+[!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
+
 ## Privileged user access for OT monitoring
 
 Privileged users for OT monitoring are pre-defined together with the [OT monitoring software installation](../how-to-install-software.md), as part of the hardened operating system.
