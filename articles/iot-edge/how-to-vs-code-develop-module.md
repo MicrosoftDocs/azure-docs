@@ -4,7 +4,7 @@ description: Use Visual Studio Code to develop, build, and debug a module for Az
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/18/2022
+ms.date: 9/30/2022
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
@@ -13,7 +13,7 @@ zone_pivot_groups: iotedge-dev
 
 # Use Visual Studio Code to develop and debug modules for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article shows you how to use Visual Studio Code to develop and debug IoT Edge modules in multiple languages and multiple architectures. On your development computer, you can use Visual Studio Code to attach and debug your module in a local or remote module container.
 
@@ -55,7 +55,8 @@ Install [Visual Studio Code](https://code.visualstudio.com/) first and then add 
 
 ::: zone pivot="iotedge-dev-ext"
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+- [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension.
+- [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension.
 
 ::: zone-end
 
@@ -87,14 +88,14 @@ To build and deploy your module image, you need Docker to build the module image
 
 Install prerequisites specific to the language you're developing in:
 
-# [C](#tab/c)
-
-- Install [C/C++ VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-
 # [C\# / Azure Functions](#tab/csharp+azfunctions)
 
 - Install [.NET Core SDK](https://dotnet.microsoft.com/download)
 - Install [C# VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+
+# [C](#tab/c)
+
+- Install [C/C++ VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
 # [Java](#tab/java)
 
@@ -133,12 +134,6 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
 
 1. Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub. Use the following command to create an IoT Edge solution for a specified development language.
 
-    # [C](#tab/c)
-    
-    ```bash
-    iotedgedev solution init --template c
-    ```
-    
     # [C\#](#tab/csharp)
     
     ```bash
@@ -152,7 +147,13 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
     ```bash
     iotedgedev solution init --template csharpfunction
     ```
+
+    # [C](#tab/c)
     
+    ```bash
+    iotedgedev solution init --template c
+    ```
+
     # [Java](#tab/java)
     
     ```bash
@@ -206,7 +207,7 @@ After solution creation, there are four items within the solution:
 
 ::: zone pivot="iotedge-dev-ext"
 
-Use Visual Studio Code and the Azure IoT Tools. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
+Use Visual Studio Code and the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
 
 1. Select **View** > **Command Palette**.
 1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**.
@@ -310,13 +311,6 @@ Run the command **Azure IoT Edge: Add IoT Edge Module** from the command palette
 
 ::: zone pivot="iotedge-dev-cli"
 
-# [C](#tab/c)
-
-1. Create a new directory folder in the *modules* folder and change directory to the new folder. For example, `mkdir cmodule` then `cd cmodule`.
-1. Download a ZIP of the contents of the [C sample module](https://github.com/azure/azure-iot-edge-c-module) from GitHub.
-1. Extract the contents of the ZIP file into the new module directory.
-1. Update *module.json* file with correct repository. For example, if you want to use the repository defined in your environment variables, use `${CONTAINER_REGISTRY_SERVER}/cmodule`.
-
 # [C\#](#tab/csharp)
 
 1. Install the [.NET IoT Edge C# template](https://github.com/azure/dotnet-template-azure-iot-edge-module/).
@@ -350,6 +344,13 @@ Run the command **Azure IoT Edge: Add IoT Edge Module** from the command palette
     ```
 
     The command creates the module in the current directory and configures the *module.json* file with the repository information.
+
+# [C](#tab/c)
+
+1. Create a new directory folder in the *modules* folder and change directory to the new folder. For example, `mkdir cmodule` then `cd cmodule`.
+1. Download a ZIP of the contents of the [C sample module](https://github.com/azure/azure-iot-edge-c-module) from GitHub.
+1. Extract the contents of the ZIP file into the new module directory.
+1. Update *module.json* file with correct repository. For example, if you want to use the repository defined in your environment variables, use `${CONTAINER_REGISTRY_SERVER}/cmodule`.
 
 # [Java](#tab/java)
 
@@ -396,10 +397,6 @@ Run the command **Azure IoT Edge: Add IoT Edge Module** from the command palette
 
 The default module code that comes with the solution is located at the following location:
 
-# [C](#tab/c)
-
-modules/*&lt;your module name&gt;*/**main.c**
-
 # [C\#](#tab/csharp)
 
 modules/*&lt;your module name&gt;*/**Program.cs**
@@ -407,6 +404,10 @@ modules/*&lt;your module name&gt;*/**Program.cs**
 # [Azure Functions](#tab/azfunctions)
 
 modules/*&lt;your module name&gt;*/***&lt;your module name&gt;*.cs**
+
+# [C](#tab/c)
+
+modules/*&lt;your module name&gt;*/**main.c**
 
 # [Java](#tab/java)
 
@@ -671,10 +672,6 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 
 Open the module file for your development language and add a breakpoint:
 
-# [C](#tab/c)
-
-Add your breakpoint to the file `main.c`.
-
 # [C\#](#tab/csharp)
 
 Add your breakpoint to the file `Program.cs`.
@@ -682,6 +679,10 @@ Add your breakpoint to the file `Program.cs`.
 # [Azure Functions](#tab/azfunctions)
 
 Add your breakpoint to the file `<your module name>.cs`.
+
+# [C](#tab/c)
+
+Add your breakpoint to the file `main.c`.
 
 # [Java](#tab/java)
 
@@ -757,7 +758,8 @@ The Docker and Moby engines support SSH connections to containers allowing you t
           "-i",
           "filtermodule",
           "sh",
-          "-c"
+         
+ "-c"
         ],
         "debuggerPath": "~/vsdbg/vsdbg",
         "pipeCwd": "${workspaceFolder}",

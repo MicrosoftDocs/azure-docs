@@ -27,7 +27,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 1. Go to your Azure SQL logical server, select **Identity**, and then set **System assigned managed identity** to **On**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/set-identity-sql-database.png" alt-text="Screenshot of turning on the system-assigned managed identity.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/set-identity-sql-database.png" alt-text="Screenshot of turning on the system assigned managed identity.":::
 
 1. Go to **Networking**, and then select the **Allow Azure services and resources to access this server** checkbox. 
 

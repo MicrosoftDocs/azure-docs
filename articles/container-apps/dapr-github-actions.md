@@ -62,7 +62,7 @@ Replace \<Placeholders\> with your values.
 ```powershell
 $ResourceGroup="my-containerapp-store"
 $Location="canadacentral"
-$GithubUsername="<GithubUsername>"
+$GitHubUsername="<GitHubUsername>"
 $SubscriptionId="<SubscriptionId>"
 ```
 
@@ -117,7 +117,7 @@ Now that you've validated your Azure CLI setup, bring the application code to yo
     # [PowerShell](#tab/powershell)
 
     ```git
-    git clone https://github.com/$GithubUsername/container-apps-store-api-microservice.git
+    git clone https://github.com/$GitHubUsername/container-apps-store-api-microservice.git
     ```
 
     ---

@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 1/18/2022
 ms.author: wgries
 ms.subservice: files
 ---
@@ -23,8 +23,8 @@ The following Azure File Sync agent versions are supported:
 | V15.2 Release - [KB5013875](https://support.microsoft.com/topic/9159eee2-3d16-4523-ade4-1bac78469280)| 15.2.0.0 | November 21, 2022 | Supported |
 | V15.1 Release - [KB5003883](https://support.microsoft.com/topic/45761295-d49a-431e-98ec-4fb3329b0544)| 15.1.0.0 | September 19, 2022 | Supported |
 | V15 Release - [KB5003882](https://support.microsoft.com/topic/2f93053f-869b-4782-a832-e3c772a64a2d)| 15.0.0.0 | March 30, 2022 | Supported |
-| V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported |
-| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported |
+| V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported - Agent version will expire on March 20, 2023 |
+| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported - Agent version will expire on March 20, 2023 |
 
 ## Unsupported versions
 The following Azure File Sync agent versions have expired and are no longer supported:
@@ -123,7 +123,6 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 ### Agent installation and server configuration
 For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
-- A restart is required for servers that have an existing Azure File Sync agent installation if the agent version is less than version 12.0.
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent is not supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2022.
@@ -159,7 +158,7 @@ The following items don't sync, but the rest of the system continues to operate 
 - Do not store an OS or application paging file within a server endpoint location.
 
 ### Cloud endpoint
-- Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync.
+- Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share.
 - The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](file-sync-troubleshoot-sync-errors.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  

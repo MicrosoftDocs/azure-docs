@@ -8,6 +8,8 @@ ms.date: 06/20/2017
 ---
 # Extend U-SQL scripts with R code in Azure Data Lake Analytics
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 The following example illustrates the basic steps for deploying R code:
 
 * Use the `REFERENCE ASSEMBLY` statement to enable R extensions for the U-SQL Script.

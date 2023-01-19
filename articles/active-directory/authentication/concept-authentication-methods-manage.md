@@ -6,10 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 01/10/2023
 
 ms.author: justinha
 author: justinha
+ms.reviewer: jpettere
 manager: amycolannino
 
 ms.collection: M365-identity-device-management
@@ -75,7 +76,7 @@ For users who are enabled for **Mobile phone** for SSPR, the independent control
 
 Similarly, let's suppose you enable **Voice calls** for a group. After you enable it, you find that even users who aren't group members can sign-in with a voice call. In this case, it's likely those users are enabled for **Mobile phone** in the legacy SSPR policy or **Call to phone** in the legacy MFA policy.  
 
-## Migration between policies
+## Migration between policies (preview)
 
 The Authentication methods policy provides a migration path toward unified administration of all authentication methods. All desired methods can be enabled in the Authentication methods policy. Methods in the legacy MFA and SSPR policies can be disabled. Migration has three settings to let you move at your own pace, and avoid problems with sign-in or SSPR during the transition. After migration is complete, you'll centralize control over authentication methods for both sign-in and SSPR in a single place, and the legacy MFA and SSPR policies will be disabled.
 
@@ -98,9 +99,15 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 
 :::image type="content" border="true" source="./media/concept-authentication-methods-manage/reason.png" alt-text="Screenshot of reasons for rollback.":::
 
-## Known issues
+>[!NOTE]
+>After all authentication methods are fully migrated, the following elements of the legacy SSPR policy remain active:
+> - The **Number of methods required to reset** control: admins can continue to change how many authentication methods must be verified before a user can perform SSPR.
+> - The SSPR administrator policy: admins can continue to register and use any methods listed under the legacy SSPR administrator policy or methods they're enabled to use in the Authentication methods policy.
+> 
+> In the future, both of these features will be integrated with the Authentication methods policy.
 
-* Currently, all users must be enabled for at least one MFA method that isn't passwordless and the user can register in interrupt mode. Possible methods include Microsoft Authenticator, SMS, voice calls, and software OATH/mobile app code. The method(s) can be enabled in any policy. If a user is not eligible for at least one of those methods, the user will see an error during registration and when visiting My Security Info. We're working to improve this experience to enable fully passwordless configurations. 
+## Known issues
+Some customers may see the control to enable Voice call grayed out due to a licensing requirement, despite having a premium license. This is a known issue that we are actively working to fix.
 
 ## Next steps
 

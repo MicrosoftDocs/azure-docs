@@ -39,6 +39,12 @@ You can use Kusto query language (KQL) queries that transform the underlying res
 
 You can easily query across multiple resources to create a unified rich reporting experience.
 
+See also: [Log Analytics query optimization tips](../logs/query-optimization.md)
+
+See also: [Workbooks best practices and hints for logs queries](workbooks-create-workbook.md#best-practices-for-querying-logs)
+
+Tutorial: [Making resource centric log queries in workbooks](workbooks-create-workbook.md#tutorial---resource-centric-logs-queries-in-workbooks)
+
 ## Metrics
 
 Azure resources emit [metrics](../essentials/data-platform-metrics.md) that can be accessed via workbooks. Metrics can be accessed in workbooks through a specialized control that allows you to specify the target resources, the desired metrics, and their aggregation. You can then plot this data in charts or grids.
@@ -70,6 +76,8 @@ Workbooks now have support for querying from [Azure Data Explorer](/azure/data-e
 For the **Cluster Name** field, add the region name following the cluster name. An example is *mycluster.westeurope*.
 
 ![Screenshot that shows Kusto query window.](./media/workbooks-data-sources/data-explorer.png)
+
+See also: [Azure Data Explorer query best practices](/azure/data-explorer/kusto/query/best-practices)
 
 ## JSON
 
@@ -111,6 +119,10 @@ Workbooks support these merges:
 * Right anti-join
 * Union
 * Duplicate table
+
+### Merge examples
+
+[Using the Duplicate Table option to reuse queried data](workbooks-commonly-used-components.md#reuse-query-data-in-different-visualizations)
 
 ## Custom endpoint
 

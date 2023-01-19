@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/18/2022
+ms.date: 01/05/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -477,9 +477,9 @@ public class FormRecognizer {
     String modelId = "prebuilt-invoice";
     String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-    SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
+    SyncPoller < OperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
 
-    AnalyzeResult analyzeInvoiceResult = analyzeInvoicesPoller.getFinalResult();
+    AnalyzeResult analyzeInvoiceResult = analyzeInvoicePoller.getFinalResult();
 
     for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
       AnalyzedDocument analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
