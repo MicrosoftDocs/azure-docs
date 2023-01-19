@@ -227,7 +227,7 @@ The following table captures the privileges that you need to assign to the user 
 | `Global.Manage custom attributes` | `Datastore.AllocateSpace` |
 | `Global.Set custom attribute` | `VirtualMachine.Config.ChangeTracking` |
 | `Host.Local operations.Create virtual machine` | `VirtualMachine.State.RemoveSnapshot` |
-| `Network. Assign network` | `VirtualMachine.State.CreateSnapshot`` |
+| `Network. Assign network` | `VirtualMachine.State.CreateSnapshot` |
 | `Resource. Assign virtual machine to resource pool` | `VirtualMachine.Provisioning.DiskRandomRead` |
 | `Virtual machine.Configuration.Add new disk` | `VirtualMachine.Interact.PowerOff` |
 | `Virtual machine.Configuration.Advanced` | `VirtualMachine.Inventory.Create` |
