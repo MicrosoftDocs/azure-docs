@@ -23,7 +23,7 @@ In this article, learn to protect your on-premises and cloud legacy authenticati
   
 * **[Secure hybrid access through Azure AD partner integrations](#partner-integrations-for-apps-on-premises-and-legacy-authentication)**:
   * [Pre-built solutions](#secure-hybrid-access-through-azure-ad-partner-integrations)
-  * [Conditional Access policies per application](../secure-hybrid-access-integrations#connect-apps-to-azure-ad-with-legacy-authentication)
+  * [Conditional Access policies per application](../secure-hybrid-access-integrations?#connect-apps-to-azure-ad-with-legacy-authentication)
   * [What is Conditional Access?](../conditional-access/overview.md)
  
 In addition to Application Proxy, you can strengthen your security posture with [Identity Protection](../identity-protection/overview-identity-protection.md). 
@@ -65,7 +65,7 @@ Microsoft partners with various companies that deliver pre-built solutions for o
 
 ### Secure hybrid access through Azure AD partner integrations
 
-The following partners offer solutions to support [Conditional Access policies per application](../secure-hybrid-access-integrations#connect-apps-to-azure-ad-with-legacy-authentication). Use the tables in the following two sections to learn about the partners and Azure AD integration documentation.
+The following partners offer solutions to support [Conditional Access policies per application](../secure-hybrid-access-integrations?#connect-apps-to-azure-ad-with-legacy-authentication). Use the tables in the following two sections to learn about the partners and Azure AD integration documentation.
 
 |Partner|Integration documentation|
 |---|---|
@@ -89,5 +89,5 @@ The following partners offer solutions to support [Conditional Access policies p
 |Fortinet, Inc.|[Tutorial: Azure AD SSO integration with FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md)|
 |Palo Alto Networks|[Tutorial: Azure AD SSO integration with Palo Alto Networks Admin UI](../saas-apps/paloaltoadmin-tutorial.md)|
 |Pulse Secure, Acquired by Ivanti|[Tutorial: Azure AD SSO integration with Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)</br>[Tutorial: Azure AD SSO integration with Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)</br>Pulse Secure is part of Ivanti. See, [Ivanti, Pulse Secure](https://www.ivanti.com/company/history/pulse-secure?psredirect)|
-|Zsclaer, Inc.|[Tutorial: Integrate Zscaler Private Access with Azure AD](../saas-apps/zscalerprivateaccess-tutorial.md)|
+|Zscaler, Inc.|[Tutorial: Integrate Zscaler Private Access with Azure AD](../saas-apps/zscalerprivateaccess-tutorial.md)|
 
