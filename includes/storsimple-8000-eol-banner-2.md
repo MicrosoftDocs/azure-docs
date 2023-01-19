@@ -7,4 +7,6 @@ ms.author: alkohli
 ---
 
 > [!CAUTION]
-> **ACTION REQUIRED:** StorSimple Data Manager, StorSimple Device Manager, StorSimple 1200, and StorSimple 8000 have reached their end of support. End of support details were published in 2019 on the [Microsoft Lifecycle Policy](../lifecycle/products/?terms=storsimple) and [Azure Communications](https://azure.microsoft.com/updates/storsimpleeol/) pages. Additional notifications were also sent via email and posted on the [Azure Portal](https://ms.portal.azure.com/#home) and [StorSimple documentation](storsimple/storsimple-overview.md) site. Contact [Microsoft Support](https://azure.microsoft.com/support/create-ticket/) for additional details.
+> **ACTION REQUIRED:** StorSimple Data Manager, StorSimple Device Manager, StorSimple 1200, and StorSimple 8000 have reached their end of support. End of support details were published in 2019 on the [Microsoft Lifecycle Policy](../articles/lifecycle/products/?terms=storsimple) and [Azure Communications](https://azure.microsoft.com/updates/storsimpleeol/) pages. Additional notifications were also sent via email and posted on the [Azure Portal](https://ms.portal.azure.com/#home) and [StorSimple documentation](../articles/storsimple/storsimple-overview.md) site. Contact [Microsoft Support](https://azure.microsoft.com/support/create-ticket/) for additional details.
+
+(../articles/storage/files/storage-files-migration-storsimple-8000.md).
