@@ -46,7 +46,7 @@ To configure the integration of Radancy's Employee Referrals into Azure AD, you 
 1. In the **Add from the gallery** section, type **Radancy's Employee Referrals** in the search box.
 1. Select **Radancy's Employee Referrals** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Radancy's Employee Referrals
 
@@ -58,7 +58,7 @@ To configure and test Azure AD SSO with Radancy's Employee Referrals, perform th
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Radancy's Employee Referrals SSO](#configure-radancys-employee-referrals-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Radancy's Employee Referrals test user](#create-radancys-employee-referrals-test-user)** - to have a counterpart of B.Simon in Radancy's Employee Referrals that is linked to the Azure AD representation of user.
+    1. **[Create Radancy's Employee Referrals test user](#create-radancys-employee-referrals-test-user)** - to have a counterpart of B.Simon in Radancy's Employee Referrals that are linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Screenshot shows the image of token attributes configuration.](common/edit-attribute.png "Image")
 
-1. In addition to above, Radancy's Employee Referrals application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
+1. In addition to above, Radancy's Employee Referrals application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
 	| Name | Source Attribute|
 	| ---------------| --------- |
@@ -141,11 +141,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     
     ![Screenshot shows how to upload the Federation Metadata.](media/radancys-employee-referrals-tutorial/certificate.png "Federation")
 
-    1. In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you've copied from the Azure portal.
+    1. In the **Entity ID** textbox, paste the **Azure AD Identifier** value, which you've copied from the Azure portal.
 
-    1. In the **SSO-service URL** textbox, paste the **Login URL** value which you've copied from the Azure portal.
+    1. In the **SSO-service URL** textbox, paste the **Login URL** value, which you've copied from the Azure portal.
 
-    1. In the **Signing certificate** textbox, paste the **Federation Metadata XML** file which you've downloaded from the Azure portal.
+    1. In the **Signing certificate** textbox, paste the **Federation Metadata XML** file, which you've downloaded from the Azure portal.
 
     1. **Save configuration** and verify the setup.
 
