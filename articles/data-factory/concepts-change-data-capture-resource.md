@@ -1,7 +1,7 @@
 ---
-title: Change Data Capture Artifact
+title: Change Data Capture Resource
 titleSuffix: Azure Data Factory
-description: Learn more about the Change Data Capture artifact in Azure Data Factory.
+description: Learn more about the Change Data Capture resource in Azure Data Factory.
 author: n0elleli
 ms.author: noelleli
 ms.reviewer:
@@ -20,7 +20,7 @@ Adapting to the cloud-first big data world can be incredibly challenging for dat
 
 Azure Data Factory is introducing a new mechanism to make the life of a data engineer easier. 
 
-By automatically detecting data changes at the source without requiring complex designing or coding, ADF is making it a breeze to scale these processes. Change Data Capture will now exist as a **new native top-level artifact** in the Azure Data Factory studio where data engineers can quickly configure continuously running jobs to process big data at scale with extreme efficiency. 
+By automatically detecting data changes at the source without requiring complex designing or coding, ADF is making it a breeze to scale these processes. Change Data Capture will now exist as a **new native top-level resource** in the Azure Data Factory studio where data engineers can quickly configure continuously running jobs to process big data at scale with extreme efficiency. 
 
 The new Change Data Capture object in ADF allows for full fidelity change data capture that continuously runs in near real time through a guided configuration experience. 
 
@@ -50,10 +50,13 @@ The new Change Data Capture object in ADF allows for full fidelity change data c
 * Parquet
 
 ## Known limitations
-* Continuous streaming is coming soon.
+* Currently, when creating source/target mappings, each source and target is only allowed to be used once. 
+* Continuous, real-time streaming is coming soon.
 * Allow schema drift is coming soon.
+
+For more information on known limitations and troubleshooting assistance, please reference [this troubleshooting guide](change-data-capture-troubleshoot.md).
+
 
 
 ## Next steps
-- [Learn how to set up a change data capture artifact](how-to-change-data-capture-artifact.md).
-
+- [Learn how to set up a change data capture resource](how-to-change-data-capture-resource.md).
