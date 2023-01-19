@@ -39,7 +39,7 @@ For help with choosing algorithms, see
 | Classification | Component that executes an AutoML Classification task model training in a pipeline. |  [AutoML Classification](classification.md) |
 | Regression | Predict a value | [AutoML Regression](regression.md) |
 | Forecasting | Predict a value | [AutoML Forecasting](forecasting.md) |
-| Computer Vision | Image data preprocessing and Image recognition related components. |  [Image Object Detection](image-object-detection.md) <br/> [Image Classification](automl-image-classification.md) <br/> [Image Classification Multilabel](image-classification-multilabel.md) <br/> [Image Instance Segmentation](image-instance-segmentation.md) |
+| Computer Vision | Image data preprocessing and Image recognition related components. |  [Image Object Detection](image-object-detection.md) <br/> [Image Classification](image-classification.md) <br/> [Image Classification Multilabel](image-classification-multilabel.md) <br/> [Image Instance Segmentation](image-instance-segmentation.md) |
 | Multilabel Text Classification | Component that executes an AutoML Multilabel Text Classification task model training in a pipeline. | [AutoML Multilabel Text Classification](text-classification-multilabel.md)|
 | Text Classification | Component that executes an AutoML Text Classification Model | [AutoML Text Classification](text-classification.md)|
 | Text Ner | Component that executes an AutoML Text NER (Named Entity Recognition) | [AutoML Text Ner](text-ner.md)|
