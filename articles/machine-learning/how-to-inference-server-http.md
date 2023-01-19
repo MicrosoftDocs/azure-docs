@@ -147,7 +147,8 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
    1. Start the inference server using CLI.
    1. Start debugging session in VS Code.
       1. In VS Code, select "Run" -> "Start Debugging"
-      1. Enter the process ID using the logs (from the inference server) displayed in CLI.
+      1. Enter the process ID using the logs (from the inference server) displayed in the CLI.
+        :::image type="content" source="./media/how-to-inference-server-http/debug-attach-pid.png" alt-text="Screenshot of the CLI which shows the process ID of the server":::
 
 
 -  Set up the `launch.json` in the VS Code and starts the AzureML Inference HTTP Server within VS Code (Launch mode).
