@@ -23,7 +23,7 @@ THIM defines the Azure security baseline for Azure Confidential computing (ACC) 
 
 ### The "next update" date of the Azure-internal caching service API, used by Microsoft Azure Attestation, seems to be out of date. Is it still in operation and can it be used?
 
-The "tcbinfo" field contains the TCB information. The THIM service by default provides an older tcbinfo -- updating to the latest tcbinfo from Intel would cause attestation failures for those customers who haven't migrated to the latest Intel SDK, and could results in outages.
+The "tcbinfo" field contains the TCB information. The THIM service by default provides an older tcbinfo--updating to the latest tcbinfo from Intel would cause attestation failures for those customers who haven't migrated to the latest Intel SDK, and could results in outages.
 
 Open Enclave SDK and Microsoft Azure Attestation don't look at nextUpdate date, however, and will pass attestation. 
 
@@ -39,7 +39,7 @@ Azure Data Center Attestation Primitives (DCAP), a replacement for Intel Quote P
 
 ### Why are there different baselines between THIM and Intel?
 
-THIM and Intel provide different baseline levels of the trusted computing base. While Intel can be viewed as having the latest and greatest, this imposes requirements upon the consumer to ensure that all the requirements are satisfied, thus leading to a potential breakage of customers if they haven't updated to the specified requirements. THIM takes a slower approach to updating the TCB baseline to allow customers to make the necessary changes at their own pace. This approach, while does provide an older TCB baseline, ensures that customers will not break if they haven't been able to meet the requirements of the new TCB baseline. This reason is why THIM's TCB baseline is of a different version from Intel's. We're customer-focused and want to empower the customer to meet the requirements imposed by the new TCB baseline on their pace, instead of forcing them to update and causing them a disruption that would require reprioritization of their workstreams.
+THIM and Intel provide different baseline levels of the trusted computing base. While Intel can be viewed as having the latest and greatest, this imposes requirements upon the consumer to ensure that all the requirements are satisfied, thus leading to a potential breakage of customers if they haven't updated to the specified requirements. THIM takes a slower approach to updating the TCB baseline to allow customers to make the necessary changes at their own pace. This approach, while does provide an older TCB baseline, ensures that customers won't break if they haven't been able to meet the requirements of the new TCB baseline. This reason is why THIM's TCB baseline is of a different version from Intel's. We're customer-focused and want to empower the customer to meet the requirements imposed by the new TCB baseline on their pace, instead of forcing them to update and causing them a disruption that would require reprioritization of their workstreams.
 
 THIM is also introducing a new feature that will enable customers to select their own custom baseline. This feature will allow customers to decide between the newest TCB or using an older TCB than provided by Intel, enabling customers to ensure that the TCB version to enforce is compliant with their specific configuration. This new feature will be reflected in a future iteration of the THIM documentation.
 
@@ -47,7 +47,7 @@ THIM is also introducing a new feature that will enable customers to select thei
 
 The certificates are fetched and cached in THIM service using platform manifest and indirect registration. As a result, Key Caching Policy will be set to never store platform root keys for a given platform. Direct calls to the Intel service from inside the VM are expected to fail.
 
-To retrieve the certificate, you must install the [Azure DCAP library](#what-is-the-azure-dcap-library) which replaces Intel QPL. This library directs the fetch requests to THIM service running in Azure cloud. For the downloading the latest DCAP packages, please see: [Where can I download the latest DCAP packages?](#where-can-i-download-the-latest-dcap-packages)
+To retrieve the certificate, you must install the [Azure DCAP library](#what-is-the-azure-dcap-library) that replaces Intel QPL. This library directs the fetch requests to THIM service running in Azure cloud. For the downloading the latest DCAP packages, see: [Where can I download the latest DCAP packages?](#where-can-i-download-the-latest-dcap-packages)
 
 ### How do I request collateral in a Confidential Virtual Machine (CVM)?
 
@@ -75,7 +75,7 @@ curl GET "http://169.254.169.254/metadata/THIM/amd/certification" -H "Metadata: 
 
 | Name | Description |
 |--|--|
-| 200 OK | Lists available collateral in http body within JSON format. For details on the keys in the JSON, please see Definitions |
+| 200 OK | Lists available collateral in http body within JSON format. For details on the keys in the JSON, see Definitions |
 | Other Status Codes | Error response describing why the operation failed |
 
 #### Definitions
@@ -86,9 +86,9 @@ curl GET "http://169.254.169.254/metadata/THIM/amd/certification" -H "Metadata: 
 | tcbm | Trusted Computing Base |
 | certificateChain | Includes the AMD SEV Key (ASK) and AMD Root Key (ARK) certificates |
 
-### How do I request AMD collateral in an Azure Kuberenetes Service (AKS) Container on a Confidential Virtual Machine (CVM) node?
+### How do I request AMD collateral in an Azure Kubernetes Service (AKS) Container on a Confidential Virtual Machine (CVM) node?
 
-Follow the steps below for requesting AMD collateral in a confidential container. 
+Follow the steps for requesting AMD collateral in a confidential container. 
 1. Start by creating an AKS cluster on CVM mode or adding a CVM node pool to the existing cluster.
     1. Create an AKS Cluster on CVM node.
        1. Create a resource group in one of the CVM supported regions.
@@ -116,7 +116,7 @@ Follow the steps below for requesting AMD collateral in a confidential container
     | -- | -- | -- | -- | -- | 
     | aks-nodepool1-31718369-0 | Ready | agent | 6m44s | v1.12.8 | 
 
-2. Once the AKS cluster is created, create a curl.yaml file with the following content. It defines a job that runs a curl container to fetch AMD collateral from the THIM endpoint. For more information about Kubernetes Jobs, please see [Kuberenetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/job/). 
+2. Once the AKS cluster is created, create a curl.yaml file with the following content. It defines a job that runs a curl container to fetch AMD collateral from the THIM endpoint. For more information about Kubernetes Jobs, please see [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/job/). 
 
     **curl.yaml**
     ```bash
@@ -156,7 +156,7 @@ Follow the steps below for requesting AMD collateral in a confidential container
     **Example Response**
     | Name | Ready | Status | Restarts | Age |
     | -- | -- | -- | -- | -- |
-    | Curl-w7nt8  | 0/1 | Completed | 0 | 72s |
+    | Curl-w7nt8  | 0/1 | Completed | 0 | 72 s |
 5. Run the following command to get the job logs and validate if it is working. A successful output should include vcekCert, tcbm and certificateChain.
     ```bash
     kubectl logs job/curl  
