@@ -10,7 +10,8 @@ ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/04/2021
+ms.date: 10/06/2022
+ms.custom: engagement-fy23
 ms.author: harshacs
 
 ---
@@ -329,7 +330,7 @@ To update parameters via command-line tools, use the same command used to enable
 
 - [Download &amp; view Flow Logs from the portal](./network-watcher-nsg-flow-logging-portal.md#download-flow-log)
 - [Read Flow logs using PowerShell functions](./network-watcher-read-nsg-flow-logs.md)
-- [Export NSG Flow Logs to Splunk](https://www.splunk.com/en_us/blog/tips-and-tricks/splunking-microsoft-azure-network-watcher-data.html)
+- [Export NSG Flow Logs to Splunk](https://www.splunk.com/en_us/blog/platform/splunking-azure-nsg-flow-logs.html)
 
 While flow logs target NSGs, they are not displayed the same as the other logs. Flow logs are stored only within a storage account and follow the logging path shown in the following example:
 

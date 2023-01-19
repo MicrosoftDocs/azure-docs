@@ -1,21 +1,19 @@
 ---
-title: How to use the 'blobfuse2 mount all' command to mount all blob containers in a storage account as a Linux file system (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
-description: Learn how to use the 'blobfuse2 mount all' all command to mount all blob containers in a storage account as a Linux file system (preview).
+title: How to use the 'blobfuse2 mount all' command to mount all blob containers in a storage account as a Linux file system
+titleSuffix: Azure Storage
+description: Learn how to use the 'blobfuse2 mount all' all command to mount all blob containers in a storage account as a Linux file system.
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 12/02/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# How to use the BlobFuse2 mount all command to mount all blob containers in a storage account as a Linux file system (preview)
+# How to use the BlobFuse2 mount all command to mount all blob containers in a storage account as a Linux file system
 
 Use the `blobfuse2 mount all` command to mount all blob containers in a storage account as a Linux file system. Each container will be mounted to a unique subdirectory under the path specified. The subdirectory names will correspond to the container names.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Syntax
 
@@ -87,6 +85,6 @@ Mounting container : blobfuse2b to path : bf2all/blobfuse2b
 
 ## See also
 
-- [The Blobfuse2 unmount all command (preview)](blobfuse2-commands-unmount-all.md)
-- [The Blobfuse2 mount command (preview)](blobfuse2-commands-mount.md)
-- [The Blobfuse2 unmount command (preview)](blobfuse2-commands-unmount.md)
+- [The Blobfuse2 unmount all command](blobfuse2-commands-unmount-all.md)
+- [The Blobfuse2 mount command](blobfuse2-commands-mount.md)
+- [The Blobfuse2 unmount command](blobfuse2-commands-unmount.md)

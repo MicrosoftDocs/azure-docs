@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up the Azure Machine Learning Visual Studio Code extension.
 services: machine-learning
 author: ssalgadodev
-ms.author: ssalgado
+ms.author: tbombach
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021

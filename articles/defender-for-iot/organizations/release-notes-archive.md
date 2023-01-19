@@ -11,7 +11,7 @@ ms.date: 08/07/2022
 
 This article serves as an archive for features and enhancements released for Microsoft Defender for IoT for organizations more than nine months ago.
 
-For more recent updates, see [What's new in Microsoft Defender for IoT?](release-notes.md).
+For more recent updates, see [What's new in Microsoft Defender for IoT?](whats-new.md).
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 

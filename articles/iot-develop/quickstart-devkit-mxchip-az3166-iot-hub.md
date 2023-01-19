@@ -204,7 +204,7 @@ To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi
     |Constant name|Value|
     |-------------|-----|
     |`IOT_HUB_HOSTNAME` |{*Your Iot hub hostName value*}|
-    |`IOT_DPS_REGISTRATION_ID` |{*Your Device ID value*}|
+    |`IOT_HUB_DEVICE_ID` |{*Your Device ID value*}|
     |`IOT_DEVICE_SAS_KEY` |{*Your Primary key value*}|
 
 1. Save and close the file.

@@ -3,7 +3,7 @@ title: Enable pull request annotations in GitHub or in Azure DevOps
 description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
 ms.custom: ignite-2022
-ms.date: 10/30/2022
+ms.date: 11/07/2022
 ---
 
 # Enable pull request annotations in GitHub and Azure DevOps
@@ -111,9 +111,9 @@ Before you can enable pull request annotations, your main branch must have enabl
 
 1. Locate the Build Validation section. 
 
-1. Ensure the CI Build is toggled to **On**.
+1. Ensure the build validation for your repository is toggled to **On**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/build-validation.png" alt-text="Screenshot that shows where the CI Build toggle is located.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/build-validation.png" alt-text="Screenshot that shows where the CI Build toggle is located." lightbox="media/tutorial-enable-pr-annotations/build-validation.png":::
 
 1. Select **Save**. 
 

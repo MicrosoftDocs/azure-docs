@@ -150,6 +150,6 @@ When an alert is raised, Application Insights can automatically create a work it
 Getting started with Application Insights is easy. The main options are:
 
 * [IIS servers](./status-monitor-v2-overview.md)
-* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-in-process-agent.md) apps, and [Node.js](./nodejs.md) and a host of [other types](./platforms.md). 
+* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-in-process-agent.md) apps, and [Node.js](./nodejs.md) and a host of [other types](./app-insights-overview.md#supported-languages). 
 * Instrument [any web page](./javascript.md) by adding a short code snippet.
 

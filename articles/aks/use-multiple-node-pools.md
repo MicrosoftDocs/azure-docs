@@ -48,7 +48,7 @@ To get started, create an AKS cluster with a single node pool. The following exa
 # Create a resource group in East US
 az group create --name myResourceGroup --location eastus
 
-# Create a basic single-node AKS cluster
+# Create a basic single-node pool AKS cluster
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -124,6 +124,11 @@ The following example output shows that *mynodepool* has been successfully creat
 
 The ARM64 processor provides low power compute for your Kubernetes workloads. To create an ARM64 node pool, you will need to choose a [Dpsv5][arm-sku-vm1], [Dplsv5][arm-sku-vm2] or [Epsv5][arm-sku-vm3] series Virtual Machine.
 
+#### Limitations
+
+* ARM64 node pools are not supported on Defender-enabled clusters
+* FIPS-enabled node pools are not supported with ARM64 SKUs 
+
 Use `az aks nodepool add` command to add an ARM64 node pool.
 
 ```azurecli
@@ -132,27 +137,27 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name armpool \
     --node-count 3 \
-    --node-vm-size Standard_Dpds_v5
+    --node-vm-size Standard_D2pds_v5
 ```
 
 ### Add a Mariner node pool
 
 Mariner is an open-source Linux distribution available as an AKS container host. It provides high reliability, security, and consistency. Mariner only includes the minimal set of packages needed for running container workloads, which improves boot times and overall performance.
 
-You can add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
+You can add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku CBLMariner`.
 
 ```azurecli
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
-    --os-sku mariner
+    --os-sku CBLMariner
 ```
 
 ### Migrate Ubuntu nodes to Mariner
 
 Use the following instructions to migrate your Ubuntu nodes to Mariner nodes.
 
-1. Add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
+1. Add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku CBLMariner`.
 
 > [!NOTE]
 > When adding a new Mariner node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.

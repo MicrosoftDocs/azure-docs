@@ -11,7 +11,7 @@ ms.author: pdecarlo
 ---
 # Run Azure IoT Edge on Ubuntu Virtual Machines by using Bicep
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](includes/iot-edge-version-201806-or-202011.md)]
 
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud.
 

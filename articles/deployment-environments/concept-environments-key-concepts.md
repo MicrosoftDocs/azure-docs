@@ -11,51 +11,65 @@ ms.date: 10/12/2022
 
 # Key concepts for new Azure Deployment Environments Preview users
 
-Learn about the key concepts and components of Azure Deployment Environments Preview. This knowledge can help you to more effectively deploy environments for your scenarios.
+Learn about the key concepts and components of Azure Deployment Environments Preview. This knowledge can help you more effectively deploy environments for your scenarios.
 
 > [!IMPORTANT]
 > Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Dev centers
 
-A dev center is a collection of projects that require similar settings. Dev centers enable dev infrastructure managers to manage the infrastructure-as-code templates made available to the projects using Catalogs, and configure the different types of environments, various development teams can create, using Environment Types.
+A dev center is a collection of projects that require similar settings. Dev centers enable development infrastructure (dev infra) managers to:
+
+- Use catalogs to manage infrastructure as code (IaC) templates that are available to the projects.
+- Use environment types to configure the types of environments that development teams can create.
 
 ## Projects
 
-A project is the point of access for the development team members. When you associate a project with a dev center, all the settings at the dev center level will be automatically applied to the project. Each project can be associated with only one dev center. Dev infra admins can configure different types of environments made available for the project by specifying the environment types appropriate for the specific development team.
+A project is the point of access for the development team. When you associate a project with a dev center, all the settings for the dev center are automatically applied to the project. 
+
+Each project can be associated with only one dev center. Dev infra admins can configure environments for a project by specifying which environment types are appropriate for the development team.
 
 ## Environments
 
-Environment is a collection of Azure resources on which your application is deployed. For example, to deploy a web application, you might create an environment consisting of an [App Service](../app-service/overview.md), [Key Vault](../key-vault/general/basic-concepts.md), [Cosmos DB](../cosmos-db/introduction.md) and a [Storage account](../storage/common/storage-account-overview.md). An environment could consist of both Azure PaaS and IaaS resources such as AKS Cluster, App Service, VMs, databases, etc.
+An environment is a collection of Azure resources on which your application is deployed. For example, to deploy a web application, you might create an environment that consists of [Azure App Service](../app-service/overview.md), [Azure Key Vault](../key-vault/general/basic-concepts.md), [Azure Cosmos DB](../cosmos-db/introduction.md), and a [storage account](../storage/common/storage-account-overview.md). An environment could consist of both Azure platform as a service (PaaS) and infrastructure as a service (IaaS) resources such as an Azure Kubernetes Service (AKS) cluster, virtual machines, and databases.
 
 ## Identities
 
-[Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) are used in Azure Deployment Environments to provide elevation-of-privilege capabilities. Identities will help provide self-serve capabilities to your development teams without them needing any access to the target subscriptions in which the Azure resources are created. The managed identity attached to the dev center needs to be granted appropriate access to connect to the Catalogs and should be granted 'Owner' access to the target deployment subscriptions configured at the project level. Azure Deployment Environments service will use the specific deployment identity to perform the deployment on behalf of the developer.
+in Azure Deployment Environments, you use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to provide elevation-of-privilege capabilities. Identities can help you provide self-serve capabilities to your development teams without giving them access to the target subscriptions in which the Azure resources are created. 
+
+The managed identity that's attached to the dev center needs to be granted appropriate access to connect to the catalogs. You should grant owner access to the target deployment subscriptions that are configured at the project level. The Azure Deployment Environments service will use the specific managed identity to perform the deployment on behalf of the developer.
 
 ## Dev center environment types
 
-You can use environment types to define the type of environments the development teams can create, for example, dev, test, sandbox, pre-production, or production. Azure Deployment Environments provides the flexibility to name the environment types as per the nomenclature used in your enterprise. When you create an environment type, you'll be able to configure and apply different settings for different environment types based on specific needs of the development teams.
+You can define the types of environments that development teams can create: for example, dev, test, sandbox, pre-production, or production. Azure Deployment Environments provides the flexibility to name the environment types according to the nomenclature that your enterprise uses. You can configure settings for various environment types based on the specific needs of the development teams.
 
 ## Project environment types 
 
-Project Environment Types are a subset of the environment types configured per dev center and help you pre-configure the different types of environments specific development teams can create. You'll be able to configure the target subscription in which Azure resources are created per project per environment type. Project environment types will allow you to automatically apply the right set of policies on different environments and help abstract the Azure governance related concepts from your development teams. The service also provides the flexibility to pre-configure the [managed identity](concept-environments-key-concepts.md#identities) that will be used to perform the deployment and the access levels the development teams will get after a specific environment is created.
+Project environment types are a subset of the environment types that you configure for the dev center. They help you preconfigure the types of environments that specific development teams can create. You can configure the target subscription in which Azure resources are created per project and per environment type. 
+
+Project environment types allow you to automatically apply the right set of policies on environments and help abstract the Azure governance-related concepts from your development teams. The service also provides the flexibility to preconfigure:
+
+- The [managed identity](concept-environments-key-concepts.md#identities) that will be used to perform the deployment.
+- The access levels that the development teams will get after a specific environment is created.
 
 ## Catalogs
 
-Catalogs help you provide a set of curated infra-as-code templates for your development teams to create Environments. You can attach either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/azure/devops/repos/get-started/what-is-repos) as a Catalog. Deployment Environments will scan through the specified folder of the repository to find [Catalog Items](#catalog-items), and make them available for use by all the Projects associated with the dev center.
+Catalogs help you provide a set of curated IaC templates for your development teams to create environments. You can attach either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/azure/devops/repos/get-started/what-is-repos) as a catalog. 
 
-## Catalog Items
+Deployment environments scan the specified folder of the repository to find [catalog items](#catalog-items). The environments then make those catalog items available to all the projects associated with the dev center.
 
-A Catalog Item is a combination of an infra-as-code template and a manifest file. The environment definition will be defined in the template and the manifest will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to create environments in Azure.
+## Catalog items
+
+A catalog item is a combination of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Your development teams will use the items that you provide in the catalog to create environments in Azure.
 
 > [!NOTE]
-> During public preview, Azure Deployments Environments uses Azure Resource Manager (ARM) templates.
+> During public preview, Azure Deployment Environments uses Azure Resource Manager (ARM) templates.
 
-## Azure Resource Manager (ARM) templates
+## ARM templates
 
-[Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md) help you implement the infrastructure as code for your Azure solutions by defining the infrastructure and configuration for your project, the resources to deploy, and the properties of those resources.
+[ARM templates](../azure-resource-manager/templates/overview.md) help you implement the IaC for your Azure solutions by defining the infrastructure and configuration for your project, the resources to deploy, and the properties of those resources.
 
-[Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md) describes the structure of an Azure Resource Manager template, the different sections of a template, and the properties that are available in those sections.
+To learn about the structure of an ARM template, the sections of a template, and the properties that are available in those sections, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 ## Next steps
 

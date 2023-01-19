@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 12/27/2022
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp

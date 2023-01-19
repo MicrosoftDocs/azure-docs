@@ -29,7 +29,7 @@ az ppg create \
    -n myPPG \
    -g myPPGGroup \
    -l eastus \
-   -t standard 
+   -t standard \
    --intent-vm-sizes Standard_E64s_v4 Standard_M416ms_v2 \
    -z 1
 ```

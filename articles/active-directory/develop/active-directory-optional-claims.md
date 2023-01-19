@@ -305,9 +305,9 @@ This section covers the configuration options under optional claims for changing
    | **name:** | Must be "groups" |
    | **source:** | Not used. Omit or specify null |
    | **essential:** | Not used. Omit or specify false |
-   | **additionalProperties:** | List of additional properties.  Valid options are "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **additionalProperties:** | List of additional properties.  Valid options are "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" and “cloud_displayname” |
 
-   In additionalProperties only one of "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" are required.  If more than one is present, the first is used and any others ignored.
+   In additionalProperties only one of "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" are required.  If more than one is present, the first is used and any others ignored. Additionally you can add “cloud_displayname” to emit display name of the cloud group. Note, that this option works only when `“groupMembershipClaims”` is set to `“ApplicationGroup”`.
 
    Some applications require group information about the user in the role claim.  To change the claim type from a group claim to a role claim, add "emit_as_roles" to additional properties.  The group values will be emitted in the role claim.
 
@@ -361,6 +361,33 @@ This section covers the configuration options under optional claims for changing
                 "additionalProperties": [
                     "netbios_domain_and_sam_account_name",
                     "emit_as_roles"
+                ]
+            }
+        ]
+    }
+    ```
+3) Emit group names in the format of samAccountName for on-prem synced groups and display name for cloud groups in SAML and OIDC ID Tokens for the groups assigned to the application:
+    
+    **Application manifest entry:**
+
+    ```json
+    "groupMembershipClaims": "ApplicationGroup",
+    "optionalClaims": {
+        "saml2Token": [
+            {
+                "name": "groups",
+                "additionalProperties": [
+                    "sam_account_name",
+                    "cloud_displayname"
+                ]
+            }
+        ],
+        "idToken": [
+            {
+                "name": "groups",
+                "additionalProperties": [
+                    "sam_account_name",
+                    "cloud_displayname"
                 ]
             }
         ]

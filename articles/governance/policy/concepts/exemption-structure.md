@@ -1,7 +1,7 @@
 ---
 title: Details of the policy exemption structure
 description: Describes the policy exemption definition used by Azure Policy to exempt resources from evaluation of initiatives or definitions.
-ms.date: 07/09/2022
+ms.date: 11/03/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
@@ -14,6 +14,10 @@ toward overall compliance, but can't be evaluated or have a temporary waiver. Fo
 see [Understand scope in Azure Policy](./scope.md). Azure Policy exemptions only work with
 [Resource Manager modes](./definition-structure.md#resource-manager-modes) and don't work with
 [Resource Provider modes](./definition-structure.md#resource-provider-modes).
+
+> [!NOTE]
+> By design, Azure Policy exempts all resources under the `Microsoft.Resources` resource provider (RP) from
+policy evaluation with the exception of subscriptions and resource groups, which can be evaluated.
 
 You use JavaScript Object Notation (JSON) to create a policy exemption. The policy exemption contains elements for:
 

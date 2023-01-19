@@ -5,7 +5,7 @@ services: lab-services
 author: nicolela
 ms.topic: how-to
 ms.date: 01/27/2022
-ms.author: nicolela
+ms.service: lab-services
 ---
 
 # Connect to a VM using Remote Desktop Protocol on a Chromebook

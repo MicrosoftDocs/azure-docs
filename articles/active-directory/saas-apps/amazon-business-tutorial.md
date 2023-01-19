@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -20,6 +20,8 @@ In this tutorial, you'll learn how to integrate Amazon Business with Azure Activ
 * Control in Azure AD who has access to Amazon Business.
 * Enable your users to be automatically signed-in to Amazon Business with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5cbi8]
 
 ## Prerequisites
 
@@ -190,7 +192,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Amazon Business SSO
 
-1. In a different web browser window, sign in to your Amazon Business company site as an administrator.
+1. To automate the configuration within Amazon Business, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up Amazon Business** will direct you to the Amazon Business Single Sign-On application. From there, provide the admin credentials to sign in to Amazon Business Single Sign-On. The browser extension will automatically configure the application for you and automate steps 3-17.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to set up Amazon Business manually, in a different web browser window, sign in to your Amazon Business company site as an administrator.
 
 1. Click on the **User Profile** and select **Business Settings**.
 

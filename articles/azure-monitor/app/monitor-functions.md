@@ -2,7 +2,7 @@
 title: Monitor applications running on Azure Functions with Application Insights - Azure Monitor | Microsoft Docs
 description: Azure Monitor seamlessly integrates with your application running on Azure Functions, and allows you to monitor the performance and spot the problems with your apps in no time.
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 11/14/2022
 ms.reviewer: abinetabate
 ---
 
@@ -29,7 +29,7 @@ The end-to-end diagnostics and the application map provide visibility into one s
 
 ### How to enable distributed tracing for Java Function apps
 
-Navigate to the functions app Overview blade and go to configurations. Under Application Settings, click "+ New application setting". 
+Navigate to the functions app Overview pane and go to configurations. Under Application Settings, click "+ New application setting". 
 
 > [!div class="mx-imgBorder"]
 > ![Under Settings, add new application settings](./media//functions/create-new-setting.png)

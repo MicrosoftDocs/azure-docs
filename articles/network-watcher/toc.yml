@@ -35,7 +35,7 @@
     items:
     - name: Azure PowerShell
       href: network-watcher-nsg-flow-logging-powershell.md
-    - name: Azure CLI
+    - name: The Azure CLI
       href: network-watcher-nsg-flow-logging-cli.md
     - name: REST
       href: network-watcher-nsg-flow-logging-rest.md
@@ -89,15 +89,15 @@
   items:
   - name: Configure Network Watcher
     href: network-watcher-create.md
-  - name: Connection Monitor using Azure Monitor agent
+  - name: Connection Monitor using Azure Monitor Agent
     items: 
-    - name: Monitor connectivity using AMA
+    - name: Monitor connectivity by using Azure Monitor Agent
       href: azure-monitor-agent-with-connection-monitor.md
-    - name: Install Azure connected machine agent
+    - name: Install the Azure Connected Machine agent
       href: connection-monitor-connected-machine-agent.md
-    - name: Install Azure Monitor agent
+    - name: Install Azure Monitor Agent
       href: connection-monitor-install-azure-monitor-agent.md
-  - name: Create Connection Monitor
+  - name: Create a connection monitor
     items:
     - name: Using Azure portal
       href: connection-monitor-create-using-portal.md
@@ -123,7 +123,7 @@
       items:
       - name: Azure PowerShell
         href: diagnose-vm-network-routing-problem-powershell.md
-      - name: Azure CLI
+      - name: The Azure CLI
         href: diagnose-vm-network-routing-problem-cli.md
     - name: Diagnose outbound connection problems
       items:
@@ -131,7 +131,7 @@
         href: network-watcher-connectivity-portal.md
       - name: Azure PowerShell
         href: network-watcher-connectivity-powershell.md
-      - name: Azure CLI
+      - name: The Azure CLI
         href: network-watcher-connectivity-cli.md
       - name: REST
         href: network-watcher-connectivity-rest.md
@@ -147,7 +147,7 @@
           href: network-watcher-packet-capture-manage-powershell.md
         - name: Azure PowerShell virtual machine scale set
           href: network-watcher-packet-capture-manage-powershell-vmss.md
-        - name: Azure CLI
+        - name: The Azure CLI
           href: network-watcher-packet-capture-manage-cli.md
         - name: REST VM
           href: network-watcher-packet-capture-manage-rest.md
@@ -191,7 +191,7 @@
       items:
       - name: Azure PowerShell
         href: network-watcher-security-group-view-powershell.md
-      - name: Azure CLI
+      - name: The Azure CLI
         href: network-watcher-security-group-view-cli.md
       - name: REST
         href: network-watcher-security-group-view-rest.md
@@ -203,7 +203,7 @@
       items:
       - name: Azure PowerShell
         href: network-watcher-troubleshoot-manage-powershell.md
-      - name: Azure CLI
+      - name: The Azure CLI
         href: network-watcher-troubleshoot-manage-cli.md
       - name: REST
         href: network-watcher-troubleshoot-manage-rest.md
@@ -223,7 +223,7 @@
       href: resource-move.md
 - name: Reference
   items:
-  - name: Azure CLI
+  - name: The Azure CLI
     href: /cli/azure/network/watcher
   - name: Azure PowerShell
     href: /powershell/module/az.network/#network_watcher

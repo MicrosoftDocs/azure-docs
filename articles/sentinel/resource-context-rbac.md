@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Manage access to Microsoft Sentinel data by resource
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Typically, users who have access to a Microsoft Sentinel workspace also have access to all the workspace data, including security content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Microsoft Sentinel, depending on the access requirements in their team.
 
 However, you may have some users who need to access only specific data in your Microsoft Sentinel workspace, but shouldn't have access to the entire Microsoft Sentinel environment. For example, you may want to provide a non-security operations (non-SOC) team with access to the Windows event data for the servers they own.

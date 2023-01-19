@@ -1,12 +1,12 @@
 ---
-title: Create a DefenderforIoTMicroAgent module twin (Preview)
+title: Create a DefenderforIoTMicroAgent module twin 
 description: In this tutorial, you'll learn how to create a DefenderIotMicroAgent module twin for new devices.
 ms.date: 01/16/2022
 ms.topic: tutorial
 ms.custom: mode-other
 ---
 
-# Tutorial: Create a DefenderIotMicroAgent module twin (Preview)
+# Tutorial: Create a DefenderIotMicroAgent module twin
 
 This tutorial will help you learn how to create an individual `DefenderIotMicroAgent` module twin for new devices.
 
@@ -44,7 +44,7 @@ In this tutorial you'll learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Verify you are running one of the following [operating systems](concept-agent-portfolio-overview-os-support.md#agent-portfolio-overview-and-os-support-preview).
+- Verify you are running one of the following [operating systems](concept-agent-portfolio-overview-os-support.md).
 
 - An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
@@ -87,4 +87,4 @@ A `DefenderIotMicroAgent` module twin can be created by manually editing each mo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install the Defender for IoT micro agent (Preview)](tutorial-standalone-agent-binary-installation.md)
+> [Install the Defender for IoT micro agent](tutorial-standalone-agent-binary-installation.md)

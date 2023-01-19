@@ -29,4 +29,4 @@ Access the training at the following location:
 
 ## Next steps
 
-[Quickstart: Get started with Defender for IoT](getting-started.md#quickstart-get-started-with-defender-for-iot)
+[Quickstart: Get started with Defender for IoT](getting-started.md)

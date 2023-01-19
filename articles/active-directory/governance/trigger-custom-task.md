@@ -3,7 +3,7 @@ title: Trigger Logic Apps based on custom task extensions
 description: Trigger Logic Apps based on custom task extensions
 author: owinfreyATL
 ms.author: owinfrey
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual

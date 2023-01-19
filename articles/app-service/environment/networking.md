@@ -77,7 +77,7 @@ The normal app access ports inbound are as follows:
 |Web Deploy service|8172|
 
 > [!NOTE]
-> For FTP access, even if you want to disallow standard FTP on port 21, you still need to allow traffic from the LoadBalancer to the App Service Environment subnet range, as this is used for internal health ping traffic for the ftp service specifically.
+> For FTP access, even if you want to disallow standard FTP on port 21, you still need to allow traffic from the LoadBalancer to the App Service Environment subnet range on port 21, as this is used for internal health ping traffic for the ftp service specifically.
 
 ## Network routing
 
@@ -140,10 +140,6 @@ In addition to setting up DNS, you also need to enable it in the [App Service En
 ### DNS configuration from your App Service Environment
 
 The apps in your App Service Environment will use the DNS that your virtual network is configured with. If you want some apps to use a different DNS server, you can manually set it on a per app basis, with the app settings `WEBSITE_DNS_SERVER` and `WEBSITE_DNS_ALT_SERVER`. `WEBSITE_DNS_ALT_SERVER` configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server.
-
-## Limitations
-
-While App Service Environment does deploy into your virtual network, you currently cannot use Azure Network Watcher or NSG flow to monitor outbound traffic.
 
 ## More resources
 

@@ -3,55 +3,53 @@
 title: Get started with the Azure AD reporting API | Microsoft Docs
 description: How to get started with the Azure Active Directory reporting API
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
-ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
 ms.service: active-directory
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 11/04/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk
-
 ms.collection: M365-identity-device-management
 ---
 # Get started with the Azure Active Directory reporting API
 
-Azure Active Directory provides you with a variety of [reports](overview-reports.md), containing useful information for applications such as SIEM systems, audit, and business intelligence tools. 
+Azure Active Directory provides you with several [reports](overview-reports.md), containing useful information such as security information and event management (SIEM) systems, audit, and business intelligence tools. By using the Microsoft Graph API for Azure AD reports, you can gain programmatic access to the data through a set of REST-based APIs. You can call these APIs from various programming languages and tools.
 
-By using the Microsoft Graph API for Azure AD reports, you can gain programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
-
-This article provides you with an overview of the reporting API, including ways to access it.
-
-If you run into issues, see [how to get support for Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md).
+This article provides you with an overview of the reporting API, including ways to access it. If you run into issues, see [how to get support for Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md).
 
 ## Prerequisites
 
 To access the reporting API, with or without user intervention, you need to:
 
-1. Assign roles (Security Reader, Security Admin, Global Admin)
-2. Register an application
-3. Grant permissions
-4. Gather configuration settings
+1. Confirm your roles and licenses
+1. Register an application
+1. Grant permissions
+1. Gather configuration settings
 
 For detailed instructions, see the [prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
 
 ## API Endpoints 
 
-The Microsoft Graph API endpoint for audit logs is `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` and the Microsoft Graph API endpoint for sign-ins is `https://graph.microsoft.com/v1.0/auditLogs/signIns`. For more information, see the [audit API reference](/graph/api/resources/directoryaudit) and [sign-in API reference](/graph/api/resources/signIn).
+Microsoft Graph API endpoints:
+- **Audit logs:** `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
+- **Sign-in logs:** `https://graph.microsoft.com/v1.0/auditLogs/signIns`
 
-You can use the [Identity Protection risk detections API](/graph/api/resources/identityprotection-root) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
+Programmatic access APIs:
+- **Security detections:** [Identity Protection risk detections API](/graph/api/resources/identityprotection-root)
+- **Tenant provisioning events:** [Provisioning logs API](/graph/api/resources/provisioningobjectsummary)
+
+Check out the following helpful resources for Microsoft Graph API:
+- [Audit log API reference](/graph/api/resources/directoryaudit)
+- [Sign-in log API reference](/graph/api/resources/signIn)
+- [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md)
+
   
-You can also use the [provisioning logs API](/graph/api/resources/provisioningobjectsummary) to get programmatic access to provisioning events in your tenant. 
-
 ## APIs with Microsoft Graph Explorer
 
-You can use the [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
+You can use the [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) to verify your sign-in and audit API data. Sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
 
 ![Graph Explorer](./media/concept-reporting-api/graph-explorer.png)
 

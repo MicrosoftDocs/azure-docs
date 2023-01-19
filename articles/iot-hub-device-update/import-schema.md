@@ -24,7 +24,7 @@ The import manifest JSON schema is hosted at [SchemaStore.org](https://json.sche
 |**compatibility**|`compatibility`|List of device property sets this update is compatible with.|Yes|
 |**instructions**|`instructions`|Update installation instructions.|Yes|
 |**files**|`file` `[0-10]`|List of update payload files. Sum of all file sizes may not exceed 2 GB. May be empty or null if all instruction steps are reference steps.|No|
-|**manifestVersion**|`string`|Import manifest schema version. Must be 4.0.|Yes|
+|**manifestVersion**|`string`|Import manifest schema version. Must be 5.0.|Yes|
 |**createdDateTime**|`string`|Date & time import manifest was created in ISO 8601 format.<br><br>Example: `"2020-10-02T22:18:04.9446744Z"`|Yes|
 
 Additional properties aren't allowed.

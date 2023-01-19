@@ -100,14 +100,18 @@
       items:
       - name: Standard/Premium
         items:
-        - name: Resource Manager Templates
+        - name: Bicep and Resource Manager Templates
           href: front-door-quickstart-template-samples.md?pivots=front-door-standard-premium
+        - name: Terraform
+          href: terraform-samples.md?pivots=front-door-standard-premium
       - name: Classic
         items:
-        - name: Resource Manager Templates
+        - name: Bicep and Resource Manager Templates
           href: front-door-quickstart-template-samples.md?pivots=front-door-classic
         - name: Deploy custom domain - Azure CLI
           href: scripts/custom-domain.md
+        - name: Terraform
+          href: terraform-samples.md?pivots=front-door-classic
     - name: CDN
       items:
         - name: Code samples
@@ -167,8 +171,20 @@
         href: billing.md
       - name: Best practices
         href: best-practices.md
+      - name: Scenarios
+        items:
+        - name: Overview
+          href: scenarios.md
+        - name: Azure Storage blobs
+          href: scenario-storage-blobs.md
     - name: Classic
       items:
+        - name: Migrate to Standard or Premium Tier
+          items:
+          - name: About tier migration
+            href: tier-migration.md
+          - name: Classic to Standard/Premium mapping
+            href: tier-mapping.md
         - name: Caching
           href: front-door-caching.md?pivots=front-door-classic
         - name: Traffic acceleration
@@ -245,10 +261,14 @@
       items:
       - name: Configure
         items:
+        - name: Upgrade to Premium tier
+          href: tier-upgrade.md
         - name: Front Door manager
           href: how-to-configure-endpoints.md
         - name: Origins in origin group
           href: how-to-configure-origin.md
+        - name: Set up managed identity
+          href: managed-identity.md
         - name: Add a custom domain
           href: standard-premium/how-to-add-custom-domain.md
         - name: Add a root or apex domain
@@ -292,7 +312,9 @@
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md
     - name : Classic
-      items:    
+      items:
+      - name: Migrate to Standard or Premium tier
+        href: migrate-tier.md
       - name: Add a custom domain
         href: front-door-custom-domain.md
       - name: Configure HTTPS on a custom domain

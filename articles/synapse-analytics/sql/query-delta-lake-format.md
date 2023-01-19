@@ -5,7 +5,7 @@ services: synapse analytics
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 07/15/2021
+ms.date: 12/06/2022
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sngun, wiassaf
@@ -21,7 +21,7 @@ The serverless SQL pool in Synapse workspace enables you to read the data stored
 A serverless SQL pool can read Delta Lake files that are created using Apache Spark, Azure Databricks, or any other producer of the Delta Lake format.
 
 Apache Spark pools in Azure Synapse enable data engineers to modify Delta Lake files using Scala, PySpark, and .NET. Serverless SQL pools help data analysts to create reports
-on Delta Lake files created by data engineers.
+on Delta Lake files created by data engineers. You can learn more from the [how to query delta lake tables video](https://www.youtube.com/watch?v=LSIVX0XxVfc).
 
 ## Quickstart example
 
@@ -49,7 +49,7 @@ If you don't have this subfolder, you are not using Delta Lake format. You can c
 
 ```python
 %%pyspark
-from delta.tables import *
+from delta.tables import DeltaTable
 deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/covid`")
 ```
 
@@ -168,7 +168,7 @@ If you don't have this subfolder, you are not using Delta Lake format. You can c
 
 ```python
 %%pyspark
-from delta.tables import *
+from delta.tables import DeltaTable
 deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/yellow`", "year INT, month INT")
 ```
 

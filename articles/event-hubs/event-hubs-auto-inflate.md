@@ -29,8 +29,6 @@ Event Hubs traffic is controlled by TUs (standard tier). For the limits such as 
  ## Enable Auto-inflate on a namespace
 You can enable or disable Auto-inflate on a standard tier Event Hubs namespace by using either [Azure portal](https://portal.azure.com) or an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate).
 
-For a premium Event Hubs namespace, the feature is automatically enabled. You can't disable it. 
-
 > [!NOTE]
 > Basic tier Event Hubs namespaces do not support Auto-inflate.
 

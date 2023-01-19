@@ -35,7 +35,7 @@ The following table highlights the key differences between monitoring using the 
 | Agent | Log Analytics Agent (deprecated in 2024) | [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md)
 | Alerting | Log based alerts tied to Log Analytics Workspace | Log based alerting and [recommended metric-based](./container-insights-metric-alerts.md) alerts |
 | Metrics | Does not support Azure Monitor metrics | Supports Azure Monitor metrics |
-| Consumption | Viewable only from Log Analytics Workspace | Accessible from both Azure Monitor and AKS/Arc resource blade |
+| Consumption | Viewable only from Log Analytics Workspace | Accessible from both Azure Monitor and AKS/Arc resource pane |
 | Agent | Manual agent upgrades | Automatic updates for monitoring agent with version control through Azure Arc cluster extensions |
 
 ## Next steps

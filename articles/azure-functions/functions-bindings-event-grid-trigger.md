@@ -99,7 +99,7 @@ namespace Company.Function
 ```
 # [Isolated process](#tab/isolated-process)
 
-When running your C# function in an isolated process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
+When running your C# function in an isolated worker process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
 
@@ -321,7 +321,7 @@ def main(event: func.EventGridEvent):
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute. C# script instead uses a function.json configuration file.    
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute. C# script instead uses a function.json configuration file.    
 
 # [In-process](#tab/in-process)
 
@@ -411,7 +411,7 @@ Requires you to define a custom type, or use a string. See the [Example section]
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process. 
+Functions version 1.x doesn't support the isolated worker process. 
 
 # [Extension v3.x](#tab/extensionv3/csharp-script)
 

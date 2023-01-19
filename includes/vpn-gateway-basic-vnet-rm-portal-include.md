@@ -3,7 +3,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/29/2022
+ms.date: 12/07/2022
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -19,16 +19,14 @@ ms.date: 04/29/2022
    - **Resource group**: Select an existing resource group, or select **Create new** to create a new one. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md#resource-groups).
    - **Name**: Enter the name for your virtual network.
    - **Region**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will live.
-1. Select **IP Addresses** to advance to the IP Addresses tab. On the IP Addresses tab, configure the settings. The values shown in the example can be adjusted according to the settings that you require.
 
-   :::image type="content" source="./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png" alt-text="Screenshot shows the IP Addresses tab." lightbox= "./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png":::
+1. Select **IP Addresses** to advance to the IP Addresses tab. On the **IP Addresses** tab, configure the settings.
 
-   - **IPv4 address space**: By default, an address space is automatically created. You can select the address space and adjust it to reflect your own values. You can also add more address spaces by selecting the box below the existing address space and specifying the values for the additional address space.
+   - **IPv4 address space**: By default, an address space is automatically created. You can select the address space and adjust it to reflect your own values. You can also add more address spaces by selecting the box below the existing address space and specifying the values for the additional address space. For example, you can change the IPv4 address field to **10.1.0.0/16** from the default values that are automatically populated.
    - **+ Add subnet**: If you use the default address space, a default subnet is created automatically. If you change the address space, you need to add a subnet. Select **+ Add subnet** to open the **Add subnet** window. Configure the following settings, then select **Add** at the bottom of the page to add the values.
-      - **Subnet name**: In this example, we named the subnet "FrontEnd".
-      - **Subnet address range**: The address range for this subnet.
-
-1. Select **Security** to advance to the Security tab. At this time, leave the default values.
+      - **Subnet name**: Example: **FrontEnd**.
+      - **Subnet address range**: The address range for this subnet. For example, **10.1.0.0/24**.
+1. Select **Security** to advance to the Security tab. For this exercise, leave the default values.
 
    - **BastionHost**: Disable
    - **DDoS Protection Standard**: Disable

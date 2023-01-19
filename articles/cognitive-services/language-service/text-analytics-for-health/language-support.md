@@ -49,6 +49,10 @@ json
         {
             "taskName": "analyze 1",
             "kind": "Healthcare",
+            "parameters":
+            {
+            "modelVersion": "2022-08-15-preview"
+            }
         }
     ]
 }
@@ -56,7 +60,7 @@ json
 
 ## Docker container
 
-The docker container supports English language, model version 03-01-2022. 
+The docker container supports English language, model version 2022-03-01. 
 Additional languages are also supported when using a docker container to deploy the API: Spanish, French, German Italian, Portuguese and Hebrew. This functionality is currently in preview, model version 2022-08-15-preview.
 Full details for deploying the service in a container can be found [here](../text-analytics-for-health/how-to/use-containers.md).
 
@@ -65,13 +69,13 @@ In order to download the new container images from the Microsoft public containe
 For English, Spanish, Italian, French, German and Portuguese:
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/latin
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latin
 ```
 
 For Hebrew:
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/semitic
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:semitic
 ```
 
 

@@ -95,7 +95,7 @@ The blend shapes JSON string is represented as a 2-dimensional matrix. Each row 
 To get viseme with your synthesized speech, subscribe to the `VisemeReceived` event in the Speech SDK.
 
 > [!NOTE]
-> To request SVG or blend shapes output, you should use the `mstts:viseme` element in SSML. For details, see [how to use viseme element in SSML](speech-synthesis-markup.md#viseme-element).
+> To request SVG or blend shapes output, you should use the `mstts:viseme` element in SSML. For details, see [how to use viseme element in SSML](speech-synthesis-markup-structure.md#viseme-element).
 
 The following snippet shows how to subscribe to the viseme event:
 

@@ -49,7 +49,7 @@ $vnet = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreateVNetQS-rg'
     Location = 'EastUS'
-    AddressPrefix = '10.0.0.0/16'    
+    AddressPrefix = '10.0.0.0/16'
 }
 $virtualNetwork = New-AzVirtualNetwork @vnet
 ```

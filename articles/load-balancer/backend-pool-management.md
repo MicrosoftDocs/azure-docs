@@ -214,7 +214,6 @@ az vm create \
 
 ### Limitations
   * IP based backends can only be used for Standard Load Balancers
-  * Limit of 100 IP addresses in the backend pool for IP based LBs
   * The backend resources must be in the same virtual network as the load balancer for IP based LBs
   * A load balancer with IP based Backend Pool can’t function as a Private Link service
   * [Private endpoint resources](../private-link/private-endpoint-overview.md) can't be placed in a IP based backend pool

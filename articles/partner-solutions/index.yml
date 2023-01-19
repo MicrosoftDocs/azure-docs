@@ -67,32 +67,3 @@ productDirectory:
 #      links:
 #        - url: ./qumulo/overview.md
 #         text: 
-  
-
-
-
-# conceptualContent section (optional)
-# conceptualContent:
-# itemType: architecture | concept | deploy | download |
-#           get-started | how-to-guide | learn | overview |
-#           quickstart | reference | tutorial | video |
-#           whats-new
-#  sections:
-# ==========================Section ==================================================
-    # - title: subsectiontitle1 # < 60 chars (optional)
-    #   summary: subsectionsummary1 # optional
-    #   items:
-    #     # Card 1
-    #     - title: Azure Native ISV Service features 
-    #       links:
-    #         - url: ./overview.md#resource-management
-    #           itemType: concept
-    #           text: Resource management
-    #         - url: ./overview.md#vnet-injection
-    #           itemType: concept
-    #           text: VNet injection 
-    #         - url: ./overview.md#integrations
-    #           itemType: concept
-    #           text: Integrations
-
-

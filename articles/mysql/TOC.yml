@@ -120,7 +120,8 @@
       items:
       - name: Data-in replication
         href: flexible-server/concepts-data-in-replication.md
-        displayName: replication, read replica
+      - name: Data-out replication
+        href: flexible-server/concepts-data-out-replication.md
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
     - name: Backup & Restore
@@ -135,6 +136,8 @@
         href: flexible-server/concepts-customer-managed-key.md        
   - name: Integrations
     items:
+    - name: Azure Redis
+      href: flexible-server/tutorial-add-redis-to-mysql.md
     - name: Power BI
       href: flexible-server/connect-with-powerbi-desktop.md
     - name: Azure advisor
@@ -234,6 +237,9 @@
       - name: Configure data-in replication
         href: flexible-server/how-to-data-in-replication.md
         displayName: data-in replication, replica, failover
+      - name: Configure data-out replication
+        href: flexible-server/how-to-data-out-replication.md
+        displayName: data-out replication, replica, failover
       - name: Create read replicas
         items:
         - name: Azure portal

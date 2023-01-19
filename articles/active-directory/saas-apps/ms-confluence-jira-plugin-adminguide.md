@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/23/2022
+ms.date: 11/21/2022
 ms.author: dhivyag
 ---
 # Atlassian Jira and Confluence admin guide for Azure Active Directory
@@ -59,12 +59,12 @@ Note the following information before you install the plug-in:
 
 The plug-in supports the following versions of Jira and Confluence:
 
-* Jira Core and Software: 6.0 to 8.22.1.
+* Jira Core and Software: 6.0 to 9.1.0
 * Jira Service Desk: 3.0.0 to 4.22.1.
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence: 5.0 to 5.10.
 * Confluence: 6.0.1 to 6.15.9.
-* Confluence: 7.0.1 to 7.19.0.
+* Confluence: 7.0.1 to 7.20.0.
 
 ## Installation
 
@@ -88,7 +88,7 @@ Before you start using the plug-in, you must configure it. Select the plug-in, s
 
 The following image shows the configuration screen in both Jira and Confluence:
 
-![Plug-in configuration screen](./media/ms-confluence-jira-plugin-adminguide/jira.png)
+![Plug-in configuration screen](./media/jiramicrosoft-tutorial/jira-configure-addon.png)
 
 * **Metadata URL**: The URL to get federation metadata from Azure AD.
 
@@ -117,6 +117,12 @@ The following image shows the configuration screen in both Jira and Confluence:
 * **Domain Name**: The domain name if sign-in is AD FS based.
 
 * **Enable Single Signout**: The selection to make if you want to sign out from Azure AD when a user signs out from Jira or Confluence.
+
+* Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
+
+* **Enable Use of Application Proxy** checkbox, if you have configured your on-premise atlassian application in an App Proxy setup.
+
+   * For App proxy setup , follow the steps on the [Azure AD App Proxy Documentation](../app-proxy/what-is-application-proxy.md).
 
 ## Troubleshooting
 
@@ -166,12 +172,12 @@ No. The plug-in supports only on-premises versions of Jira and Confluence.
 
 The plug-in supports these versions:
 
-* Jira Core and Software: 6.0 to 8.22.1.
+* Jira Core and Software: 6.0 to 9.1.0.
 * Jira Service Desk: 3.0.0 to 4.22.1.
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence: 5.0 to 5.10.
 * Confluence: 6.0.1 to 6.15.9.
-* Confluence: 7.0.1 to 7.19.0.
+* Confluence: 7.0.1 to 7.20.0.
 
 ### Is the plug-in free or paid?
 

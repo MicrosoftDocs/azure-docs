@@ -177,7 +177,7 @@ public static SignalRConnectionInfo Negotiate(
 
 # [Isolated process](#tab/isolated-process)
 
-Sample code not available for isolated process. 
+Sample code not available for the isolated worker process. 
 
 # [C# Script](#tab/csharp-script)
 
@@ -293,7 +293,7 @@ public SignalRConnectionInfo negotiate(
 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 

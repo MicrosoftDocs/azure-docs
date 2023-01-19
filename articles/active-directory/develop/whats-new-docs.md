@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 11/01/2022
+ms.date: 12/01/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -17,6 +17,27 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## November 2022
+
+### New articles
+
+- [How to configure app instance property lock for your applications (Preview)](howto-configure-app-instance-property-locks.md)
+
+### Updated articles
+
+- [Configure SSO on macOS and iOS](single-sign-on-macos-ios.md)
+- [Developer guide to Conditional Access authentication context](developer-guide-conditional-access-authentication-context.md)
+- [Get a token from the token cache using MSAL.NET](msal-net-acquire-token-silently.md)
+- [How and why applications are added to Azure AD](active-directory-how-applications-are-added.md)
+- [How to migrate a Node.js app from ADAL to MSAL](msal-node-migration.md)
+- [Initialize client applications using MSAL.NET](msal-net-initializing-client-applications.md)
+- [Logging in MSAL.NET](msal-logging-dotnet.md)
+- [Logging in MSAL for Java](msal-logging-java.md)
+- [Migrate applications to the Microsoft Authentication Library (MSAL)](msal-migration.md)
+- [Shared device mode for iOS devices](msal-ios-shared-devices.md)
+- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
+- [Tutorial: Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md)
 
 ## October 2022
 
@@ -49,20 +70,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
 - [Run automated integration tests](test-automate-integration-testing.md)
 - [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA)](tutorial-v2-javascript-spa.md)
-
-## August 2022
-
-### Updated articles
-
-- [Access Azure AD protected resources from an app in Google Cloud (preview)](workload-identity-federation-create-trust-gcp.md)
-- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
-- [Configure an app's publisher domain](howto-configure-publisher-domain.md)
-- [Configure an app to trust an external identity provider](workload-identity-federation-create-trust.md)
-- [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
-- [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
-- [Microsoft identity platform UserInfo endpoint](userinfo.md)
-- [OpenID Connect on the Microsoft identity platform](v2-protocols-oidc.md)
-- [Publisher verification](publisher-verification-overview.md)
-- [Protected web API: Code configuration](scenario-protected-web-api-app-configuration.md)
-- [Provide optional claims to your app](active-directory-optional-claims.md)
-- [Using directory extension attributes in claims](active-directory-schema-extensions.md)

@@ -163,7 +163,7 @@ The following table describes the device properties shown in the **Device invent
 | **MAC Address** | The MAC address of the device. |
 | **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
 | **Operating System** | The OS of the device, if detected. |
-| **PLC mode** (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. |
+| **PLC mode** (preview) | The PLC operating mode that includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |
 | **Protocols** | The protocols that the device uses. |
 | **Type** | The type of device as determined by the sensor, or as entered by the user. |
 | **Unacknowledged Alerts** | The number of unacknowledged alerts associated with this device. |

@@ -647,9 +647,9 @@ The `return-response` policy aborts pipeline execution and returns either a defa
 
 ```xml
 <return-response response-variable-name="existing context variable">
+  <set-status/>
   <set-header/>
   <set-body/>
-  <set-status/>
 </return-response>
 
 ```
@@ -671,9 +671,9 @@ The `return-response` policy aborts pipeline execution and returns either a defa
 | Element         | Description                                                                               | Required |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | return-response | Root element.                                                                             | Yes      |
+| set-status      | A [set-status](api-management-advanced-policies.md#SetStatus) policy statement.           | No       |
 | set-header      | A [set-header](api-management-transformation-policies.md#SetHTTPheader) policy statement. | No       |
 | set-body        | A [set-body](api-management-transformation-policies.md#SetBody) policy statement.         | No       |
-| set-status      | A [set-status](api-management-advanced-policies.md#SetStatus) policy statement.           | No       |
 
 ### Attributes
 
@@ -716,7 +716,7 @@ This sample policy shows an example of using the `send-one-way-request` policy t
 ```xml
 <choose>
     <when condition="@(context.Response.StatusCode >= 500)">
-      <send-one-way-request mode="new">
+      <send-one-way-request mode="new" timeout="20">
         <set-url>https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</set-url>
         <set-method>POST</set-method>
         <set-body>@{
@@ -756,6 +756,7 @@ This sample policy shows an example of using the `send-one-way-request` policy t
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string" | Determines whether this is a new request or a copy of the current request. In outbound mode, mode=copy does not initialize the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | New      |
 | name          | Specifies the name of the header to be set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Yes      | N/A      |
+| timeout="integer" | The timeout interval in seconds before the call to the URL fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
 | exists-action | Specifies what action to take when the header is already specified. This attribute must have one of the following values.<br /><br /> - override - replaces the value of the existing header.<br />- skip - does not replace the existing header value.<br />- append - appends the value to the existing header value.<br />- delete - removes the header from the request.<br /><br /> When set to `override` enlisting multiple entries with the same name results in the header being set according to all entries (which will be listed multiple times); only listed values will be set in the result. | No       | override |
 
 ### Usage

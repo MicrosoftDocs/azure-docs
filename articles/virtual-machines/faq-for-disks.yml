@@ -23,17 +23,17 @@ sections:
       - question: |
           If I create a standard managed disk from an existing VHD that's 80 GB, how much will that cost me?
         answer: |
-          A standard managed disk created from an 80-GB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+          A standard managed disk created from an 80-GB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
           Are there any transaction costs for standard managed disks?
         answer: |
-          Yes. You're charged for each transaction. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+          Yes. You're charged for each transaction. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
           For a standard managed disk, will I be charged for the actual size of the data on the disk or for the provisioned capacity of the disk?
         answer: |
-          You're charged based on the provisioned capacity of the disk. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+          You're charged based on the provisioned capacity of the disk. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
           How is pricing of premium managed disks different from unmanaged disks?
@@ -513,7 +513,7 @@ sections:
       - question: |
           Are there transaction costs to use Premium SSD disks?
         answer: |
-          There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+          There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
           What are the limits for IOPS and throughput that I can get from the disk cache?

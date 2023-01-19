@@ -2,12 +2,12 @@
 title: Firmware measured boot and host attestation - Azure Security
 description: Technical overview of Azure firmware measured boot and host attestation.
 author: yosharm
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 06/24/2021
+ms.date: 11/10/2022
 ---
 
 # Measured boot and host attestation

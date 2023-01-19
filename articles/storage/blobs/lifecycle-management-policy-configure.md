@@ -5,7 +5,7 @@ description: Configure a lifecycle management policy to automatically move data 
 author: normesta
 
 ms.author: normesta
-ms.date: 09/16/2022
+ms.date: 12/21/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -22,7 +22,7 @@ A lifecycle management policy is comprised of one or more rules that define a se
 
 - The number of days since the blob was created.
 - The number of days since the blob was last modified.
-- The number of days since the blob was last accessed. To use this condition in an action, you must first [optionally enable access time tracking](#optionally-enable-access-time-tracking).
+- The number of days since the blob was last accessed. To use this condition in an action, you should first [optionally enable last access time tracking](#optionally-enable-access-time-tracking).
 
 When the selected condition is true, then the management policy performs the specified action. For example, if you have defined an action to move a blob from the hot tier to the cool tier if it has not been modified for 30 days, then the lifecycle management policy will move the blob 30 days after the last write operation to that blob.
 

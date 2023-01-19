@@ -5,8 +5,8 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 09/26/2022
-ms.custom: event-tier1-build-2022
+ms.date: 11/29/2022
+ms.custom: event-tier1-build-2022, engagement-fy23
 ---
 
 # Integrate Azure Database for MySQL with Service Connector
@@ -25,7 +25,7 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 
 | Client type                     | System-assigned managed identity     | User-assigned managed identity | Secret / connection string           | Service principal |
 |---------------------------------|--------------------------------------|--------------------------------|--------------------------------------|-------------------|
-| .NET (MySqlConnector)           |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| .NET (MySqlConnector)           | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) |                   |
 | Go (go-sql-driver for mysql)    |                                      |                                | ![yes icon](./media/green-check.png) |                   |
 | Java (JDBC)                     | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) |                   |
 | Java - Spring Boot (JDBC)       | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) |                   |
@@ -40,25 +40,45 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 
 Use the connection details below to connect compute services to Azure Database for MySQL. For each example below, replace the placeholder texts `<MySQL-DB-name>`, `<MySQL-DB-username>`, `<MySQL-DB-password>`, `<server-host>`, and `<port>` with your Azure Database for MySQL name, Azure Database for MySQL username, Azure Database for MySQL password, server host, and port.
 
-### .NET (MySqlConnector) secret / connection string
+### .NET (MySqlConnector)
+
+#### .NET (MySqlConnector) secret / connection string
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AZURE_MYSQL_CONNECTIONSTRING      | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;SSL Mode=Required;User Id=<MySQL-DBusername>;Password=<MySQL-DB-password>` |
 
-### Java (JDBC) secret / connection string
+#### .NET (MySqlConnector) system-assigned managed identity
+
+| Default environment variable name | Description                     | Example value                                                                                                                                                  |
+|-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_MYSQL_CONNECTIONSTRING      | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;SSL Mode=Required;User Id=<MySQL-DBusername>;` |
+
+### Go (go-sql-driver for mysql)
+
+#### Go (go-sql-driver for mysql) secret / connection string
+
+| Default environment variable name | Description                     | Example value                                                                                                |
+|-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
+| AZURE_MYSQL_CONNECTIONSTRING      | Go-sql-driver connection string | `<MySQL-DB-username>@<MySQL-DB-name>:<MySQL-DB-password>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
+
+### Java (JDBC)
+
+#### Java (JDBC) secret / connection string
 
 | Default environment variable name | Description                  | Example value                                                                                                                                                              |
 |-----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AZURE_MYSQL_CONNECTIONSTRING      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>&password=<Uri.EscapeDataString(<MySQL-DB-password>)` |
 
-### Java (JDBC) system-assigned managed identity
+#### Java (JDBC) system-assigned managed identity
 
 | Default environment variable name | Description                  | Example value                                                                                                          |
 |-----------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | AZURE_MYSQL_CONNECTIONSTRING      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
-### Java - Spring Boot (JDBC) secret / connection string
+### Java - Spring Boot (JDBC)
+
+#### Java - Spring Boot (JDBC) secret / connection string
 
 | Application properties      | Description                   | Example value                                                                                 |
 |-----------------------------|-------------------------------|-----------------------------------------------------------------------------------------------|
@@ -66,15 +86,16 @@ Use the connection details below to connect compute services to Azure Database f
 | spring.datatsource.username | Database username             | `<MySQL-DB-username>@<MySQL-DB-name>`                                                         |
 | spring.datatsource.password | Database password             | `MySQL-DB-password`                                                                           |
 
-### Java - Spring Boot (JDBC) system-assigned managed identity
+#### Java - Spring Boot (JDBC) system-assigned managed identity
 
 | Application properties      | Description                   | Example value                                                                                 |
 |-----------------------------|-------------------------------|-----------------------------------------------------------------------------------------------|
 | spring.datatsource.url      | Spring Boot JDBC database URL | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
 | spring.datatsource.username | Database username             | `Connection-Name`                                                                             |
-| spring.datatsource.password | Database password             | `MySQL-DB-password`                                                                           |
 
-### Node.js (mysql) secret / connection string
+### Node.js (mysql)
+
+#### Node.js (mysql) secret / connection string
 
 | Default environment variable name | Description       | Example value                              |
 |-----------------------------------|-------------------|--------------------------------------------|
@@ -85,31 +106,9 @@ Use the connection details below to connect compute services to Azure Database f
 | AZURE_MYSQL_PORT                  | Port number       | `3306`                                     |
 | AZURE_MYSQL_SSL                   | SSL option        | `true`                                     |
 
-### Python (mysql-connector-python) secret / connection string
+#### PHP (mysqli)
 
-| Default environment variable name | Description       | Example value                              |
-|-----------------------------------|-------------------|--------------------------------------------|
-| AZURE_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| AZURE_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
-| AZURE_MYSQL_PASSWORD              | Database password | `MySQL-DB-password`                        |
-| AZURE_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
-
-### Python-Django secret / connection string
-
-| Default environment variable name | Description       | Example value                              |
-|-----------------------------------|-------------------|--------------------------------------------|
-| AZURE_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| AZURE_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
-| AZURE_MYSQL_PASSWORD              | Database password | `MySQL-DB-password`                        |
-| AZURE_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
-
-### Go (go-sql-driver for mysql) secret / connection string
-
-| Default environment variable name | Description                     | Example value                                                                                                |
-|-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
-| AZURE_MYSQL_CONNECTIONSTRING      | Go-sql-driver connection string | `<MySQL-DB-username>@<MySQL-DB-name>:<MySQL-DB-password>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
-
-### PHP (mysqli) secret / connection string
+#### PHP (mysqli) secret / connection string
 
 | Default environment variable name | Description        | Example value                              |
 |-----------------------------------|--------------------|--------------------------------------------|
@@ -120,7 +119,29 @@ Use the connection details below to connect compute services to Azure Database f
 | AZURE_MYSQL_PORT                  | Port number        | `3306`                                     |
 | AZURE_MYSQL_FLAG                  | SSL or other flags | `MYSQLI_CLIENT_SSL`                        |
 
-### Ruby (mysql2) secret / connection string
+### Python (mysql-connector-python)
+
+#### Python (mysql-connector-python) secret / connection string
+
+| Default environment variable name | Description       | Example value                              |
+|-----------------------------------|-------------------|--------------------------------------------|
+| AZURE_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| AZURE_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
+| AZURE_MYSQL_PASSWORD              | Database password | `MySQL-DB-password`                        |
+| AZURE_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+
+#### Python-Django secret / connection string
+
+| Default environment variable name | Description       | Example value                              |
+|-----------------------------------|-------------------|--------------------------------------------|
+| AZURE_MYSQL_HOST                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| AZURE_MYSQL_USER                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| AZURE_MYSQL_PASSWORD              | Database password | `MySQL-DB-password`                        |
+| AZURE_MYSQL_NAME                  | Database name     | `MySQL-DB-name`                            |
+
+### Ruby (mysql2)
+
+#### Ruby (mysql2) secret / connection string
 
 | Default environment variable name | Description       | Example value                              |
 |-----------------------------------|-------------------|--------------------------------------------|

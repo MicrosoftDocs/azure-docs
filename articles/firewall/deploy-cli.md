@@ -167,7 +167,7 @@ Note the private IP address. You'll use it later when you create the default rou
 
 ## Create a default route
 
-Create a table, with BGP route propagation disabled
+Create a route table, with BGP route propagation disabled
 
 ```azurecli-interactive
 az network route-table create \
