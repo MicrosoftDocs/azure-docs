@@ -18,6 +18,13 @@ The listed features were released in the last three months. For information abou
 
 ## January 2023
 
+- [Monitor SAP system health](#monitor-sap-system-health)
+- [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
+
+### Monitor SAP system health
+
+To ensure proper functioning and performance of your SAP systems, you can now [monitor health information for your SAP systems](monitor-sap-system-health.md) under the SAP data connector, and use an alert rule template to get information about the health of the SAP agent's data collection.
+
 ### Microsoft Purview Information Protection connector (Preview)
 
 With the new [Microsoft Purview Information Protection connector](connect-microsoft-purview.md), you can stream data from Microsoft Purview Information Protection (formerly Microsoft Information Protection or MIP) to Microsoft Sentinel. You can use the data ingested from the Microsoft Purview labeling clients and scanners to track, analyze, report on the data, and use it for compliance purposes.
