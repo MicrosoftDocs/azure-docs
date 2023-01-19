@@ -225,15 +225,19 @@ It's important to give your service principal the permission to scan the ADLS Ge
 
 #### If using Account Key
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select **Authentication method** as _Account Key_
+1. Provide a **Name** for the scan, select the Azure IR or your Self-Hosted IR depending on your configuration, choose the appropriate collection for the scan, and select **+ New** under credential.
+
+1. Select **Account Key** as the authentication method, then select the appropriate **Key vault connection**, and provide the name of the secret you used to store the account key. Then select **Create**
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-acct-key.png" alt-text="Screenshot that shows the Account Key option for scanning":::
+
+1. Select **Test connection**. On a successful connection, select **Continue**
 
 # [Service Principal](#tab/SP)
 
 #### If using Service Principal
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
+1. Provide a **Name** for the scan, select the Azure IR or your Self-Hosted IR depending on your configuration, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-option.png" alt-text="Screenshot that shows the option for service principal to enable scanning":::
 
