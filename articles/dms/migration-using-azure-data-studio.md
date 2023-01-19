@@ -160,6 +160,8 @@ To monitor database migrations in the Azure portal:
 
 - You can't use an existing self-hosted integration runtime that was created in Azure Data Factory for database migrations with Database Migration Service. Initially, create the self-hosted integration runtime by using the Azure SQL Migration extension for Azure Data Studio. You can reuse that self-hosted integration runtime in future database migrations.
 
+- In Azure Data Studio, currently we only support AD/Windows authentication for connecting to the source sql server, for target sql server, currently only sql logins are supported.
+
 ## Pricing
 
 - Azure Database Migration Service is free to use with the Azure SQL Migration extension for Azure Data Studio. You can migrate multiple SQL Server databases by using Database Migration Service at no charge.
