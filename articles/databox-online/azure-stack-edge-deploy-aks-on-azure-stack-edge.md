@@ -249,13 +249,6 @@ Follow these steps to deploy the AKS cluster.
 
 1. You're notified when the cluster creation starts.
 
-   [![Screenshot that shows Azure Stack Edge Azure Arc Kubernetes cluster creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation.png#lightbox)
-
-   > [!IMPORTANT]
-   > The creation of Kubernetes cluster takes about 20 minutes. During the creation, a critical alert is displayed in the Azure portal for your Azure Stack Edge resource. This alert will resolve itself in a few minutes.
-
-   [![Screenshot that shows the critical alert during Kubernetes cluster creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation-critical-alert.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation-critical-alert.png#lightbox)
-
    1. Once the Kubernetes cluster is created, you’ll see that the Azure Kubernetes Service is **Running**.
 
       [![Screenshot that shows the Azure Kubernetes Service running as expected.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-service-running.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-service-running.png#lightbox)
@@ -264,7 +257,7 @@ Follow these steps to deploy the AKS cluster.
 
       [![Screenshot that shows the Azure Kubernetes Service Overview page with status of the Kubernetes service.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-status.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-status.png#lightbox)
 
-   If you're planning to deploy Kubernetes workloads, you may next need to create Persistent Volumes to allocate storage.
+      If you're planning to deploy Kubernetes workloads, you may next need to create Persistent Volumes to allocate storage.
 
 ## Add a persistent volume
 
