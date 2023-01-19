@@ -3,7 +3,7 @@ title: Create custom Azure security policies in Microsoft Defender for Cloud
 description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/10/2023
+ms.date: 01/19/2023
 zone_pivot_groups: manage-asc-initiatives
 ---
 
@@ -46,7 +46,7 @@ If there isn't an initiative in the list that meets your needs, you can create o
 1. Enter the definition's location and custom name.
 
     > [!NOTE]
-    > Custom initiatives shouldn't have the same name as other initiatives (custom or built-in).
+    > Custom initiatives shouldn't have the same name as other initiatives (custom or built-in). If you create a custom initiative with the the same name, it will cause a conflict in the information displayed in the dashboard.
 
 1. Select the policies to include and select **Add**.
 
