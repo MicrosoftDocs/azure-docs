@@ -17,7 +17,7 @@ Configuring an instance of Azure Private Link requires you to:
 This article reviews how configuration is done through the Azure portal. It provides an example Azure Resource Manager template (ARM template) to automate the process.
 
 ## Create a private link connection through the Azure portal
-In this section, we review the step-by-step process of setting up a private link through the Azure portal. To create and manage a private link by using the command line or an ARM template, see [Use APIs and command line](#use-apis-and-command-line).
+In this section, we review the step-by-step process of setting up a private link through the Azure portal. To create and manage a private link by using the command line or an ARM template, see [Use APIs and the command line](#use-apis-and-the-command-line).
 
 ### Create an Azure Monitor Private Link Scope
 
