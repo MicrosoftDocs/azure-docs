@@ -12,7 +12,7 @@ Container Insights offers the ability to collect Syslog events from your Linux n
 
 ## Pre-requisites 
 
-1.	You will need to have managed identity authentication enabled on your cluster. See [migrate your AKS cluster to managed identity authentication](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-enable-existing-clusters?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: This which will create a Data Collection Rule (DCR) named “MSCI-<WorkspaceRegion>-<ClusterName>” 
+1.	You will need to have managed identity authentication enabled on your cluster. See [migrate your AKS cluster to managed identity authentication](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-enable-existing-clusters?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: This which will create a Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>`
 2.	Minimum versions of Azure components
   - **Azure CLI**: Az CLI minimum version required is >= 2.43.0 See [Release notes & updates – Azure CLI | Microsoft Learn](https://learn.microsoft.com/en-us/cli/azure/release-notes-azure-cli#aks-1)
   - **Azure CLI AKS-Preview Extension**: AKS-Preview CLI extension minimum version required is >= 0.5.121 See [azure-cli-extensions/HISTORY.rst at main · Azure/azure-cli-extensions (github.com)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05121)
