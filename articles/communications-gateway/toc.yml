@@ -34,6 +34,8 @@ items:
     href: provision-user-roles.md
   - name: Plan and manage costs
     href: plan-and-manage-costs.md
+  - name: Rotate deployment secrets
+    href: rotate-secrets.md
   - name: Get support or request changes
     href: request-changes.md
 - name: Resources
