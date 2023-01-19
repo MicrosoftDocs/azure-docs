@@ -8,7 +8,7 @@ ms.custom: devdivchpfy22
 
 # Lab account setup guide
 
-[!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
+[!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 If you're an administrator, before you set up your Azure Lab Services environment, you first need to create a *lab account* within your Azure subscription. A lab account is a container for one or more labs, and it takes only a few minutes to set up.
 

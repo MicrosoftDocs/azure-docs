@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: yinglzh
 ms.service: spring-apps
 ms.topic: article
-ms.date: 09/25/2021
+ms.date: 01/17/2023
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
@@ -32,6 +32,13 @@ This article describes how to secure outbound traffic from your applications hos
 The following illustration shows an example of an Azure Spring Apps virtual network that uses a user-defined route (UDR).
 
 :::image type="content" source="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" lightbox="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" alt-text="Architecture diagram that shows user-defined routing.":::
+
+This diagram illustrates the following features of the architecture:
+
+* Public ingress traffic must flow through firewall filters.
+* Each Azure Spring Apps instance is isolated within a dedicated subnet.
+* The firewall is owned and managed by customers. 
+* This structure ensures that the firewall enables a healthy environment for all the functions you need.
 
 ### Define environment variables
 
@@ -259,9 +266,9 @@ az network vnet subnet update
     --route-table $SERVICE_RUNTIME_ROUTE_TABLE_NAME
 ```
 
-### Add a role for an Azure Spring Apps relying party
+### Add a role for an Azure Spring Apps resource provider
 
-The following example shows how to add a role for an Azure Spring Apps relying party:
+The following example shows how to add a role for the Azure Spring Apps resource provider. The role is assigned to all users identified by the string `e8de9221-a19c-4c81-b814-fd37c6caf9d2`:
 
 ```azurecli
 VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
@@ -273,6 +280,28 @@ VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
 az role assignment create \
     --role "Owner" \
     --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+
+APP_ROUTE_TABLE_RESOURCE_ID=$(az network route-table show \
+    --name $APP_ROUTE_TABLE_NAME \
+    --resource-group $RG \
+    --query "id" \
+    --output tsv)
+    
+az role assignment create \
+    --role "Owner" \
+    --scope ${APP_ROUTE_TABLE_RESOURCE_ID} \
+    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+    
+SERVICE_RUNTIME_ROUTE_TABLE_RESOURCE_ID=$(az network route-table show \
+    --name $SERVICE_RUNTIME_ROUTE_TABLE_NAME \
+    --resource-group $RG \
+    --query "id" \
+    --output tsv)
+    
+az role assignment create \
+    --role "Owner" \
+    --scope ${SERVICE_RUNTIME_ROUTE_TABLE_RESOURCE_ID} \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 ```
 

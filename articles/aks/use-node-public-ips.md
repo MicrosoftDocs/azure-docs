@@ -260,7 +260,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Triggering host port auto assignment is done by deploying a workload without any host ports and applying the `kubernetes.azure.com/assign-hostports-for-containerports` annotation with the list of ports that need host port assignments. The value of the annotation should be specified as a comma-separated list of entries like `port/protocol`, where the port is an individual port number that is defined in the Pod spec and the protocol is `tcp` or `udp`.
 
-Ports will be assigned from the range `40000-59999` and will be unique across the cluster. The assigned ports will also be added to environment variables inside the pod so that the application can determine what ports were assigned.
+Ports will be assigned from the range `40000-59999` and will be unique across the cluster. The assigned ports will also be added to environment variables inside the pod so that the application can determine what ports were assigned. The environment variable name will be in the following format (example below): `<deployment name>_PORT_<port number>_<protocol>_HOSTPORT`, so an example would be `mydeployment_PORT_8080_TCP_HOSTPORT: 41932`.
 
 Here is an example `echoserver` deployment, showing the mapping of host ports for ports 8080 and 8443:
 
