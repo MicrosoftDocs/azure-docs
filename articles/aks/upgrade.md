@@ -57,7 +57,7 @@ For more information what cluster operations may trigger specific upgrade events
 [release-tracker]: ./release-tracker.md
 [node-image-upgrade]: ./node-image-upgrade.md
 [gh-actions-upgrade]: ./node-upgrade-github-actions.md 
-[operator-guide-patching]: /azure/architecture/operator-guides/aks/aks-upgrade-practices.md#considerations
+[operator-guide-patching]: /azure/architecture/operator-guides/aks/aks-upgrade-practices#considerations
 [supported-k8s-versions]: ./supported-kubernetes-versions.md#kubernetes-version-support-policy
 [ts-nsg]: /troubleshoot/azure/azure-kubernetes/upgrade-fails-because-of-nsg-rules
 [ts-pod-drain]: /troubleshoot/azure/azure-kubernetes/error-code-poddrainfailure
