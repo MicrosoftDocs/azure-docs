@@ -36,7 +36,7 @@ Follow these steps to view the audit history for groups in Privileged Identity M
 
 1. Select **Resource audit**.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-19.png" alt-text="Select Resource audit." lightbox="media/pim-for-groups/pim-group-19.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-19.png" alt-text="Screenshot of where to select Resource audit." lightbox="media/pim-for-groups/pim-group-19.png":::
 
 1.	Filter the history using a predefined date or custom range.
 
@@ -52,7 +52,7 @@ Follow these steps to view the audit history for groups in Privileged Identity M
 
 1. Select **My audit**.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-20.png" alt-text="Select My audit." lightbox="media/pim-for-groups/pim-group-20.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-20.png" alt-text="Screenshot of where to select My audit." lightbox="media/pim-for-groups/pim-group-20.png":::
 
 1.	Filter the history using a predefined date or custom range.
 

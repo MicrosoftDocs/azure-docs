@@ -37,7 +37,7 @@ Follow these steps to make a user eligible member or owner of a group. You will 
 
 1. Select **Azure AD Privileged Identity Management -> Groups (Preview)** and view groups that are already enabled for PIM for Groups.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="View groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="Screenshot of where to view groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
 
 1. Select the group you need to manage.
 
@@ -45,7 +45,7 @@ Follow these steps to make a user eligible member or owner of a group. You will 
 
 1. Use **Eligible assignments** and **Active assignments** blades to review existing membership or ownership assignments for selected group.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-3.png" alt-text="Review existing membership/ownership assignments for selected group." lightbox="media/pim-for-groups/pim-group-3.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-3.png" alt-text="Screenshot of where to review existing membership or ownership assignments for selected group." lightbox="media/pim-for-groups/pim-group-3.png":::
 
 1. Select **Add assignments**.
 
@@ -53,7 +53,7 @@ Follow these steps to make a user eligible member or owner of a group. You will 
 
 1. Select the members or owners you want to make eligible for the group.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-4.png" alt-text="Select the members or owners you want to make eligible for the group." lightbox="media/pim-for-groups/pim-group-4.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-4.png" alt-text="Screenshot of where to select the members or owners you want to make eligible for the group." lightbox="media/pim-for-groups/pim-group-4.png":::
 
 1. Select **Next**.
 
@@ -65,7 +65,7 @@ Follow these steps to make a user eligible member or owner of a group. You will 
 
 1.	If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox. Depending on the group's settings, the check box might not appear or might not be editable. For more information, check out the [Configure privileged access group settings (preview) in Privileged Identity Management](groups-role-settings.md#assignment-duration) article.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-5.png" alt-text="Configure the setting for add assignments." lightbox="media/pim-for-groups/pim-group-5.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-5.png" alt-text="Screenshot of where to configure the setting for add assignments." lightbox="media/pim-for-groups/pim-group-5.png":::
 
 1.	Select **Assign**.
 
@@ -77,7 +77,7 @@ Follow these steps to update or remove an existing role assignment. You will nee
 
 1. Select **Azure AD Privileged Identity Management -> Groups (Preview)** and view groups that are already enabled for PIM for Groups.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="View groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="Screenshot of where to view groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
 
 1. Select the group you need to manage.
 
@@ -85,7 +85,7 @@ Follow these steps to update or remove an existing role assignment. You will nee
 
 1. Use **Eligible assignments** and **Active assignments** blades to review existing membership or ownership assignments for selected group.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-3.png" alt-text="Review existing membership/ownership assignments for selected group." lightbox="media/pim-for-groups/pim-group-3.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-3.png" alt-text="Screenshot of where to review existing membership or ownership assignments for selected group." lightbox="media/pim-for-groups/pim-group-3.png":::
 
 1.	Select **Update** or **Remove** to update or remove the membership or ownership assignment.
 

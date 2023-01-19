@@ -37,13 +37,13 @@ Follow these steps to open the settings for a group role.
 
 1. Select the role you need to configure role settings for – **Member** or **Owner**.
 
-   :::image type="content" source="media/pim-for-groups/pim-group-17.png" alt-text="Select the role you need to configure role settings for." lightbox="media/pim-for-groups/pim-group-17.png":::
+   :::image type="content" source="media/pim-for-groups/pim-group-17.png" alt-text="Screenshot of where to select the role you need to configure role settings for." lightbox="media/pim-for-groups/pim-group-17.png":::
 
 1. Review current role settings.
 
 1. Select **Edit** to update role settings. 
 
-    :::image type="content" source="media/pim-for-groups/pim-group-18.png" alt-text="Select Edit to update role settings." lightbox="media/pim-for-groups/pim-group-18.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-18.png" alt-text="Screenshot of where to select Edit to update role settings." lightbox="media/pim-for-groups/pim-group-18.png":::
 
 1. Once finished, select **Update**.
 

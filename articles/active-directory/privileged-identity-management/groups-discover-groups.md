@@ -33,11 +33,11 @@ You should either be a group Owner, have Global Administrator role, or Privilege
 
 1. Select **Azure AD Privileged Identity Management -> Groups (Preview)** and view groups that are already enabled for PIM for Groups.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="View groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="Screenshot of where to view groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
 
 1.	Select **Discover groups** and select a group that you want to bring under management with PIM.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-2.png" alt-text="Select a group that you want to bring under management with PIM." lightbox="media/pim-for-groups/pim-group-2.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-2.png" alt-text="Screenshot of where to select a group that you want to bring under management with PIM." lightbox="media/pim-for-groups/pim-group-2.png":::
 
 1. Select **Manage groups** and **OK**.
 1. Select **Groups (Preview)** to return to the list of groups enabled in PIM for Groups.

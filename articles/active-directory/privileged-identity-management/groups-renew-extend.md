@@ -43,11 +43,11 @@ The following steps outline the process for requesting, resolving, or administer
 
 Users assigned group membership or ownership can extend expiring group assignments directly from the **Eligible** or **Active** tab on the **Assignments** page for the group. Users or groups can request to extend eligible and active assignments that expire in the next 14 days.
 
-:::image type="content" source="media/pim-for-groups/pim-group-11.png" alt-text="Self-extend expiring assignments." lightbox="media/pim-for-groups/pim-group-11.png":::
+:::image type="content" source="media/pim-for-groups/pim-group-11.png" alt-text="Screenshot of where to self-extend expiring assignments." lightbox="media/pim-for-groups/pim-group-11.png":::
 
 When the assignment end date-time is within 14 days, the **Extend** command is available. To request an extension of a group assignment, select **Extend** to open the request form.
 
-:::image type="content" source="media/pim-for-groups/pim-group-12.png" alt-text="Extend group assignment pane with a Reason box and details." lightbox="media/pim-for-groups/pim-group-12.png":::
+:::image type="content" source="media/pim-for-groups/pim-group-12.png" alt-text="Screenshot of where to extend group assignment pane with a Reason box and details." lightbox="media/pim-for-groups/pim-group-12.png":::
 
 >[!NOTE]
 >We recommend including the details of why the extension is necessary, and for how long the extension should be granted (if you have this information).
@@ -56,7 +56,7 @@ Administrators receive an email notification requesting that they review the ext
 
 To view the status of or cancel your request, open the **Pending requests** page for the group assignment.
 
-:::image type="content" source="media/pim-for-groups/pim-group-13.png" alt-text="Pending requests page showing the link to Cancel." lightbox="media/pim-for-groups/pim-group-13.png":::
+:::image type="content" source="media/pim-for-groups/pim-group-13.png" alt-text="Screenshot of the pending requests page showing the link to Cancel." lightbox="media/pim-for-groups/pim-group-13.png":::
 
 ### Admin approved extension
 
@@ -64,11 +64,11 @@ When a user or group submits a request to extend a group assignment, administrat
 
 In addition to using following the link from email, administrators can approve or deny requests by going to the Privileged Identity Management administration portal and selecting **Approve requests** in the left pane.
 
-:::image type="content" source="media/pim-for-groups/pim-group-14.png" alt-text="Approve requests page listing requests and links to approve or deny." lightbox="media/pim-for-groups/pim-group-14.png":::
+:::image type="content" source="media/pim-for-groups/pim-group-14.png" alt-text="Screenshot of the approve requests page listing requests and links to approve or deny." lightbox="media/pim-for-groups/pim-group-14.png":::
 
 When an Administrator selects **Approve** or **Deny**, the details of the request are shown, along with a field to provide a business justification for the audit logs.
 
-:::image type="content" source="media/pim-for-groups/pim-group-15.png" alt-text="Approve group assignment request with requestor reason, assignment type, start time, end time, and reason." lightbox="media/pim-for-groups/pim-group-15.png":::
+:::image type="content" source="media/pim-for-groups/pim-group-15.png" alt-text="Screenshot of where to approve group assignment request with requestor reason, assignment type, start time, end time, and reason." lightbox="media/pim-for-groups/pim-group-15.png":::
 
 When approving a request to extend a group assignment, resource administrators can choose a new start date, end date, and assignment type. Changing assignment type might be necessary if the administrator wants to provide limited access to complete a specific task (one day, for example). In this example, the administrator can change the assignment from **Eligible** to **Active**. This means they can provide access to the requestor without requiring them to activate.
 
@@ -78,7 +78,7 @@ If a user assigned to a group doesn't request an extension for the group assignm
 
 To extend a group assignment, browse to the assignment view in Privileged Identity Management. Find the assignment that requires an extension. Then select **Extend** in the action column.
 
-:::image type="content" source="media/pim-for-groups/pim-group-16.png" alt-text="Assignments page listing eligible group assignments with links to extend." lightbox="media/pim-for-groups/pim-group-16.png":::
+:::image type="content" source="media/pim-for-groups/pim-group-16.png" alt-text="Screenshot of the assignments page listing eligible group assignments with links to extend." lightbox="media/pim-for-groups/pim-group-16.png":::
 
 ## Renew group assignments
 
