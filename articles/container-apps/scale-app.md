@@ -420,7 +420,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject` specification. Identify each `secretTargetRef` of the `TriggerAuthentication` object.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-auth.yml" highlight="16,17,18":::
+    :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-auth.yml" highlight="16,17,18":::
 
 1. In the *Authentication* section, select **Add** to create an entry for each KEDA `secretTargetRef` parameter.
 
