@@ -110,7 +110,7 @@ In the **Notifications** tab on the role settings page, Privileged Identity Mana
 - **Turning off an email**<br>You can turn off specific emails by clearing the default recipient check box and deleting any other recipients.  
 - **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient check box. You can then add other email addresses as recipients. If you want to add more than one email address, separate them using a semicolon (;).
 - **Send emails to both default recipients and more recipients**<br>You can send emails to both default recipient and another recipient by selecting the default recipient checkbox and adding email addresses for other recipients.
-- **Critical emails only**<br>For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an emails requiring admins to approve an extension request will be triggered.
+- **Critical emails only**<br>For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an email requiring admins to approve an extension request will be triggered.
 
 ## Next steps
 
