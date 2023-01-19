@@ -431,7 +431,7 @@ To register the example model, follow these steps:
 1. Select __Unspecified type__ for the __Model type__.
 1. Select __Browse__, and choose __Browse folder__.
 
-    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/register-model-folder.png" alt-text="A screenshot of the browse folder option.":::
+    :::image type="content" source="media/how-to-deploy-online-endpoints/register-model-folder.png" alt-text="A screenshot of the browse folder option." lightbox="media/how-to-deploy-online-endpoints/register-model-folder.png":::
 
 1. Select the `\azureml-examples\cli\endpoints\online\model-1\model` folder from the local copy of the repo you cloned or downloaded earlier. When prompted, select __Upload__ and wait for the upload to complete.
 1. Select __Next__ after the folder upload is completed.
@@ -798,11 +798,11 @@ One way to create a managed online endpoint in the studio is from the **Models**
 1. Select the model named `model-1` by checking the circle next to its name.
 1. Select **Deploy** > **Deploy to real-time endpoint**.
 
-    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
+    :::image type="content" source="media/how-to-deploy-online-endpoints/deploy-from-models-page.png" lightbox="media/how-to-deploy-online-endpoints/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
     
     This opens up a window where you can specify details about your endpoint.
 
-    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" lightbox="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
+    :::image type="content" source="media/how-to-deploy-online-endpoints/online-endpoint-wizard.png" lightbox="media/how-to-deploy-online-endpoints/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
 
 1. Enter an __Endpoint name__.
 
@@ -827,9 +827,9 @@ Alternatively, you can create a managed online endpoint from the **Endpoints** p
 1. In the left navigation bar, select the **Endpoints** page.
 1. Select **+ Create**.
 
-    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
+    :::image type="content" source="media/how-to-deploy-online-endpoints/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-deploy-online-endpoints/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
 
-This opens up a window for you to specify details about your endpoint and deployment. Enter settings for your endpoint and deployment as described above, accepting defaults until you're prompted to __Create__  the deployment.
+This opens up a window for you to specify details about your endpoint and deployment. Enter settings for your endpoint and deployment as described in the previous steps 5-10, accepting defaults until you're prompted to __Create__  the deployment.
 
 # [ARM template](#tab/arm)
 
@@ -850,7 +850,7 @@ This opens up a window for you to specify details about your endpoint and deploy
 
 # [Azure CLI](#tab/azure-cli)
 
-The `show` command contains information in `provisioning_status` for endpoint and deployment:
+The `show` command contains information in `provisioning_state` for the endpoint and deployment:
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
@@ -875,7 +875,7 @@ for endpoint in ml_client.online_endpoints.list():
     print(endpoint.name)
 ```
 
-The method returns list (iterator) of `ManagedOnlineEndpoint` entities. You can get other information by specifying [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint#parameters).
+The method returns a list (iterator) of `ManagedOnlineEndpoint` entities. You can get other information by specifying [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint#parameters).
 
 For example, output the list of endpoints like a table:
 
@@ -892,18 +892,18 @@ for endpoint in ml_client.online_endpoints.list():
 
 You can view all your managed online endpoints in the **Endpoints** page. Go to the endpoint's **Details** page to find critical information including the endpoint URI, status, testing tools, activity monitors, deployment logs, and sample consumption code:
 
-1. In the left navigation bar, select **Endpoints**.
+1. In the left navigation bar, select **Endpoints**. Here, you can see a list of all the endpoints in the workspace.
 1. (Optional) Create a **Filter** on **Compute type** to show only **Managed** compute types.
-1. Select an endpoint name to view the endpoint's details page.
+1. Select an endpoint name to view the endpoint's __Details__ page.
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/managed-endpoint-details-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/managed-endpoint-details-page.png" alt-text="Screenshot of managed endpoint details view.":::
+:::image type="content" source="media/how-to-deploy-online-endpoints/managed-endpoint-details-page.png" lightbox="media/how-to-deploy-online-endpoints/managed-endpoint-details-page.png" alt-text="Screenshot of managed endpoint details view.":::
 
 # [ARM template](#tab/arm)
 
 > [!TIP]
 > While templates are useful for deploying resources, they can't be used to list, show, or invoke resources.
 
-The `show` command contains information in `provisioning_status` for endpoint and deployment:
+The `show` command contains information in the `provisioning_state` for the endpoint and deployment:
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
@@ -923,7 +923,7 @@ Check the logs to see whether the model was deployed without error:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
-By default, logs are pulled from inference-server. To see the logs from storage-initializer (it mounts assets like model and code to the container), add the `--container storage-initializer` flag.
+By default, logs are pulled from the inference server container. To see logs from the storage initializer container, add the `--container storage-initializer` flag. For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 
 # [Python](#tab/python)
@@ -936,7 +936,7 @@ ml_client.online_deployments.get_logs(
 )
 ```
 
-By default, logs are pulled from inference-server. To see the logs from storage-initializer (it mounts assets like model and code to the container), add the `container_type="storage-initializer"` option.
+By default, logs are pulled from the inference server container. To see logs from the storage initializer container, add the `container_type="storage-initializer"` option. For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 ```python
 ml_client.online_deployments.get_logs(
@@ -946,7 +946,11 @@ ml_client.online_deployments.get_logs(
 
 # [Studio](#tab/azure-studio)
 
-To view the logs, click **Deployment logs** in the endpoint's **Details** page.
+To view log output, select the **Deployment logs** tab in the endpoint's **Details** page. If you have multiple deployments in your endpoint, use the dropdown to select the deployment whose log you want to see.
+
+:::image type="content" source="media/how-to-deploy-online-endpoints/deployment-logs.png" lightbox="media/how-to-deploy-online-endpoints/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
+
+By default, logs are pulled from the inference server. To see logs from the storage initializer container, use the Azure CLI or Python SDK (see each tab for details). For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 # [ARM template](#tab/arm)
 
@@ -955,11 +959,9 @@ To view the logs, click **Deployment logs** in the endpoint's **Details** page.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
-By default, logs are pulled from inference-server. To see the logs from storage-initializer (it mounts assets like model and code to the container), add the `--container storage-initializer` flag.
+By default, logs are pulled from the inference server container. To see logs from the storage initializer container, add the `--container storage-initializer` flag. For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 ---
-
-For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 ### Invoke the endpoint to score data by using your model
 
@@ -1015,7 +1017,7 @@ Use the **Test** tab in the endpoint's details page to test your managed online 
 1. Enter sample input.
 1. Select **Test**.
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/test-deployment.png" lightbox="media/how-to-create-managed-online-endpoint-studio/test-deployment.png" alt-text="A screenshot of testing a deployment by providing sample data, directly in your browser.":::
+:::image type="content" source="media/how-to-deploy-online-endpoints/test-deployment.png" lightbox="media/how-to-deploy-online-endpoints/test-deployment.png" alt-text="A screenshot of testing a deployment by providing sample data, directly in your browser.":::
 
 # [ARM template](#tab/arm)
 
