@@ -10,8 +10,7 @@ ms.author: eur
 
 #### Breaking changes
 
-- Usage of Language Identification (preview) has been simplified. If you update to 1.25 and have a build break, please visit the [Language Identification (preview)](/azure/cognitive-services/speech-service/language-identification) page to learn what has changed. In particular, the two properties `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority` have
-been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`.
+- Language Identification (preview) APIs have been simplified. If you update to Speech SDK 1.25 and see a build break, please visit the [Language Identification (preview)](/azure/cognitive-services/speech-service/language-identification) page to learn about the new property `SpeechServiceConnection_LanguageIdMode`. This single property replaces the two previous ones `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Results are very accurate at low latency, therefore we removed the priority option. The only setting supported now is whether to run at-start or continuous Language Identification, when doing continuous speech recognition or translation.
 
 #### New features
 
