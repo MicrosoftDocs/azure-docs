@@ -382,7 +382,7 @@ Used to customize the Java virtual machine (JVM) used to run your Java functions
 
 ## languageWorkers__java__arguments
 
-Used to customize the Java virtual machine (JVM) used to run your Java functions when running on a [Consumption plan](./functions-premium-plan.md). For a Premium or Dedicated plan, instead use `JAVA_OPTS`. For more information, see [Customize JVM](functions-reference-java.md#customize-jvm).
+Used to customize the Java virtual machine (JVM) used to run your Java functions when running on a [Consumption plan](./functions-premium-plan.md). This setting does increase the cold start times for Java functions running in a Consumption plan. For a Premium or Dedicated plan, instead use `JAVA_OPTS`. For more information, see [Customize JVM](functions-reference-java.md#customize-jvm).
 
 ## MDMaxBackgroundUpgradePeriod
 
