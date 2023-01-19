@@ -5,12 +5,12 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 12/09/2022
+ ms.date: 01/18/2023
  ms.author: rogarana
  ms.custom: include file
 ---    
 - Only supported for data disks.
-- If a disk is 4 TiB or less, you can't expand it beyond 4 TiB without deallocating the VM. If a disk is already greater than 4 TiB, you can expand it without deallocating the VM.
+- If a disk is 4 TiB or less, you should deallocate your VM and detach the disk before expanding it beyond 4 TiB. If a disk is already greater than 4 TiB, you can expand it without deallocating the VM and detaching the disk.
 - Not supported for Ultra disks or Premium SSD v2 disks.
 - Not supported for shared disks.
 - Install and use either:
