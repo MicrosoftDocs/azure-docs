@@ -21,9 +21,6 @@ You'll need an onboarding partner for integrating with Microsoft Phone System. I
 
 You must ensure you've got two or more numbers that you own which are globally routable. Your onboarding team will require these numbers to configure test lines.
 
-- **Manual** test lines will be used by Microsoft staff to make test calls during integration testing.
-- **Automated** test lines will be assigned to Teams test suites for validation testing.
-
 We strongly recommend that all operators have a support plan that includes technical support, such as a **Microsoft Unified** or **Premier** support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans/).
 
 ## 1. Configure Azure Active Directory in Operator Azure tenancy
@@ -63,31 +60,23 @@ Project Synergy allows Operator Connect to access your Azure Active Directory. I
 
 ## 3. Create App registrations to provide Azure Communications Gateway access to the Operator Connect API
 
-App registrations are required for Azure Communication Gateway's Billing Service and Call Duration Uploader (CDU) systems to function correctly. They provide these systems with access to the Operator Connect API and only need to be created once for each application. App registrations **must** be created in **your** tenant.
-
-We recommend you create individual App registrations for:
-
-- Billing Service
-- Call Duration Uploader - note that if you have multiple CDUs in a deployment, you can either create a single App registration for all of your CDU instances or create unique App registrations for each CDU instance.
+You must create an App registration to enable Azure Communication Gateway to function correctly. The App registration provides Azure Communication Gateway with access to the Operator Connect API on your behalf. The App registration **must** be created in **your** tenant.
 
 ### 3.1 Create an App registration
 
-Use the following steps to create two App registrations, one for the Billing Service and one for Call Duration Uploader:
+Use the following steps to create an App registration for Azure Communication Gateway:
 
 1. Navigate to **App registrations** in the Azure portal (select **Azure Active Directory** and then in the left-hand menu, select **App registrations**). Alternatively, you can search for it with the search bar: it will appear under the **Services** subheading.
 1. Select **New registration**.
-1. Enter an appropriate **Name**. For example: **Call Duration** or **Billing Service**.
+1. Enter an appropriate **Name**. For example: **Azure Communication Gateway service**.
 1. Don't change any settings (leaving everything as default). This means:
     - **Supported account types** should be set as **Accounts in this organizational directory only**.
     - Leave the **Redirect URI** and **Service Tree ID** empty.
 1. Select **Register**.
-1. Repeat these steps for the other application.
-
-You should now have two App registrations named **Call Duration** and **Billing Service**.
 
 ### 3.2 Configure permissions
 
-For each App registration that you created in [3.1 Create an App registration](#31-create-an-app-registration):
+For the App registration that you created in [3.1 Create an App registration](#31-create-an-app-registration):
 
 1. Navigate to **App registrations** in the Azure portal (select **Azure Active Directory** and then in the left-hand menu, select **App registrations**). Alternatively, you can search for it with the search bar: it will appear under the **Services** subheading.
 1. Select the App registration.
@@ -97,81 +86,77 @@ For each App registration that you created in [3.1 Create an App registration](#
 1. Enter **Project Synergy** in the filter box.
 1. Select **Project Synergy**.
 1. Select/deselect checkboxes until only the required permissions are selected. The required permissions are:
-    - Call Duration: Data.Write
-    - Billing Service: Data.Read, NumberManagement.Read, TrunkManagement.Read
+    - Data.Write
+    - Data.Read
+    - NumberManagement.Read
+    - TrunkManagement.Read
 1. Select **Add permissions**.
-1. Select **Grant admin consent** for **<your_tenant_name>**.
+1. Select **Grant admin consent** for ***\<YourTenantName\>***.
 1. Select **Yes** to confirm.
-1. Repeat these steps for the other application.
+
 
 ### 3.3 Add the application ID to the Operator Connect Portal
 
-This step is required to prevent 403 responses when you try to use the REST API with this client-id/client-secret. For each App registration you created:
+This step is required to allow Azure Communications Gateway to use the Operator Connect API on your behalf. For the App registration you created:
 
 1. Navigate to **App registrations** in the Azure portal (select **Azure Active Directory** and then in the left-hand menu, select **App registrations**). Alternatively, you can search for it with the search bar: it will appear under the **Services** subheading.
 1. Copy the **Application (client) ID** from the Overview page of your new App registration.
 1. Log into the [Operator Connect Number Management Portal](https://operatorconnect.microsoft.com/operator/configuration) and add a new **Application Id**, pasting in the value you copied.
-1. Repeat these steps for the other application.
 
-## 4. Create and store secrets for the App registrations
+## 4. Create and store secrets 
 
-You must create Azure secrets and allow to allow the App registrations to access these secrets. This integration allows the Azure Communication Gateway's Billing Service and Call Duration Uploader (CDU) systems to access the Operator Connect API.
+You must create an Azure secret and allow the App registration to access this secret. This integration allows Azure Communication Gateway to access the Operator Connect API.
+
+This step guides you through creating a Key Vault to store a secret for the App registration, creating the secret and allowing the App registration to use the secret.
 
 ### 4.1 Create a Key Vault
 
-Each App registration you created in [3. Create App registrations to provide Azure Communications Gateway access to the Operator Connect API](#3-create-app-registrations-to-provide-azure-communications-gateway-access-to-the-operator-connect-api) requires a dedicated Key Vault (that is, one for the Billing Service and another for the Call Duration Uploader). The Key Vault is used to store the ClientID and Secret (created in the next steps) for each of the App registrations.
-
-For each App registration:
+The App registration you created in [3. Create App registrations to provide Azure Communications Gateway access to the Operator Connect API](#3-create-app-registrations-to-provide-azure-communications-gateway-access-to-the-operator-connect-api) requires a dedicated Key Vault. The Key Vault is used to store the secret name and secret value (created in the next steps) for the App registration.
 
 1. Create a Key Vault. Follow the steps in [Create a Vault](/azure/key-vault/general/quick-create-portal).
-1. Provide your onboarding team with the ResourceID of your Key Vault.
-1. Your onboarding team will use the ResourceID to request a Private-Endpoint. That request triggers an approval request to appear in the Key Vault.
-1. Approve this request.
-1. Repeat these steps for the other application.
+1. Provide your onboarding team with the ResourceID and the Vault URI of your Key Vault.
+1. Your onboarding team will use the ResourceID to request a Private-Endpoint. That request triggers two approval requests to appear in the Key Vault.
+1. Approve these requests.
 
-### 4.2 Create secrets
+### 4.2 Create a secret
 
-You must create a secret for each App registration whilst preparing to deploy Azure Communication Gateway and then regularly rotate these secrets. A secret will expire in 70 days or earlier.
+You must create a secret for the App registration while preparing to deploy Azure Communication Gateway and then regularly rotate this secret. 
 
-For each App registration:
+We recommend you rotate your secrets at least every 70 days for security. For instructions on how to rotate secrets, see [Rotate your Azure Communications Gateway secrets](rotate-secrets.md) 
 
 1. Navigate to **App registrations** in the Azure portal (select **Azure Active Directory** and then in the left-hand menu, select **App registrations**). Alternatively, you can search for it with the search bar: it will appear under the **Services** subheading.
 1. Select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Enter a name for the secret (we suggest that the name should include the date at which the secret is being created).
 1. Copy or note down the value of the new secret (you won't be able to retrieve it later).
-1. Repeat these steps for the other application.
 
-### 4.3 Grant your Admin Consent
 
-To enable the Billing Service and Call Duration Uploader to access the Key Vaults, you must grant admin consent to the App registrations.
+### 4.3 Grant Admin Consent to Azure Communications Gateway
 
-For each App registration:
+To enable the Azure Communication Gateway service to access the Key Vault, you must grant Admin Consent to the App registration.
 
 1. Request the Admin Consent URL from your onboarding team.
-1. Follow the link. A pop-up window will appear which contains the **Application Name**. Note down this name.
-1. Repeat these steps for the other application.
+1. Follow the link. A pop-up window will appear which contains the **Application Name** of the Registered Application. Note down this name.
 
 ### 4.4 Grant your application Key Vault Access
 
-This step must be performed on your Operator Tenant. It will give the Application the ability to read the Operator Connect secrets, and make the Cross-Tenant authentication hop. For each of your Key Vaults:
+This step must be performed on your Tenant. It will give the Azure Communication Gateway the ability to read the Operator Connect secrets from your tenant.
 
-1. Navigate to the Key Vault in the Azure portal. If you can't locate it, search for Key Vault in the search bar: it will appear under the **Services** subheading.
+1. Navigate to the Key Vault in the Azure portal. If you can't locate it, search for Key Vault in the search bar, select **Key vaults** from the results, and select your Key Vault.
 1. Select **Access Policies** on the left hand side menu.
 1. Select **Create**.
-1. Select **Get** from the Secret permissions column.
+1. Select **Get** from the secret permissions column.
 1. Select **Next**.
-1. Search for the Application Name (which you noted down in the previous step) of the Registered Application, and select the name.
+1. Search for the Application Name of the Registered Application created by the Admin Consent process (which you noted down in the previous step), and select the name.
 1. Select **Next**.
 1. Select **Next** again to skip the **Application** tab.
 1. Select **Create**.
-1. Repeat these steps for the other Key Vault.
 
 ## 5. Create a network design
 
 Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* you've been issued. You must have two Azure Regions with cross-connect functionality. For more details on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json).
 
-To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](/azure/internet-peering/walkthrough-Communicationss-services-partner).
+To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](/azure/internet-peering/walkthrough-communications-services-partner).
     :::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text="Network diagram of an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::
 
 ## 6. Collect basic information for deploying an Azure Communications Gateway
@@ -183,10 +168,16 @@ To configure MAPS, follow the instructions in [Azure Internet peering for Commun
  |The Azure subscription to use to create an Azure Communications Gateway resource. You must use the same subscription for all resources in your Azure Communications Gateway deployment. |**Project details: Subscription**|
  |The Azure resource group in which to create the Azure Communications Gateway resource. |**Project details: Resource group**|
  |The name for the deployment. |**Instance details: Name**|
- |This is the region in which your monitoring and billing data is processed. We recommend that you select a region near or co-located with the two regions that will be used for handling call traffic. |**Instance details: Region**
- |The voice codecs the Azure Communications Gateway will be able to support when communicating with your network. |**Project details: Supported Codecs**|
- |The Unified Communications as a Service (UCaaS) platform Azure Communications Gateway will support. These platforms are Teams Phone Mobile and Operator Connect Mobile. |**Project details: Supported Voice Platforms**|
- |Whether your Azure Communications Gateway resource should handle emergency calls as standard calls or directly route them to the Emergency Services Routing Proxy (ESRP). |**Project details: Emergency call handling**|
+ |The management Azure region: the region in which your monitoring and billing data is processed. We recommend that you select a region near or co-located with the two regions that will be used for handling call traffic. |**Instance details: Region**
+ |The voice codecs that Azure Communications Gateway will be able to support when communicating with your network. |**Instance details: Supported Codecs**|
+ |The Unified Communications as a Service (UCaaS) platform(s) Azure Communications Gateway will support. These platforms are Teams Phone Mobile and Operator Connect Mobile. |**Instance details: Supported Voice Platforms**|
+ |Whether your Azure Communications Gateway resource should handle emergency calls as standard calls or directly route them to the Emergency Services Routing Proxy (US only). |**Instance details: Emergency call handling**|
+ |The scope at which the auto-generated domain name label is unique. Communications Gateway resources get assigned an auto-generated label which depends on the name of the resource. Selecting **Tenant** will give a resource with the same name in the same tenant but a different subscription the same auto-generated label. Selecting **Subscription** will give a resource with the same name in the same subscription but a different resource group the same auto-generated label. Selecting **Resource Group** will give a resource with the same name in the same resource group the same auto-generated label. Selecting **No Re-use** means the auto-generated label does not depend on the name, resource group, subscription or tenant. |**Instance details: Auto-generated Domain Name Scope**| 
+ |The number used in Teams Phone Mobile to access the Voicemail Interactive Voice Response (IVR) from native dialers.|**Instance details: Teams Voicemail Pilot Number**|
+ |A list of dial strings used for emergency calling.|**Instance details: Emergency Dial Strings**|
+ |Whether an on-premises Mobile Control Point is in use.|**Instance details: Enable on-premises MCP functionality**|
+
+
 
 ## 7. Collect Service Regions configuration values
 
@@ -194,10 +185,22 @@ Collect all of the values in the following table for both service regions in whi
 
  |**Value**|**Field name(s) in Azure portal**|
  |---------|---------|
- |The Azure regions that will handle call traffic. |**Service Region One: Region** and **Service Region Two: Region**|
- |The IPv4 address used by Microsoft Teams to contact your network from this region. |**Service Region One: Operator IP address** and **Service Region Two: Operator IP address**|
+ |The Azure regions that will handle call traffic. |**Service Region One/Two: Region**|
+ |The IPv4 address used by Microsoft Teams to contact your network from this region. |**Service Region One/Two**|
+ |The set of IP addresses/ranges that are permitted as sources for signaling traffic from your network. Provide an IPv4 address range using CIDR notation (for example, 192.0.2.0/24) or an IPv4 address (for example, 192.0.2.0). You can also provide a comma-separated list of IPv4 addresses and/or address ranges|**Service Region One/Two: Allowed Signaling Source IP Addresses/CIDR Ranges**|
+ |The set of IP addresses/ranges that are permitted as sources for media traffic from your network. Provide an IPv4 address range using CIDR notation (for example, 192.0.2.0/24) or an IPv4 address (for example, 192.0.2.0). You can also provide a comma-separated list of IPv4 addresses and/or address ranges|**Service Region One/Two: Allowed Media Source IP Address/CIDR Ranges**|
 
-## 8. Decide if you want tags
+## 8. Collect Test Lines configuration values
+
+Collect all of the values in the following table for all test lines you want to configure for Azure Communications Gateway. You must configure at least one test line.
+
+ |**Value**|**Field name(s) in Azure portal**|
+ |---------|---------|
+ |The name of the test line. |**Name**|
+ |The phone number of the test line. |**Phone Number**|
+ |Whether the test line is manual or automated: **Manual** test lines will be used by you and Microsoft staff to make test calls during integration testing. **Automated** test lines will be assigned to Microsoft Teams test suites for validation testing. |**Testing purpose**|
+
+## 9. Decide if you want tags
 
 Resource naming and tagging is useful for resource management. It enables your organization to locate and keep track of resources associated with specific teams or workloads and also enables you to more accurately track the consumption of cloud resources by business area and team.
 
