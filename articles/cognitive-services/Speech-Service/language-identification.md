@@ -26,6 +26,11 @@ For speech recognition, the initial latency is higher with language identificati
 
 ## Configuration options
 
+> [!IMPORTANT]
+> You must make a code change when upgrading to the Speech SDK version 1.25 from earlier versions. With Speech SDK version 1.25, the 
+`SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority` properties have
+been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. The Speech service will prioritize latency over accuracy for language identification. 
+
 Whether you use language identification with [speech-to-text](#speech-to-text) or with [speech translation](#speech-translation), there are some common concepts and configuration options.
 
 - Define a list of [candidate languages](#candidate-languages) that you expect in the audio.
@@ -198,7 +203,7 @@ You use Speech-to-text recognition when you need to identify the language in an 
 
 ::: zone pivot="programming-language-csharp"
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_with_language_id_samples.cs).
 
 ### [Recognize once](#tab/once)
 
@@ -208,7 +213,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey","YourServiceRegion");
 
-// Set the LanguageIdMode (optional, default Continuous, either Continuous or AtStart is accepted)
+// Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
 speechConfig.SetProperty(PropertyId.SpeechServiceConnection_LanguageIdMode, "Continuous");
 
 var autoDetectSourceLanguageConfig =
@@ -241,7 +246,7 @@ var endpointUrl = new Uri(endpointString);
 
 var config = SpeechConfig.FromEndpoint(endpointUrl, "YourSubscriptionKey");
 
-// Set the LanguageIdMode (optional, default Continuous, either Continuous or AtStart is accepted)
+// Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
 config.SetProperty(PropertyId.SpeechServiceConnection_LanguageIdMode, "Continuous");
 
 var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "de-DE", "zh-CN" });
@@ -331,7 +336,7 @@ using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey","YourServiceRegion");
 
-// Set the LanguageIdMode (optional, default Continuous, either Continuous or AtStart is accepted)
+// Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
 speechConfig->SetProperty(PropertyId::SpeechServiceConnection_LanguageIdMode, "Continuous");
 
 auto autoDetectSourceLanguageConfig =
@@ -609,7 +614,7 @@ public static async Task RecognizeOnceSpeechTranslationAsync()
     
     var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "YourSubscriptionKey");
 
-    // Set the LanguageIdMode (optional, default Continuous, either Continuous or AtStart is accepted)
+    // Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
     speechTranslationConfig.SetProperty(PropertyId.SpeechServiceConnection_LanguageIdMode, "Continuous");
 
     // Source language is required, but currently ignored. 
@@ -669,7 +674,7 @@ public static async Task MultiLingualTranslation()
     config.AddTargetLanguage("de");
     config.AddTargetLanguage("fr");
 
-    // Set the LanguageIdMode (optional, default Continuous, either Continuous or AtStart is accepted)
+    // Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
     config.SetProperty(PropertyId.SpeechServiceConnection_LanguageIdMode, "Continuous");
     var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "de-DE", "zh-CN" });
 
@@ -769,7 +774,7 @@ auto region = "YourServiceRegion";
 auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
 auto config = SpeechTranslationConfig::FromEndpoint(endpointString, "YourSubscriptionKey");
 
-// Set the LanguageIdMode (optional, default Continuous, either Continuous or AtStart is accepted)
+// Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
 config->SetProperty(PropertyId::SpeechServiceConnection_LanguageIdMode, "Continuous");
 auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
 
@@ -841,7 +846,7 @@ void MultiLingualTranslation()
     auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
     auto config = SpeechTranslationConfig::FromEndpoint(endpointString, "YourSubscriptionKey");
 
-    // Set the LanguageIdMode (optional, default Continuous, either Continuous or AtStart is accepted)
+    // Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
     speechConfig->SetProperty(PropertyId::SpeechServiceConnection_LanguageIdMode, "Continuous");
     auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE", "zh-CN" });
 
@@ -948,7 +953,7 @@ translation_config = speechsdk.translation.SpeechTranslationConfig(
     target_languages=('de', 'fr'))
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 
-# Set the LanguageIdMode (optional, default Continuous, either Continuous or AtStart is accepted)
+# Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
 translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_LanguageIdMode, value='AtStart')
 
 # Specify the AutoDetectSourceLanguageConfig, which defines the number of possible languages
@@ -1005,7 +1010,7 @@ translation_config = speechsdk.translation.SpeechTranslationConfig(
     target_languages=('de', 'fr'))
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 
-# Set the LanguageIdMode (optional, default Continuous, either Continuous or AtStart is accepted)
+# Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
 translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_LanguageIdMode, value='Continuous')
 
 # Specify the AutoDetectSourceLanguageConfig, which defines the number of possible languages
