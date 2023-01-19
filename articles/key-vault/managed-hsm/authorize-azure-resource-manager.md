@@ -18,7 +18,7 @@ ms.author: mbaldwin
 
 For many asynchronous operations in the Portal and Template deployments, Azure Resource Manager must be trusted to act on behalf of users. Azure Key Vault trusts Azure Resource Manager but, for many higher assurance environments, such trust in the Azure portal and Azure Resource Manager may be considered a risk.
 
-Azure Managed HSM does not trust Azure Resource Manager by default. However, for environments where such risk is an acceptable tradeoff for the ease of use of the Azure portal and template deployments, Managed HSM offers a way for an administrator to opt-in to this trust.
+Azure Managed HSM doesn't trust Azure Resource Manager by default. However, for environments where such risk is an acceptable tradeoff for the ease of use of the Azure portal and template deployments, Managed HSM offers a way for an administrator to opt in to this trust.
 
 For the Azure portal or Azure Resource Manager to interact with Azure Managed HSM in the same way as Azure Key Vault Standard and Premium, an authorized Managed HSM administrator must allow Azure Resource Manager to act on behalf of the user. To change this behavior and allow users to use Azure portal or Azure Resource Manager to create new keys or list keys, make the following Azure Managed HSM setting update:
 
