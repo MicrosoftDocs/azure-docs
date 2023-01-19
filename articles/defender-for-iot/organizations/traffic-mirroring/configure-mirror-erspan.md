@@ -78,7 +78,7 @@ no shut                             
 monitor erspan origin ip-address 172.1.2.1 global
 ```
 
- For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
+ For more information, see [CLI command reference from OT network sensors](../cli-ot-sensor.md).
 
 ## Next steps
 
