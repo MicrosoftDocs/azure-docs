@@ -85,26 +85,21 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 ### Authentication for a scan
 
-In order to have access to scan the data source, an authentication method in the Azure Blob Storage account needs to be configured.
+Your Azure network may allow for communications between your Azure resources, but if you've set up firewalls, private endpoints, or virtual networks within Azure, you'll need to follow one of these configurations below.
 
-The following options are supported:
+|Networking constraints  |Integration runtime type  |Available credential types  |
+|---------|---------|---------|
+|No private endpoints or firewalls | Azure IR | Managed identity (Recommended), service principal, or account key|
+|Firewall enabled but no private endpoints| Azure IR | Managed identity |
+|Private endpoints enabled | *Self-Hosted IR | Service principal, account key|
 
-> [!Note]
-> If you have firewall enabled for the storage account, you must use managed identity authentication method when setting up a scan.
-
-- **System-assigned managed identity (Recommended)** - As soon as the Microsoft Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Microsoft Purview SAMI to perform the scans.
-
-- **User-assigned managed identity** (preview) - Similar to a system-managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Microsoft Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
-
-- **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Microsoft Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password, or a password.
-
-   > [!Note]
-   > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Microsoft Purview account’s_ SAMI with required access permission to secrets inside _Azure key vault_.
-
-- **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
+*To use a self-hosted integration runtime, you'll first need to [create one](manage-integration-runtimes.md) and confirm your [network settings for Microsoft Purview](catalog-private-link.md)
 
 #### Using a system or user assigned managed identity for scanning
 
+* **System-assigned managed identity (Recommended)** - As soon as the Microsoft Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Microsoft Purview system-assigned managed identity (SAMI) to perform the scans.
+
+* **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Microsoft Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 It is important to give your Microsoft Purview account the permission to scan the Azure Blob data source. You can add access for the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what level scan permission is needed.
 
 > [!NOTE]
@@ -214,13 +209,13 @@ Provide a **Name** for the scan, select the Microsoft Purview accounts SAMI or U
 
 #### If using Account Key
 
-Provide a **Name** for the scan, choose the appropriate collection for the scan, and select **Authentication method** as _Account Key_ and select **Create**
+Provide a **Name** for the scan, select the Azure IR or your Self-Hosted IR depending on your configuration, choose the appropriate collection for the scan, and select **Authentication method** as _Account Key_ and select **Create**
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-acct-key.png" alt-text="Screenshot that shows the Account Key option for scanning":::
 
 #### If using Service Principal
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
+1. Provide a **Name** for the scan, select the Azure IR or your Self-Hosted IR depending on your configuration, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sp-option.png" alt-text="Screenshot that shows the option for service principal to enable scanning":::
 
