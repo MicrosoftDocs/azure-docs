@@ -25,6 +25,10 @@ In this article, you'll develop, build, and deploy a serverless Java app with Qu
 
 Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/quarkus-azure).
 
+```bash
+git clone https://github.com/Azure-Samples/quarkus-azure
+```
+
 Explore the sample function. Open the file *functions-quarkus/src/main/java/io/quarkus/GreetingFunction.java*. The `@Funq` annotation makes your method (e.g. `funqyHello`) a serverless function. Azure Functions Java has its own set of Azure-specific annotations, but these annotations are not necessary when using Quarkus on Azure Functions in a simple capacity as we're doing here. For more information on the Azure Functions Java annotations, see [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java).
 
 ```java
@@ -51,9 +55,7 @@ Use `mvn` to run `Quarkus Dev mode` on your local terminal. Running Quarkus in t
 
 A browser refresh triggers a scan of the workspace. If any changes are detected, the Java files are recompiled and the application is redeployed. Your redeployed application services the request. If there are any issues with compilation or deployment an error page will let you know.
 
-Quarkus dev mode listens for a debugger on port `5005`. If you want to wait for the debugger to attach before running you can pass `-Dsuspend` on the command line. When you don’t want the debugger at all, use `-Ddebug=false`.
-
-Replace `yourResourceGroupName` with a resource group name. Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. The resourceGroup is not necessary for this part of the instructions, but it's required later. For simplicity, the maven project requires the property be defined.
+Replace `yourResourceGroupName` with a resource group name. Function app names must be globally unique across all of Azure. Resource group names must be globally unique within a subscription. This article achieves the necessary uniqueness by prepending the resource group name to the function name. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. The resourceGroup is not necessary for this part of the instructions, but it's required later. For simplicity, the maven project requires the property be defined.
 
 1. Invoke Quarkus dev mode.
 
