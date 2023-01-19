@@ -9,7 +9,7 @@ ms.date: 1/5/2022
 
 # Use Azure Private Link to connect networks to Azure Monitor
 
-With [Azure Private Link](../../private-link/private-link-overview.md), you can securely link Azure platform as a service (PaaS) resources to your virtual network by using private endpoints. Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. An Azure Monitor Private Link connects a private endpoint to a set of Azure Monitor resources to define the boundaries of your monitoring network. That set is called an Azure Monitor private link scope (AMPLS).
+With [Azure Private Link](../../private-link/private-link-overview.md), you can securely link Azure platform as a service (PaaS) resources to your virtual network by using private endpoints. Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. An Azure Monitor private link connects a private endpoint to a set of Azure Monitor resources to define the boundaries of your monitoring network. That set is called an Azure Monitor Private Link Scope (AMPLS).
 
 > [!NOTE]
 > Azure Monitor private links are structured differently from private links to other services you might use. Instead of creating multiple private links, one for each resource the virtual network connects to, Azure Monitor uses a single private link connection, from the virtual network to an AMPLS. AMPLS is the set of all Azure Monitor resources to which a virtual network connects through a private link.
@@ -39,10 +39,10 @@ An AMPLS:
 * **Controls network access to your Azure Monitor resources**: Configure each of your workspaces or components to accept or block traffic from public networks. You can apply different settings for ingestion and query requests.
 
 ## Azure Monitor private links rely on your DNS
-When you set up a Private Link connection, your DNS zones map Azure Monitor endpoints to private IPs to send traffic through the private link. Azure Monitor uses both resource-specific endpoints and shared global/regional endpoints to reach the workspaces and components in your AMPLS.
+When you set up a private link connection, your DNS zones map Azure Monitor endpoints to private IPs to send traffic through the private link. Azure Monitor uses both resource-specific endpoints and shared global/regional endpoints to reach the workspaces and components in your AMPLS.
 
 > [!WARNING]
-> Because Azure Monitor uses some shared endpoints (meaning endpoints that aren't resource specific), setting up a private link even for a single resource changes the DNS configuration that affects traffic to *all resources*. In other words, traffic to all workspaces or components is affected by a single Private Link setup.
+> Because Azure Monitor uses some shared endpoints (meaning endpoints that aren't resource specific), setting up a private link even for a single resource changes the DNS configuration that affects traffic to *all resources*. In other words, traffic to all workspaces or components is affected by a single private link setup.
 
 The use of shared endpoints also means you should use a single AMPLS for all networks that share the same DNS. Creating multiple AMPLS resources will cause Azure Monitor DNS zones to override each other and break existing environments. To learn more, see [Plan by network topology](./private-link-design.md#plan-by-network-topology).
 
@@ -54,7 +54,7 @@ When you configure Private Link even for a single resource, traffic to the follo
 
 > [!IMPORTANT]
 > Creating a private link affects traffic to *all* monitoring resources, not only resources in your AMPLS. Effectively, it will cause all query requests and ingestion to Application Insights components to go through private IPs. It doesn't mean the Private Link validation applies to all these requests.</br>
-> 
+>
 >Resources not added to the AMPLS can only be reached if the AMPLS access mode is Open and the target resource accepts traffic from public networks. When you use the private IP, *Private Link validations don't apply to resources not in the AMPLS*. To learn more, see [Private Link access modes](#private-link-access-modes-private-only-vs-open).
 
 ### Resource-specific endpoints
@@ -66,7 +66,7 @@ Log Analytics endpoints are workspace specific, except for the query endpoint di
 > Starting December 1, 2021, the private endpoints DNS configuration will use the Endpoint Compression mechanism, which allocates a single private IP address for all workspaces in the same region. It improves the supported scale (up to 300 workspaces and 1,000 components per AMPLS) and reduces the total number of IPs taken from the network's IP pool.
 
 ## Private Link access modes: Private Only vs. Open
-As discussed in [Azure Monitor Private Link relies on your DNS](#azure-monitor-private-links-rely-on-your-dns), only a single AMPLS resource should be created for all networks that share the same DNS. As a result, organizations that use a single global or regional DNS have a single private link to manage traffic to all Azure Monitor resources, across all global or regional networks.
+As discussed in [Azure Monitor private links rely on your DNS](#azure-monitor-private-links-rely-on-your-dns), only a single AMPLS resource should be created for all networks that share the same DNS. As a result, organizations that use a single global or regional DNS have a single private link to manage traffic to all Azure Monitor resources, across all global or regional networks.
 
 For private links created before September 2021, that means:
 
@@ -83,7 +83,7 @@ Starting September 2021, private links have new mandatory AMPLS settings that ex
 Although Log Analytics query requests are affected by the AMPLS access mode setting, Log Analytics ingestion requests use resource-specific endpoints and aren't controlled by the AMPLS access mode. To ensure Log Analytics ingestion requests can't access workspaces out of the AMPLS, set the network firewall to block traffic to public endpoints, regardless of the AMPLS access modes.
 
 > [!NOTE]
-> If you've configured Log Analytics with Private Link by initially setting the NSG rules to allow outbound traffic by `ServiceTag:AzureMonitor`, the connected VMs send the logs through a public endpoint. Later, if you change the rules to deny outbound traffic by `ServiceTag:AzureMonitor`, the connected VMs keep sending logs until you reboot the VMs or cut the sessions. To make sure the desired configuration takes immediate effect, reboot the connected VMs.
+> If you've configured Log Analytics with Private Link by initially setting the network security group rules to allow outbound traffic by `ServiceTag:AzureMonitor`, the connected VMs send the logs through a public endpoint. Later, if you change the rules to deny outbound traffic by `ServiceTag:AzureMonitor`, the connected VMs keep sending logs until you reboot the VMs or cut the sessions. To make sure the desired configuration takes immediate effect, reboot the connected VMs.
 >
 
 ## Next steps

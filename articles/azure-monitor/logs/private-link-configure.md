@@ -287,11 +287,11 @@ Log Analytics uses four DNS zones:
 * **privatelink-oms-opinsights-azure-com**: Covers workspace-specific mapping to OMS endpoints. You should see an entry for each workspace linked to the AMPLS connected with this private endpoint.
 * **privatelink-ods-opinsights-azure-com**: Covers workspace-specific mapping to ODS endpoints, which are the ingestion endpoints of Log Analytics. You should see an entry for each workspace linked to the AMPLS connected with this private endpoint.
 * **privatelink-agentsvc-azure-automation-net**: Covers workspace-specific mapping to the agent service automation endpoints. You should see an entry for each workspace linked to the AMPLS connected with this private endpoint.
-* **privatelink-blob-core-windows-net**: Configures connectivity to the global agents' solution packs storage account. Through it, agents can download new or updated solution packs, which are also known as management packs. Only one entry is required to handle all Log Analytics agents, no matter how many workspaces are used. This entry is only added to Private Link setups created at or after April 19, 2021 (or starting June 2021 on Azure sovereign clouds).
+* **privatelink-blob-core-windows-net**: Configures connectivity to the global agents' solution packs storage account. Through it, agents can download new or updated solution packs, which are also known as management packs. Only one entry is required to handle all Log Analytics agents, no matter how many workspaces are used. This entry is only added to private link setups created at or after April 19, 2021 (or starting June 2021 on Azure sovereign clouds).
 
 The following screenshot shows endpoints mapped for an AMPLS with two workspaces in East US and one workspace in West Europe. Notice the East US workspaces share the IP addresses. The West Europe workspace endpoint is mapped to a different IP address. The blob endpoint doesn't appear in this image but it's configured.
 
-[![Screenshot that shows Private Link compressed endpoints.](./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png)](./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png#lightbox)
+[![Screenshot that shows private link compressed endpoints.](./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png)](./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png#lightbox)
 
 ### Validate that you're communicating over a private link
 
