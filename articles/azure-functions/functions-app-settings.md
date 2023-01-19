@@ -285,7 +285,7 @@ The value above sets a shared memory size of ~256 MB.
 
 Requires that [`FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED`](#functions_worker_shared_memory_data_transfer_enabled) be set to `1`.
 
-## ENABLE\_ENABLE\_ORYX\_BUILD
+## ENABLE\_ORYX\_BUILD
 
 Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is used during deployment. `ENABLE_ORYX_BUILD` must be set to `true` when doing remote build deployments to Linux. For more information, see [Remote build on Linux](functions-deployment-technologies.md#remote-build-on-linux).
 
@@ -378,7 +378,11 @@ With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) s
 
 ## JAVA_OPTS
 
-Used to customize the Java virtual machine (JVM) used to run your Java functions. In the Consumption plan, you must also add the [`WEBSITE_USE_PLACEHOLDER`](#website_use_placeholder) setting with a value of `0`, which can impact cold start. For more information, see [Customize JVM](functions-reference-java.md#customize-jvm). 
+Used to customize the Java virtual machine (JVM) used to run your Java functions when running on a [Premium plan](./functions-premium-plan.md) or [Dedicated plan](./dedicated-plan.md). When running on a Consumption plan, instead use `languageWorkers__java__arguments`. For more information, see [Customize JVM](functions-reference-java.md#customize-jvm). 
+
+## languageWorkers__java__arguments
+
+Used to customize the Java virtual machine (JVM) used to run your Java functions when running on a [Consumption plan](./functions-premium-plan.md). For a Premium or Dedicated plan, instead use `JAVA_OPTS`. For more information, see [Customize JVM](functions-reference-java.md#customize-jvm).
 
 ## MDMaxBackgroundUpgradePeriod
 
