@@ -37,11 +37,11 @@ Complete and submit the [request form](https://aka.ms/csdisconnectedcontainers) 
 Access is limited to customers that meet the following requirements:
 
 * Your organization should be identified as strategic customer or partner with Microsoft.
-* Disconnected containers are expected to run fully offline, hence your use cases must meet one of below or similar requirements:
+* Disconnected containers are expected to run fully offline, hence your use cases must meet one of the following or similar requirements:
   * Environment or device(s) with zero connectivity to internet.
   * Remote location that occasionally has internet access.
   * Organization under strict regulation of not sending any kind of data back to cloud.
-* Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval.
+* Application completed as instructed - Pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval.
 
 ## Create a new resource and purchase a commitment plan
 
@@ -80,7 +80,7 @@ Download the Docker container that has been approved to run in a disconnected en
 |----------|-------|------|
 |&bullet; **`docker pull [image]`**</br>&bullet; **`docker pull [image]:latest`**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout</br>  </br>&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice: latest |
 |||
-|&bullet; **`docker pull [image]:[version]`** | A specific container image |docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt:2.1-preview |
+|&bullet; **`docker pull [image]:[version]`** | A specific container image |dockers pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt:2.1-preview |
 
   **Example Docker pull command**
 
@@ -130,16 +130,23 @@ Mounts:License={CONTAINER_LICENSE_DIRECTORY}
 
 After you've configured the container, use the next section to run the container in your environment with the license, and appropriate memory and CPU allocations.
 
-**TODO**
-
-## Form Recognizer models and container configuration
+## Form Recognizer container models and configuration
 
 > [!IMPORTANT]
-> If you're using the Translator, Neural text-to-speech, or Speech-to-text containers, read the **Additional parameters** section below for information on commands or additional parameters you will need to use.
+> If you're using the Translator, Neural text-to-speech, or Speech-to-text containers, read the **Additional parameters** section for information on commands or additional parameters you will need to use.
 
-Once the license file has been downloaded, you can run the container in a disconnected environment. The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
+After you've [configured the container](#configure-the-container-to-be-run-in-a-disconnected-environment), the values for the downloaded translation models and container configuration will be generated and displayed in the container output:
 
-Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. An output mount must also be specified so that billing usage records can be written.
+```bash
+-e MODELS= /path/to/model1/, /path/to/model2/
+-e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
+```
+
+## Run the container in a disconnected environment
+
+Once the license file has been downloaded, you can run the container in a disconnected environment with your license, appropriate memory, and suitable CPU allocations. The following example shows the formatting of the `docker run` command with placeholder values. Replace these placeholders values with your own values.
+
+Whenever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. In addition, an output mount must be specified so that billing usage records can be written.
 
 Placeholder | Value | Format or example |
 |-------------|-------|---|
@@ -151,54 +158,41 @@ Placeholder | Value | Format or example |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 | `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.  | `/path/to/output/directory` |
 
-```bash
+  **Example `docker run` command**
+
+```docker
 docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
--v {LICENSE_MOUNT} \ 
+
+-v {LICENSE_MOUNT} \
+
 -v {OUTPUT_PATH} \
+
 {IMAGE} \
+
 eula=accept \
+
 Mounts:License={CONTAINER_LICENSE_DIRECTORY}
+
 Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
 ```
 
-### Additional parameters and commands
+## Other parameters and commands
 
-See the following sections for additional parameters and commands you may need to run the container.
+Here are a few more parameters and commands you may need to run the container.
 
-#### Translator container
+#### Usage records
 
-If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), you'll need to add parameters for the downloaded translation models and container configuration. These values are generated and displayed in the container output when you [configure the container](#configure-the-container-to-be-run-in-a-disconnected-environment) as described above. For example:
+When operating Docker containers in a disconnected environment, the container will write usage records to a volume where they're collected over time. You can also call a REST API endpoint to generate a report about service usage.
 
-```bash
--e MODELS= /path/to/model1/, /path/to/model2/
--e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
-```
+#### Arguments for storing logs
 
-#### Speech-to-text and Neural text-to-speech containers
-
-The [speech-to-text](../speech-service/speech-container-howto.md?tabs=stt) and [neural text-to-speech](../speech-service/speech-container-howto.md?tabs=ntts) containers provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
-
-When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
-
-Below is a sample command to set file/directory ownership.
-
-```bash
-sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
-```
-
-## Usage records
-
-When operating Docker containers in a disconnected environment, the container will write usage records to a volume where they're collected over time. You can also call a REST endpoint to generate a report about service usage.
-
-### Arguments for storing logs
-
-When run in a disconnected environment, an output mount must be available to the container to store usage logs. For example, you would include `-v /host/output:{OUTPUT_PATH}` and `Mounts:Output={OUTPUT_PATH}` in the example below, replacing `{OUTPUT_PATH}` with the path where the logs will be stored:
+When run in a disconnected environment, an output mount must be available to the container to store usage logs. For example, you would include `-v /host/output:{OUTPUT_PATH}` and `Mounts:Output={OUTPUT_PATH}` in the following example, replacing `{OUTPUT_PATH}` with the path where the logs will be stored:
 
 ```Docker
 docker run -v /host/output:{OUTPUT_PATH} ... <image> ... Mounts:Output={OUTPUT_PATH}
 ```
 
-### Get records using the container endpoints
+#### Get records using the container endpoints
 
 The container provides two endpoints for returning records about its usage.
 
@@ -210,16 +204,20 @@ The following endpoint will provide a report summarizing all of the usage collec
 https://<service>/records/usage-logs/
 ```
 
-It will return JSON similar to the example below.
+  **Example HTTPS endpoint**
+
+  `http://localhost:5000/records/usage-logs`
+
+The usage-log endpoint will return a JSON response similar to the following example:
 
 ```json
 {
-  "apiType": "noop",
-  "serviceName": "noop",
+  "apiType": "string",
+  "serviceName": "string",
   "meters": [
     {
-      "name": "Sample.Meter",
-      "quantity": 253
+      "name": "string",
+      "quantity": 256345435
     }
   ]
 }
@@ -233,7 +231,7 @@ The following endpoint will provide a report summarizing usage over a specific m
 https://<service>/records/usage-logs/{MONTH}/{YEAR}
 ```
 
-it will return a JSON response similar to the example below:
+This usage-logs endpoint will return a JSON response similar to the following example:
 
 ```json
 {
@@ -242,29 +240,29 @@ it will return a JSON response similar to the example below:
   "meters": [
     {
       "name": "string",
-      "quantity": 253
+      "quantity": 56097
     }
   ]
 }
 ```
 
-## Purchase a different commitment plan for disconnected containers
+### Purchase a different commitment plan for disconnected containers
 
-Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
+Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase more unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
-You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
+You can choose a different commitment plan in the **Commitment tier pricing** settings of your resource under the **Resource Management** section.
 
-## End a commitment plan
+### End a commitment plan
 
-If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You'll be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers, and not be charged for the following year.
+If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You'll be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers. If you cancel at or before that time, you won't be charged for the following year.
 
 ## Troubleshooting
 
-If you run the container with an output mount and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+Run the container with an output mount and logging enabled. These settings will enable the container generates log files that are helpful for troubleshooting issues that occur while starting or running the container.
 
 > [!TIP]
-> For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](disconnected-container-faq.yml).
+> For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](../../../cognitive-services/containers/disconnected-container-faq.yml).
 
 ## Next steps
 
-[Azure Cognitive Services containers overview](../cognitive-services-container-support.md)
+[Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](../deploy-label-tool.md#deploy-with-azure-container-instances-aci)
