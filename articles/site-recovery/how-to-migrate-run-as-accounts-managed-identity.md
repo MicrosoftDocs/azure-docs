@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/19/2023
 ---
 
-# Manage identities for automation accounts
+# Manage identities 
 
 > [!IMPORTANT]
 > - Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](/articles/automation/automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](/articles/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts).
