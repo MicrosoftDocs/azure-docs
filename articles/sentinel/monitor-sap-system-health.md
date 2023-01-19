@@ -14,8 +14,8 @@ After you [deploy the SAP solution](sap/deployment-overview.md), you want to ens
 
 This article describes how to use the following features, which allow you to perform this monitoring from within Microsoft Sentinel:
 
-- [**Use the SAP data connector**](#use-the-sap-data-connector). Review the **System Health** area under the Microsoft Sentinel for SAP connector to get information on the health of your connected SAP systems.
-- [**Use an alert rule template**](#use-an-alert-rule-template). Get information about the health of the SAP agent's data collection.
+- [**Use the SAP data connector page**](#use-the-sap-data-connector). Review the **System Health** area under the Microsoft Sentinel for SAP connector to get information on the health of your connected SAP systems.
+- [**Use the "Data collection health check" alert rule**](#use-an-alert-rule-template). Get proactive alerts on the health of the SAP agent's data collection.
 
 ## Use the SAP data connector
 
