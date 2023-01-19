@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/16/2022
+ms.date: 01/19/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) supports modern authentication protocols that help keep applications secure. However, many business applications work in a protected corporate network, and some use legacy authentication methods. As companies build Zero Trust strategies and support hybrid and cloud environments, there are solutions that connect apps to Azure AD and provide authentication for legacy applications.
 
-Learn more: [Zero Trust Deployment Guide for Microsoft Azure Active Directory](/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
+Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
 
 Azure AD natively supports modern protocols:
 
