@@ -11,11 +11,13 @@ Activity detected by your Microsoft Defender for IoT sensors is recorded in the 
 
 The event timeline provides a chronological view of all activity that took place in the network. Use the timeline during investigations, to understand and analyze the chain of events that preceded and followed an attack or incident.
 
-View your events in the timeline, and analyze your data and investigate incidents with the event timeline in the following ways:
+Enhance your security analysis and incident investigations with the event timeline with the following options:
+
+- [View events on the timeline](#view-the-event-timeline)
 
 - [Audit user activity](track-user-activity.md)
 
-- [View details and manage alerts](how-to-view-alerts.md#view-details-and-remediate-a-specific-alert)
+- [View and manage alerts](how-to-view-alerts.md#view-details-and-remediate-a-specific-alert) together with other recent activity on related devices.
 
 - [Analyze programming details and changes](how-to-analyze-programming-details-changes.md)
 
