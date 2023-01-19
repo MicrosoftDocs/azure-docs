@@ -938,7 +938,7 @@ If your container registry is behind a virtual network or is using a private end
 * After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
 
 If you aren't using a virtual network, or if you've configured it correctly
-* Get credentials for your workspace ACR from Azure Portal.
+* Get credentials for your workspace ACR from the Azure Portal
 * Log in to your ACR using `docker login <myregistry.azurecr.io> -u "username" -p "password"`
 * For image name "helloworld", `docker push helloworld`
 * See [Quickstart: Build and run a container image using Azure Container Registry Tasks](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-quickstart-task-cli)
