@@ -72,7 +72,7 @@ By the end of this article, you'll be able to:
 
 1. Check the **Allow users sync into this tenant** check box.
 
-    :::image type="content" source="../includes/media/external-identities/access-settings-users-sync.png" alt-text="Screenshot that shows the  Cross-tenant sync tab with the Allow users sync into this tenant check box." lightbox="../includes/media/external-identities/access-settings-users-sync.png":::
+    :::image type="content" source="../media/external-identities/access-settings-users-sync.png" alt-text="Screenshot that shows the  Cross-tenant sync tab with the Allow users sync into this tenant check box." lightbox="../media/external-identities/access-settings-users-sync.png":::
 
 1. Select **Save**. 
 
@@ -86,7 +86,7 @@ In this step, you automatically redeem invitations so users from the source tena
 
 1. Check the **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant** check box.
 
-    :::image type="content" source="../includes/media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound suppress consent prompt check box." lightbox="../includes/media/external-identities/inbound-consent-prompt-setting.png":::
+    :::image type="content" source="../media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound suppress consent prompt check box." lightbox="../media/external-identities/inbound-consent-prompt-setting.png":::
 
 1. Select **Save**. 
 
@@ -114,7 +114,7 @@ In this step, you automatically redeem invitations in the source tenant.
 
 1. Check the **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant** check box.
 
-    :::image type="content" source="../includes/media/external-identities/outbound-consent-prompt-setting.png" alt-text="Screenshot that shows the outbound suppress consent prompt check box." lightbox="../includes/media/external-identities/outbound-consent-prompt-setting.png":::
+    :::image type="content" source="../media/external-identities/outbound-consent-prompt-setting.png" alt-text="Screenshot that shows the outbound suppress consent prompt check box." lightbox="../media/external-identities/outbound-consent-prompt-setting.png":::
 
 1. Select **Save**. 
 

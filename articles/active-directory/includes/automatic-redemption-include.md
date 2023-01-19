@@ -16,7 +16,7 @@ The automatic redemption setting is an inbound and outbound organizational trust
 - **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant**
 - **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant**
 
-:::image type="content" source="../includes/media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound suppress consent prompt check box." lightbox="../includes/media/external-identities/inbound-consent-prompt-setting.png":::
+:::image type="content" source="../media/external-identities/inbound-consent-prompt-setting.png" alt-text="Screenshot that shows the inbound suppress consent prompt check box." lightbox="../media/external-identities/inbound-consent-prompt-setting.png":::
 
 #### Compare setting for different scenarios
 
@@ -41,19 +41,19 @@ This setting doesn't impact application consent experiences. For more informatio
 
 The automatic redemption setting will only suppress the consent prompt and invitation email if both the home/source tenant (outbound) and resource/target tenant (inbound) checks this setting.
 
-:::image type="content" source="../includes/media/automatic-redemption-include/automatic-redemption-setting.png" alt-text="Diagram that shows automatic redemption setting for both outbound and inbound.":::
+:::image type="content" source="../media/automatic-redemption-include/automatic-redemption-setting.png" alt-text="Diagram that shows automatic redemption setting for both outbound and inbound.":::
 
 The following table shows the behavior when the automatic redemption setting is checked for different cross-tenant access setting combinations.
 
 | Home/source tenant | Resource/target tenant | Consent prompt behavior<br/>for source tenant users |
 | :---: | :---: | :---: |
 | **Outbound** | **Inbound** |  |
-| ![Icon for check mark.](../includes/media/automatic-redemption-include/icon-check-mark.png) | ![Icon for check mark.](../includes/media/automatic-redemption-include/icon-check-mark.png) | Suppressed |
-| ![Icon for check mark.](../includes/media/automatic-redemption-include/icon-check-mark.png) | ![Icon for clear check mark.](../includes/media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
-| ![Icon for clear check mark.](../includes/media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for check mark.](../includes/media/automatic-redemption-include/icon-check-mark.png) | Not suppressed |
-| ![Icon for clear check mark.](../includes/media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for clear check mark.](../includes/media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
+| ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | Suppressed |
+| ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
+| ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | Not suppressed |
+| ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
 | **Inbound** | **Outbound** |  |
-| ![Icon for check mark.](../includes/media/automatic-redemption-include/icon-check-mark.png) | ![Icon for check mark.](../includes/media/automatic-redemption-include/icon-check-mark.png) | Not suppressed |
-| ![Icon for check mark.](../includes/media/automatic-redemption-include/icon-check-mark.png) | ![Icon for clear check mark.](../includes/media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
-| ![Icon for clear check mark.](../includes/media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for check mark.](../includes/media/automatic-redemption-include/icon-check-mark.png) | Not suppressed |
-| ![Icon for clear check mark.](../includes/media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for clear check mark.](../includes/media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
+| ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | Not suppressed |
+| ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
+| ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | Not suppressed |
+| ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
