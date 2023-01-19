@@ -61,18 +61,18 @@ Rather than providing your personal access credentials, we'll create a service p
 
 1. Copy the following items from the output of the service principal creation command to use in the next section:
 
-   * The generated password for the service principal. You won't be able to access the password again.
-   * The *clientId* for the service principal.
-   * The *objectId* for the service principal.
+   * The *clientId*.
+   * The *clientSecret*. This is a generated password for the service principal that you won't be able to access again.
+   * The *tenantId*.
 
-1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign two more access roles to the service principal: *Device Provisioning Service Data Contributor* and *IoT Hub Data Contributor*. Replace `<SP_OBJECT_ID>` with the *objectId* value that you copied from the previous command's output.
+1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign two more access roles to the service principal: *Device Provisioning Service Data Contributor* and *IoT Hub Data Contributor*. Replace `<SP_CLIENT_ID>` with the *clientId* value that you copied from the previous command's output.
 
    ```azurecli
-   az role assignment create --assignee "<SP_OBJECT_ID>" --role "Device Provisioning Service Data Contributor" --resource-group "<RESOURCE_GROUP_NAME>"
+   az role assignment create --assignee "<SP_CLIENT_ID>" --role "Device Provisioning Service Data Contributor" --resource-group "<RESOURCE_GROUP_NAME>"
    ```
 
    ```azurecli
-   az role assignment create --assignee "<SP_OBJECT_ID>" --role "IoT Hub Data Contributor" --resource-group "<RESOURCE_GROUP_NAME>"
+   az role assignment create --assignee "<SP_CLIENT_ID>" --role "IoT Hub Data Contributor" --resource-group "<RESOURCE_GROUP_NAME>"
    ```
 
 ### Save service principal credentials as secrets
@@ -93,14 +93,14 @@ Rather than providing your personal access credentials, we'll create a service p
 1. Create a secret for your service principal password.
 
    * **Name**: `SECRET`
-   * **Secret**: Paste the password that you copied from the output of the service principal creation command.
+   * **Secret**: Paste the *clientSecret* that you copied from the output of the service principal creation command.
 
 1. Select **Add secret**, then select **New repository secret** to add the final secret.
 
 1. Create a secret for your Azure tenant.
 
    * **Name**: `TENANT`
-   * **Secret**: Provide your Azure tenant. The value of this argument can either be an .onmicrosoft.com domain or the Azure object ID for the tenant.
+   * **Secret**: Paste the *tenantId* that you copied from the output of the service principal creation command.
 
 1. Select **Add secret**.
 
