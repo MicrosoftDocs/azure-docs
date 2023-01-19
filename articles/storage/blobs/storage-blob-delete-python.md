@@ -1,11 +1,12 @@
 ---
-title: Delete and restore a blob with Python - Azure Storage
+title: Delete and restore a blob with Python
+titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the Python client library
 services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 11/16/2022
+ms.date: 01/19/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -13,7 +14,7 @@ ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
-# Delete and restore a blob in your Azure Storage account using the Python client library
+# Delete and restore a blob with Python
 
 This article shows how to delete blobs with the [Azure Storage client library for Python](/python/api/overview/azure/storage). If you've enabled blob soft delete, you can restore deleted blobs.
 
@@ -48,10 +49,23 @@ This method restores the content and metadata of a soft-deleted blob and any ass
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-delete.py" id="Snippet_RestoreBlob":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Python/blob-devguide/blob-devguide/blob-delete.py)
-- [Quickstart: Azure Blob Storage client library for Python](storage-quickstart-blobs-python.md)
+To learn more about how to delete blobs and restore deleted blobs using the Azure Blob Storage client library for Python, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for deleting blobs and restoring deleted blobs use the following REST API operations:
+
 - [Delete Blob](/rest/api/storageservices/delete-blob) (REST API)
 - [Undelete Blob](/rest/api/storageservices/undelete-blob) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py)
+
+[!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
+
+### See also
+
 - [Soft delete for blobs](soft-delete-blob-overview.md)

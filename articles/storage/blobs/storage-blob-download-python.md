@@ -1,5 +1,6 @@
 ---
-title: Download a blob with Python - Azure Storage
+title: Download a blob with Python
+titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the Python client library.
 services: storage
 author: pauljewellmsft
@@ -13,7 +14,7 @@ ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
-# Download a blob in Azure Storage using the Python client library
+# Download a blob with Python
 
 This article shows how to download a blob with the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can download a blob by using any of the following methods:
 
@@ -45,8 +46,18 @@ The following example downloads a blob by opening a `BlobInputStream` and readin
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-download.py" id="Snippet_ReadBlobStream":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Python/blob-devguide/blob-devguide/blob-download.py)
-- [Quickstart: Azure Blob Storage client library for Python](storage-quickstart-blobs-python.md)
+To learn more about how to download blobs using the Azure Blob Storage client library for Python, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for downloading blobs use the following REST API operation:
+
 - [Get Blob](/rest/api/storageservices/get-blob) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py)
+
+[!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]

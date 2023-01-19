@@ -1,30 +1,35 @@
 ---
-title: List blobs with Python - Azure Storage
+title: List blobs with Python
+titleSuffix: Azure Storage
 description: Learn how to list blobs in your storage account using the Azure Storage client library for Python. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
 author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 01/19/2023
 ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
-# List blobs using the Azure Storage client library for Python
+# List blobs with Python
 
-This article shows how to list blobs with the [Azure Storage client library for Python](/python/api/overview/azure/storage).
+This article shows how to list blobs using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
 When you list blobs from your code, you can specify many options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
 ## Understand blob listing options
 
-To list the blobs in a storage account, call one of these methods:
+To list the blobs in a container using a flat listing, call one of these methods:
 
-- [BlobContainerClient.listBlobs](/java/api/com.azure.storage.blob.BlobContainerClient#com-azure-storage-blob-blobcontainerclient-listblobs())
-- [BlobContainerClient.listBlobsByHierarchy](/java/api/com.azure.storage.blob.BlobContainerClient#com-azure-storage-blob-blobcontainerclient-listblobsbyhierarchy(java-lang-string))
+- [ContainerClient.list_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-list-blobs) (along with the name, you can optionally include metadata, tags, and other information associated with each blob)
+- [ContainerClient.list_blob_names](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-list-blobs) (only returns blob name)
+
+To list the blobs in a container using a hierarchical listing, call the following method:
+
+- [ContainerClient.walk_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-walk-blobs) (along with the name, you can optionally include metadata, tags, and other information associated with each blob)
 
 ### Flat listing versus hierarchical listing
 
@@ -42,7 +47,7 @@ By default, a listing operation returns blobs in a flat listing. In a flat listi
 
 The following example lists the blobs in the specified container using a flat listing:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-list.py" id="Snippet_ListBlobsFlat":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_ListBlobsFlat":::
 
 Sample output is similar to:
 
@@ -56,7 +61,7 @@ Name: folderA/folderB/file3.txt
 
 You can also specify options to filter list results or show additional information. The following example lists blobs with a specified prefix, and also lists deleted blobs:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-list.py" id="Snippet_ListBlobsFlatOptions":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_ListBlobsFlatOptions":::
 
 Sample output is similar to:
 
@@ -82,7 +87,7 @@ To list blobs hierarchically, use the following method:
 
 The following example lists the blobs in the specified container using a hierarchical listing:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-list.py" id="Snippet_ListBlobsHierarchical":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_ListBlobsHierarchical":::
 
 Sample output is similar to:
 
@@ -99,9 +104,23 @@ Blob name: folderA/folderB/file3.txt
 > [!NOTE]
 > Blob snapshots cannot be listed in a hierarchical listing operation.
 
-## Next steps
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Python/blob-devguide/blob-devguide/blob-list.py)
+To learn more about how to list blobs using the Azure Blob Storage client library for Python, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for listing blobs use the following REST API operation:
+
 - [List Blobs](/rest/api/storageservices/list-blobs) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py)
+
+[!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
+
+### See also
+
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
 - [Blob versioning](versioning-overview.md)

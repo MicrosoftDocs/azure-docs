@@ -1,11 +1,12 @@
 ---
-title: Copy a blob with Python - Azure Storage
+title: Copy a blob with Python
+titleSuffix: Azure Storage
 description: Learn how to copy a blob in Azure Storage by using the Python client library.
 services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 11/16/2022
+ms.date: 01/19/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -13,7 +14,7 @@ ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
-# Copy a blob with Azure Storage using the Python client library
+# Copy a blob with Python
 
 This article demonstrates how to copy a blob in an Azure Storage account. It also shows how to abort a copy operation. The example code uses the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
@@ -84,8 +85,19 @@ The following example stops a pending copy and leaves a destination blob with ze
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-copy.py" id="Snippet_AbortCopy":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Python/blob-devguide/blob-devguide/blob-copy.py)
+To learn more about how to copy blobs using the Azure Blob Storage client library for Python, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for copying blobs use the following REST API operations:
+
 - [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py)
+
+[!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
