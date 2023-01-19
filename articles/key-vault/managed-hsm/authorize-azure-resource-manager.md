@@ -1,5 +1,5 @@
 ---
-title: Allow key management operations through Azure Resource Manager (ARM)
+title: Allow key management operations through Azure Resource Manager
 description: Learn how to allow key management operations through ARM
 services: key-vault
 author: mbaldwin
