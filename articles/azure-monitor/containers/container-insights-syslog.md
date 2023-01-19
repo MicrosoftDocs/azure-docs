@@ -12,11 +12,11 @@ Container Insights offers the ability to collect Syslog events from your Linux n
 
 ## Pre-requisites 
 
-1.	You will need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-enable-existing-clusters?tabs=azure-cli#migrate-to-managed-identity-authentication). ~~Note: This which will create a Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>`~~
+1.	You will need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-enable-existing-clusters?tabs=azure-cli#migrate-to-managed-identity-authentication). ~~Note: This which will create a Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>`~~
 2.	Minimum versions of Azure components
-  - **Azure CLI**: Minimum version required for Azure CLI is [2.43.0 (link to release notes)](https://learn.microsoft.com/en-us/cli/azure/release-notes-azure-cli#december-06-2022). See [How to update the Azure CLI](https://learn.microsoft.com/cli/azure/update-azure-cli)) for upgrade instructions. 
+  - **Azure CLI**: Minimum version required for Azure CLI is [2.43.0 (link to release notes)](https://learn.microsoft.com/cli/azure/release-notes-azure-cli#december-06-2022). See [How to update the Azure CLI](https://learn.microsoft.com/cli/azure/update-azure-cli)) for upgrade instructions. 
   - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [0.5.121 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05121). See [How to update extensions](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
-  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/en-us/azure/aks/node-image-upgrade) for upgrade help. 
+  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/azure/aks/node-image-upgrade) for upgrade help. 
 
 ## How to enable Syslog
   
@@ -43,33 +43,33 @@ Syslog can be accessed from your Log Analytics workspace using the portal by sel
 
 Image 1 - Log query section in Azure Monitor
 
-:::image type="content" source="media/container-insights-syslog/AzMon1.png" lightbox="media/container-insights-syslog/AzMon1.png" alt-text="TBA" border="false":::  
+:::image type="content" source="media/container-insights-syslog/AzMon1.png" lightbox="media/container-insights-syslog/AzMon1.png" alt-text="TBA11" border="false":::  
 
 Image 2 - Pre-built queries in portal
 
-:::image type="content" source="media/container-insights-syslog/AzMon2.png" lightbox="media/container-insights-syslog/AzMon2.png" alt-text="TBA" border="false":::  
+:::image type="content" source="media/container-insights-syslog/AzMon2.png" lightbox="media/container-insights-syslog/AzMon2.png" alt-text="TBA12" border="false":::  
   
 Image 3 - Syslog query loaded in the query editor 
 
-:::image type="content" source="media/container-insights-syslog/AzMon3.png" lightbox="media/container-insights-syslog/AzMon3.png" alt-text="TBA" border="false":::    
+:::image type="content" source="media/container-insights-syslog/AzMon3.png" lightbox="media/container-insights-syslog/AzMon3.png" alt-text="TBA13" border="false":::    
   
 ### AKS Cluster view
 
 Image 1 - Cluster overview
 
-:::image type="content" source="media/container-insights-syslog/AKS1.png" lightbox="media/container-insights-syslog/AKS1.png" alt-text="TBA" border="false":::  
+:::image type="content" source="media/container-insights-syslog/AKS1.png" lightbox="media/container-insights-syslog/AKS1.png" alt-text="TBA21" border="false":::  
   
 Image 2 - Logs tab under Monitoring section
 
-:::image type="content" source="media/container-insights-syslog/AKS2.png" lightbox="media/container-insights-syslog/AKS2.png" alt-text="TBA" border="false":::  
+:::image type="content" source="media/container-insights-syslog/AKS2.png" lightbox="media/container-insights-syslog/AKS2.png" alt-text="TBA22" border="false":::  
   
 Image 3 - Query editor
 
-:::image type="content" source="media/container-insights-syslog/AKS3.png" lightbox="media/container-insights-syslog/AKS3.png" alt-text="TBA" border="false":::  
+:::image type="content" source="media/container-insights-syslog/AKS3.png" lightbox="media/container-insights-syslog/AKS3.png" alt-text="TBA23" border="false":::  
   
 Image 4 - Syslog query loaded in the query editor 
   
-:::image type="content" source="media/container-insights-syslog/AKS4.png" lightbox="media/container-insights-syslog/AKS4.png" alt-text="TBA" border="false":::
+:::image type="content" source="media/container-insights-syslog/AKS4.png" lightbox="media/container-insights-syslog/AKS4.png" alt-text="TBA24" border="false":::
   
 ### Sample queries
   
@@ -86,19 +86,19 @@ The following table provides different examples of log queries that retrieve Sys
 
 Image 1 - Data Collection Rules under Azure Monitor
 
-:::image type="content" source="media/container-insights-syslog/DCR1.png" lightbox="media/container-insights-syslog/DCR1.png" alt-text="TBA" border="false":::
+:::image type="content" source="media/container-insights-syslog/DCR1.png" lightbox="media/container-insights-syslog/DCR1.png" alt-text="TBA31" border="false":::
 
 Image 2 - Editing an individual Syslog data collection rule 
 
-:::image type="content" source="media/container-insights-syslog/DCR2.png" lightbox="media/container-insights-syslog/DCR2.png" alt-text="TBA" border="false":::
+:::image type="content" source="media/container-insights-syslog/DCR2.png" lightbox="media/container-insights-syslog/DCR2.png" alt-text="TBA32" border="false":::
 
 Image 3 - TBA
 
-:::image type="content" source="media/container-insights-syslog/DCR3.png" lightbox="media/container-insights-syslog/DCR3.png" alt-text="TBA" border="false":::
+:::image type="content" source="media/container-insights-syslog/DCR3.png" lightbox="media/container-insights-syslog/DCR3.png" alt-text="TBA33" border="false":::
 
 Image 4 - TBA
 
-:::image type="content" source="media/container-insights-syslog/DCR4.png" lightbox="media/container-insights-syslog/DCR4.png" alt-text="TBA" border="false":::
+:::image type="content" source="media/container-insights-syslog/DCR4.png" lightbox="media/container-insights-syslog/DCR4.png" alt-text="TBA34" border="false":::
 
 
 ## How Syslog data is collected
@@ -110,9 +110,9 @@ Image 4 - TBA
 
 ## Next steps
 
-- Read more about [Syslog record properties](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-syslog#syslog-record-properties)
-- See more sample [log queries with Syslog records](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-syslog#log-queries-with-syslog-records)
+- Read more about [Syslog record properties](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-syslog#syslog-record-properties)
+- See more sample [log queries with Syslog records](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-syslog#log-queries-with-syslog-records)
 - Learn about [log queries](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview) to analyze the data collected from data sources and solutions.
-- Use [custom fields](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/custom-fields) to parse data from Syslog records into individual fields.
+- Use [custom fields](https://learn.microsoft.com/azure/azure-monitor/logs/custom-fields) to parse data from Syslog records into individual fields.
 
 
