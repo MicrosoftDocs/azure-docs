@@ -154,11 +154,11 @@ The Azure DevOps setup is successfully finished.
    
 1. Open the Repos section and select **Import Repository**
 
-    ![Screenshot of ADO import repo](./media/how-to-setup-mlops-azureml/import_repo_first_time.png)
+    ![Screenshot of ADO import repo first time](./media/how-to-setup-mlops-azureml/import_repo_first_time.png)
 
 1. Enter https://github.com/Azure/mlops-v2-ado-demo into the Clone URL field. Click import at the bottom of the page
 
-    ![Screenshot of ADO import MLOps](./media/how-to-setup-mlops-azureml/import_repo_Git_template.png)
+    ![Screenshot of ADO import MLOps demo repo](./media/how-to-setup-mlops-azureml/import_repo_Git_template.png)
 
 1. After you have imported the demo repo, Make you also import the `mlops-template` repo. 
 
@@ -168,7 +168,7 @@ The Azure DevOps setup is successfully finished.
 
 1. Enter https://github.com/Azure/mlops-templates into the Clone URL field. Click import at the bottom of the page
 
-    ![Screenshot of ADO import MLOps](./media/how-to-setup-mlops-azureml/ado-import-mlops-templates.png)
+    ![Screenshot of ADO import MLOps template repo](./media/how-to-setup-mlops-azureml/ado-import-mlops-templates.png)
 
     > [!TIP]
     > Learn more about the MLOps v2 accelerator structure and the MLOps [template](https://github.com/Azure/mlops-v2/)
@@ -223,7 +223,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
 1. Select **New Pipeline**.
    
-   ![Screenshot of ADO New Pipeline button](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
+   ![Screenshot of ADO New Pipeline button for infra](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
    
 1. Select **Azure Repos Git**.
    
@@ -258,7 +258,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 
 1. Select **New Pipeline**.
    
-   ![Screenshot of ADO New Pipeline button](./media/how-to-setup-mlops-azureml/ADO-run1.png)
+   ![Screenshot of ADO New Pipeline button](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
    
 1. Select **Azure Repos Git**.
    
@@ -271,17 +271,6 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    ![Screenshot of ADO Pipeline page on configure step](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
 1. Select `main` as a branch and choose `/mlops/devops-pipelines/deploy-model-training-pipeline.yml`, then select **Continue**.  
-
-1. Before running the pipeline, the repository location for the mlops-templates will need to be updated. Modify the **resources** section of the pipeline the snippet below. 
-
-   ``` yaml
-       resources:
-         repositories:
-           - repository: mlops-templates  # Template Repo
-             type: git          
-             name: mlops-templates 
-             ref: main
-   ```
 
 1. **Save and Run** the pipeline
    
@@ -318,7 +307,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 
 1. Select **New Pipeline**.
    
-   ![Screenshot of ADO New Pipeline button](./media/how-to-setup-mlops-azureml/ADO-run1.png)
+   ![Screenshot of ADO New Pipeline button for endpoint](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
    
 1. Select **Azure Repos Git**.
    
@@ -332,29 +321,18 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
 1. Select `main` as a branch and choose:
         
-        For Classical Machine Learning:
-         - Managed Batch Endpoint `/mlops/devops-pipelines/deploy-batch-endpoint-pipeline.yml`
-         - Managed Online Endpoint `/mlops/devops-pipelines/deploy-online-endpoint-pipeline.yml`
+      - For Managed Batch Endpoint `/mlops/devops-pipelines/deploy-batch-endpoint-pipeline.yml`
       
-      Then select **Continue**.  
-   
-1. Before running the pipeline, the repository location for the **mlops-templates** will need to be updated. Modify the **resources** section of the pipeline the snippet below. 
-
-   ``` yaml
-       resources:
-         repositories:
-           - repository: mlops-templates  # Template Repo
-             type: git          
-             name: mlops-templates 
-             ref: main
-   ```
+      - For Managed Online Endpoint `/mlops/devops-pipelines/deploy-online-endpoint-pipeline.yml`
+      
+   Then select **Continue**.  
    
 1. Batch/Online endpoint names need to be unique, so please change **[your endpoint-name]** to another unique name and then select **Run**.
 
    ![Screenshot of ADO batch deploy script](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline.png)
    
-   > [!IMPORTANT]
-   > If the run fails due to an existing online endpoint name, recreate the pipeline as described above and change **[your endpoint-name]** to **[your endpoint-name (random number)]**
+> [!IMPORTANT]
+> If the run fails due to an existing online endpoint name, recreate the pipeline as described above and change **[your endpoint-name]** to **[your endpoint-name (random number)]**
    
 1. When the run completes, you will see:
    
