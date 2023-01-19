@@ -7,30 +7,30 @@ manager: mcclean
 ms.custom: devx-track-azurecli
 ---
 
-## Azure CLI Setup for local development
+## Azure CLI setup for local development
 
 Follow these steps to set up the Azure CLI and your project environment.
 
-1. Upgrade to the latest version of the Azure CLI. 
+1. Upgrade to the latest version of the Azure CLI.
 
-  ```bash
-  az upgrade
-  ```
+    ```bash
+    az upgrade
+    ```
 
 1. Install the Azure CLI extension for Web PubSub. 
 
-  ```bash
-  az extension add --name webpubsub
-  ```
+    ```bash
+    az extension add --name webpubsub
+    ```
 
 1. Sign in to the Azure CLI.  Following the prompts, enter your Azure credentials.
 
-  ```bash
-  az login
-  ```
+    ```bash
+    az login
+    ```
 
-1. Create a resource group. 
+1. Create a resource group.
 
-  ```bash
-  az group create --name myResourceGroup --location eastus
-  ```
+    ```bash
+    az group create --name myResourceGroup --location eastus
+    ```

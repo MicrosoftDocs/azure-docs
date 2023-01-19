@@ -22,8 +22,29 @@ Azure Web PubSub helps you manage WebSocket clients. This quickstart shows you h
 - A file editor such as VSCode.
 - Azure CLI: [install the Azure CLI](/cli/azure/install-azure-cli)
 
+If creating the project on a local machine, you'll need to install the dependencies for the language you're using:
 
-## Setup
+# [C#](#tab/csharp)
+
+[.NET Core](https://dotnet.microsoft.com/download)
+
+# [JavaScript](#tab/javascript)
+
+[Node.js](https://nodejs.org)
+
+# [Python](#tab/python)
+
+[Python](https://www.python.org/)
+
+# [Java](#tab/java)
+
+* [Java Development Kit (JDK)](/java/openjdk/install/).
+* [Apache Maven](https://maven.apache.org/download.cgi)
+
+---
+
+
+## 1. Setup
 
 To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
 
@@ -50,7 +71,7 @@ Set the following environment variables.  Replace the \<placeholder\> with a uni
 ```azurecli
 RESOURCE_GROUP="webpubsub-resource-group"
 LOCATION="EastUS"
-WEB_PUBSUB_NAME=<your-unique-name>
+WEB_PUBSUB_NAME="<your-unique-name>"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -58,7 +79,7 @@ WEB_PUBSUB_NAME=<your-unique-name>
 ```azurepowershell
 $ResourceGroupName = 'webpubsub-resource-group'
 $Location = 'EastUS'
-$WebPubSubName = <YourUniqueName>
+$WebPubSubName = `<YourUniqueName>`
 ```
 
 ---
@@ -76,12 +97,12 @@ az group create \
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-az group create -Location $Location -Name $ResourceGroupName
+az group create --location $Location --name $ResourceGroupName
 ```
 
 ---
 
-## Deploy a Web PubSub service instance
+## 2. Deploy a Web PubSub service instance
 
 Use the `az webpubsub create` command to create and deploy a Web PubSub service instance.
 
@@ -91,7 +112,7 @@ Use the `az webpubsub create` command to create and deploy a Web PubSub service 
 az webpubsub create \
   --name $WEB_PUBSUB_NAME \
   --resource-group $RESOURCE_GROUP \
-  --location LOCATION \
+  --location $LOCATION \
   --sku Free_F1
 ```
 
@@ -102,7 +123,7 @@ az webpubsub create `
   --name $WebPubSubName `
   --location $Location `
   --resource-group $ResourceGroupName `
-  --sku Free_F1
+  --sku Free_F1 `
 ```
 
 ---
@@ -115,7 +136,7 @@ Save the service's connection string.  The connection string is used by the serv
 # [Bash](#tab/bash)
 
 ```azurecli
-$connection_string=(az webpubsub key show --name $WEB_PUBSUB_NAME --resource-group $RESOURCE_GROUP --query primaryConnectionString)
+connection_string=$(az webpubsub key show --name $WEB_PUBSUB_NAME --resource-group $RESOURCE_GROUP --query primaryConnectionString)
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -126,7 +147,7 @@ $connection_string = (az webpubsub key show --name $WebPubSubName --resource-gro
 
 ---
 
-## Connect a client to the service instance
+## 3. Connect a client to the service instance
 
 Create a Web PubSub client. The client maintains a connection to the service until it's terminated.
 
@@ -148,8 +169,8 @@ az webpubsub client start \
 az webpubsub client start `
   --name $WebPubSubName `
   --resource-group $ResourceGroupName `
-  --hub-name "myHub1" `
-  --user-id "user1"
+  --hub-name 'myHub1' `
+  --user-id 'user1' 
 ```
 
 ---
@@ -160,13 +181,10 @@ The connection to the Web PubSub service is established when you see a JSON mess
 {"type":"system","event":"connected","userId":"user1","connectionId":"<your_unique_connection_id>"}
 ```
 
-## Publish messages using service SDK
+## 4. Publish messages using service SDK
 
-You'll create a client that uses the Azure Web PubSub SDK to publish a message to all connected clients.
+You'll create a client that uses the Azure Web PubSub SDK to publish a message to all connected clients.   For this project, you'll need to open another command shell.
 
-### Set up the project to publish messages
-
-Start by opening another command shell.
 Select the language for your project.  The dependencies for each language are installed in the steps for that language.
 
 # [C#](#tab/csharp)
@@ -334,8 +352,7 @@ Select the language for your project.  The dependencies for each language are in
     </dependency>
     ```
 
-1. Use the Azure Web PubSub SDK to publish a message to the service. 
-1. Go to the */src/main/java/com/webpubsub/quickstart* directory.  
+1. Go to the *src/main/java/com/webpubsub/quickstart* directory.  
 1. Replace the contents in the *App.java* file with the following code:
 
     ```java
@@ -367,9 +384,9 @@ Select the language for your project.  The dependencies for each language are in
 
     ```
 
-    This code uses the Azure Web PubSub SDK to publish a message to the service. The `service.sendToAll()` call simply sends a message to all connected clients in a hub.
+    This code uses the Azure Web PubSub SDK to publish a message to the service. The `service.sendToAll()` call sends a message to all connected clients in a hub.
 
-1. Go to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
+1. Return t the *webpubsub-quickstart-publisher* directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
 
     ```console
     mvn compile
@@ -384,7 +401,7 @@ Select the language for your project.  The dependencies for each language are in
 1. Run the following `mvn` command to execute the app to publish a message to the service:
 
     ```console
-    mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="$connection_string 'myHub1' 'Hello World'"
+    mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args=" '$connection_string' 'myHub1' 'Hello World'"
     ```
 
 1. The previous command shell containing the Web PubSub client shows the received message.

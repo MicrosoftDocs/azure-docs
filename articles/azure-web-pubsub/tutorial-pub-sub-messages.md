@@ -61,7 +61,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 ---
 
-## Create an Azure Web PubSub instance
+## 1. Create an Azure Web PubSub instance
 
 
 ### Create a Web PubSub instance
@@ -371,7 +371,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
 ---
 
-## Publish messages using service SDK
+## 2. Publish messages using service SDK
 
 Create a publisher using the Azure Web PubSub SDK to publish a message to the connected client.  For this project, you'll need to open another command shell.
 
@@ -603,7 +603,7 @@ az group delete --name <CloudShellResourceGroup> --yes
 
 ```
 
->[CAUTION]
+>[!CAUTION]
 > Deleting resource groups will delete all resources, including resources created outside the scope of this tutorial.
 
 ## Next steps
