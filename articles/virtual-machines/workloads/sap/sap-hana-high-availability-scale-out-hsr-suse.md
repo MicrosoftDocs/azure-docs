@@ -305,17 +305,15 @@ Configure and prepare your OS by doing the following steps:
     > [!TIP]
     > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-3. **[A]** SUSE delivers special resource agents for SAP HANA and by default agents for SAP HANA ScaleUp are installed. Uninstall the packages for ScaleUp, if installed and install the packages for scenario SAP HANAScaleOut. The step needs to be performed on all cluster VMs, including the majority maker.   
+3. **[A]** SUSE delivers special resource agents for SAP HANA and by default agents for SAP HANA scale-up are installed. Uninstall the packages for scale-up, if installed and install the packages for scenario SAP HANA scale-out. The step needs to be performed on all cluster VMs, including the majority maker.
 
     ```bash
-     # Uninstall ScaleUp packages and patterns
-     zypper remove patterns-sap-hana
-     zypper remove SAPHanaSR 
-     zypper remove SAPHanaSR-doc
-     zypper remove yast2-sap-ha
-     # Install the ScaleOut packages and patterns
-     zypper in SAPHanaSR-ScaleOut  SAPHanaSR-ScaleOut-doc 
-     zypper in -t pattern ha_sles
+     # Uninstall scale-up packages and patterns
+     sudo zypper remove patterns-sap-hana
+     sudo zypper remove SAPHanaSR SAPHanaSR-doc yast2-sap-ha
+     # Install the scale-out packages and patterns
+     sudo zypper in SAPHanaSR-ScaleOut SAPHanaSR-ScaleOut-doc 
+     sudo zypper in -t pattern ha_sles
     ```
 
 4. **[AH]** Prepare the VMs - apply the recommended settings per SAP note [2205917] for SUSE Linux Enterprise Server for SAP Applications.  
@@ -820,41 +818,53 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
    `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.   
 
-## Create SAP HANA cluster resources
+## Implement HANA hooks SAPHanaSR and susChkSrv
+
+This important step is to optimize the integration with the cluster and detection when a cluster failover is possible. It is highly recommended to configure the SAPHanaSR-ScaleOut Python hook. For HANA 2.0 SP5 and above, implementing SAPHanaSR, along with susChkSrv hook is recommended.
+
+SusChkSrv extends the functionality of the main SAPHanaSR HA provider. It acts in the situation when HANA process hdbindexserver crashes. If a single process crashes typically HANA tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database is not responsive.
+
+With susChkSrv implemented, an immediate and configurable action is executed, instead of waiting on hdbindexserver process to restart on the same node. In HANA scale-out susChkSrv acts independently for every HANA VM. The configured action will kill HANA or fence the affected VM, which triggers a failover by SAPHanaSR in the configured timeout period.
+
+> [!NOTE]
+> susChkSrv Python hook requires SAP HANA 2.0 SP5 and SAPHanaSR-ScaleOut version 0.184.1 or higher must be installed.
 
 1. **[1,2]** Install the HANA "system replication hook". The hook needs to be installed on one HANA DB node on each system replication site.         
 
-   1. Prepare the hook as `root` 
-    ```bash
-     mkdir -p /hana/shared/myHooks
-     cp /usr/share/SAPHanaSR-ScaleOut/SAPHanaSR.py /hana/shared/myHooks
-     chown -R hn1adm:sapsys /hana/shared/myHooks
-    ```
-
-   2. Stop HANA on both system replication sites. Execute as <sid\>adm:
+   1. Stop HANA on both system replication sites. Execute as <sid\>adm:
     ```bash
     sapcontrol -nr 03 -function StopSystem
     ```
 
-   3. Adjust `global.ini`
+   3. Adjust `global.ini` on each cluster site. If the requirements for susChkSrv hook are not met, remove the entire block `[ha_dr_provider_suschksrv]` from below section.  
+   You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid values are [ ignore | stop | kill | fence ].
     ```bash
     # add to global.ini
     [ha_dr_provider_SAPHanaSR]
     provider = SAPHanaSR
-    path = /hana/shared/myHooks
+    path = /usr/share/SAPHanaSR-ScaleOut
     execution_order = 1
     
+    [ha_dr_provider_suschksrv]
+    provider = susChkSrv
+    path = /usr/share/SAPHanaSR-ScaleOut
+    execution_order = 3
+    action_on_lost = kill
+
     [trace]
     ha_dr_saphanasr = info
     ```
 
-2. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
+    Configuration pointing to the standard location /usr/share/SAPHanaSR-ScaleOut, brings a benefit, that the python hook code is automatically updated through OS or package updates and it gets used by HANA at next restart. With an optional, own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
+
+2. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root` adapt the values of hn1/HN1 with correct SID.  
     ```bash
     cat << EOF > /etc/sudoers.d/20-saphana
     # SAPHanaSR-ScaleOut needs for srHook
     Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SOK -t crm_config -s SAPHanaSR
     Cmnd_Alias SFAIL = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SFAIL -t crm_config -s SAPHanaSR
     hn1adm ALL=(ALL) NOPASSWD: SOK, SFAIL
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=HN1 --case=fenceMe
     EOF
     ```
 
@@ -868,19 +878,30 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
     ```bash
     cdtrace
-     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
-     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
-
-     # 2021-03-31 01:02:42.695244 ha_dr_SAPHanaSR SFAIL
-     # 2021-03-31 01:02:58.966856 ha_dr_SAPHanaSR SFAIL
-     # 2021-03-31 01:03:04.453100 ha_dr_SAPHanaSR SFAIL
-     # 2021-03-31 01:03:04.619768 ha_dr_SAPHanaSR SFAIL
-     # 2021-03-31 01:03:04.743444 ha_dr_SAPHanaSR SFAIL
-     # 2021-03-31 01:04:15.062181 ha_dr_SAPHanaSR SOK
-
+    awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+    { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+    # Example output
+    # 2021-03-31 01:02:42.695244 ha_dr_SAPHanaSR SFAIL
+    # 2021-03-31 01:02:58.966856 ha_dr_SAPHanaSR SFAIL
+    # 2021-03-31 01:03:04.453100 ha_dr_SAPHanaSR SFAIL
+    # 2021-03-31 01:03:04.619768 ha_dr_SAPHanaSR SFAIL
+    # 2021-03-31 01:03:04.743444 ha_dr_SAPHanaSR SFAIL
+    # 2021-03-31 01:04:15.062181 ha_dr_SAPHanaSR SOK
     ```
 
-5. **[1]** Create the HANA cluster resources. Execute the following commands as `root`.    
+   Verify the susChkSrv hook installation. Execute as <sid\>adm on all HANA VMs
+    ```bash
+    cdtrace
+    egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
+    # Example output
+    # 2023-01-19 08:23:10.581529  [1674116590-10005] susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
+    # 2023-01-19 08:23:31.553566  [1674116611-14022] START: indexserver event looks like graceful tenant start
+    # 2023-01-19 08:23:52.834813  [1674116632-15235] START: indexserver event looks like graceful tenant start (indexserver started)
+    ```
+
+## Create SAP HANA cluster resources
+
+1. **[1]** Create the HANA cluster resources. Execute the following commands as `root`.    
    1. Make sure the cluster is already maintenance mode.  
     
    2. Next, create the HANA Topology resource.  
@@ -943,12 +964,12 @@ Create a dummy file system cluster resource, which will monitor and report failu
       sudo crm configure location loc_SAPHanaTop_not_on_majority_maker cln_SAPHanaTopology_HN1_HDB03 -inf: hana-s-mm
       ```
 
-6. **[1]** Configure additional cluster properties   
+2. **[1]** Configure additional cluster properties   
     ```bash
     sudo crm configure rsc_defaults resource-stickiness=1000
     sudo crm configure rsc_defaults migration-threshold=50
     ```
-7. **[1]** verify the communication between the HOOK and the cluster
+3. **[1]** verify the communication between the HOOK and the cluster
     ```bash
     crm_attribute -G -n hana_hn1_glob_srHook
     # Expected result
@@ -956,7 +977,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
     # scope=crm_config  name=hana_hn1_glob_srHook value=SOK
     ```
 
-8. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is ok and that all of the resources are started.  
+4. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is ok and that all of the resources are started.  
     ```bash
     # Cleanup any failed resources - the following command is example 
     crm resource cleanup rsc_SAPHana_HN1_HDB03
