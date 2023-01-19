@@ -286,9 +286,9 @@ Automatic sweeps can yield competitive results for many datasets. Additionally, 
 An AutoML training job uses a primary metric for model optimization and hyperparameter tuning. The primary metric depends on the task type as shown below; other primary metric values are currently not supported. 
 
 * [Accuracy](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) for image classification
-* [Intersection over union]((https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html#sklearn.metrics.jaccard_score)) for image classification multilabel
-* [Mean average precision](en-us/azure/machine-learning/how-to-understand-automated-ml#object-detection-and-instance-segmentation-metrics) for image object detection
-* [Mean average precision](en-us/azure/machine-learning/how-to-understand-automated-ml#object-detection-and-instance-segmentation-metrics) for image instance segmentation
+* [Intersection over union](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html) for image classification multilabel
+* [Mean average precision](how-to-understand-automated-ml#object-detection-and-instance-segmentation-metrics) for image object detection
+* [Mean average precision](how-to-understand-automated-ml#object-detection-and-instance-segmentation-metrics) for image instance segmentation
     
 ### Job limits
 
