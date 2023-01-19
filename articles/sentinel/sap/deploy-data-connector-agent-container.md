@@ -79,8 +79,8 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 1. Deploy the agent. To add a system, you must add an agent first. 
     
-    1. Create a new agent
-    1. Create a new SAP system
+    1. [Create a new agent](#create-a-new-agent)
+    1. [Create a new SAP system](#create-a-new-system)
 
 #### Create a new agent
 

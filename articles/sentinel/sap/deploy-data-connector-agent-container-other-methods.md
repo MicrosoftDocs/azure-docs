@@ -284,3 +284,9 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
    ```
 
 ---
+
+## Next steps
+
+Once the connector is deployed, proceed to deploy Microsoft Sentinel Solution for SAP content:
+> [!div class="nextstepaction"]
+> [Deploy SAP security content](deploy-sap-security-content.md)
