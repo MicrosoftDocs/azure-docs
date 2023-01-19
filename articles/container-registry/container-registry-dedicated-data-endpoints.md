@@ -43,7 +43,7 @@ Unfortunately, virtual network connection isn’t always an option.
 
 ## Client firewall rules and data exfiltration risks
 
-Client firewall rules limits access to specific resources. The firewall rules apply while connecting to a registry from on prem hosts, IoT devices, custom build agents. The rules also apply when the Private Link support isn't an option. 
+Client firewall rules limits access to specific resources. The firewall rules apply while connecting to a registry from on-premises hosts, IoT devices, custom build agents. The rules also apply when the Private Link support isn't an option. 
 
 
 :::image type="content" source="./media/dedicated-data-endpoints/client-firewall-0.png" alt-text="Diagram to illustrate client firewall rules.":::
