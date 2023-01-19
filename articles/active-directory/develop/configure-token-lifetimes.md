@@ -2,15 +2,15 @@
 title: Set lifetimes for tokens
 description: Learn how to set lifetimes for tokens issued by Microsoft identity platform. Learn how to learn how to manage an organization's default policy, create a policy for web sign-in, create a policy for a native app that calls a web API, and manage an advanced policy.
 services: active-directory
-author: rwike77
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/17/2022
-ms.author: ryanwi
+ms.date: 01/19/2023
+ms.author: davidmu
 ms.custom: identityplatformtop40, contperf-fy21q2, engagement-fy23
 ms.reviewer: ludwignick, jlu, annaba
 ---
