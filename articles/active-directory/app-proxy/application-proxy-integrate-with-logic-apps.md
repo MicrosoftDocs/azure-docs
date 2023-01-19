@@ -1,6 +1,6 @@
 ---
 title: Securely integrate Azure Logic Apps with on-premises APIs using Azure Active Directory Application Proxy
-description: Azure Active Directory's Application Proxy lets native apps securely access APIs and business logic you host on-premises or on cloud VMs.
+description: Azure Active Directory's Application Proxy lets cloud-native logic apps securely access on-premises APIs to bridge your workload.
 services: active-directory
 author: kfriede
 manager: 
