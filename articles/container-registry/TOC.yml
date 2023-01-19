@@ -139,6 +139,8 @@
         href: container-registry-private-link.md
       - name: Configure public registry access
         href: container-registry-access-selected-networks.md
+      - name: Mitigate data exfiltration with dedicated data endpoints
+        href: container-registry-dedicated-data-endpoints.md
       - name: Restrict access using service endpoint (preview)
         href: container-registry-vnet.md
       - name: Allow access by trusted services
