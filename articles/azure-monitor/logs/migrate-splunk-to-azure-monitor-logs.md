@@ -107,7 +107,7 @@ To collect data from a resource:
 
 1. Set up the relevant data collection tool based on the table below.
 1. Decide which data you need to collect from the resource.
-1. Use [transformations](../essentials/data-collection-transformations.md) to remove sensitive data, enrich data or perform calculations, and filter out data you don't need to reduce costs.   
+1. Use [transformations](../essentials/data-collection-transformations.md) to remove sensitive data, enrich data or perform calculations, and filter out data you don't need, to reduce costs.   
 
 This table lists the tools Azure Monitor provides for collecting data from various resource types.  
 
