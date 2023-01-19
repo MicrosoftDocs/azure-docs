@@ -32,7 +32,7 @@ To be eligible for the BIIB, you must first deploy an Azure Communications Gatew
 
 - You must be launching Microsoft Teams Operator Connect for fixed-line calls (not Teams Phone Mobile).
 - Your network must be capable of meeting the [reliability requirements for Azure Communications Gateway](../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json).
-- You must not deploy into more than two Azure regions.
+- You must not have more than two Azure service regions (the regions containing the voice and API infrastructure for traffic).
 - You must not request any interworking options that aren't listed in the [interoperability description](interoperability.md).
 - You must not require any API customization as part of the API Bridge feature (if you choose to deploy the API Bridge).
 
@@ -45,7 +45,7 @@ If we (Microsoft) determine at our sole discretion that your integration needs a
 
 This limitation applies even if you're otherwise eligible.
 
-We might also stop providing the BIIB if you don't fulfill [your obligations with the Basic Integration Included Benefit](#your-obligations-with-the-basic-integration-included-benefit), including making timely responses to questions and fulfilling dependencies.
+We might also stop providing the BIIB if you don't meet [your obligations with the Basic Integration Included Benefit](#your-obligations-with-the-basic-integration-included-benefit), including making timely responses to questions and fulfilling dependencies.
 
 ### Phases of the Basic Integration Included Benefit
 
@@ -85,7 +85,7 @@ You're responsible for:
 
 ## Alternatives to the Basic Integration Included Benefit
 
-If you're not eligible for the Basic Integration Included Benefit because you're deploying Teams Phone Mobile or you don't meet the [eligibility requirements](#eligibility-for-the-basic-integration-included-benefit), you must arrange onboarding separately. You can:
+If you're not eligible for the Basic Integration Included Benefit (because you're deploying Teams Phone Mobile or you don't meet the [eligibility requirements](#eligibility-for-the-basic-integration-included-benefit)), you must arrange onboarding separately. You can:
 
 - Contact your Microsoft sales representative to arrange onboarding through Microsoft.
 - Find your own onboarding partner.
