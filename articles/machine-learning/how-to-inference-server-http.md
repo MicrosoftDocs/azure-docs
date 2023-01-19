@@ -127,12 +127,38 @@ Now you can modify the scoring script (`score.py`) and test your changes by runn
 
 There are two ways to use Visual Studio Code (VS Code) and [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) to debug with [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package ([Launch and Attach modes](https://code.visualstudio.com/docs/editor/debugging#_launch-versus-attach-configurations)). 
 
--  Start the AzureML Inference Server in a command line and use VS Code + Python Extension to attach to the process (Attatch mode).
-   1. Add below configuration to `launch.json` in VS Code:
+-  Set up the `launch.json` in the VS Code and starts the AzureML Inference HTTP Server within VS Code (Launch mode).
+   1. Start VS Code and open the folder containing the script (`score.py`).
+   1. Add below configuration to `launch.json` for that workspace in VS Code:
+
+        **launch.json**
+        ```json
+        {
+            "version": "0.2.0",
+            "configurations": [
+                {
+                    "name": "Debug score.py",
+                    "type": "python",
+                    "request": "launch",
+                    "module": "azureml_inference_server_http.amlserver",
+                    "args": [
+                        "--entry_script",
+                        "score.py"
+                    ]
+                }
+            ]
+        }
+        ```
+
+    1. Start debugging session in VS Code. Select "Run" -> "Start Debugging" (or `F5`).
+
+-  Start the AzureML Inference HTTP Server in a command line and use VS Code + Python Extension to attach to the process (Attatch mode).
+   1. Add below configuration to `launch.json` for that workspace in VS Code:
         
         **launch.json**
         ```json
         {
+            "version": "0.2.0",
             "configurations": [
                 {
                     "name": "Python: Attach using Process Id",
@@ -146,36 +172,11 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
         ```
    1. Start the inference server using CLI.
    1. Start debugging session in VS Code.
-      1. In VS Code, select "Run" -> "Start Debugging"
+      1. In VS Code, select "Run" -> "Start Debugging" (or `F5`).
       1. Enter the process ID using the logs (from the inference server) displayed in the CLI.
         :::image type="content" source="./media/how-to-inference-server-http/debug-attach-pid.png" alt-text="Screenshot of the CLI which shows the process ID of the server":::
 
-
--  Set up the `launch.json` in the VS Code and starts the AzureML Inference HTTP Server within VS Code (Launch mode).
-
-    **launch.json**
-    ```json
-    {
-        "version": "0.2.0",
-        "configurations": [
-            {
-                "name": "Debug score.py",
-                "type": "python",
-                "request": "launch",
-                "module": "azureml_inference_server_http.amlserver",
-                "args": [
-                    "--entry_script",
-                    "score.py"
-                ]
-            }
-        ]
-    }
-    ```
-
-In both ways, you can set breakpoint and debug step by step.
-
-> [!TIP]
-> For more information on `launch.json`, see [Debugging in Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging)
+In both ways, you can set [breakpoint](https://code.visualstudio.com/docs/editor/debugging#_breakpoints) and debug step by step.
 
 ### End-to-end example
 In this section, we'll run the server locally with [sample files](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1) (scoring script, model file, and environment) in our example repository. The sample files are also used in our article for [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
