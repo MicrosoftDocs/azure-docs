@@ -11,7 +11,7 @@ ms.date: 12/22/2022
 
 Azure Container Registry introduces dedicated data endpoints. The feature enables tightly scoped client firewall rules to specific registries, minimizing data exfiltration concerns.
 
-Dedicated data endpoints feature is available in **Premium** service tier. For pricing information, see[container-registry-pricing.](https://azure.microsoft.com/pricing/details/container-registry/)
+Dedicated data endpoints feature is available in **Premium** service tier. For pricing information, see [container-registry-pricing.](https://azure.microsoft.com/pricing/details/container-registry/)
 
 Pulling content from a registry involves two endpoints:
 
@@ -24,7 +24,7 @@ Pulling content from a registry involves two endpoints:
 
 ## Registry managed storage accounts
 
-Azure Container Registry is a multi-tenant service. The registry service manages the data endpoint storage accounts. The benefits of the managed storage accounts, include load balancing, contentious content splitting, multiple copies for higher concurrent content delivery, and multi-region support with [geo-replication.](container-registry-geo-replication.md).
+Azure Container Registry is a multi-tenant service. The registry service manages the data endpoint storage accounts. The benefits of the managed storage accounts, include load balancing, contentious content splitting, multiple copies for higher concurrent content delivery, and multi-region support with [geo-replication.](container-registry-geo-replication.md)
 
 ## Azure Private Link virtual network support
 
@@ -109,7 +109,7 @@ Sample output:
      
 ```
 
-## Next Steps
+## Next steps
 
 * Configure to access an Azure container registry from behind a [firewall rules.](container-registry-firewall-access-rules.md) 
 * Connect Azure Container Registry using [Azure Private Link](container-registry-private-link.md)
