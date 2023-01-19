@@ -23,6 +23,21 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning using the Python SDK v1.
 
+Azure Machine Learning compute instance and compute cluster can be used to securely train models in a virtual network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The general differences between the two are:
+
+* **No public IP**: Reduces costs as it doesn't have the same networking resource requirements. Improves security by removing the requirement for inbound traffic from the internet. However, there are additional configuration changes required to enable outbound access to required resources (Azure Active Directory, Azure Resource Manager, etc.).
+* **Public IP**: Works by default, but costs more due to additional Azure networking resources. Requires inbound communication from the Azure Machine Learning service over the public internet.
+
+The following table contains the differences between these configurations:
+
+| Configuration | With public IP | Without public IP |
+| ----- | ----- | ----- |
+| Inbound traffic | AzureMachineLearning | None |
+| Outbound traffic | By default, can access the public internet with no restrictions.<br>You can restrict what it accesses using a Network Security Group or firewall. | By default, it cannot access the public internet since there is no public IP resource.<br>You need a Virtual Network NAT gateway or Firewall to route outbound traffic to required resources on the internet. |
+| Azure networking resources | Public IP address, load balancer, network interface | None |
+
+You can also use Azure Databricks or HDInsight to train models in a virtual network.
+
 > [!TIP]
 > For information on using the Azure Machine Learning __studio__ and the Python SDK __v2__, see [Secure training environment (v2)](../how-to-secure-training-vnet.md).
 >
