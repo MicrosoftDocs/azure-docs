@@ -56,14 +56,14 @@ Use the following table to learn about changes including deprecations, retiremen
 |---|---|---|---|---|---|
 |[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Dec 31, 2022|Dec 31, 2022|N/A|N/A|
 |Microsoft Authenticator app [Number matching](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677)|Change|Feb 27, 2023|Feb 27, 2023|N/A|N/A|
-|Azure AD DS [virtual network deployments](../../active-directory-domain-services/migrate-from-classic-vnet)|Retirement|Mar 1, 2023|Mar 1, 2023|N/A|N/A|
+|Azure AD DS [virtual network deployments](../../active-directory-domain-services/migrate-from-classic-vnet.md)|Retirement|Mar 1, 2023|Mar 1, 2023|N/A|N/A|
 |[License management API, PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/migrate-your-apps-to-access-the-license-managements-apis-from/ba-p/2464366)|Retirement|Nov 1, 2022|Mar 31, 2023|N/A|N/A|
 |[Azure AD Graph API](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Deprecation|Jun 30, 2022|Jun 30, 2022|N/A|N/A|
 |[Azure AD PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Jun 30, 2023|Jun 30, 2023|N/A|N/A|
 |[Azure AD MFA Server](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Sep 30, 2024|Sep 30, 2024|N/A|N/A|
 
 ### Next steps
-[What's new in Azure Active Directory](../../active-directory/fundamentals/whats-new)
+[What's new in Azure Active Directory](../../active-directory/fundamentals/whats-new.md)
 
 ### Resources
 * [Microsoft Entra Change Announcement blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-november-2022-train/ba-p/2967452)
