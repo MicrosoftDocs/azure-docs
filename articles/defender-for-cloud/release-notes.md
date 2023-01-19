@@ -2,8 +2,9 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 01/10/2023
+ms.date: 01/19/2023
 ---
+
 # What's new in Microsoft Defender for Cloud?
 
 Defender for Cloud is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
@@ -21,7 +22,7 @@ Updates in January include:
 
 - [New version of the recommendation to find missing system updates (Preview)](#new-version-of-the-recommendation-to-find-missing-system-updates-preview)
 - [Cleanup of deleted Azure Arc machines in connected AWS and GCP accounts](#cleanup-of-deleted-azure-arc-machines-in-connected-aws-and-gcp-accounts)
-- [Allow continuous export to an Event Hub behind a firewall](#allow-continuous-export-to-an-event-hub-behind-a-firewall)
+- [Allow continuous export to Event Hub behind a firewall](#allow-continuous-export-to-event-hubs-behind-a-firewall)
 
 ### New version of the recommendation to find missing system updates (Preview)
 
@@ -42,9 +43,11 @@ A machine connected to an AWS and GCP account and covered by Defender for Server
 
 Defender for Cloud will now automatically delete Azure Arc machines when those machines are deleted in connected AWS or GCP account.
 
-### Allow continuous export to an Event Hub behind a firewall
+### Allow continuous export to Event Hubs behind a firewall
 
-You can now enable the ability to perform a continuous export of alerts and recommendations as they're generated or define a schedule to send periodic snapshots of all of the new data, to an Event Hub as a trusted service that is protected by an Azure firewall. 
+You can now enable the continuous export of alerts and recommendations, as a trusted service to Event Hubs that are protected by an Azure firewall.
+
+You can enable this as the alerts or recommendations are generated or you can define a schedule to send periodic snapshots of all of the new data.
 
 Learn how to enable [continuous export to an Event Hub behind an Azure firewall](continuous-export.md#continuously-export-to-an-event-hub-behind-a-firewall).
 
