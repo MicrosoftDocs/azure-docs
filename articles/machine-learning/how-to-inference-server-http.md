@@ -173,6 +173,9 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
 
 In both ways, you can set breakpoint and debug step by step.
 
+> [!TIP]
+> For more information on `launch.json`, see [Debugging in Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging)
+
 ### End-to-end example
 In this section, we'll run the server locally with [sample files](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1) (scoring script, model file, and environment) in our example repository. The sample files are also used in our article for [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 
