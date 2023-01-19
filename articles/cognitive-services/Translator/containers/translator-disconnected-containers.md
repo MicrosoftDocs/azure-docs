@@ -133,7 +133,7 @@ Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
 [image]
 ```
 
-### Translation models and container configuration
+### Translator translation models and container configuration
 
 After you've [configured the container](#configure-the-container-to-run-in-a-disconnected-environment), the values for the downloaded translation models and container configuration will be generated and displayed in the container output:
 
@@ -188,7 +188,7 @@ Mounts:Output={CONTAINER_OUTPUT_DIRECTORY} \
 
 ## Other parameters and commands
 
-Here are a few more parameters and commands you may need to run the container.
+Here are a few more parameters and commands you may need to run the container:
 
 #### Usage records
 
@@ -218,14 +218,14 @@ https://<service>/records/usage-logs/
 
   **Example HTTPS endpoint**
 
-  `http://localhost:5000/records/usage-logs`.
+  `http://localhost:5000/records/usage-logs`
 
-This usage-logs endpoint will return a JSON response similar to this example:
+The usage-logs endpoint will return a JSON response similar to the following example:
 
 ```json
 {
-"apiType": "noop",
-"serviceName": "noop",
+"apiType": "string",
+"serviceName": "string",
 "meters": [
 {
     "name": "string",
@@ -243,7 +243,7 @@ The following endpoint will provide a report summarizing usage over a specific m
 https://<service>/records/usage-logs/{MONTH}/{YEAR}
 ```
 
-This usage-logs endpoint will return a JSON response similar to this example:
+This usage-logs endpoint will return a JSON response similar to the following example:
 
 ```json
 {
@@ -262,7 +262,7 @@ This usage-logs endpoint will return a JSON response similar to this example:
 
 Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase more unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
-You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
+You can choose a different commitment plan in the **Commitment tier pricing** settings of your resource under the **Resource Management** section.
 
 ### End a commitment plan
 
@@ -270,7 +270,7 @@ You can choose a different commitment plan in the **Commitment Tier pricing** se
 
 ## Troubleshooting
 
-Run the container with an output mount and logging enabled. These settings will enable the container to generate log files that are helpful for troubleshooting issues that happen while starting or running the container.
+Run the container with an output mount and logging enabled. These settings will enable the container to generate log files that are helpful for troubleshooting issues that occur while starting or running the container.
 
 > [!TIP]
 > For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](../../containers/disconnected-container-faq.yml).
