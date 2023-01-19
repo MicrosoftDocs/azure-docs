@@ -17,7 +17,7 @@ ms.collection:
 
 # Data protection considerations
 
-As shown in the following diagram, services store and retrieve Azure Active Directory (Azure AD) object data through a role-based access control (RBAC) authorization layer that calls the internal directory data access layer. This ensures the user's data request is permitted: 
+The following diagram illustrates how services store and retrieve Azure Active Directory (Azure AD) object data through a role-based access control (RBAC) authorization layer. This layer calls the internal directory data access layer, ensuring the user's data request is permitted: 
 
    ![Diagram of services storing and retrieving Azure AD object data.](./media/data-protection-considerations/tenant-isolation.PNG)
 
@@ -35,19 +35,19 @@ Learn more: [Azure Active Directory audit report events](../active-directory/act
 
 **Tenant Isolation**: Enforcement of security in Azure AD multi-tenant environment helps achieve two primary goals:  
 
-* Prevent data leakage and access across tenants: Data belonging to Tenant 1 cannot be obtained by users in Tenant 2 without explicit authorization by Tenant 1.  
-* Resource access isolation across tenants: Operations performed by Tenant 1 cannot affect access to resources for Tenant 2.  
+* Prevent data leakage and access across tenants: Data belonging to Tenant 1 can't be obtained by users in Tenant 2 without explicit authorization by Tenant 1.  
+* Resource access isolation across tenants: Operations performed by Tenant 1 can't affect access to resources for Tenant 2.  
 
 ## Tenant isolation
 
 The following information outlines tenant isolation.
 
-* The service secures tenants using RBAC policy to ensure data isolation.n.  
-* To enable access to a tenant, a principal, for example a user or application, needs to be able to authenticate against Azure AD to obtain context and has explicit permissions defined in the tenant. If a principal is not authorized in the tenant, the resulting token will not carry permissions, and the RBAC system rejects requests in this context.  
-* RBAC ensures access to a tenant is performed by a security principal authorized in the tenant. Access across tenants is possible when a tenant administrator creates a security principal representation in the same tenant (for example, provisioning a guest user account using B2B collaboration), or when a tenant administrator creates a policy to enable a trust relationship with another tenant. For example, a cross-tenant access policy to enable B2B Direct Connect. This is because each tenant is an isolation boundary; existence in one tenant does not equate existence in another tenant unless the administrator allows it.  
+* The service secures tenants using RBAC policy to ensure data isolation. 
+* To enable access to a tenant, a principal, for example a user or application, needs to be able to authenticate against Azure AD to obtain context and has explicit permissions defined in the tenant. If a principal isn't authorized in the tenant, the resulting token won't carry permissions, and the RBAC system rejects requests in this context.  
+* RBAC ensures access to a tenant is performed by a security principal authorized in the tenant. Access across tenants is possible when a tenant administrator creates a security principal representation in the same tenant (for example, provisioning a guest user account using B2B collaboration), or when a tenant administrator creates a policy to enable a trust relationship with another tenant. For example, a cross-tenant access policy to enable B2B Direct Connect. Each tenant is an isolation boundary; existence in one tenant doesn't equate existence in another tenant unless the administrator allows it.  
 * Azure AD data for multiple tenants is stored in the same physical server and drive for a given partition. Isolation is ensured because access to the data is protected by the RBAC authorization system. 
-* A customer application cannot access Azure AD without needed authentication. The request is rejected if not accompanied by credentials as part of the initial connection negotiation process. This prevents unauthorized access to a tenant by neighboring tenants. Only user credential’s token, or Security Assertion Markup Language (SAML) token, is brokered with a federated trust. Therefore it is validated by Azure AD based on the shared keys configured by the Global Administrator of the Azure AD tenant.  
-* Because there is no application component that can execute from the Core Store, it is not possible for one tenant to forcibly breach the integrity of a neighboring tenant.  
+* A customer application can't access Azure AD without needed authentication. The request is rejected if not accompanied by credentials as part of the initial connection negotiation process. This dynamic prevents unauthorized access to a tenant by neighboring tenants. Only user credential’s token, or Security Assertion Markup Language (SAML) token, is brokered with a federated trust. Therefore, it's validated by Azure AD, based on the shared keys configured by the Azure AD tenant Global Administrator.  
+* Because there's no application component that can execute from the Core Store, it's not possible for one tenant to forcibly breach the integrity of a neighboring tenant.  
 
 ## Data security
 
@@ -59,7 +59,7 @@ Customer-facing web services are secured with the Transport Layer Security (TLS)
 
 These stores are operated by a security-focused group via established automation and workflows, including certificate request, renewal, revocation, and destruction. 
 
-There is activity auditing related to these stores/workflows/processes, and there is no standing access. Access is request- and approval-based, and for a limited amount of time.  
+There's activity auditing related to these stores/workflows/processes, and there is no standing access. Access is request- and approval-based, and for a limited amount of time.  
 
 For more information about Secret encryption at rest, see the following table. 
 
@@ -74,7 +74,7 @@ For more information about Secret encryption at rest, see the following table.
 |Self-service password reset: Answers to security questions|SHA256|
 |SSL certificates for Azure AD application</br>Proxy published applications |AES-GCM 256-bit |
 |Disk-level encryption|XTS-AES 128|
-|[Seamless single sign-on (SSO)](../../active-directory/hybrid/how-to-connect-sso-how-it-works.md) service acount password</br>SaaS application provisioning credentials|AES-CBC 128-bit |
+|[Seamless single sign-on (SSO)](../../active-directory/hybrid/how-to-connect-sso-how-it-works.md) service account password</br>SaaS application provisioning credentials|AES-CBC 128-bit |
 |Azure AD Managed Identities|AES-GCM 256-bit|
 |Microsoft Authenticator app: Passwordless sign-in to Azure AD |Asymmetric RSA Key 2048-bit|
 |Microsoft Authenticator app: Backup and restore of enterprise account metadata |AES-256  |
