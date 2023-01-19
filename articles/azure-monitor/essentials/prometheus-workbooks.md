@@ -24,33 +24,33 @@ To query Prometheus metrics from an Azure Monitor workspace you need the followi
 ## Prometheus Explorer workbook
 Azure Monitor workspaces include an exploration workbook to query your Prometheus metrics. 
 
-1. From the Azure Monitor workspace overviw page, select **Workbooks**
-1. Select the **Prometheus Explorer** workbook tile.
+1. From the Azure Monitor workspace overview page, select **Workbooks**
+1. In the Azure Monitor workspace gallery, select the **Prometheus Explorer** workbook tile.
 
 ![Screenshot that shows Azure Monitor workspace gallery](./media/prometheus-workbooks/prometheus-gallery.png)
 
 A workbook has the following input options:
 -	**Time Range**. Select the nuber of hours or days  that you want to include in your query. Select *Custom* to set a start and end time.
 -	**PromQL**. Enter the PromQL query to retrieve your data. For more information about PromQL, see Querying Prometheus]](https://prometheus.io/docs/prometheus/latest/querying/basics/#querying-prometheus).
--	**Graph**, **Grid**, and **Dimensions** tabs. Swithc between a graphic , tabular and dimensional view of the query output.
+-	**Graph**, **Grid**, and **Dimensions** tabs. Switch between a graphic, tabular and dimensional view of the query output.
 
 ![Screenshot that shows PromQL explorer](./media/prometheus-workbooks/prometheus-explorer.png)
 
->>>>>>>>>>https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-getting-started
-## Create your own Prometheus workbook
+## Create a Prometheus workbook
 
-Workbooks supports many other great visualizations and Azure integrations, to set up your own workbook, learn more about [creating your own Azure Workbooks](../visualize/workbooks-create-workbook.md).
-Azure Workbooks uses [data sources](../visualize/workbooks-data-sources.md#prometheus-preview) to scope the data it pulls from. To query Prometheus metrics:
+Workbooks supports many visualizations and Azure integrations. For more information about Azure Workbooks, see [Creating an Azure Workbook](../visualize/workbooks-create-workbook.md).
+Azure Workbooks use [data sources](../visualize/workbooks-data-sources.md#prometheus-preview) to scope the data they retrieve. To query Prometheus metrics:
 
-1.	Open up a new or existing workbook
-2.	Select the “+ Add” button and choose “Add query”
-3.	Under the Data source parameter, choose the option “Prometheus (preview)”
-4.	From the “Azure Monitor workspace” dropdown, pick your workspace
-5.	Following that, update the Prometheus query type dropdown to your desired Query Type
-6.	In the primary text field, write your PromQL
-7.	Using the “Run Query” button at the top, you should now be able to see your data
-8.	(optional) Make additional adjustments and customizations using the various options for time range, visualization type, size, and other settings
-9.	Once all changes are finalized, select the “Done Editing” at the bottom of the section and save your work
+1.	From your Azure Monitor workspace select **Workbooks**.
+1.  Select **New**.
+1.	In the new workbook, select **Add**, and select **Add query** from the dropdown.
+1.	Select the  **Data source** dropdown, and choose **Prometheus (preview)** .
+1.	From the **Azure Monitor workspace** dropdown, select your workspace.
+1.	Following that, update the Prometheus query type dropdown to your desired Query Type
+1.	In the primary text field, write your PromQL
+1.	Select **Run Query**                       button at the top, you should now be able to see your data
+1.	(optional) Make additional adjustments and customizations using the various options for time range, visualization type, size, and other settings
+1.	Once all changes are finalized, select the **Done Editing** at the bottom of the section and save your work
 
 ![Screenshot that shows sample PromQL query](./media/prometheus-workbooks/prometheus-query.png)
 
