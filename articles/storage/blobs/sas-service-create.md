@@ -11,7 +11,7 @@ ms.author: pauljewell
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, engagement-fy23
 ---
 
 # Create a service SAS for a container or blob
