@@ -1,24 +1,24 @@
 ---
-title: Managed identities for Automation accounts
+title: Managed identities for Automation accounts.
 description: Learn how to migrate from Automation Run As Accounts to managed identities.
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/18/2023
 ms.author: ankitadutta
-ms.custom: template-concept
 ---
 
 
 # Manage identities for automation accounts
 
 > [!IMPORTANT]
-> - Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts).
+> - Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](../automation/automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](../automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts).
 > - Delaying the feature has a direct impact on our support burden, as it would cause upgrades of mobility agent to fail. 
 
 
-This article explains about Managed Identities for automation accounts in ASR. Azure Automation Accounts are used by Azure Site Recovery (ASR) customers to auto-update the agents of their protected virtual machines. ASR creates Azure Automation Run As Accounts when you enable replication via the IaaS VM Blade and Recovery Services Vault. 
+This article explains about Managed Identities for automation accounts in Azure Site Recovery. Azure Automation Accounts are used by Azure Site Recovery customers to auto-update the agents of their protected virtual machines. Site Recovery creates Azure Automation Run As Accounts when you enable replication via the IaaS VM Blade and Recovery Services Vault. 
 
+A managed identity can be [system assigned](../automation/enable-managed-identity-for-automation.md) or [user assigned](../automation/add-user-assigned-identity.md). When a new Automation account is created, a system-assigned managed identity is enabled.
 
 ## Managed identities in Azure
 
@@ -34,7 +34,7 @@ in Azure Active Directory (Azure AD) and using it to obtain Azure AD tokens.
 - You can use managed identities to authenticate to any resource that supports Azure AD authentication, including your own applications.
 - Managed identities for Azure resources are free with Azure AD for Azure subscriptions. There's no extra cost.
 
-### Configure managed identities 
+## Configure managed identities 
 
 You can configure your managed identities through:
 
@@ -45,14 +45,14 @@ You can configure your managed identities through:
 When a managed identity is added, deleted, or modified on a running container app, the app doesn't automatically restart and a new revision isn't created.
 
 > [!NOTE]
-> For more information about migration cadence and the support timeline for Run As account creation and certificate renewal, see the [frequently asked questions](automation-managed-identity-faq.md).
+> For more information about migration cadence and the support timeline for Run As account creation and certificate renewal, see the [frequently asked questions](../automation/automation-managed-identity-faq.md).
 
 
 ## Migrate from an existing Run As account to a managed identity
 
 ### Portal experience
 
-<content here>
+Learn [how to migrate Automation Run as accounts to Managed Identity on Azure Site Recovery](./migrate-run-as-accounts-managed-identity.md).
 
 
 ### Sample scripts
@@ -164,11 +164,9 @@ foreach ($ResourceGroup in $ResourceGroups)
 ## Next steps
 
 Learn more about:
-
-- [Managed identities](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview).
-- [Connecting from your application to resources without handling credentials](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview-for-developers?tabs=portal%2Cdotnet)
+- [Managed identities](../active-directory/managed-identities-azure-resources/overview).
+- [Connecting from your application to resources without handling credentials](../active-directory/managed-identities-azure-resources/overview-for-developers?tabs=portal%2Cdotnet)
 - [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing).
-- [Using a system-assigned managed identity for an Azure Automation account](https://learn.microsoft.com/en-us/azure/automation/enable-managed-identity-for-automation).
-- [Using a user-assigned managed identity for an Azure Automation account](https://learn.microsoft.com/en-us/azure/automation/add-user-assigned-identity).
-- [FAQ for migrating from a Run As account to a managed identity](https://learn.microsoft.com/en-us/azure/automation/automation-managed-identity-faq).
+- [FAQ for migrating from a Run As account to a managed identity](../automation/automation-managed-identity-faq).
+- [FAQ for Managed Identities](../active-directory/managed-identities-azure-resources/managed-identities-faq.md)
 
