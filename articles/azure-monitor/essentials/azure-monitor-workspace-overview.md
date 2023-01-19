@@ -1,10 +1,10 @@
 ---
 title: Azure Monitor workspace overview (preview)
 description: Overview of Azure Monitor workspace, which is a unique environment for data collected by Azure Monitor.
-author: edbaynash 
+author: EdB-MSFT
+ms.author: edbaynash 
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 10/05/2022
+ms.date: 19/01/2023
 ---
 
 # Azure Monitor workspace (preview)
@@ -62,92 +62,6 @@ See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for 
 - Azure monitor workspaces are currently only supported in public clouds.
 - Azure monitor workspaces don't currently support being moved into a different subscription or resource group once created.
 
->>>>>>>>>>>>>>>>> Split this out to a new articlee
-## Create an Azure Monitor workspace
-In addition to the methods below, you may be given the option to create a new Azure Monitor workspace in the Azure portal as part of a configuration that requires one. For example, when you configure Azure Monitor managed service for Prometheus, you can select an existing Azure Monitor workspace or create a new one.
-
-### [Azure portal](#tab/azure-portal)
-
-1. Open the **Azure Monitor workspaces** menu in the Azure portal.
-2. Select **Create**.
-
-    :::image type="content" source="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png" lightbox="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png" alt-text="Screenshot of Azure Monitor workspaces menu and page.":::
-
-3. On the **Create an Azure Monitor Workspace** page, select a **Subscription** and **Resource group** where the workspace should be created.
-4. Provide a **Name** and a **Region** for the workspace.
-5. Select **Review + create** to create the workspace.
-
-### [CLI](#tab/cli)
-Use the following command to create an Azure Monitor workspace using Azure CLI.
-
-```azurecli
-az resource create --resource-group <resource-group-name> --namespace microsoft.monitor --resource-type accounts --name <azure-monitor-workspace-name> --location <location> --properties {}
-```
-
-### [Resource Manager](#tab/resource-manager)
-Use one of the following Resource Manager templates with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
-
-```json
-{
-    "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "name": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": ""
-        }
-    },
-    "resources": [
-        {
-            "type": "microsoft.monitor/accounts",
-            "apiVersion": "2021-06-03-preview",
-            "name": "[parameters('name')]",
-            "location": "[if(empty(parameters('location')), resourceGroup().location, parameters('location'))]"
-        }
-    ]
-}
-```
-
-```bicep
-@description('Specify the name of the workspace.')
-param workspaceName string
-
-@description('Specify the location for the workspace.')
-param location string = resourceGroup().location
-
-resource workspace 'microsoft.monitor/accounts@2021-06-03-preview' = {
-  name: workspaceName
-  location: location
-}
-
-```
-
-
----
-
-
-## Delete an Azure Monitor workspace
-When you delete an Azure Monitor workspace, no soft-delete operation is performed like with a [Log Analytics workspace](../logs/delete-workspace.md). The data in the workspace is immediately deleted, and there's no recovery option.
-
-
-### [Azure portal](#tab/azure-portal)
-
-1. Open the **Azure Monitor workspaces** menu in the Azure portal.
-2. Select your workspace.
-4. Select **Delete**.
-
-    :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button.":::
-
-### [CLI](#tab/cli)
-To be completed.
-
-### [Resource Manager](#tab/resource-manager)
-To be completed.
-
----
 
 
 ## Link a Grafana workspace
@@ -165,6 +79,28 @@ Connect an Azure Monitor workspace to an [Azure Managed Grafana](../../managed-g
 
 ### [CLI](#tab/cli)
 To be completed.
+
+If the Azure Monitor workspace is linked to one or more Grafana workspaces, then the data will be available in Grafana.
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
+
+This creates a link between the Azure Monitor workspace and the Grafana workspace.
+```azurecli
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id 
+<azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
+```
+Output
+```JSON
+"azureMonitorProfile": {
+    "metrics": {
+        "enabled": true,
+        "kubeStateMetrics": {
+            "metricAnnotationsAllowList": "",
+            "metricLabelsAllowlist": ""
+        }
+    }
+}
+```
+
 
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
