@@ -1,7 +1,7 @@
 ---
 title: How to install the machine configuration authoring module
 description: Learn how to install the PowerShell module for creating and testing machine configuration policy definitions and assignments.
-ms.date: 10/17/2022
+ms.date: 01/13/2023
 ms.topic: how-to
 ms.service: machine-configuration
 ms.author: timwarner
@@ -26,25 +26,14 @@ custom content including:
 Support for applying configurations through machine configuration
 is introduced in version `3.4.2`.
 
-> [!IMPORTANT]
-> Custom packages that audit the state of an environment are Generally Available,
-> but packages that apply configurations are **in preview**. **The following limitations apply:**
->
-> To test creating and applying configurations on Linux, the
-> `GuestConfiguration` module is only available on Ubuntu 18 but the package
-> and policy definitions produced by the module can be used on any Linux distro/version
-> supported in Azure or Arc.
->
-> Testing packages on MacOS isn't available.
-
 ### Base requirements
 
-Operating Systems where the module can be installed:
+Operating systems where the module can be installed:
 
 - Ubuntu 18
 - Windows
 
-The module can be installed on a machine running PowerShell 7. Install the
+The module can be installed on a machine running PowerShell 7.x. Install the
 versions of PowerShell listed below.
 
 | OS | PowerShell Version |

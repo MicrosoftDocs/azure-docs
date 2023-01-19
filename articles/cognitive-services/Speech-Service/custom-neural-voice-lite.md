@@ -21,7 +21,7 @@ Speech Studio provides two Custom Neural Voice (CNV) project types: CNV Lite and
 
 With a CNV Lite project, you record your voice online by reading 20-50 pre-defined scripts provided by Microsoft. After you've recorded at least 20 samples, you can start to train a model. Once the model is trained successfully, you can review the model and check out 20 output samples produced with another set of pre-defined scripts.
 
-See the [supported languages](language-support.md?tabs=stt-tts) for Custom Neural Voice.
+See the [supported languages](language-support.md?tabs=tts) for Custom Neural Voice.
 
 ## Compare project types
 
