@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Use deployment scripts in ARM templates
 
-Learn how to use deployment scripts in Azure Resource templates (ARM templates). With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
+Learn how to use deployment scripts in Azure Resource templates (ARM templates). With the `Microsoft.Resources/deploymentScripts` resource type, users can execute scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
 
 - Add users to a directory.
 - Perform data plane operations, for example, copy blobs or seed database.
@@ -31,7 +31,7 @@ The benefits of deployment script:
 The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
-> A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The two automatically created resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
+> In addition to the `Microsoft.Resources/deploymentScripts` resource, the deployment script service needs two supporting resources, a storage account and a container instance, for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The two automatically created resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
 
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
