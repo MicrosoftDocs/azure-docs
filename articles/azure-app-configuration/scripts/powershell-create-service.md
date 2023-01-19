@@ -25,18 +25,23 @@ To execute the sample scripts, you need a functional setup of [Azure PowerShell]
 ## Sample script
 
 ```powershell
-
 # Create resource group 
-New-AzResourceGroup -Name <rg-name> -Location <location>
+New-AzResourceGroup -Name <resource-group-name> -Location <location>
 
 # Create App Configuration store
-New-AzAppConfigurationStore -Name <store-name> -ResourceGroupName <rg-name> -Location <location> -Sku <sku>
+New-AzAppConfigurationStore -Name <store-name> -ResourceGroupName <resource-group-name> -Location <location> -Sku <sku>
 
 # Get the AppConfig connection string 
-Get-AzAppConfigurationStoreKey -Name <store-name> -ResourceGroupName <rg-name>
+Get-AzAppConfigurationStoreKey -Name <store-name> -ResourceGroupName <resource-group-name>
 ```
 
-[!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
+## Clean up resources
+
+Clean up the resources you deployed by deleting the resource group.
+
+```powershell
+Remove-AzResourceGroup -Name <resource-group-name> 
+```
 
 ## Script explanation
 
@@ -50,6 +55,6 @@ This script uses the following commands to create a new resource group and an Ap
 
 ## Next steps
 
-For more information on Azure PowerShell, see [Azure CLI documentation](/cli/azure).
+For more information about Azure PowerShell, see [Azure CLI documentation](/powershell/azure/what-is-azure-powershell).
 
-Additional App Configuration PowerShell script samples can be found in the [Azure App Configuration  PowerShell samples](../powershell-samples.md).
+Additional App Configuration PowerShell script samples can be found in the [Azure App Configuration PowerShell samples](../powershell-samples.md).

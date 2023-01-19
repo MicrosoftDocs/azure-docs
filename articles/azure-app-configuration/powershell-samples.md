@@ -3,7 +3,7 @@ title: PowerShell samples
 description: Learn about the Azure PowerShell sample scripts available for App Configuration.
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 12/14/2022
+ms.date: 01/19/2023
 ms.author: malev
 author: maud-lv
 ---
