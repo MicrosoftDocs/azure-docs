@@ -38,7 +38,7 @@ To follow this tutorial, you will need:
 
 - Admin access to an Azure directory, with an account that can create and register apps
 - The *Logic App Contributor* role (or higher) in an active tenant
-- Azure Application Proxy connector deployed and an application configured as detailed in [Add an on-premises app - Application Proxy in Azure Active Directory](./application-proxy-add-on-premises-application)
+- Azure Application Proxy connector deployed and an application configured as detailed in [Add an on-premises app - Application Proxy in Azure Active Directory](./application-proxy-add-on-premises-application.md)
 
 > [!NOTE]
 > While granting a user entitlement and testing the sign on is recommended, it is not required for this guide.
