@@ -3897,13 +3897,13 @@ Release notes for `3.0.015490002-onprem-amd64`:
 
 ## Translator
 
-The [Translator][tr-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/translator` repository and is named `text-translation`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64-preview`.
+The [Translator][tr-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/translator` repository and is named `text-translation`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/translator/text-translation`.
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/translator/text-translation/tags/list).
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
-| `1.0.019410001-amd64-preview`                      |       |
+| `latest`                      | Docker Hub URL: https://hub.docker.com/_/microsoft-azure-cognitive-services-translator-text-translation |
 
 
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
