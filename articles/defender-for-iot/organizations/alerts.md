@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Microsoft Defender for IoT alerts
 
-Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that needs your attention.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are messages that a Defender for IoT engine triggers when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
 For example:
 
