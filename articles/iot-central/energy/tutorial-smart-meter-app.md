@@ -53,7 +53,7 @@ After you connect your smart meters to Azure IoT Central, the application templa
 
 The Azure IoT Central platform provides two extensibility options: Continuous Data Export and APIs. Customers and partners can choose between these options to customize their solutions for their specific needs. 
 
-For example, a partner might configure Continuous Data Export with Azure Data Lake Storage. That partner can then use Data Lake Storage for long-term data retention and other scenarios for cold path storage, such batch processing, auditing and reporting.
+For example, a partner might configure Continuous Data Export with Azure Data Lake Storage. That partner can then use Data Lake Storage for long-term data retention and other scenarios for cold path storage, such batch processing, auditing, and reporting.
 
 ## Prerequisites
 
