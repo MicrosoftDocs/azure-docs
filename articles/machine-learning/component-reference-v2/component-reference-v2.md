@@ -13,12 +13,12 @@ ms.date: 01/17/2023
 ---
 # Algorithm & component reference for Azure Machine Learning designer (v2)
 
-Azure Machine Learning designer components (Designer) allows users to create machine learning projects using a drag and drop interface. Follow this link to reach the Designer studio. Follow this link to [learn more about Designer.] (../concept-designer)
+Azure Machine Learning designer components (Designer) allow users to create machine learning projects using a drag and drop interface. Follow this link to reach the Designer studio. Follow this link to [learn more about Designer](../concept-designer).
 
 
 This reference content provides background on each of the custom components (v2) available in Azure Machine Learning designer.
 
-You can navigate to Custom components in AzureML Studio as shown in image below.
+You can navigate to Custom components in AzureML Studio as shown in the following image.
 
 :::image type="content" source="media/designer-new-pipeline.png" alt-text="Diagram showing the Designer UI for selecting a custom component.":::
 
@@ -40,12 +40,12 @@ For help with choosing algorithms, see
 | Regression | Component that kicks off an AutoML job to train a regression model within an Azure Machine Learning pipeline. | [AutoML Regression](regression.md) |
 | Forecasting | Component that kicks off an AutoML job to train a forecasting model within an Azure Machine Learning pipeline. | [AutoML Forecasting](forecasting.md) |
 | Image Classification |Component that kicks off an AutoML job to train an image classification model within an Azure Machine Learning pipeline |[Image Classification](image-classification.md)|
-| Multilabel Image Classification |Component that kicks off an AutoML job to train an multilabel image classification model within an Azure Machine Learning pipeline |[Image Classification Multilabel](image-classification-multilabel.md) | 
+| Multilabel Image Classification |Component that kicks off an AutoML job to train a multilabel image classification model within an Azure Machine Learning pipeline |[Image Classification Multilabel](image-classification-multilabel.md) | 
 | Image Object Detection | Component that kicks off an AutoML job to train an image object detection model within an Azure Machine Learning pipeline | [Image Object Detection](image-object-detection.md) | 
 | Image Instance Segmentation | Component that kicks off an AutoML job to train an image instance segmentation model within an Azure Machine Learning pipeline | [Image Instance Segmentation](image-instance-segmentation.md)|
 | Multilabel Text Classification | Component that kicks off an AutoML job to train a multilabel NLP text classification model within an Azure Machine Learning pipeline. | [AutoML Multilabel Text Classification](text-classification-multilabel.md)|
-| Text Classification | Component that kicks off an AutoML job to train a NLP text classification model within an Azure Machine Learning pipeline. | [AutoML Text Classification](text-classification.md)|
-| Text Ner | Component that kicks off an AutoML job to train a NLP NE (Named Entity Recognition) model within an Azure Machine Learning pipeline. | [AutoML Text Ner](text-ner.md)|
+| Text Classification | Component that kicks off an AutoML job to train an NLP text classification model within an Azure Machine Learning pipeline. | [AutoML Text Classification](text-classification.md)|
+| Text Ner | Component that kicks off an AutoML job to train an NLP NE (Named Entity Recognition) model within an Azure Machine Learning pipeline. | [AutoML Text Ner](text-ner.md)|
 
 ## Next steps
 
