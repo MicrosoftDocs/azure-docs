@@ -164,7 +164,7 @@ NAT gateway dynamically allocates SNAT ports across a subnet's private resources
 
 *Figure: Virtual Network NAT on-demand outbound SNAT*
 
-Pre-allocation of SNAT ports to each virtual machine isn't required, which means SNAT ports aren't left unused by VMs not actively needing them.
+Pre-allocation of SNAT ports to each virtual machine is required for other SNAT methods. This pre-allocation of SNAT ports can cause SNAT port exhaustion on some virtual machines while others still have available SNAT ports for connecting outbound. With NAT gateway, pre-allocation of SNAT ports isn't required, which means SNAT ports aren't left unused by VMs not actively needing them.
 
 :::image type="content" source="./media/nat-overview/exhaustion-threshold.png" alt-text="Diagram of all available SNAT ports used by virtual machines on subnets configured with NAT and an exhaustion threshold.":::
 
@@ -178,7 +178,7 @@ NAT gateway selects a port at random out of the available inventory of ports to 
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
-| 4 | 10.0.0.1: 4285 | 65.52.1.1: **1234** | 23.53.254.142: 80 |
+| 4 | 10.0.0.1: 4285 | 65.52.1.1: **1234** | 23.53.254.143: 80 |
 
 A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from previous table). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
 
