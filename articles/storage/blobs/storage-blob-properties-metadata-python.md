@@ -35,17 +35,17 @@ In addition to the data they contain, blobs support system properties and user-d
 
 To set properties on a blob, use the following method:
 
-- [BlobClient.setHTTPHeaders](/java/api/com.azure.storage.blob.specialized.blobclientbase.sethttpheaders#com-azure-storage-blob-specialized-blobclientbase-sethttpheaders(com-azure-storage-blob-models-blobhttpheaders))
+- [BlobClient.set_http_headers](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-set-http-headers)
 
-The following code example sets the `ContentType` and `ContentLanguage` system properties on a blob.
+Any properties not explicitly set are cleared. To preserve any existing properties, you can first retrieve the blob properties, then use them to populate the headers that aren't being updated.
 
-Any properties not explicitly set are cleared. The following code example first gets the existing properties on the blob, then uses them to populate the headers that aren't being updated.
+The following code example sets the `content_type` and `content_language` system properties on a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_SetBlobProperties":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_set_blob_properties":::
 
 To retrieve properties on a blob, use the following method:
 
-- [BlobClient.getProperties](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-getproperties())
+- [BlobClient.get_blob_properties](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-get-blob-properties)
 
 The following code example gets a blob's system properties and displays some of the values:
 

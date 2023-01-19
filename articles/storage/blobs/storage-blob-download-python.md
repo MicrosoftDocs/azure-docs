@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 11/16/2022
+ms.date: 01/19/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -16,35 +16,35 @@ ms.custom: devx-track-python, devguide-python
 
 # Download a blob with Python
 
-This article shows how to download a blob with the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can download a blob by using any of the following methods:
+This article shows how to download a blob with the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can download a blob by using the following method:
 
-- [BlobClient.downloadContent](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-downloadcontent())
-- [BlobClient.downloadStream](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-downloadstream(java-io-outputstream))
-- [BlobClient.downloadToFile](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-downloadtofile(java-lang-string))
+- [BlobClient.download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-download-blob)
+
+The `download_blob` method returns a [StorageStreamDownloader](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader) object.
  
 ## Download to a file path
 
-The following example downloads a blob by using a file path:
+The following example downloads a blob to a file path:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-download.py" id="Snippet_DownloadBLobFile":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_download_blob_file":::
 
 ## Download to a stream
 
-The following example downloads a blob to an `OutputStream`:
+The following example downloads a blob to a stream. In this example, [StorageStreamDownloader.read_into](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader#azure-storage-blob-storagestreamdownloader-readinto) downloads the blob contents to a stream and returns the number of bytes read:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-download.py" id="Snippet_DownloadBLobStream":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_download_blob_stream":::
+
+## Download a blob in chunks
+
+The following example downloads a blob and iterates over chunks in the download stream. In this example, using [StorageStreamDownloader.chunks](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader#azure-storage-blob-storagestreamdownloader-chunks) returns an iterator which allows you to iterate over the blob content in chunks:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_download_blob_chunks":::
 
 ## Download to a string
 
-The following example downloads a blob to a `String` object. This example assumes that the blob is a text file.
+The following example downloads blob contents as text. In this example, [StorageStreamDownloader.content_as_text](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader#azure-storage-blob-storagestreamdownloader-content-as-text) downloads the contents of the blob and decodes as text:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-download.py" id="Snippet_DownloadBLobText":::
-
-## Download from a stream
-
-The following example downloads a blob by opening a `BlobInputStream` and reading from the stream:
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-download.py" id="Snippet_ReadBlobStream":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_download_blob_text":::
 
 ## Resources
 
