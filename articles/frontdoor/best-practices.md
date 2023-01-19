@@ -34,9 +34,9 @@ Front Door's features work best when traffic only flows through Front Door. You 
 
 When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs, it's important to use the latest available API or SDK version. API and SDK updates occur when new functionality is available, and also contain important security patches and bug fixes.
 
-### Configure logging
+### Configure logs
 
-Front Door logs extensive telemetry about every request that it receives. When you enable caching, your origin servers might not receive every request, so it's important that you use the Front Door logs to understand how your solution is running and responding to your clients. For more information about the metrics and logs that Azure Front Door records, see [Monitor metrics and logs in Azure Front Door](front-door-diagnostics.md) and [WAF logs](../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
+Front Door tracks extensive telemetry about every request. When you enable caching, your origin servers might not receive every request, so it's important that you use the Front Door logs to understand how your solution is running and responding to your clients. For more information about the metrics and logs that Azure Front Door records, see [Monitor metrics and logs in Azure Front Door](front-door-diagnostics.md) and [WAF logs](../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
 
 To configure logging for your own application, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md)
 

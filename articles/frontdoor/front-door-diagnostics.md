@@ -15,9 +15,13 @@ zone_pivot_groups: front-door-tiers
 
 # Monitor metrics and logs in Azure Front Door
 
-Azure Front Door provides several features to help you monitor your application, track requests, and debug your Front Door configuration. Telemetry is stored and managed by [Azure Monitor](../azure-monitor/overview.md).
+Azure Front Door provides several features to help you monitor your application, track requests, and debug your Front Door configuration.
+
+Logs and metrics are stored and managed by [Azure Monitor](../azure-monitor/overview.md).
 
 ::: zone pivot="front-door-standard-premium"
+
+Additionally, [reports](standard-premium/how-to-reports.md) provide insight into how your traffic is flowing through Azure Front Door, the web application firewall (WAF), and to your application.
 
 ## Metrics
 
@@ -27,9 +31,9 @@ The metrics listed in the table below are recorded and stored free of charge. Yo
 
 | Metrics  | Description | Dimensions |
 | ------------- | ------------- | ------------- |
-| Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress. </br> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. </br> **Scenarios excluded in bytes hit ratio calculation**:</br> 1. You explicitly configure no cache either through the Rules Engine or query string caching behavior. </br> 2. You explicitly configure cache-control directive with no-store or private cache. </br>3. Byte hit ratio can be low if most of the traffic is forwarded to origin rather than served from caching based on your configurations or scenarios. | Endpoint |
+| Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li><li>>Byte hit ratio can be low if most of the traffic is forwarded to the origin rather than served from caching based on your configurations or scenarios.</ul></ol> | Endpoint |
 | Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins.| Origin, Origin Group |
-| Origin Latency | The time calculated from when the request was sent by the Azure Front Door edge to the origin until Azure Front DOor received the last response byte from the backend. | Endpoint, Origin |
+| Origin Latency | The time calculated from when the request was sent by the Azure Front Door edge to the origin until Azure Front Door received the last response byte from the origin. | Endpoint, Origin |
 | Origin Request Count  | The number of requests sent from Azure Front Door to origins. | Endpoint, Origin, HTTP Status, HTTP Status Group |
 | Percentage of 4XX | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region |
 | Percentage of 5XX | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region |
@@ -37,60 +41,60 @@ The metrics listed in the table below are recorded and stored free of charge. Yo
 | Request Size | The number of bytes sent in requests from clients to Azure Front Door. | Endpoint, Client Country, client Region, HTTP Status, HTTP Status Group |
 | Response Size | The number of bytes sent as responses from Front Door to clients. |Endpoint, client Country, client Region, HTTP Status, HTTP Status Group |
 | Total Latency | The total time taken from when the client request was received by Azure Front Door until the last response byte was sent from Azure Front Door to the client. |Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
-| Web Application Firewall Request Count | The numer of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name |
+| Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name |
 
 > [!NOTE]
-> If a request to the the origin times out, the value of the *Http Status* dimension is **0**.
+> If a request to the origin times out, the value of the *Http Status* dimension is **0**.
 
 ## Logs
 
-Logs track all requests that pass through Azure Front Door. Logs can take a few minutes to be stored and processed. The following logs are collected:
+Logs track all requests that pass through Azure Front Door. Logs can take a few minutes to be stored and processed.
 
 There are multiple Front Door logs, which you can use for different purposes:
 
 - [Access logs](#access-log) can be used to identify slow requests, determine error rates, and understand how Front Door's caching behavior is working for your solution.
-- [Web application firewall (WAF) logs](#web-application-firewall-log) can be used to detect potential attacks, as well as false positive detections that might indicate legitimate requests that the WAF blocked.
+- Web application firewall (WAF) logs can be used to detect potential attacks, as well as false positive detections that might indicate legitimate requests that the WAF blocked. TODO more info link
 - [Health probe logs](#health-probe-log) can be used to identify origins that are unhealthy or that don't respond to requests from some of Front Door's geographically distributed PoPs.
-* [Activity logs](#activity-logs) provide visibility into the operations done on Azure resources, such as configuration changes to your Azure Front Door profile.
+- [Activity logs](#activity-logs) provide visibility into the operations performed on your Azure resources, such as configuration changes to your Azure Front Door profile.
 
-The activity log and web application firewall log includes a *tracking reference*, which is also propagated to the origin through the `X-Azure-Ref` request header. You can use the tracking reference to gain an end-to-end view of your application request processing. 
+The activity log and web application firewall log includes a *tracking reference*, which is also propagated in requests to origins and to client responses by using the `X-Azure-Ref` header. You can use the tracking reference to gain an end-to-end view of your application request processing. 
 
 Access logs, health probe logs, and WAF logs aren't enabled by default. To enable and store your diagnostic logs, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md). Activity log entries are collected by default, and you can view them in the Azure portal.
 
 ## <a name="access-log"></a>Access log
 
-Information about every request is logged into the access log. Each access log entry contains the information listed below.
+Information about every request is logged into the access log. Each access log entry contains the information listed in the table below.
 
 | Property | Description |
 |----------|-------------| 
-| TrackingReference | The unique reference string that identifies a request served by AFD, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |
-| Time | The date and time when the AFD edge delivered requested contents to client (in UTC). |
+| TrackingReference | The unique reference string that identifies a request served by Azure Front Door. The tracking reference is sent to the client and to the origin by using the `X-Azure-Ref` headers. Use the tracking reference when searching for a specific request in the access or WAF logs. |
+| Time | The date and time when the Azure Front Door edge delivered requested contents to client (in UTC). |
 | HttpMethod | HTTP method used by the request: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT. |
-| HttpVersion | The HTTP version that the viewer specified in the request. |
-| RequestUri | URI of the received request. This field is a full scheme, port, domain, path, and query string |
-| HostName | The host name in the request from client. If you enable custom domains and have wildcard domain (*.contoso.com), hostname is a.contoso.com. if you use Azure Front Door domain (contoso.azurefd.net), hostname is contoso.azurefd.net. |
-| RequestBytes | The size of the HTTP request message in bytes, including the request headers and the request body. The number of bytes of data that the viewer included in the request, including headers. |
-| ResponseBytes | Bytes sent by the backend server as the response. |
-| UserAgent | The browser type that the client used. |
-| ClientIp | The IP address of the client that made the original request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
-| SocketIp | The IP address of the direct connection to AFD edge. If the client used an HTTP proxy or a load balancer to send the request, the value of SocketIp is the IP address of the proxy or load balancer. |
-| timeTaken | The length of time from the time AFD edge server receives a client's request to the time that AFD sends the last byte of response to client,  in milliseconds. This field doesn't take into account network latency and TCP buffering. |
-| RequestProtocol | The protocol that the client specified in the request: HTTP, HTTPS. |
-| SecurityProtocol | The TLS/SSL protocol version used by the request or null if no encryption. Possible values include: SSLv3, TLSv1, TLSv1.1, TLSv1.2 |
-| SecurityCipher | When the value for Request Protocol is HTTPS, this field indicates the TLS/SSL cipher negotiated by the client and AFD for encryption. |
-| Endpoint | The domain name of AFD endpoint, for example, contoso.z01.azurefd.net |
-| HttpStatusCode | The HTTP status code returned from Azure Front Door. If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.|
-| Pop | The edge pop, which responded to the user request.  |
-| Cache Status | How request was handled by the Azure Front Door cache. Possible values are: <br/> **HIT**: The HTTP request was served from AFD edge POP cache. <br> **MISS**: The HTTP request was served from origin. <br/> **PARTIAL_HIT**: Some of the bytes from a request got served from AFD edge POP cache while some of the bytes got served from origin for object chunking scenarios. <br> **CACHE_NOCONFIG**: Forwarding requests without caching settings, including bypass scenario. <br/> **PRIVATE_NOSTORE**: No cache configured in caching settings by customers. <br> **REMOTE_HIT**: The request was served by parent node cache. <br/> **N/A**: The request was denied by a signed URL or the Rules Engine. |
-| MatchedRulesSetName | The names of the rules that were processed. |
+| HttpVersion | The HTTP version that the client specified in the request. |
+| RequestUri | The URI of the received request. This field contains the full scheme, port, domain, path, and query string. |
+| HostName | The host name in the request from client. If you enable custom domains and have wildcard domain (`*.contoso.com`), the HostName log field's value is `subdomain-from-client-request.contoso.com`. If you use the Azure Front Door domain (`contoso-123.z01.azurefd.net`), the HostName log field's value is `contoso-123.z01.azurefd.net`. |
+| RequestBytes | The size of the HTTP request message in bytes, including the request headers and the request body. |
+| ResponseBytes | The size of the HTTP response message in bytes. |
+| UserAgent | The user agent that the client used. Typically, the user agent identifies the browser type. |
+| ClientIp | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is taken from the header. |
+| SocketIp | The IP address of the direct connection to the Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of SocketIp is the IP address of the proxy or load balancer. |
+| timeTaken | The length of time from when the Azure Front Door edge received the client's request to the time that Azure Front Door sent the last byte of the response to the client, in milliseconds. This field doesn't take into account network latency and TCP buffering. |
+| RequestProtocol | The protocol that the client specified in the request. Possible values include: **HTTP**, **HTTPS**. |
+| SecurityProtocol | The TLS/SSL protocol version used by the request, or null if the request didn't use encryption. Possible values include: **SSLv3**, **TLSv1**, **TLSv1.1**, **TLSv1.2**. |
+| SecurityCipher | When the value for the request protocol is HTTPS, this field indicates the TLS/SSL cipher negotiated by the client and Azure Front Door. |
+| Endpoint | The domain name of the Azure Front Door endpoint, such as `contoso-123.z01.azurefd.net`. |
+| HttpStatusCode | The HTTP status code returned from Azure Front Door. If the request to the origin timed out, the value for the HttpStatusCode field is **0**.|
+| Pop | The Azure Front Door edge point of presence (PoP) that responded to the user request.  |
+| Cache Status | How the request was handled by the Azure Front Door cache. Possible values are: <ul><li>**HIT** and **REMOTE_HIT**: The HTTP request was served from the Azure Front Door cache.</li><li>**MISS**: The HTTP request was served from origin. </li><li> **PARTIAL_HIT**: Some of the bytes were served from the Fornt Door edge PoP cache, and other bytes were served from the origin. This status indicates an [object chunking](TODO) scenario. </li><li> **CACHE_NOCONFIG**: The request was forwarded without without caching settings, including bypass scenarios. </li><li> **PRIVATE_NOSTORE**: There was no cache configured in the caching settings by the customer. </li><li> **N/A**: The request was denied by a signed URL or the Rules Engine.</li></ul> |
+| MatchedRulesSetName | The names of the Rules Engine rules that were processed. |
 | RouteName | The name of the route that the request matched. |
 | ClientPort | The IP port of the client that made the request. |
 | Referrer | The URL of the site that originated the request. |
-| TimetoFirstByte | The length of time in milliseconds from AFD receives the request to the time the first byte gets sent to client, as measured on Azure Front Door. This property doesn't measure the client data. |
-| ErrorInfo | This field provides detailed info of the error token for each response. <br> **NoError**: Indicates no error was found. <br> **CertificateError**: Generic SSL certificate error. <br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. <br> **ClientDisconnected**: Request failure because of client network connection. <br> **ClientGeoBlocked**: The client was blocked due geographical location of the IP. <br> **UnspecifiedClientError**: Generic client error. <br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. <br> **DNSFailure**: DNS Failure. <br> **DNSTimeout**: The DNS query to resolve the backend timed out. <br> **DNSNameNotResolved**: The server name or address couldn't be resolved. <br> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. <br> **OriginConnectionError**: Generic origin connection error. <br> **OriginConnectionRefused**: The connection with the origin wasn't established. <br> **OriginError**: Generic origin error. <br> **OriginInvalidRequest**: An invalid request was sent to the origin. <br> **ResponseHeaderTooBig**: The origin returned a too large of a response header. <br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. <br> **OriginTimeout**: The timeout period for origin request expired. <br> **ResponseHeaderTooBig**: The origin returned a too large of a response header. <br> **RestrictedIP**: The request was blocked because of restricted IP. <br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. <br> **SSLInvalidRootCA**: The RootCA was invalid. <br> **SSLInvalidCipher**: Cipher was invalid for which the HTTPS connection was established. <br> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. <br> **OriginConnectionRefused**: The connection with the origin wasn't established. <br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
-| OriginURL | The full URL of the origin where requests are being sent. Composed of the scheme, host header, port, path, and query string. <br> **URL rewrite**: If there's a URL rewrite rule in Rule Set, path refers to rewritten path. <br> **Cache on edge POP** If it's a cache hit on edge POP, the origin is N/A. <br> **Large request** If the requested content is large with multiple chunked requests going back to the origin, this field will correspond to the first request to the origin. For more information, see Object Chunking for more details. |
-| OriginIP | The origin IP that served the request. <br> **Cache hit on edge POP** If it's a cache hit on edge POP, the origin is N/A. <br> **Large request** If the requested content is large with multiple chunked requests going back to the origin, this field will correspond to the first request to the origin. For more information, see Object Chunking for more details. |
-| OriginName| The full DNS name (hostname in origin URL) to the origin. <br> **Cache hit on edge POP** If it's a cache hit on edge POP, the origin is N/A. <br> **Large request** If the requested content is large with multiple chunked requests going back to the origin, this field will correspond to the first request to the origin. For more information, see Object Chunking for more details. |
+| TimetoFirstByte | The length of time, in milliseconds, from when the Azure Front Door edge received the request to the time the first byte was sent to client, as measured by Azure Front Door. This property doesn't measure the client data. |
+| ErrorInfo | If an error occurred during the processing of the request, this field provides detailed information about the error. Possible values are: <!-- TODO tidy this list --> <br> **NoError**: Indicates no error was found. <br> **CertificateError**: Generic SSL certificate error. <br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. <br> **ClientDisconnected**: Request failure because of client network connection. <br> **ClientGeoBlocked**: The client was blocked due geographical location of the IP. <br> **UnspecifiedClientError**: Generic client error. <br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. <br> **DNSFailure**: DNS Failure. <br> **DNSTimeout**: The DNS query to resolve the backend timed out. <br> **DNSNameNotResolved**: The server name or address couldn't be resolved. <br> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. <br> **OriginConnectionError**: Generic origin connection error. <br> **OriginConnectionRefused**: The connection with the origin wasn't established. <br> **OriginError**: Generic origin error. <br> **OriginInvalidRequest**: An invalid request was sent to the origin. <br> **ResponseHeaderTooBig**: The origin returned a too large of a response header. <br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. <br> **OriginTimeout**: The timeout period for origin request expired. <br> **ResponseHeaderTooBig**: The origin returned a too large of a response header. <br> **RestrictedIP**: The request was blocked because of restricted IP. <br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. <br> **SSLInvalidRootCA**: The RootCA was invalid. <br> **SSLInvalidCipher**: Cipher was invalid for which the HTTPS connection was established. <br> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. <br> **OriginConnectionRefused**: The connection with the origin wasn't established. <br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
+| OriginURL | The full URL of the origin where the request was sent. The URL is composed of the scheme, host header, port, path, and query string. <br> **URL rewrite**: If the request URL was rewritten by the Rules Engine, the path refers to the rewritten path. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](TODO). |
+| OriginIP | The IP address of the origin that served the request. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](TODO). |
+| OriginName| The full hostname (DNS name) of the origin. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](TODO). |
 
 ## Health probe log
 

@@ -30,7 +30,7 @@ Azure Front Door analytics reports provide a built-in and all-around view of how
 | Metrics by dimensions | - Breakdown of matched WAF rules trend by action<br/>- Doughnut chart of events by Rule Set Type and event by rule group<br/>- Break down list of top events by rule ID, countries/regions, IP address, URL, and user agent  |
 
 > [!NOTE]
-> Security reports is only available with Azure Front Door Premium tier.
+> Security reports are only available with Azure Front Door Premium tier.
 
 Most of the reports are based on access logs and are offered free of charge to customers on Azure Front Door. Customer doesn’t have to enable access logs or do any configuration to view these reports. Reports are accessible through portal and API. CSV download is also supported. 
 
