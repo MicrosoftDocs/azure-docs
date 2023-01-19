@@ -64,7 +64,7 @@ Installing can be done with a few commands. Open a terminal and run the followin
 
 ---
 
-For more information about operating system versions, see [Azure IoT Edge supported platforms](https://learn.microsoft.com/en-us/azure/iot-edge/support?view=iotedge-1.4#linux-containers).
+For more information about operating system versions, see [Azure IoT Edge supported platforms](/support?#linux-containers).
 
 > [!NOTE]
 > Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you don't agree with the license terms, don't use that package.
