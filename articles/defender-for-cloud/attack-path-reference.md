@@ -25,8 +25,8 @@ Prerequisite: For a list of prerequisites, see the [Availability table](how-to-m
 | Internet exposed VM has high severity vulnerabilities | A virtual machine is reachable from the internet and has high severity vulnerabilities |
 | Internet exposed VM has high severity vulnerabilities and high permission to a subscription | A virtual machine is reachable from the internet, has high severity vulnerabilities an identity with permission to a subscription |
 | Internet exposed VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine is reachable from the internet, has high severity vulnerabilities with read permission to a data store containing sensitive data. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
-| Internet exposed VM has high severity vulnerabilities and read permission to a data store | A virtual machine is reachable from the internet, has high severity vulnerabilities with read permission to a data store. |
-| Internet exposed VM has high severity vulnerabilities and read permission to a Key Vault | A virtual machine is reachable from the internet, has high severity vulnerabilities with read permission to a key vault |
+| Internet exposed VM has high severity vulnerabilities and read permission to a data store | A virtual machine is reachable from the internet and has high severity vulnerabilities with read permission to a data store. |
+| Internet exposed VM has high severity vulnerabilities and read permission to a Key Vault | A virtual machine is reachable from the internet and has high severity vulnerabilities with read permission to a key vault |
 | VM has high severity vulnerabilities and high permission to a subscription | A virtual machine has high severity vulnerabilities and has high permission to a subscription |
 | VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine has high severity vulnerabilities with read permission to a data store containing sensitive data. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
 | VM has high severity vulnerabilities and read permission to a key vault | A virtual machine has high severity vulnerabilities with read permission to a key vault |
@@ -79,7 +79,7 @@ Prerequisite: [Enable Defender for Containers](defender-for-containers-enable.md
 
 ## Cloud security graph components list
 
-This section  lists all of the cloud security graph components (connections & insights) that can be used in queries with the [cloud security explorer](concept-attack-path.md).
+This section  lists all of the cloud security graph components (connections and insights) that can be used in queries with the [cloud security explorer](concept-attack-path.md).
 
 ### Insights
 
@@ -87,8 +87,8 @@ This section  lists all of the cloud security graph components (connections & in
 |--|--|--|
 | Exposed to the internet | Indicates that a resource is exposed to the internet. Supports port filtering | Azure virtual machine, AWS EC2, Azure storage account, Azure SQL server, Azure Cosmos DB, AWS S3, Kubernetes pod |
 | Contains sensitive data | Indicates that a resource contains sensitive data based on Microsoft Purview scan and applicable only if Microsoft Purview is enabled. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). | Azure SQL Server, Azure Storage Account, AWS S3 bucket |
-| Has tags | List the resource tags of the cloud resource | All Azure and AWS resources |
-| Installed software | List all software installed on the machine. This is applicable only for VMs that have Threat and vulnerability management integration with Defender for Cloud enabled and are connected to Defender for Cloud. | Azure virtual machine, AWS EC2 |
+| Has tags | Lists the resource tags of the cloud resource | All Azure and AWS resources |
+| Installed software | Lists all software installed on the machine. This is applicable only for VMs that have threat and vulnerability management integration with Defender for Cloud enabled and are connected to Defender for Cloud. | Azure virtual machine, AWS EC2 |
 | Allows public access | Indicates that a public read access is allowed to the data store with no authorization required | Azure storage account, AWS S3 bucket |
 | Doesn't have MFA enabled | Indicates that the user account does not have a multi-factor authentication solution enabled | AAD User account, IAM user |
 | Is external user | Indicates that the user account is outside the organization's domain | AAD User account |
@@ -101,8 +101,8 @@ This section  lists all of the cloud security graph components (connections & in
 | Uses host network | Indicates that a Kubernetes pod uses the network namespace of its host machine | Kubernetes pod |
 | Has high severity vulnerabilities | Indicates that a resource has high severity vulnerabilities | Azure VM, AWS EC2, Kubernetes image |
 | Vulnerable to remote code execution | Indicates that a resource has vulnerabilities allowing remote code execution | Azure VM, AWS EC2, Kubernetes image |
-| Public IP metadata | List the metadata of an Public IP | Public IP |
-| Identity metadata | List the metadata of an identity | AAD Identity |
+| Public IP metadata | Lists the metadata of an Public IP | Public IP |
+| Identity metadata | Lists the metadata of an identity | AAD Identity |
 
 ### Connections
 
