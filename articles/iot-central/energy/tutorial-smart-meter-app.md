@@ -90,7 +90,7 @@ Adatum is a fictitious energy company that monitors and manages smart meters. On
 
 ### Devices
 
-The app comes with a sample smart-meter device. You can see the device details by selecting the **Devices** tab.
+The app comes with a sample smart-meter device. You can see available devices by selecting the **Devices** tab.
 
 :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-devices.png" alt-text="Screenshot that shows smart-meter devices." lightbox="media/tutorial-iot-central-smart-meter/smart-meter-devices.png":::
 
