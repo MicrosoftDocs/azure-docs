@@ -142,6 +142,7 @@ The following services are supported by autoscale:
 | Media Services                                    | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling)                                                          |
 | Service Bus                                       | [Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)         |
 | Logic Apps - Integration Service Environment(ISE) | [Add ISE capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)                                              |
+| Cosmos DB Containers                              | [Create Azure Cosmos DB containers and databases with autoscale throughput](../../cosmos-db/provision-throughput-autoscale)
 
 ## Next steps
 
