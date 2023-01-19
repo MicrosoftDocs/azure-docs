@@ -59,7 +59,7 @@ To install these packages:
 1. Create a new file on the compute instance, called **setup.sh**.  
 1. Copy this code into the file:
 
-    :::code language="bash" source="~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/01-setup-env-for-r-azureml/ci-setup-interactive-r.sh":::
+    :::code language="bash" source="~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/01-setup-compute-instance-for-interactive-r/setup-ci-for-interactive-data-reads.sh":::
 
 
 1. Select  **Save and run script in terminal** to run the script
