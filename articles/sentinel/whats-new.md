@@ -16,6 +16,12 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## January 2023
+
+### Automatically update the SAP data connector agent (Preview)
+
+You can now [enable automatic updates for the SAP data connector agent](sap/update-sap-data-connector.md#automatically-update-the-sap-data-connector-agent-preview). You can choose to apply automatic updates to all existing containers or to a specific container. 
+
 ## December 2022
 
 - [Create and run playbooks on entities on-demand (Preview)](#create-and-run-playbooks-on-entities-on-demand-preview)
