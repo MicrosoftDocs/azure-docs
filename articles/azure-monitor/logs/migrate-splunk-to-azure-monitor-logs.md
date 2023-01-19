@@ -43,7 +43,14 @@ For information on migrating your Security Information and Event Management (SIE
 |[Log Analytics](../logs/log-analytics-tutorial.md)|Splunk Web, Search app, Pivot tool|A tool in the Azure portal for editing and running log queries in Azure Monitor Logs. Log Analytics also provides a rich set of tools for exploring and visualizing data without using KQL.|
 |[Cost optimization](../../azure-monitor/best-practices-cost.md)||Azure Monitor provides [tools and best practices to help you understand, monitor, and optimize your costs](../../azure-monitor/best-practices-cost.md) based on your needs. |
 
-## 1. Set up a Log Analytics workspace
+## 1. Understand your current usage
+
+Knowing your current usage in Splunk can help you make a decision about which [pricing tier](../logs/change-pricing-tier.md) to select in Azure Monitor and estimate your future costs:
+
+1. [Follow Splunk guidance](https://docs.splunk.com/Documentation/Splunk/latest/Admin/AboutSplunksLicenseUsageReportView) to view your usage report.
+1. [Estimate Azure Monitor usage and costs](../usage-estimated-costs.md#estimate-azure-monitor-usage-and-costs) using the [Pricing Calculator](https://azure.microsoft.com/en-in/pricing/calculator/?service=monitor). 
+
+## 2. Set up a Log Analytics workspace
 
 Your Log Analytics workspace is where you collect log data from all of your monitored resources. You can retain data in a Log Analytics workspace for up to seven years. Low-cost data archiving within the workspace lets you access archived data quickly and easily when you need it, without the overhead of managing an external data store.
 
@@ -71,7 +78,7 @@ To set up a Log Analytics workspace for data collection:
     1. [Set a data retention and archiving policy for specific tables](../logs/data-retention-archive.md), if you need them to be different from the workspace-level data retention and archiving policy. 
     1. [Modify the table schema](../logs/create-custom-table.md) based on your data model.
 
-## 2. Migrate Splunk artifacts to Azure Monitor
+## 3. Migrate Splunk artifacts to Azure Monitor
 
 To migrate most Splunk artifacts, you need to translate Splunk Processing Language (SPL) to Kusto Query Language (KQL). For more information, see the [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet) and [Get started with log queries in Azure Monitor](../logs/get-started-queries.md).
 
@@ -92,7 +99,7 @@ This table lists Splunk artifacts and links to guidance for setting up the equiv
 |Data collections methods| See [Collect data](#4-collect-data) for Azure Monitor tools designed for specific resources.| 
 
 For information on migrating Splunk SIEM artifacts, including detection rules and SOAR automation, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
-## 3. Collect data
+## 4. Collect data
 
 Azure Monitor provides tools for collecting data from log [data sources](../data-sources.md) on Azure and non-Azure resources in your environment. 
 
@@ -114,7 +121,7 @@ This table lists the tools Azure Monitor provides for collecting data from vario
 
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png" alt-text="Diagram that shows various data sources being connected to Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png":::
 
-## 4. Transition to Azure Monitor Logs
+## 5. Transition to Azure Monitor Logs
 
 A common approach is to transition gradually to Azure Monitor Logs, while maintaining historical data in Splunk. During this period, you can: 
 
