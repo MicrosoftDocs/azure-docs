@@ -152,7 +152,7 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
 
     1. Start debugging session in VS Code. Select "Run" -> "Start Debugging" (or `F5`).
 
--  Start the AzureML Inference HTTP Server in a command line and use VS Code + Python Extension to attach to the process (Attatch mode).
+-  Start the AzureML Inference HTTP Server in a command line and use VS Code + Python Extension to attach to the process (Attach mode).
    1. Add below configuration to `launch.json` for that workspace in VS Code:
         
         **launch.json**
