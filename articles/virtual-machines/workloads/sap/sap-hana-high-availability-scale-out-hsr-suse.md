@@ -820,24 +820,24 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
 ## Implement HANA hooks SAPHanaSR and susChkSrv
 
-This important step is to optimize the integration with the cluster and detection when a cluster failover is possible. It is highly recommended to configure the SAPHanaSR-ScaleOut Python hook. For HANA 2.0 SP5 and above, implementing SAPHanaSR, along with susChkSrv hook is recommended.
+This important step is to optimize the integration with the cluster and detection when a cluster failover is possible. It is highly recommended to configure the SAPHanaSR Python hook. For HANA 2.0 SP5 and above, implementing both SAPHanaSR and susChkSrv hook is recommended.
 
 SusChkSrv extends the functionality of the main SAPHanaSR HA provider. It acts in the situation when HANA process hdbindexserver crashes. If a single process crashes typically HANA tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database is not responsive.
 
-With susChkSrv implemented, an immediate and configurable action is executed, instead of waiting on hdbindexserver process to restart on the same node. In HANA scale-out susChkSrv acts independently for every HANA VM. The configured action will kill HANA or fence the affected VM, which triggers a failover by SAPHanaSR in the configured timeout period.
+With susChkSrv implemented, an immediate and configurable action is executed, instead of waiting on hdbindexserver process to restart on the same node. In HANA scale-out susChkSrv acts for every HANA VM independently. The configured action will kill HANA or fence the affected VM, which triggers a failover by SAPHanaSR in the configured timeout period.
 
 > [!NOTE]
 > susChkSrv Python hook requires SAP HANA 2.0 SP5 and SAPHanaSR-ScaleOut version 0.184.1 or higher must be installed.
 
-1. **[1,2]** Install the HANA "system replication hook". The hook needs to be installed on one HANA DB node on each system replication site.         
+1. **[1,2]** Stop HANA on both system replication sites. Execute as <sid\>adm:
 
-   1. Stop HANA on both system replication sites. Execute as <sid\>adm:
-    ```bash
-    sapcontrol -nr 03 -function StopSystem
-    ```
+```bash
+sapcontrol -nr 03 -function StopSystem
+```
 
-   3. Adjust `global.ini` on each cluster site. If the requirements for susChkSrv hook are not met, remove the entire block `[ha_dr_provider_suschksrv]` from below section.  
-   You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid values are [ ignore | stop | kill | fence ].
+2. **[1,2]** Adjust `global.ini` on each cluster site. If the requirements for susChkSrv hook are not met, remove the entire block `[ha_dr_provider_suschksrv]` from below section.  
+You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid values are [ ignore | stop | kill | fence ].
+
     ```bash
     # add to global.ini
     [ha_dr_provider_SAPHanaSR]
@@ -850,14 +850,15 @@ With susChkSrv implemented, an immediate and configurable action is executed, in
     path = /usr/share/SAPHanaSR-ScaleOut
     execution_order = 3
     action_on_lost = kill
-
+    
     [trace]
     ha_dr_saphanasr = info
     ```
 
-    Configuration pointing to the standard location /usr/share/SAPHanaSR-ScaleOut, brings a benefit, that the python hook code is automatically updated through OS or package updates and it gets used by HANA at next restart. With an optional, own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
+Configuration pointing to the standard location /usr/share/SAPHanaSR-ScaleOut brings a benefit, that the python hook code is automatically updated through OS or package updates and it gets used by HANA at next restart. With an optional, own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
 
-2. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root` adapt the values of hn1/HN1 with correct SID.  
+3. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root` adapt the values of hn1/HN1 with correct SID.  
+
     ```bash
     cat << EOF > /etc/sudoers.d/20-saphana
     # SAPHanaSR-ScaleOut needs for srHook
@@ -868,13 +869,13 @@ With susChkSrv implemented, an immediate and configurable action is executed, in
     EOF
     ```
 
-3. **[1,2]** Start SAP HANA on both replication sites. Execute as <sid\>adm.  
+4. **[1,2]** Start SAP HANA on both replication sites. Execute as <sid\>adm.  
 
     ```bash
     sapcontrol -nr 03 -function StartSystem 
     ```
 
-4. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
+5. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
 
     ```bash
     cdtrace
@@ -889,7 +890,7 @@ With susChkSrv implemented, an immediate and configurable action is executed, in
     # 2021-03-31 01:04:15.062181 ha_dr_SAPHanaSR SOK
     ```
 
-   Verify the susChkSrv hook installation. Execute as <sid\>adm on all HANA VMs
+Verify the susChkSrv hook installation. Execute as <sid\>adm on all HANA VMs
     ```bash
     cdtrace
     egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
