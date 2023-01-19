@@ -92,6 +92,8 @@ Your Azure network may allow for communications between your Azure resources, bu
 
 #### Using a system or user assigned managed identity for scanning
 
+There are two types of managed identity you can use:
+
 * **System-assigned managed identity (Recommended)** - As soon as the Microsoft Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Microsoft Purview system-assigned managed identity (SAMI) to perform the scans.
 
 * **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Microsoft Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
@@ -138,8 +140,6 @@ It's important to give your Microsoft Purview account or user-assigned managed i
 
 > [!Note]
 > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and [assign _Microsoft Purview account’s_ System Assigned Managed Identity (SAMI) required access permission to secrets inside _Azure key vault_.](manage-credentials.md#microsoft-purview-permissions-on-the-azure-key-vault)
-
-* **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Microsoft Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password, or a password.
 
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
