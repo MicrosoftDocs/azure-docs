@@ -6,7 +6,7 @@ author: garrodonnell
 manager: CelesteDG
 
 ms.author: godonnell
-ms.date: 01/18/2022
+ms.date: 01/19/2022
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
