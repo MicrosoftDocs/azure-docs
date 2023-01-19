@@ -2,10 +2,9 @@
 title: Create custom analytics rules to detect threats with Microsoft Sentinel | Microsoft Docs
 description: Learn how to create custom analytics rules to detect security threats with Microsoft Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
 author: yelevin
-ms.topic: how-to
-ms.date: 01/30/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.topic: how-to
+ms.date: 01/08/2023
 ---
 
 # Create custom analytics rules to detect threats
@@ -221,7 +220,7 @@ In the **Alert grouping** section, if you want a single incident to be generated
 
     :::image type="content" source="media/tutorial-detect-threats-custom/automated-response-tab.png" alt-text="Define the automated response settings":::
 
-1. Select **Review and create** to review all the settings for your new alert rule. When the "Validation passed" message appears, select **Create** to initialize your alert rule.
+1. Select **Review and create** to review all the settings for your new analytics rule. When the "Validation passed" message appears, select **Create**.
 
     :::image type="content" source="media/tutorial-detect-threats-custom/review-and-create-tab.png" alt-text="Review all settings and create the rule":::
 
@@ -229,7 +228,7 @@ In the **Alert grouping** section, if you want a single incident to be generated
   
 - You can find your newly created custom rule (of type "Scheduled") in the table under the **Active rules** tab on the main **Analytics** screen. From this list you can enable, disable, or delete each rule.
 
-- To view the results of the alert rules you create, go to the **Incidents** page, where you can triage, [investigate incidents](investigate-cases.md), and remediate the threats.
+- To view the results of the analytics rules you create, go to the **Incidents** page, where you can triage incidents, [investigate them](investigate-cases.md), and [remediate the threats](respond-threats-during-investigation.md).
 
 - You can update the rule query to exclude false positives. For more information, see [Handle false positives in Microsoft Sentinel](false-positives.md).
 
@@ -292,8 +291,6 @@ SOC managers should be sure to check the rule list regularly for the presence of
 When using analytics rules to detect threats from Microsoft Sentinel, make sure that you enable all rules associated with your connected data sources in order to ensure full security coverage for your environment. The most efficient way to enable analytics rules is directly from the data connector page, which lists any related rules. For more information, see [Connect data sources](connect-data-sources.md).
 
 You can also push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
-
-For more information, see:
 
 For more information, see:
 
