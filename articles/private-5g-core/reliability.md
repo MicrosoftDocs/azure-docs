@@ -35,23 +35,13 @@ The application ensures that all cloud state is replicated between availability 
 
 ## Disaster recovery: cross-region failover
 
-Where Azure Private 5G Core is available in multiple regions within a geography, cross-region failover to another region in the same geography is carried out automatically in the event of a region failure. The service automatically replicates customer content (SIM credentials) owned by the service to the backup region so there is no loss of data. Within four hours of the failure, all resources located in the failed region are available to view and monitor through the Azure portal and ARM tools but will be read-only until the failed region is recovered.
-
-If Azure Private 5G Core is only available in a single region in a multi-region (3+n) geography then no automatic failover can be provided. The resources will be available to view in the Azure portal within four hours, but no monitoring will be available. The resources will be read-only until the failed region is recovered. The service automatically replicates customer content (SIM credentials) owned by the service to another region in the same geography so there will be no data loss in the event of region failure.
+Where Azure Private 5G Core is available in a multi-region (3+n) geography, the service automatically replicates customer content (SIM credentials) owned by the service to a backup region in the same geography so there is no loss of data in the event of region failure. Within four hours of the failure, all resources located in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered.
 
 In single region (3+0) geographies there is no replication of data outside the region.
 
 In either scenario, the packet running at the Edge continues to operate without interruption and network connectivity will be maintained.
 
 You can view all regions that support Azure Private 5G Core at https://azure.microsoft.com/explore/global-infrastructure/products-by-region/.
-
-Current deployment plans:
-
-Americas - East US, West US (Feb 2023)
-Europe - West Europe, North Europe (Jan 2023)
-Fairfax - Virginia (Mar 2023)
-
-<!-- I suspect including these dates won't be allowed -->
 
 ### Cross-region disaster recovery in multi-region geography
 
@@ -80,9 +70,9 @@ If you have a requirement to view, manage or monitor the Azure resources during 
 This section describes what action you can take to ensure you have a fully active management plane for the Azure Private 5G Core service in the event of a region failure. This is required:
 
 - in multi-region geographies, if you want be able to modify your resources
-- in single-region geographies, if you want to be able to view and monitor your resources in the event of a region failure. 
+- in single-region geographies, if you want to be able to view and manage your resources in the event of a region failure. 
 
-Note that this will cause an outage of your packet core service and interrupt network connectivity to your UEs for up to four hours, so we recommend you only use this procedure if you have a business-critical reason to manage resources while the Azure region is down.
+Note that this will cause an outage of your packet core service and interrupt network connectivity to your UEs for up to eight hours, so we recommend you only use this procedure if you have a business-critical reason to manage resources while the Azure region is down.
 
 In advance of a disaster recovery event, you must back up your resource configuration to another region that supports Azure Private 5G Core. When the region failure occurs, you can redeploy the packet core using the resources in your backup region.
 
@@ -107,14 +97,14 @@ In the event of a region failure, first validate that all the resources in your 
 
 The recovery process is split into three stages for each packet core:
 
-1. Disconnect the edge device from the failed region
+1. Disconnect the edge device from the failed region by performing a reset
 1. Connect the edge device to the backup region
 1. Re-install and validate the installation.
 
 You must repeat this process for every packet core in your mobile network. It is recommended that you only perform this procedure for packet cores where you have a business-critical need to manage the Azure Private 5G Core deployment through Azure during the region failure because the procedure will cause a network outage lasting several hours for each packet core.
 
 **Disconnect the edge device from the failed region**
-<!-- (@@FMC instructions on resetting the ASE to remove the ARC connection, following up with ASE team as nothing in public docs) <-->
+The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate you Azure Stack Edge device](https://learn.microsoft.com/en-us/azure/databox-online/azure-stack-edge-reset-reactivate-device). Note that this will remove ALL software currently running on your edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this ASE.
 
 **Connect the edge device to the new region**
 Re-run the installation script provided by your trials engineer to redeploy the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your ASE device. Ensure that you use a different name for this new installation to avoid clashes when the failed region recovers. As part of this process you will get a new custom location ID for the cluster, which you should note down.
@@ -136,7 +126,7 @@ You must also check for and remove any resources in the recovered region that ha
 You then have two choices for ongoing management:
 
 1. Use the operational backup region as the new primary region and use the recovered region as a backup. No further action is required.
-1. Make the recovered region the new active primary region by following the recovery procedure to switch back to the recovered region.
+1. Make the recovered region the new active primary region by following the instructions in [Move resources to a different region](/azure/private-5g-core/region-move) to switch back to the recovered region.
 
 ##### Testing
 
