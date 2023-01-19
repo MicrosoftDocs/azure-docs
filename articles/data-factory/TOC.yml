@@ -1175,6 +1175,11 @@ items:
     - name: Activities
       href: data-factory-troubleshoot-guide.md
       displayName: timeout, troubleshooting
+    - name: Change data capture
+      items:
+      - name: Change data capture troubleshooting
+        href: change-data-capture-troubleshoot.md
+        displayName: change data capture, troubleshooting
     - name: Connectors
       items:
       - name: Overview and general copy activity errors
