@@ -372,7 +372,7 @@ To call a method in Azure IoT Explorer:
 
 1. From the **IoT Plug and Play components** (Default Component) pane for your device in IoT Explorer, select the **Commands** tab.
 1. For the **setLedState** command, set the **state** to **true**.
-1. Select **Send command**. You should see a notification in IoT Explorer, and the green LED light on the device should turn on.
+1. Select **Send command**. You should see a notification in IoT Explorer. There will be no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer.":::
 
@@ -381,7 +381,8 @@ To call a method in Azure IoT Explorer:
 
 To use Azure CLI to call a method:
 
-1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` turns on the LED, and setting it to `false` turns it off.
+1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` would turn an LED on. There will be no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
+
 
     ```azurecli
     az iot hub invoke-device-method --device-id mydevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
