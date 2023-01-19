@@ -96,10 +96,10 @@ And, you can choose one of these **active** assignment duration options:
 > [!NOTE]
 > All assignments that have a specified end date can be renewed by resource administrators. Also, users can initiate self-service requests to [extend or renew role assignments](pim-resource-roles-renew-extend.md).
 
-### Require multifactor authentication on active assignment
+### Require multi-factor authentication on active assignment
 
-You can require that administrator or group owner provides multifactor authentication when they create an active (as opposed to eligible) assignment. Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
-User may not be prompted for multifactor authentication if they authenticated with strong credential or provided multifactor authentication earlier in this session.
+You can require that administrator or group owner provides multi-factor authentication when they create an active (as opposed to eligible) assignment. Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
+User may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
 
 ### Require justification on active assignment
 
