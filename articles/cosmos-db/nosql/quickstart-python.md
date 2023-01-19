@@ -221,7 +221,7 @@ az cosmosdb sql container create `
     --name products
 ```
 
-The command line above is for PowerShell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for Bash, use backslash ("\"). Or, remove the continuation characters and enter the command on one line. For Bash, you'll need to add `MSYS_NO_PATHCONV=1` before the command so that Bash deals with the partition key correctly.
+The command line above is for PowerShell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for Bash, use backslash ("\"). Or, remove the continuation characters and enter the command on one line. For Bash, you'll also need to add `MSYS_NO_PATHCONV=1` before the command so that Bash deals with the partition key parameter correctly.
 
 After the resources have been created, use classes from the `Microsoft.Azure.Cosmos` client libraries to connect to and query the database.
 
