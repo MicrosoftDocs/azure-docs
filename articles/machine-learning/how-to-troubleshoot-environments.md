@@ -941,5 +941,5 @@ If your container registry is behind a virtual network or is using a private end
 If you aren't using a virtual network, or if you've configured it correctly, test that your credentials are correct for your ACR by attempting a simple local build
 * Get credentials for your workspace ACR from the Azure Portal
 * Log in to your ACR using `docker login <myregistry.azurecr.io> -u "username" -p "password"`
-* For image name "helloworld", `docker push helloworld`
+* For an image "helloworld", test pushing to your ACR by running `docker push helloworld`
 * See [Quickstart: Build and run a container image using Azure Container Registry Tasks](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-quickstart-task-cli)
