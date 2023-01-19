@@ -45,7 +45,7 @@ To enable Application Insights Java programmatically, you must add the following
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-runtime-attach</artifactId>
-    <version>3.4.3</version>
+    <version>3.4.8</version>
 </dependency>
 ```
 
