@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Radancy's Employee Referrals'
+title: Azure AD SSO integration with Radancy's Employee Referrals
 description: Learn how to configure single sign-on between Azure Active Directory and Radancy's Employee Referrals.
 services: active-directory
 author: jeevansd
@@ -11,9 +11,10 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2023
 ms.author: jeedes
+
 ---
 
-# Tutorial: Azure AD SSO integration with Radancy's Employee Referrals
+# Azure AD SSO integration with Radancy's Employee Referrals
 
 In this tutorial, you'll learn how to integrate Radancy's Employee Referrals with Azure Active Directory (Azure AD). When you integrate Radancy's Employee Referrals with Azure AD, you can:
 
