@@ -141,7 +141,7 @@
         href: vpn-gateway-connect-different-deployment-models-powershell.md
   - name: Point-to-Site connections
     items:
-    - name: P2S server configuration
+    - name: Server configuration
       items:
       - name: Azure certificate authentication
         items:
@@ -195,7 +195,7 @@
         href: vpn-gateway-p2s-advertise-custom-routes.md
       - name: Create custom IPsec policies for P2S
         href: create-custom-policies-p2s-ps.md
-    - name: P2S client configuration
+    - name: Client configuration
       items:
       - name: Certificate authentication clients
         items:
