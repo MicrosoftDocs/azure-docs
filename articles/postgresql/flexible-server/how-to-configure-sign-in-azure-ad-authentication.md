@@ -287,7 +287,7 @@ You're now authenticated to your PostgreSQL server through Azure AD authenticati
 ## Next steps
 
 - Review the overall concepts for [Azure AD authentication with Azure Database for PostgreSQL - Flexible Server](concepts-azure-ad-authentication.md).
-- Learn how to [manage Azure AD roles in Azure Database for PostgreSQL - Flexible Server](how-to-create-users.md).
+- Learn how to [Manage Azure Active Directory users - Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
 
 <!--Image references-->
 

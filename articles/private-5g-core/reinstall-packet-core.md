@@ -46,8 +46,8 @@ The following list contains the data that will be lost over a packet core reinst
     - If you use Azure AD, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](azure-active-directory-prerequisites.md#create-kubernetes-secret-objects).
     - If you use local usernames and passwords and want to keep using the same credentials, save a copy of the current passwords to a secure location.
 
-1. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
-1. Most UEs will automatically re-register and recreate any sessions after the upgrade completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
+1. Any customizations made to the packet core dashboards won't be carried over the reinstall. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
+1. Most UEs will automatically re-register and recreate any sessions after the reinstall completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
 
 ## Reinstall the packet core instance
 
