@@ -1,8 +1,8 @@
 ---
 title: Resource Availability & Quota Limits for ACI
 description: Availability and quota limits of compute and memory resources for the Azure Container Instances service in different Azure regions.
-ms.author: tysonfreeman
-author: tysonfreeman
+ms.author: tomcassidy
+author: tomcassidy
 ms.service: container-instances
 services: container-instances
 ms.topic: conceptual
