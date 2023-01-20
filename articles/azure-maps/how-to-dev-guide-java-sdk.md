@@ -182,7 +182,7 @@ $Env:SUBSCRIPTION_KEY="<subscription-key>"
 Once your environment variable is created, you can access it in your code:
 
 ```java
-import com.azure.core.credential. AzureKeyCredential;
+import com.azure.core.credential.AzureKeyCredential;
 import com.azure.maps.search.MapsSearchClient;
 import com.azure.maps.search.MapsSearchClientBuilder;
 
