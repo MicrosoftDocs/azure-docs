@@ -26,6 +26,10 @@ This article covers copying an incremental snapshot from one region to another. 
 
 ## Get started
 
+There are two options for copying an incremental snapshot across regions. The first option (recommended) which is using native commands in either Azure CLI or the Azure PowerShell module to perform the copy for you. And the second, [a manual copy](#manual-copy), where you get the changes between two incremental snapshots, down to the block level, and manually copy it from one region to another. Most users should use the first option but, if you're interested in improving the copy speed, the second option allows you to leverage your compute resources to make the copy faster.
+
+## CLI and PowerShell copy
+
 # [Azure CLI](#tab/azure-cli)
 
 You can use the Azure CLI to copy an incremental snapshot. You need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
@@ -146,6 +150,12 @@ You can also use Azure Resource Manager templates to copy an incremental snapsho
 
 ```
 ---
+
+## Manual copy
+
+Incremental snapshots offer a differential capability. They enable you to get the changes between two incremental snapshots of the same managed disk, down to the block level. You can use this to reduce your data footprint when copying snapshots across regions.  For example, you can download the first incremental snapshot as a base blob in another region. For the subsequent incremental snapshots, you can copy only the changes since the last snapshot to the base blob. After copying the changes, you can take snapshots on the base blob that represent your point in time backup of the disk in another region. You can restore your disk either from the base blob or from a snapshot on the base blob in another region.
+
+:::image type="content" source="media/disks-copy-incremental-snapshot-across-regions/incremental-snapshot-diagram.png" alt-text="Diagram depicting incremental snapshots copied across regions. Snapshots make various API calls until eventually forming page blobs per each snapshot.":::
 
 ## Next steps
 
