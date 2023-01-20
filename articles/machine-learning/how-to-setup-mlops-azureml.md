@@ -63,7 +63,7 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
 
 1. If prompted, choose **Bash** as the environment used in the Cloud Shell. You can also change environments in the drop-down on the top navigation bar
 
-    ![Screenshot of the cloud shell environment dropdown](./media/how-to-setup-mlops-azureml/PS_CLI1_1.png)
+    ![Screenshot of the cloud shell environment dropdown.](./media/how-to-setup-mlops-azureml/PS_CLI1_1.png)
 
 1. Copy the bash commands below to your computer and update the **projectName**, **subscriptionId**, and **environment** variables with the values for your project. If you are creating both a Dev and Prod environment, you'll need to run this script once for each environment, creating a service principal for each. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for Azure DevOps to properly use resources in that subscription. 
 
@@ -116,7 +116,7 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
 
 1. Select Contributor and add members selecting + Select Members. Add the member **Azure-ARM-Dev-ProjectName** as create before.
 
-    ![Screenshot of the add role assignment selection](./media/how-to-setup-mlops-azureml/SP-setup-role-assignment.png)
+    ![Screenshot of the add role assignment selection.](./media/how-to-setup-mlops-azureml/SP-setup-role-assignment.png)
 
 1. Repeat step here, if you deploy Dev and Prod into the same subscription, otherwise change to the prod subscription and repeat with **Azure-ARM-Prod-ProjectName**. The basic SP setup is successfully finished.
 
@@ -128,13 +128,13 @@ Before you can set up an MLOps project with AzureML, you need to set up authenti
    
 2. Select **create a new project** (Name the project `mlopsv2` for this tutorial).
    
-     ![Screenshot of ADO Project](./media/how-to-setup-mlops-azureml/ado-create-project.png)
+     ![Screenshot of ADO Project.](./media/how-to-setup-mlops-azureml/ado-create-project.png)
    
 3. In the project under **Project Settings** (at the bottom left of the project page) select **Service Connections**.
    
 4. Select **New Service Connection**.
 
-     ![Screenshot of ADO New Service connection button](./media/how-to-setup-mlops-azureml/create_first_service_connection.png)
+     ![Screenshot of ADO New Service connection button.](./media/how-to-setup-mlops-azureml/create_first_service_connection.png)
 
 5. Select **Azure Resource Manager**, select **Next**, select **Service principal (manual)**, select **Next** and select the Scope Level **Subscription**.
 
