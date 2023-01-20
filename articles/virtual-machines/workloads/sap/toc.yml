@@ -220,6 +220,8 @@
     items:
     - name: Install PAS and AAS with SAP NetWeaver HA cluster - RHEL
       href: high-availability-guide-rhel-with-dialog-instance.md
+    - name: Install SAP NetWeaver with HANA HA cluster - RHEL
+      href: high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md 
 - name: Disaster Recovery (Azure VMs)
   items:
   - name: DR overview and infrastructure guidelines for SAP Workload
@@ -360,6 +362,8 @@
     items:
     - name: Set up network for Azure Monitor for SAP solutions
       href: create-network-azure-monitor-sap-solutions.md
+    - name: Enable TLS 1.2 or higher
+      href: enable-tls-azure-monitor-sap-solutions.md
     - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
       href: azure-monitor-alerts-portal.md
     - name: Provider configuration

@@ -5,7 +5,6 @@ description: Migrate user accounts from another identity provider to Azure AD B2
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

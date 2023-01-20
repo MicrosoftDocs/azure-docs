@@ -179,7 +179,7 @@ Other
 [02]: ../key-vault/general/manage-with-cli2.md#prerequisites
 [03]: ../service-fabric/service-fabric-cli.md
 [04]: ../storage/common/storage-use-azcopy-v10.md
-[05]: /azure/azure-functions/functions-run-local
+[05]: ../azure-functions/functions-run-local.md
 [06]: /cli/azure/
 [07]: /powershell/azure
 [08]: /powershell/scripting/whats-new/what-s-new-in-powershell-72

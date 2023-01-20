@@ -2,7 +2,6 @@
 title: Assign an Azure role for access to blob data
 titleSuffix: Azure Storage
 description: Learn how to assign permissions for blob data to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Azure AD.
-services: storage
 author: jimmart-dev
 
 ms.service: storage

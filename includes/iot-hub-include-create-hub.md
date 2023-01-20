@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 11/08/2022
+ms.date: 12/20/2022
 ms.author: kgremban
 ms.custom: include file
 ---
@@ -16,7 +16,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 1. On the Azure homepage, select the **+ Create a resource** button.
 
-1. From the **Categories** menu, select **Internet of Things** then **IoT Hub**.
+1. From the **Categories** menu, select **Internet of Things**, and then select **IoT Hub**.
 
 1. On the **Basics** tab, complete the fields as follows:
 
@@ -41,7 +41,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
    > [!NOTE]
    > Prices shown are for example purposes only.
 
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Screenshot that shows how to create an IoT hub in the Azure portal.":::
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Screen capture that shows how to create an IoT hub in the Azure portal.":::
 
 1. Select **Next: Networking** to continue creating your hub.
 
@@ -51,11 +51,11 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
       - **Minimum TLS Version**: Select the minimum TLS version to be supported by your IoT hub. Once the IoT hub is created, this value can't be changed. Accept the default setting, **1.0**, for this example.
       
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Screenshot that shows how to choose the endpoints that can connect to a new IoT hub.":::
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Screen capture that shows how to choose the endpoints that can connect to a new IoT hub.":::
 
 1. Select **Next: Management** to continue creating your hub.
 
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Screenshot that shows how to set the role-based access control and scale for a new IoT hub.":::
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Screen capture that shows how to set the role-based access control and scale for a new IoT hub.":::
 
    Accept the default settings here. If desired, you can modify any of the following fields:
     
@@ -73,7 +73,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
    > [!NOTE]
    > Prices shown are for example purposes only.
    
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-add-ons.png" alt-text="Screenshot that shows how to set the optional add-ons for a new IoT hub.":::
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-add-ons.png" alt-text="Screen capture that shows how to set the optional add-ons for a new IoT hub.":::
    
    Accept the default settings here. If desired, you can modify any of the following fields:
    
@@ -83,13 +83,13 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
     Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. In this document, you won't be adding any tags. For more information, see [Use tags to organize your Azure resources](../articles/azure-resource-manager/management/tag-resources.md).
 
-    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Screenshot that shows how to assign tags for a new IoT hub.":::
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Screen capture that shows how to assign tags for a new IoT hub.":::
 
 1. Select **Next: Review + create** to review your choices. You see something similar to this screen, but with the values you selected when creating the hub.
    
    > [!NOTE]
    > Prices shown are for example purposes only.
 
-    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Screenshot that shows the review information for creating a new IoT hub.":::
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Screen capture that shows the review information for creating a new IoT hub.":::
 
 1. Select **Create** to start the deployment of your new hub. Your deployment will be in progress a few minutes while the hub is being created. Once the deployment is complete, select **Go to resource** to open the new hub.

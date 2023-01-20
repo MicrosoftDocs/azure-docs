@@ -7,11 +7,11 @@ ms.topic: conceptual
 
 # Azure user roles and permissions for Defender for IoT
 
-Microsoft Defender for IoT uses [Azure Role-Based Access Control (RBAC)](/azure/role-based-access-control/) to provide access to Enterprise IoT monitoring services and data on the Azure portal.
+Microsoft Defender for IoT uses [Azure Role-Based Access Control (RBAC)](../../role-based-access-control/index.yml) to provide access to Enterprise IoT monitoring services and data on the Azure portal.
 
 The built-in Azure [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), and [Owner](../../role-based-access-control/built-in-roles.md#owner) roles are relevant for use in Defender for IoT.
 
-This article provides a reference of Defender for IoT actions available for each role in the Azure portal. For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
+This article provides a reference of Defender for IoT actions available for each role in the Azure portal. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## Roles and permissions reference
 
@@ -22,9 +22,10 @@ Roles for management actions are applied to user roles across an entire Azure su
 | **Grant permissions to others**<br>Apply per subscription or site | -       |  -       |   -      | ✔ |
 |  **Onboard OT or Enterprise IoT sensors** [*](#enterprise-iot-security) <br>Apply per subscription only | -       |  ✔       |   ✔      | ✔ |
 |  **Download OT sensor and on-premises management console software**<br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
+| **Download sensor endpoint details** <br>Apply per subscription only |  ✔    |  ✔       |   ✔      | ✔ |
 |  **Download sensor activation files** <br>Apply per subscription only|   -     |   ✔      | ✔ | ✔ |
-|  **View values on the Pricing page** [*](#enterprise-iot-security) <br>Apply per subscription only| ✔      |   ✔     | ✔ | ✔ |
-|  **Modify values on the Pricing page** [*](#enterprise-iot-security) <br>Apply per subscription only| -       |   ✔     | ✔ | ✔ |
+|  **View values on the Plans and pricing page** [*](#enterprise-iot-security) <br>Apply per subscription only| ✔      |   ✔     | ✔ | ✔ |
+|  **Modify values on the Plans and pricing page** [*](#enterprise-iot-security) <br>Apply per subscription only| -       |   ✔     | ✔ | ✔ |
 |  **View values on the Sites and sensors page** [*](#enterprise-iot-security)<br>Apply per subscription only  |   ✔   |   ✔    | ✔ | ✔|
 |  **Modify values on the Sites and sensors page** [*](#enterprise-iot-security)<br>Apply per subscription only  |   -    |   ✔    | ✔ | ✔|
 |  **Recover on-premises management console passwords** <br>Apply per subscription only  | -      |   ✔     | ✔ | ✔ |
@@ -32,7 +33,7 @@ Roles for management actions are applied to user roles across an entire Azure su
 |  **Push OT threat intelligence updates** <br>Apply per subscription only | -     |   ✔     | ✔ | ✔ |
 | **Onboard an Enterprise IoT plan from Microsoft 365 Defender** [*](#enterprise-iot-security)<br>Apply per subscription only | - | ✔ | - | - |
 | **View Azure alerts** <br>Apply per subscription or site | ✔ | ✔ |✔ | ✔|
-| **Modify Azure alerts (write access)** <br>Apply per subscription or site|  - | ✔ |✔ | ✔ |
+| **Modify Azure alerts (write access - change status, learn, download PCAP)** <br>Apply per subscription or site|  - | ✔ |✔ | ✔ |
 | **View Azure device inventory**  <br>Apply per subscription or site  |  ✔ | ✔ |✔ | ✔|
 | **Manage Azure device inventory (write access)**   <br>Apply per subscription or site | - | ✔ |✔ | ✔ |
 | **View Azure workbooks**<br>Apply per subscription or site   | ✔ | ✔ |✔ | ✔ |

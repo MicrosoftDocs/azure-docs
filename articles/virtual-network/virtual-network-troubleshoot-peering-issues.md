@@ -51,7 +51,7 @@ For more information, see the [requirements and constraints](./virtual-network-p
 
 ### The virtual networks are in different subscriptions or Active Directory tenants
 
-To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, see [Create peering in different subscriptions for Azure CLI](./create-peering-different-subscriptions.md#cli).
+To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, see [Create a virtual network peering between different subscriptions](./create-peering-different-subscriptions.md).
 
 > [!Note]
 > To configure network peering, you must have **Network Contributor** permissions in both subscriptions. For more information, see [Peering permissions](virtual-network-manage-peering.md#permissions).
@@ -220,7 +220,7 @@ For more information, see the following articles:
 
 ### Current tenant `<TENANT ID>` isn't authorized to access linked subscription
 
-To resolve this issue, see [Create peering - Azure CLI](./create-peering-different-subscriptions.md#cli).
+To resolve this issue, see [Create a virtual network peering between different subscriptions](./create-peering-different-subscriptions.md).
 
 ### Not connected
 

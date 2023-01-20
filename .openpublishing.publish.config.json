@@ -33,6 +33,12 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "azure-docs-snippets-pr",
+      "url": "https://github.com/MicrosoftDocs/azure-docs-snippets-pr",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-dev-docs-pr",
       "url": "https://github.com/MicrosoftDocs/azure-dev-docs-pr",
       "branch": "main",
@@ -384,6 +390,12 @@
       "path_to_root": "azureml-examples-main",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-mavaisma-r-azureml",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "mavaisma-r-azureml",
       "branch_mapping": {}
     },
     {
@@ -749,7 +761,7 @@
     {
       "path_to_root": "azure-spring-apps-reference-architecture",
       "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
-      "branch": "main",
+      "branch": "reference-architecture",
       "branch_mapping": {}
     },
     {
@@ -920,6 +932,7 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.azure-arc-data.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.api-management.json",
     ".openpublishing.redirection.azure-attestation.json",
     ".openpublishing.redirection.azure-blob.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",

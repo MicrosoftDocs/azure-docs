@@ -67,7 +67,7 @@
   - name: Content Moderator REST API
     href: api-reference.md
   - name: .NET
-    href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
+    href: /dotnet/api/overview/azure/content-moderator
   - name: Java
     href: /java/api/overview/azure/cognitiveservices/client/contentmoderator
   - name: Node.js

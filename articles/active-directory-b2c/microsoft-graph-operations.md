@@ -79,7 +79,7 @@ An email address that can be used by a [username sign-in account](sign-in-option
 Manage the [identity providers](add-identity-provider.md) available to your user flows in your Azure AD B2C tenant.
 
 - [List identity providers available in the Azure AD B2C tenant](/graph/api/identityproviderbase-availableprovidertypes)
-- [List identity providers configured in the Azure AD B2C tenant](/graph/api/iidentitycontainer-list-identityproviders)
+- [List identity providers configured in the Azure AD B2C tenant](/graph/api/identitycontainer-list-identityproviders)
 - [Create an identity provider](/graph/api/identitycontainer-post-identityproviders)
 - [Get an identity provider](/graph/api/identityproviderbase-get)
 - [Update identity provider](/graph/api/identityproviderbase-update)

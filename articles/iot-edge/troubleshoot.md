@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/04/2021
+ms.date: 08/25/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

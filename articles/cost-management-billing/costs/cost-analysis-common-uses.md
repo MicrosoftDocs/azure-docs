@@ -15,44 +15,44 @@ ms.reviewer: adwise
 
 Cost Management users often want answers to questions that many others ask. This article walks you through getting results for common cost analysis tasks in Cost Management.
 
-## View forecasted costs
+## View forecast costs
 
-Forecasted costs are shown in cost analysis areas for area and stacked column views. The forecast is based on your historical resource use. Changes to your resource use affect forecasted costs.
+Forecast costs are shown in cost analysis areas for area and stacked column views. The forecast is based on your historical resource use. Changes to your resource use affect forecast costs.
 
 In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 
-In the default view, the top chart has the Actual/Amortized cost and forecasted cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost.
+In the default view, the top chart has the Actual/Amortized cost and forecast cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost.
 
-[![Forecasted cost](./media/cost-analysis-common-uses/enrollment-forecast.png)](./media/cost-analysis-common-uses/enrollment-forecast.png#lightbox)
+[![Forecast cost](./media/cost-analysis-common-uses/enrollment-forecast.png)](./media/cost-analysis-common-uses/enrollment-forecast.png#lightbox)
 
-## View forecasted costs grouped by service
+## View forecast costs grouped by service
 
-The default view doesn't show forecasted costs group by a service, so you have to add a group by selection.
+The default view doesn't show forecast costs group by a service, so you have to add a group by selection.
 
 In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 
 Select **Group by** > **Service name**.
 
-The view shows your costs grouped for each service. The forecasted cost isn't calculated for each service. It's projected for the **Total** of all your services.
+The view shows your costs grouped for each service. The forecast cost isn't calculated for each service. It's projected for the **Total** of all your services.
 
-[![Grouped forecasted cost](./media/cost-analysis-common-uses/forecast-group-by-service.png)](./media/cost-analysis-common-uses/forecast-group-by-service.png#lightbox)
+[![Grouped forecast cost](./media/cost-analysis-common-uses/forecast-group-by-service.png)](./media/cost-analysis-common-uses/forecast-group-by-service.png#lightbox)
 
-## View forecasted costs for a service
+## View forecast costs for a service
 
-You can view forecasted costs narrowed to a single service. For example, you might want to see forecasted costs for just virtual machines.
+You can view forecast costs narrowed to a single service. For example, you might want to see forecast costs for just virtual machines.
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select **Add filter** and then select **Service name**.
 1. In the **choose** list, select a service. For example select, **virtual machines**.
 
-Review the actual cost for selection and the forecasted cost.
+Review the actual cost for selection and the forecast cost.
 
 You can add more customizations to the view.
 
 1. Add a second filter for **Meter** and select a value to filter for an individual type of meter under your selected service name.
-1. Group by **Resource** to see the specific resources that are accruing cost. The forecasted cost isn't calculated for each service. It's projected for the **Total** of all your resources.
+1. Group by **Resource** to see the specific resources that are accruing cost. The forecast cost isn't calculated for each service. It's projected for the **Total** of all your resources.
 
-[![Forecasted cost for a service](./media/cost-analysis-common-uses/forecast-by-service.png)](./media/cost-analysis-common-uses/forecast-by-service.png#lightbox)
+[![Forecast cost for a service](./media/cost-analysis-common-uses/forecast-by-service.png)](./media/cost-analysis-common-uses/forecast-by-service.png#lightbox)
 
 ## View your Azure and AWS costs together  
 

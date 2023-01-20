@@ -41,15 +41,11 @@ The first step to use Synapse Link is to enable it for your Azure Cosmos DB data
 
 1. [Create a new Azure account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
 
-1. Navigate to your Azure Cosmos DB account and open the **Features** pane.
+1. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link** under Intergrations in the left pane.
 
-1. Select **Synapse Link** from the features list.
+1. Select **Enable**. This process can take 1 to 5 minutes to complete.
 
-   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Find Synapse Link feature":::
-
-1. Next it prompts you to enable Synapse Link on your account. Select **Enable**. This process can take 1 to 5 minutes to complete.
-
-   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Enable Synapse Link feature":::
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link.png" alt-text="Screenshot showing how to enable Synapse Link feature.":::
 
 1. Your account is now enabled to use Synapse Link. Next see how to create analytical store enabled containers to automatically start replicating your operational data from the transactional store to the analytical store.
 
@@ -107,6 +103,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 
 ### Azure portal
 
+#### New container 
 1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
@@ -120,6 +117,18 @@ Please note the following details when enabling Azure Synapse Link on your exist
 1. Select **OK**, to create an analytical store enabled Azure Cosmos DB container.
 
 1. After the container is created, verify that analytical store has been enabled by clicking **Settings**, right below Documents in Data Explorer, and check if the **Analytical Store Time to Live** option is turned on.
+
+#### Existing container
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
+
+1. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link** tab.
+
+1. Under the **Enable Azure Synapse Link for your containers** section select the container. 
+
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-existing-container.png" alt-text="Screenshot showing how to turn on analytical store for an Azure Cosmos DB existing container.":::
+
+1. After the container enablement, verify that analytical store has been enabled by clicking **Settings**, right below Documents in Data Explorer, and check if the **Analytical Store Time to Live** option is turned on.
 
 > [!NOTE]
 > You can also enable Synapse Link for your account using the **Power BI** and the **Synapse Link** pane, in the **Integrations** section of the left navigation menu.
@@ -184,7 +193,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 #### Python V4 SDK
 
-The following Java code creates a Synapse Link enabled container by setting the `analytical_storage_ttl` property. To update an existing container, use the `replace_container` method.
+The following Python code creates a Synapse Link enabled container by setting the `analytical_storage_ttl` property. To update an existing container, use the `replace_container` method.
 
 ```python
 # Client

@@ -75,6 +75,10 @@ Data stored in your Azure Load Testing resource is automatically encrypted with 
 > [!NOTE]
 > The overview image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components. Learn more about the [supported Azure resource types](./resource-supported-azure-resource-types.md).
 
+## In-region data residency
+
+Azure Load Testing doesn't store or process customer data outside the region you deploy the service instance in.
+
 ## Next steps
 
 Start using Azure Load Testing:

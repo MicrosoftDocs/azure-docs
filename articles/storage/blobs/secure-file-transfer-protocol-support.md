@@ -1,7 +1,9 @@
 ---
 title: SFTP support for Azure Blob Storage
+titleSuffix: Azure Storage
 description: Blob storage now supports the SSH File Transfer Protocol (SFTP). 
 author: normesta
+
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
@@ -9,7 +11,6 @@ ms.date: 10/20/2022
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
-
 ---
 
 # SSH File Transfer Protocol (SFTP) support for Azure Blob Storage
@@ -129,7 +130,7 @@ To get started, enable SFTP support, create a local user, and assign permissions
 
 ### Known supported clients
 
-The following clients have compatible algorithm support with SFTP for Azure Blob Storage. See [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md) if you're having trouble connecting.
+The following clients have compatible algorithm support with SFTP for Azure Blob Storage. See [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md) if you're having trouble connecting. This list isn't exhaustive and may change over time.
 
 - AsyncSSH 2.1.0+
 - Axway
@@ -153,8 +154,10 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - Workday
 - XFB.Gateway
 - JSCH 0.1.54+
+- curl 7.85.0+
+- AIX<sup>1</sup>
 
-The supported client list above isn't exhaustive and may change over time.
+<sup>1</sup>    Must set `AllowPKCS12KeystoreAutoOpen` option to `no`.
 
 ## Limitations and known issues
 

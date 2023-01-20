@@ -33,7 +33,7 @@ These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
 Also be sure to include any dependencies needed for model deployment.
-These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), the user brings a Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the user-provided content.
+These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you provide.
 
 System-managed environments are used when you want conda to manage the Python environment for you.
 A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
@@ -53,12 +53,51 @@ Running a training script remotely requires the creation of a Docker image.
 
 ## Reproducibility and vulnerabilities
 
-Over time vulnerabilities are discovered and Docker images that correspond to AzureML environments may be flagged by scanning tools.
-Updates for AzureML based images are released regularly, with a commitment of no unpatched vulnerabilities older than 30 days in the latest version of the image.
-It's your responsibility to evaluate the threat and address vulnerabilities in environments.
-Not all the vulnerabilities are exploitable, so you need to use your judgment when choosing between reproducibility and resolving vulnerabilities.
-> [!IMPORTANT]
-> There's no guarantee that the same set of Python dependencies will be materialized with an image rebuild or for a new environment with the same set of Python dependencies. 
+### Vulnerabilities
+
+Vulnerabilities can be addressed by upgrading to a newer version of a dependency or migrating to a different dependency that satisfies security
+requirements. Mitigating vulnerabilities is time consuming and costly since it can require refactoring of code and infrastructure. With the prevalence
+of open source software and the use of complicated nested dependencies, it's important to manage and keep track of vulnerabilities.
+
+There are some ways to decrease the impact of vulnerabilities:
+
+- Reduce your number of dependencies - use the minimal set of the dependencies for each scenario.
+- Compartmentalize your environment so issues can be scoped and fixed in one place.
+- Understand flagged vulnerabilities and their relevance to your scenario.
+
+### Vulnerabilities vs Reproducibility
+
+Reproducibility is one of the foundations of software development. While developing production code, a repeated operation must guarantee the same
+result. Mitigating vulnerabilities can disrupt reproducibility by changing dependencies.
+
+AzureML's primary focus is to guarantee reproducibility. Environments can broadly be divided into three categories: curated,
+user-managed, and system-managed.
+
+**Curated environments** are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every AzureML workspace provisioned.
+
+Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks.
+These pre-created environments also allow for faster deployment time.
+
+In **user-managed environments**, you're responsible for setting up your environment and installing every package that your training script needs on the
+compute target and for model deployment. These types of environments are represented by two subtypes:
+
+- BYOC (bring your own container): the user provides a Docker image to AzureML
+- Docker build context: AzureML materializes the image from the user provided content
+
+Once you install more dependencies on top of a Microsoft-provided image, or bring your own base image, vulnerability
+management becomes your responsibility.
+
+You use **system-managed environments** when you want conda to manage the Python environment for you. A new isolated conda environment is materialized
+from your conda specification on top of a base Docker image. While Azure Machine Learning patches base images with each release, whether you use the
+latest image may be a tradeoff between reproducibility and vulnerability management. So, it's your responsibility to choose the environment version used
+for your jobs or model deployments while using system-managed environments.
+
+Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's used as a cache for container images. Any image
+materialized is pushed to the container registry and used if experimentation or deployment is triggered for the corresponding environment. Azure
+Machine Learning doesn't delete images from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. You
+can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md)
+to help scan images for vulnerabilities. To
+automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
 
 ## **Environment definition problems**
 
@@ -548,6 +587,31 @@ If the image you're trying to reference doesn't exist in the container registry 
 If you haven't provided credentials for a private registry you're trying to pull from, or the provided credentials are incorrect
 * Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
 
+### I/O Error
+<!--issueDescription-->
+This issue can happen when a Docker image pull fails due to a network issue.  
+
+**Potential causes:**
+* Network connection issue, which could be temporary
+* Firewall is blocking the connection
+* ACR is unreachable and there's network isolation. For more details, see [ACR unreachable](#acr-unreachable). 
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**  
+
+Add the host to the firewall rules  
+* See [configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md) to learn how to use Azure Firewall for your workspace and resources behind a VNet
+
+Assess your workspace set-up. Are you using a virtual network, or are any of the resources you're trying to access during your image build behind a virtual network?
+* Ensure that you've followed the steps in this article on [securing a workspace with virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint)
+* Azure Machine Learning requires both inbound and outbound access to the public internet. If there's a problem with your virtual network setup, there might be an issue with accessing certain repositories required during your image build  
+
+If you aren't using a virtual network, or if you've configured it correctly
+* Try rebuilding your image. If the timeout was due to a network issue, the problem might be transient, and a rebuild could fix the problem
 
 ### *Conda issues during build*
 ### Bad spec
@@ -595,12 +659,53 @@ If the conda channels/repositories are correct
 * Check to make sure that the packages listed in your conda specification exist in the channels/repositories you specified
 
 ### Compile error
-- Failed to build a package required for the conda environment
-- Another version of the failing package may work. If it doesn't, review the image build log, hunt for a solution, and update the environment definition.
+<!--issueDescription-->
+This issue can happen when there's a failure building a package required for the conda environment due to a compiler error.
+
+**Potential causes:**
+* A package was spelled incorrectly and therefore wasn't recognized
+* There's something wrong with the compiler
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+If you're using a compiler
+* Ensure that the compiler you're using is recognized
+* If needed, add an installation step to your Dockerfile
+* Verify the version of your compiler and check that all commands or options you're using are compatible with the compiler version
+* If necessary, upgrade your compiler version
+
+Ensure that all packages you've listed are spelled correctly and that any pinned versions are correct
+
+**Resources**
+* [Dockerfile reference on running commands](https://docs.docker.com/engine/reference/builder/#run)
+* [Example compiler issue](https://stackoverflow.com/questions/46504700/gcc-compiler-not-recognizing-fno-plt-option)
 
 ### Missing command
-- Failed to build a package required for the conda environment due to a missing command
-- Identify the missing command from the image build log, determine how to add it to your image, and then update the environment definition.
+<!--issueDescription-->
+This issue can happen when a command isn't recognized during an image build.
+
+**Potential causes:**
+* The command wasn't spelled correctly
+* The command can't be executed because a required package isn't installed
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+* Ensure that the command is spelled correctly
+* Ensure that any package needed to execute the command you're trying to perform is installed
+* If needed, add an installation step to your Dockerfile
+
+**Resources**
+* [Dockerfile reference on running commands](https://docs.docker.com/engine/reference/builder/#run)
 
 ### Conda timeout
 <!--issueDescription-->
@@ -703,45 +808,256 @@ dependencies:
 Name: my_environment
 ```
 
-### No matching distribution
-- Failed to find Python package matching a specified distribution
-- Search for the distribution you're looking for and ensure it exists: [pypi](https://aka.ms/azureml/environment/pypi)
+### No matching distribution 
+<!--issueDescription-->
+This issue can happen when there's no package found that matches the version you specified.
+
+**Potential causes:**
+* The package name was spelled incorrectly
+* The package and version can't be found on the channels or feeds that you specified
+* The version you specified doesn't exist
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+* Ensure that the package is spelled correctly and exists
+* Ensure that the version you specified for the package exists
+* Ensure that you've specified the channel from which the package will be installed. If you don't specify a channel, defaults will be used and those defaults may or may not have the package you're looking for
+
+How to list channels in a conda yaml specification:
+
+```
+channels:
+	- conda-forge
+	- anaconda
+dependencies:
+	- python = 3.8
+	- tensorflow = 2.8
+Name: my_environment
+```
+
+**Resources**
+* [Managing channels](https://aka.ms/azureml/environment/managing-conda-channels)
+* [pypi](https://aka.ms/azureml/environment/pypi)
 
 ### Can't build mpi4py
-- Failed to build wheel for mpi4py
-- Review and update your build environment or use a different installation method
-- See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
+<!--issueDescription-->
+This issue can happen when building wheels for mpi4py fails.
+
+**Potential causes:**
+* Requirements for a successful mpi4py installation aren't met
+* There's something wrong with the method you've chosen to install mpi4py
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Ensure that you have a working MPI installation (preference for MPI-3 support and for MPI being built with shared/dynamic libraries) 
+* See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
+* If needed, follow these [steps on building MPI](https://mpi4py.readthedocs.io/en/stable/appendix.html#building-mpi-from-sources)
+
+Ensure that you're using a compatible python version
+* Python 2.5 or 3.5+ is required, but Python 3.7+ is recommended
+* See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
+
+**Resources**
+* [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 
 ### Interactive auth was attempted
-- Failed to create or update the conda environment because pip attempted interactive authentication 
-- Instead, provide authentication via [workspace connection](https://aka.ms/azureml/environment/set-connection-v1)
+<!--issueDescription-->
+This issue can happen when pip attempts interactive authentication during package installation.
+
+**Potential causes:**
+* You've listed a package that requires authentication, but you haven't provided credentials
+* During the image build, pip tried to prompt you to authenticate which failed the build
+because you can't provide interactive authentication during a build
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Provide authentication via workspace connections
+
+*Applies to: Python SDK azureml V1*
+
+```
+from azureml.core import Workspace
+ws = Workspace.from_config()
+ws.set_connection("connection1", "PythonFeed", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
+```
+
+*Applies to: Azure CLI extensions V1 & V2*
+
+Create a workspace connection from a YAML specification file
+
+```
+az ml connection create --file connection.yml --resource-group my-resource-group --workspace-name my-workspace
+```
+
+**Resources**
+* [Python SDK AzureML v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+* [Python SDK AzureML v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Forbidden blob
-- Failed to create or update the conda environment because a blob contained in the associated storage account was inaccessible
-- Either open up permissions on the blob or add/replace the SAS token in the URL
+<!--issueDescription-->
+This issue can happen when an attempt to access a blob in a storage account is rejected.
+
+**Potential causes:**
+* The authorization method you're using to access the storage account is invalid
+* You're attempting to authorize via shared access signature (SAS), but the SAS token is expired or invalid
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Read the following to understand [how to authorize access to blob data in the Azure portal](../storage/blobs/authorize-data-operations-portal.md)
+
+Read the following to understand [how to authorize access to data in Azure storage](../storage/common/authorize-data-access.md)
+
+Read the following if you're interested in [using SAS to access Azure storage resources](../storage/common/storage-sas-overview.md)
 
 ### Horovod build
-- Failed to create or update the conda environment because horovod failed to build
-- See [horovod installation](https://aka.ms/azureml/environment/install-horovod)
+<!--issueDescription-->
+This issue can happen when the conda environment fails to be created or updated because horovod failed to build.
+
+**Potential causes:**
+* Horovod installation requires other modules that you haven't installed
+* Horovod installation requires certain libraries that you haven't included
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Many issues could cause a horovod failure, and there's a comprehensive list of them in horovod's documentation
+* Review the [horovod troubleshooting guide](https://horovod.readthedocs.io/en/stable/troubleshooting_include.html#) 
+* Review your Build log to see if there's an error message that surfaced when horovod failed to build
+* It's possible that the problem you're encountering is detailed in the horovod troubleshooting guide, along with a solution
+
+**Resources**
+* [horovod installation](https://aka.ms/azureml/environment/install-horovod)
 
 ### Conda command not found
-- Failed to create or update the conda environment because the conda command is missing 
-- For system-managed environments, conda should be in the path in order to create the user's environment
-from the provided conda specification
+<!--issueDescription-->
+This issue can happen when the conda command isn't recognized during conda environment creation or update.
+
+**Potential causes:**
+* conda isn't installed in the base image you're using
+* conda isn't installed via your Dockerfile before you try to execute the conda command
+* conda isn't included in or wasn't added to your path
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Ensure that you have a conda installation step in your Dockerfile before trying to execute any conda commands
+* Review this [list of conda installers](https://docs.conda.io/en/latest/miniconda.html) to determine what you need for your scenario
+
+If you've tried installing conda and are experiencing this issue, ensure that you've added conda to your path
+* Review this [example](https://stackoverflow.com/questions/58269375/how-to-install-packages-with-miniconda-in-dockerfile) for guidance
+* Review how to set [environment variables in a Dockerfile](https://docs.docker.com/engine/reference/builder/#env)
+
+**Resources**
+* All available conda distributions are found in the [conda repository](https://repo.anaconda.com/miniconda/)
 
 ### Incompatible Python version
-- Failed to create or update the conda environment because a package specified in the conda environment isn't compatible with the specified python version
-- Update the Python version or use a different version of the package
+<!--issueDescription-->
+This issue can happen when there's a package specified in your conda environment that isn't compatible with your specified Python version.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Use a different version of the package that's compatible with your specified Python version
+
+Alternatively, use a different version of Python that's compatible with the package you've specified
+* If you're changing your Python version, use a version that's supported and that isn't nearing its end-of-life soon
+* See Python [end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
+
+**Resources**
+* [Python documentation by version](https://aka.ms/azureml/environment/python-versions)
 
 ### Conda bare redirection
-- Failed to create or update the conda environment because a package was specified on the command line using ">" or "<"
-without using quotes. Consider adding quotes around the package specification
+<!--issueDescription-->
+This issue can happen when a package is specified on the command line using "<" or ">" without using quotes, causing conda environment creation or update to fail.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Add quotes around the package specification
+* For example, change `conda install -y pip<=20.1.1` to `conda install -y "pip<=20.1.1"`
 
 ### *Pip issues during build*
 ### Failed to install packages
-- Failed to install Python packages
-- Review the image build log for more information on this error
+<!--issueDescription-->
+This issue can happen when your image build fails during Python package installation.
+
+**Potential causes:**
+* There are many issues that could cause this error
+* This is a generic message that's surfaced when the error you're encountering isn't yet covered by AzureML analysis
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Review your Build log for more information on your image build failure 
+
+Leave feedback for the AzureML team to analyze the error you're experiencing
+* [File a problem or suggestion](https://github.com/Azure/azureml-assets/issues/new?assignees=&labels=environmentLogs&template=environmentLogsFeedback.yml)
 
 ### Can't uninstall package
-- Pip failed to uninstall a Python package that was installed via the OS's package manager
-- Consider creating a separate environment using conda instead
+<!--issueDescription-->
+This can happen when pip fails to uninstall a Python package that was installed via the operating system's package manager.
+
+**Potential causes:**
+* An existing pip problem or a problematic pip version
+* An issue arising from not using an isolated environment
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Read the following and determine if your failure is caused by an existing pip problem
+* [Cannot uninstall while creating Docker image](https://stackoverflow.com/questions/63383400/error-cannot-uninstall-ruamel-yaml-while-creating-docker-image-for-azure-ml-a)
+* [pip 10 disutils partial uninstall issue](https://github.com/pypa/pip/issues/5247)
+* [pip 10 no longer uninstalls disutils packages](https://github.com/pypa/pip/issues/4805)
+
+Try the following
+
+```
+pip install --ignore-installed [package]
+```
+
+Try creating a separate environment using conda

@@ -240,7 +240,7 @@
       - name: Go SDK - GoDoc
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt
       - name: Go - Source code
-        href: https://github.com/Azure/azure-sdk-for-go/tree/main/services/digitaltwins/mgmt
+        href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/digitaltwins
     - name: Data plane
       items:    
       - name: Data plane Swagger

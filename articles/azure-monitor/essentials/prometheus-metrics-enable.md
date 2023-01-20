@@ -40,7 +40,7 @@ Use any of the following methods to install the Azure Monitor agent on your AKS 
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
 - The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-- Azure CLI version 2.41.0 or higher is required for this feature.
+- Aks-preview version 0.5.122 or higher is required for this feature. You can check the aks-preview version using the `az version` command.
 
 #### Install metrics addon
 
@@ -76,7 +76,7 @@ The output for each command will look similar to the following:
     "metrics": {
         "enabled": true,
         "kubeStateMetrics": {
-            "metrican'tationsAllowList": "",
+            "metricAnnotationsAllowList": "",
             "metricLabelsAllowlist": ""
         }
     }
@@ -102,7 +102,7 @@ The output will be similar to the following:
         "metrics": {
           "enabled": true,
           "kubeStateMetrics": {
-            "metrican'tationsAllowList": "pods=[k8s-annotation-1,k8s-annotation-n]",
+            "metricAnnotationsAllowList": "pods=[k8s-annotation-1,k8s-annotation-n]",
             "metricLabelsAllowlist": "namespaces=[k8s-label-1,k8s-label-n]"
           }
         }
@@ -114,6 +114,7 @@ The output will be similar to the following:
 ### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
+- If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor Workspaces subscription, then please register the Azure Monitor Workspace subscription with the `Microsoft.Dashboard` resource provider following this [documentation](/azure-resource-manager/management/resource-providers-and-types#register-resource-provider.md#register-resource-provider).
 - The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
 - The template needs to be deployed in the same resource group as the Azure Managed Grafana workspace.
 
@@ -253,7 +254,7 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 ## Limitations
 
 - Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There's a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature won't work as expected.
-- A data collection rule and data collection endpoint is created with the name `MSPROM-\<cluster-name\>-\<cluster-region\>`. These names can't currently be modified.
+- A data collection rule and data collection endpoint is created with the name `MSProm-\<short-cluster-region\>-\<cluster-name\>`. These names can't currently be modified.
 - You must get the existing Azure Monitor workspace integrations for a Grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
 - CPU and Memory requests and limits can't be changed for Container insights metrics addon. If changed, they'll be reconciled and replaced by original values in a few seconds.
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
@@ -269,7 +270,7 @@ The `aks-preview` extension needs to be installed using the following command. F
 ```azurecli
 az extension add --name aks-preview
 ```
-Use the following command to remove the agent from the cluster nodes and delete the recording rules created for the data being collected from the cluster. This doesn't remove the DCE, DCR, or the data already collected and stored in your Azure Monitor workspace.
+Use the following command to remove the agent from the cluster nodes and delete the recording rules created for the data being collected from the cluster along with the Data Collection Rule Associations (DCRA) that link the DCE or DCR with your cluster. This doesn't remove the DCE, DCR, or the data already collected and stored in your Azure Monitor workspace.
 
 ```azurecli
 az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>

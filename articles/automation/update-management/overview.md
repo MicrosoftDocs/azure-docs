@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 11/26/2021
+ms.date: 11/25/2022
 ms.topic: conceptual
 ---
 
@@ -141,24 +141,26 @@ The next table defines the supported classifications for Linux updates.
 >
 > Update Management uses data published by the supported distributions, specifically their released [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language) files. Because internet access is restricted from these national clouds, Update Management cannot access the files.
 
-For Linux, Update Management can distinguish between critical updates and security updates in the cloud under classification **Security** and **Others**, while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available in the RTM version. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications.
+### Logic for Linux updates classification
 
-```bash
+1. For assessment, Update Management classifies updates into three categories: **Security**, **Critical** or **Others**. This classification of updates is as per the data from two sources:
+
+    - [Open Vulnerability and Assessment Language](https://oval.mitre.org/)(OVAL) files are provided by the Linux distro vendor which includes data about security issues or vulnerabilities which the update fixes.
+    - Package manager on your machine such as YUM, APT or ZYPPER.
+
+2. For patching, Update Management classifies updates into two categories: **Critical and Security** or **Others**. This classification of updates is based solely on data from package managers such as YUM, APT, or ZYPPER.
+
+**CentOS** - Unlike other distributions, CentOS does not have classification data available from the package manager. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications.
+
+```Bash
 sudo yum -q --security check-update
 ```
 
-There's currently no supported method to enable native classification-data availability on CentOS. At this time, limited support is provided to customers who might have enabled this feature on their own.
+> [!NOTE]
+> Currently there's no supported method to enable native classification-data availability on CentOS. At this time, we provide limited support to customers who might have enabled this feature on their own.
 
-To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
+**Redhat** - To classify updates on Red Hat Enterprise version 6, you must install the YUM security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of YUM itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
-When you schedule an update to run on a Linux machine, that for example is configured to install only updates matching the **Security** classification, the updates installed might be different from, or are a subset of, the updates matching this classification. When an assessment of OS updates pending for your Linux machine is performed, [Open Vulnerability and Assessment Language](https://oval.mitre.org/) (OVAL) files provided by the Linux distro vendor is used by Update Management for classification.
-
-Categorization is done for Linux updates as **Security** or **Others** based on the OVAL files, which includes updates addressing security issues or vulnerabilities. But when the update schedule is run, it executes on the Linux machine using the appropriate package manager like YUM, APT, or ZYPPER to install them. The package manager for the Linux distro may have a different mechanism to classify updates, where the results may differ from the ones obtained from OVAL files by Update Management. To manually check the machine and understand which updates are security relevant by your package manager, see [Troubleshoot Linux update deployment](../troubleshoot/update-management.md#updates-linux-installed-different).
-
->[!NOTE]
-> During update assessment, the classification of missing updates as Security and Critical may not work correctly for Linux distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL files, which the Update Management uses to classify updates during the assessment. This prevents Update Management from properly matching classifications based on filtering rules during the assessment of missing updates. </br>
-> **This doesn't affect the deployment of updates**. As a different logic is used in security update assessments, results might differ from the security updates applied during deployment. If you have classification set as **Critical** and **Security**, the update deployment will function as expected. Only the *classification of updates* during an assessment is affected.</br>
-> **Update Management for Windows Server machines is unaffected; update classification and deployments are unchanged**.
 
 ## Integrate Update Management with Configuration Manager
 

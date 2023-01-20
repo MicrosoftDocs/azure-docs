@@ -11,7 +11,7 @@ ms.custom: cliv2, event-tier1-build-2022
 author: ynpandey
 ms.author: yogipandey
 ms.date: 10/21/2021
-ms.reviewer: laobri
+ms.reviewer: franksolomon
 ---
 
 # CLI (v2) Azure Files datastore YAML schema

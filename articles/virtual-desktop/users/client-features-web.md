@@ -3,7 +3,7 @@ title: Use features of the Remote Desktop Web client - Azure Virtual Desktop
 description: Learn how to use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 12/14/2022
 ms.author: daknappe
 ---
 
@@ -85,7 +85,7 @@ To transfer files between your local device and your remote session:
 
 1. Once you're remote session has started, an extra icon will appear in the Remote Desktop Web client taskbar for **Upload new file** (the upwards arrow icon). Selecting this will open a file explorer window on your local device.
 
-1. Browse to and select files you want to upload to the remote session. You can select multiple files by holding down the <kbd>CTRL</kbd> key on your keyboard for Windows, or the <kbd>Command</kbd> key for macOS, then select **Open**.
+1. Browse to and select files you want to upload to the remote session. You can select multiple files by holding down the <kbd>CTRL</kbd> key on your keyboard for Windows, or the <kbd>Command</kbd> key for macOS, then select **Open**. There is a file size limit of 255MB.
 
 1. In your remote session, open **File Explorer**, then select **This PC**.
 

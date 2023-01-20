@@ -25,7 +25,7 @@
     - name: Azure CLI
       href: /cli/azure/fleet
     - name: .NET
-      href: /dotnet/api/overview/azure/containerservice
+      href: /dotnet/api/overview/azure/container-service
     - name: Python
       href: /python/api/overview/azure/container-service
     - name: Java

@@ -34,7 +34,7 @@ To complete this tutorial:
 - [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 - [Install and run PostgreSQL](https://www.postgresql.org/download/)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Prepare local Postgres
 

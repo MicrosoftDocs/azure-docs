@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/08/2022
+ms.date: 12/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -350,7 +350,7 @@ When working with Cost Management APIs, knowing the scope is critical. Use the f
 4. Copy the resource ID field value.
 5. Your scope is: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Cost Management is currently supported in [Azure Global](https://management.azure.com) and [Azure Government](https://management.usgovcloudapi.net). For more information about Azure Government, see [Azure Global and Government API endpoints](../../azure-government/documentation-government-developer-guide.md#endpoint-mapping).
+Cost Management is currently supported in Azure Global with `https://management.azure.com` and Azure Government with `https://management.usgovcloudapi.net`. For more information about Azure Government, see [Azure Global and Government API endpoints](../../azure-government/documentation-government-developer-guide.md#endpoint-mapping).
 
 ## Next steps
 
