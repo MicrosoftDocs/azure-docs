@@ -131,6 +131,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/reference.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/soft-delete-enable.md",
             "redirect_url": "/azure/storage/blobs/soft-delete-blob-enable",
             "redirect_document_id": true
@@ -196,6 +201,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/quickstart-blobs-c-plus-plus",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-data-lake-storage-access-control.md",
             "redirect_url": "/azure/storage/blobs/data-lake-storage-access-control",
             "redirect_document_id": false
@@ -228,6 +238,11 @@
         {
             "source_path_from_root": "/articles/storage/blobs/storage-https-custom-domain-cdn.md",
             "redirect_url": "/azure/storage/blobs/storage-custom-domain-name#enable-https",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-ios-how-to-use-blob-storage.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
             "redirect_document_id": false
         },
         {
@@ -311,8 +326,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-php.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-php",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-python-legacy.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-ruby.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-ruby",
             "redirect_document_id": false
         },
         {
@@ -1026,6 +1051,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/files/reference.md",
+            "redirect_url": "/azure/storage/files/storage-files-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/files/storage-files-active-directory-domain-services-enable.md",
             "redirect_url": "/azure/storage/files/storage-files-identity-auth-active-directory-enable",
             "redirect_document_id": true
@@ -1038,6 +1068,11 @@
         {
             "source_path_from_root": "/articles/storage/files/storage-files-compare-protocols.md",
             "redirect_url": "/azure/storage/files/files-nfs-protocol",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-deployment-guide.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
             "redirect_document_id": false
         },
         {
@@ -1059,6 +1094,11 @@
             "source_path_from_root": "/articles/storage/files/storage-files-release-notes.md",
             "redirect_url": "/azure/storage/file-sync/file-sync-release-notes",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-how-to-create-premium-fileshare.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/files/storage-how-to-recover-deleted-account.md",
@@ -1094,6 +1134,11 @@
             "source_path_from_root": "/articles/storage/files/storage-sync-cloud-tiering-policy.md",
             "redirect_url": "/azure/storage/file-sync/file-sync-cloud-tiering-policy",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-sync-cloud-tiering.md",
+            "redirect_url": "/azure/storage/files/storage-sync-cloud-tiering-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/files/storage-sync-files-deployment-guide.md",
@@ -1178,6 +1223,11 @@
         {
             "source_path_from_root": "/articles/storage/queues/authorize-queue-access-portal.md",
             "redirect_url": "articles/storage/queues/authorize-data-operations-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/reference.md",
+            "redirect_url": "/azure/storage/queues/storage-queues-introduction",
             "redirect_document_id": false
         },
         {
@@ -1948,56 +1998,6 @@
         {
             "source_path_from_root": "/articles/vs-azure-tools-storage-emulator-using.md",
             "redirect_url": "/azure/storage/common/storage-use-emulator",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "articles/storage/blobs/reference.md",
-            "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
-            "redirect_url": "/azure/storage/blobs/quickstart-blobs-c-plus-plus",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "articles/storage/blobs/storage-ios-how-to-use-blob-storage.md",
-            "redirect_url": "/previous-versions/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "articles/storage/blobs/storage-quickstart-blobs-php.md",
-            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-php",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "articles/storage/blobs/storage-quickstart-blobs-ruby.md",
-            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-ruby",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "articles/storage/files/reference.md",
-            "redirect_url": "/azure/storage/files/storage-files-introduction",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "articles/storage/files/storage-files-deployment-guide.md",
-            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "articles/storage/files/storage-how-to-create-premium-fileshare.md",
-            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "articles/storage/files/storage-sync-cloud-tiering.md",
-            "redirect_url": "/azure/storage/files/storage-sync-cloud-tiering-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "articles/storage/queues/reference.md",
-            "redirect_url": "/azure/storage/queues/storage-queues-introduction",
             "redirect_document_id": false
         }
     ]
