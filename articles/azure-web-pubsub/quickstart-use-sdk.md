@@ -58,7 +58,7 @@ Ensure you're running the latest version of the CLI via the upgrade command.
 az upgrade
 ```
 
-Next, install or update the Azure Web PubSub extension for the CLI.
+Next, install or update the Azure Web PubSub extension for the CLI if it wasn't installed with `az upgrade`.
 
 ```azurecli
 az extension add --name webpubsub --upgrade
@@ -79,7 +79,7 @@ WEB_PUBSUB_NAME="<your-unique-name>"
 ```azurepowershell
 $ResourceGroupName = 'webpubsub-resource-group'
 $Location = 'EastUS'
-$WebPubSubName = `<YourUniqueName>`
+$WebPubSubName = '<YourUniqueName>'
 ```
 
 ---
@@ -123,7 +123,7 @@ az webpubsub create `
   --name $WebPubSubName `
   --location $Location `
   --resource-group $ResourceGroupName `
-  --sku Free_F1 `
+  --sku Free_F1
 ```
 
 ---
@@ -187,7 +187,8 @@ You'll use the Azure Web PubSub SDK to publish a message to all the clients conn
 
 ### Set up the project to publish messages
 
-Select the language for your project.  The dependencies for each language are installed in the steps for that language.
+ou will need to open a new command shell for this project.
+Now, select the language for your project.  Note that the dependencies for each language are installed in the steps for that language.
 
 # [C#](#tab/csharp)
 
@@ -276,7 +277,7 @@ Select the language for your project.  The dependencies for each language are in
 1. Run the following command to publish a message to the service:
 
     ```bash
-    export WebPubSubConnectionString=$connection-string
+    export WebPubSubConnectionString=$connection_string
     node publish "Hello World"
     ```
 
