@@ -4,7 +4,7 @@ description: Learn about the compute platform used to host your API Management s
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 01/20/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -51,13 +51,13 @@ To find the `platformVersion` property in the portal:
 > [!IMPORTANT]
 > Support for API Management instances hosted on the `stv1` platform will be [retired by 31 August 2024](breaking-changes/stv1-platform-retirement-august-2024.md). To ensure proper operation of your API Management instance, you should migrate any instance hosted on the `stv1` platform to `stv2` before that date.
 
-To migrate an instance from the `stv1` platform to `stv2`, you can use the [Migrate to stv2](/rest/api/apimanagement/current-preview/api-management-service/migratetostv2) REST API. For more information, see the [migration guidance](migrate-stv1-to-stv2.md).
+To migrate an instance from the `stv1` platform to `stv2`:
 
-Depending on the service tier of your API Management instance, you can also trigger migration to the `stv2` platform by enabling or updating certain features with the latest service API versions:
+* **Non-VNet-injected API Management instance** - Use the [Migrate to stv2](/rest/api/apimanagement/current-preview/api-management-service/migratetostv2) REST API
 
-* Enable [zone redundancy](../reliability/migrate-api-mgt.md) (Premium tier only)
+* **VNet-injected API Management instance** - Update the VNet connection, or enable zone redundancy
 
-* Create or update an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet connection (Developer or Premium tier)
+For details, see the [migration guidance](migrate-stv1-to-stv2.md).
 
 ## Next steps
 
