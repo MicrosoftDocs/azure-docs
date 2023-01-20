@@ -130,9 +130,13 @@ Create environment variables that specify your Cosmos DB endpoint, database name
 
 ```python
 endpoint = os.environ["COSMOS_ENDPOINT"]
-database_name = os.environ["COSMOS_DATABASE"]
-container_name = os.environ["COSMOS_CONTAINER"]
 credential = DefaultAzureCredential()
+```
+Create constants for the database and container names.
+
+```python
+DATABASE_NAME = "cosmicworks"
+CONTAINER_NAME = "products"
 ```
 
 Create a new client instance using the `CosmosClient` object.
