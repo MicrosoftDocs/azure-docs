@@ -61,9 +61,9 @@ If the queue already exists, an exception is thrown.
 
 ## How to format the message
 
-The message type is a string. All messages need to move into a string when sending the message and out of the string format when reading the message.
+The message type is a string. All messages are treated as strings. If you need to send a different data type, you need to serialize that datatype into a string when sending the message and deserialize the string format when reading the message.
 
-To convert JSON to a string format and back again, use the following helper functions:
+To convert **JSON** to a string format and back again in Node.js, use the following helper functions:
 
 ```javascript
 function jsonToBase64(jsonObj) {
