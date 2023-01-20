@@ -157,20 +157,20 @@ The Azure DevOps setup is successfully finished.
    
 1. Open the Repos section and select **Import Repository**
 
-    ![Screenshot of ADO import repo first time](./media/how-to-setup-mlops-azureml/import_repo_first_time.png)
+    ![Screenshot of ADO import repo first time.](./media/how-to-setup-mlops-azureml/import_repo_first_time.png)
 
 1. Enter https://github.com/Azure/mlops-v2-ado-demo into the Clone URL field. Click import at the bottom of the page
 
-    ![Screenshot of ADO import MLOps demo repo](./media/how-to-setup-mlops-azureml/import_repo_Git_template.png)
+    ![Screenshot of ADO import MLOps demo repo.](./media/how-to-setup-mlops-azureml/import_repo_Git_template.png)
 
 
 1. Open the Repos section. Click on the default repo name at the top of the screen and select Import Repository
 
-    ![Screenshot of ADO import repo](./media/how-to-setup-mlops-azureml/ado-import-repo.png)
+    ![Screenshot of ADO import repo.](./media/how-to-setup-mlops-azureml/ado-import-repo.png)
 
 1. Enter https://github.com/Azure/mlops-templates into the Clone URL field. Click import at the bottom of the page
 
-    ![Screenshot of ADO import MLOps template repo](./media/how-to-setup-mlops-azureml/ado-import-mlops-templates.png)
+    ![Screenshot of ADO import MLOps template repo.](./media/how-to-setup-mlops-azureml/ado-import-mlops-templates.png)
 
     > [!TIP]
     > Learn more about the MLOps v2 accelerator structure and the MLOps [template](https://github.com/Azure/mlops-v2/)
@@ -180,15 +180,15 @@ The Azure DevOps setup is successfully finished.
 1.  Under the Repos section, click **Repositories**. Select the repository you created in **Step 6.** Select the **Security** tab
 
 1. Under the User permissions section, select the **mlopsv2 Build Service** user. Change the permission **Contribute** permission to **Allow** and the **Create branch** permission to **Allow**.
-   ![Screenshot of ADO permissions](./media/how-to-setup-mlops-azureml/ado-permissions-repo.png)
+   ![Screenshot of ADO permissions.](./media/how-to-setup-mlops-azureml/ado-permissions-repo.png)
 
 1. Open the **Pipelines** section in the left hand navigation pane and click on the 3 vertical dots next to the **Create Pipelines** button. Select **Manage Security**
 
-   ![Screenshot of Pipeline security](./media/how-to-setup-mlops-azureml/ado-open-pipelinesSecurity.png)
+   ![Screenshot of Pipeline security.](./media/how-to-setup-mlops-azureml/ado-open-pipelinesSecurity.png)
 
 1. Select the **mlopsv2 Build Service** account for your project under the Users section. Change the permission **Edit build pipeline** to **Allow**
 
-   ![Screenshot of Add security](./media/how-to-setup-mlops-azureml/ado-add-pipelinesSecurity.png)
+   ![Screenshot of Add security.](./media/how-to-setup-mlops-azureml/ado-add-pipelinesSecurity.png)
 
 > [!NOTE]
 > This finishes the prerequisite section and the deployment of the solution accelerator can happen accordingly.
@@ -198,12 +198,12 @@ The Azure DevOps setup is successfully finished.
 This step deploys the training pipeline to the Azure Machine Learning workspace created in the previous steps. 
 
 > [!TIP]
-> Make sure you understand the [Architectural Patterns](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) of the solution accelerator before you checkout the MLOps v2 repo and deploy the infrastructure. In examples you will use the [classical ML project type](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2#classical-machine-learning-architecture).
+> Make sure you understand the [Architectural Patterns](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) of the solution accelerator before you checkout the MLOps v2 repo and deploy the infrastructure. In examples you'll use the [classical ML project type](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2#classical-machine-learning-architecture).
 
 ### Run Azure infrastructure pipeline
 1. Go to the first repo you imported in the previous section, `mlops-v2-ado-demo`, select the **config-infra-dev.yml** file.
    
-   ![Screenshot of Repo in ADO](./media/how-to-setup-mlops-azureml/ADO-repo.png)
+   ![Screenshot of Repo in ADO.](./media/how-to-setup-mlops-azureml/ADO-repo.png)
    
    This config file uses the namespace and postfix values the names of the artifacts to ensure uniqueness. Update the following section in the config to your liking.
    
@@ -213,33 +213,33 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
     location: eastus
    ```
    > [!NOTE]
-   > If your are running a Deep Learning workload such as CV or NLP, you have to ensure your GPU compute is available in your deployment zone.
+   > If your are running a Deep Learning workload such as CV or NLP, ensure your GPU compute is available in your deployment zone.
 
 1. Click Commit and push code to get these values into the pipeline. 
 
-1. Please repeat this step for **config-infra-prod.yml** file.
+1. Repeat this step for **config-infra-prod.yml** file.
 
 1. Go to Pipelines section 
    
-   ![Screenshot of ADO Pipelines](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
+   ![Screenshot of ADO Pipelines.](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
    
 1. Select **New Pipeline**.
    
-   ![Screenshot of ADO New Pipeline button for infra](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
+   ![Screenshot of ADO New Pipeline button for infra.](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
    
 1. Select **Azure Repos Git**.
    
-   ![Screenshot of ADO Where's your code](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
+   ![Screenshot of ADO Where's your code.](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
    
 1. Select the repository that you cloned in from the previous section `mlops-v2-ado-demo`
    
 1. Select **Existing Azure Pipeline YAML File**
    
-   ![Screenshot of ADO Pipeline page on configure step](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
+   ![Screenshot of ADO Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
    
 1. Select `main` as a branch and choose based on your deployment method your preferred yml path. 
-    - For a terraform scenario choose: `infrastructure/pipelines/tf-ado-deploy-infra.yml`, then select **Continue**. 
+    - For a terraform scenario, choose `infrastructure/pipelines/tf-ado-deploy-infra.yml`, then select **Continue**. 
     - For a bicep scenario choose: `infrastructure/pipelines/bicep-ado-deploy-infra.yml`, then select **Continue**.
 
 > [!CAUTION]
