@@ -19,7 +19,7 @@ ms.collection:
 
 The following diagram illustrates how services store and retrieve Azure Active Directory (Azure AD) object data through a role-based access control (RBAC) authorization layer. This layer calls the internal directory data access layer, ensuring the user's data request is permitted: 
 
-   [![Diagram of services storing and retrieving Azure AD object data.](./media/data-protection-considerations/tenant-isolation.PNG)](image-file-expanded.png#lightbox)
+   ![Diagram of services storing and retrieving Azure AD object data.](./media/data-protection-considerations/tenant-isolation.PNG)]
 
 **Azure AD Internal Interfaces Access**: Service-to-service communication with other Microsoft services, such as Microsoft 365 use Azure AD interfaces, which authorize the service's callers using client certificates.  
 
