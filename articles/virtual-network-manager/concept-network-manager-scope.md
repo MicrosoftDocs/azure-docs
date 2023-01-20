@@ -20,7 +20,7 @@ In this article, you'll learn about how Azure Virtual Network Manager uses the c
 
 ## Network Manager
 
-*Network Manager* is the top-level object consist of child resources such as *network groups*, *configurations*, and *rules*. 
+**Network Manager** is the top-level object consisting of child resources such as network groups, configurations, and rules. 
 
 * **Network Groups** - a subset of the overall scope, to which specific connectivity or security admin policies can be applied to.
 
@@ -34,7 +34,7 @@ A *scope* within Azure Virtual Network Manager represents the delegated access g
 
 > [!NOTE]
 > You can't create multiple Azure Virtual Network Manager instances with an overlapping scope of the same hierarchy and the same features selected.
-> 
+> When specifying a scope at the management group level, you need to register the Azure Virtual Network Provider at the management group scope before deploying a virtual network manager. This process is included as part of [Creating a Virtual Network Manager in the Azure portal](./create-virtual-network-manager-portal.md), but not with programmatic methods such as Azure CLI and Azure PowerShell. Learn more about [registering providers at management group scope](/rest/api/resources/providers/register-at-management-group-scope).
 
 ### Scope Applicability
 When deploying configurations, Network Manager will only apply features to resources within its scope. If you attempt to add a resource to a network group that is out of scope, it will be added to the group to represent your intent. But the network manager won't apply  the changes to the configurations.
