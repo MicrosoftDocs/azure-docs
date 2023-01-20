@@ -1219,5 +1219,10 @@
       "redirect_url": "/azure/center-sap-solutions/workloads/supported-product-on-azure",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance",
+      "redirect_document_id": true
+    },
   ]
 }
