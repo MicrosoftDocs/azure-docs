@@ -44,7 +44,7 @@ Learn more:
 
 ### Application publishing and access management
 
-Use Application Proxy remote access as a service to publish applications to users outside the corporate network. Help improve your cloud access management without requiring modification to your on-premises applications. Plan an [Azure AD Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md)
+Use Application Proxy remote access as a service to publish applications to users outside the corporate network. Help improve your cloud access management without requiring modification to your on-premises applications. Plan an [Azure AD Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md).
 
 ## Partner integrations for apps: on-premises and legacy authentication
 
