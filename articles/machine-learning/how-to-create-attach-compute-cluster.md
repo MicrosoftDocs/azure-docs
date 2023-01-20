@@ -76,7 +76,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
 
 
-Yse the following examples to create a compute cluster:
+Use the following examples to create a compute cluster:
     
 # [Python SDK](#tab/python)
 
