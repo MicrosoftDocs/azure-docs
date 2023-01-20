@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Use ONNX with Azure Machine Learning automated ML to make predictions on computer vision models for classification, object detection, and instance segmentation.
 author: vadthyavath
 ms.author: rvadthyavath
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
