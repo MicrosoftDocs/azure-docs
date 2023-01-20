@@ -66,7 +66,7 @@ One-time passwords are sent to your users by using SMS text messages. Depending 
 
 When you enable phone sign-up and sign-in for your user flows, it's also a good idea to enable the recovery email feature. With this feature, a user can provide an email address that can be used to recover their account when they don't have their phone. This email address is used for account recovery only. It can't be used for signing in.
 
-- When the recovery email prompt is **On**, a user signing up for the first time is prompted to verify a backup email. A user who hasn't provided a recovery email before is asked to verify a backup email during next sign in.
+- When the recovery email prompt is **On**, a user signing up for the first time is prompted to verify a backup email. A user who hasn't provided a recovery email before is asked to verify a backup email during next sign-in.
 
 - When recovery email is **Off**, a user signing up or signing in isn't shown the recovery email prompt.
 
@@ -88,7 +88,7 @@ You can configure Azure AD B2C to allow users to sign in to your application wit
 
 With external identity provider federation, you can offer your consumers the ability to sign in with their existing social or enterprise accounts, without having to create a new account just for your application.
 
-On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're redirected to the selected provider's website to complete the sign in process. After the user successfully signs in, they're returned to Azure AD B2C for authentication of the account in your application.
+On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're redirected to the selected provider's website to complete the sign-in process. After the user successfully signs in, they're returned to Azure AD B2C for authentication of the account in your application.
 
 ![Diagram showing mobile sign-in example with a social account (Facebook).](media/add-identity-provider/external-idp.png)
 
