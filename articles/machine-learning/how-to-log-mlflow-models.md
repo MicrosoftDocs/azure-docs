@@ -5,6 +5,7 @@ description: Learn how to start logging MLflow models instead of artifacts using
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 07/8/2022
