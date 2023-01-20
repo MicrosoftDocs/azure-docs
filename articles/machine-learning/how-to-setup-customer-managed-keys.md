@@ -5,13 +5,12 @@ description: 'Learn how to improve data security with Azure Machine Learning by 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, engagement-fy23
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 01/20/2023
-ms.custom: engagement-fy23
 ---
 # Use customer-managed keys with Azure Machine Learning
 
