@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 01/05/2023
+ms.date: 01/11/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -27,14 +27,14 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ### Updated articles
 
-- [Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform](quickstart-v2-aspnet-core-web-api.md)
-- [Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity](quickstart-v2-netcore-daemon.md)
-- [Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app](tutorial-blazor-webassembly.md)
 - [A web API that calls web APIs: Code configuration](scenario-web-api-call-api-app-configuration.md)
-- [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)
-- [Web app that signs in users: App registration](scenario-web-app-sign-user-app-registration.md)
-- [Microsoft identity platform docs: What's new](whats-new-docs.md)
+- [Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity](quickstart-v2-netcore-daemon.md)
+- [Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform](quickstart-v2-aspnet-core-web-api.md)
 - [Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md)
+- [Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app](tutorial-blazor-webassembly.md)
+- [Web app that signs in users: App registration](scenario-web-app-sign-user-app-registration.md)
+- [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)
+
 ## November 2022
 
 ### New articles

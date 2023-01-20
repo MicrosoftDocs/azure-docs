@@ -57,7 +57,7 @@ If you have a shared access signature key that you should use to access files, m
 
 ### Can't read, list, or access files in Azure Data Lake Storage
 
-If you use an Azure AD login without explicit credentials, make sure that your Azure AD identity can access the files in storage. To access the files, your Azure AD identity must have the **Blob Data Reader** permission, or permissions to **List** and **Read** [access control lists (ACL) in ADLS](/azure/storage/blobs/data-lake-storage-access-control-model). For more information, see [Query fails because file cannot be opened](#query-fails-because-file-cant-be-opened).
+If you use an Azure AD login without explicit credentials, make sure that your Azure AD identity can access the files in storage. To access the files, your Azure AD identity must have the **Blob Data Reader** permission, or permissions to **List** and **Read** [access control lists (ACL) in ADLS](../../storage/blobs/data-lake-storage-access-control-model.md). For more information, see [Query fails because file cannot be opened](#query-fails-because-file-cant-be-opened).
 
 If you access storage by using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has the **Data Reader** or **Contributor role** or specific ACL permissions. If you used a [shared access signature token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), make sure that it has `rl` permission and that it hasn't expired.
 

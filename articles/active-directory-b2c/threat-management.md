@@ -3,14 +3,14 @@ title: Mitigate credential attacks - Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn about detection and mitigation techniques for credential attacks (password attacks) in Azure Active Directory B2C, including smart account lockout features.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/20/2021
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 ---
 

@@ -25,6 +25,10 @@ By connecting your GitHub repositories to Defender for Cloud, you'll extend Defe
 - To use all advanced security capabilities provided by GitHub Connector in Defender for DevOps, you need to have GitHub Enterprise with GitHub Advanced Security (GHAS) enabled.
 
 ## Availability
+  > [!Note] 
+  > During the preview, the maximum number of GitHub repositories that can be onboarded to Microsoft Defender for Cloud is 2,000. If you try to connect more than 2,000 GitHub repositories, only the first 2,000 repositories, sorted alphabetically, will be onboarded.  
+  > 
+  > If your organization is interested in onboarding more than 2,000 GitHub repositories, please complete [this survey](https://aka.ms/dfd-forms/onboarding).
 
 | Aspect | Details |
 |--|--|
