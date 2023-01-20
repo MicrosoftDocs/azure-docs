@@ -58,8 +58,8 @@ Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
 A `default` maintenance window has the following properties:
 
-|Name|Description|Default value|Applicable configuration types|
-|--|--|--|--|
+|Name|Description|Default value|
+|--|--|--|
 |`timeInWeek`|In a `default` configuration, this property contains the `day` and `hourSlots` values defining a maintenance window|N/A|
 |`timeInWeek.day`|The day of the week to perform maintenance in a `default` configuration|N/A|
 |`timeInWeek.hourSlots`|A list of hour-long time slots to perform maintenance on a given day in a `default` configuration|N/A|
@@ -67,15 +67,17 @@ A `default` maintenance window has the following properties:
 
 An `aksManagedAutoUpgradeSchedule` has the following properties:
 
-|`utcOffset`|Used to determine the timezone for cluster maintenance|`+00:00`|`aksManagedAutoUpgradeSchedule`|
-|`startDate`|The date on which the maintenance window will begin to take effect|The current date at creation time|`aksManagedAutoUpgradeSchedule`|
-|`startTime`|The time for maintenance to begin, based on the timezone determined by `utcOffset`|N/A|`aksManagedAutoUpgradeSchedule`|
-|`schedule`|Used to determine frequency. Three types are available: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`|N/A|`aksManagedAutoUpgradeSchedule`|
-|`intervalWeeks`|The interval in weeks for maintenance runs|N/A|`aksManagedAutoUpgradeSchedule`|
-|`intervalMonths`|The interval in months for maintenance runs|N/A|`aksManagedAutoUpgradeSchedule`|
-|`dayOfWeek`|The specified day of the week for maintenance to begin|N/A|`aksManagedAutoUpgradeSchedule`|
-|`durationHours`|The duration of the window for maintenance to run|N/A|`aksManagedAutoUpgradeSchedule`|
-|`notAllowedDates`|Specifies a range of dates that maintenance cannot run, determined by `start` and `end` child properties. Only applicable when creating the maintenance window using a config file|N/A|`aksManagedAutoUpgradeSchedule`|
+|Name|Description|Default value|
+|--|--|--|
+|`utcOffset`|Used to determine the timezone for cluster maintenance|`+00:00`|
+|`startDate`|The date on which the maintenance window will begin to take effect|The current date at creation time|
+|`startTime`|The time for maintenance to begin, based on the timezone determined by `utcOffset`|N/A|
+|`schedule`|Used to determine frequency. Three types are available: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`|N/A|
+|`intervalWeeks`|The interval in weeks for maintenance runs|N/A|
+|`intervalMonths`|The interval in months for maintenance runs|N/A|
+|`dayOfWeek`|The specified day of the week for maintenance to begin|N/A|
+|`durationHours`|The duration of the window for maintenance to run|N/A|
+|`notAllowedDates`|Specifies a range of dates that maintenance cannot run, determined by `start` and `end` child properties. Only applicable when creating the maintenance window using a config file|N/A|
 
 ### Understanding schedule types
 
