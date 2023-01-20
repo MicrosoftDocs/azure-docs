@@ -28,15 +28,15 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ### Data flow
 
-SQL change data capture (CDC) incremental extract - supports numeric columns in mapping dataflow. [Learn more]()
+SQL change data capture (CDC) incremental extract - supports numeric columns in mapping dataflow
 
 ### Data movement
 
-Express virtual network injection for SSIS in Azure Data Factory is generally available. [Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/general-availability-of-express-virtual-network-injection-for/ba-p/3699993)
+Express virtual network injection for SSIS in Azure Data Factory is generally available [Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/general-availability-of-express-virtual-network-injection-for/ba-p/3699993)
 
 ### Region expansion
 
-Continued region expansion - Azure Data Factory is now available in China North 3. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
+Continued region expansion - Azure Data Factory is now available in China North 3 [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
 
 ## November 2022
 
