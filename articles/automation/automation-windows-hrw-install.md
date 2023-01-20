@@ -301,7 +301,7 @@ Log Analytics agent versions prior to [10.20.18053 (bundle) and 1.0.18053.0 (ext
 You must update the Log Analytics agent to the latest version by following the below steps:
 
 1.	Check the current version of the Log Analytics agent for your Windows Hybrid Worker:  Go to the installation path - *C:\ProgramFiles\Microsoft Monitoring Agent\Agent* and right-click *HealthService.exe* to check **Properties**. The field **Product version** provides the version number of the Log Analytics agent.
-2.	If your Log Analytics agent version is prior to [10.20.18053 (bundle) and 1.0.18053.0 (extension)](../virtual-machines/extensions/oms-windows.md#agent-and-vm-extension-version), upgrade to the latest version of the Windows Log Analytics agent, following these [guidelines](../azure-monitor/agents/agent-manage.md#upgrade-the-windows-agent).
+2.	If your Log Analytics agent version is prior to [10.20.18053 (bundle) and 1.0.18053.0 (extension)](../virtual-machines/extensions/oms-windows.md#agent-and-vm-extension-version), upgrade to the latest version of the Windows Log Analytics agent, following these [guidelines](../azure-monitor/agents/agent-manage.md).
 
 > [!NOTE]
 > Any Azure Automation jobs running on the Hybrid Worker during the upgrade process might stop. Ensure that there aren’t any jobs running or scheduled during the Log Analytics agent upgrade.
