@@ -3,13 +3,13 @@ title: Introduction to IP flow verify in Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher IP flow verify capability
 services: network-watcher
 documentationcenter: na
-author: shijaiswal
+author: halkazwini
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 10/04/2022
-ms.author: shijaiswal
+ms.author: halkazwini
 ---
 
 # Introduction to IP flow verify in Azure Network Watcher
