@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) Free and Standard pricing tiers for contro
 description: Learn about the Azure Kubernetes Service (AKS) Free and Standard pricing tiers for control plane management
 services: container-service
 ms.topic: conceptual
-ms.date: 12/05/2022
+ms.date: 01/20/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -66,17 +66,21 @@ Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The c
 ```azurecli-interactive
 # Create a new AKS cluster in the Free tier
 
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier free --node-count 1
+az aks create --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla --node-count 1
 
 # Create a new AKS cluster in the Standard tier
 
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier standard
+az aks create --resource-group myResourceGroup --name myAKSCluster `--uptime-sla`
 ```
 
 > [!NOTE]
 >
-> * `--tier free` corresponds to the existing `--no-uptime-sla` parameter.
-> * `--tier standard` corresponds to the existing `--uptime-sla` parameter.
+> The outputs to `--no-uptime-sla` and `--uptime-sla` correspond to API properties prior to the 2023-01-01 API version. Starting in Azure CLI 2.46.0:
+>
+> * `--tier free` will correspond to the existing `--no-uptime-sla` parameter.
+> * `--tier standard` will correspond to the existing `--uptime-sla` parameter.
+> * The CLI output will correspond to API properties: "Base" for ManagedClusterSKUName and "Free" or "Standard" for ManagerClusterSKUTier.
+>
 
 Once the deployment completes, it returns JSON-formatted information about your cluster. The following example output of the JSON snippet shows the *Standard tier* for the SKU, indicating your cluster is in the *Standard tier* and enabled with Uptime SLA.
 
