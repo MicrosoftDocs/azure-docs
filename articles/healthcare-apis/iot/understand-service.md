@@ -28,7 +28,7 @@ The MedTech service device message processing follows these steps and in this or
 ## Ingest
 Ingest is the first stage where device messages are received in an [Azure Event Hubs](../../event-hubs/index.yml) event hub (`device message event hub`) and pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
 
-The device message event hub uses the MedTech service [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for secure access to the device message event hub.
+The device message event hub uses the MedTech service's [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for secure access to the device message event hub.
 
 The MedTech service batches device messages from the device message event hub within a five-minute sliding window. The MedTech service isn't intended for real-time notifications as it can potentially take up to five minutes for device message data to be processed by the MedTech service and persisted in the FHIR service.
 
@@ -79,6 +79,8 @@ If no Device resource for a given device identifier exists in the FHIR service, 
 
 ## Persist
 Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation resource is new, it will be created in the FHIR service. If the FHIR Observation resource already existed, it will get updated in the FHIR service.
+
+The FHIR services uses the MedTech service's [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for secure access to the FHIR service.
 
 ## Next steps
 
