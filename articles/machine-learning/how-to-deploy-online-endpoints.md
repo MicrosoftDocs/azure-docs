@@ -23,7 +23,7 @@ You'll also learn how to view the logs and monitor the service-level agreement (
 
 Online endpoints are endpoints that are used for online (real-time) inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints, and differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
-Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. 
+Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure.
 
 The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document inline with the managed online endpoint discussion. 
 
@@ -189,7 +189,7 @@ cd azureml-examples/cli/endpoints/online/model-1
 
 ### Download files from the sample repository
 
-If you cloned the sample repo, you already have copies of the files for this example on your local machine and can skip to the next section. If you didn't clone the repo, you can download it to your local machine.
+If you cloned the sample repo, your local machine already has copies of the files for this example, and you can skip to the next section. If you didn't clone the repo, you can download it to your local machine.
 
 1. Go to [https://github.com/Azure/azureml-examples/](https://github.com/Azure/azureml-examples/).
 1. Go to the **<> Code** button on the page, and then select **Download ZIP** from the **Local** tab.
@@ -199,7 +199,7 @@ If you cloned the sample repo, you already have copies of the files for this exa
 
 ### Set environment variables
 
-Set the following environment variables, as they are used in the examples in this article. Replace the values with your Azure subscription ID, the Azure region where your workspace is located, the resource group that contains the workspace, and the workspace name:
+Set the following environment variables, as they're used in the examples in this article. Replace the values with your Azure subscription ID, the Azure region where your workspace is located, the resource group that contains the workspace, and the workspace name:
 
 ```bash
 export SUBSCRIPTION_ID="your Azure subscription ID"
@@ -407,15 +407,17 @@ To define the endpoint and deployment, this article uses the Azure Resource Mana
 
 In this example, we specify the `path` (where to upload files from) inline. The CLI automatically uploads the files and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the YAML. Use the form `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
 
-For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`. For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
+For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
+
+For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
 
 # [Python](#tab/python)
 
-In this example, we specify the `path` (where to upload files from) inline. The SDK automatically uploads the files and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the codes. 
+In this example, we specify the `path` (where to upload files from) inline. The SDK automatically uploads the files and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the codes.
 
-For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk)
+For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
 
-For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment)
+For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
 
 # [Studio](#tab/azure-studio)
 
@@ -542,7 +544,7 @@ The `run()` function is called for every invocation of the endpoint, and it does
 
 ## Deploy and debug locally by using local endpoints
 
-We *highly recommend* that you test-run your endpoint locally by validating and debugging your code and configuration before you deploy to Azure. Azure CLI and Python SDK support local endpoints and deployments, while AzureML studio and ARM template do not. For more information on debugging online endpoints locally before deploying to Azure, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+We *highly recommend* that you test-run your endpoint locally by validating and debugging your code and configuration before you deploy to Azure. Azure CLI and Python SDK support local endpoints and deployments, while AzureML studio and ARM template don't. For more information on debugging online endpoints locally before deploying to Azure, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 Local deployment has the following limitations:
 - Local endpoints do *not* support traffic rules, authentication, or probe settings. 
@@ -812,7 +814,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
     > * Optionally, you can add a description and tags to your endpoint.
 
 1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
-1. Select __Next__, until you get to the "Deployment" page. Here, check the box to __Enable Application Insights diagnostics and data collection__ to allow you view graphs of your endpoint's activities in the studio later.
+1. Select __Next__, until you get to the "Deployment" page. Here, check the box for __Enable Application Insights diagnostics and data collection__ to allow you view graphs of your endpoint's activities in the studio later.
 1. Select __Next__ to go to the "Environment" page. Here, select the following:
 
     * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
@@ -1107,12 +1109,12 @@ Currently, the studio allows you to make updates only to the instance count of a
 
 # [ARM template](#tab/arm)
 
-There currently is not an option to update the deployment using an ARM template.
+There currently isn't an option to update the deployment using an ARM template.
 
 ---
 
 > [!Note]
-> The above is an example of an inplace rolling update.
+> The previous update to the deployment is an example of an inplace rolling update.
 > * For a managed online endpoint, the deployment is updated to the new configuration with 20% nodes at a time. That is, if the deployment has 10 nodes, 2 nodes at a time will be updated.
 > * For a Kubernetes online endpoint, the system will iteratively create a new deployment instance with the new configuration and delete the old one.
 > * For production usage, you should consider [blue-green deployment](how-to-safely-rollout-online-endpoints.md), which offers a safer alternative for updating a web service.
