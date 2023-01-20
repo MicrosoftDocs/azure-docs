@@ -94,7 +94,7 @@ After creating the maven project, there should be a `pom.xml` file with basic in
 Run `mvn clean install` on your project. If this causes errors, try `mvn clean install -U` and then create a java file `demo.java` and import what you need from Azure maps into the file as shown in examples below.
 
 ```powershell
-cd xx\xx\ 
+cd DemoProject
 New-Item demo.java 
 ``` 
 
