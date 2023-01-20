@@ -2,7 +2,6 @@
 title: Onboard your data feed to Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: How to get started with onboarding your data feeds to Metrics Advisor.
-
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
