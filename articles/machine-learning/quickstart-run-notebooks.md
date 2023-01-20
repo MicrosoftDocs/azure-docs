@@ -58,7 +58,7 @@ A Jupyter notebook is a good place to start learning about Azure Machine Learnin
 1. Still in the **Notebooks** section, again select **+** to add files.
 1. select **Create new file**.
     
-    :::image type="content" source="media/tutorial-set-up-workstation/create-new-file.png" alt-text="Screenshot: Create new file":::
+    :::image type="content" source="media/tutorial-set-up-workstation/create-new-file.png" alt-text="Screenshot: Create new file.":::
 
 1. Name your new notebook **visualize-sample-data.ipynb**.
  
