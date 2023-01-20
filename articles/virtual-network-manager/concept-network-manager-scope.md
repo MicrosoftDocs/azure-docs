@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 08/11/2022
-ms.custom: template-concept, ignite-fall-2021
+ms.date: 01/31/2023
+ms.custom: template-concept
 ---
 
 # Understand and work with Azure Virtual Network Manager (Preview) scopes
