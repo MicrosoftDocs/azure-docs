@@ -43,7 +43,7 @@ az extension update --name aks-preview
 
 There are currently two available configuration types: `default` and `aksManagedAutoUpgradeSchedule`:
 
-- `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a VMSS instance. It is a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
+- `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a virtual machine scale sets instance. It is a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
 
 - `aksManagedAutoUpgradeSchedule` is a more complex configuration that controls when upgrades scheduled by your designated auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible. For more information on cluster auto-upgrade, see [Automatically an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
