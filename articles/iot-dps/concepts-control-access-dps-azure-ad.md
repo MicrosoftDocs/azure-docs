@@ -3,12 +3,13 @@ title:  Access control and security for DPS by using Azure Active Directory | Mi
 description: Concepts - how to control access to Azure IoT Hub Device Provisioning Service (DPS) (DPS) for back-end apps. Includes information about Azure Active Directory and RBAC.
 author: jesusbar
 ms.author: jesusbar
-ms.service: iot-hub
+ms.service: iot-dps
+services: iot-dps
 ms.topic: conceptual
 ms.date: 02/07/2022
 ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-js, devx-track-csharp]
-ms.subservice: azure-iot-hub-device-provisioning-service
 ---
+
 # Control access to Azure IoT Hub Device Provisioning Service (DPS) by using Azure Active Directory (preview)
 
 You can use Azure Active Directory (Azure AD) to authenticate requests to Azure IoT Hub Device Provisioning Service (DPS) APIs, like create device identity and invoke direct method. You can also use Azure role-based access control (Azure RBAC) to authorize those same service APIs. By using these technologies together, you can grant permissions to access Azure IoT Hub Device Provisioning Service (DPS) APIs to an Azure AD security principal. This security principal could be a user, group, or application service principal.

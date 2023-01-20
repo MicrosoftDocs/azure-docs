@@ -22,6 +22,9 @@ Using custom user-defined routes (UDRs) or ExpressRoutes, other than with UDRs o
 
 The following tables describe how to configure a collection of NSG allow rules.
 
+>[!NOTE]
+> The subnet associated with a Container App Environment requires a CIDR prefix of `/23` or larger.
+
 ### Inbound
 
 | Protocol | Port | ServiceTag | Description |

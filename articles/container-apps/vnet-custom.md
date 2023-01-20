@@ -21,7 +21,7 @@ The following example shows you how to create a Container Apps environment in an
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
 > [!NOTE]
-> Network address prefixes requires a CIDR range of `/21` or larger (`/20`, `/19` etc.).
+> Network address prefixes requires a CIDR range of `/23` or larger.
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
@@ -94,7 +94,7 @@ $VnetName = 'my-custom-vnet'
 Now create an Azure virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/21` or larger is required for use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -336,7 +336,7 @@ You must either provide values for all three of these properties, or none of the
 
 | Parameter | Description |
 |---|---|
-| `VnetConfigurationPlatformReservedCidr` | The address range used internally for environment infrastructure services. Must have a size between `/21` and `/12`. |
+| `VnetConfigurationPlatformReservedCidr` | The address range used internally for environment infrastructure services. Must have a size between `/23` and `/12`. |
 | `VnetConfigurationPlatformReservedDnsIP` | An IP address from the `VnetConfigurationPlatformReservedCidr` range that is used for the internal DNS server. The address can't be the first address in the range, or the network address. For example, if `VnetConfigurationPlatformReservedCidr` is set to `10.2.0.0/16`, then `VnetConfigurationPlatformReservedDnsIP` can't be `10.2.0.0` (the network address), or `10.2.0.1` (infrastructure reserves use of this IP). In this case, the first usable IP for the DNS would be `10.2.0.2`. |
 | `VnetConfigurationDockerBridgeCidr` | The address range assigned to the Docker bridge network. This range must have a size between `/28` and `/12`. |
 
