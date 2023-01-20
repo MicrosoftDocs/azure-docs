@@ -70,16 +70,12 @@ Cost presets are available for selection in the Azure Portal to allow easy confi
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the AKS cluster that you wish to monitor
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3.
-    a. If you have not previously configured Insights, select the 'Configure Azure Monitor' button.
-       For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar
-       
-    b. Select the "Use managed identity (preview)" checkbox
-    
-    c. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
+4. If you are configuring Container Insights for the first time, select the "Use managed identity (preview)" checkbox
+5. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+6. Click the blue "Configure" button to finish
 
-5.  Click the blue "Configure" button to finish
-
+## [Azure CLI](#tab/create-CLI)
 
 
 ## [ARM](#tab/create-arm)
@@ -115,21 +111,61 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 ```
 ---
 
+
+## Onboarding to an existing AKS hybrid Cluster
+
+## [Azure portal](#tab/create-portal)
+1. In the Azure portal, select the AKS hybrid cluster that you wish to monitor
+2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
+3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
+4. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+5. Click the blue "Configure" button to finish
+
+
+## [ARM](#tab/create-arm)
+
+
+1. Download the Azure Resource Manager Template and Parameter files
+
+```bash
+curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file -o existingClusterOnboarding.json
+```
+
+```bash
+curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-parameter-file -o existingClusterParam.json
+```
+
+2. Edit the values in the parameter file: existingClusterParam.json
+
+- For _aksResourceId_ and _aksResourceLocation_, use the values on the  **AKS Overview**  page for the AKS cluster.
+- For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
+- For _workspaceLocation_, use the Location of your Log Analytics workspace
+- For _resourceTagValues_, use the existing tag values specified for the AKS cluster
+- For _dataCollectionInterval_, specifythe interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
+- For _excludeNamespacesForDataCollection_, specify array of the namespaces to exclude for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"]
+
+3. Deploy the ARM template
+
+```azcli
+az login
+
+az account set --subscription"Cluster Subscription Name"
+
+az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+```
+---
+
+
 ## Onboarding to an existing Azure Arc K8s Clusters
 
 
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the Arc cluster that you wish to monitor
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3.
-    a. If you have not previously configured Insights, select the 'Configure Azure Monitor' button.
-       For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar
-       
-    b. Select the "Use managed identity (preview)" checkbox
-    
-    c. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
-
-5.  Click the blue "Configure" button to finish
+3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
+4. If you are configuring Container Insights for the first time, select the "Use managed identity (preview)" checkbox
+5. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+6. Click the blue "Configure" button to finish
 
 
 ## [ARM](#tab/create-arm)
