@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 12/08/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -16,9 +16,48 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## January 2023
+
+- [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
+- [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
+
+### New incident investigation experience (Preview)
+
+SOC analysts need to understand the full scope of an attack as fast as possible to respond effectively. 
+
+While triaging, investigating, and responding to a security incident, analysts require quick and seamless access to many pieces of information, actions, and tools. This access should optimally be within the incident investigation environment, with an absolute minimum of pivoting to other pages, products, or services&mdash;for example, to find Azure AD info or the geo-location of an IP, edit a bookmark, or add an entity to threat intelligence.
+
+**Microsoft Sentinel now offers a new incident investigation experience**. The new incident page design, along with many new features for investigation, response, and incident management, offers the analyst the information and tools necessary to understand the incident and the scope of breach, while making navigation easy and context switching less frequent. New features include, among others, top insights, a new activity log for incident audits and a Log Analytics query window to investigate logs.
+
+Learn more about the new investigation experience:
+- [Understand Microsoft Sentinel's incident investigation and case management capabilities](incident-investigation.md)
+- [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
+
+### Microsoft Purview Information Protection connector (Preview)
+
+With the new [Microsoft Purview Information Protection connector](connect-microsoft-purview.md), you can stream data from Microsoft Purview Information Protection (formerly Microsoft Information Protection or MIP) to Microsoft Sentinel. You can use the data ingested from the Microsoft Purview labeling clients and scanners to track, analyze, report on the data, and use it for compliance purposes.
+
+> [!IMPORTANT]
+> This connector replaces the Azure Information Protection (AIP) data connector, aligned with the retirement of the AIP analytics and audit logs public preview as of **March 31, 2023**.
+
+The new connector streams audit logs into the standardized 
+`MicrosoftPurviewInformationProtection` table, which has been adjusted to enhance the deprecated schema used by AIP, with more fields and easier access to parameters. Data is gathered through the [Office Management API](/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. Review the list of supported [audit log record types and activities](microsoft-purview-record-types-activities.md).
+
 ## December 2022
 
+- [Create and run playbooks on entities on-demand (Preview)](#create-and-run-playbooks-on-entities-on-demand-preview)
 - [Customize more alert properties (Preview)](#customize-more-alert-properties-preview)
+
+### Create and run playbooks on entities on-demand (Preview)
+
+SOC analysts can now take immediate action on a particular entity representing a threat actor, while in the middle of investigating an incident or hunting for threats, without leaving those contexts or having to pivot to other screens or apps. 
+
+Similarly, SOC engineers can now encapsulate a series of automated actions in workflows that run on a specific entity, so that analysts can use these workflows in the scenarios above.
+
+These improvements for SOC efficiency and productivity are thanks to the **new entity trigger for playbooks**.
+
+- Learn more about [running playbooks on entities on-demand](respond-threats-during-investigation.md).
+- Learn more about [creating playbooks based on the entity trigger](tutorial-respond-threats-playbook.md#create-a-playbook).
 
 ### Customize more alert properties (Preview)
 

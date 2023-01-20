@@ -260,9 +260,9 @@ As mentioned in some of the notes along this tutorial, processing text may have 
 
 MLflow models in Batch Endpoints support reading CSVs as input data, which may contain long sequences of text. The same considerations mentioned above apply to MLflow models. However, since you are not required to provide a scoring script for your MLflow model deployment, some of the recommendation there may be harder to achieve. 
 
-* Only `CSV` files are supported for MLflow deployments processing text. You will need to author a scoring script if you need to process other file types like `TXT`, `PARQUET`, etc. See [Using MLflow models with a scoring script](how-to-mlflow-batch.md#using-mlflow-models-with-a-scoring-script) for details.
+* Only `CSV` files are supported for MLflow deployments processing text. You will need to author a scoring script if you need to process other file types like `TXT`, `PARQUET`, etc. See [Using MLflow models with a scoring script](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script) for details.
 * Batch deployments will call your MLflow model's predict function with the content of an entire file in as Pandas dataframe. If your input data contains many rows, chances are that running a complex model (like the one presented in this tutorial) will result in an out-of-memory exception. If this is your case, you can consider:
    * Customize how your model runs predictions and implement batching. To learn how to customize MLflow model's inference, see [Logging custom models](how-to-log-mlflow-models.md?#logging-custom-models).
-   * Author a scoring script and load your model using `mlflow.<flavor>.load_model()`. See [Using MLflow models with a scoring script](how-to-mlflow-batch.md#using-mlflow-models-with-a-scoring-script) for details.
+   * Author a scoring script and load your model using `mlflow.<flavor>.load_model()`. See [Using MLflow models with a scoring script](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script) for details.
 
 

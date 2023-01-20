@@ -157,12 +157,12 @@ sections:
       - question: |
           How many users can log in to my static web app?
         answer:
-          Static Web Apps doesn't have a limit on the number of users that can log in to your app. You can assign custom roles to up to 25 users using the built-in invitations system. If you need to assign custom roles to more users, you can use an [API function to programmatically assign roles](authentication-authorization.md?tabs=function#role-management).
+          Static Web Apps doesn't have a limit on the number of users that can log in to your app. You can assign custom roles to up to 25 users using the built-in invitations system. If you need to assign custom roles to more users, you can use an [API function to programmatically assign roles](authentication-custom.md#manage-roles).
           
       - question: |
           How do I use the retrieve a user's access token or claims from the identity provider?
         answer: |
-          You can retrieve the user's access token and claims when you use an [API function for role management](authentication-authorization.md?tabs=function#role-management).
+          You can retrieve the user's access token and claims when you use an [API function for role management](authentication-custom.md#manage-roles).
 
       - question: |
           Am I limited to using a single identity provider?

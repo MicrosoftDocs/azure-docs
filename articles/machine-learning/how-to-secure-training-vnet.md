@@ -74,6 +74,7 @@ In this article you learn how to secure the following training compute resources
 * To create a compute cluster or instance without a public IP address (a preview feature), your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 * If you plan to secure the virtual network by restricting traffic, see the [Required public internet access](#required-public-internet-access) section.
 * The subnet used to deploy compute cluster/instance shouldn't be delegated to any other service. For example, it shouldn't be delegated to ACI.
+* Compute cluster/instance deployment in virtual network is not supported with Azure Lighthouse
 
 ### Azure Databricks
 

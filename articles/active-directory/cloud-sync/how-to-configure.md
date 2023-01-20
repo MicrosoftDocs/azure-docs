@@ -7,7 +7,11 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
+<<<<<<< HEAD
 ms.date: 12/07/2022
+=======
+ms.date: 01/11/2023
+>>>>>>> 9e5aa301325e4dc5559dc0f7db6eb5a32ce009c2
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -55,6 +59,10 @@ To configure provisioning, follow these steps.
 |3. [Test](#on-demand-provisioning)|Test your configuration before deploying it|
 |4. View [default properties](#accidental-deletions-and-email-notifications)|View the default setting prior to enabling them and make changes where appropriate|
 |5. Enable [your configuration](#enable-your-configuration)|Once ready, enable the configuration and users/groups will begin synchronizing|
+
+ >[!NOTE]
+ >  During the configuration process the synchronization service account will be created with the format **ADToAADSyncServiceAccount@[TenantID].onmicrosoft.com** and you may get an error if multi-factor authentication is enabled for the synchronization service account, or other interactive authentication policies are accidentally enabled for the synchronization account. Removing multi-factor authentication or any interactive authentication policies for the synchronization service account should resolve the error and you can complete the configuration smoothly.
+
 
 ## Scope provisioning to specific users and groups
 You can scope the agent to synchronize specific users and groups by using on-premises Active Directory groups or organizational units. 

@@ -4,8 +4,8 @@ description: Describes the policy around Postgres major and minor versions in Az
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 
 ms.date: 09/14/2022
 ms.custom: fasttrack-edit, ignite-2022

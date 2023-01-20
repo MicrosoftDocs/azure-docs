@@ -46,7 +46,7 @@ After installing the Connected Machine agent for Windows, the following system-w
     |-----------|-------------|
     | %ProgramFiles%\AzureConnectedMachineAgent | azcmagent CLI and instance metadata service executables.|
     | %ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\GC | Extension service executables.|
-    | %ProgramFiles%\AzureConnectedMachineAgent\GuestConfig\GC | Guest configuration (policy) service executables.|
+    | %ProgramFiles%\AzureConnectedMachineAgent\GCArcService\GC | Guest configuration (policy) service executables.|
     | %ProgramData%\AzureConnectedMachineAgent | Configuration, log and identity token files for azcmagent CLI and instance metadata service.|
     | %ProgramData%\GuestConfig | Extension package downloads, guest configuration (policy) definition downloads, and logs for the extension and guest configuration services.|
     | %SYSTEMDRIVE%\packages | Extension package executables |

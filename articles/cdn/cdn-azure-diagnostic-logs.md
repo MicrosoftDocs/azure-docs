@@ -48,7 +48,7 @@ Follow these steps enable logging for your Azure CDN endpoint:
 
 3. Select **Diagnostics logs** in the **Monitoring** section:
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Select diagnostics logs." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Screenshot of the diagnostics logs button under monitoring menu." border="true":::
 
 ### Enable logging with Azure Storage
 

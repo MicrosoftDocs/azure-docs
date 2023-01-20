@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual Linux IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine and then delete it when you're finished.
 
@@ -33,7 +33,7 @@ If you don't have an active Azure subscription, create a [free account](https://
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Cloud resources:
 
@@ -334,12 +334,12 @@ Open the command prompt on your IoT Edge device again, or use the SSH connection
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
-   ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-201806.png)
+![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-201806.png)
 :::moniker-end
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
-   ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-202011.png)
+![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-1.4.png)
 :::moniker-end
 
 View the messages being sent from the temperature sensor module:

@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create a volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 05/09/2022
+ms.date: 12/26/2022
 
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage using Azure Files to a pod in AKS.
@@ -101,7 +101,7 @@ spec:
       volumeAttributes:
         secretName: azure-secret  # required
         shareName: aksshare  # required
-        mountOptions: "dir_mode=0777,file_mode=0777,cache=strict,actimeo=30"  # optional
+        mountOptions: "dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock"  # optional
 ```
 
 Use the `kubectl` command to create the pod.
@@ -113,6 +113,8 @@ kubectl apply -f azure-files-pod.yaml
 You now have a running pod with an Azure Files share mounted at */mnt/azure*. You can use `kubectl describe pod mypod` to verify the share is mounted successfully. 
 
 ## Mount file share as a persistent volume
+> [!NOTE]
+> For SMB mount, if `nodeStageSecretRef` field is not provided in PV config, azure file driver would try to get `azure-storage-account-{accountname}-secret` in the pod namespace, if that secret does not exist, it would get account key by Azure storage account API directly using kubelet identity (make sure kubelet identity has reader access to the storage account).
  - Mount options
 > The default value for *fileMode* and *dirMode* is *0777*.
 
@@ -131,7 +133,7 @@ spec:
   csi:
     driver: file.csi.azure.com
     readOnly: false
-    volumeHandle: unique-volumeid  # make sure this volumeid is unique in the cluster
+    volumeHandle: unique-volumeid  # make sure volumeid is unique for every identical share in the cluster
     volumeAttributes:
       resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, only set this when storage account is not in the same resource group as agent node
       shareName: aksshare

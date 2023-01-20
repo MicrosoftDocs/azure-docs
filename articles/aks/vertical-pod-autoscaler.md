@@ -37,22 +37,46 @@ Vertical Pod Autoscaler provides the following benefits:
 
 * The Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-* The `aks-preview` extension version 0.5.102 or later.
-
 * `kubectl` should be connected to the cluster you want to install VPA.
 
 ## API Object
 
 The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported in this preview release is 0.11 can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
 
-## Register the VPA provider feature
+## Install the aks-preview Azure CLI extension
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-To install the aks-vpapreview preview feature, run the following command:
+To install the aks-preview extension, run the following command:
 
 ```azurecli
-az feature register --namespace Microsoft.ContainerService --name AKS-VPAPreview
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+## Register the 'AKS-VPAPreview' feature flag
+
+Register the `AKS-VPAPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-VPAPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "AKS-VPAPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
 ```
 
 ## Deploy, upgrade, or disable VPA on a cluster
@@ -389,3 +413,6 @@ This article showed you how to automatically scale resource utilization, such as
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [horizontal-pod-autoscaling]: concepts-scale.md#horizontal-pod-autoscaler
 [scale-applications-in-aks]: tutorial-kubernetes-scale.md
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show

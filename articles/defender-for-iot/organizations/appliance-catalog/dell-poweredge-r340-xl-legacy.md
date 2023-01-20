@@ -9,13 +9,13 @@ ms.topic: reference
 
 This article describes the Dell PowerEdge R340 XL appliance, supported for OT sensors and on-premises management consoles.
 
-Legacy appliances are certified but aren't currently offered as preconfigured appliances.
-
+> [!NOTE]
+> Legacy appliances are certified but aren't currently offered as pre-configured appliances.
 
 |Appliance characteristic  | Description|
 |---------|---------|
 |**Hardware profile** | E1800|
-|**Performance** | Max bandwidth: 1 Gbp/s<br>Max devices: 10,000 |
+|**Performance** | Max bandwidth: 1 Gbps<br>Max devices: 10,000 |
 |**Physical Specifications** | Mounting: 1U<br>Ports: 8x RJ45 or 6x SFP (OPT)|
 |**Status** | Supported, not available as a preconfigured appliance|
 

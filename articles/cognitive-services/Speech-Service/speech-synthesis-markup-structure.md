@@ -259,4 +259,4 @@ This SSML snippet illustrates how to request blend shapes with your synthesized 
 
 - [SSML overview](speech-synthesis-markup.md)
 - [Voice and sound with SSML](speech-synthesis-markup-voice.md)
-- [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
+- [Language support: Voices, locales, languages](language-support.md?tabs=tts)

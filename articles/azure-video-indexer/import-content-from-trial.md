@@ -2,14 +2,12 @@
 title: Import your content from the trial account
 description: Learn how to import your content from the trial account.
 ms.topic: tutorial
-ms.date: 05/03/2022
+ms.date: 12/19/2022
 ms.author: itnorman
 ms.custom: ignite-fall-2021
 ---
 
 # Import your content from the trial account
-
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
 
 When creating a new ARM-based account, you have an option to import your content from the trial account into the new ARM-based account free of charge.
 

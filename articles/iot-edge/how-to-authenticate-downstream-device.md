@@ -12,7 +12,7 @@ services: iot-edge
 
 # Authenticate a downstream device to Azure IoT Hub
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 In a transparent gateway scenario, downstream devices (sometimes called child devices) need identities in IoT Hub like any other device. This article walks through the options for authenticating a downstream device to IoT Hub, and then demonstrates how to declare the gateway connection. 
 

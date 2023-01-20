@@ -1,6 +1,396 @@
 {
     "redirections": [
         {
+            "source_path": "articles/vmware-cloudsimple/access-cloudsimple-portal.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/access-cloudsimple-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/account.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/azure-ad.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/azure-application-gateway.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-application-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/azure-create-vm.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-create-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/azure-expressroute-connection.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-expressroute-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/azure-manage-vm.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/azure-subscription-mapping.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-subscription-mapping",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/backup-workloads-veeam.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/backup-workloads-veeam",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-account.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-activity.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-activity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-azure-network-connection.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-azure-network-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-firewall-tables.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-firewall-tables",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-maintenance-updates.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-maintenance-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-network-checklist.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-network-checklist",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-node.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-public-ip-address.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-public-ip-address",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-security.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-service.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-virtual-machines.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-vlans-subnets.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-vlans-subnets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-vmware-solutions-overview.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-vmware-solutions-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/cloudsimple-vpn-gateways.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-vpn-gateways",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/configure-server-vrealize-automation-endpoint.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/configure-server-vrealize-automation-endpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/create-cloudsimple-service.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/create-cloudsimple-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/create-nodes.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/create-nodes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/create-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/create-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/create-vlan-subnet.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/create-vlan-subnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/delete-nodes.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/delete-nodes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/delete-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/delete-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/disaster-recovery-site-recovery-manager.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/disaster-recovery-site-recovery-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/disaster-recovery-zerto.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/disaster-recovery-zerto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/dns-dhcp-setup.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/dns-dhcp-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/ensuring-high-availability.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/ensuring-high-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/escalate-private-cloud-privileges.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/escalate-private-cloud-privileges",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/escalate-privileges.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/escalate-privileges",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/expand-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/expand-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/firewall.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/forbidden-actions.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/forbidden-actions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/high-availability-vpn-connection.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/high-availability-vpn-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/horizon-guide.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/horizon-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/index.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/key-concepts.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/key-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/learn-private-cloud-permissions.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/learn-private-cloud-permissions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/load-balancers.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/load-balancers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/manage-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/manage-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/migrate-workloads.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/migrate-workloads",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/migration-layer-2-vpn.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/migration-layer-2-vpn",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/migration-using-azure-data-box.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/migration-using-azure-data-box",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/monitor-activity.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/monitor-activity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/node-quota.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/node-quota",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/on-premises-connection.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/on-premises-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/on-premises-dns-setup.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/on-premises-dns-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/on-premises-firewall-configuration.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/on-premises-firewall-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/oracle-real-application-clusters.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/oracle-real-application-clusters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/private-cloud-dns-forwarding.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/private-cloud-dns-forwarding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/private-cloud-secure.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/private-cloud-secure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/public-ips.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/public-ips",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/quickstart-create-cloudsimple-service.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/quickstart-create-cloudsimple-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/quickstart-create-private-cloud-vmware-virtual-machine.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/quickstart-create-private-cloud-vmware-virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/quickstart-create-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/quickstart-create-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/quickstart-create-vmware-virtual-machine.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/quickstart-create-vmware-virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/set-up-vpn.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/set-up-vpn",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/set-vcenter-identity.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/set-vcenter-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/shrink-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/shrink-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/update-plan-sept-2020.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/update-plan-sept-2020",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/users.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/vcenter-access.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/vcenter-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/virtual-network-connection.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/virtual-network-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/vmware-components.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/vmware-components",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/vpn-gateway.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/vpn-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vmware-cloudsimple/vsan-encryption.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/vsan-encryption",
+            "redirect_document_id": false
+        },            
+        {
+            "source_path": "articles/storage/blobs/storage-quickstart-blobs-php.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-quickstart-blobs-ruby.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-ruby",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-afs.md",
+            "redirect_url": "/azure/backup/backup-azure-files",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-create-rs-vault.md",
+            "redirect_url": "/azure/backup/backup-create-recovery-services-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-quickstart-queues-dotnet-legacy.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-dotnet",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/iot-solution.md",
             "redirect_url": "/azure/defender-for-iot/organizations/iot-solution",
             "redirect_document_id": false
@@ -13,16 +403,6 @@
         {
             "source_path_from_root": "/articles/backup/backup-center-community.md",
             "redirect_url": "/azure/backup/backup-center-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
-            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
-            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
         },
         {
@@ -148,16 +528,6 @@
         {
             "source_path_from_root": "/articles/aks/workload-identity-migration-sidecar.md",
             "redirect_url": "/azure/aks/workload-identity-migrate-from-pod-identity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/api-management/zone-redundancy.md",
-            "redirect_url": "/azure/availability-zones/migrate-api-mgt",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/api-management/developer-portal-implement-widgets.md",
-            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
         },
         {
@@ -538,11 +908,6 @@
         {
             "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-upgrade.md",
             "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-upgrade",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/api-management/import-api-app-as-api.md",
-            "redirect_url": "/azure/api-management/import-app-service-as-api",
             "redirect_document_id": false
         },
         {
@@ -1148,6 +1513,11 @@
             "redirect_url": "/azure",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/add-user-without-invite.md",
+            "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
+            "redirect_document_id": true
+    	 },
         {
             "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-landing-custom.md",
             "redirect_url": "/azure/active-directory-b2c",
@@ -2701,71 +3071,6 @@
         {
             "source_path_from_root": "/articles/analysis-services/tutorials/aas-supplemental-lesson-ragged-hierarchies.md",
             "redirect_url": "/azure/analysis-services/analysis-services-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-product.md",
-            "redirect_url": "/azure/api-management/api-management-howto-add-products",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/graphql-validation-policies.md",
-            "redirect_url": "/azure/api-management/graphql-policies",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-policy-reference.md",
-            "redirect_url": "/azure/api-management/api-management-policies",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-docker.md",
-            "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-docker",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-k8s.md",
-            "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-kubernetes",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-get-started.md",
-            "redirect_url": "/azure/api-management/import-and-publish",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-create-apis.md",
-            "redirect_url": "/azure/api-management/import-and-publish",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-import-api.md",
-            "redirect_url": "/azure/api-management/import-and-publish",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-add-operations.md",
-            "redirect_url": "/azure/api-management/mock-api-responses",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/policy-samples.md",
-            "redirect_url": "/azure/api-management/policy-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-security-attributes.md",
-            "redirect_url": "/azure/api-management/security-baseline",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-security-controls.md",
-            "redirect_url": "/azure/api-management/security-baseline",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-product-with-rules.md",
-            "redirect_url": "/azure/api-management/transform-api",
             "redirect_document_id": false
         },
         {
@@ -5974,6 +6279,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management-enable.md",
+            "redirect_url": "/azure/automation/automation-solution-vm-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/update-center/enable-machines.md",
             "redirect_url": "/azure/update-center/updates-maintenance-schedules",
             "redirect_document_id": false
@@ -6956,11 +7266,6 @@
         {
             "source_path_from_root": "/articles/functions/functions-scale.md",
             "redirect_url": "/azure/azure-functions/functions-scale",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md",
-            "redirect_url": "/azure/api-management/export-api-power-platform",
             "redirect_document_id": false
         },
         {
@@ -9801,11 +10106,6 @@
         {
             "source_path_from_root": "/articles/baremetal-infrastructure/workloads/sap/baremetal-overview-architecture.md",
             "redirect_url": "/azure/baremetal-infrastructure/concepts-baremetal-infrastructure-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/backup/backup-azure-files.md",
-            "redirect_url": "/azure/backup/backup-afs",
             "redirect_document_id": false
         },
         {
@@ -13229,6 +13529,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/expressroute/howto-linkvnet-cli.md",
+            "redirect_url": "/azure/expressroute/expressroute-howto-linkvnet-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/firewall/tutorial-diagnostics.md",
             "redirect_url": "/azure/firewall/firewall-diagnostics",
             "redirect_document_id": false
@@ -14743,6 +15048,12 @@
             "redirect_url": "/azure/load-balancer/load-balancer-security-controls",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/load-balancer/update-load-balancer-with-vm-scale-set.md",
+            "redirect_url": "/azure/load-balancer/configure-inbound-nat-rules-vm-scale-set",
+            "redirect_document_id": false
+        },
+
         {
             "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-arm-cli.md",
             "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-cli",
@@ -16322,6 +16633,11 @@
             "source_path_from_root": "/articles/scheduler/get-started-portal.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
             "redirect_document_id": ""
+        },
+        {
+            "source_path_from_root": "/articles/search/search-get-started-vs-code.md",
+            "redirect_url": "/previous-versions/azure/search/search-get-started-vs-code",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/search/search-how-to-index-power-query-data-sources.md",
@@ -18314,6 +18630,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/dns-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-dns",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/file-event-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-file-event",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/service-bus/index.md",
             "redirect_url": "/azure/service-bus-messaging/index",
             "redirect_document_id": false
@@ -18516,11 +18842,6 @@
         {
             "source_path_from_root": "/articles/service-fabric/service-fabric-cluster-delete.md",
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-delete-cluster",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/service-fabric/service-fabric-api-management-quick-start.md",
-            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-api-management",
             "redirect_document_id": false
         },
         {
@@ -24509,11 +24830,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-api-management-certs.md",
-            "redirect_url": "/previous-versions/azure/azure-api-management-certs",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/batch-ai/cli-samples.md",
             "redirect_url": "/previous-versions/azure/batch-ai/cli-samples",
             "redirect_document_id": false
@@ -27714,6 +28030,101 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-multi-sid.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-multi-sid.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sapase.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sapase",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_general.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-general",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_ibm.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-ibm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_maxdb.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-maxdb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_oracle.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-oracle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sqlserver.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sqlserver",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-supported-product-on-azure.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/supported-product-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-rise-integration.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/rise-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/proximity-placement-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-planning-supported-configurations.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/planning-supported-configurations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-iq-deployment-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sapiq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-certifications.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/certifications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ha-availability-zones.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/high-availability-zones",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-deployment-checklist.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/deployment-checklist",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-get-started-classic.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/migrate/how-to-scale-assessment.md",
             "redirect_url": "scale-hyper-v-assessment",
             "redirect_document_id": false
@@ -29495,8 +29906,23 @@
             "redirect_document_id": "false"
         },
         {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-group-policy-service-principal-encryption.md",
+            "redirect_url": "/azure/azure-arc/servers/onboard-group-policy-powershell",
+            "redirect_document_id": "false"
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-group-policy.md",
+            "redirect_url": "/azure/azure-arc/servers/onboard-group-policy-powershell",
+            "redirect_document_id": "false"
+        },
+        {
           "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
           "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/dotnet-develop-multitenant-applications.md",
+          "redirect_URL": "/azure/architecture/guide/multitenant/overview",
           "redirect_document_id": false
         }
     ]
