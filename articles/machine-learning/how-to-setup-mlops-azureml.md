@@ -49,20 +49,23 @@ In this article, you learn about using Azure Machine Learning to set up an end-t
 
 ## Set up authentication with Azure and DevOps
 
-Before you can setup an MLOps project with AzureML you need to make sure you have the correct authentication setup for Azure DevOps.
+Before you can set up an MLOps project with AzureML, you need to set up authentication for Azure DevOps.
 
 ### Create service principal
    For the use of the demo, the creation of one or two service principles is required, depending on how many environments, you want to work on (Dev or Prod or Both). These principles can be created using one of the following methods:
 
 # [Create from Azure Cloud Shell](#tab/azure-shell)
 
-1. Launch the [Azure Cloud Shell](https://shell.azure.com). (If this the first time you have launched the cloud shell, you will be required to creata storage account for the cloud shell.)
+1. Launch the [Azure Cloud Shell](https://shell.azure.com).
+
+    > [!TIP]
+    > The first time you've launched the Cloud Shell, you'll be prompted to create a storage account for the Cloud Shell.
 
 1. If prompted, choose **Bash** as the environment used in the Cloud Shell. You can also change environments in the drop-down on the top navigation bar
 
     ![Screenshot of the cloud shell environment dropdown](./media/how-to-setup-mlops-azureml/PS_CLI1_1.png)
 
-1. Copy the bash commands below to your computer and update the **projectName**, **subscriptionId**, and **environment** variables with the values for your project. If you are creating both a Dev and Prod environment you will need to run this script once for each environment, creating a service principal for each. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for Azure DevOps to properly use resources in that subscription. 
+1. Copy the bash commands below to your computer and update the **projectName**, **subscriptionId**, and **environment** variables with the values for your project. If you are creating both a Dev and Prod environment, you'll need to run this script once for each environment, creating a service principal for each. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for Azure DevOps to properly use resources in that subscription. 
 
     ``` bash
     projectName="<your project name>"
@@ -79,7 +82,7 @@ Before you can setup an MLOps project with AzureML you need to make sure you hav
 
 1. Copy your edited commands into the Azure Shell and run them (**Ctrl** + **Shift** + **v**).
 
-1. After running these commands you will be presented with information related to the service principal. Save this information to a safe location, it will be use later in the demo to configure Azure DevOps.
+1. After running these commands, you'll be presented with information related to the service principal. Save this information to a safe location, it will be use later in the demo to configure Azure DevOps.
 
     ```json
     {
@@ -90,7 +93,7 @@ Before you can setup an MLOps project with AzureML you need to make sure you hav
     }
     ```
 
-1. Repeat **Step 3.** if you are creating service principals for Dev and Prod environments.
+1. Repeat **Step 3.** if you're creating service principals for Dev and Prod environments.
 
 1. Close the Cloud Shell once the service principals are created. 
       
@@ -101,15 +104,15 @@ Before you can setup an MLOps project with AzureML you need to make sure you hav
 
 1. Select **New Registration**.
 
-    ![Screenshot of service principal setup](./media/how-to-setup-mlops-azureml/SP-setup-ownership-tab.png)
+    ![Screenshot of service principal setup.](./media/how-to-setup-mlops-azureml/SP-setup-ownership-tab.png)
 
-1. Go through the process of creating a Service Principle (SP) selecting **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** and name it  **Azure-ARM-Dev-ProjectName**. Once created, repeat and create a new SP named **Azure-ARM-Prod-ProjectName**. Please replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
+1. Go through the process of creating a Service Principle (SP) selecting **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** and name it  **Azure-ARM-Dev-ProjectName**. Once created, repeat and create a new SP named **Azure-ARM-Prod-ProjectName**. Replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
 
 1. Go to **Certificates & Secrets** and add for each SP **New client secret**, then store the value and secret separately.
 
 1. To assign the necessary permissions to these principals, select your respective [subscription](https://portal.azure.com/#view/Microsoft_Azure_BillingSubscriptionsBlade?) and go to IAM. Select **+Add** then select **Add Role Assignment**.
 
-    ![Screenshot of the add role assignment page](./media/how-to-setup-mlops-azureml/SP-setup-iam-tab.png)
+    ![Screenshot of the add role assignment page.](./media/how-to-setup-mlops-azureml/SP-setup-iam-tab.png)
 
 1. Select Contributor and add members selecting + Select Members. Add the member **Azure-ARM-Dev-ProjectName** as create before.
 
