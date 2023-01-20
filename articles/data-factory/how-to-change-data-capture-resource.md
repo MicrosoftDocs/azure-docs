@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice:
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/04/2023
+ms.date: 01/20/2023
 ---
 
 # How to capture changed data from ADLS Gen2 to SQL DB using a Change data capture resource
