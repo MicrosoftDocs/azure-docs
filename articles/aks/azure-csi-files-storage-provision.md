@@ -45,7 +45,7 @@ This section provides guidance for cluster administrators who want to provision 
 |allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true` or `false` | No | `false` |
 |requireInfraEncryption | Specify whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest for storage account created by driver. | `true` or `false` | No | `false` |
 |storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net`, `core.chinacloudapi.cn`, etc. | No | If empty, driver uses default storage endpoint suffix according to cloud environment. For example, `core.windows.net`. |
-|tags | [tags][tag-resources] are created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
+|tags | [Tags][tag-resources] are created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
 |matchTags | Match tags when driver tries to find a suitable storage account. | `true` or `false` | No | `false` |
 |--- | **Following parameters are only for SMB protocol** | --- | --- |
 |subscriptionID | Specify Azure subscription ID where Azure file share is created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided. |
@@ -101,7 +101,7 @@ parameters:
 
 Create the storage class with the [kubectl apply][kubectl-apply] command:
 
-```console
+```bash
 kubectl apply -f azure-file-sc.yaml
 ```
 
@@ -130,15 +130,19 @@ spec:
 
 Create the persistent volume claim with the [kubectl apply][kubectl-apply] command:
 
-```console
+```bash
 kubectl apply -f azure-file-pvc.yaml
 ```
 
 Once completed, the file share will be created. A Kubernetes secret is also created that includes connection information and credentials. You can use the [kubectl get][kubectl-get] command to view the status of the PVC:
 
-```console
-$ kubectl get pvc my-azurefile
+```bash
+kubectl get pvc my-azurefile
+```
 
+The output of the command resembles the following example:
+
+```console
 NAME           STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
 my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   10Gi       RWX            my-azurefile      5m
 ```
@@ -176,13 +180,13 @@ spec:
 
 Create the pod with the [kubectl apply][kubectl-apply] command.
 
-```console
+```bash
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-You now have a running pod with your Azure Files file share mounted in the */mnt/azure* directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`. The following condensed example output shows the volume mounted in the container:
+You now have a running pod with your Azure Files file share mounted in the */mnt/azure* directory. This configuration can be seen when inspecting your pod using the [kubectl describe][kubectl-describe] command. The following condensed example output shows the volume mounted in the container:
 
-```
+```console
 Containers:
   mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
@@ -310,7 +314,7 @@ Kubernetes needs credentials to access the file share created in the previous st
 
 Use the `kubectl create secret` command to create the secret. The following example creates a secret named *azure-secret* and populates the *azurestorageaccountname* and *azurestorageaccountkey* from the previous step. To use an existing Azure storage account, provide the account name and key.
 
-```console
+```bash
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
 ```
 
@@ -353,13 +357,17 @@ spec:
         mountOptions: "dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock"  # optional
 ```
 
-Use the `kubectl` command to create the pod.
+Use the [kubectl apply][kubectl-apply] command to create the pod.
 
-```console
+```bash
 kubectl apply -f azure-files-pod.yaml
 ```
 
-You now have a running pod with an Azure Files file share mounted at */mnt/azure*. You can use `kubectl describe pod mypod` to verify the share is mounted successfully.
+You now have a running pod with an Azure Files file share mounted at */mnt/azure*. You can verify the share is mounted successfully using the [kubectl describe][kubectl-describe] command:
+
+```bash
+kubectl describe pod mypod
+```
 
 ### Mount file share as a persistent volume
 
@@ -400,7 +408,7 @@ The following example demonstrates how to mount a file share as a persistent vol
         - nobrl
     ```
 
-2. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
+2. Run the following command to create the persistent volume using the [kubectl create][kubectl-create] command referencing the YAML file created earlier:
 
     ```bash
     kubectl create -f azurefiles-pv.yaml
@@ -425,13 +433,13 @@ The following example demonstrates how to mount a file share as a persistent vol
 
 4. Use the `kubectl` commands to create the *PersistentVolumeClaim*.
 
-```console
+```bash
 kubectl apply -f azurefiles-mount-options-pvc.yaml
 ```
 
 5. Verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume* by running the following command.
 
-    ```console
+    ```bash
     kubectl get pvc azurefile
     ```
 
@@ -452,9 +460,9 @@ kubectl apply -f azurefiles-mount-options-pvc.yaml
           claimName: azurefile
     ```
 
-7. Because a pod spec can't be updated in place, use `kubectl` commands to delete and then re-create the pod:
+7. Because a pod spec can't be updated in place, use [kubectl delete][kubectl-delete] and [kubectl apply][kubectl-apply] commands to delete and then re-create the pod:
 
-    ```console
+    ```bash
     kubectl delete pod mypod
     
     kubectl apply -f azure-files-pod.yaml
@@ -474,7 +482,10 @@ For associated best practices, see [Best practices for storage and backups in AK
 [kubernetes-persistent-volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [data-plane-api]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 
 <!-- LINKS - internal -->
 [azure-storage-account]: ../storage/common/storage-introduction.md

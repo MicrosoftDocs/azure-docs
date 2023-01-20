@@ -42,7 +42,7 @@ This section provides guidance for cluster administrators who want to provision 
 |server | Specify Azure storage account domain name. | Existing storage account DNS domain name, for example `<storage-account>.privatelink.blob.core.windows.net`. | No | If empty, driver uses default `<storage-account>.blob.core.windows.net` or other sovereign cloud storage account DNS domain name.|
 |allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true`,`false` | No | `false`|
 |storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net` | No | If empty, driver will use default storage endpoint suffix according to cloud environment.|
-|tags | [tags][az-tags] would be created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | ""|
+|tags | [Tags][az-tags] would be created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | ""|
 |matchTags | Match tags when driver tries to find a suitable storage account. | `true`,`false` | No | `false`|
 |--- | **Following parameters are only for blobfuse** | --- | --- |--- |
 |subscriptionID | Specify Azure subscription ID where blob storage directory will be created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
@@ -75,7 +75,7 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
           storage: 5Gi
     ```
 
-2. Create the persistent volume claim with the kubectl create command:
+2. Create the persistent volume claim with the [kubectl create][kubectl-create] command:
 
     ```bash
     kubectl create -f blob-nfs-pvc.yaml
@@ -324,7 +324,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
    > [!NOTE]
    > While the [Kubernetes API](https://github.com/kubernetes/kubernetes/blob/release-1.26/pkg/apis/core/types.go#L303-L306) **capacity** attribute is mandatory, this value isn't used by the Azure Blob storage CSI driver because you can flexibly write data until you reach your storage account's capacity limit. The value of the `capacity` attribute is used only for size matching between *PersistentVolumes* and *PersistenVolumeClaims*. We recommend using a fictitious high value. The pod sees a mounted volume with a fictitious size of 5 Petabytes.
 
-2. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
+2. Run the following command to create the persistent volume using the [kubectl create][kubectl-create] command referencing the YAML file created earlier:
 
     ```bash
     kubectl create -f pv-blob-nfs.yaml
@@ -347,7 +347,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
       storageClassName: azureblob-nfs-premium
     ```
 
-4. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
+4. Run the following command to create the persistent volume claim using the [kubectl create][kubectl-create] command referencing the YAML file created earlier:
 
     ```bash
     kubectl create -f pvc-blob-nfs.yaml
@@ -412,7 +412,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
           namespace: default
     ```
 
-3. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
+3. Run the following command to create the persistent volume using the [kubectl create][kubectl-create] command referencing the YAML file created earlier:
 
     ```bash
     kubectl create -f pv-blobfuse.yaml
@@ -435,7 +435,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
       storageClassName: azureblob-fuse-premium
     ```
 
-5. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
+5. Run the following command to create the persistent volume claim using the [kubectl create][kubectl-create] command referencing the YAML file created earlier:
 
     ```bash
     kubectl create -f pvc-blobfuse.yaml
@@ -445,7 +445,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 
 ### Use the persistent volume
 
-The following YAML creates a pod that uses the persistent volume or persistent volume claim named **pvc-blob** created earlier, to mount the Azure Blob storage at the `/mnt/blob' path.
+The following YAML creates a pod that uses the persistent volume or persistent volume claim named **pvc-blob** created earlier, to mount the Azure Blob storage at the `/mnt/blob` path.
 
 1. Create a file named `nginx-pod-blob.yaml`, and copy in the following YAML. Make sure that the **claimName** matches the PVC created in the previous step when creating a persistent volume for NFS or Blobfuse.
 
@@ -469,7 +469,7 @@ The following YAML creates a pod that uses the persistent volume or persistent v
             claimName: pvc-blob
     ```
 
-2. Run the following command to create the pod and mount the PVC using the `kubectl create` command referencing the YAML file created earlier:
+2. Run the following command to create the pod and mount the PVC using the [kubectl create][kubectl-create] command referencing the YAML file created earlier:
 
     ```bash
     kubectl create -f nginx-pod-blob.yaml
@@ -501,6 +501,8 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [nfs-overview]: https://en.wikipedia.org/wiki/Network_File_System
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 
 <!-- LINKS - internal -->
 [operator-best-practices-storage]: operator-best-practices-storage.md
@@ -509,3 +511,4 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [azure-blob-storage-nfs-support]: ../storage/blobs/network-file-system-protocol-support.md
 [enable-blob-csi-driver]: azure-blob-csi.md#before-you-begin
 [az-tags]: ../azure-resource-manager/management/tag-resources.md
+[sas-tokens]: ../storage/common/storage-sas-overview.md

@@ -26,7 +26,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 - The Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-The Azure Disks CSI driver has a limit of 32 volumes per node. The volume count changes based on the size of the node/node pool. Run the following command to determine the number of volumes that can be allocated per node:
+The Azure Disks CSI driver has a limit of 32 volumes per node. The volume count changes based on the size of the node/node pool. Run the [kubectl get][kubectl-get] command to determine the number of volumes that can be allocated per node:
 
 ```console
 kubectl get CSINode <nodename> -o yaml
@@ -47,7 +47,7 @@ This section provides guidance for cluster administrators who want to provision 
 |resourceGroup | Specify the resource group where the Azure Disks will be created | Existing resource group name | No | If empty, driver will use the same resource group name as current AKS cluster|
 |DiskIOPSReadWrite | [UltraSSD disk][ultra-ssd-disks] IOPS Capability (minimum: 2 IOPS/GiB ) | 100~160000 | No | `500`|
 |DiskMBpsReadWrite | [UltraSSD disk][ultra-ssd-disks] Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
-|LogicalSectorSize | Logical sector size in bytes for Ultra disk. Supported values are 512 ad 4096. 4096 is the default. | `512`, `4096` | No | `4096`|
+|LogicalSectorSize | Logical sector size in bytes for ultra disk. Supported values are 512 ad 4096. 4096 is the default. | `512`, `4096` | No | `4096`|
 |tags | Azure Disk [tags][azure-tags] | Tag format: `key1=val1,key2=val2` | No | ""|
 |diskEncryptionSetID | ResourceId of the disk encryption set to use for [enabling encryption at rest][disk-encryption] | format: `/subscriptions/{subs-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSet-name}` | No | ""|
 |diskEncryptionType | Encryption type of the disk encryption set. | `EncryptionAtRestWithCustomerKey`(by default), `EncryptionAtRestWithPlatformAndCustomerKeys` | No | ""|
@@ -88,7 +88,7 @@ kubectl get sc
 
 The output of the command resembles the following example:
 
-```bash
+```console
 NAME                PROVISIONER                AGE
 default (default)   disk.csi.azure.com         1h
 managed-csi         disk.csi.azure.com         1h
@@ -128,7 +128,7 @@ kubectl apply -f azure-pvc.yaml
 
 The output of the command resembles the following example:
 
-```bash
+```console
 persistentvolumeclaim/azure-managed-disk created
 ```
 
@@ -167,11 +167,15 @@ Create the pod with the [kubectl apply][kubectl-apply] command, as shown in the 
 
 ```console
 kubectl apply -f azure-pvc-disk.yaml
+```
 
+The output of the command resembles the following example:
+
+```console
 pod/mypod created
 ```
 
-You now have a running pod with your Azure Disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`, as shown in the following condensed example:
+You now have a running pod with your Azure Disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod using the [kubectl describe][kubectl-describe] command, as shown in the following condensed example:
 
 ```bash
 kubectl describe pod mypod
@@ -179,7 +183,7 @@ kubectl describe pod mypod
 
 The output of the command resembles the following example:
 
-```bash
+```console
 [...]
 Volumes:
   volume:
@@ -200,19 +204,23 @@ Events:
 [...]
 ```
 
-### Use Ultra Disks
+### Use Azure ultra disks
 
-To use ultra disk, see [Use Ultra Disks on Azure Kubernetes Service (AKS)][use-ultra-disks].
+To use Azure ultra disk, see [Use ultra disks on Azure Kubernetes Service (AKS)][use-ultra-disks].
 
 ### Back up a persistent volume
 
 To back up the data in your persistent volume, take a snapshot of the managed disk for the volume. You can then use this snapshot to create a restored disk and attach to pods as a means of restoring the data.
 
-First, get the volume name with the `kubectl get pvc` command, such as for the PVC named *azure-managed-disk*:
+First, get the volume name with the [kubectl get][kubectl-get] command, such as for the PVC named *azure-managed-disk*:
+
+```bash
+kubectl get pvc azure-managed-disk
+```
+
+The output of the command resembles the following example:
 
 ```console
-$ kubectl get pvc azure-managed-disk
-
 NAME                 STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
 azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi        RWO            managed-premium   3m
 ```
@@ -225,7 +233,7 @@ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-Use the disk ID to create a snapshot disk with [az snapshot create][az-snapshot-create]. The following example creates a snapshot named *pvcSnapshot* in the same resource group as the AKS cluster (*MC_myResourceGroup_myAKSCluster_eastus*). You may encounter permission issues if you create snapshots and restore disks in resource groups that the AKS cluster doesn't have access to.
+Use the disk ID to create a snapshot disk with [az snapshot create][az-snapshot-create]. The following example creates a snapshot named *pvcSnapshot* in the same resource group as the AKS cluster *MC_myResourceGroup_myAKSCluster_eastus*. You may encounter permission issues if you create snapshots and restore disks in resource groups that the AKS cluster doesn't have access to.
 
 ```azurecli
 az snapshot create \
@@ -282,12 +290,12 @@ spec:
 Create the pod with the [kubectl apply][kubectl-apply] command, as shown in the following example:
 
 ```bash
-$ kubectl apply -f azure-restored.yaml
+kubectl apply -f azure-restored.yaml
 ```
 
 The output of the command resembles the following example:
 
-```bash
+```console
 pod/mypodrestored created
 ```
 
@@ -299,7 +307,7 @@ kubectl describe pod mypodrestored
 
 The output of the command resembles the following example:
 
-```bash
+```console
 [...]
 Volumes:
   volume:
@@ -337,7 +345,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
 1. Identify the resource group name using the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 
     ```azurecli-interactive
-    $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     
     MC_myResourceGroup_myAKSCluster_eastus
     ```
@@ -402,9 +410,9 @@ When you create an Azure disk for use with AKS, you can create the disk resource
       storageClassName: managed-csi
     ```
 
-3. Use the `kubectl` commands to create the *PersistentVolume* and *PersistentVolumeClaim*, referencing the two YAML files created earlier:
+3. Use the [kubectl apply][kubectl-apply] commands to create the *PersistentVolume* and *PersistentVolumeClaim*, referencing the two YAML files created earlier:
 
-    ```console
+    ```bash
     kubectl apply -f pv-azuredisk.yaml
     kubectl apply -f pvc-azuredisk.yaml
     ```
@@ -412,9 +420,13 @@ When you create an Azure disk for use with AKS, you can create the disk resource
 4. To verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume*, run the
 following command:
 
+    ```bash
+    kubectl get pvc pvc-azuredisk
+    ```
+
+    The output of the command resembles the following example:
+
     ```console
-    $ kubectl get pvc pvc-azuredisk
-    
     NAME            STATUS   VOLUME         CAPACITY    ACCESS MODES   STORAGECLASS   AGE
     pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
     ```
@@ -448,10 +460,10 @@ following command:
             claimName: pvc-azuredisk
     ```
 
-6. Run the following command to apply the configuration and mount the volume, referencing the YAML
+6. Run the [kubectl apply][kubectl-apply] command to apply the configuration and mount the volume, referencing the YAML
 configuration file created in the previous steps:
 
-    ```console
+    ```bash
     kubectl apply -f azure-disk-pod.yaml
     ```
 
@@ -467,6 +479,7 @@ configuration file created in the previous steps:
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- LINKS - internal -->
 [azure-storage-account]: ../storage/common/storage-introduction.md
