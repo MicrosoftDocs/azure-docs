@@ -240,47 +240,47 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
 1. Select `main` as a branch and choose based on your deployment method your preferred yml path. 
     - For a terraform scenario, choose `infrastructure/pipelines/tf-ado-deploy-infra.yml`, then select **Continue**. 
-    - For a bicep scenario choose: `infrastructure/pipelines/bicep-ado-deploy-infra.yml`, then select **Continue**.
+    - For a bicep scenario, choose `infrastructure/pipelines/bicep-ado-deploy-infra.yml`, then select **Continue**.
 
 > [!CAUTION]
-> For this example, make sure you have the [Terraform extension for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks) installed.
+> For this example, make sure the [Terraform extension for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks) is installed.
 
-1. Run the pipeline. This will take a few minutes to finish. The pipeline should create the following artifacts:
+1. Run the pipeline; it will take a few minutes to finish. The pipeline should create the following artifacts:
    * Resource Group for your Workspace including Storage Account, Container Registry, Application Insights, Keyvault and the Azure Machine Learning Workspace itself.
-   * In the workspace there's also a compute cluster created.
+   * In the workspace, there's also a compute cluster created.
    
 1. Now the Operationalizing Loop of the MLOps Architecture is deployed.
-![Screenshot of ADO Infra Pipeline screen](./media/how-to-setup-mlops-azureml/ADO-infra-pipeline.png)
+    ![Screenshot of ADO Infra Pipeline screen.](./media/how-to-setup-mlops-azureml/ADO-infra-pipeline.png)
 
-> [!NOTE]
-> The **Unable move and reuse existing repository to required location** warnings may be ignored.
+    > [!NOTE]
+    > The **Unable move and reuse existing repository to required location** warnings may be ignored.
 
 ## Deploying model training pipeline and moving to test environment
 
 1. Go to ADO pipelines
    
-   ![Screenshot of ADO Pipelines](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
+   ![Screenshot of ADO Pipelines.](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
 
 1. Select **New Pipeline**.
    
-   ![Screenshot of ADO New Pipeline button](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
+   ![Screenshot of ADO New Pipeline button.](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
    
 1. Select **Azure Repos Git**.
    
-   ![Screenshot of ADO Where's your code](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
+   ![Screenshot of ADO Where's your code.](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
    
 1. Select the repository that you cloned in from the previous section `mlopsv2`
    
 1. Select **Existing Azure Pipeline YAML File**
    
-   ![Screenshot of ADO Pipeline page on configure step](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
+   ![Screenshot of ADO Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
 1. Select `main` as a branch and choose `/mlops/devops-pipelines/deploy-model-training-pipeline.yml`, then select **Continue**.  
 
 1. **Save and Run** the pipeline
    
 > [!NOTE]
-> At this point, the infrastructure is configured and the Prototyping Loop of the MLOps Architecture is deployed. you are ready to move to our trained model to production.      
+> At this point, the infrastructure is configured and the Prototyping Loop of the MLOps Architecture is deployed. you're ready to move to our trained model to production.      
 
 ## Moving to production environment and deploying model 
          
@@ -308,21 +308,21 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 ### Deploy ML model endpoint
 1. Go to ADO pipelines
    
-   ![Screenshot of ADO Pipelines](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
+   ![Screenshot of ADO Pipelines.](./media/how-to-setup-mlops-azureml/ADO-pipelines.png)
 
 1. Select **New Pipeline**.
    
-   ![Screenshot of ADO New Pipeline button for endpoint](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
+   ![Screenshot of ADO New Pipeline button for endpoint.](./media/how-to-setup-mlops-azureml/ADO-new-pipeline.png)
    
 1. Select **Azure Repos Git**.
    
-   ![Screenshot of ADO Where's your code](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
+   ![Screenshot of ADO Where's your code.](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
    
 1. Select the repository that you cloned in from the previous section `mlopsv2`
    
 1. Select **Existing Azure Pipeline YAML File**
    
-   ![Screenshot of ADO Pipeline page on configure step](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
+   ![Screenshot of ADO Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
 1. Select `main` as a branch and choose:
         
@@ -332,16 +332,16 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
       
    Then select **Continue**.  
    
-1. Batch/Online endpoint names need to be unique, so please change **[your endpoint-name]** to another unique name and then select **Run**.
+1. Batch/Online endpoint names need to be unique, so change **[your endpoint-name]** to another unique name and then select **Run**.
 
-   ![Screenshot of ADO batch deploy script](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline.png)
+   ![Screenshot of ADO batch deploy script.](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline.png)
    
 > [!IMPORTANT]
-> If the run fails due to an existing online endpoint name, recreate the pipeline as described above and change **[your endpoint-name]** to **[your endpoint-name (random number)]**
+> If the run fails due to an existing online endpoint name, recreate the pipeline as described previously and change **[your endpoint-name]** to **[your endpoint-name (random number)]**
    
-1. When the run completes, you will see:
+1. When the run completes, you'll see output similar to the following image:
    
-   ![Screenshot of ADO Pipeline batch run result page](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline-run.png)
+   ![Screenshot of ADO Pipeline batch run result page.](./media/how-to-setup-mlops-azureml/ADO-batch-pipeline-run.png)
    
    Now the Prototyping Loop is connected to the Operationalizing Loop of the MLOps Architecture and inference has been run.
 
