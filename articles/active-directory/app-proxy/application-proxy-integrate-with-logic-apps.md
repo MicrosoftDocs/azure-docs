@@ -24,11 +24,11 @@ This article describes the steps necessary to utilize the Azure AD Application P
 
 The following diagram shows a traditional way to publish on-premises APIs for access from Azure Logic Apps. This approach requires opening incoming TCP ports 80 and/or 443 to the API service.
 
-![Logic App to API direct connection](./media/application-proxy-integrate-with-logic-apps/azure_logicapp_to_api_connection_direct.png)
+![Diagram that shows Logic App to API direct connection.](./media/application-proxy-integrate-with-logic-apps/azure_logicapp_to_api_connection_direct.png)
 
 The following diagram shows how you can use Azure AD Application Proxy to securely publish APIs for use with Logic Apps (or other Azure Cloud services) without opening any incoming ports:
 
-![Logic App to API connection via Azure Application Proxy](./media/application-proxy-integrate-with-logic-apps/azure_logicapp_to_api_connection_appproxy.png)
+![Diagram that shows Logic App to API connection via Azure Application Proxy.](./media/application-proxy-integrate-with-logic-apps/azure_logicapp_to_api_connection_appproxy.png)
 
 The Azure AD App Proxy and associated connector facilitate secure authorization and integration to your on-premises services without additional configuration to your network security infrastructure.  
 
@@ -51,7 +51,7 @@ When a new Enterprise Application is created, a matching App Registration is als
 
 2. Select the **App Registrations** menu item from the navigation pane
 
-    ![App Registration Menu Item](./media/application-proxy-integrate-with-logic-apps/app-registration-menu.png)
+    ![Screenshot of the Azure Active Directory App Registration Menu Item.](./media/application-proxy-integrate-with-logic-apps/app-registration-menu.png)
 
 3. From the *App Registrations* window, select the **All applications** tab option
 
@@ -62,11 +62,11 @@ When a new Enterprise Application is created, a matching App Registration is als
 
 5. From the *Sample App 1* detail page, take note of the *Application (client) ID* and *Directory (tenant) ID* fields. These will be used later.
 
-    ![App Registration Detail](./media/application-proxy-integrate-with-logic-apps/app-registration-detail.png)
+    ![Screenshot of the Azure Active Directory App Registration Detail.](./media/application-proxy-integrate-with-logic-apps/app-registration-detail.png)
 
 6. Select the **API permissions** menu item from the navigation pane
 
-    ![API Permissions Menu Item](./media/application-proxy-integrate-with-logic-apps/api-permissions-menu.png)
+    ![Screenshot of the Azure Active Directory App Registration API Permissions Menu Item.](./media/application-proxy-integrate-with-logic-apps/api-permissions-menu.png)
 
 7. From the *API permissions* page:
 
@@ -84,11 +84,11 @@ When a new Enterprise Application is created, a matching App Registration is als
 
     3. Verify the configured permission appears
 
-        ![API Permissions Detail](./media/application-proxy-integrate-with-logic-apps/api-permissions-detail.png)
+        ![Screenshot of the Azure Active Directory App Registration API Permissions Detail.](./media/application-proxy-integrate-with-logic-apps/api-permissions-detail.png)
 
 8. Select the **Certificates & secrets** menu item from the navigation pane
 
-    ![Certificates and Secrets Menu Item](./media/application-proxy-integrate-with-logic-apps/certificates-and-secrets-menu.png)
+    ![Screenshot of the Azure Active Directory App Registration Certificates and Secrets Menu Item.](./media/application-proxy-integrate-with-logic-apps/certificates-and-secrets-menu.png)
 
 9. From the *Certificates & secrets* page:
 
@@ -106,7 +106,7 @@ When a new Enterprise Application is created, a matching App Registration is als
 
     5. Click the **Copy** button for the *Value* of the newly created secret. Save this securely for use later, this value is only shown one time.
 
-        ![Client Secret Detail](./media/application-proxy-integrate-with-logic-apps/client-secret-detail.png)
+        ![Screenshot of the Azure Active Directory App Registration Client Secret Detail.](./media/application-proxy-integrate-with-logic-apps/client-secret-detail.png)
 
 ## Configure the Logic App
 
@@ -116,7 +116,7 @@ When a new Enterprise Application is created, a matching App Registration is als
 
 3. Add a new step and select the **HTTP** operation
 
-    ![Logic App Trigger Menu](./media/application-proxy-integrate-with-logic-apps/logic-app-trigger-menu.png)
+    ![Screenshot of the Azure Logic App Trigger Options Pane.](./media/application-proxy-integrate-with-logic-apps/logic-app-trigger-menu.png)
 
 4. In the operation details:
 
@@ -153,7 +153,7 @@ When a new Enterprise Application is created, a matching App Registration is als
 
         6. *Secret*: Enter the **secret value** noted in *Configure the Application Access*
 
-        ![Logic App HTTP Configuration](./media/application-proxy-integrate-with-logic-apps/logic-app-http-configuration.png)
+        ![Screenshot of Azure Logic App HTTP ActionConfiguration.](./media/application-proxy-integrate-with-logic-apps/logic-app-http-configuration.png)
 
 5. Save the logic app and test with your trigger
 
