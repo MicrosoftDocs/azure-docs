@@ -197,7 +197,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
                 await send_a_list_of_messages(sender)
                 # Send a batch of messages
                 await send_batch_message(sender)
-        # Close credential when no longer needed.
+            # Close credential when no longer needed.
             await credential.close()
     
     asyncio.run(run())
@@ -337,7 +337,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
                         print("Received: " + str(msg))
                         # complete the message so that the message is removed from the subscription
                         await receiver.complete_message(msg)
-        # Close credential when no longer needed.
+            # Close credential when no longer needed.
             await credential.close()
     ```
     
