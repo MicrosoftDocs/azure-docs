@@ -47,7 +47,7 @@ By default, a listing operation returns blobs in a flat listing. In a flat listi
 
 The following example lists the blobs in the specified container using a flat listing:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_ListBlobsFlat":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_list_blobs_flat":::
 
 Sample output is similar to:
 
@@ -59,22 +59,18 @@ Name: folderA/file2.txt
 Name: folderA/folderB/file3.txt
 ```
 
-You can also specify options to filter list results or show additional information. The following example lists blobs with a specified prefix, and also lists deleted blobs:
+You can also specify options to filter list results or show additional information. The following example lists blobs with a specified prefix, and also lists blob tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_ListBlobsFlatOptions":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_list_blobs_flat_options":::
 
 Sample output is similar to:
 
 ```console
 List blobs flat:
-Page 1
-Name: file4.txt, Is deleted? false
-Name: file5-deleted.txt, Is deleted? true
-Page 2
-Name: folderA/file1.txt, Is deleted? false
-Name: folderA/file2.txt, Is deleted? false
-Page 3
-Name: folderA/folderB/file3.txt, Is deleted? false
+Name: file4.txt, Tags: None
+Name: folderA/file1.txt, Tags: None
+Name: folderA/file2.txt, Tags: None
+Name: folderA/folderB/file3.txt, Tags: {'tag1': 'value1', 'tag2': 'value2'}
 ```
 
 ## Use a hierarchical listing
@@ -83,22 +79,21 @@ When you call a listing operation hierarchically, Azure Storage returns the virt
 
 To list blobs hierarchically, use the following method:
 
-- [BlobContainerClient.listBlobsByHierarchy](/java/api/com.azure.storage.blob.BlobContainerClient#com-azure-storage-blob-blobcontainerclient-listblobsbyhierarchy(java-lang-string-com-azure-storage-blob-models-listblobsoptions-java-time-duration))
+- [ContainerClient.walk_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-walk-blobs)
 
 The following example lists the blobs in the specified container using a hierarchical listing:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_ListBlobsHierarchical":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_list_blobs_hierarchical":::
 
 Sample output is similar to:
 
 ```console
-List blobs hierarchical:
-Blob name: file4.txt
-Virtual directory prefix: /folderA/
-Blob name: folderA/file1.txt
-Blob name: folderA/file2.txt
-Virtual directory prefix: /folderA/folderB/
-Blob name: folderA/folderB/file3.txt
+folderA/
+  folderA/folderB/
+    folderA/folderB/file3.txt
+  folderA/file1.txt
+  folderA/file2.txt
+file4.txt
 ```
 
 > [!NOTE]

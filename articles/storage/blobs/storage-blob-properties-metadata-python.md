@@ -41,7 +41,7 @@ Any properties not explicitly set are cleared. To preserve any existing properti
 
 The following code example sets the `content_type` and `content_language` system properties on a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_set_blob_properties":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_set_blob_properties":::
 
 To retrieve properties on a blob, use the following method:
 
@@ -49,27 +49,23 @@ To retrieve properties on a blob, use the following method:
 
 The following code example gets a blob's system properties and displays some of the values:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_GetBlobProperties":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_set_blob_properties":::
 
 ## Set metadata
 
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a JSON object of name-value pairs using the following method:
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a [dict](https://docs.python.org/3/library/stdtypes.html#dict) containing name-value pairs using the following method:
 
-- [BlobClient.setMetadata](/java/api/com.azure.storage.blob.specialized.BlobClientBase#com-azure-storage-blob-specialized-blobclientbase-setmetadata(java-util-map(java-lang-string-java-lang-string))).
-
-Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names, valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
-
-Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code `400 (Bad Request)`.
+- [BlobClient.set_blob_metadata]/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-set-blob-metadata
 
 The following code example sets metadata on a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_AddBlobMetadata":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_set_blob_metadata":::
 
-To retrieve metadata, call the [getProperties](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-getproperties()) method on your blob to populate the metadata collection, then read the values, as shown in the example below. The `getProperties` method retrieves blob properties and metadata in a single call. This functionality is different from the REST APIs, which require separate calls to [Get Blob Properties](/rest/api/storageservices/get-blob-properties) and [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata).
+To retrieve metadata, call the [get_blob_properties](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-get-blob-properties) method on your blob to populate the metadata collection, then read the values, as shown in the example below. The `get_blob_properties` method retrieves blob properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
 
 The following code example reads metadata on a blob and prints each key/value pair: 
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_ReadBlobMetadata":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_get_blob_metadata":::
 
 ## Resources
 
