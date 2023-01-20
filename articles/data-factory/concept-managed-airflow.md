@@ -3,6 +3,7 @@ title: What is Azure Data Factory Managed Airflow?
 titleSuffix: Azure Data Factory
 description: Learn about when to use managed Airflow, basic concepts and supported regions.
 ms.service: data-factory
+ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 01/20/2023

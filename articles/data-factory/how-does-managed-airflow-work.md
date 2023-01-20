@@ -3,6 +3,7 @@ title: How does Azure Data Factory Managed Airflow work?
 titleSuffix: Azure Data Factory
 description: Explain how to create managed airflow and use DAG to make it work.
 ms.service: data-factory
+ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 01/20/2023
@@ -15,8 +16,8 @@ ADF Managed Apache Airflow orchestrates your workflows using Directed Acyclic Gr
 ## Create Airflow environment
 
 * **Prerequisite**
-    * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/) before you begin.
-    * Create or select an existing Data Factory in the region where the managed airflow preview is supported. [Supported regions](concept-managed-airflow.md#region-availability)
+    * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+    * Create or select an existing Data Factory in the region where the managed airflow preview is supported. Supported regions
 
 * Create new Airflow environment.  
 Go to ‘Manage’ hub -> ‘Airflow (Preview)’ -> ‘+New’ to create a new Airflow environment
