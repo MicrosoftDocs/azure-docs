@@ -53,9 +53,9 @@ Clone the following repo to download all sample device code, setup scripts, and 
 
 To clone the repo, run the following command:
 
-    ```shell
-    git clone --recursive  https://github.com/Azure-Samples/iot-middleware-freertos-samples.git
-    ```
+```shell
+git clone --recursive  https://github.com/Azure-Samples/iot-middleware-freertos-samples.git
+```
 
 For Windows 10 and 11, make sure long paths are enabled. 
 
