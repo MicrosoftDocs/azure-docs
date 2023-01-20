@@ -35,6 +35,8 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Azure 
 ## Prerequisites
 
 - An Azure Active Directory P1 or P2 license is required to ingest sign-in logs into Microsoft Sentinel. Any Azure AD license (Free/O365/P1/P2) is sufficient to ingest the other log types. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Microsoft Sentinel.
+ 
+- [**Send logs to Azure Monitor**] (https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor)
 
 - Your user must be assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
 
