@@ -66,13 +66,13 @@ An Azure account with an active subscription. [Create an account for free](https
 
 In the previous tutorial, you created an Azure Front Door profile through *Quick create*, which created your profile with basic configurations.
 
-You will know create an Azure Front Door profile using *Custom create* and deploy two App services that your Azure Front Door profile will use as your origin.
+You'll now create an Azure Front Door profile using *Custom create* and deploy two App services that your Azure Front Door profile will use as your origin.
 
 ### Create two Web App instances
 
 If you already have services to use as an origin, skip to [create a Front Door for your application](#create-a-front-door-for-your-application).
 
-In this example, we create two Web App instances that is deployed in two different Azure regions. Both web application instances will run in *Active/Active* mode, so either one can service incoming traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
+In this example, we create two Web App instances that are deployed in two different Azure regions. Both web application instances will run in *Active/Active* mode, so either one can service incoming traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
 
 Use the following steps to create two Web Apps used in this example.
 
@@ -98,7 +98,7 @@ Use the following steps to create two Web Apps used in this example.
 
 1. Select **Review + create**, review the summary, and then select **Create**. Deployment of the Web App can take up to a minute.
 
-1. After your create the first Web App, create a second Web App. Use the same settings as above, except for the following settings:
+1. After you create the first Web App, create a second Web App. Use the same settings as above, except for the following settings:
 
     | Setting | Description |
     |--|--|
@@ -109,7 +109,7 @@ Use the following steps to create two Web Apps used in this example.
 
 ### Create a Front Door for your application
 
-Configure Azure Front Door to direct user traffic based on lowest latency between the two Web Apps origins. You will also secure your Azure Front Door with a Web Application Firewall (WAF) policy. 
+Configure Azure Front Door to direct user traffic based on lowest latency between the two Web Apps origins. You'll also secure your Azure Front Door with a Web Application Firewall (WAF) policy. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
  
