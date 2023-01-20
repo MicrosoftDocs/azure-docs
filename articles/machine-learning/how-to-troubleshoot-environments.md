@@ -296,7 +296,10 @@ ml_client.environments.create_or_update(env_docker_image)
 
 ### Container registry credentials missing either username or password
 <!--issueDescription-->
-This can happen when you've specified either a username or a password for your container registry in your environment definition, but not both.
+
+**Potential causes:**
+
+* You've specified either a username or a password for your container registry in your environment definition, but not both
 
 **Affected areas (symptoms):**
 * Failure in registering your environment
@@ -306,7 +309,7 @@ This can happen when you've specified either a username or a password for your c
 
 *Applies to: Python SDK azureml V1*
 
-Add the missing username or password to your environment definition to fix the issue.
+Add the missing username or password to your environment definition to fix the issue
 
 ```
 myEnv.docker.base_image_registry.username = "username"
@@ -337,33 +340,108 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 * [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Multiple credentials for base image registry
-- When specifying credentials for a base image registry, you must specify only one set of credentials. 
-- The following authentication types are currently supported:
-    - Basic (username/password)
-    - Registry identity (clientId/resourceId)
-- If you're using workspace connections to specify credentials, [delete one of the connections](https://aka.ms/azureml/environment/delete-connection-v1)
-- If you've specified credentials directly in your environment definition, choose either username/password or registry identity 
-to use, and set the other credentials you won't use to `null`
-    - Specifying credentials in this way is deprecated. It's recommended that you use workspace connections. See
-    *secrets in base image registry* below
+<!--issueDescription-->
+
+**Potential causes:**
+
+* You've specified more than one set of credentials for your base image registry
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK azureml V1*
+
+If you're using workspace connections, view the connections you have set, and delete whichever one(s) you don't want to use
+
+```
+from azureml.core import Workspace
+ws = Workspace.from_config()
+ws.list_connections()
+ws.delete_connection("myConnection2")
+```
+
+If you've specified credentials in your environment definition, choose one set of credentials to use, and set all others to null
+
+```
+myEnv.docker.base_image_registry.registry_identity = None
+```
+
+> [!NOTE]
+> * Providing credentials in your environment definition is deprecated. Use workspace connections instead.
+ 
+**Resources**
+* [Delete a workspace connection v1](https://aka.ms/azureml/environment/delete-connection-v1)
+* [Python SDK AzureML v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+* [Python SDK AzureML v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Secrets in base image registry
-- If you specify a base image in your `DockerSection`, you must specify the registry address from which the image will be pulled,
-and credentials to authenticate to the registry, if needed.
-- Historically, credentials have been specified in the environment definition. However, this method isn't secure and should be 
-avoided.
-- Users should set credentials using workspace connections. For instructions, see [set_connection](https://aka.ms/azureml/environment/set-connection-v1) 
+<!--issueDescription-->
+
+**Potential causes:**
+
+* You've specified credentials in your environment definition
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Specifying credentials in your environment definition is deprecated. Delete credentials from your environment definition and use workspace connections instead.
+
+*Applies to: Python SDK azureml V1*
+
+Set a workspace connection on your workspace
+
+```
+from azureml.core import Workspace
+ws = Workspace.from_config()
+ws.set_connection("connection1", "ACR", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
+```
+
+*Applies to: Azure CLI extensions V1 & V2*
+
+Create a workspace connection from a YAML specification file
+
+```
+az ml connection create --file connection.yml --resource-group my-resource-group --workspace-name my-workspace
+```
+ 
+**Resources**
+* [Python SDK AzureML v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+* [Python SDK AzureML v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Deprecated Docker attribute
-- The following `DockerSection` attributes are deprecated:
-    - `enabled`
-    - `arguments`
-    - `shared_volumes`
-    - `gpu_support`
-        - Azure Machine Learning now automatically detects and uses NVIDIA Docker extension when available.
-    - `smh_size`
-- Use [DockerConfiguration](https://aka.ms/azureml/environment/docker-configuration-class) instead
-- See [DockerSection deprecated variables](https://aka.ms/azureml/environment/docker-section-class)
+<!--issueDescription-->
+
+**Potential causes:**
+
+* You've specified Docker attributes in your environment definition that are now deprecated
+* The following are deprecated:
+	* `enabled`
+	* `arguments`
+	* `shared_volumes`
+	* `gpu_support`
+		* AzureML now automatically detects and uses NVIDIA Docker extension when available
+	* `smh_size`
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK azureml V1*
+
+Instead of specifying these attributes in the `DockerSection` of your environment definition, use [DockerConfiguration](https://aka.ms/azureml/environment/docker-configuration-class)
+ 
+**Resources**
+* See `DockerSection` [deprecated variables](https://aka.ms/azureml/environment/docker-section-class)
 
 ### Dockerfile length over limit
 - The specified Dockerfile can't exceed the maximum Dockerfile size of 100 KB
