@@ -19,7 +19,7 @@ In this how-to guide, you'll learn how to use the Azure portal to change the cer
 ## Prerequisites
 
 - Refer to [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to collect the required values and make sure they're in the correct format.
-- If you want to add or update a custom HTTPS certificate for accessing your local monitoring tools, you'll need a certificate signed by a globally known and trusted CA and stored in an Azure Key Vault. Your certificate must be in PEM format and use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).
+- If you want to add or update a custom HTTPS certificate for accessing your local monitoring tools, you'll need a certificate signed by a globally known and trusted CA and stored in an Azure Key Vault. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## View the local access configuration

@@ -80,8 +80,7 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
    1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your certificate. Ensure the key vault is configured with **Azure Virtual Machines for deployment** resource access.
    1. Ensure your certificate is stored in your key vault. You can either [generate a Key Vault certificate](../key-vault/certificates/create-certificate.md) or [import an existing certificate to your Key Vault](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal#import-a-certificate-to-your-key-vault). Your certificate must:
       
-      - Be signed by a globally known and trusted CA. 
-      - Be in PEM format. 
+      - Be signed by a globally known and trusted CA.
       - Use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).
       
       We also recommend setting a DNS name for your certificate.
