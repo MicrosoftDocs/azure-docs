@@ -15,7 +15,7 @@ ms.date: 01/04/2023
 
 # Set up your Azure Machine Learning cloud workstation
  
-Learn how use the Azure Machine Learning cloud as your development environment to run notebooks and scripts.
+Learn how to use the Azure Machine Learning cloud as your development environment to run notebooks and scripts.
 
 You'll use a *compute instance*.  A compute instance is a pre-configured cloud-computing resource that you can use to train, automate, manage, and track machine learning models.
 
@@ -40,7 +40,7 @@ You'll need to get your own files into the cloud.  For this tutorial, [download 
 1. On the toolbar above the file list, select **+** to add files.
 1. Select **Upload files**.
 
-    :::image type="content" source="media/tutorial-set-up-workstation/upload-files.png" alt-text="Screenshot: Upload files":::
+    :::image type="content" source="media/tutorial-set-up-workstation/upload-files.png" alt-text="Screenshot: Upload files.":::
 
 1. Browse to select the data file **titanic3.csv** that you just downloaded.
 1. Select **Upload**.

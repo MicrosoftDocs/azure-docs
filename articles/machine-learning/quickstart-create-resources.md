@@ -111,7 +111,7 @@ Continue on to learn how to use the compute instance to run notebooks and script
 > [!div class="nextstepaction"]
 > [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-run-notebooks.md)
 
-Use your compute instance with the following tutorials to train and deploy and deploy a model.
+Use your compute instance with the following tutorials to train and deploy a model.
 
 |Tutorial  |Description  |
 |---------|---------|
