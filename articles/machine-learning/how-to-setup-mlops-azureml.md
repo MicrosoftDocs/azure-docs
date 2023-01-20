@@ -229,7 +229,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
    ![Screenshot of ADO Where's your code](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
    
-1. Select the repository that you cloned in from the previous section `mlopsv2`
+1. Select the repository that you cloned in from the previous section `mlops-v2-ado-demo`
    
 1. Select **Existing Azure Pipeline YAML File**
    
