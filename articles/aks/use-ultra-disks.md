@@ -23,9 +23,9 @@ This feature can only be set at cluster creation or node pool creation time.
 - Ultra disks can't be used with some features and functionality, such as availability sets or Azure Disk Encryption. Review [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations) before proceeding.
 - The supported size range for ultra disks is between 100 and 1500.
 
-## Create a new cluster that can use Ultra disks
+## Create a new cluster that can use ultra disks
 
-Create an AKS cluster that is able to leverage Ultra Disks by using the following CLI commands. Use the `--enable-ultra-ssd` flag to set the `EnableUltraSSD` feature.
+Create an AKS cluster that is able to leverage Azure ultra Disks by using the following CLI commands. Use the `--enable-ultra-ssd` flag to set the `EnableUltraSSD` feature.
 
 Create an Azure resource group:
 
@@ -33,7 +33,7 @@ Create an Azure resource group:
 az group create --name myResourceGroup --location westus2
 ```
 
-Create an AKS-managed Azure AD cluster with support for Ultra Disks.
+Create an AKS-managed Azure AD cluster with support for ultra disks.
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n myAKSCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
@@ -41,7 +41,7 @@ az aks create -g MyResourceGroup -n myAKSCluster -l westus2 --node-vm-size Stand
 
 If you want to create clusters without ultra disk support, you can do so by omitting the `--enable-ultra-ssd` parameter.
 
-## Enable Ultra disks on an existing cluster
+## Enable ultra disks on an existing cluster
 
 You can enable ultra disks on existing clusters by adding a new node pool to your cluster that support ultra disks. Configure a new node pool to use ultra disks by using the `--enable-ultra-ssd` flag.
 
