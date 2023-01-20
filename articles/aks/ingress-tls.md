@@ -95,7 +95,7 @@ You can configure your NGINX ingress controller using either a static public IP 
 
 #### Use a static public IP address
 
-You can configure your ingress controller with a static public IP address. The static public IP address remains if you delete your ingress controller. The IP address does *not* remain if you delete your AKS cluster.
+You can configure your ingress controller with a static public IP address. The static public IP address remains if you delete your ingress controller. The IP address *doesn't* remain if you delete your AKS cluster.
 
 When you upgrade your ingress controller, you must pass a parameter to the Helm release to ensure the ingress controller service is made aware of the load balancer that will be allocated to it. For the HTTPS certificates to work correctly, you use a DNS label to configure an FQDN for the ingress controller IP address.
 
@@ -175,7 +175,7 @@ For more information, see [Use a static public IP address and DNS label with the
 
 #### Use a dynamic public IP address
 
-An Azure public IP address is created for your ingress controller upon creation. The public IP address is static for the lifespan of your ingress controller. The public IP address does *not* remain if you delete your ingress controller. If you create a new ingress controller, it will be assigned a new public IP address.
+An Azure public IP address is created for your ingress controller upon creation. The public IP address is static for the lifespan of your ingress controller. The public IP address *doesn't* remain if you delete your ingress controller. If you create a new ingress controller, it will be assigned a new public IP address.
 
 Use the `kubectl get service` command to get the public IP address for your ingress controller.
 
@@ -507,7 +507,7 @@ Next, a certificate resource must be created. The certificate resource defines t
 
 Cert-manager automatically creates a certificate object for you using ingress-shim, which is automatically deployed with cert-manager since v0.2.2. For more information, see the [ingress-shim documentation][ingress-shim].
 
-To verify that the certificate was created successfully, use the `kubectl get certificate --namespace ingress-basic` command and verify *READY* is *True*. This may take several minutes.
+To verify that the certificate was created successfully, use the `kubectl get certificate --namespace ingress-basic` command and verify *READY* is *True*. It may take several minutes to get the output.
 
 ```console
 kubectl get certificate --namespace ingress-basic
