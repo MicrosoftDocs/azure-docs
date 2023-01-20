@@ -51,7 +51,7 @@ Here's the list of currently supported commands for *ms-avd* and their correspon
 | workspaceid | Object ID (GUID). | Specify the object ID of a valid workspace.<br /><br />For more information, see [Retrieve the object ID of a host pool, workspace, application group, or application](powershell-module.md#retrieve-the-object-id-of-a-host-pool-workspace-application-group-or-application). |
 | resourceid | Object ID (GUID). | Specify the object ID of a published resource contained in the workspace. The value can be for a desktop or Remote App.<br /><br />For more information, see [Retrieve the object ID of a host pool, workspace, application group, or application](powershell-module.md#retrieve-the-object-id-of-a-host-pool-workspace-application-group-or-application). |
 | user | User Principal Name (UPN), for example `user@contoso.com`. | Specify a valid user with access to specified resource. |
-| env (optional) | **avdrm** (commercial Azure)<br />**avdgov** (Azure Government) | Specify the Azure cloud where resources are located. |
+| env *(optional)* | **avdrm** (commercial Azure)<br />**avdgov** (Azure Government) | Specify the Azure cloud where resources are located. |
 | version | **0** | Specify the version of the connect URI scheme to use. |
 
 **Example:**
