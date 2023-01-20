@@ -25,7 +25,7 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 * First row values are non-empty
 * First row values are unique
-* First row values are not a date or a number
+* First row values aren't a date or a number
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -41,7 +41,7 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 This section will enable you to register the Azure Blob storage account for scan and data share in Purview.
 
 ### Prerequisites for register
-* You will need to be a Data Source Admin and one of the other Purview roles (e.g. Data Reader or Data Share Contributor) to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Admin and one of the other Purview roles (for example, Data Reader or Data Share Contributor) to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ### Steps to register
 
@@ -81,31 +81,28 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 * First row values are non-empty
 * First row values are unique
-* First row values are neither a date nor a number
+* First row values are not a date or a number
 
 ### Authentication for a scan
 
-In order to have access to scan the data source, an authentication method in the Azure Blob Storage account needs to be configured.
+Your Azure network may allow for communications between your Azure resources, but if you've set up firewalls, private endpoints, or virtual networks within Azure, you'll need to follow one of these configurations below.
 
-The following options are supported:
+|Networking constraints  |Integration runtime type  |Available credential types  |
+|---------|---------|---------|
+|No private endpoints or firewalls | Azure IR | Managed identity (Recommended), service principal, or account key|
+|Firewall enabled but no private endpoints| Azure IR | Managed identity |
+|Private endpoints enabled | *Self-Hosted IR | Service principal, account key|
 
-> [!Note]
-> If you have firewall enabled for the storage account, you must use managed identity authentication method when setting up a scan.
-
-- **System-assigned managed identity (Recommended)** - As soon as the Microsoft Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Microsoft Purview SAMI to perform the scans.
-
-- **User-assigned managed identity** (preview) - Similar to a system-managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Microsoft Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
-
-- **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Microsoft Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password, or a password.
-
-   > [!Note]
-   > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Microsoft Purview account’s_ SAMI with required access permission to secrets inside _Azure key vault_.
-
-- **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
+*To use a self-hosted integration runtime, you'll first need to [create one](manage-integration-runtimes.md) and confirm your [network settings for Microsoft Purview](catalog-private-link.md)
 
 #### Using a system or user assigned managed identity for scanning
 
-It is important to give your Microsoft Purview account the permission to scan the Azure Blob data source. You can add access for the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what level scan permission is needed.
+There are two types of managed identity you can use:
+
+* **System-assigned managed identity (Recommended)** - As soon as the Microsoft Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Microsoft Purview system-assigned managed identity (SAMI) to perform the scans.
+
+* **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Microsoft Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+It's important to give your Microsoft Purview account the permission to scan the Azure Blob data source. You can add access for the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what level scan permission is needed.
 
 > [!NOTE]
 > If you have firewall enabled for the storage account, you must use **managed identity** authentication method when setting up a scan.
@@ -164,14 +161,14 @@ When authentication method selected is **Account Key**, you need to get your acc
 
 1. Select **Create** to complete
 
-1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
+1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan
 
 #### Using Service Principal for scanning
 
 ##### Creating a new service principal
 
-If you need to [Create a new service principal](./create-service-principal-azure.md), it is required to register an application in your Azure AD tenant and provide access to Service Principal in your data sources. Your Azure AD Global Administrator or other roles such as Application Administrator can perform this operation.
+If you need to [Create a new service principal](./create-service-principal-azure.md), it's required to register an application in your Azure AD tenant and provide access to Service Principal in your data sources. Your Azure AD Global Administrator or other roles such as Application Administrator can perform this operation.
 
 ##### Getting the Service Principal's Application ID
 
@@ -181,7 +178,7 @@ If you need to [Create a new service principal](./create-service-principal-azure
 
 ##### Granting the Service Principal access to your Azure Blob account
 
-It is important to give your service principal the permission to scan the Azure Blob data source. You can add access for the service principal at the Subscription, Resource Group, or Resource level, depending on what level scan access is needed.
+It's important to give your service principal the permission to scan the Azure Blob data source. You can add access for the service principal at the Subscription, Resource Group, or Resource level, depending on what level scan access is needed.
 
 > [!Note]
 > You need to be an owner of the subscription to be able to add a service principal on an Azure resource.
@@ -214,13 +211,13 @@ Provide a **Name** for the scan, select the Microsoft Purview accounts SAMI or U
 
 #### If using Account Key
 
-Provide a **Name** for the scan, choose the appropriate collection for the scan, and select **Authentication method** as _Account Key_ and select **Create**
+Provide a **Name** for the scan, select the Azure IR or your Self-Hosted IR depending on your configuration, choose the appropriate collection for the scan, and select **Authentication method** as _Account Key_ and select **Create**
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-acct-key.png" alt-text="Screenshot that shows the Account Key option for scanning":::
 
 #### If using Service Principal
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
+1. Provide a **Name** for the scan, select the Azure IR or your Self-Hosted IR depending on your configuration, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sp-option.png" alt-text="Screenshot that shows the option for service principal to enable scanning":::
 
@@ -318,13 +315,13 @@ To map a storage account asset in a received share, you need ONE of the followin
 * **Microsoft.Storage/storageAccounts/blobServices/containers/write** - This permission is available in the *Contributor*, *Owner*, *Storage Blob Data Contributor* and *Storage Blob Data Owner* role.
 
 ### Update shared data in source storage account
-Updates you make to shared files or data in the shared folder from source storage account will be made available to recipient in target storage account in near real time. When you delete subfolder or files within the shared folder, they will disappear for recipient. To delete the shared folder, file or parent folders or containers, you need to first revoke access to all your shares from the source storage account.
+Updates you make to shared files or data in the shared folder from source storage account will be made available to recipient in target storage account in near real time. When you delete subfolder or files within the shared folder, they'll disappear for recipient. To delete the shared folder, file or parent folders or containers, you need to first revoke access to all your shares from the source storage account.
 
 ### Access shared data in target storage account
 The target storage account enables recipient to access the shared data read-only in near real time. You can connect analytics tools such as Synapse Workspace and Databricks to the shared data to perform analytics. Cost of accessing the shared data is charged to the target storage account. 
 
 ### Service limit
-Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, please contact Support.
+Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, contact Support.
 
 ## Access policy
 
