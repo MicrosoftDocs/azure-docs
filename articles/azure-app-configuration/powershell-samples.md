@@ -14,7 +14,7 @@ The following table includes links to PowerShell scripts built using the [Az.App
 | Script | Description |
 |-|-|
 |**Create store**||
-| [Create a configuration store with the specified parameters](/powershell/module/az.appconfiguration/New-AzAppConfigurationStore) | Creates an  Azure App Configuration store with some specified parameters. |
+| [Create a configuration store with the specified parameters](scripts/powershell-create-service.md) | Creates an  Azure App Configuration store with some specified parameters. |
 |**Delete store**||
 | [Delete a configuration store](/powershell/module/az.appconfiguration/Remove-AzAppConfigurationStore) | Deletes an Azure App Configuration store. |
 | [Purge a deleted configuration store](/powershell/module/az.appconfiguration/Clear-AzAppConfigurationDeletedStore) | Purges a deleted Azure App Configuration store, permanently removing all data. |

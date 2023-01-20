@@ -1,5 +1,5 @@
 ---
-title: PowerShell Script Sample - Create an Azure App Configuration Store
+title: PowerShell script sample - Create an Azure App Configuration store
 titleSuffix: Azure App Configuration
 description: Create an Azure App Configuration store using a sample PowerShell script. See reference article links to commands used in the script.
 services: azure-app-configuration
@@ -55,6 +55,6 @@ This script uses the following commands to create a new resource group and an Ap
 
 ## Next steps
 
-For more information about Azure PowerShell, see [Azure CLI documentation](/powershell/azure/what-is-azure-powershell).
+For more information about Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional App Configuration PowerShell script samples can be found in the [Azure App Configuration PowerShell samples](../powershell-samples.md).
+More App Configuration script samples for PowerShell can be found in the [Azure App Configuration PowerShell samples](../powershell-samples.md).
