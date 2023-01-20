@@ -12,7 +12,7 @@ ms.custom: seodec18
 ---
 # WordPress Migration to Linux App Service
 
-This articles describes two ways to migrate WordPress from App Service on Windows or external hosting providers to App Service on Linux. 
+This article describes two ways to migrate WordPress from App Service on Windows or external hosting providers to App Service on Linux. 
 
 >**Note:** First migrate the content to a test instance, validate all scenarios, and if everything works as expected, swap this instance to the production slot.
 
@@ -38,10 +38,10 @@ By default, the file upload size for WordPress on Linux App Services is limited 
 
 ### Export the data at source site
 
-1. Launch WordPress Admin page
-1. Open All-In-One WP Migration plugin
-1. Click on 'Export' option and specify the export type as file
-1. This bundles the contents of database, media files, plugins, and themes into a single file, which can then be downloaded.
+1. Launch WordPress Admin page.
+1. Open All-In-One WP Migration plugin.
+1. Click on 'Export' option and specify the export type as file.
+1. Download the bundle.
 
 ### Import the data at destination site
 
@@ -59,7 +59,9 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 
 ### Manually Export the data at source site
 
->**NOTE:** Depending on the size of your content and your internet connection, this operation could take sometime.
+> [!NOTE]
+> Depending on the size of your content and your internet connection, this operation could take several minutes.
+>
 
 1. Download the **wp-content** folder from the source site. You can use popular FTP tools like [FileZilla](https://filezilla-project.org/download.php?type=client) to connect to the web server and download the content.
 
@@ -80,11 +82,14 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 
 4. Upload the new contents of **wp-content** folder using the File Manager. Click on the label that says '**Drag a File/Folder here to upload, or click to select one**'.
 
-5. You can either point your WordPress to [use an existing MySQL database](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/using_an_existing_mysql_database.md), or use the steps below to migrate the content to the new database server (an Azure Database for MySQL flexible server) created by the WordPress on Linux App Services offering.
+5. You can either [use an existing MySQL database](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/using_an_existing_mysql_database.md) or migrate the content to a new Azure MySQL Flexible Server created by App Service on Linux. 
 
-	>**NOTE:** Azure Database for MySQL - Single Server is on the road to retirement by 16 September 2024. If your existing MySQL database is hosted on Azure Database for MySQL - Single Server, consider migrating to Azure Database for MySQL - Flexible Server using the following steps, or using [Azure Database Migration Service (DMS)](/mysql/single-server/whats-happening-to-mysql-single-server#migrate-from-single-server-to-flexible-server).
 
-6. If you chose to migrate the database, import the SQL file downloaded from the source database into the database of your newly created WordPress site. You can do it via the PhpMyAdmin dashboard available at **\<sitename\>.azurewebsites.net/phpmyadmin**. Please note that if you are unable to one single large SQL file, please try to break it into multiple smaller parts and try uploading. Steps to import the database through phpmyadmin are described [here](https://docs.phpmyadmin.net/en/latest/import_export.html#import).
+> [!NOTE]
+> Azure Database for MySQL - Single Server is on the road to retirement by 16 September 2024. If your existing MySQL database is hosted on Azure Database for MySQL - Single Server, consider migrating to Azure Database for MySQL - Flexible Server using the following steps, or using [Azure Database Migration Service (DMS)](/mysql/single-server/whats-happening-to-mysql-single-server#migrate-from-single-server-to-flexible-server).
+>
+
+6. If you migrate the database, import the SQL file downloaded from the source database into the database of your newly created WordPress site. You can do it via the PhpMyAdmin dashboard available at **\<sitename\>.azurewebsites.net/phpmyadmin**. If you're unable to one single large SQL file, separate the files into parts and try uploading again. Steps to import the database through phpmyadmin are described [here](https://docs.phpmyadmin.net/en/latest/import_export.html#import).
 
 7. Launch the Azure Portal and navigate to your **App Service -> Configuration** blade. Update the database name in the **Application Settings** of App Service and save it. This will restart your App and the new changes will get reflected.  [Learn more: WordPress Application Settings](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_application_settings.md)
 
@@ -101,7 +106,7 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 
 ### Install Recommended Plugins
 
-It's an optional step, after the site migration it is recommended to validate that you have the default recommended/equivalent plugins activated and configured accurate as before. If you are prohibited from not configuring them as per your organization governing policies, then you can uninstall the plugins.
+It's an optional step, after the site migration it is recommended to validate that you have the default recommended/equivalent plugins activated and configured accurate as before. If you're prohibited from not configuring them as per your organization governing policies, then you can uninstall the plugins.
 
 - The W3TC plugin should be activated and configured properly to use the local Redis cache server and Azure CDN/Blob Storage (if it was configured to use them originally). For more information on how to configure these, refer to the following documentations:
 
