@@ -146,9 +146,9 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Check snapshot status
 
-Ultra Disk snapshots can't be used to create new disks until the background process copying the data into the snapshot has completed.
+Ultra Disk snapshots can't be used to create new disks until the background process copying the data into the snapshot has completed. Similarly, Ultra Disks created from Ultra Disk snapshots can't be attached to a VM until the background process copying the data into the disk has completed.
 
-You can check the status of this process, and if your snapshot is ready to be used, with the scripts in the following sections.
+You can check the status of this copy process with the scripts in the following sections.
 
 ### CLI
 
