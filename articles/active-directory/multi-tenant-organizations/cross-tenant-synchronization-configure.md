@@ -444,7 +444,7 @@ You must have Azure AD Premium P1 or P2 to configure trust settings.
 
 #### Symptom - Recently deleted user in the target tenant is not restored
 
-After soft deleting a synchronized user in the target tenant, the user isn't restored with on-demand provisioning or during the next synchronization cycle.
+After soft deleting a synchronized user in the target tenant, the user isn't restored during the next synchronization cycle. If you try to soft delete a user with on-demand provisioning and then restore the user, it can result in duplicate users.
 
 **Cause**
 
