@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom:
 ms.topic: conceptual
-ms.date: 01/020/2023
+ms.date: 01/20/2023
 ---
 
 # Change data capture resource overview
