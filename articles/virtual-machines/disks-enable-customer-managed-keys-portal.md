@@ -47,7 +47,7 @@ The VM deployment process is similar to the standard deployment process, the onl
 1. On the **Disks** pane, for **Key management** select your disk encryption set, key vault, and key in the drop-down.
 1. Make the remaining selections as you like.
 
-    :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-create-vm-select-customer-managed-key-disk-encryption-set.png" alt-text="Screenshot of the VM creation experience, the disks pane, customer-managed key selected." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-create-vm-select-customer-managed-key-disk-encryption-set.png":::
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-create-vm-customer-managed-key-disk-encryption-set.png" alt-text="Screenshot of the VM creation experience, the disks pane, customer-managed key selected." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-create-vm-customer-managed-key-disk-encryption-set.png":::
 
 ## Enable on an existing disk
 
