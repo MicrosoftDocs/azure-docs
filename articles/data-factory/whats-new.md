@@ -36,7 +36,7 @@ Express virtual network injection for SSIS in Azure Data Factory is generally av
 
 ### Region expansion
 
-Continued region expansion - Azure Data Factory is now available in China North 3. [Learn more](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=data-factory)
+Continued region expansion - Azure Data Factory is now available in China North 3. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
 
 ## November 2022
 
