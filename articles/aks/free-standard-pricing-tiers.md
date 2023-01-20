@@ -63,11 +63,11 @@ Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The c
 ```azurecli-interactive
 # Create a new AKS cluster in the Free tier
 
-az aks create --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla --node-count 1
+az aks create --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
 
 # Create a new AKS cluster in the Standard tier
 
-az aks create --resource-group myResourceGroup --name myAKSCluster `--uptime-sla`
+az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla
 ```
 
 > [!NOTE]
@@ -76,26 +76,26 @@ az aks create --resource-group myResourceGroup --name myAKSCluster `--uptime-sla
 >
 > * `--tier free` will correspond to the existing `--no-uptime-sla` parameter.
 > * `--tier standard` will correspond to the existing `--uptime-sla` parameter.
-> * The CLI output will correspond to API properties: "Base" for ManagedClusterSKUName and "Free" or "Standard" for ManagerClusterSKUTier.
->
+> * The CLI output "Basic" for ManagedClusterSKUName will correspond to the API property: "Base".
+> * The CLI output "Free" or "Paid" for ManagerClusterSKUTier will correspond to the API properties: "Free" or "Standard".
 
-Once the deployment completes, it returns JSON-formatted information about your cluster. The following example output of the JSON snippet shows the *Standard tier* for the SKU, indicating your cluster is in the *Standard tier* and enabled with Uptime SLA.
-
-```output
-  },
-  "sku": {
-    "name": "Base",
-    "tier": "Standard"
-  },
-```
-
-The following example output of the JSON snippet shows the *Free tier* for the SKU, indicating your cluster is in the *Free tier* and enabled with Uptime SLA.
+Once the deployment completes, it returns JSON-formatted information about your cluster:
 
 ```output
+# Sample output for `--no-uptime-sla`
+
   },
   "sku": {
-    "name": "Base",
+    "name": "Basic",
     "tier": "Free"
+  },
+
+  # Sample output for `uptime-sla`
+
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Paid"
   },
 ```
 
@@ -106,11 +106,11 @@ The following example uses the [`az aks update`][az-aks-update] command to updat
 ```azurecli-interactive
 # Update an existing cluster to the Free tier
 
-az aks update --resource-group myResourceGroup --name myAKSCluster --tier free
+az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
 
 # Update an existing cluster to the Standard tier
 
-az aks update --resource-group myResourceGroup --name myAKSCluster --tier standard
+az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
 ```
 
 This process takes several minutes to complete. When finished, the following example JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA.
@@ -118,8 +118,8 @@ This process takes several minutes to complete. When finished, the following exa
 ```output
   },
   "sku": {
-    "name": "Base",
-    "tier": "Standard"
+    "name": "Basic",
+    "tier": "Paid"
   },
 ```
 
