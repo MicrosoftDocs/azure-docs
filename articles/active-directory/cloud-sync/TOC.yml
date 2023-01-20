@@ -14,7 +14,7 @@
     href: tutorial-single-forest.md
   - name: Integrate an existing forest and a new forest with a single Azure AD tenant
     href: tutorial-existing-forest.md
-  - name: Pilot cloud sync for an existing synced AD forest 
+  - name: Migrate to Azure AD Connect cloud sync for an existing synced AD forest 
     href: tutorial-pilot-aadc-aadccp.md
 
 
@@ -52,6 +52,8 @@
       href: how-to-attribute-mapping.md 
     - name: Use Single Sign-On
       href: how-to-sso.md
+    - name: Migrate from Azure AD Connect
+      href: migrate-aadc-to-cloud-sync.md
   - name: Plan and design
     items:
     - name: Topologies and scenarios for Azure AD Connect cloud sync
