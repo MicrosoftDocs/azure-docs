@@ -50,8 +50,8 @@ items:
       href: packet-core-dashboards.md
   - name: Security
     href: security.md
-  - name: Disconnected mode
-    href: disconnected-mode.md
+  - name: Azure Stack Edge disconnects 
+    href: azure-stack-edge-disconnects.md
 - name: How-to guides
   items:
   - name: Private mobile networks
