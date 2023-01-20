@@ -38,6 +38,8 @@ Follow these steps to add the connection in Power Automate and Power Apps:
 
     :::image type="content" source="media/how-to-use-power-platform-connector/power-connection.png" alt-text="Screenshot of Power Automate, showing the Azure Digital Twins connection on the Connections page." lightbox="media/how-to-use-power-platform-connector/power-connection.png":::
 
+For Logic Apps, there's no need to set up the connector before creating your flow. You can move straight to the next section.
+
 ## Create a flow
 
 Follow these steps to create a sample flow with the connector in Power Automate:
@@ -62,6 +64,14 @@ Follow these steps to create a sample flow with the connector in Power Apps:
 1. Now, the [actions]() from the Azure Digital Twins connector will be available as functions to use in your app.
     :::image type="content" source="media/how-to-use-power-platform-connector/power-apps-action-2.png" alt-text="Screenshot of Power Apps, showing the Get twin by ID action being used in a function." lightbox="media/how-to-use-power-platform-connector/power-apps-action-2.png":::
 1. You can continue to build out your application with access to Azure Digital Twins data. For more information about building Power Apps, see [Overview of creating apps in Power Apps](/power-apps/maker/).
+
+Follow these steps to create a sample flow with the connector in Logic Apps:
+1. Navigate to Logic Apps in the [Azure portal](https://portal.azure.com). Select **Workflows** from the left navigation menu, and **+ Add**. Follow the prompts to create a new workflow.
+1. Select your new flow and enter into the **Designer**.
+1. Select **Choose an operation** to add a trigger. Search for *Azure Digital Twins* to find the data connection. Select the Azure Digital Twins connection.
+    :::image type="content" source="media/how-to-use-power-platform-connector/logic-apps-action.png" alt-text="Screenshot of Logic Apps, showing the Azure Digital Twins connector." lightbox="media/how-to-use-power-platform-connector/logic-apps-action.png":::
+1. You'll see a list of all the [actions]() that are available with the connector. Pick one of them to interact with the [Azure Digital Twins APIs](/rest/api/azure-digitaltwins/).
+1. You can continue to edit or add more steps to your workflow to build out your integration scenario.
 
 ## See example flows
 
