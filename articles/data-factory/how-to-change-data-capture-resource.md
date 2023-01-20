@@ -5,7 +5,7 @@ author: n0elleli
 ms.author: noelleli
 ms.reviewer: 
 ms.service: data-factory
-ms.subservice: change-data-capture
+ms.subservice:
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/04/2023
