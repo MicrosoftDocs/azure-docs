@@ -30,7 +30,7 @@ Finally, you'll see how to use included sample notebooks to learn more about Azu
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Run [Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md) to create a workspace and a compute instance.
+- Complete [Create resources to get started](quickstart-create-resources.md) to create a workspace and a compute instance.
 
 ## Upload files
 

@@ -37,7 +37,7 @@ The following diagram illustrates that you can generate the code for automated M
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create resources to get started](quickstart-create-resources.md).
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 

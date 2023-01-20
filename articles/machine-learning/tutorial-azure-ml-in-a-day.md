@@ -26,11 +26,11 @@ The *training script* handles the data preparation, then trains and registers a 
 
 ## Prerequisites
 
-* Complete the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md) if you need help to:
+* Complete the [Create resources you need to get started](quickstart-create-resources.md) if you need help to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
 
-* Complete the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md) if you need help to:
+* Complete [Set up your Azure Machine Learning cloud workstation](quickstart-run-notebooks.md) if you need help to:
     *  Create a new notebook, if you want to copy/paste code into cells.
     * Or, open the notebook version of this tutorial by opening **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
 
