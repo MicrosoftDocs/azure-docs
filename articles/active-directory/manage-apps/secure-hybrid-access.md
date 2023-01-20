@@ -54,7 +54,7 @@ Microsoft partners with various companies that deliver pre-built solutions for o
 
 ### Secure hybrid access through Azure AD partner integrations
 
-The following partners offer solutions to support [Conditional Access policies per application](secure-hybrid-access-integrations.md#apply-conditional-access-policies). Use the tables in the following two sections to learn about the partners and Azure AD integration documentation.
+The following partners offer solutions to support [Conditional Access policies per application](secure-hybrid-access-integrations.md#apply-conditional-access-policies). Use the tables in the following sections to learn about the partners and Azure AD integration documentation.
 
 |Partner|Integration documentation|
 |---|---|
@@ -67,7 +67,7 @@ The following partners offer solutions to support [Conditional Access policies p
 |Silverfort|[Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](silverfort-azure-ad-integration.md)|
 |Strata Identity, Inc.|[Integrate Azure AD SSO with Maverics Identity Orchestrator SAML Connector](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)|
 
-### Partners with pre-built solutions and integration documentation
+#### Partners with pre-built solutions and integration documentation
 
 |Partner|Integration documentation|
 |---|---|
@@ -79,4 +79,7 @@ The following partners offer solutions to support [Conditional Access policies p
 |Palo Alto Networks|[Tutorial: Azure AD SSO integration with Palo Alto Networks Admin UI](../saas-apps/paloaltoadmin-tutorial.md)|
 |Pulse Secure, Acquired by Ivanti|[Tutorial: Azure AD SSO integration with Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)</br>[Tutorial: Azure AD SSO integration with Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)</br>Pulse Secure is part of Ivanti. See, [Ivanti, Pulse Secure](https://www.ivanti.com/company/history/pulse-secure?psredirect)|
 |Zscaler, Inc.|[Tutorial: Integrate Zscaler Private Access with Azure AD](../saas-apps/zscalerprivateaccess-tutorial.md)|
+
+## Next steps 
+Select a partner in the tables mentioned to learn how to integrate their solution with Azure AD.
 
