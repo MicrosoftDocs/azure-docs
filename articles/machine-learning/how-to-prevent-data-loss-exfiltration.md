@@ -78,9 +78,9 @@ Service endpoint policies allow you to filter egress virtual network traffic to 
 ### Inbound
 
 > [!IMPORTANT]
-> The following information __modifies__ the guidance provided in the [Inbound traffic](how-to-secure-training-vnet.md#inbound-traffic) section of the "Secure training environment with virtual networks" article.
+> The following information __modifies__ the guidance provided in the [How to secure training environment](how-to-secure-training-vnet.md) article.
 
-When using Azure Machine Learning __compute instance__ _with a public IP address_, allow inbound traffic from Azure Batch management (service tag `BatchNodeManagement.<region>`). A compute instance _with no public IP_ (preview) __doesn't__ require this inbound communication.
+When using Azure Machine Learning __compute instance__ _with a public IP address_, allow inbound traffic from Azure Batch management (service tag `BatchNodeManagement.<region>`). A compute instance _with no public IP_ __doesn't__ require this inbound communication.
 
 ### Outbound 
 

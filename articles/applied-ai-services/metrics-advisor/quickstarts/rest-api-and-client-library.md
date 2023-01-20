@@ -2,7 +2,6 @@
 title: Metrics Advisor client libraries REST API
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to connect your applications to the Metrics Advisor API from Azure Cognitive Services.
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services

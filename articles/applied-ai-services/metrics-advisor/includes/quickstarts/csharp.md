@@ -1,7 +1,6 @@
 ---
 title: Metrics Advisor C# quickstart
 titleSuffix: Azure Cognitive Services
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
