@@ -73,7 +73,7 @@ The following example shows the part of the workflow that sets up the environmen
     - name: Setup DotNet 6.0.x Environment
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: 6.0.x
 ```
 
 # [Java](#tab/java)
