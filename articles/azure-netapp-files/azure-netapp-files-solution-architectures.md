@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 01/20/2023
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -178,6 +178,7 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Generic HPC
 
+* [Azure HPC OnDemand Platform](https://azure.github.io/az-hop/)
 * [Azure NetApp Files: Getting the most out of your cloud storage](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
 * [Run MPI workloads with Azure Batch and Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
 * [Azure Cycle Cloud: CycleCloud HPC environments on Azure NetApp Files](/azure/cyclecloud/overview)

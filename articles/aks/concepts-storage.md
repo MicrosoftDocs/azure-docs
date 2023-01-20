@@ -1,9 +1,8 @@
 ---
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims
-services: container-service
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 01/18/2023
 
 ---
 
@@ -34,7 +33,7 @@ Kubernetes typically treats individual pods as ephemeral, disposable resources. 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: [Azure Disks][disks-types], [Azure Files][storage-files-planning], [Azure NetApp Files][azure-netapp-files-service-levels], or [Azure Blobs][storage-account-overview].
 
 > [!NOTE]
-> The Azure Disks CSI driver has a limit of 32 volumes per node. Other Azure Storage services don't have an equivalent limit.
+> Depending on the VM SKU that's being used, the Azure Disks CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
 
 ### Azure Disks
 
@@ -258,3 +257,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [csi-storage-drivers]: csi-storage-drivers.md
 [azure-blob-csi]: azure-blob-csi.md
+[general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
