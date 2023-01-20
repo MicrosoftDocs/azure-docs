@@ -54,20 +54,13 @@ There are three different options for connect your hybrid virtual machines to Az
 ## Agent deployment options
 The Azure Monitor agent is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md), so you can install it using a variety of standard methods including PowerShell, CLI, and Resource Manager templates. See [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md) for details on each. Other notable methods for installation are described below.
 
-### Azure Policy
-If you have a significant number of virtual machines, you should deploy the agent using Azure Policy as described in [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md?tabs=azure-portal#use-azure-policy). This will ensure that the agent is automatically added to existing virtual machines and any new ones that you deploy. See [Enable VM insights by using Azure Policy](vminsights-enable-policy.md) for deploying the agent with VM insights.
+| Method | Scenarios | Details |
+|:---|:---|:---|
+| Azure Policy | Production deployment at scale | If you have a significant number of virtual machines, you should deploy the agent using Azure Policy as described in [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md?tabs=azure-portal#use-azure-policy) or [Enable VM insights by using Azure Policy](vminsights-enable-policy.md). This will ensure that the agent is automatically added to existing virtual machines and any new ones that you deploy. |
+| Data collection rule in Azure portal | Testing and simple deployments | When you create a data collection rule in the Azure portal as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md), you have the option of specifying virtual machines to receive it. The Azure Monitor agent will be automatically installed on any machines that don't already have it. |
+| VM insights in Azure portal | Testing and simple deployments with preconfigured monitoring | VM insights provides [simplified onboarding of agents in the Azure portal](vminsights-enable-portal.md). With a single click for a particular machine, it installs the Azure Monitor agent, connects to a workspace, and starts collecting performance data. You can optionally have it install the dependency agent and collect processes and dependency data to enable the map feature of VM insights. |
+| Windows client installer | Client machines | Use the [Windows client installer](../agents/azure-monitor-agent-windows-client.md) to install the agent on Windows clients such as Windows 11. For different options deploying the agent on a single machine or as part of a script, see [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md?tabs=azure-portal#install). |
 
-### Data collection rule in the Azure portal
-When you create a data collection rule in the Azure portal as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md), you have the option of specifying virtual machines to receive it. The Azure Monitor agent will be automatically installed on any machines that don't already have it.
-
-### VM insights
-VM insights provides simplified onboarding of agents in the Azure portal. With a single click for a particular machine, it installs the Azure Monitor agent, connects to a workspace, and starts collecting performance data. You can optionally have it install the dependency agent and collect processes and dependency data to enable the map feature of VM insights.
-
-You can enable VM insights on individual machines by using the same methods for Azure virtual machines and Azure Arc-enabled servers. These methods include onboarding individual machines with the Azure portal or Azure Resource Manager templates or enabling machines at scale by using Azure Policy. For different options to enable VM insights for your machines, see [Enable VM insights overview](vminsights-enable-overview.md). To create a policy that automatically enables VM insights on any new machines as they're created, see [Enable VM insights by using Azure Policy](vminsights-enable-policy.md).
-
-
-### Windows client installer
-Use the [Windows client installer](../agents/azure-monitor-agent-windows-client.md) to install the agent on Windows clients such as Windows 11. For different options deploying the agent on a single machine or as part of a script, see [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md?tabs=azure-portal#install).
 
 ## Legacy agents
 The Azure Monitor agent replaces legacy agents that are still available but should only be used if you require particular functionality not yet available with Azure Monitor agent. Most users will be able to use Azure Monitor without the legacy agents.
