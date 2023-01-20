@@ -77,7 +77,7 @@ The following partners offer solutions to support [Conditional Access policies p
 |Cloudflare, Inc.|[Tutorial: Configure Cloudflare with Azure AD for secure hybrid access](cloudflare-azure-ad-integration.md)|
 |Fortinet, Inc.|[Tutorial: Azure AD SSO integration with FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md)|
 |Palo Alto Networks|[Tutorial: Azure AD SSO integration with Palo Alto Networks Admin UI](../saas-apps/paloaltoadmin-tutorial.md)|
-|Pulse Secure, Acquired by Ivanti|[Tutorial: Azure AD SSO integration with Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)</br>[Tutorial: Azure AD SSO integration with Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)</br>Pulse Secure is part of Ivanti. See, [Ivanti, Pulse Secure](https://www.ivanti.com/company/history/pulse-secure?psredirect)|
+|Pulse Secure|[Tutorial: Azure AD SSO integration with Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)</br>[Tutorial: Azure AD SSO integration with Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)|
 |Zscaler, Inc.|[Tutorial: Integrate Zscaler Private Access with Azure AD](../saas-apps/zscalerprivateaccess-tutorial.md)|
 
 ## Next steps 
