@@ -41,7 +41,7 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 * Resources managed by Microsoft in your subscription can’t transfer ownership to you.
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 * The key vault that contains your customer-managed key must be in the same Azure subscription as the Azure Machine Learning workspace.
-* Workspace with customer-managed key does not currently support v2 online endpoint and batch endpoint.
+* Workspace with customer-managed key doesn't currently support v2 online endpoint and batch endpoint.
 
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because of the additional resources in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
