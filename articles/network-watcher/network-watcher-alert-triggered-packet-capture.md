@@ -10,9 +10,9 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/20/2021
 ms.author: shijaiswal 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, engagement-fy23
 
 ---
 # Use packet capture for proactive network monitoring with alerts and Azure Functions

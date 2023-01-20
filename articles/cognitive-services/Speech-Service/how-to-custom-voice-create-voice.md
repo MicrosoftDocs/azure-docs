@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 11/10/2022
+ms.date: 11/28/2022
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -31,11 +31,11 @@ After you validate your data files, you can use them to build your Custom Neural
 
 - [Neural](?tabs=neural#train-your-custom-neural-voice-model): Create a voice in the same language of your training data, select **Neural** method. 
 
-- [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model) (Preview): Create a secondary language for your voice model to speak a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US`. The language of the training data and the target language must both be one of the [languages that are supported](language-support.md?tabs=stt-tts) for cross lingual voice training. You don't need to prepare training data in the target language, but your test script must be in the target language. 
+- [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model) (Preview): Create a secondary language for your voice model to speak a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US`. The language of the training data and the target language must both be one of the [languages that are supported](language-support.md?tabs=tts) for cross lingual voice training. You don't need to prepare training data in the target language, but your test script must be in the target language. 
 
-- [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model) (Preview): Create a custom neural voice that speaks in multiple styles and emotions, without adding new training data. Multi-style voices are particularly useful for video game characters, conversational chatbots, audiobooks, content readers, and more. To create a multi-style voice, you just need to prepare a set of general training data (at least 300 utterances), and select one or more of the preset target speaking styles. You can also create up to 10 custom styles by providing style samples as additional training data for the same voice. 
+- [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model) (Preview): Create a custom neural voice that speaks in multiple styles and emotions, without adding new training data. Multi-style voices are particularly useful for video game characters, conversational chatbots, audiobooks, content readers, and more. To create a multi-style voice, you just need to prepare a set of general training data (at least 300 utterances), and select one or more of the preset target speaking styles. You can also create up to 10 custom styles by providing style samples (at least 100 utterances per style) as additional training data for the same voice. 
 
-The language of the training data must be one of the [languages that are supported](language-support.md?tabs=stt-tts) for custom neural voice neural, cross-lingual, or multi-style training.
+The language of the training data must be one of the [languages that are supported](language-support.md?tabs=tts) for custom neural voice neural, cross-lingual, or multi-style training.
 
 ## Train your Custom Neural Voice model
 
@@ -85,7 +85,7 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 1. Select the data that you want to use for training. Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files. Only successfully processed datasets can be selected for training. Check your data processing status if you do not see your training set in the list.
 1. Select **Next**.
 1. Optionally, you can add up to 10 custom speaking styles:
-    1. Select **Add a custom style** and thoughtfully enter a custom style name of your choice. This name will be used by your application within the `style` element of [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md#adjust-speaking-styles). You can also use the custom style name as SSML via the [Audio Content Creation](how-to-audio-content-creation.md) tool in [Speech Studio](https://speech.microsoft.com/portal/audiocontentcreation).
+    1. Select **Add a custom style** and thoughtfully enter a custom style name of your choice. This name will be used by your application within the `style` element of [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-voice.md#speaking-styles-and-roles). You can also use the custom style name as SSML via the [Audio Content Creation](how-to-audio-content-creation.md) tool in [Speech Studio](https://speech.microsoft.com/portal/audiocontentcreation).
     1. Select style samples as training data. It's recommended that the style samples are all from the same voice talent profile.
 1. Select **Next**.
 1. Select a speaker file with the voice talent statement that corresponds to the speaker in your training data.

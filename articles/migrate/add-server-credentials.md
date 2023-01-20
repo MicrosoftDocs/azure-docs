@@ -6,6 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/13/2022
+ms.custom: engagement-fy23
 ---
 
 # Provide server credentials to discover software inventory, dependencies, web apps, and SQL Server instances and databases

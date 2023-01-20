@@ -153,6 +153,8 @@ spx --% recognize --file "your\path\to\audio.wav" --phrases @phrases.txt
 
 ::: zone-end
 
+Allowed characters include locale-specific letters and digits, white space characters, and special characters such as +, \-, $, :, (, ), {, }, \_, ., ?, @, \\, ’, &, \#, %, \^, \*, \`, \<, \>, ;, \/. Other special characters are removed internally from the phrase.
+
 ## Next steps
 
 Check out more options to improve recognition accuracy.

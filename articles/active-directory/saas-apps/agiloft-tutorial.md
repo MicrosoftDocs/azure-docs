@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2022
+ms.date: 01/09/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Agiloft Contract Management Suite
@@ -77,6 +77,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>`
+
+    > [!NOTE]
+    > The Identifier value should match the entry in the Agiloft SAML Configuration Entity ID field. That field in Agiloft may need to be updated as follows:
+    > 1. Add https:// to the beginning.
+    > 1. If there are any spaces in the URL, replace each one with an underscore (_).
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 

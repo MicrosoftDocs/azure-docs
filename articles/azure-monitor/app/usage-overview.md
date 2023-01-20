@@ -14,7 +14,7 @@ Which features of your web or mobile app are most popular? Do your users achieve
 
 The best experience is obtained by installing Application Insights both in your app server code and in your webpages. The client and server components of your app send telemetry back to the Azure portal for analysis.
 
-1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-in-process-agent.md), [Node.js](./nodejs.md), or [other](./platforms.md) app.
+1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-in-process-agent.md), [Node.js](./nodejs.md), or [other](./app-insights-overview.md#supported-languages) app.
 
     * If you don't want to install server code, [create an Application Insights resource](./create-new-resource.md).
 
@@ -162,7 +162,7 @@ In the web app initializer, such as Global.asax.cs:
 > [!NOTE]
 > Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications.
 
-For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown here. This step is done in the `ConfigureServices` method of your `Startup.cs` class.
+For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown here. This step is done in the `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;

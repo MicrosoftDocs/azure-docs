@@ -3,7 +3,7 @@ title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims
 services: container-service
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 01/04/2023
 
 ---
 
@@ -38,7 +38,7 @@ Traditional volumes are created as Kubernetes resources backed by Azure Storage.
 
 ### Azure Disks
 
-Use *Azure Disks* to create a Kubernetes *DataDisk* resource. Disks types include:
+Use [Azure Disks][azure-disk-csi] to create a Kubernetes *DataDisk* resource. Disks types include:
 
 * Ultra Disks
 * Premium SSDs
@@ -52,7 +52,7 @@ Because Azure Disks are mounted as *ReadWriteOnce*, they're only available to a 
 
 ### Azure Files
 
-Use [Azure Files][azure-files-volume] to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage account to pods. Azure Files let you share data across multiple nodes and pods and can use:
+Use [Azure Files][azure-files-csi] to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage account to pods. Azure Files let you share data across multiple nodes and pods and can use:
 
 * Azure Premium storage backed by high-performance SSDs
 * Azure Standard storage backed by regular HDDs
@@ -65,7 +65,7 @@ Use [Azure Files][azure-files-volume] to mount a Server Message Block (SMB) vers
 
 ### Azure Blob Storage
 
-Use *Azure Blob Storage* to create a blob storage container and mount it using the NFS v3.0 protocol or BlobFuse.
+Use [Azure Blob Storage][azure-blob-csi] to create a blob storage container and mount it using the NFS v3.0 protocol or BlobFuse.
 
 * Block Blobs
 
@@ -110,6 +110,9 @@ You can use Azure Disks or Files to provide the PersistentVolume. As noted in th
 
 A PersistentVolume can be *statically* created by a cluster administrator, or *dynamically* created by the Kubernetes API server. If a pod is scheduled and requests currently unavailable storage, Kubernetes can create the underlying Azure Disk or Files storage and attach it to the pod. Dynamic provisioning uses a *StorageClass* to identify what type of Azure storage needs to be created.
 
+> [!IMPORTANT]
+> Persistent volumes can't be shared by Windows and Linux pods due to differences in file system support between the two operating systems.
+
 ## Storage classes
 
 To define different tiers of storage, such as Premium and Standard, you can create a *StorageClass*. 
@@ -127,10 +130,12 @@ For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-d
 | `azureblob-nfs-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using the NFS v3 protocol. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
 | `azureblob-fuse-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using BlobFuse. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
 
-Unless you specify a StorageClass for a persistent volume, the default StorageClass will be used. Ensure volumes use the appropriate storage you need when requesting persistent volumes. 
+Unless you specify a StorageClass for a persistent volume, the default StorageClass will be used. Ensure volumes use the appropriate storage you need when requesting persistent volumes.
 
 > [!IMPORTANT]
-> Starting in Kubernetes version 1.21, AKS will use CSI drivers only and by default.  The `default` class will be the same as `managed-csi`
+> Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. While existing in-tree persistent volumes continue to function, starting with version 1.26, AKS will no longer support volumes created using in-tree driver and storage provisioned for files and disk. 
+>
+> The `default` class will be the same as `managed-csi`.
 
 You can create a StorageClass for additional needs using `kubectl`. The following example uses Premium Managed Disks and specifies that the underlying Azure Disk should be *retained* when you delete the pod:
 
@@ -244,6 +249,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [azure-disk-csi]: azure-disk-csi.md
 [azure-netapp-files]: azure-netapp-files.md
 [azure-files-csi]: azure-files-csi.md
+[azure-files-volume]: azure-files-volume.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

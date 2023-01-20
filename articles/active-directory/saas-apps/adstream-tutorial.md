@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 12/02/2022
 ms.author: jeedes
 
 ---
 
 # Azure Active Directory SSO integration with Adstream
 
-In this article, you'll learn how to integrate Adstream with Azure Active Directory (Azure AD). Adstream provides the safest and easiest to use business solution for sending and receiving files. When you integrate Adstream with Azure AD, you can:
+In this article, you'll learn how to integrate Adstream with Azure Active Directory (Azure AD). Adstream is a content management system that provides the ability for multiple teams to collaborate on assets and distribute content. When you integrate Adstream with Azure AD, you can:
 
 * Control in Azure AD who has access to Adstream.
 * Enable your users to be automatically signed-in to Adstream with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for Adstream in a test environment. Adstream supports both **SP** initiated single sign-on.
+You'll configure and test Azure AD single sign-on for Adstream in a test environment. Adstream supports only **SP** initiated single sign-on.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -85,7 +85,7 @@ To configure single sign-on on **Adstream** side, you need to send the downloade
 
 ### Create Adstream test user
 
-In this section, you create a user called Britta Simon in Seculio. Work with [Adstream support team](mailto:support@adstream.com) to add the users in the Seculio platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Adstream. Work with [Adstream support team](mailto:support@adstream.com) to add the users in the Adstream platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

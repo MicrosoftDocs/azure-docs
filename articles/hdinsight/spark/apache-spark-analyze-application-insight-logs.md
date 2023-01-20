@@ -48,7 +48,7 @@ For information on adding storage to an existing cluster, see the [Add additiona
 
 ### Data schema
 
-Application Insights provides [export data model](../../azure-monitor/app/export-data-model.md) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data. Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights.
+Application Insights provides [export data model](../../azure-monitor/app/export-telemetry.md#application-insights-export-data-model) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data. Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights.
 
 ## Export telemetry data
 

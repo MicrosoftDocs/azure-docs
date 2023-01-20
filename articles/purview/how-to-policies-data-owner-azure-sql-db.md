@@ -111,4 +111,4 @@ This section contains a reference of how actions in Microsoft Purview data polic
 Check blog, demo and related how-to guides
 * [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
 * [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)
-* [Enable Microsoft Purview data owner policies on an Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.md)
+* [Enable Microsoft Purview data owner policies on an Azure Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.md)

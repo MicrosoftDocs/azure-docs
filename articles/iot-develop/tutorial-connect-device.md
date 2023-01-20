@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Connect IoT Plug and Play sample device code to Azure IoT Hub | Microsoft Docs
 description: Tutorial - Build and run IoT Plug and Play sample device code (C, C#, Java, JavaScript, or Python) on Linux or Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: danhellem
-ms.author: dahellem
-ms.date: 07/14/2020
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/17/2022
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop

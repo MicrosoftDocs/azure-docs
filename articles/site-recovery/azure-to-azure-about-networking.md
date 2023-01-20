@@ -6,9 +6,9 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 3/13/2020
+ms.date: 11/21/2021
 ms.author: ankitadutta
-
+ms.custom: engagement-fy23
 ---
 # About networking in Azure VM disaster recovery
 

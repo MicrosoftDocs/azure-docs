@@ -92,14 +92,13 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 ### Home regions
 * East US 2
 * West US
-* West Europe
 * Southeast Asia
 * Central US
 * North Europe
 * East Asia
 * US Gov Virginia
-* UK West
 * UK South
+* West Europe
 
 > [!NOTE]
 > You can only deploy your cross-region load balancer or Public IP in Global tier in one of the regions above.
@@ -140,13 +139,13 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * Private or internal load balancer can't be added to the backend pool of a cross-region load balancer 
 
-* Cross-region IPv6 frontend IP configurations aren't supported. 
+* NAT64 translation isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
 
 * UDP traffic isn't supported on Cross-region Load Balancer. 
 
 * A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
 
-* Currently, regional load load balancers with floating IP enabled aren't supported by the cross-region load balancer.  
+* Currently, regional load balancers with floating IP enabled aren't supported by the cross-region load balancer.  
 
 
 ## Pricing and SLA

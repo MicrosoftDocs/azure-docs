@@ -2,11 +2,11 @@
   href: ./index.yml
 - name: Overview
   items:
-    - name: About AKS
+    - name: What is AKS?
       href: intro-kubernetes.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
-    - name: Supported Kubernetes version
+    - name: Supported Kubernetes versions
       href: supported-kubernetes-versions.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
@@ -94,7 +94,7 @@
       href: concepts-network.md
     - name: Storage
       href: concepts-storage.md
-    - name: Scale
+    - name: Scaling
       href: concepts-scale.md
     - name: Node auto-repair
       href: node-auto-repair.md
@@ -178,6 +178,8 @@
   items:
     - name: Cluster operations
       items:
+        - name: Maintaining and upgrading an AKS cluster
+          href: upgrade.md
         - name: Abort long running operations
           href: manage-abort-operations.md
         - name: Automatically upgrade an AKS cluster
@@ -236,16 +238,14 @@
           items:
             - name: Node pool snapshot
               href: node-pool-snapshot.md
-            - name: Use Dedicated Hosts with AKS
-              href: use-azure-dedicated-hosts.md
             - name: Use multiple node pools
               href: use-multiple-node-pools.md
             - name: Use spot node pools
               href: spot-node-pool.md
-            - name: Use Confidential Virtual Machines
-              href: use-cvm.md
             - name: Use system node pools
               href: use-system-pools.md
+            - name: Use instance-level public IP addresses
+              href: use-node-public-ips.md
             - name: Use WebAssembly System Interface (WASI) node pools
               href: use-wasi-node-pools.md
             - name: Start/stop node pools
@@ -320,6 +320,10 @@
               maintainContext: true
         - name: Node security
           items:
+            - name: Use Confidential Virtual Machines
+              href: use-cvm.md
+            - name: Use Dedicated Hosts with AKS
+              href: use-azure-dedicated-hosts.md
             - name: BYOK for disks
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
@@ -366,16 +370,16 @@
               href: configure-kubenet.md
             - name: Use kubenet with dual-stack networking
               href: configure-kubenet-dual-stack.md
-            - name: Use Azure-CNI
-              href: configure-azure-cni.md
-            - name: Use Azure-CNI Overlay (Preview)
-              href: azure-cni-overlay.md
         - name: CNI
           items:
             - name: Bring your own CNI
               href: use-byo-cni.md
             - name: Use Azure CNI Powered by Cilium (Preview)
               href: azure-cni-powered-by-cilium.md
+            - name: Use Azure-CNI
+              href: configure-azure-cni.md
+            - name: Use Azure-CNI Overlay (Preview)
+              href: azure-cni-overlay.md
         - name: DNS
           items:
             - name: Use a static IP address and DNS label
@@ -386,8 +390,10 @@
           items:
             - name: Restrict and control cluster egress traffic
               href: limit-egress-traffic.md
-            - name: Use a user defined route for egress
+            - name: Configure outbound type for AKS
               href: egress-outboundtype.md
+            - name: Use a user defined route for egress
+              href: egress-udr.md
             - name: Managed NAT Gateway
               href: nat-gateway.md
             - name: Use an HTTP proxy
@@ -427,6 +433,8 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
+            - name: Migrate from in-tree driver to CSI driver
+              href: csi-migrate-in-tree-volumes.md
             - name: Azure Disks CSI driver
               href: azure-disk-csi.md
             - name: Azure Files CSI driver
@@ -503,9 +511,11 @@
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr
           items:
-            - name: How to use the Dapr extension
+            - name: Create the Dapr extension
               href: dapr.md
-            - name: Migrate from Dapr OSS
+            - name: Configure the Dapr extension
+              href: dapr-settings.md
+            - name: Migrate from Dapr OSS to the Dapr extension
               href: dapr-migration.md
             - name: Troubleshoot the Dapr extension
               href: dapr-troubleshooting.md
@@ -573,7 +583,7 @@
     - name: PowerShell
       href: /powershell/module/az.aks/#aks
     - name: .NET
-      href: /dotnet/api/overview/azure/containerservice
+      href: /dotnet/api/overview/azure/container-service
     - name: Python
       href: /python/api/overview/azure/container-service
     - name: Java

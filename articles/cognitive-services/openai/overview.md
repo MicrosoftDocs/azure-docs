@@ -1,5 +1,5 @@
 ---
-title: What is Azure OpenAI? (Preview)
+title: What is Azure OpenAI?
 titleSuffix: Azure Cognitive Services
 description: Apply advanced language models to variety of use cases with the Azure OpenAI service 
 manager: nitinme
@@ -14,7 +14,7 @@ recommendations: false
 keywords:  
 ---
 
-# What is Azure OpenAI? (Preview)
+# What is Azure OpenAI?
 
 The Azure OpenAI service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
 
@@ -124,7 +124,7 @@ The number of examples typically range from 0 to 100 depending on how many can f
 
 ### Models
 
-The service provides users access to several different models. Each model provides a different capability and price point. The GPT-3 base models are known as Davinci, Curie, Babbage, and Ada in decreasing order of capability and speed.
+The service provides users access to several different models. Each model provides a different capability and price point. The GPT-3 base models are known as Davinci, Curie, Babbage, and Ada in decreasing order of capability and increasing order of speed.
 
 The Codex series of models is a descendant of GPT-3 and has been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
 

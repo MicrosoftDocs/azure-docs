@@ -18,7 +18,7 @@ ms.author: cynthn
 Maintenance Configurations gives you the ability to control and manage updates for many Azure virtual machine resources since Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users, but some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance Configurations is integrated with Azure Resource Graph (ARG) for low latency and high scale customer experience.
 
 >[!IMPORTANT]
-> Users are required to have a role of at least contributor in order to use maintenance configurations.
+> Users are required to have a role of at least contributor in order to use maintenance configurations. Users also have to ensure that their subscription is registered with Maintenance Resource Provider to use maintenance configurations.
 
 ## Scopes
 
@@ -65,6 +65,9 @@ You can create and manage maintenance configurations using any of the following 
 - [Azure CLI](maintenance-configurations-cli.md)
 - [Azure PowerShell](maintenance-configurations-powershell.md)
 - [Azure portal](maintenance-configurations-portal.md)
+
+>[!IMPORTANT]
+> Pre/Post **tasks** property is currently exposed in the API but it is not supported a this time.
 
 For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Configurations and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 

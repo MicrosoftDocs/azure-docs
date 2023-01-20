@@ -40,8 +40,6 @@ Security rules are evaluated and applied based on the five-tuple (source, source
 
 Existing connections may not be interrupted when you remove a security rule that enabled the flow. Traffic flows are interrupted when connections are stopped and no traffic is flowing in either direction, for at least a few minutes. 
 
-Modifying NSG rules will only impact the new connections that are formed. When a new rule is created or an existing rule is updated in a network security group, it will only apply to new flows and new connections. Existing workflow connections are not updated with the new rules.
-
 Modifying network security group rules will only affect the new connections that are formed. When a new rule is created or an existing rule is updated in a network security group, it will only apply to new flows and new connections. Existing workflow connections aren't updated with the new rules.
 
 There are limits to the number of security rules you can create in a network security group. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).

@@ -66,7 +66,7 @@ VNet injection allows Chaos resource provider to inject containerized workloads 
 5. Start the experiment.
 
 ## Limitations
-* At present the VNet injection will only be possible in subscriptions/regions where Azure Container Instances and Azure Relay are available. 
+* At present the VNet injection will only be possible in subscriptions/regions where Azure Container Instances and Azure Relay are available. They are deployed to target regions.
 * When you create a Target resource that you would like to enable with VNet injection, you will need Microsoft.Network/virtualNetworks/subnets/write access to the virtual network. For example, if the AKS cluster is deployed to VNet_A, then you must have permissions to create subnets in VNet_A in order to enable VNet injection for the AKS cluster. You will have to specify a subnet (in VNet_A) that the container will be deployed to.
 
 Request Body when created Target resource with VNet injection enabled:

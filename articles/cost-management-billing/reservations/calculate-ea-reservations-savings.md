@@ -7,7 +7,7 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 12/06/2022
 ms.author: banders
 ---
 

@@ -15,6 +15,7 @@ As part of the application and cluster lifecycle, you may want to upgrade to the
 In this tutorial, part seven of seven, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Identify current and available Kubernetes versions.
 > * Upgrade your Kubernetes nodes.
 > * Validate a successful upgrade.
@@ -23,9 +24,8 @@ In this tutorial, part seven of seven, you learn how to:
 
 In previous tutorials, an application was packaged into a container image, and this container image was uploaded to Azure Container Registry (ACR). You also created an AKS cluster. The application was then deployed to the AKS cluster. If you have not done these steps and would like to follow along, start with [Tutorial 1: Prepare an application for AKS][aks-tutorial-prepare-app].
 
-* If you're using Azure CLI, this article requires that you're running Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+* If you're using Azure CLI, this tutorial requires that you're running Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 * If you're using Azure PowerShell, this tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
-* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Get available cluster versions
 

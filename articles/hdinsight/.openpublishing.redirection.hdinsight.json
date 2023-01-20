@@ -659,12 +659,12 @@
     },
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-scripts-linux.md",
-        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-r-server-overview",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-scripts.md",
-        "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     },
     {
@@ -674,17 +674,17 @@
     },
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-get-started.md",
-        "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-install-r-studio.md",
-        "redirect_url": "/azure/hdinsight/r-server/r-server-install-r-studio",
-        "redirect_document_id": true
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-overview.md",
-        "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     },
     {
@@ -1164,17 +1164,17 @@
     },
     {
         "source_path_from_root": "/articles/hdinsight/r-server/index.md",
-        "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server-get-started.md",
-        "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server-install-r-studio.md",
-        "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     },
     {
@@ -1314,6 +1314,16 @@
  }, 
  {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-hdinsight-manage.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+ }, 
+ {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-storm-with-kafka.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+ },
+ {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-ubuntu-1804-qa.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
  }, 

@@ -7,7 +7,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: microsoft-customer-agreement
   ms.topic: faq
-  ms.date: 03/22/2022
+  ms.date: 11/30/2022
   ms.author: banders
 title: Microsoft Customer Agreement FAQ - Azure
 summary: |
@@ -52,9 +52,19 @@ sections:
           All Azure services are available through Microsoft Customer Agreement. Once you accept the Microsoft Customer Agreement, you get the benefit of more free enterprise-grade management tools including new invoice and cost management capabilities through the same portal where you manage your Azure services.
       - question: How is Azure priced under the Microsoft Customer Agreement?
         answer: |
-          Azure is priced in US dollars (USD) worldwide under the Microsoft Customer Agreement.
+          Azure is priced in US dollars (USD) worldwide under the Microsoft Customer Agreement and Microsoft Partner Agreement. 
 
-          If you transact in one of the other supported currencies listed below, your monthly cost is first calculated in US dollars (USD). For payment, the total is then converted to the local currency.
+          Prices are in your local currency for Enterprise Agreements.
+
+          Azure users are always charged in their local currency. A currency conversion occurs at the time of billing, if the pricing currency isn't the same as the billing currency. 
+
+            -	The [Retail Price API](/rest/api/cost-management/retail-prices/azure-retail-prices) returns USD as the default. The API returns a currency conversion if the user specifies a currency. Although convenient, the conversion might cause confusion because the API returns *estimated prices based on the current conversion rate*. If you try to use the API to reconcile your invoice, the API results it won’t match the invoice.
+            -	When you download your price sheet from the Azure portal:
+              - For Enterprise Agreements, prices are in the your local currency for Azure first party services.
+              - For Microsoft Partner Agreements and Microsoft Customer Agreements, prices are shown in USD for Azure first party services. 
+
+          As mentioned previously, if you transact in one of the other supported currencies listed below, your monthly cost is first calculated in USD. For payment, the total is then converted to the local currency.
+
 
           | Code    | Currency           |
           |---------|--------------------|

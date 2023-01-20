@@ -144,7 +144,7 @@ Some important points about the architecture include:
 The following diagram shows, at a high level, how Azure Monitor for SAP solutions collects data from the SAP HANA database. The architecture is the same if SAP HANA is deployed on Azure VMs or Azure Large Instances.
 
 :::image type="complex" source="./media/azure-monitor-sap/azure-monitor-sap-architecture.png" alt-text="Diagram showing the new Azure Monitor for SAP solutions architecture.":::
-   Diagram of the new Azure Monitor for SAP solutions architecture. The customer connects to the Azure Monitor for SAP solutions resource through the Azure portal. There's a managed resource group containing Log Analytics, Azure Functions, Key Vault, and Storage queue. The Azure function connects to the providers. Providers include SAP NetWeaver (ABAP and JAVA), SAP HANA, Microsoft SQL Server, IBM Db2, Pacemaker clusters, and Linux OS.
+   Diagram of the new Azure Monitor for SAP solutions architecture. The customer connects to the Azure Monitor for SAP solutions resource through the Azure portal. There's a managed resource group containing Log Analytics, Azure Functions, Key Vault, and Storage queue. The Azure function connects to the providers. Providers include SAP NetWeaver (ABAP and Java), SAP HANA, Microsoft SQL Server, IBM Db2, Pacemaker clusters, and Linux OS.
 :::image-end:::
 
 The key components of the architecture are:
@@ -165,7 +165,7 @@ You can also use Kusto Query Language (KQL) to [run log queries](../../../azure-
 The following diagram shows, at a high level, how Azure Monitor for SAP solutions (classic) collects data from the SAP HANA database. The architecture is the same if SAP HANA is deployed on Azure VMs or Azure Large Instances.
 
 :::image type="complex" source="./media/azure-monitor-sap/azure-monitor-sap-classic-architecture.png" alt-text="Diagram showing the Azure Monitor for SAP solutions classic architecture.":::
-   Diagram of the Azure Monitor for SAP solutions (classic) architecture. The customer connects to the Azure Monitor for SAP solutions resource through the Azure portal. There's a managed resource group containing Log Analytics, Azure Functions, Key Vault, and Storage queue. The Azure function connects to the providers. Providers include SAP NetWeaver (ABAP and JAVA), SAP HANA, Microsoft SQL Server, Pacemaker clusters, and Linux OS.
+   Diagram of the Azure Monitor for SAP solutions (classic) architecture. The customer connects to the Azure Monitor for SAP solutions resource through the Azure portal. There's a managed resource group containing Log Analytics, Azure Functions, Key Vault, and Storage queue. The Azure function connects to the providers. Providers include SAP NetWeaver (ABAP and Java), SAP HANA, Microsoft SQL Server, Pacemaker clusters, and Linux OS.
 :::image-end:::
 
 The key components of the architecture are:

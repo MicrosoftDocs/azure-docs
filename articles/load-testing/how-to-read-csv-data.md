@@ -192,6 +192,6 @@ To configure your load test to split input CSV files:
 
 ## Next steps
 
-- For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
-
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to [Set up a high-scale load test](./how-to-high-scale-load.md).
+- Learn how to [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- Learn how to [use JMeter plugins](./how-to-use-jmeter-plugins.md).
