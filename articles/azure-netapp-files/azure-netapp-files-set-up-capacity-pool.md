@@ -12,44 +12,16 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/19/2023
+ms.date: 01/25/2023
 ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
 
-Creating a capacity pool enables you to create volumes within it.  
+Creating a capacity pool enables you to create volumes within it. 
 
 ## Before you begin 
 
-You must have already created a NetApp account.   
-
-[Create a NetApp account](azure-netapp-files-create-netapp-account.md)
-
-## 2 TiB capacity pool
-
-Azure NetApp Files now supports a lower size limit of 2 TiB for capacity pools.
-
->[!IMPORTANT]
->Capacity pools smaller than 4 TiB are only supported for volumes configured with Standard network features.
-
-The 2 TiB limit is currently in preview. If you wish to set your limit below 4 TiB for the first time, you must register the feature first:
-
-1.  Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANF2TiBPoolSize
-    ```
-
-2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANF2TiBPoolSize
-    ```
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+You must have already [created a NetApp account](azure-netapp-files-create-netapp-account.md).   
 
 ## Steps 
 

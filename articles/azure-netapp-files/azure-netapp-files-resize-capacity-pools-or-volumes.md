@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 01/25/2023
 ms.author: anfdocs
 ---
 # Resize a capacity pool or a volume
@@ -23,13 +23,11 @@ For information about monitoring a volume’s capacity, see [Monitor the capacit
 ## Considerations
 
 * Volume quotas are indexed against `maxfiles` limits. Once a volume has surpassed a `maxfiles` limit, you cannot reduce the volume size below the quota that corresponds to that `maxfiles` limit. For more information and specific limits, see [`maxfiles` limits](azure-netapp-files-resource-limits.md#maxfiles-limits-).
+* Capacity pools with Basic network features have a minimum size of 4 TiB. For capacity pools with Standard network features, the minimum size is 2 TiB. For more information, see [Resource limits](azure-netapp-files-resource-limits.md)
 
 ## Resize the capacity pool using the Azure portal 
 
-You can change the capacity pool size in 1-TiB increments or decrements. However, the capacity pool size cannot be smaller than the sum of the capacity of the volumes hosted in the pool, with a minimum of 2 TiB. 
-
->[!NOTE]
->2 TiB capacity pool limits are currently in preview. You must first [register the feature](azure-netapp-files-set-up-capacity-pool.md#2-tib-capacity-pool). Capacity pools smaller than 4 TiB are only supported for volumes configured with Standard network features.
+You can change the capacity pool size in 1-TiB increments or decrements. However, the capacity pool size cannot be smaller than the sum of the capacity of the volumes hosted in the pool. 
 
 Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
 
