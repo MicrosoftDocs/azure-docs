@@ -697,12 +697,12 @@
                   href: how-to-mlflow-batch.md
                 - name: Deploy and run MLflow models in Spark jobs
                   href: how-to-deploy-mlflow-model-spark-jobs.md
-    - name: Manage the ML lifecycle
+    - name: Manage the ML lifecycle (MLOps)
       items:
+        - name: Setup MLOps with Azure DevOps
+          href: how-to-setup-mlops-azureml.md
         - name: Manage models
           href: how-to-manage-models.md
-        - name: Manage models with MLflow
-          href: how-to-manage-models-mlflow.md
         - name: Automation
           items:
             - name: Azure Pipelines for CI/CD
