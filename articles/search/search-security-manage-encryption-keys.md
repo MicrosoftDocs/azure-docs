@@ -337,7 +337,9 @@ Once you create the encrypted object on the search service, you can use it as yo
 
 ## 6 - Set up policy
 
-Azure Cognitive Search has an optional [built-in policy](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f) to enforce usage of CMK service-wide. In this section, you'll apply this policy to your search service, and then set up your search service to enforce this policy.
+Azure policies help to enforce organizational standards and to assess compliance at-scale. Azure Cognitive Search has an optional [built-in policy for service-wide CMK enforcement](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f).
+
+In this section, you'll set the policy that defines a CMK standard for your search service. Then, you'll set up your search service to enforce this policy.
 
 > [!NOTE]
 > Policy set up requires the preview [Services - Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
@@ -346,9 +348,9 @@ Azure Cognitive Search has an optional [built-in policy](https://portal.azure.co
 
    :::image type="content" source="media/search-security-manage-encryption-keys/assign-policy.png" alt-text="Screenshot of assigning built-in CMK policy." border="true":::
 
-1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to **Deny**. 
+1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to [**Deny**](/azure/governance/policy/concepts/effects#deny). 
 
-   In Azure policies: "Deny is used to prevent a resource request that doesn't match defined standards through a policy definition and fails the request". Assuming the standard for your service is CMK encryption, setting the effect to "Deny" will prevent requests that don't specify CMK encryption.
+   During evaluation of the request, a request that matches a deny policy definition is marked as non-compliant. Assuming the standard for your service is CMK encryption, "deny" means that requests that *don't* specify CMK encryption are non-compliant.
 
    :::image type="content" source="media/search-security-manage-encryption-keys/effect-deny.png" alt-text="Screenshot of changing built-in CMK policy effect to deny." border="true":::
 
