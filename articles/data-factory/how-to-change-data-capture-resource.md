@@ -170,4 +170,4 @@ For example, if you select 30 minutes, every 30 minutes, your change data captur
   
   
 ## Next steps
-- [Learn more about the change data capture resource](concepts-change-data-capture-resource.md).
+- [Learn more about the change data capture resource](concepts-change-data-capture-resource.md)
