@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, as well as other managed disk encryption types, see the [Double encryption at rest](../disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
+Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, and other managed disk encryption types, see the [Double encryption at rest](../disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), 
 
 1. Create an instance of Azure Key Vault and encryption key.
 
-    When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
+    When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key can't be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
     
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
@@ -40,13 +40,13 @@ Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), 
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1. Retrieve the URL for the key you just created, you'll need it for subsequent commands. The ID output from `Get-AzKeyVaultKey` is the key URL. 
+1. Retrieve the URL for the key you created, you'll need it for subsequent commands. The ID output from `Get-AzKeyVaultKey` is the key URL. 
 
     ```powershell
     Get-AzKeyVaultKey -VaultName $keyVaultName -KeyName $keyName
     ```
 
-1. Retrieve the resource ID for the Key Vault instance you created, you'll need it for subsequent commands.
+1. Get the resource ID for the Key Vault instance you created, you'll need it for subsequent commands.
 
     ```powershell
     Get-AzKeyVault -VaultName $keyVaultName

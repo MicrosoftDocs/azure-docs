@@ -14,17 +14,17 @@ ms.custom: references_regions, devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, as well as other managed disk encryption types, see the [Double encryption at rest](../disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
+Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, and other managed disk encryption types, see the [Double encryption at rest](../disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
 
 ## Prerequisites
 
-Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azure account with [az login](/cli/azure/reference-index).
+Install the latest [Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account with [az login](/cli/azure/reference-index).
 
 ## Getting started
 
 1. Create an instance of Azure Key Vault and encryption key.
 
-    When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
+    When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key can't be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
     
     ```azurecli
@@ -43,7 +43,7 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
     az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
     ```
 
-1. Get the key URL of the key you just created.
+1. Get the key URL of the key you created with `az keyvault key show`.
 
     ```azurecli
     az keyvault key show --name $keyName --vault-name $keyVaultName
