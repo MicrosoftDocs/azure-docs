@@ -16,6 +16,12 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## February 2023
+
+### Computer Vision Image Analysis 4.0 SDK public preview
+
+Image Analysis 4.0 is now available through client library SDKs in C#, C++, and Python. This update also includes an updated image captioning model.
+
 ## October 2022
 
 ### Computer Vision Image Analysis 4.0 public preview
