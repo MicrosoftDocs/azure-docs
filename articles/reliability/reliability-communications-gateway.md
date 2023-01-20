@@ -90,7 +90,9 @@ During a region-wide outage, the failover mechanisms described in this article (
 
 ### Disaster recovery: cross-region failover for management regions
 
-Voice traffic and the API mediation features of the API Bridge are unaffected by failures in the management region, because the corresponding Azure resources are hosted in service regions. Monitoring services and the API Bridge Number Management Portal might be temporarily unavailable until service has been restored. If the management region experiences extended downtime, Microsoft will migrate the impacted resources to another available Region.
+Voice traffic and the API Bridge are unaffected by failures in the management region, because the corresponding Azure resources are hosted in service regions. Users of the API Bridge Number Management Portal might need to sign in again.
+
+Monitoring services might be temporarily unavailable until service has been restored. If the management region experiences extended downtime, Microsoft will migrate the impacted resources to another available region.
 
 ## Choosing management and service regions
 
