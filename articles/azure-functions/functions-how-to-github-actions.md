@@ -218,17 +218,17 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: your-app-name  # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'    # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '2.2.402'              # set this to the dotnet version to use
+  DOTNET_VERSION: '6.0.x'              # set this to the dotnet version to use
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub action'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
@@ -256,17 +256,17 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: your-app-name  # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'    # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '2.2.402'              # set this to the dotnet version to use
+  DOTNET_VERSION: '6.0.x'              # set this to the dotnet version to use
 
 jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub action'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
@@ -305,7 +305,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub action'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -346,7 +346,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub action'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -388,10 +388,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub action'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ env.NODE_VERSION }}
 
@@ -429,10 +429,10 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub action'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ env.NODE_VERSION }}
 
@@ -472,10 +472,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub action'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
