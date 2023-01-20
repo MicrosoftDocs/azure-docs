@@ -13,7 +13,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Seismic store sdutil
 
-Sdutil is a command line python utility tool designed to easily interact with seismic store. The seismic store is a cloud-based solution designed to store and manage datasets of any size in the cloud by enabling a secure way to access them through a scoped authorization mechanism. Seismic Store overcomes the object size limitations imposed by a cloud provider by managing generic datasets as multi-independent objects. This provides a generic, reliable, and better performing solution to handle data in cloud storage.
+Sdutil is a command line Python utility tool designed to easily interact with seismic store. The seismic store is a cloud-based solution designed to store and manage datasets of any size in the cloud by enabling a secure way to access them through a scoped authorization mechanism. Seismic Store overcomes the object size limitations imposed by a cloud provider by managing generic datasets as multi-independent objects. This provides a generic, reliable, and better performing solution to handle data in cloud storage.
 
 **Sdutil** is an intuitive command line utility tool to interact with seismic store and perform some basic operations like upload or download datasets to or from seismic store, manage users, list folders content and more.
 
@@ -305,7 +305,7 @@ Run the changelog script (`./changelog-generator.sh`) to automatically generate 
 
 Microsoft Energy Data Services instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your MEDS instance.
 
-1. Ensure you have followed the [installation](#prerequisites) and [configuration](#configuration) steps from above. This includes downloading the SDUTIL source code, configuring your python virtual environment, editing the `config.yaml` file and setting your three environment variables. 
+1. Ensure you have followed the [installation](#prerequisites) and [configuration](#configuration) steps from above. This includes downloading the SDUTIL source code, configuring your Python virtual environment, editing the `config.yaml` file and setting your three environment variables. 
 
 2. Run below commands to sign in, list, upload and download files in the seismic store.
 

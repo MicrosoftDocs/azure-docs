@@ -7,7 +7,7 @@ ms.reviewer: sngun, wiassaf
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 10/07/2022
+ms.date: 11/18/2022
 ms.custom: engagement-fy23
 ---
 
@@ -108,7 +108,8 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
     INTO dbo.PassengerCountStats
     FROM  dbo.NYCTaxiTripSmall
     WHERE TripDistanceMiles > 0 AND PassengerCount > 0
-    GROUP BY PassengerCount
+    GROUP BY PassengerCount;
+    SELECT * FROM dbo.PassengerCountStats
     ORDER BY PassengerCount;
     ```
 

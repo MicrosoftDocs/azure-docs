@@ -706,7 +706,7 @@ The following image demonstrates how the colors are chosen for the above express
 
 ##### Step expression
 
-A step expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
+A step expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](https://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
 
 Step expressions return the output value of the stop just before the input value, or the from value if the input is less than the first stop.
 

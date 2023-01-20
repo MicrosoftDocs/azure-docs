@@ -33,7 +33,7 @@ To learn more about cloud-to-device messages, see [Send cloud-to-device messages
 
 * An active IoT hub in Azure.
 
-* The code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip).
+* The code sample from the [Azure IoT Samples for IoS Platform repository](https://github.com/Azure-Samples/azure-iot-samples-ios).
 
 * The latest version of [XCode](https://developer.apple.com/xcode/), running the latest version of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
 
@@ -49,7 +49,7 @@ In this section, you simulate an iOS device running a Swift application to recei
 
 CocoaPods manages dependencies for iOS projects that use third-party libraries.
 
-In a terminal window, navigate to the Azure-IoT-Samples-iOS folder that you downloaded in the prerequisites. Then, navigate to the sample project:
+In a terminal window, navigate to the folder containing the repository that you downloaded in the [prerequisites](#prerequisites). Then, navigate to the sample project:
 
 ```sh
 cd quickstart/sample-device

@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 06/14/2022
+ms.date: 12/17/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -17,7 +17,7 @@ ms.author: lajanuar
 
 # What's new in Azure Cognitive Services Translator?
 
-Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
 Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
@@ -130,7 +130,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ## June 2021
 
-### [Document Translation client libraries for C#/.NET and Python](document-translation/client-sdks.md)—now available in prerelease
+### [Document Translation client libraries for C#/.NET and Python](document-translation/how-to-guides/use-client-sdks.md)—now available in prerelease
 
 ## May 2021
 

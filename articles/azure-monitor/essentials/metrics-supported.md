@@ -5,7 +5,7 @@ author: rboucher
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 09/13/2022
+ms.date: 11/21/2022
 ms.author: robb
 ms.reviewer: priyamishra
 ---
@@ -14,8 +14,6 @@ ms.reviewer: priyamishra
 
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
-
-Date list was last updated: 2021-10-05.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface). 
 
@@ -269,6 +267,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalJob|Yes|Total Jobs|Count|Total|The total number of jobs|Runbook, Status|
 |TotalUpdateDeploymentMachineRuns|Yes|Total Update Deployment Machine Runs|Count|Total|Total software update deployment machine runs in a software update deployment run|SoftwareUpdateConfigurationName, Status, TargetComputer, SoftwareUpdateConfigurationRunId|
 |TotalUpdateDeploymentRuns|Yes|Total Update Deployment Runs|Count|Total|Total software update deployment runs|SoftwareUpdateConfigurationName, Status|
+|HybridWorkerPing|Yes|Hybrid Worker Ping|Count|Total|Total number of pings from hybrid worker|HybridWorkerGroup, HybridWorker, HybridWorkerVersion|
 
 
 ## microsoft.avs/privateClouds
@@ -727,7 +726,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
-|UsedCapacity|Yes|Used capacity|Bytes|Average|Account used capacity|No Dimensions|
+|UsedCapacity|No|Used capacity|Bytes|Average|Account used capacity|No Dimensions|
 
 
 ## Microsoft.ClassicStorage/storageAccounts/blobServices
@@ -737,7 +736,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Availability|Yes|Availability|Percent|Average|The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation.|GeoType, ApiName, Authentication|
 |BlobCapacity|No|Blob Capacity|Bytes|Average|The amount of storage used by the storage account's Blob service in bytes.|BlobType, Tier|
 |BlobCount|No|Blob Count|Count|Average|The number of Blob in the storage account's Blob service.|BlobType, Tier|
-|ContainerCount|Yes|Blob Container Count|Count|Average|The number of containers in the storage account's Blob service.|No Dimensions|
+|ContainerCount|No|Blob Container Count|Count|Average|The number of containers in the storage account's Blob service.|No Dimensions|
 |Egress|Yes|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType, ApiName, Authentication|
 |IndexCapacity|No|Index Capacity|Bytes|Average|The amount of storage used by ADLS Gen2 (Hierarchical) Index in bytes.|No Dimensions|
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
@@ -788,9 +787,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
-|TableCapacity|Yes|Table Capacity|Bytes|Average|The amount of storage used by the storage account's Table service in bytes.|No Dimensions|
-|TableCount|Yes|Table Count|Count|Average|The number of table in the storage account's Table service.|No Dimensions|
-|TableEntityCount|Yes|Table Entity Count|Count|Average|The number of table entities in the storage account's Table service.|No Dimensions|
+|TableCapacity|No|Table Capacity|Bytes|Average|The amount of storage used by the storage account's Table service in bytes.|No Dimensions|
+|TableCount|No|Table Count|Count|Average|The number of table in the storage account's Table service.|No Dimensions|
+|TableEntityCount|No|Table Entity Count|Count|Average|The number of table entities in the storage account's Table service.|No Dimensions|
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
@@ -2006,6 +2005,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PendingCPU|Yes|Pending CPU|Count|Maximum|Pending CPU Requests in YARN|No Dimensions|
 |PendingMemory|Yes|Pending Memory|Count|Maximum|Pending Memory Requests in YARN|No Dimensions|
 
+> [!NOTE]
+> NumActiveWorkers is supported only if YARN is installed, and the Resource Manager is running.
+> 
+> Alternatively customers can use Log Analytics for Kafka to get the insight and can write custom query to get the best monitoring experience. For more information, see how to [Use Azure Monitor logs to monitor HDInsight clusters](https://learn.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial)
 
 ## Microsoft.HealthcareApis/services
 
@@ -2496,7 +2499,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BackendLastByteResponseTime|No|Backend Last Byte Response Time|MilliSeconds|Average|Time interval between start of establishing a connection to backend server and receiving the last byte of the response body|Listener, BackendServer, BackendPool, BackendHttpSetting|
 |BackendResponseStatus|Yes|Backend Response Status|Count|Total|The number of HTTP response codes generated by the backend members. This does not include any response codes generated by the Application Gateway.|BackendServer, BackendPool, BackendHttpSetting, HttpStatusGroup|
 |BlockedCount|Yes|Web Application Firewall Blocked Requests Rule Distribution|Count|Total|Web Application Firewall blocked requests rule distribution|RuleGroup, RuleId|
-|BlockedReqCount|Yes|Web Application Firewall Blocked Requests Count|Count|Total|Web Application Firewall blocked requests count|No Dimensions|
 |BytesReceived|Yes|Bytes Received|Bytes|Total|The total number of bytes received by the Application Gateway from the clients|Listener|
 |BytesSent|Yes|Bytes Sent|Bytes|Total|The total number of bytes sent by the Application Gateway to the clients|Listener|
 |CapacityUnits|No|Current Capacity Units|Count|Average|Capacity Units consumed|No Dimensions|
@@ -3311,7 +3313,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
-|UsedCapacity|Yes|Used capacity|Bytes|Average|The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity.|No Dimensions|
+|UsedCapacity|No|Used capacity|Bytes|Average|The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity.|No Dimensions|
 
 
 ## Microsoft.Storage/storageAccounts/blobServices
@@ -3322,7 +3324,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BlobCapacity|No|Blob Capacity|Bytes|Average|The amount of storage used by the storage account's Blob service in bytes.|BlobType, Tier|
 |BlobCount|No|Blob Count|Count|Average|The number of blob objects stored in the storage account.|BlobType, Tier|
 |BlobProvisionedSize|No|Blob Provisioned Size|Bytes|Average|The amount of storage provisioned in the storage account's Blob service in bytes.|BlobType, Tier|
-|ContainerCount|Yes|Blob Container Count|Count|Average|The number of containers in the storage account.|No Dimensions|
+|ContainerCount|No|Blob Container Count|Count|Average|The number of containers in the storage account.|No Dimensions|
 |Egress|Yes|Egress|Bytes|Total|The amount of egress data. This number includes egress to external client from Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType, ApiName, Authentication|
 |IndexCapacity|No|Index Capacity|Bytes|Average|The amount of storage used by Azure Data Lake Storage Gen2 hierarchical index.|No Dimensions|
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
@@ -3374,9 +3376,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
-|TableCapacity|Yes|Table Capacity|Bytes|Average|The amount of Table storage used by the storage account.|No Dimensions|
-|TableCount|Yes|Table Count|Count|Average|The number of tables in the storage account.|No Dimensions|
-|TableEntityCount|Yes|Table Entity Count|Count|Average|The number of table entities in the storage account.|No Dimensions|
+|TableCapacity|No|Table Capacity|Bytes|Average|The amount of Table storage used by the storage account.|No Dimensions|
+|TableCount|No|Table Count|Count|Average|The number of tables in the storage account.|No Dimensions|
+|TableEntityCount|No|Table Entity Count|Count|Average|The number of table entities in the storage account.|No Dimensions|
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 

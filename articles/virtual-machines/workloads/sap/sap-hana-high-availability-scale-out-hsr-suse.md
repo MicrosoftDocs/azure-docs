@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/03/2022
+ms.date: 12/07/2022
 ms.author: radeltch
 
 ---
@@ -182,14 +182,16 @@ For the configuration presented in this document, deploy seven virtual machines:
       1. Select **OK**.
       1. After the new front-end IP pool is created, note the pool IP address.
 
-   1. Next, create a back-end pool and add all cluster VMs to the backend pool:
-
-      1. Open the load balancer, select **backend pools**, and select **Add**.
+   1. Create a single back-end pool: 
+ 
+      1. Open the load balancer, select **Backend pools**, and then select **Add**.
       1. Enter the name of the new back-end pool (for example, **hana-backend**).
+      2. Select **NIC** for Backend Pool Configuration. 
       1. Select **Add a virtual machine**.
-      1. Select **Virtual machine**.
-      1. Select the virtual machines of the SAP HANA cluster and their IP addresses for the `client` subnet.
-      1. Select **Add**.
+      1. Select the virtual machines of the HANA cluster (the NICs for the `client` subnet).
+      1. Select **Add**.     
+      2. Select **Save**.
+   
 
    1. Next, create a health probe:
 
@@ -203,6 +205,7 @@ For the configuration presented in this document, deploy seven virtual machines:
       1. Open the load balancer, select **load balancing rules**, and select **Add**.
       1. Enter the name of the new load balancer rule (for example, **hana-lb**).
       1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
+      2. Increase idle timeout to 30 minutes.        
       1. Select **HA Ports**.
       1. Make sure to **enable Floating IP**.
       1. Select **OK**.

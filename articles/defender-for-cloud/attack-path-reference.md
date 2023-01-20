@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 11/08/2022
+ms.date: 12/07/2022
 ---
 
 
@@ -18,7 +18,7 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 
 ### Azure VMs
 
-Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentless.md).
+Prerequisite: For a list of prerequisites see the [Availability](how-to-manage-attack-path.md#availability) table for attack paths.
 
 | Attack Path Display Name | Attack Path Description |
 |--|--|
@@ -32,7 +32,7 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | VM has high severity vulnerabilities and read permission to a Key Vault | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to Key Vault '\[KVName]' |
 | VM has high severity vulnerabilities and read permission to a data store | Virtual machine '\[MachineName]' has high severity vulnerabilities \[RCE] and \[IdentityDescription] with read permission to \[DatabaseType] '\[DatabaseName]' |
 
-### AWS VMs
+### AWS Instances
 
 Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentless.md).
 
@@ -43,7 +43,11 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | Internet exposed EC2 instance has high severity vulnerabilities and read permission to S3 bucket | Option 1 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to S3 bucket '\[BucketName]' <br> <br> Option 2 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[S3permission]' permission via bucket policy to S3 bucket '\[BucketName]' <br> <br> Option 3 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[S3permission]' permission via bucket policy to S3 bucket '\[BucketName]'|
 | Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data | Option 1 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to S3 bucket '\[BucketName]' containing sensitive data <br> <br> Option 2 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[S3permission]' permission via bucket policy to S3 bucket '\[BucketName]' containing sensitive data <br> <br> Option 3 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[S3permission] permission via bucket policy to S3 bucket '\[BucketName]' containing sensitive data <br><br> . For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md).  |
 | Internet exposed EC2 instance has high severity vulnerabilities and read permission to a KMS | Option 1 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has IAM role attached with '\[Rolepermission]' permission via IAM policy to AWS Key Management Service (KMS) '\[KeyName]' <br> <br> Option 2 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has vulnerabilities allowing remote code execution and has IAM role attached with '\[Keypermission]' permission via AWS Key Management Service (KMS) policy to key '\[KeyName]' <br> <br> Option 3 <br> AWS EC2 instance '\[MachineName]' is reachable from the internet, has vulnerabilities allowing remote code execution and has IAM role attached with '\[Rolepermission]' permission via IAM policy and '\[Keypermission] permission via AWS Key Management Service (KMS) policy to key '\[KeyName]' |
-| Internet exposed EC2 instance has high severity vulnerabilities | AWS EC2 instance '\[EC2Name]' is reachable from the internet and has high severity vulnerabilities\[RCE] |
+| Internet exposed EC2 instance has high severity vulnerabilities | AWS EC2 instance '\[EC2Name]' is reachable from the internet and has high severity vulnerabilities\[RCE] | 
+| EC2 instance with high severity vulnerabilities has high privileged permissions to an account | EC2 instance '\[EC2Name]' has high severity vulnerabilities\[RCE] and has '\[Permissions]' permissions to account '\[AccountName]' | 
+| EC2 instance with high severity vulnerabilities has read permissions to a data store | Option 1 <br> EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has '\[Permissions]' permissions to database '\[DatabaseName]' <br> <br> Option 2 <br> EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached which is granted with '\[RolePermissions]' permissions through IAM policy to S3 bucket '\[BucketName]' <br><br> Option 3 <br> EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached which is granted with '\[Permissions]' permissions through bucket policy to S3 bucket '\[BucketName]' <br><br> Option 4 <br> EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached which is granted with '\[RolePermissions]' permissions through IAM policy and '\[Permissions]' permissions through bucket policy to S3 bucket '\[BucketName]' | 
+| EC2 instance with high severity vulnerabilities has read permissions to a data store with sensitive data | Option 1 <br> EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached which is granted with '\[RolePermissions]' permissions through IAM policy to S3 bucket '\[BucketName]' containing sensitive data <br><br> Option 2 <br> EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached which is granted with '\[Permissions]' permissions through bucket policy to S3 bucket '\[BucketName]' containing sensitive data <br><br> Option 3 <br> EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached which is granted with '\[RolePermissions]' permissions through IAM policy and '\[Permissions]' permissions through bucket policy to S3 bucket '\[BucketName]' containing sensitive data | 
+| EC2 instance with high severity vulnerabilities has read permissions to a KMS key | Option 1 <br> EC2 instance '\[MachineName]' has high severity vulnerabilities\[RCE] and has IAM role attached which is granted with '\[RolePermissions]' permissions through IAM policy to AWS Key Management Service (KMS) key '\[KeyName]' <br><br> option 2 <br> EC2 instance '\[MachineName]' has vulnerabilities allowing remote code execution and has IAM role attached which is granted with '\[KeyPermissions]' permissions through AWS Key Management Service (KMS) policy to key '\[KeyName]' <br><br> Option 3 <br> EC2 instance '\[MachineName]' has vulnerabilities allowing remote code execution and has IAM role attached which is granted with '\[RolePermissions]' permissions through IAM policy and '\[KeyPermissions]' permissions through AWS Key Management Service (KMS) policy to key '\[KeyName]' |
 
 ### Azure data
 

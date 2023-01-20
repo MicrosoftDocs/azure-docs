@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to ingest device telemetry messages from Azure IoT Hub to digital twins in an instance of Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/21/2022
+ms.date: 11/18/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -104,7 +104,7 @@ az functionapp function show --resource-group <your-resource-group> --name <your
 
 ### Configure the function app
 
-To access Azure Digital Twins, your function app needs a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up in this section, by assigning an access role for the function and configuring the application settings so that it can access your Azure Digital Twins instance.
+To access Azure Digital Twins, your function app needs a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) with permissions to access your Azure Digital Twins instance. You'll set that up in this section, by assigning an access role for the function and configuring the application settings so that it can access your Azure Digital Twins instance.
 
 [!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
 

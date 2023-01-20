@@ -59,7 +59,7 @@ Serverless mode doesn't have connection stickiness, but you can still have a ser
 > [!NOTE]
 > Both REST API and WebSockets are supported in SignalR service [management SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md). If you're using a language other than .NET, you can also manually invoke the REST APIs following this [specification](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md).
 
-It's also possible for your server application to receive messages and connection events from clients. SignalR Service will deliver messages and connection events to pre-configured endpoints (called *upstream endpoints*) using web hooks. Upstream endpoints can only be configured in Serverless mode. For more information, see [Upstream settings](concept-upstream.md).
+It's also possible for your server application to receive messages and connection events from clients. SignalR Service will deliver messages and connection events to pre-configured endpoints (called *upstream endpoints*) using web hooks. Upstream endpoints can only be configured in Serverless mode. For more information, see [Upstream endpoints](concept-upstream.md).
 
 
 

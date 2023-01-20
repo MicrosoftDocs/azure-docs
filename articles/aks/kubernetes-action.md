@@ -164,7 +164,7 @@ jobs:
           manifests: |
              azure-vote-all-in-one-redis.yaml
           images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
-          pull: false 
+          pull-images: false 
 ```
 
 > [!IMPORTANT]

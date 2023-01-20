@@ -23,7 +23,9 @@ This tutorial walks through how to use the Jupyter Notebooks feature of Azure Co
 
 ## Prerequisites
 
-- [Azure Cosmos DB for NoSQL account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) (configured with serverless throughput).
+- An existing Azure Cosmos DB for NoSQL account.
+  - If you have an existing Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 
 ## Create a new notebook
 

@@ -62,6 +62,10 @@
       href: chaos-studio-tutorial-aks-portal.md
     - name: CLI
       href: chaos-studio-tutorial-aks-cli.md
+  - name: Create and run experiment - Dynamic targeting
+    items:
+    - name: CLI 
+      href: chaos-studio-tutorial-dynamic-target-cli.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
 - name: Reference

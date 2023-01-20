@@ -40,18 +40,18 @@ Azure Maps Python SDK supports Python version 3.7 or later. Check the [Azure S
 | [Render][py render readme]| [azure-maps-render][py render package]|[render sample][py render sample] |
 | [Geolocation][py geolocation readme]|[azure-maps-geolocation][py geolocation package]|[geolocation sample][py geolocation sample] |
 
-<!--For more information, see the [python SDK Developers Guide](how-to-dev-guide-py-sdk.md).-->
+For more information, see the [python SDK Developers Guide](how-to-dev-guide-py-sdk.md).
 
 ## JavaScript/TypeScript
 
 Azure Maps JavaScript/TypeScript SDK supports LTS versions of [Node.js][Node.js] including versions in Active status and Maintenance status.
 
-| Service Name  | npm package             |  Samples     |
+| Service Name  | npm packages            |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][js search readme] | [@azure/maps-search][js search package] | [search samples][js search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
 
-<!--For more information, see the [JavaScript/TypeScript SDK Developers Guide](how-to-dev-guide-js-sdk.md).-->
+For more information, see the [JavaScript/TypeScript SDK Developers Guide](how-to-dev-guide-js-sdk.md).
 
 ## Java
 
@@ -81,7 +81,7 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 [C# rendering readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Rendering/README.md
 [C# rendering sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Rendering/samples
 [C# geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
-[C# geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.geolocation/README.md
+[C# geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Geolocation/README.md
 [C# geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
 
 <!--  Python SDK Developers Guide  --->
@@ -90,8 +90,8 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 [py search readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-search/README.md
 [py search sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-search/samples
 [py route package]: https://pypi.org/project/azure-maps-route
-[py route readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-routing/README.md
-[py route sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-routing/samples
+[py route readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-route/README.md
+[py route sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-route/samples
 [py render package]: https://pypi.org/project/azure-maps-render
 [py render readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-render/README.md
 [py render sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-render/samples

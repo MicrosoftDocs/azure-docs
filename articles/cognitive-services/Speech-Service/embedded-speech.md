@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-thirteen
 
 # Embedded Speech (preview)
 
-Embedded Speech is designed for on-device [speech-to-text](speech-to-text.md) and [text-to-speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in medical equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](/azure/cognitive-services/containers/disconnected-containers). 
+Embedded Speech is designed for on-device [speech-to-text](speech-to-text.md) and [text-to-speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in industrial equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](../containers/disconnected-containers.md). 
 
 > [!IMPORTANT]
 > Microsoft limits access to embedded speech. You can apply for access through the Azure Cognitive Services [embedded speech limited access review](https://aka.ms/csgate-embedded-speech). For more information, see [Limited access for embedded speech](/legal/cognitive-services/speech-service/embedded-speech/limited-access-embedded-speech?context=/azure/cognitive-services/speech-service/context/context).
@@ -65,6 +65,27 @@ Embedded neural voices only support 24-kHz sample rate.
 ## Models and voices
 
 For embedded speech, you'll need to download the speech recognition models for [speech-to-text](speech-to-text.md) and voices for [text-to-speech](text-to-speech.md). Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
+
+The following [speech-to-text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
+
+The following [text-to-speech](text-to-speech.md) locales and voices are available:
+
+| Locale (BCP-47) | Language | Text-to-speech voices |
+| ----- | ----- | ----- |
+| `de-DE` | German (Germany) | `de-DE-KatjaNeural` (Female)<br/>`de-DE-ConradNeural` (Male)|
+| `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-WilliamNeural` (Male)|
+| `en-CA` | English (Canada) | `en-CA-ClaraNeural` (Female)<br/>`en-CA-LiamNeural` (Male)|
+| `en-GB` | English (United Kingdom) | `en-GB-LibbyNeural` (Female)<br/>`en-GB-RyanNeural` (Male)|
+| `en-US` | English (United States) | `en-US-AriaNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-JennyNeural` (Female)|
+| `es-ES` | Spanish (Spain) | `es-ES-ElviraNeural` (Female)<br/>`es-ES-AlvaroNeural` (Male)|
+| `es-MX` | Spanish (Mexico) | `es-MX-DaliaNeural` (Female)<br/>`es-MX-JorgeNeural` (Male)|
+| `fr-CA` | French (Canada) | `fr-CA-SylvieNeural` (Female)<br/>`fr-CA-JeanNeural` (Male)|
+| `fr-FR` | French (France) | `fr-FR-DeniseNeural` (Female)<br/>`fr-FR-HenriNeural` (Male)|
+| `it-IT` | Italian (Italy) | `it-IT-IsabellaNeural` (Female)<br/>`it-IT-DiegoNeural` (Male)|
+| `ja-JP` | Japanese (Japan) | `ja-JP-NanamiNeural` (Female)<br/>`ja-JP-KeitaNeural` (Male)|
+| `ko-KR` | Korean (Korea) | `ko-KR-SunHiNeural` (Female)<br/>`ko-KR-InJoonNeural` (Male)|
+| `pr-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
+| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)|
 
 ## Embedded speech configuration
 

@@ -12,7 +12,7 @@ ms.date: 09/12/2022
 
 # Create a payment HSM with host and management port in different virtual networks using ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure payment HSM. Azure Payment HSM is a "BareMetal" service delivered using [Thales payShield 10K payment hardware security modules (HSM)](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system's digital transformation strategy and adopt the public cloud. For more information, see [Azure Payment HSM: Overview](/azure/payment-hsm/overview).
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure payment HSM. Azure Payment HSM is a "BareMetal" service delivered using [Thales payShield 10K payment hardware security modules (HSM)](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system's digital transformation strategy and adopt the public cloud. For more information, see [Azure Payment HSM: Overview](./overview.md).
 
 This article describes how to create a payment HSM with the host and management port in same virtual network.  You can instead:
 - [Create a payment HSM with the host and management port in same virtual network using an ARM template](quickstart-template.md)
@@ -41,7 +41,7 @@ This article describes how to create a payment HSM with the host and management 
   You can continue with this quick start if all four of these commands return "Registered".
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
 
-[!INCLUDE [Azure CLI prepare your environment](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI prepare your environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Review the template
 

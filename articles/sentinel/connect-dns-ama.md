@@ -5,7 +5,7 @@ author: limwainstein
 ms.topic: how-to
 ms.date: 01/05/2022
 ms.author: lwainstein
-#Customer intent: As a security operator, I want proactively monitor Windows DNS activities so that I can prevent threats and attacks on DNS servers.
+#Customer intent: As a security operator, I want to proactively monitor Windows DNS activities so that I can prevent threats and attacks on DNS servers.
 ---
 
 # Stream and filter data from Windows DNS servers with the AMA connector
@@ -59,11 +59,11 @@ With the connector, you can:
 
 This connector is fully normalized using [Advanced Security Information Model (ASIM) parsers](normalization.md). The connector streams events originated from the analytical logs into the normalized table named `ASimDnsActivityLogs`. This table acts as a translator, using one unified language, shared across all DNS connectors to come. 
 
-For a source-agnostic parser that unifies all DNS data and ensures that your analysis runs across all configured sources, use the [ASIM DNS unifying parser](dns-normalization-schema.md#unifying-parsers) `_Im_Dns`.   
+For a source-agnostic parser that unifies all DNS data and ensures that your analysis runs across all configured sources, use the [ASIM DNS unifying parser](normalization-schema-dns.md#out-of-the-box-parsers) `_Im_Dns`.   
 
 The ASIM unifying parser complements the native `ASimDnsActivityLogs` table. While the native table is ASIM compliant, the parser is needed to add capabilities, such as aliases, available only at query time, and to combine `ASimDnsActivityLogs`  with other DNS data sources.   
 
-The [ASIM DNS schema](dns-normalization-schema.md) represents the DNS protocol activity, as logged in the Windows DNS server in the analytical logs. The schema is governed by official parameter lists and RFCs that define fields and values. 
+The [ASIM DNS schema](normalization-schema-dns.md) represents the DNS protocol activity, as logged in the Windows DNS server in the analytical logs. The schema is governed by official parameter lists and RFCs that define fields and values. 
 
 See the [list of Windows DNS server fields](dns-ama-fields.md#asim-normalized-dns-schema) translated into the normalized field names.
 
