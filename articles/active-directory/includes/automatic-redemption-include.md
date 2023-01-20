@@ -43,7 +43,7 @@ The automatic redemption setting will only suppress the consent prompt and invit
 
 :::image type="content" source="../media/automatic-redemption-include/automatic-redemption-setting.png" alt-text="Diagram that shows automatic redemption setting for both outbound and inbound.":::
 
-The following table shows the behavior when the automatic redemption setting is checked for different cross-tenant access setting combinations.
+The following table shows the consent prompt behavior for source tenant users when the automatic redemption setting is checked for different cross-tenant access setting combinations.
 
 | Home/source tenant | Resource/target tenant | Consent prompt behavior<br/>for source tenant users |
 | :---: | :---: | :---: |
