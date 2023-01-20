@@ -8,7 +8,7 @@ ms.subservice: automl
 ms.topic: tutorial
 author: swatig007
 ms.author: swatig
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 ms.date: 05/26/2022
 ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022
 ---

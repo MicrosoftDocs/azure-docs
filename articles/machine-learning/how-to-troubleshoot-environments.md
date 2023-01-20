@@ -485,6 +485,18 @@ environment definition
 version of a package on subsequent builds of an environment. This behavior can lead to unexpected errors
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
+### UTF-8 decoding error
+<!--issueDescription-->
+This issue can happen when there's a failure decoding a character in your conda specification. 
+
+**Potential causes:**
+* Your conda YAML file contains characters that aren't compatible with UTF-8.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
 ### *Pip issues*
 ### Pip not specified
 - For reproducibility, pip should be specified as a dependency in your conda specification, and it should be pinned
@@ -577,7 +589,7 @@ If you suspect that the path name to your container registry is incorrect
 * For a registry `my-registry.io` and image `test/image` with tag `3.2`, a valid image path would be `my-registry.io/test/image:3.2`
 * See [registry path documentation](https://aka.ms/azureml/environment/docker-registries)
 
-If your container registry is behind a virtual network and is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
 * Configure the container registry by using the service endpoint (public access) from the portal and retry
 * After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
 
@@ -1061,3 +1073,31 @@ pip install --ignore-installed [package]
 ```
 
 Try creating a separate environment using conda
+
+### *Docker push issues*
+### Failed to store Docker image
+<!--issueDescription-->
+This issue can happen when a Docker image fails to be stored (pushed) to a container registry.  
+
+**Potential causes:**
+* A transient issue has occurred with the ACR associated with the workspace
+* A container registry behind a virtual network is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+
+**Affected areas (symptoms):**
+* Failure in building environments from the UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**  
+
+Retry the environment build if you suspect this is a transient issue with the workspace's Azure Container Registry (ACR)  
+
+If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+* Configure the container registry by using the service endpoint (public access) from the portal and retry
+* After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
+
+If you aren't using a virtual network, or if you've configured it correctly, test that your credentials are correct for your ACR by attempting a simple local build
+* Get credentials for your workspace ACR from the Azure Portal
+* Log in to your ACR using `docker login <myregistry.azurecr.io> -u "username" -p "password"`
+* For an image "helloworld", test pushing to your ACR by running `docker push helloworld`
+* See [Quickstart: Build and run a container image using Azure Container Registry Tasks](../container-registry/container-registry-quickstart-task-cli.md)
