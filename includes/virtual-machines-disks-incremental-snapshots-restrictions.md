@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 01/18/2023
+ ms.date: 01/19/2023
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -19,4 +19,6 @@
 - You can't get the changes between snapshots taken before and after you changed the size of the parent disk across 4 TB boundary. For example, You took an incremental snapshot `snapshot-a` when the size of a disk was 2 TB. Now you increased the size of the disk to 6 TB and then took another incremental snapshot `snapshot-b`. You can't get the changes between `snapshot-a` and `snapshot-b`. You have to again download the full copy of `snapshot-b` created after the resize. Subsequently, you can get the changes between `snapshot-b` and snapshots created after `snapshot-b`.
 - Not currently available for Premium SSD v2 managed disks.
 - Available for ultra disks as a public preview and only in Sweden Central and US West 3.
-- Incremental snapshots of an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot. See the **Check status** section of either the following CLI or PowerShell sections for details.
+- Every time an Ultra Disk snapshot is created, a background copy process for that disk is started. While a background copy is ongoing, you can have up to three total snapshots pending. The process must complete before any additional snapshots of that disk can be created.
+- Incremental snapshots of an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot. See [check snapshot status](#check-snapshot-status) for details.
+- Disks restored from Ultra Disk snapshots can't be immediately attached to a VM once it's created. The background copy must complete before it can be attached. See [check snapshot status](#check-snapshot-status) for details.
