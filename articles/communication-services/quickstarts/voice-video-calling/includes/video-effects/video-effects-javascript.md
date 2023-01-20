@@ -5,7 +5,7 @@ description: Learn how to add video effects in your video calls using Azure Comm
 author: sloanster
 
 ms.author: micahvivion
-ms.date: 01/09/2023
+ms.date: 01/20/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -24,7 +24,7 @@ You can use the Video effects feature to add effects to your video in video call
 > The calling effect library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
 
 ## Prerequisites
-- Setup Azure Communication Services to be able to start video calls. [Follow this guide](../../get-started-with-video-calling.md). You'll need the `LocalVideoStream` to be able to start effects.
+- Setup Azure Communication Services to be able to start video calls. [Follow this guide](../../get-started-with-video-calling?pivots=platform-web). You'll need the `LocalVideoStream` to be able to start effects.
 
 ## Using video effects
 ### Install the package
