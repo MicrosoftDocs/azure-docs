@@ -9,10 +9,10 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom:
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 01/020/2023
 ---
 
-# Overview
+# Change data capture resource overview
 
 [!INCLUDE[appliesto-adf-asa-md]]
 
@@ -22,9 +22,9 @@ Azure Data Factory is introducing a new mechanism to make the life of a data eng
 
 By automatically detecting data changes at the source without requiring complex designing or coding, ADF is making it a breeze to scale these processes. Change Data Capture will now exist as a **new native top-level resource** in the Azure Data Factory studio where data engineers can quickly configure continuously running jobs to process big data at scale with extreme efficiency. 
 
-The new Change Data Capture object in ADF allows for full fidelity change data capture that continuously runs in near real time through a guided configuration experience. 
+The new Change Data Capture resource in ADF allows for full fidelity change data capture that continuously runs in near real-time through a guided configuration experience. 
 
-:::image type="content" source="media/adf-cdc/adf-cdc-artifact-1.png" alt-text="New top-level artifact in Factory Resources panel.":::
+:::image type="content" source="media/adf-cdc/adf-cdc-artifact-1.png" alt-text="New top-level resource in Factory Resources panel.":::
 
 ## Supported data sources
 
@@ -55,7 +55,6 @@ The new Change Data Capture object in ADF allows for full fidelity change data c
 * Allow schema drift is coming soon.
 
 For more information on known limitations and troubleshooting assistance, please reference [this troubleshooting guide](change-data-capture-troubleshoot.md).
-
 
 
 ## Next steps
