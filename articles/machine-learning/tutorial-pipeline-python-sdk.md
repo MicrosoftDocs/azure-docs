@@ -37,11 +37,11 @@ You'll learn how to use the AzureML Python SDK v2 to:
 
 ## Prerequisites
 
-* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to:
+* Complete [Create resources to get started](quickstart-create-resources.md) to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
-    * Create a cloud-based compute cluster to use for training your model.
-* Complete the [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md) to clone the **SDK v2/tutorials** folder.
+* [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create) to use for training your model.
+* Complete the [Set up your Azure Machine Learning cloud workstation](quickstart-run-notebooks.md) to learn how to clone the **SDK v2/tutorials** folder.
 
 
 ## Open the notebook
@@ -52,7 +52,7 @@ You'll learn how to use the AzureML Python SDK v2 to:
 
     :::image type="content" source="media/tutorial-pipeline-python-sdk/expand-folder.png" alt-text="Screenshot shows the open tutorials folder.":::
 
-1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to use for running the notebook.
+1. On the top bar, select the compute instance you created during the  [Create resources to get started](quickstart-create-resources.md) to use for running the notebook.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  

@@ -58,8 +58,6 @@ To create a new file in a different folder:
 
 Your workspace contains a **Samples** folder with notebooks designed to help you explore the SDK and serve as examples for your own machine learning projects.   Clone these notebooks into your own folder to run and edit them.  
 
-For an example, see [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md#clone-tutorials-folder).
-
 ## Share files
 
 Copy and paste the URL to share a file.  Only other users of the workspace can access this URL.  Learn more about [granting access to your workspace](how-to-assign-roles.md).

@@ -34,7 +34,7 @@ The latest release of Azure Machine Learning includes the following features:
 + A new, more comprehensive Python <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>.
 + The new expanded [Azure CLI extension](v1/reference-azure-machine-learning-cli.md) for machine learning.
 
-The [architecture](v1/concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal](quickstart-create-resources.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
+The [architecture](v1/concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-workspace.md). You can create workspaces quickly in [Azure studio](quickstart-create-resources.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
 Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure Machine Learning studio](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
@@ -44,7 +44,7 @@ Although there are new improved CLI and SDK clients in the current release, the 
 
 On January 9th, 2019 support for Machine Learning Workbench, Azure Machine Learning Experimentation and Model Management accounts, and their associated SDK and CLI ended.
 
-All the latest capabilities are available by using this <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>, the [CLI](v1/reference-azure-machine-learning-cli.md), and the [Azure portal](quickstart-create-resources.md).
+All the latest capabilities are available by using this <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>, the [CLI](v1/reference-azure-machine-learning-cli.md), and [Azure studio](quickstart-create-resources.md).
 
 ## What about run histories?
 
@@ -96,7 +96,7 @@ Learn about the [latest architecture for Azure Machine Learning](v1/concept-azur
 
 For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md).
 
-Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
+Start with [Create resources to get started](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
 
   + [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md)
   + [Use a Jupyter notebook to train image classification models](tutorial-train-deploy-notebook.md)

@@ -59,15 +59,22 @@
         - name: "Upgrade from ACI web services to managed online endpoints"
           displayName: migration, v1, v2
           href: migrate-to-v2-managed-online-endpoints.md
+- name: Setup
+  expanded: true
+  items:
+    - name: Create ML resources to get started
+      href: quickstart-create-resources.md
+    - name: Set up your development environment
+      items:
+        - name: Set up your cloud workstation
+          href: quickstart-run-notebooks.md
+        - name: Configure Apache Spark jobs (preview)
+          href: quickstart-spark-jobs.md
 - name: Quickstart
   expanded: true
   items:
-    - name: Set up your cloud workstation
-      href: quickstart-create-resources.md
     - name: Overview of Azure ML
       href: tutorial-azure-ml-in-a-day.md
-    - name: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
-      href: quickstart-spark-jobs.md
 - name: Tutorials
   expanded: true
   items:

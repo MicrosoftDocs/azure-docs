@@ -104,7 +104,7 @@ Do not store training data on the notebooks file share. You can use the `/tmp` d
 
 ## Create
 
-Follow the steps in the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md) to create a basic compute instance.  
+Follow the steps in [Create resources you need to get started](quickstart-create-resources.md) to create a basic compute instance.  
 
 For more options, see [create a new compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create).
 
@@ -141,5 +141,5 @@ You can use compute instance as a local inferencing deployment target for test/d
 
 ## Next steps
 
-* [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md).
+* [Create resources you need to get started](quickstart-create-resources.md).
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
