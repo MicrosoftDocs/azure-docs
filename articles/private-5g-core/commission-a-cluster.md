@@ -220,7 +220,7 @@ You can now view information about what’s running on the cluster – the follo
 
 ## Verify the cluster configuration
 
-You should verify that the Azure Stack Edge cluster is set up correctly by running the following *kubectl* commands using the *kubeconfig* downloaded from the UI in [Kubectl cluster access](#kubectl-cluster-access):
+You should verify that the Azure Stack Edge cluster is set up correctly by running the following *kubectl* commands using the *kubeconfig* downloaded from the UI in [Set up kubectl access](#set-up-kubectl-access):
 
 `kubectl get nodes`
 
