@@ -2,7 +2,7 @@
 title: Enable double encryption at rest - Azure CLI - managed disks
 description: Enable double encryption at rest for your managed disk data using the Azure CLI.
 author: roygara
-ms.date: 06/29/2021
+ms.date: 01/19/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -43,12 +43,16 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
     az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
     ```
 
-1.    Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Use API version **2020-05-01** in the Azure Resource Manager (ARM) template. 
+1. Get the key URL of the key you just created.
+
+        ```azurecli
+        az keyvault key show --name $keyName --vault-name $keyVaultName
+        ```
+
+1.    Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Replace `yourKeyURLHere` with the URL you received from `az keyvault key show`. 
     
         ```azurecli
-        az deployment group create -g $rgName \
-       --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/DoubleEncryption/CreateDiskEncryptionSetForDoubleEncryption.json" \
-        --parameters "diskEncryptionSetName=$diskEncryptionSetName" "encryptionType=EncryptionAtRestWithPlatformAndCustomerKeys" "keyVaultId=$keyVaultId" "keyVaultKeyUrl=$keyVaultKeyUrl" "region=$location"
+        az disk-encryption-set create --resource-group MyResourceGroup --name MyDiskEncryptionSet --key-url yourKeyURLHere --source-vault MyVault --encryption-type EncryptionAtRestWithPlatformAndCustomerKeys
         ```
 
 1.    Grant the DiskEncryptionSet resource access to the key vault. 
