@@ -18,7 +18,7 @@ ms.custom:
 ms.devlang: csharp
 ---
 
-# Migrate an application to use passwordless connections with Azure services
+# Migrate an application to use passwordless connections with Azure Storage
 
 Application requests to Azure Storage must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, passwordless connections.
 

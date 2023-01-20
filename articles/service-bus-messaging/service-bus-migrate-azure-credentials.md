@@ -1,12 +1,12 @@
 ---
 title: Migrate applications to use passwordless authentication with Azure Service Bus
 titleSuffix: Azure Service Bus
-description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security.
+description: Learn to migrate existing service bus applications away from connection strings to use Azure AD and Azure RBAC for enhanced security.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
 ms.date: 12/07/2022
-ms.service: service bus
+ms.service: servicebus
 ms.subservice: common
 ms.topic: how-to
 ms.custom:
@@ -18,7 +18,7 @@ ms.custom:
 ms.devlang: csharp
 ---
 
-# Migrate an application to use passwordless connections with Azure services
+# Migrate an application to use passwordless connections with Azure Service Bus
 
 Application requests to Azure Service Bus must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, passwordless connections.
 
@@ -34,7 +34,7 @@ Connection strings should be used with caution. Developers must be diligent to n
 
 ## Migrate to passwordless connections
 
-[!INCLUDE [migrate-to-passwordless-overview](../../../includes/passwordless/migration-guide/migrate-to-passwordless-overview.md)]
+[!INCLUDE [migrate-to-passwordless-overview](../../includes/passwordless/migration-guide/migrate-to-passwordless-overview.md)]
 
 ## Steps to migrate an app to use passwordless authentication
 
@@ -42,13 +42,13 @@ The following steps explain how to migrate an existing application to use passwo
 
 ### Configure roles and users for local development authentication
 
-[!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
+[!INCLUDE [assign-roles](../../includes/assign-roles.md)]
 
 ### Sign-in and migrate the app code to use passwordless connections
 
 For local development, make sure you're authenticated with the same Azure AD account you assigned the role to for the service bus namespace. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](../../includes/passwordless/default-azure-credential-sign-in.md)]
 
 Next you will need to update your code to use passwordless connections.
 
@@ -81,8 +81,6 @@ Next you will need to update your code to use passwordless connections.
 
 1. Make sure to update the service bus namespace in the URI of your `ServiceBusClient`. You can find the namespace on the overview page of the Azure portal.
 
-   :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the storage account name.":::
-
 #### Run the app locally
 
 After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure will allow your app to connect to the Azure service locally.
@@ -93,7 +91,7 @@ Once your application is configured to use passwordless connections and runs loc
 
 #### Create the managed identity using the Azure portal
 
-[!INCLUDE [create-managed-identity-portal](../../../includes/passwordless/migration-guide/create-managed-identity-portal.md)]
+[!INCLUDE [create-managed-identity-portal](../../includes/passwordless/migration-guide/create-managed-identity-portal.md)]
 
 Alternatively, you can also enable managed identity on an Azure hosting environment using the Azure CLI.
 
@@ -207,7 +205,7 @@ If you connected your services using the Service Connector you do not need to co
 
 1. Choose **Add role assignment**
 
-   :::image type="content" source="media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="media/migration-add-role.png":::
+   :::image type="content" source="../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../includes/passwordless/media/migration-add-role.png":::
 
 1. In the **Role** search box, search for *Azure Service Bus Data Owner*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Azure Service Bus Data Owner* from the list and choose **Next**.
 
@@ -215,7 +213,7 @@ If you connected your services using the Service Connector you do not need to co
 
 1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-   :::image type="content" source="media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="media/migration-select-identity.png":::
+   :::image type="content" source="../../includes/passwordless/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../../includes/passwordless/media/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
@@ -251,7 +249,5 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
-* For more information on authorizing access with managed identity, visit [Authorize access to blob data with managed identities for Azure resources](../blobs/authorize-managed-identity.md).
 * [Authorize with Azure roles](../blobs/authorize-access-azure-active-directory.md)
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
-* To learn more about authorizing from a web application, visit [Authorize from a native or web application](./storage-auth-aad-app.md)
