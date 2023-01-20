@@ -18,7 +18,7 @@ In this tutorial, you deploy Bastion using the Standard SKU tier and adjust host
 Azure Bastion is a PaaS service that's maintained for you, not a bastion host that you install on one of your VMs and maintain yourself. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 > [!IMPORTANT]
-> Azure DDoS protection Standard incurs a cost per public IP address in the virtual network where you enable the service. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing](https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](/azure/ddos-protection/ddos-protection-overview).
+> Azure DDoS protection Standard incurs a cost per public IP address in the virtual network where you enable the service. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing](https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
 
 In this tutorial, you'll learn how to:
 

@@ -1,12 +1,12 @@
 ---
 title: Configure the MedTech service metrics - Azure Health Data Services
-description: This article explains how to display MedTech service metrics.
+description: This article explains how to configure the MedTech service metrics.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
@@ -85,7 +85,7 @@ To learn how to create an Azure portal dashboard and pin tiles, see [Create a da
 
 In this article, you learned about how to configure the MedTech service metrics.
 
-To learn how to enable the MedTech service diagnostic settings to export logs and metrics to another location (for example: an Azure storage account) for audit, backup, or troubleshooting, see
+To learn how to enable the MedTech service diagnostic settings to export logs and metrics to another location (for example: Azure Log Analytics workspace) for audit, backup, or troubleshooting, see
 
 > [!div class="nextstepaction"]
 > [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)

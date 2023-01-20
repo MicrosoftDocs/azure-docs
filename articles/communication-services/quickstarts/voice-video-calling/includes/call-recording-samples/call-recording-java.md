@@ -6,6 +6,10 @@ ms.topic: include
 ms.custom: public_preview
 ---
 
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording)
+
 ## Prerequisites
 
 - You need an Azure account with an active subscription.

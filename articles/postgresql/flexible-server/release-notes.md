@@ -1,8 +1,8 @@
 ---
 title: Azure Database for PostgreSQL - Flexible Server Release notes
 description: Release notes of Azure Database for PostgreSQL - Flexible Server.
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -23,6 +23,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: November 2022
 
+* Public preview of [Enhanced Metrics](./concepts-monitoring.md) for Azure Database for PostgreSQL – Flexible Server
 * Support for [minor versions](./concepts-supported-versions.md) 14.5, 13.8, 12.12, 11.17. <sup>$</sup>
 * General availability of Azure Database for PostgreSQL - Flexible Server in China North 3 & China East 3 Regions. 
 

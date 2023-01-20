@@ -41,6 +41,11 @@ The below scalar functions perform an operation on a string input value and retu
 | [StringToBoolean](stringtoboolean.md) | Full scan          | Full scan                                              |                                                              |
 | [StringToNull](stringtonull.md)       | Full scan          | Full scan                                              |                                                              |
 | [StringToNumber](stringtonumber.md)   | Full scan          | Full scan                                              |                                                              |
+| [StringToObject](stringtoobject.md)   | Full scan          | Full scan                                              |                                                              |
+| [SUBSTRING](substring.md)             | Full scan          | Full scan                                              |                                                              |
+| [ToString](tostring.md)               | Full scan          | Full scan                                              |                                                              |
+| [TRIM](trim.md)                       | Full scan          | Full scan                                              |                                                              |
+| [UPPER](upper.md)                     | Full scan          | Full scan                                              |                                                              |
 
 Learn about about [index usage](../../index-overview.md#index-usage) in Azure Cosmos DB.
 

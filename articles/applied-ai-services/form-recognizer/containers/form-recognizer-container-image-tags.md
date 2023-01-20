@@ -49,13 +49,13 @@ Release notes for `v2.1`:
 
 | Container | Tags | Retrieve image |
 |------------|:------|------------|
-| **Layout**| &bullet; `latest` </br> &bullet; `2.1`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout)`|
-| **Business Card** | &bullet; `latest` </br> &bullet; `2.1` |`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt` |
-| **ID Document** | &bullet; `latest` </br> &bullet; `2.1`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document`|
-| **Receipt**| &bullet; `latest` </br> &bullet; `2.1`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt` |
-| **Invoice**| &bullet; `latest` </br> &bullet; `2.1`|`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
-| **Custom API** | &bullet; `latest` </br> &bullet; `2.1`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api`|
-| **Custom Supervised**| &bullet; `latest` </br> &bullet; `2.1`|`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised` |
+| **Layout**| &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout`|
+| **Business Card** | &bullet; `latest` </br> &bullet; `2.1-preview` |`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard` |
+| **ID Document** | &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document`|
+| **Receipt**| &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt` |
+| **Invoice**| &bullet; `latest` </br> &bullet; `2.1-preview`|`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
+| **Custom API** | &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api`|
+| **Custom Supervised**| &bullet; `latest` </br> &bullet; `2.1-preview`|`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised` |
 
 ### [Previous versions](#tab/previous)
 

@@ -3,7 +3,7 @@ title: Network Watcher - Create NSG flow logs using an Azure Resource Manager te
 description: Use an Azure Resource Manager template and PowerShell to easily set up NSG Flow Logs.
 services: network-watcher
 documentationcenter: na
-author: damendo
+author: harsha-cs
 manager: twooley
 editor:
 tags: azure-resource-manager
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/09/2022
-ms.author: damendo
+ms.author: harshacs
 ms.custom: fasttrack-edit, devx-track-azurepowershell, engagement-fy23
 
 ---

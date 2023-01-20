@@ -4,13 +4,13 @@ titleSuffix: Azure Network Watcher
 description: This page explains how to troubleshoot Virtual Network Gateways and Connections with Azure Network Watcher using REST
 services: network-watcher
 documentationcenter: na
-author: damendo
+author: shijaiswal
 ms.service: network-watcher
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
-ms.author: damendo
+ms.author: shijaiswal
 
 ---
 

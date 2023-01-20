@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.  
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 11/01/2022
+ms.date: 01/16/2023
 ms.custom: template-concept 
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
@@ -157,7 +157,7 @@ The following example performs clean-up actions if a cancellation request has be
 
 You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
 
-ReadyToRun is available in .NET 3.1, .NET 6 (both in-process and isolated worker process), and .NET 7, and it requires [version 3.0 or later](functions-versions.md) of the Azure Functions runtime.
+ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
 
 To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
 

@@ -29,7 +29,7 @@ Before you create a model for your device, you need to understand the existing c
 - The read-only and writable properties the device synchronizes with your service.
 - The commands invoked from the service that the device responds to.
 
-For example, review the following device code snippets that implement various device capabilities. These examples are based on the sample in [PnPMQTTWin32-Before](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32-Before).
+For example, review the following device code snippets that implement various device capabilities.
 
 The following snippet shows the device sending temperature telemetry:
 
