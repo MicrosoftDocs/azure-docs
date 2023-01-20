@@ -2,12 +2,12 @@
 title: Azure traffic analytics
 description: Learn what traffic analytics is, and how to use traffic analytics for viewing network activity, securing networks, and optimizing performance.
 services: network-watcher
-author: Harsha-CS
+author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 01/06/2023
-ms.author: harshacs
+ms.author: halkazwini
 ms.reviewer: vinigam
 ms.custom: template-concept, references_regions, engagement-fy23, devx-track-azurepowershell, kr2b-contr-experiment
 ---
