@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/20/2023
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: blobs

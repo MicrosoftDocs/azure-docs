@@ -5,7 +5,7 @@ description: Description goes here
 author: normesta
 
 ms.author: normesta
-ms.date: 01/10/2023
+ms.date: 01/20/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -23,6 +23,8 @@ To identify the most optimal access tier, try to estimate what percentage of the
 
 > [!div class="mx-imgBorder"]
 > ![Chart that shows a bar for each tier which represents the monthly cost based on percentage read pattern](./media/access-tiers-best-practices/read-pattern-access-tiers.png)
+
+To model and analyze the cost of using cool versus archive storage, see [Archive versus cool](archive-cost-estimation.md#archive-versus-cool). You can apply similar modeling techniques to compare the cost of hot to cool or archive.
 
 ## Migrate data directly to the most cost-efficient access tiers
 
