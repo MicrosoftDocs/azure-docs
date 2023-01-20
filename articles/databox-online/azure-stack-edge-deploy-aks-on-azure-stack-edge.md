@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/19/2023
+ms.date: 01/20/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -32,7 +32,7 @@ Before you begin, ensure that:
 
 - You have a Microsoft account with credentials to access Azure portal, and access to an Azure Stack Edge Pro GPU device. The Azure Stack Edge device will be configured and activated using the instructions in [Set up and activate your device](azure-stack-edge-gpu-deploy-checklist.md).
 - You have at least one virtual switch created and enabled for compute on your Azure Stack Edge device. For detailed steps, see [Create virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-switches).
-- You have a client to access your device that is running a supported operating system. If using a Windows client, make sure that it's running PowerShell 5.0 or later.
+- You have a client to access your device that's running a supported operating system. If using a Windows client, make sure that it's running PowerShell 5.0 or later.
 - Before you enable Azure Arc on the Kubernetes cluster, make sure that you’ve enabled and registered `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` resource providers against your subscription. For detailed steps, see [Register resource providers via Azure CLI](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#register-providers-for-azure-arc-enabled-kubernetes).
 - If you intend to deploy Azure Arc for Kubernetes cluster, you’ll need to create a resource group. You must have owner level access to the resource group.
 
@@ -63,7 +63,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
 - If deploying Kubernetes or PMEC workloads, you may need virtual networks that you’ve added using the instructions in [Create virtual networks](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-network).
 
-- If you are using HPN VMs as your infrastructure VMs, the vCPUs should be automatically reserved. Run the following command to verify the reservation:
+- If you're using HPN VMs as your infrastructure VMs, the vCPUs should be automatically reserved. Run the following command to verify the reservation:
 
      ```azurepowershell
      Get-HcsNumaLpMapping
@@ -95,7 +95,7 @@ There are multiple steps to deploy AKS on Azure Stack Edge. Some steps are optio
  
 ## Enable AKS
 
-1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md).
+1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 1.	Run the following command to enable AKS:
 
@@ -111,7 +111,7 @@ There are multiple steps to deploy AKS on Azure Stack Edge. Some steps are optio
 
 ## Set custom locations (optional)
 
-1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md).
+1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 1.	Run the following command **as an option** to set custom locations. Input the custom location object ID that you fetched when completing your prerequisites.
 
@@ -217,18 +217,18 @@ Follow these steps to deploy the AKS cluster.
 
 1. In the Azure portal, go to your Azure Stack Edge resource.
 
-1. Select the **Azure Kubernetes Services** tile.
+1. Select the **Azure Kubernetes Service** tile.
 
 1. Select **Add** to configure AKS.
 
 1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. In this example, we have selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**.
 
    > [!NOTE]
-   > If the node size dropdown isn’t populated, wait a few minutes so that it's synchronized after VMs are enabled in the preceding step.
+   > If the node size dropdown menu isn’t populated, wait a few minutes so that it's synchronized after VMs are enabled in the preceding step.
 
 1. Check **Manage container from cloud via Arc enabled Kubernetes**. This option, when checked, will enable Arc when the Kubernetes cluster is created.
 
-1. If you select **Change**, then you’ll need to provide a subscription, resource group, cluster name, and region.
+1. If you select **Change**, then you’ll need to provide a subscription name, resource group, cluster name, and region.
 
    [![Screenshot that shows the Configure Arc enabled Kubernetes options part of creating the Kubernetes service on the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-aks-configure-arc-enabled-kubernetes.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-aks-configure-arc-enabled-kubernetes.png#lightbox)
 
@@ -240,7 +240,7 @@ Follow these steps to deploy the AKS cluster.
 
    1. Specify a name for your Arc enabled Kubernetes cluster or accept the default.
 
-   1. Select a region where the resource for your Arc enabled Kubernetes cluster will be created. A filtered list of supported regions is displayed in the dropdown list. For more information, see [supported regions for Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md).  
+   1. Select a region where the resource for your Arc enabled Kubernetes cluster will be created. A filtered list of supported regions is displayed in the dropdown list.
    1. Select **Configure**. You can also reset the Arc settings by selecting the **Reset to default** option.
 
 1. Select **Create** to create the Kubernetes service.
