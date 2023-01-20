@@ -21,14 +21,14 @@ The Network Security Group (NSG) Diagnostics is an Azure Network Watcher tool th
 
 ## Background
 
-- Your resources in Azure are connected via [virtual networks (VNets)](../virtual-network/virtual-networks-overview) and subnets. The security of these VNets and subnets can be managed using [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md).
-- An NSG contains a list of [security rules](../virtual-network/network-security-groups-overview#security-rules) that allow or deny network traffic to resources it's connected to. An NSG can be associated to a virtual network subnet or individual network interface (NIC) attached to a virtual machine (VM). 
+- Your resources in Azure are connected via [virtual networks (VNets)](../virtual-network/virtual-networks-overview.md) and subnets. The security of these VNets and subnets can be managed using [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md).
+- An NSG contains a list of [security rules](../virtual-network/network-security-groups-overview.md#security-rules) that allow or deny network traffic to resources it's connected to. An NSG can be associated to a virtual network subnet or individual network interface (NIC) attached to a virtual machine (VM). 
 - All traffic flows in your network are evaluated using the rules in the applicable NSG.
 - Rules are evaluated based on priority number from lowest to highest.
 
 ## How does NSG Diagnostics work? 
 
-For a given flow, the NSG Diagnostics tool runs a simulation of the flow and returns whether the flow would be allowed or denied and detailed information about the security rule allowing or denying the flow. You must provide details of a flow like source, destination, protocol, etc.
+For a given flow, after you provide details like source, destination and protocol, the NSG Diagnostics tool runs a simulation of the flow and returns whether the flow would be allowed or denied with detailed information about the security rule allowing or denying the flow.
 
 ## Next steps
 
