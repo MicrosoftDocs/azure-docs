@@ -425,7 +425,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     
     ```powershell
         # Build settings
-        $settings = ".\settings.json"
+        $settings = (get-content -raw ".\settings.json")
         $extName =  "KeyVaultForWindows"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
