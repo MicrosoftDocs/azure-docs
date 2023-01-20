@@ -348,7 +348,7 @@ Azure Cognitive Search has an optional [built-in policy](https://portal.azure.co
 
 1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to **Deny**. 
 
-   In Azure policies: "Deny is used to prevent a resource request that doesn't match defined standards through a policy definition and fails the request". Assuming the standard for your service is CMK encryption, setting the policy to "Deny" will deny requests that don't specify CMK encryption.
+   In Azure policies: "Deny is used to prevent a resource request that doesn't match defined standards through a policy definition and fails the request". Assuming the standard for your service is CMK encryption, setting the effect to "Deny" will prevent requests that don't specify CMK encryption.
 
    :::image type="content" source="media/search-security-manage-encryption-keys/effect-deny.png" alt-text="Screenshot of changing built-in CMK policy effect to deny." border="true":::
 
