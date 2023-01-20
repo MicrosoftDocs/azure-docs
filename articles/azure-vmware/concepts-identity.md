@@ -114,7 +114,7 @@ The following permissions are assigned to the **cloudadmin** user in Azure VMwar
 
 > [!NOTE]
 > **VMware NSX-T Data Center cloudadmin user** on Azure VMware Solution is not the same as the **cloudadmin user** mentioned in the VMware product documentation.
-> Functionality may be limited to policy API only in most cases.
+> Permissions below apply to NSX-T's Policy API.  Manager API functionality may be limited.
 
 | Category        | Type                  | Operation                                                            | Permission                                                       |
 |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
