@@ -70,7 +70,7 @@ To configure the vault, follow these steps:
 
 4. On the **Prepare infrastructure** pane, select **Download Agent for Windows Server or Windows Client**.
 
-    ![Screenshot shows how to prepare infrastructure.](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
+    ![Screenshot shows how to start downloading the agent for Windows client.](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
     If you're using Windows Server Essential, then choose to download the agent for Windows Server Essential. A pop-up menu prompts you to run or save MARSAgentInstaller.exe.
 
