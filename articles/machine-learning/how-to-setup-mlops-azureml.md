@@ -213,7 +213,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
     location: eastus
    ```
    > [!NOTE]
-   > If your are running a Deep Learning workload such as CV or NLP, ensure your GPU compute is available in your deployment zone.
+   > If you are running a Deep Learning workload such as CV or NLP, ensure your GPU compute is available in your deployment zone.
 
 1. Click Commit and push code to get these values into the pipeline. 
 
