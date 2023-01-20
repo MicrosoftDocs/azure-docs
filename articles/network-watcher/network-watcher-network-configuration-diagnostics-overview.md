@@ -28,7 +28,7 @@ The Network Security Group (NSG) Diagnostics is an Azure Network Watcher tool th
 
 ## How does NSG Diagnostics work? 
 
-For a given flow, after you provide details like source, destination and protocol, the NSG Diagnostics tool runs a simulation of the flow and returns whether the flow would be allowed or denied with detailed information about the security rule allowing or denying the flow.
+For a given flow, after you provide details like source and destination, the NSG Diagnostics tool runs a simulation of the flow and returns whether the flow would be allowed or denied with detailed information about the security rule allowing or denying the flow.
 
 ## Next steps
 
