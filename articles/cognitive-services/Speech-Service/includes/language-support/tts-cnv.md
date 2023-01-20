@@ -12,7 +12,7 @@ ms.author: eur
 | `ar-EG` | Arabic (Egypt) | Custom Neural Voice Pro |
 | `ar-SA` | Arabic (Saudi Arabia) | Custom Neural Voice Pro |
 | `bg-BG` | Bulgarian (Bulgaria) | Custom Neural Voice Pro |
-| `ca-ES` | Catalan (Spain) | Custom Neural Voice Pro |
+| `ca-ES` | Catalan | Custom Neural Voice Pro |
 | `cs-CZ` | Czech (Czechia) | Custom Neural Voice Pro |
 | `da-DK` | Danish (Denmark) | Custom Neural Voice Pro |
 | `de-AT` | German (Austria) | Custom Neural Voice Pro |
