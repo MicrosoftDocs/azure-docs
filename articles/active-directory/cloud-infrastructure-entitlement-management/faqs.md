@@ -140,7 +140,7 @@ We also have the ability to remove, export or modify specific data should the Gl
 
 ## Do I require a license to use Entra Permissions Management? 
 
-Yes, as of July 1st, 2022, new customers must acquire a free 45-trial license or a paid license to use the service. You can enable a trial here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) or you can directly purchase resource-based licenses here: [https://aka.ms/BuyPermissionsManagement](https://aka.ms/BuyPermissionsManagement) 
+Yes, as of July 1st, 2022, new customers must acquire a free 45-day trial license or a paid license to use the service. You can enable a trial here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) or you can directly purchase resource-based licenses here: [https://aka.ms/BuyPermissionsManagement](https://aka.ms/BuyPermissionsManagement) 
  
 ## What do I do if I’m using Public Preview version of Entra Permissions Management?  
 
