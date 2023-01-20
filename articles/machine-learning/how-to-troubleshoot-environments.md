@@ -871,35 +871,193 @@ Ensure that you're using a compatible python version
 * [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 
 ### Interactive auth was attempted
-- Failed to create or update the conda environment because pip attempted interactive authentication 
-- Instead, provide authentication via [workspace connection](https://aka.ms/azureml/environment/set-connection-v1)
+<!--issueDescription-->
+This issue can happen when pip attempts interactive authentication during package installation.
+
+**Potential causes:**
+* You've listed a package that requires authentication, but you haven't provided credentials
+* During the image build, pip tried to prompt you to authenticate which failed the build
+because you can't provide interactive authentication during a build
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Provide authentication via workspace connections
+
+*Applies to: Python SDK azureml V1*
+
+```
+from azureml.core import Workspace
+ws = Workspace.from_config()
+ws.set_connection("connection1", "PythonFeed", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
+```
+
+*Applies to: Azure CLI extensions V1 & V2*
+
+Create a workspace connection from a YAML specification file
+
+```
+az ml connection create --file connection.yml --resource-group my-resource-group --workspace-name my-workspace
+```
+
+**Resources**
+* [Python SDK AzureML v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+* [Python SDK AzureML v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Forbidden blob
-- Failed to create or update the conda environment because a blob contained in the associated storage account was inaccessible
-- Either open up permissions on the blob or add/replace the SAS token in the URL
+<!--issueDescription-->
+This issue can happen when an attempt to access a blob in a storage account is rejected.
+
+**Potential causes:**
+* The authorization method you're using to access the storage account is invalid
+* You're attempting to authorize via shared access signature (SAS), but the SAS token is expired or invalid
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Read the following to understand [how to authorize access to blob data in the Azure portal](../storage/blobs/authorize-data-operations-portal.md)
+
+Read the following to understand [how to authorize access to data in Azure storage](../storage/common/authorize-data-access.md)
+
+Read the following if you're interested in [using SAS to access Azure storage resources](../storage/common/storage-sas-overview.md)
 
 ### Horovod build
-- Failed to create or update the conda environment because horovod failed to build
-- See [horovod installation](https://aka.ms/azureml/environment/install-horovod)
+<!--issueDescription-->
+This issue can happen when the conda environment fails to be created or updated because horovod failed to build.
+
+**Potential causes:**
+* Horovod installation requires other modules that you haven't installed
+* Horovod installation requires certain libraries that you haven't included
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Many issues could cause a horovod failure, and there's a comprehensive list of them in horovod's documentation
+* Review the [horovod troubleshooting guide](https://horovod.readthedocs.io/en/stable/troubleshooting_include.html#) 
+* Review your Build log to see if there's an error message that surfaced when horovod failed to build
+* It's possible that the problem you're encountering is detailed in the horovod troubleshooting guide, along with a solution
+
+**Resources**
+* [horovod installation](https://aka.ms/azureml/environment/install-horovod)
 
 ### Conda command not found
-- Failed to create or update the conda environment because the conda command is missing 
-- For system-managed environments, conda should be in the path in order to create the user's environment
-from the provided conda specification
+<!--issueDescription-->
+This issue can happen when the conda command isn't recognized during conda environment creation or update.
+
+**Potential causes:**
+* conda isn't installed in the base image you're using
+* conda isn't installed via your Dockerfile before you try to execute the conda command
+* conda isn't included in or wasn't added to your path
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Ensure that you have a conda installation step in your Dockerfile before trying to execute any conda commands
+* Review this [list of conda installers](https://docs.conda.io/en/latest/miniconda.html) to determine what you need for your scenario
+
+If you've tried installing conda and are experiencing this issue, ensure that you've added conda to your path
+* Review this [example](https://stackoverflow.com/questions/58269375/how-to-install-packages-with-miniconda-in-dockerfile) for guidance
+* Review how to set [environment variables in a Dockerfile](https://docs.docker.com/engine/reference/builder/#env)
+
+**Resources**
+* All available conda distributions are found in the [conda repository](https://repo.anaconda.com/miniconda/)
 
 ### Incompatible Python version
-- Failed to create or update the conda environment because a package specified in the conda environment isn't compatible with the specified python version
-- Update the Python version or use a different version of the package
+<!--issueDescription-->
+This issue can happen when there's a package specified in your conda environment that isn't compatible with your specified Python version.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Use a different version of the package that's compatible with your specified Python version
+
+Alternatively, use a different version of Python that's compatible with the package you've specified
+* If you're changing your Python version, use a version that's supported and that isn't nearing its end-of-life soon
+* See Python [end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
+
+**Resources**
+* [Python documentation by version](https://aka.ms/azureml/environment/python-versions)
 
 ### Conda bare redirection
-- Failed to create or update the conda environment because a package was specified on the command line using ">" or "<"
-without using quotes. Consider adding quotes around the package specification
+<!--issueDescription-->
+This issue can happen when a package is specified on the command line using "<" or ">" without using quotes, causing conda environment creation or update to fail.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Add quotes around the package specification
+* For example, change `conda install -y pip<=20.1.1` to `conda install -y "pip<=20.1.1"`
 
 ### *Pip issues during build*
 ### Failed to install packages
-- Failed to install Python packages
-- Review the image build log for more information on this error
+<!--issueDescription-->
+This issue can happen when your image build fails during Python package installation.
+
+**Potential causes:**
+* There are many issues that could cause this error
+* This is a generic message that's surfaced when the error you're encountering isn't yet covered by AzureML analysis
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Review your Build log for more information on your image build failure 
+
+Leave feedback for the AzureML team to analyze the error you're experiencing
+* [File a problem or suggestion](https://github.com/Azure/azureml-assets/issues/new?assignees=&labels=environmentLogs&template=environmentLogsFeedback.yml)
 
 ### Can't uninstall package
-- Pip failed to uninstall a Python package that was installed via the OS's package manager
-- Consider creating a separate environment using conda instead
+<!--issueDescription-->
+This can happen when pip fails to uninstall a Python package that was installed via the operating system's package manager.
+
+**Potential causes:**
+* An existing pip problem or a problematic pip version
+* An issue arising from not using an isolated environment
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Read the following and determine if your failure is caused by an existing pip problem
+* [Cannot uninstall while creating Docker image](https://stackoverflow.com/questions/63383400/error-cannot-uninstall-ruamel-yaml-while-creating-docker-image-for-azure-ml-a)
+* [pip 10 disutils partial uninstall issue](https://github.com/pypa/pip/issues/5247)
+* [pip 10 no longer uninstalls disutils packages](https://github.com/pypa/pip/issues/4805)
+
+Try the following
+
+```
+pip install --ignore-installed [package]
+```
+
+Try creating a separate environment using conda

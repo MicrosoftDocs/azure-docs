@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 01/09/2023
 ms.author: banders
 ---
 
@@ -133,8 +133,8 @@ You can trade in one or more reservations for a savings plan. When you trade in 
 Depending on how you pay for your Azure subscription, email savings plan notifications are sent to the following users in your organization. Notifications are sent for various events including:
 
 - Purchase
-- Upcoming savings plan expiration
-- Expiry
+- Upcoming savings plan expiration - 30 days before
+- Expiry - 30 days before
 - Renewal
 - Cancellation
 - Scope change
