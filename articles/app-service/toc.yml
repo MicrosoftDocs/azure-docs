@@ -497,7 +497,7 @@
         - name: Migrate WebSphere
           href: /azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
         - name: Migrate WordPress
-          href: migrate-wordpres.md
+          href: migrate-wordpress.md
     - name: Cookbooks
       items:
         - name: Reference Architectures
