@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/04/2023
 ---
 
-# Java code samples for Azure Cognitive Search
+# Java samples for Azure Cognitive Search
 
 Learn about the Java code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/java/api/overview/azure/search-documents-readme) for the [**Azure SDK for Java**](/azure/developer/java/sdk), which you can explore through the following links.
 

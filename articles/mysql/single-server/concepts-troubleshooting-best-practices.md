@@ -4,8 +4,8 @@ description: This article describes some recommendations for troubleshooting you
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.date: 07/22/2022
 ---
 

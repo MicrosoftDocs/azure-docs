@@ -17,6 +17,7 @@ Using various authentication systems can be cumbersome and risky because it's di
 
 The following are prerequisites to enable Azure AD authenticated ingestion.
 
+- Must be in public cloud
 - Familiarity with:
     - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md). 
     - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).

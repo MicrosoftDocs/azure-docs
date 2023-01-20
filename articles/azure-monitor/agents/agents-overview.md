@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 1/3/2022
+ms.date: 1/18/2023
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -31,7 +31,10 @@ Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
 
 ## Install the agent and configure data collection
 
-Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), where you define which data you want each agent to collect. Data collection rules let you manage data collection settings at scale and define unique, scoped configurations for subsets of machines. The rules are independent of the workspace and the virtual machine, which means you can define a rule once and reuse it across machines and environments.
+Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), where you define which data you want each agent to collect. Data collection rules let you manage data collection settings at scale and define unique, scoped configurations for subsets of machines. You can define a rule to send data from multiple machines to multiple destinations across regions and tenants.
+
+> [!NOTE]
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
 **To collect data using Azure Monitor Agent:**
 
@@ -76,9 +79,9 @@ In addition to the generally available data collection listed above, Azure Monit
 |	:---	|	:---	|	:---	|	:---	|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Public preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Auto-deployment of Azure Monitor Agent (Preview)](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md)	|
 | [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows DNS logs: [Public preview](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: [Public preview](../../sentinel/connect-cef-ama.md#set-up-the-common-event-format-cef-via-ama-connector)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | - |
-|	 [Change Tracking](../../automation/change-tracking/overview.md) |	 Change Tracking: Preview. 	|	Change Tracking extension	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
+|	 [Change Tracking](../../automation/change-tracking/overview.md) |	 Public preview 	|	Change Tracking extension	|	[Change Tracking and Inventory using Azure Monitor Agent](../../automation/change-tracking/overview-monitoring-agent.md)	|
 |	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
-|	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Preview	|	Azure NetworkWatcher extension	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
+|	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Public preview	|	Azure NetworkWatcher extension	|	[Monitor network connectivity by using Azure Monitor Agent](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
 
 ## Supported regions
 
@@ -120,7 +123,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	VM Insights	|	X (Public preview)	|	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
-|		|	Change Tracking	|	|	X	|		|
+|		|	Change Tracking	| X (Public preview) |	X	|		|
 
 ### Linux agents
 
@@ -144,7 +147,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	VM Insights	|	X (Public preview)	|	X 	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
-|		|	Change Tracking	|	|	X	|		|
+|		|	Change Tracking	| X (Public preview) |	X	|		|
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 

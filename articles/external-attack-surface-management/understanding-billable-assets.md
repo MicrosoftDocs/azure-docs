@@ -35,7 +35,7 @@ This section describes the conditions that the three asset types listed above mu
 
 ### Approved hosts 
 
-Hosts are considered billable if the Defender EASM system has observed resolutions within the last 30 days. All host-IP combinations from Approved Inventory will be identified as potential billable assets.  
+Hosts are considered billable if the Defender EASM system has observed resolutions within the last 30 days. All host-IP combinations from Approved Inventory will be identified as potential billable assets. All hosts in the Approved Inventory state are considered billable, regardless of the state of the coinciding IP address.    
 
  
 For example: if www.contoso.com has resolved to 1.2.3.4 and 5.6.7.8 in the past 30 days, both combinations will be added to the host count list: 

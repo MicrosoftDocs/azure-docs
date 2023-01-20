@@ -4,8 +4,7 @@ description: Learn how to troubleshoot specific issues that may occur in your Mi
 author: limwainstein
 ms.author: lwainstein
 ms.topic: troubleshooting
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 01/09/2023
 ---
 
 # Troubleshooting your Microsoft Sentinel Solution for SAP deployment

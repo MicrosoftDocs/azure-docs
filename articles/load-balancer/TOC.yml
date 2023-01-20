@@ -232,6 +232,8 @@
       href: move-across-regions-internal-load-balancer-powershell.md
   - name: IPv6
     items:
+    - name: Configure DHCPv6 for Linux VMs
+      href: load-balancer-ipv6-for-linux.md
     - name: Public Load Balancer
       items:
       - name: Standard Public Load Balancer with IPv6 - PowerShell

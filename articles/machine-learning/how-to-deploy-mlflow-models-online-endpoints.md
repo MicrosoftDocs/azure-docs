@@ -410,13 +410,11 @@ version = registered_model.version
 
         :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen":::
 
-1. Assign all the traffic to the deployment
-    
-    So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
+1. Assign all the traffic to the deployment: So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -446,7 +444,7 @@ version = registered_model.version
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
