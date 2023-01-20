@@ -43,8 +43,9 @@ az extension update --name aks-preview
 
 There are currently two available configuration types: `default` and `aksManagedAutoUpgradeSchedule`:
 
-- `default` corresponds to a basic configuration that will update your control plane as well as your kube-system pods on a VMSS instance.
-- `aksManagedAutoUpgradeSchedule` is a more complex configuration that controls when upgrades scheduled by your specified auto-upgrade channel are performed. For more details on about cluster auto-upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+- `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a VMSS instance.
+
+- `aksManagedAutoUpgradeSchedule` is a more complex configuration that controls when upgrades scheduled by your designated auto-upgrade channel are performed. For more information on cluster auto-upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
 > [!NOTE]
 > When using auto-upgrade, to ensure proper functionality use a maintenance window with a duration of four hours or more.
@@ -95,7 +96,7 @@ A `Weekly` schedule may look like *"every two weeks on Friday"*:
 
 #### AbsoluteMonthly schedule
 
-An `AbsoluteMonthly` schedule may look like *"every 3 months, on the first day of the month"*:
+An `AbsoluteMonthly` schedule may look like *"every three months, on the first day of the month"*:
 
 ```json
 "schedule": {
@@ -108,7 +109,7 @@ An `AbsoluteMonthly` schedule may look like *"every 3 months, on the first day o
 
 #### RelativeMonthly schedule
 
-A `RelativeMonthly` schedule may look like *"every 2 months, on the last Monday"*:
+A `RelativeMonthly` schedule may look like *"every two months, on the last Monday"*:
 
 ```json
 "schedule": {
@@ -139,7 +140,7 @@ az aks maintenanceconfiguration add -g myResourceGroup --cluster-name myAKSClust
 
 ## Add a maintenance window configuration with a JSON file
 
-You can also use a JSON file create a maintenance configuration instead of using parameters. This has the added benefit of allowing maintenance to be prevented during a range of dates, specified by `notAllowedTimes` for `default` configurations and `notAllowedDates` for `aksManagedAutoUpgradeSchedule` configurations.
+You can also use a JSON file create a maintenance configuration instead of using parameters. This method has the added benefit of allowing maintenance to be prevented during a range of dates, specified by `notAllowedTimes` for `default` configurations and `notAllowedDates` for `aksManagedAutoUpgradeSchedule` configurations.
 
 Create a `default.json` file with the following contents:
 
