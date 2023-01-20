@@ -200,7 +200,7 @@ public class Demo {
 
 ## Fuzzy search an entity 
 
-The following code snippet demonstrates how, in a simple console application, to import the `azure-maps-search` package and perform a fuzzy search on “Starbucks” near Seattle:
+The following code snippet demonstrates how, in a simple console application, to import the `azure-maps-search` package and perform a fuzzy search on "Starbucks" near Seattle:
 
 ```java
 import java.io.IOException;
