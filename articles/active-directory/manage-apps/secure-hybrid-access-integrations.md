@@ -355,7 +355,7 @@ https://graph.microsoft.com/v1.0/applications/{Application Object ID}
 
 ### Apply Conditional Access policies
 
-[Customers and partners](../secure-hybrid-access.md#secure-hybrid-access-through-azure-ad-partner-integrations) can use the Microsoft Graph API to create or apply [Conditional Access policies](../conditional-access/overview.md) to customer applications. For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
+Customers and partners can use the Microsoft Graph API to create or apply per application [Conditional Access policies](../conditional-access/overview.md). For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
 
 - [Assign the application to a Conditional Access policy](#use-a-conditional-access-policy)
 - [Create a new Conditional Access policy and assign the application to it](#create-a-new-conditional-access-policy)
