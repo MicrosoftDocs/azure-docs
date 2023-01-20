@@ -179,7 +179,7 @@ In the following tables, the term alphanumeric refers to:
 > | profiles / endpoints | global | 1-50 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | profiles / originGroups | global | 1-50 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | profiles / originGroups / origins | global | 1-50 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
-> | profiles / afdEndpoints / routes | global | 1-50 | Alphanumerics and hypehsn.<br><br>Start and end with alphanumeric. |
+> | profiles / afdEndpoints / routes | global | 1-50 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 
 ## Microsoft.CertificateRegistration
 
