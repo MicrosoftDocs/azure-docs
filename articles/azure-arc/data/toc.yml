@@ -210,6 +210,8 @@ items:
           items:
             - name: Turn on transparent data encryption manually
               href: configure-transparent-data-encryption-manually.md
+            - name: Turn on transparent data encryption (preview)
+              href: configure-transparent-data-encryption-sql-managed-instance.md
         - name: Business continuity
           items:
             - name: Overview
