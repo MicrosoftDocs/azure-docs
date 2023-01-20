@@ -29,7 +29,7 @@ For speech recognition, the initial latency is higher with language identificati
 > [!IMPORTANT]
 > Language Identification (preview) APIs have been simplified in the Speech SDK version 1.25. The 
 `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority` properties have
-been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Results are very accurate at low latency, therefore we removed the priority option. The only setting supported now is whether to run at-start or continuous language identification, when doing continuous speech recognition or translation.
+been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
 
 Whether you use language identification with [speech-to-text](#speech-to-text) or with [speech translation](#speech-translation), there are some common concepts and configuration options.
 
