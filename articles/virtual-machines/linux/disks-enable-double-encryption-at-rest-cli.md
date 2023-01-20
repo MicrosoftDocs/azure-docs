@@ -45,9 +45,9 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
 
 1. Get the key URL of the key you just created.
 
-        ```azurecli
-        az keyvault key show --name $keyName --vault-name $keyVaultName
-        ```
+    ```azurecli
+    az keyvault key show --name $keyName --vault-name $keyVaultName
+    ```
 
 1.    Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Replace `yourKeyURLHere` with the URL you received from `az keyvault key show`. 
     
