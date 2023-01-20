@@ -160,7 +160,7 @@ To monitor database migrations in the Azure portal:
 
 - You can't use an existing self-hosted integration runtime that was created in Azure Data Factory for database migrations with Database Migration Service. Initially, create the self-hosted integration runtime by using the Azure SQL Migration extension for Azure Data Studio. You can reuse that self-hosted integration runtime in future database migrations.
 
-- In Azure Data Studio, currently it supports only AD/Windows authentication for connecting to the source sql server and for target sql server, only sql logins are supported.
+- Azure Data Studio currently supports both AD (Active Directory) / Windows authentication and SQL logins for connecting to the source SQL Server instance. For the Azure SQL targets, only SQL logins are supported.
 
 ## Pricing
 
