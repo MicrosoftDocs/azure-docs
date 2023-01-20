@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Map data fields to entities in Microsoft Sentinel 
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 > [!IMPORTANT]
 >
 > - See "[Notes on the new version](#notes-on-the-new-version)" at the end of this document for important information about backward compatibility and differences between the new and old versions of entity mapping.

@@ -5,7 +5,7 @@ description: Monitor your Azure ML designer experiments. Enable logging using th
 services: machine-learning
 author: likebupt
 ms.author: keli19
-ms.reviewer: peterlu
+ms.reviewer: lagayhar
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021

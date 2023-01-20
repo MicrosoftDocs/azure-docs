@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn how to enable direct access to Azure resources from a virtual network using service endpoints.
 services: virtual-network
 documentationcenter: na
-author: sumeetmittal
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2022
-ms.author: sumi
+ms.author: allensu
 ms.custom:
 
 ---
@@ -124,7 +124,7 @@ Service endpoints can be configured on virtual networks independently by a user 
 
 For more information about built-in roles, see [Azure built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). For more information about assigning specific permissions to custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Virtual networks and Azure service resources can be in the same or different subscriptions. Certain Azure Services (not all) such as Azure Storage and Azure Key Vault also support service endpoints across different Active Directory(AD) tenant. This means the virtual network and Azure service resource can be in different Active Directory (AD) tenants. Check individual service documentation for more details.  
+Virtual networks and Azure service resources can be in the same or different subscriptions. Certain Azure Services (not all) such as Azure Storage and Azure Key Vault also support service endpoints across different Active Directory (AD) tenants. This means the virtual network and Azure service resource can be in different Active Directory (AD) tenants. Check individual service documentation for more details.  
 
 ## Pricing and limits
 

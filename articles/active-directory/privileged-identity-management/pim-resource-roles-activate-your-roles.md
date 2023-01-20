@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/12/2022
+ms.date: 10/27/2022
 ms.author: amsliu
-ms.reviewer: ilyal
+ms.reviewer: rianakarim
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -72,12 +72,20 @@ When you need to take on an Azure resource role, you can request activation by u
 
 Privileged Identity Management supports Azure Resource Manager (ARM) API commands to manage Azure resource roles, as documented in the [PIM ARM API reference](/rest/api/authorization/roleeligibilityschedulerequests). For the permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md).
 
+To activate an eligible Azure role assignment and gain activated access, use the [Role Assignment Schedule Requests - Create REST API](/rest/api/authorization/role-assignment-schedule-requests/create?tabs=HTTP) to create a new request and specify the security principal, role definition, requestType = SelfActivate and scope. To call this API, you must have an eligible role assignment on the scope. 
+
+Use a GUID tool to generate a unique identifier that will be used for the role assignment identifier. The identifier has the format: 00000000-0000-0000-0000-000000000000. 
+
+Replace {roleAssignmentScheduleRequestName} in the below PUT request with the GUID identifier of the role assignment. 
+
+For more details on managing eligible roles for Azure resources, see this [PIM ARM API tutorial](/rest/api/authorization/privileged-role-assignment-rest-sample?source=docs#activate-an-eligible-role-assignment). 
+
 The following is a sample HTTP request to activate an eligible assignment for an Azure role.
 
 ### Request
 
 ````HTTP
-PUT https://management.azure.com/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleAssignmentScheduleRequests/fea7a502-9a96-4806-a26f-eee560e52045?api-version=2020-10-01
+PUT https://management.azure.com/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleAssignmentScheduleRequests/{roleAssignmentScheduleRequestName}?api-version=2020-10-01
 ````
 
 ### Request body

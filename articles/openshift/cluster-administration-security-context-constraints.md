@@ -2,8 +2,8 @@
 title: Manage security context constraints in Azure Red Hat OpenShift | Microsoft Docs
 description:  Security context constraints for Azure Red Hat OpenShift cluster administrators
 services: container-service
-author: georgewallace
-ms.author: gwallace
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 09/25/2019

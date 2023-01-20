@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 11/20/2022
 ---
 
 # Supported database versions in Azure Cosmos DB for PostgreSQL
@@ -23,31 +23,31 @@ versions](https://www.postgresql.org/docs/release/):
 
 ### PostgreSQL version 15
 
-The current minor release is 15.0. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/15.0/) to
+The current minor release is 15.1. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/15.1/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 14
 
-The current minor release is 14.5. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/14.5/) to
+The current minor release is 14.6. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/14.6/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 13
 
-The current minor release is 13.8. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/13.8/) to
+The current minor release is 13.9. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/13.9/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 12
 
-The current minor release is 12.12. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/12.12/) to
+The current minor release is 12.13. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/12.13/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 11
 
-The current minor release is 11.17. Refer to the [PostgreSQL
+The current minor release is 11.18. Refer to the [PostgreSQL
 documentation](https://www.postgresql.org/docs/release/11.17/) to
 learn more about improvements and fixes in this minor release.
 
@@ -106,7 +106,7 @@ PostgreSQL database version:
 
 Depending on which version of PostgreSQL is running in a cluster,
 different [versions of PostgreSQL extensions](reference-extensions.md)
-will be installed as well. In particular, PostgreSQL 14 comes with Citus 11, PostgreSQL versions 12 and 13 come with
+will be installed as well. In particular, PostgreSQL 14 and PostgreSQL 15 come with Citus 11, PostgreSQL versions 12 and 13 come with
 Citus 10, and earlier PostgreSQL versions come with Citus 9.5.
 
 ## Next steps

@@ -77,6 +77,7 @@ The following options are available for configuring Query Store parameters.
 | pg_qs.max_plan_size |  Sets the maximum number of bytes that will be saved for query plan text for pg_qs; longer plans will be truncated. | 7500 | 100 - 10k |
 | pg_qs.max_query_text_length | Sets the maximum query length that can be saved. Longer queries will be truncated. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Sets the retention period. | 7 | 1 - 30 |
+| pg_qs.index_generation_interval | Sets the index recommendation generating frequency for all databases when query store enabled. | 15 | 15 - 10080 |
 | pg_qs.track_utility | Sets whether utility commands are tracked | on | on, off |
   
 The following options apply specifically to wait statistics.  
@@ -103,7 +104,7 @@ This view returns all the data in Query Store. There is one row for each distinc
 |db_id	|oid	|pg_database.oid	|OID of database in which the statement was executed|
 |query_id	|bigint	 ||	Internal hash code, computed from the statement's parse tree|
 |query_sql_text	|Varchar(10000)	 ||	Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster.|
-|plan_id	|bigint	|	|ID of the plan corresponding to this query, not available yet|
+|plan_id	|bigint	|	|ID of the plan corresponding to this query|
 |start_time	|timestamp	||	Queries are aggregated by time buckets - the time span of a bucket is 15 minutes by default. This is the start time corresponding to the time bucket for this entry.|
 |end_time	|timestamp	||	End time corresponding to the time bucket for this entry.|
 |calls	|bigint	 ||	Number of times the query executed|

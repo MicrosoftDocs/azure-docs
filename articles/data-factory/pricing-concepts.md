@@ -14,7 +14,7 @@ ms.date: 09/22/2022
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.  You can also refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.
+This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.  You can also refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.  To understand how to estimate pricing for any scenario, not just the examples here, refer to the article [Plan and manage costs for Azure Data Factory](plan-manage-costs.md).
 
 For more details about pricing in Azure Data Factory, refer to the [Data Pipeline Pricing and FAQ](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/).
 

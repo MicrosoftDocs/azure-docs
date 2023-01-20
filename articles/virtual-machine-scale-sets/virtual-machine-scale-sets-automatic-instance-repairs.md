@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: instance-protection
-ms.date: 10/19/2022
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
@@ -23,13 +23,9 @@ The scale set should have application health monitoring for instances enabled. H
 
 **Configure endpoint to provide health status**
 
-Before enabling automatic instance repairs policy, ensure that the scale set instances have application endpoint configured to emit the application health status. When an instance returns status 200 (OK) on this application endpoint, then the instance is marked as "Healthy". In all other cases, the instance is marked "Unhealthy", including the following scenarios:
+Before enabling automatic instance repairs policy, ensure that your scale set instances have application endpoint configured to emit the application health status. To configure health status on Application Health extension, you can use either [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) or [Rich Health States](./virtual-machine-scale-sets-health-extension.md#rich-health-states). To configure health status using Load balancer health probes, see [probe up behavior](../load-balancer/load-balancer-custom-probe-overview.md#probe-up-behavior).
 
-- When there's no application endpoint configured inside the virtual machine instances to provide application health status
-- When the application endpoint is incorrectly configured
-- When the application endpoint isn't reachable
-
-For instances marked as "Unhealthy", automatic repairs are triggered by the scale set. Ensure the application endpoint is correctly configured before enabling the automatic repairs policy in order to avoid unintended instance repairs, while the endpoint is getting configured.
+For instances marked as "Unhealthy" or "Unknown" (*Unknown* state is only available with [Application Health extension - Rich Health States](./virtual-machine-scale-sets-health-extension.md#unknown-state)), automatic repairs are triggered by the scale set. Ensure the application endpoint is correctly configured before enabling the automatic repairs policy in order to avoid unintended instance repairs, while the endpoint is getting configured.
 
 **API version**
 
@@ -45,11 +41,11 @@ This feature is currently not supported for service fabric scale sets.
 
 **Restriction for VMs with provisioning errors**
 
-Automatic repairs doesn't currently support scenarios where a VM instance is marked *Unhealthy* due to a provisioning failure. VMs must be successfully initialized to enable health monitoring and automatic repair capabilities.
+Automatic repairs don't currently support scenarios where a VM instance is marked *Unhealthy* due to a provisioning failure. VMs must be successfully initialized to enable health monitoring and automatic repair capabilities.
 
 ## How do automatic instance repairs work?
 
-Automatic instance repair feature relies on health monitoring of individual instances in a scale set. VM instances in a scale set can be configured to emit application health status using either the [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md). If an instance is found to be unhealthy, then the scale set performs repair action by deleting the unhealthy instance and creating a new one to replace it. The latest virtual machine scale set model is used to create the new instance. This feature can be enabled in the virtual machine scale set model by using the *automaticRepairsPolicy* object.
+Automatic instance repair feature relies on health monitoring of individual instances in a scale set. VM instances in a scale set can be configured to emit application health status using either the [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md). If an instance is found to be unhealthy, then the scale set performs repair action by deleting the unhealthy instance and creating a new one to replace it. The latest Virtual Machine Scale Set model is used to create the new instance. This feature can be enabled in the Virtual Machine Scale Set model by using the *automaticRepairsPolicy* object.
 
 ### Batching
 
@@ -61,7 +57,7 @@ When an instance goes through a state change operation because of a PUT, PATCH, 
 
 ### Suspension of Repairs
 
-Virtual Machine Scale Sets provide the capability to temporarily suspend automatic instance repairs if needed. The *serviceState* for automatic repairs under the property *orchestrationServices* in instance view of virtual machine scale set shows the current state of the automatic repairs. When a scale set is opted into automatic repairs, the value of parameter *serviceState* is set to *Running*. When the automatic repairs are suspended for a scale set, the parameter *serviceState* is set to *Suspended*. If *automaticRepairsPolicy* is defined on a scale set but the automatic repairs feature isn't enabled, then the parameter *serviceState* is set to *Not Running*.
+Virtual Machine Scale Sets provide the capability to temporarily suspend automatic instance repairs if needed. The *serviceState* for automatic repairs under the property *orchestrationServices* in instance view of Virtual Machine Scale Set shows the current state of the automatic repairs. When a scale set is opted into automatic repairs, the value of parameter *serviceState* is set to *Running*. When the automatic repairs are suspended for a scale set, the parameter *serviceState* is set to *Suspended*. If *automaticRepairsPolicy* is defined on a scale set but the automatic repairs feature isn't enabled, then the parameter *serviceState* is set to *Not Running*.
 
 If newly created instances for replacing the unhealthy ones in a scale set continue to remain unhealthy even after repeatedly performing repair operations, then as a safety measure the platform updates the *serviceState* for automatic repairs to *Suspended*. You can resume the automatic repairs again by setting the value of *serviceState* for automatic repairs to *Running*. Detailed instructions are provided in the section on [viewing and updating the service state of automatic repairs policy](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) for your scale set.
 
@@ -83,15 +79,15 @@ If the [terminate notification](./virtual-machine-scale-sets-terminate-notificat
 
 ## Enabling automatic repairs policy when creating a new scale set
 
-For enabling automatic repairs policy while creating a new scale set, ensure that all the [requirements](#requirements-for-using-automatic-instance-repairs) for opting in to this feature are met. The application endpoint should be correctly configured for scale set instances to avoid triggering unintended repairs while the endpoint is getting configured. For newly created scale sets, any instance repairs are performed only after the grace period completes. To enable the automatic instance repair in a scale set, use *automaticRepairsPolicy* object in the virtual machine scale set model.
+For enabling automatic repairs policy while creating a new scale set, ensure that all the [requirements](#requirements-for-using-automatic-instance-repairs) for opting in to this feature are met. The application endpoint should be correctly configured for scale set instances to avoid triggering unintended repairs while the endpoint is getting configured. For newly created scale sets, any instance repairs are performed only after the grace period completes. To enable the automatic instance repair in a scale set, use *automaticRepairsPolicy* object in the Virtual Machine Scale Set model.
 
-You can also use this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-automatic-repairs-slb-health-probe) to deploy a virtual machine scale set. The scale set has a load balancer health probe and automatic instance repairs enabled with a grace period of 30 minutes.
+You can also use this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-automatic-repairs-slb-health-probe) to deploy a Virtual Machine Scale Set. The scale set has a load balancer health probe and automatic instance repairs enabled with a grace period of 30 minutes.
 
 ### Azure portal
 
 The following steps enabling automatic repairs policy when creating a new scale set.
 
-1. Go to **Virtual machine scale sets**.
+1. Go to **Virtual Machine Scale Sets**.
 1. Select **+ Add** to create a new scale set.
 1. Go to the **Health** tab.
 1. Locate the **Health** section.
@@ -122,7 +118,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
 
 ### Azure PowerShell
 
-The automatic instance repair feature can be enabled while creating a new scale set by using the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet. This sample script walks through the creation of a scale set and associated resources using the configuration file: [Create a complete virtual machine scale set](./scripts/powershell-sample-create-complete-scale-set.md). You can configure automatic instance repairs policy by adding the parameters *EnableAutomaticRepair* and *AutomaticRepairGracePeriod* to the configuration object for creating the scale set. The following example enables the feature with a grace period of 30 minutes.
+The automatic instance repair feature can be enabled while creating a new scale set by using the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet. This sample script walks through the creation of a scale set and associated resources using the configuration file: [Create a complete Virtual Machine Scale Set](./scripts/powershell-sample-create-complete-scale-set.md). You can configure automatic instance repairs policy by adding the parameters *EnableAutomaticRepair* and *AutomaticRepairGracePeriod* to the configuration object for creating the scale set. The following example enables the feature with a grace period of 30 minutes.
 
 ```azurepowershell-interactive
 New-AzVmssConfig `
@@ -155,7 +151,7 @@ The above example uses an existing load balancer and health probe for monitoring
 
 ## Enabling automatic repairs policy when updating an existing scale set
 
-Before enabling automatic repairs policy in an existing scale set, ensure that all the [requirements](#requirements-for-using-automatic-instance-repairs) for opting in to this feature are met. The application endpoint should be correctly configured for scale set instances to avoid triggering unintended repairs while the endpoint is getting configured. To enable the automatic instance repair in a scale set, use *automaticRepairsPolicy* object in the virtual machine scale set model.
+Before enabling automatic repairs policy in an existing scale set, ensure that all the [requirements](#requirements-for-using-automatic-instance-repairs) for opting in to this feature are met. The application endpoint should be correctly configured for scale set instances to avoid triggering unintended repairs while the endpoint is getting configured. To enable the automatic instance repair in a scale set, use *automaticRepairsPolicy* object in the Virtual Machine Scale Set model.
 
 After updating the model of an existing scale set, ensure that the latest model is applied to all the instances of the scale. Refer to the instruction on [how to bring VMs up-to-date with the latest scale set model](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
@@ -163,7 +159,7 @@ After updating the model of an existing scale set, ensure that the latest model 
 
 You can modify the automatic repairs policy of an existing scale set through the Azure portal.
 
-1. Go to an existing virtual machine scale set.
+1. Go to an existing Virtual Machine Scale Set.
 1. Under **Settings** in the menu on the left, select **Health and repair**.
 1. Enable the **Monitor application health** option.
 1. Locate the **Automatic repair policy** section.
@@ -218,7 +214,7 @@ az vmss update \
 
 ### REST API
 
-Use [Get Instance View](/rest/api/compute/virtualmachinescalesets/getinstanceview) with API version 2019-12-01 or higher for virtual machine scale set to view the *serviceState* for automatic repairs under the property *orchestrationServices*.
+Use [Get Instance View](/rest/api/compute/virtualmachinescalesets/getinstanceview) with API version 2019-12-01 or higher for Virtual Machine Scale Set to view the *serviceState* for automatic repairs under the property *orchestrationServices*.
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -230,23 +226,6 @@ GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provider
     {
       "serviceName": "AutomaticRepairs",
       "serviceState": "Running"
-    }
-  ]
-}
-```
-
-Use *setOrchestrationServiceState* API with API version 2019-12-01 or higher on a virtual machine scale set to set the state of automatic repairs. Once the scale set is opted into the automatic repairs feature, you can use this API to suspend or resume automatic repairs for your scale set.
-
- ```http
- POST '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/setOrchestrationServiceState?api-version=2019-12-01'
- ```
-
-```json
-{
-  "orchestrationServices": [
-    {
-      "serviceName": "AutomaticRepairs",
-      "serviceState": "Suspend"
     }
   ]
 }
@@ -296,7 +275,7 @@ Set-AzVmssOrchestrationServiceState `
 
 **Failure to enable automatic repairs policy**
 
-If you get a 'BadRequest' error with a message stating "Couldn't find member 'automaticRepairsPolicy' on object of type 'properties'", then check the API version used for virtual machine scale set. API version 2018-10-01 or higher is required for this feature.
+If you get a 'BadRequest' error with a message stating "Couldn't find member 'automaticRepairsPolicy' on object of type 'properties'", then check the API version used for Virtual Machine Scale Set. API version 2018-10-01 or higher is required for this feature.
 
 **Instance not getting repaired even when policy is enabled**
 
@@ -304,7 +283,7 @@ The instance could be in grace period. This period is the amount of time to wait
 
 **Viewing application health status for scale set instances**
 
-You can use the [Get Instance View API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) for instances in a virtual machine scale set to view the application health status. With Azure PowerShell, you can use the cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) with the *-InstanceView* flag. The application health status is provided under the property *vmHealth*.
+You can use the [Get Instance View API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) for instances in a Virtual Machine Scale Set to view the application health status. With Azure PowerShell, you can use the cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) with the *-InstanceView* flag. The application health status is provided under the property *vmHealth*.
 
 In the Azure portal, you can see the health status as well. Go to an existing scale set, select **Instances** from the menu on the left, and look at the **Health state** column for the health status of each scale set instance.
 

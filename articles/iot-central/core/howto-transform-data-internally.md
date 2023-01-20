@@ -13,8 +13,6 @@ services: iot-central
 
 # Transform data inside your IoT Central application for export
 
-:::image type="content" source="media/howto-transform-data-internally/transformations.png" alt-text="Diagram that shows data export transformation options." border="false":::
-
 IoT devices send data in various formats. To use the device data in your IoT solution, you may need to transform your device data before it's exported to other services.
 
 This article shows you how to transform device data as part of a data export definition in an IoT Central application.
@@ -31,11 +29,11 @@ The following video introduces you to IoT Central data transformations:
 
 To add a transformation for a destination in your data export, select **+ Transform** as shown in the following screenshot:
 
-:::image type="content" source="media/howto-transform-data-internally/add-transformation.png" alt-text="Screenshot that shows how to add a transformation to a destination.":::
+:::image type="content" source="media/howto-transform-data-internally/add-transformation.png" alt-text="Screenshot that shows how to add a transformation to a destination." lightbox="media/howto-transform-data-internally/add-transformation.png":::
 
 The **Data Transformation** panel lets you specify the transformation. In the **1. Add your input message** section, you can enter a sample message that you want to pass through the transformation. You can also generate a sample message by selecting a device template. In the **2. Build transformation query** section, you can enter the query that transforms the input message. The **3. Preview output messages(s)** section shows the result of the transformation:
 
-:::image type="content" source="media/howto-transform-data-internally/transformation-editor.png" alt-text="Screenshot of transformation editor in IoT Central.":::
+:::image type="content" source="media/howto-transform-data-internally/transformation-editor.png" alt-text="Screenshot of transformation editor in IoT Central." lightbox="media/howto-transform-data-internally/transformation-editor.png":::
 
 > [!TIP]
 > If you don't know the format of your input message, use `.` as the query to export the message as is to a destination such as a Webhook. Then paste the message received by the webhook into ***1. Add your input message**. Then build a transform query to process this message into your required output format.

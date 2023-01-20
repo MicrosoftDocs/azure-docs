@@ -10,7 +10,7 @@ ms.custom: ignite-fall-2021
 
 This article shows how to upload and index videos by using the Azure Video Indexer website (see [get started with the website](video-indexer-get-started.md)) and the Upload Video API (see [get started with API](video-indexer-use-apis.md)).
 
-After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
+After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer API developer portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md).
 
 ## Supported file formats
 
@@ -47,11 +47,11 @@ You can use the [Upload Video](https://api-portal.videoindexer.ai/api-details#ap
 
 ### Configurations and parameters
 
-This section describes some of the optional parameters and when to set them. For the most up-to-date info about parameters, see the [Azure Video Indexer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video).
+This section describes some of the optional parameters and when to set them. For the most up-to-date info about parameters, see the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video).
 
 #### externalID
 
-Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Azure Video Indexer portal can be searched via the specified external ID.
+Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Azure Video Indexer website can be searched via the specified external ID.
 
 #### callbackUrl
 
@@ -118,7 +118,7 @@ After you copy the following code into your development platform, you'll need to
 
   To get your API key:
 
-  1. Go to the [Azure Video Indexer portal](https://api-portal.videoindexer.ai/).
+  1. Go to the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/).
   1. Sign in.
   1. Go to **Products** > **Authorization** > **Authorization subscription**.
   1. Copy the **Primary key** value.

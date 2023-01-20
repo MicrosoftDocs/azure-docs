@@ -4,6 +4,8 @@ description: In this quickstart, you learn how to create an Azure Recovery Servi
 ms.date: 09/21/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Quickstart: Create a Recovery Services vault using an ARM template

@@ -10,6 +10,8 @@ ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
+ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Enable Azure Storage blob inventory reports
@@ -189,4 +191,5 @@ You can add, edit, or remove a policy via the [Azure CLI](/cli/azure/).
 ## Next steps
 
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 - [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

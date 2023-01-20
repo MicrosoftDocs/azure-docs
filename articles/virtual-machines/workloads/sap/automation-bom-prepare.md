@@ -1,6 +1,6 @@
 ---
 title: Prepare Bill of Materials for automation
-description: How to prepare a full SAP Bill of Materials (BOM) for use with the SAP deployment automation framework on Azure.
+description: How to prepare a full SAP Bill of Materials (BOM) for use with the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Prepare SAP BOM
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BOM). The BOM helps configure your SAP systems. 
+The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses a Bill of Materials (BOM). The BOM helps configure your SAP systems. 
 
 The automation framework's GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/sap-automation/tree/main/deploy/ansible/BOM-catalog) that you can use to get started. It is also possible to create BOMs for other SAP Applications and databases. 
 

@@ -50,9 +50,9 @@ sections:
       - question: |
           How can I use Ubuntu 18.04 Server LTS and install either the GNOME or MATE graphical desktops?
         answer: |
-          There is a [known networking conflict between GNOME\MATE](./how-to-enable-remote-desktop-linux.md) graphical desktops) and the Azure Linux VM Agent when using Ubuntu 18.04 LTS.  As a result, we suggest the following:
-            - Instead of GNOME\MATE, consider using the XFCE graphical desktop which doesn't have this issue.  For example, the [Data Science VM image is configured by default to use XFCE](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
-            - Instead of Ubuntu 18.04 LTS, consider using Ubuntu 20.04 or 21.04 LTS which don't have this networking conflict with the agent when GNOME\MATE is installed.
-            - Otherwise, to use 18.04 LTS and GNOME\MATE, you will need to apply a workaround to fix the networking conflict with the agent.
-          See our [ReadMe and scripts](https://aka.ms/azlabs/scripts/LinuxDesktop-GnomeMate) that set up Ubuntu Server 18.04\20.04\21.04 with GNOME\MATE.  When you use these scripts to set up 18.04 with GNOME\MATE, they will apply the workaround for the networking conflict.
+          There's a [known networking conflict between GNOME/MATE](how-to-enable-remote-desktop-linux.md) graphical desktops) and the Azure Linux VM Agent when using Ubuntu 18.04 LTS.  As a result, we suggest:
+            - Instead of GNOME/MATE, consider using the XFCE graphical desktop, which doesn't have this issue.  For example, the [Data Science VM image is configured by default to use XFCE](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
+            - Instead of Ubuntu 18.04 LTS, consider using Ubuntu 20.04 or 21.04 LTS, which don't have this networking conflict with the agent when GNOME/MATE is installed.
+            - Otherwise, to use 18.04 LTS and GNOME/MATE, you'll need to apply a workaround to fix the networking conflict with the agent.
+          See our [ReadMe and scripts](https://aka.ms/azlabs/scripts/LinuxDesktop-GnomeMate) that set up Ubuntu Server 18.04/20.04/21.04 with GNOME/MATE.  When you use these scripts to set up 18.04 with GNOME/MATE, they'll apply the workaround for the networking conflict.
  

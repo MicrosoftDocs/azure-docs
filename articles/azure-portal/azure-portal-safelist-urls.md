@@ -27,6 +27,8 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 ```
 *.login.microsoftonline.com
 *.aadcdn.msftauth.net
+*.aadcdn.msftauthimages.net
+*.aadcdn.msauthimages.net
 *.logincdn.msftauth.net
 *.login.live.com
 *.msauth.net
@@ -64,6 +66,7 @@ aka.ms (Microsoft short URL)
 *.aad.azure.com (Azure AD)
 *.aadconnecthealth.azure.com (Azure AD)
 ad.azure.com (Azure AD)
+adf.azure.com (Azure Data Factory)
 api.aadrm.com (Azure AD)
 api.loganalytics.io (Log Analytics Service)
 *.applicationinsights.azure.com (Application Insights Service)

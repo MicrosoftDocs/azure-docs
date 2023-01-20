@@ -39,7 +39,7 @@ You can include full specifications of an Azure Machine Learning [environment](/
                     "conda-forge"
                 ],
                 "dependencies": [
-                    "python=3.6.2",
+                    "python=3.7",
                     {
                         "pip": [
                             "azureml-defaults",

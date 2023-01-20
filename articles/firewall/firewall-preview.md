@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 11/07/2022
 ms.author: victorh
 ---
 
@@ -56,12 +56,6 @@ Run the following Azure PowerShell command to turn off this feature:
 ```azurepowershell
 Unregister-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network 
 ```
-
-### IDPS Private IP ranges (preview)
-
-In Azure Firewall Premium IDPS, private IP address ranges are used to identify if traffic is inbound, outbound, or internal (East-West). Each signature is applied on specific traffic direction, as indicated in the signature rules table. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. So traffic sent from a private IP address range to a private IP address range is considered internal. To modify your private IP addresses, you can now easily edit, remove, or add ranges as needed.
-
-:::image type="content" source="media/firewall-preview/idps-private-ip.png" alt-text="Screenshot showing I D P S private IP address ranges.":::
 
 ### Structured firewall logs (preview)
 
@@ -178,6 +172,20 @@ Policy analytics starts monitoring the flows in the DNAT, Network, and Applicati
 
 > [!TIP]
 > Policy Analytics has a dependency on both Log Analytics and Azure Firewall resource specific logging. Verify the Firewall is configured appropriately or follow the previous instructions. Be aware that logs take 60 minutes to appear after enabling them for the first time. This is because logs are aggregated in the backend every hour. You can check logs are configured appropriately by running a log analytics query on the resource specific tables such as **AZFWNetworkRuleAggregation**, **AZFWApplicationRuleAggregation**, and **AZFWNatRuleAggregation**.
+
+### Single click upgrade/downgrade (preview)
+
+You can now easily upgrade your existing Firewall Standard SKU to Premium SKU as well as downgrade from Premium to Standard SKU. The process is fully automated and has no service impact (zero service downtime).
+
+In the upgrade process, you can select the policy to be attached to the upgraded Premium SKU. You can select an existing Premium Policy or an existing Standard Policy. You can use your existing Standard policy and let the system automatically duplicate, upgrade to Premium Policy, and then attach it to the newly created Premium Firewall.
+
+This new capability is available through the Azure portal as shown here, as well as via PowerShell and Terraform simply by changing the sku_tier attribute.
+
+:::image type="content" source="media/premium-features/upgrade.png" alt-text="Screenshot showing SKU upgrade" lightbox="media/premium-features/upgrade.png":::
+
+> [!NOTE]
+> This new upgrade/downgrade capability will also support the Basic SKU for GA.
+
 
 ## Next steps
 

@@ -125,6 +125,10 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
 > Even when the cache is idle with no connected active client applications, you might see some cache activity, such as connected clients, memory usage, and operations being performed. The activity is normal in the operation of cache.
 >
 
+For non-clustered caches, we recommend using the metrics without the suffix `Instance Based`. For example, to check server load for your cache instance, use the metric `Server Load`.
+
+In contrast, for clustered caches, we recommend using the metrics with the suffix `Instance Based`, Then, add a split or filter on `ShardId`. For example, to check the server load of shard 1, use the metric "Server Load (Instance Based)", then apply filter `ShardId = 1`.
+
 ## List of metrics
 
 - Cache Latency (preview)
@@ -149,7 +153,7 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
   - Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could have more added in the future. The error types represented now are as follows:
     - **Failover** – when a cache fails over (subordinate promotes to primary)
     - **Dataloss** – when there's data loss on the cache
-    - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough
+    - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough, and specifically, when the number of bytes in the Redis server output buffer for a client goes over 1,000,000 bytes
     - **AOF** – when there's an issue related to AOF persistence
     - **RDB** – when there's an issue related to RDB persistence
     - **Import** – when there's an issue related to Import RDB

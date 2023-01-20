@@ -1,12 +1,12 @@
 ---
 title: Enable replication for on-premises machines with private endpoints 
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
-author: v-pgaddala
-ms.author: v-pgaddala
+author: ankitaduttaMSFT
+ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/21/2022
-ms.custom: subject-rbac-steps
+ms.date: 12/13/2022
+ms.custom: subject-rbac-steps, engagement-fy23
 ---
 # Replicate on-premises machines by using private endpoints
 
@@ -61,6 +61,25 @@ then create private endpoints in the bypass network. You can choose any form of 
 
 > [!NOTE]
 > While setting up private endpoints to protect VMware and physical machines, you will need to install MySQL on the configuration server manually. Follow the steps [here](vmware-azure-deploy-configuration-server.md#configure-settings) to perform the manual installation. 
+
+### URLs to be allowed
+
+When using the private link with modernized experience for VMware VMs, public access is needed for a few resources. Below are all URLs to be included in the allow list. If proxy-based configuration is used then make sure that the proxy resolves any CNAME records received while looking up the URLs.
+
+  | **URL**                  | **Details**                             |
+  | ------------------------- | -------------------------------------------|
+  | portal.azure.com          | Navigate to the Azure portal.              |
+  | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
+  |`*.microsoftonline.com `<br>`*.microsoftonline-p.com `| Create Azure Active Directory applications for the appliance to communicate with Azure Site Recovery. |
+  | `management.azure.com` | Used for Azure Resource Manager deployments and operations. |
+
+Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity, when enabling replication to a government cloud:
+
+  | **URL for Fairfax**                  | **URL for Mooncake**                             | **Details**                             |
+  | ------------------------- | -------------------------------------------| -------------------------------------------|
+  | `login.microsoftonline.us/*` <br> `graph.windows.net ` | `login.microsoftonline.cn` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
+  | `*.portal.azure.us`          |    `*.portal.azure.cn`           | Navigate to the Azure portal. | 
+  | `management.usgovcloudapi.net` | `management.chinacloudapi.cn` | Create Azure Active Directory applications for the appliance to communicate with the Azure Site Recovery service. |
 
  ## Create and use private endpoints for site recovery
 
@@ -244,7 +263,7 @@ After you finish the preceding tasks, continue with the setup of your on-premise
 infrastructure. Continue by completing one of the following tasks: 
 
 - [Deploy a configuration server for VMware and physical machines](./vmware-azure-deploy-configuration-server.md)
-- [Set up the Hyper-V environment for replication](./hyper-v-azure-tutorial.md#set-up-the-source-environment)
+- [Set up the Hyper-V environment for replication](./hyper-v-azure-tutorial.md#source-settings)
 
 After the setup is complete, enable replication for your source machines. Don't set up
 the infrastructure until after the private endpoints for the vault are created in the
@@ -276,6 +295,8 @@ to private IPs.
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Screenshot that shows the Basics tab of the Create Private DNS zone page.":::
 
    1. Continue to the **Review \+ create** tab to review and create the DNS zone.
+
+   1. If you're using modernized architecture for protection VMware or Physical machines, then create another private DNS zone for **privatelink.prod.migration.windowsazure.com** also. This endpoint will be used by Site Recovery to perform the discovery of on-premises environment.
 
 1. Link the private DNS zone to your virtual network.
 

@@ -1,11 +1,12 @@
 ---
 title: Web Application Routing add-on on Azure Kubernetes Service (AKS) (Preview)
 description: Use the Web Application Routing add-on to securely access applications deployed on Azure Kubernetes Service (AKS).
-services: container-service
-author: jahabibi
-ms.topic: article
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+author: asudbring
+ms.topic: how-to
 ms.date: 05/13/2021
-ms.author: jahabibi
+ms.author: allensu
 ---
 
 # Web Application Routing (Preview)
@@ -264,7 +265,7 @@ spec:
 The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this will activate the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
 
 ```azurecli-interactive
-az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> ---query "id" --output tsv
+az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
 ```
 
 Create a file named **ingress.yaml** and copy in the following YAML.
@@ -415,7 +416,7 @@ spec:
 The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this will activate the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
 
 ```azurecli-interactive
-az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> ---query "id" --output tsv
+az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
 ```
 
 Create a file named **ingress.yaml** and copy in the following YAML. 

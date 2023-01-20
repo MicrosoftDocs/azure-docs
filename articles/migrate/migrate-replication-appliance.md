@@ -5,13 +5,14 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
-ms.date: 05/17/2022
+ms.date: 10/28/2022
+ms.custom: engagement-fy23
 ---
 
 
 # Replication appliance
 
-This article describes the replication appliance used by [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using agent-based migration. 
+This article describes the replication appliance used by the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using agent-based migration. 
 
 
 ## Overview
@@ -69,7 +70,7 @@ MySQL must be installed on the replication appliance machine. It can be installe
 
 **Method** | **Details**
 --- | ---
-Download and install manually | Download MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br> When you set up the appliance, MySQL will show as already installed.
+Download and install manually | [Download](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) the MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br> When you set up the appliance, MySQL will show as already installed.
 Without online download | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and select download and install MySQL, setup will use the installer you added.
 Download and install in Azure Migrate | When you install the appliance and are prompted for MySQL, select **Download and install**.
 

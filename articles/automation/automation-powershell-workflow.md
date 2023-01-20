@@ -3,7 +3,7 @@ title: Learn PowerShell Workflow for Azure Automation
 description: This article teaches you the differences between PowerShell Workflow and PowerShell and concepts applicable to Automation runbooks.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/29/2018
+ms.date: 10/16/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,8 +14,7 @@ Runbooks in Azure Automation are implemented as Windows PowerShell workflows, Wi
 While a workflow is written with Windows PowerShell syntax and launched by Windows PowerShell, it is processed by Windows Workflow Foundation. The benefits of a workflow over a normal script include simultaneous performance of an action against multiple devices and automatic recovery from failures. 
 
 > [!NOTE]
->  This article is applicable for PowerShell 5.1; PowerShell 7.1 (preview) does not support workflows. 
->  A PowerShell Workflow script is very similar to a Windows PowerShell script but has some significant differences that can be confusing to a new user. Therefore, we recommend that you write your runbooks using PowerShell Workflow only if you need to use [checkpoints](#use-checkpoints-in-a-workflow). 
+>  This article is applicable for PowerShell 5.1; PowerShell 7.1 (preview) and PowerShell 7.2 (preview) does not support workflows. A PowerShell Workflow script is very similar to a Windows PowerShell script but has some significant differences that can be confusing to a new user. Therefore, we recommend that you write your runbooks using PowerShell Workflow only if you need to use [checkpoints](#use-checkpoints-in-a-workflow). 
  
 
 For complete details of the topics in this article, see [Getting Started with Windows PowerShell Workflow](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134242(v=ws.11)).
