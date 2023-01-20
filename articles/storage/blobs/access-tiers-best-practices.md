@@ -17,7 +17,7 @@ This article provides best practice guidelines that help you use access tiers to
 
 ## Choose the most cost-efficient access tiers
 
-You can reduce costs by placing blob data into the most cost-efficient access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the hot tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the cold or archive tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data.
+You can reduce costs by placing blob data into the most cost-efficient access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the hot tier has a higher storage cost but lower read cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to read data less frequently, the cold or archive tier might make the most sense because it raises the cost of reading data while reducing the cost of storing data.
 
 To identify the most optimal access tier, try to estimate what percentage of the data will be read on a monthly basis. The following chart shows the impact on monthly spending given various read percentages. 
 
@@ -26,7 +26,7 @@ To identify the most optimal access tier, try to estimate what percentage of the
 
 ## Migrate data directly to the most cost-efficient access tiers
 
-Choosing the most optimal tier up front can reduce costs. If you change the tier of a block blob that you've already uploaded, then you'll pay the cost of writing to the initial tier when you first upload the blob, and then pay the cost of writing to the desired tier. If you change tiers by using a lifecycle management policy, policies will require a day to take effect and a day to complete execution. You'll also incur the capacity cost of storing data in the initial tier prior to the tier change.
+Choosing the most optimal tier up front can reduce costs. If you change the tier of a block blob that you've already uploaded, then you'll pay the cost of writing to the initial tier when you first upload the blob, and then pay the cost of writing to the desired tier. If you change tiers by using a lifecycle management policy, then that policy will require a day to take effect and a day to complete execution. You'll also incur the capacity cost of storing data in the initial tier prior to the tier change.
 
 - For guidance about how to upload to a specific access tier, see [Set a blob's access tier](access-tiers-online-manage.md). 
 

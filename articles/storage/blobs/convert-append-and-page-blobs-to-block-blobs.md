@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Convert append blobs and page blobs into block blobs
 
-To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or AzCopy. You'll use command parameters to ensure that the destination blob is a block blob. 
+To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or AzCopy. You'll use command parameters to ensure that the destination blob is a block blob. All metadata from the source blob is copied to the destination blob.
 
 ## Convert append and page blobs
 
@@ -89,7 +89,10 @@ To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or
    ```
 
    > [!TIP]
-   > The `--tier` parameter is optional. If you omit that parameter, then the destination blob infers its tier from the [default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting). To change the tier after you've created a block blob, see [Change a blob's tier](access-tiers-online-manage.md#change-a-blobs-tier). 
+   > The `--tier` parameter is optional. If you omit that parameter, then the destination blob infers its tier from the [default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting). To change the tier after you've created a block blob, see [Change a blob's tier](access-tiers-online-manage.md#change-a-blobs-tier).
+
+   > [!WARNING]
+   > The optional `--metadata` parameter overwrites any existing metadata. Therefore, if you specify metadata by using this parameter, then none of the original metadata from the source blob will be copied to the destination blob.
 
 
 ### [AzCopy](#tab/azcopy)
@@ -102,6 +105,9 @@ azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<cont
 
 > [!TIP]
 > The `--block-blob-tier` parameter is optional. If you omit that parameter, then the destination blob infers its tier from the [default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting). To change the tier after you've created a block blob, see [Change a blob's tier](access-tiers-online-manage.md#change-a-blobs-tier). 
+
+> [!WARNING]
+> The optional `--metadata` parameter overwrites any existing metadata. Therefore, if you specify metadata by using this parameter, then none of the original metadata from the source blob will be copied to the destination blob.
 
 ---
 
