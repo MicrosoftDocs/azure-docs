@@ -8,7 +8,7 @@ manager: msmbaldwin
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 01/20/2023
 ms.author: mbaldwin
 ---
 
