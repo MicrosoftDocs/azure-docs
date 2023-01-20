@@ -8,7 +8,7 @@ ms.author: madsd
 ---
 # Create an App Service Environment by using an Azure Resource Manager template
 
-App Service Environment can be created using an Azure Resource Manager template. This allows you to do repeatable deployment.
+App Service Environment can be created using an Azure Resource Manager template allowing you to do repeatable deployment.
 
 > [!NOTE]
 > This article is about App Service Environment v3, which is used with isolated v2 App Service plans.
