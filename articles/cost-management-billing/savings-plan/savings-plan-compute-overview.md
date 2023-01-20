@@ -48,7 +48,7 @@ It's important to consider your hourly spend when you determine your hourly comm
 - The savings plan purchase experience in the [Azure portal](https://portal.azure.com/)
 - Benefit [Recommendation APIs](/rest/api/cost-management/benefit-recommendations/list)
 
-For more information, see [Choose an Azure saving plan commitment amount](choose-commitment-amount).
+For more information, see [Choose an Azure saving plan commitment amount](choose-commitment-amount.md).
 
 ## Buy a savings plan
 
