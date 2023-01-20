@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 # Back up Windows system state to Azure
 
-This article describes how to back up your Windows Server system state to Azure.4 It's intended to walk you through the basics.
+This article describes how to back up your Windows Server system state to Azure. It's intended to walk you through the basics.
 
 For more information about Azure Backup, see the [overview article](backup-overview.md). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service.
 
