@@ -77,7 +77,7 @@
     items:
     - name: About App Service Environment v2
       href: intro.md
-    - name: Create App Service Environment from template
+    - name: Create ASE v2 from template
       href: create-from-template.md
     - name: Create external ASE v2
       href: create-external-ase.md
