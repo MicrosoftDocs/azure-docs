@@ -76,7 +76,7 @@ ASE_NAME="[myAseName]"
 RESOURCE_GROUP_NAME="[myResourceGroup]"
 az appservice ase update --name $ASE_NAME -g $RESOURCE_GROUP_NAME --allow-new-private-endpoint-connection true
 
-az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query properties.allowNewPrivateEndpointConnections
+az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query allowNewPrivateEndpointConnections
 ```
 
 The setting is also available for configuration through Azure portal at the App Service Environment configuration:
@@ -94,7 +94,7 @@ ASE_NAME="[myAseName]"
 RESOURCE_GROUP_NAME="[myResourceGroup]"
 az appservice ase update --name $ASE_NAME -g $RESOURCE_GROUP_NAME --allow-incoming-ftp-connections true
 
-az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query properties.ftpEnabled
+az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query ftpEnabled
 ```
 The setting is also available for configuration through Azure portal at the App Service Environment configuration:
 
@@ -113,7 +113,7 @@ ASE_NAME="[myAseName]"
 RESOURCE_GROUP_NAME="[myResourceGroup]"
 az appservice ase update --name $ASE_NAME -g $RESOURCE_GROUP_NAME --allow-remote-debugging true
 
-az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query properties.remoteDebugEnabled
+az appservice ase list-addresses -n --name $ASE_NAME -g $RESOURCE_GROUP_NAME --query remoteDebugEnabled
 ```
 
 The setting is also available for configuration through Azure portal at the App Service Environment configuration:
