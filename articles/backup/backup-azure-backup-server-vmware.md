@@ -418,7 +418,7 @@ To add VMware VMs for backup. Protection groups gather multiple VMs and apply th
 
 1. On the **Summary** page, review the settings, and then select **Create Group**.
 
-    ![Screenshot shows the protection group member and setting summary](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+    ![Screenshot shows the protection group member and setting summary.](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## VMware parallel backups
 
