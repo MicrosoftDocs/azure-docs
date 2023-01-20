@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 You can use the cloud sync attribute mapping feature to map attributes between your on-premises user or group objects and the objects in Azure AD. 
 
- :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-1.png" alt-text="Screenshot of new UX screen attribute mapping" lightbox="media/how-to-attribute-mapping/new-ux-mapping-1.png":::
+ :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-1.png" alt-text="Screenshot of new UX screen attribute mapping." lightbox="media/how-to-attribute-mapping/new-ux-mapping-1.png":::
 
 You can customize (change, delete, or create) the default attribute mappings according to your business needs. For a list of attributes that are synchronized, see [Attributes synchronized to Azure Active Directory](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md).
 
@@ -71,7 +71,7 @@ The following are the attributes supported by a direct mapping:
   - **Always**: Apply this mapping on both user-creation and update actions.
   - **Only during creation**: Apply this mapping only on user-creation actions.
 
-:::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-2.png" alt-text="Screenshot of editing attribute mapping" lightbox="media/how-to-attribute-mapping/new-ux-mapping-2.png":::
+:::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-2.png" alt-text="Screenshot of editing attribute mapping." lightbox="media/how-to-attribute-mapping/new-ux-mapping-2.png":::
 
 ### Constant mapping attributes
 The following are the attributes supported by a constant mapping:
@@ -101,14 +101,14 @@ To use attribute mapping, follow these steps:
  2.  On the left, select **Azure AD Connect**.
  3.  On the left, select **Cloud sync**.
  
- :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX screen" lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
+ :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
 
  4. Under **Configuration**, select your configuration.
  5. On the left, select **Attribute mapping**.
  6. At the top, ensure that you have the correct object type selected.  That is, user, group, or contact.
  7. Click **Add attribute mapping**.
 
- :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-3.png" alt-text="Screenshot of adding an attribute mapping" lightbox="media/how-to-attribute-mapping/new-ux-mapping-3.png":::
+ :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-3.png" alt-text="Screenshot of adding an attribute mapping." lightbox="media/how-to-attribute-mapping/new-ux-mapping-3.png":::
 
  8. Select the mapping type. This can be one of the following:
      - **Direct**: The target attribute is populated with the value of an attribute of the linked object in Active Directory.
@@ -118,15 +118,15 @@ To use attribute mapping, follow these steps:
     
  9. Depending on what you have selected in the previous step, different options will be available for filling in.  
  10. Select when to apply this mapping, and then select **Apply**.
- :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-4.png" alt-text="Screenshot of saving an attribute mapping" lightbox="media/how-to-attribute-mapping/new-ux-mapping-4.png":::
+ :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-4.png" alt-text="Screenshot of saving an attribute mapping." lightbox="media/how-to-attribute-mapping/new-ux-mapping-4.png":::
 
  11. Back on the **Attribute mappings** screen, you should see your new attribute mapping.
  12. Select **Save schema**.  You will be notified that once you save the schema, a synchronization will occur.  Click **OK**.
- :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-5.png" alt-text="Screenshot of saving schema" lightbox="media/how-to-attribute-mapping/new-ux-mapping-5.png":::
+ :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-5.png" alt-text="Screenshot of saving schema." lightbox="media/how-to-attribute-mapping/new-ux-mapping-5.png":::
 
  13. Once the save is successful you will see a notification on the right.
 
- :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-6.png" alt-text="Screenshot of successful schema save" lightbox="media/how-to-attribute-mapping/new-ux-mapping-6.png":::
+ :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-6.png" alt-text="Screenshot of successful schema save." lightbox="media/how-to-attribute-mapping/new-ux-mapping-6.png":::
 
 ## Test your attribute mapping
 
@@ -139,11 +139,11 @@ To test your attribute mapping, you can use [on-demand provisioning](how-to-on-d
  5. On the left, select **Provision on demand**.
  6. Enter the distinguished name of a user and select the **Provision** button.
  
- :::image type="content" source="media/how-to-on-demand-provision/new-ux-2.png" alt-text="Screenshot of user distinguished name" lightbox="media/how-to-on-demand-provision/new-ux-2.png":::    
+ :::image type="content" source="media/how-to-on-demand-provision/new-ux-2.png" alt-text="Screenshot of user distinguished name." lightbox="media/how-to-on-demand-provision/new-ux-2.png":::    
 
  7. After provisioning finishes, a success screen appears with four green check marks. Any errors appear to the left.
 
- :::image type="content" source="media/how-to-on-demand-provision/new-ux-3.png" alt-text="Screenshot of on-demand success" lightbox="media/how-to-on-demand-provision/new-ux-3.png":::  
+ :::image type="content" source="media/how-to-on-demand-provision/new-ux-3.png" alt-text="Screenshot of on-demand success." lightbox="media/how-to-on-demand-provision/new-ux-3.png":::  
 
 
 

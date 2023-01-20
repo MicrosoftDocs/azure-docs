@@ -19,7 +19,7 @@ The following document will guide you through configuring Azure AD Connect cloud
 
 The following documentation demonstrates the new guided user experience for Azure AD Connect cloud sync.  If you are not seeing the images below, you need to select the **Preview features** at the top.  You can select this again to revert back to the old experience.
 
- :::image type="content" source="media/how-to-configure/new-ux-configure-19.png" alt-text="Screenshot of enable preview features" lightbox="media/how-to-configure/new-ux-configure-19.png":::
+ :::image type="content" source="media/how-to-configure/new-ux-configure-19.png" alt-text="Screenshot of enable preview features." lightbox="media/how-to-configure/new-ux-configure-19.png":::
 
 For additional information and an example of how to configure cloud sync, see the video below.
 
@@ -34,17 +34,17 @@ To configure provisioning, follow these steps.
  2.  On the left, select **Azure AD Connect**.
  3.  On the left, select **Cloud sync**.
  
- :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX screen" lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
+ :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
  
  4. Select **New configuration**.
- :::image type="content" source="media/how-to-configure/new-ux-configure-1.png" alt-text="Screenshot of adding a configuration" lightbox="media/how-to-configure/new-ux-configure-1.png":::
+ :::image type="content" source="media/how-to-configure/new-ux-configure-1.png" alt-text="Screenshot of adding a configuration." lightbox="media/how-to-configure/new-ux-configure-1.png":::
  5. On the configuration screen, select your domain and whether to enable password hash sync.  Click **Create**.  
  
- :::image type="content" source="media/how-to-configure/new-ux-configure-2.png" alt-text="Screenshot of a new configuration" lightbox="media/how-to-configure/new-ux-configure-2.png":::
+ :::image type="content" source="media/how-to-configure/new-ux-configure-2.png" alt-text="Screenshot of a new configuration." lightbox="media/how-to-configure/new-ux-configure-2.png":::
 
  6.  The **Get started** screen will open.  From here, you can continue configuring cloud sync.
 
-  :::image type="content" source="media/how-to-configure/new-ux-configure-3.png" alt-text="Screenshot of the getting started screen" lightbox="media/how-to-configure/new-ux-configure-3.png":::
+  :::image type="content" source="media/how-to-configure/new-ux-configure-3.png" alt-text="Screenshot of the getting started screen." lightbox="media/how-to-configure/new-ux-configure-3.png":::
 
  7. The configuration is split in to the following 5 sections.
 
@@ -63,7 +63,7 @@ To configure provisioning, follow these steps.
 ## Scope provisioning to specific users and groups
 You can scope the agent to synchronize specific users and groups by using on-premises Active Directory groups or organizational units. 
 
-  :::image type="content" source="media/how-to-configure/new-ux-configure-4.png" alt-text="Screenshot of scoping filters icon" lightbox="media/how-to-configure/new-ux-configure-4.png":::
+  :::image type="content" source="media/how-to-configure/new-ux-configure-4.png" alt-text="Screenshot of scoping filters icon." lightbox="media/how-to-configure/new-ux-configure-4.png":::
 
 
 You can't configure groups and organizational units within a configuration. 
@@ -72,7 +72,7 @@ You can't configure groups and organizational units within a configuration.
  
  1.  On the **Getting started** configuration screen.  Click either **Add scoping filters** next to the **Add scoping filters** icon or on the click **Scoping filters** on the left under **Manage**.
 
-   :::image type="content" source="media/how-to-configure/new-ux-configure-5.png" alt-text="Screenshot of scoping filters" lightbox="media/how-to-configure/new-ux-configure-5.png":::
+   :::image type="content" source="media/how-to-configure/new-ux-configure-5.png" alt-text="Screenshot of scoping filters." lightbox="media/how-to-configure/new-ux-configure-5.png":::
  
  2. Select the scoping filter. The filter can be one of the following:
      - **All users**: Scopes the configuration to apply to all users that are being synchronized.
@@ -81,21 +81,21 @@ You can't configure groups and organizational units within a configuration.
  3. For security groups and organizational units, supply the appropriate distinguished name and click **Add**.
  4. Once your scoping filters are configured, click **Save**.
  5. After saving, you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
- :::image type="content" source="media/how-to-configure/new-ux-configure-16.png" alt-text="Screenshot of the nudge for scoping filters" lightbox="media/how-to-configure/new-ux-configure-16.png":::
+ :::image type="content" source="media/how-to-configure/new-ux-configure-16.png" alt-text="Screenshot of the nudge for scoping filters." lightbox="media/how-to-configure/new-ux-configure-16.png":::
  7. Once you've changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 
 ## Attribute mapping
 Azure AD Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screenshot of map attributes icon" lightbox="media/how-to-configure/new-ux-configure-6.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screenshot of map attributes icon." lightbox="media/how-to-configure/new-ux-configure-6.png":::
 
 
 You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.  
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-7.png" alt-text="Screenshot of default attribute mappings" lightbox="media/how-to-configure/new-ux-configure-7.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-7.png" alt-text="Screenshot of default attribute mappings." lightbox="media/how-to-configure/new-ux-configure-7.png":::
 
 After saving, you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
- :::image type="content" source="media/how-to-configure/new-ux-configure-17.png" alt-text="Screenshot of the nudge for attribute filters" lightbox="media/how-to-configure/new-ux-configure-17.png":::
+ :::image type="content" source="media/how-to-configure/new-ux-configure-17.png" alt-text="Screenshot of the nudge for attribute filters." lightbox="media/how-to-configure/new-ux-configure-17.png":::
 
 
 For more information, see [attribute mapping](how-to-attribute-mapping.md).
@@ -103,14 +103,14 @@ For more information, see [attribute mapping](how-to-attribute-mapping.md).
 ## On-demand provisioning
 Azure AD Connect cloud sync allows you to test configuration changes, by applying these changes to a single user or group.  
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-8.png" alt-text="Screenshot of test icon" lightbox="media/how-to-configure/new-ux-configure-8.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-8.png" alt-text="Screenshot of test icon." lightbox="media/how-to-configure/new-ux-configure-8.png":::
 
 You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Azure AD.  
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-9.png" alt-text="Screenshot of on-demand provisioning" lightbox="media/how-to-configure/new-ux-configure-9.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-9.png" alt-text="Screenshot of on-demand provisioning." lightbox="media/how-to-configure/new-ux-configure-9.png":::
 
 After testing, you should see a message telling you what you still need to do to configure cloud sync.  You can click the link to continue.
- :::image type="content" source="media/how-to-configure/new-ux-configure-18.png" alt-text="Screenshot of the nudge for testing" lightbox="media/how-to-configure/new-ux-configure-18.png":::
+ :::image type="content" source="media/how-to-configure/new-ux-configure-18.png" alt-text="Screenshot of the nudge for testing." lightbox="media/how-to-configure/new-ux-configure-18.png":::
 
 
 For more information, see [on-demand provisioning](how-to-on-demand-provision.md).
@@ -118,7 +118,7 @@ For more information, see [on-demand provisioning](how-to-on-demand-provision.md
 ## Accidental deletions and email notifications
 The default properties section provides information on accidental deletions and email notifications.
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-10.png" alt-text="Screenshot of default properties icon" lightbox="media/how-to-configure/new-ux-configure-10.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-10.png" alt-text="Screenshot of default properties icon." lightbox="media/how-to-configure/new-ux-configure-10.png":::
 
 The accidental delete feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and groups.  
 
@@ -132,16 +132,16 @@ For more information, see [Accidental deletes](how-to-accidental-deletes.md)
 
 Click the **pencil** next to **Basics** to change the defaults in a configuration.
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-11.png" alt-text="Screenshot of basics" lightbox="media/how-to-configure/new-ux-configure-11.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-11.png" alt-text="Screenshot of basics." lightbox="media/how-to-configure/new-ux-configure-11.png":::
 
 ## Enable your configuration
 Once you've finalized and tested your configuration, you can enable it.
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-12.png" alt-text="Screenshot of review and enable icon" lightbox="media/how-to-configure/new-ux-configure-12.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-12.png" alt-text="Screenshot of review and enable icon." lightbox="media/how-to-configure/new-ux-configure-12.png":::
 
 Click **Enable configuration** to enable it.
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-13.png" alt-text="Screenshot of enabling a configuration" lightbox="media/how-to-configure/new-ux-configure-13.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-13.png" alt-text="Screenshot of enabling a configuration." lightbox="media/how-to-configure/new-ux-configure-13.png":::
 
 ## Quarantines
 Cloud sync monitors the health of your configuration and places unhealthy objects in a quarantine state. If most or all of the calls made against the target system consistently fail because of an error, for example, invalid admin credentials, the sync job is marked as in quarantine.  For more information, see the troubleshooting section on [quarantines](how-to-troubleshoot.md#provisioning-quarantined-problems).
@@ -153,7 +153,7 @@ If you don't want to wait for the next scheduled run, trigger the provisioning r
  3.  On the left, select **Cloud sync**.
  4. Under **Configuration**, select your configuration.
 
- :::image type="content" source="media/how-to-configure/new-ux-configure-14.png" alt-text="Screenshot of restarting sync" lightbox="media/how-to-configure/new-ux-configure-14.png":::
+ :::image type="content" source="media/how-to-configure/new-ux-configure-14.png" alt-text="Screenshot of restarting sync." lightbox="media/how-to-configure/new-ux-configure-14.png":::
 
  5. At the top, select **Restart sync**.
 
@@ -165,7 +165,7 @@ To delete a configuration, follow these steps.
  3.  On the left, select **Cloud sync**.
  4. Under **Configuration**, select your configuration.
 
- :::image type="content" source="media/how-to-configure/new-ux-configure-15.png" alt-text="Screenshot of deletion" lightbox="media/how-to-configure/new-ux-configure-15.png":::
+ :::image type="content" source="media/how-to-configure/new-ux-configure-15.png" alt-text="Screenshot of deletion." lightbox="media/how-to-configure/new-ux-configure-15.png":::
 
  5. At the top of the configuration screen, select **Delete configuration**.
 
