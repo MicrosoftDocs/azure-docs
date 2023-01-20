@@ -127,7 +127,7 @@ Profiles can be generated/edited in the JDK Mission Control (JMC) user interface
 ### Environment variables
 
 - `APPLICATIONINSIGHTS_PREVIEW_PROFILER_ENABLED`: boolean (default: `true`)
-    Enables/disables the profiling feature. By default the feature is enabled within the agent, note that even though this feature is enabled within the agent, profiles will not be gathered unless enabled within the Portal as described in [Installation](#Installation).
+    Enables/disables the profiling feature. By default the feature is enabled within the agent, note that even though this feature is enabled within the agent, profiles will not be gathered unless enabled within the Portal as described in [Installation](#installation).
 
 ### Configuration file
 
