@@ -31,13 +31,10 @@ For clusters with egress lockdown, see [limit egress traffic](limit-egress-traff
 >
 > The repositioning will result in the following API changes:
 >
-> |         |Prior to 2023-01-01 API |Starting from 2023-01-01 API | Starting from 2023-07-01 API |
+> |         |Prior to 2023-01-01 API|Starting from 2023-01-01 API| Starting from 2023-07-01 API|
 > |----------|-----------|------------|------------|
-> |ManagedClusterSKUName |"Basic" |"Basic"    |"Base"     |
-> :                      :        :"Base"     :           :
-> |ManagedClusterSKUTier |"Free"  |"Free"     |"Free"     |
-> :                      :"Paid"  :"Paid"     :"Standard" :
-> :                      :        :"Standard" :           :
+> |ManagedClusterSKUName|"Basic"|"Basic" <br> "Base"|"Base"|
+> |ManagedClusterSKUTier|"Free" <br> "Paid"|"Free" <br> "Paid" <br> "Standard"|"Free" <br> "Standard"|
 >
 > "Basic" and "Paid" will be removed in the 2023-07-01 API version, and this will be a breaking change in API version 2023-07-01 or newer. If you use automated scripts, CD pipelines, ARM templates, Terraform, or other third-party tooling that relies on the above parameters, please be sure to make the necessary changes before upgrading to the 2023-07-01 or newer API version. From API version 2023-01-01 and newer, you can start transitioning to the new API parameters "Base" and "Standard".
 >

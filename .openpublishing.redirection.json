@@ -29498,6 +29498,11 @@
           "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
           "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
           "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/uptime-sla.md",
+            "redirect_url": "/azure/aks/free-standard-pricing-tiers",
+            "redirect_document_id": "false"
         }
     ]
 }
