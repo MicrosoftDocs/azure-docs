@@ -423,6 +423,9 @@
             - name: Use a terminal
               displayName: git, github, clone, kernel, package
               href: how-to-access-terminal.md
+            - name: Manage compute sessions
+              displayName: sessions, terminal, kernel
+              href: how-to-manage-compute-sessions.md
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
@@ -836,6 +839,12 @@
               href: reference-automl-images-cli-multilabel-classification.md
             - name: AutoML Image Object Detection
               href: reference-automl-images-cli-object-detection.md
+            - name: AutoML NLP Text Classification
+              href: reference-automl-nlp-cli-text-classification.md  
+            - name: AutoML NLP Multilabel Classification
+              href: reference-automl-nlp-cli-multilabel-classification.md
+            - name: AutoML NLP NER
+              href: reference-automl-nlp-cli-ner.md              
         - name: Datastore
           items:
             - name: Azure Blob
