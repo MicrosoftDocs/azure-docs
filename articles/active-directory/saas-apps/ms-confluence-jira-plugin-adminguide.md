@@ -141,8 +141,7 @@ The following image shows the configuration screen in both Jira and Confluence:
 |                 |    1. Bug fix for the 405 error upon clicking on the Configure button of the Jira Azure AD SSO Plugin.|  6.0 to 9.1.0.          |
 |                 |    2. JIRA server is not rendering the "Project Setting Page" correctly.                  | Jira Service Desk: 3.0.0 to 4.22.1. |
 |                 |    3. JIRA is not forcing Azure AD Login, extra button click was required.                |                                     |
-|                 |    4. We have now resolved the security fix in this version.This will protect you from    |                                     |
-|                 |       user impersonation vulnerability.                                                   |                                     |
+|                 |    4. We have now resolved the security fix in this version.This will protect you from user impersonation vulnerability.|       |
 |                 |    5. JIRA Service Desk logout issue is resolved.                                         |                                     |
  
  
