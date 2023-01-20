@@ -3,7 +3,7 @@ title: Azure PowerShell - Enable double encryption at rest - managed disks
 description: Enable double encryption at rest for your managed disk data using Azure PowerShell.
 author: roygara
 
-ms.date: 06/29/2021
+ms.date: 01/20/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -40,16 +40,24 @@ Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), 
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1.  Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Use API version **2020-05-01** in the Azure Resource Manager (ARM) template. 
+1. Retrieve the URL for the key you just created, you'll need it for subsequent commands. The ID output from `Get-AzKeyVaultKey` is the key URL. 
+
+    ```powershell
+    Get-AzKeyVaultKey -VaultName $keyVaultName -KeyName $keyName
+    ```
+
+1. Retrieve the resource ID for the Key Vault instance you created, you'll need it for subsequent commands.
+
+    ```powershell
+    Get-AzKeyVault -VaultName $keyVaultName
+    ```
+
+1.  Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Replace `yourKeyURL` and `yourKeyVaultURL` with the URLs you retrieved earlier.
     
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
-    -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/DoubleEncryption/CreateDiskEncryptionSetForDoubleEncryption.json" `
-    -diskEncryptionSetName $diskEncryptionSetName `
-    -keyVaultId $keyVault.ResourceId `
-    -keyVaultKeyUrl $key.Key.Kid `
-    -encryptionType "EncryptionAtRestWithPlatformAndCustomerKeys" `
-    -region $LocationName
+    $config = New-AzDiskEncryptionSetConfig -Location $locationName -KeyUrl "yourKeyURL" -SourceVaultId 'yourKeyVaultURL' -IdentityType 'SystemAssigned'
+    
+    $config | New-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName -Name $diskEncryptionSetName -EncryptionType EncryptionAtRestWithPlatformAndCustomerKeys
     ```
 
 1. Grant the DiskEncryptionSet resource access to the key vault.
