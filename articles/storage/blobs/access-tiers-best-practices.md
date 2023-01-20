@@ -54,7 +54,7 @@ For information about how to convert append and page blobs to block blobs, see [
 
 ## Pack small files before moving data to cooler tiers
 
-Each read or write operation incurs a cost. To reduce the cost of reading and writing data, consider packing small files into larger ones by using file formats such as TAR or ZIP. Fewer files reduces the number of operations required to transfer data. You can use [this worksheet](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx) to analyze the impact of packing files and determine whether the overhead involved in packing and unpacking files is worth the savings.
+Each read or write operation incurs a cost. To reduce the cost of reading and writing data, consider packing small files into larger ones by using file formats such as TAR or ZIP. Fewer files reduces the number of operations required to transfer data. 
 
 The following chart shows the relative impact of packing files for the cool tier. The read cost assumes a monthly read percentage of 30%.
 
