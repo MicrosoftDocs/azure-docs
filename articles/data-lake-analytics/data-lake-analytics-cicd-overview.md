@@ -10,6 +10,8 @@ ms.custom: devx-track-azurepowershell
 
 In this article, you learn how to set up a continuous integration and deployment (CI/CD) pipeline for U-SQL jobs and U-SQL databases.  
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Use CI/CD for U-SQL jobs

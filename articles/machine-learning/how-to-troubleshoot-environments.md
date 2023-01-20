@@ -485,6 +485,18 @@ environment definition
 version of a package on subsequent builds of an environment. This behavior can lead to unexpected errors
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
+### UTF-8 decoding error
+<!--issueDescription-->
+This issue can happen when there's a failure decoding a character in your conda specification. 
+
+**Potential causes:**
+* Your conda YAML file contains characters that aren't compatible with UTF-8.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
 ### *Pip issues*
 ### Pip not specified
 - For reproducibility, pip should be specified as a dependency in your conda specification, and it should be pinned
@@ -577,7 +589,7 @@ If you suspect that the path name to your container registry is incorrect
 * For a registry `my-registry.io` and image `test/image` with tag `3.2`, a valid image path would be `my-registry.io/test/image:3.2`
 * See [registry path documentation](https://aka.ms/azureml/environment/docker-registries)
 
-If your container registry is behind a virtual network and is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
 * Configure the container registry by using the service endpoint (public access) from the portal and retry
 * After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
 
@@ -954,23 +966,138 @@ Many issues could cause a horovod failure, and there's a comprehensive list of t
 * [horovod installation](https://aka.ms/azureml/environment/install-horovod)
 
 ### Conda command not found
-- Failed to create or update the conda environment because the conda command is missing 
-- For system-managed environments, conda should be in the path in order to create the user's environment
-from the provided conda specification
+<!--issueDescription-->
+This issue can happen when the conda command isn't recognized during conda environment creation or update.
+
+**Potential causes:**
+* conda isn't installed in the base image you're using
+* conda isn't installed via your Dockerfile before you try to execute the conda command
+* conda isn't included in or wasn't added to your path
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Ensure that you have a conda installation step in your Dockerfile before trying to execute any conda commands
+* Review this [list of conda installers](https://docs.conda.io/en/latest/miniconda.html) to determine what you need for your scenario
+
+If you've tried installing conda and are experiencing this issue, ensure that you've added conda to your path
+* Review this [example](https://stackoverflow.com/questions/58269375/how-to-install-packages-with-miniconda-in-dockerfile) for guidance
+* Review how to set [environment variables in a Dockerfile](https://docs.docker.com/engine/reference/builder/#env)
+
+**Resources**
+* All available conda distributions are found in the [conda repository](https://repo.anaconda.com/miniconda/)
 
 ### Incompatible Python version
-- Failed to create or update the conda environment because a package specified in the conda environment isn't compatible with the specified python version
-- Update the Python version or use a different version of the package
+<!--issueDescription-->
+This issue can happen when there's a package specified in your conda environment that isn't compatible with your specified Python version.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Use a different version of the package that's compatible with your specified Python version
+
+Alternatively, use a different version of Python that's compatible with the package you've specified
+* If you're changing your Python version, use a version that's supported and that isn't nearing its end-of-life soon
+* See Python [end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
+
+**Resources**
+* [Python documentation by version](https://aka.ms/azureml/environment/python-versions)
 
 ### Conda bare redirection
-- Failed to create or update the conda environment because a package was specified on the command line using ">" or "<"
-without using quotes. Consider adding quotes around the package specification
+<!--issueDescription-->
+This issue can happen when a package is specified on the command line using "<" or ">" without using quotes, causing conda environment creation or update to fail.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Add quotes around the package specification
+* For example, change `conda install -y pip<=20.1.1` to `conda install -y "pip<=20.1.1"`
 
 ### *Pip issues during build*
 ### Failed to install packages
-- Failed to install Python packages
-- Review the image build log for more information on this error
+<!--issueDescription-->
+This issue can happen when your image build fails during Python package installation.
+
+**Potential causes:**
+* There are many issues that could cause this error
+* This is a generic message that's surfaced when the error you're encountering isn't yet covered by AzureML analysis
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Review your Build log for more information on your image build failure 
+
+Leave feedback for the AzureML team to analyze the error you're experiencing
+* [File a problem or suggestion](https://github.com/Azure/azureml-assets/issues/new?assignees=&labels=environmentLogs&template=environmentLogsFeedback.yml)
 
 ### Can't uninstall package
-- Pip failed to uninstall a Python package that was installed via the OS's package manager
-- Consider creating a separate environment using conda instead
+<!--issueDescription-->
+This can happen when pip fails to uninstall a Python package that was installed via the operating system's package manager.
+
+**Potential causes:**
+* An existing pip problem or a problematic pip version
+* An issue arising from not using an isolated environment
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Read the following and determine if your failure is caused by an existing pip problem
+* [Cannot uninstall while creating Docker image](https://stackoverflow.com/questions/63383400/error-cannot-uninstall-ruamel-yaml-while-creating-docker-image-for-azure-ml-a)
+* [pip 10 disutils partial uninstall issue](https://github.com/pypa/pip/issues/5247)
+* [pip 10 no longer uninstalls disutils packages](https://github.com/pypa/pip/issues/4805)
+
+Try the following
+
+```
+pip install --ignore-installed [package]
+```
+
+Try creating a separate environment using conda
+
+### *Docker push issues*
+### Failed to store Docker image
+<!--issueDescription-->
+This issue can happen when a Docker image fails to be stored (pushed) to a container registry.  
+
+**Potential causes:**
+* A transient issue has occurred with the ACR associated with the workspace
+* A container registry behind a virtual network is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+
+**Affected areas (symptoms):**
+* Failure in building environments from the UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**  
+
+Retry the environment build if you suspect this is a transient issue with the workspace's Azure Container Registry (ACR)  
+
+If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+* Configure the container registry by using the service endpoint (public access) from the portal and retry
+* After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
+
+If you aren't using a virtual network, or if you've configured it correctly, test that your credentials are correct for your ACR by attempting a simple local build
+* Get credentials for your workspace ACR from the Azure Portal
+* Log in to your ACR using `docker login <myregistry.azurecr.io> -u "username" -p "password"`
+* For an image "helloworld", test pushing to your ACR by running `docker push helloworld`
+* See [Quickstart: Build and run a container image using Azure Container Registry Tasks](../container-registry/container-registry-quickstart-task-cli.md)

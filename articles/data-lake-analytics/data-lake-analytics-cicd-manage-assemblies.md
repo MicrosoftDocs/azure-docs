@@ -10,6 +10,8 @@ ms.date: 10/30/2018
 
 In this article, you learn how to manage U-SQL assembly source code with the newly introduced U-SQL database project. You also learn how to set up a continuous integration and deployment (CI/CD) pipeline for assembly registration by using Azure DevOps.
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## Use the U-SQL database project to manage assembly source code
 
 [The U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md) is a project type in Visual Studio that helps developers develop, manage, and deploy their U-SQL databases quickly and easily. You can manage all U-SQL database objects (except for credentials) with the U-SQL database project.
