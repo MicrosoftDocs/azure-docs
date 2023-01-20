@@ -18,6 +18,6 @@ Incremental snapshots offer a differential capability. They enable you to get th
 
 :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-description/incremental-snapshot-diagram.png" alt-text="Diagram depicting incremental snapshots copied across regions. Snapshots make various API calls until eventually forming page blobs per each snapshot.":::
 
-Snapshots of disks with 4096 logical sector size are stored as VHDX, whereas snapshots of disks with 512 logical sector size are stored as VHD. Snapshots inherit the logical sector size from the parent disk.
+Snapshots of disks with 4096 logical sector size are stored as VHDX, whereas snapshots of disks with 512 logical sector size are stored as VHD. Snapshots inherit the logical sector size from the parent disk. You can use the LogicalSectorSize property of the snapshots to find the format of the snapshots.
 
 Incremental snapshots are billed for the used size only. You can find the used size of your snapshots by looking at the [Azure usage report](../articles/cost-management-billing/understand/review-individual-bill.md). For example, if the used data size of a snapshot is 10 GiB, the **daily** usage report will show 10 GiB/(31 days) = 0.3226 as the consumed quantity.
