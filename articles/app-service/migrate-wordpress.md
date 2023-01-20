@@ -10,7 +10,7 @@ ms.devlang: php
 ms.custom: seodec18
 
 ---
-# WordPress Migration to Linux App Service
+# Migrate WordPRess on App Service on Linux
 
 This article describes two ways to migrate WordPress from App Service on Windows or external hosting providers to App Service on Linux. 
 
