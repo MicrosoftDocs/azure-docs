@@ -27,9 +27,9 @@ For speech recognition, the initial latency is higher with language identificati
 ## Configuration options
 
 > [!IMPORTANT]
-> You must make a code change when upgrading to the Speech SDK version 1.25 from earlier versions. With Speech SDK version 1.25, the 
+> Language Identification (preview) APIs have been simplified in the Speech SDK version 1.25. The 
 `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority` properties have
-been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. The Speech service will prioritize latency over accuracy for language identification. 
+been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Results are very accurate at low latency, therefore we removed the priority option. The only setting supported now is whether to run at-start or continuous language identification, when doing continuous speech recognition or translation.
 
 Whether you use language identification with [speech-to-text](#speech-to-text) or with [speech translation](#speech-translation), there are some common concepts and configuration options.
 
@@ -121,7 +121,7 @@ You'll either call the "recognize once" method, or the start and stop continuous
 - Continuous recognition with at-start LID
 - Continuous recognition with continuous LID
 
-The `SpeechServiceConnection_LanguageIdMode` property is always required for continuous LID. Without it, the Speech service defaults to at-start lid. The supported values are "AtStart" for at-start LID or "Continuous" for continuous LID. 
+The `SpeechServiceConnection_LanguageIdMode` property is only required for continuous LID. Without it, the Speech service defaults to at-start lid. The supported values are "AtStart" for at-start LID or "Continuous" for continuous LID. 
 
 ::: zone pivot="programming-language-csharp"
 
@@ -213,8 +213,8 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey","YourServiceRegion");
 
-// Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
-speechConfig.SetProperty(PropertyId.SpeechServiceConnection_LanguageIdMode, "Continuous");
+// Only at-start LID is supported when you use RecognizeOnceAsync, so this line isn't required.
+speechConfig.SetProperty(PropertyId.SpeechServiceConnection_LanguageIdMode, "AtStart");
 
 var autoDetectSourceLanguageConfig =
     AutoDetectSourceLanguageConfig.FromLanguages(
@@ -336,8 +336,8 @@ using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey","YourServiceRegion");
 
-// Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
-speechConfig->SetProperty(PropertyId::SpeechServiceConnection_LanguageIdMode, "Continuous");
+// Only at-start LID is supported when you use RecognizeOnceAsync, so this line isn't required.
+speechConfig->SetProperty(PropertyId::SpeechServiceConnection_LanguageIdMode, "AtStart");
 
 auto autoDetectSourceLanguageConfig =
     AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE", "zh-CN" });
@@ -614,8 +614,8 @@ public static async Task RecognizeOnceSpeechTranslationAsync()
     
     var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "YourSubscriptionKey");
 
-    // Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
-    speechTranslationConfig.SetProperty(PropertyId.SpeechServiceConnection_LanguageIdMode, "Continuous");
+    // Only at-start LID is supported when you use RecognizeOnceAsync, so this line isn't required.
+    speechTranslationConfig.SetProperty(PropertyId.SpeechServiceConnection_LanguageIdMode, "AtStart");
 
     // Source language is required, but currently ignored. 
     string fromLanguage = "en-US";
@@ -774,8 +774,8 @@ auto region = "YourServiceRegion";
 auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
 auto config = SpeechTranslationConfig::FromEndpoint(endpointString, "YourSubscriptionKey");
 
-// Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
-config->SetProperty(PropertyId::SpeechServiceConnection_LanguageIdMode, "Continuous");
+// Only at-start LID is supported when you use RecognizeOnceAsync, so this line isn't required.
+config->SetProperty(PropertyId::SpeechServiceConnection_LanguageIdMode, "AtStart");
 auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
 
 // Sets source and target languages
@@ -953,7 +953,7 @@ translation_config = speechsdk.translation.SpeechTranslationConfig(
     target_languages=('de', 'fr'))
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 
-# Set the LanguageIdMode (Optional; Either Continuous or AtStart are accepted; Default AtStart)
+# Only at-start LID is supported when you use RecognizeOnceAsync, so this line isn't required.
 translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_LanguageIdMode, value='AtStart')
 
 # Specify the AutoDetectSourceLanguageConfig, which defines the number of possible languages
