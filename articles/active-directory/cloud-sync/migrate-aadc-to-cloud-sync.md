@@ -34,7 +34,7 @@ Azure AD Connect cloud sync is the future for accomplishing your hybrid identity
 |Install the provisioning agent|If you haven't done so, install the provisioning agent.  For more information, see [how to install the agent](how-to-install.md).|
 |Configure cloud sync|Once the agent is installed, you need to configure cloud sync.  In the configuration, you need to create a scope to the OU that was created or identified previously.  For more information, see [Configuring cloud sync](how-to-configure.md).|
 |Verify pilot users are being provisioned|Verify that the users are now being synchronized in the portal. 
-|Start the scheduler|Now that you've veriifed users are provisioning and synchronizing, you can go ahead and start the Azure AD Connect scheduler.   For more information, see [how to start the scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
+|Start the scheduler|Now that you've verifed users are provisioning and synchronizing, you can go ahead and start the Azure AD Connect scheduler.   For more information, see [how to start the scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 |Schedule you remaining users|Now you should come up with a plan on migrating more users.  You should use a phased approach so that you can verify that the migrations are successful.|
 |Verify all users are provisioned|As you migrate users, verify that they're provisioning and synchronizing correctly.|
 |Stop Azure AD Connect|Once you've verified that all of your users are migrated, you can turn of the Azure AD Connect synchronization service.  Microsoft recommends that you leave the server is a disabled state for a period of time, so you can verify the migration was successful
