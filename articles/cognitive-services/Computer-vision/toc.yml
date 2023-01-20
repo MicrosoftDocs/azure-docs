@@ -114,6 +114,8 @@ items:
     items:
     - name: Version 4.0
       items:
+      - name: Call the Image Analysis API
+        href: how-to/call-analyze-image-40.md
     - name: Version 3.2
       items:
       - name: Call the Image Analysis API
@@ -126,18 +128,18 @@ items:
     items:
     - name: Version 4.0
       items:
+      - name: Object detection
+        href: concept-object-detection-40.md
       - name: Content tags
         href: concept-tagging-images-40.md
       - name: Image descriptions
         href: concept-describing-images-40.md
-      - name: Face detection
-        href: concept-detecting-faces-40.md
-      - name: Smart-cropped thumbnails
-        href: concept-generating-thumbnails-40.md
       - name: Reading text (preview)
-        href: concept-ocr-40.md
+        href: concept-ocr.md
+      - name: Smart-cropped thumbnails
+        href: concept-generating-thumbnails.md
       - name: People detection (preview)
-        href: concept-people-detection-40.md
+        href: concept-people-detection.md
     - name: Version 3.2
       items:   
       - name: Object detection
@@ -164,10 +166,6 @@ items:
         href: concept-generating-thumbnails.md
       - name: Adult content detection
         href: concept-detecting-adult-content.md
-      - name: Reading text (preview)
-        href: concept-ocr.md
-      - name: People detection (preview)
-        href: concept-people-detection.md
   - name: Tutorials
     items:
     - name: Generate metadata for images
