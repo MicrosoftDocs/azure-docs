@@ -26,7 +26,7 @@ The MedTech service device message processing follows these steps and in this or
 :::image type="content" source="media/understand-service/iot-data-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/iot-data-flow.png":::
 
 ## Ingest
-Ingest is the first stage where device messages are received in an [Azure Event Hubs](../../event-hubs/index.yml) event hub (`device message event hub`) and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
+Ingest is the first stage where device messages are received from an [Azure Event Hubs](../../event-hubs/index.yml) event hub (`device message event hub`) and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
 
 The device message event hub uses the MedTech service's [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for secure access to the device message event hub.
 
@@ -72,7 +72,7 @@ If no Device resource for a given device identifier exists in the FHIR service, 
 > [!NOTE]
 > The `Resolution Type` can also be adjusted post deployment of the MedTech service in the event that a different type is later desired.
 
-The MedTech service buffers the transformed device message data within the transformation stage. The MedTech service provides near real-time notifications as it can potentially take up to five minutes for device message data to be processed by the MedTech service and persisted in the FHIR service.
+The MedTech service buffers the FHIR Observations resources created during the transformation stage and provides near real-time processing. However, it can potentially take up to five minutes for FHIR Observation resources to be persisted in the FHIR service.
 
 ## Persist
 Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation resource is new, it will be created in the FHIR service. If the FHIR Observation resource already existed, it will get updated in the FHIR service.
