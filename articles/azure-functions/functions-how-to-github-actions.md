@@ -70,10 +70,10 @@ Setting up the environment is done using a language-specific publish setup actio
 The following example shows the part of the workflow that sets up the environment:
 
 ```yaml
-    - name: Setup DotNet 2.2.402 Environment
-      uses: actions/setup-dotnet@v1
+    - name: Setup DotNet 6.0.x Environment
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 2.2.402
+        dotnet-version: 6.0.x
 ```
 
 # [Java](#tab/java)
