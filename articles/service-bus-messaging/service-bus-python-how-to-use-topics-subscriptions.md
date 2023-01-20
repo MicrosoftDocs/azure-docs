@@ -81,7 +81,7 @@ To use the connection code, you'll need to specify a:
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
+1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path. Change the directory to the folder where you want to have your samples.
 
 1. Install packages:
 
