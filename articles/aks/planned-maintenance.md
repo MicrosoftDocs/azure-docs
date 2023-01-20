@@ -43,12 +43,16 @@ az extension update --name aks-preview
 
 There are currently two available configuration types: `default` and `aksManagedAutoUpgradeSchedule`:
 
-- `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a VMSS instance.
+- `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a VMSS instance. It is a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
 
-- `aksManagedAutoUpgradeSchedule` is a more complex configuration that controls when upgrades scheduled by your designated auto-upgrade channel are performed. For more information on cluster auto-upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+- `aksManagedAutoUpgradeSchedule` is a more complex configuration that controls when upgrades scheduled by your designated auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible. For more information on cluster auto-upgrade, see [Automatically an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+
+### Choosing between configuration types
+
+We recommend using `aksManagedAutoUpgradeSchedule` for all maintenance and upgrade scenarios, while `default` is meant exclusively for weekly releases. You can port `default` configurations to `aksManagedAutoUpgradeSchedule` configurations via the `az aks maintenanceconfiguration update` command.
 
 > [!NOTE]
-> When using auto-upgrade, to ensure proper functionality use a maintenance window with a duration of four hours or more.
+> When using auto-upgrade, to ensure proper functionality, use a maintenance window with a duration of four hours or more.
 
 ## Creating a maintenance window
 
@@ -81,7 +85,7 @@ An `aksManagedAutoUpgradeSchedule` has the following properties:
 
 ### Understanding schedule types
 
-There are currently three available schedule types: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`:
+There are currently three available schedule types: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`. These schedule types are only applicable to `aksManagedClusterAutoUpgrade` configurations.
 
 #### Weekly schedule
 
@@ -295,3 +299,5 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [aks-upgrade]: upgrade-cluster.md
+[release-tracker]: release-tracker.md
+[auto-upgrade]: auto-upgrade-cluster.md
