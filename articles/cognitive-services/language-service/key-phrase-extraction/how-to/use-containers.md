@@ -47,7 +47,7 @@ The following table describes the minimum and recommended specifications for the
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
-## The key phrase extraction container
+## Key phrase extraction container image
 
 The key phrase extraction container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `keyphrase`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase`.
 

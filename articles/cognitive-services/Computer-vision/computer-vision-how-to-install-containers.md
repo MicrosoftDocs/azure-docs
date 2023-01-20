@@ -74,7 +74,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 > [!WARNING]
 > The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
-## The Read OCR container
+## Read OCR container image
 
 The Computer Vision Read OCR container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `read`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/vision/read`.
 

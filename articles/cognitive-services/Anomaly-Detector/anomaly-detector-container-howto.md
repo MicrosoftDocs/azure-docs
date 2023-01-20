@@ -50,7 +50,7 @@ You must meet the following prerequisites before using Anomaly Detector containe
 
 <!--* [Azure IoT Edge](../../iot-edge/index.yml). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
-## The Anomaly Detector container
+## Anomaly Detector container image
 
 The Anomaly Detector container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/decision` repository and is named `anomaly-detector`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector`.
 
