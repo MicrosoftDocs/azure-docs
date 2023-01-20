@@ -31,35 +31,31 @@ The following JSON response illustrates what the Analyze API returns when descri
 
 ![A black and white picture of buildings in Manhattan](./Images/bw_buildings.png)
 
+
 ```json
 {
-   "description":{
-      "tags":[
-         "outdoor",
-         "city",
-         "white"
-      ],
-      "captions":[
-         {
-            "text":"a city with tall buildings",
-            "confidence":0.48468858003616333
-         }
-      ]
-   },
-   "requestId":"7e5e5cac-ef16-43ca-a0c4-02bd49d379e9",
-   "metadata":{
-      "height":300,
-      "width":239,
-      "format":"Png"
-   },
-   "modelVersion":"2021-05-01"
+    "metadata":
+    {
+        "width": 239,
+        "height": 300
+    },
+    "descriptionResult":
+    {
+        "values":
+        [
+            {
+                "text": "a city with tall buildings",
+                "confidence": 0.3551448881626129
+            }
+        ]
+    }
 }
 ```
 
 ## Use the API
 
+The image description feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Description` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"description"` section.
 
-The image description feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Description` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"description"` section.
 
 
 * [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

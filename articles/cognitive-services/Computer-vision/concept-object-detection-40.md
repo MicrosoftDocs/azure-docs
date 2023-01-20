@@ -32,64 +32,42 @@ The following JSON response illustrates what the Analyze API returns when detect
 ![A woman using a Microsoft Surface device in a kitchen](./Images/windows-kitchen.jpg)
 
 
+
 ```json
 {
-   "objects":[
-      {
-         "rectangle":{
-            "x":730,
-            "y":66,
-            "w":135,
-            "h":85
-         },
-         "object":"kitchen appliance",
-         "confidence":0.501
-      },
-      {
-         "rectangle":{
-            "x":523,
-            "y":377,
-            "w":185,
-            "h":46
-         },
-         "object":"computer keyboard",
-         "confidence":0.51
-      },
-      {
-         "rectangle":{
-            "x":471,
-            "y":218,
-            "w":289,
-            "h":226
-         },
-         "object":"Laptop",
-         "confidence":0.85,
-         "parent":{
-            "object":"computer",
-            "confidence":0.851
-         }
-      },
-      {
-         "rectangle":{
-            "x":654,
-            "y":0,
-            "w":584,
-            "h":473
-         },
-         "object":"person",
-         "confidence":0.855
-      }
-   ],
-   "requestId":"25018882-a494-4e64-8196-f627a35c1135",
-   "metadata":{
-      "height":473,
-      "width":1260,
-      "format":"Jpeg"
-   },
-   "modelVersion":"2021-05-01"
+    "metadata":
+    {
+        "width": 1260,
+        "height": 473
+    },
+    "objectsResult":
+    {
+        "values":
+        [
+            {
+                "name": "kitchen appliance",
+                "confidence": 0.501,
+                "boundingBox": {"x":730,"y":66,"w":135,"h":85}
+            },
+            {
+                "name": "computer keyboard",
+                "confidence": 0.51,
+                "boundingBox": {"x":523,"y":377,"w":185,"h":46}
+            },
+            {
+                "name": "Laptop",
+                "confidence": 0.85,
+                "boundingBox": {"x":471,"y":218,"w":289,"h":226}
+            },
+            {
+                "name": "person",
+                "confidence": 0.855,
+                "boundingBox": {"x":654,"y":0,"w":584,"h":473}
+            }
+        ]
+    }
 }
 ```
-
 
 ## Limitations
 
@@ -101,7 +79,7 @@ It's important to note the limitations of object detection so you can avoid or m
 
 ## Use the API
 
-The object detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Objects` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"objects"` section.
+The object detection feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Objects` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"objects"` section.
 
 
 * [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
