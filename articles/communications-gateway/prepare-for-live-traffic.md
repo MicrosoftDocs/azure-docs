@@ -98,14 +98,14 @@ Your onboarding team must register the test enterprise tenant that you chose in 
 
 Network integration includes identifying SIP interoperability requirements and configuring devices to meet these requirements. For example, this process often includes interworking header formats and/or the signaling & media flows used for call hold and session refresh.
 
-You must test typical call flows for your network. Consult your onboarding team for advice, for example for an example test plan.
+You must test typical call flows for your network. Your onboarding team will provide an example test plan that we recommend you follow. Your test plan should include call flow, failover, and connectivity testing.
 
 - If you decide that you need changes to Azure Communication Gateway, ask your onboarding team. Microsoft will make the changes for you.
 - If you need changes to the configuration of devices in your core network, you must make those changes.
 
 ## 5. Run a connectivity test and upload proof
 
-Before you can launch, Microsoft Teams requires proof that your service can connect to the Microsoft Phone System and your own networks correctly.
+Before you can launch, Microsoft Teams requires proof that your network is properly connected to Microsoft's network.
 
 1. Provide your onboarding team with proof that BFD is enabled. You enabled BFD in [1. Connect Azure Communications Gateway to your networks](#1-connect-azure-communications-gateway-to-your-networks). For example, if you have a Cisco router, you can provide configuration similar to the following.
 
@@ -127,6 +127,7 @@ Before you can launch, Microsoft Teams requires proof that your service can conn
        exit-address-family
     ```
 
+1. Test failover of the MAPS connections to your network. Your onboarding team will work with you to plan this testing and gather the required evidence.
 1. Work with your onboarding team to validate emergency call handling.
 
 ## 6. Get your go-to-market resources approved

@@ -5,7 +5,9 @@ author: nslack
 ms.author: nickslack
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.custom: subject-reliability
+ms.custom:
+  - subject-reliability
+  - references_regions
 ms.date: 01/12/2023
 ---
 
@@ -15,7 +17,7 @@ Azure Communication Gateway ensures your service is reliable by using Azure redu
 
 ## Azure Communications Gateway's redundancy model
 
-Each Azure Communications Gateway deployment consists of three separate regions, a Management Region and two Service Regions. This article describes the two different region types and their distinct redundancy models. It covers both regional reliability with availability zones and cross-region reliability with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+Each Azure Communications Gateway deployment consists of three separate regions: a Management Region and two Service Regions. This article describes the two different region types and their distinct redundancy models. It covers both regional reliability with availability zones and cross-region reliability with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 :::image type="complex" source="media/communications-gateway/communications-gateway-management-and-service-regions.png" alt-text="Diagram of two service regions, a management region and two operator sites.":::
     Diagram showing two operator sites and the Azure regions for Azure Communications Gateway. Azure Communications Gateway has two service regions and one management region. The service regions connect to the management region and to the operator sites. The management region can be co-located with a service region.
@@ -72,7 +74,7 @@ Azure availability zones have a minimum of three physically separate groups of d
 
 ### Zone down experience for service regions
 
-During a zone-wide outage, calls handled by the affected zone are terminated, with a brief loss of capacity within the region until the service's self-healing rebalances underlying resources to healthy zones. This self-healing isn't dependent on zone restoration; it's expected that the Microsoft-managed service self-healing state will compensate for a lost zone, using capacity from other zones. Traffic carrying resources are deployed in a zone-redundant manner but at the lowest scale traffic may be handled by a single resource. In this case, the failover mechanisms described in this article rebalance all traffic to the other service region while the resources that carry traffic are redeployed in a healthy zone.
+During a zone-wide outage, calls handled by the affected zone are terminated, with a brief loss of capacity within the region until the service's self-healing rebalances underlying resources to healthy zones. This self-healing isn't dependent on zone restoration; it's expected that the Microsoft-managed service self-healing state will compensate for a lost zone, using capacity from other zones. Traffic carrying resources are deployed in a zone-redundant manner but at the lowest scale traffic might be handled by a single resource. In this case, the failover mechanisms described in this article rebalance all traffic to the other service region while the resources that carry traffic are redeployed in a healthy zone.
 
 ### Zone down experience for the management region
 
@@ -84,11 +86,13 @@ This section describes the behavior of Azure Communications Gateway during a reg
 
 ### Disaster recovery: cross-region failover for service regions
 
-During a region-wide outage, the failover mechanisms described in this article (OPTIONS polling and SIP retry on failure) will rebalance all traffic to the other service region, maintaining availability. Microsoft will start restoring regional redundancy. Restoring regional redundancy during extended downtime may require using other Azure regions. If we need to migrate a failed region to another region, we'll consult you before starting any migrations.
+During a region-wide outage, the failover mechanisms described in this article (OPTIONS polling and SIP retry on failure) will rebalance all traffic to the other service region, maintaining availability. Microsoft will start restoring regional redundancy. Restoring regional redundancy during extended downtime might require using other Azure regions. If we need to migrate a failed region to another region, we'll consult you before starting any migrations.
 
 ### Disaster recovery: cross-region failover for management regions
 
-Voice and API Bridge traffic are unaffected by failures in the management region, because the resources for this traffic are hosted in service regions. Monitoring services may be temporarily unavailable until these services have been migrated elsewhere. If the management region is co-located with a service region and that service region experiences extended downtime, the management resources will automatically fail over to the other Azure region selected as a service region.
+Voice traffic and the API Bridge are unaffected by failures in the management region, because the corresponding Azure resources are hosted in service regions. Users of the API Bridge Number Management Portal might need to sign in again.
+
+Monitoring services might be temporarily unavailable until service has been restored. If the management region experiences extended downtime, Microsoft will migrate the impacted resources to another available region.
 
 ## Choosing management and service regions
 
