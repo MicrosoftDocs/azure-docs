@@ -495,7 +495,11 @@ This issue can happen when there's a failure decoding a character in your conda 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
 * Failure in running jobs because it will implicitly build the environment in the first step.
-<!--/issueDescription--> 
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+Review your Build log for the location of the issue. Make sure all characters used in your conda YAML file are in the UTF-8 character set.
+* See [Complete Character List for UTF-8](https://www.fileformat.info/info/charset/UTF-8/list.htm)
 
 ### *Pip issues*
 ### Pip not specified
