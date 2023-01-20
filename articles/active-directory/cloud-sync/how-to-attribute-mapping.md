@@ -105,7 +105,7 @@ To use attribute mapping, follow these steps:
 
  4. Under **Configuration**, select your configuration.
  5. On the left, select **Attribute mapping**.
- 6. At the top, ensure that you have the correct object type selected.  That is, user,group, or contact.
+ 6. At the top, ensure that you have the correct object type selected.  That is, user, group, or contact.
  7. Click **Add attribute mapping**.
 
  :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-3.png" alt-text="Screenshot of adding an attribute mapping" lightbox="media/how-to-attribute-mapping/new-ux-mapping-3.png":::
