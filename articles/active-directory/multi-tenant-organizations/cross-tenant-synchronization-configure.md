@@ -442,6 +442,18 @@ Your tenant doesn't have an Azure AD Premium P1 or P2 license.
 
 You must have Azure AD Premium P1 or P2 to configure trust settings.
 
+#### Symptom - Recently deleted user in the target tenant is not restored
+
+After soft deleting a synchronized user in the target tenant, the user isn't restored with on-demand provisioning or during the next synchronization cycle.
+
+**Cause**
+
+Restoring a previously soft-deleted user in the target tenant isn't supported.
+
+**Solution**
+
+Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/active-directory-users-restore.md).
+
 ## Next steps
 
 - [Tutorial: Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md)
