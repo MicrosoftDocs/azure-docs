@@ -87,7 +87,7 @@ Deploy-Eflow -gpuPassthroughType DirectDeviceAssignment -gpuCount 1 -gpuName "NV
 Deploy-Eflow -gpuPassthroughType ParaVirtualization -gpuCount 1 -gpuName “Intel(R) Iris(R) Xe Graphics”
 ```
 
-To find your the name of your GPU, you can run the following command or look for Display adapters in Device Manager.
+To find the name of your GPU, you can run the following command or look for Display adapters in Device Manager.
 ```powershell
 (Get-WmiObject win32_VideoController).caption
 ```
@@ -95,7 +95,7 @@ To find your the name of your GPU, you can run the following command or look for
 Once installation is complete, you are ready to deploy and run GPU-accelerated Linux modules through Azure IoT Edge for Linux on Windows. 
 
 ## Configure GPU acceleration in an existing Azure IoT Edge Linux on Windows deployment
-Assigning the GPU at deployment time will result in the most straightforward experience. However, to enable or disable the GPU after deployment use the 'set-eflowvm' commmand. When using 'set-eflowvm' the default parmeter will be used for any argument not specified. For example,
+Assigning the GPU at deployment time will result in the most straightforward experience. However, to enable or disable the GPU after deployment use the 'set-eflowvm' command. When using 'set-eflowvm' the default parameter will be used for any argument not specified. For example,
 
 ```powershell
 #Deploys EFLOW without a GPU assigned to the EFLOW VM
@@ -119,7 +119,10 @@ Visit our [EFLOW Samples Page](https://github.com/Azure/iotedge-eflow/tree/main/
 ### Learn More from our Partners
 Several GPU vendors have provided user guides on getting the most of their hardware and software with EFLOW.
 * Learn how to run Intel OpenVINO™ applications on EFLOW by following [Intel's guide on iGPU with Azure IoT Edge for Linux on Windows (EFLOW) & OpenVINO™ Toolkit](https://community.intel.com/t5/Blogs/Tech-Innovation/Artificial-Intelligence-AI/Witness-the-power-of-Intel-iGPU-with-Azure-IoT-Edge-for-Linux-on/post/1382405) and [reference implementations](https://www.intel.com/content/www/us/en/developer/articles/technical/deploy-reference-implementation-to-azure-iot-eflow.html).
-* Get started with deploying CUDA-accelerated applications on EFLOW by following [NVIDIA's EFLOW User Guide for GeForce/Quadro/RTX GPUs](https://docs.nvidia.com/cuda/eflow-users-guide/index.html). Note this guide does not cover DDA-based GPUs such as NVIDIA T4 or A2. 
+* Get started with deploying CUDA-accelerated applications on EFLOW by following [NVIDIA's EFLOW User Guide for GeForce/Quadro/RTX GPUs](https://docs.nvidia.com/cuda/eflow-users-guide/index.html). 
+
+> [!NOTE]
+> This guide does not cover DDA-based GPUs such as NVIDIA T4 or A2. 
 
 ### Dive into the Technology 
 Learn more about GPU passthrough technologies by visiting the [DDA documentation](/windows-server/virtualization/hyper-v/plan/plan-for-gpu-acceleration-in-windows-server#discrete-device-assignment-dda) and [GPU-PV blog post](https://devblogs.microsoft.com/directx/directx-heart-linux/#gpu-virtualization).
