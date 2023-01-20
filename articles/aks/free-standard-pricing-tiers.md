@@ -27,7 +27,20 @@ For clusters with egress lockdown, see [limit egress traffic](limit-egress-traff
 
 > [!IMPORTANT]
 >
-> Uptime SLA has been repositioned as a default feature included with the Standard tier. The estimated length of the transition process is six months. During this time, you're still able to use both the new and old SKUs, however, you'll be notified via email to begin using the new SKU name and API versions before the transition process ends. Once the process is complete, the old SKU names, API versions, and deployment parameters for Uptime SLA will be removed, and a three year breaking change for API changes will be introduced.
+> Uptime SLA has been repositioned as a default feature included with the Standard tier.
+>
+> The repositioning will result in the following API changes:
+>
+> |         |Prior to 2023-01-01 API |Starting from 2023-01-01 API | Starting from 2023-07-01 API |
+> |----------|-----------|------------|------------|
+> |ManagedClusterSKUName |"Basic" |"Basic"    |"Base"     |
+> :                      :        :"Base"     :           :
+> |ManagedClusterSKUTier |"Free"  |"Free"     |"Free"     |
+> :                      :"Paid"  :"Paid"     :"Standard" :
+> :                      :        :"Standard" :           :
+>
+> "Basic" and "Paid" will be removed in the 2023-07-01 API version, and this will be a breaking change in API version 2023-07-01 or newer. If you use automated scripts, CD pipelines, ARM templates, Terraform, or other third-party tooling that relies on the above parameters, please be sure to make the necessary changes before upgrading to the 2023-07-01 or newer API version. From API version 2023-01-01 and newer, you can start transitioning to the new API parameters "Base" and "Standard".
+>
 
 The Uptime SLA feature in the Standard tier enables a financially backed, higher SLA for your AKS clusters. Clusters in the Standard tier come with a greater amount of control plane resources and provide automatic scaling. The Uptime SLA feature guarantees 99.95% availability of the Kubernetes API server endpoint for clusters using [Availability Zones][availability-zones], and 99.9% of availability for clusters that aren't using Availability Zones. AKS uses main node replicas across update and fault domains to ensure the SLA requirements are met.
 
@@ -72,6 +85,16 @@ Once the deployment completes, it returns JSON-formatted information about your 
   "sku": {
     "name": "Base",
     "tier": "Standard"
+  },
+```
+
+The following example output of the JSON snippet shows the *Free tier* for the SKU, indicating your cluster is in the *Free tier* and enabled with Uptime SLA.
+
+```output
+  },
+  "sku": {
+    "name": "Base",
+    "tier": "Free"
   },
 ```
 
