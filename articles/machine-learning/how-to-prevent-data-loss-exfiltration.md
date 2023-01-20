@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/26/2022
+ms.date: 01/20/2023
+ms.custom: engagement-fy23
 ---
 
 # Azure Machine Learning data exfiltration prevention
@@ -150,10 +151,6 @@ When using Azure ML curated environments, make sure to use the latest environmen
     * `*.data.mcr.microsoft.com`
 
     ---
-
-## Limitations
-
-If you want to have data exfiltration with **No Public IP option**, you need to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview. It may take one to two weeks to allowlist your subscription. Use the form at [https://forms.office.com/r/0Rw6mXTT07](https://forms.office.com/r/0Rw6mXTT07) to opt in to this Azure Machine Learning preview.
 
 ## Next steps
 

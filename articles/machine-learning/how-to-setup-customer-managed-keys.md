@@ -10,7 +10,8 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 06/24/2022
+ms.date: 01/20/2023
+ms.custom: engagement-fy23
 ---
 # Use customer-managed keys with Azure Machine Learning
 
