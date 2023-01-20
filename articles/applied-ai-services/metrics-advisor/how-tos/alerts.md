@@ -2,7 +2,6 @@
 title: Configure Metrics Advisor alerts
 titleSuffix: Azure Cognitive Services
 description: How to configure your Metrics Advisor alerts using hooks for email, web and Azure DevOps.
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
