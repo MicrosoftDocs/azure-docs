@@ -17,9 +17,9 @@ ms.subservice: B2C
 
 # Write your first Azure Active Directory B2C custom policy - Hello World! 
 
-In your applications, you can use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you use custom policies. 
+In your applications, you can use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you use [custom policies](custom-policy-overview.md). 
 
-While you can use pre-made custom policy *starter pack* to write custom policies, it's important for you understand how a custom policy is built. In this article, you'll learn how to create your first custom policy from scratch. 
+While you can use pre-made custom policy [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) to write custom policies, it's important for you understand how a custom policy is built. In this article, you'll learn how to create your first custom policy from scratch. 
 
 ## Prerequisites 
 
@@ -33,9 +33,11 @@ While you can use pre-made custom policy *starter pack* to write custom policies
 
 ## Step 1 - Configure the signing and encryption keys
 
-1. Use the steps in [Add signing and encryption keys for Identity Experience Framework applications](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications) to create the signing key. 
+If you haven't already done so, create the following encryption keys. To automate the walk-through below, visit the [IEF Setup App](https://b2ciefsetupapp.azurewebsites.net/) and follow the instructions: 
 
-1. Use the steps in [Add signing and encryption keys for Identity Experience Framework applications](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications) to create the encryption key.
+  1. Use the steps in [Add signing and encryption keys for Identity Experience Framework applications](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications) to create the signing key. 
+
+  1. Use the steps in [Add signing and encryption keys for Identity Experience Framework applications](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications) to create the encryption key.
 
 ## Step 2 - Build the custom policy file
 
@@ -76,7 +78,9 @@ While you can use pre-made custom policy *starter pack* to write custom policies
         </TrustFrameworkPolicy>
 
     ```
-    Replace `yourtenant` with the subdomain part of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name).
+    Replace `yourtenant` with the subdomain part of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name). 
+
+    The XML elements define the top-level `TrustFrameworkPolicy` element of a policy file with its policy ID and tenant name. The TrustFrameworkPolicy element contains other XML elements that you will use in this series.
 
 1. To declare a claim, add the following code in `BuildingBlocks` section of the `ContosoCustomPolicy.XML` file: 
 
@@ -142,7 +146,7 @@ While you can use pre-made custom policy *starter pack* to write custom policies
       </UserJourney>
     ```
     
-    We've added a [UserJourney](userjourneys.md). The user journey specifies the business logic the end user goes through as Azure AD B2C processes a request. 
+    We've added a [UserJourney](userjourneys.md). The user journey specifies the business logic the end user goes through as Azure AD B2C processes a request. This user journey has only one step that issues a JTW token with the claims the you will define in the next step.
 
 1.  In the `RelyingParty` section of the `ContosoCustomPolicy.XML` file, add the following code:
 
@@ -159,7 +163,7 @@ While you can use pre-made custom policy *starter pack* to write custom policies
       </TechnicalProfile>
     ```
 
-    The [RelyingParty] section is the entry point to your policy. It specifies the [UserJourney](userjourneys.md) to execute and the claims to include in the token that is returned when the policy runs.  
+    The [RelyingParty](relyingparty.md) section is the entry point to your policy. It specifies the [UserJourney](userjourneys.md) to execute and the claims to include in the token that is returned when the policy runs.  
 
 After you complete [step 2](#step-2---build-the-custom-policy-file), the `ContosoCustomPolicy.XML` file should look similar to the following code: 
 
@@ -275,7 +279,7 @@ After the policy finishes execution, you're redirected to `https://jwt.ms`, and 
     }.[Signature]
 ``` 
 
-Notice the `message` and `sub` claims, which we set as [output claims](relyingparty.md#outputclaims) in the [RelyingParty] section. 
+Notice the `message` and `sub` claims, which we set as output claims](relyingparty.md#outputclaims) in the `RelyingParty` section. 
 
 ## Next steps
 
