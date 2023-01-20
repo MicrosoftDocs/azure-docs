@@ -29969,6 +29969,11 @@
           "source_path": "articles/dotnet-develop-multitenant-applications.md",
           "redirect_URL": "/azure/architecture/guide/multitenant/overview",
           "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/load-balancer/protect-load-balancer-with-ddos-standard.md",
+            "redirect_URL": "/azure/load-balancer/tutorial-protect-load-balancer",
+            "redirect_document_id": false
+          }
     ]
 }

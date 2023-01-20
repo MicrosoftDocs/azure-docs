@@ -1,6 +1,6 @@
 ---
 title: Metrics Advisor glossary
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Key ideas and concepts for the Metrics Advisor service
 author: mrbullwinkle
 manager: nitinme
