@@ -238,7 +238,10 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 1. Select `main` as a branch and choose based on your deployment method your preferred yml path. 
     - For a terraform scenario choose: `infrastructure/pipelines/tf-ado-deploy-infra.yml`, then select **Continue**. 
     - For a bicep scenario choose: `infrastructure/pipelines/bicep-ado-deploy-infra.yml`, then select **Continue**.
-   
+
+> [!CAUTION]
+> For this example, make sure you have the [Terraform extension for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks) installed.
+
 1. Run the pipeline. This will take a few minutes to finish. The pipeline should create the following artifacts:
    * Resource Group for your Workspace including Storage Account, Container Registry, Application Insights, Keyvault and the Azure Machine Learning Workspace itself.
    * In the workspace there's also a compute cluster created.
