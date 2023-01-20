@@ -3,7 +3,7 @@ title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 01/17/2023
+ms.date: 01/20/2023
 
 ---
 
@@ -17,11 +17,11 @@ This article helps you understand this new feature, and how to implement it.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## Before you begin
+## Prerequisites
 
-- The Azure CLI version x.xx.x or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- The Azure CLI version 2.44.1 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-- The `aks-preview` Azure CLI extension version x.x.xxx or later to select the Mariner 2.0 operating system SKU.
+- The `aks-preview` Azure CLI extension version 0.5.123 or later to select the Mariner 2.0 operating system SKU.
 
 - If you want to run `kubectl` locally on your Windows system, you can install it using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
 
@@ -30,6 +30,43 @@ This article helps you understand this new feature, and how to implement it.
     ```
 
    To install it locally on your Linux system, see [Install and setup Kubectl on Linux][install-kubectl-linux].
+
+## Install the aks-preview Azure CLI extension
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+## Register the 'KataVMIsolationPreview' feature flag
+
+Register the `KataVMIsolationPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "KataVMIsolationPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "KataVMIsolationPrevieww"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
 
 ## Limitations
 
@@ -58,8 +95,7 @@ Perform the following steps to deploy an AKS Mariner cluster using either the Az
 1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the `--os-sku mariner` and `--kernel-isolation` parameters. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --kernel-isolation
-    ```
+    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
