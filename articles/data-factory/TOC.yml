@@ -719,6 +719,8 @@ items:
       href: transform-data-using-script.md
     - name: Compute linked services
       href: compute-linked-services.md
+    - name: Synapse Spark job definition activity
+      href: transform-data-synapse-spark-job-definition.md     
   - name: Control flow
     items:
     - name: Append Variable activity
