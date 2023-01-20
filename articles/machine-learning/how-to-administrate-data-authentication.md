@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.author: xunwan
 author: xunwan
 ms.reviewer: larryfr
-ms.date: 05/24/2022
+ms.date: 01/20/2023
+ms.custom: engagement-fy23
 
 # Customer intent: As an administrator, I need to administrate data access and set up authentication method for data scientists.
 ---
