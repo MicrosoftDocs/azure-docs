@@ -15,7 +15,7 @@ ms.custom: "it-pro"
 ms.collection:
 ---
 
-# Data protection considerations
+# Data protection considerations 
 
 The following diagram illustrates how services store and retrieve Azure Active Directory (Azure AD) object data through a role-based access control (RBAC) authorization layer. This layer calls the internal directory data access layer, ensuring the user's data request is permitted: 
 
