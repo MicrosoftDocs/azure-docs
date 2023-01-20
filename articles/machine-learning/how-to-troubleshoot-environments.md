@@ -439,7 +439,7 @@ conda_dep.add_conda_package("python==3.8")
 - See [Python versions](https://aka.ms/azureml/environment/python-versions) and [Python end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
 
 ### Python version not recommended
-- The Python version used in the environment definition is (or will soon be) deprecated, and its use should be avoided
+- The Python version used in the environment definition is at or near its end of life, and should be avoided
 - Consider using a newer version of Python as the specified version will eventually be unsupported
 - See [Python versions](https://aka.ms/azureml/environment/python-versions) and [Python end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
 
