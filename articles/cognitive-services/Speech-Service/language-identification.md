@@ -42,7 +42,7 @@ Code snippets are included with the concepts described next. Complete samples fo
 
 ### Candidate languages
 
-You provide candidate languages, at least one of which is expected to be in the audio. You can include up to four languages for [at-start LID](#at-start-and-continuous-language-identification) or up to 10 languages for [continuous LID](#at-start-and-continuous-language-identification). The Speech service returns one of the candidate languages provided even if those languages weren't in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either `fr-FR` or `en-US` would be returned. 
+You provide candidate languages with the `AutoDetectSourceLanguageConfig` object, at least one of which is expected to be in the audio. You can include up to four languages for [at-start LID](#at-start-and-continuous-language-identification) or up to 10 languages for [continuous LID](#at-start-and-continuous-language-identification). The Speech service returns one of the candidate languages provided even if those languages weren't in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either `fr-FR` or `en-US` would be returned. 
 
 You must provide the full locale with dash (`-`) separator, but language identification only uses one locale per base language. Don't include multiple locales (for example, "en-US" and "en-GB") for the same language.
 
@@ -106,7 +106,7 @@ Speech supports both at-start and continuous language identification (LID).
 - At-start LID identifies the language once within the first few seconds of audio. Use at-start LID if the language in the audio won't change. With at-start LID, a single language is detected and returned in less than 5 seconds.
 - Continuous LID can identify multiple languages for the duration of the audio. Use continuous LID if the language in the audio could change. Continuous LID doesn't support changing languages within the same sentence. For example, if you're primarily speaking Spanish and insert some English words, it will not detect the language change per word. With Continuous LID, a language is detected every 2 seconds for the duration of the audio.
 
-You implement at-start LID or continuous LID by calling methods for [recognize once or continuous](#recognize-once-or-continuous). 
+You implement at-start LID or continuous LID by calling methods for [recognize once or continuous](#recognize-once-or-continuous). Continuous LID is only supported with continuous recognition.
 
 ### Recognize once or continuous
 
@@ -117,7 +117,7 @@ Language identification is completed with recognition objects and operations. Yo
 
 You'll either call the "recognize once" method, or the start and stop continuous recognition methods. You choose from:
 
-- Recognize once with at-start LID
+- Recognize once with At-start LID. Continuous LID isn't supported for recognize once.
 - Continuous recognition with at-start LID
 - Continuous recognition with continuous LID
 
@@ -126,7 +126,7 @@ The `SpeechServiceConnection_LanguageIdMode` property is only required for conti
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-// Recognize once with At-start LID
+// Recognize once with At-start LID. Continuous LID isn't supported for recognize once.
 var result = await recognizer.RecognizeOnceAsync();
 
 // Start and stop continuous recognition with At-start LID
@@ -143,7 +143,7 @@ await recognizer.StopContinuousRecognitionAsync();
 ::: zone pivot="programming-language-cpp"
 
 ```cpp
-// Recognize once with At-start LID
+// Recognize once with At-start LID. Continuous LID isn't supported for recognize once.
 auto result = recognizer->RecognizeOnceAsync().get();
 
 // Start and stop continuous recognition with At-start LID
@@ -160,7 +160,7 @@ recognizer->StopContinuousRecognitionAsync().get();
 ::: zone pivot="programming-language-java"
 
 ```java
-// Recognize once with At-start LID
+// Recognize once with At-start LID. Continuous LID isn't supported for recognize once.
 SpeechRecognitionResult  result = recognizer->RecognizeOnceAsync().get();
 
 // Start and stop continuous recognition with At-start LID
@@ -177,7 +177,7 @@ recognizer.stopContinuousRecognitionAsync().get();
 ::: zone pivot="programming-language-python"
 
 ```python
-# Recognize once with At-start LID
+# Recognize once with At-start LID. Continuous LID isn't supported for recognize once.
 result = recognizer.recognize_once()
 
 # Start and stop continuous recognition with At-start LID
@@ -212,9 +212,6 @@ using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey","YourServiceRegion");
-
-// Only at-start LID is supported when you use RecognizeOnceAsync, so this line isn't required.
-speechConfig.SetProperty(PropertyId.SpeechServiceConnection_LanguageIdMode, "AtStart");
 
 var autoDetectSourceLanguageConfig =
     AutoDetectSourceLanguageConfig.FromLanguages(
@@ -335,9 +332,6 @@ using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey","YourServiceRegion");
-
-// Only at-start LID is supported when you use RecognizeOnceAsync, so this line isn't required.
-speechConfig->SetProperty(PropertyId::SpeechServiceConnection_LanguageIdMode, "AtStart");
 
 auto autoDetectSourceLanguageConfig =
     AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE", "zh-CN" });
@@ -614,9 +608,6 @@ public static async Task RecognizeOnceSpeechTranslationAsync()
     
     var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "YourSubscriptionKey");
 
-    // Only at-start LID is supported when you use RecognizeOnceAsync, so this line isn't required.
-    speechTranslationConfig.SetProperty(PropertyId.SpeechServiceConnection_LanguageIdMode, "AtStart");
-
     // Source language is required, but currently ignored. 
     string fromLanguage = "en-US";
     speechTranslationConfig.SpeechRecognitionLanguage = fromLanguage;
@@ -774,8 +765,6 @@ auto region = "YourServiceRegion";
 auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
 auto config = SpeechTranslationConfig::FromEndpoint(endpointString, "YourSubscriptionKey");
 
-// Only at-start LID is supported when you use RecognizeOnceAsync, so this line isn't required.
-config->SetProperty(PropertyId::SpeechServiceConnection_LanguageIdMode, "AtStart");
 auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
 
 // Sets source and target languages
@@ -952,9 +941,6 @@ translation_config = speechsdk.translation.SpeechTranslationConfig(
     speech_recognition_language='en-US',
     target_languages=('de', 'fr'))
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
-
-# Only at-start LID is supported when you use RecognizeOnceAsync, so this line isn't required.
-translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_LanguageIdMode, value='AtStart')
 
 # Specify the AutoDetectSourceLanguageConfig, which defines the number of possible languages
 auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "de-DE", "zh-CN"])
