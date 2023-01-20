@@ -18,7 +18,7 @@ This article answers frequently asked questions (FAQs) about Permissions Managem
 
 ## What's Permissions Management?
 
-Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multi-cloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Permissions Management detects, automatically right-sizes, and continuously monitors unused and excessive permissions. It deepens the Zero Trust security strategy by augmenting the least privilege access principle.
+Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Permissions Management detects, automatically right-sizes, and continuously monitors unused and excessive permissions. It deepens the Zero Trust security strategy by augmenting the least privilege access principle.
 
 
 ## What are the prerequisites to use Permissions Management?
@@ -39,7 +39,7 @@ No, Permissions Management is a hosted cloud offering.
 
 ## Can non-Azure customers use Permissions Management?
 
-Yes, non-Azure customers can use our solution. Permissions Management is a multi-cloud solution so even customers who have no subscription to Azure can benefit from it.
+Yes, non-Azure customers can use our solution. Permissions Management is a multicloud solution so even customers who have no subscription to Azure can benefit from it.
 
 ## Is Permissions Management available for tenants hosted in the European Union (EU)?
 
@@ -47,7 +47,7 @@ Yes, Permissions Management is currently for tenants hosted in the European Unio
 
 ## If I'm already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does Permissions Management provide?
 
-Permissions Management complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure (as well as Microsoft Online Services and apps that use groups), while Permissions Management allows multi-cloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP.
+Permissions Management complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure (as well as Microsoft Online Services and apps that use groups), while Permissions Management allows multicloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP.
 
 ## What public cloud infrastructures are supported by Permissions Management?
 
