@@ -76,9 +76,9 @@ sections:
           
       - question: If we scale up the deployment, how do Azure fault domains map into pod placement to ensure all pods for a service don't get knocked out by a failure in a single fault domain?
         answer: |
-          There are by default five fault domains when using virtual machine scale sets in Azure. Each virtual machine instance in a scale set will get placed into one of these fault domains. This ensures that applications deployed to the compute nodes in a cluster will get placed in separate fault domains.
+          There are by default five fault domains when using Virtual Machine Scale Sets in Azure. Each virtual machine instance in a scale set will get placed into one of these fault domains. This ensures that applications deployed to the compute nodes in a cluster will get placed in separate fault domains.
           
-          For more information, see [Choosing the right number of fault domains for virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md).
+          For more information, see [Choosing the right number of fault domains for Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md).
           
       - question: Is there a way to manage pod placement?
         answer: |
