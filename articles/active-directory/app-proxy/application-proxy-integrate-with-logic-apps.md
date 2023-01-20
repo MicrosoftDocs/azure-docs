@@ -162,3 +162,9 @@ When a new Enterprise Application is created, a matching App Registration is als
 - APIs that require authentication/authorization require special handling when using this method. Since Azure Active Directory OAuth is being used for access, the requests sent already contain an *Authorization* field that cannot also be utilized by the internal API (unless SSO is configured). As a workaround, some applications offer authentication or authorization that uses methods other than an *Authorization* header. For example, GitLab allows for a header titled *PRIVATE-TOKEN*, and Atlassian JIRA allows for requesting a Cookie that can be used in later requests
 
 - While the Logic App HTTP action shows cleartext values, it is highly recommended to store the App Registration Secret Key in Azure Key Vault for secure retrieval and use.
+
+## See Also
+
+- [How to configure an Application Proxy application](./application-proxy-config-how-to.md)
+- [Access on-premises APIs with Azure Active Directory Application Proxy](./application-proxy-secure-api-access.md)
+- [Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps](../../logic-apps/logic-apps-examples-and-scenarios.md)
