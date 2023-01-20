@@ -40,29 +40,29 @@ In this tutorial, you follow these steps:
 3.	Select **New change data capture (preview)**. This will open a flyout to begin the guided process. 
 
   :::image type="content" source="media/adf-cdc/adf-cdc-artifact-4.png" alt-text="Screenshot of a list of change data capture actions.":::
-
-4.	 Use the drop-down selection list to choose your data source. For this tutorial, we will use **DelimitedText**. 
-
-  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-5.png" alt-text="Screenshot of the guided process flyout with source options in a drop-down selection menu."::: 
-
-5.	You will then be prompted to select a linked service. Create a new linked service or select an existing one. 
-
-  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-6.png" alt-text="Screenshot of the selection box to choose or create a new linked service.":::
   
-6.	Use the **Browse** button to select your source data folder. 
+4.	You will then be prompted to name your CDC resource. By default, the name will be set to “adfcdc” and continue to increment up by 1. You can replace this default name with your own. 
 
-  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-7.png" alt-text="Screenshot of a folder icon to browse for a folder path.":::
+  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-5.png" alt-text="Screenshot of the text box to update the name of the resource.":::
 
-7.	Once you’ve selected a folder path, click **Continue** to set your data target. 
+5.	 Use the drop-down selection list to choose your data source. For this tutorial, we will use **DelimitedText**. 
 
-  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-8.png" alt-text="Screenshot of the continue button in the guided process to proceed to select data targets.":::
+  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-6.png" alt-text="Screenshot of the guided process flyout with source options in a drop-down selection menu."::: 
+
+6.	You will then be prompted to select a linked service. Create a new linked service or select an existing one. 
+
+  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-7.png" alt-text="Screenshot of the selection box to choose or create a new linked service.":::
+  
+7.	Use the **Browse** button to select your source data folder. 
+
+  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-8.png" alt-text="Screenshot of a folder icon to browse for a folder path.":::
+
+8.	Once you’ve selected a folder path, click **Continue** to set your data target. 
+
+  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-9.png" alt-text="Screenshot of the continue button in the guided process to proceed to select data targets.":::
 
 > [!NOTE]
 > You can choose to add multiple source folders with the **+** button. The other sources must also use the same linked service that you’ve already selected. 
-
-8.	You will then be prompted to name your CDC resource. By default, the name will be set to “adfcdc” and continue to increment up by 1. You can replace this default name with your own. 
-
-  :::image type="content" source="media/adf-cdc/adf-cdc-artifact-9.png" alt-text="Screenshot of the text box to update the name of the resource.":::
 
 9.	Then, select a **Target type** using the drop-down selection. For this tutorial, we will select **Azure SQL Database**. 
 
@@ -87,7 +87,7 @@ In this tutorial, you follow these steps:
 
   :::image type="content" source="media/adf-cdc/adf-cdc-artifact-14.png" alt-text="Screenshot of the change data capture studio.":::
  
-14.	You will need to create a new mapping. Select your **Source** table from the drop-down list. Then, select your **Target** table from the drop-down list. 
+14.	A new mapping will automatically be created for you. You can update the **Source** and **Target** selections for your mapping by using the drop-down selection lists. 
 
   :::image type="content" source="media/adf-cdc/adf-cdc-artifact-15.png" alt-text="Screenshot of the source to target mapping in the change data capture studio.":::
 
@@ -114,7 +114,7 @@ In this tutorial, you follow these steps:
    
    :::image type="content" source="media/adf-cdc/adf-cdc-artifact-21.png" alt-text="Screenshot of the nwe mapping button to set a new source to target mapping.":::
 
-18.	Once your mapping complete, set your frequency using the **Set Frequency** button. 
+18.	Once your mapping complete, set your frequency using the **Set Latency** button. 
 
    :::image type="content" source="media/adf-cdc/adf-cdc-artifact-22.png" alt-text="Screenshot of the set frequency button at the top of the canvas.":::
    
@@ -125,20 +125,21 @@ For example, if you select 30 minutes, every 30 minutes, your change data captur
 :::image type="content" source="media/adf-cdc/adf-cdc-artifact-23.png" alt-text="Screenshot of the set frequency selection menu.":::
 
 > [!NOTE] 
-> The option to select streaming data integration is coming soon. 
+> The option to select Real-time to enable streaming data integration is coming soon. 
 
 20.	Once everything has been finalized, publish your changes. 
 
 :::image type="content" source="media/adf-cdc/adf-cdc-artifact-24.png" alt-text="Screenshot of the publish button at the top of the canvas.":::
 
 > [!NOTE] 
-> If you do not publish your changes, your CDC resource will not start, and you will get an error. 
+> If you do not publish your changes, you will not be able to start your CDC resource. The start button will be grayed out. 
 
 21.	Click **Start** to start running your **Change data capture**. 
 
   :::image type="content" source="media/adf-cdc/adf-cdc-artifact-25.png" alt-text="Screenshot of the start button at the top of the canvas.":::
 
   :::image type="content" source="media/adf-cdc/adf-cdc-artifact-26.png" alt-text="Screenshot of an actively running change data capture resource.":::
+   
 
 ## Monitor your Change data capture
 
