@@ -740,7 +740,7 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
             "BudgetName": "Test_actual_cost_budget",
             "BudgetId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Consumption/budgets/Test_actual_cost_budget",
             "BudgetStartDate": "2022-11-01",
-            "BudgetCreator": test@sample.test,
+            "BudgetCreator": "test@sample.test",
             "Unit": "USD",
             "SpentAmount": "$11,111.00"
          }
@@ -781,7 +781,7 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
             "BudgetName": "Test_forcasted_budget",
             "BudgetId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Consumption/budgets/Test_forcasted_budget",
             "BudgetStartDate": "2022-11-01",
-            "BudgetCreator": test@sample.test,
+            "BudgetCreator": "test@sample.test",
             "Unit": "USD",
             "SpentAmount": "$999.99",
             "ForecastedTotalForPeriod": "$1111.11"
