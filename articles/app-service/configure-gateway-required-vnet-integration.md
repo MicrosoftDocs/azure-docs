@@ -49,7 +49,7 @@ Gateway-required virtual network integration is built on top of point-to-site VP
 
 ## Access on-premises resources
 
-Apps can access on-premises resources by integrating with virtual networks that have site-to-site connections. If you use gateway-required virtual network integration, update your on-premises VPN gateway routes with your point-to-site address blocks. When the site-to-site VPN is first set up, the scripts used to configure it should set up routes properly. If you add the point-to-site addresses after you create your site-to-site VPN, you need to update the routes manually. Details on how to do that vary per gateway and aren't described here.
+Apps can access on-premises resources by integrating with virtual networks that have site-to-site connections. If you use gateway-required virtual network integration, update your on-premises VPN gateway routes with your point-to-site address blocks. When the site-to-site VPN is first set up, the scripts used to configure it should set up routes properly. If you add the point-to-site addresses after you create your site-to-site VPN, you need to update the routes manually. Details on how to do that varies per gateway and aren't described here.
 
 BGP routes from on-premises won't be propagated automatically into App Service. You need to manually propagate them on the point-to-site configuration using the steps in this document [Advertise custom routes for P2S VPN clients](../vpn-gateway/vpn-gateway-p2s-advertise-custom-routes.md).
 
@@ -101,4 +101,49 @@ Three charges are related to the use of the gateway-required virtual network int
 
 ## Troubleshooting
 
-See [virtual network integration troubleshooting guide](/troubleshoot/azure/app-service/troubleshoot-vnet-integration-apps) for more information on this topic.
+Many things can prevent your app from reaching a specific host and port. Most of the time it's one of these things:
+
+* **A firewall is in the way.** If you have a firewall in the way, you hit the TCP timeout. The TCP timeout is 21 seconds in this case. Use the **tcpping** tool to test connectivity. TCP timeouts can be caused by many things beyond firewalls, but start there.
+* **DNS isn't accessible.** The DNS timeout is 3 seconds per DNS server. If you have two DNS servers, the timeout is 6 seconds. Use nameresolver to see if DNS is working. You can't use nslookup, because that doesn't use the DNS your virtual network is configured with. If inaccessible, you could have a firewall or NSG blocking access to DNS or it could be down.
+
+If those items don't answer your problems, look first for things like:
+
+* Is the point-to-site address range in the RFC 1918 ranges (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)?
+* Does the gateway show as being up in the portal? If your gateway is down, then bring it back up.
+* Do certificates show as being in sync, or do you suspect that the network configuration was changed? If your certificates are out of sync or you suspect that a change was made to your virtual network configuration that wasn't synced with your ASPs, select **Sync Network**.
+* If you're going across a VPN, is the on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your virtual network but not on-premises, check your routes.
+* Are you trying to use a coexistence gateway that supports both point to site and ExpressRoute? Coexistence gateways aren't supported with virtual network integration.
+
+Debugging networking issues is a challenge because you can't see what's blocking access to a specific host:port combination. Some causes include:
+
+* You have a firewall up on your host that prevents access to the application port from your point-to-site IP range. Crossing subnets often requires public access.
+* Your target host is down.
+* Your application is down.
+* You had the wrong IP or hostname.
+* Your application is listening on a different port than what you expected. You can match your process ID with the listening port by using "netstat -aon" on the endpoint host.
+* Your network security groups are configured in such a manner that they prevent access to your application host and port from your point-to-site IP range.
+
+You don't know what address your app actually uses. It could be any address in the point-to-site address range, so you need to allow access from the entire address range.
+
+More debug steps include:
+
+* Connect to a VM in your virtual network and attempt to reach your resource host:port from there. To test for TCP access, use the PowerShell command **Test-NetConnection**. The syntax is:
+    
+```powershell
+Test-NetConnection hostname [optional: -Port]
+```
+
+* Bring up an application on a VM and test access to that host and port from the console from your app by using **tcpping**.
+
+### On-premises resources
+
+If your app can't reach a resource on-premises, check if you can reach the resource from your virtual network. Use the **Test-NetConnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, your VPN or ExpressRoute connection might not be configured properly.
+
+If your virtual network-hosted VM can reach your on-premises system but your app can't, the cause is likely one of the following reasons:
+
+* Your routes aren't configured with your subnet or point-to-site address ranges in your on-premises gateway.
+* Your network security groups are blocking access for your point-to-site IP range.
+* Your on-premises firewalls are blocking traffic from your point-to-site IP range.
+* You're trying to reach a non-RFC 1918 address by using the regional virtual network integration feature.
+
+For more information, see [virtual network integration troubleshooting guide](/troubleshoot/azure/app-service/troubleshoot-vnet-integration-apps).
