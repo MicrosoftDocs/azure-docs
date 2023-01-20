@@ -160,7 +160,6 @@ The Azure DevOps setup is successfully finished.
 
     ![Screenshot of ADO import MLOps demo repo](./media/how-to-setup-mlops-azureml/import_repo_Git_template.png)
 
-1. After you have imported the demo repo, Make you also import the `mlops-template` repo. 
 
 1. Open the Repos section. Click on the default repo name at the top of the screen and select Import Repository
 
