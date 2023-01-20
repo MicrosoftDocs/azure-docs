@@ -110,7 +110,7 @@ After you have received the device, you need to cable and connect to your device
 
 ## Connect to your device
 
-After following the steps to [download and import certificate](data-box-deploy-copy-data-via-rest.md), perform the following steps to set up your device using the local web UI and the portal UI.
+After following the steps to [download and import certificate](data-box-deploy-copy-data-via-rest.md#connect-via-https), perform the following steps to set up your device using the local web UI and the portal UI.
 
 1. Configure the Ethernet adapter on the laptop you are using to connect to the device with a static IP address of 192.168.100.5 and subnet 255.255.255.0. 
 1. Connect to MGMT port of your device and access its local web UI at https\://192.168.100.10. This may take up to 5 minutes after you turned on the device.
