@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Modify a site plan
 
-The *site plan* determines the throughput, the number of devices and the number of radio access network (RAN) connections each site supports. The plan you selected when creating the site can be updated to support your deployment requirements as they change. In this how-to guide, you'll learn how to modify a site plan using the Azure portal.
+The *site plan* determines the throughput and the number of radio access network (RAN) connections for each site, as well as the number of devices that each network supports. The plan you selected when creating the site can be updated to support your deployment requirements as they change. In this how-to guide, you'll learn how to modify a site plan using the Azure portal.
 
 ## Prerequisites
 
