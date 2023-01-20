@@ -171,7 +171,7 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 
 ## Update the delete behavior on an existing VM
 
-You can change the behavior when you delete a VM. The following example updates the VM to delete the NIC, OS  disk, and data disk when the VM is deleted.
+You can change the behavior when you delete a VM. 
 
 ### [CLI](#tab/cli3)
 
@@ -182,6 +182,8 @@ az resource update --resource-group myResourceGroup --name myVM --resource-type 
 ```
 
 ### [REST](#tab/rest3)
+
+The following example updates the VM to delete the NIC, OS  disk, and data disk when the VM is deleted.
 
 ```rest
 PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/virtualMachines/testvm?api-version=2021-07-01 
