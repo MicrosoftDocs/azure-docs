@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: What is the MedTech service?
             url: overview.md
-          - text: Understand the MedTech service device message data transformation
+          - text: Understand the device message data transformation
             url: understand-service.md
       - linkListType: quickstart
         links:
