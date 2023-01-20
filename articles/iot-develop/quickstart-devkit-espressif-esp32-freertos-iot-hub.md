@@ -424,7 +424,7 @@ To delete a resource group by name:
     az group list
     ```
 
-## Next Steps
+## Next steps
 
 In this quickstart, you built a custom image that contains the Azure IoT middleware for FreeRTOS sample code, and then you flashed the image to the ESP32 DevKit device. You connected the ESP32 DevKit to Azure IoT Hub, and carried out tasks such as viewing telemetry and calling methods on the device.
 
