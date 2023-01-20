@@ -17,7 +17,7 @@ This article provides best practice guidelines that help you use access tiers to
 
 ## Choose the most cost-efficient access tiers
 
-You can reduce costs by placing blob data into the most cost-efficient access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the hot tier has a higher storage cost but lower read cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to read data less frequently, the cold or archive tier might make the most sense because it raises the cost of reading data while reducing the cost of storing data.
+You can reduce costs by placing blob data into the most cost-efficient access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the hot tier has a higher storage cost but lower read cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to read data less frequently, the cool or archive tier might make the most sense because it raises the cost of reading data while reducing the cost of storing data.
 
 To identify the most optimal access tier, try to estimate what percentage of the data will be read on a monthly basis. The following chart shows the impact on monthly spending given various read percentages. 
 
