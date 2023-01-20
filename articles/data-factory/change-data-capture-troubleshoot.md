@@ -29,37 +29,35 @@ Follow these steps to configure native CDC for a specific source table in your S
 
 Consider you have following table, with ID as the Primary Key. If a Primary Key is present in the schema, supports_net_changes is set to true by default, otherwise you will need to use Query 3 to configure it. 
 
-    ```SQL Query 1
+```SQL Query 1
     CREATE TABLE Persons (
-				    ID int,
-				    LastName varchar(255) NOT NULL,
-				    FirstName varchar(255),
-				    Age int,
-				    Last_login DATETIME,
+	ID int,
+	LastName varchar(255) NOT NULL,
+	FirstName varchar(255),
+	Age int,
+	Last_login DATETIME,
     PRIMARY KEY (ID));
 
-    ```
+```
+
  > NOTE
  > Currently the ADF CDC resource only loads net changes for insert, update and delete operations.
 
 To enable enable CDC at the database level, execute the following query: 
 
-    ```SQL Query 2
+```SQL Query 2
     EXEC sys.sp_cdc_enable_db
-
-    ```
+```
 To enable enable CDC at the table level, execute the following query: 
 
-    ```SQL Query 3
-   
+```SQL Query 3
     EXEC sys.sp_cdc_enable_table  
-				   @source_schema = N'dbo'  
-				  , @source_name = N'Persons'  
-				  , @role_name = N'cdc_admin'  
-				  , @supports_net_changes = 1
-          , @captured_column_list = N'ID';
-  
-    ```
+	@source_schema = N'dbo'  
+	, @source_name = N'Persons'  
+	, @role_name = N'cdc_admin'  
+	, @supports_net_changes = 1
+        , @captured_column_list = N'ID';
+```
     
 ### Issue/Limitation: Tables are unavailable to select in the CDC resource configuration process. 
   
