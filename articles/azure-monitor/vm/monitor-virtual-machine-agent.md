@@ -42,7 +42,7 @@ The Azure Monitor agent for both Linux and Windows communicates outbound to the 
 
 There are three different options for connect your hybrid virtual machines to Azure Monitor:
 
-- **Public internet**. If you hybrid servers are allowed to communicate with the public internet, then they can connect to a public Azure Monitor endpoint. This is the simplest configuration but also the least secure. 
+- **Public internet**. If your hybrid servers are allowed to communicate with the public internet, then they can connect to a global Azure Monitor endpoint. This is the simplest configuration but also the least secure. 
  
 - **Log Analytics gateway**. With the Log Analytics gateway, you can channel communications from your on-premises machines through a single gateway. Azure Arc doesn't use the gateway, but its Connected Machine agent is required to install Azure Monitor agent. For details on how to configure and use the Log Analytics gateway, see [Log Analytics gateway](../agents/gateway.md).
 
