@@ -119,7 +119,7 @@ Learn more:
 #### Stream logs to storage and SIEM tools
 
 * [Integrate Azure AD logs with Azure Monitor logs](./howto-integrate-activity-logs-with-log-analytics.md).
-* [Analyze Azure AD activity logs with Azure Monitor logs](/MicrosoftDocs/azure-docs/blob/main/articles/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
+* [Analyze Azure AD activity logs with Azure Monitor logs](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
 * Learn how to [stream logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 * Learn how to [Archive Azure AD logs to an Azure Storage account](./quickstart-azure-monitor-route-logs-to-storage-account.md).
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)
