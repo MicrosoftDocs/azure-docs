@@ -29,29 +29,35 @@ Follow these steps to configure native CDC for a specific source table in your S
 
 Consider you have following table, with ID as the Primary Key. If a Primary Key is present in the schema, supports_net_changes is set to true by default, otherwise you will need to use Query 3 to configure it. 
 
-```SQL Query 1
-    CREATE TABLE Persons (
+**Query 1**
+```sql
+
+CREATE TABLE Persons (
 	ID int,
 	LastName varchar(255) NOT NULL,
 	FirstName varchar(255),
 	Age int,
 	Last_login DATETIME,
-    PRIMARY KEY (ID));
+    	PRIMARY KEY (ID));
 
 ```
 
- > NOTE
+ > [!NOTE]
  > Currently the ADF CDC resource only loads net changes for insert, update and delete operations.
 
 To enable enable CDC at the database level, execute the following query: 
 
-```SQL Query 2
-    EXEC sys.sp_cdc_enable_db
+**Query 2**
+
+```sql
+EXEC sys.sp_cdc_enable_db
 ```
 To enable enable CDC at the table level, execute the following query: 
 
-```SQL Query 3
-    EXEC sys.sp_cdc_enable_table  
+**Query 3**
+
+```sql
+EXEC sys.sp_cdc_enable_table  
 	@source_schema = N'dbo'  
 	, @source_name = N'Persons'  
 	, @role_name = N'cdc_admin'  
@@ -82,7 +88,6 @@ In non-VNet factories, CDC resources requiring VNet will not work. This fix is i
 
 If you create a new linked service using the CDC fly-out process that points to an AKV linked service, the CDC resource will break. This fix is in progress. 
 
-
-
-
-
+## Next steps
+- [Learn more about the change data capture resource](concepts-change-data-capture-resource.md)
+- [Set up a change data capture resource](how-to-change-data-capture-resource.md)
