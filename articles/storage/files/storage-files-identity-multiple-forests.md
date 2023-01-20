@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 01/20/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
