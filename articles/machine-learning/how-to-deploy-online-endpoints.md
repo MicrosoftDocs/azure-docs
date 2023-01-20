@@ -812,7 +812,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
     > * Optionally, you can add a description and tags to your endpoint.
 
 1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
-1. Select __Next__, until you get to the "Deployment" page. Here, check the box to __Enable Application Insights diagnostics and data collection__.
+1. Select __Next__, until you get to the "Deployment" page. Here, check the box to __Enable Application Insights diagnostics and data collection__ to allow you view graphs of your endpoint's activities in the studio later.
 1. Select __Next__ to go to the "Environment" page. Here, select the following:
 
     * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
@@ -901,7 +901,7 @@ You can view all your managed online endpoints in the **Endpoints** page. Go to 
 # [ARM template](#tab/arm)
 
 > [!TIP]
-> While templates are useful for deploying resources, they can't be used to list, show, or invoke resources.
+> While templates are useful for deploying resources, they can't be used to list, show, or invoke resources. Use the Azure CLI, Python SDK, or the studio to perform these operations. The following code uses the Azure CLI.
 
 The `show` command contains information in the `provisioning_state` for the endpoint and deployment:
 
@@ -917,9 +917,11 @@ az ml online-endpoint list --output table
 
 ### Check the status of the online deployment
 
-Check the logs to see whether the model was deployed without error:
+Check the logs to see whether the model was deployed without error.
 
 # [Azure CLI](#tab/azure-cli)
+
+To see log output from a container, use the following CLI command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
@@ -955,7 +957,7 @@ By default, logs are pulled from the inference server. To see logs from the stor
 # [ARM template](#tab/arm)
 
 > [!TIP]
-> While templates are useful for deploying resources, they can't be used to list, show, or invoke resources.
+> While templates are useful for deploying resources, they can't be used to list, show, or invoke resources. Use the Azure CLI, Python SDK, or the studio to perform these operations. The following code uses the Azure CLI.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
@@ -987,7 +989,6 @@ Notice we use `show` and `get-credentials` commands to get the authentication cr
 To see the invocation logs, run `get-logs` again.
 
 For information on authenticating using a token, see [Authenticate to online endpoints](how-to-authenticate-online-endpoint.md).
-
 
 # [Python](#tab/python)
 
@@ -1022,7 +1023,7 @@ Use the **Test** tab in the endpoint's details page to test your managed online 
 # [ARM template](#tab/arm)
 
 > [!TIP]
-> While templates are useful for deploying resources, they can't be used to list, show, or invoke resources.
+> While templates are useful for deploying resources, they can't be used to list, show, or invoke resources. Use the Azure CLI, Python SDK, or the studio to perform these operations. The following code uses the Azure CLI.
 
 You can use either the `invoke` command or a REST client of your choice to invoke the endpoint and score some data: 
 
@@ -1036,10 +1037,10 @@ az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file cli/endpoints/
 
 # [Azure CLI](#tab/azure-cli)
 
-If you want to update the code, model, or environment, update the YAML file, and then run the `az ml online-endpoint update` command. 
+If you want to update the code, model, or environment, update the YAML file, and then run the `az ml online-endpoint update` command.
 
 > [!NOTE]
-> If you update instance count and along with other model settings (code, model, or environment) in a single `update` command: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.
+> If you update instance count (to scale your deployment) along with other model settings (such as code, model, or environment) in a single `update` command, the scaling operation will be performed first, then the other updates will be applied. It's a good practice to perform these operations separately in a production environment.
 
 To understand how `update` works:
 
@@ -1056,9 +1057,9 @@ To understand how `update` works:
     > Updating by using YAML is declarative. That is, changes in the YAML are reflected in the underlying Azure Resource Manager resources (endpoints and deployments). A declarative approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *All* changes to endpoints and deployments (even `instance_count`) go through the YAML.
 
     > [!TIP]
-    > With the `update` command, you can use the [`--set` parameter in the Azure CLI](/cli/azure/use-cli-effectively#generic-update-parameters) to override attributes in your YAML *or* to set specific attributes without passing the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+    > You can use [generic update parameters](/cli/azure/use-cli-effectively#generic-update-parameters), such as the `--set` parameter, with the CLI `update` command to override attributes in your YAML *or* to set specific attributes without passing them in the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
 
-1. Because you modified the `init()` function (`init()` runs when the endpoint is created or updated), the message `Updated successfully` will be in the logs. Retrieve the logs by running:
+1. Because you modified the `init()` function, which runs when the endpoint is created or updated, the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
@@ -1066,10 +1067,10 @@ The `update` command also works with local deployments. Use the same `az ml onli
 
 # [Python](#tab/python)
 
-If you want to update the code, model, or environment, update the configuration, and then run the `MLClient`'s [`online_deployments.begin_create_or_update`](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-begin-create-or-update) module/method. 
+If you want to update the code, model, or environment, update the configuration, and then run the `MLClient`'s `online_deployments.begin_create_or_update` method to [create or update a deployment](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-begin-create-or-update).
 
 > [!NOTE]
-> If you update instance count and along with other model settings (code, model, or environment) in a single `begin_create_or_update` method: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.
+> If you update instance count (to scale your deployment) along with other model settings (such as code, model, or environment) in a single `begin_create_or_update` method, the scaling operation will be performed first, then the other updates will be applied. It's a good practice to perform these operations separately in a production environment.
 
 To understand how `begin_create_or_update` works:
 
@@ -1082,7 +1083,7 @@ To understand how `begin_create_or_update` works:
     ml_client.online_deployments.begin_create_or_update(blue_deployment)
     ```
 
-5. Because you modified the `init()` function (`init()` runs when the endpoint is created or updated), the message `Updated successfully` will be in the logs. Retrieve the logs by running:
+5. Because you modified the `init()` function, which runs when the endpoint is created or updated, the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 
     ```python
     ml_client.online_deployments.get_logs(
@@ -1094,7 +1095,15 @@ The `begin_create_or_update` method also works with local deployments. Use the s
 
 # [Studio](#tab/azure-studio)
 
-Add steps here, unless there currently is not an option to update the deployment using the studio.
+Currently, the studio allows you to make updates only to the instance count of a deployment. Use the following instructions to scale an individual deployment up or down by adjusting the number of instances:
+
+1. Open the endpoint's **Details** page and find the card for the deployment you want to update.
+1. Select the edit icon (pencil icon) next to the deployment's name.
+1. Update the instance count associated with the deployment. You can choose between **Default** or **Target Utilization** for "Deployment scale type".
+    - If you select **Default**, you cal also specify a numerical value for the **Instance count**.
+    - If you select **Target Utilization**, you can specify values to use for parameters when autoscaling the deployment.
+1. Select **Update** to finish updating the instance counts for your deployment.
+
 
 # [ARM template](#tab/arm)
 
@@ -1103,10 +1112,10 @@ There currently is not an option to update the deployment using an ARM template.
 ---
 
 > [!Note]
-> The above is an example of inplace rolling update.
-> * For managed online endpoint, the same deployment is updated with the new configuration, with 20% nodes at a time, i.e. if the deployment has 10 nodes, 2 nodes at a time will be updated. 
-> * For Kubernetes online endpoint, the system will iterately create a new deployment instance with the new configuration and delete the old one.
-> * For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-online-endpoints.md), which offers a safer alternative.
+> The above is an example of an inplace rolling update.
+> * For a managed online endpoint, the deployment is updated to the new configuration with 20% nodes at a time. That is, if the deployment has 10 nodes, 2 nodes at a time will be updated.
+> * For a Kubernetes online endpoint, the system will iteratively create a new deployment instance with the new configuration and delete the old one.
+> * For production usage, you should consider [blue-green deployment](how-to-safely-rollout-online-endpoints.md), which offers a safer alternative for updating a web service.
 
 ### (Optional) Configure autoscaling
 
@@ -1120,17 +1129,19 @@ To view metrics and set alerts based on your SLA, complete the steps that are de
 
 The `get-logs` command for CLI or the `get_logs` method for SDK provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. For more information on using logging, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#logs)
 
-[!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
+<!-- [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)] -->
 
 ## Delete the endpoint and the deployment
 
-If you aren't going use the deployment, you should delete it by running the following code (it deletes the endpoint and all the underlying deployments):
-
 # [Azure CLI](#tab/azure-cli)
+
+If you aren't going use the deployment, you should delete it by running the following code (it deletes the endpoint and all the underlying deployments):
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
+
+If you aren't going use the deployment, you should delete it by running the following code (it deletes the endpoint and all the underlying deployments):
 
 ```python
 ml_client.online_endpoints.begin_delete(name=endpoint_name)
@@ -1138,9 +1149,18 @@ ml_client.online_endpoints.begin_delete(name=endpoint_name)
 
 # [Studio](#tab/azure-studio)
 
-Add details
+If you aren't going use the endpoint and deployment, you should delete them. By deleting the endpoint, you'll also delete all its underlying deployments.
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select an endpoint by checking the circle next to the model name.
+1. Select **Delete**.
+
+Alternatively, you can delete a managed online endpoint directly by selecting the **Delete** icon in the [endpoint details page](#view-managed-online-endpoints).
 
 # [ARM template](#tab/arm)
+
+If you aren't going use the deployment, you should delete it by running the following code (it deletes the endpoint and all the underlying deployments):
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
@@ -1148,16 +1168,13 @@ Add details
 
 ## Next steps
 
-Try safe rollout of your models as a next step:
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
-
-To learn more, review these articles:
-
 - [Deploy models with REST](how-to-deploy-with-rest.md)
-- [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)
+- [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Access Azure resources from an online endpoint with a managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 - [Enable network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)
