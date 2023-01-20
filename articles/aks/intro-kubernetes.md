@@ -172,8 +172,8 @@ Learn more about deploying and managing AKS.
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-devops]: ../devops-project/overview.md
-[azure-disk]: ./azure-disks-dynamic-pv.md
-[azure-files]: ./azure-files-dynamic-pv.md
+[azure-disk]: ./azure-disk-csi.md
+[azure-files]: ./azure-files-csi.md
 [container-health]: ../azure-monitor/containers/container-insights-overview.md
 [aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-supported versions]: supported-kubernetes-versions.md

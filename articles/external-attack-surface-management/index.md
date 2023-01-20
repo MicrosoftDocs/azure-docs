@@ -53,7 +53,8 @@ For security purposes, Microsoft collects users' IP addresses when they log in. 
 
 In the case of a region down scenario, customers should see no downtime as Defender EASM uses technologies that replicate data to a backup region. Defender EASM processes customer data. By default, customer data is replicated to the paired region.
 
-The Microsoft compliance framework requires that all customer data be deleted within 180 days in accordance with [Azure subscription states](https://learn.microsoft.com/azure/cost-management-billing/manage/subscription-states) handling.  This also includes storage of customer data in offline locations, such as database backups. 
+The Microsoft compliance framework requires that all customer data be deleted within 180 days of that organization no longer being a customer of Microsoft.  This also includes storage of customer data in offline locations, such as database backups. Once a resource is deleted, it cannot be restored by our teams.  The customer data will be retained in our data stores for 75 days, however the actual resource cannot be restored.  After the 75 day period, customer data will be permanently deleted.  
+
 
 ## Next Steps
 

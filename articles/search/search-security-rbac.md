@@ -1,5 +1,5 @@
 ---
-title: Use Azure role-based access control
+title: Connect using Azure roles
 titleSuffix: Azure Cognitive Search
 description: Use Azure role-based access control for granular permissions on service administration and content tasks.
 
@@ -12,7 +12,7 @@ ms.date: 01/12/2023
 ms.custom: subject-rbac-steps, references_regions
 ---
 
-# Use Azure role-based access controls (Azure RBAC) in Azure Cognitive Search
+# Connect to Azure Cognitive Search using Azure role-based access control (Azure RBAC)
 
 Azure provides a global [role-based access control authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can:
 
@@ -216,19 +216,109 @@ When testing roles, remember that roles are cumulative and inherited roles that 
 
 ### [**REST API**](#tab/test-rest)
 
-+ Register your REST client with Azure Active Directory. 
+This approach assumes Postman as the REST client and uses a Postman collection and variables to provide the bearer token. You'll need Azure CLI or another tool to create a security principal for the REST client.
 
-+ Revise your code to use a [Search REST API](/rest/api/searchservice/) (any supported version) and set the **Authorization** header on requests, replacing the **api-key** header.
+1. Open a command shell for Azure CLI and sign in to your Azure subscription.
 
-  :::image type="content" source="media/search-security-rbac/rest-authorization-header.png" alt-text="Screenshot of an HTTP request with an Authorization header" border="true":::
+   ```azurecli
+   az login
+   ```
+
+1. Get your subscription ID. You'll provide this value as variable in a future step. 
+
+   ```azurecli
+   az account show --query id -o tsv
+   ````
+
+1. Create a resource group for your security principal, specifying a location and name. This example uses the West US region. You'll provide this value as variable in a future step. The role you'll create will be scoped to the resource group.
+
+   ```azurecli
+   az group create -l westus -n MyResourceGroup
+   ```
+
+1. Create the service principal, replacing the placeholder values with valid values. You'll need a descriptive security principal name, subscription ID, and resource group name. This example uses the "Search Index Data Reader" (quote enclosed) role.
+
+    ```azurecli
+    az ad sp create-for-rbac --name mySecurityPrincipalName --role "Search Index Data Reader" --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
+    ```
+
+   A successful response includes "appId", "password", and "tenant". You'll use these values for the variables "clientId", "clientSecret", and "tenant".
+
+1. Start a new Postman collection and edit its properties. In the Variables tab, create the following variables:
+
+    | Variable | Description |
+    |----------|-------------|
+    | clientId | Provide the previously generated "appID" that you created in Azure AD. |
+    | clientSecret | Provide the "password" that was created for your client. |
+    | tenantId | Provide the "tenant" that was returned in the previous step. |
+    | subscriptionId | Provide the subscription ID for your subscription. |
+    | resource | Enter `https://search.azure.com`. | 
+    | bearerToken | (leave blank; the token is generated programmatically) |
+
+1. In the Authorization tab, select **Bearer Token** as the type.
+
+1. In the **Token** field, specify the variable placeholder `{{bearerToken}}`.
+
+1. In the Pre-request Script tab, paste in the following script:
+
+    ```javascript
+    pm.test("Check for collectionVariables", function () {
+        let vars = ['clientId', 'clientSecret', 'tenantId', 'subscriptionId'];
+        vars.forEach(function (item, index, array) {
+            console.log(item, index);
+            pm.expect(pm.collectionVariables.get(item), item + " variable not set").to.not.be.undefined;
+            pm.expect(pm.collectionVariables.get(item), item + " variable not set").to.not.be.empty; 
+        });
+    
+        if (!pm.collectionVariables.get("bearerToken") || Date.now() > new Date(pm.collectionVariables.get("bearerTokenExpiresOn") * 1000)) {
+            pm.sendRequest({
+                url: 'https://login.microsoftonline.com/' + pm.collectionVariables.get("tenantId") + '/oauth2/token',
+                method: 'POST',
+                header: 'Content-Type: application/x-www-form-urlencoded',
+                body: {
+                    mode: 'urlencoded',
+                    urlencoded: [
+                        { key: "grant_type", value: "client_credentials", disabled: false },
+                        { key: "client_id", value: pm.collectionVariables.get("clientId"), disabled: false },
+                        { key: "client_secret", value: pm.collectionVariables.get("clientSecret"), disabled: false },
+                        { key: "resource", value: pm.collectionVariables.get("resource") || "https://search.azure.com", disabled: false }
+                    ]
+                }
+            }, function (err, res) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    let resJson = res.json();
+                    pm.collectionVariables.set("bearerTokenExpiresOn", resJson.expires_on);
+                    pm.collectionVariables.set("bearerToken", resJson.access_token);
+                }
+            });
+        }
+    });
+    ```
+
+1. Save the collection.
+
+1. Send a request that uses the variables you've specified. For the "Search Index Data Reader" role, you can query an index (remember to provide a valid search service name on the URI):
+
+   ```http
+   POST https://<service-name>.search.windows.net/indexes/hotels-quickstart/docs/search?api-version=2020-06-20
+   {
+    "queryType": "simple",
+    "search": "motel",
+    "filter": "",
+    "select": "HotelName,Description,Category,Tags",
+    "count": true
+    }
+   ```
 
 For more information on how to acquire a token for a specific environment, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 ### [**.NET SDK**](#tab/test-csharp)
 
-The Azure SDK for .NET supports an authorization header in the [NuGet Gallery | Azure.Search.Documents 11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2) package.
+See [Authorize access to a search app using Azure Active Directory](/search-howto-aad.md) for instructions that create an identity for your client app, assign a role, and call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential).
 
-Configuration is required to register an application with Azure Active Directory, and to obtain and pass authorization tokens:
+The Azure SDK for .NET supports an authorization header in the [NuGet Gallery | Azure.Search.Documents 11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2) package. Configuration is required to register an application with Azure Active Directory, and to obtain and pass authorization tokens:
 
 + When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is an Azure AD convention.
 

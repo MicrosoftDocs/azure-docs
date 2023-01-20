@@ -48,10 +48,6 @@ items:
         href: quickstart-blobs-c-plus-plus.md
       - name: Go
         href: storage-quickstart-blobs-go.md
-      - name: PHP
-        href: storage-quickstart-blobs-php.md
-      - name: Ruby
-        href: storage-quickstart-blobs-ruby.md
   - name: Tutorials
     items:
     - name: Upload and process image files

@@ -162,7 +162,7 @@ In the web app initializer, such as Global.asax.cs:
 > [!NOTE]
 > Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications.
 
-For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown here. This step is done in the `ConfigureServices` method of your `Startup.cs` class.
+For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown here. This step is done in the `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
