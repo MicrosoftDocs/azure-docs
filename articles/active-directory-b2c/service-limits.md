@@ -8,7 +8,6 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.author: kengaderdus
 ms.date: 12/29/2022
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
