@@ -40,7 +40,7 @@ To automate your ASE creation, follow they guidelines in the following sections.
 ## Create the ASE
 A Resource Manager template that creates an ASE and its associated parameters file is available on GitHub for [ASEv2][quickstartasev2create].
 
-If you want to make an ASE, use these Resource Manager template [ASEv2][quickstartilbasecreate] example. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE with an existing subnet.
+If you want to make an ASE, use this Resource Manager template [ASEv2][quickstartilbasecreate] example. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that's unique, when you create an ILB ASE with an existing subnet.
 
 ### Parameters
 * *aseName*: This parameter defines a unique ASE name.
@@ -106,7 +106,7 @@ The parameters in the *azuredeploy.parameters.json* file are listed here:
 * *existingAseLocation*: Text string containing the Azure region where the ILB ASE was deployed.  For example: "South Central US".
 * *pfxBlobString*: The based64-encoded string representation of the .pfx file. Use the code snippet shown earlier and copy the string contained in "exportedcert.pfx.b64". Paste it in as the value of the *pfxBlobString* attribute.
 * *password*: The password used to secure the .pfx file.
-* *certificateThumbprint*: The certificate's thumbprint. If you retrieve this value from PowerShell (for example, *$certificate.Thumbprint* from the earlier code snippet), you can use the value as is. If you copy the value from the Windows certificate dialog box, remember to strip out the extraneous spaces. The *certificateThumbprint* should look something like  AF3143EB61D43F6727842115BB7F17BBCECAECAE.
+* *certificateThumbprint*: The certificate's thumbprint. If you retrieve this value from PowerShell (for example, `$certificate.Thumbprint` from the earlier code snippet), you can use the value as is. If you copy the value from the Windows certificate dialog box, remember to strip out the extraneous spaces. The *certificateThumbprint* should look something like  AF3143EB61D43F6727842115BB7F17BBCECAECAE.
 * *certificateName*: A friendly string identifier of your own choosing used to identity the certificate. The name is used as part of the unique Resource Manager identifier for the *Microsoft.Web/certificates* entity that represents the TLS/SSL certificate. The name *must* end with the following suffix: \_yourASENameHere_InternalLoadBalancingASE. The Azure portal uses this suffix as an indicator that the certificate is used to secure an ILB-enabled ASE.
 
 An abbreviated example of *azuredeploy.parameters.json* is shown here:
