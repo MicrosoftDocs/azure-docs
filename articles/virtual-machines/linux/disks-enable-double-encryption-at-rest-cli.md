@@ -49,10 +49,10 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azu
     az keyvault key show --name $keyName --vault-name $keyVaultName
     ```
 
-1.    Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Replace `yourKeyURLHere` with the URL you received from `az keyvault key show`. 
+1.    Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Replace `yourKeyURL` with the URL you received from `az keyvault key show`. 
     
         ```azurecli
-        az disk-encryption-set create --resource-group $rgName --name $diskEncryptionSetName --key-url yourKeyURLHere --source-vault $keyVaultName --encryption-type EncryptionAtRestWithPlatformAndCustomerKeys
+        az disk-encryption-set create --resource-group $rgName --name $diskEncryptionSetName --key-url yourKeyURL --source-vault $keyVaultName --encryption-type EncryptionAtRestWithPlatformAndCustomerKeys
         ```
 
 1.    Grant the DiskEncryptionSet resource access to the key vault. 
