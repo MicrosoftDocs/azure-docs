@@ -31,7 +31,7 @@ Instead of having a built-in IoT Hub behind the scenes, Azure Digital Twins allo
 
 To ingest data from any source into Azure Digital Twins, you can use an [Azure function](../azure-functions/functions-overview.md). Learn more about this pattern in [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md), or try it out yourself in the Azure Digital Twins [Connect an end-to-end solution](tutorial-end-to-end.md). 
 
-You can also integrate Azure Digital Twins into a [Microsoft Power Platform](/power-platform) or [Azure Logic Apps](../logic-apps/logic-apps-overview.md) flow, using the [Azure Digital Twins Power Platform connector](). For more information about connectors, see [Connectors overview](/connectors/connectors).
+You can also integrate Azure Digital Twins into a [Microsoft Power Platform](/power-platform) or [Azure Logic Apps](../logic-apps/logic-apps-overview.md) flow, using the [Azure Digital Twins Power Platform connector](how-to-use-power-platform-connector.md). For more information about connectors, see [Connectors overview](/connectors/connectors).
 
 ## Data egress
 
