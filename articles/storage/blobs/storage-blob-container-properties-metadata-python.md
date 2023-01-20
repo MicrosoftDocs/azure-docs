@@ -41,8 +41,6 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 
 - [ContainerClient.set_container_metadata](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-set-container-metadata)
 
-The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, the Blob service returns status code `400 (Bad Request)`.
-
 Setting container metadata overwrites all existing metadata associated with the container. It's not possible to modify an individual name-value pair.
 
 The following code example sets metadata on a container:
