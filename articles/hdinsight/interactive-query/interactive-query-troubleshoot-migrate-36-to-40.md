@@ -105,7 +105,7 @@ Steps to disable ACID on HDInsight 4.0:
     metastore.create.as.acid=false;
     ```
 > [!Note]
-> if hive.strict.managed.tables is set to true \<Default value\>, Creating Managed and non-transcation table will fail with the following error:
+> If hive.strict.managed.tables is set to true \<Default value\>, Creating Managed and non-transaction table will fail with the following error:
 ```
 java.lang.Exception: java.sql.SQLException: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. Table <Table name> failed strict managed table checks due to the following reason: Table is marked as a managed table but is not transactional.
 ```
