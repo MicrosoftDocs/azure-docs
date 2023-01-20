@@ -8,7 +8,7 @@ ms.author: eur
 ---
 
 | Locale (BCP-47) | Language | Text-to-speech voices |
-| ----- | ----- | ----- | ----- |
+| ----- | ----- | ----- |
 | `af-ZA` | Afrikaans (South Africa) | `af-ZA-AdriNeural` (Female)<br/>`af-ZA-WillemNeural` (Male) |
 | `am-ET` | Amharic (Ethiopia) | `am-ET-AmehaNeural` (Male)<br/>`am-ET-MekdesNeural` (Female) |
 | `ar-AE` | Arabic (United Arab Emirates) | `ar-AE-FatimaNeural`<sup>4,5,6</sup> (Female)<br/>`ar-AE-HamdanNeural`<sup>4,5,6</sup> (Male) |
