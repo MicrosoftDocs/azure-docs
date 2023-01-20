@@ -18,9 +18,9 @@ The MedTech service device message processing follows these steps and in this or
 
 > [!div class="checklist"]
 > - Ingest
-> - Normalize - Device mappings applied
+> - Normalize - Device mappings applied.
 > - Group
-> - Transform - FHIR destination mappings applied
+> - Transform - FHIR destination mappings applied.
 > - Persist
 
 :::image type="content" source="media/understand-service/iot-data-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/iot-data-flow.png":::
@@ -34,7 +34,7 @@ The device message event hub uses the MedTech service's [system-assigned managed
 > JSON is the only supported format at this time for device message data.
 
 > [!IMPORTANT]
-> If you're going to allow access from multiple services to the device message event hub, it is required that each service has its own event hub consumer group.
+> If you're going to allow access from multiple services to the device message event hub, it's required that each service has its own event hub consumer group.
 >
 > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
 >
