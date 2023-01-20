@@ -90,8 +90,12 @@ items:
   items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
-  - name: Image Analysis quickstart
-    href: quickstarts-sdk/image-analysis-client-library.md
+  - name: Quickstarts
+    items:
+    - name: Version 4.0 quickstart
+      href: quickstarts-sdk/image-analysis-client-library-40.md
+    - name: Version 3.2 quickstart
+      href: quickstarts-sdk/image-analysis-client-library.md
   - name: Samples  
     href: /samples/browse/?products=azure&terms=analyze-image
   - name: Responsible use of AI
@@ -108,42 +112,50 @@ items:
       href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Call the Image Analysis API
-      href: how-to/call-analyze-image.md
-    - name: Analyze videos in real time
-      href: how-to/analyze-video.md
-    - name: Generate a smart-cropped thumbnail
-      href: how-to/generate-thumbnail.md
+    - name: Version 4.0
+      items:
+    - name: Version 3.2
+      items:
+      - name: Call the Image Analysis API
+        href: how-to/call-analyze-image.md
+      - name: Analyze videos in real time
+        href: how-to/analyze-video.md
+      - name: Generate a smart-cropped thumbnail
+        href: how-to/generate-thumbnail.md
   - name: Concepts
     items:
-    - name: Object detection
-      href: concept-object-detection.md
-    - name: Brand detection
-      href: concept-brand-detection.md
-    - name: Content tags
-      href: concept-tagging-images.md
-    - name: Image categorization
-      href: concept-categorizing-images.md
-    - name: Category taxonomy
-      href: Category-Taxonomy.md
-    - name: Image descriptions
-      href: concept-describing-images.md
-    - name: Face detection
-      href: concept-detecting-faces.md
-    - name: Image type detection
-      href: concept-detecting-image-types.md
-    - name: Domain-specific content
-      href: concept-detecting-domain-content.md
-    - name: Color scheme detection
-      href: concept-detecting-color-schemes.md
-    - name: Smart-cropped thumbnails
-      href: concept-generating-thumbnails.md
-    - name: Adult content detection
-      href: concept-detecting-adult-content.md
-    - name: Reading text (preview)
-      href: concept-ocr.md
-    - name: People detection (preview)
-      href: concept-people-detection.md
+    - name: Version 4.0
+      items:
+    - name: Version 3.2
+      items:   
+      - name: Object detection
+        href: concept-object-detection.md
+      - name: Brand detection
+        href: concept-brand-detection.md
+      - name: Content tags
+        href: concept-tagging-images.md
+      - name: Image categorization
+        href: concept-categorizing-images.md
+      - name: Category taxonomy
+        href: Category-Taxonomy.md
+      - name: Image descriptions
+        href: concept-describing-images.md
+      - name: Face detection
+        href: concept-detecting-faces.md
+      - name: Image type detection
+        href: concept-detecting-image-types.md
+      - name: Domain-specific content
+        href: concept-detecting-domain-content.md
+      - name: Color scheme detection
+        href: concept-detecting-color-schemes.md
+      - name: Smart-cropped thumbnails
+        href: concept-generating-thumbnails.md
+      - name: Adult content detection
+        href: concept-detecting-adult-content.md
+      - name: Reading text (preview)
+        href: concept-ocr.md
+      - name: People detection (preview)
+        href: concept-people-detection.md
   - name: Tutorials
     items:
     - name: Generate metadata for images
