@@ -20,18 +20,19 @@ This article shows how to delete blobs with the [Azure Storage client library fo
 
 ## Delete a blob
 
-To delete a blob, call one of these methods:
+To delete a blob, call the following method:
 
-- [BlobClient.delete](/java/api/com.azure.storage.blob.specialized.blobclient#com-azure-storage-blob-specialized-blobclientbase-delete())
-- [BlobClient.deleteWithResponse](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-deletewithresponse(com-azure-storage-blob-models-deletesnapshotsoptiontype-com-azure-storage-blob-models-blobrequestconditions-java-time-duration-com-azure-core-util-context))
+- [BlobClient.delete_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-delete-blob)
 
 The following example deletes a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-delete.py" id="Snippet_DeleteBlob":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_delete_blob":::
 
-The following example deletes a blob and its snapshots with a response:
+If the blob has any associated snapshots, you must delete all of its snapshots to delete the blob. The following example deletes a blob and its snapshots:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-delete.py" id="Snippet_DeleteBlobSnapshots":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_delete_blob_snapshots":::
+
+To delete *only* the snapshots and not the blob itself, you can set the `delete_snapshots` parameter to **"only"**.
 
 ## Restore a deleted blob
 
@@ -43,11 +44,23 @@ You can use the Azure Storage client libraries to restore a soft-deleted blob or
 
 To restore deleted blobs, call the following method:
 
-- [BlobClient.undelete](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-undelete())
+- [BlobClient.undelete_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-undelete-blob)
 
 This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect. 
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-delete.py" id="Snippet_RestoreBlob":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_restore_blob":::
+
+#### Restore soft-deleted objects when versioning is enabled
+
+To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use the following method:
+
+- [start_copy_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-start-copy-from-url)
+
+This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect. 
+
+The following code example gets the latest version of a deleted blob, and restores the latest version by copying it to the base blob:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_restore_blob_version":::
 
 ## Resources
 

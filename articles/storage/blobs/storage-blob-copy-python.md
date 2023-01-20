@@ -22,7 +22,7 @@ This article demonstrates how to copy a blob in an Azure Storage account. It als
 
 When you copy a blob within the same storage account, it's a synchronous operation. When you copy across accounts, it's an asynchronous operation.
 
-The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
+The source blob for a copy operation may be a block blob, an append blob, a page blob, a snapshot, or a blob version. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
 
 The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
 
@@ -42,13 +42,13 @@ A copy operation can take any of the following forms:
 
 To copy a blob, use the following method:
 
-[BlobClient.copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-copyfromurl(java-lang-string))
+- [BlobClient.start_copy_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-start-copy-from-url)
 
-This method copies the data at the source URL to a blob and waits for the copy to complete before returning a response. The source must be a block blob no larger and 256 MB, and must be a public blob or have a SAS token attached.
+This method synchronously copies the data at the source URL to a blob and waits for the copy to complete before returning a response. The source must be a block blob no larger than 256 MB. The source URL must include a SAS token that provides permissions to read the source blob. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
 
 The following code example gets a `BlobClient` object representing an existing blob and copies it to a new blob in a different container. This example also gets a lease on the source blob before copying so that no other client can modify the blob until the copy is complete and the lease is broken.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-copy.py" id="Snippet_CopyBlobURL":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_copy_blob":::
 
 Sample output is similar to:
 
@@ -61,39 +61,29 @@ Total bytes copied: 5
 Source blob lease state: broken
 ```
 
-You can also copy a blob using the following method:
-
-- [BlobClient.beginCopy](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-begincopy(java-lang-string-java-time-duration)).
-
-This method triggers a long-running, asynchronous operation. The source may be another blob or an Azure File resource. If the source is in another storage account, the source must either be public or authorized with a SAS token.
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-copy.py" id="Snippet_CopyBlobBeginCopy":::
-
-You can also specify extended options for the copy operation by passing in a [BlobBeginCopyOptions](/java/api/com.azure.storage.blob.options.blobbegincopyoptions) object to the `beginCopy` method. The following example shows how to create a `BlobBeginCopyOptions` object and configure options to pass with the copy request:
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-copy.py" id="Snippet_CopyBlobOptions":::
-
 ## Abort a copy operation
 
-Aborting a copy operation results in a destination blob of zero length. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods. The final blob will be committed when the copy completes.
+If you have a pending copy operation and need to cancel it, you can abort the operation. Aborting a copy operation results in a destination blob of zero length and full metadata. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
+
+The metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods. The final blob will be committed when the copy completes.
 
 To abort a copy operation, use the following method:
 
-- [BlobClient.abortCopyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-abortcopyfromurl(java-lang-string))
+- [BlobClient.abort_copy](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-abort-copy)
 
-The following example stops a pending copy and leaves a destination blob with zero length and metadata:
+The following example stops a pending copy and leaves a destination blob with zero length and full metadata:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-copy.py" id="Snippet_AbortCopy":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_abort_copy":::
 
 ## Resources
 
-To learn more about how to copy blobs using the Azure Blob Storage client library for Python, see the following resources.
+To learn more about copying blobs using the Azure Blob Storage client library for Python, see the following resources.
 
 ### REST API operations
 
 The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for copying blobs use the following REST API operations:
 
-- [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
+- [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
 
 ### Code samples

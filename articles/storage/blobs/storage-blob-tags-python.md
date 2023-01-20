@@ -22,48 +22,66 @@ Blob index tags categorize data in your storage account using key-value tag attr
 
 To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
-## Set and retrieve index tags
+## Set tags
 
-You can set and get index tags if your code has authorized access by using an account key, or if your code uses a security principal that has been given the appropriate role assignments. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+You can set and get index tags if your code has authorized access to blob data through one of the following mechanisms:
+- Azure AD built-in role assigned as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or higher
+- Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write](../../role-based-access-control/resource-provider-operations.md#microsoftstorage)
+- Shared Access Signature with permission to access the blob's tags (`t` permission)
+- Account key
 
-### Set tags
+For more information, see [Setting blob index tags](storage-manage-find-blobs.md#setting-blob-index-tags).
 
 You can set tags by using the following method:
 
-- [BlobClient.setTags](/java/api/com.azure.storage.blob.specialized.blobclientbase.settags#com-azure-storage-blob-specialized-blobclientbase-settags(java-util-map(java-lang-string-java-lang-string)))
+- [BlobClient.set_blob_tags](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-set-blob-tags)
 
 The specified tags in this method will replace existing tags. If old values must be preserved, they must be downloaded and included in the call to this method. The following example shows how to set tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_SetBLobTags":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_set_blob_tags":::
 
-You can delete all tags by passing an empty `Map` object into the `setTags` method:
+You can delete all tags by passing an empty `dict` object into the `set_blob_tags` method:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_ClearBLobTags":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_clear_blob_tags":::
 
-### Get tags
+## Get tags
+
+You can set and get index tags if your code has authorized access to blob data through one of the following mechanisms:
+- Azure AD built-in role assigned as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or higher
+- Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read](../../role-based-access-control/resource-provider-operations.md#microsoftstorage)
+- Shared Access Signature with permission to access the blob's tags (`t` permission)
+- Account key
+
+For more information, see [Getting and listing blob index tags](storage-manage-find-blobs.md#getting-and-listing-blob-index-tags).
 
 You can get tags by using the following method: 
 
-- [BlobClient.getTags](/java/api/com.azure.storage.blob.specialized.BlobClientBase#com-azure-storage-blob-specialized-blobclientbase-gettags())
+- [BlobClient.get_blob_tags](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-get-blob-tags)
 
 The following example shows how to retrieve and iterate over the blob's tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_GetBLobTags":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_get_blob_tags":::
 
 ## Filter and find data with blob index tags
 
-You can use index tags to find and filter data if your code has authorized access by using an account key, or if your code uses a security principal that has been given the appropriate role assignments. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+You can use index tags to find and filter data if your code has authorized access to blob data through one of the following mechanisms:
+- Azure AD built-in role assigned as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or higher
+- Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage)
+- Shared Access Signature with permission to find blobs by tags (`f` permission)
+- Account key
+
+For more information, see [Finding data using blob index tags](storage-manage-find-blobs.md#finding-data-using-blob-index-tags).
 
 > [!NOTE]
 > You can't use index tags to retrieve previous versions. Tags for previous versions aren't passed to the blob index engine. For more information, see [Conditions and known issues](storage-manage-find-blobs.md#conditions-and-known-issues).
 
 You can find data by using the following method: 
 
-- [BlobServiceClient.findBlobsByTags](/java/api/com.azure.storage.blob.blobcontainerclient#com-azure-storage-blob-blobcontainerclient-findblobsbytags(java-lang-string))
+- [ContainerClient.find_blobs_by_tag](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-find-blobs-by-tags)
 
 The following example finds all blobs tagged as an image:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_FindBlobsByTag":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_find_blobs_by_tag":::
 
 ## Resources
 
