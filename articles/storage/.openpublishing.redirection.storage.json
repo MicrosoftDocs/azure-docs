@@ -1548,7 +1548,7 @@
         {
             "source_path_from_root": "/articles/storage/storage-ios-how-to-use-blob-storage.md",
             "redirect_url": "/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-java-how-to-use-blob-storage.md",
