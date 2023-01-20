@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 01/20/2023
 ms.author: madsd
 
 ---
@@ -19,7 +19,7 @@ App Service has two variations:
 * The dedicated compute pricing tiers, which include the Basic, Standard, Premium, Premium v2, and Premium v3.
 * The App Service Environment, which deploys directly into your virtual network with dedicated supporting infrastructure and is using the Isolated and Isolated v2 pricing tiers.
 
-The virtual network integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an [App Service Environment](./environment/overview.md), it's already in a virtual network and doesn't require use of the VNet integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](./networking-features.md).
+The virtual network integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an [App Service Environment](./environment/overview.md), it's already integrated with a virtual network and doesn't require you to configure virtual network integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](./networking-features.md).
 
 Virtual network integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making an app accessible only from a private network, such as from within an Azure virtual network. Virtual network integration is used only to make outbound calls from your app into your virtual network. Refer to [private endpoint](./networking/private-endpoint.md) for inbound private access.
 
@@ -35,7 +35,7 @@ There are some things that virtual network integration doesn't support, like:
 * Windows Server Active Directory domain join.
 * NetBIOS.
 
-Virtual network integration supports connecting to a virtual network in the same region and doesn't require a gateway. Using virtual network integration enables your app to access:
+Virtual network integration supports connecting to a virtual network in the same region. Using virtual network integration enables your app to access:
 
 * Resources in the virtual network you're integrated with.
 * Resources in virtual networks peered to the virtual network your app is integrated with including global peering connections.
@@ -47,6 +47,7 @@ When you use virtual network integration, you can use the following Azure networ
 
 * **Network security groups (NSGs)**: You can block outbound traffic with an NSG that's placed on your integration subnet. The inbound rules don't apply because you can't use virtual network integration to provide inbound access to your app.
 * **Route tables (UDRs)**: You can place a route table on the integration subnet to send outbound traffic where you want.
+* **NAT gateway**: You can use [NAT gateway](./networking/nat-gateway-integration.md) to get a dedicated outbound IP and mitigate SNAT port exhaustion.
 
 Learn [how to enable virtual network integration](./configure-vnet-integration-enable.md).
 
@@ -58,13 +59,13 @@ Apps in App Service are hosted on worker roles. Virtual network integration work
 
 When virtual network integration is enabled, your app makes outbound calls through your virtual network. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. However, if your outbound call is to a virtual machine or private endpoint in the integration virtual network or peered virtual network, the outbound address will be an address from the integration subnet. The private IP assigned to an instance is exposed via the environment variable, WEBSITE_PRIVATE_IP.
 
-When all traffic routing is enabled, all outbound traffic is sent into your virtual network. If all traffic routing isn't enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the virtual network, and outbound traffic to the internet will go through the same channels as normal.
+When all traffic routing is enabled, all outbound traffic is sent into your virtual network. If all traffic routing isn't enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the virtual network, and outbound traffic to the internet will be routed directly from the app.
 
 The feature supports two virtual interfaces per worker. Two virtual interfaces per worker mean two virtual network integrations per App Service plan. The apps in the same App Service plan can only use one of the virtual network integrations to a specific subnet. If you need an app to connect to more virtual networks or more subnets in the same virtual network, you need to create another App Service plan. The virtual interfaces used aren't resources customers have direct access to.
 
 ## Subnet requirements
 
-Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet loses five IPs from the start. One address is used from the integration subnet for each plan instance. If you scale your app to four instances, then four addresses are used.
+Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet consumes five IPs from the start. One address is used from the integration subnet for each plan instance. If you scale your app to four instances, then four addresses are used.
 
 When you scale up or down in size, the required address space is doubled for a short period of time. The scale operation affects the real, available supported instances for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect the available addresses has on horizontal scale.
 
@@ -97,7 +98,7 @@ If the virtual network is in a different subscription than the app, you must ens
 
 ## Routes
 
-You can control what traffic goes through the virtual network integration. There are three types of routing to consider when you configure virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of your app. Examples are container image pull and app settings with Key Vault reference. [Network routing](#network-routing) is the ability to handle how both app and configuration traffic are routed from your virtual network and out.
+You can control what traffic goes through the virtual network integration. There are three types of routing to consider when you configure virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of your app. Examples are container image pull and [app settings with Key Vault reference](./app-service-key-vault-references.md). [Network routing](#network-routing) is the ability to handle how both app and configuration traffic are routed from your virtual network and out.
 
 Through application routing or configuration routing options, you can configure what traffic will be sent through the virtual network integration. Traffic is only subject to [network routing](#network-routing) if it's sent through the virtual network integration.
 
@@ -142,7 +143,7 @@ App settings using Key Vault references will attempt to get secrets over the pub
 
 You can use route tables to route outbound traffic from your app without restriction. Common destinations can include firewall devices or gateways. You can also use a [network security group](../virtual-network/network-security-groups-overview.md) (NSG) to block outbound traffic to resources in your virtual network or the internet. An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
 
-Route tables and network security groups only apply to traffic routed through the virtual network integration. See [application routing](#application-routing) and [configuration routing](#configuration-routing) for details. Routes won't apply to replies from inbound app requests and inbound rules in an NSG don't apply to your app because virtual network integration affects only outbound traffic from your app. To control inbound traffic to your app, use the Access Restrictions feature.
+Route tables and network security groups only apply to traffic routed through the virtual network integration. See [application routing](#application-routing) and [configuration routing](#configuration-routing) for details. Routes won't apply to replies from inbound app requests and inbound rules in an NSG don't apply to your app because virtual network integration affects only outbound traffic from your app. To control inbound traffic to your app, use the [access restrictions](./overview-access-restrictions.md) feature or [private endpoints](./networking/private-endpoint.md).
 
 When configuring network security groups or route tables that applies to outbound traffic, you must make sure you consider your application dependencies. Application dependencies include endpoints that your app needs during runtime. Besides APIs and services the app is calling, these endpoints could also be derived endpoints like certificate revocation list (CRL) check endpoints and identity/authentication endpoint, for example Azure Active Directory. If you're using [continuous deployment in App Service](./deploy-continuous-deployment.md), you might also need to allow endpoints depending on type and language. Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx/blob/main/doc/hosts/appservice.md#network-dependencies), you'll need to allow `oryx-cdn.microsoft.io:443`.
 
@@ -180,7 +181,7 @@ There are some limitations with using virtual network integration:
 * The integration subnet can't have [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) enabled.
 * The integration subnet can be used by only one App Service plan.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
-* You can't have more than two virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration.
+* You can't have more than two virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration. Currently you can only configure the first integration through Azure portal. The second integration must be created using Azure Resource Manager templates or Azure CLI commands.
 * You can't change the subscription of an app or a plan while there's an app that's using virtual network integration.
 
 ## Access on-premises resources
@@ -200,7 +201,7 @@ In the app view of your virtual network integration instance, you can disconnect
 The private IP assigned to the instance is exposed via the environment variable WEBSITE_PRIVATE_IP. Kudu console UI also shows the list of environment variables available to the web app. This IP is assigned from the address range of the integrated subnet. This IP will be used by the web app to connect to the resources through the Azure virtual network.
 
 > [!NOTE]
-> The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the integration subnet or the point-to-site address range, so you'll need to allow access from the entire address range.
+> The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the integration subnet, so you'll need to allow access from the entire address range.
 >
 
 ## Pricing details

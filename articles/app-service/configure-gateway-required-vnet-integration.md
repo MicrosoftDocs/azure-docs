@@ -3,7 +3,7 @@ title: Configure gateway-required virtual network integration for your app
 description: Integrate your app in Azure App Service with Azure virtual networks using gateway-required virtual network integration.
 author: madsd
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 01/20/2023
 ms.author: madsd
 
 ---
@@ -75,10 +75,10 @@ The App Service plan virtual network integration UI shows you all the virtual ne
 * **Sync network**: The sync network operation is used only for the gateway-required virtual network integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your virtual network, perform a sync network operation. This operation restarts any apps that use this virtual network. This operation won't work if you're using an app and a virtual network belonging to different subscriptions.
 * **Add routes**: Adding routes drives outbound traffic into your virtual network.
 
-The private IP assigned to the instance is exposed via the environment variable WEBSITE_PRIVATE_IP. Kudu console UI also shows the list of environment variables available to the web app. This IP is assigned from the address range of the integrated subnet. For gateway-required virtual network integration, the value is an IP from the address range of the point-to-site address pool configured on the virtual network gateway. This IP will be used by the web app to connect to the resources through the Azure virtual network.
+The private IP assigned to the instance is exposed via the environment variable WEBSITE_PRIVATE_IP. Kudu console UI also shows the list of environment variables available to the web app. This IP is an IP from the address range of the point-to-site address pool configured on the virtual network gateway. This IP will be used by the web app to connect to the resources through the Azure virtual network.
 
 > [!NOTE]
-> The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the integration subnet or the point-to-site address range, so you'll need to allow access from the entire address range.
+> The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the point-to-site address range, so you'll need to allow access from the entire address range.
 >
 
 ## Gateway-required virtual network integration routing
