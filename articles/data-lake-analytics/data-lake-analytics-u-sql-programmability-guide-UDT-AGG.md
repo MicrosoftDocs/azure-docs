@@ -9,8 +9,6 @@ ms.date: 06/30/2017
 
 # U-SQL programmability guide - UDT and UDAGG
 
-
-
 ## Use user-defined types: UDT
 User-defined types, or UDT, is another programmability feature of U-SQL. U-SQL UDT acts like a regular C# user-defined type. C# is a strongly typed language that allows the use of built-in and custom user-defined types.
 

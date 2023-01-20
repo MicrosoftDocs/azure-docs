@@ -255,7 +255,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    az ml data create -f heart-dataset-unlabeled.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    data_path = "resources/heart-dataset/"

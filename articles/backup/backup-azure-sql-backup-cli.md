@@ -24,7 +24,7 @@ In this article, you'll learn how to:
 
 See the [currently supported scenarios](sql-support-matrix.md) for SQL in Azure VM.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a Recovery Services vault
 
@@ -156,7 +156,7 @@ As the instruction is to back up all future databases, the operation is done at 
 az backup protection auto-enable-for-azurewl --resource-group SQLResourceGroup \
     --vault-name SQLVault \
     --policy-name SQLPolicy \
-    --protectable-item-name "sqlinstance;mssqlserver;"  \
+    --protectable-item-name "sqlinstance;mssqlserver"  \
     --protectable-item-type SQLInstance \
     --server-name testSQLVM \
     --workload-type MSSQL\

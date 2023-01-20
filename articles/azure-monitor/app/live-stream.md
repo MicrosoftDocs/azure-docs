@@ -2,7 +2,7 @@
 title: Diagnose with Live Metrics - Application Insights - Azure Monitor
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 01/06/2023
 ms.reviewer: sdash
 ms.devlang: csharp
 ---
@@ -230,7 +230,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-For more information on how to configure ASP.NET Core applications, see [Configuring telemetry modules in ASP.NET Core](./asp-net-core.md#configuring-or-removing-default-telemetrymodules).
+For more information on how to configure ASP.NET Core applications, see [Configuring telemetry modules in ASP.NET Core](./asp-net-core.md#configure-or-remove-default-telemetrymodules).
 
 #### WorkerService
 
@@ -306,7 +306,7 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
 
 When navigating to Live Metrics you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus" 
 
-Verify if there are any firewalls or browser extensions that are blocking access to Live Metrics. For instance, some popular ad-blocker extensions block connections to \*.monitor.azure.com. In order to experience the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule to your ad-blocker, firewall, etc. for the domain livediagnostics.monitor.azure.com. 
+Verify if any firewalls or browser extensions are blocking access to Live Metrics. For example, some popular ad-blocker extensions block connections to \*.monitor.azure.com. In order to use the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule for the domain \*.livediagnostics.monitor.azure.com to your ad-blocker, firewall, etc. 
 
 ## Next steps
 

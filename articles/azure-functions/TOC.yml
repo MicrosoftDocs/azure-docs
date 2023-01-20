@@ -572,7 +572,7 @@
     - name: API references
       items:
         - name: ARM template
-          href: /azure/templates/microsoft.web/2018-11-01/sites/functions
+          href: /azure/templates/microsoft.web/2022-03-01/sites/functions
         - name: Azure CLI
           href: /cli/azure/functionapp
         - name: Azure Functions Core Tools 

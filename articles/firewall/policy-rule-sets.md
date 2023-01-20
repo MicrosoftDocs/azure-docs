@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/25/2022
+ms.date: 01/04/2023
 ms.author: victorh
 ---
 
@@ -30,7 +30,7 @@ Even though you can't delete the default rule collection groups nor modify their
 
 Rule collection groups contain one or multiple rule collections, which can be of type DNAT, network, or application. For example, you can group rules belonging to the same workloads or a VNet in a rule collection group. 
 
-Rule collection groups have a maximum size of 2 MB. If you need more than 2 MB, you can split the rules into multiple rule collection groups. A Firewall Policy created before July 2022 can contain 50 rule collection groups and a Firewall Policy created after July 2022 can contain 60 rule collection groups.
+For rule collection group size limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
 
 ## Rule collections

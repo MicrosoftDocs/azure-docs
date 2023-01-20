@@ -462,6 +462,8 @@ A condition evaluates whether a value meets certain criteria. The supported cond
   `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
+When using **equals** or **notEquals** conditions, non-string values are converted into strings for evaluation. For example, `123` would be resolved into `"123"`, and `null` would be resolved into an empty string `""`. It is recommended that all values are entered as type string to begin with.
+
 For **less**, **lessOrEquals**, **greater**, and **greaterOrEquals**, if the property type doesn't
 match the condition type, an error is thrown. String comparisons are made using
 `InvariantCultureIgnoreCase`.

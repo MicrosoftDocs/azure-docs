@@ -5,7 +5,7 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/06/2022
 ---
 
 # Supported Browsers 
@@ -19,12 +19,12 @@ Microsoft Purview supports the following browsers. We recommend that you use the
 
 ## Chrome Incognito mode
 
- Chrome Incognito blocking 3rd party cookies must be disabled for the Microsoft Purview governance portal to work.
+ Chrome Incognito blocking third party cookies must be disabled for the Microsoft Purview governance portal to work.
 
 :::image type="content" source="./media/supported-browsers/incognito-chrome.png" alt-text="Screenshot showing chrome.":::
 
-## Chromium Edge InPrivate mode
+## Microsoft Edge InPrivate mode
 
-Chromium Edge InPrivate using Strict Tracking Prevention must be disabled for the Microsoft Purview governance portal to work.
+Microsoft Edge InPrivate using Strict Tracking Prevention must be disabled for the Microsoft Purview governance portal to work.
 
 :::image type="content" source="./media/supported-browsers/incognito-edge.png" alt-text="Screenshot showing edge.":::
