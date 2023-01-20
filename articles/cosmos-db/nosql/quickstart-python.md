@@ -138,7 +138,7 @@ DATABASE_NAME = "cosmicworks"
 CONTAINER_NAME = "products"
 ```
 
-Create a new client instance using the `CosmosClient` object.
+Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the `DefaultAzureCredential` object.
 
 ```python
 credential = DefaultAzureCredential()
