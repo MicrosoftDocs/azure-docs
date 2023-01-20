@@ -59,6 +59,23 @@ The following code gets the value of an environment variable called `AZURE_STORA
 
 If the queue already exists, an exception is thrown.
 
+## How to format the message
+
+The message type is a string. All messages need to move into a string when sending the message and out of the string format when reading the message.
+
+To convert JSON to a string format and back again, use the following helper functions:
+
+```javascript
+function jsonToBase64(jsonObj) {
+    const jsonString = JSON.stringify(jsonObj)
+    return  Buffer.from(jsonString).toString('base64')
+}
+function encodeBase64ToJson(base64String) {
+    const jsonString = Buffer.from(base64String,'base64').toString()
+    return JSON.parse(jsonString)
+}
+``` 
+
 ## How to insert a message into a queue
 
 
