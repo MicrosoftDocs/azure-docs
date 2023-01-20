@@ -315,7 +315,7 @@ Add the missing username or password to your environment definition to fix the i
 myEnv.docker.base_image_registry.username = "username"
 ```
 
-Alternatively, provide authentication via workspace connections
+Alternatively, provide authentication via [workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
 
 ```
 from azureml.core import Workspace
