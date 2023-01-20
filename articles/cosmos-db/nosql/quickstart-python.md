@@ -157,11 +157,7 @@ Create constants for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variable
 
 Create constants for the database and container names.
 
-#### [Sync / Async](#tab/sync+async)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="constants":::
-
----
+[!INCLUDE [sync async code constants](./includes/quickstart-python/connection-string-sync-async-code-constants.md)]
 
 Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the two variables you created as parameters.
 
