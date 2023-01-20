@@ -1,26 +1,27 @@
 ---
-title: 'Connectivity configuration in Azure Virtual Network Manager (Preview)'
+title: 'Connectivity configuration in Azure Virtual Network Manager'
 description: Learn about different types network topology you can create with a connectivity configuration in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 01/31/2023
 ms.custom: template-concept, ignite-fall-2021
 ---
 
-# Connectivity configuration in Azure Virtual Network Manager (Preview)
+# Connectivity configuration in Azure Virtual Network Manager
 
 In this article, you'll learn about the different types of configurations you can create and deploy using Azure Virtual Network Manager. There are two types of configurations currently available: *Connectivity* and *Security Admins*. 
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules. 
+>Mesh connectivity configurations are in Public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Connectivity configuration
 
-*Connectivity* configurations allow you to create different network topologies based on your network needs. You have two topologies to choose from, a *mesh network* and a *hub and spoke*. Connectivities between virtual networks are defined within the configuration settings.
+*Connectivity* configurations allow you to create different network topologies based on your network needs. You have two topologies to choose from, a *mesh network* and a *hub and spoke*. Connectivity between virtual networks is defined within the configuration settings.
 
 ## Mesh network topology
 
@@ -75,4 +76,4 @@ When you deploy a hub and spoke topology from the Azure portal, the **Use hub as
 
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance.
 - Learn about [configuration deployments](concept-deployments.md) in Azure Virtual Network Manager.
-- Learn how to block network traffic with a [SecurityAdmin configuration](how-to-block-network-traffic-portal.md).
+- Learn how to block network traffic with a [security admin configuration](how-to-block-network-traffic-portal.md).
