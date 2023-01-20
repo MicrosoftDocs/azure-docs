@@ -95,7 +95,7 @@ To find your the name of your GPU, you can run the following command or look for
 Once installation is complete, you are ready to deploy and run GPU-accelerated Linux modules through Azure IoT Edge for Linux on Windows. 
 
 ## Configure GPU acceleration in an existing Azure IoT Edge Linux on Windows deployment
-Assigning the GPU at deployment time will result in the most straightforward experience. However, to enable or disable the GPU after deployment use the 'set-eflowvm' commmand. When using 'set-eflowvm' the default parmeter will be used for any arugment not specified. For example,
+Assigning the GPU at deployment time will result in the most straightforward experience. However, to enable or disable the GPU after deployment use the 'set-eflowvm' commmand. When using 'set-eflowvm' the default parmeter will be used for any argument not specified. For example,
 
 ```powershell
 #Deploys EFLOW without a GPU assigned to the EFLOW VM
