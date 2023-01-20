@@ -104,7 +104,7 @@
             "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client.md",
             "redirect_url": "/azure/virtual-desktop/troubleshoot-client-windows",
             "redirect_document_id": true
-        }
+        },
         {
             "source_path_from_root": "/articles/private-5g-core/disconnected-mode.md",
             "redirect_url": "/azure/private-5g-core/azure-stack-edge-disconnects",
