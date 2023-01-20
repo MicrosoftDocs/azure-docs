@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/21/2022
+ms.date: 12/27/2022
 
 ---
 
@@ -22,12 +22,13 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 - If you don't have a storage account that supports the NFS v3 protocol, review [NFS v3 support with Azure Blob storage][azure-blob-storage-nfs-support].
 
-- [Enable the Blob storage CSI driver][enable-blob-csi-driver] (preview) on your AKS cluster.
+- [Enable the Blob storage CSI driver][enable-blob-csi-driver] on your AKS cluster.
 
 ## Static provisioning parameters
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
+|volumeHandle | Specify a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: {account-name}_{container-name}. Note: The # character is reserved for internal use and can't be used in a volume handle. | Yes ||
 |volumeAttributes.resourceGroup | Specify Azure resource group name. | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
 |volumeAttributes.storageAccount | Specify existing Azure storage account name. | storageAccountName | Yes ||
 |volumeAttributes.containerName | Specify existing container name. | container | Yes ||
@@ -90,7 +91,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
       name: pv-blob
     spec:
       capacity:
-        storage: 10Gi
+        storage: 1Pi
       accessModes:
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Retain  # If set as "Delete" container would be removed after pvc deletion
@@ -98,8 +99,8 @@ The following example demonstrates how to mount a Blob storage container as a pe
       csi:
         driver: blob.csi.azure.com
         readOnly: false
-        # make sure this volumeid is unique in the cluster
-        # `#` is not allowed in self defined volumeHandle
+        # make sure volumeid is unique for every identical storage blob container in the cluster
+        # character `#` is reserved for internal use and cannot be used in volumehandle
         volumeHandle: unique-volumeid
         volumeAttributes:
           resourceGroup: resourceGroupName
@@ -107,6 +108,8 @@ The following example demonstrates how to mount a Blob storage container as a pe
           containerName: containerName
           protocol: nfs
     ```
+    > [!NOTE]
+    > While the [Kubernetes API](https://github.com/kubernetes/kubernetes/blob/release-1.26/pkg/apis/core/types.go#L303-L306) **capacity** attribute is mandatory, this value isn't used by the Azure Blob storage CSI driver because you can flexibly write data until you reach your storage account's capacity limit. The value of the `capacity` attribute is used only for size matching between *PersistentVolumes* and *PersistenVolumeClaims*. We recommend using a fictitious high value. The pod sees a mounted volume with a fictitious size of 5 Petabytes.
 
 2. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
@@ -182,8 +185,8 @@ Kubernetes needs credentials to access the Blob storage container created earlie
       csi:
         driver: blob.csi.azure.com
         readOnly: false
-        # make sure this volumeid is unique in the cluster
-        # `#` is not allowed in self defined volumeHandle
+        # make sure volumeid is unique for every identical storage blob container in the cluster
+        # character `#` is reserved for internal use and cannot be used in volumehandle
         volumeHandle: unique-volumeid
         volumeAttributes:
           containerName: containerName
@@ -221,7 +224,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
     kubectl create -f pvc-blobfuse.yaml
     ```
 
-## Use the persistence volume
+## Use the persistent volume
 
 The following YAML creates a pod that uses the persistent volume or persistent volume claim named **pvc-blob** created earlier, to mount the Azure Blob storage at the `/mnt/blob' path.
 

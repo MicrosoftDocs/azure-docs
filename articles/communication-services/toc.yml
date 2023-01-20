@@ -29,9 +29,9 @@ items:
     items:
       - name: Add chat to your app
         href: quickstarts/chat/get-started.md
-      - name: Using Chat SDK with React Native
+      - name: Use the Chat SDK with React Native
         href: quickstarts/chat/react-native.md
-      - name: Send Chat messages in Azure Logic Apps
+      - name: Send chat messages by using Power Automate
         href: quickstarts/chat/logic-app.md
       - name: Add a bot to your chat app
         href: quickstarts/chat/quickstart-botframework-integration.md
@@ -83,6 +83,8 @@ items:
       href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
       href: quickstarts/voice-video-calling/handle-calling-events.md
+    - name: Accessing call volume levels
+      href: quickstarts/voice-video-calling/get-started-volume-indicator.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
   - name: Call Automation
@@ -101,8 +103,10 @@ items:
         href: quickstarts/rooms/join-rooms-call.md
   - name: UI Library
     items:
-    - name: Get started with UI Library
+    - name: Get started with Calling
       href: quickstarts/ui-library/get-started-composites.md
+    - name: Get started with Chat
+      href: quickstarts/ui-library/get-started-chat-ui-library.md
     - name: Design with UI Library Design Kit
       href: quickstarts/ui-library/get-started-ui-kit.md
   - name: Teams interoperability
@@ -161,6 +165,8 @@ items:
       href: concepts/identifiers.md
     - name: Credentials best practices
       href: concepts/credentials-best-practices.md
+    - name: Use cases for string identifiers
+      href: concepts/raw-id-use-cases.md
   - name: Chat
     items:
       - name: Chat SDK overview
@@ -294,6 +300,9 @@ items:
       - name: Presence Events
         href: ../event-grid/communication-services-presence-events.md
         maintainContext: true
+      - name: Email Events
+        href: ../event-grid/communication-services-email-events.md
+        maintainContext: true
   - name: Teams interoperability
     items:
       - name: Overview
@@ -398,6 +407,8 @@ items:
         href: how-tos/calling-sdk/browser-support.md
       - name: Verify if an application is active in multiple tabs of a browser
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
+      - name: Integrate with CallKit in iOS
+        href: how-tos/calling-sdk/callkit-integration.md
   - name: Using the UI Library
     items: 
     - name: Setup Localization
@@ -406,6 +417,8 @@ items:
       href: how-tos/ui-library-sdk/theming.md
     - name: Participant View Data Injection
       href: how-tos/ui-library-sdk/data-model.md
+    - name: Troubleshooting
+      href: how-tos/ui-library-sdk/troubleshooting.md
   - name: Using the Call Automation library
     items: 
     - name: Control and steer calls
@@ -414,6 +427,10 @@ items:
       href: how-tos/call-automation/play-action.md
     - name: Gather user input with Recognize action 
       href: how-tos/call-automation/recognize-action.md
+  - name: Using the Chat SDK
+    items: 
+    - name: Integrate with Data Loss Prevention policies
+      href: how-tos/chat-sdk/data-loss-prevention.md
 - name: Samples
   items:
   - name: Overview
@@ -508,9 +525,9 @@ items:
     items:
     - name: UI Library (JavaScript)
       href: /javascript/api/@azure/communication-react/
-    - name: UI Library (iOS)
+    - name: UI Library for Calling (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
-    - name: UI Library (Android)
+    - name: UI Library for Calling (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html   
 - name: Resources
   items:

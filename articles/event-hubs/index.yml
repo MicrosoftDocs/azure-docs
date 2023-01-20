@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/11/2022 #Required; mm/dd/yyyy format.
+  ms.date: 01/12/2023 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,13 +27,13 @@ landingContent:
         links:
           - text: What is Event Hubs?
             url: event-hubs-about.md
-          - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md
-          - text: What is Event Hubs Capture?
+          - text: Event Hubs for Apache Kafka
+            url: azure-event-hubs-kafka-overview.md
+          - text: Event Hubs Capture
             url: event-hubs-capture-overview.md            
-          - text: What is Event Hubs Premium?            
+          - text: Event Hubs Premium            
             url: event-hubs-premium-overview.md
-          - text: What is Event Hubs Dedicated?
+          - text: Event Hubs Dedicated
             url: event-hubs-dedicated-overview.md
 
   # Card
@@ -47,6 +47,10 @@ landingContent:
             url: event-hubs-quickstart-cli.md
           - text: Azure PowerShell
             url: event-hubs-quickstart-powershell.md
+          - text: Azure Resource Manager template
+            url: event-hubs-resource-manager-namespace-event-hub.md
+          - text: Bicep
+            url: event-hubs-bicep-namespace-event-hub.md
           - text: Azure Resource Manager template
             url: event-hubs-resource-manager-namespace-event-hub.md
 
@@ -80,7 +84,7 @@ landingContent:
       - linkListType: overview      
         links:
           - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md    
+            url: azure-event-hubs-kafka-overview.md    
       - linkListType: quickstart
         links:
           - text: Stream into Event Hubs for Apache Kafka
@@ -93,8 +97,8 @@ landingContent:
             url: event-hubs-kafka-stream-analytics.md      
       - linkListType: how-to-guide
         links:
-          - text: Mirror a Kafka broker in an event hub
-            url: event-hubs-kafka-mirror-maker-tutorial.md                          
+          - text: Migrate existing Kafka workloads to Event Hubs
+            url: event-hubs-kafka-mirrormaker-2-tutorial.md                          
           - text: Connect Apache Spark to an event hub
             url: event-hubs-kafka-spark-tutorial.md
           - text: Connect Apache Flink to an event hub

@@ -3,15 +3,14 @@ title: Provide optional claims to Azure AD apps
 description: How to add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Microsoft identity platform.
 author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/04/2022
+ms.date: 12/28/2022
 ms.author: davidmu
-ms.reviewer: paulgarn, ludwignick
 ms.custom: aaddev
+ms.reviewer: ludwignick
 ---
 
 # Provide optional claims to your app
@@ -366,7 +365,7 @@ This section covers the configuration options under optional claims for changing
         ]
     }
     ```
-3) Emit group names in the format of samAccountName for on-prem synced groups and display name for cloud groups in SAML and OIDC ID Tokens for the groups assigned to the application:
+3) Emit group names in the format of samAccountName for on-premises synced groups and display name for cloud groups in SAML and OIDC ID Tokens for the groups assigned to the application:
     
     **Application manifest entry:**
 

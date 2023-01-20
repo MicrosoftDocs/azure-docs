@@ -120,7 +120,7 @@ Perform the following steps to prepare the drives.
 
 Use the following steps to create an import job in the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 

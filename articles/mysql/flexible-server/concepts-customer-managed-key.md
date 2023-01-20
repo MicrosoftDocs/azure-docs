@@ -96,7 +96,7 @@ When you configure data encryption with a CMK in Key Vault, continuous access to
 
 - If you delete the KeyVault, the Azure Database for MySQL Flexible server will be unable to access the key and will move to _Inaccessible_ state. Recover the [Key Vault](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the Flexible server _Available_.
 - If we delete the key from the KeyVault, the Azure Database for MySQL Flexible server will be unable to access the key and will move to _Inaccessible_ state. Recover the [Key](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the Flexible server _Available_.
-- If the key stored in the Azure KeyVault expires, the key will become invalid, and the Azure Database for MySQL Flexible server will transition into _Inaccessible_ state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-set-attributes) and then revalidate the data encryption to make the Flexible server _Available_.
+- If the key stored in the Azure KeyVault expires, the key will become invalid, and the Azure Database for MySQL Flexible server will transition into _Inaccessible_ state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) and then revalidate the data encryption to make the Flexible server _Available_.
 
 ## Accidental key access revocation from Key Vault
 
