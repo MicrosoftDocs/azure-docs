@@ -1,7 +1,7 @@
 ---
 title: Migrate a classic storage account
 titleSuffix: Azure Storage
-description: desc
+description: Learn how to migrate your classic storage accounts to the Azure Resource Manager deployment model. All classic accounts must be migrated by August 1, 2024.
 services: storage
 author: tamram
 
