@@ -130,7 +130,6 @@ Create environment variables that specify your Cosmos DB endpoint, database name
 
 ```python
 endpoint = os.environ["COSMOS_ENDPOINT"]
-credential = DefaultAzureCredential()
 ```
 Create constants for the database and container names.
 
@@ -142,6 +141,7 @@ CONTAINER_NAME = "products"
 Create a new client instance using the `CosmosClient` object.
 
 ```python
+credential = DefaultAzureCredential()
 client = CosmosClient(url=endpoint, credential=credential)
 ```
 
@@ -153,9 +153,7 @@ From the project directory, open the *app.py* file. In your editor, import the `
 
 Create constants for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variables using `os.environ`.
 
-[!INCLUDE [sync async code environment variables.](./includes/quickstart-python/connection-string-sync-async-code-environment-variables.md)]
-
----
+[!INCLUDE [sync async code environment variables](./includes/quickstart-python/connection-string-sync-async-code-environment-variables.md)]
 
 Create constants for the database and container names.
 
@@ -167,18 +165,7 @@ Create constants for the database and container names.
 
 Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the two variables you created as parameters.
 
-#### [Sync](#tab/sync)
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_client":::
-
-#### [Async](#tab/async)
-
-> [!IMPORTANT]
-> Please the client instance in a coroutine function named `manage_cosmos`. Within the coroutine function, define the new client with the `async with` keywords. Outside of the coroutine function, use the `asyncio.run` function to execute the coroutine asynchronously.
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="24-26":::
-
-:::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" range="70":::
+[!INCLUDE [sync async code create client](./includes/quickstart-python/connection-string-sync-async-code-create-client.md)]
 
 ---
 
