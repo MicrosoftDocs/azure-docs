@@ -24,11 +24,11 @@ This article describes the steps necessary to utilize the Azure AD Application P
 
 The following diagram shows a traditional way to publish on-premises APIs for access from Azure Logic Apps. This approach requires opening incoming TCP ports 80 and/or 443 to the API service.
 
-![Diagram that shows Logic App to API direct connection.](./media/application-proxy-integrate-with-logic-apps/azure_logicapp_to_api_connection_direct.png)
+![Diagram that shows Logic App to API direct connection.](./media/application-proxy-integrate-with-logic-apps/azure-logic-app-to-api-connection-direct.png)
 
 The following diagram shows how you can use Azure AD Application Proxy to securely publish APIs for use with Logic Apps (or other Azure Cloud services) without opening any incoming ports:
 
-![Diagram that shows Logic App to API connection via Azure Application Proxy.](./media/application-proxy-integrate-with-logic-apps/azure_logicapp_to_api_connection_appproxy.png)
+![Diagram that shows Logic App to API connection via Azure Application Proxy.](./media/application-proxy-integrate-with-logic-apps/azure-logic-app-to-api-connection-app-proxy.png)
 
 The Azure AD App Proxy and associated connector facilitate secure authorization and integration to your on-premises services without additional configuration to your network security infrastructure.  
 
