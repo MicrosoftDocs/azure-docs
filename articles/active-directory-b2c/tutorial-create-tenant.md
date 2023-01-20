@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/3/2022
+ms.date: 01/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -26,7 +26,7 @@ In this article, you learn how to:
 > * Switch to the directory containing your Azure AD B2C tenant
 > * Add the Azure AD B2C resource as a **Favorite** in the Azure portal
 
-Before you create you Azure AD B2C, you need to take the following considerations into account: 
+Before you create your Azure AD B2C tenant, you need to take the following considerations into account: 
 
 - You can create up to **20** tenants per subscription. This limit help protect against threats to your resources, such as denial-of-service attacks, and is enforced in both the Azure portal and the underlying tenant creation API. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). 
 
