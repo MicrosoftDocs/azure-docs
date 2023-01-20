@@ -87,7 +87,7 @@ You can't configure groups and organizational units within a configuration.
 ## Attribute mapping
 Azure AD Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  
 
-:::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screen shot of map attributes icon" lightbox="media/how-to-configure/new-ux-configure-6.png":::
+:::image type="content" source="media/how-to-configure/new-ux-configure-6.png" alt-text="Screenshot of map attributes icon" lightbox="media/how-to-configure/new-ux-configure-6.png":::
 
 
 You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.  
