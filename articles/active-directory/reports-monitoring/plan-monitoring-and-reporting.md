@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/19/2022
+ms.date: 01/20/2023
 ms.author: sarahlipsey
 ms.reviewer: plenzke 
 # Customer intent: For an Azure AD administrator to monitor logs and report on access 
