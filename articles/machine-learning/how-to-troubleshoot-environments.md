@@ -497,10 +497,6 @@ This issue can happen when there's a failure decoding a character in your conda 
 * Failure in running jobs because it will implicitly build the environment in the first step.
 <!--/issueDescription-->
 
-**Troubleshooting steps**
-Review your Build log for the location of the issue. Make sure all characters used in your conda YAML file are in the UTF-8 character set.
-* See [Complete Character List for UTF-8](https://www.fileformat.info/info/charset/UTF-8/list.htm)
-
 ### *Pip issues*
 ### Pip not specified
 - For reproducibility, pip should be specified as a dependency in your conda specification, and it should be pinned
