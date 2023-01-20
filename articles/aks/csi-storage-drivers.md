@@ -42,7 +42,7 @@ To enable CSI storage drivers on a new cluster, include one of the following par
 az aks update -n myAKSCluster -g myResourceGroup --enable-disk-driver --enable-file-driver --enable-blob-driver --enable-snapshot-controller
 ```
 
-It may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example is resembles the section indicating the results when enabling the Blob storage CSI driver:
+It may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example resembles the section indicating the results when enabling the Blob storage CSI driver:
 
 ```output
 "storageProfile": {

@@ -457,6 +457,8 @@
               href: azure-disk-csi.md
             - name: Provision Azure Disks storage
               href: azure-csi-disk-storage-provision.md
+            - name: Use Azure Ultra Disks
+              href: use-ultra-disks.md
         - name: Other storage options
           items:
             - name: Azure HPC Cache

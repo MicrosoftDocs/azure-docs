@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 To rapidly scale application workloads in an AKS cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run more pods. Virtual nodes are only supported with Linux pods and nodes.
 
-The virtual nodes add-on for AKS, is based on the open source project [Virtual Kubelet][virtual-kubelet-repo].
+The virtual nodes add on for AKS is based on the open source project [Virtual Kubelet][virtual-kubelet-repo].
 
 This article gives you an overview of the region availability and networking requirements for using virtual nodes, and the known limitations.
 

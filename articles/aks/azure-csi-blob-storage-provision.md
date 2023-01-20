@@ -49,7 +49,7 @@ This section provides guidance for cluster administrators who want to provision 
 |storeAccountKey | Specify store account key to Kubernetes secret. <br><br> Note:  <br> `false` means driver uses kubelet identity to get account key. | `true`,`false` | No | `true`|
 |secretName | Specify secret name to store account key. | | No |
 |secretNamespace | Specify the namespace of secret to store account key. | `default`,`kube-system`, etc. | No | pvc namespace |
-|isHnsEnabled | Enable `Hierarchical namespace` for Azure DataLake storage account. | `true`,`false` | No | `false`|
+|isHnsEnabled | Enable `Hierarchical namespace` for Azure Data Lake storage account. | `true`,`false` | No | `false`|
 |--- | **Following parameters are only for NFS protocol** | --- | --- |--- |
 |mountPermissions | Specify mounted folder permissions. |The default is `0777`. If set to `0`, driver won't perform `chmod` after mount. | `0777` | No |
 
@@ -185,7 +185,7 @@ In this example, the following manifest configures mounting a Blob storage conta
 
 #### Storage class using blobfuse
 
-In this example, the following manifest configures using blobfuse and mount a Blob storage container. Use it to update the *skuName* parameter.
+In this example, the following manifest configures using blobfuse and mounts a Blob storage container. Use it to update the *skuName* parameter.
 
 1. Create a file named `blobfuse-sc.yaml`, and paste the following example manifest:
 
@@ -241,7 +241,7 @@ This section provides guidance for cluster administrators who want to create one
 |volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB).| | No ||
 |volumeAttributes.secretNamespace | Specify namespace of secret to store account key. | `default` | No | Pvc namespace|
 |nodeStageSecretRef.name | Specify secret name that stores one of the following:<br> `azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret`. | |Existing Kubernetes secret name |  No  |
-|nodeStageSecretRef.namespace | Specify the namespace of secret. | k8s namespace | Yes ||
+|nodeStageSecretRef.namespace | Specify the namespace of secret. | Kubernetes namespace | Yes ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.mountPermissions | Specify mounted folder permissions. | `0777` | No ||
 |--- | **Following parameters are only for NFS VNet setting** | --- | --- | --- |
@@ -438,6 +438,8 @@ Kubernetes needs credentials to access the Blob storage container created earlie
     kubectl create -f pvc-blobfuse.yaml
     ```
 
+---
+
 ### Use the persistence volume
 
 The following YAML creates a pod that uses the persistent volume or persistent volume claim named **pvc-blob** created earlier, to mount the Azure Blob storage at the `/mnt/blob' path.
@@ -494,6 +496,8 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 [blobfuse-overview]: https://github.com/Azure/azure-storage-fuse
 [nfs-overview]: https://en.wikipedia.org/wiki/Network_File_System
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
 [operator-best-practices-storage]: operator-best-practices-storage.md
@@ -501,3 +505,4 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [azure-blob-storage-csi]: azure-blob-csi.md
 [azure-blob-storage-nfs-support]: ../storage/blobs/network-file-system-protocol-support.md
 [enable-blob-csi-driver]: azure-blob-csi.md#before-you-begin
+[az-tags]: ../azure-resource-manager/management/tag-resources.md

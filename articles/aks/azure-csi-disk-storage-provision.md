@@ -489,5 +489,5 @@ configuration file created in the previous steps:
 [azure-tags]: ../azure-resource-manager/management/tag-resources.md
 [disk-encryption]: ../virtual-machines/windows/disk-encryption.md
 [azure-disk-write-accelerator]: ../virtual-machines/windows/how-to-enable-write-accelerator.md
-[on-demand-bursting]: (../virtual-machines/disk-bursting.md
+[on-demand-bursting]: ../virtual-machines/disk-bursting.md
 [customer-usage-attribution]: ../marketplace/azure-partner-customer-usage-attribution.md

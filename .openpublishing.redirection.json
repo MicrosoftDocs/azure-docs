@@ -162,32 +162,32 @@
         },
         {
             "source_path_from_root": "/articles/aks/azure-csi-blob-storage-dynamic.md",
-            "redirect_url": "/azure/aks/azure-csi-blob-provision",
+            "redirect_url": "/azure/aks/azure-csi-blob-storage-provision",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/aks/azure-csi-blob-storage-static.md",
-            "redirect_url": "/azure/aks/azure-csi-blob-provision",
+            "redirect_url": "/azure/aks/azure-csi-blob-storage-provision",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/aks/azure-disks-dynamic-pv.md",
-            "redirect_url": "/azure/aks/azure-csi-disk-provision",
+            "redirect_url": "/azure/aks/azure-csi-disk-storage-provision",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/aks/azure-disk-volume.md",
-            "redirect_url": "/azure/aks/azure-csi-disk-provision",
+            "redirect_url": "/azure/aks/azure-csi-disk-storage-provision",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/aks/azure-files-dynamic-pv.md",
-            "redirect_url": "/azure/aks/azure-csi-files-provision",
+            "redirect_url": "/azure/aks/azure-csi-files-storage-provision",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/aks/azure-files-volume.md",
-            "redirect_url": "/azure/aks/azure-csi-files-provision",
+            "redirect_url": "/azure/aks/azure-csi-files-storage-provision",
             "redirect_document_id": false
         },
         {

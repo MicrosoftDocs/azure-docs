@@ -12,7 +12,7 @@ The Azure Blob storage Container Storage Interface (CSI) driver is a [CSI specif
 
 By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
-Mounting Azure Blob storage as a file system into a container or pod, enables you to use blob storage with a number of applications that work massive amounts of unstructured data. For example:
+When you mount Azure Blob storage as a file system into a container or pod, it enables you to use blob storage with a number of applications that work massive amounts of unstructured data. For example:
 
 * Log file data
 * Images, documents, and streaming video or audio
@@ -53,7 +53,7 @@ To enable the driver on an existing cluster, include the `--enable-blob-driver` 
 az aks update --enable-blob-driver -n myAKSCluster -g myResourceGroup
 ```
 
-You're prompted to confirm there isn't an open-source Blob CSI driver installed. After confirming, it may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example is resembles the section indicating the results of the previous command:
+You're prompted to confirm there isn't an open-source Blob CSI driver installed. After you confirm, it may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example resembles the section indicating the results of the previous command:
 
 ```output
 "storageProfile": {

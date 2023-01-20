@@ -30,10 +30,10 @@ In addition to the original in-tree driver features, Azure Files CSI driver supp
 |--- | --- | --- | --- | ---
 |skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file share size for Premium account type is 100 GiB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
 |fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`| Yes | `ext4` for Linux|
-|location | Specify Azure region where Azure storage account will be created. | `eastus`, `westus`, etc. | No | If empty, driver uses the same location name as current AKS cluster.|
-|resourceGroup | Specify the resource group where the Azure Disks will be created | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster.|
+|location | Specify Azure region where Azure storage account will be created. | For example, `eastus`. | No | If empty, driver uses the same location name as current AKS cluster.|
+|resourceGroup | Specify the resource group where the Azure Disks will be created. | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster.|
 |shareName | Specify Azure file share name | Existing or new Azure file share name. | No | If empty, driver generates an Azure file share name. |
-|shareNamePrefix | Specify Azure file share name prefix created by driver. | Share name can only contain lowercase letters, numbers, hyphens, and length should be less than 21 characters. | No |
+|shareNamePrefix | Specify Azure file share name prefix created by driver. | Share name can only contain lowercase letters, numbers, hyphens, and length should be fewer than 21 characters. | No |
 |folderName | Specify folder name in Azure file share. | Existing folder name in Azure file share. | No | If folder name does not exist in file share, mount will fail. |
 |shareAccessTier | [Access tier for file share][storage-tiers] | General purpose v2 account can choose between `TransactionOptimized` (default), `Hot`, and `Cool`. Premium storage account type for file shares only. | No | Empty. Use default setting for different storage account types.|
 |accountAccessTier | [Access tier for storage account][access-tiers-overview] | Standard account can choose `Hot` or `Cool`, and Premium account can only choose `Premium`. | No | Empty. Use default setting for different storage account types. |
@@ -42,11 +42,11 @@ In addition to the original in-tree driver features, Azure Files CSI driver supp
 |allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true` or `false` | No | `false` |
 |requireInfraEncryption | Specify whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest for storage account created by driver. | `true` or `false` | No | `false` |
 |storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net`, `core.chinacloudapi.cn`, etc. | No | If empty, driver uses default storage endpoint suffix according to cloud environment. For example, `core.windows.net`. |
-|tags | [tags][tag-resources] are created in newly created storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
+|tags | [tags][tag-resources] are created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
 |matchTags | Match tags when driver tries to find a suitable storage account. | `true` or `false` | No | `false` |
 |--- | **Following parameters are only for SMB protocol** | --- | --- |
 |subscriptionID | Specify Azure subscription ID where Azure file share is created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided. |
-|storeAccountKey | Specify whether to store account key to k8s secret. | `true` or `false`<br>`false` means driver leverages kubelet identity to get account key. | No | `true` |
+|storeAccountKey | Specify whether to store account key to Kubernetes secret. | `true` or `false`<br>`false` means driver leverages kubelet identity to get account key. | No | `true` |
 |secretName | Specify secret name to store account key. | | No |
 |secretNamespace | Specify the namespace of secret to store account key. <br><br> **Note:** <br> If `secretNamespace` isn't specified, the secret is created in the same namespace as the pod. | `default`,`kube-system`, etc | No | Pvc namespace, for example `csi.storage.k8s.io/pvc/namespace` |
 |useDataPlaneAPI | Specify whether to use [data plane API][data-plane-api] for file share create/delete/resize. This could solve the SRP API throttling issue because the data plane API has almost no limit, while it would fail when there is firewall or Vnet setting on storage account. | `true` or `false` | No | `false` |
@@ -82,7 +82,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 > [!NOTE]
 > Azure Files supports Azure Premium Storage. The minimum premium file share capacity is 100 GiB.
 
-When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that use the Azure Files CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure Files CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
 - `azurefile-csi`: Uses Azure Standard Storage to create an Azure Files share.
 - `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure Files share.
