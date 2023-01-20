@@ -253,7 +253,7 @@ The above code snippet demonstrates how to create a `MapsSearchClient` object us
 After finishing the program, go to the project folder and run `java ./demo.java` in the command line:  
 
 ```powershell
-java ./demo.java 
+java .\demo.java 
 ```  
 
 You should see a list of Starbucks address and coordinate results:
