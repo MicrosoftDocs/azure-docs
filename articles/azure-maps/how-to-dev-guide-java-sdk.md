@@ -250,7 +250,7 @@ public class Demo {
 
 The above code snippet demonstrates how to create a `MapsSearchClient` object using your Azure credentials. Start by instantiating `AzureKeyCredential` using your Azure Maps subscription key. Alternatively, you can authenticate using Azure AD by creating a default credential that looks for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID` and `AZURE_CLIENT_SECRET` environment variables. We then feed the credential to instantiate `MapsSearchClient`. The methods provided by `MapsSearchClient` such as `FuzzySearch` will pass in the point of interest (POI) name "starbucks" and coordinates GeoPosition(-122.31, 47.61). In the simple fuzzy search example above, we can search for a point of interest (POI) with just the keyword "starbucks". However, as shown in the fuzzy search with options example, we can also fuzzy search with options that can include additional information such as coordinates.
 
-After finishing the program, go to the project folder and run `java ./demo.java` in the command line:  
+After finishing the program, go to the project folder and run `java .\demo.java` in the command line:  
 
 ```powershell
 java .\demo.java 
