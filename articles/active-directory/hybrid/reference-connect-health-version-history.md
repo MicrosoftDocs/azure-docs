@@ -27,6 +27,11 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
+## 19 January 2023 
+**Agent Update**
+- Azure AD Connect Health agent for Azure AD Connect (version 3.2.2188.23)
+   - We fixed a bug where, under certain circumstances, Azure AD Connect sync errors were not getting uploaded or shown in the portal.
+
 ## September 2021
 **Agent Update**
 - Azure AD Connect Health agent for AD FS (version 3.1.113.0)
