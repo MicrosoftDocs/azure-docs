@@ -1,6 +1,6 @@
 ---
-title: Understand the MedTech service - Azure Health Data Services
-description: This article will provide you with an understanding of the MedTech service device messaging data processing and persistence. The MedTech service ingests, normalizes, groups, transforms, and persists device message data into the FHIR service.
+title: Understand the MedTech service device message data transformation - Azure Health Data Services
+description: This article will provide you with an understanding of the MedTech service device messaging data transformation to FHIR Observation resources. The MedTech service ingests, normalizes, groups, transforms, and persists device message data into the FHIR service.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -10,25 +10,23 @@ ms.date: 1/20/2023
 ms.author: jasteppe
 ---
 
-# Understand the MedTech service
+# Understand the MedTech service device message data transformation
 
-This article provides an overview of the device message processing stages within the [MedTech service](overview.md). The MedTech service transforms device message data into Fast Healthcare Interoperability Resources (FHIR&#174;) [Observation](https://www.hl7.org/fhir/observation.html) resources for persistence and access on the [FHIR service](../fhir/overview.md).
+This article provides an overview of the device message data processing stages within the [MedTech service](overview.md). The MedTech service transforms device message data into Fast Healthcare Interoperability Resources (FHIR&#174;) [Observation](https://www.hl7.org/fhir/observation.html) resources for persistence on the [FHIR service](../fhir/overview.md).
 
 The MedTech service device message processing follows these steps and in this order:
 
 > [!div class="checklist"]
 > - Ingest
-> - Normalize
+> - Normalize - Device mappings applied
 > - Group
-> - Transform
+> - Transform - FHIR destination mappings applied
 > - Persist
 
 :::image type="content" source="media/understand-service/iot-data-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/iot-data-flow.png":::
 
 ## Ingest
-Ingest is the first stage where device messages are received in an [Azure Event Hubs](../../event-hubs/index.yml) event hub (`device message event hub`) and pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
-
-The MedTech service batches device messages from the device message event hub within a five-minute sliding window. The MedTech service isn't intended for real-time notifications as it can potentially take up to five minutes for device message data to be processed by the MedTech service and persisted in the FHIR service.
+Ingest is the first stage where device messages are received in an [Azure Event Hubs](../../event-hubs/index.yml) event hub (`device message event hub`) and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
 
 The device message event hub uses the MedTech service's [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](/azure/role-based-access-control/overview) for secure access to the device message event hub.
 
@@ -36,7 +34,7 @@ The device message event hub uses the MedTech service's [system-assigned managed
 > JSON is the only supported format at this time for device message data.
 
 > [!IMPORTANT]
-> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+> If you're going to allow access from multiple services to the device message event hub, it is required that each service has its own event hub consumer group.
 >
 > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
 >
@@ -59,10 +57,7 @@ Group is the next *optional* stage where the normalized messages available from 
 > - Measurement type
 > - Time period
 
-`Device identity` and `measurement type` grouping is optional and enabled by the use of the [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) measurement type. The SampledData measurement type provides a concise way to represent a time-based series of measurements from a device message into FHIR Observation resources. `Time period` controls the latency at which FHIR Observation resources generated by the MedTech service are persisted in the FHIR service.
-
-> [!NOTE]
-> The time period value is defaulted to 15 minutes and cannot be configured for preview.
+`Device identity` and `measurement type` grouping is optional and enabled by the use of the [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) measurement type. The SampledData measurement type provides a concise way to represent a time-based series of measurements from a device message into FHIR Observation resources.
 
 ## Transform
 Transform is the next stage where grouped-normalized device messages are processed using user-selected/user-created conforming and valid [FHIR destination mappings](how-to-configure-fhir-mappings.md). Device messages matching a FHIR destination mappings template type get transformed into FHIR Observation resources as specified through the FHIR destination mappings.
@@ -76,6 +71,8 @@ If no Device resource for a given device identifier exists in the FHIR service, 
 
 > [!NOTE]
 > The `Resolution Type` can also be adjusted post deployment of the MedTech service in the event that a different type is later desired.
+
+The MedTech service buffers the transformed device message data within the transformation stage. The MedTech service provides near real-time notifications as it can potentially take up to five minutes for device message data to be processed by the MedTech service and persisted in the FHIR service.
 
 ## Persist
 Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation resource is new, it will be created in the FHIR service. If the FHIR Observation resource already existed, it will get updated in the FHIR service.
