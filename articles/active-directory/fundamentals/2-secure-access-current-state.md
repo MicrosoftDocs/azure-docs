@@ -81,7 +81,7 @@ If your email and network plans are enabled, you can investigate content sharing
 * Identify, prevent, and monitor accidental sharing
   * [Learn about data loss prevention](/microsoft-365/compliance/dlp-learn-about-dlp?view=o365-worldwide&preserve-view=true )
 * Identify unauthorized apps
-  * [Microsoft Defender for Cloud Apps overview](https://learn.microsoft.com/defender-cloud-apps/what-is-defender-for-cloud-apps)
+  * [Microsoft Defender for Cloud Apps overview](/defender-cloud-apps/what-is-defender-for-cloud-apps)
 
 ## Next steps
 
