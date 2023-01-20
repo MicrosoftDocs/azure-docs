@@ -6,13 +6,8 @@ ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
-manager: edprice
-ms.author: edprice
-editor: edprice
 ms.topic: conceptual
 ms.date: 02/22/2019
-tags:
-keywords:
 ---
 # Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1
 
