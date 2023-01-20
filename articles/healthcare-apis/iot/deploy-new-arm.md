@@ -100,7 +100,7 @@ When deployment is completed, the following resources and access roles are creat
 
   - An event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
-  - An Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the device event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](/azure/event-hubs/authorize-access-shared-access-signature).
+  - An Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the device event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](../../event-hubs/authorize-access-shared-access-signature.md).
 
 - A Health Data Services workspace.
 
