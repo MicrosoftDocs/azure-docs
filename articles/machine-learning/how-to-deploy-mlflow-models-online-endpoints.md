@@ -561,7 +561,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" alt-text="Screenshot showing the folder where the model artifacts are placed":::
 
-1. Create a scoring script:
+1. Create a scoring script. Notice how the folder name `model` you identified before has been included in the `init()` function.
 
     __score.py__
 
