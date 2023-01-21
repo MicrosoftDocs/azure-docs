@@ -174,7 +174,7 @@ For organizations that need to secure access from one workstation located on-pre
 
 Larger data sets can be moved over a dedicated high-speed WAN link such as [ExpressRoute](../../expressroute/expressroute-introduction.md). If you choose to use ExpressRoute, you can also encrypt the data at the application-level using SSL/TLS or other protocols for added protection.
 
-If you are interacting with Azure Storage through the Azure portal, all transactions occur via HTTPS. [Storage REST API](/rest/api/storageservices/) over HTTPS can also be used to interact with [Azure Storage](../../storage/index.yml) and [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md).
+If you are interacting with Azure Storage through the Azure portal, all transactions occur via HTTPS. [Storage REST API](/rest/api/storageservices/) over HTTPS can also be used to interact with [Azure Storage](../../storage/index.yml) and [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
 You can learn more about Azure VPN option by reading the article [Planning and design for VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
