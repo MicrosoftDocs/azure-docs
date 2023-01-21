@@ -205,7 +205,9 @@ $targetSnapshot.CompletionPercent
 
 ## Check sector size
 
-Snapshots of disks with 4096 logical sector size are stored as VHDX, whereas snapshots of disks with 512 logical sector size are stored as VHD. Snapshots inherit the logical sector size from the parent disk. You can use the LogicalSectorSize property of the snapshots to find the format of the snapshots.
+If you want to determine whether or your snapshot is a VHDX or a VHD snapshot, you can use the `LogicalSectorSize` property of the snapshot. Snapshots of disks with 4096 logical sector size are stored as VHDX, whereas snapshots of disks with 512 logical sector size are stored as VHD. Snapshots inherit the logical sector size from the parent disk.
+
+The following command displays the logical sector size of a snapshot:
 
 ```azurecli
 az snapshot show -g resourcegroupname-n snapshotname--query [creationData.logicalSectorSize] -o tsv
