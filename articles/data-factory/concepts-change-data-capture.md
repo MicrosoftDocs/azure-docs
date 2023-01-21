@@ -56,7 +56,7 @@ The newly updated rows or updated files can be automatically detected and extrac
 
 A new top-level change data capture resource guides users through a simple configuration process to create a resource that will continuously and automatically read changes from data source(s) without needing to design pipelines, data flows, or set up triggers. 
 
-:::image type="content" source="media/adf-cdc/adf-cdc-artifact-1.png" alt-text="New top-level artifact in Factory Resources panel.":::
+:::image type="content" source="media/adf-cdc/change-data-capture-resource-1.png" alt-text="Screenshot of new top-level artifact in Factory Resources panel.":::
 
 
 ### Customer managed delta data extraction in pipeline
