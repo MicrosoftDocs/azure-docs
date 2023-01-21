@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Virtual Desktop MSIX app attach PowerShell scripts - Azure
-description: How to create PowerShell scripts for MSIX app attach for Azure Virtual Desktop.
+description: Set up PowerShell scripts for testing and troubleshooting MSIX app attach disk images outside of Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 01/18/2023
@@ -31,40 +31,54 @@ The first part of setting up app attach with PowerShell involves staging the scr
 
 However, if you're using an image in cim format or a version of PowerShell greater than 5.1, the instructions will look a bit different. Later versions of PowerShell are multi-platform, which means the Windows application parts are split off into their own package called [Windows Runtime](/windows/uwp/winrt-components/). You'll need to use a slightly different version of the commands to install a package with a multi-platform version of PowerShell.
 
-Before you stage your PowerShell script, you'll need to get elevated privileges by running the following command:
+You'll need elevated privileges to run the commands in the following sections.
 
-```powershell
-#Required for PowerShell versions greater than 5.1
-$nuGetPackageName = 'Microsoft.Windows.SDK.NET.Ref'
-Register-PackageSource -Name MyNuGet -Location https://www.nuget.org/api/v2 -ProviderName NuGet
-Find-Package $nuGetPackageName | Install-Package
-```
+Next, you'll need to decide which instructions you need to follow to stage your package based on the following criteria:
 
-Next, you'll need to install the package based on whether you're using [a PowerShell version later than 5.1](#install-an-package-using-a-later-powershell-version), [PowerShell version 5.1 or earlier](#install-a-package-using-powershell-51-and-earlier), or are [using a cim disk image](#install-a-package-on-a-cimfs-disk-image). After you complete those instructions, proceed to [mount your disk image](#mount-your-disk-image).
+- Are you running [a PowerShell version later than 5.1](#install-a-package-using-a-powershell-version-later-than-51)?
+- Are you running [PowerShell version 5.1 or earlier](#install-a-package-using-powershell-51-and-earlier)?
+- Are you [using a cim disk image](#install-a-package-on-a-cimfs-disk-image)?
 
-### Install an package using a later PowerShell version
+### Install a package using a PowerShell version later than 5.1
 
 To stage packages at boot using a PowerShell version greater than 5.1 you will need the following commands before the staging operations to bring the capabilities of the Windows Runtime package you previously installed into the PowerShell session.
 
-```powershell
-#Required for PowerShell versions greater than 5.1
-$nuGetPackageName = 'Microsoft.Windows.SDK.NET.Ref'
-$winRT = Get-Package $nuGetPackageName
-$dllWinRT = Get-Childitem (Split-Path -Parent $winRT.Source) -Recurse -File WinRT.Runtime.dll
-$dllSdkNet = Get-Childitem (Split-Path -Parent $winRT.Source) -Recurse -File Microsoft.Windows.SDK.NET.dll
-Add-Type -AssemblyName $dllWinRT.FullName
-Add-Type -AssemblyName $dllSdkNet.FullName
-```
+1. First, run this command to get the package:
+
+   ```powershell
+   #Required for PowerShell versions greater than 5.1
+   $nuGetPackageName = 'Microsoft.Windows.SDK.NET.Ref'
+   Register-PackageSource -Name MyNuGet -Location https://www.nuget.org/api/v2 -ProviderName NuGet
+   Find-Package $nuGetPackageName | Install-Package
+   ```
+
+1. Next, run the following command to stage the package.
+
+   ```powershell
+   #Required for PowerShell versions greater than 5.1
+   $nuGetPackageName = 'Microsoft.Windows.SDK.NET.Ref'
+   $winRT = Get-Package $nuGetPackageName
+   $dllWinRT = Get-Childitem (Split-Path -Parent $winRT.Source) -Recurse -File WinRT.Runtime.dll
+   $dllSdkNet = Get-Childitem (Split-Path -Parent $winRT.Source) -Recurse -File Microsoft.Windows.SDK.NET.dll
+   Add-Type -AssemblyName $dllWinRT.FullName
+   Add-Type -AssemblyName $dllSdkNet.FullName
+   ```
+
+1. If your disk image is in cim format, go to [Install a package on a CimFS disk image](#install-a-package-on-a-cimfs-disk-image). If not, proceed to [Mount your disk image](#mount-your-disk-image).
 
 ### Install a package using Powershell 5.1 and earlier
 
-To stage packages at boot with PowerShell version 5.1 or earlier, run this command:
+To stage packages at boot with PowerShell version 5.1 or earlier:
 
-```powershell
-#Required for PowerShell versions less than or equal to 5.1
-[Windows.Management.Deployment.PackageManager,Windows.Management.Deployment,ContentType=WindowsRuntime] | Out-Null
-Add-Type -AssemblyName System.Runtime.WindowsRuntime
-```
+1. Run this command:
+
+   ```powershell
+   #Required for PowerShell versions less than or equal to 5.1
+   [Windows.Management.Deployment.PackageManager,Windows.Management.Deployment,ContentType=WindowsRuntime] | Out-Null
+   Add-Type -AssemblyName System.Runtime.WindowsRuntime
+   ```
+
+1. If your disk image is in cim format, go to [Install a package on a CimFS disk image](#install-a-package-on-a-cimfs-disk-image). If not, proceed to [Mount your disk image](#mount-your-disk-image).
 
 ### Install a package on a CimFS disk image
 
@@ -80,36 +94,50 @@ Import-Module CimDiskImage
 
 ## Mount your disk image
 
-Now that you've prepared your machine to stage MSIX app attach packages, you'll need to mount your disk image. This process will vary depending on which format you're using for your disk image.
+Now that you've prepared your machine to stage MSIX app attach packages, you'll need to mount your disk image. This process will vary depending on whether you're using the [VHD(X)](#mount-a-vhdx-disk-image) or [CimFS](#mount-a-cimfs-disk-image) format for your disk image.
 
 >[!NOTE]
 >Make sure to record the full name of the MSIX package for each application the commands output. You'll need those names to follow directions later in this article.
 
-To mount a VHD(X) disk image, run this command:
+### Mount a VHD(X) disk image
 
-```powershell
-$diskImage = "<UNC path to the Disk Image>"
+To mount a VHD(X) disk image:
 
-$mount = Mount-Diskimage -ImagePath $diskImage -PassThru -NoDriveLetter -Access ReadOnly
+1. Run this command:
 
-#We can now get the Device Id for the mounted volume, this will be useful for the destage step. This 
-$partition = Get-Partition -DiskNumber $mount.Number
-$DeviceId = $partition.AccessPaths
-Write-OutPut $DeviceId
-```
+   ```powershell
+   $diskImage = "<UNC path to the Disk Image>"
 
-To mount a CimFS disk image, run this command:
+   $mount = Mount-Diskimage -ImagePath $diskImage -PassThru -NoDriveLetter -Access ReadOnly
 
-```powershell
-$diskImage = "<UNC path to the Disk Image>"
+   #We can now get the Device Id for the mounted volume, this will be useful for the destage step. This 
+   $partition = Get-Partition -DiskNumber $mount.Number
+   $DeviceId = $partition.AccessPaths
+   Write-OutPut $DeviceId
+   ```
 
-$mount = Mount-CimDiskimage -ImagePath $diskImage -PassThru -NoMountPath
+1. When you're done, proceed to [Finish mounting your disk image](#finish-mounting-your-image).
 
-#We can now get the Device Id for the mounted volume, this will be useful for the destage step.
-Write-Output $mount.DeviceId
-```
+### Mount a CimFS disk image
 
-Finally, you'll need to run the following command for all image types. This command will use the $mount variable you created when you mounted your disk image in the previous section.
+To mount a CimFS disk image:
+
+1. Run this command:
+
+   ```powershell
+   $diskImage = "<UNC path to the Disk Image>"
+
+   $mount = Mount-CimDiskimage -ImagePath $diskImage -PassThru -NoMountPath
+
+   #We can now get the Device Id for the mounted volume, this will be useful for the destage step.
+   Write-Output $mount.DeviceId
+   ```
+
+1. When you're done, proceed to [Finish mounting your disk image](#finish-mounting-your-image).
+
+### Finish mounting your image
+
+Finally, you'll need to run the following command for all image formats. This command will use the $mount variable you created when you mounted your disk image in the previous section.
 
 ```powershell
 #Once the volume is mounted we can retrieve the application information
@@ -187,15 +215,19 @@ Remove-AppxPackage -AllUsers -Package $msixPackageFullName
 Remove-AppxPackage -Package $msixPackageFullName
 ```
 
-### Dismount the disks from the system
+## Dismount the disks from the system
 
-To finish the destaging process, you'll need to dismount the disks from the system. The command you'll need to use depends on which format your disk images are in.
+To finish the destaging process, you'll need to dismount the disks from the system. The command you'll need to use depends on whether your disk image is in [CimFS](#dismount-a-cimfs-image-disk) or [VHD(X)](#dismount-a-vhdx-image-disk) format.
+
+### Dismount a CimFS image disk
 
 If your image is in CimFS format, run this cmdlet:
 
 ```powershell
 DisMount-CimDiskimage -DeviceId $DeviceId
 ```
+
+### Dismount a VHD(X) image disk
 
 If your image is in VHD(X) format, run this cmdlet:
 
