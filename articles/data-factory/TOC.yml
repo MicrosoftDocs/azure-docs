@@ -296,11 +296,11 @@ items:
       - name: Supported functions
         href: wrangling-functions.md
         displayName: power
-  - name: Change Data Capture
+  - name: Change data capture
     items:
-    - name: Change Data Capture
+    - name: Change data capture
       href: concepts-change-data-capture.md    
-    - name: Change Data Capture resource
+    - name: Change data capture resource
       href: concepts-change-data-capture-resource.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
@@ -358,7 +358,7 @@ items:
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
-    - name: Author a Change data capture resource
+    - name: Author a change data capture resource
       href: how-to-change-data-capture-resource.md
     - name: Connect to Azure DevOps in another tenant
       href: cross-tenant-connections-to-azure-devops.md
