@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp, aaddev, engagement-fy23
 
 When you acquire an access token using the Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token, it should attempt to fetch it from the cache first.
 
-You can monitor the source of the tokens by inspecting the [`AuthenticationResult.AuthenticationResultMetadata.TokenSource`](/../../microsoft.identity.client.authenticationresultmetadata.tokensource?view=msal-dotnet-latest) property.
+You can monitor the source of the tokens by inspecting the [`AuthenticationResult.AuthenticationResultMetadata.TokenSource`](/dotnet/api/microsoft.identity.client.authenticationresultmetadata.tokensource?view=msal-dotnet-latest) property.
 
 ## Websites and web APIs
 
