@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/26/2022
+ms.date: 01/20/2023
+ms.custom: engagement-fy23
 ---
 
 # Azure Machine Learning data exfiltration prevention
@@ -24,7 +25,7 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
     * __Storage Outbound__: This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
 
-    * __AzureFrontDoor.frontend outbound__: Azure Front Door is used by the Azure Machine Learning studio UI and AutoML. Instead of allowing outbound to the service tag (AzureFrontDoor.frontend), switch to the following fully qulified domain names (FQDN). Switching to these FQDNs removes unnecessary outbound traffic included in the service tag and allows only what is needed for Azure Machine Learning studio UI and AutoML.
+    * __AzureFrontDoor.frontend outbound__: Azure Front Door is used by the Azure Machine Learning studio UI and AutoML. Instead of allowing outbound to the service tag (AzureFrontDoor.frontend), switch to the following fully qualified domain names (FQDN). Switching to these FQDNs removes unnecessary outbound traffic included in the service tag and allows only what is needed for Azure Machine Learning studio UI and AutoML.
 
         - `ml.azure.com`
         - `automlresources-prod.azureedge.net`
@@ -150,10 +151,6 @@ When using Azure ML curated environments, make sure to use the latest environmen
     * `*.data.mcr.microsoft.com`
 
     ---
-
-## Limitations
-
-If you want to have data exfiltration with **No Public IP option**, you need to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview. It may take one to two weeks to allowlist your subscription. Use the form at [https://forms.office.com/r/0Rw6mXTT07](https://forms.office.com/r/0Rw6mXTT07) to opt in to this Azure Machine Learning preview.
 
 ## Next steps
 
