@@ -1,7 +1,7 @@
 ---
 title: Best practices for using blob access tiers
 titleSuffix: Azure Storage
-description: Description goes here
+description: Learn about best practice guidelines that help you use access tiers to optimize performance and reduce costs.
 author: normesta
 
 ms.author: normesta
@@ -54,17 +54,17 @@ For information about how to convert append and page blobs to block blobs, see [
 
 ## Pack small files before moving data to cooler tiers
 
-Each read or write operation incurs a cost. To reduce the cost of reading and writing data, consider packing small files into larger ones by using file formats such as TAR or ZIP. Fewer files reduces the number of operations required to transfer data. 
+Each read or write operation incurs a cost. To reduce the cost of reading and writing data, consider packing small files into larger ones by using file formats such as TAR or ZIP. Fewer files reduce the number of operations required to transfer data. 
 
 The following chart shows the relative impact of packing files for the cool tier. The read cost assumes a monthly read percentage of 30%.
 
 > [!div class="mx-imgBorder"]
-> ![Chart that shows the impact on costs when you pack small files before uploading to the cool access tier](./media/access-tiers-best-practices/packing-impact-cool.png)
+> ![Chart that shows the impact on costs when you pack small files before uploading to the cool access tier.](./media/access-tiers-best-practices/packing-impact-cool.png)
 
 The following chart shows the relative impact of packing files for the archive tier. The read cost assumes a monthly read percentage of 30%.
 
 > [!div class="mx-imgBorder"]
-> ![Chart that shows the impact on costs when you pack small files before uploading to the archive access tier](./media/access-tiers-best-practices/packing-impact-archive.png)
+> ![Chart that shows the impact on costs when you pack small files before uploading to the archive access tier.](./media/access-tiers-best-practices/packing-impact-archive.png)
 
 > [!TIP]
 > To facilitate search and read scenarios, consider creating an index that maps packed file paths with original file paths, and then storing these indexes as block blobs in the hot tier.
