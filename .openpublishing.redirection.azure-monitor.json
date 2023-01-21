@@ -1,10 +1,20 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/azure-monitor/best-practices.md",
+            "redirect_url": "/azure/azure-monitor/getting-started",
+            "redirect_document_id": false
+         },
+         {
             "source_path_from_root": "/articles/azure-monitor/change/change-analysis-query.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis-visualizations",
             "redirect_document_id": false
-        },
+         },
+         {
+            "source_path_from_root": "/articles/azure-monitor/change/tutorial-outages.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-track-outages",
+            "redirect_document_id": false
+         }, 
         {
             "source_path_from_root": "/articles/azure-monitor/change/change-analysis-custom-filters.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis-visualizations",
