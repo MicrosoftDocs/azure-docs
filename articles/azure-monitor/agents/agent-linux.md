@@ -27,8 +27,7 @@ The following sections outline the requirements for installation.
 
 For a list of Linux distributions supported by the Log Analytics agent, see [Overview of Azure Monitor agents](agents-overview.md#supported-operating-systems).
 
->[!NOTE]
->OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit). OpenSSL earlier than 1.x isn't supported on any platform.
+OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit). OpenSSL earlier than 1.x isn't supported on any platform.
 
 >[!NOTE]
 >The Log Analytics Linux agent doesn't run in containers. To monitor containers, use the [Container Monitoring solution](../containers/containers.md) for Docker hosts or [Container insights](../containers/container-insights-overview.md) for Kubernetes.
@@ -52,11 +51,11 @@ Starting from agent version 1.13.27, the Linux agent will support both Python 2 
 
 If you're using an older version of the agent, you must have the virtual machine use Python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default, then you must install it. The following sample commands will install Python 2 on different distros:
 
- - Red Hat, CentOS, Oracle: `yum install -y python2`
- - Ubuntu, Debian: `apt-get install -y python2`
- - SUSE: `zypper install -y python2`
+ - **Red Hat, CentOS, Oracle**: `yum install -y python2`
+ - **Ubuntu, Debian**: `apt-get install -y python2`
+ - **SUSE**: `zypper install -y python2`
 
-Again, only if you're using an older version of the agent, the python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+Again, only if you're using an older version of the agent, the python2 executable must be aliased to *python*. Use the following method to set this alias:
 
 1. Run the following command to remove any existing aliases:
  
@@ -89,15 +88,15 @@ The following table highlights the packages required for [supported Linux distro
 
 |Required package |Description |Minimum version |
 |-----------------|------------|----------------|
-|Glibc |    GNU C Library | 2.5-12 
-|Openssl    | OpenSSL Libraries | 1.0.x or 1.1.x |
+|Glibc |    GNU C library | 2.5-12 
+|Openssl    | OpenSSL libraries | 1.0.x or 1.1.x |
 |Curl | cURL web client | 7.15.5 |
 |Python | | 2.7 or 3.6+
 |Python-ctypes | | 
-|PAM | Pluggable Authentication Modules | | 
+|PAM | Pluggable authentication modules | | 
 
 >[!NOTE]
->Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) isn't supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
+>Either rsyslog or syslog-ng is required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) isn't supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
 
 ### Network requirements
 For the network requirements for the Linux agent, see [Log Analytics agent overview](./log-analytics-agent.md#network-requirements).
@@ -114,9 +113,9 @@ The Log Analytics agent for Linux is composed of multiple packages. The release 
 
 Package | Version | Description
 ----------- | ----------- | --------------
-omsagent | 1.14.19 | The Log Analytics Agent for Linux.
+omsagent | 1.14.19 | The Log Analytics agent for Linux.
 omsconfig | 1.1.1 | Configuration agent for the Log Analytics agent.
-omi | 1.6.9 | Open Management Infrastructure (OMI), a lightweight CIM Server. *Note that OMI requires root access to run a cron job necessary for the functioning of the service*.
+omi | 1.6.9 | Open Management Infrastructure (OMI), a lightweight CIM Server. *OMI requires root access to run a cron job necessary for the functioning of the service*.
 scx | 1.6.9 | OMI CIM providers for operating system performance metrics.
 apache-cimprov | 1.0.1 | Apache HTTP Server performance monitoring provider for OMI. Only installed if Apache HTTP Server is detected.
 mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. Only installed if MySQL/MariaDB server is detected.
@@ -132,7 +131,7 @@ Installing the Log Analytics agent for Linux packages also applies the following
 * A sudoers *include* file is created in `/etc/sudoers.d/omsagent`. This file authorizes `omsagent` to restart the syslog and omsagent daemons. If sudo *include* directives aren't supported in the installed version of sudo, these entries will be written to `/etc/sudoers`.
 * The syslog configuration is modified to forward a subset of events to the agent. For more information, see [Configure Syslog data collection](data-sources-syslog.md).
 
-On a monitored Linux computer, the agent is listed as `omsagent`. `omsconfig` is the Log Analytics agent for the Linux configuration agent that looks for new portal side configuration every 5 minutes. The new and updated configuration is applied to the agent configuration files located at `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
+On a monitored Linux computer, the agent is listed as `omsagent`. `omsconfig` is the Log Analytics agent for the Linux configuration agent that looks for new portal-side configuration every 5 minutes. The new and updated configuration is applied to the agent configuration files located at `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
 
 ## Install the agent
 
@@ -140,9 +139,9 @@ On a monitored Linux computer, the agent is listed as `omsagent`. `omsconfig` is
 
 ### [Wrapper script](#tab/wrapper-script)
 
-The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud by using the wrapper script for Linux computers that can communicate directly or through a proxy server to download the agent hosted on GitHub and install the agent.  
+The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud. A wrapper script is used for Linux computers that can communicate directly or through a proxy server to download the agent hosted on GitHub and install the agent.  
 
-If your Linux computer needs to communicate through a proxy server to Log Analytics, this configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The *protocol* property accepts `http` or `https`. The `proxyhost` property accepts a fully qualified domain name or IP address of the proxy server.
+If your Linux computer needs to communicate through a proxy server to Log Analytics, this configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The `protocol` property accepts `http` or `https`. The `proxyhost` property accepts a fully qualified domain name or IP address of the proxy server.
 
 For example: `https://proxy01.contoso.com:30443`
 
@@ -189,7 +188,7 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
 1. Install the bundle by using the `--install` argument. To onboard to a Log Analytics workspace during installation, provide the `-w <WorkspaceID>` and `-s <workspaceKey>` parameters copied earlier.
 
     >[!NOTE]
-    > Use the `--upgrade` argument if any dependent packages, such as omi, scx, omsconfig or their older versions, are installed. This would be the case if the System Center Operations Manager agent for Linux is already installed.
+    > Use the `--upgrade` argument if any dependent packages, such as omi, scx, omsconfig, or their older versions, are installed. This would be the case if the System Center Operations Manager agent for Linux is already installed.
   
     ```
     sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key> --skip-docker-provider-install
@@ -198,7 +197,7 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
     > [!NOTE]
     > The preceding command uses the optional `--skip-docker-provider-install` flag to disable the Container Monitoring data collection because the [Container Monitoring solution](../containers/containers.md) is being retired.
 
-1. To configure the Linux agent to install and connect to a Log Analytics workspace through a Log Analytics gateway, run the following command that provides the proxy, workspace ID, and workspace key parameters. This configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The `proxyhost` property accepts a fully qualified domain name or IP address of the Log Analytics gateway server.  
+1. To configure the Linux agent to install and connect to a Log Analytics workspace through a Log Analytics gateway, run the following command. It provides the proxy, workspace ID, and workspace key parameters. This configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The `proxyhost` property accepts a fully qualified domain name or IP address of the Log Analytics gateway server.  
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -210,7 +209,7 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-1. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government cloud, run the following command that provides the workspace ID and primary key copied earlier.
+1. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government cloud, run the following command that provides the workspace ID and primary key copied earlier:
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
@@ -235,7 +234,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 Upgrading from a previous version, starting with version 1.0.0-47, is supported in each release. Perform the installation with the `--upgrade` parameter to upgrade all components of the agent to the latest version.
 
 > [!NOTE]
-> There will be a warning message during the upgrade "docker provider package installation skipped" since `--skip-docker-provider-install` flag is set. If you're installing over an existing omsagent install and want to remove the docker provider, you should first purge the existing installation and then install by using the `--skip-docker-provider-install` flag.
+> The warning message "docker provider package installation skipped" appears during the upgrade because the `--skip-docker-provider-install` flag is set. If you're installing over an existing `omsagent` installation and want to remove the docker provider, purge the existing installation first. Then install by using the `--skip-docker-provider-install` flag.
 
 ## Cache information
 Data from the Log Analytics agent for Linux is cached on the local machine at *%STATE_DIR_WS%/out_oms_common*.buffer* before it's sent to Azure Monitor. Custom log data is buffered in *%STATE_DIR_WS%/out_oms_blob*.buffer*. The path might be different for some [solutions and data types](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
@@ -248,4 +247,4 @@ The default cache size is 10 MB but can be modified in the [omsagent.conf file](
 
 - Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to reconfigure, upgrade, or remove the agent from the virtual machine.
 - Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while you're installing or managing the agent.
-- Review [Agent Data Sources](./agent-data-sources.md) to learn about data source configuration.
+- Review [Agent data sources](./agent-data-sources.md) to learn about data source configuration.
