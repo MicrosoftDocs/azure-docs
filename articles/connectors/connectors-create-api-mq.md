@@ -48,11 +48,11 @@ Based on whether you use the MQ managed connector (Consumption or Standard workf
 
 - A publicly trusted private key certificate is issued by a recognized [Certificate Authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/). A non-publicly trusted private key certificate includes self-signed, private CA, and similar certificates. 
 
-- To validate the private key certificate from your MQ server, the MQ connector uses public key certificates that usually exist on your logic app's virtual machine host in the host's [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store).
+- To validate a private key certificate sent from your MQ server, the MQ connector uses public key certificates that usually exist on your logic app's virtual machine host in the host's [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store).
 
-  However, if the host doesn't have all the required public key certificates, or if your MQ server sends a non-publicly trusted private key certificate, you need to take extra steps. For more information, see [Prerequisites].
+  However, if the host doesn't have all the required public key certificates, or if your MQ server sends a non-publicly trusted private key certificate, you need to take extra steps. For more information, see [Prerequisites](#prerequisites).
 
-- To validate the private key certificate from your Standard logic app, the MQ built-in connector uses public key certificates that exist on your MQ server. To add a private key certificate for your logic app to send as a client certificate, see [Add a private key](#add-private-key-certificate).
+- To validate a private key certificate sent from your Standard logic app, the MQ built-in connector uses public key certificates that exist on your MQ server. To add a private key certificate for your logic app to use as a client certificate, see [Add a private key](#add-private-key-certificate).
 
 ## Limitations
 
@@ -92,17 +92,14 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
   * To use a trigger from the MQ built-in connector, make sure that you start with a blank workflow.
 
-* Certificates for authentication with TLS (SSL) encryption
+* Certificate requirements for authentication with TLS (SSL) encryption
 
   * MQ managed connector
 
-    * Azure-hosted MQ server scenarios
-
-      The MQ server must send a private key certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) to your logic app client for validation.
-
-    * On-premises MQ server scenarios using the on-premises data gateway
-
-      For your MQ server to send a non-publicly trusted private key certificate such as a self-signed or private CA certificate, you have to add the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer with the on-premises data gateway installation. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool).
+    | MQ server | Requirements |
+    |-----------|--------------|
+    | Azure-hosted MQ server | The MQ server must send a private key certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) to your logic app client for validation. |
+    | On-premises MQ server using on-premises data gateway | To send a non-publicly trusted private key certificate such as a self-signed or private CA certificate, you have to add the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer with the on-premises data gateway installation. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool). |
 
   * MQ built-in connector
 
