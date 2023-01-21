@@ -39,6 +39,7 @@ Azure Database for PostgreSQL powered by the PostgreSQL community edition is ava
 
 - Single Server
 - Flexible Server
+- HyperScale
 
 ### Azure Database for PostgreSQL - Single Server
 
@@ -62,6 +63,10 @@ Flexible servers are best suited for
 - Managed maintenance windows
 
 For a detailed overview of flexible server deployment mode, see [flexible server overview](../flexible-server/overview.md).
+
+### HyperScale
+
+HyperScale is the deployment option that supports large database loads by scaling queries across several server nodes.Here, the database is split across nodes and Data is split into chunks depending upon the value of a sharding or partition key.
 
 ## Next steps
 
