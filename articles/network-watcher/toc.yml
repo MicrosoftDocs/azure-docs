@@ -51,7 +51,7 @@
     href: connection-monitor-schema.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
-  - name: Diagnose NSG rules and Traffic filtering
+  - name: NSG Diagnostics
     href: network-watcher-network-configuration-diagnostics-overview.md
   - name: Diagnose VM routing problems
     href: network-watcher-next-hop-overview.md
