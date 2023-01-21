@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 1/5/2023
+  ms.date: 1/18/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -53,8 +53,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Receive device data through Azure IoT Hub
-            url: device-data-through-iot-hub.md 
+          - text: Receive device messages through Azure IoT Hub
+            url: device-messages-through-iot-hub.md 
  
   - title: Configure the MedTech service mappings
     linkLists:

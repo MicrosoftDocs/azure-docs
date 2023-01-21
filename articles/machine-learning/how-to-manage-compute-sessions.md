@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 12/21/2022
+ms.date: 1/18/2023
 # Customer intent: As a data scientist, I want to manage the notebook and terminal sessions on my compute instance for optimal performance.
 ---
 
@@ -19,16 +19,16 @@ Notebook and terminal sessions run on the compute and maintain your current work
 
 When you reopen a notebook, or reconnect to a terminal session, you can reconnect to the previous session state (including command history, execution history, and defined variables). However, too many active sessions may slow down the performance of your compute. With too many active sessions, you may find your terminal or notebook cell typing lags, or terminal or notebook command execution may feel slower than expected.
 
-There's a session management panel in the Azure Machine Learning studio that helps you manage your active sessions and optimize the performance of your compute instance. You can navigate to this session management panel from the compute toolbar of either a terminal tab or a notebook tab.
+Use the session management panel in Azure Machine Learning studio to help you manage your active sessions and optimize the performance of your compute instance. Navigate to this session management panel from the compute toolbar of either a terminal tab or a notebook tab.
 
 > [!NOTE]
 > For optimal performance, we recommend you don’t keep more than six active sessions - and the fewer the better.
 
-:::image type="content" source="media/how-to-manage-compute-sessions/compute-session-management-panel.png" alt-text="Screenshot of compute session management panel.":::
+:::image type="content" source="media/how-to-manage-compute-sessions/compute-session-management-panel.png" alt-text="Screenshot of compute session management panel." lightbox="media/how-to-manage-compute-sessions/compute-session-management-panel.png":::
 
 ## Notebook sessions
 
-In the session management panel, you can select a linked notebook name in the notebook sessions section to reopen a notebook with its previous state.
+In the session management panel, select a linked notebook name in the notebook sessions section to reopen a notebook with its previous state.
 
 Notebook sessions are kept active when you close a notebook tab in the Azure Machine Learning studio. So, when you reopen a notebook you'll have access to previously defined variables and execution state - in this case, you're benefitting from the active notebook session.
 
@@ -36,7 +36,7 @@ However, keeping too many active notebook sessions can slow down the performance
 
 Select **Manage active sessions** in the terminal toolbar to open the session management panel and shut down the sessions you no longer need. In the following image, you can see that the tooltip shows the count of active notebook sessions.
 
-:::image type="content" source="media/how-to-manage-compute-sessions/notebook-sessions-button.png" alt-text="Screenshot of notebooks sessions button in toolbar.":::
+:::image type="content" source="media/how-to-manage-compute-sessions/notebook-sessions-button.png" alt-text="Screenshot of notebooks sessions button in toolbar." lightbox="media/how-to-manage-compute-sessions/notebook-sessions-button.png":::
 
 ## Terminal sessions
 
@@ -46,4 +46,10 @@ In contrast to notebook sessions, terminal sessions are terminated when you clos
 
 Select **Manage active sessions** in the terminal toolbar to open the session management panel and shut down the sessions you no longer need. In the following image, you can see that the tooltip shows the count of active terminal sessions.
 
-:::image type="content" source="media/how-to-manage-compute-sessions/terminal-sessions-button.png" alt-text="Screenshot of terminal sessions button in toolbar.":::
+:::image type="content" source="media/how-to-manage-compute-sessions/terminal-sessions-button.png" alt-text="Screenshot of terminal sessions button in toolbar." lightbox="media/how-to-manage-compute-sessions/terminal-sessions-button.png":::
+
+## Next steps
+
+* [How to create and manage files in your workspace](how-to-manage-files.md)
+* [Run Jupyter notebooks in your workspace](how-to-run-jupyter-notebooks.md)
+* [Access a compute instance terminal in your workspace](how-to-access-terminal.md)

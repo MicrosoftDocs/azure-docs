@@ -29,9 +29,9 @@ items:
     items:
       - name: Add chat to your app
         href: quickstarts/chat/get-started.md
-      - name: Using Chat SDK with React Native
+      - name: Use the Chat SDK with React Native
         href: quickstarts/chat/react-native.md
-      - name: Send Chat messages in Azure Logic Apps
+      - name: Send chat messages by using Power Automate
         href: quickstarts/chat/logic-app.md
       - name: Add a bot to your chat app
         href: quickstarts/chat/quickstart-botframework-integration.md
@@ -83,6 +83,8 @@ items:
       href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
       href: quickstarts/voice-video-calling/handle-calling-events.md
+    - name: Accessing call volume levels
+      href: quickstarts/voice-video-calling/get-started-volume-indicator.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
   - name: Call Automation
