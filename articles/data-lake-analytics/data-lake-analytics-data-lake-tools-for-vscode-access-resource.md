@@ -9,6 +9,8 @@ ms.date: 02/09/2018
 
 # Accessing resources with Azure Data Lake Tools
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 You can access Azure Data Lake Analytics resources with Azure Data Tools commands or actions in VS Code easily.
 
 ## Integrate with Azure Data Lake Analytics through a command

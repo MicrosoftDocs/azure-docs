@@ -1,12 +1,16 @@
 ---
 title: "Quickstart: Your first .NET Core query"
 description: In this quickstart, you follow the steps to enable the Resource Graph NuGet packages for .NET Core and run your first query.
-ms.date: 01/06/2023
+ms.date: 01/19/2023
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.author: timwarner
 ---
 # Quickstart: Run your first Resource Graph query using .NET Core
+
+> [!NOTE]
+> Special thanks to [Glenn Block](https://github.com/glennblock) for contributing
+> the code used in this quickstart.
 
 The first step to using Azure Resource Graph is to check that the required packages for .NET Core
 are installed. This quickstart walks you through the process of adding the packages to your .NET
@@ -48,43 +52,41 @@ required packages.
    dotnet add package Microsoft.Azure.Services.AppAuthentication --version 1.5.0
    ```
 
-1. Replace the default `program.cs` with the following code and save the updated file:
+1. Replace the default `Program.cs` with the following code and save the updated file:
 
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.Threading.Tasks;
-   using Microsoft.IdentityModel.Clients.ActiveDirectory;
-   using Microsoft.Rest;
-   using Azure.ResourceManager.ResourceGraph;
-   using Azure.ResourceManager.ResourceGraph.Models;
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Azure.Core;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.Resources;
+using Azure.ResourceManager.ResourceGraph;
+using Azure.ResourceManager.ResourceGraph.Models;
 
-   namespace argQuery
-   {
-       class Program
-       {
-           static async Task Main(string[] args)
-           {
-               string strTenant = args[0];
-               string strClientId = args[1];
-               string strClientSecret = args[2];
-               string strQuery = args[3];
+namespace argQuery
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            string strTenant = args[0];
+            string strClientId = args[1];
+            string strClientSecret = args[2];
+            string strQuery = args[3];
 
-               AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/" + strTenant);
-               AuthenticationResult authResult = await authContext.AcquireTokenAsync("https://management.core.windows.net", new ClientCredential(strClientId, strClientSecret));
-               ServiceClientCredentials serviceClientCreds = new TokenCredentials(authResult.AccessToken);
-
-               ResourceGraphClient argClient = new ResourceGraphClient(serviceClientCreds);
-               QueryRequest request = new QueryRequest();
-               request.Query = strQuery;
-
-               QueryResponse response = argClient.Resources(request);
-               Console.WriteLine("Records: " + response.Count);
-               Console.WriteLine("Data:\n" + response.Data);
-           }
-       }
-   }
-   ```
+            var client = new ArmClient(new ClientSecretCredential(strTenant, strClientId, strClientSecret));
+            var tenant = client.GetTenants().First();
+            //Console.WriteLine($"{tenant.Id} {tenant.HasData}");
+            var queryContent = new ResourceQueryContent(strQuery);
+            var response = tenant.GetResources(queryContent);
+            var result = response.Value;
+            Console.WriteLine($"Count: {result.Data.ToString()}");
+        }
+    }
+}
+```
 
    > [!NOTE]
    > This code creates a tenant-based query. To limit the query to a
@@ -104,14 +106,14 @@ With the .NET Core console application built and published, it's time to try out
 tenant-based Resource Graph query. The query returns the first five Azure resources with the
 **Name** and **Resource Type** of each resource.
 
-In each call to `argQuery`, there are variables that are used that you need to replace with your own
+In each call to `argQuery`, replace the variables with your own
 values:
 
 - `{tenantId}` - Replace with your tenant ID
 - `{clientId}` - Replace with the client ID of your service principal
 - `{clientSecret}` - Replace with the client secret of your service principal
 
-1. Change directories to the `{run-folder}` you defined with the previous `dotnet publish` command.
+1. Change directories to the `{run-folder}` you defined with the earlier `dotnet publish` command.
 
 1. Run your first Azure Resource Graph query using the compiled .NET Core console application:
 
@@ -121,7 +123,7 @@ values:
 
    > [!NOTE]
    > As this query example does not provide a sort modifier such as `order by`, running this query
-   > multiple times is likely to yield a different set of resources per request.
+   > many times is likely to yield a different set of resources per request.
 
 1. Change the final parameter to `argQuery.exe` and change the query to `order by` the **Name**
    property:

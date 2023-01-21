@@ -10,6 +10,8 @@ ms.date: 07/17/2018
 
 In this document, you learn how to orchestrate and create U-SQL jobs using SQL Server Integration Service (SSIS). 
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## Prerequisites
 
 [Azure Feature Pack for Integration Services](/sql/integration-services/azure-feature-pack-for-integration-services-ssis#scenario-managing-data-in-the-cloud) provides the [Azure Data Lake Analytics task](/sql/integration-services/control-flow/azure-data-lake-analytics-task) and the [Azure Data Lake Analytics Connection Manager](/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager) that helps connect to Azure Data Lake Analytics service. To use this task, make sure you install:

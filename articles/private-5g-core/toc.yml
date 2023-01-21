@@ -120,6 +120,8 @@ items:
   items:
    - name: REST API
      href: /rest/api/mobilenetwork
+   - name: Region code names
+     href: region-code-names.md
 - name: Resources
   items:
   - name: Azure Private 5G Core product page

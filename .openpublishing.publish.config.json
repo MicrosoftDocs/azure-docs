@@ -33,6 +33,12 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "azure-docs-snippets-pr",
+      "url": "https://github.com/MicrosoftDocs/azure-docs-snippets-pr",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-dev-docs-pr",
       "url": "https://github.com/MicrosoftDocs/azure-dev-docs-pr",
       "branch": "main",
@@ -926,8 +932,9 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.azure-arc-data.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.api-management.json",
     ".openpublishing.redirection.azure-attestation.json",
-    ".openpublishing.redirection.azure-blob.json",
+    ".openpublishing.redirection.storage.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",

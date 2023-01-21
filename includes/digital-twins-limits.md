@@ -11,9 +11,6 @@ ms.author: baanders
 
 The following table lists the functional limits of Azure Digital Twins. 
 
-> [!TIP]
-> For modeling recommendations to operate within these functional limits, see [Modeling tools and best practices](../articles/digital-twins/concepts-models.md#modeling-tools-and-best-practices).
-
 | Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |

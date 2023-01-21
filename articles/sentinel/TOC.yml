@@ -23,6 +23,8 @@
     href: tutorial-respond-threats-playbook.md
   - name: Automatically enrich incident information
     href: tutorial-enrich-ip-information.md
+  - name: Detect Log4j vulnerability exploits
+    href: tutorial-log4j-detection.md
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
@@ -34,9 +36,9 @@
   - name: Integrate with Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
-      href: /azure/defender-for-iot/organizations/iot-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: ../defender-for-iot/organizations/iot-solution.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
-      href: /azure/defender-for-iot/organizations/iot-advanced-threat-monitoring?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
   - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
@@ -147,6 +149,8 @@
       href: notebooks.md
   - name: Investigate incidents
     items:
+    - name: Incident investigation in Microsoft Sentinel
+      href: incident-investigation.md
     - name: Use tasks to manage incident workflow
       href: incident-tasks.md
     - name: Investigate large datasets
@@ -266,6 +270,8 @@
         href: connect-dns-ama.md
       - name: Syslog (raw) sources
         href: connect-syslog.md
+      - name: Microsoft Purview Information Protection
+        href: connect-microsoft-purview.md
       - name: Microsoft Sentinel Data Collector API
         href: connect-rest-api-template.md
       - name: Azure Functions API connection
@@ -388,7 +394,9 @@
     items:
     - name: Use tasks to handle incident workflow
       href: work-with-tasks.md
-    - name: Investigate incidents
+    - name: Investigate incidents (Preview)
+      href: investigate-incidents.md
+    - name: Investigate incidents (GA)
       href: investigate-cases.md
     - name: Relate alerts to incidents
       href: relate-alerts-to-incidents.md
@@ -484,7 +492,9 @@
       - name: Deploy SAP connector manually
         href: sap/sap-solution-deploy-alternate.md
       - name: Configure SAP audit log monitoring rules
-        href: sap/configure-audit-log-rules.md 
+        href: sap/configure-audit-log-rules.md
+      - name: Select SAP ingestion profile
+        href: sap/select-ingestion-profiles.md 
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection
@@ -579,6 +589,8 @@
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
       href: dns-ama-fields.md
+    - name: Microsoft Purview Information Protection reference
+      href: microsoft-purview-record-types-activities.md
     - name: Microsoft 365 Defender connector data type support
       href: microsoft-365-defender-cloud-support.md
   - name: Detection and analysis references

@@ -32,7 +32,7 @@ Create a new search resource using PowerShell and the **Az.Search** module.
    ```
 
    > [!NOTE]
-   > You might need to provide a tenant ID, which you can find in the Azure portal in [Portal settings > Directories + subscriptions](/azure/azure-portal/set-preferences).
+   > You might need to provide a tenant ID, which you can find in the Azure portal in [Portal settings > Directories + subscriptions](../azure-portal/set-preferences.md).
 
 1. Before creating a new search service, you can list existing search services for your subscription to see if there's one you want to use:
 

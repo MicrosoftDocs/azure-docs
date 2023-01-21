@@ -113,7 +113,10 @@ Metric alerts are stateful by default, so other alerts aren't fired if there's a
 - If you create the alert rule programmatically, for example, via [Azure Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), or the [Azure CLI](/cli/azure/monitor/metrics/alert), set the `autoMitigate` property to `False`.
 - If you create the alert rule via the Azure portal, clear the **Automatically resolve alerts** option under the **Alert rule details** section.
 
-<sup>1</sup> For stateless metric alert rules, an alert triggers once every 10 minutes at a minimum, even if the frequency of evaluation is equal or less than 5 minutes and the condition is still being met.
+<sup>1</sup>The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:
+
+- **Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.
+- **Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.
 
 > [!NOTE]
 > Making a metric alert rule stateless prevents fired alerts from becoming resolved. So, even after the condition isn't met anymore, the fired alerts remain in a fired state until the 30-day retention period.

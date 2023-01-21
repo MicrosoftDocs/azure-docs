@@ -182,7 +182,7 @@ Set up a custom task using the below parameters.
 
 
 
-## FAQs
+## Frequently asked questions
 
 ### How do I view the data at different grains? (Daily, monthly, weekly)?
 You can click on the 'Date Grain' filter to change the grain (As shown below)

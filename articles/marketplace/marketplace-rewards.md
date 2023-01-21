@@ -11,13 +11,16 @@ ms.date: 01/06/2023
 ---
 
 # ISV Success program and Marketplace Rewards
+
 Microsoft continues its strong commitment to the growth and success of ISVs and supporting them throughout the entire journey of building, publishing, and selling apps through the Microsoft commercial marketplace. To further this mission, Marketplace Rewards is now included in the ISV Success program, available—at no cost—to all participants of the program. 
+
+## Your commercial marketplace benefits
 
 As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals. For details on the program and benefits, see [Marketplace Rewards](https://aka.ms/marketplacerewards) (PPT). To see what other Microsoft partners are saying about their experiences with Marketplace Rewards, visit Marketplace [Rewards testimonials](https://aka.ms/MarketplaceRewardsTestimonials).
 
 The program creates a positive feedback loop: the benefits at each stage of growth help you progress to the next stage, helping you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform
 
-Your benefits are differentiated based on whether your offer is [List, Trial, Consulting or Transact](/azure/marketplace/determine-your-listing-type).
+Your benefits are differentiated based on whether your offer is [List, Trial, Consulting or Transact](./determine-your-listing-type.md).
 
 Based on your eligibility, you'll be contacted by a member of the Rewards team when your offer goes live.  
 
@@ -52,7 +55,3 @@ Your steps to get started are easy:
 > If your offer has been live for more than three weeks and you have not received a message, check in Partner Center to find who in your organization owns the offer. They should have the communication and next steps. If you cannot determine the owner, or if the owner has left your company, open a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
-
-
-
-

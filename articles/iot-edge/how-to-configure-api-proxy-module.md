@@ -4,7 +4,7 @@ description: Learn how to customize the API proxy module for IoT Edge gateway hi
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/10/2020
+ms.date: 01/05/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

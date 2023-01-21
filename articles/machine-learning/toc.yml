@@ -64,6 +64,8 @@
   items:
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
+    - name: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
+      href: quickstart-spark-jobs.md
     - name: Run Jupyter notebooks
       href: quickstart-run-notebooks.md
 - name: Tutorials
@@ -134,6 +136,20 @@
             - name: Automated ML overview
               displayName: automl, auto ml
               href: concept-automated-ml.md
+            - name: Time series forecasting
+              items:
+              - name: Overview of forecasting methods
+                displayName: auto ML, time series, forecasting, methods
+                href: concept-automl-forecasting-methods.md
+              - name: Model sweeping and selection
+                displayName: auto ML, time series, forecasting, model selection, sweeping
+                href: concept-automl-forecasting-sweeping.md
+              - name: Calendar features
+                displayName: auto ML, time series, calendar features, holiday features
+                href: concept-automl-forecasting-calendar-features.md
+              - name: Lag features
+                displayName: auto ML, time series, lags
+                href: concept-automl-forecasting-lags.md
             - name: Overfitting & imbalanced data
               displayName: automl, auto ml, risks
               href: concept-manage-ml-pitfalls.md
@@ -363,6 +379,8 @@
         - name: Troubleshoot Kubernetes compute
           displayName: AKS, Arc Kubernetes, Kubernetes compute, training, online endpoint, troubleshoot
           href: how-to-troubleshoot-kubernetes-compute.md
+        - name: Reference for configuring Kubernetes cluster
+          href: reference-kubernetes.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -405,6 +423,9 @@
             - name: Use a terminal
               displayName: git, github, clone, kernel, package
               href: how-to-access-terminal.md
+            - name: Manage compute sessions
+              displayName: sessions, terminal, kernel
+              href: how-to-manage-compute-sessions.md
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
@@ -646,13 +667,13 @@
               href: how-to-log-mlflow-models.md
             - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-        - name: ML lifecycle
+        - name: Manage
           items:
             - name: Manage models with MLflow
               href: how-to-manage-models-mlflow.md
             - name: Manage experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-        - name: Deployment
+        - name: Deploy & consume models
           items:
             - name: Guidelines for deploying MLflow models
               displayName: mlflow models deployment plugin
@@ -671,12 +692,12 @@
                   href: how-to-mlflow-batch.md
                 - name: Deploy and run MLflow models in Spark jobs
                   href: how-to-deploy-mlflow-model-spark-jobs.md
-    - name: Manage the ML lifecycle
+    - name: Manage the ML lifecycle (MLOps)
       items:
+        - name: Setup MLOps with Azure DevOps
+          href: how-to-setup-mlops-azureml.md
         - name: Manage models
           href: how-to-manage-models.md
-        - name: Manage models with MLflow
-          href: how-to-manage-models-mlflow.md
         - name: Automation
           items:
             - name: Azure Pipelines for CI/CD
@@ -758,6 +779,8 @@
     - name: How to troubleshoot data access
       displayName: troubleshoot, data, debug, image
       href: how-to-troubleshoot-data-access.md
+    - name: Troubleshoot validation for schema failed error
+      href: how-to-troubleshoot-validation-for-schema-failed-error.md
 - name: Reference
   items:
     - name: Python SDK v1
@@ -816,6 +839,12 @@
               href: reference-automl-images-cli-multilabel-classification.md
             - name: AutoML Image Object Detection
               href: reference-automl-images-cli-object-detection.md
+            - name: AutoML NLP Text Classification
+              href: reference-automl-nlp-cli-text-classification.md  
+            - name: AutoML NLP Multilabel Classification
+              href: reference-automl-nlp-cli-multilabel-classification.md
+            - name: AutoML NLP NER
+              href: reference-automl-nlp-cli-ner.md              
         - name: Datastore
           items:
             - name: Azure Blob
@@ -854,8 +883,6 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
-    - name: Kubernetes cluster configuration
-      href: reference-kubernetes.md
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
