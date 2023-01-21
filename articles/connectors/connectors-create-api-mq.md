@@ -266,11 +266,11 @@ The following information applies only to Standard logic app workflows for the M
 
 <a name="view-existing-public-key-certificates"></a>
 
-## View and confirm thumbprints for existing public key certificates
+### View and confirm thumbprints for existing public key certificates
 
-To check that the thumbprints for the required public key certificates exist in the Trusted Root CA Store, follow these steps to run the [`cert` PowerShell script](/powershell/module/microsoft.powershell.security/about/about_certificate_provider) from your Standard logic app resource menu.
+To check that the thumbprints for the required public key certificates exist on your Standard logic app's virtual machine host in the Trusted Root CA Store, follow these steps to run the [`cert` PowerShell script](/powershell/module/microsoft.powershell.security/about/about_certificate_provider) from your Standard logic app's resource menu.
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource. On the logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource. On the logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
 
 1. From the Kudu **Debug console** menu, select **PowerShell**.
 
@@ -286,7 +286,9 @@ To check that the thumbprints for the required public key certificates exist in 
 
 ## Add a public key certificate
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource. On the logic app resource menu, under **Settings**, select **TLS/SSL settings (classic)**.
+To add a public key certificate to the Trusted Root CA Store on that virtual machine host where your Standard logic app runs, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource. On the logic app resource menu, under **Settings**, select **TLS/SSL settings (classic)**.
 
 1. On the **TLS/SSL settings (classic)** page, select the **Public Key Certificates (.cer)** tab, and then select **Upload Public Key Certificate**.
 
@@ -313,6 +315,8 @@ To check that the thumbprints for the required public key certificates exist in 
 <a name="add-private-key-certificate"></a>
 
 ## Add a private key certificate
+
+To add a private key certificate to the Trusted Root CA Store on virtual machine host where your Standard logic app runs, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource. On the logic app resource menu, under **Settings**, select **TLS/SSL settings (classic)**.
 
