@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp, aaddev, engagement-fy23
 
 When you acquire an access token using the Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token, it should attempt to fetch it from the cache first.
 
-You can monitor the source of the tokens by inspecting the [`AuthenticationResult.AuthenticationResultMetadata.TokenSource`](/dotnet/api/microsoft.identity.client.authenticationresultmetadata.tokensource?view=msal-dotnet-latest) property.
+You can monitor the source of the tokens by inspecting the [`AuthenticationResult.AuthenticationResultMetadata.TokenSource`](/dotnet/api/microsoft.identity.client.authenticationresultmetadata.tokensource?view=msal-dotnet-latest&preserve-view=true) property.
 
 ## Websites and web APIs
 
@@ -38,7 +38,7 @@ Since no user is involved, there's no reason to call `AcquireTokenSilent`. `Acqu
 
 Desktop, command-line, and mobile applications should first call the AcquireTokenSilent method to verify if an acceptable token is in the cache. In many cases, it's possible to acquire another token with more scopes based on a token in the cache. It's also possible to refresh a token when it's getting close to expiration (as the token cache also contains a refresh token).
 
-For authentication flows that require a user interaction, MSAL caches the access, refresh, and ID tokens, and the `IAccount` object, which represents information about a single account. Learn more about [IAccount](/dotnet/api/microsoft.identity.client.iaccount?view=azure-dotnet&preserve-view=true). For application flows, such as [client credentials](msal-authentication-flows.md#client-credentials), only access tokens are cached, because the `IAccount` object and ID token require a user, and the refresh token isn't applicable.
+For authentication flows that require a user interaction, MSAL caches the access, refresh, and ID tokens, and the `IAccount` object, which represents information about a single account. Learn more about [IAccount](/dotnet/api/microsoft.identity.client.iaccount?view=msal-dotnet-latest&preserve-view=true). For application flows, such as [client credentials](msal-authentication-flows.md#client-credentials), only access tokens are cached, because the `IAccount` object and ID token require a user, and the refresh token isn't applicable.
 
 The recommended pattern is to call the `AcquireTokenSilent` method first.  If `AcquireTokenSilent` fails, then acquire a token using other methods.
 
