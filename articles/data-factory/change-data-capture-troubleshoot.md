@@ -16,11 +16,7 @@ ms.custom:
 
 This article provides suggestions to troubleshoot common problems with the Change data capture resource in Azure Data Factory.
 
-## SQL Source errors
-
-### Issue/Limitation: Trouble enabling native CDC in my SQL source. 
-
-#### Native CDC vs Incremental columns in SQL 
+## Issue: Trouble enabling native CDC in my SQL source. 
 
 For sources in SQL, 2 sets of tables are available: tables with native SQL CDC enabled and tables with time based incremental columns. 
 
@@ -64,26 +60,21 @@ EXEC sys.sp_cdc_enable_table
         , @captured_column_list = N'ID';
 ```
     
-### Issue/Limitation: Tables are unavailable to select in the CDC resource configuration process. 
+## Issue: Tables are unavailable to select in the CDC resource configuration process. 
   
 If your SQL source doesn't have SQL Server CDC with net_changed enabled or doesn't have any time-based incremental columns, then tables will be unavailable for source selection. 
 
-
-## VNET known issues and workarounds
-
-### Issue/Limitation: The debug cluster will not be available from a warm pool.
+## Issue: The debug cluster is not available from a warm pool.
 
 The debug cluster will not be available from a warm pool. There will be a wait time in the the order of 1+ minutes. 
 
-### Issue/Limitation: CDC resource with both source and target linke services using custom integration runtimes won't work. 
+## Issue: CDC resource with both source and target linke services using custom integration runtimes won't work. 
 
 In VNet factories, CDC resources will work fine if either the source or target linked service is tied to an auto-resolve IR. If both the source and target linked services use custom IRs, the CDC resource will not work. 
 
 In non-VNet factories, CDC resources requiring VNet will not work. This fix is in progress. 
 
-## Other known issues and workarounds
-
-### Issue/Limitation: Creating a new linked services pointing to an AKV linked service causes an error. 
+## Issue: Creating a new linked services pointing to an AKV linked service causes an error. 
 
 If you create a new linked service using the CDC fly-out process that points to an AKV linked service, the CDC resource will break. This fix is in progress. 
 
