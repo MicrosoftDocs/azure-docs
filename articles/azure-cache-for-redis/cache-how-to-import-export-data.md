@@ -27,6 +27,9 @@ Use import to bring Redis compatible RDB files from any Redis server running in 
 
 > [!NOTE]
 > Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Cache for Redis instance. For more information, see [Get started with Azure Blob storage](../storage/blobs/storage-quickstart-blobs-dotnet.md). If you exported your RDB file using the [Azure Cache for Redis Export](#export) feature, your RDB file is already stored in a page blob and is ready for importing.
+
+> [!NOTE]
+> Currently import from Redis Enterprise to Premium tiers is not supported
 >
 >
 
