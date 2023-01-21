@@ -30,14 +30,12 @@ The savings plan lifecycle is independent of an Azure subscription, so the savin
 
 If you're a billing administrator, use following steps to view and manage all savings plans and savings plan transactions in the Azure portal:
 
-- Sign into the [Azure portal](https://portal.azure.com/) and navigate to **Cost Management + Billing**.
-
-- If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
-- If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
-
-- In the left menu, select **Products + services** > **Savings plans**.
-- The complete list of savings plans for your EA enrollment or billing profile is shown.
-- Billing administrators can take ownership of a savings plan by selecting one or multiple reservations, selecting **Grant access** and selecting **Grant access** in the window that appears.
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to **Cost Management + Billing**.
+    - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
+    - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
+1. In the left menu, select **Products + services** > **Savings plans**.
+    The complete list of savings plans for your EA enrollment or billing profile is shown.
+1. Billing administrators can take ownership of a savings plan by selecting one or multiple reservations, selecting **Grant access** and selecting **Grant access** in the window that appears.
 
 ### Adding billing administrators
 
@@ -46,7 +44,8 @@ Add a user as billing administrator to an Enterprise Agreement or a Microsoft Cu
 - For an Enterprise Agreement, add users with the Enterprise Administrator role to view and manage all savings plan orders that apply to the Enterprise Agreement. Enterprise administrators can view and manage savings plan in **Cost Management + Billing**.
   - Users with the _Enterprise Administrator (read only)_ role can only view the savings plan from **Cost Management + Billing**.
   - Department admins and account owners can't view savings plans unless they're explicitly added to them using Access control (IAM). For more information, see [Manage Azure Enterprise roles](../manage/understand-ea-roles.md).
-- For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all savings plan purchases made using the billing profile. Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+- For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all savings plan purchases made using the billing profile. 
+    - Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## View savings plans with Azure RBAC access
 
@@ -77,4 +76,4 @@ To allow other people to manage savings plans, you have two options:
 
 ## Next steps
 
-[Manage Azure savings plans](manage-savings-plan.md).
+- [Manage Azure savings plans](manage-savings-plan.md).

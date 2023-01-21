@@ -72,7 +72,7 @@ You can use savings plan recommendations to help determine the hourly commitment
 - Azure Advisor provides purchase recommendations for individual subscriptions.
 - You can use the APIs to get purchase recommendations for both shared scope and single subscription scope. 
 
-- For more information, see [Savings plan purchase recommendations](purchase-recommendations.md).
+For more information, see [Savings plan purchase recommendations](purchase-recommendations.md).
 
 ### Buy a savings plan in the Azure portal
 
@@ -85,8 +85,8 @@ You can use savings plan recommendations to help determine the hourly commitment
     - **Apply to any eligible resource** – scope of resources that are eligible for savings plan benefits. For more information, see [Scope savings plans](#scope-savings-plans).
     - **Term length** - One year or three years.
     - **Hourly commitment** – Amount available through the savings plan each hour. In the Azure portal, up to 10 recommendations may be presented. Recommendations are scope-specific. Azure doesn't currently provide recommendations for management groups. Each recommendation includes:
-        - An hourly commitment
-        - The potential savings percentage compared to on-demand costs for the commitment
+        - An hourly commitment.
+        - The potential savings percentage compared to on-demand costs for the commitment.
         - The percentage of the selected scopes compute usage that would be covered by new savings plan. It includes the commitment amount plus any other previously purchased savings plan or reservation.
     - **Billing frequency** – **All upfront** or **Monthly**. The total cost of the savings plan will be the same regardless of the selected frequency.
 
