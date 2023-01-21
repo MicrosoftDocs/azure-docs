@@ -14,7 +14,7 @@ tags: connectors
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This article shows how to access an MQ server that's either on premises or in Azure from a workflow in Azure Logic Apps with the MQ connector. You can then create automated workflows that receive and send messages stored in your MQ server. For example, your workflow can browse for a single message in a queue and then run other actions.
+This article shows how to access an Azure-hosted or on-premises MQ server from a workflow in Azure Logic Apps using the MQ connector. You can then create automated workflows that receive and send messages stored in your MQ server. For example, your workflow can browse for a single message in a queue and then run other actions.
 
 The MQ connector provides a wrapper around a Microsoft MQ client, which includes all the messaging capabilities to communicate with a remote MQ server across a TCP/IP network. This connector defines the connections, operations, and parameters to call the MQ client.
 
@@ -48,11 +48,11 @@ Based on whether you use the MQ managed connector, which exists for Consumption 
 
 - A publicly trusted private key certificate is issued by a recognized [Certificate Authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/). A non-publicly trusted private key certificate includes self-signed, private CA, and similar certificates. 
 
-- To validate the private key certificate from your MQ server, the MQ connector uses public key certificates that usually already exist on the virtual machine host for your logic app and are kept in that host's [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store).
+- To validate the private key certificate from your MQ server, the MQ connector uses public key certificates that usually exist on your logic app's virtual machine host in the host's [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store).
 
   However, if the host doesn't have all the required public key certificates, or if your MQ server has to send a non-publicly trusted private key certificate, you need to take extra steps. For more information, see [Prerequisites].
 
-- To validate the private key certificate from your Standard logic app, the MQ built-in connector uses public key certificates already that exist on your MQ server. To add a private key certificate for your logic app to send as a client certificate, see [Add a private key](#add-private-key-certificate).
+- To validate the private key certificate from your Standard logic app, the MQ built-in connector uses public key certificates that exist on your MQ server. To add a private key certificate for your logic app to send as a client certificate, see [Add a private key](#add-private-key-certificate).
 
 ## Limitations
 
@@ -88,7 +88,7 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
   * To use the MQ managed connector with the on-premises data gateway, your logic app resource must use the same location as your gateway resource in Azure.
 
-  * To use the MQ managed connector, which doesn't provide any triggers, make sure that your workflow already starts with a trigger or that you first add a trigger to your workflow. For example, you can use the [Recurrence trigger](../connectors/connectors-native-recurrence.md).
+  * To use the MQ managed connector, which doesn't provide any triggers, make sure that your workflow starts with a trigger or that you first add a trigger to your workflow. For example, you can use the [Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
   * To use a trigger from the MQ built-in connector, make sure that you start with a blank workflow.
 
@@ -102,7 +102,7 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
     * On-premises MQ server scenarios using the on-premises data gateway
 
-      If your MQ server sends a non-publicly trusted private key certificate, such as a self-signed or private CA certificate, as the MQ server certificate, you must add the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer where the on-premises data gateway installation is running. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool).
+      If your MQ server sends a non-publicly trusted private key certificate, such as a self-signed or private CA certificate, you must add the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer with the on-premises data gateway installation. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool).
 
   * MQ built-in connector
 
@@ -114,7 +114,7 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
       | Incoming MQ server certificate | Prerequisites |
       |--------------------------------|---------------|
-      | Publicly trusted private key certificate issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) | Usually, your logic app doesn't need any other setup because your logic app's virtual machine host should already have the required public key certificates to validate the incoming MQ server's private key certificate. To check that these public key certificates exist, follow the steps to [View and confirm thumbprints for existing public key certificates](#view-existing-public-key-certificates). <br><br>If the virtual machine host doesn't have all the required public key certificates to validate the incoming MQ server's private key certificate and any chaining certificates, complete the following steps: <br><br>1. Recreate your Standard logic app using an [Azure App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). <br><br>2. Manually add all the private key certificates in the MQ server's certificate chain to the host's Trusted Root CA Store. For more information, see [Add a private key certificate](#add-private-key-certificate). |
+      | Publicly trusted private key certificate issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) | Usually, your logic app doesn't need any other setup because your logic app's virtual machine host usually has the required public key certificates to validate the incoming MQ server's private key certificate. To check that these public key certificates exist, follow the steps to [View and confirm thumbprints for existing public key certificates](#view-existing-public-key-certificates). <br><br>If the virtual machine host doesn't have all the required public key certificates to validate the incoming MQ server's private key certificate and any chaining certificates, complete the following steps: <br><br>1. Recreate your Standard logic app using an [Azure App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). <br><br>2. Manually add all the private key certificates in the MQ server's certificate chain to the host's Trusted Root CA Store. For more information, see [Add a private key certificate](#add-private-key-certificate). |
       | Private key certificate not publicly trusted, such as a self-signed or private CA certificate | Your logic app's virtual machine host won't have the required public key certificates in the host's Trusted Root CA Store to validate the MQ server's certificate chain. In this case, complete the following steps: <br><br>1. Recreate your Standard logic app using an [Azure App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). <br><br>2. Manually add the required public key certificates to the host's Trusted Root CA Store. For more information, see [Add a public key certificate](#add-public-key-certificate). |
 
     * Logic app client authentication
@@ -141,7 +141,7 @@ These steps use the Azure portal, but with the appropriate Azure Logic Apps exte
 
 1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
-1. On the designer, select **Choose an operation**, if not already selected.
+1. On the designer, select **Choose an operation**, if not selected.
 
 1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **mq**.
 
@@ -245,7 +245,7 @@ The steps to add and use an MQ action differ based on whether your workflow uses
 
 ## Test your workflow
 
-To check that your workflow returns the results that you expect, run your workflow and then review the outputs from your workflow's run history.
+To check that your workflow returns the results that you expect, run your workflow, and then review the outputs from your workflow's run history.
 
 1. Run your workflow.
 
@@ -271,7 +271,7 @@ The following information applies only to Standard logic app workflows for the M
 
 ## View and confirm thumbprints for existing public key certificates
 
-To check that the thumbprints for the public key certificates required for validation already exist in the Trusted Root CA Store, follow these steps to run the [`cert` PowerShell script](/powershell/module/microsoft.powershell.security/about/about_certificate_provider) from your Standard logic app resource menu.
+To check that the thumbprints for the required public key certificates exist in the Trusted Root CA Store, follow these steps to run the [`cert` PowerShell script](/powershell/module/microsoft.powershell.security/about/about_certificate_provider) from your Standard logic app resource menu.
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource. On the logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
 
