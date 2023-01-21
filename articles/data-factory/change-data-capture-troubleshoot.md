@@ -14,15 +14,15 @@ ms.custom:
 # Troubleshoot the Change data capture resource in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md]]
 
-This article provides suggestions to troubleshoot common problems with the Change data capture resource in Azure Data Factory.
+This article provides suggestions on how to troubleshoot common problems with the change data capture resource in Azure Data Factory.
 
 ## Issue: Trouble enabling native CDC in my SQL source. 
 
-For sources in SQL, 2 sets of tables are available: tables with native SQL CDC enabled and tables with time based incremental columns. 
+For sources in SQL, two sets of tables are available: tables with native SQL CDC enabled and tables with time based incremental columns. 
 
-Follow these steps to configure native CDC for a specific source table in your SQL database: 
+Follow these steps to configure native CDC for a specific source table in your SQL database.
 
-Consider you have following table, with ID as the Primary Key. If a Primary Key is present in the schema, supports_net_changes is set to true by default, otherwise you will need to use Query 3 to configure it. 
+Consider you have following table, with ID as the Primary Key. If a Primary Key is present in the schema, supports_net_changes is set to true by default. If not, configure it using the script in Query 3.  
 
 **Query 1**
 ```sql
@@ -62,21 +62,21 @@ EXEC sys.sp_cdc_enable_table
     
 ## Issue: Tables are unavailable to select in the CDC resource configuration process. 
   
-If your SQL source doesn't have SQL Server CDC with net_changed enabled or doesn't have any time-based incremental columns, then tables will be unavailable for source selection. 
+If your SQL source doesn't have SQL Server CDC with net_changed enabled or doesn't have any time-based incremental columns, then the tables in your source will be unavailable for selection. 
 
 ## Issue: The debug cluster is not available from a warm pool.
 
-The debug cluster will not be available from a warm pool. There will be a wait time in the the order of 1+ minutes. 
+The debug cluster is not available from a warm pool. There will be a wait time in the order of 1+ minutes. 
 
-## Issue: CDC resource with both source and target linke services using custom integration runtimes won't work. 
+## Issue: My CDC resource has both source and target linked services that use custom integration runtimes and it won't work. 
 
-In VNet factories, CDC resources will work fine if either the source or target linked service is tied to an auto-resolve IR. If both the source and target linked services use custom IRs, the CDC resource will not work. 
+In factories with virtual networks, CDC resources will work fine if either the source or target linked service is tied to an auto-resolve integration runtime. If both the source and target linked services use custom integration runtimess, the CDC resource will not work. 
 
-In non-VNet factories, CDC resources requiring VNet will not work. This fix is in progress. 
+In non-virtual network factories, CDC resources requiring a virtual network will not work. This fix is in progress. 
 
-## Issue: Creating a new linked services pointing to an AKV linked service causes an error. 
+## Issue: Creating a new linked services pointing to an Azure Key Vault linked service causes an error. 
 
-If you create a new linked service using the CDC fly-out process that points to an AKV linked service, the CDC resource will break. This fix is in progress. 
+If you create a new linked service using the CDC fly-out process that points to an Azure Key Vault linked service, the CDC resource will break. This fix is in progress. 
 
 ## Next steps
 - [Learn more about the change data capture resource](concepts-change-data-capture-resource.md)
