@@ -46,7 +46,7 @@ In this tutorial, you'll create a secondary store in the `centralus` region and 
 
 - [.NET Core SDK](https://dotnet.microsoft.com/download).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This tutorial requires version 2.3.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
