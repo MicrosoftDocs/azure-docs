@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 01/18/2023
+ ms.date: 01/20/2023
  ms.author: rogarana
  ms.custom: include file
 ---

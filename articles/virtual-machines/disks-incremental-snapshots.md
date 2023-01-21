@@ -205,7 +205,7 @@ $targetSnapshot.CompletionPercent
 
 ## Check sector size
 
-If you want to determine whether or your snapshot is a VHDX or a VHD snapshot, you can use the `LogicalSectorSize` property of the snapshot. Snapshots of disks with 4096 logical sector size are stored as VHDX, whereas snapshots of disks with 512 logical sector size are stored as VHD. Snapshots inherit the logical sector size from the parent disk.
+If you want to determine whether or your Ultra Disk snapshot is a VHDX or a VHD snapshot, you can use the `LogicalSectorSize` property of the snapshot. Snapshots of disks with 4096 logical sector size are stored as VHDX, whereas snapshots of disks with 512 logical sector size are stored as VHD. Snapshots inherit the logical sector size from the parent disk.
 
 The following command displays the logical sector size of a snapshot:
 
