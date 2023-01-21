@@ -24,7 +24,7 @@ By automatically detecting data changes at the source without requiring complex 
 
 The new Change Data Capture resource in ADF allows for full fidelity change data capture that continuously runs in near real-time through a guided configuration experience. 
 
-:::image type="content" source="media/adf-cdc/change-data-capture-1.png" alt-text="New top-level resource in Factory Resources panel.":::
+:::image type="content" source="media/adf-cdc/change-data-capture-resource-1.png" alt-text="New top-level resource in Factory Resources panel.":::
 
 ## Supported data sources
 
