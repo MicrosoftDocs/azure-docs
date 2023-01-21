@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/23/2023
 ms.custom: engagement-fy23
 tags: connectors
 ---
@@ -35,7 +35,7 @@ The MQ connector has different versions, based on [logic app type and host envir
 
 ## Authentication with TLS (SSL) encryption
 
-Based on whether you use the MQ managed connector, which exists for Consumption and Standard logic app workflows, or you use the MQ built-in connector, which exists only for Standard logic app workflows, the MQ connector supports one or both of the following authentication directions:
+Based on whether you use the MQ managed connector (Consumption or Standard workflows) or the MQ built-in connector (Standard workflows only), the MQ connector supports one or both of the following authentication directions:
 
 | Authentication | Supported logic app type and MQ connector | Process |
 |----------------|-------------------------------------------|---------|
@@ -50,7 +50,7 @@ Based on whether you use the MQ managed connector, which exists for Consumption 
 
 - To validate the private key certificate from your MQ server, the MQ connector uses public key certificates that usually exist on your logic app's virtual machine host in the host's [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store).
 
-  However, if the host doesn't have all the required public key certificates, or if your MQ server has to send a non-publicly trusted private key certificate, you need to take extra steps. For more information, see [Prerequisites].
+  However, if the host doesn't have all the required public key certificates, or if your MQ server sends a non-publicly trusted private key certificate, you need to take extra steps. For more information, see [Prerequisites].
 
 - To validate the private key certificate from your Standard logic app, the MQ built-in connector uses public key certificates that exist on your MQ server. To add a private key certificate for your logic app to send as a client certificate, see [Add a private key](#add-private-key-certificate).
 
@@ -102,7 +102,7 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
     * On-premises MQ server scenarios using the on-premises data gateway
 
-      If your MQ server sends a non-publicly trusted private key certificate, such as a self-signed or private CA certificate, you must add the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer with the on-premises data gateway installation. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool).
+      For your MQ server to send a non-publicly trusted private key certificate such as a self-signed or private CA certificate, you have to add the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer with the on-premises data gateway installation. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool).
 
   * MQ built-in connector
 
