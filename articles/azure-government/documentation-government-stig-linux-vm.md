@@ -150,7 +150,7 @@ Azure -> Virtual Machine running Linux -> Cannot create a VM -> Troubleshoot my 
 ## Frequently asked questions
 
 **When will STIG-compliant VMs reach general availability (GA)?** </br>
-The Azure STIG-compliant VM offering isn't expected to reach GA because of the release cadence for DISA STIGs. Every quarter, the offering is upgraded with latest guidance, and this process is expected to continue in the future. See previous section for support options that most customers require for production workloads, including creating support tickets.
+The Azure STIG-compliant VM offering is expected to remain in Preview instead of reaching GA because of the release cadence for DISA STIGs. Every quarter, the offering is upgraded with latest guidance, and this process is expected to continue in the future. See previous section for support options that most customers require for production workloads, including creating support tickets.
 
 **Can Azure Update Management be used with STIG images?** </br>
 Yes, [Update Management](../automation/update-management/overview.md) in Azure Automation supports STIG images.
