@@ -18,13 +18,15 @@ Azure Web PubSub helps you manage WebSocket clients. This quickstart shows you h
 ## Prerequisites
 
 - An Azure subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Either a Bash or PowerShell command shell.
+- a Bash and PowerShell command shell. The Python, Javascript and Java samples require a Bash command shell.
 - A file editor such as VSCode.
 - Azure CLI: [install the Azure CLI](/cli/azure/install-azure-cli)
 
 If creating the project on a local machine, you'll need to install the dependencies for the language you're using:
 
 # [C#](#tab/csharp)
+
+Install both the .NET Core SDK and the `aspnetcore` and dotnet runtime.
 
 [.NET Core](https://dotnet.microsoft.com/download)
 
@@ -38,7 +40,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 # [Java](#tab/java)
 
-* [Java Development Kit (JDK)](/java/openjdk/install/).
+* [Java Development Kit (JDK)](/java/openjdk/install/)
 * [Apache Maven](https://maven.apache.org/download.cgi)
 
 ---
@@ -46,7 +48,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 ## 1. Setup
 
-To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
+To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.  If you are using Cloud Shell it is not necessary to sign in.
 
 ```azurecli
 az login
@@ -64,6 +66,10 @@ Next, install or update the Azure Web PubSub extension for the CLI if it wasn't 
 az extension add --name webpubsub --upgrade
 ```
 
+
+## 1. Create a resource group
+
+
 Set the following environment variables.  Replace the \<placeholder\> with a unique Web PubSub name. 
 
 # [Bash](#tab/bash)
@@ -74,6 +80,7 @@ LOCATION="EastUS"
 WEB_PUBSUB_NAME="<your-unique-name>"
 ```
 
+```azurecli
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -136,13 +143,13 @@ Save the service's connection string.  The connection string is used by the serv
 # [Bash](#tab/bash)
 
 ```azurecli
-connection_string=$(az webpubsub key show --name $WEB_PUBSUB_NAME --resource-group $RESOURCE_GROUP --query primaryConnectionString)
+az webpubsub key show --name $WEB_PUBSUB_NAME --resource-group $RESOURCE_GROUP --query primaryConnectionString
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$connection_string = (az webpubsub key show --name $WebPubSubName --resource-group $ResourceGroupName --query primaryConnectionString)
+az webpubsub key show --name $WebPubSubName --resource-group $ResourceGroupName --query primaryConnectionString
 ```
 
 ---
@@ -183,12 +190,29 @@ The connection to the Web PubSub service is established when you see a JSON mess
 
 ## 4. Publish messages using service SDK
 
-You'll use the Azure Web PubSub SDK to publish a message to all the clients connected to the hub.
+You'll use the Azure Web PubSub SDK to publish a message to all the clients connected to the hub. 
+You can choose between C#, JavaScript, Python and Java. The dependencies for each language are installed in the steps for that language.  Note that Python, JavaScript and Java require a bash shell to run the commands in this quickstart.
 
 ### Set up the project to publish messages
 
-ou will need to open a new command shell for this project.
-Now, select the language for your project.  Note that the dependencies for each language are installed in the steps for that language.
+1. Open a new command shell for this project.
+1. Save the connection string from the client shell:
+    
+    # [Bash](#tab/bash)
+
+    ```azurecli
+    Connection_String="<your_connection_string>"
+    ```
+
+    # [Azure PowerShell](#tab/azure-powershell)
+
+    ```azurepowershell
+    $connection_string = "<your_connection_string>"
+    ```
+
+    ---
+
+1. Now, select the language for your project.
 
 # [C#](#tab/csharp)
 
@@ -419,10 +443,14 @@ Now, select the language for your project.  Note that the dependencies for each 
 
 You can delete the resources that you created in this quickstart by deleting the resource group that contains them.
 
+# [Bash](#tab/bash)
+
 ```azurecli
 az group delete --name $RESOURCE_GROUP --yes
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+d
 ```azurepowershell
 az group delete --name $ResourceGroup --yes
 ```
