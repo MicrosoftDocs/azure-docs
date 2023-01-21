@@ -3,14 +3,14 @@ title: Introduction to Network Configuration Diagnostics in Azure Network Watche
 description: This page provides an overview of the Network Watcher - NSG Diagnostics
 services: network-watcher
 documentationcenter: na
-author: shijaiswal
+author: halkazwini
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/04/2023
 ms.custom: engagement-fy23
-ms.author: shijaiswal
+ms.author: halkazwini
 ---
 
 # Introduction to NSG Diagnostics in Azure Network Watcher
