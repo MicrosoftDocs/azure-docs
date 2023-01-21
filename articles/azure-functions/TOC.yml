@@ -31,21 +31,24 @@
             href: create-first-function-cli-csharp.md
         - name: Java  
           items:
-          - name: Visual Studio Code
+          - name: Eclipse
             displayName: Java, quickstart, get started
-            href: create-first-function-vs-code-java.md 
-          - name: Maven 
-            displayName: Java, quickstart, get started
-            href: create-first-function-cli-java.md
+            href: functions-create-maven-eclipse.md          
           - name: Gradle
             displayName: Java, quickstart, get started
             href: functions-create-first-java-gradle.md
-          - name: Eclipse
-            displayName: Java, quickstart, get started
-            href: functions-create-maven-eclipse.md
           - name: IntelliJ IDEA
             displayName: Java, quickstart, get started
             href: functions-create-maven-intellij.md 
+          - name: Maven 
+            displayName: Java, quickstart, get started
+            href: create-first-function-cli-java.md
+          - name: Spring Cloud
+            displayName: Java, quickstart, get started
+            href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
+          - name: Visual Studio Code
+            displayName: Java, quickstart, get started
+            href: create-first-function-vs-code-java.md 
         - name: JavaScript
           items:
           - name: Visual Studio Code
