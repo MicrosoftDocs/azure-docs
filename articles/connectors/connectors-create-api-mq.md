@@ -39,13 +39,20 @@ Based on whether you use the MQ managed connector, which exists for Consumption 
 
 | Authentication | Supported logic app type and MQ connector | Process |
 |----------------|-------------------------------------------|---------|
-| Server only <br>(one-way) | - Consumption: Managed only <br><br>- Standard: Managed or built-in | The MQ server sends a private key certificate to the logic app client for validation. The logic app client validates the incoming server certificate for authenticity using a public key certificate, known also as a "signer certificate". The logic app doesn't send a client certificate. |
-| Server-client <br>(two-way) | - Consumption: Not supported <br><br>- Standard: Built-in only | The MQ server sends a private key certificate to the logic app client for validation. The logic app client validates the incoming server certificate for authenticity using a public key certificate. <br><br>The logic app client sends a private key certificate to the MQ server for validation. The MQ server validates the incoming client certificate for authenticity using a public key certificate, known also as a "signer certificate". |
+| Server only <br>(one-way) | - Consumption: Managed only <br><br>- Standard: Managed or built-in | For server authentication, your MQ server sends a private key certificate, either publicly trusted or non-publicly trusted, to your logic app client for validation. The MQ connector validates the incoming server certificate for authenticity against public key certificates, known also as a "signer" certificates, by using standard .NET SSL stream validation. <br><br>The logic app doesn't send a client certificate. |
+| Server-client <br>(two-way) | - Consumption: Not supported <br><br>- Standard: Built-in only | For server authentication, see the previous row. <br><br>For client authentication, the logic app client sends a private key certificate to your MQ server for validation. The MQ connector validates the incoming client certificate for authenticity also by using a public key certificate. |
 
-> [!NOTE]
->
-> The certificate that requires validation is always a private key certificate. 
-> The certificate used to perform the validation is always a public key certificate.
+### Notes about private key and public key certificates
+
+- The certificate that requires validation is always a private key certificate. The certificate used to perform the validation is always a public key certificate. 
+
+- A publicly trusted private key certificate is issued by a recognized [Certificate Authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/). A non-publicly trusted private key certificate includes self-signed, private CA, and similar certificates. 
+
+- To validate the private key certificate from your MQ server, the MQ connector uses public key certificates that usually already exist on the virtual machine host for your logic app and are kept in that host's [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store).
+
+  However, if the host doesn't have all the required public key certificates, or if your MQ server has to send a non-publicly trusted private key certificate, you need to take extra steps. For more information, see [Prerequisites].
+
+- To validate the private key certificate from your Standard logic app, the MQ built-in connector uses public key certificates already that exist on your MQ server. To add a private key certificate for your logic app to send as a client certificate, see [Add a private key](#add-private-key-certificate).
 
 ## Limitations
 
@@ -91,7 +98,7 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
     * Azure-hosted MQ server scenarios
 
-      The MQ server must send a private key certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) to your logic app client.
+      The MQ server must send a private key certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) to your logic app client for validation.
 
     * On-premises MQ server scenarios using the on-premises data gateway
 
@@ -99,34 +106,30 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
   * MQ built-in connector
 
-    For server authentication, the MQ built-in connector requires and uses public key certificates to perform validation on incoming MQ server private key certificates, both trusted and non-publicly trusted. The latter type can include certificates such as self-signed, private CA, and so on. The following table describes the certificate prerequisites, based on your scenario:
+    Standard logic apps use [Azure App Service](../app-service/overview.md) as the host platform and to handle certificates. For Standard logic apps on any App Service plan, you can add public, private, custom, or self-signed certificates to the [local machine certificate store](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). However, if you have to add certificates to the Trusted Root CA Store on the virtual machine host where your Standard logic app runs, App Service requires that your logic app run in an isolated [App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). For more information, see [Certificates and the App Service Environment](../app-service/environment/overview-certificates.md).
 
-    | Incoming MQ server certificate | Prerequisites |
-    |--------------------------------|---------------|
-    | Private key certificate from a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) | Usually, your logic app doesn't need any other setup because your logic app's host virtual machine should already have the required public key certificates to validate the incoming MQ server's private key certificate. These public key certificates are kept in the virtual host machine's [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store). To check that these public key certificates exist, follow the steps to [View and confirm thumbprints for existing public key certificates](#view-existing-public-key-certificates). <br><br>If the the virtual host machine doesn't have all the required public key certificates to validate the incoming MQ server's private key certificate and any chaining certificates, complete the following steps: <br><br>1. Recreate your Standard logic app using an [Azure App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). <br><br>2. Manually add all the private key certificates in the MQ server's certificate chain to the host's Trusted Root CA Store. For more information, see [Add a private key certificate](#add-private-key-certificate). |
-    | Private key certificate not publicly trusted, such as a self-signed or private CA certificate | Your logic app's host virtual machine won't have the required public key certificates in the host's Trusted Root CA Store to validate the MQ server's certificate chain. In this case, complete the following steps: <br><br>1. Recreate your Standard logic app using an [Azure App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). <br><br>2. Manually add the required public key certificates to the host's Trusted Root CA Store. For more information, see [Add a public key certificate](#add-public-key-certificate). |
+    * MQ server authentication
 
-Standard logic apps use [Azure App Service](../app-service/overview.md) as the host platform and to handle certificates.
+      The following table describes the certificate prerequisites, based on your scenario:
 
+      | Incoming MQ server certificate | Prerequisites |
+      |--------------------------------|---------------|
+      | Publicly trusted private key certificate issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) | Usually, your logic app doesn't need any other setup because your logic app's virtual machine host should already have the required public key certificates to validate the incoming MQ server's private key certificate. To check that these public key certificates exist, follow the steps to [View and confirm thumbprints for existing public key certificates](#view-existing-public-key-certificates). <br><br>If the virtual machine host doesn't have all the required public key certificates to validate the incoming MQ server's private key certificate and any chaining certificates, complete the following steps: <br><br>1. Recreate your Standard logic app using an [Azure App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). <br><br>2. Manually add all the private key certificates in the MQ server's certificate chain to the host's Trusted Root CA Store. For more information, see [Add a private key certificate](#add-private-key-certificate). |
+      | Private key certificate not publicly trusted, such as a self-signed or private CA certificate | Your logic app's virtual machine host won't have the required public key certificates in the host's Trusted Root CA Store to validate the MQ server's certificate chain. In this case, complete the following steps: <br><br>1. Recreate your Standard logic app using an [Azure App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). <br><br>2. Manually add the required public key certificates to the host's Trusted Root CA Store. For more information, see [Add a public key certificate](#add-public-key-certificate). |
 
-For scenarios where your MQ server sends private key certificates issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/), the logic app's host virtual machine usually already has the required public key certificates to validate the MQ server's certificate chain. These public key certificates are kept in the host's [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store). However, if the public key certificates required to perform the validation don't exist, you have to take extra steps to meet the certificate prerequisites based on your scenario before you can use the MQ built-in connector. For more information, see [Prerequisites](#prerequisites).
+    * Logic app client authentication
 
-    For Standard logic apps running on any App Service plan, you can add public, private, custom, or self-signed certificate to the [local machine certificate store](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). However, to add certificates to the virtual host machine's Trusted Root CA Store for a Standard logic app, App Service requires that your logic app run in an isolated [App Service Environment and use an ASE-based App Service plan](../app-service/environment/overview.md). For more information, see [Certificates and the App Service Environment (ASE)](../app-service/environment/overview-certificates.md).
+      You can add a private key certificate to send as the client certificate and then specify the certificate's thumbprint value in the connection details for the MQ built-in connector. add the client private key certificate that you want to use with the MQ built-in connector by following the steps to [add a private key certificate](#add-private-key-certificate).
 
-    For server authentication, you can add a private key certificate to use as the MQ server certificate. The connector validates these certificates against the public key certificates in the Trusted Root CA Store using standard .NET SSL stream validation
+    **Recommendation**: Upgrade to MQ server 9.0 or later. Also, on your MQ server, make sure to set up the server-connection channel with a cipher suite that matches the cipher specification used by your client connection, for example, **ANY_TLS12_OR_HIGHER**. For more information, see the next item about [Cipher requirements](#cipher-requirements).
 
-    For logic app client authentication, you can add a private key certificate to send as the client certificate and then specify the certificate's thumbprint value in the connection details for the MQ built-in connector. add the client private key certificate to use with the MQ built-in connector in your Standard logic app workflow by following the steps to [add a client private key certificate](#add-private-key-certificate).
+<a name="cipher-requirements"></a>
 
-    | Authentication | Requirements |
-    |----------------|--------------|
-    | Server only <br>(one-way) | **Publicly trusted CA certificate**: Standard logic app workflow can run in single-tenant Azure Logic Apps with any WS*-based App Service plan. <br><br>**Non-publicly trusted certificate, such as private CA, self-signed, and so on**: Standard logic app workflow must run in an App Service Environment v3 (ASE v3 with a Windows plan only). |
-    | Server-client <br>(two-way) | **Publicly trusted CA certificate**: Standard logic app workflow can run in single-tenant Azure Logic Apps with any WS*-based App Service plan. <br><br>**Non-publicly trusted certificate, such as private CA, self-signed, and so on**: Standard logic app workflow must run in an App Service Environment v3 (ASE v3 with a Windows plan only). <br><br>**Recommendation**: Upgrade to MQ server 9.0 or later. On your MQ server, make sure to set up the server-connection channel with the correct cipher specification that matches the one available on your client computer, for example, **ANY_TLS12_OR_HIGHER**. |
+* Cipher specification requirements
 
-    For more information, see [View and add certificates for authentication with TLS (SSL) encryption](#view-add-certificates).
+  The MQ server requires that you define the cipher specification for connections that use TLS (SSL) encryption. This cipher specification must match the cipher suites that are supported, chosen, and used by the operating system where the MQ server runs. Ultimately, the cipher specification used by the client connection must match the cipher suites set up on the server-connection channel on the MQ server.
 
-* Cipher specifications
-
-  The MQ server requires that you define the cipher specification for use with connections with TLS (SSL) encryption. This cipher specification must match the cipher suites that are supported, chosen, and used by the operating system where the MQ server runs. Ultimately, the cipher specification used by the client connection must match the cipher suites set up on the server-connection channel on the MQ server. For more information, see [Connection and authentication problems](#connection-problems).
+  For more information, see [Connection and authentication problems](#connection-problems).
 
 <a name="add-trigger"></a>
 
@@ -262,7 +265,7 @@ To check that your workflow returns the results that you expect, run your workfl
 
 ## View and add certificates for authentication with TLS (SSL) encryption
 
-The following information applies only to Standard logic app workflows that use the MQ built-in connector with TLS encryption for either server-only or server-client authentication.
+The following information applies only to Standard logic app workflows for the MQ built-in connector using either server-only or server-client authentication with TLS (SSL) encryption.
 
 <a name="view-existing-public-key-certificates"></a>
 
@@ -282,37 +285,9 @@ To check that the thumbprints for the public key certificates required for valid
 
    ![Screenshot showing existing example thumbprints and descriptions.](media/connectors-create-api-mq/existing-trusted-certificate-thumbprints.png)
 
-<a name="add-private-key-certificate"></a>
-
-## Add a private key certificate
-
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource. On the logic app resource menu, under **Settings**, select **TLS/SSL settings (classic)**.
-
-1. On the **TLS/SSL settings (classic)** page, select the **Private Key Certificates (.pfx)** tab, and then select **Upload Certificate**.
-
-1. On the **Add Private Key Certificate (.pfx)** pane that opens, find and select the client private key certificate file (.pfx), and then enter the certificate password. When you're done, select **Upload**.
-
-1. After you add the certificate, from the **Thumbprint** column, copy the certificate's thumbprint value.
-
-   ![Screenshot showing the Azure portal and Standard logic resource with the following items selected: 'TLS/SSL settings (classic)', 'Private Key Certificates (.pfx)', and 'Upload Certificate'.](media/connectors-create-api-mq/add-private-key-certificate.png)
-
-1.	On the logic app resource menu, select **Configuration**.
-
-1. On the **Application settings** tab, select **New application setting**. Add a new application setting named **WEBSITE_LOAD_CERTIFICATES**, and enter the certificate's thumbprint value that you previously copied.
-
-   For more information, see [Edit host and app settings for Standard logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings).
-
-1. If the added certificate doesn't appear in the private key certificates list, on the toolbar, select **Refresh**.
-
-1. When you create a connection using the MQ built-in connector, in the connection information box, select **Use TLS**. For the **Client Cert Thumbprint** property, enter the previously copied thumbprint value for the client private key certificate.
-
-   ![Screenshot showing Standard logic app workflow designer, MQ built-in connection box with 'Use TLS' option selected and the 'Client Cert Thumbprint' property with private key certificate thumbprint entered.](media/connectors-create-api-mq/client-private-key-certificate-thumbprint.png)
-
 <a name="add-public-key-certificate"></a>
 
 ## Add a public key certificate
-
-To add the MQ server public key certificate to use with the MQ built-in connector in your Standard logic app workflow, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource. On the logic app resource menu, under **Settings**, select **TLS/SSL settings (classic)**.
 
@@ -332,11 +307,39 @@ To add the MQ server public key certificate to use with the MQ built-in connecto
 
    > [!NOTE]
    >
-   > If you specify a private CA certificate thumbprint, the MQ built-in connector doesn't run any certificate validation, 
+   > If you specify a thumbprint for a private CA certificate, the MQ built-in connector doesn't run any certificate validation, 
    > such as checking the certificate's source or expiration date. If standard .NET SSL validation fails, the connector 
    > only compares any thumbprint value that's passed in against the value in the **WEBSITE_LOAD_ROOT_CERTIFICATES** setting.
 
 1. If the added certificate doesn't appear in the public key certificates list, on the toolbar, select **Refresh**.
+
+<a name="add-private-key-certificate"></a>
+
+## Add a private key certificate
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource. On the logic app resource menu, under **Settings**, select **TLS/SSL settings (classic)**.
+
+1. On the **TLS/SSL settings (classic)** page, select the **Private Key Certificates (.pfx)** tab, and then select **Upload Certificate**.
+
+1. On the **Add Private Key Certificate (.pfx)** pane that opens, find and select the private key certificate file (.pfx), and then enter the certificate password. When you're done, select **Upload**.
+
+1. After you add the certificate, from the **Thumbprint** column, copy the certificate's thumbprint value.
+
+   ![Screenshot showing the Azure portal and Standard logic resource with the following items selected: 'TLS/SSL settings (classic)', 'Private Key Certificates (.pfx)', and 'Upload Certificate'.](media/connectors-create-api-mq/add-private-key-certificate.png)
+
+1.	On the logic app resource menu, select **Configuration**.
+
+1. On the **Application settings** tab, select **New application setting**. Add a new application setting named **WEBSITE_LOAD_CERTIFICATES**, and enter the certificate's thumbprint value that you previously copied.
+
+   For more information, see [Edit host and app settings for Standard logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings).
+
+1. If the added certificate doesn't appear in the private key certificates list, on the toolbar, select **Refresh**.
+
+1. When you create a connection using the MQ built-in connector, in the connection information box, select **Use TLS**.
+
+1. In the **Client Cert Thumbprint** property, enter the previously copied thumbprint value for the private key certificate, which enables server-client (two-way) authentication. If you don't enter a thumbprint value, the connector uses server-only (one-way) authentication.
+
+   ![Screenshot showing Standard logic app workflow designer, MQ built-in connection box with 'Use TLS' option selected and the 'Client Cert Thumbprint' property with private key certificate thumbprint entered.](media/connectors-create-api-mq/client-private-key-certificate-thumbprint.png)
 
 ## Troubleshoot problems
 
