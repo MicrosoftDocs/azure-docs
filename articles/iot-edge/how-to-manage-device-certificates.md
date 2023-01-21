@@ -90,7 +90,6 @@ sudo chmod 700 /var/aziot/secrets
 # Give aziotcs ownership to certificates
 # Read and write for aziotcs, read-only for others
 sudo chown -R aziotcs:aziotcs /var/aziot/certs
-sudo chmod -R 644 /var/aziot/certs
 sudo find /var/aziot/certs -type f -name "*.*" -exec chmod 644 {} \;
 
 # Give aziotks ownership to private keys
