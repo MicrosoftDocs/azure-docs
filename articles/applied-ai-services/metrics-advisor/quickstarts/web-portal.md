@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Metrics Advisor web portal'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn how to start using the Metrics Advisor web portal.
 author: mrbullwinkle
 ms.author: mbullwin
