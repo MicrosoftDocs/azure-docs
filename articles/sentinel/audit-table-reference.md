@@ -12,7 +12,7 @@ ms.service: microsoft-sentinel
 
 This article describes the fields in the SentinelAudit tables, which are used for auditing user activity in Microsoft Sentinel resources. With the Microsoft Sentinel audit feature, you can keep tabs on the actions taken in your SIEM and get information on any changes made to your environment and the users that made those changes. 
 
-Learn how to [query and use the audit table](audit-analytics-rules.md) for deeper monitoring and visibility of actions in your environment.
+Learn how to [query and use the audit table](monitor-analytics-rule-integrity.md) for deeper monitoring and visibility of actions in your environment.
 
 > [!IMPORTANT]
 >

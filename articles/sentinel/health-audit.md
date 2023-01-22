@@ -58,7 +58,7 @@ For best results, you should build your queries on the **pre-built functions** o
 
 **Were unauthorized changes made to an analytics rule?**
 
-[Was something changed in the rule](link)? You didn't get the results you expected from your analytics rule, and it didn't have any health issues. You want to see if any unplanned changes were made to the rule, and if so, what changes were made, by whom, from where, and when.
+[Was something changed in the rule](monitor-analytics-rule-integrity.md)? You didn't get the results you expected from your analytics rule, and it didn't have any health issues. You want to see if any unplanned changes were made to the rule, and if so, what changes were made, by whom, from where, and when.
 
 
 ## How Microsoft Sentinel presents health and audit data

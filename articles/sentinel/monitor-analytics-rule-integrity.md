@@ -40,7 +40,21 @@ Once the health feature is turned on, the *SentinelHealth* data table is created
 
 ### Understanding SentinelHealth table events
 
-The following types of automation health events are logged in the *SentinelHealth* table:
+The following types of analytics rule health events are logged in the *SentinelHealth* table:
+
+- **Scheduled analytics rule run**.
+
+- **NRT analytics rule run**.
+
+The following types of analytics rule audit events are logged in the *SentinelAudit* table:
+
+- **Create or update analytics rule**.
+
+- **Analytics rule deleted**.
+
+
+
+<!-- REPLACE THIS WITH ANALYTICS RULE MESSAGES
 
 - **Automation rule run**. Logged whenever an automation rule's conditions are met, causing it to run. Besides the fields in the basic *SentinelHealth* table, these events will include [extended properties unique to the running of automation rules](health-table-reference.md#automation-rules), including a list of the playbooks called by the rule. The following sample query will display these events:
 
@@ -55,10 +69,17 @@ The following types of automation health events are logged in the *SentinelHealt
     SentinelHealth
     | where OperationName == "Playbook was triggered"
     ```
+-->
 
 For more information, see [SentinelHealth table columns schema](health-table-reference.md#sentinelhealth-table-columns-schema).
 
 ### Statuses, errors and suggested steps
+
+For either **Scheduled analytics rule run** or **NRT analytics rule run**, you may see any of the following statuses:
+- Success: Rule executed successfully, generating `<n>` alert(s).
+- Success: Rule executed successfully, but did not reach the threshold (`<n>`) required to generate an alert.
+
+<!-- REPLACE THIS WITH ANALYTICS RULE MESSAGES
 
 For **Automation rule run**, you may see the following statuses:
 - Success: rule executed successfully, triggering all actions.
@@ -73,38 +94,36 @@ For **Playbook was triggered**, you may see the following statuses:
     > [!NOTE]
     > 
     > "Success" means only that the automation rule successfully triggered a playbook. It doesn't tell you when the playbook started or ended, the results of the actions in the playbook, or the final result of the playbook. To find this information, query the Logic Apps diagnostics logs (see the instructions later in this article).
+-->
 
+- Failure: These are the possible reasons for failure.
 
-#### Analytics rule failure reasons
-
-These are the possible **Reason** values for the **Analytics rule** resource type.
-
-| Failure reason            | Description                     | Remediation                                |
-| ------------------------- | ------------------------------- | ------------------------------------------ |
-| **GENERAL_ERROR** | An internal server error occurred while running the query. |                         |
-| **QUERY_TIMEOUT** | The query execution timed out. |                                                     |
-| **TABLE_NOT_EXISTS** | A table referenced in the query was not found. | Verify that the relevant data source is connected.                                                                                              |
-| **SEMANTIC_ERROR** | A semantic error occurred while running the query. | Try resetting the alert rule by editing and saving it (without changing any settings).                                                     |
-| **FUNCTION_RESERVED_FUNCTION** | A function called by the query is named with a reserved word. | Remove or rename the function.                                                                                       |
-| **SYNTAX_ERROR**   | A syntax error occurred while running the query. | Try resetting the alert rule by editing and saving it (without changing any settings).                                                     |
-| **WORKSPACE_NOT_EXIST**  | The workspace does not exist.      |                                          |
-| **QUERY_CONSUMES_TOO_MANY_RESOURCES** | This query was found to use too many system resources and was prevented from running.                                                                                    |
-| **UNKNOWN_FUNCTION**  | A function called by the query was not found. | Verify the existence in your workspace of all functions called by the query.                                                            |
-| **FAILED_TO_RESOLVE_RESOURCE** | The workspace used in the query was not found. | Verify that all workspaces in the query exist.                                                                                        |
-| **INSUFFICIENT_ACCESS_TO_QUERY**  | You don't have permissions to run this query. | Try resetting the alert rule by editing and saving it (without changing any settings).                                             |
-| **INSUFFICIENT_ACCESS_TO_RESOURCE**   | You don't have access permissions to one or more of the resources in the query.                                                                                                 |
-| **PERSISTENT_STORAGE_PATH_NOT_EXIST** | The query referred to a storage path that was not found.         |
-| **PERSISTENT_STORAGE_ACCESS_DENIED**  | The query was denied access to a storage path.                   |
-| **MULTIPLE_FUNCTIONS_WITH_SAME_NAME** | Multiple functions with the same name are defined in this workspace. | Remove or rename the redundant function and reset the rule by editing and saving it.          |
-| **QUERT_RESULT_MISSING**              | This query did not return any result.                            |
-| **MULTIPLE_RESULT_SET_NOT_ALLOWED**   | Multiple result sets in this query are not allowed.              |
-| **WRONG_NUMBER_OF_FIELDS**            | Query results contain inconsistent number of fields per row.     |
-| **INGESTION_DELAY**                   | The rule's running was delayed due to long data ingestion times. |
-| **TEMPORARY_ISSUE_DELAY**             | The rule's running was delayed due to temporary issues.          |
-| **ENRICHMENT_ABORTED_DUE_TO_TEMPRARY_ISSUES** | The alert was not enriched due to temporary issues.      |
-| **ENRICHMENT_ABORTED_DUE_TO_PERMENANT_ISSUES** | The alert was not enriched due to entity mapping issues. |
-| **ENTITIES_DROPPED_DUE_TO_SIZE_LIMIT** | X entities were dropped in alert Y due to the 32 KB alert size limit. |
-| **ENTITIES_DROPPED_DUE_TO_MAPPING_ISSUES** | X entities were dropped in alert Y due to entity mapping issues. |
+    | Failure reason                                 | Description                                                                           | Remediation                                                                            |
+    | ---------------------------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+    | **GENERAL_ERROR**                              | An internal server error occurred while running the query.                            |                                                                                        |
+    | **QUERY_TIMEOUT**                              | The query execution timed out.                                                        |                                                                                        |
+    | **TABLE_NOT_EXISTS**                           | A table referenced in the query was not found.                                        | Verify that the relevant data source is connected.                                     |
+    | **SEMANTIC_ERROR**                             | A semantic error occurred while running the query.                                    | Try resetting the alert rule by editing and saving it (without changing any settings). |
+    | **FUNCTION_RESERVED_FUNCTION**                 | A function called by the query is named with a reserved word.                         | Remove or rename the function.                                                         |
+    | **SYNTAX_ERROR**                               | A syntax error occurred while running the query.                                      | Try resetting the alert rule by editing and saving it (without changing any settings). |
+    | **WORKSPACE_NOT_EXIST**                        | The workspace does not exist.                                                         |                                                                                        |
+    | **QUERY_CONSUMES_TOO_MANY_RESOURCES**          | This query was found to use too many system resources and was prevented from running. |                                                                                        |
+    | **UNKNOWN_FUNCTION**                           | A function called by the query was not found.                                         | Verify the existence in your workspace of all functions called by the query.           |
+    | **FAILED_TO_RESOLVE_RESOURCE**                 | The workspace used in the query was not found.                                        | Verify that all workspaces in the query exist.                                         |
+    | **INSUFFICIENT_ACCESS_TO_QUERY**               | You don't have permissions to run this query.                                         | Try resetting the alert rule by editing and saving it (without changing any settings). |
+    | **INSUFFICIENT_ACCESS_TO_RESOURCE**            | You don't have access permissions to one or more of the resources in the query.       |                                                                                        |
+    | **PERSISTENT_STORAGE_PATH_NOT_EXIST**          | The query referred to a storage path that was not found.                              |                                                                                        |
+    | **PERSISTENT_STORAGE_ACCESS_DENIED**           | The query was denied access to a storage path.                                        |                                                                                        |
+    | **MULTIPLE_FUNCTIONS_WITH_SAME_NAME**          | Multiple functions with the same name are defined in this workspace.                  | Remove or rename the redundant function and reset the rule by editing and saving it.   |
+    | **QUERT_RESULT_MISSING**                       | This query did not return any result.                                                 |                                                                                        |
+    | **MULTIPLE_RESULT_SET_NOT_ALLOWED**            | Multiple result sets in this query are not allowed.                                   |                                                                                        |
+    | **WRONG_NUMBER_OF_FIELDS**                     | Query results contain inconsistent number of fields per row.                          |                                                                                        |
+    | **INGESTION_DELAY**                            | The rule's running was delayed due to long data ingestion times.                      |                                                                                        |
+    | **TEMPORARY_ISSUE_DELAY**                      | The rule's running was delayed due to temporary issues.                               |                                                                                        |
+    | **ENRICHMENT_ABORTED_DUE_TO_TEMPRARY_ISSUES**  | The alert was not enriched due to temporary issues.                                   |                                                                                        |
+    | **ENRICHMENT_ABORTED_DUE_TO_PERMENANT_ISSUES** | The alert was not enriched due to entity mapping issues.                              |                                                                                        |
+    | **ENTITIES_DROPPED_DUE_TO_SIZE_LIMIT**         | X entities were dropped in alert Y due to the 32 KB alert size limit.                 |                                                                                        |
+    | **ENTITIES_DROPPED_DUE_TO_MAPPING_ISSUES**     | X entities were dropped in alert Y due to entity mapping issues.                      |                                                                                        |
 
 
 ## Next steps
