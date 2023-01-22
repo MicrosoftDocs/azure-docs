@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 01/18/2023
+ms.date: 01/22/2023
 ---
 
 
@@ -22,15 +22,15 @@ Prerequisite: For a list of prerequisites, see the [Availability table](how-to-m
 
 | Attack Path Display Name | Attack Path Description |
 |--|--|
-| Internet exposed VM has high severity vulnerabilities | A virtual machine is reachable from the internet and has high severity vulnerabilities |
-| Internet exposed VM has high severity vulnerabilities and high permission to a subscription | A virtual machine is reachable from the internet, has high severity vulnerabilities an identity with permission to a subscription |
+| Internet exposed VM has high severity vulnerabilities | A virtual machine is reachable from the internet and has high severity vulnerabilities. |
+| Internet exposed VM has high severity vulnerabilities and high permission to a subscription | A virtual machine is reachable from the internet, has high severity vulnerabilities an identity with permission to a subscription. |
 | Internet exposed VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine is reachable from the internet, has high severity vulnerabilities with read permission to a data store containing sensitive data. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
 | Internet exposed VM has high severity vulnerabilities and read permission to a data store | A virtual machine is reachable from the internet and has high severity vulnerabilities with read permission to a data store. |
-| Internet exposed VM has high severity vulnerabilities and read permission to a Key Vault | A virtual machine is reachable from the internet and has high severity vulnerabilities with read permission to a key vault |
-| VM has high severity vulnerabilities and high permission to a subscription | A virtual machine has high severity vulnerabilities and has high permission to a subscription |
+| Internet exposed VM has high severity vulnerabilities and read permission to a Key Vault | A virtual machine is reachable from the internet and has high severity vulnerabilities with read permission to a key vault. |
+| VM has high severity vulnerabilities and high permission to a subscription | A virtual machine has high severity vulnerabilities and has high permission to a subscription. |
 | VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine has high severity vulnerabilities with read permission to a data store containing sensitive data. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
 | VM has high severity vulnerabilities and read permission to a key vault | A virtual machine has high severity vulnerabilities with read permission to a key vault |
-| VM has high severity vulnerabilities and read permission to a data store | A virtual machine has high severity vulnerabilities with read permission to a data store |
+| VM has high severity vulnerabilities and read permission to a data store | A virtual machine has high severity vulnerabilities with read permission to a data store. |
 
 ### AWS Instances
 
@@ -38,16 +38,16 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
-| Internet exposed EC2 instance has high severity vulnerabilities and high permission to an account | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has permission to an account |
-| Internet exposed EC2 instance has high severity vulnerabilities and read permission to a DB | AN AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has permission to a database |
-| Internet exposed EC2 instance has high severity vulnerabilities and read permission to S3 bucket | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has an IAM role attached with permission via an IAM policy, and/or via a bucket policy to an S3 bucket 
-| Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data | An AWS EC2 instance is reachable from the internet has high severity vulnerabilities and has an IAM role attached with permission via an IAM policy and/or via a bucket policy to an S3 bucket containing sensitive data. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md).  |
-| Internet exposed EC2 instance has high severity vulnerabilities and read permission to a KMS | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has an IAM role attached with permission via IAM policy and/or via AWS Key Management Service (KMS) policy to an AWS Key Management Service (KMS)|
-| Internet exposed EC2 instance has high severity vulnerabilities | An AWS EC2 instance is reachable from the internet and has high severity vulnerabilities | 
-| EC2 instance with high severity vulnerabilities has high privileged permissions to an account | An AWS EC2 instance  has high severity vulnerabilities and has permissions to an account | 
-| EC2 instance with high severity vulnerabilities has read permissions to a data store |An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions via an IAM policy and/or via a bucket policy to an S3 bucket | 
-| EC2 instance with high severity vulnerabilities has read permissions to a data store with sensitive data | An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions via an IAM policy and/or via a bucket policy to an S3 bucket containing sensitive data | 
-| EC2 instance with high severity vulnerabilities has read permissions to a KMS key | An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions via an IAM policy and/or via an AWS Key Management Service (KMS) policy to an AWS Key Management Service (KMS) key |
+| Internet exposed EC2 instance has high severity vulnerabilities and high permission to an account | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has permission to an account. |
+| Internet exposed EC2 instance has high severity vulnerabilities and read permission to a DB | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has permission to a database. |
+| Internet exposed EC2 instance has high severity vulnerabilities and read permission to S3 bucket | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has an IAM role attached with permission to an S3 bucket via an IAM policy, or via a bucket policy, or via both an IAM policy and a bucket policy. 
+| Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data | An AWS EC2 instance is reachable from the internet has high severity vulnerabilities and has an IAM role attached with permission to an S3 bucket containing sensitive data via an IAM policy, or via a bucket policy, or via both an IAM policy and bucket policy. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md).  |
+| Internet exposed EC2 instance has high severity vulnerabilities and read permission to a KMS | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has an IAM role attached with permission to an AWS Key Management Service (KMS) via an IAM policy, or via an AWS Key Management Service (KMS) policy, or via both an IAM policy and an AWS KMS policy.|
+| Internet exposed EC2 instance has high severity vulnerabilities | An AWS EC2 instance is reachable from the internet and has high severity vulnerabilities. | 
+| EC2 instance with high severity vulnerabilities has high privileged permissions to an account | An AWS EC2 instance  has high severity vulnerabilities and has permissions to an account. | 
+| EC2 instance with high severity vulnerabilities has read permissions to a data store |An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions to an S3 bucket via an IAM policy or via a bucket policy, or via both an IAM policy and a bucket policy. | 
+| EC2 instance with high severity vulnerabilities has read permissions to a data store with sensitive data | An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions to an S3 bucket containing sensitive data via an IAM policy or via a bucket policy, or via both an IAM and bucket policy.  | 
+| EC2 instance with high severity vulnerabilities has read permissions to a KMS key | An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions to an AWS Key Management Service (KMS) key via an IAM policy, or via an AWS Key Management Service (KMS) policy, or via both an IAM and AWS KMS policy.  |
 
 ### Azure data
 
@@ -55,10 +55,10 @@ Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-f
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
-| Internet exposed SQL on VM has a user account with commonly used username and allows code execution on the VM | SQL on VM is reachable from the internet, has a local user account with a commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying VM |
-| Internet exposed SQL on VM has a user account with commonly used username and known vulnerabilities | SQL on VM is reachable from the internet, has a local user account with a commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs) |
-| SQL on VM has a user account with commonly used username and allows code execution on the VM | SQL on VM has a local user account with a commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying VM |
-| SQL on VM has a user account with commonly used username and known vulnerabilities | SQL on VM has a local user account with a commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs) |
+| Internet exposed SQL on VM has a user account with commonly used username and allows code execution on the VM | SQL on VM is reachable from the internet, has a local user account with a commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying VM. |
+| Internet exposed SQL on VM has a user account with commonly used username and known vulnerabilities | SQL on VM is reachable from the internet, has a local user account with a commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs). |
+| SQL on VM has a user account with commonly used username and allows code execution on the VM | SQL on VM has a local user account with a commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying VM. |
+| SQL on VM has a user account with commonly used username and known vulnerabilities | SQL on VM has a local user account with a commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs). |
 
 ### AWS Data
 
@@ -74,8 +74,8 @@ Prerequisite: [Enable Defender for Containers](defender-for-containers-enable.md
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
-| Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | An internet exposed Kubernetes pod in a namespace is running a container using an image which has vulnerabilities allowing remote code execution |
-| Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | A Kubernetes pod in a namespace with host network access enabled is exposed to the internet via the host network. The pod is running a container using an image which has vulnerabilities allowing remote code execution |
+| Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | An internet exposed Kubernetes pod in a namespace is running a container using an image that has vulnerabilities allowing remote code execution. |
+| Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | A Kubernetes pod in a namespace with host network access enabled is exposed to the internet via the host network. The pod is running a container using an image that has vulnerabilities allowing remote code execution. |
 
 ## Cloud security graph components list
 
@@ -88,7 +88,7 @@ This section  lists all of the cloud security graph components (connections and 
 | Exposed to the internet | Indicates that a resource is exposed to the internet. Supports port filtering | Azure virtual machine, AWS EC2, Azure storage account, Azure SQL server, Azure Cosmos DB, AWS S3, Kubernetes pod |
 | Contains sensitive data | Indicates that a resource contains sensitive data based on Microsoft Purview scan and applicable only if Microsoft Purview is enabled. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). | Azure SQL Server, Azure Storage Account, AWS S3 bucket |
 | Has tags | Lists the resource tags of the cloud resource | All Azure and AWS resources |
-| Installed software | Lists all software installed on the machine. This is applicable only for VMs that have threat and vulnerability management integration with Defender for Cloud enabled and are connected to Defender for Cloud. | Azure virtual machine, AWS EC2 |
+| Installed software | Lists all software installed on the machine. This Insight is applicable only for VMs that have threat and vulnerability management integration with Defender for Cloud enabled and are connected to Defender for Cloud. | Azure virtual machine, AWS EC2 |
 | Allows public access | Indicates that a public read access is allowed to the data store with no authorization required | Azure storage account, AWS S3 bucket |
 | Doesn't have MFA enabled | Indicates that the user account does not have a multi-factor authentication solution enabled | AAD User account, IAM user |
 | Is external user | Indicates that the user account is outside the organization's domain | AAD User account |
@@ -119,7 +119,6 @@ This section  lists all of the cloud security graph components (connections and 
 
 ## Next steps
 
-For related information, see the following:
 - [What are the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md)
 - [Identify and remediate attack paths](how-to-manage-attack-path.md)
 - [Cloud security explorer](how-to-manage-cloud-security-explorer.md)
