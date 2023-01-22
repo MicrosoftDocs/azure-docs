@@ -18,8 +18,8 @@ The following table lists how long device data is stored in each Defender for Io
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md). |
-| **OT network sensor** | The retention of device inventory data is not limited by time. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
-| **On-promises management console** | The retention of device inventory data is not limited by time. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
+| **OT network sensor** | The retention of device inventory data isn't limited by time. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
+| **On-promises management console** | The retention of device inventory data isn't limited by time. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
 
 ## Alert data retention
 
@@ -44,7 +44,7 @@ The following table lists how long PCAP data is stored in each Defender for IoT 
 The utilization of available PCAP storage space depends on factors such as the number of alerts, the type of the alert, and the network bandwidth, all of which affect the size of the PCAP file.
 
 > [!TIP]
-> Use external storage to back up PCAP data without dependency on the sensor's storage capacity.
+> Use external storage to back up PCAP data without being dependent on the sensor's storage capacity.
 
 ### Sensor storage capacity by hardware profile
 
@@ -68,7 +68,7 @@ For more information, see [Enhance security posture with security recommendation
 
 OT event timeline data is stored on OT network sensors only, and the storage capacity differs depending on the sensor's [hardware profile](ot-appliance-sizing.md).
 
-The retention of event timeline data is not limited by time. If a sensor exceeds its maximum storage size, the oldest event timeline data file is deleted to accommodate the new one.
+The retention of event timeline data isn't limited by time. If a sensor exceeds its maximum storage size, the oldest event timeline data file is deleted to accommodate the new one.
 
 The following table lists the maximum number of events that can be stored for each hardware profile:
 
@@ -90,12 +90,11 @@ Service and processing log files are stored on the Azure portal for 30 days from
 
 Other OT monitoring log files are stored only on the OT network sensor and the on-premises management console.
 
-On both OT sensors and the on-premises management console, files are stored for as long as there's available storage space. When the appliance's storage capacity reaches its maximum, the oldest log files are deleted to make room for the new ones.
+On both OT sensors and the on-premises management console, log files are stored in two different ways:
 
-Logs are stored in two different ways:
+- Logs are saved on one file where the oldest content is overridden when the file reaches its maximum allocated size.
 
-- Logs are saved on one file where the oldest content is overridden when the file reaches it's maximum size
-- Logs are saved on a number of files, and once the number of files reaches the maximum, the oldest file is deleted.
+- Logs are saved on several files, and once the number of files reaches the maximum storage capacity, the oldest file is deleted to make room for a new one.
 
 Log files sizes differ depending on the amount of content, but the average size per log file is 100-150 MB.
 
@@ -114,18 +113,18 @@ For more information, see [Set up backup and restore files](how-to-manage-indivi
 
 **Backups on the OT network sensor:**
 
-The retention of backup files is dependent on the OT network sensor's architecture, where each type of device has a set amount of hard disk space allocated for backup history:
+The retention of backup files is dependent on the OT network sensor's architecture. Each type of device has a set amount of hard disk space allocated for backup history:
 
 | Type of device  | Allocated hard disk space  |
 |---------|---------|
-| **Laptop**     |  0       |
-| **Rugged**     |  0       |
+| **Laptop**     |  zero       |
+| **Rugged**     |  zero       |
 | **Medium**     |  20 GB   |
 | **Small prod** |   60 GB  |
 | **Prod**       |   100 GB |
 | **Core**       |   100 GB |
 
-If the device has 0 allocated hard disk space, then only the last backup will be saved.
+If the device has zero allocated hard disk space, then only the last backup will be saved.
 
 **Backups on the on-premises management console:**
 
