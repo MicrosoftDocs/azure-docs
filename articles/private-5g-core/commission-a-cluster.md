@@ -1,7 +1,7 @@
 ---
-title: Commission the AKS cluster 
+title: Commission an AKS cluster 
 titleSuffix: Azure Private 5G Core Preview
-description: This how-to guide shows how to commission the Azure Kubernetes Cluster on Azure Stack Edge so that it is ready to deploy Azure Private 5G Core
+description: This how-to guide shows how to commission the Azure Kubernetes Cluster on Azure Stack Edge to get it ready to deploy Azure Private 5G Core.
 author: robswain
 ms.author: robswain
 ms.service: private-5g-core
@@ -18,44 +18,47 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
 
 You need to run minishell commands on Azure Stack Edge  during this procedure. You must use a Windows machine that is on a network with access to the management port of the ASE. You should be able to view the ASE local UI to verify you have access.
 
+> [!TIP]
+> To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-connect.md).
+
 ### Enable WinRM on your machine
 
 The following process uses PowerShell and needs WinRM to be enabled on your machine. Run the following command from a PowerShell window in Administrator mode:
-
-`winrm quickconfig`
-
+```powershell
+winrm quickconfig
+```
 WinRM may already be enabled on your machine, as you only need to do it once. Ensure your network connections are set to Private or Domain (not Public), and accept any changes.
 
 ### Start the minishell session
 
-1. From a PowerShell window, enter:
+1. From a PowerShell window, enter the ASE IP address (including quotation marks, for example `"10.10.5.90"`): <!-- Which IP address? Does it really only have one? -->
+    ```powershell
+   $ip = "<ASE IP address>"
+   
+   $sessopt = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
 
-   `$ip = "<IP address of ASE>"`
-
-   > [!NOTE]
-   > Including quotation marks, for example `$ip = "10.10.5.90"`.
-   <!-- Which IP address? Does it really only have one? -->
-
-   `$sessopt = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck`
-
-   `$minishellSession = New-PSSession -ComputerName $ip -ConfigurationName "Minishell" -Credential ~\EdgeUser -UseSSL -SessionOption $sessopt`
+   $minishellSession = New-PSSession -ComputerName $ip -ConfigurationName "Minishell" -Credential ~\EdgeUser -UseSSL -SessionOption $sessopt
+    ```
 
 1. At the prompt, enter your Azure Stack Edge password. Ignore the following message:
 
-   ```powershell
+    ```powershell
    WARNING: The Windows PowerShell interface of your device is intended to
    be used only for the initial network configuration. Please
    engage Microsoft Support if you need to access this interface
    to troubleshoot any potential issues you may be experiencing.
    Changes made through this interface without involving Microsoft
    Support could result in an unsupported configuration.
-   ```
+    ```
 
 You now have a minishell session set up ready to enable your Azure Kubernetes Service in the next step.
 
+> [!TIP]
+> If there is a network change, the session can break. Run `Get-PSSession` to view the state of the session.  If it is still connected, you should still be able to run minishell commands. If it is broken or disconnected, run `Remove-PSSession` to remove the session locally, then start a new session.
+
 ## Enable Azure Kubernetes Service on the Azure Stack Edge device
 
-Run the following commands at the Powershell prompt, specifying the object ID you identified in the prerequisites @@link.
+Run the following commands at the Powershell prompt, specifying the object ID you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
 `Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId <oid_from_prereqs>}`
 
@@ -63,14 +66,10 @@ Run the following commands at the Powershell prompt, specifying the object ID yo
 
 Once you've run these commands, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
 
-<!-- "local UI"? probably should be more specific - is this the ASE UI? how do you access it? -->
-
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted":::
 
 You'll set up the configuration in [Add Compute and IP addresses](#add-compute-and-ip-addresses).
 Additionally, if you go to the Azure portal and find your Azure Stack Edge resource you should see an Azure Kubernetes Service option (shown in the following image). You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
-
-<!-- I've added these links, so need to check they're correct. Word doc just said "we will get to that shortly" -->
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-ASE-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
 
@@ -110,7 +109,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
 
 1. Carry out the following procedure three times plus once for each of the supplementary data networks (so five times in total if you have 3 DNs on the N6 side): 
 
-    - Select **Add virtual network** and fill in the side panel. <!-- maybe pane? or pop-up menu? not sure what side panel is here. -->
+    - Select **Add virtual network** and fill in the side panel.
       - **Virtual switch**: select *vswitch-port5* for N2 and N3, and select *vswitch-port6* for N6-DN1, N6-DN2, and N6-DN3.
       - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
       - **VLAN**: 0
@@ -238,6 +237,8 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Name\>*) by using the **Manage** link in the **Azure Kubernetes Service** pane in the Azure portal.
 
+<!-- Should all the $ strings just be placeholder text for the user to replace (and we should have a table to collect this info)? Or all set as environment variables as the first step? -->
+
 1. Log in to the Azure CLI and prepare your environment: <!-- Not sure how to descibe what's going on here -->
 
     ```azurecli-interactive
@@ -259,6 +260,20 @@ You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Nam
 1. Create the Network Function Operator Kubernetes extension:
 
     ```azurecli-interactive
+
+    cat > $TEMP_FILE <<EOF
+    {
+      "helm.versions": "v3",
+      "Microsoft.CustomLocation.ServiceAccount": "azurehybridnetwork-networkfunction-operator",
+      "meta.helm.sh/release-name": "networkfunction-operator",
+      "meta.helm.sh/release-namespace": "azurehybridnetwork",
+      "app.kubernetes.io/managed-by": "helm",
+      "helm.release-name": "networkfunction-operator",
+      "helm.release-namespace": "azurehybridnetwork",
+      "managed-by": "helm"
+    }
+    EOF
+
     az k8s-extension create \
     --name networkfunction-operator \
     --cluster-name "$RESOURCE_NAME" \
@@ -277,6 +292,7 @@ You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Nam
 1. Create the Packet Core Monitor Kubernetes extension:
 
     ```azurecli-interactive
+
     az k8s-extension create \
     --name packet-core-monitor \
     --cluster-name "$RESOURCE_NAME" \
@@ -304,6 +320,10 @@ You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Nam
     ```
 
 You should see the new Custom Location visible as a resource in the Azure portal within the specified Resource Group. Using the `kubectl get pods -A` command (with access to your *kubeconfig* file) should also show new pods corresponding to the extensions that have been installed. There should be one pod in the *azurehybridnetwork* namespace, and one in the *packet-core-monitor* namespace.
+
+## Rollback
+
+If you have made an error in the Azure Stack Edge configuration, you can use the portal to remove the AKS cluster.  You can then modify the settings via the local UI, or perform a full reset using the **Device Reset** blade in the local UI and then restart this procedure.
 
 ## Next steps
 

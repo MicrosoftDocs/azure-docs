@@ -43,6 +43,8 @@ landingContent:
         links:
           - text: Complete prerequisite tasks
             url: complete-private-mobile-network-prerequisites.md
+          - text: Commission the AKS cluster
+            url: commission-a-cluster.md
           - text: Collect the required information for a private mobile network
             url: collect-required-information-for-private-mobile-network.md
           - text: Deploy a private mobile network - Azure portal
