@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 01/23/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
