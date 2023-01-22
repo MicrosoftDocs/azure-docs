@@ -44,7 +44,7 @@ The following table lists how long PCAP data is stored in each Defender for IoT 
 The utilization of available PCAP storage space depends on factors such as the number of alerts, the type of the alert, and the network bandwidth, all of which affect the size of the PCAP file.
 
 > [!TIP]
-> Use external storage to back up PCAP data without being dependent on the sensor's storage capacity.
+> To avoid being dependent on the sensor's storage capacity, use external storage to back up your PCAP data.
 
 ### Sensor storage capacity by hardware profile
 
@@ -92,9 +92,9 @@ Other OT monitoring log files are stored only on the OT network sensor and the o
 
 On both OT sensors and the on-premises management console, log files are stored in two different ways:
 
-- Logs are saved on one file where the oldest content is overridden when the file reaches its maximum allocated size.
+- Logs are saved on one file where the oldest content is overridden when the file reaches its maximum capacity.
 
-- Logs are saved on several files, and once the number of files reaches the maximum storage capacity, the oldest file is deleted to make room for a new one.
+- Logs are saved on several files, and once the number of files reaches a maximum, the oldest file is deleted to make room for a new one.
 
 Log files sizes differ depending on the amount of content, but the average size per log file is 100-150 MB.
 
@@ -113,12 +113,12 @@ For more information, see [Set up backup and restore files](how-to-manage-indivi
 
 **Backups on the OT network sensor:**
 
-The retention of backup files is dependent on the OT network sensor's architecture. Each type of device has a set amount of hard disk space allocated for backup history:
+The retention of backup files depends on the sensor's architecture, as each type of device has a set amount of hard disk space allocated for backup history:
 
 | Type of device  | Allocated hard disk space  |
 |---------|---------|
-| **Laptop**     |  zero       |
-| **Rugged**     |  zero       |
+| **Laptop**     |  Zero       |
+| **Rugged**     |  Zero       |
 | **Medium**     |  20 GB   |
 | **Small prod** |   60 GB  |
 | **Prod**       |   100 GB |
@@ -132,7 +132,7 @@ Allocated hard disk space for on-premises management console backup files is lim
 
 If you're using an on-premises management console, each connected OT sensor also has its own, extra backup directory on the on-premises management console:
 
-- A single sensor backup file is limited to a maximum of 40 GB. If the size of the file exceeds that, it won't be sent to the on-premises management console.
+- A single sensor backup file is limited to a maximum of 40 GB. A file exceeding that size won't be sent to the on-premises management console.
 - Total hard disk space allocated to sensor backup from all sensors on the on-premises management console is 100 GB.
 
 For more information, see:
