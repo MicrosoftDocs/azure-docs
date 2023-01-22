@@ -96,7 +96,7 @@ The models used by the Azure OpenAI service use natural language instructions an
 
 There are three main approaches for in-context learning: Few-shot, one-shot and zero-shot. These approaches vary based on the amount of task-specific data that is given to the model:
 
-**Few-shot**: In this case, a user includes several examples in the call prompt that demonstrate the expected answer format and content. The following example shows a few-shot prompt where we provide multiple examples:
+**Few-shot**: In this case, a user includes several examples in the call prompt that demonstrate the expected answer format and content. The following example shows a few-shot prompt where we provide multiple examples (the model will generate the last answer):
 
 ```
     Convert the questions to a command:
@@ -113,7 +113,7 @@ There are three main approaches for in-context learning: Few-shot, one-shot and 
     Q: Tell Constance that I won't be home before 19:30 tonight — unmovable meeting.
     A: send-msg `find constance` I won't be home before 19:30 tonight. I have a meeting I can't move.
     Q: Tell John that I need to book an appointment at 10:30.
-    A: send-msg `find john` I need to book an appointment at 10:30.
+    A: 
 ```
 
 The number of examples typically range from 0 to 100 depending on how many can fit in the maximum input length for a single prompt. Maximum input length can vary depending on the specific models you use. Few-shot learning enables a major reduction in the amount of task-specific data required for accurate predictions. This approach will typically perform less accurately than a fine-tuned model.
