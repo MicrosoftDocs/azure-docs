@@ -105,6 +105,9 @@ This section explains how to import a certificate so that it's trusted by your A
 
 ### Set up the container
 
+> [!NOTE]
+> If you set up the SAP data connector agent container via the UI, don't perform the steps in this section. Continue to set up the connector [in the connector page](deploy-data-connector-agent-container.md) instead.
+
 1. Transfer the **libsapcrypto.so** and **sapgenpse** files to the target system where the container will be created.
 
 1. Transfer the client certificate (private and public key) to the target system where the container will be created.
