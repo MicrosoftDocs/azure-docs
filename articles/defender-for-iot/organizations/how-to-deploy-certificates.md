@@ -128,7 +128,7 @@ Create self-signed SSL/TLS certificates by first [downloading a security certifi
 
 **Export as a certificate file:**
 
-Use a certificate management platform to create the following types of SSL/TLS certificate files:
+After downloading the security certificate, use a certificate management platform to create the following types of SSL/TLS certificate files:
 
 | File type  | Description  |
 |---------|---------|
@@ -198,9 +198,7 @@ If these tests fail, review [certificate file parameter requirements](#verify-ce
 
 ## Troubleshoot
 
-### Import a downloaded security certificate to a trusted store
-
-#### Download a security certificate
+### Download a security certificate
 
 1. After [installing your OT sensor software](ot-deploy/install-software-ot-sensor.md) or [on-premises management console](ot-deploy/install-software-on-premises-management-console.md), go to the sensor's or on-premises management console's IP address in a browser.
 
@@ -212,7 +210,7 @@ If these tests fail, review [certificate file parameter requirements](#verify-ce
 
 1. In the **Certificate viewer** pane, select the **Details** tab, then select **Export** to save the file on your local machine.
 
-#### Import the sensor's locally signed certificate to your certificate store
+### Import a sensor's locally signed certificate to your certificate store
 
 After creating your locally signed certificate, import it to a trusted storage location. For example:
 
@@ -250,7 +248,7 @@ After creating your locally signed certificate, import it to a trusted storage l
 
     :::image type="content" source="media/how-to-deploy-certificates/hosts-file.png" alt-text="Screenshot of the hosts file." lightbox="media/how-to-deploy-certificates/hosts-file.png":::
 
-## Troubleshoot certificate upload errors
+### Troubleshoot certificate upload errors
 
 You won't be able to upload certificates to your OT sensors or on-premises management consoles if the certificates aren't created properly or are invalid. Use the following table to understand how to take action if your certificate upload fails and an error message is shown:
 
