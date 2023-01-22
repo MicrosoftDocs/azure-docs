@@ -20,7 +20,7 @@ In this quickstart, you use the Azure CLI to define a Stream Analytics job that 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - Create a resource group. All Azure resources must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 

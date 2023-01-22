@@ -7,6 +7,8 @@ ms.date: 11/15/2022
 ---
 # Accessing diagnostic logs for Azure Data Lake Analytics
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 Diagnostic logging allows you to collect data access audit trails. These logs provide information such as:
 
 * A list of users that accessed the data.

@@ -44,7 +44,7 @@ To help you determine an appropriate  daily cap for your workspace, see [Azure M
 
 
 ## Workspaces with Microsoft Defender for Cloud
-Some data security-related data types collected [Microsoft Defender for Cloud](../../security-center/index.yml) or Microsoft Sentinel are collected despite any daily cap. The data types listed below will not be capped except for workspaces in which Microsoft Defender for Cloud was installed before June 19, 2017:
+Some data security-related data types collected [Microsoft Defender for Cloud](../../security-center/index.yml) or Microsoft Sentinel are collected despite any daily cap, when the [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers-select-plan.md) solution was enabled on a workspace after June 19, 2017. The following data types will be subject to this special exception from the daily cap:
 
 - WindowsEvent
 - SecurityAlert

@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 01/12/2023
+ms.date: 01/22/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
@@ -15,7 +15,7 @@ ms.reviewer: priyamishra
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-Date list was last updated: 01/12/2023.
+Date list was last updated: 01/22/2023.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface). 
 
@@ -736,7 +736,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessE2ELatency |Yes |Success E2E Latency |Milliseconds |Average |The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response. |GeoType, ApiName, Authentication |
 |SuccessServerLatency |Yes |Success Server Latency |Milliseconds |Average |The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency. |GeoType, ApiName, Authentication |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication |
-|UsedCapacity |Yes |Used capacity |Bytes |Average |Account used capacity |No Dimensions |
+|UsedCapacity |No |Used capacity |Bytes |Average |Account used capacity |No Dimensions |
 
 
 ## Microsoft.ClassicStorage/storageAccounts/blobServices  
@@ -1737,6 +1737,32 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AttestationAttempts |Yes |Attestation attempts |Count |Total |Number of device attestations attempted |ProvisioningServiceName, Status, Protocol |
 |DeviceAssignments |Yes |Devices assigned |Count |Total |Number of devices assigned to an IoT hub |ProvisioningServiceName, IotHubName |
 |RegistrationAttempts |Yes |Registration attempts |Count |Total |Number of device registrations attempted |ProvisioningServiceName, IotHubName, Status |
+
+
+## Microsoft.DigitalTwins/digitalTwinsInstances  
+<!-- Data source : arm-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ApiRequests |Yes |API Requests |Count |Total |The number of API requests made for Digital Twins read, write, delete and query operations. |Operation, Authentication, Protocol, StatusCode, StatusCodeClass, StatusText |
+|ApiRequestsFailureRate |Yes |API Requests Failure Rate |Percent |Average |The percentage of API requests that the service receives for your instance that return an internal error (500) response code for Digital Twins read, write, delete and query operations. |Operation, Authentication, Protocol |
+|ApiRequestsLatency |Yes |API Requests Latency |Milliseconds |Average |The response time for API requests, i.e. from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete and query operations. |Operation, Authentication, Protocol, StatusCode, StatusCodeClass, StatusText |
+|BillingApiOperations |Yes |Billing API Operations |Count |Total |Billing metric for the count of all API requests made against the Azure Digital Twins service. |MeterId |
+|BillingMessagesProcessed |Yes |Billing Messages Processed |Count |Total |Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints. |MeterId |
+|BillingQueryUnits |Yes |Billing Query Units |Count |Total |The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. |MeterId |
+|BulkOperationEntityCount |Yes |Bulk Operation Entity Count (preview) |Count |Total |The number of twins, models, or relationships processed by a bulk operation. |Operation, Result |
+|BulkOperationLatency |Yes |Bulk Operation Latency (preview) |Milliseconds |Average |Total time taken for a bulk operation to complete. |Operation, Authentication, Protocol |
+|DataHistoryRouting |Yes |Data History Messages Routed (preview) |Count |Total |The number of messages routed to a time series database. |EndpointType, Result |
+|DataHistoryRoutingFailureRate |Yes |Data History Routing Failure Rate (preview) |Percent |Average |The percentage of events that result in an error as they are routed from Azure Digital Twins to a time series database. |EndpointType |
+|DataHistoryRoutingLatency |Yes |Data History Routing Latency (preview) |Milliseconds |Average |Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to a time series database. |EndpointType, Result |
+|IngressEvents |Yes |Ingress Events |Count |Total |The number of incoming telemetry events into Azure Digital Twins. |Result |
+|IngressEventsFailureRate |Yes |Ingress Events Failure Rate |Percent |Average |The percentage of incoming telemetry events for which the service returns an internal error (500) response code. |No Dimensions |
+|IngressEventsLatency |Yes |Ingress Events Latency |Milliseconds |Average |The time from when an event arrives to when it is ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. |Result |
+|ModelCount |Yes |Model Count |Count |Total |Total number of models in the Azure Digital Twins instance. Use this metric to determine if you are approaching the service limit for max number of models allowed per instance. |No Dimensions |
+|Routing |Yes |Messages Routed |Count |Total |The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus or Event Grid. |EndpointType, Result |
+|RoutingFailureRate |Yes |Routing Failure Rate |Percent |Average |The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus or Event Grid. |EndpointType |
+|RoutingLatency |Yes |Routing Latency |Milliseconds |Average |Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus or Event Grid. |EndpointType, Result |
+|TwinCount |Yes |Twin Count |Count |Total |Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you are approaching the service limit for max number of twins allowed per instance. |No Dimensions |
 
 
 ## Microsoft.DocumentDB/cassandraClusters  
@@ -2793,10 +2819,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |ApplicationGatewayTotalTime |No |Application Gateway Total Time |MilliSeconds |Average |Average time that it takes for a request to be processed and its response to be sent. This is calculated as average of the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that this usually includes the Application Gateway processing time, time that the request and response packets are traveling over the network and the time the backend server took to respond. |Listener |
 |AvgRequestCountPerHealthyHost |No |Requests per minute per Healthy Host |Count |Average |Average request count per minute per healthy backend host in a pool |BackendSettingsPool |
-|AzwafBotProtection |Yes |WAF Bot Protection Matches |Count |Total |Matched Bot Rules |Action, Category, Mode, CountryCode |
-|AzwafCustomRule |Yes |WAF Custom Rule Matches |Count |Total |Matched Custom Rules |Action, CustomRuleID, Mode, CountryCode |
-|AzwafSecRule |Yes |WAF Managed Rule Matches |Count |Total |Matched Managed Rules |Action, Mode, RuleGroupID, RuleID, CountryCode |
-|AzwafTotalRequests |Yes |WAF Total Requests |Count |Total |Total number of requests evaluated by WAF |Action, CountryCode, Method, Mode |
+|AzwafBotProtection |Yes |WAF Bot Protection Matches |Count |Total |Matched Bot Rules |Action, Category, Mode, CountryCode, PolicyName, PolicyScope |
+|AzwafCustomRule |Yes |WAF Custom Rule Matches |Count |Total |Matched Custom Rules |Action, CustomRuleID, Mode, CountryCode, PolicyName, PolicyScope |
+|AzwafSecRule |Yes |WAF Managed Rule Matches |Count |Total |Matched Managed Rules |Action, Mode, RuleGroupID, RuleID, CountryCode, PolicyName, PolicyScope, RuleSetName |
+|AzwafTotalRequests |Yes |WAF Total Requests |Count |Total |Total number of requests evaluated by WAF |Action, CountryCode, Method, Mode, PolicyName, PolicyScope |
 |BackendConnectTime |No |Backend Connect Time |MilliSeconds |Average |Time spent establishing a connection with a backend server |Listener, BackendServer, BackendPool, BackendHttpSetting |
 |BackendFirstByteResponseTime |No |Backend First Byte Response Time |MilliSeconds |Average |Time interval between start of establishing a connection to backend server and receiving the first byte of the response header, approximating processing time of backend server |Listener, BackendServer, BackendPool, BackendHttpSetting |
 |BackendLastByteResponseTime |No |Backend Last Byte Response Time |MilliSeconds |Average |Time interval between start of establishing a connection to backend server and receiving the last byte of the response body |Listener, BackendServer, BackendPool, BackendHttpSetting |
@@ -3690,17 +3716,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |cpu_limit |Yes |CPU limit |Count |Average |CPU limit. Applies to vCore-based elastic pools. |No Dimensions |
 |cpu_percent |Yes |CPU percentage |Percent |Average |CPU percentage |No Dimensions |
 |cpu_used |Yes |CPU used |Count |Average |CPU used. Applies to vCore-based elastic pools. |No Dimensions |
-|database_allocated_data_storage |No |Data space allocated |Bytes |Average |Data space allocated |DatabaseResourceId |
-|database_cpu_limit |No |CPU limit |Count |Average |CPU limit |DatabaseResourceId |
-|database_cpu_percent |No |CPU percentage |Percent |Average |CPU percentage |DatabaseResourceId |
-|database_cpu_used |No |CPU used |Count |Average |CPU used |DatabaseResourceId |
-|database_dtu_consumption_percent |No |DTU percentage |Percent |Average |DTU percentage |DatabaseResourceId |
-|database_eDTU_used |No |eDTU used |Count |Average |eDTU used |DatabaseResourceId |
-|database_log_write_percent |No |Log IO percentage |Percent |Average |Log IO percentage |DatabaseResourceId |
-|database_physical_data_read_percent |No |Data IO percentage |Percent |Average |Data IO percentage |DatabaseResourceId |
-|database_sessions_percent |No |Sessions percentage |Percent |Average |Sessions percentage |DatabaseResourceId |
-|database_storage_used |No |Data space used |Bytes |Average |Data space used |DatabaseResourceId |
-|database_workers_percent |No |Workers percentage |Percent |Average |Workers percentage |DatabaseResourceId |
 |dtu_consumption_percent |Yes |DTU percentage |Percent |Average |DTU Percentage. Applies to DTU-based elastic pools. |No Dimensions |
 |eDTU_limit |Yes |eDTU limit |Count |Average |eDTU limit. Applies to DTU-based elastic pools. |No Dimensions |
 |eDTU_used |Yes |eDTU used |Count |Average |eDTU used. Applies to DTU-based elastic pools. |No Dimensions |
@@ -3731,7 +3746,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessE2ELatency |Yes |Success E2E Latency |MilliSeconds |Average |The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response. |GeoType, ApiName, Authentication |
 |SuccessServerLatency |Yes |Success Server Latency |MilliSeconds |Average |The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. |GeoType, ApiName, Authentication |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication, TransactionType |
-|UsedCapacity |Yes |Used capacity |Bytes |Average |The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity. |No Dimensions |
+|UsedCapacity |No |Used capacity |Bytes |Average |The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity. |No Dimensions |
 
 
 ## Microsoft.Storage/storageAccounts/blobServices  
@@ -4075,12 +4090,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WarmStorageUsedProperties |Yes |Warm Storage Used Properties  |Count |Maximum |Number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU |No Dimensions |
 
 
-## Microsoft.Web/connections  
+## Microsoft.VoiceServices/CommunicationsGateways  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Requests |No |Requests |Count |Total |API Connection Requests |HttpStatusCode, ClientIPAddress |
+|ActiveCallFailures |No |Active Call Failures |Percent |Average |Percentage of active call failures |PerimetaRegion |
+|ActiveCalls |No |Active Calls |Count |Average |Count of the total number of active calls (signaling sessions) |PerimetaRegion |
+|ActiveEmergencyCalls |No |Active Emergency Calls |Count |Average |Count of the total number of active emergency calls |PerimetaRegion |
 
 
 ## Microsoft.Web/containerapps  
@@ -4339,4 +4356,4 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
 
 
-<!--Gen Date:  Thu Jan 12 2023 14:50:44 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Sun Jan 22 2023 12:09:07 GMT+0200 (Israel Standard Time)-->

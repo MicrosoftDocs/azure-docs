@@ -8,7 +8,7 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 01/13/2023
 ms.author: banders
 ---
 
@@ -25,6 +25,9 @@ If you signed up for Azure through a Microsoft representative, then your default
 If you have a Microsoft Online Services Program account, your default payment method is credit card. Payments are normally automatically deducted from your credit card, but you can also make one-time payments manually by credit card.
 
 If you have Azure credits, they automatically apply to your invoice each billing period.
+
+> [!NOTE]
+> Regardless of the payment method selected to complete your payment, you must specify the invoice number in the payment details.
 
 ## Reserve Bank of India 
 
@@ -88,6 +91,9 @@ There are a few countries that don't allow the use of debit cards, however in ge
 If the default payment method of your billing profile is check or wire transfer, follow the payment instructions shown on your invoice PDF file.
 
 Alternatively, if your invoice is under the threshold amount for your currency, you can make a one-time payment in the Azure portal with a credit or debit card using **Pay now**. If your invoice amount exceeds the threshold, you can't pay your invoice with a credit or debit card. You'll find the threshold amount for your currency in the Azure portal after selecting **Pay now**.
+
+> [!NOTE]
+> When multiple invoices are remitted in a single check or wire transfer, you must specify the invoice numbers for all of the invoices.
 
 #### Bank details used to send wire transfer payments
 <a name="wire-bank-details"></a>
