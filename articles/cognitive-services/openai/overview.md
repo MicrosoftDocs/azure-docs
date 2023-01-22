@@ -100,20 +100,20 @@ There are three main approaches for in-context learning: Few-shot, one-shot and 
 
 ```
     Convert the questions to a command:
-    Q: Ask Constance if we need some bread
+    Q: Ask Constance if we need some bread.
     A: send-msg `find constance` Do we need some bread?
     Q: Send a message to Greg to figure out if things are ready for Wednesday.
     A: send-msg `find greg` Is everything ready for Wednesday?
-    Q: Ask Ilya if we're still having our meeting this evening
+    Q: Ask Ilya if we're still having our meeting this evening.
     A: send-msg `find ilya` Are we still having a meeting this evening?
-    Q: Contact the ski store and figure out if I can get my skis fixed before I leave on Thursday
+    Q: Contact the ski store and figure out if I can get my skis fixed before I leave on Thursday.
     A: send-msg `find ski store` Would it be possible to get my skis fixed before I leave on Thursday?
-    Q: Thank Nicolas for lunch
+    Q: Thank Nicolas for lunch.
     A: send-msg `find nicolas` Thank you for lunch!
     Q: Tell Constance that I won't be home before 19:30 tonight — unmovable meeting.
     A: send-msg `find constance` I won't be home before 19:30 tonight. I have a meeting I can't move.
-    Q: Tell John that I need to book an appointment at 10:30
-    A: 
+    Q: Tell John that I need to book an appointment at 10:30.
+    A: send-msg `find john` I need to book an appointment at 10:30.
 ```
 
 The number of examples typically range from 0 to 100 depending on how many can fit in the maximum input length for a single prompt. Maximum input length can vary depending on the specific models you use. Few-shot learning enables a major reduction in the amount of task-specific data required for accurate predictions. This approach will typically perform less accurately than a fine-tuned model.
