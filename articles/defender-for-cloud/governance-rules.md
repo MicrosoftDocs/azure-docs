@@ -86,6 +86,9 @@ If there are existing recommendations that match the definition of the governanc
 > -	Create and apply rules on multiple scopes at once using management scopes cross cloud.
 > -	Check effective rules on selected scope using the scope filter.
 
+To view the effect rules on specific scope, use the “scope” filter and select a desired scope.
+In general, rules on management scopes (Azure management groups, AWS master accents, GCP organizations) take effect before rules on scopes (Azure subscriptions, AWS accounts, or GCP projects). Conflicting rules are applied in priority order.
+
 ## Manually assigning owners and due dates for recommendation remediation
 
 For every resource affected by a recommendation, you can assign an owner and a due date so that you know who needs to implement the security changes to improve your security posture and when they're expected to do it by. You can also apply a grace period so that the resources that are given a due date don't impact your secure score unless they become overdue.
