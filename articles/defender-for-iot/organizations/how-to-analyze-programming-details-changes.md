@@ -20,7 +20,10 @@ You can display a programmed device and scroll through various programming chang
 
 View code that was added, changed, removed, or reloaded by the programming device. Search for programming changes based on file types, dates, or times of interest.
 
-## When to review programming activity 
+> [!NOTE]
+> Programming details are available only for devices with DeltaV protocol.
+
+## When to review programming activity
 
 You may need to review programming activity:
 
@@ -52,6 +55,10 @@ Access the Programming Analysis window from the:
 
 - [Unauthorized Programming Alerts](#unauthorized-programming-alerts)
 
+- [Device map in the sensor](#device-map-in-the-sensor)
+
+- [Device inventory in the sensor](#device-inventory-in-the-sensor)
+
 ### Event timeline
 
 Use the event timeline to display a timeline of events in which programming changes were detected.
@@ -66,6 +73,30 @@ Alerts are triggered when unauthorized programming devices carry out programming
 
 > [!NOTE]
 > You can also view basic programming information in the Device Properties window and Device Inventory.
+
+### Device map in the sensor
+
+1. Sign into the sensor console and go to **Device map**.
+
+1. Under **OT Protocol** select **DeltaV**.
+
+1. In the map, right click on the device you want to analyze and select **Programming timeline**.
+
+1. Select a file to view programming details. You can also download the file, or compare it to other recent files. For more information, see [Working in the programming timeline window](#working-in-the-programming-timeline-window).
+
+### Device inventory in the sensor
+
+The device inventory indicates if the device is a programming device, and he device properties window provides information on the last programming event detected on the device.
+
+**To access the programming timeline from the device inventory**:
+
+1. Sign into the sensor console and go to **Device inventory**.
+
+1. Filter the inventory by protocol and select **DeltaV**.
+
+1. Select the device you want to analyze, and then select **View full details** to open the device properties page.
+
+1. On the device properties page, go to the **Programming timeline** tab to select a file and view programming details. You can also download the file, or compare it to other recent files. For more information, see [Working in the programming timeline window](#working-in-the-programming-timeline-window).
 
 ## Working in the programming timeline window
 
@@ -94,9 +125,9 @@ This section describes how to choose a file to review.
 
 **To choose a file to review:**
 
-1. Select an event from the **Recent Events** pane
+1. Select an event from the **Recent Events** pane.
 
-2. Select a file from the File pane. The file appears in the Current pane.
+2. Select a file from the File pane. The file appears in the **Current** pane.
 
    :::image type="content" source="media/how-to-work-with-maps/choose-file.png" alt-text="Screenshot of selecting the file you want to work with.":::
 
@@ -106,9 +137,9 @@ This section describes how to compare programming files.
 
 **To compare:**
 
-1. Select an event from the Recent Events pane.
+1. Select an event from the **Recent Events** pane.
 
-2. Select a file from the File pane. The file appears in the  Current pane. You can compare this file to other files.
+2. Select a file from the **File** pane. The file appears in the **Current** pane. You can compare this file to other files.
 
 3. Select the compare indicator.
 
@@ -126,7 +157,7 @@ This section describes how to compare programming files.
 
 4. Select a date. The file detected on the selected date appears in the window.
 
-5. The file selected from the Recent Events/Files pane always appears on the right.
+5. The file selected from the **Recent Events/Files** pane always appears on the right.
 
 ## Device programming information: Other locations
 
