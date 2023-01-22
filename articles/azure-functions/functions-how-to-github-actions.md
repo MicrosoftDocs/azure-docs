@@ -73,7 +73,7 @@ The following example shows the part of the workflow that sets up the environmen
     - name: Setup DotNet 6.0.x Environment
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: '6.0.x'
 ```
 
 # [Java](#tab/java)
@@ -99,7 +99,7 @@ The following example shows the part of the workflow that sets up the environmen
     - name: Setup Node 16.x Environment
       uses: actions/setup-node@v3
       with:
-        node-version: 16.x
+        node-version: '16.x'
 ```
 
 # [Python](#tab/python)
@@ -111,7 +111,7 @@ The following example shows the part of the workflow that sets up the environmen
     - name: Setup Python 3.9 Environment
       uses: actions/setup-python@v4
       with:
-        python-version: 3.9
+        python-version: '3.9'
 ```
 
 # [PowerShell](#tab/powershell)
