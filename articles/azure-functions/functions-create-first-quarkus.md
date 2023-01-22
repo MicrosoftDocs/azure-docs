@@ -154,7 +154,7 @@ Dependency injection in Quarkus is provided by the open standard technology Jaka
     curl -d '"Dan"' -X POST localhost:8080/api/greeting
     ```
 
-    The output should should look like this.
+    The output should look like this.
 
     ```output
     "Welcome to build Serverless Java with Quarkus on Azure Functions, Dan"
