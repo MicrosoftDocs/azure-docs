@@ -3,7 +3,7 @@ title: Create custom Azure security policies in Microsoft Defender for Cloud
 description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/19/2023
+ms.date: 01/22/2023
 zone_pivot_groups: manage-asc-initiatives
 ---
 
@@ -64,7 +64,7 @@ If there isn't an initiative in the list that meets your needs, you can create o
     > [!NOTE]
     > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Microsoft Defender for Cloud](permissions.md).
 
-    Your new initiative takes effect and you can see the impact in the following two ways:
+    Your new initiative takes effect and you can see the results in the following two ways:
 
     * From the Defender for Cloud menu, select **Regulatory compliance**. The compliance dashboard opens to show your new custom initiative alongside the built-in initiatives.
     
@@ -260,7 +260,7 @@ The metadata should be added to the policy definition for a policy that is part 
     },
 ```
 
-Below is an example of a custom policy including the metadata/securityCenter property:
+Here's another example of a custom policy including the metadata/securityCenter property:
 
   ```json
   {
