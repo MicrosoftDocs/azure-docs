@@ -4,7 +4,7 @@ description: How to create and delete Azure Monitor workspaces.
 author: EdB-MSFT
 ms.author: edbaynash 
 ms.topic: conceptual
-ms.date: 19/01/2023
+ms.date: 01/19/2023
 ---
 
 # Manage an Azure Monitor workspace
@@ -89,7 +89,7 @@ When you delete an Azure Monitor workspace, no soft-delete operation is performe
     :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button.":::
 
 ### [CLI](#tab/cli)
-To delete an AzureMonitor workspace use [az resource delete](https://learn.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)
+To delete an AzureMonitor workspace use [az resource delete](https://learn.microsoft.com/cli/azure/resource#az-resource-delete)
 
 For example:
 ```azurecli
@@ -101,7 +101,63 @@ or
     az resource delete -g rg-azmon -n prometheus-metrics-workspace --resource-type Microsoft.Monitor/accounts
 ```
 
+### [Resource Manager](#tab/resource-manager)
+For information on deleting resources and Azure Resource Manager, see [Azure Resource Manager resource group and resource deletion](../../azure-resource-manager/management/delete-resource-group.md)
+
+
 ---
+
+
+## Link a Grafana workspace  
+Connect an Azure Monitor workspace to an [Azure Managed Grafana](../../managed-grafana/overview.md) workspace to allow Grafana to use the Azure Monitor workspace data in a Grafana dashboard. An Azure Monitor workspace can be connected to multiple Grafana workspaces, and a Grafana workspace can be connected to multiple Azure Monitor workspaces.
+
+> [!NOTE]
+> When you add the Azure Monitor workspace as a data source to Grafana, it will be listed in form `Managed_Prometheus_<azure-workspace-name>`.
+### [Azure portal](#tab/azure-portal)
+
+1. Open the **Azure Monitor workspace** menu in the Azure portal.
+2. Select your workspace.
+3. Click **Linked Grafana workspaces**.
+4. Select a Grafana workspace.
+
+### [CLI](#tab/cli)
+
+Creates a link between the Azure Monitor workspace and the Grafana workspace by updating the Azure Kubernetes Service cluster that you are monitoring.
+
+```azurecli
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id 
+<azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
+```
+If your cluster is already configured to send data to an Azure Monitor managed service for Prometheus, disable it first using the following command:
+
+```azurecli
+az aks update --disable-azuremonitormetrics -g <cluster-resource-group> -n <cluster-name> 
+```
+
+Output
+```JSON
+"azureMonitorProfile": {
+    "metrics": {
+        "enabled": true,
+        "kubeStateMetrics": {
+            "metricAnnotationsAllowList": "",
+            "metricLabelsAllowlist": ""
+        }
+    }
+}
+```
+
+### [Resource Manager](#tab/resource-manager)
+To be completed.
+
+---
+
+If your Grafana Instance is self managed see [Use Azure Monitor managed service for Prometheus (preview) as data source for self-managed Grafana using managed system identity](./prometheus-self-managed-grafana-azure-active-directory.md)
+
+
+
+
+
 
 
 ## Next steps

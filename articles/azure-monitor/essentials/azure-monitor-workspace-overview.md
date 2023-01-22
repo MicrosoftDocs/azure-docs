@@ -4,7 +4,7 @@ description: Overview of Azure Monitor workspace, which is a unique environment 
 author: EdB-MSFT
 ms.author: edbaynash 
 ms.topic: conceptual
-ms.date: 19/01/2023
+ms.date: 01/22/2023
 ---
 
 # Azure Monitor workspace (preview)
