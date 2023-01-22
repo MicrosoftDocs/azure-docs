@@ -19,17 +19,17 @@ The built-in reports include information about your traffic and your application
 |---------|---------|
 | Overview of key metrics | Shows overall data that were sent from Azure Front Door edge points of presence (PoPs) to clients, including:<ul><li>Peak bandwidth</li><li>Requests</li><li>Cache hit ratio</li><li>Total latency</li><li>5XX error rate</li></ul> |
 | [Traffic by domain](#traffic-by-domain-report) | Provides an overview of all the domains within your Azure Front Door profile:<ul><li>Breakdown of data transferred out from the Azure Front Door edge to the client.</li><li>Total requests</li><li>3XX/4XX/5XX response code by domains</li></ul> |
-| [Traffic by location](#traffic-by-location-report) | - Shows a map view of request and usage by top countries/regions<br/>- Trend view of top countries/regions |
-| [Usage](#usage-report) | - Displays data transfer out from Azure Front Door edge to clients<br/>- Data transfer out from origin to AFD edge<br/>- Bandwidth from AFD edge to clients<br/>- Bandwidth from origin to AFD edge<br/>- Requests<br/>- Total latency<br/>- Request count trend by HTTP status code |
-| [Caching](#caching-report) | - Shows cache hit ratio by request count<br/>- Trend view of hit and miss requests |
-| [Top URL](#top-url-report) | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the most requested 50 assets. |
-| [Top referrer](#top-referrer-report) | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the top 50 referrers that generate traffic. |
-| [Top user agent](#top-user-agent-report) | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the top 50 user agents that were used to request content. |
+| [Traffic by location](#traffic-by-location-report) | <ul><li>Shows a map view of request and usage by top countries/regions<br/></li><li>Trend view of top countries/regions</li></ul> |
+| [Usage](#usage-report) | <ul><li>Displays data transfer out from Azure Front Door edge to clients<br/></li><li>Data transfer out from origin to AFD edge<br/></li><li>Bandwidth from AFD edge to clients<br/></li><li>Bandwidth from origin to AFD edge<br/></li><li>Requests<br/></li><li>Total latency<br/></li><li>Request count trend by HTTP status code</li></ul> |
+| [Caching](#caching-report) | <ul><li>Shows cache hit ratio by request count<br/></li><li>Trend view of hit and miss requests</li></ul> |
+| [Top URL](#top-url-report) | <ul><li>Shows request count <br/></li><li>Data transferred <br/></li><li>Cache hit ratio <br/></li><li>Response status code distribution for the most requested 50 assets</li></ul> |
+| [Top referrer](#top-referrer-report) | <ul><li>Shows request count <br/></li><li>Data transferred <br/></li><li>Cache hit ratio <br/></li><li>Response status code distribution for the top 50 referrers that generate traffic</li></ul> |
+| [Top user agent](#top-user-agent-report) | <ul><li>Shows request count <br/></li><li>Data transferred <br/></li><li>Cache hit ratio <br/></li><li>Response status code distribution for the top 50 user agents that were used to request content</li></ul> |
 
 | Security report | Details |
 |---------|---------|
-| Overview of key metrics | - Shows matched WAF rules<br/>- Matched OWASP rules<br/>- Matched BOT rules<br/>- Matched custom rules |
-| Metrics by dimensions | - Breakdown of matched WAF rules trend by action<br/>- Doughnut chart of events by Rule Set Type and event by rule group<br/>- Break down list of top events by rule ID, countries/regions, IP address, URL, and user agent  |
+| Overview of key metrics | <ul><li>Shows matched WAF rules<br/></li><li>Matched OWASP rules<br/></li><li>Matched bot protection rules<br/></li><li>Matched custom rules</li></ul> |
+| Metrics by dimensions | <ul><li>Breakdown of matched WAF rules trend by action<br/></li><li>Doughnut chart of events by Rule Set Type and event by rule group<br/></li><li>Break down list of top events by rule ID, countries/regions, IP address, URL, and user agent</li></ul>  |
 
 > [!NOTE]
 > Security reports are only available when you use the Azure Front Door premium tier.
@@ -72,7 +72,7 @@ Reports support any selected date range from the previous 90 days. With data poi
         * Last month
         * Custom date
 
-         By default, data is shown for last seven days. For tabs with line charts, the data granularity goes with the date ranges you selected as the default behavior. 
+       By default, data is shown for last seven days. For tabs with line charts, the data granularity goes with the date ranges you selected as the default behavior. 
     
         * 5 minutes - one data point every 5 minutes for date ranges less than or equal 24 hours.
         * By hour – one data every hour for date ranges between 24 hours to 30 days
