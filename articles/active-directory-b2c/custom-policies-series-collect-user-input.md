@@ -21,13 +21,13 @@ Azure Active Directory B2C (Azure AD B2C) custom policy custom policies allows y
 
 In this article, you'll learn how to write a custom policy that collects user inputs via a graphical user interface. You'll then access the inputs, process then, and finally return them as claims in a JWT token. To complete this task, you'll: 
 
-- Declare Claims. 
+- Declare claims. A claim provides temporary storage of data during an Azure AD B2C policy execution. It can store information about the user, such as first name, last name, or any other claim obtained from the user or other systems. You can learn more about claims in the [Azure AD B2C custom policy overview](custom-policy-overview.md#claims). 
 
-- Define TechnicalProfiles.
+- Define technical profiles. A technical profile provides an interface to communicate with different types of parties. For example, it allows you to interact with the user to collect data.
 
-- Configure ClaimsTransformations to manipulate the Claims you declare.
+- Configure claims transformations, which you use to manipulate the claims you declare.
 
-- Configure ContentDefinitions.
+- Configure content definitions. A content definition defines the user interface to load. Later you can [customize the user interface](customize-ui.md) by providing your own customized HTML content.
 
 - Configure and show user interfaces to the user by using Self-Asserted Technical Profiles and DisplayClaims.
 
@@ -56,11 +56,6 @@ Declare additional claims alongside *objectId* and *message*:
         <ClaimType Id="givenName">
             <DisplayName>Given Name</DisplayName>
             <DataType>string</DataType>
-            <DefaultPartnerClaimTypes>
-                <Protocol Name="OAuth2" PartnerClaimType="given_name" />
-                <Protocol Name="OpenIdConnect" PartnerClaimType="given_name" />
-                <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" />
-            </DefaultPartnerClaimTypes>
             <UserHelpText>Your given name (also known as first name).</UserHelpText>
             <UserInputType>TextBox</UserInputType>
         </ClaimType>
@@ -68,23 +63,12 @@ Declare additional claims alongside *objectId* and *message*:
         <ClaimType Id="surname">
             <DisplayName>Surname</DisplayName>
             <DataType>string</DataType>
-            <DefaultPartnerClaimTypes>
-                <Protocol Name="OAuth2" PartnerClaimType="family_name" />
-                <Protocol Name="OpenIdConnect" PartnerClaimType="family_name" />
-                <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" />
-            </DefaultPartnerClaimTypes>
             <UserHelpText>Your surname (also known as family name or last name).</UserHelpText>
             <UserInputType>TextBox</UserInputType>
         </ClaimType>
         <ClaimType Id="displayName">
             <DisplayName>Display Name</DisplayName>
             <DataType>string</DataType>
-            <DefaultPartnerClaimTypes>
-                <Protocol Name="OAuth2" PartnerClaimType="unique_name" />
-                <!--- OpenID Connect protocol partner Claim Types specifies that the label 'name' should be used by default instead of 'displayName'-->
-                <Protocol Name="OpenIdConnect" PartnerClaimType="name" />
-                <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" />
-            </DefaultPartnerClaimTypes>
             <UserHelpText>Your display name.</UserHelpText>
             <UserInputType>TextBox</UserInputType>
         </ClaimType>
@@ -177,7 +161,7 @@ Azure AD B2C provides a set of technical profiles. Each technical profile perfor
 
 ### Set values for your claims 
  
-To set values for *objectId*, *displayName* and *message* claims, you configure a technical profile that calls the *GenerateRandomObjectIdTransformation*, *CreateDisplayNameTransformation*, and *CreateMessageTransformation* Claims Transformations. 
+To set values for *objectId*, *displayName* and *message* claims, you configure a technical profile that executes the *GenerateRandomObjectIdTransformation*, *CreateDisplayNameTransformation*, and *CreateMessageTransformation* claims transformations. The claims transformation are executed by the order defined in the OutputClaimsTransformations element. For example, it first creates the display name, then the message. 
 
 1. Add the following `ClaimsProvider` as a child of the `ClaimsProviders` section. 
     
@@ -191,27 +175,29 @@ To set values for *objectId*, *displayName* and *message* claims, you configure 
 1. To set values for *objectId*, *displayName* and *message* claims, add the following code inside the `ClaimsProvider` element you just created:
    
     ```xml
-        <TechnicalProfiles>
-            <TechnicalProfile Id="ClaimGenerator">
-                <DisplayName>Generate Object ID, displayName and message Claims Technical Profile.</DisplayName>
-                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
-                <OutputClaims>
-                    <OutputClaim ClaimTypeReferenceId="objectId"/>
-                    <OutputClaim ClaimTypeReferenceId="displayName"/>
-                    <OutputClaim ClaimTypeReferenceId="message"/>
-                </OutputClaims>
-                <OutputClaimsTransformations>
-                    <OutputClaimsTransformation ReferenceId="GenerateRandomObjectIdTransformation"/>
-                    <OutputClaimsTransformation ReferenceId="CreateDisplayNameTransformation"/>
-                    <OutputClaimsTransformation ReferenceId="CreateMessageTransformation"/>
-                </OutputClaimsTransformations>
-            </TechnicalProfile>
-        </TechnicalProfiles>
+        <!--<ClaimsProvider>-->
+            <TechnicalProfiles>
+                <TechnicalProfile Id="ClaimGenerator">
+                    <DisplayName>Generate Object ID, displayName and message Claims Technical Profile.</DisplayName>
+                    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+                    <OutputClaims>
+                        <OutputClaim ClaimTypeReferenceId="objectId"/>
+                        <OutputClaim ClaimTypeReferenceId="displayName"/>
+                        <OutputClaim ClaimTypeReferenceId="message"/>
+                    </OutputClaims>
+                    <OutputClaimsTransformations>
+                        <OutputClaimsTransformation ReferenceId="GenerateRandomObjectIdTransformation"/>
+                        <OutputClaimsTransformation ReferenceId="CreateDisplayNameTransformation"/>
+                        <OutputClaimsTransformation ReferenceId="CreateMessageTransformation"/>
+                    </OutputClaimsTransformations>
+                </TechnicalProfile>
+            </TechnicalProfiles>
+        <!--</ClaimsProvider>-->
     ``` 
 
 ### Collect user inputs 
 
-You generate the *displayName* claim from *givenName* and *surname*, so you've to collect it as a user input. To collect a user input, you use a type of Technical Profile called [Self-Asserted](self-asserted-technical-profile.md). When you configure a Self-asserted technical profile, you need to reference the Content Definitions as Self-asserted technical profile is responsible to present a user interface.
+You generate the *displayName* claim from *givenName* and *surname*, so you need to collect then as user inputs. To collect a user input, you use a type of technical profile called [Self-Asserted](self-asserted-technical-profile.md). When you configure a self-asserted technical profile, you need to reference the content definitions as self-asserted technical profile is responsible for displaying a user interface.
 
 1. Add the following `ClaimsProvider` as a child of the `ClaimsProviders` section. 
     
@@ -244,7 +230,7 @@ You generate the *displayName* claim from *givenName* and *surname*, so you've t
         </TechnicalProfiles>
     ```
 
-    Notice the two DisplayClaims for the *givenName* and *surname* claims. Both of the claims are marked as required, so the user must enter values before they submit the form presented to them. 
+    Notice the two display claims for the *givenName* and *surname* claims. Both of the claims are marked as required, so the user must enter the values before they submit the form displayed to them. The claims are displayed on the screen in the order defined in the *DisplayClaims* element such as, the **Given Name** and then the **Surname**. 
 
 ## Step 5 - Define User Journeys
 
@@ -305,33 +291,18 @@ After you complete [step 6](#step-6---update-relying-party), the `ContosoCustomP
             <ClaimType Id="givenName">
                 <DisplayName>Given Name</DisplayName>
                 <DataType>string</DataType>
-                <DefaultPartnerClaimTypes>
-                    <Protocol Name="OAuth2" PartnerClaimType="given_name"/>
-                    <Protocol Name="OpenIdConnect" PartnerClaimType="given_name"/>
-                    <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"/>
-                </DefaultPartnerClaimTypes>
                 <UserHelpText>Your given name (also known as first name).</UserHelpText>
                 <UserInputType>TextBox</UserInputType>
             </ClaimType>
             <ClaimType Id="surname">
                 <DisplayName>Surname</DisplayName>
                 <DataType>string</DataType>
-                <DefaultPartnerClaimTypes>
-                    <Protocol Name="OAuth2" PartnerClaimType="family_name"/>
-                    <Protocol Name="OpenIdConnect" PartnerClaimType="family_name"/>
-                    <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"/>
-                </DefaultPartnerClaimTypes>
                 <UserHelpText>Your surname (also known as family name or last name).</UserHelpText>
                 <UserInputType>TextBox</UserInputType>
             </ClaimType>
             <ClaimType Id="displayName">
                 <DisplayName>Display Name</DisplayName>
                 <DataType>string</DataType>
-                <DefaultPartnerClaimTypes>
-                    <Protocol Name="OAuth2" PartnerClaimType="unique_name"/>
-                    <Protocol Name="OpenIdConnect" PartnerClaimType="name"/>
-                    <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"/>
-                </DefaultPartnerClaimTypes>
                 <UserHelpText>Your display name.</UserHelpText>
                 <UserInputType>TextBox</UserInputType>
             </ClaimType>
@@ -493,7 +464,7 @@ After you complete [step 6](#step-6---update-relying-party), the `ContosoCustomP
     </RelyingParty>
 </TrustFrameworkPolicy>
 ```
-Replace `yourtenant` with the subdomain part of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name).
+If you haven't already done so, replace `yourtenant` with the subdomain part of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name).
 
 ## Step 3 - Upload custom policy file
 
