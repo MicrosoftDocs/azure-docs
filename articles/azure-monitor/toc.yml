@@ -407,6 +407,8 @@ items:
         href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
         href: essentials/azure-monitor-workspace-overview.md
+      - name: Manage Azure Monitor workspaces
+        href: essentials/azure-monitor-workspace-manage.md
       - name: Enable on AKS cluster
         displayName: Prometheus
         href: essentials/prometheus-metrics-enable.md      

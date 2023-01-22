@@ -12,14 +12,7 @@ An Azure Monitor workspace is a unique environment for data collected by Azure M
 
 
 ## Contents of Azure Monitor workspace
-Azure Monitor workspaces will eventually contain all metric data collected by Azure Monitor. Currently, the only data hosted by an Azure Monitor workspace is Prometheus metrics.
-
-The following table lists the contents of Azure Monitor workspaces. This table will be updated as other types of data are stored in them.
-
-| Current contents | Future contents |
-|:---|:---|
-| Prometheus metrics | Native platform metrics<br>Native custom metrics<br>Prometheus metrics |
-
+Azure Monitor workspaces will eventually contain all metric data collected by Azure Monitor. Currently, only Prometheus metrics are data hosted in an Azure Monitor workspace.
 
 ## Azure Monitor workspace architecture 
 
@@ -47,10 +40,9 @@ Azure Monitor workspaces have default quotas and limitations for metrics. As you
 When an Azure Monitor workspace reaches 80% of its maximum capacity, or depending on your current and forecasted metric volume, it's recommended to split the Azure Monitor workspace into multiple workspaces. Split the workspace based on how the data in the workspace is used by your applications and business processes,  and how you want to access that data in the future.  For example, a company using Azure cloud service can logically separate its metrics in Azure Monitor workspaces by grouping them by application. By doing this, all the telemetric data can be managed and queried in an efficient way. 
 
 In certain circumstances, splitting Azure Monitor workspace into multiple workspaces can be necessary. For example: 
-1. Monitoring data in sovereign clouds – Create Azure Monitor workspace(s) in each sovereign cloud.  
-
-1. Compliance or regulatory requirements that mandate storage of data in specific regions – Create an Azure Monitor workspace per region as per requirements. There may be a need to manage the scale of metrics for large services or financial institutions with regional accounts. 
-1. Separating metric data in test, pre-production, and production environments 
+* Monitoring data in sovereign clouds – Create Azure Monitor workspace(s) in each sovereign cloud.  
+* Compliance or regulatory requirements that mandate storage of data in specific regions – Create an Azure Monitor workspace per region as per requirements. There may be a need to manage the scale of metrics for large services or financial institutions with regional accounts. 
+* Separating metric data in test, pre-production, and production environments 
 
 >[!Note] 
 > A single query cannot access multiple Azure Monitor workspaces. Keep data that you want to retrieve in a single query in same workspace. For presentation purposes, setting up Grafana with each workspace as a dedicated data source will allow for querying multiple workspaces in a single Grafana panel. 
@@ -63,51 +55,7 @@ See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for 
 - Azure monitor workspaces don't currently support being moved into a different subscription or resource group once created.
 
 
-
-## Link a Grafana workspace
-Connect an Azure Monitor workspace to an [Azure Managed Grafana](../../managed-grafana/overview.md) workspace to authorize Grafana to use the Azure Monitor workspace as a resource type in a Grafana dashboard. An Azure Monitor workspace can be connected to multiple Grafana workspaces, and a Grafana workspace can be connected to multiple Azure Monitor workspaces.
-
-> [!NOTE]
-> When you add the Azure Monitor workspace as a data source to Grafana, it will be listed in form `Managed_Prometheus_<azure-workspace-name>`.
-
-### [Azure portal](#tab/azure-portal)
-
-1. Open the **Azure Monitor workspace** menu in the Azure portal.
-2. Select your workspace.
-3. Select **Linked Grafana workspaces**.
-4. Select a Grafana workspace.
-
-### [CLI](#tab/cli)
-To be completed.
-
-If the Azure Monitor workspace is linked to one or more Grafana workspaces, then the data will be available in Grafana.
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
-
-This creates a link between the Azure Monitor workspace and the Grafana workspace.
-```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id 
-<azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
-```
-Output
-```JSON
-"azureMonitorProfile": {
-    "metrics": {
-        "enabled": true,
-        "kubeStateMetrics": {
-            "metricAnnotationsAllowList": "",
-            "metricLabelsAllowlist": ""
-        }
-    }
-}
-```
-
-
-### [Resource Manager](#tab/resource-manager)
-To be completed.
-
----
-
-
 ## Next steps
 
 - Learn more about the [Azure Monitor data platform](../data-platform.md).
+- [Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md)
