@@ -14,6 +14,10 @@ ms.custom: template-how-to
 
 The packet core instances in the Azure Private 5G Core service run on an Arc-enabled Azure Kubernetes Service (AKS) cluster on an Azure Stack Edge (ASE) device. This how-to guide shows how to commission the AKS cluster on ASE so that it's ready to deploy a packet core instance.
 
+## Prerequisites
+
+[Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+
 ## Enter a minishell session
 
 You need to run minishell commands on Azure Stack Edge  during this procedure. You must use a Windows machine that is on a network with access to the management port of the ASE. You should be able to view the ASE local UI to verify you have access.

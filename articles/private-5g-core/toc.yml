@@ -54,7 +54,7 @@ items:
   items:
   - name: Initial setup
     items:
-    - name: Complete the prerequisite tasks for deploying Azure Private 5G Core
+    - name: Complete the prerequisite tasks for deploying a private mobile network
       href: complete-private-mobile-network-prerequisites.md
     - name: Commission the AKS cluster
       href: commission-a-cluster.md
