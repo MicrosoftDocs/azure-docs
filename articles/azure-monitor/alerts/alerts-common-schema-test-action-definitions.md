@@ -707,6 +707,90 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
 }
 ```
 
+#### monitoringService = Actual Cost Budget
+
+**Sample values**
+```json
+{
+   "schemaId": "azureMonitorCommonAlertSchema",
+   "data": {
+      "essentials": {
+         "monitoringService": "CostAlerts",
+         "firedDateTime": "2022-12-07T21:13:20.645Z",
+         "description": "Your spend for budget Test_actual_cost_budget is now $11,111.00 exceeding your specified threshold $25.00.",
+         "essentialsVersion": "1.0",
+         "alertContextVersion": "1.0",
+         "alertId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/alerts/Test_Alert",
+         "alertRule": null,
+         "severity": null,
+         "signalType": null,
+         "monitorCondition": null,
+         "alertTargetIDs": null,
+         "configurationItems": ["budgets"],
+         "originAlertId": null
+          },
+      "alertContext": {
+         "AlertCategory": "budgets",
+         "AlertData": {
+            "Scope": "/subscriptions/11111111-1111-1111-1111-111111111111/",
+            "ThresholdType": "Actual",
+            "BudgetType": "Cost",
+            "BudgetThreshold": "$50.00",
+            "NotificationThresholdAmount": "$25.00",
+            "BudgetName": "Test_actual_cost_budget",
+            "BudgetId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Consumption/budgets/Test_actual_cost_budget",
+            "BudgetStartDate": "2022-11-01",
+            "BudgetCreator": "test@sample.test",
+            "Unit": "USD",
+            "SpentAmount": "$11,111.00"
+         }
+      }
+   }
+}
+```
+#### monitoringService = Forecasted Budget
+
+**Sample values**
+```json
+{
+   "schemaId": "azureMonitorCommonAlertSchema",
+   "data": {
+      "essentials": {
+         "monitoringService": "CostAlerts",
+         "firedDateTime": "2022-12-07T21:13:29.576Z",
+         "description": "The total spend for your budget, Test_forcasted_budget, is forecasted to reach $1111.11 before the end of the period. This amount exceeds your specified budget threshold of $50.00.",
+         "essentialsVersion": "1.0",
+         "alertContextVersion": "1.0",
+         "alertId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/alerts/Test_Alert",
+         "alertRule": null,
+         "severity": null,
+         "signalType": null,
+         "monitorCondition": null,
+         "alertTargetIDs": null,
+         "configurationItems": ["budgets"],
+         "originAlertId": null
+      },
+      "alertContext": {
+         "AlertCategory": "budgets",
+         "AlertData": {
+            "Scope": "/subscriptions/11111111-1111-1111-1111-111111111111/",
+            "ThresholdType": "Forecasted",
+            "BudgetType": "Cost",
+            "BudgetThreshold": "$50.00",
+            "NotificationThresholdAmount": "$50.00",
+            "BudgetName": "Test_forcasted_budget",
+            "BudgetId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Consumption/budgets/Test_forcasted_budget",
+            "BudgetStartDate": "2022-11-01",
+            "BudgetCreator": "test@sample.test",
+            "Unit": "USD",
+            "SpentAmount": "$999.99",
+            "ForecastedTotalForPeriod": "$1111.11"
+         }
+      }
+   }
+}
+```
+
 #### monitoringService = Smart Alert
 
 **Sample values**
