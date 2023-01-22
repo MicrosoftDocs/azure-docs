@@ -82,12 +82,11 @@ Java uses the  `actions/setup-java` action.
 The following example shows the part of the workflow that sets up the environment:
 
 ```yaml
-    - name: Setup Java 1.8.x
-      uses: actions/setup-java@v1
+    - name: Setup Java 17
+      uses: actions/setup-java@3
       with:
-        # If your pom.xml <maven.compiler.source> version is not in 1.8.x
-        # Please change the Java version to match the version in pom.xml <maven.compiler.source>
-        java-version: '1.8.x'
+        distribution: 'zulu' # See 'Supported distributions' for available options in setup-java-jdk
+        java-version: '17'
 ```
 
 # [JavaScript](#tab/javascript)
@@ -298,7 +297,7 @@ env:
   AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
   POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
-  JAVA_VERSION: '1.8.x'                      # set this to the java version to use
+  JAVA_VERSION: '17'                         # set this to the java version to use
 
 jobs:
   build-and-deploy:
@@ -308,8 +307,9 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v3
       with:
+        distribution: 'zulu'
         java-version: ${{ env.JAVA_VERSION }}
 
     - name: 'Restore Project Dependencies Using Mvn'
@@ -339,7 +339,7 @@ env:
   AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
   POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
-  JAVA_VERSION: '1.8.x'                      # set this to the Java version to use
+  JAVA_VERSION: '17'                         # set this to the Java version to use
 
 jobs:
   build-and-deploy:
@@ -349,8 +349,9 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v3
       with:
+        distribution: 'zulu'
         java-version: ${{ env.JAVA_VERSION }}
 
     - name: 'Restore Project Dependencies Using Mvn'
