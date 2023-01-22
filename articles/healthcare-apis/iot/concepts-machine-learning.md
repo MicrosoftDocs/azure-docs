@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 12/27/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
@@ -68,6 +68,6 @@ In this article, you learned about the MedTech service and Machine Learning serv
 For an overview of the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [The MedTech service overview](overview.md)
+> [What is the MedTech service?](overview.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

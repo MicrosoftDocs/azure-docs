@@ -100,18 +100,6 @@ For stateful alerts, the alert is considered resolved when:
 
 When an alert is considered resolved, the alert rule sends out a resolved notification using webhooks or email, and the monitor state in the Azure portal is set to resolved.
 
-## Manage your alerts programmatically
-
-You can query your alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
-We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For a sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
-
-You can use Azure Resource Graphs:
- - with [Azure PowerShell](/powershell/module/az.monitor/)
- - with the [Azure CLI](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
- - in the Azure portal
- 
-You can also use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) for lower scale querying or to update fired alerts.
-
 ## Pricing
 See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for information about pricing.
 
@@ -121,3 +109,4 @@ See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details
 - [Create a new alert rule](alerts-log.md)
 - [Learn about action groups](../alerts/action-groups.md)
 - [Learn about alert processing rules](alerts-action-rules.md)
+- [Manage your alerts programmatically](alerts-manage-alert-instances.md#manage-your-alerts-programmatically)
