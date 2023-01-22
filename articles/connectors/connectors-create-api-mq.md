@@ -63,7 +63,11 @@ Based on whether you use the MQ managed connector (Consumption or Standard workf
   | Managed | Server only (one-way) |
   | Built-in | - Server-client (two-way) <br>- Server-only (one-way) |
 
-* The MQ managed connector doesn't use the message's **Format** field and doesn't make any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
+* Character set conversions
+
+  - The MQ managed connector doesn't make any character set conversions nor use the message's **Format** field. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
+
+  - The MQ built-in connector can make character set conversions, but only when the data format is a string. If you supply a different character set ID (code page), the connector attempts to convert the data to the new code page.
 
 * The MQ connector doesn't support segmented messages.
 
@@ -112,7 +116,7 @@ For more information, review the [MQ managed connector reference](/connectors/mq
       | Incoming MQ server certificate | Requirements |
       |--------------------------------|---------------|
       | Publicly trusted private key certificate issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) | Usually, your logic app doesn't need any other setup because your logic app's virtual machine host usually has the required public key certificates to validate the incoming MQ server's private key certificate. To check that these public key certificates exist, follow the steps to [View and confirm thumbprints for existing public key certificates](#view-existing-public-key-certificates). <br><br>If the virtual machine host doesn't have all the required public key certificates to validate the incoming MQ server's private key certificate and any chaining certificates, complete the following steps: <br><br>1. Recreate your Standard logic app using an [Azure App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). <br><br>2. Manually add all the private key certificates in the MQ server's certificate chain to the host's Trusted Root CA Store. For more information, see [Add a private key certificate](#add-private-key-certificate). |
-      | Private key certificate not publicly trusted, such as a self-signed or private CA certificate | Your logic app's virtual machine host won't have the required public key certificates in the host's Trusted Root CA Store to validate the MQ server's certificate chain. In this case, complete the following steps: <br><br>1. Recreate your Standard logic app using an [Azure App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). <br><br>2. Manually add the required public key certificates to the host's Trusted Root CA Store. For more information, see [Add a public key certificate](#add-public-key-certificate). |
+      | Non-publicly trusted private key certificate, such as a self-signed or private CA certificate | Your logic app's virtual machine host won't have the required public key certificates in the host's Trusted Root CA Store to validate the MQ server's certificate chain. In this case, complete the following steps: <br><br>1. Recreate your Standard logic app using an [Azure App Service Environment v3 (ASE) with a Windows-only and ASE-based App Service plan](../app-service/environment/overview.md). <br><br>2. Manually add the required public key certificates to the host's Trusted Root CA Store. For more information, see [Add a public key certificate](#add-public-key-certificate). |
 
     * Logic app client authentication
 
