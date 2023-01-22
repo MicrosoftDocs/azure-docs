@@ -5,15 +5,14 @@ services: security
 documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-editor: TomSh
 
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2020
+ms.date: 01/22/2023
 ms.author: terrylan
 
 ---
@@ -26,7 +25,7 @@ The best practices are based on a consensus of opinion, and they work with curre
 To help protect data in the cloud, you need to account for the possible states in which your data can occur, and what controls are available for that state. Best practices for Azure data security and encryption relate to the following data states:
 
 - At rest: This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.
-- In transit: When data is being transferred between components, locations, or programs, it’s in transit. Examples are transfer over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process.
+- In transit: When data is being transferred between components, locations, or programs, it's in transit. Examples are transfer over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process.
 
 ## Choose a key management solution
 
@@ -41,7 +40,7 @@ Azure Key Vault is designed to support application keys and secrets. Key Vault i
 Following are security best practices for using Key Vault.
 
 **Best practice**: Grant access to users, groups, and applications at a specific scope.
-**Detail**: Use Azure RBAC predefined roles. For example, to grant access to a user to manage key vaults, you would assign the predefined role [Key Vault Contributor](../../role-based-access-control/built-in-roles.md) to this user at a specific scope. The scope in this case would be a subscription, a resource group, or just a specific key vault. If the predefined roles don’t fit your needs, you can [define your own roles](../../role-based-access-control/custom-roles.md).
+**Detail**: Use Azure RBAC predefined roles. For example, to grant access to a user to manage key vaults, you would assign the predefined role [Key Vault Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor) to this user at a specific scope. The scope in this case would be a subscription, a resource group, or just a specific key vault. If the predefined roles don't fit your needs, you can [define your own roles](../../role-based-access-control/custom-roles.md).
 
 **Best practice**: Control what users have access to.
 **Detail**: Access to a key vault is controlled through two separate interfaces: management plane and data plane. The management plane and data plane access controls work independently.
@@ -72,7 +71,7 @@ Because the vast majority of attacks target the end user, the endpoint becomes o
 
 ## Protect data at rest
 
-[Data encryption at rest](https://www.microsoft.com/security/blog/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step toward data privacy, compliance, and data sovereignty.
+[Data encryption at rest](encryption-atrest) is a mandatory step toward data privacy, compliance, and data sovereignty.
 
 **Best practice**: Apply disk encryption to help safeguard your data.
 **Detail**: Use [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md). Disk Encryption combines the industry-standard Linux dm-crypt or Windows BitLocker feature to provide volume encryption for the OS and the data disks.
@@ -88,7 +87,7 @@ Organizations that don’t enforce data encryption are more exposed to data-conf
 
 Protecting data in transit should be an essential part of your data protection strategy. Because data is moving back and forth from many locations, we generally recommend that you always use SSL/TLS protocols to exchange data across different locations. In some circumstances, you might want to isolate the entire communication channel between your on-premises and cloud infrastructures by using a VPN.
 
-For data moving between your on-premises infrastructure and Azure, consider appropriate safeguards such as HTTPS or VPN. When sending encrypted traffic between an Azure virtual network and an on-premises location over the public internet, use [Azure VPN Gateway](../../vpn-gateway/index.yml).
+For data moving between your on-premises infrastructure and Azure, consider appropriate safeguards such as HTTPS or VPN. When sending encrypted traffic between an Azure virtual network and an on-premises location over the public internet, use [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and HTTPS.
 
@@ -102,13 +101,13 @@ Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and H
 **Detail**: Use [ExpressRoute](../../expressroute/expressroute-introduction.md). If you choose to use ExpressRoute, you can also encrypt the data at the application level by using SSL/TLS or other protocols for added protection.
 
 **Best practice**: Interact with Azure Storage through the Azure portal.
-**Detail**: All transactions occur via HTTPS. You can also use [Storage REST API](/rest/api/storageservices/) over HTTPS to interact with [Azure Storage](https://azure.microsoft.com/services/storage/).
+**Detail**: All transactions occur via HTTPS. You can also use [Storage REST API](/rest/api/storageservices/) over HTTPS to interact with [Azure Storage](../../storage/common/storage-introduction.md).
 
 Organizations that fail to protect data in transit are more susceptible to [man-in-the-middle attacks](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [eavesdropping](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14)), and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
 ## Secure email, documents, and sensitive data
 
-You want to control and secure email, documents, and sensitive data that you share outside your company. [Azure Information Protection](/azure/information-protection/) is a cloud-based solution that helps an organization to classify, label, and protect its documents and emails. This can be done automatically by administrators who define rules and conditions, manually by users, or a combination where users get recommendations.
+You want to control and secure email, documents, and sensitive data that you share outside your company. [Azure Information Protection](../../information-protection/what-is-information-protection.md) is a cloud-based solution that helps an organization to classify, label, and protect its documents and emails. This can be done automatically by administrators who define rules and conditions, manually by users, or a combination where users get recommendations.
 
 Classification is identifiable at all times, regardless of where the data is stored or with whom it’s shared. The labels include visual markings such as a header, footer, or watermark. Metadata is added to files and email headers in clear text. The clear text ensures that other services, such as solutions to prevent data loss, can identify the classification and take appropriate action.
 
