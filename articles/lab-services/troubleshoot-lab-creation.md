@@ -80,6 +80,10 @@ On the lab plan, you can enable one or multiple regions for creating labs. Learn
 
 When your lab plan uses advanced networking, the lab plan and all labs must be in the same region as the virtual network. For more information, see [Use Azure Lab Services advanced networking](how-to-connect-vnet-injection.md).
 
+## Advanced troubleshooting
+
+[!INCLUDE [contact Azure support](includes/lab-services-contact-azure-support.md)]
+
 ## Next steps
 
 For more information about setting up and managing labs, see:
