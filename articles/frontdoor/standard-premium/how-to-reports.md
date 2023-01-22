@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/20/2022
+ms.date: 01/23/2023
 ms.author: duau
 ---
 
@@ -22,13 +22,13 @@ The built-in reports include information about your traffic and your application
 | Traffic report | Details |
 |---------|---------|
 | Overview of key metrics | Shows overall data that were sent from Azure Front Door edge points of presence (PoPs) to clients, including:<ul><li>Peak bandwidth</li><li>Requests</li><li>Cache hit ratio</li><li>Total latency</li><li>5XX error rate</li></ul> |
-| Traffic by Domain | Provides an overview of all the domains within your Azure Front Door profile:<ul><li>Breakdown of data transferred out from the Azure Front Door edge to the client.</li><li>Total requests</li><li>3XX/4XX/5XX response code by domains</li></ul> |
-| Traffic by Location | - Shows a map view of request and usage by top countries/regions<br/>- Trend view of top countries/regions |
-| Usage | - Displays data transfer out from Azure Front Door edge to clients<br/>- Data transfer out from origin to AFD edge<br/>- Bandwidth from AFD edge to clients<br/>- Bandwidth from origin to AFD edge<br/>- Requests<br/>- Total latency<br/>- Request count trend by HTTP status code |
-| Caching | - Shows cache hit ratio by request count<br/>- Trend view of hit and miss requests |
-| Top URL | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the most requested 50 assets. |
-| Top Referrer | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the top 50 referrers that generate traffic. |
-| Top User Agent | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the top 50 user agents that were used to request content. |
+| [Traffic by domain](#traffic-by-domain-report) | Provides an overview of all the domains within your Azure Front Door profile:<ul><li>Breakdown of data transferred out from the Azure Front Door edge to the client.</li><li>Total requests</li><li>3XX/4XX/5XX response code by domains</li></ul> |
+| [Traffic by location](#traffic-by-location-report) | - Shows a map view of request and usage by top countries/regions<br/>- Trend view of top countries/regions |
+| [Usage](#usage-report) | - Displays data transfer out from Azure Front Door edge to clients<br/>- Data transfer out from origin to AFD edge<br/>- Bandwidth from AFD edge to clients<br/>- Bandwidth from origin to AFD edge<br/>- Requests<br/>- Total latency<br/>- Request count trend by HTTP status code |
+| [Caching](#caching-report) | - Shows cache hit ratio by request count<br/>- Trend view of hit and miss requests |
+| [Top URLs](#top-urls-report) | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the most requested 50 assets. |
+| [Top referrers](#top-referrers-report) | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the top 50 referrers that generate traffic. |
+| [Top user agents](#top-user-agents-report) | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the top 50 user agents that were used to request content. |
 
 | Security report | Details |
 |---------|---------|
@@ -36,7 +36,7 @@ The built-in reports include information about your traffic and your application
 | Metrics by dimensions | - Breakdown of matched WAF rules trend by action<br/>- Doughnut chart of events by Rule Set Type and event by rule group<br/>- Break down list of top events by rule ID, countries/regions, IP address, URL, and user agent  |
 
 > [!NOTE]
-> Security reports are only available with Azure Front Door Premium tier.
+> Security reports are only available when you use the Azure Front Door premium tier.
 
 Reports are free of charge. Most reports are based on access log data, but you don't need to enable access logs or make any configuration changes to use the reports.
 
@@ -115,7 +115,7 @@ Reports support any selected date range from the previous 90 days. With data poi
 | 5XX Error Rate | The percentage of requests for which the HTTP status code to client was a 5XX for the selected time frame, client locations, domains, and protocols. |
 | Total Latency | Average latency of all the requests for the selected time frame, client locations, domains, and protocols. The latency for each request is measured as the total time of when the client request gets received by Azure Front Door until the last response byte sent from Azure Front Door to client. |
 
-## Traffic by Domain
+## Traffic by domain report
 
 Traffic by Domain provides a grid view of all the domains under this Azure Front Door profile. In this report you can view: 
 * Requests
@@ -128,8 +128,7 @@ You can go to other tabs to investigate further or view access log for more info
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of landing page for reports":::
 
-
-## Usage
+## Usage report
 
 This report shows the trends of traffic and response status code by different dimensions, including:
 
@@ -151,7 +150,7 @@ This report shows the trends of traffic and response status code by different di
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of Reports by usage" lightbox="../media/how-to-reports/front-door-reports-usage-expanded.png":::
 
-## Traffic by Location
+## Traffic by location report
 
 This report displays the top 50 locations by the countries/regions of the visitors that access your asset the most. The report also provides a breakdown of metrics by countries/regions and gives you an overall view of countries/regions
  where the most traffic gets generated. Lastly you can see which countries/regions is having higher cache hit ratio or 4XX/5XX error codes.
@@ -164,7 +163,7 @@ The following are included in the reports:
 * Two line charts trend view of the top five countries/regions by data transferred out and requests of your choice. 
 * A grid of the top countries/regions with corresponding data transferred out from AFD to clients, data transferred out % of all countries/regions, requests, request % among all countries/regions, cache hit ratio, 4XX response code and 5XX response code.
 
-## Caching
+## Caching report
 
 Caching reports provides a chart view of cache hits/misses and cache hit ratio based on requests. These key metrics explain how CDN is caching contents since the fastest performance results from cache hits. You can optimize data delivery speeds by minimizing cache misses. This report includes:
 
@@ -198,7 +197,7 @@ It excludes all of the following cases:
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-caching.png" alt-text="Screenshot of Reports for caching.":::
 
-## Top URLs
+## Top URLs report
 
 Top URLs allow you to view the amount of traffic incurred over a particular endpoint or custom domain. You'll see data for the most requested 50 assets during any period in the past 90 days. Popular URLs will be displayed with the following values. User can sort URLs by request count, request %, data transferred and data transferred %. All the metrics are aggregated by hour and may vary per the time frame selected. URL refers to the value of RequestUri in access log. 
 
@@ -220,7 +219,7 @@ Top URLs allow you to view the amount of traffic incurred over a particular endp
 >
 > The same logic applies to Top User Agent. 
 
-## Top Referrers
+## Top referrers report
 
 Top Referrers allow customers to view the top 50 referrer that originated the most requests to the contents on a particular endpoint or custom domain. You can view data for any period in the past 90 days. A referrer indicates the URL from which a request was generated. Referrer may come from a search engine or other websites. If a user types a URL (for example, http(s)://contoso.com/index.html) directly into the address line of a browser, the referrer for the requested is "Empty". Top referrers report includes the following values. You can sort by request count, request %, data transferred and data transferred %. All the metrics are aggregated by hour and may vary per the time frame selected. 
 
@@ -235,7 +234,7 @@ Top Referrers allow customers to view the top 50 referrer that originated the mo
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-top-referrer.png" alt-text="Screenshot of Reports for top referrer.":::
 
-## Top User Agent
+## Top user agents report
 
 This report allows you to have graphical and statistics view of the top 50 user agents that were used to request content. For example,
 * Mozilla/5.0 (Windows NT 10.0; WOW64) 
@@ -245,7 +244,7 @@ This report allows you to have graphical and statistics view of the top 50 user 
 
 A grid displays the request counts, request %, data transferred and data transferred, cache Hit Ratio %, requests with response code as 4XX and requests with response code as 5XX. User Agent refers to the value of UserAgent in access logs.
 
-## Security Report
+## Security report
 
 This report allows you to have graphical and statistics view of WAF patterns by different dimensions.
 
@@ -267,14 +266,11 @@ This report allows you to have graphical and statistics view of WAF patterns by 
 | Request by top Hostnames | A table of requests by top 50 hostname, in descending order. |
 | Requests by top user agents | A table of requests by top 50 user agents, in descending order. |
 
-## CSV format
+## Export reports in CSV format
 
-You can download CSV files for different tabs in reports. This section describes the values in each CSV file.
+You can download CSV files for different tabs in reports.
 
-### General information about the CSV report
-
-Every CSV report includes some general information and the information is available in all CSV files. with variables based on the report you download. 
-
+Every CSV report includes some general information and the information is available in all CSV files.
 
 | Value | Description |
 |---------|---------|
@@ -287,7 +283,9 @@ Every CSV report includes some general information and the information is availa
 | Protocol | The protocol of the request, HTTP, or HTTPs. Not applicable to Top URL and Traffic by User Agent in Reports and Security report. |
 | Aggregation | The granularity of data aggregation in each row, every 5 minutes, every hour, and every day. Not applicable to Traffic by Domain, Top URL, and Traffic by User Agent in Reports and Security report. |
 
-### Data in Traffic by Domain
+Each report also includes its own variables, which are described in the sections below.
+
+### Traffic by domain report data
 
 * Domain 
 * Total Request 
@@ -297,16 +295,16 @@ Every CSV report includes some general information and the information is availa
 * 5XX Requests 
 * ByteTransferredFromEdgeToClient 
 
-### Data in Traffic by Location
+### Traffic by location report data
 
 * Location
 * TotalRequests
 * Request%
 * BytesTransferredFromEdgeToClient
 
-### Data in Usage
+### Usage report data
 
-There are three reports in this CSV file. One for HTTP protocol, one for HTTPS protocol and one for HTTP Status Code. 
+There are three reports in the usage report's CSV file: one for HTTP protocol, one for HTTPS protocol, and one for HTTP status codes.
 
 Reports for HTTP and HTTPs share the same data set. 
 
@@ -331,14 +329,14 @@ Report for HTTP Status Code.
 * 4XXRequest 
 * 5XXRequest
 
-### Data in Caching 
+### Caching report data
 
 * Time
 * CacheHitRatio 
 * HitRequests 
 * MissRequests 
 
-### Data in Top URL 
+### Top URL report data
 
 * URL 
 * TotalRequests 
@@ -346,7 +344,7 @@ Report for HTTP Status Code.
 * DataTransferred(bytes) 
 * DataTransferred% 
 
-### Data in User Agent 
+### Top user agents report data
 
 * UserAgent 
 * TotalRequests 
@@ -354,7 +352,7 @@ Report for HTTP Status Code.
 * DataTransferred(bytes) 
 * DataTransferred% 
 
-### Security Report 
+### Security report data
 
 There are seven tables all with the same fields below.  
 
