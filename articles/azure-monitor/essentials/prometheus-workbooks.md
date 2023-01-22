@@ -32,7 +32,7 @@ Azure Monitor workspaces include an exploration workbook to query your Prometheu
 
 A workbook has the following input options:
 -	**Time Range**. Select the period of time that you want to include in your query. Select **Custom** to set a start and end time.
--	**PromQL**. Enter the PromQL query to retrieve your data. For more information about PromQL, see Querying Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/#querying-prometheus).
+-	**PromQL**. Enter the PromQL query to retrieve your data. For more information about PromQL, see [Querying Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/#querying-prometheus).
 -	**Graph**, **Grid**, and **Dimensions** tabs. Switch between a graphic, tabular and dimensional view of the query output.
 
 ![Screenshot that shows PromQL explorer](./media/prometheus-workbooks/prometheus-explorer.png)
@@ -64,3 +64,7 @@ If you workbook query does not return data:
 -	Verify that you have turned on metrics collection in the Monitored clusters blade of your Azure Monitor workspace
 
 
+## Next steps
+* [Collect Prometheus metrics from AKS cluster (preview)](./prometheus-metrics-enable.md)
+* [Azure Monitor workspace (preview)](./azure-monitor-workspace-overview.md)
+* [Use Azure Monitor managed service for Prometheus (preview) as data source for Grafana using managed system identity](./prometheus-grafan)
