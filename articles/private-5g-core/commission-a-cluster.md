@@ -209,7 +209,7 @@ Explore the cluster using the options in the **Kubernetes resources (preview)** 
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-resources.png" alt-text="Screenshot of Kubernetes resources (preview) menu, showing namespaces, workloads, services and ingresses, storage and configuration options.":::
 
-You'll initially be presented with a sign-in request box. The token to use for signing in is obtained from the *kubeconfig* file retrieved from the local UI in [Kubectl cluster access](#kubectl-cluster-access). There's a string prefixed by *token:*, near the end of the *kubeconfig* file. Copy this string into the box in the portal (ensuring you don't have line break characters copied), and select **Sign in**.
+You'll initially be presented with a sign-in request box. The token to use for signing in is obtained from the *kubeconfig* file retrieved from the local UI in [Set up kubectl access](#set-up-kubectl-access). There's a string prefixed by *token:*, near the end of the *kubeconfig* file. Copy this string into the box in the portal (ensuring you don't have line break characters copied), and select **Sign in**.
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-sign-in.png" alt-text="Screenshot of sign-in screen for Kubernetes resource. There's a box to enter your service account bearer token and a sign-in button.":::
 
