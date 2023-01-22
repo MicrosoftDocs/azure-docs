@@ -87,7 +87,8 @@ If there are existing recommendations that match the definition of the governanc
 > -	Check effective rules on selected scope using the scope filter.
 
 To view the effect rules on specific scope, use the “scope” filter and select a desired scope.
-In general, rules on management scopes (Azure management groups, AWS master accents, GCP organizations) take effect before rules on scopes (Azure subscriptions, AWS accounts, or GCP projects). Conflicting rules are applied in priority order.
+
+Conflicting rules are applied in priority order. For example, rules on a management scope, (Azure management groups, AWS master accents and GCP organizations) take effect before rules on scopes (for example, Azure subscriptions, AWS accounts, or GCP projects). 
 
 ## Manually assigning owners and due dates for recommendation remediation
 
