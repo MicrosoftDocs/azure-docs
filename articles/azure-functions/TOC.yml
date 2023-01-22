@@ -411,6 +411,8 @@
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
                   href: ./create-first-function-vs-code-csharp.md
+                - name: Java with Quarkus
+                  href: functions-create-first-quarkus.md
                 - name: Java using Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java using Eclipse
