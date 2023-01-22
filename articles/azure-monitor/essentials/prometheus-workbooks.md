@@ -24,7 +24,8 @@ To query Prometheus metrics from an Azure Monitor workspace you need the followi
 ## Prometheus Explorer workbook
 Azure Monitor workspaces include an exploration workbook to query your Prometheus metrics. 
 
-1. From the Azure Monitor workspace overview page, select **Workbooks**
+1. From the Azure Monitor workspace overview page, select **Workbooks** 
+
 1. In the Azure Monitor workspace gallery, select the **Prometheus Explorer** workbook tile.
 
 ![Screenshot that shows Azure Monitor workspace gallery](./media/prometheus-workbooks/prometheus-gallery.png)
@@ -42,15 +43,16 @@ Workbooks supports many visualizations and Azure integrations. For more informat
 Azure Workbooks use [data sources](../visualize/workbooks-data-sources.md#prometheus-preview) to scope the data they retrieve. To query Prometheus metrics:
 
 1.	From your Azure Monitor workspace select **Workbooks**.
+
 1.  Select **New**.
 1.	In the new workbook, select **Add**, and select **Add query** from the dropdown.
+:::image type="content" source="./media/prometheus-workbooks/prometheus-workspace-add-query.png" alt-text="A screenshot showing the add content dropdown in a blank workspace":::
 1.	Select the  **Data source** dropdown, and choose **Prometheus (preview)** .
 1.	From the **Azure Monitor workspace** dropdown, select your workspace.
-1.	Following that, update the Prometheus query type dropdown to your desired Query Type
-1.	In the primary text field, write your PromQL
-1.	Select **Run Query**                       button at the top, you should now be able to see your data
-1.	(optional) Make additional adjustments and customizations using the various options for time range, visualization type, size, and other settings
-1.	Once all changes are finalized, select the **Done Editing** at the bottom of the section and save your work
+1.	Select your query type from **Prometheus query type** dropdown.
+1.	Write your PromQL query in the **Prometheus Query** field. 
+1.	Select **Run Query** button.
+1.	Select the **Done Editing** at the bottom of the section and save your work
 
 ![Screenshot that shows sample PromQL query](./media/prometheus-workbooks/prometheus-query.png)
 
