@@ -115,9 +115,9 @@ This section describes how to view programming files and compare versions. Searc
 | Files | Displays the files detected for the chosen date and the file size on the programmed device. <br /> By default, the maximum number of files available for display per device is 300. <br /> By default, the maximum file size for each file is 15 MB. |
 | File status :::image type="icon" source="media/how-to-work-with-maps/status-v2.png" border="false"::: | File labels indicate the status of the file on the device, including: <br /> **Added**: the file was added to the endpoint on the date or time selected. <br /> **Updated**: The file was updated on the date or time selected. <br /> **Deleted**: This file was removed. <br /> **No label**: The file wasn't changed.   |
 | Programming Device | The device that made the programming change. Multiple devices may have carried out programming changes on one programmed device. The hostname, date, or time of change and logged in user are displayed. |
-| :::image type="icon" source="media/how-to-work-with-maps/current.png" border="false"::: | Displays the current file installed on the programmed device. |
+| :::image type="icon" source="media/how-to-work-with-maps/current.png" border="false"::: | Indicates the current file installed on the programmed device. |
 | :::image type="icon" source="media/how-to-work-with-maps/download-text.png" border="false"::: | Download a text file of the code displayed. |
-| :::image type="icon" source="media/how-to-work-with-maps/compare.png" border="false"::: | Compare the current file with the file detected on a selected date. |
+| :::image type="icon" source="media/how-to-work-with-maps/compare.png" border="false"::: | Compare the current file with another file detected on a selected date. |
 
 ### Choose a file to review
 
@@ -127,7 +127,7 @@ This section describes how to choose a file to review.
 
 1. Select an event from the **Recent Events** pane.
 
-2. Select a file from the File pane. The file appears in the **Current** pane.
+2. Select a file from the **File** pane. The file appears in the pane on the right.
 
    :::image type="content" source="media/how-to-work-with-maps/choose-file.png" alt-text="Screenshot of selecting the file you want to work with.":::
 
@@ -139,11 +139,13 @@ This section describes how to compare programming files.
 
 1. Select an event from the **Recent Events** pane.
 
-2. Select a file from the **File** pane. The file appears in the **Current** pane. You can compare this file to other files.
+2. Select a file from the **File** pane. The file appears in the pane on the right. You can compare this file to other files.
 
 3. Select the compare indicator.
 
    :::image type="content" source="media/how-to-work-with-maps/compare.png" alt-text="Screenshot of the compare indicator.":::
+
+1. Select a file for comparison by clicking on the scale icon next to the file. 
 
    The window displays all dates the selected file was detected on the programmed device. The file may have been updated on the programmed device by multiple programming devices.
 
