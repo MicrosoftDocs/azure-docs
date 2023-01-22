@@ -199,7 +199,7 @@ In addition, Front Door attaches the `X-Cache` header to all responses. The `X-C
 
 ::: zone pivot="front-door-standard-premium"
 
-The [access log](front-door-diagnostics.md#access-log) includes the cache status for each request. Also, [reports](standard-premium/how-to-reports.md#caching) include information about how Azure Front Door's cache is used in your application.
+The [access log](front-door-diagnostics.md#access-log) includes the cache status for each request. Also, [reports](standard-premium/how-to-reports.md#caching-report) include information about how Azure Front Door's cache is used in your application.
 
 ::: zone-end
 
