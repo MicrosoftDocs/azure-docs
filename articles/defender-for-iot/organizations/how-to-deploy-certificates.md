@@ -31,7 +31,9 @@ To perform the procedures described in this article, make sure that:
 
 ## Deploy an SSL/TLS certificate
 
-After you've created your SSL/TLS certificate as required and have it installed on a trusted storage, deploy it to your OT sensor or on-premises management console.
+Deploy your SSL/TLS certificate by importing it to your OT sensor or on-premises management console.
+
+Verify that your SSL/TLS certificate [meets the required parameters](#verify-certificate-file-parameter-requirements), and that you have [access to a CRL server](#verify-crl-server-access).
 
 ### Import the SSL/TLS certificate
 
@@ -105,7 +107,7 @@ If validation fails, communication between the relevant components is halted and
 
 ## Create a certificate
 
-Add description.
+Create either a CA-signed SSL/TLS certificate or a self-signed SSL/TLS certificate (not recommended).
 
 ### Create CA-signed SSL/TLS certificates
 
@@ -119,7 +121,7 @@ You can also convert existing certificate files if you don't want to create new 
 
 ### Create self-signed SSL/TLS certificates
 
-Create self-signed SSL/TLS certificates by first [downloading a security certificate](#import-a-downloaded-security-certificate-to-a-trusted-store) from the OT sensor or on-premises management console and then exporting it to the required file types.
+Create self-signed SSL/TLS certificates by first [downloading a security certificate](#download-a-security-certificate) from the OT sensor or on-premises management console and then exporting it to the required file types.
 
 > [!NOTE]
 > While you can use a locally-generated and self-signed certificate, we do not recommend this option.
@@ -198,7 +200,7 @@ If these tests fail, review [certificate file parameter requirements](#verify-ce
 
 ### Import a downloaded security certificate to a trusted store
 
-**Download a security certificate:**
+#### Download a security certificate
 
 1. After [installing your OT sensor software](ot-deploy/install-software-ot-sensor.md) or [on-premises management console](ot-deploy/install-software-on-premises-management-console.md), go to the sensor's or on-premises management console's IP address in a browser.
 
@@ -210,7 +212,7 @@ If these tests fail, review [certificate file parameter requirements](#verify-ce
 
 1. In the **Certificate viewer** pane, select the **Details** tab, then select **Export** to save the file on your local machine.
 
-**Import the sensor's locally signed certificate to your certificate store:**
+#### Import the sensor's locally signed certificate to your certificate store
 
 After creating your locally signed certificate, import it to a trusted storage location. For example:
 
