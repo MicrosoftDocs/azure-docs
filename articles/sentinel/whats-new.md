@@ -18,7 +18,7 @@ The listed features were released in the last three months. For information abou
 
 ## January 2023
 
-- [Monitor SAP system health (Preview)](#monitor-sap-system-health-preview)
+- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
 - [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
 
