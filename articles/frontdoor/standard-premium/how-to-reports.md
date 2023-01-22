@@ -99,6 +99,106 @@ Reports support any selected date range from the previous 90 days. With data poi
 
     :::image type="content" source="../media/how-to-reports/front-door-reports-download-csv.png" alt-text="Screenshot of download csv file for Reports.":::
 
+## Export reports in CSV format
+
+You can download any of the Azure Front Door reports as a CSV file Every CSV report includes some general information and the information is available in all CSV files:
+
+| Value | Description |
+|---------|---------|
+| Report | The name of the report. | 
+| Domains | The list of the endpoints or custom domains for the report. |
+| StartDateUTC | The start of the date range for which you generated the report, in Coordinated Universal Time (UTC) |
+| EndDateUTC | The end of the date range for which you generated the report, in Coordinated Universal Time (UTC) |
+| GeneratedTimeUTC | The date and time when you generated the report, in Coordinated Universal Time (UTC) |
+| Location | The list of the countries/regions where the client requests originated. The value is ALL by default. Not applicable to Security report. |
+| Protocol | The protocol of the request, HTTP, or HTTPs. Not applicable to Top URL and Traffic by User Agent in Reports and Security report. |
+| Aggregation | The granularity of data aggregation in each row, every 5 minutes, every hour, and every day. Not applicable to Traffic by Domain, Top URL, and Traffic by User Agent in Reports and Security report. |
+
+Each report also includes its own variables.
+
+# [Traffic by domain](#tab/traffic-by-domain)
+
+* Domain 
+* Total Request 
+* Cache Hit Ratio 
+* 3XX Requests 
+* 4XX Requests 
+* 5XX Requests 
+* ByteTransferredFromEdgeToClient 
+
+# [Traffic by location](#tab/traffic-by-location)
+
+* Location
+* TotalRequests
+* Request%
+* BytesTransferredFromEdgeToClient
+
+# [Usage](#tab/usage)
+
+There are three reports in the usage report's CSV file: one for HTTP protocol, one for HTTPS protocol, and one for HTTP status codes.
+
+Reports for HTTP and HTTPs share the same data set. 
+
+* Time 
+* Protocol 
+* DataTransferred(bytes) 
+* TotalRequest 
+* bpsFromEdgeToClient 
+* 2XXRequest 
+* 3XXRequest 
+* 4XXRequest 
+* 5XXRequest 
+
+Report for HTTP Status Code. 
+
+* Time 
+* DataTransferred(bytes) 
+* TotalRequest 
+* bpsFromEdgeToClient 
+* 2XXRequest 
+* 3XXRequest 
+* 4XXRequest 
+* 5XXRequest
+
+# [Caching](#tab/caching)
+
+* Time
+* CacheHitRatio 
+* HitRequests 
+* MissRequests 
+
+# [Top URL](#tab/top-url)
+
+* URL 
+* TotalRequests 
+* Request% 
+* DataTransferred(bytes) 
+* DataTransferred% 
+
+# [Top user agent](#tab/topuser-agent)
+
+* UserAgent 
+* TotalRequests 
+* Request% 
+* DataTransferred(bytes) 
+* DataTransferred% 
+
+# [Security](#tab/security)
+
+There are seven tables all with the same fields below.  
+
+* BlockedRequests 
+* AllowedRequests 
+* LoggedRequests 
+* RedirectedRequests 
+* OWASPRuleRequests 
+* CustomRuleRequests 
+* BotRequests 
+
+The seven tables are for time, rule ID, countries/regions, IP address, URL, hostname, user agent. 
+
+---
+
 ### Key metrics included in all reports
 
 | Metric | Description |
@@ -247,108 +347,6 @@ The **security report** provides graphical and statistics views of WAF patterns 
 | Requests by top Request URL |  A table of requests by top 50 URLs, in descending order. |
 | Request by top Hostnames | A table of requests by top 50 hostname, in descending order. |
 | Requests by top user agents | A table of requests by top 50 user agents, in descending order. |
-
-## Export reports in CSV format
-
-You can download CSV files for different tabs in reports.
-
-Every CSV report includes some general information and the information is available in all CSV files.
-
-| Value | Description |
-|---------|---------|
-| Report | The name of the report. | 
-| Domains | The list of the endpoints or custom domains for the report. |
-| StartDateUTC | The start of the date range for which you generated the report, in Coordinated Universal Time (UTC) |
-| EndDateUTC | The end of the date range for which you generated the report, in Coordinated Universal Time (UTC) |
-| GeneratedTimeUTC | The date and time when you generated the report, in Coordinated Universal Time (UTC) |
-| Location | The list of the countries/regions where the client requests originated. The value is ALL by default. Not applicable to Security report. |
-| Protocol | The protocol of the request, HTTP, or HTTPs. Not applicable to Top URL and Traffic by User Agent in Reports and Security report. |
-| Aggregation | The granularity of data aggregation in each row, every 5 minutes, every hour, and every day. Not applicable to Traffic by Domain, Top URL, and Traffic by User Agent in Reports and Security report. |
-
-Each report also includes its own variables.
-
-# [Traffic by domain](#tab/traffic-by-domain)
-
-* Domain 
-* Total Request 
-* Cache Hit Ratio 
-* 3XX Requests 
-* 4XX Requests 
-* 5XX Requests 
-* ByteTransferredFromEdgeToClient 
-
-# [Traffic by location](#tab/traffic-by-location)
-
-* Location
-* TotalRequests
-* Request%
-* BytesTransferredFromEdgeToClient
-
-# [Usage](#tab/usage)
-
-There are three reports in the usage report's CSV file: one for HTTP protocol, one for HTTPS protocol, and one for HTTP status codes.
-
-Reports for HTTP and HTTPs share the same data set. 
-
-* Time 
-* Protocol 
-* DataTransferred(bytes) 
-* TotalRequest 
-* bpsFromEdgeToClient 
-* 2XXRequest 
-* 3XXRequest 
-* 4XXRequest 
-* 5XXRequest 
-
-Report for HTTP Status Code. 
-
-* Time 
-* DataTransferred(bytes) 
-* TotalRequest 
-* bpsFromEdgeToClient 
-* 2XXRequest 
-* 3XXRequest 
-* 4XXRequest 
-* 5XXRequest
-
-# [Caching](#tab/caching)
-
-* Time
-* CacheHitRatio 
-* HitRequests 
-* MissRequests 
-
-# [Top URL](#tab/top-url)
-
-* URL 
-* TotalRequests 
-* Request% 
-* DataTransferred(bytes) 
-* DataTransferred% 
-
-# [Top user agent](#top-user-agent)
-
-* UserAgent 
-* TotalRequests 
-* Request% 
-* DataTransferred(bytes) 
-* DataTransferred% 
-
-# [Security](#tab/security)
-
-There are seven tables all with the same fields below.  
-
-* BlockedRequests 
-* AllowedRequests 
-* LoggedRequests 
-* RedirectedRequests 
-* OWASPRuleRequests 
-* CustomRuleRequests 
-* BotRequests 
-
-The seven tables are for time, rule ID, countries/regions, IP address, URL, hostname, user agent. 
-
----
 
 ## Next steps
 
