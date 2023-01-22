@@ -102,12 +102,37 @@ WAF policies can be attached to wildcard domains, similar to other domains. A di
 
 If you don't want a WAF policy to run for a subdomain, you can create an empty WAF policy with no managed or custom rulesets.
 
-## Routing rules
+::: zone pivot="front-door-standard-premium"
 
-When configuring a routing rule, you can select a wildcard domain as a front-end host. You can also have different route behavior for wildcard domains and subdomains. As described in [How Azure Front Door does route matching](front-door-route-matching.md), the most specific match for the domain across different routing rules is chosen at runtime.
+## Routes
+
+When configuring a route, you can select a wildcard domain as an origin. You can also have different route behavior for wildcard domains and subdomains. Azure Front Door chooses the most specific match for the domain across different routes. For more information, see [How requests are matched to a routing rule](front-door-route-matching.md).
 
 > [!IMPORTANT]
-> You must have matching path patterns across your routing rules, or your clients will see failures. For example, you have two routing rules like Route 1 (`*.foo.com/*` mapped to back-end pool A) and Route 2 (`/bar.foo.com/somePath/*` mapped to back-end pool B). Then, a request arrives for `bar.foo.com/anotherPath/*`. Azure Front Door selects Route 2 based on a more specific domain match, only to find no matching path patterns across the routes.
+> You must have matching path patterns across your routes, or your clients will see failures.
+> 
+> For example, suppose you have two routing rule:
+> - Route 1 (`*.foo.com/*` mapped to origin group A)
+> - Route 2 (`bar.foo.com/somePath/*` mapped to origin group B)
+> If a request arrives for `bar.foo.com/anotherPath/*`, Azure Front Door selects route 2 based on a more specific domain match, only to find no matching path patterns across the routes.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+## Routing rules
+
+When configuring a routing rule, you can select a wildcard domain as a front-end host. You can also have different route behavior for wildcard domains and subdomains. Azure Front Door chooses the most specific match for the domain across different routes. For more information, see [How requests are matched to a routing rule](front-door-route-matching.md).
+
+> [!IMPORTANT]
+> You must have matching path patterns across your routes, or your clients will see failures.
+> 
+> For example, suppose you have two routing rule:
+> - Route 1 (`*.foo.com/*` mapped to backend pool A)
+> - Route 2 (`bar.foo.com/somePath/*` mapped to backend pool B)
+> If a request arrives for `bar.foo.com/anotherPath/*`, Azure Front Door selects route 2 based on a more specific domain match, only to find no matching path patterns across the routes.
+
+::: zone-end
 
 ## Next steps
 
