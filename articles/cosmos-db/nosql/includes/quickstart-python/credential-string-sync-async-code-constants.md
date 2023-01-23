@@ -12,6 +12,6 @@ ms.custom: include file
 
 #### [Sync / Async](#tab/sync+async)
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="constants":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app_cred.py" id="constants":::
 
 ---

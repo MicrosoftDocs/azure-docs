@@ -121,13 +121,13 @@ From the project directory, open the *app.py* file. In your editor, add modules 
 
 [!INCLUDE [sync async code imports - credential](./includes/quickstart-python/credential-string-sync-async-code-imports.md)]
 
-Create environment variables that specify your Cosmos DB endpoint, database name, and container name.
+Create an environment variables that specifies your Cosmos DB endpoint.
 
 [!INCLUDE [sync async code environment variables - credential](./includes/quickstart-python/credential-string-sync-async-code-environment-variables.md)]
 
 Create constants for the database and container names.
 
-[!INCLUDE [sync async code environment variables - credential](./includes/quickstart-python/credential-string-sync-async-code-environment-variables.md)]
+[!INCLUDE [sync async code environment variables - credential](./includes/quickstart-python/credential-string-sync-async-code-constants.md)]
 
 Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the `DefaultAzureCredential` object.
 
