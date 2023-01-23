@@ -72,6 +72,8 @@ items:
         href: vm/monitor-virtual-machine-management-packs.md
   - name: Self-monitoring
     href: monitor-azure-monitor.md 
+  - name: Migrate from Splunk to Azure Monitor Logs
+    href: logs/migrate-splunk-to-azure-monitor-logs.md 
 - name: Samples
   items:
   - name: Resource Manager templates
