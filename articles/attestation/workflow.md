@@ -42,7 +42,7 @@ Here are the general steps in a typical TPM enclave attestation workflow (using 
 2.	The client authenticates to Azure AD and obtains an access token.
 3.	The client has an URI, which refers to an instance of Azure Attestation. The client sends the evidence and the Azure Active Directory (Azure AD) access token to Azure Attestation. Exact information submitted to the provider depends on the platform.
 4.	Azure Attestation validates the submitted information and evaluates it against a configured policy. If the verification succeeds, Azure Attestation issues an attestation token and returns it to the client. If this step fails, Azure Attestation reports an error to the client. The communication between the client and attestation service is dictated by the Azure attestation TPM protocol.
-5.	The client then sends the attestation token to relying party. The relying party calls public key metadata endpoint of Azure Attestation to retrieve signing certificates. The relying party then verifies the signature of the attestation token and ensures the platforms.trustworthiness
+5.	The client then sends the attestation token to relying party. The relying party calls public key metadata endpoint of Azure Attestation to retrieve signing certificates. The relying party then verifies the signature of the attestation token and ensures the platform's trustworthiness.
 
 ![TPM validation flow](./media/tpm-validation-flow.png)
 
