@@ -149,11 +149,3 @@ items:
       href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
     - name: Minimize MFA prompts from known devices
       href: recommendation-mfa-from-known-devices.md
-    - name: Remove unused apps
-      href: recommendation-remove-unused-apps.md
-    - name: Remove unused credentials from apps
-      href: recommendation-remove-unused-credential-from-apps.md
-    - name: Renew expiring application credentials
-      href: recommendation-renew-expiring-application-credential.md
-    - name: Renew expiring service principal credentials
-      href: recommendation-renew-expiring-service-principal-credential.md
