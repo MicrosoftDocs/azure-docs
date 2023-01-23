@@ -31,11 +31,11 @@ Form Recognizer features are supported by seven containers:
 | **Custom API** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api |
 | **Custom Supervised** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised |
 
-## Microsoft container registry
+## Microsoft container registry (MCR)
 
 Form Recognizer container images can be found within the [**Microsoft Container Registry Catalog**](https://mcr.microsoft.com/v2/_catalog) listing, the primary registry for all Microsoft Published Docker images:
 
-  :::image type="content" source="../media/containers/mcr-container-images.png" alt-text="Screenshot of the mcr container catalog list.":::
+  :::image type="content" source="../media/containers/microsoft-container-registry-catalog.png" alt-text="Screenshot of the Microsoft Container Registry (MCR) catalog list.":::
 
 ## Form Recognizer tags
 
