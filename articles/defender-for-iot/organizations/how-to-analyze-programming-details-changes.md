@@ -1,10 +1,9 @@
 ---
 title: Analyze programming details and changes
 description: Enhance forensics by displaying programming events carried out on your network devices and analyzing code changes. This information helps you discover suspicious programming activity.
-ms.date: 01/30/2022
+ms.date: 01/23/2023
 ms.topic: how-to
 ---
-
 
 # Analyze programming details and changes
 
@@ -41,27 +40,35 @@ Other options let you:
 
   - Download a *.txt file with the current code.
 
-## About authorized versus unauthorized programming events 
+## About authorized versus unauthorized programming events
 
 Unauthorized programming events are carried out by devices that haven't been learned or manually defined as programming devices. Authorized programming events are carried out by devices that were resolved or manually defined as programming devices.
 
-The Programming Analysis window displays both authorized and unauthorized programming events.
+The **Programming Timeline** window displays both authorized and unauthorized programming events.
 
 ## Accessing programming details and changes
 
-Access the Programming Analysis window from the:
+Access the **Programming Timeline** window from the following places in the sensor:
 
 - [Event Timeline](how-to-track-sensor-activity.md)
 
 - [Unauthorized Programming Alerts](#unauthorized-programming-alerts)
 
-- [Device map in the sensor](#device-map-in-the-sensor)
+- [Device map](#device-map)
 
-- [Device inventory in the sensor](#device-inventory-in-the-sensor)
+- [Device inventory](#device-inventory)
 
 ### Event timeline
 
 Use the event timeline to display a timeline of events in which programming changes were detected.
+
+1. Sign into the sensor console and go to **Event timeline**.
+
+1. Filter events by keyword **DeltaV** (optional).
+
+1. Select the event you want to analyze to open the event details pane on the right.
+
+1. Select **View programming** to open the programming timeline.
 
 :::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="Screenshot of the event timeline.":::
 
@@ -69,24 +76,33 @@ Use the event timeline to display a timeline of events in which programming chan
 
 Alerts are triggered when unauthorized programming devices carry out programming activities.
 
+**To access the programming timeline from an alert**:
+
+1. Sign into the sensor console and go to **Alerts**.
+
+1. Filter the alerts to find the alert you want to analyze.
+
+1. Select the alert to open the alert details in the pane on the right.
+
+1. Select **Programming** top open the programming timeline. 
+
 :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Screenshot of unauthorized programming alerts":::
 
-> [!NOTE]
-> You can also view basic programming information in the Device Properties window and Device Inventory.
-
-### Device map in the sensor
+### Device map
 
 1. Sign into the sensor console and go to **Device map**.
 
-1. Under **OT Protocol** select **DeltaV**.
+1. Under **OT Protocol**, select **DeltaV**.
 
-1. In the map, right click on the device you want to analyze and select **Programming timeline**.
+1. In the map, right click on the device you want to analyze, and select **Programming timeline**.
 
 1. Select a file to view programming details. You can also download the file, or compare it to other recent files. For more information, see [Working in the programming timeline window](#working-in-the-programming-timeline-window).
 
-### Device inventory in the sensor
+### Device inventory
 
-The device inventory indicates if the device is a programming device, and he device properties window provides information on the last programming event detected on the device.
+The device inventory indicates if a device is a programming device, and the device properties window provides information on the last programming event detected on the device.
+
+:::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="Screenshot of the device inventory page.":::
 
 **To access the programming timeline from the device inventory**:
 
@@ -159,16 +175,7 @@ This section describes how to compare programming files.
 
 4. Select a date. The file detected on the selected date appears in the window.
 
-5. The file selected from the **Recent Events/Files** pane always appears on the right.
-
-## Device programming information: Other locations
-
-In addition to reviewing details in the Programming Timeline, you can access programming information in the Device Properties window and the Device Inventory.
-
-| Device type | Description |
-|--|--|
-| Device properties | The device properties window provides information on the last programming event detected on the device. |
-| The device inventory | The device inventory indicates if the device is a programming device. <br> :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="Screenshot of the device inventory page."::: |
+5. The file selected from the **Recent Events** or **Files** pane always appears on the right.
 
 ## Next steps
 
