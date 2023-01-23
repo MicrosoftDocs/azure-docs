@@ -94,7 +94,7 @@ If the users need to be denied permission to certain pages based on group member
 
 8. Type **x-iss** in the destination header field to configure the valid HTTP header that must be sent to the application.
 
-9. Enter **given_name** into the Value field, that is the name of a claim in the B2C policy. The value of the claim will be passed into the header.
+9. Enter **given_name** into the Value field that is the name of a claim in the B2C policy. The value of the claim will be passed into the header.
 
 10. Select **Token** as the source.
 
