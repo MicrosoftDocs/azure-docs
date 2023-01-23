@@ -70,7 +70,7 @@ items:
         href: vm/monitor-virtual-machine-alerts.md
       - name: Migrate management pack logic
         href: vm/monitor-virtual-machine-management-packs.md
-  - name: Self-monitoring
+  - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md 
 - name: Samples
   items:
@@ -940,7 +940,6 @@ items:
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
- 
   - name: Container insights
     items:
     - name: Overview
