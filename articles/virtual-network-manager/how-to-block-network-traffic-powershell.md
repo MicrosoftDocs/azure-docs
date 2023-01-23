@@ -25,7 +25,7 @@ Before you start configuring security rules, confirm the following steps:
 
 * You understand each element in a [Security admin rule](concept-security-admins.md).
 * You've created an [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md).
-* Installed version of `Az.Network` of `4.20.1`or higher required to access the required cmdlets.
+* Installed version of `Az.Network` of `4.20.1`or higher is required to access the required cmdlets.
 
 ## Create a SecurityAdmin configuration
 
@@ -37,7 +37,8 @@ Before you start configuring security rules, confirm the following steps:
         ResourceGroupName = 'myAVNMResourceGroup'
         NetworkManagerName = 'myAVNM'
     }
-    $securityconfig = New-AzNetworkManagerSecurityAdminConfiguration @config 
+    $securityconfig = New-AzNetworkManagerSecurityAdminConfiguration @config
+
     ```
 
 1. Store network group to a variable with Get-AzNetworkManagerGroup.
@@ -45,7 +46,7 @@ Before you start configuring security rules, confirm the following steps:
     ```azurepowershell-interactive
     $ng = @{
         Name = 'myNetworkGroup'
-        ResoureceGroupName = 'myAVNMResourceGroup'
+        ResourceGroupName = 'myAVNMResourceGroup'
         NetworkManagerName = 'myAVNM'
     }
     $networkgroup = Get-AzNetworkManagerGroup @ng   
@@ -55,9 +56,10 @@ Before you start configuring security rules, confirm the following steps:
 
     ```azurepowershell-interactive
     $gi = @{
-        NetworkGroupId = '$networkgroup.Id'
+        NetworkGroupId = "$networkgroup.Id"
     }
-    $groupItem = New-AzNetworkManagerSecurityGroupItem @gi
+    
+    $groupItem = New-AzNetworkManagerSecurityGroupItem -NetworkGroupId $networkgroup.id
     ```
 
 1. Create a configuration group and add the group item from the previous step.
@@ -65,6 +67,8 @@ Before you start configuring security rules, confirm the following steps:
     ```azurepowershell-interactive
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.PSNetworkManagerSecurityGroupItem]]$configGroup = @()  
     $configGroup.Add($groupItem) 
+
+    $configGroup = @($groupItem)
     ```
 
 1. Create a security admin rules collection with New-AzNetworkManagerSecurityAdminRuleCollection.
@@ -75,9 +79,9 @@ Before you start configuring security rules, confirm the following steps:
         ResourceGroupName = 'myAVNMResourceGroup'
         NetworkManager = 'myAVNM'
         ConfigName = 'SecurityConfig'
-        AppliesToGroup = $configGroup
+        AppliesToGroup = "$configGroup"
     }
-    $rulecollection = New-AzNetworkManagerSecurityAdminRuleCollection @collection
+    $rulecollection = New-AzNetworkManagerSecurityAdminRuleCollection @collection -AppliesToGroup $configGroup
     ```
 
 1. Define the variables for the source and destination address prefixes and ports with New-AzNetworkManagerAddressPrefixItem.
@@ -116,9 +120,9 @@ Before you start configuring security rules, confirm the following steps:
         Access = 'Deny'
         Priority = '100'
         Direction = 'Outbound'
-        Source = $sourceprefix
+        SourceAddressPrefix = $sourceprefix
         SourcePortRange = $sourcePortList
-        Destination = $destinationprefix
+        DestinationAddressPrefix = $destinationprefix
         DestinationPortRange = $destinationPortList
     }
     $securityrule = New-AzNetworkManagerSecurityAdminRule @rule
@@ -129,17 +133,13 @@ Before you start configuring security rules, confirm the following steps:
 Commit the security configuration to target regions with Deploy-AzNetworkManagerCommit.
 
 ```azurepowershell-interactive
-[System.Collections.Generic.List[string]]$configIds = @()  
-$configIds.add($securityconfig.id) 
-[System.Collections.Generic.List[string]]regions = @()   
-$regions.Add("westus")     
-
+$regions = @("westus")
 $deployment = @{
     Name = 'myAVNM'
     ResourceGroupName = 'myAVNMResourceGroup'
     ConfigurationId = $configIds
     TargetLocation = $regions
-    CommitType = 'Security'
+    CommitType = 'SecurityAdmin'
 }
 Deploy-AzNetworkManagerCommit @deployment 
 ```
@@ -164,7 +164,7 @@ $removedeployment = @{
     ResourceGroupName = 'myAVNMResourceGroup'
     ConfigurationId = $configIds
     TargetLocation = $regions
-    CommitType = 'Security'
+    CommitType = 'SecurityAdmin'
 }
 Deploy-AzNetworkManagerCommit @removedeployment
 ```
@@ -190,7 +190,7 @@ $removecollection = @{
     Name = 'myRuleCollection'
     ResourceGroupName = 'myAVNMResourceGroup'
     NetworkManagerName = 'myAVNM'
-    SecurityAdminConfigurationName = 'SecuritConfig'
+    SecurityAdminConfigurationName = 'SecurityConfig'
 }
 Remove-AzNetworkManagerSecurityAdminRuleCollection @removecollection
 ```
