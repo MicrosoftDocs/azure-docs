@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](/powershell/azure/) for information on how to install and run Azure PowerShell.
 
 > [!NOTE]
-> Az.Attestation module is now integrated into Az PowerShell module. Minimum version of Az module required to support attestation operations:
+> The Az.Attestation PowerShell module is now integrated into Az PowerShell module. Minimum version of Az module required to support attestation operations:
   - Az PowerShell module 6.5.0
   
 The PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. Hence you may receive the following errors:
@@ -121,14 +121,14 @@ In order to manage policies, an Azure AD user requires the following permissions
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
- To perform these actions, an Azure AD user must have **Attestation Contributor** role on the attestation provider. These permissions can be also be inherited with roles such as **Owner** (wildcard permissions)/ **Contributor** (wildcard permissions) on  the subscription/ resource group.  
+ To perform these actions, an Azure AD user must have **Attestation Contributor** role on the attestation provider. These permissions can also be inherited with roles such as **Owner** (wildcard permissions)/ **Contributor** (wildcard permissions) on  the subscription/ resource group.  
 
 In order to read policies, an Azure AD user requires the following permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
- To perform this action, an Azure AD user must have **Attestation Reader** role on the attestation provider. The read permissions can be also be inherited with roles such as **Reader** (wildcard permissions) on  the subscription/ resource group.  
+ To perform this action, an Azure AD user must have **Attestation Reader** role on the attestation provider. The read permissions can also be inherited with roles such as **Reader** (wildcard permissions) on  the subscription/ resource group.  
 
-Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
+These PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
 
 Get-AzAttestationPolicy returns the current policy for the specified TEE. The cmdlet displays policy in both text and JWT format of the policy.
 
@@ -173,7 +173,7 @@ Remove-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $
 
 Policy signer certificate is a signed JWT with claim named "maa-policyCertificate". Value of the claim is a JWK, which contains the trusted signing key to add. The JWT must be signed with private key corresponding to any of the existing policy signer certificates.
 
-Note that all semantic manipulation of the policy signer certificate must be done outside of PowerShell. As far as PowerShell is concerned, it is a simple string.
+All semantic manipulation of the policy signer certificate must be done outside of PowerShell. As far as PowerShell is concerned, it is a simple string.
 
 For policy signer certificate sample, see [examples of policy signer certificate](policy-signer-examples.md).
 
