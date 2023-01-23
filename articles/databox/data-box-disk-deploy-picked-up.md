@@ -233,7 +233,10 @@ Take the following steps if returning the device in China.
 
 1. Once the data validation is complete, unplug the disks and remove the connecting cables.
 2. Place each disk inside an individual bubble-wrap bag and package them along with the connecting cables inside the original box that was used for shipping. Make sure that the fit is snug to reduce any movement within the box.
-Note: Charges may apply if accessories are missing.
+
+   > [!NOTE]
+   > Charges may apply if accessories are missing.
+
 3. Email Azure Data Box Operations using the following template to receive the e-waybill and delivery challan required for the return shipment.
 ```
     To: adbops@microsoft.com
@@ -246,7 +249,7 @@ Note: Charges may apply if accessories are missing.
 5. If an Inbound ID is also required to send the package to the datacenter, the Azure Data Box Operations team will provide this. Write down the Inbound ID number on the packaging box such that it is clearly visible near the return label.
 6. If you encounter any issues or are asked to pay additional fees when scheduling a pickup, reach out to Azure Data Box Operations <adbops@microsoft.com> for assistance. Please provide the Order Name and the issue encountered in the subject line.
  
-Once the package is picked up and scanned by the carrier, the order status in the Azure Portal will be updated to **Picked Up** and a tracking ID will be displayed.
+Once the package is picked up and scanned by the carrier, the order status in the Azure portal will be updated to **Picked Up** and a tracking ID will be displayed.
 
 ::: zone-end
 
