@@ -147,7 +147,7 @@ Hybrid Connections is popular for development, but it's also used in production 
 
 App Service virtual network integration enables your app to make *outbound* requests into an Azure virtual network. 
 
-The virtual network integration feature enables you to place the back end of your app in a subnet in a Resource Manager virtual network in the same region as your app. This feature isn't available from an App Service Environment, which is already in a virtual network. Use cases for this feature:
+The virtual network integration feature enables you to place the back end of your app in a subnet in a Resource Manager virtual network. The virtual network must be in the same region as your app. This feature isn't available from an App Service Environment, which is already in a virtual network. Use cases for this feature:
 
 * Access resources in Resource Manager virtual networks in the same region.
 * Access resources in peered virtual networks, including cross region connections.
@@ -163,11 +163,11 @@ To learn more, see [App Service virtual network integration](./overview-vnet-int
 
 #### Gateway-required virtual network integration 
 
-Gateway-required virtual network integration was the first edition of virtual network integration in App Service. The feature works by connecting the host your app is running on to a Virtual Network gateway on your virtual network by using a point-to-site VPN. When you configure the feature, your app gets one of the point-to-site addresses assigned to each instance.
+Gateway-required virtual network integration was the first edition of virtual network integration in App Service. The feature works by connecting the host your app is running on to a Virtual Network gateway on your virtual network by using a point-to-site VPN. When you configure the feature, your app gets one of the point-to-site assigned addresses assigned to each instance.
 
 ![Diagram that illustrates gateway-required virtual network integration.](media/networking-features/gw-vnet-integration.png)
 
-Gateway required integration allows you to connect directly to a virtual network in another region without peering and to connect to a classic virtual network. The feature is limited to App Service Windows plans and doesn't work with ExpressRoute-connected virtual networks. It is recommended to use the regional virtual network integration. For more information on this feature, see [App Service virtual network integration](./configure-gateway-required-vnet-integration.md). 
+Gateway required integration allows you to connect directly to a virtual network in another region without peering and to connect to a classic virtual network. The feature is limited to App Service Windows plans and doesn't work with ExpressRoute-connected virtual networks. It's recommended to use the regional virtual network integration. For more information on this feature, see [App Service virtual network integration](./configure-gateway-required-vnet-integration.md). 
 
 ### App Service Environment 
 
@@ -202,7 +202,7 @@ The ASE provides the best story around isolated and dedicated app hosting, but i
 
 ## Combining features 
 
-The features noted for the multi-tenant service can be used together to solve more elaborate use cases. Two of the more common use cases are described here, but they're just examples. By understanding what the various features do, you can meet nearly all your system architecture needs.
+The features noted for the multi-tenant service can be used together to solve more elaborate use cases. Two of the more common use cases are described here, but that's just examples. By understanding what the various features do, you can meet nearly all your system architecture needs.
 
 ### Place an app into a virtual network
 
