@@ -77,10 +77,12 @@ To support this transformation, add these three new columns to your custom table
 
 1. On the **Monitor** menu, select **Data Collection Rules** > your data collection rule.
 1. Select **Data sources** > your data source. 
-1. Past the formatted transformation query in the **Transform** field on the **Data source** tab of the **Add data source** screen.
+1. Paste the formatted transformation query in the **Transform** field on the **Data source** tab of the **Add data source** screen.
+1. Select **Save**.
 
+    :::image type="content" source="media/azure-monitor-agent-transformation/add-transformation-to-data-collection-rule.png" alt-text="Screenshot of the Add data sources pane with the Transform field highlighted." lightbox="media/azure-monitor-agent-transformation/add-transformation-to-data-collection-rule.png":::
 
-## Check that the transform is working 
+## Check that the transformation works 
 
 Open workspace in the Azure portal by going to Home > All resources > {workspace Name} 
 
