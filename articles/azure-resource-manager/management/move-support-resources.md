@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 01/05/2023
+ms.date: 01/23/2023
 ---
 
 # Move operation support for resources
@@ -1248,6 +1248,24 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | objectunderstandingaccounts | No | No | No |
 > | remoterenderingaccounts | **Yes** | **Yes** | No |
 > | spatialanchorsaccounts | **Yes** | **Yes** | No |
+
+## Microsoft.MobileNetwork
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ---------- |
+> | mobileNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / dataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / simPolicies | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / sites | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / slices | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes / packetCoreDataPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | simGroups | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | simGroups / sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlaneVersions | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
 
 ## Microsoft.NetApp
 
