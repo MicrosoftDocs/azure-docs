@@ -171,6 +171,9 @@ items:
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
+    - name: Migrate retention to Azure Storage lifecycle
+    displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/migrate-to-azure-storage-lifecycle-policy.md
   - name: Transformations
     items:
       - name: Overview
@@ -179,8 +182,19 @@ items:
       - name: Structure
         displayName: Transformations
         href: essentials/data-collection-transformations-structure.md
-      - name: Migrate retention to Azure Storage lifecycle
-        href: essentials/migrate-to-azure-storage-lifecycle-policy.md
+      - name: Transformation tutorials
+        items:
+          - name: Workspace transformations
+            items:
+            - name: Azure portal
+              displayName: Workspace transformations
+              href: logs/tutorial-workspace-transformations-portal.md
+            - name: Resource Manager templates
+              displayName: Workspace transformations
+              href: logs/tutorial-workspace-transformations-api.md
+          - name: Text logs
+            displayName: Custom text logs
+            href: agents/azure-monitor-agent-transformation.md
   - name: Azure Monitor Agent
     items:
     - name: Overview
@@ -498,14 +512,6 @@ items:
             href: logs/move-workspace-region.md
           - name: Delete and recover a workspace
             href: logs/delete-workspace.md  
-        - name: Workspace transformations
-          items:
-          - name: Azure portal
-            displayName: Workspace transformations
-            href: logs/tutorial-workspace-transformations-portal.md
-          - name: Resource Manager templates
-            displayName: Workspace transformations
-            href: logs/tutorial-workspace-transformations-api.md
     - name: Data security
       items:
         - name: Roles permissions and security
