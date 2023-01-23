@@ -199,6 +199,8 @@
         href: reference-query-operators.md
       - name: Reserved keywords
         href: reference-query-reserved.md
+  - name: Azure Digital Twins Power Platform and Logic Apps connector
+    href: 
 - name: Resources
   items:
   - name: Digital Twins service limits
