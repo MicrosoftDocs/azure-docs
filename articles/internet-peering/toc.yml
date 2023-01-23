@@ -10,10 +10,10 @@
   items:
   - name: Peering policy
     href: policy.md
-- name: How-to guides
-  items:
   - name: Prerequisites to set up peering with Microsoft
     href: prerequisites.md
+- name: How-to guides
+  items:
   - name: Direct peering walkthrough
     href: walkthrough-direct-all.md
   - name: Exchange peering walkthrough
