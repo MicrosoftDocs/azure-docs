@@ -216,7 +216,7 @@ The **traffic by domain** report provides a grid view of all the domains under t
 
 * Request counts
 * Data transferred out from Azure Front Door to client
-* Requests with status code (3XX, 4Xx and 5XX) of each domain
+* Requests with status code (3XX, 4XX and 5XX) of each domain
 
 Domains include endpoint domains and custom domains.
 
@@ -233,8 +233,8 @@ The **usage report** shows the trends of traffic and response status code by dif
 * Number of requests from edge to clients in line chart.  
 * Number of requests from edge to clients by protocol, HTTP and HTTPS, in line chart. 
 * Bandwidth from edge to client in line chart. 
-* Total latency, which measures the total time from the client request received by Front Door until the last response byte sent from Front Door to client.
-* Number of requests from edge to clients by HTTP status code, in line chart. Every request generates an HTTP status code. HTTP status code appears in HTTPStatusCode in Raw Log. The status code describes how CDN edge handled the request. For example, a 2xx status code indicates that the request got successfully served to a client. While a 4xx status code indicates that an error occurred. For more information about HTTP status codes, see List of HTTP status codes. 
+* Total latency, which measures the total time from the client request received by Azure Front Door until the last response byte sent from Azure Front Door to client.
+* Number of requests from edge to clients by HTTP status code, in line chart. Every request generates an HTTP status code. HTTP status code appears in HTTPStatusCode in Raw Log. The status code describes how CDN edge handled the request. For example, a 2XX status code indicates that the request got successfully served to a client. While a 4XX status code indicates that an error occurred. For more information about HTTP status codes, see List of HTTP status codes. 
 * Number of requests from the edge to clients by HTTP status code. Percentage of requests by HTTP status code among all requests in grid. 
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of Reports by usage" lightbox="../media/how-to-reports/front-door-reports-usage-expanded.png":::
@@ -267,7 +267,7 @@ Cache hits/misses describe the request number cache hits and cache misses for cl
 
 This report takes caching scenarios into consideration and requests that met the following requirements are taken into calculation. 
 
-* The requested content was cached on a Front Door PoP.
+* The requested content was cached on an Azure Front Door PoP.
 * Partial cached contents for object chunking.
 
 It excludes all of the following cases: 
