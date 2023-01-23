@@ -459,6 +459,8 @@ Along with those below attributes are returned:
 * If the target resource is `All Series`, then `Study` level attributes are also returned.
 * If the target resource is `All Instances`, then `Study` and `Series` level attributes are also returned.
 * If the target resource is `Study's Instances`, then `Series` level attributes are also returned.
+* `NumberOfStudyRelatedInstances` aggregated attribute is supported in `Study` level `includeField`.
+* `NumberOfSeriesRelatedInstances` aggregated attribute is supported in `Series` level `includeField`.
 
 ### Search response codes
 
