@@ -49,7 +49,7 @@ In this tutorial, you complete the following steps:
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-To follow this quickstart using authentication passwordless and your own Azure account:
+To follow this quickstart using passwordless authentication and your own Azure account:
 
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 * Sign in with your Azure account at the terminal or command prompt with `az login`. 
