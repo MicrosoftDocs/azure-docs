@@ -1,4 +1,13 @@
-# Tutorial: Transform text logs during ingestion 
+---
+title: Transform text logs during ingestion in Azure Monitor Logs 
+description: Write a KQL query that transforms text log data and add the transformation to a data collection rule in Azure Monitor Logs.
+ms.topic: conceptual
+ms.date: 12/11/2022
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: jeffwo
+---
+# Tutorial: Transform text logs during ingestion in Azure Monitor Logs
 
 Ingestion-time transformations let you filter or modify incoming data before it's stored in a Log Analytics workspace. This article explains how to write a KQL query that transforms text log data and add the transformation to a data collection rule. 
 
