@@ -47,8 +47,8 @@ For information on migrating your Security Information and Event Management (SIE
 
 Your current usage in Splunk will help you decide which [pricing tier](../logs/change-pricing-tier.md) to select in Azure Monitor and estimate your future costs:
 
-1. [Follow Splunk guidance](https://docs.splunk.com/Documentation/Splunk/latest/Admin/AboutSplunksLicenseUsageReportView) to view your usage report.
-1. [Estimate Azure Monitor usage and costs](../usage-estimated-costs.md#estimate-azure-monitor-usage-and-costs) using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor). 
+- [Follow Splunk guidance](https://docs.splunk.com/Documentation/Splunk/latest/Admin/AboutSplunksLicenseUsageReportView) to view your usage report.
+- [Estimate Azure Monitor usage and costs](../usage-estimated-costs.md#estimate-azure-monitor-usage-and-costs) using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor). 
 
 ## 2. Set up a Log Analytics workspace
 
@@ -125,8 +125,8 @@ This table lists the tools Azure Monitor provides for collecting data from vario
 
 A common approach is to transition to Azure Monitor Logs gradually, while maintaining historical data in Splunk. During this period, you can: 
 
-1. Use the [Log ingestion API](../logs/logs-ingestion-api-overview.md) to ingest data from Splunk. 
-1. Use [Log Analytics workspace data export](../logs/logs-data-export.md) to export data out of Azure Monitor.  
+- Use the [Log ingestion API](../logs/logs-ingestion-api-overview.md) to ingest data from Splunk. 
+- Use [Log Analytics workspace data export](../logs/logs-data-export.md) to export data out of Azure Monitor.  
 
 To export your historical data from Splunk: 
 
@@ -137,8 +137,6 @@ To export your historical data from Splunk:
        or
     
     1. Collect the exported data directly with the Logs Ingestion API, as described in [Send data to Azure Monitor Logs by using a REST API](../logs/tutorial-logs-ingestion-api.md). 
-
-    :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
 
 ## Next steps
 
