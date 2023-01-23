@@ -11,13 +11,13 @@ ms.custom: template-concept
 
 # Emergency calling with Azure Communications Gateway
 
-Azure Communications Gateway supports Operator Connect and Teams Phone Mobile subscribers making emergency calls from Microsoft Teams clients. This article describes how Azure Communication Gateway routes these calls to your network and the key facts you'll need to consider.
+Azure Communications Gateway supports Operator Connect and Teams Phone Mobile subscribers making emergency calls from Microsoft Teams clients. This article describes how Azure Communications Gateway routes these calls to your network and the key facts you'll need to consider.
 
 ## Overview of emergency calling with Azure Communications Gateway
 
-If a subscriber uses a Microsoft Teams client to make an emergency call and the subscriber's number is associated with Azure Communication Gateway, Microsoft Phone System routes the call to Azure Communications Gateway. The call has location information encoded in a PIDF-LO (Presence Information Data Format Location Object) SIP body.
+If a subscriber uses a Microsoft Teams client to make an emergency call and the subscriber's number is associated with Azure Communications Gateway, Microsoft Phone System routes the call to Azure Communications Gateway. The call has location information encoded in a PIDF-LO (Presence Information Data Format Location Object) SIP body.
 
-Unless you choose to route emergency calls directly to an Emergency Routing Service Provider (US only), Azure Communication Gateway routes emergency calls to your network with this PIDF-LO location information unaltered. It is your responsibility to ensure that these emergency calls are properly routed to an appropriate Public Safety Answering Point (PSAP). For more information on how Microsoft Teams handles emergency calls, see [the Microsoft Teams documentation on managing emergency calling](/microsoftteams/what-are-emergency-locations-addresses-and-call-routing#considerations-for-operator-connect).
+Unless you choose to route emergency calls directly to an Emergency Routing Service Provider (US only), Azure Communications Gateway routes emergency calls to your network with this PIDF-LO location information unaltered. It is your responsibility to ensure that these emergency calls are properly routed to an appropriate Public Safety Answering Point (PSAP). For more information on how Microsoft Teams handles emergency calls, see [the Microsoft Teams documentation on managing emergency calling](/microsoftteams/what-are-emergency-locations-addresses-and-call-routing#considerations-for-operator-connect).
 
 Microsoft Teams always sends location information on SIP INVITEs for emergency calls. This information can come from several sources, all supported by Azure Communications Gateway:
 
@@ -42,7 +42,7 @@ You must route emergency calls to one of these ERSPs. If your network doesn't su
 
 ## Emergency calling with Teams Phone Mobile
 
-For Teams Phone Mobile subscribers, Azure Communication Gateway routes emergency calls from Microsoft Teams clients to your network in the same way as other originating calls. The call includes location information in accordance with the [emergency call considerations for Teams Phone Mobile](/microsoftteams/what-are-emergency-locations-addresses-and-call-routing#considerations-for-teams-phone-mobile).
+For Teams Phone Mobile subscribers, Azure Communications Gateway routes emergency calls from Microsoft Teams clients to your network in the same way as other originating calls. The call includes location information in accordance with the [emergency call considerations for Teams Phone Mobile](/microsoftteams/what-are-emergency-locations-addresses-and-call-routing#considerations-for-teams-phone-mobile).
 
 Your network must not route emergency calls from native dialers to Azure Communications Gateway or Microsoft Teams.
 

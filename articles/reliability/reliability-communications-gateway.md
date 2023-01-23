@@ -13,7 +13,7 @@ ms.date: 01/12/2023
 
 # What is reliability in Azure Communications Gateway?
 
-Azure Communication Gateway ensures your service is reliable by using Azure redundancy mechanisms and SIP-specific retry behavior. Your network must  meet specific requirements to ensure service availability.
+Azure Communications Gateway ensures your service is reliable by using Azure redundancy mechanisms and SIP-specific retry behavior. Your network must  meet specific requirements to ensure service availability.
 
 ## Azure Communications Gateway's redundancy model
 
@@ -51,8 +51,8 @@ Each site in your network must:
 > - Locate Azure Communications Gateway peers within a region using DNS-SRV, as outlined in RFC 3263.
 >     - Make a DNS SRV lookup on the domain name for the service region, for example pstn-region1.xyz.commsgw.azure.example.com.
 >     - If the SRV lookup returns multiple targets, use the weight and priority of each target to select a single target.
-> - Use SIP OPTIONS (or a combination of OPTIONS and SIP traffic) to monitor the availability of the Azure Communication Gateway peers.
-> - Send new calls to available Azure Communication Gateway peers.
+> - Use SIP OPTIONS (or a combination of OPTIONS and SIP traffic) to monitor the availability of the Azure Communications Gateway peers.
+> - Send new calls to available Azure Communications Gateway peers.
 > - Retry INVITEs that received 408 responses, 503 responses or 504 responses or did not receive responses, by rerouting them to other available peers in the local site. Hunt to the second service region only if all peers in the local service region have failed.
 
 Your network must not retry calls that receive error responses other than 408, 503 and 504.

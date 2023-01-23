@@ -12,11 +12,11 @@ ms.date: 01/12/2023
 
 This article will guide you through how to rotate secrets for your Azure Communications Gateway. It's important to ensure that secrets are rotated regularly, and that you're aware and familiar with the mechanism for rotating them. Being familiar with this procedure is important because you may sometimes be required to perform an immediate rotation, for example, if the secret was leaked. Our recommendation is that these secrets are rotated at least **every 70 days**.
 
-Azure Communication Gateway uses an App registration to manage access to the Operator Connect API. This App registration uses secrets stored and managed in your subscription. For more information, see [Prepare to deploy your Azure Communications Gateway](prepare-to-deploy.md). 
+Azure Communication Gateway uses an App registration to manage access to the Operator Connect API. This App registration uses secrets stored and managed in your subscription. For more information, see [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
 
 ## Prerequisites
 
-You must know the name of the App registration and the Key Vault you created in [Prepare to deploy Azure Communications Gateway](deploy.md). We recommended using **Azure Communication Gateway service** as the name of the App registration.
+You must know the name of the App registration and the Key Vault you created in [Prepare to deploy Azure Communications Gateway](deploy.md). We recommended using **Azure Communications Gateway service** as the name of the App registration.
 
 ## 1. Rotate your secret for the App registration.
 
@@ -24,12 +24,12 @@ We store both the secret and its associated identity, but only the secret needs 
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as a **Storage Account Key Operator**, **Contributor** or **Owner**.
 1. Navigate to **App registrations** in the Azure portal (select **Azure Active Directory** and then in the left-hand menu, select **App registrations**). Alternatively, you can search for it with the search bar: it will appear under the **Services** subheading.
-1. In the App registrations search box, type **Azure Communication Gateway service** (or the name of the App registration if you chose a different name).
+1. In the App registrations search box, type **Azure Communications Gateway service** (or the name of the App registration if you chose a different name).
 1. Select the application.
 1. In the left hand menu, select **Certificates and secrets**.
 1. You should see the secret you created in [Prepare to deploy your Azure Communications Gateway](prepare-to-deploy.md).
-> [!NOTE]
->If you need to immediately deactivate a secret and make it un-usable, select the bin icon to the right of the secret.
+    > [!NOTE]
+    >If you need to immediately deactivate a secret and make it un-usable, select the bin icon to the right of the secret.
 1. Select **New client secret**. 
 1. Enter a name for the secret (we suggest that the name should include the date at which the secret is being created).
 1. Enter an expiry date. The expiry date should sync with your rotation schedule.
@@ -53,4 +53,4 @@ Azure Key Vault is a cloud service for securely storing and accessing secrets. W
 
 ## Next steps
 
-- Learn how [Azure Communications Gateway keeps your data secure](security.md)
+- Learn how [Azure Communications Gateway keeps your data secure](security.md).

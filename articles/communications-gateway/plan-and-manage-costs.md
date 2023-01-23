@@ -51,7 +51,7 @@ If your Azure subscription has a spending limit, Azure prevents you from spendin
 
 ### Other costs that might accrue with Azure Communications Gateway
 
-You'll need to pay for Azure networking costs, because these costs aren't included in the Azure Communication Gateway meters.
+You'll need to pay for Azure networking costs, because these costs aren't included in the Azure Communications Gateway meters.
 
 - If you're connecting to the public internet with Microsoft Azure Peering Service (MAPS), you might need to pay a third party for the cross-connect at the exchange location.
 - If you're connecting into Azure as a next hop, you might need to pay vNet peering costs.

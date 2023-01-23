@@ -1,6 +1,6 @@
 ---
-title: Security for Azure Communications Gateway
-description: Understand how Microsoft keeps your Azure Communication Gateway and user data secure
+title: Security and Azure Communications Gateway
+description: Understand how Microsoft keeps your Azure Communications Gateway and user data secure
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
@@ -9,7 +9,7 @@ ms.date: 01/10/2022
 ms.custom: template-concept
 ---
 
-# Security for Azure Communication Gateway
+# Security and Azure Communications Gateway
 
 The customer data Azure Communications Gateway handles can be split into:
 
@@ -26,7 +26,7 @@ Azure Communications Gateway doesn't store content data, but it does store custo
 
 Before an engineer can access your data, they'll require the consent of your Azure Subscription Owner. All access is on a just-in-time basis.  
 
-Azure Communication Gateway stores all data at rest securely, including any customer data that has to be temporarily stored, such as call records.  It uses standard Azure infrastructure, with platform-managed encryption keys, to provide server-side encryption compliant with a range of security standards including FedRAMP. For more information, see [encryption of data at rest](../security/fundamentals/encryption-overview.md).
+Azure Communications Gateway stores all data at rest securely, including any customer data that has to be temporarily stored, such as call records.  It uses standard Azure infrastructure, with platform-managed encryption keys, to provide server-side encryption compliant with a range of security standards including FedRAMP. For more information, see [encryption of data at rest](../security/fundamentals/encryption-overview.md).
 
 ## Next steps
 

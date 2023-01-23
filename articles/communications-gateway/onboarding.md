@@ -81,7 +81,7 @@ You're responsible for:
 - Providing timely responses to questions, issues and dependencies to ensure the project finishes on time.
 - Configuring your Operator Connect and Azure environments as described in [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md), [Deploy Azure Communications Gateway](deploy.md) and [Prepare for live traffic with Azure Communications Gateway](prepare-for-live-traffic.md).
 - Ensuring that your network is compliant with the Microsoft Teams _Network Connectivity Specification_ and _Operational Excellence Specification_, and any other specifications provided by Microsoft Teams.
-- Ensuring that your network engineersF watch the training that your onboarding team provides.
+- Ensuring that your network engineers watch the training that your onboarding team provides.
 
 ## Alternatives to the Basic Integration Included Benefit
 

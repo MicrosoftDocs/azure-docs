@@ -17,7 +17,7 @@ The following sections describe the information you'll need to collect and the d
 
 You must have signed an Operator Connect agreement with Microsoft. For more information, see [Operator Connect](https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect).
 
-You'll need an onboarding partner for integrating with Microsoft Phone System. If you're not eligible for onboarding to Microsoft Teams through Azure Communication Gateway's [Basic Integration Included Benefit](onboarding.md) or you haven't arranged alternative onboarding with Microsoft through a separate arrangement, you'll need to arrange an onboarding partner yourself.
+You'll need an onboarding partner for integrating with Microsoft Phone System. If you're not eligible for onboarding to Microsoft Teams through Azure Communications Gateway's [Basic Integration Included Benefit](onboarding.md) or you haven't arranged alternative onboarding with Microsoft through a separate arrangement, you'll need to arrange an onboarding partner yourself.
 
 You must ensure you've got two or more numbers that you own which are globally routable. Your onboarding team will require these numbers to configure test lines.
 
@@ -60,15 +60,15 @@ Project Synergy allows Operator Connect to access your Azure Active Directory. I
 
 ## 3. Create an App registration to provide Azure Communications Gateway access to the Operator Connect API
 
-You must create an App registration to enable Azure Communication Gateway to function correctly. The App registration provides Azure Communication Gateway with access to the Operator Connect API on your behalf. The App registration **must** be created in **your** tenant.
+You must create an App registration to enable Azure Communications Gateway to function correctly. The App registration provides Azure Communications Gateway with access to the Operator Connect API on your behalf. The App registration **must** be created in **your** tenant.
 
 ### 3.1 Create an App registration
 
-Use the following steps to create an App registration for Azure Communication Gateway:
+Use the following steps to create an App registration for Azure Communications Gateway:
 
 1. Navigate to **App registrations** in the Azure portal (select **Azure Active Directory** and then in the left-hand menu, select **App registrations**). Alternatively, you can search for it with the search bar: it will appear under the **Services** subheading.
 1. Select **New registration**.
-1. Enter an appropriate **Name**. For example: **Azure Communication Gateway service**.
+1. Enter an appropriate **Name**. For example: **Azure Communications Gateway service**.
 1. Don't change any settings (leaving everything as default). This means:
     - **Supported account types** should be set as **Accounts in this organizational directory only**.
     - Leave the **Redirect URI** and **Service Tree ID** empty.
@@ -105,7 +105,7 @@ You must add the application ID to your Operator Connect environment. This step 
 
 ## 4. Create and store secrets 
 
-You must create an Azure secret and allow the App registration to access this secret. This integration allows Azure Communication Gateway to access the Operator Connect API.
+You must create an Azure secret and allow the App registration to access this secret. This integration allows Azure Communications Gateway to access the Operator Connect API.
 
 This step guides you through creating a Key Vault to store a secret for the App registration, creating the secret and allowing the App registration to use the secret.
 
@@ -120,7 +120,7 @@ The App registration you created in [3. Create an App registration to provide Az
 
 ### 4.2 Create a secret
 
-You must create a secret for the App registration while preparing to deploy Azure Communication Gateway and then regularly rotate this secret. 
+You must create a secret for the App registration while preparing to deploy Azure Communications Gateway and then regularly rotate this secret. 
 
 We recommend you rotate your secrets at least every 70 days for security. For instructions on how to rotate secrets, see [Rotate your Azure Communications Gateway secrets](rotate-secrets.md) 
 
@@ -133,14 +133,14 @@ We recommend you rotate your secrets at least every 70 days for security. For in
 
 ### 4.3 Grant Admin Consent to Azure Communications Gateway
 
-To enable the Azure Communication Gateway service to access the Key Vault, you must grant Admin Consent to the App registration.
+To enable the Azure Communications Gateway service to access the Key Vault, you must grant Admin Consent to the App registration.
 
 1. Request the Admin Consent URL from your onboarding team.
 1. Follow the link. A pop-up window will appear which contains the **Application Name** of the Registered Application. Note down this name.
 
 ### 4.4 Grant your application Key Vault Access
 
-This step must be performed on your Tenant. It will give the Azure Communication Gateway the ability to read the Operator Connect secrets from your tenant.
+This step must be performed on your Tenant. It will give the Azure Communications Gateway the ability to read the Operator Connect secrets from your tenant.
 
 1. Navigate to the Key Vault in the Azure portal. If you can't locate it, search for Key Vault in the search bar, select **Key vaults** from the results, and select your Key Vault.
 1. Select **Access Policies** on the left hand side menu.

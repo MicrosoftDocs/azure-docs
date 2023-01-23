@@ -15,7 +15,7 @@ Azure Communications Gateway sits at the edge of your network. This position all
 
 ## Role and position in the network
 
-Azure Communications Gateway sits at the edge of your fixed line and mobile networks. It connects these networks to the Microsoft Phone System, allowing you to support Operator Connect (for fixed line networks) and Teams Phone Mobile (for mobile networks). The following diagram shows where Azure Communication Gateway sits in your network.
+Azure Communications Gateway sits at the edge of your fixed line and mobile networks. It connects these networks to the Microsoft Phone System, allowing you to support Operator Connect (for fixed line networks) and Teams Phone Mobile (for mobile networks). The following diagram shows where Azure Communications Gateway sits in your network.
 
 :::image type="complex" source="media/azure-communications-gateway-architecture.png" alt-text="Architecture diagram for Azure Communications Gateway connecting to fixed and mobile networks":::
     Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a softswitch in a fixed line deployment and a mobile IMS core. The mobile network also contains an application server for anchoring calls in the Microsoft Phone System.
@@ -98,7 +98,7 @@ For full details of the media interworking features available in Azure Communica
 
 ## Compatibility with monitoring requirements
 
-The Azure Communication Gateway service includes continuous monitoring for potential faults in your deployment. The metrics we monitor cover all metrics required to be monitored by Operators as part of the Operator Connect program and include:
+The Azure Communications Gateway service includes continuous monitoring for potential faults in your deployment. The metrics we monitor cover all metrics required to be monitored by Operators as part of the Operator Connect program and include:
 
 - Call quality
 - Call errors and unusual behavior (for example, call setup failures, short calls, or unusual disconnections)
