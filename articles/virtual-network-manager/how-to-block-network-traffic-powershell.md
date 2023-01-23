@@ -1,5 +1,5 @@
 ---
-title: 'How to block network traffic with Azure Virtual Network Manager (Preview) - Azure PowerShell'
+title: 'How to block network traffic with Azure Virtual Network Manager - Azure PowerShell'
 description: Learn how to block network traffic using security rules in Azure Virtual Network Manager with the Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
@@ -9,13 +9,14 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# How to block network traffic with Azure Virtual Network Manager (Preview) - Azure PowerShell
+# How to block network traffic with Azure Virtual Network Manager - Azure PowerShell
 
 This article shows you how to create a security rule to block outbound network traffic to port 80 and 443 that you can add to your rule collections. For more information, see [Security admin rules](concept-security-admins.md).
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+> 
+> Mesh connectivity configurations are in Public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
@@ -24,6 +25,7 @@ Before you start configuring security rules, confirm the following steps:
 
 * You understand each element in a [Security admin rule](concept-security-admins.md).
 * You've created an [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md).
+* Installed version of `Az.Network` of `4.20.1`or higher required to access the required cmdlets.
 
 ## Create a SecurityAdmin configuration
 

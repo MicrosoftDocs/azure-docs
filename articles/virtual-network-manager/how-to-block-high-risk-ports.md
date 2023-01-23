@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 01/10/2023
+ms.date: 01/31/202 3
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 # Protect high-risk network ports with Security Admin Rules in Azure Virtual Network Manager
@@ -16,9 +16,11 @@ In this article, you'll learn to block high risk network ports using [Azure Virt
 While this article focuses on a single port, SSH, you can protect any high-risk ports in your environment with the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports)
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+> 
+> Mesh connectivity configurations are in Public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 * You understand how to an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
 * You understand each element in a [Security admin rule](concept-security-admins.md).
