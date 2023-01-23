@@ -170,7 +170,7 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
 Use the OT sensor's CLI access to define the number of maximum failed sign-ins before an OT sensor will prevent the user from signing in again from the same IP address.
 
-For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md) and [CLI command reference from OT network sensors](cli-ot-sensor.md).
+For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md).
 
 **Prerequisites**: This procedure is available for the *cyberx* user only.
 

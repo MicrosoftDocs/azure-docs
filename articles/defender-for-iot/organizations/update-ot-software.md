@@ -202,8 +202,6 @@ The sensor update process won't succeed if you don't update the on-premises mana
 
 This procedure describes how to update OT sensor software via the CLI, directly on the OT sensor.
 
-For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
-
 **To update sensor software directly from the sensor via CLI**:
 
 1. Use SFTP or SCP to copy the update file to the sensor machine.

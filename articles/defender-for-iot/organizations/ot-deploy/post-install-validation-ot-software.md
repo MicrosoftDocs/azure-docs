@@ -11,8 +11,6 @@ After you've installed OT software on your [OT sensors](install-software-ot-sens
 
 System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the *support* and *cyberx* users.
 
-For more information, see [CLI command reference from OT network sensors](../cli-ot-sensor.md)
-
 ## General tests
 
 After installing OT monitoring software, make sure to run the following tests:

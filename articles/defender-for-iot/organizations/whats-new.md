@@ -546,7 +546,7 @@ For more information, see [Manage your IoT devices with the device inventory for
 
 Starting in this version, CLI users are automatically signed out of their session after 300 inactive seconds. To sign out manually, use the new `logout` CLI command.
 
-For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md) and [CLI command reference from OT network sensors](cli-ot-sensor.md).
+For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
 
 ## February 2022
 

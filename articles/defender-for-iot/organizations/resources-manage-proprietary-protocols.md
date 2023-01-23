@@ -37,8 +37,6 @@ After you've developed and tested a dissector plugin for proprietary protocols, 
 
 1. Sign in to your sensor machine via CLI as the *Administrator*, *Cyberx*, or *Support* user.
 
-    For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
-
 1. Go the `/var/cyberx/properties/horizon.properties` file and verify that the `ui.enabled` property is set to `true` (`horizon.properties:ui.enabled=true`)
 
 1. Sign in to the sensor console as the *Administrator*, *Cyberx*, or *Support*.
