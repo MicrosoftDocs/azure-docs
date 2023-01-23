@@ -4,7 +4,6 @@ description: Learn the foundational concepts and scenarios around consent and pe
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
