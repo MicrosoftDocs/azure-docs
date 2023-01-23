@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "how-to-integrate-logic-apps.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-power-platform-connector",
+      "redirect_url": "/azure/digital-twins/how-to-use-power-platform-logic-apps-connector",
       "redirect_document_id": false
     },
     {
