@@ -5,7 +5,7 @@ ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: jsuri
 ms.topic: how-to
-ms.date: 07/15/2022
+ms.date: 01/13/2023
 ---
 
 # How to move from classic to modernized VMware disaster recovery  
