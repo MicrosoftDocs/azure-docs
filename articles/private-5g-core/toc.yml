@@ -118,6 +118,10 @@ items:
       href: distributed-tracing-share-traces.md
     - name: Modify a packet core instance's local access configuration
       href: modify-local-access-configuration.md
+  - name: Move between regions
+    items:
+    - name: Move private mobile network resources
+      href: region-move-private-mobile-network-resources.md
 - name: Reference
   items:
    - name: REST API

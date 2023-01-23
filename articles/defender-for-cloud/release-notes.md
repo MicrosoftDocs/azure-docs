@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 01/19/2023
+ms.date: 01/23/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -23,6 +23,7 @@ Updates in January include:
 - [New version of the recommendation to find missing system updates (Preview)](#new-version-of-the-recommendation-to-find-missing-system-updates-preview)
 - [Cleanup of deleted Azure Arc machines in connected AWS and GCP accounts](#cleanup-of-deleted-azure-arc-machines-in-connected-aws-and-gcp-accounts)
 - [Allow continuous export to Event Hub behind a firewall](#allow-continuous-export-to-event-hubs-behind-a-firewall)
+- [The name of the Secure score control Protect your applications with Azure advanced networking solutions has been changed](#the-name-of-the-secure-score-control-protect-your-applications-with-azure-advanced-networking-solutions-has-been-changed)
 
 ### New version of the recommendation to find missing system updates (Preview)
 
@@ -50,6 +51,12 @@ You can now enable the continuous export of alerts and recommendations, as a tru
 You can enable this as the alerts or recommendations are generated or you can define a schedule to send periodic snapshots of all of the new data.
 
 Learn how to enable [continuous export to an Event Hub behind an Azure firewall](continuous-export.md#continuously-export-to-an-event-hub-behind-a-firewall).
+
+### The name of the Secure score control Protect your applications with Azure advanced networking solutions has been changed
+
+The secure score control, `Protect your applications with Azure advanced networking solutions` has been changed to `Protect applications against DDoS attacks`.
+
+The updated name is reflected on Azure Resource Graph (ARG), Secure Score Controls API and the `Download CSV report`.
 
 ## December 2022
 
