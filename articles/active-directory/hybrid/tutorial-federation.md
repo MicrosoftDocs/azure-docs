@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Federate a single AD forest environment to Azure'
-description: Learn how to set up a hybrid identity environment by using federation.
+description: Learn how to set up a hybrid identity environment in Azure by using federation.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,32 +16,41 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Federate a single AD forest environment to the cloud
+# Tutorial: Federate a single AD forest environment to Azure
 
 ![Create](media/tutorial-federation/diagram.png)
 
-The following tutorial will walk you through creating a hybrid identity environment using federation. This environment can then be used for testing or for getting more familiar with how a hybrid identity works.
+This tutorial shows you how to create a hybrid identity environment in Azure by using federation. You can use the environment for testing or to get more familiar with how a hybrid identity works.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> - Create a virtual machine.
+> - Create a Windows Server AD environment.
+> - Create a Windows Server AD user.
+> - 
 
 ## Prerequisites
 
-The following are prerequisites required for completing this tutorial:
+To complete the tutorial, you need these items:
 
-- A computer with [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed. It's suggested to do this on either a [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
-- An [Azure subscription](https://azure.microsoft.com/free)
-- An [external network adapter](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
-- A copy of Windows Server 2016
-- A [custom domain](../../active-directory/fundamentals/add-custom-domain.md) that can be verified
+- A computer with [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed. We suggest that you install Hyper-V on a [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) or [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An [external network adapter](/virtualization/hyper-v-on-windows/quick-start/connect-to-network), so the virtual machine can connect to the internet.
+- A copy of Windows Server 2016.
+- A [custom domain](../../active-directory/fundamentals/add-custom-domain.md) that can be verified.
 
 > [!NOTE]
-> This tutorial uses PowerShell scripts so that you can create the tutorial environment in the quickest amount of time. Each of the scripts uses variables that are declared at the beginning of the scripts. You can and should change the variables to reflect your environment.
+> This tutorial uses PowerShell scripts to quickly create the tutorial environment. Each script uses variables that are declared at the beginning of the script. Be sure to change the variables to reflect your environment.
 >
->The scripts used create a general Active Directory environment prior to installing Azure AD Connect. They are relevant for all of the tutorials.
+> The scripts in the tutorial create a general Windows Server Active Directory (Windows Server AD) environment before they install Azure Active Directory Connect. The scripts are used in related tutorials.
 >
-> Copies of the PowerShell scripts that are used in this tutorial are available on GitHub [here](https://github.com/billmath/tutorial-phs).
+> The PowerShell scripts that are used in this tutorial are available on [GitHub](https://github.com/billmath/tutorial-phs).
 
 ## Create a virtual machine
 
-To get a hybrid identity environment up and running, the first task is to create a virtual machine to use as an on-premises Active Directory server.
+To create a hybrid identity environment, the first task is to create a virtual machine to use as an on-premises Windows Server AD server.
 
 > [!NOTE]
 > If you've never run a script in PowerShell on your host machine, before you run any scripts, open Windows PowerShell ISE as an administrator and run `Set-ExecutionPolicy remotesigned`. At the prompt, enter **yes**.
@@ -80,10 +89,10 @@ To create the virtual machine:
 
 To finish creating the virtual machine, finish installing the operating system:
 
-1. In Hyper-V Manager, double-click on the virtual machine.
+1. In Hyper-V Manager, double-click the virtual machine.
 1. Select **Start**.
 1. At the prompt, press any key to boot from CD or DVD.
-1. On the Windows Server start pane, select your language, and then select **Next**.
+1. In the Windows Server start window, select your language, and then select **Next**.
 1. Select **Install Now**.
 1. Enter your license key and select **Next**.
 1. Select the **I accept the license terms** checkbox and select **Next**.
@@ -91,16 +100,9 @@ To finish creating the virtual machine, finish installing the operating system:
 1. Select **Next**.
 1. When the installation is finished, restart the virtual machine. Sign in, and then check Windows Update. Install any updates to ensure that the VM is fully updated.
 
-## Install Active Directory prerequisites
+## Install Windows Server AD prerequisites
 
-Before you install Active Directory, do a few tasks:
-
-- Rename the virtual machine.
-- Set a static IP address.
-- Set the DNS servers.
-- Install the Remote Server Administration tools.
-
-To install Active Directory prerequisites:
+Before you install Windows Server AD, run a script that installs prerequisites:
 
 1. Open Windows PowerShell ISE as administrator.
 1. Run `Set-ExecutionPolicy remotesigned` and enter **yes** to all [A]. Select Enter.
@@ -155,7 +157,7 @@ Now, install and configure Active Directory Domain Services:
     $featureLogPath = "c:\poshlog\featurelog.txt" 
     $Password = ConvertTo-SecureString "Passw0rd" -AsPlainText -Force
     
-    #Install AD DS, DNS, and GPMC 
+    #Install Active Directory Domain Services, DNS, and Group Policy Management Console 
     start-job -Name addFeature -ScriptBlock { 
     Add-WindowsFeature -Name "ad-domain-services" -IncludeAllSubFeature -IncludeManagementTools 
     Add-WindowsFeature -Name "dns" -IncludeAllSubFeature -IncludeManagementTools 
@@ -163,7 +165,7 @@ Now, install and configure Active Directory Domain Services:
     Wait-Job -Name addFeature 
     Get-WindowsFeature | Where installed >>$featureLogPath
     
-    #Create a new AD forest
+    #Create a new Windows Server AD forest
     Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $Password -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
     ```
 
@@ -191,7 +193,7 @@ Next, create a test account. You create this account in your on-premises Active 
     Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Enabled $true
     ```
 
-## Create a certificate for AD FS
+## Create a certificate for Active Directory Federation Services
 
 You need a TLS/SSL certificate that AD FS will use. This is a self-signed certificate, and you create it to use only for testing. We don't recommend that using a self-signed certificate in a production environment.
 
