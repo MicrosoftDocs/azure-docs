@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 01/06/2023
+ms.date: 01/20/2023
 
 ms.author: mimart
 author: msmimart
@@ -63,7 +63,7 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 Now you'll set the Facebook client ID and client secret, either by entering it in the Azure AD portal or by using PowerShell. You can test your Facebook configuration by signing up via a user flow on an app enabled for self-service sign-up.
 
 ### To configure Facebook federation in the Azure AD portal
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
 4. Select **All identity providers**, then select **Facebook**.

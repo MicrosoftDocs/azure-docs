@@ -15,8 +15,6 @@ ms.date: 01/14/2023
 
 Cognitive Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint will be accepted if both the request and the API key are valid.
 
-API keys are used for content-related requests, such as creating or querying an index. Upon service creation, it's the only authentication mechanism for data plane (content) operations, but you can replace or supplement key authentication with [Azure roles](search-security-rbac.md) if you can't use hard-coded keys in your code.
-
 > [!NOTE]
 > A quick note about how "key" terminology is used in Cognitive Search. An "API key", which is described in this article, refers to a GUID used for authenticating a request. A separate term, "document key", refers to a unique string in your indexed content that's used to uniquely identify documents in a search index.
 
@@ -34,6 +32,8 @@ There are two kinds of keys used for authenticating a request:
 Visually, there's no distinction between an admin key or query key. Both keys are strings composed of 52 randomly generated alpha-numeric characters. If you lose track of what type of key is specified in your application, you can [check the key values in the portal](#find-existing-keys).
 
 ## Use API keys on connections
+
+API keys are used for data plane (content) requests, such as creating or accessing an index or any other request that's represented in the [Search REST APIs](/rest/api/searchservice/). Upon service creation, an API key is the only authentication mechanism for data plane operations, but you can replace or supplement key authentication with [Azure roles](search-security-rbac.md) if you can't use hard-coded keys in your code.
 
 API keys are specified on client requests to a search service. Passing a valid API key on the request is considered proof that the request is from an authorized client. If you're creating, modifying, or deleting objects, you'll need an admin API key. Otherwise, query keys are typically distributed to client applications that issue queries.
 
