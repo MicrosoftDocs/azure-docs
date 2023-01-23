@@ -112,8 +112,9 @@ Follow the steps for requesting AMD collateral in a confidential container.
       kubectl get nodes 
       ```
     The following output example shows the single node created in the previous steps. Make sure the node status is Ready: 
+    
     | NAME | STATUS | ROLES | AGE | VERSION | 
-    | -- | -- | -- | -- | -- | 
+    |--|--|--|--|--| 
     | aks-nodepool1-31718369-0 | Ready | agent | 6m44s | v1.12.8 | 
 
 2. Once the AKS cluster is created, create a curl.yaml file with the following content. It defines a job that runs a curl container to fetch AMD collateral from the THIM endpoint. For more information about Kubernetes Jobs, please see [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/job/). 
@@ -141,9 +142,11 @@ Follow the steps for requesting AMD collateral in a confidential container.
     ```
     
     **Arguments**
+    
     | Name | Type | Description |
-    | -- | -- | -- |
+    |--|--|--|
     | Metadata | Boolean | Setting to True to allow for collateral to be returned |
+    
 3. Run the job by applying the curl.yaml.
     ```bash
     kubectl apply -f curl.yaml 
@@ -154,9 +157,11 @@ Follow the steps for requesting AMD collateral in a confidential container.
     ```
     
     **Example Response**
+    
     | Name | Ready | Status | Restarts | Age |
-    | -- | -- | -- | -- | -- |
+    |--|--|--|--|--|
     | Curl-w7nt8  | 0/1 | Completed | 0 | 72 s |
+    
 5. Run the following command to get the job logs and validate if it is working. A successful output should include vcekCert, tcbm and certificateChain.
     ```bash
     kubectl logs job/curl  

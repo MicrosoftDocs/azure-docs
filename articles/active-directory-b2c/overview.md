@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 10/26/2022
 ms.custom: engagement-fy23
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 ---
 
