@@ -1,7 +1,7 @@
 ---
 title: Data retention across Microsoft Defender for IoT
 description: Learn about the data retention periods and capacities for Microsoft Defender for IoT data stored in Azure, the OT sensor, and on-premises management console.
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 01/22/2023
 ---
 
