@@ -111,7 +111,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
     The table displays the agent name and health status for agents you deploy via the UI only.   
     
-    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png border="false"" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
 #### Create a new system
 
