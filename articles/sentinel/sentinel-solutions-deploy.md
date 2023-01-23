@@ -1,29 +1,31 @@
 ---
-title: Discover and deploy Microsoft Sentinel out-of-the-box solutions from Content hub
+title: Discover and deploy Microsoft Sentinel out-of-the-box content from Content hub
 description: Learn how to find and deploy Sentinel packaged solutions containing data connectors, analytics rules, hunting queries, workbooks, and other content.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 01/09/2022
 ms.author: austinmc
 ---
 
-# Discover and deploy Microsoft Sentinel out-of-the-box solutions from Content hub (Public preview)
+# Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)
 
-The Microsoft Sentinel Content hub provides access to out-of-the-box (built-in) solutions, which are packed with Sentinel content for end-to-end products by domain or industry.
+The Microsoft Sentinel Content hub is your centralized location to discover and manage out-of-the-box (built-in) content. There you'll find packaged solutions for end-to-end products by domain or industry. You'll also have access to the vast number of standalone contributions hosted in our GitHub repository and feature blades.
 
-- Discover solutions in the Content hub based on status, the content type, support, provider and category.
+- Discover solutions and standalone content with a consistent set of filtering capabilities based on status, content type, support, provider and category.
 
-- Install solutions in your workspace all at once or individually when you find ones that fit your organization's needs. 
+- Install content in your workspace all at once or individually. 
 
-- View solutions in list view and quickly see which ones have updates. Update them all at once.
+- View content in list view and quickly see which solutions have updates. Update solutions all at once while standalone content updates automatically.
 
 - Manage a solution to install its content types and get the latest changes.
+
+- Configure standalone content to create new active items based on the most up-to-date template.
 
 If you're a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
 
 > [!IMPORTANT]
 >
-> Microsoft Sentinel solutions and the Microsoft Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Sentinel solutions and standalone content in the Microsoft Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
