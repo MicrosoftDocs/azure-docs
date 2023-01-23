@@ -28,7 +28,7 @@ In Privileged Identity Management (PIM), you can now assign eligibility for memb
 > To provide a group of users with just-in-time access to Azure AD directory roles with permissions in SharePoint, Exchange, or Security & Compliance Center (for example, Exchange Administrator role), be sure to make active assignments of users to the group, and then assign the group to a role as eligible for activation. If instead you make active assignment of a role to a group and assign users to be eligible to group membership, it might take significant time to have all permissions of the role activated and ready to use.
 
 > [!NOTE]
-> For privileged access groups that are used to elevate into Azure AD roles, we recommend that you require an approval process for eligible member assignments. Assignments that can be activated without approval might create a security risk from administrators who have a lower level of permissions. For example, the Helpdesk Administrator has permissions to reset an eligible user's password.
+> For privileged access groups that are used to elevate into Azure AD roles, we recommend that you require an approval process for eligible member assignments. Assignments that can be activated without approval might create a security risk from administrators who have a lower level of permissions. For example, the Helpdesk Administrator has permissions to reset an eligible user's password. Please note that assigning nested groups in the privileged access feature as an eligible is the only supported scenario.
 
 ## Require different policies for each role assignable group
 
