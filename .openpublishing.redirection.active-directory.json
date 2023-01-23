@@ -4362,11 +4362,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/reports-monitoring/recommendations-integrate-third-party-apps.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/overview-recommendations",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-missing-audit-data.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reports-faq",
       "redirect_document_id": false
