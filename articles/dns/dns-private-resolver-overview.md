@@ -134,6 +134,7 @@ Outbound endpoints have the following limitations:
 ### Other restrictions
 
 - IPv6 enabled subnets aren't supported.
+- Forwarding rules to <domain-name>.local aren't supported.
 
 ## Next steps
 
