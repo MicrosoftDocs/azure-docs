@@ -7,7 +7,6 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 01/23/2023
 ms.author: halkazwini 
-ms.custom: devx-track-azurepowershell
 ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
 
