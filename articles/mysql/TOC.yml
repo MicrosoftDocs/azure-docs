@@ -145,7 +145,7 @@
     - name: Azure Logic Apps
       href: flexible-server/tutorial-logic-apps-with-mysql.md
     - name: Azure Cognitive Search
-      href: ../search/search-create-service-portal.md
+      href: ../search/search-howto-index-mysql.md
     - name: Azure advisor
       href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
