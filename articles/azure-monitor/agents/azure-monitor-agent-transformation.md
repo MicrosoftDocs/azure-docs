@@ -20,7 +20,7 @@ To complete this procedure, you need:
     - Store on the local drive of the machine on which Azure Monitor Agent is running. 
     - Delineate with an end of line. 
     - Use ASCII or UTF-8 encoding. Other formats such as UTF-16 aren't supported.
-    - Do not allow circular logging, log rotation where the file is overwritten with new entries, or renaming where a file is moved and a new file with the same name is opened. 
+    - Don't allow circular logging, log rotation where the file is overwritten with new entries, or renaming where a file is moved and a new file with the same name is opened. 
 
 
 ## Write a KQL query to transform ingested data 
@@ -85,7 +85,7 @@ To support this transformation, add these three new columns to your custom table
 ## Check that the transformation works 
 
 View the data in the target custom table and check that data is being ingested correctly into the modified table:
-1.  In the Azure portal, select **Log Analytics workspaces** > your Log Analytics workspace > **Logs**.
+1. In the Azure portal, select **Log Analytics workspaces** > your Log Analytics workspace > **Logs**.
 1. Run a basic query the custom logs table to view table data.
 
 
