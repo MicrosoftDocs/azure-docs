@@ -60,7 +60,7 @@ Sensitivity labels are supported in the Microsoft Purview Data Map for the follo
 
 ## Labeling for SQL databases
 
-In addition to labeling for schematized data assets, the Microsoft Purview Data Map also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Microsoft Purview uses the global [sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
+In addition to the Microsoft Purview Data Map's labeling for schematized data assets, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Microsoft Purview uses the global [sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
 
 Labeling in Microsoft Purview and labeling in SSMS are separate processes that don't currently interact with each other. Therefore, **labels applied in SSMS are not shown in Microsoft Purview, and vice versa**. We recommend Microsoft Purview for labeling SQL databases, because the labels can be applied globally, across multiple platforms.
 
