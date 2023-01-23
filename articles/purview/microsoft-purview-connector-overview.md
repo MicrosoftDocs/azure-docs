@@ -98,6 +98,7 @@ The following is a list of all the Azure data source (data center) regions where
 - West Europe
 - West US
 - West US 2
+- West US 3
 
 ## File types supported for scanning
 
