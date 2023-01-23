@@ -601,18 +601,6 @@ environment definition
 version of a package on subsequent builds of an environment. This behavior can lead to unexpected errors
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
-### UTF-8 decoding error
-<!--issueDescription-->
-This issue can happen when there's a failure decoding a character in your conda specification. 
-
-**Potential causes:**
-* Your conda YAML file contains characters that aren't compatible with UTF-8.
-
-**Affected areas (symptoms):**
-* Failure in building environments from UI, SDK, and CLI.
-* Failure in running jobs because it will implicitly build the environment in the first step.
-<!--/issueDescription-->
-
 ### *Pip issues*
 ### Pip not specified
 - For reproducibility, pip should be specified as a dependency in your conda specification, and it should be pinned
@@ -1140,6 +1128,18 @@ This issue can happen when a package is specified on the command line using "<" 
 
 Add quotes around the package specification
 * For example, change `conda install -y pip<=20.1.1` to `conda install -y "pip<=20.1.1"`
+
+### UTF-8 decoding error
+<!--issueDescription-->
+This issue can happen when there's a failure decoding a character in your conda specification. 
+
+**Potential causes:**
+* Your conda YAML file contains characters that aren't compatible with UTF-8.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
 
 ### *Pip issues during build*
 ### Failed to install packages
