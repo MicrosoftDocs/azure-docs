@@ -26,7 +26,6 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sm
 > * Single sign-on to Smartsheet (recommended)
 
 > [!NOTE]
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
