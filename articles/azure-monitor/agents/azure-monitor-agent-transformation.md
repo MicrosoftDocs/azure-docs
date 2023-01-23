@@ -84,17 +84,16 @@ To support this transformation, add these three new columns to your custom table
 
 ## Check that the transformation works 
 
-Open workspace in the Azure portal by going to Home > All resources > {workspace Name} 
-
-Open Logs and close the Queries popup 
-
-Query the custom logs table in the query tab. You should see all the columns from the transform. 
+View the data in the target custom table and check that data is being ingested correctly into the modified table:
+1.  In the Azure portal, select **Log Analytics workspaces** > your Log Analytics workspace > **Logs**.
+1. Run a basic query the custom logs table to view table data.
 
 
 ## Next steps 
 
-- Learn more about Data Collection Transformations in Azure Monitor
-- Learn more about data collection rules. 
-- Learn more about data collection endpoints. 
+Learn more about: 
+- [Data collection transformations](../essentials/data-collection-rule-structure.md).
+- [Data collection rules](../essentials/data-collection-rule-overview.md). 
+- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md). 
 
  
