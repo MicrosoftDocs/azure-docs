@@ -40,4 +40,4 @@ The depth-first algorithm first queries session hosts that allow new connections
 > [!IMPORTANT]
 > The maximum session limit parameter is required when you use the depth-first load balancing algorithm. For the best possible user experience, make sure to change the maximum session host limit parameter to a number that best suits your environment.
 >
-> Once all hosts have reached the maximum session limit, you will need to increase the limit or deploy more session hosts.
+> Once all session hosts have reached the maximum session limit, you will need to increase the limit or deploy more session hosts.
