@@ -32,8 +32,6 @@ To complete this procedure, you need:
 
     For information about the KQL operators that transformations support, see [Structure of transformation in Azure Monitor](../essentials/data-collection-transformations-structure.md#kql-limitations). 
 
-    This query doesn't modify the actual data in the table. That's what the transformation will do during ingestion.
-
     **Example**
     
     The sample uses [basic KQL operators](/azure/data-explorer/kql-quick-reference) to parss the data in the `RawData` column into three new columns, called `Time Ingested`, `RecordNumber`, and `RandomContent`:
@@ -49,13 +47,19 @@ To complete this procedure, you need:
     RandomContent=tostring(d.RandomContent), 
     RawData 
     ```
+    > [!NOTE]
+    > Information the user should notice even if skimmingQuerying table data in this way doesn't actually modify the data in the table. Azure Monitor applies the transformation in the [data ingestion pipeline](../essentials/data-collection-transformations.md#how-transformations-work) after you [add your transformation query to the data collection rule](#apply-transform-to-dcr).
 
-1. Make the query a single line and copy it so you can paste it in the DCR UI. The ingestion-time transformation processes a single row at a time and `source` represents the row in the query. So, replace the table name with the word `source`:
+1. Format the query into a single line and replace the table name in the first line of the query with the word `source`.
+    
+    For example:
 
     ```kusto 
     source | extend d=todynamic(RawData) | project TimeGenerated,TimeIngested=tostring(d.Time),RecordNumber=tostring(d.RecordNumber), RandomContent=tostring(d.RandomContent), RawData 
     ``` 
- 
+
+1. Copy the formatted query so you can paste it into the data collection rule configuration. 
+
 ## Modify the custom table to include the new columns 
 
 Go to Home > All resources > {workspace name} > Tables and select the ellipsis (three dots) next to your custom table. 
