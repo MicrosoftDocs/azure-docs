@@ -38,8 +38,7 @@ Connection monitor also provides the minimum, average, and maximum latency obser
 
 As resources are added to a virtual network, it can become difficult to understand what resources are in a virtual network and how they relate to each other. The *topology* capability enables you to generate a visual diagram of the resources in a virtual network and the relationships between the resources. The following image shows an example topology diagram for a virtual network that has three subnets, two VMs, network interfaces, public IP addresses, network security groups, route tables, and the relationships between the resources:
 
-![Topology view](./media/network-watcher-monitoring-overview/topology.png)
-
+:::image type="content" source="./media/network-watcher-monitoring-overview/topology.png" alt-text="Screenshot showing Topology feature of Network Watcher in Azure portal.":::
 You can download an editable version of the picture in SVG format. Learn more about [topology view](view-network-topology.md).
 
 ## Diagnostics
@@ -76,7 +75,7 @@ The effective security rules for a network interface are a combination of all se
 
 There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/network-watcher/toc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. If you meet the limits, you're unable to create more resources within the subscription or region. The *Usage + quotas* capability provides a summary of how many of each network resource you've deployed in a subscription and region, and what the limit is for the resource. The following picture shows the partial output for network resources deployed in the East US region for an example subscription:
 
-![Subscription limits](./media/network-watcher-monitoring-overview/subscription-limit.png)
+:::image type="content" source="./media/network-watcher-monitoring-overview/subscription-limit.png" alt-text="Screenshot showing Networking subscription limits.":::
 
 The information is helpful when planning future resource deployments.
 
@@ -86,9 +85,9 @@ The information is helpful when planning future resource deployments.
 
 Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. You can analyze logs using a variety of tools, such as Power BI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
 
-![Traffic analytics](./media/network-watcher-monitoring-overview/traffic-analytics.png)
+:::image type="content" source="./media/network-watcher-monitoring-overview/traffic-analytics.png" alt-text="Screenshot showing Traffic analytics feature of Network Watcher.":::
 
-Learn more about NSG flow logs by completing the [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md) tutorial and how to implement [traffic analytics](traffic-analytics.md).
+Learn more about NSG flow logs by completing the [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md) tutorial and learn about [traffic analytics](traffic-analytics.md).
 
 ### View diagnostic logs for network resources
 
