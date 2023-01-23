@@ -10,7 +10,7 @@ ms.date: 10/04/2022
 
 # Best practices for creating and running Azure Kubernetes Service (AKS) clusters at scale
 
-If your AKS clusters satisfy any of the following criteria, we recommend using the [Standard tier][standard-tier] with the Uptime SLA feature for higher reliability and scalability of the Kubernetes control plane:
+If your AKS clusters satisfy any of the following criteria, we recommend using the [Standard tier that comes with the Uptime SLA feature][standard-tier] for higher reliability and scalability of the Kubernetes control plane:
 
 * Clusters running production workloads or availability-sensitive, mission-critical workloads
 * Clusters running more than 10 nodes on average
@@ -21,7 +21,7 @@ To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota 
 To increase the node limit beyond 1000, you must have the following pre-requisites:
 
 * An existing AKS cluster that needs the node limit increase. This cluster shouldn't be deleted as that will remove the limit increase.
-* Uptime SLA enabled on your cluster.
+* Clusters using the Standard tier.
 * Clusters using Kubernetes version 1.23 or above.
 
 > [!NOTE]
