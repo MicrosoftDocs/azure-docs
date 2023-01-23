@@ -115,12 +115,12 @@ In the first part of this article, we had one instance of a logo and we've assoc
 1. Get logo groups and copy the logo group ID of the right group.
 1. Get logo group and copy the response the list of logos Ids: 
 
+    ```    
     "logos": [{ 
         "logoId": "<ID>" 
-    }], 
-1. Update logo group 
-
-    1. Logo group ID is the output received at step 2. 
-    1. At the ‘Body’ of the request, paste the existing list of logos from step 3. 
+    }],
+    ``` 
+    1. Update logo group. Add a Logo group ID is the output received at step 2. 
+    1. At the 'Body' of the request, paste the existing list of logos from step 3. 
     1. Then add to the list the logo ID from step 1. 
 1. Validate the response of the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) making sure the list contains the previous and the new IDs. 
