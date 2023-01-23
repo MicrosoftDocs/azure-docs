@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2022
+ms.date: 01/23/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -15,10 +15,10 @@ For more information on all supported options and considerations, see [Overview 
 
 [Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) for Linux virtual machines (VMs) using the Kerberos authentication protocol through the following two methods:
 
-- On-premises Active Directory Domain Services (AD DS)
+- On-premises Windows Active Directory Domain Services (AD DS)
 - Azure Active Directory Domain Services (Azure AD DS)
 
-In order to use the first option, you must sync your AD DS to the cloud using Azure AD Connect.
+In order to use the first option, you must sync your AD DS to Azure Active Directory (Azure AD) using Azure AD Connect.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -29,15 +29,14 @@ In order to use the first option, you must sync your AD DS to the cloud using Az
 
 ## Limitations
 
-Azure Files doesn't currently support using identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries. 
+Azure Files doesn't currently support using identity-based authentication to mount Azure File shares on Linux clients at boot time using `fstab` entries. This is because the client can't get the Kerberos ticket early enough to mount at boot time. However, you can use an `fstab` entry and specify the `noauto` option. This won't mount the share at boot time, but it will allow a user to conveniently mount the file share after they log in using a simple mount command without all the parameters. You can also use the `autofs` package to mount the share as it is accessed.
 
 ## Prerequisites
 
 Before you enable AD authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
-- An Ubuntu Linux VM (18.04 or later) running on Azure with at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
-- User credentials to a local user account that has full sudo rights (for this guide, localadmin).
-- Winbind should be configured correctly to perform Kerberos authentication with the AD, and collect the Kerberos tickets in the local cred cache. If access control is needed, Winbind should be configured to map Linux UID/GID consistently to corresponding SID on the AD (idmap configure).
+- An Linux VM (Ubuntu 18.04+ or an equivalent Red Hat or SuSE VM) running on Azure with at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
+- Root user or user credentials to a local user account that has full sudo rights (for this guide, localadmin).
 - The Linux VM must not have joined any AD domain. If it's already a part of a domain, it needs to first leave that domain before it can join this domain.
 - An Azure AD tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
 
@@ -48,9 +47,9 @@ localadmin@lxsmb-canvm15:~$ sudo apt update -y
 localadmin@lxsmb-canvm15:~$ sudo apt install samba winbind libpam-winbind libnss-winbind krb5-config krb5-user keyutils cifs-utils
 ```
 
-The wbinfo tool is part of the samba suite and can be useful for debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
+The wbinfo tool is part of the samba suite and can be useful for authentication and debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
 
-Make sure that the Linux host keeps the time synchronized with the domain server. You can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). A sample configuration is shown below.
+Make sure that the Linux host keeps the time synchronized with the domain server. Refer to the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). A sample configuration is shown below.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ cat /etc/systemd/timesyncd.conf
@@ -60,24 +59,13 @@ FallbackNTP=ntp.ubuntu.com
 localadmin@lxsmb-canvm15:~$ sudo systemctl restart systemd-timesyncd.service
 ```
 
-## Access control models
-
-Three access control models are available for mounting SMB Azure file shares:
-
-1. **Server enforced access control using NT ACLs (default):** Uses NT access control lists (ACLs) to enforce access control. This is the recommended option, unless your environment is predominantly Linux. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Use this access control model only with NT ACLs (no mode bits).
-
-2. **Client enforced access control (modefromsid,idsfromsid)**: Use this access control model if your environment is exclusively Linux. There's no interoperability with Windows, and Windows isn't able to read the permissions that are encoded into ACLs. Recommended only for advanced Linux users.
-
-3. **Client translated access control (cifsacl)**: Use this access control model if your environment is mixed Linux and Windows. Mode bits permissions and ownership information are stored in NT ACLs, so both Windows and Linux clients can use this model. However, Windows and Linux clients using the same file share isn't recommended, as some Linux features aren't supported.
-
-
 ## Enable AD Kerberos authentication
 
-Follow these steps to enable AD Kerberos authentication on Ubuntu.
+Follow these steps to enable AD Kerberos authentication. [This Samba documentation](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member) might be helpful as a reference.
 
 ### Make sure the domain server is reachable and discoverable
 
-1. Make sure that the DNS servers supplied contain the Azure AD domain server IP addresses.
+1. Make sure that the DNS servers supplied contain the domain server IP addresses.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ systemd-resolve --status 
@@ -125,7 +113,7 @@ MulticastDNS setting: no
 
 2. If the above worked, skip the following steps and proceed to the next section.
 
-3. If it didn't work, make sure that the Azure AD domain server IP addresses are pinging.
+3. If it didn't work, make sure that the domain server IP addresses are pinging.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ ping 10.0.2.5
@@ -165,6 +153,32 @@ network:
                 addresses: [10.0.2.5, 10.0.2.4]
     version: 2
 localadmin@lxsmb-canvm15:~$ sudo netplan --debug apply 
+```
+
+6. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, this isn't true for Azure DHCP. In order to set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. A sample script is shown below.
+
+```bash
+localadmin@lxsmb-canvm17:~$ cat /etc/dhcp/dhclient-exit-hooks.d/ddns-update
+#!/bin/sh 
+
+# only execute on the primary nic
+if [ "$interface" != "eth0" ]
+then
+    return
+fi 
+
+# When you have a new IP, perform nsupdate
+if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] ||
+   [ "$reason" = REBIND ] || [ "$reason" = REBOOT ]
+then
+   host=`hostname -f`
+   nsupdatecmds=/var/tmp/nsupdatecmds
+     echo "update delete $host a" > $nsupdatecmds
+     echo "update add $host 3600 a $new_ip_address" >> $nsupdatecmds
+     echo "send" >> $nsupdatecmds
+
+     nsupdate $nsupdatecmds
+fi 
 ```
 
 ### Connect to Azure AD DS and make sure the services are discoverable
@@ -311,31 +325,7 @@ Name:   lxsmb-canvm15.aadintcanary.onmicrosoft.com
 Address: 10.0.0.8
 ```
 
-3. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, this isn't true for Azure DHCP. In order to set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. A sample script is shown below.
-
-```bash
-localadmin@lxsmb-canvm17:~$ cat /etc/dhcp/dhclient-exit-hooks.d/ddns-update
-#!/bin/sh 
-
-# only execute on the primary nic
-if [ "$interface" != "eth0" ]
-then
-    return
-fi 
-
-# When you have a new IP, perform nsupdate
-if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] ||
-   [ "$reason" = REBIND ] || [ "$reason" = REBOOT ]
-then
-   host=`hostname -f`
-   nsupdatecmds=/var/tmp/nsupdatecmds
-     echo "update delete $host a" > $nsupdatecmds
-     echo "update add $host 3600 a $new_ip_address" >> $nsupdatecmds
-     echo "send" >> $nsupdatecmds
-
-     nsupdate $nsupdatecmds
-fi 
-```
+If users will be actively logging into client machines or VMs and accessing the Azure file shares, you'll need to [set up nsswitch.conf](#set-up-nsswitchconf) and [configure PAM for winbind](#configure-pam-for-winbind). If access will be limited to applications represented by a user account or computer account that need Kerberos authentication to access the file share, then you can skip these steps.
 
 ### Set up nsswitch.conf
 
@@ -420,7 +410,7 @@ uid=12604(lxsmbadmin) gid=10513(domain users) groups=10513(domain users),10520(g
 
 ## Mount the file share
 
-After you've enabled Azure AD Kerberos authentication and domain-joined your Linux VM, you'll need to mount the file share. The mount options differ somewhat depending on the [access control model](#access-control-models) you're using. These mount options are specific to Linux clients connecting to an Azure file share. Your scenario could span multiple use cases, in which case you can merge the mount options.
+After you've enabled AD (or Azure AD) Kerberos authentication and domain-joined your Linux VM, you'll need to mount the file share. The mount options differ somewhat depending on the [access control model](#access-control-models) you're using. These mount options are specific to Linux clients connecting to an Azure file share. Your scenario could span multiple use cases, in which case you can merge the mount options.
 
 The following are base mount options for all access control models: serverino,nosharesock,cache=strict,mfsymlinks
 
@@ -465,6 +455,15 @@ Performance is important, even if file attributes aren't always accurate. The de
 
 For newer kernels, consider setting the actimeo features more granularly, using **acdirmax** for directory entry revalidation caching and **acregmax** for caching file metadata, for example **acdirmax=60,acregmax=5**.
 
+## Access control models
+
+Three access control models are available for mounting SMB Azure file shares:
+
+1. **Server enforced access control using NT ACLs (default):** Uses NT access control lists (ACLs) to enforce access control. This is the recommended option, unless your environment is predominantly Linux. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Use this access control model only with NT ACLs (no mode bits).
+
+2. **Client enforced access control (modefromsid,idsfromsid)**: Use this access control model if your environment is exclusively Linux. There's no interoperability with Windows, and Windows isn't able to read the permissions that are encoded into ACLs. Recommended only for advanced Linux users. Not recommended for multi-user scenarios.
+
+3. **Client translated access control (cifsacl)**: Use this access control model if your environment is mixed Linux and Windows. Mode bits permissions and ownership information are stored in NT ACLs, so both Windows and Linux clients can use this model. However, Windows and Linux clients using the same file share isn't recommended, as some Linux features aren't supported.
 
 ## Next steps
 
