@@ -21,18 +21,6 @@ ms.collection: M365-identity-device-management
 ## Directory extensions
 You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [extensions](https://docs.microsoft.com/graph/extensibility-overview). You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
  
-
-## Custom attributes and mapping 
-If you have extended Active Directory to include custom attributes, you can add these attributes and map them to users.  
-
-To discover and map attributes, click **Add attribute mapping**.  The attributes will automatically be discovered and will be available in the drop-down under **source attribute**.  Fill in the type of mapping you want and click **Apply**.
- [![Custom attribute mapping](media/custom-attribute-mapping/schema-1.png)](media/custom-attribute-mapping/schema-1.png#lightbox)
-
-For information on new attributes that are added and updated in Azure AD see the [user resource type](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) and consider subscribing to [change notifications](https://docs.microsoft.com/graph/webhooks).
-
-For more information on extension attributes, see [Syncing extension attributes for Azure Active Directory Application Provisioning](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-
-
 ## Syncing directory extensions for Azure Active Directory Connect cloud sync 
 
 You can use [directory extensions](https://learn.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0) to extend the synchronization schema directory definition in Azure Active Directory (Azure AD) with your own attributes. 
@@ -133,6 +121,16 @@ You can create directory extensions in Azure AD in several different ways.
 |PowerShell|Create extensions using PowerShell|[New-AzureADApplicationExtensionProperty](https://learn.microsoft.com/powershell/module/azuread/new-azureadapplicationextensionproperty?view=azureadps-2.0)| 
 Using Cloud Sync and Azure AD Connect|Create extensions using Azure AD Connect|[Create an extension attribute using Azure AD Connect](https://learn.microsoft.com/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-using-azure-ad-connect) and |
 |Customizing attributes to sync|Information on customizing which attributes to synch|[Customize which attributes to synchronize with Azure AD](https://learn.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions#customize-which-attributes-to-synchronize-with-azure-ad)
+
+## Use attribute mapping to map Directory Extensions
+If you have extended Active Directory to include custom attributes, you can add these attributes and map them to users.  
+
+To discover and map attributes, click **Add attribute mapping**.  The attributes will automatically be discovered and will be available in the drop-down under **source attribute**.  Fill in the type of mapping you want and click **Apply**.
+ [![Custom attribute mapping](media/custom-attribute-mapping/schema-1.png)](media/custom-attribute-mapping/schema-1.png#lightbox)
+
+For information on new attributes that are added and updated in Azure AD see the [user resource type](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) and consider subscribing to [change notifications](https://docs.microsoft.com/graph/webhooks).
+
+For more information on extension attributes, see [Syncing extension attributes for Azure Active Directory Application Provisioning](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
 ## Additional resource
 
