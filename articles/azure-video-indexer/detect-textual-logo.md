@@ -18,13 +18,11 @@ When using the OCR, text can be detected. For example, in the following screen "
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/textual-logo-detection/microsoft-example.png" alt-text="Diagram of logo detection.":::
 
-## How to start using 
-
-### Prerequisite
+## Prerequisite
 
 The Azure Video Index account must have (at the very least) the `contributor` role assigned to the resource.
- 
-### Textual logo detection steps
+
+## Textual logo detection steps
 
 In order to use textual logo detection, follow these steps, described in this article: 
 
@@ -68,7 +66,7 @@ Insert the following:
 * `Access token`: The token, at least at a contributor level permission. 
   
 > [!TIP]
-> The default example has two logo ids, we have created out first group with only one logo Id. 
+> The default example has two logo IDs, we have created out first group with only one logo IDSS. 
 
 ## Upload from URL 
  
@@ -89,11 +87,11 @@ Specify the
 
 Assuming the textual logo model has found a match, you'll be able to view the result in the Azure Video Indexer website.
  
-## Insights  
+### Insights  
 
 A new section would appear in the insights panel showing the number of custom logos that were detected. One representative thumbnail will be displayed representing the new logo. 
 
-## Timeline 
+### Timeline 
  
 In the **Timeline** view, make sure to mark the **Logos** checkbox (under the **View**). 
 
@@ -101,13 +99,13 @@ All detected thumbnails will be displayed according to their time stamp. All log
 
 ## Considerations and limitations  
 
-• A logo group can contain up to 50 logos. 
-• One logo can be linked to more than one group. 
-• Use the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) to add the new logo to an existing group. 
+* A logo group can contain up to 50 logos. 
+* One logo can be linked to more than one group. 
+* Use the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) to add the new logo to an existing group. 
 
 ## Next steps
 
-Adding a logo to an existing logo group 
+Adding a logo to an existing logo group.
  
 In the first part of this article, we had one instance of a logo and we've associated it to the right logo group upon the creation of the logo group. If all logo instances are created before the logo group is created, they can be associated with logo group on the creation phase. However, if the group was already created, the new instance should be associated to the group following the creation steps: 
 
