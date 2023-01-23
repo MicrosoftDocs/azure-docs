@@ -2,7 +2,7 @@ The following steps demonstrate how to create a system-assigned managed identity
 
 ### [Service Connector](#tab/service-connector)
 
-Some app hosting environments support Service Connector, which helps you connect Azure compute services to other backing services. Service Connector automatically configures network settings and connection information.  You can learn more about Service Connector and which scenarios are supported on the [overview page](../../../service-connector/overview.md).
+Some app hosting environments support Service Connector, which helps you connect Azure compute services to other backing services. Service Connector automatically configures network settings and connection information.  You can learn more about Service Connector and which scenarios are supported on the [overview page](../../../articles/service-connector/overview.md).
 
 The following compute services are currently supported:
 

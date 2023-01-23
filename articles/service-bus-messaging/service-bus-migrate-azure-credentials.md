@@ -7,7 +7,6 @@ ms.author: alexwolf
 ms.reviewer: randolphwest
 ms.date: 12/07/2022
 ms.service: service-bus
-ms.subservice: common
 ms.topic: how-to
 ms.custom:
   - devx-track-csharp
