@@ -1,8 +1,11 @@
 ---
 title: Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
-services: container-service
-ms.topic: article
+author: asudbring
+ms.author: allensu
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.custom: references_regions
 ms.date: 12/12/2022
 ---
@@ -38,12 +41,12 @@ Ingress connectivity to the cluster can be achieved using an ingress controller 
 Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address space logically different from the VNet but has scaling and other limitations. The below table provides a detailed comparison between Kubenet and Azure CNI Overlay. If you do not want to assign VNet IP addresses to pods due to IP shortage, then Azure CNI Overlay is the recommended solution.
 
 | Area | Azure CNI Overlay | Kubenet |
-| -- | :--: | -- |
+| -- | -- | -- |
 | Cluster scale | 1000 nodes and 250 pods/node | 400 nodes and 250 pods/node |
 | Network configuration | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet | Additional hop adds minor latency |
 | Kubernetes Network Policies | Azure Network Policies, Calico | Calico |
-| OS platforms supported | Linux only | Linux only |
+| OS platforms supported | Linux and Windows | Linux only |
 
 ## IP address planning
 
@@ -84,10 +87,8 @@ Use the traditional VNet option when:
 
 ## Limitations with Azure CNI Overlay
 
-The overlay solution has the following limitations today
+The overlay solution has the following limitations:
 
-* Only available for Linux and not for Windows.
-* You can't deploy multiple overlay clusters on the same subnet.
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
 

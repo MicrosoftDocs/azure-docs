@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 01/11/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -23,7 +23,7 @@ The following document describes the accidental deletion feature for Azure AD Co
 
 To use this feature, you set the threshold for the number of objects that, if deleted, synchronization should stop.  So if this number is reached, the synchronization will stop and a notification will be sent to the email that is specified.  This notification will allow you to investigate what is going on.
 
-For additional information and an example, see the following video.
+For more information and an example, see the following video.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mV]
 
@@ -36,7 +36,7 @@ To use the new feature, follow the steps below.
 2.  Select **Azure AD Connect**.
 3.  Select **Manage cloud sync**.
 4. Under **Configuration**, select your configuration.
-5. Under **Settings** fill in the following:
+5. Under **Settings** fill in the following information.
 	- **Notification email** - email used for notifications
 	- **Prevent accidental deletions** - check this box to enable the feature
 	- **Accidental deletion threshold** - enter the number of objects to stop synchronization and send a notification
@@ -44,15 +44,15 @@ To use the new feature, follow the steps below.
 ![Accidental deletes](media/how-to-accidental-deletes/accident-1.png)
 
 ## Recovering from an accidental delete instance
-If you encounter an accidental delete you will see this on the status of your provisioning agent configuration.  It will say **Delete threshold exceeded**.
+If you encounter an accidental delete you'll see this on the status of your provisioning agent configuration.  It will say **Delete threshold exceeded**.
  
 ![Accidental delete status](media/how-to-accidental-deletes/delete-1.png)
 
-By clicking on **Delete threshold exceeded**, you will see the sync status info.  This will provide additional details. 
+By clicking on **Delete threshold exceeded**, you'll see the sync status info.  This action will provide more details. 
  
  ![Sync status](media/how-to-accidental-deletes/delete-2.png)
 
-By right-clicking on the ellipses, you will get the following options:
+By right-clicking on the ellipses, you'll get the following options:
  - View provisioning log
  - View agent
  - Allow deletes
@@ -72,15 +72,15 @@ The **Allow deletes** action will delete the objects that triggered the accident
  
  ![Yes on confirmation](media/how-to-accidental-deletes/delete-4.png)
 
-3. You will see confirmation that the deletions were accepted and the status will return to healthy with the next cycle. 
+3. You'll see confirmation that the deletions were accepted and the status will return to healthy with the next cycle. 
  
  ![Accept deletes](media/how-to-accidental-deletes/delete-8.png)
 
 ### Rejecting deletions
 
-If you do not want to allow the deletions, you need to do the following:
+If you don't want to allow the deletions, you need to do the following:
 - investigate the source of the deletions
-- fix the issue (example, OU was moved out of scope accidentally and you have now re-added it back to the scope)
+- fix the issue (example, OU was moved out of scope accidentally and you've now re-added it back to the scope)
 - Run **Restart sync** on the agent configuration
 
 ## Next steps 

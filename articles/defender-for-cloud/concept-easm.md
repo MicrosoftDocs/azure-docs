@@ -22,6 +22,7 @@ Defender EASM applies Microsoft’s crawling technology to discover assets that 
 
 EASM collects data for publicly exposed assets (“outside-in”). That data can be used by MDC CSPM (“inside-out”) to assist with internet-exposure validation and discovery capabilities to provide better visibility to customers.
 
+
 ## Learn more
 
 You can learn more about [Defender EASM](../external-attack-surface-management/index.md), and learn about the [pricing](https://azure.microsoft.com/pricing/details/defender-external-attack-surface-management/) options available.

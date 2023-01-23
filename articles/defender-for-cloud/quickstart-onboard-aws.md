@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 11/07/2022
+ms.date: 01/10/2023
 author: bmansheim
 ms.author: benmansheim
 zone_pivot_groups: connect-aws-accounts
@@ -21,7 +21,12 @@ To protect your AWS-based resources, you can connect an AWS account with either:
     - [**Microsoft Defender for Containers**](defender-for-containers-introduction.md) brings threat detection and advanced defenses to [supported Amazon EKS clusters](supported-machines-endpoint-solutions-clouds-containers.md).
     - [**Microsoft Defender for SQL**](defender-for-sql-introduction.md) brings threat detection and advanced defenses to your SQL Servers running on AWS EC2, AWS RDS Custom for SQL Server.
 
-- **Classic cloud connector** - Requires configuration in your AWS account to create a user that Defender for Cloud can use to connect to your AWS environment. If you have classic cloud connectors, we recommend that you [delete these connectors](#remove-classic-connectors), and use the native connector to reconnect to the account. Using both the classic and native connectors can produce duplicate recommendations.
+- **Classic cloud connector** - Requires configuration in your AWS account to create a user that Defender for Cloud can use to connect to your AWS environment. 
+
+> [!NOTE]
+> The option to select the classic connector is only available if you previously onboarded an AWS account using the classic connector.
+>
+> If you have classic cloud connectors, we recommend that you [delete these connectors](#remove-classic-connectors), and use the native connector to reconnect to the account. Using both the classic and native connectors can produce duplicate recommendations.
 
 For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 

@@ -10,9 +10,9 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
-When developing locally, make sure that the user account that connects to Azure Event Hubs has the correct permissions. You'll need the [Azure Event Hubs Data Owner](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) role in order to send and receive messages. To assign yourself this role, you'll need the User Access Administrator role, or another role that includes the `Microsoft.Authorization/roleAssignments/write` action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Learn more about the available scopes for role assignments on the [scope overview](/azure/role-based-access-control/scope-overview) page.
+When developing locally, make sure that the user account that connects to Azure Event Hubs has the correct permissions. You'll need the [Azure Event Hubs Data Owner](../../../articles/role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) role in order to send and receive messages. To assign yourself this role, you'll need the User Access Administrator role, or another role that includes the `Microsoft.Authorization/roleAssignments/write` action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Learn more about the available scopes for role assignments on the [scope overview](../../../articles/role-based-access-control/scope-overview.md) page.
 
-The following example assigns the `Azure Event Hubs Data Owner` role to your user account, which provides full access to Azure Event Hubs resources. In a real scenario, follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) to give users only the minimum permissions needed for a more secure production environment.
+The following example assigns the `Azure Event Hubs Data Owner` role to your user account, which provides full access to Azure Event Hubs resources. In a real scenario, follow the [Principle of Least Privilege](../../../articles/active-directory/develop/secure-least-privileged-access.md) to give users only the minimum permissions needed for a more secure production environment.
 
 ### Azure built-in roles for Azure Event Hubs
 For Azure Event Hubs, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the Azure RBAC model. Azure provides the below Azure built-in roles for authorizing access to an Event Hubs namespace:
@@ -78,4 +78,4 @@ New-AzRoleAssignment -SignInName <user@domain> `
 -Scope <yourStorageAccountId>
 ```
 
---- 
+---
