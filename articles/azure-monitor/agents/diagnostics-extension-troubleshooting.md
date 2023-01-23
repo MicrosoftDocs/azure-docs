@@ -84,7 +84,7 @@ The last line of the log files contains the exit code.
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
 ```
 
-If you find a **negative** exit code, see the [exit code table](#azure-diagnostics-plugin-exit-codes) in the [References section](#references).
+If you find a **negative** exit code, see the [exit code table](#azure-diagnostics-plug-in-exit-codes) in the [References section](#references).
 
 ## Diagnostics data isn't logged to Azure Storage
 Determine if none of the data appears or if some of the data appears.
