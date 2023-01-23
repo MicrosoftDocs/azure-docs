@@ -281,8 +281,9 @@
         href: how-to-enhance-port-and-vlan-name-resolution.md
       - name: Import device information
         href: how-to-import-device-information.md
-    - name: Track sensor activity
+    - name: Track network and sensor activity
       href: how-to-track-sensor-activity.md
+      displayName: event timeline
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
     - name: Manage proprietary protocols (Horizon)

@@ -1,7 +1,7 @@
 ---
 title: Track network and sensor activity with the event timeline in Microsoft Defender for IoT
-description: Track network activity in the event timeline.
-ms.date: 01/18/2023
+description: Track network and sensor activity in the event timeline.
+ms.date: 01/23/2023
 ms.topic: how-to
 ---
 
