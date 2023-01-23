@@ -45,7 +45,7 @@ To get started, you need:
 * An Azure subscription
   * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 * An [Azure AD tenant](../fundamentals/active-directory-access-create-new-tenant.md) linked to the Azure subscription
-* [Docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) are required to run DAB
+* [Docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) are required to run DAP
   * Your applications can run on platforms, such as a virtual machine (VM) or bare metal
 * An on-premises or cloud-hosted application to transition from a legacy identity system to Azure AD
   * In this example, DAP is deployed on the same server as the application
