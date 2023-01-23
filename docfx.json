@@ -250,7 +250,7 @@
     },
     "fileMetadata": {
       "adobe-target": {
-        "articles/azure-functions/*.md": true,
+        "articles/azure-functions/*": true,
         "articles/container-apps/*": true,
         "articles/cosmos-db/*": true,
         "articles/app-service/*": true,
