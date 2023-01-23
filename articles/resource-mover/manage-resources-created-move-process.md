@@ -5,7 +5,7 @@ manager: evansma
 author: ankitaduttaMSFT 
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 02/24/2021
 ms.author: ankitadutta
 
 ---

@@ -5,7 +5,7 @@ author: Aarthi-Vijayaraghavan
 manager: sutalasi
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 10/06/2021
 ms.author: AarthiV
 ---
 # Move across region dashboard

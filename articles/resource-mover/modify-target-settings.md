@@ -5,7 +5,7 @@ manager: evansma
 author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 12/29/2021
 ms.author: ankitadutta
 #Customer intent: As an Azure admin,  I want to modify destination settings when moving resources to another region.
 
