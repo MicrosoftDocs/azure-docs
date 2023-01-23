@@ -40,7 +40,7 @@ To complete this procedure, you need:
     - The `project` operator formats the output to match the columns of the target table schema:  
 
     ```kusto 
-    AwesomeLog1_CL  
+    MyTable_CL
     | extend d=todynamic(RawData)  
     | project TimeGenerated,TimeIngested=tostring(d.Time), 
     RecordNumber=tostring(d.RecordNumber), 
@@ -62,10 +62,16 @@ To complete this procedure, you need:
 
 ## Modify the custom table to include the new columns 
 
-Go to Home > All resources > {workspace name} > Tables and select the ellipsis (three dots) next to your custom table. 
+[Add or delete columns in your custom table](../logs/create-custom-table.md#add-or-delete-a-custom-column), based on your transformation query.
 
-Add three new columns as Strings; TimeIngested, RecordNumber, RandomContent and save. 
+The example transformation query above adds three new columns of type `string`: 
+- `TimeIngested`
+- `RecordNumber`
+- `RandomContent`
 
+To support this transformation, add these three new columns to your custom table.
+
+:::image type="content" source="media/azure-monitor-agent-transformation/add-custom-columns-azure-monitor-logs.png" alt-text="Screenshot of the Schema editor pane with the TimeIngested, RecordNumber, and RandomContent columns being defined." lightbox="media/azure-monitor-agent-transformation/add-custom-columns-azure-monitor-logs.png":::
 
 ## Apply Transform to DCR 
 
