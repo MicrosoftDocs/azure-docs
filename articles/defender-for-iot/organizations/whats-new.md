@@ -218,15 +218,15 @@ Updates in this version of the solution include:
 
 - **Workbook improvements**: The **Defender for IoT** workbook now includes:
 
-  - A new **Overview** dashboard with key metrics on the device inventory, threat detection, and security posture. For example:
+- A new **Overview** dashboard with key metrics on the device inventory, threat detection, and security posture. For example:
 
         :::image type="content" source="media/release-notes/sentinel-workbook-overview.png" alt-text="Screenshot of the new Overview tab in the IoT OT Threat Monitoring with Defender for IoT workbook." lightbox="media/release-notes/sentinel-workbook-overview.png":::
 
-  - A new **Vulnerabilities** dashboard with details about CVEs shown in your network and their related vulnerable devices. For example:
+    - A new **Vulnerabilities** dashboard with details about CVEs shown in your network and their related vulnerable devices. For example:
 
         :::image type="content" source="media/release-notes/sentinel-workbook-vulnerabilities.png" alt-text="Screenshot of the new Vulnerability tab in the IoT OT Threat Monitoring with Defender for IoT workbook." lightbox="media/release-notes/sentinel-workbook-vulnerabilities.png":::
 
-  - Improvements on the **Device inventory** dashboard, including access to device recommendations, vulnerabilities, and direct links to the Defender for IoT device details pages. The **Device inventory** dashboard in the **IoT/OT Threat Monitoring with Defender for IoT** workbook is fully aligned with the Defender for IoT [device inventory data](how-to-manage-device-inventory-for-organizations.md).
+    - Improvements on the **Device inventory** dashboard, including access to device recommendations, vulnerabilities, and direct links to the Defender for IoT device details pages. The **Device inventory** dashboard in the **IoT/OT Threat Monitoring with Defender for IoT** workbook is fully aligned with the Defender for IoT [device inventory data](how-to-manage-device-inventory-for-organizations.md).
 
 - **Playbook updates**: The **Microsoft Defender for IoT** solution now supports the following SOC automation functionality with new playbooks:
 
