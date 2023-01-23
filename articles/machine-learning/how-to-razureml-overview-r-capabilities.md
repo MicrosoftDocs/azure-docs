@@ -11,7 +11,7 @@ ms.reviewer: sgilley
 ms.devlang: r
 ---
 
-# Bring your R workloads into Azure Machine Learning
+# Bring your R workloads
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -42,20 +42,20 @@ A typical workflow for using R with Azure Machine Learning:
     - Build an environment
     - Log job artifacts, parameters, tags and models
 
-- [Register your model](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-ui) using Azure Machine Learning studio
+- [Register your model](how-to-razureml-deploy-r-model.md#register-model) using Azure Machine Learning studio
 - [Deploy registered R models](how-to-razureml-deploy-r-model.md) to managed online endpoints
     - Use the deployed endpoints for real-time inferencing/scoring
 
 ## Known limitations
  
 - There's no R _control-plane_ SDK. Instead you use the Azure CLI or Python control script to submit jobs.
-- RStudio running as a custom application within a container on the compute instance can't access workspace assets or MLflow.
+- RStudio running as a custom application (such as Posit or RStudio) within a container on the compute instance can't access workspace assets or MLflow.
 - Zero code deployment (that is, automatic deployment) of an R MLflow model is currently not supported.  Instead, you'll need to use a custom container with `plumber` for deployment.
-- Scoring using an R model with batch endpoints isn't supported.
+- Scoring an R model with batch endpoints isn't supported.
 - Programmatic model registering/recording from a running job with R isn't supported.
 - Interactive querying of workspace MLflow registry from R isn't supported.
 - Nested MLflow runs in R are not supported.
-- Parallel job step isn't supported.  As a workaround, you can run a script in parallel `n` times using different input .parameters.  But you'd have to meta-program to generate `n` YAML or CLI calls to do it.
+- Parallel job step isn't supported.  As a workaround, you can run a script in parallel `n` times using different input parameters.  But you'd have to meta-program to generate `n` YAML or CLI calls to do it.
 - AzureML online deployment yml can only use image URIs directly from the registry for the environment specification; not pre-built environments from the same Dockerfile.  Follow the steps in [How to deploy a registered R model to an online (real time) endpoint](how-to-razureml-deploy-r-model.md) for the correct way to deploy.
 
 
