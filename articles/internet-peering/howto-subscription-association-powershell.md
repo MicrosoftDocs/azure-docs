@@ -29,7 +29,7 @@ If you prefer, you can complete this guide using the [Azure portal](howto-subscr
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
 ### Register for peering resource provider
-Register for peering resource provider in your subscription using the command below. If you do not execute this, then Azure resources required to set up peering are not accessible.
+Register for peering resource provider in your subscription using the command below. If you don't execute this, then Azure resources required to set up peering aren't accessible.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
@@ -97,7 +97,7 @@ Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ```
 
 ## Delete PeerAsn
-Deleting a PeerASN is not currently supported. If you need to delete PeerASN, contact [Microsoft peering](mailto:peering@microsoft.com).
+Deleting a PeerASN isn't currently supported. If you need to delete PeerASN, contact [Microsoft peering](mailto:peering@microsoft.com).
 
 ## Next steps
 
