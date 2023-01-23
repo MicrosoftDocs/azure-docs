@@ -72,7 +72,7 @@ Insert the following:
 > The default example has two logo IDs, we have created out first group with only one logo ID. 
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/textual-logo-detection/logo-group.png" alt-text="Diagram of logo group API":::
+> :::image type="content" source="./media/textual-logo-detection/logo-group-api.png" alt-text="Diagram of logo group API":::
 
 ## Upload from URL 
  
