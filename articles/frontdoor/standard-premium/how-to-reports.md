@@ -11,7 +11,7 @@ ms.author: duau
 
 # Azure Front Door reports
 
-Azure Front Door analytics reports provide a built-in, all-around view of how your Azure Front Door profile behaves, along with associated web application firewall (WAF) metrics. You can also take advantage of [Azure Front Door's logs](../front-door-diagnostics.md?TODO stadard premium) to do further troubleshooting and debugging.
+Azure Front Door analytics reports provide a built-in, all-around view of how your Azure Front Door profile behaves, along with associated web application firewall (WAF) metrics. You can also take advantage of [Azure Front Door's logs](../front-door-diagnostics.md?pivot=front-door-standard-premium) to do further troubleshooting and debugging.
 
 The built-in reports include information about your traffic and your application's security. Azure Front Door provides traffic reports and security reports.
 
@@ -99,7 +99,7 @@ Reports support any selected date range from the previous 90 days. With data poi
 
     :::image type="content" source="../media/how-to-reports/front-door-reports-download-csv.png" alt-text="Screenshot of download csv file for Reports.":::
 
-## Export reports in CSV format
+### Export reports in CSV format
 
 You can download any of the Azure Front Door reports as a CSV file Every CSV report includes some general information and the information is available in all CSV files:
 
@@ -199,7 +199,7 @@ The seven tables are for time, rule ID, countries/regions, IP address, URL, host
 
 ---
 
-### Key metrics included in all reports
+## Key metrics included in all reports
 
 | Metric | Description |
 |---------|---------|
