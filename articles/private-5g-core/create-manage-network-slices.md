@@ -22,7 +22,7 @@ In this how-to guide, you'll learn how to view, create, modify, and delete netwo
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
 - If you're creating a new slice, collect the information listed in [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice). If the slice will be used by 4G UEs, you don't need to collect SST and SD values.
 - If you're making changes to a slice, refer to [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice) to collect the required values and make sure they're in the correct format.
-- Navigate to your **Azure Network Function Manager - Network Function** resource and make sure that the **Provisioning State** field contains **Succeeded**. This to avoid errors when managing your network slices by ensuring no other processes are running. If you just finished running a process, it may take a few minutes for the **Provisioning State** field to update.
+- Navigate to your **Packet Core Control Plane** resource and make sure that the **Packet core installation state** field contains **Succeeded**. This to avoid errors when managing your network slices by ensuring no other processes are running. If you just finished running a process, it may take a few minutes for the **Packet core installation state** field to update.
 
 ## View existing network slices
 

@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
 - Collect the information in [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice). If the slice will be used by 4G UEs, you don't need to collect SST and SD values.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Navigate to your **Azure Network Function Manager - Network Function** resource and make sure that the **Provisioning State** field contains **Succeeded**. This to avoid errors when managing your network slices by ensuring no other processes are running. If you just finished running a process, it may take a few minutes for the **Provisioning State** field to update.
+- Navigate to your **Packet Core Control Plane** resource and make sure that the **Packet core installation state** field contains **Succeeded**. This to avoid errors when managing your network slices by ensuring no other processes are running. If you just finished running a process, it may take a few minutes for the **Packet core installation state** field to update.
 
 ## Review the template
 
