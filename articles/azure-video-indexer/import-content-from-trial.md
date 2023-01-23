@@ -9,7 +9,7 @@ ms.custom: ignite-fall-2021
 
 # Import content from your trial account to a regular account
 
-If you would like to transition from the Video Indexer trial account experience to that of a regular paid account, Video Indexer allows you at not cost to import the content in you trial content to your new regular account.
+If you would like to transition from the Video Indexer trial account experience to that of a regular paid account, Video Indexer allows you at not cost to import the content in your trial content to your new regular account.
 
 When might you want to switch from a trial to a regular account?
 
@@ -20,7 +20,7 @@ When might you want to switch from a trial to a regular account?
 ## Create a new ARM account for the import
 
 * First you need to create an account. The regular account needs to have been already created and available before performing the import. Azure Video Indexer accounts are Azure Resource Manager (ARM) based and account creation can be performed through the Azure portal (see [Create an account with the Azure portal](create-account-portal.md)) or API (see [Create accounts with API](/rest/api/videoindexer/stable/accounts)).  
-* The target ARM-based account has to be an empty account that has not yet been used to indexe any media files.
+* The target ARM-based account has to be an empty account that has not yet been used to index any media files.
 * Import from trial can be performed only once per trial account.
 
 ## Import your data
