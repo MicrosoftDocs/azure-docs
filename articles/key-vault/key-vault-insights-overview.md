@@ -74,7 +74,7 @@ These views are also accessible by selecting the resource name of a key vault fr
 
 ![Screenshot of view from a key vault resource](./media/key-vaults-insights-overview/key-vault-resource-view.png)
 
-On the **Overview** workbook for the key vault, it shows several performance metrics that help you quickly assess:
+On the **Overview** workbook for the key vault, it shows:
 
 - Interactive performance charts showing the most essential details related to key vault transactions, latency, and availability.
 
@@ -165,7 +165,7 @@ The time range will depend on the dashboard settings.
 
 ### What if I want to see other data or make my own visualizations? How can I make changes to the Key Vault Insights
 
-You can edit the existing workbookwith edit mode, and then save your work as a new workbook that will have all your new changes.
+You can edit the existing workbook with edit mode, and then save your work as a new workbook that will have all your new changes.
 
 ## Next steps
 

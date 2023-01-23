@@ -52,7 +52,7 @@ In order to manage policies, an Azure AD user requires the following permissions
 In order to read policies, an Azure AD user requires the following permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-  To perform this action, an Azure AD user must have "Attestation Reader" role on the attestation provider. The read permissions can be also be inherited with roles such as "Reader" (wildcard permissions) on  the subscription/ resource group.  
+  To perform this action, an Azure AD user must have "Attestation Reader" role on the attestation provider. Read permissions are also part of roles such as "Reader" (wildcard permissions) on the subscription/ resource group.  
 
 To verify the roles in PowerShell, run the below steps:
 
@@ -215,6 +215,7 @@ InvalidOperation
 Invalid content provided (for example, upload policy/ unsigned policy when policy signing is required)
 
 ```
+
 Native operation failed with 74: ..\Shared\base64url.h(226)\(null)!: (caller: ) Exception(0) 83FF004A Bad message    Msg:[Unknown base64 character: 41 (')')]
 ..\Enclave\api.cpp(618)\(null)!: (caller: ) LogHr(0) 83FF004A Bad message    Msg:[Unhandled Enclave Exception: "Bad message"]
 At line:1 char:1
@@ -229,7 +230,7 @@ Ensure that the policy in Text format is UTF-8 encoded.
 
 If policy signing is required, attestation policy must be configured only in RFC7519 JSON Web Token (JWT) format. If policy signing is not required, policy can be configured in text or JWT format.
 
-To configure a policy in JWT format, use JWT with a claim named "AttestationPolicy". Value of the claim is Base64URL encoded version of the policy text. If the attestation provider is configured with policy signer certificates, the JWT must be signed with private key of any of the valid policy signer certificates associated with the provider. 
+To configure a policy in JWT format, use JWT with a claim named "AttestationPolicy". Value of the claim is Base64URL encoded version of the policy text. If the attestation provider is configured with policy signer certificates, the JWT must be signed with private key of any of the valid policy signer certificates associated with the provider.
 
 To configure a policy in text format, specify policy text directly.
 
@@ -239,12 +240,12 @@ See attestation [policy examples](./policy-examples.md) and [how to author an at
 
 ## 3. Az.Attestation installation issues in PowerShell
 
-Unable to install Az or Az.Attestation modules in PowerShell
+Unable to install Az Powershell or Az.Attestation PowerShell modules in PowerShell
 
 ### Error
 
 WARNING: Unable to resolve package source 'https://www.powershellgallery.com/api/v2' 
-PackageManagement\Install-Package : No match was found for the specified search criteria and module name
+PackageManagement\Install-Package: No match was found for the specified search criteria and module name
 
 ### Troubleshooting steps
 

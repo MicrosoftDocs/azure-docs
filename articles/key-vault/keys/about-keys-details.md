@@ -139,7 +139,7 @@ For more information on other possible attributes, see the [JSON Web Key (JWK)](
 
 You can specify more application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
 
-> [!NOTE] 
+> [!NOTE]
 > Tags are readable by a caller if they have the *list* or *get* permission to that key.
 
 ##  Key access control

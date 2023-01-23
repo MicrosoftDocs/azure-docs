@@ -17,7 +17,7 @@ Follow the below steps to create and configure an attestation provider using Azu
 
 > [!NOTE]
 > Az.Attestation module is now integrated into Az PowerShell module. Minimum version of Az module required to support attestation operations:
-  - Az PowerShell 6.5.0
+  - Az PowerShell module 6.5.0
   
 The PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. Hence you may receive the following errors:
 
