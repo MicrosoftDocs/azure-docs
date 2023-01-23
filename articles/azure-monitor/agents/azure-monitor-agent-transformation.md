@@ -34,7 +34,7 @@ To complete this procedure, you need:
 
     **Example**
     
-    The sample uses [basic KQL operators](/azure/data-explorer/kql-quick-reference) to parss the data in the `RawData` column into three new columns, called `Time Ingested`, `RecordNumber`, and `RandomContent`:
+    The sample uses [basic KQL operators](/azure/data-explorer/kql-quick-reference) to parse the data in the `RawData` column into three new columns, called `Time Ingested`, `RecordNumber`, and `RandomContent`:
  
     - The `extend` operator adds new columns.  
     - The `project` operator formats the output to match the columns of the target table schema:  
@@ -48,7 +48,7 @@ To complete this procedure, you need:
     RawData 
     ```
     > [!NOTE]
-    > Information the user should notice even if skimmingQuerying table data in this way doesn't actually modify the data in the table. Azure Monitor applies the transformation in the [data ingestion pipeline](../essentials/data-collection-transformations.md#how-transformations-work) after you [add your transformation query to the data collection rule](#apply-transform-to-dcr).
+    > Information the user should notice even if skimmingQuerying table data in this way doesn't actually modify the data in the table. Azure Monitor applies the transformation in the [data ingestion pipeline](../essentials/data-collection-transformations.md#how-transformations-work) after you [add your transformation query to the data collection rule](#apply-the-transformation-to-your-data-collection-rule).
 
 1. Format the query into a single line and replace the table name in the first line of the query with the word `source`.
     
@@ -73,12 +73,12 @@ To support this transformation, add these three new columns to your custom table
 
 :::image type="content" source="media/azure-monitor-agent-transformation/add-custom-columns-azure-monitor-logs.png" alt-text="Screenshot of the Schema editor pane with the TimeIngested, RecordNumber, and RandomContent columns being defined." lightbox="media/azure-monitor-agent-transformation/add-custom-columns-azure-monitor-logs.png":::
 
-## Apply Transform to DCR 
+## Apply the transformation to your data collection rule 
 
-Go to Home > Monitor > Data collection Rules > {Your DCR}   
+1. On the **Monitor** menu, select **Data Collection Rules** > your data collection rule.
+1. Select **Data sources** > your data source. 
+1. Past the formatted transformation query in the **Transform** field on the **Data source** tab of the **Add data source** screen.
 
-Open Custom Text Logs and Paste the KQL transform into the transform field.  Save and close 
- 
 
 ## Check that the transform is working 
 
