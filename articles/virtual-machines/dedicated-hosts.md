@@ -20,7 +20,7 @@ Azure Dedicated Host is a service that provides physical servers able to host on
 
 <!-- markdownlint-disable MD034 -->
 
-[!VIDEO https://www.youtube.com/embed/Lk9mA1WzfAQ]
+> [!VIDEO https://www.youtube.com/embed/Lk9mA1WzfAQ]
 
 <!-- markdownlint-enable MD034 -->
 
