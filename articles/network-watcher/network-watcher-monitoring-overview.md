@@ -20,7 +20,7 @@ Azure Network Watcher provides tools to monitor, diagnose, view metrics, and ena
 > [!Note] 
 > Network Watcher isn't intended for and will not work for PaaS monitoring or Web analytics. 
 
-For information about analyzing traffic from a network security group, see [Network security group flow logging](network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](traffic-analytics.md).
+For information about analyzing traffic from a network security group, see [Network security group flow logging](network-watcher-nsg-flow-logging-overview.md) and [Traffic analytics](traffic-analytics.md).
 
 ## Monitoring
 
@@ -100,6 +100,7 @@ When you create or update a virtual network in your subscription, Network Watche
 
 ## Next steps
 
-* You now have an overview of Azure Network Watcher. To get started using Network Watcher, diagnose a common communication problem to and from a virtual machine using IP flow verify. To learn how, see the [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md) quickstart.
-
-* [Learn module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).
+- [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
+- [Tutorial: Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
+- [Tutorial: Monitor network communication between two virtual machines](connection-monitor).
+- [Learn module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).
