@@ -1,21 +1,24 @@
 ---
-title: Associate peer ASN to Azure subscription using PowerShell
-titleSuffix: Azure
+title: Associate peer ASN to Azure subscription - PowerShell
 description: Associate peer ASN to Azure subscription using PowerShell
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 01/23/2023
 ms.author: halkazwini 
 ms.custom: devx-track-azurepowershell
 ---
+
+> [!div class="op_single_selector"]
+> - [Azure portal](howto-subscription-association-portal.md)
+> - [PowerShell](howto-subscription-association-powershell.md)
 
 # Associate peer ASN to Azure subscription using PowerShell
 
 Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps below.
 
-If you prefer, you can complete this guide using the [portal](howto-subscription-association-portal.md).
+If you prefer, you can complete this guide using the [Azure portal](howto-subscription-association-portal.md).
 
 ### Working with Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
