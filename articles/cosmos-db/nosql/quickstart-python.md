@@ -99,7 +99,7 @@ You'll use the following Python classes to interact with these resources:
 - [Get an item](#get-an-item)
 - [Query items](#query-items)
 
-The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+The sample code described in this article creates a database named ``cosmicworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
 For this sample code, the container will use the category as a logical partition key.
 
@@ -119,31 +119,19 @@ For this sample code, the container will use the category as a logical partition
 
 From the project directory, open the *app.py* file. In your editor, add modules to work with Cosmos as well as authenticate to Azure. You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the [`azure-identity`](https://pypi.org/project/azure-identity/) package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
 
-```python
-import os
-import json
-from azure.cosmos import CosmosClient
-from azure.identity import DefaultAzureCredential
-```
+[!INCLUDE [sync async code imports - credential](./includes/quickstart-python/credential-string-sync-async-code-imports.md)]
 
-Create environment variables that specify your Cosmos DB endpoint, database name, and container name. Also, specify the `DefaultAzureCredential` as the credential type.
+Create environment variables that specify your Cosmos DB endpoint, database name, and container name.
 
-```python
-endpoint = os.environ["COSMOS_ENDPOINT"]
-```
+[!INCLUDE [sync async code environment variables - credential](./includes/quickstart-python/credential-string-sync-async-code-environment-variables.md)]
+
 Create constants for the database and container names.
 
-```python
-DATABASE_NAME = "cosmicworks"
-CONTAINER_NAME = "products"
-```
+[!INCLUDE [sync async code environment variables - credential](./includes/quickstart-python/credential-string-sync-async-code-environment-variables.md)]
 
 Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the `DefaultAzureCredential` object.
 
-```python
-credential = DefaultAzureCredential()
-client = CosmosClient(url=endpoint, credential=credential)
-```
+[!INCLUDE [sync async code create client - create](./includes/quickstart-python/credential-string-sync-async-code-create-client.md)]
 
 ## [Connection String](#tab/connection-string)
 
