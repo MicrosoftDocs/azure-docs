@@ -232,7 +232,7 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
 
     In addition, in the Azure portal you'll see a new Azure extension on your machines called `MDE.Linux`.
 
-## Enable the MDE unified solution at scale
+### Enable the MDE unified solution at scale
 
 You can also enable the MDE unified solution at scale through the supplied REST API version 2022-05-01. For full details, see the [API documentation](/rest/api/defenderforcloud/settings/update?tabs=HTTP).
 
@@ -250,6 +250,10 @@ URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Micr
     }
 }
 ```
+
+## Track MDE deployment status
+
+You can use the [Defender for Endpoint deployment status workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/Defender%20for%20Endpoint%20Deployment%20Status) to track the MDE deployment status on your Azure VMs and non-Azure machines that are connected via Azure Arc. The interactive workbook provides an overview of machines in your environment showing their Microsoft Defender for Endpoint extension deployment status.
 
 ## Access the Microsoft Defender for Endpoint portal
 

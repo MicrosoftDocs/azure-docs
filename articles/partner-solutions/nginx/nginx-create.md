@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.topic: quickstart
 ms.author: franlanglois
-ms.date: 01/11/2023
+ms.date: 01/18/2023
 
 ms.custom: references_regions, event-tier1-build-2022
 

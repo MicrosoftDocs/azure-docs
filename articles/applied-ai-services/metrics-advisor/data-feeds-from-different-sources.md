@@ -1,8 +1,7 @@
 ---
 title: Connect different data sources to Metrics Advisor
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Add different data feeds to Metrics Advisor
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
