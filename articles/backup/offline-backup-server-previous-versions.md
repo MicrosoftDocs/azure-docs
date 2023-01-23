@@ -80,7 +80,7 @@ Ensure that the following prerequisites are met before you start the offline bac
 
     The tool creates an Azure Offline Backup Active Directory Application if one doesn't exist.
 
-    If an application already exists, this executable asks you to manually upload the certificate to the application in the tenant. Follow the steps in [this section](#manually-upload-an-offline-backup-certificate) to upload the certificate manually to the application.
+    If an application already exists, this executable asks you to manually upload the certificate to the application in the tenant. Follow the steps in [this section](#upload-an-offline-backup-certificate-manually) to upload the certificate manually to the application.
 
 * The *AzureOfflineBackupCertGen.exe* tool generates an *OfflineApplicationParams.xml* file. Copy this file to the server with MABS or DPM.
 * Install the [latest MARS Agent](https://aka.ms/azurebackup_agent) on the DPM instance or the Azure Backup server.
