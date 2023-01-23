@@ -105,11 +105,11 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon."::: next to **Agent command**.
 1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
 
-    The new agent is visible in the table under **Add an API based collector agent**. This table displays the agent name and health status for agents you deploy via the UI only. 
+    The relevant agent information is deployed into Azure Key Vault, and the new agent is visible in the table under **Add an API based collector agent**. At this stage, the agent's **Health** status is **Incomplete installation. Please follow the instructions**. If the agent is added successfully, the status changes to **Agent healthy**. This update can take up to 10 minutes. 
 
-    At this stage, the agent's **Health** status is **Incomplete installation. Please follow the instructions** (**Agent1** in the screenshot). The status changes to **Agent healthy** (**Agent2** in the screenshot) after you [create a system](#create-a-new-system).
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the health statuses in the Configuration > Add an API based collector agent area of the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/create-agent.png":::
 
-    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the health statuses in the Configuration > Add an API based collector agent area of the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/create-agent.png":::  
+    The table displays the agent name and health status for agents you deploy via the UI only.   
     
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
@@ -125,15 +125,15 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 1. For basic authentication, provide the user and password. If you selected an SNC connection when you [set up the agent](#create-a-new-agent), select **SNC** and provide the certificate details.
 1. Select **Next: Logs**.
 1. Select which logs you want to pull from SAP, and select **Next: Review and create**.
-1. Review the settings you defined. Select **Previous** to modify any settings, or select **Deploy** to deploy the system.
+1. Review the settings you defined. Select **Previous** to modify any settings, or select **Deploy** to deploy the system.1. 
 
-The configuration you defined is deployed into Azure Key Vault. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the UI or via other methods. 
+    The system configuration you defined is deployed into Azure Key Vault. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the UI or via other methods. 
 
-At this stage, the agent's **Health** status is **Incomplete installation. Please follow the instructions**. Once the agent is updated, it pulls the configuration from Azure Key vault, and the status changes to **Agent healthy**. 
+    At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
 
-Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
+    [TBD - screenshot]
 
-[TBD - screenshot]
+    Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
 ## Next steps
 
