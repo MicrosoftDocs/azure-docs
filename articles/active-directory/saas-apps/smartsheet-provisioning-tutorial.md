@@ -25,8 +25,6 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sm
 > * Keep user attributes synchronized between Azure AD and Smartsheet
 > * Single sign-on to Smartsheet (recommended)
 
-> [!NOTE]
-
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
