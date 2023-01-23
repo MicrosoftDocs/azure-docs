@@ -172,7 +172,7 @@ In the first part of this article, we had one instance of a logo and we have ass
 
     ```json
     "logos": [{
-        "logoId": "e7c8af19-f139-4266-98ea-bc42715723ae"
+        "logoId": "id"
     }],
     ```
 1. [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Logo-Group).
