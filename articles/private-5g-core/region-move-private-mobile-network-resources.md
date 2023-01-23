@@ -21,7 +21,7 @@ If you also want to move your Arc-enabled Kubernetes cluster, contact your suppo
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) to ensure Azure Private 5G Core supports the region to which you want to move your resources.
+- Ensure Azure Private 5G Core supports the region to which you want to move your resources. <!-- Refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) -->
 - Verify pricing and charges associated with the target region to which you want to move your resources.
 - Choose a name for your new resource group in the target region. This must be different to the source region's resource group name.
 
