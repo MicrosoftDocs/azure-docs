@@ -167,7 +167,7 @@ The open-standard technology Jakarta EE Contexts and Dependency Injection (CDI) 
     ```
 
     > [!IMPORTANT]
-    > Live Coding (also called dev mode) allows you to run the app and make changes on the fly. Quarkus will automatically re-compile and reload the app when changes are made. This is a powerful and efficient style of developing that you'll use throughout this article.
+    > Live Coding (also called dev mode) allows you to run the app and make changes on the fly. Quarkus will automatically recompile and reload the app when changes are made. This is a powerful and efficient style of developing that you'll use throughout this article.
 
     Before you move forward to the next step, stop Quarkus dev mode by selecting Ctrl+C.
 
@@ -250,7 +250,7 @@ Sign in to [the portal](https://aka.ms/publicportal) and ensure that you've sele
 
     :::image type="content" source="media/functions-create-first-quarkus/azure-function-app-detail.png" alt-text="Screenshot that shows a URL and other function app details.":::
 
-1. Confirm that the welcome page says that your function app is "up and running."
+1. Confirm that the welcome page says your function app is "up and running."
 
     :::image type="content" source="media/functions-create-first-quarkus/azure-function-app-ready.png" alt-text="Screenshot that shows the welcome page for a function app.":::
 
