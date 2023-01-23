@@ -114,7 +114,7 @@ The concept of a *change* is an operation on a document. The most common scenari
 
 * The account is using the *eventual consistency* model. While it's consuming the change feed at an eventual consistency level, there could be duplicate events in-between subsequent change feed read operations. That is, the *last* event of one read operation might appear as the *first* event of the next.
 
-* The document is being updated. The change feed can contain multiple operations for the same documents. If the document is receiving updates, it can pick up multiple events (one for each update). One easy way to distinguish among different operations for the same document is to track the `_lsn` [property for each change](../change-feed.md#change-feed-and-_etag-_lsn-or-_ts). If the properties don't match, the changes are different.
+* The document is being updated. The change feed can contain multiple operations for the same documents. If the document is receiving updates, it can pick up multiple events (one for each update). One easy way to distinguish among different operations for the same document is to track the `_lsn` [property for each change](change-feed-latest-version.md#parsing-the-response-object). If the properties don't match, the changes are different.
 
 * If you're identifying documents only by `id`, remember that the unique identifier for a document is the `id` and its partition key. (Two documents can have the same `id` but a different partition key.)
 

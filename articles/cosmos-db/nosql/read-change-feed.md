@@ -20,7 +20,7 @@ With a pull model, the client has to pull the work from the server. The client, 
 When reading from the Azure Cosmos DB change feed, we usually recommend using a push model because you won't need to worry about:
 
 - Polling the change feed for future changes.
-- Storing state for the last processed change. When reading from the change feed, this is automatically stored in a [lease container](change-feed-processor.md#components-of-the-change-feed-processor).
+- Storing state for the last processed change. When reading from the change feed processor, this is automatically stored in a [lease container](change-feed-processor.md#components-of-the-change-feed-processor).
 - Load balancing across multiple clients consuming changes. For example, if one client can't keep up with processing changes and another has available capacity.
 - [Handling errors](change-feed-processor.md#error-handling). For example, automatically retrying failed changes that weren't correctly processed after an unhandled exception in code or a transient network issue.
 
