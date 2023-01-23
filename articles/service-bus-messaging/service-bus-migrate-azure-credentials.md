@@ -6,7 +6,7 @@ author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
 ms.date: 12/07/2022
-ms.service: servicebus
+ms.service: service-bus
 ms.subservice: common
 ms.topic: how-to
 ms.custom:
@@ -249,5 +249,4 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
-* [Authorize with Azure roles](../blobs/authorize-access-azure-active-directory.md)
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
