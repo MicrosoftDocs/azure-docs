@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the change data capture resource
 titleSuffix: Azure Data Factory
-description: Learn how to troubleshoot issues with the change data capture resourex in Azure Data Factory. 
+description: Learn how to troubleshoot issues with the change data capture resoure in Azure Data Factory. 
 author: n0elleli
 ms.service: data-factory
 ms.subservice:
@@ -70,11 +70,11 @@ The debug cluster is not available from a warm pool. There will be a wait time i
 
 ## Issue: My CDC resource has both source and target linked services that use custom integration runtimes and it won't work. 
 
-In factories with virtual networks, CDC resources will work fine if either the source or target linked service is tied to an auto-resolve integration runtime. If both the source and target linked services use custom integration runtimess, the CDC resource will not work. 
+In factories with virtual networks, CDC resources will work fine if either the source or target linked service is tied to an auto-resolve integration runtime. If both the source and target linked services use custom integration runtimes, the CDC resource will not work. 
 
 In non-virtual network factories, CDC resources requiring a virtual network will not work. This fix is in progress. 
 
-## Issue: Creating a new linked services pointing to an Azure Key Vault linked service causes an error. 
+## Issue: Creating a new linked service pointing to an Azure Key Vault linked service causes an error. 
 
 If you create a new linked service using the CDC fly-out process that points to an Azure Key Vault linked service, the CDC resource will break. This fix is in progress. 
 
