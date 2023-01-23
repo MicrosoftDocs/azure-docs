@@ -149,7 +149,12 @@ kubectl get pods --all-namespaces
 
 ### Deploy an AKS Mariner cluster with an ARM template
 
-To add Mariner to an existing ARM template, you need to add `"osSKU": "mariner"` and `"mode": "System"` to `agentPoolProfiles` and set the apiVersion to 2021-03-01 or newer (`"apiVersion": "2021-03-01"`). The following deployment uses the ARM template "marineraksarm.json".
+To add Mariner to an existing ARM template, you need to do the following:
+
+- Add `"osSKU": "mariner"` and `"mode": "System"` to agentPoolProfiles property.
+- Set the apiVersion to 2021-03-01 or newer: `"apiVersion": "2021-03-01"`
+
+The following deployment uses the ARM template `marineraksarm.json`.
 
 ```json
 {
@@ -281,7 +286,7 @@ To add Mariner to an existing ARM template, you need to add `"osSKU": "mariner"`
 }
 ```
 
-Create this file on your system and fill it with the contents of the Mariner AKS JSON file.
+Create this file on your system and include the settings defined in the `marineraksarm.json` file.
 
 ```azurecli
 az group create --name MarinerTest --location eastus
