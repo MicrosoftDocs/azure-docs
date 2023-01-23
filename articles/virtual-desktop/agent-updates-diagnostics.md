@@ -3,7 +3,7 @@ title: Set up diagnostics for monitoring agent updates
 description: How to set up diagnostic reports to monitor agent updates.
 author: Sefriend
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 01/23/2023
 ms.author: sefriend
 manager: rkiran
 ---
@@ -25,28 +25,6 @@ To enable sending diagnostic logs to your Log Analytics workspace:
 
 > [!NOTE]
 > The log query results only cover the last 30 days of data in your deployment.
-
-## Use diagnostics to see when an update becomes available
-
-To see when agent component updates are available: 
-
-1. Access the logs in your Log Analytics workspace.
-
-2. Select the **+** button to create a new query.
-
-3. Copy and paste the following Kusto query to see if agent component updates are available for the specified session host. Make sure to change the **sessionHostName** parameter to the name of your session host.
-
-> [!NOTE]
-> If you haven't enabled the Scheduled Agent Updates feature, you won't see anything in the NewPackagesAvailable field.
-
-```kusto
-WVDAgentHealthStatus 
-| where TimeGenerated >= ago(30d) 
-| where SessionHostName == "sessionHostName" 
-| project TimeGenerated, AgentVersion, SessionHostName, LastUpgradeTimeStamp, UpgradeState, UpgradeErrorMsg, NewPackagesAvailable
-| sort by TimeGenerated desc
-| take 1
-```
 
 ## Use diagnostics to see when agent updates are happening
 
