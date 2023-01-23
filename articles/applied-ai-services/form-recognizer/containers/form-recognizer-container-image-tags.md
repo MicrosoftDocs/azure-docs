@@ -33,7 +33,7 @@ Form Recognizer features are supported by seven containers:
 
 ## Microsoft container registry
 
-A list of container images can be found on the [**Microsoft Container Registry**](https://mcr.microsoft.com/v2/_catalog), the primary registry for all Microsoft Published Docker images:
+Form Recognizer container images can be found within the [**Microsoft Container Registry Catalog**](https://mcr.microsoft.com/v2/_catalog) listing, the primary registry for all Microsoft Published Docker images:
 
   :::image type="content" source="../media/containers/mcr-container-images.png" alt-text="Screenshot of the mcr container catalog list.":::
 
