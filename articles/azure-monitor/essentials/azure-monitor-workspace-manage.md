@@ -148,6 +148,7 @@ Output
 ```
 
 ### [Resource Manager](#tab/resource-manager)
+
 To set-up an Azure monitor workspace as a data source for Grafana using Resource Manager tempaled see [Collect Prometheus metrics from AKS cluster (preview)](prometheus-metrics-enable.md?tabs=resource-manager#enable-prometheus-metric-collection)
 ---
 
