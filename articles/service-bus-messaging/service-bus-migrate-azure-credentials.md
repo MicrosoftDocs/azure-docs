@@ -37,7 +37,7 @@ Connection strings should be used with caution. Developers must be diligent to n
 
 ## Steps to migrate an app to use passwordless authentication
 
-The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
+The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. You'll first configure a local development environment, and then apply those concepts to an Azure app hosting environment. These same migration steps should apply whether you're using access keys directly, or through connection strings.
 
 ### Configure roles and users for local development authentication
 

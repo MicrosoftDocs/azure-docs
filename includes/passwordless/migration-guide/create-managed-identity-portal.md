@@ -37,6 +37,7 @@ The Service Connector will automatically create a system-assigned managed identi
 1. On the main overview page of your Azure App Service instance, select **Identity** from the left navigation.
 
 1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
+
    :::image type="content" source="../media/migration-create-identity-small.png" alt-text="Screenshot showing how to create a system assigned managed identity."  lightbox="../media/migration-create-identity.png":::
 
 ### [Azure Spring Apps](#tab/spring-apps)

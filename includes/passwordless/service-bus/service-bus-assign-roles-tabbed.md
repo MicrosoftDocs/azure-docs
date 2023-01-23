@@ -10,7 +10,7 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
-When developing locally, make sure that the user account that is accessing Service Bus has the correct permissions. You'll need **Azure Service Bus Data Owner** to send and receive data. To assign yourself this role, you'll need to be assigned the **User Access Administrator** role, or another role that includes the **Microsoft.Authorization/roleAssignments/write** action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../../../articles/role-based-access-control/scope-overview.md) page.
+When developing locally, make sure that the user account that is accessing Service Bus has the correct permissions. In this example you'll use the **Azure Service Bus Data Owner** role to send and receive data, though more granular roles are also available. To assign yourself this role, you'll need to be assigned the **User Access Administrator** role, or another role that includes the **Microsoft.Authorization/roleAssignments/write** action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../../../articles/role-based-access-control/scope-overview.md) page.
 
 In this scenario, you'll assign permissions to your user account scoped to a specific Service Bus namespace, to follow the [Principle of Least Privilege](../../../articles/active-directory/develop/secure-least-privileged-access.md). This practice gives users only the minimum permissions needed and creates more secure production environments.
 
@@ -47,7 +47,7 @@ To assign a role at the resource level using the Azure CLI, you first must retri
 az servicebus namespace show --resource-group '<your-resource-group-name>' --name '<your-service-bus-namespace>' --query id
 ```
 
-Copy the output `Id` from the preceding command. You can then assign roles using the [az role](/cli/azure/role) command of the Azure CLI.
+Copy the output `ID` from the preceding command. You can then assign roles using the [az role](/cli/azure/role) command of the Azure CLI.
 
 ```azurecli
 az role assignment create --assignee "<user@domain>" \
@@ -63,7 +63,7 @@ To assign a role at the resource level using Azure PowerShell, you first must re
 Get-AzResource -ResourceGroupName "<yourResourceGroupname>" -Name "<yourServiceBusName>"
 ```
 
-Copy the `Id` value from the preceding command output. You can then assign roles using the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command in PowerShell.
+Copy the `ID` value from the preceding command output. You can then assign roles using the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command in PowerShell.
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <user@domain> `
