@@ -1,7 +1,7 @@
 ---
 title: Change Data Capture Resource
 titleSuffix: Azure Data Factory
-description: Learn more about the Change Data Capture resource in Azure Data Factory.
+description: Learn more about the change data capture resource in Azure Data Factory.
 author: n0elleli
 ms.author: noelleli
 ms.reviewer:
@@ -13,8 +13,7 @@ ms.date: 01/20/2023
 ---
 
 # Change data capture resource overview
-
-[!INCLUDE[appliesto-adf-asa-md]]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Adapting to the cloud-first big data world can be incredibly challenging for data engineers who are responsible for building complex data integration and ETL pipelines. 
 
@@ -24,7 +23,7 @@ By automatically detecting data changes at the source without requiring complex 
 
 The new Change Data Capture resource in ADF allows for full fidelity change data capture that continuously runs in near real-time through a guided configuration experience. 
 
-:::image type="content" source="media/adf-cdc/change-data-capture-resource-1.png" alt-text="New top-level resource in Factory Resources panel.":::
+:::image type="content" source="media/adf-cdc/change-data-capture-resource-1.png" alt-text="Screenshot of new top-level resource in Factory Resources panel.":::
 
 ## Supported data sources
 
