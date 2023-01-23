@@ -15,13 +15,13 @@ services: azure-maps
 The Azure Maps Java SDK can be integrated with Java applications and libraries to build maps-related and location-aware applications. The Azure Maps Java SDK contains APIs for Search, Route, Render, Elevation, Geolocation, Traffic, TimeZone, and Weather. These APIs support operations such as searching for an address, routing between different coordinates, obtaining the geo-location of a specific IP address etc.
 
 > [!NOTE]
-> Azure Maps Java SDK is baselined on Java 8, with testing and forward support up until the latest Java long-term support release (currently Java 18). For the list of Java versions for download, see [Java Standard Versions][java downloads].
+> Azure Maps Java SDK is baselined on Java 8, with testing and forward support up until the latest Java long-term support release (currently Java 18). For the list of Java versions for download, see [Java Standard Versions].
 
 ## Prerequisites
 
-- [Azure Maps account][Azure Maps account].
-- [Subscription key][Subscription key] or other form of [authentication][authentication].
-- [Java Version 8][java v8] or above  
+- [Azure Maps account].
+- [Subscription key] or other form of [authentication].
+- [Java Version 8] or above  
 - Maven (any version). For more information, see [Get started with Azure SDK and Apache Maven][maven].
 
 > [!TIP]
@@ -33,7 +33,7 @@ The Azure Maps Java SDK can be integrated with Java applications and libraries t
 
 ## Create a Maven project
 
-The following PowerShell code snippet demonstrates how to use PowerShell to create a maven project. First we will run maven command to create maven project: 
+The following PowerShell code snippet demonstrates how to use PowerShell to create a maven project. First we will run maven command to create maven project:
 
 ```powershell
 mvn archetype:generate "-DgroupId=groupId" "-DartifactId=DemoProject" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DarchetypeVersion=1.4" "-DinteractiveMode=false" 
@@ -94,7 +94,7 @@ After creating the maven project, there should be a `pom.xml` file with basic in
 Run `mvn clean install` on your project. If this causes errors, try `mvn clean install -U` and then create a java file `demo.java` and import what you need from Azure maps into the file as shown in examples below.
 
 ```powershell
-cd DemoProject
+cd DemoProject 
 New-Item demo.java 
 ``` 
 
@@ -254,42 +254,42 @@ After finishing the program, go to the project folder and run `java .\demo.java`
 
 ```powershell
 java .\demo.java 
-```  
+```
 
 You should see a list of Starbucks address and coordinate results:
 
- ```text  
-* 1912, Pike Place 
-  Seattle US 98101 
-  Coordinate: (47.6102, -122.3425) 
-* 2118, Westlake Avenue 
-  Seattle US 98121 
-  Coordinate: (47.6173, -122.3378) 
-* 2601, Elliott Avenue 
-  Seattle US 98121 
-  Coordinate: (47.6143, -122.3526) 
-* 1730, Howell Street 
-  Seattle US 98101 
-  Coordinate: (47.6172, -122.3298) 
-* 220, 1st Avenue South 
-  Seattle US 98104 
-  Coordinate: (47.6003, -122.3338) 
-* 400, Occidental Avenue South 
-  Seattle US 98104 
-  Coordinate: (47.5991, -122.3328) 
-* 1600, East Olive Way 
-  Seattle US 98102 
-  Coordinate: (47.6195, -122.3251) 
-* 500, Mercer Street 
-  Seattle US 98109 
-  Coordinate: (47.6250, -122.3469) 
-* 505, 5Th Ave S 
-  Seattle US 98104 
-  Coordinate: (47.5977, -122.3285) 
-* 425, Queen Anne Avenue North 
-  Seattle US 98109 
-  Coordinate: (47.6230, -122.3571) 
-```  
+```text
+* 1912, Pike Place
+  Seattle US 98101
+  Coordinate: (47.6102, -122.3425)
+* 2118, Westlake Avenue
+  Seattle US 98121
+  Coordinate: (47.6173, -122.3378)
+* 2601, Elliott Avenue
+  Seattle US 98121
+  Coordinate: (47.6143, -122.3526)
+* 1730, Howell Street
+  Seattle US 98101
+  Coordinate: (47.6172, -122.3298)
+* 220, 1st Avenue South
+  Seattle US 98104
+  Coordinate: (47.6003, -122.3338)
+* 400, Occidental Avenue South
+  Seattle US 98104
+  Coordinate: (47.5991, -122.3328)
+* 1600, East Olive Way
+  Seattle US 98102
+  Coordinate: (47.6195, -122.3251)
+* 500, Mercer Street
+  Seattle US 98109
+  Coordinate: (47.6250, -122.3469)
+* 505, 5Th Ave S
+  Seattle US 98104
+  Coordinate: (47.5977, -122.3285)
+* 425, Queen Anne Avenue North
+  Seattle US 98109
+  Coordinate: (47.6230, -122.3571)
+```
 
 ## Search an address
 
@@ -399,8 +399,8 @@ TODO: Need a link to additional information.
 [Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
 [authentication]: azure-maps-authentication.md
 
-[java downloads]: https://www.oracle.com/java/technologies/downloads/
-[java v8]: /azure/developer/java/fundamentals/?view=azure-java-stable
+[Java Standard Versions]: https://www.oracle.com/java/technologies/downloads/
+[Java Version 8]: /azure/developer/java/fundamentals/?view=azure-java-stable
 [maven]: /azure/developer/java/sdk/get-started-maven
 [authentication]: /azure/azure-maps/azure-maps-authentication
 [Identity library]: /java/api/overview/azure/identity-readme?source=recommendations&view=azure-java-stable
