@@ -7,17 +7,15 @@ Many Azure services support passwordless connections through Azure AD and Role B
 
 The order and locations in which `DefaultAzureCredential` searches for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential) and varies between languages. For example, when working locally with .NET, `DefaultAzureCredential` will generally authenticate using the account the developer used to sign-in to Visual Studio. When the app is deployed to Azure, `DefaultAzureCredential` will automatically switch to use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). No code changes are required for this transition.
 
-:::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-net/main/sdk/identity/Azure.Identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg" alt-text="Diagram of the credential flow.":::
-
 > [!NOTE]
 > A managed identity provides a security identity to represent an app or service. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. You can read more about managed identities in the [overview](../../active-directory/managed-identities-azure-resources/overview.md) documentation.
 
-The following code example demonstrates how to connect to an Azure Storage account using passwordless connections. The next section describes how to migrate to this setup for a specific service in more detail.
+The following code example demonstrates how to connect to Service Bus using passwordless connections. The next section describes how to migrate to this setup for a specific service in more detail.
 
 A .NET Core application can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
 ```csharp
-var blobServiceClient = new BlobServiceClient(
-    new Uri("https://<your-storage-account>.blob.core.windows.net"),
+var serviceBusClient = new ServiceBusClient(
+    new Uri("https://<your-service-bus-namespace>.blob.core.windows.net"),
     new DefaultAzureCredential());
 ```

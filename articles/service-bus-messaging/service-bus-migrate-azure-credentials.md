@@ -22,7 +22,7 @@ ms.devlang: csharp
 
 Application requests to Azure Service Bus must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, passwordless connections.
 
-## Security risks associated with Shared Key authorization
+## Security risks associated with connection strings
 
 The following code example demonstrates how to connect to Azure Service Bus using a connection string. When you create a Service Bus Namespace, Azure generates connection strings automatically. Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. If your application currently uses connection strings, consider migrating to passwordless connections using the steps described later in this document.
 
@@ -64,7 +64,7 @@ Next you will need to update your code to use passwordless connections.
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that currently create a `ServiceBusClient` to connect to Azure Servicei Bus. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to match the following example:
+1. Identify the locations in your code that currently create a `ServiceBusClient` to connect to Azure Service Bus. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to match the following example:
 
    ```csharp
     var clientOptions = new ServiceBusClientOptions

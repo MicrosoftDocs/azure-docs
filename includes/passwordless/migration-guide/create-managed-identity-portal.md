@@ -21,9 +21,9 @@ For this migration guide you will use App Service, but the steps are similar on 
 
 1. Select **+ Create** from the top menu and the **Create connection** panel will open.  Enter the following values:
 
-   * **Service type**: Choose **Storage blob**.
+   * **Service type**: Choose **Service bus**.
    * **Subscription**: Select the subscription you would like to use.
-   * **Connection Name**: Enter a name for your connection, such as *connector_appservice_blob*.
+   * **Connection Name**: Enter a name for your connection, such as *connector_appservice_servicebus*.
    * **Client type**: Leave the default value selected or choose the specific client you'd like to use.
 
    Select **Next: Authentication**.
@@ -34,7 +34,7 @@ For this migration guide you will use App Service, but the steps are similar on 
 1. Leave the default values selected, and then choose **Next: Review + Create**.
 1. After Azure validates your settings, select **Create**.
 
-The Service Connector will automatically create a system-assigned managed identity for the app service. The connector will also assign the managed identity a **Storage Blob Data Contributor** role for the storage account you selected.
+The Service Connector will automatically create a system-assigned managed identity for the app service. The connector will also assign the managed identity a **Service Bus Data Owner** role for the service bus you selected.
 
 ### [Azure App Service](#tab/app-service)
 
