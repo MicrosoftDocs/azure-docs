@@ -13,7 +13,7 @@ ms.author: juliako
 
 The **textual logo detection** insight is an OCR-based textual detection, which matches a specific predefined text. For example, if a user created a textual logo: "Microsoft", different appearances of the word *Microsoft* will be detected as the "Microsoft" logo. A logo can have different variations, these variations can be associated with the main logo name. For example, user might have under the "Microsoft" logo the following variations: "MS" or "MSFT". 
 
-When using the OCR, text can be detect. For example, in the following screen "Microsoft" is detected.
+When using the OCR, text can be detected. For example, in the following screen "Microsoft" is detected.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/textual-logo-detection/microsoft-example.png" alt-text="Diagram of logo detection.":::
