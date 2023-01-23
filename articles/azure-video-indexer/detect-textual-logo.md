@@ -13,7 +13,7 @@ ms.author: juliako
 
 The **textual logo detection** insight is an OCR-based textual detection, which matches a specific predefined text. For example, if a user created a textual logo: "Microsoft", different appearances of the word *Microsoft* will be detected as the "Microsoft" logo. A logo can have different variations, these variations can be associated with the main logo name. For example, user might have under the "Microsoft" logo the following variations: "MS" or "MSFT". 
 
-When using the OCR, text can be detected. For example, in the following screen "Microsoft" is detected.
+When using the OCR, a text in a video can be detected. For example, in the following screen "Microsoft" is detected.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/textual-logo-detection/microsoft-example.png" alt-text="Diagram of logo detection.":::
@@ -72,20 +72,20 @@ Insert the following:
  
 Use the upload API call: 
 
-Specify the 
+Specify the following:
 
-* Location: of the Azure Video Indexer account.
-* Account: ID of the Azure Video Indexer account. 
-* Name: of the media file you're indexing. 
-* Language: `en-US`. 
-* IndexingPreset: Select **Advanced Video/Audio+video**.  
-* Videourl - 
-* LogoGroupID: GUID representing the logo group. (You got it in the response when creating it).
-* Access token.
+* `Location`: The location of the Azure Video Indexer account.
+* `Account`: The ID of the Azure Video Indexer account. 
+* `Name`: The name of the media file you're indexing. 
+* `Language`: `en-US`. 
+* `IndexingPreset`: Select **Advanced Video/Audio+video**.  
+* `Videourl`: The url.
+* `LogoGroupID`: GUID representing the logo group (you got it in the response when creating it).
+* `Access token`: The token, at least at a contributor level permission. 
  
 ## Inspect the output 
 
-Assuming the textual logo model has found a match, you'll be able to view the result in the Azure Video Indexer website.
+Assuming the textual logo model has found a match, you'll be able to view the result in the [Azure Video Indexer website](https://www.videoindexer.ai/).
  
 ### Insights  
 
