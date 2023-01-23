@@ -48,24 +48,23 @@ Run the following command to update to the latest version of the extension relea
 az extension update --name aks-preview
 ```
 
-Then register the `TrustedAccessPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+Then register the `TrustedAccessPreview` feature flag by using the [`az feature register`][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [`az feature show`][az-feature-show] command:
 
 ```azurecli-interactive
 az feature show --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview"
 ```
 
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [`az provider register`][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
-
 
 ## Create an AKS cluster
 
@@ -84,7 +83,7 @@ After confirming which Role to use, use the Azure CLI to create a Trusted Access
 ```azurecli
 # Create a Trusted Access RoleBinding in an AKS cluster
 
-az aks trustedaccess rolebinding create  --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <rolebinding name> -s <connected service resource ID> --roles <rolename1, rolename2>
+az aks trustedaccess rolebinding create  --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <rolebinding name> -s <connected service resource ID> --roles <roleName1, roleName2>
 
 # Sample command
 
@@ -99,7 +98,7 @@ az aks trustedaccess rolebinding create \
 
 ## Update an existing Trusted Access RoleBinding with new roles
 
-For an existing RoleBinding with associated source service, you can update the RoleBinding with new Roles. 
+For an existing RoleBinding with associated source service, you can update the RoleBinding with new Roles.
 
 > [!NOTE]
 > The new RoleBinding may take up to 5 minutes to take effect as addon manager updates clusters every 5 minutes. Before the new RoleBinding takes effect, the old RoleBinding still works.
@@ -109,7 +108,7 @@ For an existing RoleBinding with associated source service, you can update the R
 ```azurecli
 # Update RoleBinding command
 
-az aks trustedaccess rolebinding update --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <existing rolebinding name>  --roles <new role name1, newrolename2>
+az aks trustedaccess rolebinding update --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <existing rolebinding name>  --roles <newRoleName1, newRoleName2>
 
 # Update RoleBinding command with sample resource group, cluster, and Roles
 
@@ -121,7 +120,7 @@ az aks trustedaccess rolebinding update \
 
 ---
 
-## Show the Trusted Access RoleBinding 
+## Show the Trusted Access RoleBinding
 
 Use the Azure CLI to show a specific Trusted Access RoleBinding.
 
@@ -133,17 +132,16 @@ az aks trustedaccess rolebinding show --name <rolebinding name> --resource-group
 
 ## List all the Trusted Access RoleBindings for a cluster
 
-Use the Azure CLI to list all the Trusted Access RoleBindings for a cluster
+Use the Azure CLI to list all the Trusted Access RoleBindings for a cluster.
 
 ```azurecli
 az aks trustedaccess rolebinding list --resource-group <AKS resource group> --cluster-name <AKS cluster name>
 ```
 
-
 ## Delete the Trusted Access RoleBinding for a cluster
 
 > [!WARNING]
-> Deleting the existing Trusted Access RoleBinding will cause disconnection from AKS cluster to partner service. 
+> Deleting the existing Trusted Access RoleBinding will cause disconnection from AKS cluster to partner service.
 
 Use the Azure CLI to delete an existing Trusted Access RoleBinding.
 
@@ -159,9 +157,8 @@ For more information on AKS and AzureML, see:
 * [Deploy and manage cluster extensions for AKS](/cluster-extensions.md)
 * [Deploy AzureML extension on AKS or Arc Kubernetes cluster](../machine-learning/how-to-deploy-kubernetes-extension.md)
 
-
-
-
 <!-- LINKS -->
 
 [az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-provider-register]: /cli/azure/provider#az-provider-register
