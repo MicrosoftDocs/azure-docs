@@ -1,6 +1,6 @@
 ---
-title: Configure Azure AD Multi-Factor Authentication and SSO for Oracle PeopleSoft applications using Datawiza Access Broker
-description: Enable Azure Active Directory Multi-Factor Authentication and SSO for Oracle PeopleSoft application using Datawiza Access Broker
+title: Configure Azure AD Multi-Factor Authentication and SSO for Oracle PeopleSoft applications using Datawiza Access Proxy
+description: Enable Azure AD MFA and SSO for Oracle PeopleSoft application using Datawiza Access Proxy
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -15,12 +15,16 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft
 
-This tutorial shows how to enable Azure Active Directory (Azure AD) single sign-on (SSO) and Azure AD Multi-Factor Authentication for an
-Oracle PeopleSoft application using Datawiza Access Broker (DAB).
+In this tutorial learn how to enable Azure Active Directory (Azure AD) single sign-on (SSO) and Azure AD Multi-Factor Authentication (MFA) for an
+Oracle PeopleSoft application using Datawiza Access Proxy (DAP).
 
-Benefits of integrating applications with Azure AD using DAB include:
+Learn more: [Datawiza Access Proxy](https://www.datawiza.com/)
 
-- [Proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust) through [Azure AD SSO](https://azure.microsoft.com/solutions/active-directory-sso/OCID=AIDcmm5edswduu_SEM_e13a1a1787ce1700761a78c235ae5906:G:s&ef_id=e13a1a1787ce1700761a78c235ae5906:G:s&msclkid=e13a1a1787ce1700761a78c235ae5906#features), [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) and
+Benefits of integrating applications with Azure AD using DAP:
+
+- [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust) - a security model that adapts to modern environments and embraces hybrid workplace, while it protects people, devices, apps, and data
+- [Azure Active Directory single sign-on](https://azure.microsoft.com/solutions/active-directory-sso/#overview) - secure and seamless access for users and apps, from any location, using a device
+- [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) and
   [Conditional Access](../conditional-access/overview.md).
 
 - [Easy authentication and authorization in Azure AD with no-code Datawiza](https://www.microsoft.com/security/blog/2022/05/17/easy-authentication-and-authorization-in-azure-active-directory-with-no-code-datawiza/). Use of web applications such as: Oracle JDE, Oracle E-Business Suite, Oracle Sibel, and home-grown apps.
