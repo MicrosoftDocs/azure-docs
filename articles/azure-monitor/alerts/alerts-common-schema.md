@@ -4,6 +4,8 @@ description: Understand the common alert schema, why you should use it, and how 
 ms.topic: conceptual
 ms.date: 12/22/2022
 ms.reviewer: ofmanor
+author: AbbyMSFT
+ms.author: abbyweisberg
 ---
 
 # Common alert schema
