@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
-ms.date: 10/12/2020
+ms.date: 01/20/2023
 ms.author: sebansal
 ---
 
@@ -26,7 +26,7 @@ ms.author: sebansal
   - **import**: Import certificate material into a Key Vault certificate
   - **delete**: Delete a certificate, its policy, and all of its versions  
   - **recover**: Recover a deleted certificate
-  - **backup**: Backup a certificate in a key vault
+  - **backup**: Back up a certificate in a key vault
   - **restore**: Restore a backed-up certificate to a key vault
   - **managecontacts**: Manage Key Vault certificate contacts  
   - **manageissuers**: Manage Key Vault certificate authorities/issuers

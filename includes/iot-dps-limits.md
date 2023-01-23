@@ -22,7 +22,7 @@ The following table lists the limits that apply to Azure IoT Hub Device Provisio
 | Maximum number of individual enrollments | 1,000,000 | Yes |
 | Maximum number of enrollment groups *(X.509 certificate)* | 100 | Yes |
 | Maximum number of enrollment groups *(symmetric key)* | 100 | No |
-| Maximum number of CAs | 25 | No |
+| Maximum number of CAs | 25 | Yes |
 | Maximum number of linked IoT hubs | 50 | No |
 | Maximum size of message | 96 KB| No |
 
@@ -33,7 +33,7 @@ The Device Provisioning Service has the following rate limits.
 
 | Rate | Per-unit value | Adjustable? |
 | --- | --- | --- |
-| Operations | 200/min/service | Yes |
-| Device registrations | 200/min/service | Yes |
+| Operations | 1,000/min/service | Yes |
+| Device registrations | 1,000/min/service | Yes |
 | Device polling operation | 5/10 sec/device | No |
 

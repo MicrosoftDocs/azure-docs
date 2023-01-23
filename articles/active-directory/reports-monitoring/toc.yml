@@ -28,8 +28,6 @@ items:
 
 - name: Tutorials
   items:
-  - name: Access Reporting API with certificates
-    href: tutorial-access-api-with-certificates.md
   - name: Stream logs to event hub
     href: tutorial-azure-monitor-stream-logs-to-event-hub.md
   - name: Log analytics wizard
@@ -49,8 +47,6 @@ items:
     href: concept-provisioning-logs.md
   - name: Usage and Insights report
     href: concept-usage-insights-report.md
-  - name: Reporting APIs
-    href: concept-reporting-api.md
   - name: Azure AD logs in Azure Monitor
     href: concept-activity-logs-azure-monitor.md
   - name: Plan a reporting and monitoring deployment
@@ -95,8 +91,6 @@ items:
       href: concept-sign-in-diagnostics-scenarios.md
     - name: Troubleshoot sign-in errors for a user
       href: howto-troubleshoot-sign-in-errors.md
-    - name: Cannot access Graph APIs for reporting
-      href: troubleshoot-graph-api.md
     - name: Audit data on verified domain change
       href: troubleshoot-audit-data-verified-domain.md
 
