@@ -10,11 +10,11 @@ ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/apis/azure-client/itokenprovider/
 ---
 
-# How to: Validate a User Created a Container
+# How to: Validate a user created a container
 
 When you create a container in Azure Fluid Relay, the JWT provided by the [ITokenProvider](https://fluidframework.com/docs/apis/azure-client/itokenprovider-interface) for the creation request can only be used once. After creating a container, the client must generate a new JWT that contains the document ID (which is really the container ID) provided by the service at creation time. If an application has an authorization service that manages container access control, it will need to know who created a container with a given ID in order to authorize the generation of a new JWT for access to that container.
 
-## Inform an Authorization Service when a Container is Created
+## Inform an authorization service when a container is created
 
 An application can tie into the container creation lifecycle by implementing a public [documentPostCreateCallback()](https://fluidframework.com/docs/apis/azure-client/itokenprovider-interface#documentpostcreatecallback-methodsignature) method in its `TokenProvider`. (The name of this function can be confusing. It is really a callback for post *container* creation.) This callback will be triggered directly after creating the container, before a client requests the new JWT it needs to gain read/write permissions to the container that was created.
 
