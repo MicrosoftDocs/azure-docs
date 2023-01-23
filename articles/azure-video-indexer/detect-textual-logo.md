@@ -11,18 +11,32 @@ ms.author: juliako
 > [!NOTE]
 > Textual logo detection (preview) creation process is currently available through API. The result can be viewed through the Azure Video Indexer [website](https://www.videoindexer.ai/). 
 
-The **textual logo detection** insight is an OCR-based textual detection, which matches a specific predefined text. For example, if a user created a textual logo: "Microsoft", different appearances of the word *Microsoft* will be detected as the "Microsoft" logo. A logo can have different variations, these variations can be associated with the main logo name. For example, user might have under the "Microsoft" logo the following variations: "MS" or "MSFT". 
+**Textual logo detection** insights are based on the OCR textual detection, which matches a specific predefined text.
 
-When using the OCR, a text in a video can be detected. For example, in the following screen "Microsoft" is detected.
+For example, if a user would create a textual logo: “Microsoft”, different appearances of the word ‘Microsoft’ will be detected as the ‘Microsoft’ logo. A logo can have different variations, these variations can be associated with the main logo name. For example, user might have under the ‘Microsoft’ logo the following variations: ‘MS’, ‘MSFT’ etc.
+
+```json
+{
+    "name": "Microsoft",
+    "wikipediaSearchTerm": "Microsoft",
+    "textVariations": [{
+        "text": "Microsoft",
+        "caseSensitive": false
+    }, {
+        "text": "MSFT",
+        "caseSensitive": true
+    }]
+}
+```
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/textual-logo-detection/microsoft-example.png" alt-text="Diagram of logo detection.":::
 
+## How to use
+
 ## Prerequisite
 
 The Azure Video Index account must have (at the very least) the `contributor` role assigned to the resource.
-
-## Textual logo detection steps
 
 In order to use textual logo detection, follow these steps, described in this article: 
 
@@ -37,6 +51,9 @@ In order to use textual logo detection, follow these steps, described in this ar
 ## Create a logo instance
 
 Use the [Create logo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Logo) API to create your logo. You can use the **try it** button.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/textual-logo-detection/logo-api.png" alt-text="Diagram of logo API.":::
  
 In this tutorial we use the example supplied as default: 
 
@@ -45,9 +62,23 @@ Insert the following:
 * `Location`: The location of the Azure Video Indexer account.
 * `Account ID`: The ID of the Azure Video Indexer account.
 * `Access token`: The token, at least at a contributor level permission. 
- 
+
 The default body is: 
   
+```json
+{
+    "name": "Microsoft",
+    "wikipediaSearchTerm": "Microsoft",
+    "textVariations": [{
+        "text": "Microsoft",
+        "caseSensitive": false
+    }, {
+        "text": "MSFT",
+        "caseSensitive": true
+    }]
+}
+```
+
 |Key|Value|
 |---|---|
 |Name|Name of the logo, would be used in the Azure Video Indexer website.|
@@ -55,8 +86,7 @@ The default body is:
 |text|The text the model will compare too, make sure to add the obvious name as part of the variations. (e.g Microsoft)|
 |caseSensitive| true/false according to the variation.|
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/textual-logo-detection/logo-api.png" alt-text="Diagram of logo API.":::
+The response should return **201 Created**.
 
 ## Create a new textual logo group 
  
@@ -67,12 +97,25 @@ Insert the following:
 * `Location`: The location of the Azure Video Indexer account.
 * `Account ID`: The ID of the Azure Video Indexer account.
 * `Access token`: The token, at least at a contributor level permission. 
-  
-> [!TIP]
-> The default example has two logo IDs, we have created out first group with only one logo ID. 
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/textual-logo-detection/logo-group-api.png" alt-text="Diagram of logo group API":::
+
+In the **Body** paste the logo ID from the previous step.
+
+```json
+{
+    "logos":[{
+       "logoId": "id"
+    ]},
+    "name": "Technology",
+    "description": "A group of logos of technology companies."
+}
+```
+
+* The default example has two logo IDs, we have created the first group with only one logo ID.
+
+    The response should return **201 Created". 
 
 ## Upload from URL 
  
@@ -83,7 +126,7 @@ Specify the following:
 * `Location`: The location of the Azure Video Indexer account.
 * `Account`: The ID of the Azure Video Indexer account. 
 * `Name`: The name of the media file you're indexing. 
-* `Language`: `en-US`. 
+* `Language`: `en-US`. For more information, see [Language support](language-support.md)
 * `IndexingPreset`: Select **Advanced Video/Audio+video**.  
 * `Videourl`: The url.
 * `LogoGroupID`: GUID representing the logo group (you got it in the response when creating it).
@@ -101,36 +144,46 @@ A new section would appear in the insights panel showing the number of custom lo
 > :::image type="content" source="./media/textual-logo-detection/logo-insight.png" alt-text="Diagram of logo insight.":::
 
 ### Timeline 
- 
-In the **Timeline** view, make sure to mark the **Logos** checkbox (under the **View**). 
 
-All detected thumbnails will be displayed according to their time stamp. All logo instances that were recognized with a certainty above 80% present will be displayed, the extended list of detection including low certainty detection are available in the **Artifacts** file. 
+When switching to the Timeline view, under the **View**, mark the **Logos** checkbox. All detected thumbnails will be displayed according to their time stamp.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/textual-logo-detection/logo-timeline.png" alt-text="Diagram of logo timeline.":::
 
-## Considerations and limitations  
-
-* A logo group can contain up to 50 logos. 
-* One logo can be linked to more than one group. 
-* Use the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) to add the new logo to an existing group. 
+All logo instances that were recognized with a certainty above 80% present will be displayed, the extended list of detection including low certainty detection are available in the [Artifacts](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url) file.
 
 ## Next steps
 
-Adding a logo to an existing logo group.
- 
-In the first part of this article, we had one instance of a logo and we've associated it to the right logo group upon the creation of the logo group. If all logo instances are created before the logo group is created, they can be associated with logo group on the creation phase. However, if the group was already created, the new instance should be associated to the group following the creation steps: 
+### Adding a logo to an existing logo group
+
+In the first part of this article, we had one instance of a logo and we have associated it to the right logo group upon the creation of the logo group. If all logo instances are created before the logo group is created, they can be associated with logo group on the creation phase. However, if the group was already created, the new instance should be associated to the group following these steps:
 
 1. Create the logo.
-1. Get logo groups and copy the logo group ID of the right group.
-1. Get logo group and copy the response the list of logos Ids: 
 
-    ```    
-    "logos": [{ 
-        "logoId": "<ID>" 
+    1. Copy the logo ID.
+1. [Get logo groups](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups). 
+
+    1. Copy the logo group ID of the right group. 
+1. [Get logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Group).
+
+    1. Copy the response the list of logos IDs:
+
+    Logo list sample:
+
+    ```json`
+    "logos": [{
+        "logoId": "e7c8af19-f139-4266-98ea-bc42715723ae"
     }],
-    ``` 
-    1. Update logo group. Add a Logo group ID is the output received at step 2. 
-    1. At the 'Body' of the request, paste the existing list of logos from step 3. 
-    1. Then add to the list the logo ID from step 1. 
-1. Validate the response of the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) making sure the list contains the previous and the new IDs. 
+    ```
+1. [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Logo-Group).
+
+    1. Logo group ID is the output received at step 2.
+    1. At the ‘Body’ of the request, paste the existing list of logos from step 3.
+    1. Then add to the list the logo Id from step 1.
+1. Validate the response of the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) making sure the list contains the previous ids and the new.
+
+### Additional information and limitations 
+ 
+* A logo group can contain up to 50 logos.
+* One logo can be linked to more than one group.
+* Use the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) to add the new logo to an existing group.
