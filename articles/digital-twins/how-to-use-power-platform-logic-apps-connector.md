@@ -73,6 +73,13 @@ Follow the steps below to create a sample flow with the connector in Logic Apps.
 
 For examples of using the connector in Power Platform flows, see [Azure Digital Twins getting started samples](https://github.com/Azure-Samples/azure-digital-twins-getting-started).
 
+## Limitations and suggestions
+
+Here are some limitations of the connector and suggestions for working with them.
+
+* Some connector actions (such as Add Model) require input in the form of a literal string that starts with *@*. In these cases, escape the *@* character by using *@@* instead. This will keep the literal value from being interpreted as a JSON expression.
+* Since Azure Digital Twins deals with dynamic schema responses, you should parse the JSON received from the APIs before consuming it in your application. For example, here's a set of calls that parse the data before extracting the `dtId` value: `Set(jsonVal, AzureDigitalTwins.GetTwinById(TextInput1.Text).result); Set(parsedResp, ParseJSON(jsonVal)); Set( DtId, Text(parsedResp.'$dtId'));`.
+
 ## Next steps
 
 For more information about Power Platform connectors, including how to use them in workflows across multiple products, see the [Power Platform and Azure Logic Apps connectors documentation](/connectors/connectors).
