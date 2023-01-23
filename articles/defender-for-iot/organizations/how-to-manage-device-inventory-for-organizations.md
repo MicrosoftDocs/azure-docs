@@ -192,4 +192,4 @@ For more information, see:
 
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
-- [Devices retention periods](references-data-retention.md#device-data-retention-periods).
+- [Device data retention periods](references-data-retention.md#device-data-retention-periods).
