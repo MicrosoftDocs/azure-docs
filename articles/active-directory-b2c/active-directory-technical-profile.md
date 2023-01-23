@@ -11,6 +11,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 12/11/2020
 ms.author: kengaderdus
+ms.reviewer: yoelhor
 ms.subservice: B2C
 ---
 

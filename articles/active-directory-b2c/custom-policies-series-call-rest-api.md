@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.custom: b2c-docs-improvements
 ms.date: 01/30/2023
 ms.author: kengaderdus
+ms.reviewer: yoelh
 ms.subservice: B2C
 ---
 
