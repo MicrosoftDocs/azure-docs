@@ -75,7 +75,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
     You create an agent and SAP system under the **Configuration > Add an API based collector agent** area.
     
-    :::image type="content" source="media/deploy-data-connector-agent-container/configuration-new-agent.png" alt-text="Screenshot of the Configuration > Add an API based collector agent area of the SAP data connector page.":::
+    :::image type="content" source="media/deploy-data-connector-agent-container/configuration-new-agent.png" alt-text="Screenshot of the Configuration > Add an API based collector agent area of the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/configuration-new-agent.png":::
 
 1. Deploy the agent. To add a system, you must add an agent first. 
     
@@ -86,7 +86,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 1. In the **Configuration** area, select **Add new agent (Preview)**.
     
-    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area." lightbox="media/deploy-data-connector-agent-container/create-agent.png":::
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the Create a collector agent area.":::
 
 1. Under **Create a collector agent** on the right, define the agent details:
     - Type the agent name, and select the subscription and key vault.
@@ -100,24 +100,24 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
-    :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" alt-text="Screenshot of the View icon.":::
+    :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment." lightbox="media/deploy-data-connector-agent-container/finish-agent-deployment.png":::
 
-1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon."::: next to **Agent command**.
+1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**.
 1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
 
     The relevant agent information is deployed into Azure Key Vault, and the new agent is visible in the table under **Add an API based collector agent**. At this stage, the agent's **Health** status is **Incomplete installation. Please follow the instructions**. If the agent is added successfully, the status changes to **Agent healthy**. This update can take up to 10 minutes. 
 
-    :::image type="content" source="media/deploy-data-connector-agent-container/create-agent.png" alt-text="Screenshot of the health statuses in the Configuration > Add an API based collector agent area of the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/create-agent.png":::
+    :::image type="content" source="media/deploy-data-connector-agent-container/configuration-new-agent.png" alt-text="Screenshot of the health statuses Configuration > Add an API based collector agent area of the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/configuration-new-agent.png":::
 
     The table displays the agent name and health status for agents you deploy via the UI only.   
     
-    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png border="false"" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
 #### Create a new system
 
 1. In the **Configuration** area, select **Add new system (Preview)**.
 
-    [TBD - screenshot]
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area." lightbox="media/deploy-data-connector-agent-container/create-system.png":::
 
 1. Under **Select an agent**, select the [agent you created in the previous step](#create-a-new-agent).
 1. Under **System identifier**, select the server type and provide the server details.
