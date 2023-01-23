@@ -73,3 +73,5 @@ items:
     href: https://aka.ms/managed-grafana/q-n-a
   - name: Feature request
     href: https://aka.ms/managed-grafana/feature-request
+  - name: Support
+    href: find-help-open-support-ticket.md
