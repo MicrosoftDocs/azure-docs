@@ -15,13 +15,11 @@ Azure Kubernetes Service (AKS) is now offering two pricing tiers for control pla
 |------------------|---------|--------|
 |**When to use**|• You want to experiment with AKS at no extra cost <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA|
 |**Supported cluster types**|• Development clusters or small scale testing environments <br> • Clusters with fewer than 10 nodes|• Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes|
-|**Pricing**|• Free basic cluster management <br> • Pay-as-you-go for resources you consume|• $0.10 per cluster per hour for greater scaling and performance support <br> • Pay-as-you-go for resources you consume|
+|**Pricing**|• Free cluster management <br> • Pay-as-you-go for resources you consume|• $0.10 per cluster per hour for greater scaling and performance support <br> • Pay-as-you-go for resources you consume|
 |**Feature comparison**|• Recommended for clusters with fewer than 10 nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• Uptime SLA is enabled by default <br> • Greater control plane reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features
 
 > [!NOTE]
 > You can still create an unlimited number of free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO.
-
-For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.
 
 ## Uptime SLA
 
@@ -56,7 +54,7 @@ The Uptime SLA feature is included in the Standard tier and is enabled per clust
 
 ## Creating a new cluster in the Free tier or Standard tier
 
-Use the Azure CLI to create a new cluster in the *Free tier* or *Standard tier*. You can create your cluster in an existing resource group or create a new one. To learn more about resource groups and working with them, see [managing resource groups using the Azure CLI][manage-resource-group-cli].
+Use the Azure CLI to create a new cluster on an AKS pricing tier. You can create your cluster in an existing resource group or create a new one. To learn more about resource groups and working with them, see [managing resource groups using the Azure CLI][manage-resource-group-cli].
 
 Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The commands below show you how to create a new resource group named *myResourceGroup* and a cluster named *myAKSCluster* in that resource group in each tier.
 
@@ -90,7 +88,7 @@ Once the deployment completes, it returns JSON-formatted information about your 
     "tier": "Free"
   },
 
-  # Sample output for `uptime-sla`
+# Sample output for `uptime-sla`
 
   },
   "sku": {
