@@ -7,7 +7,7 @@ ms.subservice: forms-recognizer
 author: laujan
 manager: nitinme
 ms.topic: reference
-ms.date: 01/18/2023
+ms.date: 01/23/2023
 ms.author: lajanuar
 ---
 
