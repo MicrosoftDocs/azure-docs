@@ -70,7 +70,7 @@ See [Monitor virtual machines with Azure Monitor: Analyze monitoring data](monit
 ### VM insights
 When you enable VM insights, then it will create a data collection rule, with the **_MSVMI-_** prefix that collects the following information. You can use this same DCR with other machines as opposed to creating a new one for each VM.
 
-- Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. Counter names will be normalized to use the same common name regardless of the operating system type.
+- Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. Counter names will be normalized to use the same common name regardless of the operating system type. See [How to query logs from VM insights](vminsights-log-query.md#performance-records) for a list of performance counters that are collected.
 - If you specified processes and dependencies to be collected, then the following tables are populated:
   
   - [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) - Traffic for open server ports on the machine
