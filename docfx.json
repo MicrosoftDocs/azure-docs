@@ -250,19 +250,19 @@
     },
     "fileMetadata": {
       "adobe-target": {
-				"articles/azure-functions/*": true,
-				"articles/container-apps/*": true,
-				"articles/cosmos-db/*": true,
-				"articles/app-service/*": true,
-				"articles/static-web-apps/*": true,
-				"articles/aks/*": true,
-				"articles/kubernetes-fleet/*": true,
-				"articles/api-management/*": true,
-				"articles/messaging-services/*": true,
-				"articles/defender-for-cloud/*": true,
-				"articles/azure-monitor/*": true,
-				"articles/key-vault/*": true
-			},
+        "articles/azure-functions/*": true,
+        "articles/container-apps/*": true,
+        "articles/cosmos-db/*": true,
+        "articles/app-service/*": true,
+        "articles/static-web-apps/*": true,
+        "articles/aks/*": true,
+        "articles/kubernetes-fleet/*": true,
+        "articles/api-management/*": true,
+        "articles/messaging-services/*": true,
+        "articles/defender-for-cloud/*": true,
+        "articles/azure-monitor/*": true,
+        "articles/key-vault/*": true
+      },
       "author": {
         "articles/advisor/*.md": "ikhapova",
         "articles/aks/**/*.md": "MGoedtel",
