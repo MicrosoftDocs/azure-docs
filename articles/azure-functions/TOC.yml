@@ -43,6 +43,9 @@
           - name: Maven 
             displayName: Java, quickstart, get started
             href: create-first-function-cli-java.md
+          - name: Quarkus 
+            displayName: Java, quickstart, get started
+            href: functions-create-first-quarkus.md
           - name: Spring Cloud
             displayName: Java, quickstart, get started
             href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
@@ -405,20 +408,6 @@
               items:
                 - name: Azure portal
                   href: functions-create-function-app-portal.md
-                - name: Command line
-                  href: ./create-first-function-cli-csharp.md
-                - name: Visual Studio
-                  href: ./functions-create-your-first-function-visual-studio.md
-                - name: Visual Studio Code
-                  href: ./create-first-function-vs-code-csharp.md
-                - name: Java with Quarkus
-                  href: functions-create-first-quarkus.md
-                - name: Java using Gradle
-                  href: functions-create-first-java-gradle.md
-                - name: Java using Eclipse
-                  href: functions-create-maven-eclipse.md
-                - name: Java using IntelliJ IDEA
-                  href: functions-create-maven-intellij.md
                 - name: Kotlin using Maven
                   href: functions-create-first-kotlin-maven.md
                 - name: Kotlin using IntelliJ
