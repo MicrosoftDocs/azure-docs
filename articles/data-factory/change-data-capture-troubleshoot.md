@@ -12,13 +12,13 @@ ms.custom:
 ---
 
 # Troubleshoot the Change data capture resource in Azure Data Factory
-[!INCLUDE[appliesto-adf-asa-md]]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article provides suggestions on how to troubleshoot common problems with the change data capture resource in Azure Data Factory.
 
 ## Issue: Trouble enabling native CDC in my SQL source. 
 
-For sources in SQL, two sets of tables are available: tables with native SQL CDC enabled and tables with time based incremental columns. 
+For sources in SQL, two sets of tables are available: tables with native SQL CDC enabled and tables with time-based incremental columns. 
 
 Follow these steps to configure native CDC for a specific source table in your SQL database.
 
@@ -40,14 +40,14 @@ CREATE TABLE Persons (
  > [!NOTE]
  > Currently the ADF CDC resource only loads net changes for insert, update and delete operations.
 
-To enable enable CDC at the database level, execute the following query: 
+To enable CDC at the database level, execute the following query: 
 
 **Query 2**
 
 ```sql
 EXEC sys.sp_cdc_enable_db
 ```
-To enable enable CDC at the table level, execute the following query: 
+To enable CDC at the table level, execute the following query: 
 
 **Query 3**
 
