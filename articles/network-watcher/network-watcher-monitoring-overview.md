@@ -9,7 +9,7 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 01/23/2023
 ms.author: halkazwini
-ms.custom: ms.custom: template-overview, mvc, engagement-fy23
+ms.custom: template-overview, mvc, engagement-fy23
 # Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
 
