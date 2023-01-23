@@ -120,6 +120,7 @@ A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-
 ## Announcements
 
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
+- [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
 
 ### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
