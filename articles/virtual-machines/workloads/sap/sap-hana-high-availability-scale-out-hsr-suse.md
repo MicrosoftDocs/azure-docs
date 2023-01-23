@@ -891,6 +891,7 @@ Configuration pointing to the standard location /usr/share/SAPHanaSR-ScaleOut br
     ```
 
 Verify the susChkSrv hook installation. Execute as <sid\>adm on all HANA VMs
+
     ```bash
     cdtrace
     egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
