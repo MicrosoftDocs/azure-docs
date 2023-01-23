@@ -1,5 +1,5 @@
 ---
-title: Change Data Capture
+title: Change data capture
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about change data capture in Azure Data Factory and Azure Synapse Analytics.
 author: kromerm
