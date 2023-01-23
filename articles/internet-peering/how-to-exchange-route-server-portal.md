@@ -1,5 +1,5 @@
 ---
-title: Create or modify an Exchange peering with Route Server using - Azure portal
+title: Create or modify an Exchange peering with Route Server - Azure portal
 description: Create or modify an Exchange peering with Route Server using the Azure portal
 services: internet-peering
 author: halkazwini
@@ -81,9 +81,9 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
      * Maximum advertised IPv4 prefix can be up to 20000. 
      * Use for Peering Service is disabled by default. It can be enabled once the exchange provider has signed a Peering Service Agreement with Microsoft.
 
-1. Upon completion, click **Save**. 
+1. Upon completion, select **Save**. 
 
-1. Under Create a peering, you will see validation passed. Once validation passed, click **Create**
+1. Under Create a peering, you'll see validation passed. Once validation passed, select **Create**
 
     > [!div class="mx-imgBorder"]
     > ![Validation of settings](./media/setup-exchange-conf-tab-validation.png)
@@ -101,9 +101,9 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the Register an A S N pane with Name and A S N text boxes.](./media/setup-exchange-register-new-asn.png)
 
-1. Under Register an ASN, select a Name, populate the customer ASN, and click Save.
+1. Under Register an ASN, select a Name, populate the customer ASN, and select Save.
 
-1. Under Registered ASNs, there will be an associated Prefix Key assigned to each ASN. As an exchange provider, you will need to provide this Prefix Key to your customer so they can register Peering Service under their subscription.
+1. Under Registered ASNs, there will be an associated Prefix Key assigned to each ASN. As an exchange provider, you'll need to provide this Prefix Key to your customer so they can register Peering Service under their subscription.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the Registered A S Ns pane with prefix keys.](./media/setup-exchange-register-asn-prefixkey.png)
