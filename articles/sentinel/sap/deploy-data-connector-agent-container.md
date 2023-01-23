@@ -100,7 +100,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 1. Select **Create** and review the recommendations before you complete the deployment:    
 
-    :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment." lightbox="media/deploy-data-connector-agent-container/finish-agent-deployment.png":::
+    :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
 1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**.
 1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
@@ -117,7 +117,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 1. In the **Configuration** area, select **Add new system (Preview)**.
 
-    :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area." lightbox="media/deploy-data-connector-agent-container/create-system.png":::
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area.":::
 
 1. Under **Select an agent**, select the [agent you created in the previous step](#create-a-new-agent).
 1. Under **System identifier**, select the server type and provide the server details.
