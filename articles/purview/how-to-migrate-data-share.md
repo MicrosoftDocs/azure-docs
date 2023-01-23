@@ -21,14 +21,14 @@ If you're a new user of data sharing in Microsoft Purview, you will receive upda
 
 | | **Classic Data Sharing** | **Updated Data Sharing** |
 |---|---|---|
-|Microsoft Purview Permissions|Data Share Contributor|None to use data sharing SDK. Minimum of Data Reader for data sharing user experience in Microsoft Purview portal|
+|Microsoft Purview Permissions|Data Share Contributor|None to use data sharing SDK. Minimum of Data Reader for data sharing user experience in Microsoft Purview compliance portal|
 |User experience|Share center for creating and managing shares|ADLSGen2 and Blob storage assets in the Microsoft Purview Catalog for creating and managing shares from the respective accounts|
 |Share assets| |Discover sent share and received share assets in the Catalog|
 |Share lineage| |See share lineage at the sent share and received share assets|
 
 ##	Migration process
 
-Microsoft Purview portal users of classic data sharing experience will be seamlessly migrated over to the updated data sharing experience, with no extra action needed. 
+Microsoft Purview compliance portal users of classic data sharing experience will be seamlessly migrated over to the updated data sharing experience, with no extra action needed. 
 
 Once the updated data sharing experience becomes available, if you're a user of classic data sharing, you will see both classic and updated data sharing experiences for two weeks after which you are migrated completely to the updated experience only. 
 
