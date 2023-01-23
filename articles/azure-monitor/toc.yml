@@ -1070,13 +1070,13 @@ items:
   - name: Network insights
     items:
     - name: Overview
-      displayname: Network Insights, Network
+      displayName: Network Insights, Network
       href: ../network-watcher/network-insights-overview.md
     - name: Topology
-      displayname: Network Insights, Network
+      displayName: Network Insights, Network
       href: ../network-watcher/network-insights-topology.md
     - name: Troubleshooting
-      displayname: Network Insights, Network
+      displayName: Network Insights, Network
       href: ../network-watcher/network-insights-troubleshooting.md    
   - name: Activity log insights
     href: essentials/activity-log-insights.md
