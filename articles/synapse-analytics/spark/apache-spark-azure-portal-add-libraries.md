@@ -54,7 +54,7 @@ By using the pool management capabilities of Azure Synapse Analytics, you can co
 
 Currently, pool management is supported only for Python. For Python, Azure Synapse Spark pools use Conda to install and manage Python package dependencies. 
 
-When you're specifying pool-level libraries, you can now provide a *requirements.txt* or an *environment.yml* file. This environment configuration file is used every time a Spark instance is created from that Spark pool.
+When you're specifying pool-level libraries, you can now provide a *requirements.txt* or *environment.yml* file. This environment configuration file is used every time a Spark instance is created from that Spark pool.
 
 To learn more about these capabilities, see [Manage Spark pool packages](./apache-spark-manage-pool-packages.md).
 
@@ -72,7 +72,7 @@ If you're having trouble identifying required dependencies, follow these steps:
 1. Run the following script to set up a local Python environment that's the same as the Azure Synapse Spark environment. The script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml), which is the list of libraries shipped in the default Python environment in Azure Synapse Spark.
 
    ```powershell
-      # One-time synapse Python setup
+      # One-time Azure Synapse Python setup
       wget Synapse-Python38-CPU.yml
       sudo bash Miniforge3-Linux-x86_64.sh -b -p /usr/lib/miniforge3
       export PATH="/usr/lib/miniforge3/bin:$PATH"
@@ -82,7 +82,7 @@ If you're having trouble identifying required dependencies, follow these steps:
    ```
 
 1. Run the following script to identify the required dependencies. 
-The script can be used to pass your *requirement.txt* file, which has all the packages and versions that you intend to install in the Spark 3.1 or Spark 3.2 pool. It will print the names of the *new* wheel files/dependencies for your input library requirements. 
+The script can be used to pass your *requirements.txt* file, which has all the packages and versions that you intend to install in the Spark 3.1 or Spark 3.2 pool. It will print the names of the *new* wheel files/dependencies for your input library requirements. 
 
    ```python
       # Command to list wheels needed for your input libraries.
