@@ -17,9 +17,6 @@ ms.author: thwimmer
 
 The objective of this tutorial is to demonstrate the steps to be performed in 15Five and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [15Five](https://www.15five.com/pricing/). For important details on what this service does, how it works, and frequently asked questions, see Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory.
 
-> [!NOTE]
-
-
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in 15Five
