@@ -5,10 +5,9 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: reference
-ms.date: 07/20/2020
+ms.date: 01/23/2023
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
-
 
 ---
 
@@ -16,11 +15,9 @@ ms.custom: devx-track-azurepowershell
 
 Error handling in Azure Attestation is implemented following [Microsoft REST API guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#7102-error-condition-responses). The error response returned by Azure Attestation APIs contains HTTP status code and name/value pairs with the names “code” and “message”. The value of “code” is human-readable and is an indicator of the type of error. The value of “message” intends to aid the user and provides error details.
 
-If your issue is not addressed in this article, you can also submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/).
+If your issue isn't addressed in this article, you can also submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/).
 
-Below are some examples of the errors returned by Azure Attestation:
-
-## 1. HTTP–401 : Unauthorized exception
+## 1. HTTP–401: Unauthorized exception
 
 ### HTTP status code
 401
@@ -29,8 +26,8 @@ Below are some examples of the errors returned by Azure Attestation:
 Unauthorized
 
 **Scenario examples**
-  - Unable to manage attestation policies as the user is not assigned with appropriate roles
-  - Unable to manage attestation policy signers as the user is not assigned with appropriate roles
+  - Unable to manage attestation policies as the user isn't assigned with appropriate roles
+  - Unable to manage attestation policy signers as the user isn't assigned with appropriate roles
 
 User with Reader role trying to edit an attestation policy in PowerShell 
 
@@ -50,7 +47,7 @@ In order to manage policies, an Azure AD user requires the following permissions
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-  To perform these actions, an Azure AD user must have "Attestation Contributor" role on the attestation provider. These permissions can be also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
+  To perform these actions, an Azure AD user must have "Attestation Contributor" role on the attestation provider. These permissions can also be inherited with roles such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) on  the subscription/ resource group.  
 
 In order to read policies, an Azure AD user requires the following permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
@@ -61,7 +58,7 @@ To verify the roles in PowerShell, run the below steps:
 
 a. Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
 
-b. Please refer the guidance [here](../role-based-access-control/role-assignments-list-powershell.md) to verify your Azure role assignment on the attestation provider
+b. Refer to the guidance [here](../role-based-access-control/role-assignments-list-powershell.md) to verify your Azure role assignment on the attestation provider
 
 c. If you don't find an appropriate role assignment, follow the instructions in [here](../role-based-access-control/role-assignments-powershell.md)
 
@@ -102,7 +99,7 @@ See [attestation policy examples](./policy-examples.md)
 InvalidParameter
 
 **Scenario examples**
-SGX attestation failure due to invalid input. Below are some of the examples for error messages:
+SGX attestation failure due to invalid input. Here are some examples of error messages:
 - The specified quote was invalid due to an error in the quote collateral 
 - The specified quote was invalid because the device on which the quote was generated does not meet the Azure baseline requirements
 - The specified quote was invalid because the TCBInfo or QEID provided by the PCK Cache Service was invalid

@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 01/23/2023
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 
@@ -17,7 +17,7 @@ Follow the below steps to create and configure an attestation provider using Azu
 
 > [!NOTE]
 > Az.Attestation module is now integrated into Az PowerShell module. Minimum version of Az module required to support attestation operations:
-  - Az 6.5.0
+  - Az PowerShell 6.5.0
   
 The PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. Hence you may receive the following errors:
 
@@ -46,7 +46,7 @@ Set-AzContext -Subscription <subscription id>
 
 ## Register Microsoft.Attestation resource provider
 
-Register the Microsoft.Attestation resource provider in subscription. For more information about Azure resource providers and how to configure and manage resources providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). Note that registering a resource provider is required only once for a subscription.
+Register the Microsoft.Attestation resource provider in subscription. For more information about Azure resource providers and how to configure and manage resources providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). Registering a resource provider is required only once for a subscription.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation
@@ -59,7 +59,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation
 
 ## Create an Azure resource group
 
-Create a resource group for the attestation provider. Note that other Azure resources (including a virtual machine with client application instance) can be put in the same resource group.
+Create a resource group for the attestation provider. Other Azure resources (including a virtual machine with client application instance) can be put in the same resource group.
 
 ```powershell
 $location = "uksouth" 
@@ -94,7 +94,7 @@ Get-AzAttestation retrieves the attestation provider properties like status and 
 Get-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup  
 ```
 
-The above command should produce an output like the one below: 
+The above command should produce output in this format: 
 
 ```
 Id:/subscriptions/MySubscriptionID/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/MyAttestationProvider
@@ -126,7 +126,7 @@ In order to manage policies, an Azure AD user requires the following permissions
 In order to read policies, an Azure AD user requires the following permission for "Actions":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
- To perform this action, an Azure AD user must have **Attestation Reader** role on the attestation provider. The read permission can be also be inherited with roles such as **Reader** (wildcard permissions) on  the subscription/ resource group.  
+ To perform this action, an Azure AD user must have **Attestation Reader** role on the attestation provider. The read permissions can be also be inherited with roles such as **Reader** (wildcard permissions) on  the subscription/ resource group.  
 
 Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
 
@@ -161,7 +161,7 @@ Reset-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName $attesta
 
 ## Policy signer certificates management
 
-Below PowerShell cmdlets provide policy signer certificates management for an attestation provider:
+These PowerShell cmdlets provide policy signer certificates management for an attestation provider:
 
 ```powershell
 Get-AzAttestationPolicySigners -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
@@ -171,7 +171,7 @@ Add-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $att
 Remove-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Signer <signer>
 ```
 
-Policy signer certificate is a signed JWT with claim named "maa-policyCertificate". Value of the claim is a JWK which contains the trusted signing key to add. The JWT must be signed with private key corresponding to any of the existing policy signer certificates.
+Policy signer certificate is a signed JWT with claim named "maa-policyCertificate". Value of the claim is a JWK, which contains the trusted signing key to add. The JWT must be signed with private key corresponding to any of the existing policy signer certificates.
 
 Note that all semantic manipulation of the policy signer certificate must be done outside of PowerShell. As far as PowerShell is concerned, it is a simple string.
 
