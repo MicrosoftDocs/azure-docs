@@ -1,15 +1,15 @@
 ---
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
-description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
+description: Learn about and deploy Pod Sandboxing (preview), also referred to as VM Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 01/20/2023
+ms.date: 01/23/2023
 
 ---
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 
-Container workloads running on Azure Kubernetes Service (AKS) share kernel and container host resources. This exposes the cluster to untrusted or potentially malicious code. To further secure and protect your workloads, AKS now includes a mechanism called Pod Sandboxing (preview) that provides an isolation boundary between the container application, and the shared kernel and resources of the container host (for example CPU, memory, and networking).
+Container workloads running on Azure Kubernetes Service (AKS) share kernel and container host resources. This exposes the cluster to untrusted or potentially malicious code. To further secure and protect your workloads, AKS now includes a mechanism called Pod Sandboxing (preview) that provides an isolation boundary between the container application, and the shared kernel and resources of the container host (for example CPU, memory, and networking).  
 
 Pod Sandboxing compliments other security measures or data protection controls with your overall architecture to help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
@@ -58,13 +58,13 @@ az feature register --namespace "Microsoft.ContainerService" --name "KataVMIsola
 It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "KataVMIsolationPrevieww"
+az feature show --namespace "Microsoft.ContainerService" --name "KataVMIsolationPreview"
 ```
 
 When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
+az provider register --namespace "Microsoft.ContainerService"
 ```
 
 ## Limitations
@@ -73,7 +73,7 @@ What limitations need to be specified?
 
 ## How it works
 
-To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Kernel isolation provides the ability to extend the benefits of hardware isolation such as separate kernel per each Kata Container, and allocate resources for each pod that aren't shared with other Kata Containers or namespace containers running on the same host.
+To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing provides the ability to extend the benefits of hardware isolation such as separate kernel per each Kata Container, and allocate resources for each pod that aren't shared with other Kata Containers or namespace containers running on the same host.
 
 The solution architecture is based on the following components:
 
@@ -85,16 +85,23 @@ The solution architecture is based on the following components:
 
 Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers, the deployment includes kata-runtime options that can be defined in the pod template.
 
-## Deploy
+## Deploy new cluster
 
 Perform the following steps to deploy an AKS Mariner cluster using either the Azure CLI, an Azure Resource Manager (ARM) template, or with Terraform.
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the `--os-sku mariner` and `--kernel-isolation` parameters. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
+1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
+
+   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. With this parameter, these additional parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+    * **--kubernetes-version**: Value must be 1.24.0 and higher. Earlier versions of Kubernetes are not supported in this preview release.
+    * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in this preview release.
+    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
+
+   The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
+    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --kubernetes-version 1.24.0
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
@@ -112,9 +119,9 @@ Perform the following steps to deploy an AKS Mariner cluster using either the Az
 
 To add Mariner to an existing ARM template, you need to add the following:
 
-* `"osSKU": "mariner"`
-* `"mode": "System"` to `agentPoolProfiles`
-* Set the apiVersion to 2021-03-01 or newer (`"apiVersion": "2021-03-01"`).
+* **osSKU**: "mariner"
+* **mode**: "System" under `agentPoolProfiles`
+* **apiVersion**: Set the apiVersion to 2021-03-01 or newer. For example, `"apiVersion": "2021-03-01"`.
 
 1. Create a file named *marineraksarm.json* on your system, and then paste the following manifest.
 
@@ -163,7 +170,7 @@ To add Mariner to an existing ARM template, you need to add the following:
         },
         "agentVMSize": {
           "type": "string",
-          "defaultValue": "Standard_DS2_v2",
+          "defaultValue": "Standard_D4s_v3",
           "metadata": {
             "description": "The size of the Virtual Machine."
           }
@@ -299,6 +306,25 @@ You can also specify the Mariner `os_sku` in [`azurerm_kubernetes_cluster_node_p
 
 ---
 
+## Deploy to an existing cluster
+
+To update an existing AKS cluster, if the cluster is running version 1.24.0 and higher, you can use the following command to enable Pod Sandboxing (preview).
+
+1. Create an AKS cluster using the [az aks nodepool add][az-aks-nodepool-add] command and specifying the following parameters:
+
+   * **--resource-group**: Enter the name of an existing resource group to create the AKS cluster in.
+   * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
+   * **--name**: Enter a unique name for your clusters nodepool, such as *nodepool2*.
+   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. With this parameter, these additional parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+    * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in this preview release.
+    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
+
+   The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
+
+    ```azurecli
+    az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --kubernetes-version 1.24.0
+    ```
+
 ## Deploy a trusted application
 
 To demonstrate the isolation of an application on the AKS cluster, perform the following steps.
@@ -306,34 +332,15 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
 1. Create a file named *trusted-app.yaml* to describe a trusted DaemonSet, and then paste the following manifest.
 
     ```yml
-    apiVersion: apps/v1
-    kind: DaemonSet
+    kind: Pod
+    apiVersion: v1
     metadata:
       name: trusted
     spec:
-      selector:
-        matchLabels:
-          app: trusted
-      template:
-        metadata:
-          labels:
-            app: trusted
-        spec:
-          containers:
-          - name: container1
-            image: fangluguopub.azurecr.io/ubuntu-debug
-            command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
-            volumeMounts:
-            - mountPath: "/host"
-              name: host-root  
-          volumes:
-            - name: host-root
-              hostPath:
-                path: "/"
-                type: ""
-          hostNetwork: true
-          hostPID: true
-          hostIPC: true
+      containers:
+      - name: trusted
+        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
     ```
 
 2. Deploy the Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *trusted-app.yaml* file:
@@ -345,7 +352,7 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
    The output of the command resembles the following example:
 
     ```output
-    daemonset.apps/trusted created
+    pod/trusted created
     ```
 
 3. To verify the deployment and that the kernel is isolated, run the following command.
@@ -367,36 +374,19 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 1. Create a file named *untrusted-app.yaml* to describe an un-trusted DaemonSet, and then paste the following manifest.
 
     ```yml
-    apiVersion: apps/v1
-    kind: DaemonSet
+    kind: Pod
+    apiVersion: v1
     metadata:
       name: untrusted
     spec:
-      selector:
-        matchLabels:
-          app: untrusted
-      template:
-        metadata:
-          labels:
-            app: untrusted
-        spec:
-          runtimeClassName: kata-qemu
-          containers:
-          - name: container1
-            image: fangluguopub.azurecr.io/ubuntu-debug
-            command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
-            volumeMounts:
-            - mountPath: "/host"
-              name: host-root  
-          volumes:
-            - name: host-root
-              hostPath:
-                path: "/"
-                type: ""
-          hostNetwork: true
-          hostPID: true
-          hostIPC: true
+      runtimeClassName: kata-mshv-vm-isolation
+      containers:
+      - name: untrusted
+        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
     ```
+
+   The value for **runtimeClassNameSpec** can be `kata-qemu` or `kata-mhsv`.
 
 2. Deploy the Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *untrusted-app.yaml* file:
 
@@ -407,35 +397,28 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
    The output of the command resembles the following example:
 
     ```output
-    daemonset.apps/untrusted created
-    ```
-
-3. To verify the deployment and that the kernel isn't isolated, run the following command.
-
-    ```bash
-    kubectl get nodes
-    ```
-
-    The output resembles the following for an untrusted node:
-
-    ```output
-    blah
+    pod/untrusted created
     ```
 
 ## Verify isolation configuration
 
-1. Run `cat /proc/version` on nested VM and shared VM to show kernel separation (nested is 1+, and shared is .m2)
+1. Start a shell session to the container in your cluster by running the [kubectl exec][kubectl-exec] command.
 
-2. Run `ps faux` on nested VM and shared VM to show resource isolation.
+    ```bash
+    kubectl exec -it trusted -- /bin/bash
+    ```
 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
 [azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [install-kubectl-linux]: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+[kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 [connect-to-aks-cluster-nodes]: node-access.md
+[dv3-series]: ../virtual-machines/dv3-dsv3-series.md#dsv3-series
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
