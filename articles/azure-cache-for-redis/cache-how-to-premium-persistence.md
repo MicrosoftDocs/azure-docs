@@ -7,6 +7,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2023
+ms.date: 01/23/2023
 
 ---
 # Configure data persistence for a Premium Azure Cache for Redis instance
