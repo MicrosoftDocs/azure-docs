@@ -44,9 +44,9 @@ In this tutorial we use the example supplied as default:
 
 Insert the following:
 
-• `Location`: The location of the Azure Video Indexer account.
-• `Account ID`: The ID of the Azure Video Indexer account.
-• `Access token`: The token, at least at a contributor level permission. 
+* `Location`: The location of the Azure Video Indexer account.
+* `Account ID`: The ID of the Azure Video Indexer account.
+* `Access token`: The token, at least at a contributor level permission. 
  
 The default body is: 
   
@@ -63,9 +63,9 @@ Use the [Create Logo Group](https://api-portal.videoindexer.ai/api-details#api=O
  
 Insert the following: 
 
-• `Location`: The location of the Azure Video Indexer account.
-• `Account ID`: The ID of the Azure Video Indexer account.
-• `Access token`: The token, at least at a contributor level permission. 
+* `Location`: The location of the Azure Video Indexer account.
+* `Account ID`: The ID of the Azure Video Indexer account.
+* `Access token`: The token, at least at a contributor level permission. 
   
 > [!TIP]
 > The default example has two logo ids, we have created out first group with only one logo Id. 
@@ -76,14 +76,14 @@ Use the upload API call:
 
 Specify the 
 
-• Location: of the Azure Video Indexer account.
-• Account: ID of the Azure Video Indexer account. 
-• Name: of the media file you're indexing. 
-• Language: `en-US`. 
-• IndexingPreset: Select **Advanced Video/Audio+video**.  
-• Videourl - 
-• LogoGroupID: GUID representing the logo group. (You got it in the response when creating it).
-• Access token.
+* Location: of the Azure Video Indexer account.
+* Account: ID of the Azure Video Indexer account. 
+* Name: of the media file you're indexing. 
+* Language: `en-US`. 
+* IndexingPreset: Select **Advanced Video/Audio+video**.  
+* Videourl - 
+* LogoGroupID: GUID representing the logo group. (You got it in the response when creating it).
+* Access token.
  
 ## Inspect the output 
 
@@ -103,7 +103,7 @@ All detected thumbnails will be displayed according to their time stamp. All log
 
 • A logo group can contain up to 50 logos. 
 • One logo can be linked to more than one group. 
-• Use the [Update logo group]() to add the new logo to an existing group. 
+• Use the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) to add the new logo to an existing group. 
 
 ## Next steps
 
@@ -112,15 +112,15 @@ Adding a logo to an existing logo group
 In the first part of this article, we had one instance of a logo and we've associated it to the right logo group upon the creation of the logo group. If all logo instances are created before the logo group is created, they can be associated with logo group on the creation phase. However, if the group was already created, the new instance should be associated to the group following the creation steps: 
 
 1. Create the logo.
-2. Get logo groups and copy the logo group ID of the right group  ;
-3. Get logo group and copy the response the list of logos Ids: 
+1. Get logo groups and copy the logo group ID of the right group.
+1. Get logo group and copy the response the list of logos Ids: 
 
     "logos": [{ 
-        "logoId": "<id>" 
+        "logoId": "<ID>" 
     }], 
-4. Update logo group 
+1. Update logo group 
 
-a. Logo group ID is the output received at step 2. 
-b. At the ‘Body’ of the request, paste the existing list of logos from step 3. 
-i. Then add to the list the logo ID from step 1. 
-5. Validate the response of the [Update logo group]() making sure the list contains the previous IDs and the new. 
+    1. Logo group ID is the output received at step 2. 
+    1. At the ‘Body’ of the request, paste the existing list of logos from step 3. 
+    1. Then add to the list the logo ID from step 1. 
+1. Validate the response of the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) making sure the list contains the previous and the new IDs. 
