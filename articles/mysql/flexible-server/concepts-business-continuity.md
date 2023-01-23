@@ -54,6 +54,11 @@ Here are some unplanned failure scenarios and the recovery process:
 | **Availability zone failure** | While it's a rare event, if you want to recover from a zone-level failure, you can perform Geo restore from to a paired region. RPO would be <1 h and RTO would vary. <br /> <br /> You can also use [read replica](./concepts-read-replicas.md) as DR solution by creating replica in other availability zone. RTO\RPO is like what is detailed above. | If you have enabled Zone redundant HA, Flexible server performs automatic failover to the standby site. Refer to [HA concepts](./concepts-high-availability.md) for more details. RTO is expected to be 60-120 s, with RPO=0.<br /> <br />Other available options are restored from backup. You can use both PITR or Geo restore from paired region.<br />**PITR :** RTO: Varies, RPO=0 sec <br />**Geo Restore :** RTO: Varies, RPO <1 h <br /> <br /> **Note:** *If you have same zone HA enabled the options are same as what we have for Recovery process [non-HA]* |
 | **Region failure** |While it's a rare event, if you want to recover from a region-level failure, you can perform database recovery by creating a new server using the latest geo-redundant backup available under the same subscription to get to the latest data. A new flexible server will be deployed to the selected region. The time taken to restore depends on the previous backup and the number of transaction logs to recover.  RPO in most cases would be <1 h and RTO would vary.  | For this scenario, the options are same as for Recovery process [non-HA] . |
 
+## Requirements and Limitations
+
+**Region Data Residency**
+
+By default, Azure Database for MySQL - Flexible Server doesn't move or store customer data out of the region it is deployed in. However, customers can optionally chose to enable geo-redundant backups or set up cross-region replication for storing data in another region.
 
 ## Next steps
 

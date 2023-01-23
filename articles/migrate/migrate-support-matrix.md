@@ -96,6 +96,7 @@ Japan |  Japan East or Japan West
 Jio India | Jio India West 
 Korea | Korea Central
 Norway | Norway East
+Sweden | Sweden Central
 Switzerland | Switzerland North
 United Arab Emirates | UAE North
 United Kingdom | UK South or UK West

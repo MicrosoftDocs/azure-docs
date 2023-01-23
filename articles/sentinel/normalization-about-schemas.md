@@ -19,9 +19,9 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | ------ | ------- | ------ |
 | [Audit Event](normalization-schema-audit.md) | 0.1 | Preview |
 | [Authentication Event](authentication-normalization-schema.md) | 0.1.2 | Preview |
-| [DNS Activity](dns-normalization-schema.md) | 0.1.5 | Preview |
+| [DNS Activity](normalization-schema-dns.md) | 0.1.6 | Preview |
 | [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
-| [File Activity](file-event-normalization-schema.md) | 0.2 | Preview |
+| [File Activity](normalization-schema-file-event.md) | 0.2 | Preview |
 | [Network Session](normalization-schema.md) | 0.2.5 | Preview |
 | [Process Event](process-events-normalization-schema.md) | 0.1.4 | Preview |
 | [Registry Event](registry-event-normalization-schema.md) | 0.1.2 | Preview |
@@ -103,8 +103,8 @@ Users are central to activities reported by events. The fields listed in this se
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="userid"></a>**UserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the  user.  |
-| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, an AAD tenant domain name. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
-| <a name="userscopeid"></a>**UserScopeId** | Optional | string | The ID of the scope in which [UserId](#userid) and [Username](#username) are defined. For example, an AAD tenant directory ID. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
+| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, an Azure AD tenant domain name. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
+| <a name="userscopeid"></a>**UserScopeId** | Optional | string | The ID of the scope in which [UserId](#userid) and [Username](#username) are defined. For example, an Azure AD tenant directory ID. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
 | <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
 | **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId** | Optional | String | Fields used to store specific user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). Populate the relevant specific ID field, in addition to [UserId](#userid), even if the event has only one ID. |
 | **UserAADTenant**, **UserAWSAccount** | Optional | String | Fields used to store specific scopes. Use the [UserScope](#userscope) field for the scope associated with the ID stored in the [UserId](#userid) field.  Populate the relevant specific scope field, in addition to [UserScope](#userscope), even if the event has only one ID. | 

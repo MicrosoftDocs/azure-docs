@@ -86,9 +86,9 @@ Using Sentinel ingested WAF logs, you can use Sentinel analytics rules to automa
 
 Azure WAF also comes in with built-in Sentinel detection rules templates for SQLi, XSS, and Log4J attacks. These templates can be found under the Analytics tab in the 'Rule Templates' section of Sentinel. You can use these templates or define your own templates based on the WAF logs. 
 
-:::image type="content" source="media//waf-sentinel/waf-detections.png" alt-text="WAF Detections" lightbox="media//waf-sentinel/waf-detections.png":::
+:::image type="content" source="media//waf-sentinel/waf-detections-1.png" alt-text="WAF Detections" lightbox="media//waf-sentinel/waf-detections-1.png":::
 
-The automation section of these rules can help you automatically respond to the incident by running a playbook  An example of such a playbook to respond to attack can be found in network security GitHub repository [here](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Playbook%20-%20WAF%20Sentinel%20Playbook%20Block%20IP%20-%20New). This playbook automatically creates WAF policy custom rules to block the source IPs of the attacker as detected by the WAF analytics detection rules.
+The automation section of these rules can help you automatically respond to the incident by running a playbook. An example of such a playbook to respond to attack can be found in network security GitHub repository [here](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Playbook%20-%20WAF%20Sentinel%20Playbook%20Block%20IP%20-%20New). This playbook automatically creates WAF policy custom rules to block the source IPs of the attacker as detected by the WAF analytics detection rules.
 
 
 ## Next steps

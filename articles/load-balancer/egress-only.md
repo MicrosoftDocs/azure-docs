@@ -6,7 +6,7 @@ author: mbender-ms
 ms.custom: seodec18
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 12/21/2022
+ms.date: 12/27/2022
 ms.author: mbender
 ---
 
@@ -79,13 +79,15 @@ In this section, you'll create the virtual network and subnets for the virtual m
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **myBackendSubnet** |
-    | Starting address | Enter **10.1.0.0/24** |
+    | Starting address | Enter **10.1.0.0** |
     | Subnet size | Select **/24** |
 
 1. Select **Add**.
 
 1. Select **Add a subnet**, enter this information:
+
     | Setting            | Value                      |
+    |--------------------|----------------------------|
     | Subnet template  |  Azure Bastion |
     | Starting address | Enter **10.1.1.0** |
     | Subnet size  |  Select **/26** |

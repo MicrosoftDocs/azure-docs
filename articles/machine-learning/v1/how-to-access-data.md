@@ -104,7 +104,7 @@ Azure Machine Learning requires extra configuration steps to communicate with a 
 
 Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe and to enable data being displayed in your workspace, [use a private endpoint with your workspace](../how-to-configure-private-link.md).
 
-**For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage. You can [use a compute cluster in the same virtual network](../how-to-secure-training-vnet.md#compute-cluster) or [use a compute instance in the same virtual network](../how-to-secure-training-vnet.md#compute-instance).
+**For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage. You can [use a compute instance/cluster in the same virtual network](how-to-secure-training-vnet.md).
 
 **For Azure Machine Learning studio users**, several features rely on the ability to read data from a dataset, such as dataset previews, profiles, and automated machine learning. For these features to work with storage behind virtual networks, use a [workspace managed identity in the studio](../how-to-enable-studio-virtual-network.md) to allow Azure Machine Learning to access the storage account from outside the virtual network. 
 

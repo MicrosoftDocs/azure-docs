@@ -18,7 +18,7 @@ Ensure the objects comply with the recommendations in this article. Note, these 
 ## Prepare subnet for VNET injection
 
 Prerequisites:
-- An entire subnet with no existing IPs allocated or in use that can be dedicated to Orbital GSaaS in your virtual network in your resource group.
+- An entire subnet with no existing IPs allocated or in use that can be dedicated to the Azure Orbital Ground Station service in your virtual network in your resource group.
 
 Steps:
 1. Delegate a subnet to service named: Microsoft.Orbital/orbitalGateways. Follow instructions here: [Add or remove a subnet delegation in an Azure virtual network](../virtual-network/manage-subnet-delegation.md).

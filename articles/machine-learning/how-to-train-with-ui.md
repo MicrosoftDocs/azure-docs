@@ -10,7 +10,7 @@ ms.custom: devplatv2, event-tier1-build-2022
 author: wenxwei
 ms.author: wenxwei
 ms.date: 11/04/2022
-ms.reviewer: laobri
+ms.reviewer: ssalgado
 ---
 
 # Create a training job with the job creation UI (preview)

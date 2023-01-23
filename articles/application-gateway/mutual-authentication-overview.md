@@ -75,7 +75,7 @@ With mutual TLS authentication, there are additional server variables that you c
 
 When a client initiates a connection to an Application Gateway configured with mutual TLS authentication, not only can the certificate chain and issuer's distinguished name be validated, but revocation status of the client certificate can be checked with OCSP (Online Certificate Status Protocol). During validation, the certificate presented by the client will be looked up via the defined OCSP responder defined in its Authority Information Access (AIA) extension. In the event the client certificate has been revoked, the application gateway will respond to the client with an HTTP 400 status code and reason.  If the certificate is valid, the request will continue to be processed by application gateway and forwarded on to the defined backend pool.
 
-Client certificate revocation can be enabled via REST API, ARM, Bicep, or PowerShell.
+Client certificate revocation can be enabled via REST API, ARM, Bicep, CLI, or PowerShell.
 
 # [Azure PowerShell](#tab/powershell)
 To configure client revocation check on an existing Application Gateway via Azure PowerShell, the following commands can be referenced:

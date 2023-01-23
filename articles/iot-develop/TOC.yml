@@ -21,16 +21,18 @@
       items:
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
+      - name: STMicroelectronics L4S5I-IOT01A
+        href: quickstart-devkit-stm-b-l4s5i-iot-hub.md
       - name: STMicroelectronics L475E-IOT01A
         href: quickstart-devkit-stm-b-l475e-iot-hub.md
+      - name: NXP MIMXRT1060-EVK
+        href: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166-iot-hub.md
     - name: FreeRTOS development
       items:
       - name: ESPRESSIF ESP32
-        href: quickstart-devkit-espressif-esp32-freertos.md
-      - name: STMicroelectronics L475E
-        href: quickstart-devkit-stm-b-l475e-freertos.md
+        href: quickstart-devkit-espressif-esp32-freertos-iot-hub.md
 - name: Tutorials
   items:
     - name: Build a device solution with IoT Hub
@@ -115,6 +117,14 @@
         href: quickstart-devkit-stm-b-l475e.md
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
+  - name: FreeRTOS samples
+    items:
+    - name: Connect using IoT Central
+      items:  
+      - name: ESPRESSIF ESP32
+        href: quickstart-devkit-espressif-esp32-freertos.md
+      - name: STMicroelectronics L475E
+        href: quickstart-devkit-stm-b-l475e-freertos.md
   - name: Troubleshoot
     items:
       - name: Troubleshoot embedded quickstarts
@@ -140,7 +150,7 @@
     - name: .NET (Service)
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Management)
-      href: /dotnet/api/overview/azure/iot/management
+      href: /dotnet/api/overview/azure/resourcemanager.iothub-readme
     - name: Java (Device)
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)

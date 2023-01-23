@@ -20,7 +20,7 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 
 ## Prerequisites
 
-An [Azure Database for PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-portal) to be the primary server.
+An [Azure Database for PostgreSQL server](./quickstart-create-server-portal.md) to be the primary server.
 
 > [!NOTE]
 > When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
@@ -131,15 +131,13 @@ The **Max Physical Replication Lag** metric shows the lag in bytes between the p
 2.	Select **Metrics**. In the **Metrics** window, select **Max Physical Replication Lag**.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png" alt-text="Screenshot of the Metrics blade showing Max Physical Replication Lag metric.":::
-       
-    :::image-end:::
 
 3.	For your **Aggregation**, select **Max**.
 
 ### Read Replica Lag metric
 > Available only on replicas.
 
-The **Read Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your primary, the metric reflects this time lag.
+The **Read Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your primary, the metric reflects this time lag. For instance if there are no transactions occurring on your primary server, and the last transaction was replayed 5 seconds ago, then the Read Replica Lag will show 5 second delay.
 
 1. In the Azure portal, select read replica.
 
