@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to 
-ms.date: 11/1/2022
+ms.date: 01/31/2023
 ms.custom: template-how-to 
 #customerintent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
 ---
@@ -35,7 +35,7 @@ Need help with setting up permissions? Check out how to [add guest users in the 
 
 Creation of the scope connection begins on the central management tenant with a network manager deployed. This is the network manager where you plan to manage all of your resources across tenants. 
 
-In this task, you set up a scope connection to add a subscription from a target tenant. If you want to use a management group, modify the `–resource-id` argument to look like `/providers/Microsoft.Management/managementGroups/{mgId}`.
+In this task, you set up a scope connection to add a subscription from a target tenant. You'll use subscription ID and tenant ID of the target network manager. If you want to use a management group, modify the `–resource-id` argument to look like `/providers/Microsoft.Management/managementGroups/{mgId}`.
 
 ```azurecli
 # Create a scope connection in the network manager in the central management tenant
