@@ -16,6 +16,8 @@ ms.date: 01/19/2023
 
 This article shows you how to migrate a Managed Identities for Azure Site Recovery applications. Azure Automation Accounts are used by Azure Site Recovery customers to auto-update the agents of their protected virtual machines. Site Recovery creates Azure Automation Run As Accounts when you enable replication via the IaaS VM Blade and Recovery Services Vault. 
 
+On Azure, managed identities eliminate the need for developers having to manage credentials by providing an identity for the Azure resource 
+in Azure Active Directory (Azure AD) and using it to obtain Azure AD tokens. 
 
 ## Prerequisites
 
@@ -52,7 +54,113 @@ When a managed identity is added, deleted, or modified on a running container ap
 
 ### Portal experience
 
+-
 
+### Azure CLI sample scripts
+
+The following examples of runbook scripts fetch the Resource Manager resources by using the Run As account (service principal) and the managed identity.
+
+# [Run As account](#tab/run-as-account)
+
+```powershell-interactive
+  $connectionName = "AzureRunAsConnection"
+  try
+  {
+      # Get the connection "AzureRunAsConnection"
+      $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+      "Logging in to Azure..."
+      Add-AzureRmAccount `
+          -ServicePrincipal `
+          -TenantId $servicePrincipalConnection.TenantId `
+          -ApplicationId $servicePrincipalConnection.ApplicationId `
+          -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+  }
+  catch {
+      if (!$servicePrincipalConnection)
+      {
+          $ErrorMessage = "Connection $connectionName not found."
+          throw $ErrorMessage
+      } else{
+          Write-Error -Message $_.Exception
+          throw $_.Exception
+      }
+  }
+
+  #Get all Resource Manager resources from all resource groups
+  $ResourceGroups = Get-AzureRmResourceGroup 
+
+  foreach ($ResourceGroup in $ResourceGroups)
+  {    
+      Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
+      $Resources = Find-AzureRmResource -ResourceGroupNameContains $ResourceGroup.ResourceGroupName | Select ResourceName, ResourceType
+      ForEach ($Resource in $Resources)
+      {
+          Write-Output ($Resource.ResourceName + " of type " +  $Resource.ResourceType)
+      }
+      Write-Output ("")
+  } 
+  ```
+
+# [System-assigned managed identity](#tab/sa-managed-identity)
+
+>[!NOTE]
+> Enable appropriate RBAC permissions for the system identity of this Automation account. Otherwise, the runbook might fail.
+
+  ```powershell-interactive
+  try
+  {
+      "Logging in to Azure..."
+      Connect-AzAccount -Identity
+  }
+  catch {
+      Write-Error -Message $_.Exception
+      throw $_.Exception
+  }
+
+  #Get all Resource Manager resources from all resource groups
+  $ResourceGroups = Get-AzResourceGroup
+
+  foreach ($ResourceGroup in $ResourceGroups)
+  {    
+      Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
+      $Resources = Get-AzResource -ResourceGroupName $ResourceGroup.ResourceGroupName
+      foreach ($Resource in $Resources)
+      {
+          Write-Output ($Resource.Name + " of type " +  $Resource.ResourceType)
+      }
+      Write-Output ("")
+  }
+  ```
+# [User-assigned managed identity](#tab/ua-managed-identity)
+
+```powershell-interactive
+try
+{ 
+
+    "Logging in to Azure..." 
+
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName <myResourceGroup> -Name <myUserAssignedIdentity> 
+Connect-AzAccount -Identity -AccountId $identity.ClientId 
+} 
+catch { 
+    Write-Error -Message $_.Exception 
+    throw $_.Exception 
+} 
+#Get all Resource Manager resources from all resource groups 
+$ResourceGroups = Get-AzResourceGroup 
+foreach ($ResourceGroup in $ResourceGroups) 
+{     
+    Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName) 
+    $Resources = Get-AzResource -ResourceGroupName $ResourceGroup.ResourceGroupName 
+    foreach ($Resource in $Resources) 
+    { 
+        Write-Output ($Resource.Name + " of type " +  $Resource.ResourceType) 
+    } 
+    Write-Output ("") 
+}
+```
+--- 
 
 ## Next steps
 
@@ -60,3 +168,7 @@ Learn more about:
 - [Managed identities](../active-directory/managed-identities-azure-resources/overview).
 - [Using a system-assigned managed identity for an Azure Automation account](../automation/enable-managed-identity-for-automation).
 - [Using a user-assigned managed identity for an Azure Automation account](../automation/add-user-assigned-identity).
+- [Connecting from your application to resources without handling credentials](../active-directory/managed-identities-azure-resources/overview-for-developers?tabs=portal%2Cdotnet)
+- [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing).
+- [FAQ for migrating from a Run As account to a managed identity](../automation/automation-managed-identity-faq).
+- [FAQ for Managed Identities](../active-directory/managed-identities-azure-resources/managed-identities-faq.md)
