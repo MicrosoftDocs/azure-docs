@@ -26,7 +26,7 @@ A resource group is a logical collection of Azure resources. All resources are d
 
     :::image type="content" source="../images/add-resource-group.png" alt-text="A screenshot of the Resource Groups page on the Azure portal.":::
 
-3. For Subscription, select the name of the Azure subscription in which you want to create the [resource group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). For more information about subscriptions, see [Describe core Azure architectural components](https://learn.microsoft.com/en-au/training/modules/azure-architecture-fundamentals/).
+3. For Subscription, select the name of the Azure subscription in which you want to create the [resource group](../../azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). For more information about subscriptions, see [Describe core Azure architectural components](../../../training/modules/azure-architecture-fundamentals/).
 
     :::image type="content" source="../images/create-resource-group.png" alt-text="A screenshot of the Create Resource Group page on the Azure portal.":::
 
