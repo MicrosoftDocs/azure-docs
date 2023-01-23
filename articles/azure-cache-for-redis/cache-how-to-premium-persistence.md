@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 01/23/2023
 
 ---
 # Configure data persistence for a Premium Azure Cache for Redis instance
@@ -132,6 +132,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [What is a rewrite and how does it affect my cache?](#what-is-a-rewrite-and-how-does-it-affect-my-cache)
 - [What should I expect when scaling a cache with AOF enabled?](#what-should-i-expect-when-scaling-a-cache-with-aof-enabled)
 - [How is my AOF data organized in storage?](#how-is-my-aof-data-organized-in-storage)
+- [Can I have AOF persistence enabled if I have more than one replica?](#can-i-have-aof-persistence-enabled-if-i-have-more-than-one-replica)
 
 ### Can I enable persistence on a previously created cache?
 
@@ -230,7 +231,7 @@ Using managed identity adds the cache instance to the [trusted services list](..
 
 ### Can I have AOF persistence enabled if I have more than one replica?
 
-No, AOF persistence cannot be enabled with replicas (i.e replica count >= 2).
+No, AOF persistence can't be enabled with replicas. The replica count must be two or less.
 
 ## Next steps
 
