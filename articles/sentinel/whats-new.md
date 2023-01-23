@@ -18,8 +18,13 @@ The listed features were released in the last three months. For information abou
 
 ## January 2023
 
+- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
 - [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
+
+### Monitor SAP system health and role (Preview)
+
+To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ### New incident investigation experience (Preview)
 
@@ -212,7 +217,7 @@ Learn how to [add a condition based on a custom detail](create-manage-use-automa
 
 ### Add advanced "Or" conditions to automation rules (Preview)
 
-You can now add OR conditions to automation rules. Also known as condition groups, these allow you to combine several rules with identical actions into a single rule, greatly increasing your SOC's efficiency.
+You can now add OR conditions or condition groups to automation rules. These conditions allow you to combine several rules with identical actions into a single rule, greatly increasing your SOC's efficiency.
 
 For more information, see [Add advanced conditions to Microsoft Sentinel automation rules](add-advanced-conditions-to-automation-rules.md).
 
@@ -267,7 +272,7 @@ Microsoft Sentinel **incidents** have two main sources:
 
 - They are ingested directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)) that created them.
 
-There can, however, be data from sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, that justify launching an investigation. For this reason, Microsoft Sentinel now allows security analysts to manually create incidents from scratch for any type of event, regardless of its source or associated data, in order to manage and document the investigation.
+However, in some cases, data from sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, may justify launching an investigation. For this reason, Microsoft Sentinel now allows security analysts to manually create incidents from scratch for any type of event, regardless of its source or associated data, in order to manage and document the investigation.
 
 Since this capability raises the possibility that you'll create an incident in error, Microsoft Sentinel also allows you to delete incidents right from the portal as well.
 
