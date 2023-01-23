@@ -272,7 +272,7 @@ Follow these tasks to prepare PIM to manage privileged access groups.
 
 It may be the case that an individual has five or six eligible assignments to Azure AD roles through PIM. They will have to activate each role individually, which can reduce productivity. Worse still, they can also have tens or hundreds of Azure resources assigned to them, which aggravates the problem.
 
-In this case, you should use privileged access groups. Create a privileged access group and grant it permanent active access to multiple roles. See [privileged access groups management capabilities](groups-features.md).
+In this case, you should use privileged access groups. Create a privileged access group and grant it permanent active access to multiple roles. See [Privileged Identity Management (PIM) for Groups (preview)](concept-pim-for-groups.md).
 
 To manage an Azure AD role-assignable group as a privileged access group, you must [bring it under management in PIM](groups-discover-groups.md).
 
