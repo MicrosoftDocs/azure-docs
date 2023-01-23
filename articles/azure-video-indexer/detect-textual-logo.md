@@ -54,7 +54,10 @@ The default body is:
 |wikipediaSearchTerm|Used to create a description in the Video Indexer website.|
 |text|The text the model will compare too, make sure to add the obvious name as part of the variations. (e.g Microsoft)|
 |caseSensitive| true/false according to the variation.|
- 
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/textual-logo-detection/logo-api.png" alt-text="Diagram of logo API.":::
+
 ## Create a new textual logo group 
  
 Use the [Create Logo Group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Logo-Group) API to create a logo group. Use the **try it** button. 
@@ -66,7 +69,10 @@ Insert the following:
 * `Access token`: The token, at least at a contributor level permission. 
   
 > [!TIP]
-> The default example has two logo IDs, we have created out first group with only one logo IDSS. 
+> The default example has two logo IDs, we have created out first group with only one logo ID. 
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/textual-logo-detection/logo-group.png" alt-text="Diagram of logo group API":::
 
 ## Upload from URL 
  
@@ -91,11 +97,17 @@ Assuming the textual logo model has found a match, you'll be able to view the re
 
 A new section would appear in the insights panel showing the number of custom logos that were detected. One representative thumbnail will be displayed representing the new logo. 
 
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/textual-logo-detection/logo-insight.png" alt-text="Diagram of logo insight.":::
+
 ### Timeline 
  
 In the **Timeline** view, make sure to mark the **Logos** checkbox (under the **View**). 
 
 All detected thumbnails will be displayed according to their time stamp. All logo instances that were recognized with a certainty above 80% present will be displayed, the extended list of detection including low certainty detection are available in the **Artifacts** file. 
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/textual-logo-detection/logo-timeline.png" alt-text="Diagram of logo timeline.":::
 
 ## Considerations and limitations  
 
