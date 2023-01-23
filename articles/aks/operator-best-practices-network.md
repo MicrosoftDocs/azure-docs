@@ -233,7 +233,7 @@ This article focused on network connectivity and security. For more information 
 [contour]: https://github.com/heptio/contour
 [haproxy]: https://www.haproxy.org
 [traefik]: https://github.com/containous/traefik
-[barracuda-waf]: https://www.barracuda.com/products/webapplicationfirewall/models/5
+[barracuda-waf]: https://www.barracuda.com/products/webapplicationfirewall/models/
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-network]: concepts-network.md

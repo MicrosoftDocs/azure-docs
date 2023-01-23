@@ -1,5 +1,5 @@
 ---
-title: What's new in the Remote Desktop client for Windows
+title: What's new in the Remote Desktop client for Windows - Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: conceptual
 author: heidilohr
@@ -15,10 +15,10 @@ In this article you'll learn about the latest updates for the Remote Desktop cli
 
 The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
 
-| Release | Latest version | Minimum supported version |
-|---------|----------------|---------------------------|
-| Public  | 1.2.3770       | 1.2.1672                  |
-| Insider | 1.2.3770       | 1.2.1672                  |
+| Release | Latest version | Minimum supported version | Download |
+|---------|----------------|---------------------------|--|
+| Public  | 1.2.3770       | 1.2.1672                  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.3770       | 1.2.1672                  | As above |
 
 ## Updates for version 1.2.3770
 

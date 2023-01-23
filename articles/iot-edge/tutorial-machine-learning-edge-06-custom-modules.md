@@ -4,7 +4,7 @@ description: 'This tutorial shows how to create and deploy IoT Edge modules that
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 6/30/2020
+ms.date: 9/12/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge

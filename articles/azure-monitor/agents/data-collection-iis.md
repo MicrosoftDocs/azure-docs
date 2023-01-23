@@ -31,7 +31,10 @@ The [data collection rule](../essentials/data-collection-rule-overview.md) defin
 - How Azure Monitor transforms events during ingestion.
 - The destination Log Analytics workspace and table to which Azure Monitor sends the data.
 
-Create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
+You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your VM / VMSS / Arc enabled server.
+
+> [!NOTE]
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
 To create the data collection rule in the Azure portal:
 
@@ -75,6 +78,36 @@ To create the data collection rule in the Azure portal:
 
 > [!NOTE]
 > It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
+
+
+### Sample log queries
+
+- **Count the IIS log entries by URL for the host www.contoso.com.**
+    
+    ```kusto
+    W3CIISLog 
+    | where csHost=="www.contoso.com" 
+    | summarize count() by csUriStem
+    ```
+
+- **Review the total bytes received by each IIS machine.**
+
+    ```kusto
+    W3CIISLog 
+    | summarize sum(csBytes) by Computer
+    ```
+
+
+## Sample alert rule
+
+- **Create an alert rule on any record with a return status of 500.**
+    
+    ```kusto
+    W3CIISLog 
+    | where scStatus==500
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
 
 ## Troubleshoot
 Use the following steps to troubleshoot collection of IIS logs. 
@@ -151,4 +184,4 @@ Learn more about:
 
 - [Azure Monitor Agent](azure-monitor-agent-overview.md).
 - [Data collection rules](../essentials/data-collection-rule-overview.md).
-- [Best practices for cost management in Azure Monitor](../best-practices-cost.md). 
+- [Best practices for cost management in Azure Monitor](../best-practices-cost.md).

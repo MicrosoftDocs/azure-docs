@@ -2,7 +2,6 @@
 title: Metrics Advisor metrics graph
 titleSuffix: Azure Cognitive Services
 description: How to configure your Metrics graph and visualize related anomalies in your data.
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services

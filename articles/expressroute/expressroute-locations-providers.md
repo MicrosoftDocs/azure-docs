@@ -1,17 +1,16 @@
 ---
-title: 'Locations and connectivity providers: Azure ExpressRoute | Microsoft Docs'
-description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by location.
+title: 'Locations and connectivity providers for Azure ExpressRoute'
+description: This article provides a detailed overview of available providers and services per each ExpressRoute location to connect to Azure regions.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 01/09/2023
 ms.author: duau
-ms.custom: references_regions
-
+ms.custom: references_regions, template-concept, engagement-fy23
 ---
-# ExpressRoute partners and peering locations
+
+# ExpressRoute peering locations and connectivity partners 
 
 > [!div class="op_single_selector"]
 > * [Locations By Provider](expressroute-locations.md)
@@ -23,15 +22,14 @@ The tables in this article provide information on ExpressRoute geographical cove
 > [!Note]
 > Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
 >
->
 
 ## Azure regions
 Azure regions are global datacenters where Azure compute, networking, and storage resources are located. When creating an Azure resource, a customer needs to select a resource location. The resource location determines which Azure datacenter (or availability zone) the resource is created in.
 
 ## ExpressRoute locations
-ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are co-location facilities where Microsoft Enterprise edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft's network – and are globally distributed, providing customers the opportunity to connect to Microsoft's network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft's network. In general, the ExpressRoute location does not need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
+ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are co-location facilities where Microsoft Enterprise edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft's network – and are globally distributed, providing customers the opportunity to connect to Microsoft's network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft's network. In general, the ExpressRoute location doesn't need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
 
-You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. 
+You'll have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. 
 
 [!INCLUDE [expressroute-azure-regions-geopolitical-region](../../includes/expressroute-azure-regions-geopolitical-region.md)]
 
@@ -39,11 +37,11 @@ You will have access to Azure services across all regions within a geopolitical 
 
 The following table shows connectivity locations and the service providers for each location. If you want to view service providers and the locations for which they can provide service, see [Locations by service provider](expressroute-locations.md).
 
-* **Local Azure Regions** are the ones that [ExpressRoute Local](expressroute-faqs.md) at each peering location can access. **n/a** indicates that ExpressRoute Local is not available at that peering location.
+* **Local Azure Regions** refers to the regions that can be accessed by [ExpressRoute Local](expressroute-faqs.md#expressroute-local) at each peering location. **n/a** indicates that ExpressRoute Local isn't available at that peering location.
 
 * **Zone** refers to [pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
-* **ER Direct** refers to [ExpressRoute Direct](expressroute-erdirect-about.md) support at each peering location. If you want to view the available bandwidth see [Determine available bandwidth](expressroute-howto-erdirect.md#resources)
+* **ER Direct** refers to [ExpressRoute Direct](expressroute-erdirect-about.md) support at each peering location. If you want to view the available bandwidth at a location, see [Determine available bandwidth](expressroute-howto-erdirect.md#resources)
 
 ### Global commercial Azure
 | **Location** | **Address** | **Zone** | **Local Azure regions** | **ER Direct** | **Service providers** |
@@ -85,7 +83,7 @@ The following table shows connectivity locations and the service providers for e
 | **Las Vegas** | [Switch LV](https://www.switch.com/las-vegas) | 1 | n/a | Supported | CenturyLink Cloud Connect, Megaport, PacketFabric |
 | **London** | [Equinix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | UK South | Supported | AT&T NetBond, British Telecom, CenturyLink, Colt, Equinix, euNetworks, Intelsat, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **London2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | UK South | Supported | BICS, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, GTT, Interxion, IX Reach, JISC, Megaport, NTT Global DataCenters EMEA, Orange, SES, Sohonet, Telehouse - KDDI, Zayo |
-| **Los Angeles** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | n/a | Supported | CoreSite, Equinix*, Megaport, Neutrona Networks, NTT, Zayo</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Please create new circuits in Los Angeles2.* |
+| **Los Angeles** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | n/a | Supported | CoreSite, Equinix*, Megaport, Neutrona Networks, NTT, Zayo</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Create new circuits in Los Angeles2.* |
 | **Los Angeles2** | [Equinix LA1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/los-angeles-data-centers/la1/) | 1 | n/a | Supported | Equinix |
 | **Madrid** | [Interxion MAD1](https://www.interxion.com/es/donde-estamos/europa/madrid) | 1 | West Europe | Supported |  DE-CIX, Interxion, Megaport, Telefonica |
 | **Marseille** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | France South | n/a | Colt, DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |
@@ -138,11 +136,10 @@ The following table shows connectivity locations and the service providers for e
 | **Washington DC2** | [Coresite VA2](https://www.coresite.com/data-center/va2-reston-va) | 1 | East US, East US 2 | n/a | CenturyLink Cloud Connect, Coresite, Intelsat, Megaport, Viasat, Zayo | 
 | **Zurich** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Switzerland North | Supported | Colt, Equinix, Intercloud, Interxion, Megaport, Swisscom, Zayo |
 
- **+** denotes coming soon
 
 ### National cloud environments
 
-Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud cannot connect to the Azure regions in the others.
+Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others.
 
 ### US Government cloud
 | **Location** | **Address** | **Local Azure regions**| **ER Direct** | **Service providers** |
@@ -167,12 +164,10 @@ Azure national clouds are isolated from each other and from global commercial Az
 
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/).
 
-** ExpressRoute Local is not available in this location.
-
 ## <a name="c1partners"></a>Connectivity through Exchange providers
-If your connectivity provider is not listed in previous sections, you can still create a connection.
+If your connectivity provider isn't listed in previous sections, you can still create a connection.
 
-* Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
+* Check with your connectivity provider to see if they're connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
   * [DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
@@ -189,7 +184,7 @@ If your connectivity provider is not listed in previous sections, you can still 
   * Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
 ## Connectivity through satellite operators
-If you are remote and do not have fiber connectivity or want to explore other connectivity options, you can check the following satellite operators. 
+If you're remote and don't have fiber connectivity or want to explore other connectivity options, you can check the following satellite operators. 
 
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
@@ -236,9 +231,10 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **Europe** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **North America** |Avanade Inc., Equinix Professional Services, FlexManage, Lightstream, Perficient, Presidio |
 | **South America** |Avanade Inc., Venha Pra Nuvem |
+
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
-* Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
+* Ensure that all prerequisites are met. For more information, see [ExpressRoute prerequisites & checklist](expressroute-prerequisites.md).
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Location map"

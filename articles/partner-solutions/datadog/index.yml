@@ -54,3 +54,6 @@ landingContent:
             url: /cli/azure/datadog
           - text: REST API
             url: /rest/api/datadog
+          - text: Terraform
+            url: "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/datadog_monitors"
+        
