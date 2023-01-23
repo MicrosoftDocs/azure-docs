@@ -41,7 +41,7 @@ Ingress connectivity to the cluster can be achieved using an ingress controller 
 Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address space logically different from the VNet but has scaling and other limitations. The below table provides a detailed comparison between Kubenet and Azure CNI Overlay. If you do not want to assign VNet IP addresses to pods due to IP shortage, then Azure CNI Overlay is the recommended solution.
 
 | Area | Azure CNI Overlay | Kubenet |
-| -- | :--: | -- |
+| -- | -- | -- |
 | Cluster scale | 1000 nodes and 250 pods/node | 400 nodes and 250 pods/node |
 | Network configuration | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet | Additional hop adds minor latency |

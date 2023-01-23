@@ -6,15 +6,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 1/18/2023
+ms.date: 1/20/2023
 ms.author: jasteppe
 ---
 
 # What is the MedTech service?
 
-## Overview
-
-The MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse devices and convert it into a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. The MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure data management in a cloud environment.
+This article provides an introductory overview of the MedTech service. The MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse devices and convert it into a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. The MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure data management in a cloud environment.
 
 The MedTech service is important because data can be difficult to access or lost when it comes from diverse or incompatible devices, systems, or formats. If this information isn't easy to access, it may have a negative effect on gaining key insights and capturing trends. The ability to transform many types of device data into a unified FHIR format enables the MedTech service to successfully link device data with other datasets to support the end user. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects.
 

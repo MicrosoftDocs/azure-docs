@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-claims-mapping.md",
+      "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/configure-token-lifetimes.md",
+      "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/authentication/how-to-mfa-microsoft-managed.md",
       "redirect_url": "/azure/active-directory/authentication/concept-authentication-default-enablement",
       "redirect_document_id": false
@@ -48,6 +58,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/firstbird-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/radancys-employee-referrals-tutorial",
       "redirect_document_id": false
     },
     {
