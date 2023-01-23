@@ -539,6 +539,8 @@
           href: partner-datawiza.md
         - name: F5
           href: partner-f5.md
+        - name: Grit 
+          href: partner-grit-app-proxy.md
         - name: Ping Identity
           href: partner-ping-identity.md
         - name: Strata
