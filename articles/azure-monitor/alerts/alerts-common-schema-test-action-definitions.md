@@ -1,7 +1,6 @@
 ---
 title: Alert schema definitions in Azure Monitor for Test Action Group
 description: Understand the common alert schema definitions for Azure Monitor for the Test Action group.
-author: jacegummersall
 ms.topic: conceptual
 ms.date: 01/14/2022
 ms.revewer: jagummersall
