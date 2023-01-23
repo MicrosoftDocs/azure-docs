@@ -67,9 +67,9 @@ Use the following methods to collect data from your cloud resources that doesn't
 - Use Logstash to collect data and the [Azure Log Analytics output plugin for Logstash](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics) to ingest it into a Log Analytics workspace.
 
 ## Automation
-[Azure Automation](automation/overview.md) delivers cloud-based automation, operating system updates, and configuration services that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features. [Hybrid Runbook Worker](automation/automation-hybrid-runbook-worker.md) enables automation runbooks to run directly on the non-Azure virtual machines  against resources in the environment to manage those local resources.
+[Azure Automation](../automation/overview.md) delivers cloud-based automation, operating system updates, and configuration services that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features. [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) enables automation runbooks to run directly on the non-Azure virtual machines  against resources in the environment to manage those local resources.
 
-Through [Arc-enabled servers](azure-arc/servers/overview.md), Azure Automation provides a consistent deployment and management experience for your non-Azure machines. It enables integration with the Automation service using the VM extension framework to deploy the Hybrid Runbook Worker role, and simplify onboarding to Update Management and Change Tracking and Inventory.
+Through [Arc-enabled servers](../azure-arc/servers/overview.md), Azure Automation provides a consistent deployment and management experience for your non-Azure machines. It enables integration with the Automation service using the VM extension framework to deploy the Hybrid Runbook Worker role, and simplify onboarding to Update Management and Change Tracking and Inventory.
 
 ## Next steps
 

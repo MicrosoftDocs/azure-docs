@@ -13,6 +13,8 @@ items:
     href: whats-new.md
 - name: Concepts
   items:
+  - name: Multicloud monitoring
+    href: best-practices-multicloud.md
   - name: Security
     items:
     - name: Security baseline
