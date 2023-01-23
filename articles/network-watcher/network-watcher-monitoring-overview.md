@@ -87,7 +87,7 @@ Network security groups (NSG) allow or deny inbound or outbound traffic to a net
 
 :::image type="content" source="./media/network-watcher-monitoring-overview/traffic-analytics.png" alt-text="Screenshot showing Traffic analytics feature of Network Watcher.":::
 
-Learn more about NSG flow logs by completing the [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md) tutorial and learn about [traffic analytics](traffic-analytics.md).
+To learn more about NSG flow logs, see [Tutorial: Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md) and [traffic analytics](traffic-analytics.md).
 
 ### View diagnostic logs for network resources
 
