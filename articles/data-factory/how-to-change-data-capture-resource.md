@@ -30,7 +30,7 @@ In this tutorial, you follow these steps:
 ## Create a change data capture artifact
 
 1.	Navigate to the **Author** blade in your data factory. You will see a new top-level artifact under **Pipelines** called **Change data capture (preview)**. 
-
+  
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-2.png" alt-text="Screenshot of new top level artifact shown under Factory resources panel.":::
 
 2.	To create a new **Change data capture**, hover over **Change data capture (preview)** until you see 3 dots appear. Click on the **Change data capture actions**. 
