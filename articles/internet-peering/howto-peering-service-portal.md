@@ -10,11 +10,11 @@ ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
+# Enable Azure Peering Service on a Direct peering using the Azure portal
+
 > [!div class="op_single_selector"]
 > - [Azure portal](howto-peering-service-portal.md)
 > - [PowerShell](howto-peering-service-powershell.md)
-
-# Enable Azure Peering Service on a Direct peering using the Azure portal
 
 This article describes how to enable [Azure Peering Service](../peering-service/about.md) on a Direct peering by using the Azure portal.
 

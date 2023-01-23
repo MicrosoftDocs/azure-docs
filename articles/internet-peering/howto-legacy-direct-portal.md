@@ -10,11 +10,11 @@ ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
+# Convert a legacy Direct peering to an Azure resource using the Azure portal
+
 > [!div class="op_single_selector"]
 > - [Azure portal](howto-legacy-direct-portal.md)
 > - [PowerShell](howto-legacy-direct-powershell.md)
-
-# Convert a legacy Direct peering to an Azure resource using the Azure portal
 
 This article describes how to convert an existing legacy Direct peering to an Azure resource by using the Azure portal.
 

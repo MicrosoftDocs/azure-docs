@@ -10,11 +10,11 @@ ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
+# Create or modify an Exchange peering using the Azure portal
+
 > [!div class="op_single_selector"]
 > - [Azure portal](howto-exchange-portal.md)
 > - [PowerShell](howto-exchange-powershell.md)
-
-# Create or modify an Exchange peering using the Azure portal
 
 This article describes how to create a Microsoft Exchange peering by using the Azure portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
 

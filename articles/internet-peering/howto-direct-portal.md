@@ -10,11 +10,11 @@ ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
+# Create or modify a Direct peering using the Azure portal
+
 > [!div class="op_single_selector"]
 > - [Azure portal](howto-direct-portal.md)
 > - [PowerShell](howto-direct-powershell.md)
-
-# Create or modify a Direct peering using the Azure portal
 
 This article describes how to create a Microsoft Direct peering for an Internet Service Provider or Internet Exchange Provider by using the Azure portal. This article also shows how to check the status of the resource, update it, or delete and de-provision it.
 

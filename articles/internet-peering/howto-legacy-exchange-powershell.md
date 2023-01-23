@@ -11,11 +11,11 @@ ms.custom: devx-track-azurepowershell
 ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
 
+# Convert a legacy Exchange peering to an Azure resource using PowerShell
+
 > [!div class="op_single_selector"]
 > - [Azure portal](howto-legacy-exchange-portal.md)
 > - [PowerShell](howto-legacy-exchange-powershell.md)
-
-# Convert a legacy Exchange peering to an Azure resource using PowerShell
 
 This article describes how to convert an existing legacy Exchange peering to an Azure resource by using PowerShell cmdlets.
 

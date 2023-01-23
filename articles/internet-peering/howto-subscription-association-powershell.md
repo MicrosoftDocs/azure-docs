@@ -7,14 +7,14 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 01/23/2023
 ms.author: halkazwini 
-ms.custom: devx-track-azurepowershell
+ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
+
+# Associate peer ASN to Azure subscription using PowerShell
 
 > [!div class="op_single_selector"]
 > - [Azure portal](howto-subscription-association-portal.md)
 > - [PowerShell](howto-subscription-association-powershell.md)
-
-# Associate peer ASN to Azure subscription using PowerShell
 
 Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps below.
 

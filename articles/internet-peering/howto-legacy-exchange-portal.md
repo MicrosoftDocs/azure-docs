@@ -10,11 +10,11 @@ ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
+# Convert a legacy Exchange peering to an Azure resource using the Azure portal
+
 > [!div class="op_single_selector"]
 > - [Azure portal](howto-legacy-exchange-portal.md)
 > - [PowerShell](howto-legacy-exchange-powershell.md)
-
-# Convert a legacy Exchange peering to an Azure resource using the Azure portal
 
 This article describes how to convert an existing legacy Exchange peering to an Azure resource by using the Azure portal.
 
