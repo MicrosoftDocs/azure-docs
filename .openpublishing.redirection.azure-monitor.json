@@ -5661,6 +5661,11 @@
             "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-workloads.md",
             "redirect_url": "/azure/azure-monitor/vm/monitor-virtual-machine-data-collection",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/azure-data-explorer-monitor-cross-service-query.md",
+            "redirect_url": "/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy",
+            "redirect_document_id": false
         }
     ]
 }
