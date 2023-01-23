@@ -231,7 +231,7 @@ Using managed identity adds the cache instance to the [trusted services list](..
 
 ### Can I have AOF persistence enabled if I have more than one replica?
 
-No, AOF persistence can't be enabled with replicas. The replica count must be two or less.
+No, you can't use Append-only File (AOF) persistence with multiple replicas (more than one replica).
 
 ## Next steps
 
