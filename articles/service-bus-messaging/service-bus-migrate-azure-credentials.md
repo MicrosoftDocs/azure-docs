@@ -42,7 +42,7 @@ The following steps explain how to migrate an existing application to use passwo
 
 ### Configure roles and users for local development authentication
 
-[!INCLUDE [service-bus-assign-roles](../../includes/passwordless/service-bus/service-bus-assign-roles.md)]
+[!INCLUDE [assign-roles](../../includes/assign-roles.md)]
 
 ### Sign-in and migrate the app code to use passwordless connections
 
