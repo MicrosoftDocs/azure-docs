@@ -18,7 +18,7 @@ ms.reviewer: ardhanap, brianokoyo, jesakowi
 
 Publisher verification gives app users and organization admins information about the authenticity of the developer's organization, who publishes an app that integrates with the Microsoft identity platform.
 
-When an app has a verified publisher, this means that the organization that publishes the app has been verified as authentic by Microsoft. Verifying an app includes using a [Microsoft Cloud Partner Program (MCPP)] (/partner-center/mpn-create-a-partner-center-account), formerly known as Microsoft Partner Network (MPN), account that's been [verified](/partner-center/verification-responses) and associating the verified PartnerID with an app registration.
+When an app has a verified publisher, this means that the organization that publishes the app has been verified as authentic by Microsoft. Verifying an app includes using a Microsoft Cloud Partner Program (MCPP), formerly known as Microsoft Partner Network (MPN), account that's been [verified](/partner-center/verification-responses) and associating the verified PartnerID with an app registration.
 
 When the publisher of an app has been verified, a blue *verified* badge appears in the Azure Active Directory (Azure AD) consent prompt for the app and on other webpages:
 
