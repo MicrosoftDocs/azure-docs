@@ -22,8 +22,8 @@ In this article, you learn how to resolve common issues with creating a lab in A
 
 On the lab plan, you can configure the list of available VM images for creating a lab:
 
-- Select VM images from the Azure Marketplace
-- Select custom VM images from an Azure compute gallery
+1. Select VM images from the Azure Marketplace
+1. Select custom VM images from an Azure compute gallery
 
 Verify the following potential causes for a VM image not to be available.
 
