@@ -106,7 +106,13 @@ __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace
 * `<region>.service.batch.com`
 
 > [!IMPORTANT]
-> If you use one firewall for multiple Azure services, having outbound storage rules impacts other services. In this case, limit thee source IP of the outbound storage rule to the address space of the subnet that contains your compute instance and compute cluster resources. This limits the rule to the compute resources in the subnet.
+> If you use one firewall for multiple Azure services, having outbound storage rules impacts other services. In this case, limit the source IP of the outbound storage rule to the address space of the subnet that contains your compute instance and compute cluster resources. This limits the rule to the compute resources in the subnet.
+
+> [!WARNING]
+> If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts:
+> * `*.blob.core.windows.net`
+> * `*.queue.core.windows.net`
+> * `*.table.core.windows.net`
 
 ---
 
