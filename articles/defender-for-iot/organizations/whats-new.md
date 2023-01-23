@@ -218,7 +218,7 @@ Updates in this version of the solution include:
 
 - **Workbook improvements**: The **Defender for IoT** workbook now includes:
 
-- A new **Overview** dashboard with key metrics on the device inventory, threat detection, and security posture. For example:
+    - A new **Overview** dashboard with key metrics on the device inventory, threat detection, and security posture. For example:
 
         :::image type="content" source="media/release-notes/sentinel-workbook-overview.png" alt-text="Screenshot of the new Overview tab in the IoT OT Threat Monitoring with Defender for IoT workbook." lightbox="media/release-notes/sentinel-workbook-overview.png":::
 
