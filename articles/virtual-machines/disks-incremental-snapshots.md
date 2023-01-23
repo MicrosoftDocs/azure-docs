@@ -146,13 +146,13 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Check snapshot status
 
-Ultra Disk snapshots (preview) can't be used to create new disks until the background process copying the data into the snapshot has completed. Similarly, Ultra Disks created from Ultra Disk snapshots can't be attached to a VM until the background process copying the data into the disk has completed.
+Incremental snapshots of Ultra Disks (preview) can't be used to create new disks until the background process copying the data into the snapshot has completed. Similarly, Ultra Disks created from incremental snapshots can't be attached to a VM until the background process copying the data into the disk has completed.
 
 You can check the status of this copy process with the scripts in the following sections.
 
 ### CLI
 
-First, get a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following script to list your existing incremental snapshots:
+First, get a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following script to list your existing incremental snapshots of Ultra Disks:
 
 
 ```azurecli
@@ -176,7 +176,7 @@ az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [completio
 
 ### PowerShell
 
-First, get a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following script to list your existing incremental snapshots:
+First, get a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following script to list your existing incremental snapshots of Ultra Disks:
 
 ```azurepowershell
 $resourceGroupName = "yourResourceGroupNameHere"

@@ -4,7 +4,7 @@ description: Learn how to copy an incremental snapshot of a managed disk to a di
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/13/2022
+ms.date: 01/25/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
