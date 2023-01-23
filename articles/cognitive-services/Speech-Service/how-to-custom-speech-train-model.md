@@ -19,7 +19,7 @@ zone_pivot_groups: speech-studio-cli-rest
 In this article, you'll learn how to train a custom model to improve recognition accuracy from the Microsoft base model. The speech recognition accuracy and quality of a Custom Speech model will remain consistent, even when a new base model is released.
 
 > [!NOTE]
-> You pay to use Custom Speech models, but you are not charged for training a model.
+> You pay to use Custom Speech models, but you are not charged for training a model. Usage includes hosting of your deployed custom endpoint in addition to using the endpoint for speech-to-text. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 Training a model is typically an iterative process. You will first select a base model that is the starting point for a new model. You train a model with [datasets](./how-to-custom-speech-test-and-train.md) that can include text and audio, and then you test. If the recognition quality or accuracy doesn't meet your requirements, you can create a new model with additional or modified training data, and then test again.
 

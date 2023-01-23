@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 09/26/2022
+ms.date: 01/11/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -76,7 +76,6 @@ The following are known issues with role-assignable groups:
 - Use the new [Exchange admin center](/exchange/exchange-admin-center) for role assignments via group membership. The old Exchange admin center doesn't support this feature. If accessing the old Exchange admin center is required, assign the eligible role directly to the user (not via role-assignable groups). Exchange PowerShell cmdlets will work as expected.
 - If an administrator role is assigned to a role-assignable group instead of individual users, members of the group will not be able to access Rules, Organization, or Public Folders in the new [Exchange admin center](/exchange/exchange-admin-center). The workaround is to assign the role directly to users instead of the group.
 - Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. You can [migrate to the unified sensitivity labeling platform](/azure/information-protection/configure-policy-migrate-labels) and then use the Office 365 Security & Compliance center to use group assignments to manage roles.
-- [Apps admin center](https://config.office.com/) doesn't support this feature yet. Assign the Office Apps Administrator role directly to users.
 
 ## License requirements
 
