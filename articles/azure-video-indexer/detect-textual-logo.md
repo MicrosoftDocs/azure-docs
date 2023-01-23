@@ -32,11 +32,11 @@ For example, if a user would create a textual logo: “Microsoft”, different a
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/textual-logo-detection/microsoft-example.png" alt-text="Diagram of logo detection.":::
 
-## How to use
-
 ## Prerequisite
 
 The Azure Video Index account must have (at the very least) the `contributor` role assigned to the resource.
+
+## How to use
 
 In order to use textual logo detection, follow these steps, described in this article: 
 
@@ -115,7 +115,7 @@ In the **Body** paste the logo ID from the previous step.
 
 * The default example has two logo IDs, we have created the first group with only one logo ID.
 
-    The response should return **201 Created". 
+    The response should return **201 Created**. 
 
 ## Upload from URL 
  
