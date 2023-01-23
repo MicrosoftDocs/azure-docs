@@ -23,7 +23,7 @@ Application requests to Azure Service Bus must be authenticated using either acc
 
 ## Security risks associated with access keys
 
-The following code example demonstrates how to connect to Azure Service Bus using a connection string that includes an access key. When you create a Service Bus, Azure generates these keys and connection strings automatically. Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. If your application currently uses connection strings, consider migrating to passwordless connections using the steps described in this document.
+The following code example demonstrates how to connect to Azure Service Bus using a connection string that includes an access key. When you create a Service Bus, Azure generates these keys and connection strings automatically. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past. If your application currently uses connection strings, consider migrating to passwordless connections using the steps described in this document.
 
 ```csharp
 var serviceBusClient = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>", clientOptions);
@@ -37,7 +37,7 @@ Connection strings should be used with caution. Developers must be diligent to n
 
 ## Steps to migrate an app to use passwordless authentication
 
-The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you are using access keys directly, or through connection strings.
+The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
 
 ### Configure roles and users for local development authentication
 
@@ -49,7 +49,7 @@ For local development, make sure you're authenticated with the same Azure AD acc
 
 [!INCLUDE [default-azure-credential-sign-in](../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-Next you will need to update your code to use passwordless connections.
+Next you'll need to update your code to use passwordless connections.
 
 1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
 
@@ -86,7 +86,7 @@ After making these code changes, run your application locally. The new configura
 
 ### Configure the Azure hosting environment
 
-Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Service Bus.
+Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Service Bus.
 
 #### Create the managed identity using the Azure portal
 
@@ -192,7 +192,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 ### [Service Connector](#tab/assign-role-service-connector)
 
-If you connected your services using the Service Connector you do not need to complete this step. The necessary configurations were handled for you:
+If you connected your services using the Service Connector you don't need to complete this step. The necessary configurations were handled for you:
 
 * If you selected a managed identity while creating the connection, a system-assigned managed identity was created for your app and assigned the **Azure Service Bus Data Owner** role on the Service Bus.
 
@@ -218,7 +218,7 @@ If you connected your services using the Service Connector you do not need to co
 
 ### [Azure CLI](#tab/assign-role-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the az servicebus show command. You can filter the output properties using the --query parameter.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az servicebus show` command. You can filter the output properties using the --query parameter.
 
 ```azurecli
 az servicebus show \

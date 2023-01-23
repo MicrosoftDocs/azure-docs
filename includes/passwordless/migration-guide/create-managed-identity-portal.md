@@ -10,7 +10,7 @@ The following compute services are currently supported:
 * Azure Spring Cloud
 * Azure Container Apps (preview)
 
-For this migration guide you will use App Service, but the steps are similar on Azure Spring Apps and Azure Container Apps.
+For this migration guide you'll use App Service, but the steps are similar on Azure Spring Apps and Azure Container Apps.
 
 > [!NOTE]
 > Azure Spring Apps currently only supports Service Connector using connection strings.
