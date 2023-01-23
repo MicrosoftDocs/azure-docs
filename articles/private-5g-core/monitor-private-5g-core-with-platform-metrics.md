@@ -38,7 +38,8 @@ You can use the Azure portal to monitor your deployment's health and performance
     :::image type="content" source="media/mobile-network-sites.png" alt-text="Screenshot of the Azure portal showing the Sites view in the Mobile Network resource.":::
 
 1. Select the **Monitoring** tab.
-    <!-- TODO: add screenshot -->
+
+    :::image type="content" source="media/platform-metrics-dashboard.png" alt-text="Screenshot of the Azure portal showing the Site resource's Monitoring tab.":::
 
 You should now see the Azure Monitor dashboards displaying important key performance indicators (KPIs), including the number of connected devices and session establishment failures.
 
