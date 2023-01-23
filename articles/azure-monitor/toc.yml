@@ -172,7 +172,7 @@ items:
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
     - name: Migrate retention to Azure Storage lifecycle
-    displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/migrate-to-azure-storage-lifecycle-policy.md
   - name: Transformations
     items:
