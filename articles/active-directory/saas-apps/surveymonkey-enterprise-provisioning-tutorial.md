@@ -54,7 +54,7 @@ Once the team is aligned, the Primary Admin can:
 1. Copy the SCIM endpoint link and provide it to your IT partner.
 1. Select **Generate token**. Treat this unique token as you would your Primary Admin password and only give it to your IT partner.
 
-Your organization’s IT partner will use the SCIM endpoint link and access token during set up of the IdP. They will also need to adjust the default mapping for your team’s needs.
+Your organization’s IT partner will use the SCIM endpoint link and access token during setup of the IdP. They will also need to adjust the default mapping for your team’s needs.
 
 ### Revoke SCIM Provisioning
 If you need to disconnect Surveymonkey from your IdP so the systems no longer sync, the Primary Admin can revoke SCIM provisioning. As long as SSO is enabled, there will be no impact to users who have already been synced.
