@@ -238,3 +238,4 @@ No, you can't use Append-only File (AOF) persistence with multiple replicas (mor
 Learn more about Azure Cache for Redis features.
 
 - [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
+- [Add replicas to Azure Cache for Redis](cache-how-to-multi-replicas.md)
