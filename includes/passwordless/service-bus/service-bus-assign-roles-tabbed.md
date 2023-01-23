@@ -10,20 +10,20 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
-When developing locally, make sure that the user account that is accessing blob data has the correct permissions. You'll need **Azure Service Bus Data Owner** to read and write blob data. To assign yourself this role, you'll need to be assigned the **User Access Administrator** role, or another role that includes the **Microsoft.Authorization/roleAssignments/write** action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../articles/role-based-access-control/scope-overview.md) page.
+When developing locally, make sure that the user account that is accessing Service Bus has the correct permissions. You'll need **Azure Service Bus Data Owner** to send and receive data. To assign yourself this role, you'll need to be assigned the **User Access Administrator** role, or another role that includes the **Microsoft.Authorization/roleAssignments/write** action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../articles/role-based-access-control/scope-overview.md) page.
 
-In this scenario, you'll assign permissions to your user account, scoped to the service bus, to follow the [Principle of Least Privilege](../articles/active-directory/develop/secure-least-privileged-access.md). This practice gives users only the minimum permissions needed and creates more secure production environments.
+In this scenario, you'll assign permissions to your user account scoped to a specific Service Bus namespace, to follow the [Principle of Least Privilege](../articles/active-directory/develop/secure-least-privileged-access.md). This practice gives users only the minimum permissions needed and creates more secure production environments.
 
-The following example will assign the **Azure Service Bus Data Owner** role to your user account, which provides both read and write access to blob data in your service bus.
+The following example will assign the **Azure Service Bus Data Owner** role to your user account, which allows you to send and receive data.
 
 > [!IMPORTANT]
 > In most cases it will take a minute or two for the role assignment to propagate in Azure, but in rare cases it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
 
 ### [Azure portal](#tab/roles-azure-portal)
 
-1. In the Azure portal, locate your service bus using the main search bar or left navigation.
+1. In the Azure portal, locate your Service Bus namespace using the main search bar or left navigation.
 
-2. On the service bus overview page, select **Access control (IAM)** from the left-hand menu.
+2. On the Service Bus overview page, select **Access control (IAM)** from the left-hand menu.
 
 3. On the **Access control (IAM)** page, select the **Role assignments** tab.
 

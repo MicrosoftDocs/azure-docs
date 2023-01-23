@@ -1,7 +1,7 @@
 ---
 title: Migrate applications to use passwordless authentication with Azure Service Bus
 titleSuffix: Azure Service Bus
-description: Learn to migrate existing service bus applications away from connection strings to use Azure AD and Azure RBAC for enhanced security.
+description: Learn to migrate existing Service Bus applications away from connection strings to use Azure AD and Azure RBAC for enhanced security.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
@@ -22,9 +22,9 @@ ms.devlang: csharp
 
 Application requests to Azure Service Bus must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, passwordless connections.
 
-## Security risks associated with connection strings
+## Security risks associated with access keys
 
-The following code example demonstrates how to connect to Azure Service Bus using a connection string. When you create a Service Bus Namespace, Azure generates connection strings automatically. Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. If your application currently uses connection strings, consider migrating to passwordless connections using the steps described later in this document.
+The following code example demonstrates how to connect to Azure Service Bus using a connection string that includes an access key. When you create a Service Bus, Azure generates these keys and connection strings automatically. Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. If your application currently uses connection strings, consider migrating to passwordless connections using the steps described in this document.
 
 ```csharp
 var serviceBusClient = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>", clientOptions);
@@ -46,7 +46,7 @@ The following steps explain how to migrate an existing application to use passwo
 
 ### Sign-in and migrate the app code to use passwordless connections
 
-For local development, make sure you're authenticated with the same Azure AD account you assigned the role to for the service bus namespace. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
+For local development, make sure you're authenticated with the same Azure AD account you assigned the role to for the Service Bus namespace. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
 [!INCLUDE [default-azure-credential-sign-in](../../includes/passwordless/default-azure-credential-sign-in.md)]
 
@@ -74,12 +74,12 @@ Next you will need to update your code to use passwordless connections.
 
     //TODO: Replace the "<NAMESPACE-NAME>" placeholder.
     client = new ServiceBusClient(
-        "<NAMESPACE-NAME>.servicebus.windows.net",
+        "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
         new DefaultAzureCredential(),
         clientOptions);
    ```
 
-1. Make sure to update the service bus namespace in the URI of your `ServiceBusClient`. You can find the namespace on the overview page of the Azure portal.
+1. Make sure to update the Service Bus namespace in the URI of your `ServiceBusClient`. You can find the namespace on the overview page of the Azure portal.
 
 #### Run the app locally
 
@@ -189,19 +189,19 @@ az vm identity assign \
 
 #### Assign roles to the managed identity
 
-Next, you need to grant permissions to the managed identity you created to access your service bus. You can do this by assigning a role to the managed identity, just like you did with your local development user.
+Next, you need to grant permissions to the managed identity you created to access your Service Bus. You can do this by assigning a role to the managed identity, just like you did with your local development user.
 
 ### [Service Connector](#tab/assign-role-service-connector)
 
 If you connected your services using the Service Connector you do not need to complete this step. The necessary configurations were handled for you:
 
-* If you selected a managed identity while creating the connection, a system-assigned managed identity was created for your app and assigned the **Azure Service Bus Data Owner** role on the service bus.
+* If you selected a managed identity while creating the connection, a system-assigned managed identity was created for your app and assigned the **Azure Service Bus Data Owner** role on the Service Bus.
 
 * If you selected connection string, the connection string was added as an app environment variable.
 
 ### [Azure portal](#tab/assign-role-azure-portal)
 
-1. Navigate to your service bus overview page and select **Access Control (IAM)** from the left navigation.
+1. Navigate to your Service Bus overview page and select **Access Control (IAM)** from the left navigation.
 
 1. Choose **Add role assignment**
 
@@ -241,7 +241,7 @@ az role assignment create \
 
 #### Test the app
 
-After making these code changes, browse to your hosted application in the browser. Your app should be able to connect to the service bus successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
+After making these code changes, browse to your hosted application in the browser. Your app should be able to connect to the Service Bus successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
 
 ## Next steps
 

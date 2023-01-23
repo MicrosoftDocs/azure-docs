@@ -4,8 +4,6 @@ The following steps demonstrate how to create a system-assigned managed identity
 
 Some app hosting environments support Service Connector, which helps you connect Azure compute services to other backing services. Service Connector automatically configures network settings and connection information.  You can learn more about Service Connector and which scenarios are supported on the [overview page](../../../service-connector/overview.md).
 
-
-
 The following compute services are currently supported:
 
 * Azure App Service
@@ -28,13 +26,11 @@ For this migration guide you will use App Service, but the steps are similar on 
 
    Select **Next: Authentication**.
 
-   :::image type="content" source="../media/migration-create-identity-small.png" alt-text="Screenshot showing how to create a system assigned managed identity." lightbox="../media/migration-create-identity.png":::
-
 1. Make sure **System assigned managed identity (Recommended)** is selected, and then choose **Next: Networking**.
 1. Leave the default values selected, and then choose **Next: Review + Create**.
 1. After Azure validates your settings, select **Create**.
 
-The Service Connector will automatically create a system-assigned managed identity for the app service. The connector will also assign the managed identity a **Service Bus Data Owner** role for the service bus you selected.
+The Service Connector will automatically create a system-assigned managed identity for the app service. The connector will also assign the managed identity a **Azure Service Bus Data Owner** role for the service bus you selected.
 
 ### [Azure App Service](#tab/app-service)
 
@@ -49,7 +45,7 @@ The Service Connector will automatically create a system-assigned managed identi
 
 1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
 
-   :::image type="content" source="../media/storage-migrate-credentials/spring-apps-identity.png" alt-text="Screenshot showing how to enable managed identity for Azure Spring Apps.":::
+   :::image type="content" source="../media/spring-apps-identity.png" alt-text="Screenshot showing how to enable managed identity for Azure Spring Apps.":::
 
 ### [Azure Container Apps](#tab/container-apps)
 
@@ -57,7 +53,7 @@ The Service Connector will automatically create a system-assigned managed identi
 
 1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
 
-   :::image type="content" source="../media/storage-migrate-credentials/container-apps-identity.png" alt-text="Screenshot showing how to enable managed identity for Azure Container Apps.":::
+   :::image type="content" source="../media/container-apps-identity.png" alt-text="Screenshot showing how to enable managed identity for Azure Container Apps.":::
 
 ### [Azure virtual machines](#tab/virtual-machines)
 
@@ -65,6 +61,6 @@ The Service Connector will automatically create a system-assigned managed identi
 
 1. Under the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
 
-   :::image type="content" source="../media/storage-migrate-credentials/virtual-machine-identity.png" alt-text="Screenshot showing how to enable managed identity for virtual machines.":::
+   :::image type="content" source="../media/virtual-machine-identity.png" alt-text="Screenshot showing how to enable managed identity for virtual machines.":::
 
 ---
