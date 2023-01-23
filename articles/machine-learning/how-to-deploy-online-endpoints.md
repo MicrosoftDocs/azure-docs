@@ -544,17 +544,19 @@ The `run()` function is called for every invocation of the endpoint, and it does
 
 ## Deploy and debug locally by using local endpoints
 
-We *highly recommend* that you test-run your endpoint locally by validating and debugging your code and configuration before you deploy to Azure. Azure CLI and Python SDK support local endpoints and deployments, while AzureML studio and ARM template don't. For more information on debugging online endpoints locally before deploying to Azure, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+We *highly recommend* that you test-run your endpoint locally by validating and debugging your code and configuration before you deploy to Azure. Azure CLI and Python SDK support local endpoints and deployments, while AzureML studio and ARM template don't.
 
-Local deployment has the following limitations:
-- Local endpoints do *not* support traffic rules, authentication, or probe settings. 
-- Local endpoints support only one deployment per endpoint.
-
-> [!NOTE]
-> * To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must be installed and running. Docker Engine typically starts when the computer starts. If it doesn't, you can [troubleshoot Docker Engine](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
+To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must be installed and running. Docker Engine typically starts when the computer starts. If it doesn't, you can [troubleshoot Docker Engine](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
 
 > [!TIP]
 > You can use [Azure Machine Learning inference HTTP server Python package](how-to-inference-server-http.md) to debug your scoring script locally **without Docker Engine**. Debugging with the inference server helps you to debug the scoring script before deploying to local endpoints so that you can debug without being affected by the deployment container configurations.
+
+Local endpoints have the following limitations:
+- They do *not* support traffic rules, authentication, or probe settings. 
+- They support only one deployment per endpoint.
+- They support local model files only. If you want to test registered models, first download them, then use `path` in the deployment definition to refer to the parent folder.
+
+For more information on debugging online endpoints locally before deploying to Azure, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 ### Deploy the model locally
 
