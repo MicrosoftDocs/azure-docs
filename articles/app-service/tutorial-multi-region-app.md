@@ -13,7 +13,7 @@ ms.author: jordanselig
 
 High availability and fault tolerance are key components of a well-architected solution. It’s best to prepare for the unexpected by having an emergency plan that can shorten downtime and keep your systems up and running automatically when something fails.
 
-When you deploy your application to the cloud, you choose a region in that cloud where your application infrastructure is based. If your application is deployed to a single region, and the region becomes unavailable, your application will also be unavailable. This lack of availability may be unacceptable under the terms of your application's SLA. If so, deploying your application and its services across multiple regions is a good solution. A multi-region deployment can use an active-active or active-passive configuration. An active-active configuration distributes requests across multiple active regions. An active-passive configuration keeps warm instances in the secondary region, but doesn't send traffic there unless the primary region fails. For multi-region deployments, you should deploy to [paired regions](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For more information on designing apps for high availability and fault tolerance, see [Architect Azure applications for resiliency and availability](../architecture/reliability/architect.md).
+When you deploy your application to the cloud, you choose a region in that cloud where your application infrastructure is based. If your application is deployed to a single region, and the region becomes unavailable, your application will also be unavailable. This lack of availability may be unacceptable under the terms of your application's SLA. If so, deploying your application and its services across multiple regions is a good solution. A multi-region deployment can use an active-active or active-passive configuration. An active-active configuration distributes requests across multiple active regions. An active-passive configuration keeps warm instances in the secondary region, but doesn't send traffic there unless the primary region fails. For multi-region deployments, you should deploy to [paired regions](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For more information on designing apps for high availability and fault tolerance, see [Architect Azure applications for resiliency and availability](azure/architecture/reliability/architect.md).
 
 In tutorial, you'll learn how to deploy a highly available multi-region web app. This scenario will be kept simple by restricting the application components to just a web app and [Azure Front Door](../frontdoor/front-door-overview.md), but the concepts can be expanded and applied to other infrastructure patterns. For example, if your application connects to an Azure database offering or storage account, see [active geo-replication for SQL databases](../azure-sql/database/active-geo-replication-overview.md) and [redundancy options for storage accounts](../storage/common/storage-redundancy.md). For a reference architecture for a more detailed scenario, see [Highly available multi-region web application](..architecture/reference-architectures/app-service-web-app/multi-region.md).
 
@@ -51,14 +51,14 @@ Run the following command to create your resource group.
 az group create --name myresourcegroup --location eastus
 ```
 
-Run the following commands to create the App Service plans. Replace the placeholders for <app-service-plan-east-us> and <app-service-plan-west-us> with two unique names where you can easily identify the region they're in.
+Run the following commands to create the App Service plans. Replace the placeholders for `<app-service-plan-east-us>` and `<app-service-plan-west-us>` with two unique names where you can easily identify the region they're in.
 
 ```azurecli-interactive
 az appservice plan create --name <app-service-plan-east-us> --resource-group myresourcegroup --is-linux --location eastus
 az appservice plan create --name <app-service-plan-west-us> --resource-group myresourcegroup --is-linux --location westus
 ```
 
-Once the App Service plans are created, run the following commands to create the web apps. Replace the placeholders for <web-app-east-us> and <web-app-west-us> with two globally unique names (valid characters are `a-z`, `0-9`, and `-`) and be sure to pay attention to the `--plan` parameter so that you place one app in each plan (and therefore in each region).
+Once the App Service plans are created, run the following commands to create the web apps. Replace the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with two globally unique names (valid characters are `a-z`, `0-9`, and `-`) and be sure to pay attention to the `--plan` parameter so that you place one app in each plan (and therefore in each region).
 
 ```azurecli-interactive
 az webapp create --name <web-app-east-us> --resource-group myresourcegroup --plan <app-service-plan-east-us>
@@ -104,7 +104,7 @@ az afd origin-group create --resource-group myresourcegroup --origin-group-name 
 
 ### Add an origin to the group
 
-Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to add an origin to your origin group. For the `--hostname` parameter, replace the placeholder for <web-app-east-us> with your app name in that region.
+Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to add an origin to your origin group. For the `--hostname` parameter, replace the placeholder for `<web-app-east-us>` with your app name in that region.
 
 ```azurecli-interactive
 az afd origin create --resource-group myresourcegroup --host-name <web-app-east-us>.azurewebsites.net --profile-name myfrontdoorprofile --origin-group-name myorigingroup --origin-name primaryapp --origin-host-header <web-app-east-us>.azurewebsites.net --priority 1 --weight 1000 --enabled-state Enabled --http-port 80 --https-port 443
@@ -136,7 +136,7 @@ Before setting up the App Service access restrictions, take note of the *Front D
 az afd profile show --resource-group myresourcegroup --profile-name myfrontdoorprofile --query "frontDoorId"
 ```
 
-Run the following commands to set the access restrictions on your web apps. Replace the placeholder for <front-door-id> with the result from the previous command. Replace the placeholders for the app names.
+Run the following commands to set the access restrictions on your web apps. Replace the placeholder for `<front-door-id>` with the result from the previous command. Replace the placeholders for the app names.
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-groupg myresourcegroup -n <web-app-east-us> --priority 100 --service-tag AzureFrontDoor.Backend --http-header x-azure-fdid=<front-door-id>
@@ -209,7 +209,7 @@ In this section, you'll learn:
 
 ### Infrastructure deployment best practice
 
-For this tutorial, you used the Azure CLI to deploy your infrastructure resources. Consider configuring a continuous deployment mechanism to manage your application infrastructure. Since you're deploying resources in different regions, you'll need to independently manage those resources across the regions. To ensure the resources are identical across each region, infrastructure as code (IaC) such as [Azure Resource Manager templates](https://azure.microsoft.com/get-started/azure-portal/resource-manager/) or [Terraform](https://learn.microsoft.com/azure/developer/terraform/overview) should be used with deployment pipelines such as [Azure Pipelines](https://learn.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) or [GitHub Actions](https://docs.github.com/actions). This way, if configured appropriately, any change to resources would trigger updates across all regions you're deployed to. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
+For this tutorial, you used the Azure CLI to deploy your infrastructure resources. Consider configuring a continuous deployment mechanism to manage your application infrastructure. Since you're deploying resources in different regions, you'll need to independently manage those resources across the regions. To ensure the resources are identical across each region, infrastructure as code (IaC) such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](azure/developer/terraform/overview.md) should be used with deployment pipelines such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) or [GitHub Actions](https://docs.github.com/actions). This way, if configured appropriately, any change to resources would trigger updates across all regions you're deployed to. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
 
 ### Use staging slots
 
@@ -225,7 +225,7 @@ Be sure to set the App Service stack settings for your apps. Stack settings refe
 1. Select **Save** and then **Continue** to confirm the update.
 1. Repeat these steps for your other apps.
 
-Run the following commands to create staging slots called "stage" for each of your apps. Replace the placeholders for <web-app-east-us> and <web-app-west-us> with your app names.
+Run the following commands to create staging slots called "stage" for each of your apps. Replace the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with your app names.
 
 ```azurecli-interactive
 az webapp deployment slot create --resource-group myresourcegroup --name <web-app-east-us> --slot stage --configuration-source <web-app-east-us>
@@ -259,7 +259,7 @@ A default workflow file that uses a publish profile to authenticate to App Servi
 
 Consider [disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html), which limits access to the FTP and SCM endpoints to users that are backed by Azure Active Directory (Azure AD). If using a continuous deployment tool to deploy your application source code, disabling basic auth will require [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you won't be able to use a publish profile since that authentication mechanism doesn't used Azure AD backed credentials. Instead, you'll need to use either a [service principal or OpenID Connect](deploy-github-actions.md#generate-deployment-credentials).
 
-To disable basic auth for your App Service, run the following commands for each app and slot by replacing the placeholders for <web-app-east-us> and <web-app-west-us> with your app names. The first set of commands disables FTP access for the production sites and staging slots, and the second set of commands disables basic auth access to the WebDeploy port and SCM site for the production sites and staging slots.
+To disable basic auth for your App Service, run the following commands for each app and slot by replacing the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with your app names. The first set of commands disables FTP access for the production sites and staging slots, and the second set of commands disables basic auth access to the WebDeploy port and SCM site for the production sites and staging slots.
 
 ```azurecli-interactive
 az resource update --resource-group myresourcegroup --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<web-app-east-us> --set properties.allow=false
@@ -285,7 +285,7 @@ If you disable basic auth for your App Services, continuous deployment requires 
 
 To configure continuous deployment with GitHub Actions and a service principal, use the following steps.
 
-1. Run the following command to create the [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Replace the placeholders with your <subscription-id> and app names. The output is a JSON object with the role assignment credentials that provide access to your App Service apps. Copy this JSON object for the next step. It will include your client secret, which will only be visible at this time. It's always a good practice to grant minimum access. The scope in this example is limited to the apps and not the entire resource group.
+1. Run the following command to create the [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Replace the placeholders with your `<subscription-id>` and app names. The output is a JSON object with the role assignment credentials that provide access to your App Service apps. Copy this JSON object for the next step. It will include your client secret, which will only be visible at this time. It's always a good practice to grant minimum access. The scope in this example is limited to the apps and not the entire resource group.
 
     ```bash
     az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/<web-app-east-us> /subscriptions/<subscription-id>/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/<web-app-west-us> --sdk-auth
@@ -297,10 +297,10 @@ To configure continuous deployment with GitHub Actions and a service principal, 
 
 ### Create the GitHub Actions workflow
 
-Now that you have a service principal that can access your App Service apps, you need to edit the default workflows that were created for your apps when you configured continuous deployment. Authentication must be done using your service principal instead of the publish profile. For sample workflows, see the "Service principal" tab in [Deploy to App Service](https://learn.microsoft.com/azure/app-service/deploy-github-actions?tabs=userlevel#deploy-to-app-service). The following sample workflow can be used for Node.js apps.
+Now that you have a service principal that can access your App Service apps, you need to edit the default workflows that were created for your apps when you configured continuous deployment. Authentication must be done using your service principal instead of the publish profile. For sample workflows, see the "Service principal" tab in [Deploy to App Service](deploy-github-actions.md#deploy-to-app-service). The following sample workflow can be used for Node.js apps.
 
 1. Open your app's GitHub repository and go to the `<repo-name>/.github/workflows/` directory. You'll see the autogenerated workflows.
-1. For each workflow file, select the "pencil" button in the top right to edit the file. Replace the contents with the following text, which assumes you created the GitHub secrets earlier for your credential. Update the placeholder for <web-app-name> under the "env" section, and then commit directly to the main branch. This commit will trigger the GitHub Action to run again and deploy your code, this time using the service principal to authenticate.
+1. For each workflow file, select the "pencil" button in the top right to edit the file. Replace the contents with the following text, which assumes you created the GitHub secrets earlier for your credential. Update the placeholder for `<web-app-name>` under the "env" section, and then commit directly to the main branch. This commit will trigger the GitHub Action to run again and deploy your code, this time using the service principal to authenticate.
 
     {% raw %}
 
@@ -383,7 +383,7 @@ Traffic routing with slots allows you to direct a pre-defined portion of your us
 
 Once you're done testing and validating in your staging slots, you can perform a [slot swap](deploy-staging-slots.md#swap-two-slots) from your staging slot to your production site. You'll need to do this swap for all instances of your app. During a slot swap, the App Service platform [ensures the target slot doesn't experience downtime](deploy-staging-slots.md#swap-operation-steps).
 
-To perform the swap, run the following command for each app. Replace the placeholder for <web-app-name>.
+To perform the swap, run the following command for each app. Replace the placeholder for `<web-app-name>`.
 
 ```azurecli-interactive
 az webapp deployment slot swap --resource-group MyResourceGroup -name <web-app-name> --slot stage --target-slot production
