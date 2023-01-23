@@ -24,7 +24,7 @@ Microsoft Sentinel currently supports connections to GitHub and Azure DevOps rep
 - An **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
 - Contributor access to your GitHub or Azure DevOps repository
 - Actions enabled for GitHub and Pipelines enabled for Azure DevOps
-- Third-party application access via OAuth enabled for [Azure DevOps application connection policies](../devops/organizations/accounts/change-application-access-policies.md?view=azure-devops#manage-a-policy).
+- Third-party application access via OAuth enabled for [Azure DevOps application connection policies](/azure/devops/organizations/accounts/change-application-access-policies).
 - Ensure custom content files you want to deploy to your workspaces are in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml).
 
 For more information, see [Validate your content](ci-cd-custom-content.md#validate-your-content)
