@@ -184,17 +184,17 @@ items:
         href: essentials/data-collection-transformations-structure.md
       - name: Transformation tutorials
         items:
-          - name: Workspace transformations
-            items:
-            - name: Azure portal
-              displayName: Workspace transformations
-              href: logs/tutorial-workspace-transformations-portal.md
-            - name: Resource Manager templates
-              displayName: Workspace transformations
-              href: logs/tutorial-workspace-transformations-api.md
-          - name: Text logs
-            displayName: Custom text logs
-            href: agents/azure-monitor-agent-transformation.md
+        - name: Workspace transformations
+          items:
+          - name: Azure portal
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-portal.md
+          - name: Resource Manager templates
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-api.md
+        - name: Text logs
+          displayName: Custom text logs
+          href: agents/azure-monitor-agent-transformation.md
   - name: Azure Monitor Agent
     items:
     - name: Overview
@@ -945,8 +945,7 @@ items:
       - name: SharePoint sites
         href: app/sharepoint.md
       - name: Windows desktop
-        href: app/windows-desktop.md
- 
+        href: app/windows-desktop.md 
   - name: Container insights
     items:
     - name: Overview
