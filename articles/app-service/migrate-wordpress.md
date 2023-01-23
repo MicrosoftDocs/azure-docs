@@ -14,7 +14,9 @@ ms.custom: seodec18
 
 This article describes two ways to migrate WordPress from App Service on Windows or external hosting providers to App Service on Linux. 
 
->**Note:** First migrate the content to a test instance, validate all scenarios, and if everything works as expected, swap this instance to the production slot.
+> [!NOTE]
+> Migrate the content to a test instance, validate all scenarios, and if everything works as expected, swap this instance to the production slot.
+>
 
  You can migrate your site to WordPress on Azure App Service in two ways:
 
