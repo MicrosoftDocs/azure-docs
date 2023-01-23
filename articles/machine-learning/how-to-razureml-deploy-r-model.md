@@ -208,6 +208,12 @@ Once you have verified that you have at least one custom environment, use the fo
 
     If you're not on the compute instance, omit `--identity` and follow the prompt to open a browser window to authenticate.
 
+1. Make sure you have the most recent versions of the CLI and the `ml` extension:
+    
+    ```azurecli
+    az upgrade
+    ```
+
 1. If you have multiple Azure subscriptions, set the active subscription to the one you're using for your workspace. (You can skip this step if you only have access to a single subscription.)  Replace `<SUBSCRIPTION-NAME>` with your subscription name.  Also remove the brackets `<>`.
 
     ```azurecli
@@ -314,8 +320,6 @@ A *deployment* is a set of resources required for hosting the model that does th
     ```azurecli
     az ml online-deployment create -f r-deployment.yml --all-traffic --skip-script-validation
     ```
-
-If this command gives an error that the parameter `--skip-script-validation` is not recognized, you have an older version of the `ml` extension.  In that case, [reinstall the extension](how-to-configure-cli.md#installation) and try again.
 
 > [!NOTE]
 > It may take several minutes for the service to be deployed.  Wait until deployment is finished before proceeding to the next section.

@@ -118,8 +118,14 @@ To submit the job, run the following commands in a terminal window:
     ```azurecli
     az login --identity
     ```
-    
+
     If you're not on the compute instance, omit `--identity` and follow the prompt to open a browser window to authenticate.
+
+1. Make sure you have the most recent versions of the CLI and the `ml` extension:
+    
+    ```azurecli
+    az upgrade
+    ```
 
 1. If you have multiple Azure subscriptions, set the active subscription to the one you're using for your workspace. (You can skip this step if you only have access to a single subscription.)  Replace `<SUBSCRIPTION-NAME>` with your subscription name.  Also remove the brackets `<>`.
 
