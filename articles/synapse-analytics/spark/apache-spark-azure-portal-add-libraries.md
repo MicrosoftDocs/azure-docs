@@ -25,7 +25,7 @@ To make third-party or locally built code available to your applications, instal
 
 ## Overview of package levels
 
-There are three levels of package installing on Azure Synapse Analytics: 
+There are three levels of packages installed on Azure Synapse Analytics: 
 
 - **Default**: Default packages include a full Anaconda installation, plus extra commonly used libraries. For a full list of libraries, see [Apache Spark version support](apache-spark-version-support.md). 
 
@@ -36,7 +36,7 @@ There are three levels of package installing on Azure Synapse Analytics:
 - **Session**: A session-level installation creates an environment for a specific notebook session. The change of session-level libraries isn't persisted between sessions.
 
 > [!NOTE]
-> The pool-level library management can take time, depending on the size of the packages and the complexity of required dependencies. We recommend the session-level installation for experimental and quick iterative scenarios.
+> Pool-level library management can take time, depending on the size of the packages and the complexity of required dependencies. We recommend the session-level installation for experimental and quick iterative scenarios.
   
 ## Manage workspace packages
 
@@ -52,7 +52,7 @@ In some cases, you might want to standardize the packages that are used on an Ap
 
 By using the pool management capabilities of Azure Synapse Analytics, you can configure the default set of libraries to install on a serverless Apache Spark pool. These libraries are installed on top of the [base runtime](./apache-spark-version-support.md).
 
-Currently, pool management is supported only for Python. For Python, Synapse Spark pools use Conda to install and manage Python package dependencies. 
+Currently, pool management is supported only for Python. For Python, Azure Synapse Spark pools use Conda to install and manage Python package dependencies. 
 
 When you're specifying pool-level libraries, you can now provide a *requirements.txt* or an *environment.yml* file. This environment configuration file is used every time a Spark instance is created from that Spark pool.
 
@@ -62,14 +62,14 @@ To learn more about these capabilities, see [Manage Spark pool packages](./apach
 > - If the package that you're installing is large or takes a long time to install, it might affect the Spark instance's startup time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
 
-## Manage dependencies for DEP-enabled Synapse Spark pools
+## Manage dependencies for DEP-enabled Azure Synapse Spark pools
 
 > [!NOTE]
-> Installing packages from public repo is not supported within [DEP-enabled workspaces](../security/workspace-data-exfiltration-protection.md), you should upload all your dependencies as workspace libraries and install to your Spark pool.
+> Installing packages from a public repo is not supported within [DEP-enabled workspaces](../security/workspace-data-exfiltration-protection.md). Instead, upload all your dependencies as workspace libraries and install them to your Spark pool.
 
-Please follow the steps below if you have trouble to identify the required dependencies:
+If you're having trouble identifying required dependencies, follow these steps:
 
-1. Run the following script to set up a local Python environment same with Synapse Spark environment. The script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml), which is the list of libraries shipped in the default Python environment in Synapse Spark.
+1. Run the following script to set up a local Python environment that's the same as the Azure Synapse Spark environment. The script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml), which is the list of libraries shipped in the default Python environment in Azure Synapse Spark.
 
    ```powershell
       # One-time synapse Python setup
@@ -82,42 +82,42 @@ Please follow the steps below if you have trouble to identify the required depen
    ```
 
 1. Run the following script to identify the required dependencies. 
-The script can be used to pass your requirement.txt file, which has all the packages and versions you intend to install in the spark 3.1/spark3.2 spark pool. It will print the names of the *new* wheel files/dependencies needed for your input library requirements. 
+The script can be used to pass your *requirement.txt* file, which has all the packages and versions that you intend to install in the Spark 3.1 or Spark 3.2 pool. It will print the names of the *new* wheel files/dependencies for your input library requirements. 
 
    ```python
-      # Command to list out wheels needed for your input libraries.
-      # This command will list out only new dependencies that are
-      # not already part of the built-in Synapse environment.
+      # Command to list wheels needed for your input libraries.
+      # This command will list only new dependencies that are
+      # not already part of the built-in Azure Synapse environment.
       pip install -r <input-user-req.txt> > pip_output.txt
       cat pip_output.txt | grep "Using cached *"
    ```
    > [!NOTE]
-   > This script will list out only the dependencies that are not already present in the spark pool by default.
+   > This script will list only the dependencies that are not already present in the Spark pool by default.
 
 ## Manage session-scoped packages
 
-Often, when doing interactive data analysis or machine learning, you might try newer packages or you might need packages that are currently unavailable on your Apache Spark pool. Instead of updating the pool configuration, users can now use session-scoped packages to add, manage, and update session dependencies.
+When you're doing interactive data analysis or machine learning, you might try newer packages, or you might need packages that are currently unavailable on your Apache Spark pool. Instead of updating the pool configuration, you can use session-scoped packages to add, manage, and update session dependencies.
 
-Session-scoped packages allow users to define package dependencies at the start of their session. When you install a session-scoped package, only the current session has access to the specified packages. As a result, these session-scoped packages don't affect other sessions or jobs using the same Apache Spark pool. In addition, these libraries are installed on top of the base runtime and pool level packages.
+Session-scoped packages allow users to define package dependencies at the start of their session. When you install a session-scoped package, only the current session has access to the specified packages. As a result, these session-scoped packages don't affect other sessions or jobs that use the same Apache Spark pool. In addition, these libraries are installed on top of the base runtime and pool-level packages.
 
 To learn more about how to manage session-scoped packages, see the following articles:
 
-- [Python session packages:](./apache-spark-manage-session-packages.md#session-scoped-python-packages) At the start of a session, provide a Conda *environment.yml* to install more Python packages from popular repositories.
+- [Python session packages](./apache-spark-manage-session-packages.md#session-scoped-python-packages): At the start of a session, provide a Conda *environment.yml* file to install more Python packages from popular repositories.
 
-- [Scala/Java session packages:](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages) At the start of your session, provide a list of *.jar* files to install using `%%configure`.
+- [Scala/Java session packages](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages): At the start of your session, provide a list of *.jar* files to install by using `%%configure`.
 
-- [R session packages:](./apache-spark-manage-session-packages.md#session-scoped-r-packages-preview) Within your session, you can install packages across all nodes within your Spark pool using `install.packages` or `devtools`.
+- [R session packages](./apache-spark-manage-session-packages.md#session-scoped-r-packages-preview): Within your session, you can install packages across all nodes within your Spark pool by using `install.packages` or `devtools`.
 
-## Manage your packages outside the Synapse Analytics UI
+## Manage your packages outside the Azure Synapse Analytics UI
 
-If your team want to manage the libraries without visiting the package management UIs, you have the options to manage the workspace packages and pool level package updates through Azure PowerShell cmdlets or REST APIs for Synapse Analytics.
+If your team wants to manage libraries without visiting the package management UIs, you have the option to manage the workspace packages and pool-level package updates through Azure PowerShell cmdlets or REST APIs for Azure Synapse Analytics.
 
-To learn more about Azure PowerShell cmdlets and package management REST APIs, see the following articles:
+For more information, see the following articles:
 
-- Azure PowerShell cmdlets for Synapse Analytics: [Manage your Spark pool libraries through Azure PowerShell cmdlets](apache-spark-manage-packages-outside-ui.md#manage-packages-through-azure-powershell-cmdlets)
-- Package management REST APIs: [Manage your Spark pool libraries through REST APIs](apache-spark-manage-packages-outside-ui.md#manage-packages-through-rest-apis)
+- [Manage your Spark pool libraries through REST APIs](apache-spark-manage-packages-outside-ui.md#manage-packages-through-rest-apis)
+- [Manage your Spark pool libraries through Azure PowerShell cmdlets](apache-spark-manage-packages-outside-ui.md#manage-packages-through-azure-powershell-cmdlets)
 
 ## Next steps
 
-- View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
-- Troubleshoot library installation errors: [Troubleshoot library errors](apache-spark-troubleshoot-library-errors.md)
+- [View the default libraries and supported Apache Spark versions](apache-spark-version-support.md)
+- [Troubleshoot library installation errors](apache-spark-troubleshoot-library-errors.md)
