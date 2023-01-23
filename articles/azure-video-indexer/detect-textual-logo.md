@@ -20,11 +20,11 @@ For example, if a user would create a textual logo: “Microsoft”, different a
     "name": "Microsoft",
     "wikipediaSearchTerm": "Microsoft",
     "textVariations": [{
-        "text": "Microsoft",
-        "caseSensitive": false
+    "text": "Microsoft",
+    "caseSensitive": false
     }, {
-        "text": "MSFT",
-        "caseSensitive": true
+    "text": "MSFT",
+    "caseSensitive": true
     }]
 }
 ```
@@ -70,11 +70,11 @@ The default body is:
     "name": "Microsoft",
     "wikipediaSearchTerm": "Microsoft",
     "textVariations": [{
-        "text": "Microsoft",
-        "caseSensitive": false
+    "text": "Microsoft",
+    "caseSensitive": false
     }, {
-        "text": "MSFT",
-        "caseSensitive": true
+    "text": "MSFT",
+    "caseSensitive": true
     }]
 }
 ```
@@ -88,6 +88,32 @@ The default body is:
 
 The response should return **201 Created**.
 
+```
+HTTP/1.1 201 Created
+
+content-type: application/json; charset=utf-8
+
+{
+    "id": "id"
+    "creationTime": "2023-01-15T13:08:14.9518235Z",
+    "lastUpdateTime": "2023-01-15T13:08:14.9518235Z",
+    "lastUpdatedBy": "Jhon Doe",
+    "createdBy": "Jhon Doe",
+    "name": "Microsoft",
+    "wikipediaSearchTerm": "Microsoft",
+    "textVariations": [{
+        "text": "Microsoft",
+        "caseSensitive": false,
+        "creationTime": "2023-01-15T13:08:14.9518235Z",
+        "createdBy": "Jhon Doe"
+    }, {
+        "text": "MSFT",
+        "caseSensitive": true,
+        "creationTime": "2023-01-15T13:08:14.9518235Z",
+        "createdBy": "Jhon Doe"
+    }]
+}
+```
 ## Create a new textual logo group 
  
 Use the [Create Logo Group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Logo-Group) API to create a logo group. Use the **try it** button. 
@@ -105,9 +131,9 @@ In the **Body** paste the logo ID from the previous step.
 
 ```json
 {
-    "logos":[{
-       "logoId": "id"
-    ]},
+    "logos": [{
+        "logoId": "id"
+    }],
     "name": "Technology",
     "description": "A group of logos of technology companies."
 }
@@ -116,6 +142,25 @@ In the **Body** paste the logo ID from the previous step.
 * The default example has two logo IDs, we have created the first group with only one logo ID.
 
     The response should return **201 Created**. 
+
+    ```
+    HTTP/1.1 201 Created
+    
+    content-type: application/json; charset=utf-8
+    
+    {
+        "id": "id",
+        "creationTime": "2023-01-15T14:41:11.4860104Z",
+        "lastUpdateTime": "2023-01-15T14:41:11.4860104Z",
+        "lastUpdatedBy": "Jhon Doe",
+        "createdBy": "Jhon Doe",
+        "logos": [{
+            "logoId": " e9d609b4-d6a6-4943-86ff-557e724bd7c6"
+        }],
+        "name": "Technology",
+        "description": "A group of logos of technology companies."
+    }    
+    ```
 
 ## Upload from URL 
  
