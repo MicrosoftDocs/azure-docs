@@ -45,10 +45,10 @@ Example `/22` CIDR network address block:  `10.10.0.0/22`
 
 The subnets:
 
-| Network usage             | Summary | Subnet | Example          |
+| Network usage             | Description | Subnet | Example          |
 | ------------------------- | ------------------------- | ------ | ---------------- |
 | Private cloud management  | Network for managment tools (i.e. vCenter, NSX-t ) | `/26`  | `10.10.0.0/26`   |
-| HCX Mgmt Migrations       | VM's like HCX Interconnect and Network extension | `/26`  | `10.10.0.64/26`  |
+| VMware HCX Interconnect service appliance   | VM's like HCX Interconnect and Network extension | `/26`  | `10.10.0.64/26`  |
 | Global Reach Reserved     | Outbound interface for ExpressRoute | `/26`  | `10.10.0.128/26` |
 | NSX-T DNS Service         | NSX-T DNS Service | `/32`  | `10.10.0.192/32` |
 | Reserved                  | Reserved | `/32`  | `10.10.0.193/32` |
@@ -58,8 +58,8 @@ The subnets:
 | Reserved                  | Reserved | `/29`  | `10.10.0.200/29` |
 | Reserved                  | Reserved | `/28`  | `10.10.0.208/28` |
 | ExpressRoute peering      | ExpressRoute Peering | `/27`  | `10.10.0.224/27` |
-| ESXi Management           | Network for ESXi Managment VMkernal interfaces | `/25`  | `10.10.1.0/25`   |
-| vMotion Network           | Network for vMotion VMkernal interfaces | `/25`  | `10.10.1.128/25` |
+| ESXi Management           | Network for ESXi Managment VMkernel interfaces | `/25`  | `10.10.1.0/25`   |
+| vMotion Network           | Network for vMotion VMkernel interfaces | `/25`  | `10.10.1.128/25` |
 | Replication Network       | Network for| `/25`  | `10.10.2.0/25`   |
 | vSAN                      | `/25`  | `10.10.2.128/25` |
 | HCX Uplink                | `/26`  | `10.10.3.0/26`   |
@@ -73,24 +73,24 @@ The subnets:
 
 | Source | Destination | Protocol | Port | Description  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
-| Private Cloud DNS server (cloud) | On-Premises DNS Server (on-prem)| UDP | 53 | DNS Client - Forward requests from Azure VMware Solution vCenter for any on-premises DNS queries (check DNS section below) |  
-| On-premises DNS Server (on-prem)   | Private Cloud DNS server (cloud) | UDP | 53 | DNS Client - Forward requests from on-premises services to Azure VMware Solution DNS servers (check DNS section below) |  
-| On-premises network (on-prem)  | Private Cloud vCenter server (cloud) | TCP(HTTP)  | 80 | vCenter Server requires port 80 for direct HTTP connections. Port 80 redirects requests to HTTPS port 443. This redirection helps if you use `http://server` instead of `https://server`.  |  
-| Private Cloud management network (cloud) | Directory (on-prem or cloud) | TCP  | 389/636 | These ports are open to allow communications for Azure VMware Solutions vCenter to communicate to any on-premises Active Directory/LDAP server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 636 is recommended for security purposes. |  
-| Private Cloud management network (cloud) | Active Directory Global Catalog (on-prem or cloud)  | TCP  | 3268/3269 | These ports are open to allow communications for Azure VMware Solutions vCenter to communicate to any on-premises or cloud Active Directory/LDAP global catalog server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 3269 is recommended for security purposes. |  
-| admin network (on-prem)  | Private Cloud vCenter server (cloud) | TCP(HTTPS)  | 443 | This port allows you to access vCenter from an on-premises network. The default port that the vCenter Server system uses to listen for connections from the vSphere Client. To enable the vCenter Server system to receive data from the vSphere Client, open port 443 in the firewall. The vCenter Server system also uses port 443 to monitor data transfer from SDK clients. |  
-| Admin Network (on-prem)  | HCX Connector (on-prem)  | TCP(HTTPS) | 9443 | Hybrid Cloud Manager Virtual Appliance Management Interface for Hybrid Cloud Manager system configuration. |
-| Admin Network (on-prem)  | HCX Connector (on-prem) | SSH | 22 | Administrator SSH access to Hybrid Cloud Manager. Allows capability to troubleshoot and test connectivity to cloud with ping and other tools |
-| HCX Connector (on-prem) | Interconnect (HCX-IX) (on-prem) | TCP(HTTPS) | 8123 | Send host-based replication service instructions to the HCX Interconnect. |
-| HCX Connector (on-prem) | Interconnect (HCX-IX on-prem) | HTTP  TCP(HTTPS) | 9443 | Send management instructions to the local HCX Interconnect using the REST API. |
-| Interconnect (HCX-IX) (on-prem) | Network Extension (HCX-NE) (on-prem) | TCP(HTTPS) | 443 | Send management instructions from Interconnect to Network Extension when Network Extension uses the same path as the Hybrid Interconnect. |
-| HCX Connector (on-prem) | ESXi Hosts (on-prem) | TCP | 80,902,443 | Authentication, Management and OVF deployment. |
-| Interconnect and Network Extension (on-prem)| Interconnect and Network Extenion (cloud) | UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Network Address Translation-Traversal (NAT-T) is also supported. |
-| Interconnect (HCX-IX) (on-prem) | Interconnect (HCX-IX) (cloud)  | UDP | 500 | Required for IPSEC<br> Internet key exchange (ISAKMP) for the bidirectional tunnel. |
+| Private Cloud DNS server (cloud) | On-Premises DNS Server (on-premises)| UDP | 53 | DNS Client - Forward requests from Azure VMware Solution vCenter for any on-premises DNS queries (check DNS section below.) |  
+| On-premises DNS Server (on-premises)   | Private Cloud DNS server (cloud) | UDP | 53 | DNS Client - Forward requests from on-premises services to Azure VMware Solution DNS servers (check DNS section below) |  
+| On-premises network (on-premises)  | Private Cloud vCenter server (cloud) | TCP(HTTP)  | 80 | vCenter Server requires port 80 for direct HTTP connections. Port 80 redirects requests to HTTPS port 443. This redirection helps if you use `http://server` instead of `https://server`.  |  
+| Private Cloud management network (cloud) | Directory (on-premises or cloud) | TCP  | 389/636 | These ports are open to allow communications for Azure VMware Solutions vCenter to communicate to any on-premises Active Directory/LDAP server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 636 is recommended for security purposes. |  
+| Private Cloud management network (cloud) | Active Directory Global Catalog (on-premises or cloud)  | TCP  | 3268/3269 | These ports are open to allow communications for Azure VMware Solutions vCenter to communicate to any on-premises or cloud Active Directory/LDAP global catalog server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 3269 is recommended for security purposes. |  
+| admin network (on-premises)  | Private Cloud vCenter server (cloud) | TCP(HTTPS)  | 443 | This port allows you to access vCenter from an on-premises network. The default port that the vCenter Server system uses to listen for connections from the vSphere Client. To enable the vCenter Server system to receive data from the vSphere Client, open port 443 in the firewall. The vCenter Server system also uses port 443 to monitor data transfer from SDK clients. |  
+| Admin Network (on-premises)  | HCX Connector (on-premises)  | TCP(HTTPS) | 9443 | Hybrid Cloud Manager Virtual Appliance Management Interface for Hybrid Cloud Manager system configuration. |
+| Admin Network (on-premises)  | HCX Connector (on-premises) | SSH | 22 | Administrator SSH access to Hybrid Cloud Manager. Allows capability to troubleshoot and test connectivity to cloud with ping and other tools |
+| HCX Connector (on-premises) | Interconnect (HCX-IX) (on-premises) | TCP(HTTPS) | 8123 | Send host-based replication service instructions to the HCX Interconnect. |
+| HCX Connector (on-premises) | Interconnect (HCX-IX on-premises) | HTTP  TCP(HTTPS) | 9443 | Send management instructions to the local HCX Interconnect using the REST API. |
+| Interconnect (HCX-IX) (on-premises) | Network Extension (HCX-NE) (on-premises) | TCP(HTTPS) | 443 | Send management instructions from Interconnect to Network Extension when Network Extension uses the same path as the Hybrid Interconnect. |
+| HCX Connector (on-premises) | ESXi Hosts (on-premises) | TCP | 80,902,443 | Authentication, Management and OVF deployment. |
+| Interconnect and Network Extension (on-premises)| Interconnect and Network Extenion (cloud) | UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Network Address Translation-Traversal (NAT-T) is also supported. |
+| Interconnect (HCX-IX) (on-premises) | Interconnect (HCX-IX) (cloud)  | UDP | 500 | Required for IPSEC<br> Internet key exchange (ISAKMP) for the bidirectional tunnel. |
 | On-premises vCenter network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter to Private Cloud vCenter using "Cross vCenter vMotion."  This is outside of HCX vMotions and is not an hcx requirement. |    
-| HCX Connector (on-prem) | connect.hcx.vmware.com and hybridity-depot.vmware.com | TCP | 443 |  connect.hcx.vmware.com is needed to validate Hybrid Cloud Manager license key.  Hybridity-depot is used for updates.   |    
+| HCX Connector (on-premises) | connect.hcx.vmware.com and hybridity-depot.vmware.com | TCP | 443 |  connect.hcx.vmware.com is needed to validate Hybrid Cloud Manager license key.  Hybridity-depot is used for updates.   |    
 
-There can be more items to consider when it comes to firewall rules, this is intended to give common rules for common scanerios. Note that when source and destination says "on-prem", this is only important if you have a firewall that inspects flows within your datacenter. If you do not have a firewall that inspects between on-prem components, you can ignore those rules as they would not be needed. For a detailed list of HCX ports for different features, please refer to the following links:
+There can be more items to consider when it comes to firewall rules, this is intended to give common rules for common scanerios. Note that when source and destination says "on-premises", this is only important if you have a firewall that inspects flows within your datacenter. If you do not have a firewall that inspects between on-premises components, you can ignore those rules as they would not be needed. For a detailed list of HCX ports for different features, please refer to the following links:
 
 https://ports.esp.vmware.com/home/VMware-HCX
 
