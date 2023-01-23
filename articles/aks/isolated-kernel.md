@@ -67,7 +67,6 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 az provider register --namespace Microsoft.ContainerService
 ```
 
-
 ## Limitations
 
 What limitations need to be specified?
@@ -115,7 +114,7 @@ To add Mariner to an existing ARM template, you need to add the following:
 
 * `"osSKU": "mariner"`
 * `"mode": "System"` to `agentPoolProfiles`
-* Set the apiVersion to 2021-03-01 or newer (`"apiVersion": "2021-03-01"`). 
+* Set the apiVersion to 2021-03-01 or newer (`"apiVersion": "2021-03-01"`).
 
 1. Create a file named *marineraksarm.json* on your system, and then paste the following manifest.
 
