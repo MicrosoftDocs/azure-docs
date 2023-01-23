@@ -161,7 +161,7 @@ The following table describes the role membership requirements that are needed f
 >
 > When you configure an action group in the portal, you can opt in or out of the common alert schema.
 >
-> - To find common schema samples for all sample types, see [Common alert schema definitions for Test Action Group](./alerts-common-schema-test-action-definitions.md).
+> - To find common schema samples for all sample types, see [Alert payload samples](./alerts-payload-samples.md).
 > - To find non-common schema alert definitions, see [Non-common alert schema definitions for Test Action Group](./alerts-non-common-schema-definitions.md).
 
 ## Manage your action groups
