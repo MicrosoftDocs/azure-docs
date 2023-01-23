@@ -37,7 +37,7 @@ This how-to guide shows how to access your SAP server from a workflow in Azure L
 
   For more information, which includes the supported user account types and the minimum required authorization for each action type (RFC, BAPI, IDOC), review the following SAP note: [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089).
 
-* Your SAP user account needs access to the respective function modules for the following connector operations:
+* Your SAP user account needs access to the `RFC_METADATA` function group and the respective function modules for the following operations:
 
   | Operations | Access to function modules |
   |------------|----------------------------|
@@ -45,6 +45,7 @@ This how-to guide shows how to access your SAP server from a workflow in Azure L
   | BAPI actions | `BAPI_TRANSACTION_COMMIT`, `BAPI_TRANSACTION_ROLLBACK`, `RPY_BOR_TREE_INIT`, `SWO_QUERY_METHODS`, and `SWO_QUERY_API_METHODS` |
   | IDOC actions | `IDOCTYPES_LIST_WITH_MESSAGES`, `IDOCTYPES_FOR_MESTYPE_READ`, `INBOUND_IDOCS_FOR_TID`, `OUTBOUND_IDOCS_FOR_TID`, `GET_STATUS_FROM_IDOCNR`, and `IDOC_RECORD_READ` |
   | **Read Table** action | Either `RFC BBP_RFC_READ_TABLE` or `RFC_READ_TABLE` |
+  | Grant strict minimum access to SAP server for your SAP connection | `RFC_METADATA_GET` and `RFC_METADATA_GET_TIMESTAMP` |
 
 * To use the **When a message is received from SAP** trigger, complete the following tasks:
 
@@ -78,8 +79,6 @@ This how-to guide shows how to access your SAP server from a workflow in Azure L
   > operation uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior 
   > might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is 
   > still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
-
-* To grant only strict minimum access for your SAP connection from Azure Logic Apps, your SAP user account needs access to the `RFC_METADATA` function group and the following function modules: `RFC_METADATA_GET` and `RFC_METADATA_GET_TIMESTAMP`
 
 * The message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](#actions) you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](#send-flat-file-idocs).
 
