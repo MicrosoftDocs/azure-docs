@@ -15,7 +15,7 @@ ms.custom: template-overview, mvc, engagement-fy23
 
 # What is Azure Network Watcher?
 
-Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Network Watcher is designed to monitor and repair the network health of IaaS (Infrastructure-as-a-Service) products including virtual machines (VM), virtual networks (VNets), application gateways, load balancers, etc. 
+Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Network Watcher is designed to monitor and repair the network health of IaaS (Infrastructure-as-a-Service) products including virtual machines (VMs), virtual networks (VNets), application gateways, load balancers, etc. 
 
 > [!Note] 
 > Network Watcher isn't intended for and will not work for PaaS monitoring or Web analytics. 
@@ -101,5 +101,5 @@ When you create or update a virtual network in your subscription, Network Watche
 
 - [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
 - [Tutorial: Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
-- [Tutorial: Monitor network communication between two virtual machines](connection-monitor).
+- [Tutorial: Monitor network communication between two virtual machines](connection-monitor.md).
 - [Learn module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).
