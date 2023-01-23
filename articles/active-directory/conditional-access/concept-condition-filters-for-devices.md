@@ -40,6 +40,9 @@ Filter for devices is an option when creating a Conditional Access policy in the
 > [!IMPORTANT]
 > Device state and filter for devices cannot be used together in Conditional Access policy.
 
+> [!NOTE]
+>For Azure AD registered devices to have Conditional Access capabilities, they need to be enrolled into Intune.  See What are Azure AD registered devices? - Microsoft Entra | Microsoft Learn![image](https://user-images.githubusercontent.com/123334715/213948802-27082df8-cdec-43d0-ba17-8157437f04c4.png) 
+
 The following steps will help create two Conditional Access policies to support the first scenario under [Common scenarios](#common-scenarios). 
 
 Policy 1: All users with the directory role of Global Administrator, accessing the Microsoft Azure Management cloud app, and for Access controls, Grant access, but require multifactor authentication and require device to be marked as compliant.
