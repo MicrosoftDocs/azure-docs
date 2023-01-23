@@ -73,9 +73,9 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 1. In the search bar, type *Microsoft Sentinel for SAP*.
 1. Select the **Microsoft Sentinel for SAP** connector and select **Open connector**.
 
-    You create an agent and SAP system under the **Configuration** area.
+    You create an agent and SAP system under the **Configuration > Add an API based collector agent** area.
     
-    [TBD - screenshot]
+    :::image type="content" source="media/deploy-data-connector-agent/configuration-new-agent.png" alt-text="Screenshot of the Configuration > Add an API based collector agent area of the SAP data connector page.":::
 
 1. Deploy the agent. To add a system, you must add an agent first. 
     
@@ -86,7 +86,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 1. In the **Configuration** area, select **Add new agent (Preview)**.
     
-    [TBD - screenshot]
+    :::image type="content" source="media/deploy-data-connector-agent/create-agent.png" alt-text="Screenshot of the Configuration > Add an API based collector agent area of the SAP data connector page." lightbox="media/deploy-data-connector-agent/create-agent.png":::
 
 1. Under **Create a collector agent** on the right, define the agent details:
     - Type the agent name, and select the subscription and key vault.
@@ -98,17 +98,20 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
     - To deploy the container and create SAP systems via managed identity, leave the default option **Managed Identity**, selected. To deploy the container and create SAP systems via a registered application, select **Application Identity**.
         - If you select **Application Identity**, provide the application ID and secret.
 
-1. Select **Create**.
-1. Under **Just one step before we finish**, click **Copy** [TBD - screenshot] next to **Agent command**.
+1. Select **Create** and review the recommendations before you complete the deployment:    
+
+    :::image type="content" source="media/deploy-data-connector-agent/view-icon.png" alt-text="Screenshot of the View icon.":::
+
+1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent/copy-icon.png" alt-text="Screenshot of the Copy icon."::: next to **Agent command**.
 1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
 
     The new agent is visible in the table under **Add an API based collector agent**. This table displays the agent name and health status for agents you deploy via the UI only. 
 
-    [TBD - screenshot]
+    At this stage, the agent's **Health** status is **Incomplete installation. Please follow the instructions** (**Agent1** in the screenshot). The status changes to **Agent healthy** (**Agent2** in the screenshot) after you [create a system](#create-a-new-system).
 
-    At this stage, the agent's **Health** status is **Incomplete installation. Please follow the instructions**. The status changes to **Agent healthy** after you [create a system](#create-a-new-system).
+    :::image type="content" source="media/deploy-data-connector-agent/create-agent.png" alt-text="Screenshot of the Configuration > Add an API based collector agent area of the SAP data connector page." lightbox="media/deploy-data-connector-agent/create-agent.png":::  
     
-    If you need to copy your command again, select **View** [TBD - screenshot] to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
+    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent/view-icon.png" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent command** on the bottom right.
 
 #### Create a new system
 
@@ -128,7 +131,7 @@ The configuration you defined is deployed into Azure Key Vault. You can now see 
 
 At this stage, the agent's **Health** status is **Incomplete installation. Please follow the instructions**. Once the agent is updated, it pulls the configuration from Azure Key vault, and the status changes to **Agent healthy**. 
 
-Learn more about how to [monitor your SAP system health] TBD - add link.
+Learn more about how to [monitor your SAP system health](../monitor-sap-system-health.md).
 
 [TBD - screenshot]
 
