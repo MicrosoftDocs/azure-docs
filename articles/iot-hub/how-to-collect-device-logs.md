@@ -218,7 +218,7 @@ To learn more about capturing and viewing trace data from the Node.js SDK, see [
 
 :::zone pivot="programming-language-python"
 
-The Azure IoT SDK for Python uses the [logging](https://docs.python.org/3/library/logging.htm) module to capture trace logs. You control the trace by using a logging configuration file. If you're using one of the samples in the SDK, you may need to modify the code to load a logging configuration from a file:
+The Azure IoT SDK for Python uses the [logging](https://docs.python.org/3/library/logging.html) module to capture trace logs. You control the trace by using a logging configuration file. If you're using one of the samples in the SDK, you may need to modify the code to load a logging configuration from a file:
 
 Replace the following line:
 
@@ -270,7 +270,7 @@ args=('device.log', 'w')
 format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
 ```
 
-To learn more about capturing and viewing trace data from the Python SDK, see [Configure logging in the Azure libraries for Python](/developer/python/sdk/azure-sdk-logging.md).
+To learn more about capturing and viewing trace data from the Python SDK, see [Configure logging in the Azure libraries for Python](/azure/developer/python/sdk/azure-sdk-logging).
 
 :::zone-end
 
