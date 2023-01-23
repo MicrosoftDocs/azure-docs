@@ -407,7 +407,7 @@ spec:
 To create the issuer, use the `kubectl apply` command.
 
 ```console
-kubectl apply -f cluster-issuer.yaml
+kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
 ## Update your ingress routes
