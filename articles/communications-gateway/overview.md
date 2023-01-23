@@ -64,7 +64,7 @@ Azure Communications Gateway includes optional API integration features. These f
 
 ### CallDuration upload
 
-The Operator Connect specifications require the Call Duration Records produced by Microsoft Teams to match billing information from your network. You must therefore push Call Duration data into the Microsoft Teams environment. Azure Communications Gateway can push this data for you and supports customizable rounding of call duration figures to match your billing systems.
+The Operator Connect specifications require the Call Duration Records (CDRs) produced by Microsoft Teams to match billing information from your network. You must therefore push call duration data into the Microsoft Teams environment. Azure Communications Gateway pushes this data for you and supports customizable rounding of call duration figures to match your billing systems.
 
 ### API Bridge Number Management Portal
 
