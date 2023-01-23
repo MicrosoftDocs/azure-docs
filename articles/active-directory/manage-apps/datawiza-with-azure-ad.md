@@ -16,7 +16,7 @@ ms.custom: kr2b-contr-experiment
 
 # Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza
 
-In this tutorial, learn how to integrate Azure Active Directory (Azure AD) with [Datawiza](https://www.datawiza.com/) for [hybrid access](../devices/concept-azure-ad-join-hybrid.md). [Datawiza Access Proxy (DAP)](https://www.datawiza.com) extends Azure AD to enable single sign-on (SSO) and provide access controls to protect on-premises and cloud-hosted applications, such as Oracle E-Business Suite, Microsoft IIS, and SAP. By using this solution, enterprises can transition from legacy web access managers (WAMs), such as Symantec SiteMinder, NetIQ, Oracle, and IBM, to Azure AD without rewriting applications. Enterprises can use Datawiza as a no-code, or low-code, solution to integrate new applications to Azure AD. This approach enables enterprises to implement their Zero Trust strategy while saving engineering time and reducing costs.
+In this tutorial, learn how to integrate Azure Active Directory (Azure AD) with [Datawiza](https://www.datawiza.com/) for [hybrid access](../devices/concept-azure-ad-join-hybrid.md). [Datawiza Access Proxy (DAP)](https://www.datawiza.com) extends Azure AD to enable single sign-on (SSO) and provide access controls to protect on-premises and cloud-hosted applications, such as Oracle E-Business Suite, Microsoft IIS, and SAP. With this solution, enterprises can transition from legacy web access managers (WAMs), such as Symantec SiteMinder, NetIQ, Oracle, and IBM, to Azure AD without rewriting applications. Enterprises can use Datawiza as a no-code, or low-code, solution to integrate new applications to Azure AD. This approach enables enterprises to implement their Zero Trust strategy while saving engineering time and reducing costs.
 
 Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
 
@@ -33,7 +33,7 @@ The following diagram illustrates the authentication architecture with Datawiza 
    ![Architecture diagram of the authentication process for user access to an on-premises application.](./media/datawiza-with-azure-active-directory/datawiza-architecture-diagram.png)
 
 1. The user requests access to the on-premises or cloud-hosted application. DAP proxies the request to the application.
-2. DAP checks user authentication state. If there is no session token, or the session token is invalid, DAP sends the user request to Azure AD for authentication.
+2. DAP checks user authentication state. If there's no session token, or the session token is invalid, DAP sends the user request to Azure AD for authentication.
 3. Azure AD sends the user request to the endpoint specified during DAP registration in the Azure AD tenant.
 4. DAP evaluates policies and attribute values to be included in HTTP headers forwarded to the application. DAP might call out to the identity provider to retrieve the information to set the header values correctly. DAP sets the header values and sends the request to the application.
 5. The user is authenticated and is granted access.
@@ -108,13 +108,13 @@ To get started, you need:
 
 1. Go to the application URL. 
 2. DAP redirects you to the Azure AD sign-in page.
-3. After authentication, you are redirected to DAP.
+3. After authentication, you're redirected to DAP.
 4. DAP evaluates policies, calculates headers, and sends you to the application. 
 5. The requested application appears.
 
 ## Next steps
 
 * [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](../../active-directory-b2c/partner-datawiza.md)
-* [Tutorial: Configure Datawiza to enable Azure AD Mfa and SSO to Oracle JD Edwards](datawiza-azure-ad-sso-oracle-jde.md)
+* [Tutorial: Configure Datawiza to enable Azure AD MFA and SSO to Oracle JD Edwards](datawiza-azure-ad-sso-oracle-jde.md)
 * [Tutorial: Configure Datawiza to enable Azure AD MFA and SSO to Oracle PeopleSoft](datawiza-azure-ad-sso-oracle-peoplesoft.md)
 * Go to docs.datawiza.com for Datawiza [User Guides](https://docs.datawiza.com)
