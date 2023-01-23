@@ -43,7 +43,7 @@ The following table provides a list of high-level Azure AD features and capabili
 | Disable Password Authentication | Not Available | Available |
 | Service Principal can act as group member | No | Yes |
 | Audit Azure AD Logins | No | Yes |
-| PG bouncer support | No | Planned for GA |
+| PG bouncer support | No | March 2023 |
 
 ## How Azure AD Works In Flexible Server
 
@@ -95,7 +95,6 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for PostgreSQL, see [Configure and sign in with Azure AD for Azure Database for PostgreSQL](how-to-configure-sign-in-azure-ad-authentication.md).
-- For an overview of logins, users, and database roles Azure Database for PostgreSQL, see [Create users in Azure Database for PostgreSQL - Flexible Server](how-to-create-users.md).
 - To learn how to manage Azure AD users for Flexible Server, see [Manage Azure Active Directory users - Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
 
 <!--Image references-->

@@ -2,7 +2,7 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. The article also discusses distributed tracing and the application map.
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 01/18/2023
 ms.devlang: java
 ms.custom: devx-track-java, ignite-2022
 ms.reviewer: mmcc
@@ -32,7 +32,7 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.4.7.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.7/applicationinsights-agent-3.4.7.jar) file.
+Download the [applicationinsights-agent-3.4.8.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.8/applicationinsights-agent-3.4.8.jar) file.
 
 > [!WARNING]
 >
@@ -63,7 +63,7 @@ Download the [applicationinsights-agent-3.4.7.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:"path/to/applicationinsights-agent-3.4.7.jar"` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -80,7 +80,7 @@ If you develop a Spring Boot application, you can replace the JVM argument by a 
         APPLICATIONINSIGHTS_CONNECTION_STRING=<Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.7.jar` with the following content:
+   - Create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
 
         ```json
         {
@@ -520,7 +520,7 @@ Structured logging (attaching custom dimensions to your logs) can be accomplishe
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.7</version>
+      <version>3.4.8</version>
     </dependency>
     ```
 
