@@ -18,7 +18,7 @@ ms.author: lajanuar
 
 Azure Cognitive Services Form Recognizer containers allow you to use Form Recognizer APIs with the benefits of containerization. Disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Form Recognizer features for a fixed fee, at a predictable total cost, based on the needs of your workload.
 
-## Get Started
+## Get started
 
 Before attempting to run a Docker container in an offline environment, make sure you're familiar with the following requirements to successfully download and use the container:
 
