@@ -2026,3 +2026,12 @@ groups:
     title: Recovery Services vault
   - id: vaults-backup-vault
     title: Backup vault
+# Owner: rolyon
+- id: app-provisioning-cross-tenant-synchronization
+  title: Application provisioning or cross-tenant synchronization
+  prompt: Choose an option
+  pivots:
+  - id: app-provisioning
+    title: Application provisioning
+  - id: cross-tenant-synchronization
+    title: Cross-tenant synchronization
