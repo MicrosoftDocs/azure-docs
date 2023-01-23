@@ -24,7 +24,6 @@ Each host pool can only configure one type of load-balancing specific to it. How
 - If a user already has an active or disconnected session in the host pool and signs in again, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if that session host's AllowNewConnections property is set to False (drain mode is enabled).
 - If a user doesn't already have a session in the host pool, then the load balancer won't consider session hosts whose AllowNewConnections property is set to False during load balancing.
 - If you lower the maximum session limit on a session host while it has active user sessions, the change won't affect the active user sessions.
-- Once session 
 
 ## Breadth-first load-balancing algorithm
 
