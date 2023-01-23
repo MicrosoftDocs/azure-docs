@@ -31,14 +31,24 @@ The following table presents criteria to consider when designing an Azure Monito
 |Azure regions |Each Azure Monitor workspace resides in a particular Azure region. Regulatory or compliance requirements may dictate the storage of data in particular locations. |
 |Data ownership |Create separate Azure Monitor workspaces to define data ownership, for example by subsidiaries or affiliated companies.| 
 
+### Considerations when creating an Azure Monitor workspace 
+
+* Azure Monitor workspaces are region. When you create a new Azure Monitor workspace, you provide a region, setting the location in which the data is stored.  
+
+* Start with a single workspace to reduce the complexity of managing and querying data from multiple Azure resources.
+
+* The default Azure Monitor workspace limit is 1 million active times series and 1 million events per minute ingested. 
+
+* There is no reduction in performance due to the amount of data in your Azure Monitor workspace. Multiple services can send data to the same account simultaneously. There is, however, a limit on how large an Azure Monitor workspace can scale as explained below.
+
 ### Growing account capacity  
 
 Azure Monitor workspaces have default quotas and limitations for metrics. As your product grows and you need more metrics, you can request an increase to 50 million events or active time series. If your capacity needs grow exceptionally large, and your data ingestion needs can no longer be met by a single Azure Monitor workspace, consider creating multiple Azure Monitor workspaces. 
 
 ### Multiple Azure Monitor workspaces  
 
-When an Azure Monitor workspace reaches 80% of its maximum capacity, or depending on your current and forecasted metric volume, it's recommended to split the Azure Monitor workspace into multiple workspaces. Split the workspace based on how the data in the workspace is used by your applications and business processes,  and how you want to access that data in the future.  For example, a company using Azure cloud service can logically separate its metrics in Azure Monitor workspaces by grouping them by application. By doing this, all the telemetric data can be managed and queried in an efficient way. 
-
+When an Azure Monitor workspace reaches 80% of its maximum capacity, or depending on your current and forecasted metrics volume, it's recommended to split the Azure Monitor workspace into multiple workspaces. Split the workspace based on how the data in the workspace is used by your applications and business processes, and how you want to access that data in the future.  
+  
 In certain circumstances, splitting Azure Monitor workspace into multiple workspaces can be necessary. For example: 
 * Monitoring data in sovereign clouds – Create Azure Monitor workspace(s) in each sovereign cloud.  
 * Compliance or regulatory requirements that mandate storage of data in specific regions – Create an Azure Monitor workspace per region as per requirements. There may be a need to manage the scale of metrics for large services or financial institutions with regional accounts. 
