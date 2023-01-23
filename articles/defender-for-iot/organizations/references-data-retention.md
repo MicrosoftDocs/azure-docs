@@ -46,18 +46,6 @@ The usage of available PCAP storage space depends on factors such as the number 
 > [!TIP]
 > To avoid being dependent on the sensor's storage capacity, use external storage to back up your PCAP data.
 
-### Sensor storage capacity by hardware profile
-
-| Hardware profile  | Allocated storage for alert PCAPS (filtered recordings)  |
-|---------|---------|
-| **C5600**     |   130 GB      |
-| **E1800**     |   130 GB      |
-| **E1000**     |   78 GB      |
-| **E500**     |    78 GB     |
-| **L500**     |    7 GB     |
-| **L100**     |   2.5 GB      |
-| **L60**     |    2.5 GB     |
-
 ## Security recommendation retention
 
 Defender for IoT security recommendations are stored only on the Azure portal, for 90 days from when the recommendation is first detected.
