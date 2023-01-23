@@ -203,6 +203,9 @@ To capture trace information from the SDK and the low-level MQTT library, set th
 export DEBUG=azure*,mqtt*
 ```
 
+> [!TIP]
+> If you're using the AMQP protocol, use `rhea*` to capture trace information from the low-level library.
+
 To capture just the trace data to a file called *trace.log*, use a command such as:
 
 ```bash
