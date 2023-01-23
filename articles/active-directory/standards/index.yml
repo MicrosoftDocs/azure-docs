@@ -30,6 +30,8 @@ landingContent:
             url: nist-overview.md
           - text: FedRAMP High impact overview
             url: configure-azure-active-directory-for-fedramp-high-impact.md
+          - text: Configure Azure Active Directory for CMMC compliance
+            url: configure-azure-active-directory-for-cmmc-compliance.md
 
   # Card 
   - title: Understand NIST AALs
@@ -80,3 +82,20 @@ landingContent:
             url: memo-22-09-authorization.md
           - text: Other areas of Zero Trust
             url: memo-22-09-other-areas-zero-trust.md
+            
+  # Card
+  - title: Achieve CMMC compliance
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Azure Active Directory for CMMC compliance
+            url: configure-azure-active-directory-for-cmmc-compliance.md
+          - text: Configure CMMC Level 1 controls
+            url: configure-cmmc-level-1-controls.md
+          - text: Configure CMMC Level 2 Access Control controls
+            url: configure-cmmc-level-2-access-control.md
+          - text: Configure CMMC Level 2 Identification and Authentication controls
+            url: configure-cmmc-level-2-identification-and-authentication.md
+          - text: Configure Azure Active Directory to meet CMMC Level 2
+            url: configure-cmmc-level-2-additional-controls.md
+            

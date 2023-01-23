@@ -1,17 +1,17 @@
 ---
-title: Supportability matrix for the SAP deployment automation framework
-description: Supported platforms, topologies, and capabilities for the SAP deployment automation framework on Azure.
+title: Supportability matrix for the SAP on Azure Deployment Automation Framework
+description: Supported platforms, topologies, and capabilities for the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 1/6/2023
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
 # Supportability matrix for the SAP Automation Framework
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) supports deployment of all the supported SAP on Azure topologies.
+The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) supports deployment of all the supported SAP on Azure topologies.
 
 ## Supported operating systems
 
@@ -19,7 +19,7 @@ The [SAP deployment automation framework on Azure](automation-deployment-framewo
 
 The deployer virtual machine of the control plane must be deployed on Linux as the Ansible controller only works on Linux.
 
-### SAP Application
+### SAP Infrastructure
 
 The automation framework supports deployment of the SAP on Azure infrastructure both on Linux or Windows virtual machines on x86-64 or x64 hardware.   
 
@@ -30,7 +30,20 @@ The following operating systems and distributions are supported by the framework
 - Red Hat Linux 64bit for the x86-64 platform (7.x and 8.x)
 - Oracle Linux 64bit for the x86-64 platform
 
-The following distributions have been tested with the framework (Red Hat 7.9, Red Hat 8.2, SUSE 12 SP5, and SUSE 15 SP2)
+The following distributions have been tested with the framework:
+- Red Hat 7.9
+- Red Hat 8.2
+- Red Hat 8.4
+- Red Hat 8.6
+- SUSE 12 SP5
+- SUSE 15 SP2
+- SUSE 15 SP3
+- Oracle Linux 8.2
+- Oracle Linux 8.4
+- Oracle Linux 8.6
+- Windows Server 2016
+- Windows Server 2019
+- Windows Server 2022
 ## Supported topologies
 
 By default, the automation framework deploys with database and application tiers. The application tier is split into three more tiers: application, central services, and web dispatchers. 
@@ -92,6 +105,14 @@ The automation framework uses or can use the following Azure services, features,
 ## Unsupported Azure features
 
 At this time the automation framework **doesn't support** the following Azure services, features, or capabilities:
+
+## Unsupported SAP architectures
+
+The automation framework can be used to deploy the following SAP architectures: 
+
+- Standalone
+- Distributed
+- Distributed (Highly Available)
 
 
 ## Next steps

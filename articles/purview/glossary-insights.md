@@ -28,11 +28,11 @@ Before getting started with Microsoft Purview Data Estate Insights glossary insi
 
 * [Set up and complete a scan your storage source](manage-data-sources.md).
 
-* Set up at least one [business glossary term](how-to-create-import-export-glossary.md) and attach it to an asset.
+* Set up at least one [business glossary term](how-to-create-manage-glossary-term.md) and attach it to an asset.
 
 ## Use Microsoft Purview glossary insights
 
-In Microsoft Purview, you can [create glossary terms and attach them to assets](how-to-create-import-export-glossary.md). As you make use of these terms in your data map, you can view the glossary distribution in glossary insights. These insights will give you the state of your glossary based on:
+In Microsoft Purview, you can [create glossary terms and attach them to assets](how-to-create-manage-glossary-term.md). As you make use of these terms in your data map, you can view the glossary distribution in glossary insights. These insights will give you the state of your glossary based on:
 * Number of terms attached to assets
 * Status of terms
 * Distribution of roles by users
@@ -72,4 +72,4 @@ In Microsoft Purview, you can [create glossary terms and attach them to assets](
 
 ## Next steps
 
-Learn more about how to create a glossary term through the [glossary documentation.](./how-to-create-import-export-glossary.md)
+Learn more about how to create a glossary term through the [glossary documentation.](./how-to-create-manage-glossary-term.md)

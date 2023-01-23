@@ -58,7 +58,7 @@ These terms are used throughout this content:
 
 * **Home tenant**: The Azure AD tenant containing users requiring access to the resources in the resource tenant.
 
-* **User lifecycle management**: the process of provisioning, managing, and deprovisioning user access to resources.
+* **User lifecycle management**: The process of provisioning, managing, and deprovisioning user access to resources.
 
 * **Unified GAL**: Each user in each tenant can see users from each organization in their Global Address List (GAL).
 

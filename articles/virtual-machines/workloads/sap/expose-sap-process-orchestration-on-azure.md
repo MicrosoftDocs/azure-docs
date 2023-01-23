@@ -30,7 +30,7 @@ Dispatching approaches include traditional reverse proxies like Apache, platform
 
 ## Primary Azure services 
 
-[Azure Application Gateway](../../../application-gateway/how-application-gateway-works.md) handles public [internet-based](../../../application-gateway/configuration-front-end-ip.md) and [internal private](../../../application-gateway/configuration-front-end-ip.md) HTTP routing, along with [encrypted tunneling across Azure subscriptions](../../../application-gateway/private-link.md). Examples include [security](../../../application-gateway/features.md) and [autoscaling](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md). 
+[Azure Application Gateway](../../../application-gateway/how-application-gateway-works.md) handles public [internet-based](../../../application-gateway/configuration-frontend-ip.md) and [internal private](../../../application-gateway/configuration-frontend-ip.md) HTTP routing, along with [encrypted tunneling across Azure subscriptions](../../../application-gateway/private-link.md). Examples include [security](../../../application-gateway/features.md) and [autoscaling](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md). 
 
 Azure Application Gateway is focused on exposing web applications, so it offers a web application firewall (WAF). Workloads in other virtual networks that will communicate with SAP through Azure Application Gateway can be connected via [private links](../../../application-gateway/private-link-configure.md), even across tenants.
 
@@ -111,9 +111,6 @@ Non-HTTP protocols like FTP can't be addressed with Azure API Management, Applic
 
 Files need to be stored before SAP can process them. We recommend that you use [SFTP](../../../storage/blobs/secure-file-transfer-protocol-support.md). Azure Blob Storage supports SFTP natively. 
 
-> [!NOTE]
-> [The Azure Blob Storage SFTP feature](../../../storage/blobs/secure-file-transfer-protocol-support.md) is currently in preview.
-
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/file-blob-4.png" alt-text="Diagram that shows a file-based scenario with Azure Blob Storage and SAP Process Orchestration on Azure.":::
 
 Alternative SFTP options are available in Azure Marketplace if necessary.
@@ -146,9 +143,6 @@ This second example shows a setup where SAP RISE runs the whole integration chai
 ### File outbound
 
 In this scenario, the SAP-managed Process Orchestration instance writes files to the customer-managed file share on Azure or to a workload sitting on-premises. The customer handles the breakout.
-
-> [!NOTE]
-> The [Azure Blob Storage SFTP feature](../../../storage/blobs/secure-file-transfer-protocol-support.md) is currently in preview.
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/rise-5b.png" alt-text="Diagram that shows a file share scenario with SAP Process Orchestration on Azure in the RISE context.":::
 

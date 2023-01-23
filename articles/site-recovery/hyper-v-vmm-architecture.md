@@ -4,6 +4,8 @@ description: This article provides an overview of the architecture for disaster 
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Architecture - Hyper-V replication to a secondary site

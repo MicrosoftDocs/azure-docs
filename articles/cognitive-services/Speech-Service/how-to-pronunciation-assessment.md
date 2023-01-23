@@ -27,12 +27,15 @@ You can get pronunciation assessment scores for:
 - Full text
 - Words
 - Syllable groups
-- Phonemes in SAPI or IPA format
+- Phonemes in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format
 
 > [!NOTE]
-> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=stt-tts) and [available regions](regions.md#speech-service).
+> The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale.
+> 
+> Usage of pronunciation assessment is charged the same as standard Speech to Text [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
 >
-> The syllable groups, IPA phonemes, and spoken phoneme features of pronunciation assessment are currently only available for the en-US locale.
+> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
+
 
 ## Configuration parameters
 
@@ -41,8 +44,8 @@ This table lists some of the key configuration parameters for pronunciation asse
 | Parameter | Description | 
 |-----------|-------------|
 | `ReferenceText` | The text that the pronunciation will be evaluated against. | 
-| `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. | 
-| `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text.| 
+| `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | 
+| `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text. Default: `Phoneme`.| 
 | `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. |
 | `ScenarioId` | A GUID indicating a customized point system. |
 
@@ -142,7 +145,7 @@ To request syllable-level results along with phonemes, set the granularity [conf
 
 ## Phoneme alphabet format
 
-For some locales, the phoneme name is provided together with the score, to help identify which phonemes were pronounced accurately or inaccurately. The phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) format is available for the `en-GB` and `en-US` locales. The phoneme name in [IPA](https://en.wikipedia.org/wiki/IPA) format is only available for the `en-US` locale. For other locales, you can only get the phoneme score. 
+For `en-US` locale, the phoneme name is provided together with the score, to help identify which phonemes were pronounced accurately or inaccurately. For other locales, you can only get the phoneme score. 
 
 The following table compares example SAPI phonemes with the corresponding IPA phonemes.
 
@@ -484,7 +487,7 @@ This table lists some of the key pronunciation assessment results.
 
 | Parameter | Description |
 |-----------|-------------|
-| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Syllable, word, and full text accuracy scores are aggregated from phoneme-level accuracy score. |
+| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Syllable, word, and full text accuracy scores are aggregated from phoneme-level accuracy score, and refined with assessment objectives.|
 | `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
 | `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |
 | `PronScore` | Overall score indicating the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |
@@ -674,6 +677,9 @@ Pronunciation assessment results for the spoken word "hello" are shown as a JSON
 	]
 }
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Next steps
 

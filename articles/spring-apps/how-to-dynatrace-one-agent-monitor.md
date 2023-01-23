@@ -203,9 +203,9 @@ The Dynatrace OneAgent auto-upgrade is disabled and will be upgraded quarterly w
 * Existing applications using Dynatrace OneAgent before upgrade will be unchanged, but will require restart or redeploy to engage the new version of Dynatrace OneAgent.
 * Applications created after upgrade will use the new version of Dynatrace OneAgent.
 
-## VNet injection instance outbound traffic configuration
+## Virtual network injection instance outbound traffic configuration
 
-For a VNet injection instance of Azure Spring Apps, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md).
+For a virtual network injection instance of Azure Spring Apps, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
 
 ## Dynatrace support model
 

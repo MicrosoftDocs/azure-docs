@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: blackmist
-ms.author: larryfr
+author: ositanachi  
+ms.author: osiotugo
+ms.reviewer: larryfr
 ms.date: 09/27/2022
-ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 ---
 
@@ -61,7 +61,7 @@ az configure --defaults workspace=<AzureML workspace name> group=<resource group
 
 # [Python SDK](#tab/python)
 
-To connect to the workspace, you need identifier parameters - a subscription, resource group, and workspace name. You'll use these details in the `MLClient` from the `azure.ai.ml` namespace to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+To connect to the workspace, you need identifier parameters - a subscription, resource group, and workspace name. You'll use these details in the `MLClient` from the `azure.ai.ml` namespace to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
 ```python
 #import required libraries for workspace
@@ -252,7 +252,7 @@ Get the details of a specific environment:
 # [Azure CLI](#tab/cli)
 
 ```cli
-az ml environment list --name docker-image-example --version 1
+az ml environment show --name docker-image-example --version 1
 ```
 
 # [Python SDK](#tab/python)
@@ -348,7 +348,7 @@ For more information on how to use environments in jobs, see [Train models](how-
 
 You can also use environments for your model deployments for both online and batch scoring. To do so, specify the `environment` field in the deployment YAML configuration.
 
-For more information on how to use environments in deployments, see [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md).
+For more information on how to use environments in deployments, see [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
 
 # [Python SDK](#tab/python)
 
@@ -359,5 +359,5 @@ You can also use environments for your model deployments. For more information, 
 ## Next steps
 
 - [Train models (create jobs)](how-to-train-model.md)
-- [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
+- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Environment YAML schema reference](reference-yaml-environment.md)

@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 05/25/2022
+ms.date: 01/03/2023
 ms.topic: overview
 author: timwarner-msft
 ms.author: timwarner
@@ -10,7 +10,7 @@ ms.author: timwarner
 
 If your organization has many Azure subscriptions, you may need a way to efficiently manage access,
 policies, and compliance for those subscriptions. _Management groups_ provide a governance scope
-above subscriptions. You organize subscriptions into management groups the governance conditions you apply
+above subscriptions. You organize subscriptions into management groups; the governance conditions you apply
 cascade by inheritance to all associated subscriptions.
 
 Management groups give you
@@ -257,11 +257,9 @@ There are limitations that exist when using custom roles on management groups.
   restriction is in place as there's a latency issue with updating the data plane resource
   providers. This latency issue is being worked on and these actions will be disabled from the role
   definition to reduce any risks.
-- The Azure Resource Manager doesn't validate the management group's existence in the role
+- Azure Resource Manager doesn't validate the management group's existence in the role
   definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
   role definition is still created.
-- Role assignment of a role with _dataActions_ isn't supported. Create the role assignment at the
-  subscription scope instead.
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview. This preview version is

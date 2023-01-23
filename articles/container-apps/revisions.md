@@ -53,7 +53,7 @@ Revision names are used to identify a revision, and in the revision's URL.  You 
 The format of a revision name is:
 
 ```text
-<container app name>--<revision suffix>
+<CONTAINER_APP_NAME>--<REVISION_SUFFIX>
 ```
 
 By default, Container Apps creates a unique revision name with a suffix consisting of a semi-random string of alphanumeric characters.  You can customize the name by setting a unique custom revision suffix.
@@ -105,7 +105,7 @@ The revision mode controls whether only a single revision or multiple revisions 
 
 ### Single revision mode
 
-By default, a container app is in *single revision mode*. In this mode, only one revision is active at a time. When a new revision is created, the latest revision replaces the active revision.
+By default, a container app is in *single revision mode*. In this mode, when a new revision is created, the latest revision replaces the active revision. For more information, see [Zero downtime deployment](./application-lifecycle-management.md#zero-downtime-deployment).
 
 ### Multiple revision mode
 

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2018
+ms.date: 11/09/2022
 ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
 
 # Smart-cropped thumbnails
 
-A thumbnail is a reduced-size representation of an image. Thumbnails are used to represent images and other data in a more economical, layout-friendly way. The Computer Vision API uses smart cropping to create intuitive image thumbnails that include the key objects in the image.
+A thumbnail is a reduced-size representation of an image. Thumbnails are used to represent images and other data in a more economical, layout-friendly way. The Computer Vision API uses smart cropping to create intuitive image thumbnails that include the most important regions of an image with priority given to any detected faces.
 
 #### [Version 3.2](#tab/3-2)
 The Computer Vision thumbnail generation algorithm works as follows:
@@ -47,10 +47,22 @@ The following table illustrates thumbnails defined by smart-cropping for the exa
 
 #### [Version 4.0](#tab/4-0)
 
-The Computer Vision smart-cropping utility takes a given aspect ratio (or several) and returns the bounding box coordinates (in pixels) of the region(s) identified. Your app can then crop and return the image using those coordinates.
+The Computer Vision smart-cropping utility takes one or more aspect ratios in the range [0.75, 1.80] and returns the bounding box coordinates (in pixels) of the region(s) identified. Your app can then crop and return the image using those coordinates.
 
 > [!IMPORTANT]
 > This feature uses face detection to help determine important regions in the image. The detection does not involve distinguishing one face from another face, predicting or classifying facial attributes, or creating a facial template (a unique set of numbers generated from an image that represents the distinctive features of a face).
+
+## Examples
+
+The generated bounding box can vary widely depending on what you specify for aspect ratio, as shown in the following images.
+
+| Aspect ratio | Bounding box |
+|-------|-----------|
+| original | :::image type="content" source="Images/cropped-original.png" alt-text="Photo of a man with a dog at a table."::: |
+| 0.75 |  :::image type="content" source="Images/cropped-075-bb.png" alt-text="Photo of a man with a dog at a table. A 0.75 ratio bounding box is drawn."::: |
+| 1.00 |  :::image type="content" source="Images/cropped-1-0-bb.png" alt-text="Photo of a man with a dog at a table. A 1.00 ratio bounding box is drawn."::: |
+| 1.50 |  :::image type="content" source="Images/cropped-150-bb.png" alt-text="Photo of a man with a dog at a table. A 1.50 ratio bounding box is drawn."::: |
+
 
 ---
 

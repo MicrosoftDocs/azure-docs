@@ -3,11 +3,11 @@ title: 'Tutorial: create a custom analyzer'
 titleSuffix: Azure Cognitive Search
 description: Learn how to build a custom analyzer to improve the quality of search results in Azure Cognitive Search.
 
-author: dereklegenzoff
-ms.author: delegenz
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/29/2021
+ms.date: 01/05/2023
 ---
 
 # Tutorial: Create a custom analyzer for phone numbers

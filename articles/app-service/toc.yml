@@ -226,6 +226,8 @@
           href: overview-authentication-authorization.md
         - name: OS and runtime patching
           href: overview-patch-os-runtime.md
+        - name: Subdomain takeover
+          href: reference-dangling-subdomain-prevention.md                
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy
@@ -403,6 +405,8 @@
           href: configure-vnet-integration-enable.md
         - name: Configure network routing
           href: configure-vnet-integration-routing.md
+        - name: Configure gateway-required integration
+          href: configure-gateway-required-vnet-integration.md
         - name: Control outbound traffic with Azure Firewall
           href: network-secure-outbound-traffic-azure-firewall.md
         - name: Integrate with Application Gateway

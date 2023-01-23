@@ -2,7 +2,7 @@
 author: greg-lindsay
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 10/07/2022    
+ms.date: 12/16/2022    
 ms.author: greglin
 ---
 **Public DNS zones**
@@ -32,7 +32,7 @@ ms.author: greglin
 
 <sup>1</sup>These limits are applied to every individual virtual machine and not at the virtual network level. DNS queries exceeding these limits are dropped.
 
-**DNS private resolver**
+**DNS private resolver**<sup>1</sup>
 
 | Resource | Limit |
 | --- | --- |
@@ -44,4 +44,6 @@ ms.author: greglin
 | Outbound endpoints per DNS forwarding ruleset |2|
 | DNS forwarding rulesets per outbound endpoint |2|
 | Target DNS servers per forwarding rule |6|
+| QPS per endpoint |10,000|
 
+<sup>1</sup>Different limits might be enforced by the Azure portal until the portal is updated. Use PowerShell to provision elements up to the most current limits.

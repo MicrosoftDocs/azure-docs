@@ -10,10 +10,10 @@ ms.topic: conceptual
 
 # Work with Azure Desired State Configuration extension version history
 
-The Azure Desired State Configuration (DSC) VM [extension](../virtual-machines/extensions/dsc-overview.md) is updated as-needed to support enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management Framework (WMF) that includes Windows PowerShell.
-
 > [!NOTE]
-> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+
+The Azure Desired State Configuration (DSC) VM [extension](../virtual-machines/extensions/dsc-overview.md) is updated as-needed to support enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management Framework (WMF) that includes Windows PowerShell.
 
 This article provides information about each version of the Azure DSC VM extension, what environments it supports, and comments and remarks on new features or changes.
 

@@ -59,7 +59,7 @@ The Key Vault VM extension supports these Linux distributions:
                   }
    `
 ## Key Vault VM extension version
-* Ubuntu-18.04 and  SUSE-15 users can chose to upgrade their key vault vm extension version to `V2.0` to avail full certificate chain download feature. Issuer certificates (intermediate and root) will be appended to the leaf certificate in the PEM file.
+* Users can chose to upgrade their key vault vm extension version to `V2.0` to use full certificate chain download feature. Issuer certificates (intermediate and root) will be appended to the leaf certificate in the PEM file.
 
 * If you prefer to upgrade to `v2.0`, you would need to delete `v1.0` first, then install `v2.0`.
 ```

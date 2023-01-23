@@ -36,7 +36,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 
 * **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource, Third-Party Security provider or **Network Virtual Appliance** specified as part of the Routing Policy.
 
-    In other words, when Traffic Routing Policy is configured on a Virtual WAN hub, the Virtual WAN will advertise a **default** route to all spokes, Gateways and Network Virtual Appliances (deployed in the hub or spoke). This includes the **Network Virtual Appliance** that is the next hop for the Itnernet Traffic routing policy.
+    In other words, when Traffic Routing Policy is configured on a Virtual WAN hub, the Virtual WAN will advertise a **default** route to all spokes, Gateways and Network Virtual Appliances (deployed in the hub or spoke). This includes the **Network Virtual Appliance** that is the next hop for the Internet Traffic routing policy.
  
 * **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a Virtual WAN hub, **all** branch and Virtual Network traffic in and out of the Virtual WAN Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource or Network Virtual Appliance resource that was specified in the Private Traffic Routing Policy. 
 
@@ -194,7 +194,7 @@ The following section describes common issues encountered when you configure Rou
 
 ### Troubleshooting data path 
 
-* Currently, using Azure Firewall to inspect inter-hub traffic is  available for Virtual WAN hubs that are deployed in the **same** Azure Region. Inter-hub inspection for Virtual WAN hubs that are in different Azure regions is available on a limited basis. For a list of available regions, please email previewinterhub@mcirosoft.com.
+* Currently, using Azure Firewall to inspect inter-hub traffic is  available for Virtual WAN hubs that are deployed in the **same** Azure Region. Inter-hub inspection for Virtual WAN hubs that are in different Azure regions is available on a limited basis. For a list of available regions, please email previewinterhub@microsoft.com.
 * Currently, Private Traffic Routing Policies are not supported in Hubs with Encrypted ExpressRoute connections (Site-to-site VPN Tunnel running over ExpressRoute Private connectivity).
 * You can verify that the Routing Policies have been applied properly by checking the Effective Routes of the DefaultRouteTable. If Private Routing Policies are configured, you should see routes in the DefaultRouteTable for private traffic prefixes with next hop Azure Firewall. If Internet Traffic Routing Policies are configured, you should see a default (0.0.0.0/0) route in the DefaultRouteTable with next hop Azure Firewall.
 * If there are any Site-to-site VPN gateways or Point-to-site VPN gateways created **after** the feature has been confirmed to be enabled on your deployment, you will have to reach out again to previewinterhub@microsoft.com to get the feature enabled. 

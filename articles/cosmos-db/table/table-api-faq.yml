@@ -2,8 +2,9 @@
 metadata:
   title: Frequently asked questions about the API for Table in Azure Cosmos DB
   description: Get answers to frequently asked questions about the API for Table in Azure Cosmos DB
-  author: sakash279
-  ms.author: akshanka
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: akshanka
   ms.service: cosmos-db
   ms.subservice: table
   ms.custom: ignite-2022
@@ -123,7 +124,7 @@ sections:
       - question: |
           How do I migrate an existing Azure Table storage application to this offering?
         answer: |
-          [AzCopy](../../storage/common/storage-use-azcopy-v10.md) and the [Azure Cosmos DB Data Migration Tool](../import-data.md) are both supported.
+          [AzCopy](../../storage/common/storage-use-azcopy-v10.md) is supported.
 
       - question: |
           How is expansion of the storage size done for this service if, for example, I start with 'n' GB of data and my data will grow to 1 TB over time?
@@ -199,7 +200,7 @@ sections:
         answer: |
           The API for Table leverages the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure Cosmos DB portal [Developing with multi-region Azure Cosmos DB accounts](../high-availability.md). You can set the priority of the region by using the portal [Developing with multi-region Azure Cosmos DB accounts](../high-availability.md).
 
-          You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers won't experience downtime. The [latest .NET client SDK](dotnet-sdk.md) is auto homing but the other SDKs aren't. That is, it can detect the region that's down and automatically fail over to the new region.
+          You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers won't experience downtime. The [latest .NET client SDK](/dotnet/api/overview/azure/data.tables-readme) is auto homing but the other SDKs aren't. That is, it can detect the region that's down and automatically fail over to the new region.
 
       - question: |
           Is the API for Table enabled for backups?

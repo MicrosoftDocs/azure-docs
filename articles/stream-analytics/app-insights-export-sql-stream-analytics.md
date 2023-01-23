@@ -2,7 +2,8 @@
 title: 'Export to SQL from Azure Application Insights | Microsoft Docs'
 description: Continuously export Application Insights data to SQL using Stream Analytics.
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 10/24/2022
+ms.author: ebnkruma
 ms.service: stream-analytics
 ---
 
@@ -18,7 +19,7 @@ We'll start with the assumption that you already have the app you want to monito
 In this example, we will be using the page view data, but the same pattern can easily be extended to other data types such as custom events and exceptions. 
 
 > [!IMPORTANT]
-> Continuous export has been deprecated and is only supported for classic Application Insights resources. [Migrate to a workspace-based Application Insights resource](../azure-monitor/app/convert-classic-resource.md) to use [diagnostic settings](../azure-monitor/app/export-telemetry.md#diagnostic-settings-based-export) for exporting telemetry.
+> Continuous export will be deprecated on February 29, 2024 and is only supported for classic Application Insights resources. Azure Stream Analytics does not support reading from AppInsights with diagnostic settings.
 
 ## Add Application Insights to your application 
 To get started:
@@ -127,7 +128,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![Screenshot of create PageViewsTable in SQL Server Management Studio.](./media/app-insights-export-sql-stream-analytics/34-create-table.png)
 
-In this sample, we are using data from page views. To see the other data available, inspect your JSON output, and see the [export data model](../azure-monitor/app/export-data-model.md).
+In this sample, we are using data from page views. To see the other data available, inspect your JSON output, and see the [export data model](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model).
 
 ## Create an Azure Stream Analytics instance
 From the [Azure portal](https://portal.azure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
@@ -164,7 +165,7 @@ In this example:
 
 * `webapplication27` is the name of the Application Insights resource, **all in lower case**. 
 * `1234...` is the instrumentation key of the Application Insights resource **with dashes removed**. 
-* `PageViews` is the type of data we want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](../azure-monitor/app/export-data-model.md).
+* `PageViews` is the type of data we want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model).
 * `/{date}/{time}` is a pattern written literally.
 
 To get the name and iKey of your Application Insights resource, open Essentials on its overview page, or open Settings.
@@ -214,7 +215,7 @@ Replace the default query with:
 
 ```
 
-Notice that the first few properties are specific to page view data. Exports of other telemetry types will have different properties. See the [detailed data model reference for the property types and values.](../azure-monitor/app/export-data-model.md)
+Notice that the first few properties are specific to page view data. Exports of other telemetry types will have different properties. See the [detailed data model reference for the property types and values.](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model)
 
 ## Set up output to database
 Select SQL as the output.
@@ -242,8 +243,7 @@ FROM [dbo].[PageViewsTable]
 ```
 
 ## Next steps
-* [Export to Power BI using Stream Analytics](../azure-monitor/app/export-power-bi.md)
-* [detailed data model reference for the property types and values.](../azure-monitor/app/export-data-model.md)
+* [detailed data model reference for the property types and values.](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model)
 * [Continuous Export in Application Insights](../azure-monitor/app/export-telemetry.md)
 
 <!--Link references-->

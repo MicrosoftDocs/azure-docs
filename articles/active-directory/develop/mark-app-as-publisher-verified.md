@@ -1,6 +1,6 @@
 ---
 title: Mark an app as publisher verified
-description: Describes how to mark an app as publisher verified. When an application is marked as publisher verified, it means that the publisher has verified their identity using a Microsoft Partner Network account that has completed the verification process and has associated this MPN account with their application registration.
+description: Describes how to mark an app as publisher verified. When an application is marked as publisher verified, it means that the publisher (application developer) has verified the authenticity of their organization using a Microsoft Partner Network (MPN) account that has completed the verification process and has associated this MPN account with that application registration.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/27/2021
+ms.date: 11/12/2022
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: ardhanap, jesakowi
+ms.reviewer: xurobert, brianokoyo, ardhanap
 ---
 
 # Mark your app as publisher verified

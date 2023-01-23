@@ -24,11 +24,11 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ## Partners
 
-### Cisco
+### DataON
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-|Cisco Hyperflex on VMware <br/> Cisco IKS ESXi 6.7 U3 |1.21.13|v1.9.0_2022-07-12|16.0.312.4243| Not validated |
+|DataON AZS-6224|1.23.8|v1.12.0_2022-10-11|16.0.537.5223|
 
 ### Dell
 
@@ -45,6 +45,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
 |HPE Superdome Flex 280|1.20.0|1.8.0_2022-06-14|16.0.41.7339|12.3 (Ubuntu 12.3-1)
+|HPE Apollo 4200 Gen10 Plus | 1.22.6 | v1.11.0_2022-09-13 |16.0.312.4243|12.3 (Ubuntu 12.3-1)|
 
 ### Kublr
 
@@ -64,11 +65,6 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |-----|-----|-----|-----|-----|
 | Karbon 2.2<br/>AOS: 5.19.1.5<br/>AHV: 20201105.1021<br/>PC: Version pc.2021.3.02<br/> | 1.19.8-0 | 1.0.0_2021-07-30 | 15.0.2148.140|postgres 12.3 (Ubuntu 12.3-1)|
 
-### Platform 9
-
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
-|-----|-----|-----|-----|-----|
-| Platform9  Managed Kubernetes v5.3.0 | 1.20.5 | 1.0.0_2021-07-30| 15.0.2195.191 | PostgreSQL 12.3 (Ubuntu 12.3-1) |
 
 ### PureStorage
 
@@ -80,7 +76,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-| OpenShift 4.10.32 | v1.23.5 | v1.11.0_2022-09-13 | 16.0.312.4243 | postgres 12.3 (Ubuntu 12.3-1)|
+| OpenShift 4.10.16 | v1.23.5 | v1.11.0_2022-09-13 | 16.0.312.4243 | postgres 12.3 (Ubuntu 12.3-1)|
 
 ### VMware
 
@@ -92,6 +88,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
+|Wind River Cloud Platform 22.12 | 1.24.4|1.14.0_2022-12-13 |16.0.816.19223|Postgres 14.5(ubuntu 20.04) |
 |Wind River Cloud Platform 22.06 | 1.23.1|1.9.0_2022-07-12 |16.0.312.4243|postgres 12.3 (Ubuntu 12.3-1) |
 
 ## Data services validation process

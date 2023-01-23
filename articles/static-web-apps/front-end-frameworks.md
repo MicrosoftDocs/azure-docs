@@ -19,7 +19,7 @@ The following table lists the settings for a series of frameworks and libraries<
 
 The intent of the table columns is explained by the following items:
 
-- **Output location**: Lists the value for `output_location`, which is the [folder for built versions of application files](build-configuration.md).
+- **App artifact location (output location)**: Lists the value for `output_location`, which is the [folder for built versions of application files](build-configuration.md).
 
 - **Custom build command**: When the framework requires  a command different from `npm run build` or `npm run azure:build`, you can define a [custom build command](build-configuration.md#custom-build-commands).
 
@@ -37,6 +37,7 @@ The intent of the table columns is explained by the following items:
 | [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
 | [Glimmer](https://glimmerjs.com/) | `dist` | n/a |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | n/a |
+| [Hugo](https://gohugo.io/) | `public` | n/a |
 | [Hyperapp](https://hyperapp.dev/) | `/` | n/a |
 | [JavaScript](https://developer.mozilla.org/docs/Web/javascript) | `/` | n/a |
 | [jQuery](https://jquery.com/) | `/` | n/a |
@@ -45,7 +46,8 @@ The intent of the table columns is explained by the following items:
 | [Marko](https://markojs.com/) | `public` | n/a |
 | [Meteor](https://www.meteor.com/) | `bundle` | n/a |
 | [Mithril](https://mithril.js.org/) | `dist` | n/a |
-| [NextJs](https://nextjs.org/) | `/` | n/a |
+| [Next.js](https://nextjs.org/) (Static HTML Export) | `out` | n/a |
+| [Next.js](https://nextjs.org/) (Server-Side Rendering/Incremental Server Rendering) | n/a | n/a |
 | [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |
 | [React](https://reactjs.org/) | `build` | n/a |

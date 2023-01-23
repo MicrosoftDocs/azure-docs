@@ -8,8 +8,8 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 10/12/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.collection: M365-identity-device-management
 ---
@@ -63,7 +63,7 @@ Then Contoso adds the Fabrikam organization and configures the following **Organ
 
 - Allow inbound access to B2B direct connect for all Fabrikam users and groups.
 - Allow inbound access to all internal Contoso applications by Fabrikam B2B direct connect users.
-- Allow all Contoso users and groups to have outbound access to Fabrikam using B2B direct connect.
+- Allow all Contoso users, or select users and groups to have outbound access to Fabrikam using B2B direct connect.
 - Allow Contoso B2B direct connect users to have outbound access to all Fabrikam applications.
 
 For this scenario to work, Fabrikam also needs to allow B2B direct connect with Contoso by configuring these same cross-tenant access settings for Contoso and for their own users and applications. When configuration is complete, Contoso users who manage Teams shared channels will be able to add Fabrikam users by searching for their full Fabrikam email addresses.
@@ -161,7 +161,7 @@ The Microsoft Teams admin center displays reporting for shared channels, includi
 
 - **Teams access reviews**: Access reviews of Groups that are Teams can now detect B2B direct connect users who are using Teams shared channels. When creating an access review, you can scope the review to all internal users, guest users, and external B2B direct connect users who have been added directly to a shared channel. The reviewer is then presented with users who have direct access to the shared channel.  
 
-- **Current limitations**: An access review can detect internal users and external B2B direct connect users, but not other teams, that have been added to a shared channel. To view and remove teams that have been added to a shared channel, the shared channel owner can manage membership from within Teams.
+- **Current limitations**: An access review can detect internal users and external B2B direct connect users, but not other teams that have been added to a shared channel. To view and remove teams that have been added to a shared channel, the shared channel owner can manage membership from within Teams.
 
 For more information about Microsoft Teams audit logs, see the [Microsoft Teams auditing documentation](/microsoftteams/audit-log-events).
 

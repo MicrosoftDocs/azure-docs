@@ -23,7 +23,7 @@ If you have an Azure Kubernetes (AKS) cluster behind of VNet, you would need to 
 
 * If your AKS cluster is behind of a VNet, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same or peered VNet as AKS cluster's VNet. For more information on securing the workspace and associated resources, see [create a secure workspace](tutorial-create-secure-workspace.md).
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
-* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](/azure/aks/private-clusters) is __not supported__ with Azure Machine learning.
+* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../aks/private-clusters.md) is __not supported__ with Azure Machine learning.
 
 ## What is a secure AKS inferencing environment
 
@@ -59,8 +59,16 @@ Special notes for configuring a secure AKS inferencing environment:
   * Use system-assigned managed identity when creating workspace, as storage account with private endpoint only allows access with system-assigned managed identity.
   * When attaching AKS cluster to an HBI workspace, assign a system-assigned managed identity with both `Storage Blob Data Contributor` and `Storage Account Contributor` roles.
   * If you're using default ACR created by workspace, ensure you have the __premium SKU__ for ACR. Also enable the `Firewall exception` to allow trusted Microsoft services to access ACR.
-  * If your workspace is also behind of VNet, follow instruction [securely connect to your workspace](./how-to-secure-workspace-vnet.md#securely-connect-to-your-workspace) to access workspace.
+  * If your workspace is also behind a VNet, follow the instructions in [securely connect to your workspace](./how-to-secure-workspace-vnet.md#securely-connect-to-your-workspace) to access the workspace.
   * For storage account private endpoint, make sure to enable `Allow Azure services on the trusted services list to access this storage account`.
+
+>[!Note]
+>
+> If your AKS that is behind a VNet has been stopped and **restarted**, you need to:
+> 1. First, follow the steps in [Stop and start an Azure Kubernetes Service (AKS) cluster](../aks/start-stop-cluster.md) to delete and recreate a private endpoint linked to this cluster. 
+> 1. Then, reattach the Kubernetes computes attached from this AKS in your workspace. 
+>
+> Otherwise, the creation, update, and deletion of endpoints/deployments to this AKS cluster will fail.
 
 ## Next steps
 

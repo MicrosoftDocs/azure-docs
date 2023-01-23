@@ -9,7 +9,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: overview
-ms.date: 09/28/2021
+ms.date: 01/05/2023
 ---
 # What is Azure Database Migration Service?
 
@@ -32,9 +32,11 @@ For up-to-date info about the regional availability of Azure Database Migration 
 
 For up-to-date info about Azure Database Migration Service pricing, see [Azure Database Migration Service pricing](https://azure.microsoft.com/pricing/details/database-migration/).
 
+
+
 ## Next steps
 
-* [Status of migration scenarios supported by Azure Database Migration Service](/azure/dms/resource-scenario-status)
-* [Services and tools available for data migration scenarios](/azure/dms/dms-tools-matrix)
-* [Migrate databases with Azure SQL Migration extension for Azure Data Studio](/azure/dms/migration-using-azure-data-studio)
-* [FAQ about using Azure Database Migration Service](/azure/dms/faq)
+* [Status of migration scenarios supported by Azure Database Migration Service](./resource-scenario-status.md)
+* [Services and tools available for data migration scenarios](./dms-tools-matrix.md)
+* [Migrate databases with Azure SQL Migration extension for Azure Data Studio](./migration-using-azure-data-studio.md)
+* [FAQ about using Azure Database Migration Service](./faq.yml)

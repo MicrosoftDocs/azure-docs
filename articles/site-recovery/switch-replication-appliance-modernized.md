@@ -4,6 +4,8 @@ description: This article describes show to switch between different replication
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/21/2022
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Switch Azure Site Recovery replication appliance

@@ -9,6 +9,8 @@ ms.custom: devx-track-python
 ---
 # Extend U-SQL scripts with Python code in Azure Data Lake Analytics
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## Prerequisites
 
 Before you begin, ensure the Python extensions are installed in your Azure Data Lake Analytics account.

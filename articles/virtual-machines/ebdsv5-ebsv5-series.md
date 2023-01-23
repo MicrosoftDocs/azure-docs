@@ -28,8 +28,7 @@ The Ebdsv5 and Ebsv5 series run on the Intel® Xeon® Platinum 8370C (Ice Lake) 
 
 > [!IMPORTANT]
 > - Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 VMs. 
-> - Accelerated networking can be applied to two NICs. 
->-  Ebsv5 and Ebdsv5-series VMs can [burst their disk performance](disk-bursting.md) and get up to their bursting max for up to 30 minutes at a time.
+> - Ebsv5 and Ebdsv5-series VMs can [burst their disk performance](disk-bursting.md) and get up to their bursting max for up to 30 minutes at a time.
 
 ## Ebdsv5 series
 

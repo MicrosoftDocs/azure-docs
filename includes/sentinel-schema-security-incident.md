@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: azure-sentinel
 author: yelevin
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: include
 ms.date: 06/28/2020
 ms.author: yelevin

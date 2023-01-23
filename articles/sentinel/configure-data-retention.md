@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial 
-ms.date: 10/03/2022
+ms.date: 01/05/2023
 ms.custom: template-tutorial
 #Customer intent: As an Azure account administrator, I want to archive older but less used data to save retention costs.
 ---
@@ -33,7 +33,7 @@ To complete the steps in this tutorial, you must have the following resources an
 
   |Built-in Role  |Scope  |Reason  |
   |---------|---------|---------|
-  |[Log Analytics Contributor ](/azure/role-based-access-control/built-in-roles)    |- Subscription and/or </br>- Resource group and/or</br>- Table        | To set retention policy on tables in Log Analytics       |
+  |[Log Analytics Contributor ](../role-based-access-control/built-in-roles.md)    |- Subscription and/or </br>- Resource group and/or</br>- Table        | To set retention policy on tables in Log Analytics       |
 - Log Analytics workspace.
 
 ## Set the retention policy for a table
@@ -80,4 +80,4 @@ No resources were created but you might want to restore the data retention setti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure data retention and archive policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2)
+> [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md?tabs=portal-1%2cportal-2)

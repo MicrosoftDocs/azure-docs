@@ -19,7 +19,7 @@ You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to 
 
 ## Prerequisites
 
-* [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](/azure/cloud-shell/overview)
+* [Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](../cloud-shell/overview.md)
 
 * [Postman](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman) or [cURL](https://curl.se/)
 

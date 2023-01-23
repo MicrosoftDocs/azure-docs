@@ -18,7 +18,6 @@
 - [Azure Communication Services](../event-schema-communication-services.md) 
 - [Azure Container Registry](../event-schema-container-registry.md)
 - [Azure Event Hubs](../event-schema-event-hubs.md)
-- [Azure FarmBeats](../event-schema-farmbeats.md)
 - [Azure Health Data Services](../event-schema-azure-health-data-services.md)
 - [Azure IoT Hub](../event-schema-iot-hub.md)
 - [Azure Key Vault](../event-schema-key-vault.md)

@@ -27,13 +27,13 @@ At the end of this article, you run the following Swift iOS project:
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and JavaScript) through the [Azure IoT device SDKs](iot-hub-devguide-sdks.md).
 
-You can find more information on cloud-to-device messages in the [messaging section of the IoT Hub developer guide](iot-hub-devguide-messaging.md).
+To learn more about cloud-to-device messages, see [Send cloud-to-device messages from an IoT hub](iot-hub-devguide-messages-c2d.md).
 
 ## Prerequisites
 
 * An active IoT hub in Azure.
 
-* The code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip).
+* The code sample from the [Azure IoT Samples for IoS Platform repository](https://github.com/Azure-Samples/azure-iot-samples-ios).
 
 * The latest version of [XCode](https://developer.apple.com/xcode/), running the latest version of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
 
@@ -49,7 +49,7 @@ In this section, you simulate an iOS device running a Swift application to recei
 
 CocoaPods manages dependencies for iOS projects that use third-party libraries.
 
-In a terminal window, navigate to the Azure-IoT-Samples-iOS folder that you downloaded in the prerequisites. Then, navigate to the sample project:
+In a terminal window, navigate to the folder containing the repository that you downloaded in the [prerequisites](#prerequisites). Then, navigate to the sample project:
 
 ```sh
 cd quickstart/sample-device
@@ -113,4 +113,6 @@ You are now ready to receive cloud-to-device messages. Use the Azure portal to s
 
 In this article, you learned how to send and receive cloud-to-device messages.
 
-To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
+* To learn more about cloud-to-device messages, see [Send cloud-to-device messages from an IoT hub](iot-hub-devguide-messages-c2d.md).
+
+* To learn more about IoT Hub message formats, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).

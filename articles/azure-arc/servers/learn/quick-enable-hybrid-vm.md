@@ -16,7 +16,7 @@ In this quickstart, you'll deploy and configure the Azure Connected Machine agen
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Deploying the Connected Machine agent on a machine requires that you have administrator permissions to install and configure the agent. On Linux this is done by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
-* The Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers must be registered on your subscription. Please [register these resource providers ahead of time](../prerequisites.md#azure-resource-providers).
+* The Microsoft.HybridCompute, Microsoft.GuestConfiguration, Microsoft.HybridConnectivity, and Microsoft.AzureArcData resource providers must be registered on your subscription. Please [register these resource providers ahead of time](../prerequisites.md#azure-resource-providers).
 * Before you get started, be sure to review the [agent prerequisites](../prerequisites.md) and verify the following:
   * Your target machine is running a supported [operating system](../prerequisites.md#supported-operating-systems).
   * Your account has the [required Azure built-in roles](../prerequisites.md#required-permissions).

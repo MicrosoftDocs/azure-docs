@@ -10,7 +10,7 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/14/2022
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022
 ---
 
 # How to use workspace diagnostics

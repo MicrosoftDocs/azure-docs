@@ -38,7 +38,7 @@ Domain data management services (DDMS) store, access, and retrieve metadata and 
 
 ### Frictionless Exploration and Production(E&P)
 
-The Microsoft Energy Data Services Preview DDMS service enables energy companies to access their data in a manner that is fast, portable, testable and extendible. As a result, they'll achieve unparalleled streaming performance and use the standards and output from OSDU&trade;. The Azure DDMS service will onboard the OSDU&trade; DDMS and Schlumberger proprietary DMS. Microsoft also continues to contribute to the OSDU&trade; community DDMS to ensure compatibility and architectural alignment.
+The Microsoft Energy Data Services Preview DDMS service enables energy companies to access their data in a manner that is fast, portable, testable and extendible. As a result, they'll achieve unparalleled streaming performance and use the standards and output from OSDU&trade;. The Azure DDMS service will onboard the OSDU&trade; DDMS and SLB proprietary DMS. Microsoft also continues to contribute to the OSDU&trade; community DDMS to ensure compatibility and architectural alignment.
 
 ### Seamless connection between applications and data
 
@@ -57,7 +57,7 @@ The seismic DMS is part of the OSDU&trade; platform and enables users to connect
 
 ## OSDU&trade; - Wellbore DMS
 
-Well Logs are measurements taken while drilling, which tells energy companies information about the subsurface. Ultimately, they reveal whether hydrocarbons are present (or if the well is dry). Logs contain many attributes that inform geoscientists about the type of rock, its quality, and whether it contains oil, water, gas, or a mix. Energy companies use these attributes to determine the quality of a reservoir – how much oil or gas is present, its quality, and ultimately, economic viability. Maintaining Well Log data and ensuring easy access to historical logs is critical to energy companies. The Wellbore DMS facilitates access to this data in any OSDU&trade; compliant application. The Wellbore DMS was contributed by Schlumberger to OSDU&trade;.
+Well Logs are measurements taken while drilling, which tells energy companies information about the subsurface. Ultimately, they reveal whether hydrocarbons are present (or if the well is dry). Logs contain many attributes that inform geoscientists about the type of rock, its quality, and whether it contains oil, water, gas, or a mix. Energy companies use these attributes to determine the quality of a reservoir – how much oil or gas is present, its quality, and ultimately, economic viability. Maintaining Well Log data and ensuring easy access to historical logs is critical to energy companies. The Wellbore DMS facilitates access to this data in any OSDU&trade; compliant application. The Wellbore DMS was contributed by SLB to OSDU&trade;.
 
 Well Log data can come in different formats. It's most often indexed by depth or time and the increment of these measurements can vary. Well Logs typically contain multiple attributes for each vertical measurement. Well Logs can therefore be small or for more modern Well Logs that use high frequency data, greater than 1 Gb. Well Log data is smaller than seismic; however, users will want to look at upwards of hundreds of wells at a time. This scenario is common in mature areas that have been heavily drilled such as the Permian Basin in West Texas.
 

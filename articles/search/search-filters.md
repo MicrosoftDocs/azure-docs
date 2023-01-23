@@ -8,15 +8,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/06/2022
+ms.date: 10/27/2022
 ms.custom: devx-track-csharp
 ---
 
 # Filters in Azure Cognitive Search 
 
-A *filter* provides value-based criteria for including or excluding content before query execution. For example, you could set filters to select documents based on dates, locations, or some other field. Filters are specified on individual fields. A field definition must be attributed as "filterable" if you want to use it in filter expressions.
+A *filter* provides value-based criteria for including or excluding content before query execution. For example, including or excluding documents based on dates, locations, or language. Filters are specified on individual fields. A field definition must be attributed as "filterable" if you want to use it in filter expressions.
 
-A filter can be a single value or an OData [filter expression](search-query-odata-filter.md). In contrast with full text search, a filter succeeds only if an exact match is made.
+A filter is specified using [OData filter expression syntax](search-query-odata-filter.md). In contrast with full text search, a filter succeeds only if the match is exact.
 
 ## When to use a filter
 

@@ -31,7 +31,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Open a command prompt where you want the new project, and create a console application with the .NET CLI.
+1. Open a command prompt where you want the new project, and create a console application with the .NET CLI. The `Program.cs` file should be created in the project directory.
     ```dotnetcli
     dotnet new console
     ```

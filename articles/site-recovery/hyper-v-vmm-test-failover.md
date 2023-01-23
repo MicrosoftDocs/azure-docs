@@ -1,12 +1,12 @@
 ---
 title: Run a NHyper-V disaster recovery drill to a secondary site with Azure Site Recovery 
 description: Learn how to run a DR drill for Hyper-V VMs in VMM clouds to a secondary on-premises datacenter using Azure Site Recovery.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: v-pgaddala
+ms.author: ankitadutta
 
 ---
 # Run a DR drill for Hyper-V VMs to a secondary site
