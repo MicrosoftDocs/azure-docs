@@ -1,6 +1,6 @@
 ---
 title: Microsoft Purview Data Sharing Lineage
-description: This article describes how to view lineage of shared datasets, shared using Microsoft Purview data sharing.
+description: This article describes how to view lineage of shared datasets, shared using Microsoft Purview Data Sharing.
 author: sidontha
 ms.author: sidontha
 ms.service: purview
@@ -10,7 +10,7 @@ ms.date: 01/22/2023
 ---
 # How to view Microsoft Purview Data Sharing Lineage 
 
-This article discusses how to view the lineage of shared datasets, shared using Microsoft Purview data sharing, in your data estate. Various data governance personas can discover and track lineage of data across boundaries like organizations, departments and even data centers.
+This article discusses how to view the lineage of shared datasets, shared using Microsoft Purview Data Sharing, in your data estate. Various data governance personas can discover and track lineage of data across boundaries like organizations, departments and even data centers.
 
 ## Common Scenarios
 
