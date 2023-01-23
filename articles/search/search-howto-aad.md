@@ -1,17 +1,17 @@
 ---
-title: Authorize search app requests using Azure AD
+title: Configure search apps for Azure AD
 titleSuffix: Azure Cognitive Search
-description: Acquire a token from Azure AD to authorize search requests to an app built on Azure Cognitive Search.
+description: Acquire a token from Azure Active Directory to authorize search requests to an app built on Azure Cognitive Search.
 
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 1/05/2022
+ms.date: 01/13/2023
 ms.custom: subject-rbac-steps
 ---
 
-# Authorize access to a search apps using Azure Active Directory
+# Authorize access to a search app using Azure Active Directory
 
 > [!IMPORTANT]
 > Role-based access control for data plane operations, such as creating or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). This functionality is only available in public cloud regions and may impact the latency of your operations while the functionality is in preview. For more information on preview limitations, see [RBAC preview limitations](search-security-rbac.md#preview-limitations).
@@ -79,7 +79,7 @@ In this step, create a [managed identity](../active-directory/managed-identities
 
 Next, you need to grant your managed identity access to your search service. Azure Cognitive Search has various [built-in roles](search-security-rbac.md#built-in-roles-used-in-search). You can also create a [custom role](search-security-rbac.md#create-a-custom-role).
 
-It's a best practice to grant minimum permissions. If your application only needs to handle queries, you should assign the [Search Index Data Reader (preview)](../role based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs both read and write access on a search index, you should use the [Search Index Data Contributor (preview)](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
+It's a best practice to grant minimum permissions. If your application only needs to handle queries, you should assign the [Search Index Data Reader (preview)](/azure/role-based-access-control/built-in-roles#search-index-data-reader) role. Alternatively, if it needs both read and write access on a search index, you should use the [Search Index Data Contributor (preview)](/azure/role-based-access-control/built-in-roles#search-index-data-contributor) role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -89,7 +89,7 @@ It's a best practice to grant minimum permissions. If your application only need
 
 1. Select **+ Add** > **Add role assignment**.
 
-   ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot of Access control (IAM) page with Add role assignment menu open." border="true":::
 
 1. Select an applicable role:
 
@@ -136,17 +136,25 @@ The following instructions reference an existing C# sample to demonstrate the co
 
 1. Instead of using `AzureKeyCredential` in the beginning of `Main()` in [Program.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v11/AzureSearchQuickstart-v11/Program.cs), use `DefaultAzureCredential` like in the code snippet below: 
 
-     ```csharp   
+     ```csharp
    // Create a SearchIndexClient to send create/delete index commands
    SearchIndexClient adminClient = new SearchIndexClient(serviceEndpoint, new DefaultAzureCredential());
    // Create a SearchClient to load and query documents
    SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, new DefaultAzureCredential());
    ```
 
-> [!NOTE]
-> User-assigned managed identities work only in Azure environments. If you run this code locally, `DefaultAzureCredential` will fall back to authenticating with your credentials. Make sure you've also given yourself the required access to the search service if you plan to run the code locally. 
+### Local testing
 
-The Azure.Identity documentation has more details about `DefaultAzureCredential` and using [Azure AD authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme). `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. Developers who want more control or whose scenario isn't served by the default settings should use other credential types.
+User-assigned managed identities work only in Azure environments. If you run this code locally, `DefaultAzureCredential` will fall back to authenticating with your credentials. Make sure you've also given yourself the required access to the search service if you plan to run the code locally. 
+
+1. Verify your account has role assignments to run all of the operations in the quickstart sample. To both create and query an index, you'll need "Search Index Data Reader" and "Search Index Data Contributor".
+
+1. Go to **Tools** > **Options** > **Azure Service Authentication** to choose your Azure sign-on account.
+
+You should now be able to run the project from Visual Studio on your local system, using role-based access control for authorization.
+
+> [!NOTE]
+> The Azure.Identity documentation has more details about `DefaultAzureCredential` and using [Azure AD authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme). `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. Developers who want more control or whose scenario isn't served by the default settings should use other credential types.
 
 ### [**REST API**](#tab/aad-rest)
 

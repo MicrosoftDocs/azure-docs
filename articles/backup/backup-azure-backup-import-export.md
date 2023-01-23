@@ -252,7 +252,7 @@ The amount of time it takes to process an Azure import job varies. Process time 
 
 To monitor the status of your import job from the Azure portal, go to the **Azure Data Box** pane and select the job.
 
-For more information on the status of the import jobs, see [Monitor Azure Import/Export Jobs](/azure/import-export/storage-import-export-view-drive-status?tabs=azure-portal-preview).
+For more information on the status of the import jobs, see [Monitor Azure Import/Export Jobs](../import-export/storage-import-export-view-drive-status.md?tabs=azure-portal-preview).
 
 ### Finish the workflow
 

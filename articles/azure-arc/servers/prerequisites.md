@@ -19,6 +19,9 @@ Azure Arc-enabled servers support the installation of the Connected Machine agen
 
 Azure Arc-enabled servers do not support installing the agent on virtual machines running in Azure, or on virtual machines running on Azure Stack Hub or Azure Stack Edge, as they are already modeled as Azure VMs and able to be managed directly in Azure.
 
+> [!NOTE]
+> For additional information on using Arc-enabled servers in VMware environments, see the [VMware FAQ](vmware-faq.md).
+
 ## Supported operating systems
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent. Only x86-64 (64-bit) architectures are supported. x86 (32-bit) and ARM-based architectures, including x86-64 emulation on arm64, are not supported operating environments.
@@ -33,7 +36,7 @@ The following versions of the Windows and Linux operating system are officially 
 * CentOS Linux 7 and 8
 * Rocky Linux 8
 * SUSE Linux Enterprise Server (SLES) 12 and 15
-* Red Hat Enterprise Linux (RHEL) 7 and 8
+* Red Hat Enterprise Linux (RHEL) 7, 8 and 9
 * Amazon Linux 2
 * Oracle Linux 7
 
