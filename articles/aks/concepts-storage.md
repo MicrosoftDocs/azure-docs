@@ -1,9 +1,8 @@
 ---
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims
-services: container-service
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 01/18/2023
 
 ---
 
@@ -34,7 +33,7 @@ Kubernetes typically treats individual pods as ephemeral, disposable resources. 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use: [Azure Disks][disks-types], [Azure Files][storage-files-planning], [Azure NetApp Files][azure-netapp-files-service-levels], or [Azure Blobs][storage-account-overview].
 
 > [!NOTE]
-> The Azure Disks CSI driver has a limit of 32 volumes per node. Other Azure Storage services don't have an equivalent limit.
+> Depending on the VM SKU that's being used, the Azure Disks CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
 
 ### Azure Disks
 
@@ -130,10 +129,12 @@ For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-d
 | `azureblob-nfs-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using the NFS v3 protocol. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
 | `azureblob-fuse-premium` | Uses Azure Premium storage to create an Azure Blob storage container and connect using BlobFuse. The reclaim policy ensures that the underlying Azure Blob storage container is deleted when the persistent volume that used it is deleted. |
 
-Unless you specify a StorageClass for a persistent volume, the default StorageClass will be used. Ensure volumes use the appropriate storage you need when requesting persistent volumes. 
+Unless you specify a StorageClass for a persistent volume, the default StorageClass will be used. Ensure volumes use the appropriate storage you need when requesting persistent volumes.
 
 > [!IMPORTANT]
-> Starting in Kubernetes version 1.21, AKS will use CSI drivers only and by default.  The `default` class will be the same as `managed-csi`
+> Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. While existing in-tree persistent volumes continue to function, starting with version 1.26, AKS will no longer support volumes created using in-tree driver and storage provisioned for files and disk. 
+>
+> The `default` class will be the same as `managed-csi`.
 
 You can create a StorageClass for additional needs using `kubectl`. The following example uses Premium Managed Disks and specifies that the underlying Azure Disk should be *retained* when you delete the pod:
 
@@ -256,3 +257,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [csi-storage-drivers]: csi-storage-drivers.md
 [azure-blob-csi]: azure-blob-csi.md
+[general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
