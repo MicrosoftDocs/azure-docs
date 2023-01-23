@@ -83,20 +83,6 @@ In this Public Preview refresh, we have enhanced the user experience with an upd
 
 For more information, see: [Conditional Access templates (Preview)](../conditional-access/concept-conditional-access-policy-common.md).
 
-
----
-
-### Public Preview - Enabling customization capabilities for the conditional error messages in Company Branding.
-
-
-
-**Type:** New feature   
-**Service category:** Other             
-**Product capability:** End User Experiences    
-
-Updates to the Company Branding functionality on the Azure AD/Microsoft 365 login experience, to allow customizing conditional access (CA) error messages. For more information, see: [Company Branding](../fundamentals/customize-branding.md).
-
-
 ---
 
 ### Public Preview - Admins can restrict their users from creating tenants
@@ -223,31 +209,33 @@ For listing your application in the Azure AD app gallery, please read the detail
 
 ### ADAL End of Support Announcement
 
-
-
 **Type:** N/A      
 **Service category:** Other               
 **Product capability:** Developer Experience         
 
-As part of our ongoing initiative to improve the developer experience, service reliability, and security of customer applications, we will end support for the Azure Active Directory Authentication Library (ADAL). The final deadline to migrate your applications to Microsoft Authentication Library (MSAL) has been extended to **June 1, 2023**. 
+As part of our ongoing initiative to improve the developer experience, service reliability, and security of customer applications, we will end support for the Azure Active Directory Authentication Library (ADAL). The final deadline to migrate your applications to Microsoft Authentication Library (MSAL) has been extended to **June 30, 2023**. 
 
-### Why are we doing this? 
+### Why are we doing this?
+
 As we consolidate and evolve the Microsoft Identity platform, we are also investing in making significant improvements to the developer experience and service features that make it possible to build secure, robust and resilient applications. To make these features available to our customers we needed to update the architecture of our software development kits. As a result of this change, we’ve decided that the path forward requires us to sunset ADAL so that we can focus on developer experience investments with MSAL. 
 
-### What happens? 
-We recognize that changing libraries is not an easy task, and cannot be accomplished quickly. We are committed to helping customers plan their migrations to MSAL as well as execute them with minimal disruption. 
+### What happens?
+
+We recognize that changing libraries is not an easy task, and cannot be accomplished quickly. We are committed to helping customers plan their migrations to MSAL as well as execute them with minimal disruption.
+
 - In June 2020 we [announced the 2-year end of support timeline for ADAL](https://devblogs.microsoft.com/microsoft365dev/end-of-support-timelines-for-azure-ad-authentication-library-adal-and-azure-ad-graph/). 
 - In December 2022 we’ve decided to extend the ADAL end of support to June 2023. 
 - Through the next six months (January 2023 – June 2023) we will continue informing customers about the upcoming end of support along with providing guidance on migration. 
 - On June 2023 we will officially sunset ADAL, removing library documentation and archiving all GitHub repositories related to the project. 
 
-### How to find out which applications in my tenant are using ADAL? 
+### How to find out which applications in my tenant are using ADAL?
 
 Refer to our post on [Microsoft Q&A](/answers/questions/360928/information-how-to-find-apps-using-adal-in-your-te.html) for details on identifying ADAL apps with the help of [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md). 
 ### If I’m using ADAL, what can I expect after the deadline? 
+
 - There will be no new releases (security or otherwise) to the library after June 2023. 
-- We will not be accepting any incident reports or support requests for ADAL. ADAL to MSAL Migration support would continue.   
-- The underpinning services will continue working and applications that depend on ADAL should continue working; however, applications will be at increased security and reliability risk due to not having the latest updates, service configuration, and enhancements made available through the Microsoft Identity platform. 
+- We will not be accepting any incident reports or support requests for ADAL. ADAL to MSAL migration support would continue.   
+- The underpinning services will continue working and applications that depend on ADAL should continue working; however, applications and the resources they access will be at increased security and reliability risk due to not having the latest updates, service configuration, and enhancements made available through the Microsoft Identity platform. 
 
 ### What features can I only access with MSAL?
  
@@ -555,18 +543,6 @@ For more information, see:
 **Product capability:** Identity Security & Protection  
 
 Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multi-factor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services, and to remain in a supported state, organizations should migrate their users’ authentication data to the cloud-based Azure AD Multi-Factor Authentication service using the latest Migration Utility included in the most recent Azure AD Multi-Factor Authentication Server update. For more information, see: [Migrate from MFA Server to Azure AD Multi-Factor Authentication](../authentication/how-to-migrate-mfa-server-to-azure-mfa.md).
-
----
-
-### General Availability - Change of Default User Consent Settings
-
-
-
-**Type:** New feature  
-**Service category:** Enterprise Apps     
-**Product capability:** Developer Experience  
-
-Starting Sept 30th, 2022, Microsoft will require all new tenants to follow a new user consent configuration. While this won't impact any existing tenants that were created before September 30, 2022, all new tenants created after September 30, 2022, will have the default setting of “Enable automatic updates (Recommendation)” under User consent settings. This change reduces the risk of malicious applications attempting to trick users into granting them access to your organization's data. For more information, see: [Configure how users consent to applications](../manage-apps/configure-user-consent.md).
 
 ---
 

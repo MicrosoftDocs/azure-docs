@@ -32,9 +32,7 @@
     - name: FreeRTOS development
       items:
       - name: ESPRESSIF ESP32
-        href: quickstart-devkit-espressif-esp32-freertos.md
-      - name: STMicroelectronics L475E
-        href: quickstart-devkit-stm-b-l475e-freertos.md
+        href: quickstart-devkit-espressif-esp32-freertos-iot-hub.md
 - name: Tutorials
   items:
     - name: Build a device solution with IoT Hub
@@ -119,6 +117,14 @@
         href: quickstart-devkit-stm-b-l475e.md
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
+  - name: FreeRTOS samples
+    items:
+    - name: Connect using IoT Central
+      items:  
+      - name: ESPRESSIF ESP32
+        href: quickstart-devkit-espressif-esp32-freertos.md
+      - name: STMicroelectronics L475E
+        href: quickstart-devkit-stm-b-l475e-freertos.md
   - name: Troubleshoot
     items:
       - name: Troubleshoot embedded quickstarts

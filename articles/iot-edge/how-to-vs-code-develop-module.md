@@ -55,7 +55,8 @@ Install [Visual Studio Code](https://code.visualstudio.com/) first and then add 
 
 ::: zone pivot="iotedge-dev-ext"
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+- [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension.
+- [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension.
 
 ::: zone-end
 
@@ -206,7 +207,7 @@ After solution creation, there are four items within the solution:
 
 ::: zone pivot="iotedge-dev-ext"
 
-Use Visual Studio Code and the Azure IoT Tools. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
+Use Visual Studio Code and the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
 
 1. Select **View** > **Command Palette**.
 1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**.

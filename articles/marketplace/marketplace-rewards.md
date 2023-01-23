@@ -20,7 +20,7 @@ As you grow through the Microsoft commercial marketplace, you unlock new benefit
 
 The program creates a positive feedback loop: the benefits at each stage of growth help you progress to the next stage, helping you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform
 
-Your benefits are differentiated based on whether your offer is [List, Trial, Consulting or Transact](/azure/marketplace/determine-your-listing-type).
+Your benefits are differentiated based on whether your offer is [List, Trial, Consulting or Transact](./determine-your-listing-type.md).
 
 Based on your eligibility, you'll be contacted by a member of the Rewards team when your offer goes live.  
 

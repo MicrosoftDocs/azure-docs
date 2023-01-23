@@ -11,6 +11,8 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using an app written using the Azure .NET SDK. 
 
 ## Prerequisites

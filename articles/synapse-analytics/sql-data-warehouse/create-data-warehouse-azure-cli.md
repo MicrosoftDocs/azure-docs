@@ -14,7 +14,7 @@ ms.custom: azure-synapse, mode-api
 
 Create a Synapse SQL pool (data warehouse) in Azure Synapse Analytics using the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Getting started
 
