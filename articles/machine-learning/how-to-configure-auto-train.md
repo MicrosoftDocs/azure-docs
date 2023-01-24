@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK v2 using Azure Machine Learning automated ML.
 ms.author: shoja
 author: shouryaj
-ms.reviewer: ssalgadodev
+ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -207,9 +207,9 @@ Classification | Regression | Time Series Forecasting
 
 With additional algorithms below.
 
-* [Image Classification Multi-class Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
-* [Image Classification Multi-label Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
-* [Image Object Detection Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
+* [Image Classification Multi-class Algorithms](how-to-auto-train-image-models.md#supported-model-architectures)
+* [Image Classification Multi-label Algorithms](how-to-auto-train-image-models.md#supported-model-architectures)
+* [Image Object Detection Algorithms](how-to-auto-train-image-models.md#supported-model-architectures)
 * [NLP Text Classification Multi-label Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 * [NLP Text Named Entity Recognition (NER) Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 
