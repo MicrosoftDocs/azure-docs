@@ -5,7 +5,7 @@
  author: duongau
  ms.service: expressroute
  ms.topic: include
- ms.date: 11/10/2022
+ ms.date: 01/23/2023
  ms.author: duau
  ms.custom: include file
 ---
@@ -13,7 +13,7 @@
 ## <a name="locations"></a>Azure regions to ExpressRoute locations within a geopolitical region.
 The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
 
-| **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
+| Geopolitical region | Azure regions | ExpressRoute locations |
 | --- | --- | --- |
 | **Australia Government** |Australia Central, Australia Central 2 |Canberra, Canberra2 |
 | **Europe** | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Sweden Central, Switzerland North, Switzerland West, UK West, UK South, West Europe | Amsterdam, Amsterdam2, Berlin, Copenhagen, Dublin, Dublin2, Frankfurt, Frankfurt2, Geneva, London, London2, Madrid, Marseille, Milan, Munich, Newport(Wales), Oslo, Paris, Paris2, Stavanger, Stockholm, Zurich |
@@ -31,7 +31,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 ## Azure regions and geopolitical boundaries for national clouds
 The table below provides information on regions and geopolitical boundaries for national clouds.
 
-| **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
+| Geopolitical region | Azure regions | ExpressRoute locations |
 | --- | --- | --- |
 | **US Government cloud** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Atlanta,Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **China East** |China East, China East2 |Shanghai, Shanghai2 |

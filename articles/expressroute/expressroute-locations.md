@@ -41,7 +41,7 @@ The following table shows locations by service provider. If you want to view ava
 
 ### Global commercial Azure
 
-| Service provider | Microsoft Azure | Microsoft 365  | Locations |
+|Service provider | Microsoft Azure | Microsoft 365  | Locations |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Supported |Supported | Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Supported | Supported | Chennai2, Mumbai2 |
