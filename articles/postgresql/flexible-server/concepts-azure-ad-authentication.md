@@ -95,7 +95,7 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 - GA versions of Terraform/CLI/API will be released soon. You can use preview API 2022-12-01 version until then.
 
-- 
+
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for PostgreSQL, see [Configure and sign in with Azure AD for Azure Database for PostgreSQL](how-to-configure-sign-in-azure-ad-authentication.md).
