@@ -29,17 +29,25 @@ sections:
         answer: |
          You can create a disabled individual enrollment entry for the device. To learn more, see [How to disenroll a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
       - question: |
+         Does DPS support provisioning a parent/child topology of IoT Edge gateways and devices?
+        answer: |
+         No.
+      - question: |
          Can I use a WHERE clause to filter results when querying individual enrollments or enrollment groups? 
         answer: |
          Filtering results with a `WHERE` clause is not supported at this time. You can use `SELECT *` to return paged results for all the individual enrollments or enrollment groups in a DPS instance.
       - question: |
          How does the health of an IoT hub affect device provisioning? 
         answer: |
-         Currently DPS doesn't check the health of an IoT hub before assigning devices. DPS will continue to try to assign devices to an IoT hub that is down based on its configured allocation policy. For example, if the configured allocation policy is *Lowest latency* and DPS has a linked IoT hub in region A (hub A) and one in region B (hub B), it will assign a device trying to provision from region A to hub A, even if hub A is down. To factor in IoT hub health when provisioning devices, you can implement a custom allocation policy with your own monitoring logic based on [IoT Hub diagnostics](../iot-hub/monitor-iot-hub.md) or your own user-defined metrics. To learn more about custom allocation policies, see [How to use custom allocation policies](how-to-use-custom-allocation-policies.md).
+         Currently DPS doesn't check the health of an IoT hub before assigning devices. DPS will continue to try to assign devices to an IoT hub that is down based on its configured allocation policy. For example, if the configured allocation policy is *Lowest latency* and DPS has a linked IoT hub in region A (hub A) and one in region B (hub B), it will assign a device trying to provision from region A to hub A, even if hub A is down. To factor in IoT hub health when provisioning devices, you can implement a custom allocation policy with your own monitoring logic based on [IoT Hub diagnostics](../iot-hub/monitor-iot-hub.md) or your own user-defined metrics. To learn more about custom allocation policies, see [Understand custom allocation policies](concepts-custom-allocation.md).
+      - question: |
+         How can I recover from an accidental deletion of a DPS instance?
+        answer: |
+         There's no recovery mechanism. Open a support ticket and we can create a new DPS instance with the same scope ID. The provisioning data will be lost but at least with the same scope ID, devices will be able to reconnect once the enrollments are rebuilt.
       - question: |
          Can multiple DPS instances provision devices to the same IoT hub? 
         answer: |
-         Yes; however, built-in allocation policies apply to each DPS instance individually, so load balancing across multiple IoT hubs is not possible when using the built-in DPS policies. Instead, you can use a custom allocation policy to implement load balancing when using multiple DPS instances. To learn more about custom allocation policies, see [How to use custom allocation policies](how-to-use-custom-allocation-policies.md).
+         Yes; however, built-in allocation policies apply to each DPS instance individually, so load balancing across multiple IoT hubs is not possible when using the built-in DPS policies. Instead, you can use a custom allocation policy to implement load balancing when using multiple DPS instances. To learn more about custom allocation policies, see [Understand custom allocation policies](concepts-custom-allocation.md).
       - question: |
          How can I get an authorization token to use for REST service operations? 
         answer: |
@@ -51,6 +59,15 @@ sections:
          Which Device Provisioning Service API operations are billable and what are their prices?” 
         answer: |
          For information on which operations are billable and their prices, see [Billable service operations and pricing for Microsoft Device Provisioning Service](about-iot-dps.md#billable-service-operations-and-pricing)
+      - question: |
+         Is it more expensive to deploy DPS in regions that support regional failover versus regions that don't?
+        answer: |
+         No, the availability of regional failover doesn't affect DPS pricing. [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
+      - question: |
+         Will I be billed again if my device was successfully provisioned to a hub, then I had to reconnect?
+        answer: |
+         Reprovisioning through DPS is a billable operation but reconnecting to IoT Hub is not. Whenever possible, devices should attempt to reconnect to their assigned IoT hub before going through the reprovisioning process.
+
 
 additionalContent: |
 

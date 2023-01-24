@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/17/2022
+ms.date: 09/20/2022
 ms.author: justinha
 
 ---
@@ -193,7 +193,9 @@ The managed domain's health automatically updates itself within two hours and re
 
 ### Resolution
 
-This error is unrecoverable. To resolve the alert, [delete your existing managed domain](delete-aadds.md) and recreate it. If you have trouble deleting the managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+Azure AD DS creates additional resources to function properly, such as public IP addresses, virtual network interfaces, and a load balancer. If any of these resources are modified, the managed domain is in an unsupported state and can't be managed. For more information about these resources, see [Network resources used by Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
+
+This alert is generated when one of these required resources is modified and can't automatically be recovered by Azure AD DS. To resolve the alert, [open an Azure support request][azure-support] to fix the instance.
 
 ## AADDS114: Subnet invalid
 

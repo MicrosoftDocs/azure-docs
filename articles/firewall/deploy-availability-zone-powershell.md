@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/19/2019
+ms.date: 10/31/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -32,23 +32,24 @@ When the standard public IP address is created, no specific zone is specified. T
 It's important to know, because you can't have a firewall in zone 1 and an IP address in zone 2. But you can have a firewall in zone 1 and IP address in all zones, or a firewall and an IP address in the same single zone for proximity purposes.
 
 ```azurepowershell
-$rgName = "resourceGroupName"
+$rgName = "Test-FW-RG"
 
 $vnet = Get-AzVirtualNetwork `
-  -Name "vnet" `
+  -Name "Test-FW-VN" `
   -ResourceGroupName $rgName
 
 $pip1 = New-AzPublicIpAddress `
   -Name "AzFwPublicIp1" `
-  -ResourceGroupName "rg" `
+  -ResourceGroupName "Test-FW-RG" `
   -Sku "Standard" `
-  -Location "centralus" `
-  -AllocationMethod Static
+  -Location "eastus" `
+  -AllocationMethod Static `
+  -Zone 1,2,3
 
 New-AzFirewall `
   -Name "azFw" `
   -ResourceGroupName $rgName `
-  -Location centralus `
+  -Location "eastus" `
   -VirtualNetwork $vnet `
   -PublicIpAddress @($pip1) `
   -Zone 1,2,3

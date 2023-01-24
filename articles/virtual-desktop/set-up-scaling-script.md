@@ -12,15 +12,18 @@ manager: femila
 In this article, you'll learn about the scaling tool that uses an Azure Automation runbook and Azure Logic App to automatically scale session host VMs in your Azure Virtual Desktop environment. To learn more about the scaling tool, see [Scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md).
 
 > [!NOTE]
-> You can't scale session hosts using Azure Automation and Azure Logic Apps together with [autoscale](autoscale-scaling-plan.md) on the same host pool. You must use one or the other.
+> - Autoscale is an alternative way to scale session host VMs and is a native feature of Azure Virtual Desktop. We recommend you use Autoscale instead. For more information, see [Autoscale scaling plans](autoscale-scenarios.md).
+>
+> - You can't scale session hosts using Azure Automation and Azure Logic Apps together with [autoscale](autoscale-scaling-plan.md) on the same host pool. You must use one or the other.
 
 ## Prerequisites
 
 Before you start setting up the scaling tool, make sure you have the following things ready:
 
-- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md)
-- Session host pool VMs configured and registered with the Azure Virtual Desktop service
-- A user with the [Contributor role](../role-based-access-control/role-assignments-portal.md) assigned on the Azure subscription
+- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md).
+- Session host pool VMs configured and registered with the Azure Virtual Desktop service.
+- A user with the [*Contributor*](../role-based-access-control/role-assignments-portal.md) role-based access control (RBAC) role assigned on the Azure subscription to create the resources. You'll also need the *Application administrator* and/or *Owner* RBAC role to create a Run As account.
+- A Log Analytics workspace (optional).
 
 The machine you use to deploy the tool must have:
 
@@ -91,9 +94,14 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. Th
 
 Now that you have an Azure Automation account, you'll also need to create an Azure Automation Run As account if you don't have one already. This account will let the tool access your Azure resources.
 
+> [!IMPORTANT]
+> This scaling tool uses a Run As account with Azure Automation. Azure Automation Run As accounts will retire on September 30, 2023. Microsoft won't provide support beyond that date. From now through September 30, 2023, you can continue to use Azure Automation Run As accounts. This scaling tool won't be updated to create the resources using managed identities, however, you can transition to use [managed identities](../automation/automation-security-overview.md#managed-identities) and will need to before then. For more information, see [Migrate from an existing Run As account to a managed identity](../automation/migrate-run-as-accounts-managed-identity.md). 
+>
+> Autoscale is an alternative way to scale session host VMs and is a native feature of Azure Virtual Desktop. We recommend you use Autoscale instead. For more information, see [Autoscale scaling plans](autoscale-scenarios.md).
+
 An [Azure Automation Run As account](../automation/manage-runas-account.md) provides authentication for managing resources in Azure with Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level. An Azure Run As account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As account authentication, see [Limit Run As account permissions](../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
-Any user who's a member of the Subscription Admins role and coadministrator of the subscription can create a Run As account.
+Any user who's assigned the *Application administrator* and/or *Owner* RBAC role on the subscription can create a Run As account.
 
 To create a Run As account in your Azure Automation account:
 
@@ -162,7 +170,7 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
     $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
     $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
     
-    $WebhookURI = Read-Host -Prompt "Enter the webhook URI that has already been generated for this Azure Automation account. The URI is stored as encrypted in the above Automation Account variable. To retrieve the value, see https://docs.microsoft.com/azure/automation/shared-resources/variables?tabs=azure-powershell#powershell-cmdlets-to-access-variables"
+    $WebhookURI = Read-Host -Prompt "Enter the webhook URI that has already been generated for this Azure Automation account. The URI is stored as encrypted in the above Automation Account variable. To retrieve the value, see https://learn.microsoft.com/azure/automation/shared-resources/variables?tabs=azure-powershell#powershell-cmdlets-to-access-variables"
     
     $Params = @{
          "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context
@@ -285,6 +293,8 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
 
-## Report issues
+## Limitations
 
-Issue reports for the scaling tool are currently being handled by Microsoft Support. When you make an issue report, make sure to follow the instructions in [Reporting issues](#reporting-issues). If you have feedback about the tool or want to request new features, open a GitHub issue labeled *4-WVD-scaling-tool* on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).
+Here are some limitations with scaling session host VMs with this scaling script:
+
+- The scaling script doesn’t consider time changes between standard and daylight savings.

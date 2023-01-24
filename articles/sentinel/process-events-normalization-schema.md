@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # The Advanced Security Information Model (ASIM) Process Event normalization schema reference (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The Process Event normalization schema is used to describe the operating system activity of running and terminating a process. Such events are reported by operating systems and security systems, such as EDR (End Point Detection and Response) systems.
 
 A process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. While processes themselves do not run, they do manage threads that run and execute code.
@@ -61,7 +59,7 @@ The following filtering parameters are available:
 | **parentprocess_has_any** | dynamic | Filter only process events for which the target process name, which includes the entire process path, has any of the listed values. The length of the list is limited to 10,000 items.  |
 | **targetusername_has** or **actorusername_has** | string| Filter only process events for which the target username (for process create events), or actor username (for process terminate events) has any of the listed values. The length of the list is limited to 10,000 items. |
 | **dvcipaddr_has_any_prefix** | dynamic | Filter only process events for which the device IP address matches any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.| 
-| **dvchostname_has_any**| dynamic | Filter only process events for which the device hostname  has any of the listed values. The length of the list is limited to 10,000 items. | 
+| **dvchostname_has_any**| dynamic | Filter only process events for which the device hostname, or device FQDN is available,  has any of the listed values. The length of the list is limited to 10,000 items. | 
 | **eventtype**| string | Filter only process events of the specified type. |
 
 
@@ -98,7 +96,7 @@ The following list mentions fields that have specific guidelines for process act
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Process records, supported values include: <br>- `ProcessCreated` <br>- `ProcessTerminated` |
-| **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1.3`         |
+| **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1.4`         |
 | **EventSchema** | Optional | String | The name of the schema documented here is `ProcessEvent`. |
 | **Dvc** fields|        |      | For process activity events, device fields refer to the system on which the process was executed. |
 
@@ -114,8 +112,9 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **Class** | **Fields** |
 | --------- | ---------- |
 | Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
-| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
-| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br>- [EventUid](normalization-common-fields.md#eventuid)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br> - [EventOwner](normalization-common-fields.md#eventowner)<br>- [DvcZone](normalization-common-fields.md#dvczone)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)<br>- [DvcScopeId](normalization-common-fields.md#dvcscopeid)<br>- [DvcScope](normalization-common-fields.md#dvcscope)|
+
 
 
 
@@ -145,10 +144,11 @@ The process event schema references the following entities, which are central to
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The Actor username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [ActorUsernameType](#actorusernametype) field. If other username formats are available, store them in the fields `ActorUsername<UsernameType>`.<br><br>Example: `AlbertE`   |
-| <a name="actorusernametype"></a>**ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows`       |
 | <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `S-1-12` |
 | **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For a list of allowed values and further information refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
+| **ActorScope** | Optional | String | The scope, such as Azure AD tenant, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The Actor username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [ActorUsernameType](#actorusernametype) field. If other username formats are available, store them in the fields `ActorUsername<UsernameType>`.<br><br>Example: `AlbertE`   |
+| <a name="actorusernametype"></a>**ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows`       |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.   |
 | **ActorUserType** | Optional | UserType | The type of Actor. For a list of allowed values and further information refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [ActorOriginalUserType](#actororiginalusertype) field. |
 | <a name="actororiginalusertype"></a>**ActorOriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
@@ -242,12 +242,13 @@ The process event schema references the following entities, which are central to
 | **TargetProcessGuid**              | Optional    | String     |A generated unique identifier (GUID) of the target process. Enables identifying the process across systems.   <br><br>  Example:  `EF3BD0BD-2B74-60C5-AF5C-010000001E00`  |
 | **TargetProcessIntegrityLevel**    | Optional    | String     |   Every process has an integrity level that is represented in its token. Integrity levels determine the process level of protection or access. <br><br> Windows defines the following integrity levels: **low**, **medium**, **high**, and **system**. Standard users receive a **medium** integrity level and elevated users receive a **high** integrity level. <br><br> For more information, see [Mandatory Integrity Control - Win32 apps](/windows/win32/secauthz/mandatory-integrity-control). |
 | **TargetProcessTokenElevation**    | Optional    | String     |Token type indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the process that was created or terminated.   <br><br>    Example:  `None`     |
+| **TargetProcessStatusCode**    | Optional    | String     | The exit code returned by the target process when terminated. This field is valid only for process termination events. For consistency, the field type is string, even if value provided by the operating system is numeric.     |
 
 
 ## Schema updates
 
 These are the changes in version 0.1.1 of the schema:
-- Added the field `EventSchema` - currently optional, but will become mandatory on Sep 1st, 2022.
+- Added the field `EventSchema`.
 
 These are the changes in version 0.1.2 of the schema
 - Added the fields `ActorUserType`, `ActorOriginalUserType`, `TargetUserType`, `TargetOriginalUserType`, and `HashType`.
@@ -255,6 +256,10 @@ These are the changes in version 0.1.2 of the schema
 These are the changes in version 0.1.3 of the schema
 
 - Changed the fields `ParentProcessId` and `TargetProcessCreationTime` from mandatory to recommended. 
+
+These are the changes in version 0.1.4 of the schema
+
+- Added the fields `ActorScope`, `DvcScopeId`, and `DvcScope`. 
 
 ## Next steps
 

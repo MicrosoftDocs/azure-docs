@@ -100,8 +100,8 @@ The following example shows a warmup trigger that runs when each new instance is
 
 ```java
 @FunctionName("Warmup")
-public void run( ExecutionContext context) {
-       context.getLogger().info("Function App instance is warm 🌞🌞🌞");
+public void warmup( @WarmupTrigger Object warmupContext, ExecutionContext context) {
+    context.getLogger().info("Function App instance is warm 🌞🌞🌞");
 }
 ```
 
@@ -191,7 +191,7 @@ def main(warmupContext: func.Context) -> None:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `WarmupTrigger` attribute to define the function. C# script instead uses a *function.json* configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `WarmupTrigger` attribute to define the function. C# script instead uses a *function.json* configuration file.
 
 # [In-process](#tab/in-process)
 

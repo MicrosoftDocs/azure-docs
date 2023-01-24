@@ -1,54 +1,56 @@
 ---
-title: Enable VMware Cloud director service with Azure VMware Solution (Public Preview)
+title: Enable VMware Cloud Director service with Azure VMware Solution (Public Preview)
 description: This article explains how to use  Azure VMware Solution to enable enterprise customers to use Azure VMware Solution for private clouds underlying resources for virtual datacenters.
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 08/30/2022
 ---
 
 # Enable VMware Cloud Director service with Azure VMware Solution (Preview)
 
-[VMware Cloud Director Service (CDs)](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/getting-started-with-vmware-cloud-director-service/GUID-149EF3CD-700A-4B9F-B58B-8EA5776A7A92.html) with Azure VMware Solution enables enterprise customers to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
+[VMware Cloud Director service (CDs)](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/getting-started-with-vmware-cloud-director-service/GUID-149EF3CD-700A-4B9F-B58B-8EA5776A7A92.html) with Azure VMware Solution enables enterprise customers to use APIs or the Cloud Director services portal to self-service provision and manage virtual datacenters through multi-tenancy with reduced time and complexity.
 
-In this article, you'll learn how to enable VMware Cloud Director service (CDs) with Azure VMware Solution for enterprise customers to use Azure VMware Solution resources and Azure VMware Solution private clouds with underlying resources for virtual datacenters.
+In this article, you'll learn how to enable VMware Cloud Director service with Azure VMware Solution for enterprise customers to use Azure VMware Solution resources and Azure VMware Solution private clouds with underlying resources for virtual datacenters.
 
 >[!IMPORTANT] 
-> Cloud Director service (CDs) is now available to use with Azure VMware Solution under the Enterprise Agreement (EA) model only. It's not suitable for MSP / Hoster to resell Azure VMware Solution capacity to customers at this point. For more information, see [Azure Service terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#GeneralServiceTerms).
+> VMware Cloud Director service is now available to use with Azure VMware Solution under the Enterprise Agreement (EA) model only. It's not suitable for MSP / Hosters to resell Azure VMware Solution capacity to customers at this point. For more information, see [Azure Service terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#GeneralServiceTerms).
 
 ## Reference architecture
-The following diagram shows typical architecture for Cloud Director Services with Azure VMware Solution and how they're connected. Communications to Azure VMware Solution endpoints from Cloud Director service are supported by an SSL reverse proxy. 
+The following diagram shows typical architecture for Cloud Director services with Azure VMware Solution and how they're connected. Communications to Azure VMware Solution endpoints from Cloud Director service are supported by an SSL reverse proxy. 
 
-:::image type="content" source="media/vmware-cds/reference-architecture-diagram.png" alt-text="Diagram showing typical architecture and how CDS is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/reference-architecture-diagram-expanded.png":::
+:::image type="content" source="media/vmware-cds/reference-architecture-diagram.png" alt-text="Diagram showing typical architecture and how VMware Cloud Director service is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/reference-architecture-diagram-expanded.png":::
 
 VMware Cloud Director supports multi-tenancy by using organizations. A single organization can have multiple organization virtual data centers (VDC). Each Organization’s VDC can have their own dedicated Tier-1 router (Edge Gateway) which is further connected with the provider’s managed shared Tier-0 router.
 
+[Learn more about CDs on Azure VMware Solutions refernce architecture](https://cloudsolutions.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/cloud-director-service-reference-architecture-for-azure-vmware-solution.pdf)
+
 ## Connect tenants and their organization virtual datacenters to Azure vNet based resources
 
-To provide access to vNET based Azure resources, each tenant can have their own dedicated Azure vNET with Azure VPN gateway. A site-to-site VPN between customer organization VDC and Azure vNET is established. To achieve this connectivity, the provider will provide public IP to the organization VDC. Organization VDC’s administrator can configure IPSEC VPN connectivity from Cloud Director Service portal. 
+To provide access to vNET based Azure resources, each tenant can have their own dedicated Azure vNET with Azure VPN gateway. A site-to-site VPN between customer organization VDC and Azure vNET is established. To achieve this connectivity, the provider will provide public IP to the organization VDC. Organization VDC’s administrator can configure IPSEC VPN connectivity from the Cloud Director service portal. 
 
-:::image type="content" source="media/vmware-cds/site-to-site-vpn-diagram.png" alt-text="Diagram showing site to site VPN connection and how CDS is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/site-to-site-vpn-diagram-expanded.png":::
+:::image type="content" source="media/vmware-cds/site-to-site-vpn-diagram.png" alt-text="Diagram showing site to site VPN connection and how VMware Cloud Director service is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/site-to-site-vpn-diagram-expanded.png":::
 
-As shown in the diagram above, organization 01 has two organization Virtual datacenters (VDCs): VDC1 and VDC2. The virtual datacenter of each organization has its own Azure vNETs connected with their respective organization VDC Edge gateway through IPSEC VPN.
+As shown in the diagram above, organization 01 has two organization virtual datacenters: VDC1 and VDC2. The virtual datacenter of each organization has its own Azure vNETs connected with their respective organization VDC Edge gateway through IPSEC VPN.
 Providers provide public IP addresses to the organization VDC Edge gateway for IPSEC VPN configuration. An ORG VDC Edge gateway firewall blocks all traffic by default, specific allow rules needs to be added on organization Edge gateway firewall.
 
 Organization VDCs can be part of a single organization and still provide isolation between them. For example, VM1 hosted in organization VDC1 cannot ping Azure VM JSVM2 for tenant2.
 
 ### Prerequisites  
 - Organization VDC is configured with an Edge gateway and has Public IPs assigned to it to establish IPSEC VPN by provider.
-- Tenants have created a routed Organization VDC network in tenant’s Virtual datacenter.
+- Tenants have created a routed Organization VDC network in tenant’s virtual datacenter.
 - Test VM1 and VM2 are created in the Organization VDC1 and VDC2 respectively. Both VMs are connected to the routed orgVDC network in their respective VDCs.
 - Have a dedicated [Azure vNET](tutorial-configure-networking.md#create-a-vnet-manually) configured for each tenant. For this example, we created Tenant1-vNet and Tenant2-vNet for tenant1 and tenant2 respectively.
 - Create an [Azure Virtual network gateway](tutorial-configure-networking.md#create-a-virtual-network-gateway) for vNETs created earlier.
 - Deploy Azure VMs JSVM1 and JSVM2 for tenant1 and tenant2 for test purposes.
 
 > [!Note]
-> CDS supports a policy-based VPN.  Azure VPN gateway configures route-based VPN by default and to configure policy-based VPN policy-based selector needs to be enabled.
+> VMware Cloud Director service supports a policy-based VPN.  Azure VPN gateway configures route-based VPN by default and to configure policy-based VPN policy-based selector needs to be enabled.
 
 ### Configure Azure vNet 
 Create the following components in tenant’s dedicated Azure vNet to establish IPSEC tunnel connection with the tenant’s ORG VDC edge gateway. 
 - Azure Virtual network gateway 
 - Local network gateway. 
 - Add IPSEC connection on VPN gateway.
-- Edit connection configuration to enable policy-based VPN. git status
+- Edit connection configuration to enable policy-based VPN.
 
 ### Create Azure virtual network gateway
 To create an Azure virtual network gateway, see the [create-a-virtual-network-gateway tutorial](tutorial-configure-networking.md#create-a-virtual-network-gateway).
@@ -76,7 +78,7 @@ To create an Azure virtual network gateway, see the [create-a-virtual-network-ga
 1. Select **Ok** to deploy local network gateway. 
 
 ### Configure IPsec Connection 
-Cloud Director Service supports a policy-based VPN. Azure VPN gateway configures route-based VPN by default and to configure policy-based VPN policy-based selector needs to be enabled.
+VMware Cloud Director service supports a policy-based VPN. Azure VPN gateway configures route-based VPN by default and to configure policy-based VPN policy-based selector needs to be enabled.
 
 1. Select the connection you created earlier and then select **configuration** to view the default settings. 
 1. **IPSEC/IKE Policy** 
@@ -87,7 +89,7 @@ Cloud Director Service supports a policy-based VPN. Azure VPN gateway configures
 1. Select **Save**.
 
 ### Configure VPN on organization VDC Edge router
-1. Log in to Organization CDS tenant portal and select tenant’s edge gateway. 
+1. Log in to Organization VMware Cloud Director service tenant portal and select tenant’s edge gateway. 
 1. Select **IPSEC VPN** option under **Services** and then select **New**.
 1. Under general setting, provide **Name** and select desired security profile. Ensure that security profile settings (IKE, Tunnel, and DPD configuration) are same on both sides of the IPsec tunnel. 
 1. Modify Azure VPN gateway to match the Security profile, if necessary. You can also do security profile customization from CDS tenant portal.
@@ -102,7 +104,7 @@ Cloud Director Service supports a policy-based VPN. Azure VPN gateway configures
 ### Apply firewall configuration
 Organization VDC Edge router firewall denies traffic by default. You'll need to apply specific rules to enable connectivity. Use the following steps to apply firewall rules.
 
-1.	Add IP set in CDS portal 
+1.	Add IP set in VMware Cloud Director service portal 
      1.	Log in to Edge router then select **IP SETS** under the **Security** tab in left plane.
      1. Select **New** to create IP sets.
      1.	Enter **Name** and **IP address** of test VM deployed in orgVDC.
@@ -157,16 +159,22 @@ You can verify isolation between tenants Azure vNETs. Tenant1’s VM1 won't be a
 1. Select **Keep** to save the configuration.
 1. Log in to your test VM and ping your destination address to verify outbound connectivity.
 
-## Migrate workloads to Cloud Director Service on Azure VMware Solution
+## Migrate workloads to VMware Cloud Director service on Azure VMware Solution
 
-VMware Cloud Director Availability can be used to migrate  VMware Cloud Director workload into Cloud Director service on Azure VMware Solution. Enterprise customers can drive self-serve one-way warm migration from the on-premises Cloud Director Availability vSphere plugin, or they can run the Cloud Director Availability plugin from the provider-managed Cloud Director instance and move workloads into Azure VMware Solution.
+VMware Cloud Director Availability can be used to migrate VMware Cloud Director workload into the VMware Cloud Director service on Azure VMware Solution. Enterprise customers can drive self-serve one-way warm migration from the on-premises Cloud Director Availability vSphere plugin, or they can run the Cloud Director Availability plugin from the provider-managed Cloud Director instance and move workloads into Azure VMware Solution.
 
 For more information about VMware Cloud Director Availability, see [VMware Cloud Director Availability | Disaster Recovery & Migration](https://www.vmware.com/products/cloud-director-availability.html) 
 
 ## FAQs
 **Question**: What are the supported Azure regions for the VMware Cloud Director service?
 
-**Answer**: This offering is supported in all Azure regions where Azure VMware Solution is available except for Brazil South and South Africa. Ensure that the region you wish to connect to Cloud Director service is within a 150-milliseconds round trip time for latency with Cloud Director service.
+**Answer**: This offering is supported in all Azure regions where Azure VMware Solution is available except for Brazil South and South Africa. Ensure that the region you wish to connect to VMware Cloud Director service is within a 150-milliseconds round trip time for latency with VMware Cloud Director service.
+
+**Question**: How do I configure VMware Cloud Director service on Microsoft Azure VMware Solutions?
+
+**Answer** [Learn about how to configure CDs on Azure VMware Solutions](https://docs.vmware.com/en/VMware-Cloud-Director-service/services/using-vmware-cloud-director-service/GUID-602DE9DD-E7F6-4114-BD89-347F9720A831.html)
 
 ## Next steps
+
 [VMware Cloud Director Service Documentation](https://docs.vmware.com/en/VMware-Cloud-Director-service/index.html)  
+[Migration to Azure VMware Solutions with Cloud Director service](https://cloudsolutions.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/migration-to-azure-vmware-solution-with-cloud-director-service.pdf)

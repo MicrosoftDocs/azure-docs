@@ -51,7 +51,7 @@ To review the admin consent requests and take action:
 
 ## Review admin consent requests using Microsoft Graph
 
-To review the admin consent requests programmatically, use the [appConsentRequest resource type](/graph/api/resources/userconsentrequest) and [userConsentRequest resource type](/graph/api/resources/userconsentrequest) and their associated methods in Microsoft Graph. You cannot approve or deny consent requests using Microsoft Graph.
+To review the admin consent requests programmatically, use the [appConsentRequest resource type](/graph/api/resources/appconsentrequest) and [userConsentRequest resource type](/graph/api/resources/userconsentrequest) and their associated methods in Microsoft Graph. You cannot approve or deny consent requests using Microsoft Graph.
 
 ## Next steps
 - [Review permissions granted to apps](manage-application-permissions.md)

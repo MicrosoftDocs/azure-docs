@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 08/01/2022
+ms.date: 10/31/2022
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,65 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
+
+## December 2022
+
+### New articles
+
+- [Build a global identity solution with funnel-based approach](azure-ad-b2c-global-identity-funnel-based-design.md)
+- [Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration](azure-ad-b2c-global-identity-proof-of-concept-funnel.md)
+- [Azure Active Directory B2C global identity framework proof of concept for region-based configuration](azure-ad-b2c-global-identity-proof-of-concept-regional.md)
+- [Build a global identity solution with region-based approach](azure-ad-b2c-global-identity-region-based-design.md)
+- [Azure Active Directory B2C global identity framework](azure-ad-b2c-global-identity-solutions.md)
+
+### Updated articles
+
+- [Set up a resource owner password credentials flow in Azure Active Directory B2C](add-ropc-policy.md)
+- [Use API connectors to customize and extend sign-up user flows and custom policies with external identity data sources](api-connectors-overview.md)
+- [Azure Active Directory B2C: Region availability & data residency](data-residency.md)
+- [Tutorial: Configure Experian with Azure Active Directory B2C](partner-experian.md)
+- [Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C](partner-dynamics-365-fraud-protection.md)
+- [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](partner-datawiza.md)
+- [Configure TheAccessHub Admin Tool with Azure Active Directory B2C](partner-n8identity.md)
+- [Tutorial: Configure Cloudflare Web Application Firewall with Azure Active Directory B2C](partner-cloudflare.md)
+- [Set up a password reset flow in Azure Active Directory B2C](add-password-reset-policy.md)
+- [What is Azure Active Directory B2C?](overview.md)
+- [Technical and feature overview of Azure Active Directory B2C](technical-overview.md)
+
+## November 2022
+
+### New articles
+
+- [Configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access](partner-akamai-secure-hybrid-access.md)
+
+### Updated articles
+
+- [Manage your Azure Active Directory B2C tenant](tenant-management.md)
+- [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md)
+- [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+- [Roles and resource access control](roles-resource-access-control.md)
+- [Define an Azure Active Directory technical profile in an Azure Active Directory B2C custom policy](active-directory-technical-profile.md)
+
+## October 2022
+
+### New articles
+
+- [Edit Azure Active Directory B2C Identity Experience Framework (IEF) XML with Grit Visual IEF Editor](partner-grit-editor.md)
+- [Register apps in Azure Active Directory B2C](register-apps.md)
+
+### Updated articles
+
+- [Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md)
+- [Set up a password reset flow in Azure Active Directory B2C](add-password-reset-policy.md)
+- [Azure Active Directory B2C documentation landing page](index.yml)
+- [Publish your Azure Active Directory B2C app to the Azure Active Directory app gallery](publish-app-to-azure-ad-app-gallery.md)
+- [JSON claims transformations](json-transformations.md)
+
+## September
+
+### New articles
+
+- [Tutorial: Configure the Grit IAM B2B2C solution with Azure Active Directory B2C](partner-grit-iam.md)
 
 ## August 2022
 

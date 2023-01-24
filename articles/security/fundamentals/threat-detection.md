@@ -32,13 +32,9 @@ Azure provides a wide array of options to configure and customize security to me
 
 Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk detections that might indicate that an identity has been compromised. Using this data, Identity Protection generates reports and alerts so that you can investigate these risk detections and take appropriate remediation or mitigation action.
 
-Azure Active Directory Identity Protection is more than a monitoring and reporting tool. Based on risk detections, Identity Protection calculates a user risk level for each user, so that you can configure risk-based policies to automatically protect the identities of your organization.
-
-These risk-based policies, in addition to other [Conditional Access controls](../../active-directory/conditional-access/overview.md) that are provided by Azure Active Directory and [EMS](../../active-directory/conditional-access/overview.md), can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.
-
 ### Identity Protection capabilities
 
-Azure Active Directory Identity Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other Conditional Access controls provided by Azure Active Directory and EMS, can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
+Azure Active Directory Identity Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other [Conditional Access controls](../../active-directory/conditional-access/overview.md) provided by Azure Active Directory and [EMS](../../active-directory/conditional-access/overview.md), can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
 
 Examples of some of the ways that Azure Identity Protection can help secure your accounts and identities include:
 
@@ -114,9 +110,9 @@ You can create and manage DSC resources that are hosted in Azure and apply them 
 
 Microsoft Defender for Cloud helps protect your hybrid cloud environment. By performing continuous security assessments of your connected resources, it's able to provide detailed security recommendations for the discovered vulnerabilities.
 
-Defender for Cloud's recommendations are based on the [Azure Security Benchmark](../benchmarks/introduction.md) - the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud centric security.
+Defender for Cloud's recommendations are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) - the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud centric security.
 
-Enabling Defender for Cloud's enhanced security features brings advanced, intelligent, protection of your Azure, hybrid and multi-cloud resources and workloads. Learn more in [Microsoft Defender for Cloud's enhanced security features](../../defender-for-cloud/enhanced-security-features-overview.md). 
+Enabling Defender for Cloud's enhanced security features brings advanced, intelligent, protection of your Azure, hybrid and multicloud resources and workloads. Learn more in [Microsoft Defender for Cloud's enhanced security features](../../defender-for-cloud/enhanced-security-features-overview.md). 
 
 The workload protection dashboard in Defender for Cloud provides visibility and control of the integrated cloud workload protection features provided by a range of **Microsoft Defender** plans:
 
@@ -159,7 +155,7 @@ Researchers also receive threat intelligence information that is shared among ma
 
 ### Behavioral analytics
 
-Behavioral analytics is a technique that analyzes and compares data to a collection of known patterns. However, these patterns are not simple signatures. They are determined through complex machine learning algorithms that are applied to massive datasets.
+Behavioral analytics is a technique that analyzes and compares data to a collection of known patterns. However, these patterns aren't simple signatures. They're determined through complex machine learning algorithms that are applied to massive datasets.
 
 ![Behavioral analytics findings](./media/threat-detection/azure-threat-detection-fig11.jpg)
 
@@ -182,7 +178,7 @@ Some examples include:
 
 Microsoft Defender for Cloud also uses anomaly detection to identify threats. In contrast to behavioral analytics (which depends on known patterns derived from large data sets), anomaly detection is more “personalized” and focuses on baselines that are specific to your deployments. Machine learning is applied to determine normal activity for your deployments, and then rules are generated to define outlier conditions that could represent a security event. Here’s an example:
 
--	**Inbound RDP/SSH brute force attacks**: Your deployments might have busy virtual machines with many logins each day and other virtual machines that have few, if any, logins. Microsoft Defender for Cloud can determine baseline login activity for these virtual machines and use machine learning to define around the normal login activities. If there is any discrepancy with the baseline defined for login related characteristics, an alert might be generated. Again, machine learning determines what is significant.
+-	**Inbound RDP/SSH brute force attacks**: Your deployments might have busy virtual machines with many logins each day and other virtual machines that have few, if any, logins. Microsoft Defender for Cloud can determine baseline login activity for these virtual machines and use machine learning to define around the normal login activities. If there's any discrepancy with the baseline defined for login related characteristics, an alert might be generated. Again, machine learning determines what is significant.
 
 ### Continuous threat intelligence monitoring
 
@@ -250,7 +246,7 @@ SQL Database threat detectors use one of the following detection methodologies:
 
 -	**Deterministic detection**: Detects suspicious patterns (rules based) in the SQL client queries that match known attacks. This methodology has high detection and low false positive, but limited coverage because it falls within the category of “atomic detections.”
 
--	**Behavioral detection**: Detects anomalous activity, which is abnormal behavior in the database that was not seen during the most recent 30 days. Examples of SQL client anomalous activity can be a spike of failed logins or queries, a high volume of data being extracted, unusual canonical queries, or unfamiliar IP addresses used to access the database.
+-	**Behavioral detection**: Detects anomalous activity, which is abnormal behavior in the database that wasn't seen during the most recent 30 days. Examples of SQL client anomalous activity can be a spike of failed logins or queries, a high volume of data being extracted, unusual canonical queries, or unfamiliar IP addresses used to access the database.
 
 ### Application Gateway Web Application Firewall
 

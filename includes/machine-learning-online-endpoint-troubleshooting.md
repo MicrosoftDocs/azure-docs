@@ -60,15 +60,61 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     nslookup endpointname.westcentralus.inference.ml.azure.com
     ```
 
-    The response contains an __address__. This address should be in the range provided by the virtual network.
-1. If the host name isn't resolved by the `nslookup` command, check if an A record exists in the private DNS zone for the virtual network. To check the records, use the following command:
+    The response contains an __address__. This address should be in the range provided by the virtual network
+    
+    > [!NOTE]
+    > For Kubernetes online endpoint, the endpoint hostname should be the **CName** (domain name) which has been specified in your Kubernetes cluster. 
+    > If it is an HTTP endpoint, the IP address will be contained in the endpoint URI which you can get directly in the Studio UI.
+    > More ways to get the IP address of the endpoint can be found in [Secure Kubernetes online endpoint](../articles/machine-learning/how-to-secure-Kubernetes-online-endpoint.md#update-your-dns-with-an-fqdn).
 
-    ```azurecli
-    az network private-dns record-set list -z privatelink.api.azureml.ms -o tsv --query [].name
+1. If the host name isn't resolved by the `nslookup` command:
+
+    **For Managed online endpoint**, 
+    1. Check if an A record exists in the private DNS zone for the virtual network. 
+    
+        To check the records, use the following command:
+
+        ```azurecli
+        az network private-dns record-set list -z privatelink.api.azureml.ms -o tsv --query [].name
+        ```
+
+        The results should contain an entry that is similar to `*.<GUID>.inference.<region>`.
+    1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](../articles/container-registry/container-registry-private-link.md). 
+    
+    1. If the workspace with a private endpoint is setup using a custom DNS [How to use your workspace with a custom DNS server](../articles/machine-learning/how-to-custom-dns.md), use following command to verify if resolution works correctly from custom DNS.
+
+        ```bash
+        dig endpointname.westcentralus.inference.ml.azure.com
+        ```
+        
+    **For Kubernetes online endpoint**, 
+
+    1. Check the DNS configuration in Kubernetes cluster.
+    2. Additionally, you can check if the [azureml-fe](../articles/machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) works as expected, use the following command:
+        
+        ```bash
+        kubectl exec -it deploy/azureml-fe -- /bin/bash
+        (Run in azureml-fe pod)
+        
+        curl -vi -k https://localhost:<port>/api/v1/endpoint/<endpoint-name>/swagger.json
+        "Swagger not found"
+        ```
+
+        For **HTTP**, use
+        
+        ```bash
+        curl https://localhost:<port>/api/v1/endpoint/<endpoint-name>/swagger.json
+        "Swagger not found"
+        ```
+        
+    If curl HTTPs fails (e.g. timeout) but HTTP works, please check that certificate is valid.
+
+    If this fails to resolve to A record, verify if the resolution works from Azure DNS(168.63.129.16). 
+    ```bash
+    dig @168.63.129.16 endpointname.westcentralus.inference.ml.azure.com
     ```
-
-    The results should contain an entry that is similar to `*.<GUID>.inference.<region>`.
-1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](../articles/container-registry/container-registry-private-link.md). 
+    
+    If this succeeds then you can troubleshoot conditional forwarder for private link on custom DNS.
 
 ### Online deployments can't be scored
 

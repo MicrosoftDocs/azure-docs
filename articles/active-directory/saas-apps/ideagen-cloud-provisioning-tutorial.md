@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/08/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 
@@ -128,6 +128,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.givenName|String||&check; 
    |name.familyName|String||&check; 
    |externalId|String||&check;
+
+	>[!NOTE]
+	>All the required fields (for example, first name, last name and email) are required to be filled in Azure AD in order get the auto provision work without any issue. 
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/12/2022
+ms.date: 09/19/2022
 ms.author: aahi
 ---
 
@@ -26,9 +26,10 @@ To start training your model from within the [Language Studio](https://aka.ms/la
 
     :::image type="content" source="../../media/train-model.png" alt-text="A screenshot showing the training page in Language Studio." lightbox="../../media/train-model.png":::
 
-5. Click on the Training Job ID from the list, a side pane will appear where you can check **Training progress** and **Job status** and other details for this job.
+7. Click on the training job ID from the list. a panel will appear where you can check the **Training progress**, **Job status** and other details for this job.
 
     > [!NOTE]
     > * Only successfully completed training jobs will generate models.
     > * Training can take some time between a couple of minutes and couple of hours based on the count of utterances.
     > * You can only have one training job running at a time. You can't start other training job within the same project until the running job is completed.
+    > * The machine learning used to train models is regularly updated. If you would like to train on a previous configuration, select **Click here to change** and choose a previous [training configuration version](../../../concepts/model-lifecycle.md).

@@ -16,7 +16,7 @@ Network Security Groups (NSGs) needed to configure virtual networks closely rese
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container App Environment.
 
-Using custom user-defined routes (UDRs) or ExpressRoutes, other than with UDRs of selected destinations that you own, are not yet supported for Container App Environments with VNETs. Therefore, securing a Container App Environment with a firewall is not yet supported.
+Using custom user-defined routes (UDRs) or ExpressRoutes, other than with UDRs of selected destinations that you own, are not yet supported for Container App Environments with VNETs. Therefore, securing outbound traffic with a firewall is not yet supported.
 
 ## NSG allow rules
 
@@ -26,7 +26,7 @@ The following tables describe how to configure a collection of NSG allow rules.
 
 | Protocol | Port | ServiceTag | Description |
 |--|--|--|--|
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 | Any | \* | AzureLoadBalancer | Allow the Azure infrastructure load balancer to communicate with your environment. |
 
 ### Outbound with ServiceTags
@@ -45,7 +45,7 @@ The following tables describe how to configure a collection of NSG allow rules.
 | UDP | `123` | \* | NTP server. |
 | TCP | `5671` | \* | Container Apps control plane. |
 | TCP | `5672` | \* | Container Apps control plane. |
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 #### Considerations
 

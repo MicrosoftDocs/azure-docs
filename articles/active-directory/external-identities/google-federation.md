@@ -113,8 +113,8 @@ The device sign-in flow prompts users who sign in with a Gmail account in an emb
 
 Alternatively, you can have your existing and new Gmail users sign in with email one-time passcode. To have your Gmail users use email one-time passcode:
 
-1. [Enable email one-time passcode](one-time-passcode.md#enable-email-one-time-passcode)
-2. [Remove Google Federation](google-federation.md#how-do-i-remove-google-federation)
+1. [Enable email one-time passcode](one-time-passcode.md#enable-or-disable-email-one-time-passcodes).
+2. [Remove Google Federation](google-federation.md#how-do-i-remove-google-federation).
 3. [Reset redemption status](reset-redemption-status.md) of your Gmail users so they can use email one-time passcode going forward.
 
 If you want to request an extension, impacted customers with affected OAuth client ID(s) should have received an email from Google Developers with the following information regarding a one-time policy enforcement extension, which must be completed by Jan 31, 2022:

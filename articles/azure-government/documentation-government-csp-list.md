@@ -1,11 +1,11 @@
 ---
 title: Azure Government authorized reseller list
-description: Comprehensive list of Azure Government Cloud Solution Providers, resellers, and distributors.
-services: azure-government
-cloud: gov
+description: Comprehensive list of Azure Government cloud solution providers, resellers, and distributors.
 ms.service: azure-government
 ms.topic: article
-ms.date: 07/05/2022
+author: todorgb
+ms.author: todorb
+ms.date: 01/18/2023
 ---
 
 # Azure Government authorized reseller list
@@ -45,7 +45,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Alcala Consulting Inc.](https://www.alcalaconsulting.com/)|
 |[Alliance Enterprises, Inc.](https://www.allianceenterprises.com)|
 |[Alvarez Technology Group](https://www.alvareztg.com/)|
-|[Amalgama Technologies Inc](http://amalgamatetech.com/)|
+|Amalgama Technologies Inc|
 |[Ambonare](https://redriver.com/press-release/austinacquisition)|
 |[American Technology Services LLC](https://networkats.com/)|
 |[Anautics](https://anautics.com)|
@@ -78,7 +78,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
-|[C2 Technology Solutions](https://www.c2techsol.com)|
+|[C2 Technology Solutions](https://c2techsol.com/)|
 |[CACI Inc - Federal](https://www.caci.com/)|
 |[Cambria Solutions, Inc.](https://www.cambriasolutions.com/)|
 |[Capgemini Government Solutions LLC](https://www.capgemini.com/us-en/service/capgemini-government-solutions/)|
@@ -92,7 +92,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CBTS](https://www.cbts.com/)|
 |[CDO Technologies Inc.](https://www.cdotech.com/contact/)|
 |[CDW-G, LLC](https://www.cdwg.com)|
-|[Centurylink](https://www.centurylink.com/public-sector/federal-government.html)|
+|[Centurylink](https://www.centurylink.com/)|
 |[cFocus Software Incorporated](https://cfocussoftware.com)|
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
@@ -197,7 +197,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[GRS Technology Solutions](https://www.grstechnologysolutions.com)|
 |[Hanu Software Solutions Inc.](https://www.hanusoftware.com/hanu/#contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
-|[Harborgrid Inc.](https://www.harborgrid.com)|
+|Harborgrid Inc.|
 |[HCL Technologies](https://www.hcltech.com/aerospace-and-defense)|
 |[HD Dynamics](https://www.hddynamics.com/)|
 |[Heartland Business Systems LLC](https://www.hbs.net/home)|
@@ -237,7 +237,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ITInfra](https://itinfra.biz/)|
 |[ITsavvy](https://www.itsavvy.com)|
 |[IV4, Inc](https://www.iv4.com)|
-|[J and C Landwehr LLC](https://jandclandwehr.com/)|
+|J and C Landwehr LLC|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
 |[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|
@@ -346,7 +346,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Protected Trust](https://www.proarch.com/)|
 |[Protera Technologies](https://www.protera.com)|
 |[Pueo Business Solutions, LLC](https://www.pueo.com/)|
-|[Quad M Tech](https://www.quadmtech.com/)|
 |[Quality Technology Services LLC](https://www.qtsdatacenters.com/)|
 |[Quest Media & Supplies Inc.](https://www.questsys.com/)|
 |[Quisitive](https://quisitive.com)|
@@ -415,7 +414,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[SyCom Technologies](https://www.sycomtech.com)|
 |[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
-|[Systems Engineering Inc](https://www.seisystems.com)|
+|[Systems Engineering Inc](https://www.systemsengineering.com)|
 |[Systems Solutions Inc](https://www.ssi-net.com/)|
 |[Syvantis Technologies, Inc.](https://www.syvantis.com)|
 |[Taborda Solutions](https://tabordasolutions.com)|

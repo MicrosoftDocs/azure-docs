@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/22/2022
+ms.date: 11/18/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -16,7 +16,7 @@ recommendations: false
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD029 -->
 
-[Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet&preserve-view=true) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.5) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) | [Supported REST API versions](../../sdk-overview.md)
+[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) | [Supported REST API versions](../../sdk-overview.md)
 
 In this quickstart, you'll use the following features to analyze and extract data and values from forms and documents:
 
@@ -43,6 +43,9 @@ In this quickstart, you'll use the following features to analyze and extract dat
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+
 ## Set up
 
 1. Start Visual Studio.
@@ -63,18 +66,24 @@ In this quickstart, you'll use the following features to analyze and extract dat
 
     :::image type="content" source="../../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=setup)
+
 ### Install the client library with NuGet
 
  1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
+    :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
-     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
+     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select pre-release NuGet package in Visual Studio.":::
 
- 1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.5** from the dropdown menu and install the package in your project.
+ 1. Select version **4.0.0** from the dropdown menu and install the package in your project.
 <!-- --- -->
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the NuGet package installation.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=install-package)
 
 ## Build your application
 
@@ -98,7 +107,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     * [**Prebuilt model**](#prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
 
 <!-- ### [.NET Command-line interface (CLI)](#tab/cli)
 
@@ -136,9 +145,7 @@ DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), cr
 //sample form document
 Uri fileUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
-AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-document", fileUri);
-
-await operation.WaitForCompletionAsync();
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed,"prebuilt-document", fileUri);
 
 AnalyzeResult result = operation.Value;
 
@@ -199,7 +206,7 @@ foreach (DocumentStyle style in result.Styles)
 
         foreach (DocumentSpan span in style.Spans)
         {
-            Console.WriteLine($"  Content: {result.Content.Substring(span.Offset, span.Length)}");
+            Console.WriteLine($"  Content: {result.Content.Substring(span.Index, span.Length)}");
         }
     }
 }
@@ -225,6 +232,9 @@ Once you've added a code sample to your application, choose the green **Start** 
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
+
 ### General document model output
 
 Here's a snippet of the expected output:
@@ -240,7 +250,7 @@ Here's a snippet of the expected output:
   Found key-value pair: 'to Commission File Number' and '001-37845'
 ```
 
-To view the entire output, visit the Azure samples repository on GitHub to  view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-general-document-output.md).
+To view the entire output, visit the Azure samples repository on GitHub to  view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-quickstart-general-document-output.md).
 
 ## Layout model
 
@@ -265,12 +275,9 @@ AzureKeyCredential credential = new AzureKeyCredential(key);
 DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
 
 //sample document
-// sample form document
 Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
-AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-layout", fileUri);
-
-await operation.WaitForCompletionAsync();
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-layout", fileUri);
 
 AnalyzeResult result = operation.Value;
 
@@ -317,7 +324,7 @@ foreach (DocumentStyle style in result.Styles)
 
         foreach (DocumentSpan span in style.Spans)
         {
-            Console.WriteLine($"  Content: {result.Content.Substring(span.Offset, span.Length)}");
+            Console.WriteLine($"  Content: {result.Content.Substring(span.Index, span.Length)}");
         }
     }
 }
@@ -343,6 +350,9 @@ Once you've added a code sample to your application, choose the green **Start** 
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
+> [!div class="nextstepaction"]
+[I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-layout)
+
 ### Layout model output
 
 Here's a snippet of the expected output:
@@ -363,7 +373,7 @@ Here's a snippet of the expected output:
       Lower left => X: 2.1937, Y= 1.0498
 ```
 
-To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-layout-output.md).
+To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-quickstart-layout-output.md).
 
 ## Prebuilt model
 
@@ -397,9 +407,7 @@ DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), cr
 
 Uri invoiceUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf");
 
-AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-invoice", invoiceUri);
-
-await operation.WaitForCompletionAsync();
+AnalyzeDocumentOperation operation = await client.AnalyzeDocumentFromUriAsync(WaitUntil.Completed, "prebuilt-invoice", invoiceUri);
 
 AnalyzeResult result = operation.Value;
 
@@ -409,53 +417,53 @@ for (int i = 0; i < result.Documents.Count; i++)
 
     AnalyzedDocument document = result.Documents[i];
 
-    if (document.Fields.TryGetValue("VendorName", out DocumentField? vendorNameField))
+    if (document.Fields.TryGetValue("VendorName", out DocumentField vendorNameField))
     {
-        if (vendorNameField.ValueType == DocumentFieldType.String)
+        if (vendorNameField.FieldType == DocumentFieldType.String)
         {
-            string vendorName = vendorNameField.AsString();
+            string vendorName = vendorNameField.Value.AsString();
             Console.WriteLine($"Vendor Name: '{vendorName}', with confidence {vendorNameField.Confidence}");
         }
     }
 
-    if (document.Fields.TryGetValue("CustomerName", out DocumentField? customerNameField))
+    if (document.Fields.TryGetValue("CustomerName", out DocumentField customerNameField))
     {
-        if (customerNameField.ValueType == DocumentFieldType.String)
+        if (customerNameField.FieldType == DocumentFieldType.String)
         {
-            string customerName = customerNameField.AsString();
+            string customerName = customerNameField.Value.AsString();
             Console.WriteLine($"Customer Name: '{customerName}', with confidence {customerNameField.Confidence}");
         }
     }
 
-    if (document.Fields.TryGetValue("Items", out DocumentField? itemsField))
+    if (document.Fields.TryGetValue("Items", out DocumentField itemsField))
     {
-        if (itemsField.ValueType == DocumentFieldType.List)
+        if (itemsField.FieldType == DocumentFieldType.List)
         {
-            foreach (DocumentField itemField in itemsField.AsList())
+            foreach (DocumentField itemField in itemsField.Value.AsList())
             {
                 Console.WriteLine("Item:");
 
-                if (itemField.ValueType == DocumentFieldType.Dictionary)
+                if (itemField.FieldType == DocumentFieldType.Dictionary)
                 {
-                    IReadOnlyDictionary<string, DocumentField> itemFields = itemField.AsDictionary();
+                    IReadOnlyDictionary<string, DocumentField> itemFields = itemField.Value.AsDictionary();
 
-                    if (itemFields.TryGetValue("Description", out DocumentField? itemDescriptionField))
+                    if (itemFields.TryGetValue("Description", out DocumentField itemDescriptionField))
                     {
-                        if (itemDescriptionField.ValueType == DocumentFieldType.String)
+                        if (itemDescriptionField.FieldType == DocumentFieldType.String)
                         {
-                            string itemDescription = itemDescriptionField.AsString();
+                            string itemDescription = itemDescriptionField.Value.AsString();
 
                             Console.WriteLine($"  Description: '{itemDescription}', with confidence {itemDescriptionField.Confidence}");
                         }
                     }
 
-                    if (itemFields.TryGetValue("Amount", out DocumentField? itemAmountField))
+                    if (itemFields.TryGetValue("Amount", out DocumentField itemAmountField))
                     {
-                        if (itemAmountField.ValueType == DocumentFieldType.Double)
+                        if (itemAmountField.FieldType == DocumentFieldType.Currency)
                         {
-                            double itemAmount = itemAmountField.AsDouble();
+                            CurrencyValue itemAmount = itemAmountField.Value.AsCurrency();
 
-                            Console.WriteLine($"  Amount: '{itemAmount}', with confidence {itemAmountField.Confidence}");
+                            Console.WriteLine($"  Amount: '{itemAmount.Symbol}{itemAmount.Amount}', with confidence {itemAmountField.Confidence}");
                         }
                     }
                 }
@@ -463,30 +471,30 @@ for (int i = 0; i < result.Documents.Count; i++)
         }
     }
 
-    if (document.Fields.TryGetValue("SubTotal", out DocumentField? subTotalField))
+    if (document.Fields.TryGetValue("SubTotal", out DocumentField subTotalField))
     {
-        if (subTotalField.ValueType == DocumentFieldType.Double)
+        if (subTotalField.FieldType == DocumentFieldType.Currency)
         {
-            double subTotal = subTotalField.AsDouble();
-            Console.WriteLine($"Sub Total: '{subTotal}', with confidence {subTotalField.Confidence}");
+            CurrencyValue subTotal = subTotalField.Value.AsCurrency();
+            Console.WriteLine($"Sub Total: '{subTotal.Symbol}{subTotal.Amount}', with confidence {subTotalField.Confidence}");
         }
     }
 
-    if (document.Fields.TryGetValue("TotalTax", out DocumentField? totalTaxField))
+    if (document.Fields.TryGetValue("TotalTax", out DocumentField totalTaxField))
     {
-        if (totalTaxField.ValueType == DocumentFieldType.Double)
+        if (totalTaxField.FieldType == DocumentFieldType.Currency)
         {
-            double totalTax = totalTaxField.AsDouble();
-            Console.WriteLine($"Total Tax: '{totalTax}', with confidence {totalTaxField.Confidence}");
+            CurrencyValue totalTax = totalTaxField.Value.AsCurrency();
+            Console.WriteLine($"Total Tax: '{totalTax.Symbol}{totalTax.Amount}', with confidence {totalTaxField.Confidence}");
         }
     }
 
-    if (document.Fields.TryGetValue("InvoiceTotal", out DocumentField? invoiceTotalField))
+    if (document.Fields.TryGetValue("InvoiceTotal", out DocumentField invoiceTotalField))
     {
-        if (invoiceTotalField.ValueType == DocumentFieldType.Double)
+        if (invoiceTotalField.FieldType == DocumentFieldType.Currency)
         {
-            double invoiceTotal = invoiceTotalField.AsDouble();
-            Console.WriteLine($"Invoice Total: '{invoiceTotal}', with confidence {invoiceTotalField.Confidence}");
+            CurrencyValue invoiceTotal = invoiceTotalField.Value.AsCurrency();
+            Console.WriteLine($"Invoice Total: '{invoiceTotal.Symbol}{invoiceTotal.Amount}', with confidence {invoiceTotalField.Confidence}");
         }
     }
 }
@@ -498,6 +506,8 @@ for (int i = 0; i < result.Documents.Count; i++)
 Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+
+[I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
 
 ### Prebuilt model output
 
@@ -513,4 +523,4 @@ Here's a snippet of the expected output:
   Sub Total: '100', with confidence 0.979
 ```
 
-To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-sdk-prebuilt-invoice-output.md).
+To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/v3-csharp-quickstart-prebuilt-invoice-output.md).

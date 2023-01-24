@@ -16,7 +16,7 @@ In this quickstart, you'll learn how to create an Azure Front Door Standard/Prem
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -56,17 +56,19 @@ Run [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-cr
 ```azurecli-interactive
 az appservice plan create \
     --name myAppServicePlanCentralUS \
-    --resource-group myRGFD
+    --resource-group myRGFD \
+    --location centralus
 ```
 ```azurecli-interactive
 az appservice plan create \
     --name myAppServicePlanEastUS \
-    --resource-group myRGFD
+    --resource-group myRGFD \
+    --location eastus
 ```
 
 ### Create web apps
 
-Run [az webapp create](/cli/azure/webapp#az-webapp-create&preserve-view=true) to create a web app in each of the app service plans in the previous step. Web app names have to be globally unique.
+Run [az webapp create](/cli/azure/webapp#az-webapp-create) to create a web app in each of the app service plans in the previous step. Web app names have to be globally unique.
 
 ```azurecli-interactive
 az webapp create \

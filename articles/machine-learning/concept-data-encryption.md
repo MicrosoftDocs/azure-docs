@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 10/20/2022
 ---
 
 # Data encryption with Azure Machine Learning
@@ -63,7 +63,12 @@ For an example of creating a workspace using an existing Azure Container Registr
 
 ### Azure Container Instance
 
+> [!IMPORTANT]
+> Deployments to ACI rely on the Azure Machine Learning Python SDK and CLI v1.
+
 You may encrypt a deployed Azure Container Instance (ACI) resource using customer-managed keys. The customer-managed key used for ACI can be stored in the Azure Key Vault for your workspace. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 To use the key when deploying a model to Azure Container Instance, create a new deployment configuration using `AciWebservice.deploy_configuration()`. Provide the key information using the following parameters:
 
@@ -75,9 +80,9 @@ For more information on creating and using a deployment configuration, see the f
 
 * [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) reference
 
-* [Where and how to deploy](how-to-deploy-managed-online-endpoints.md)
+* [Where and how to deploy](./v1/how-to-deploy-and-where.md)
 
-For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
+For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
 
 ### Azure Kubernetes Service
 
@@ -91,12 +96,12 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 ### Machine Learning Compute
 
 **Compute cluster**
-The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk. 
+The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption is not enabled for workspaces by default. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, then the OS disk is encrypted. 
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the temporary disk is encrypted. This environment is short-lived (only for the duration of your job,) and encryption support is limited to system-managed keys only.
 
 **Compute instance**
-The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the local temporary disk on compute instance is encrypted with Microsoft managed keys. Customer managed key encryption is not supported for OS and temp disk.
+The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the local OS and temporary disks on compute instance are encrypted with Microsoft managed keys. Customer managed key encryption is not supported for OS and temporary disks.
 
 For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
 

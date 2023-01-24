@@ -76,7 +76,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 1. Select **Create**.
 1. Select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
 1. Select an **Azure AD B2C Tenant** from the dropdown. Only tenants for which you're a global administrator and that are not already linked to a subscription are shown. The **Azure AD B2C Resource name** field is populated with the domain name of the Azure AD B2C tenant you select.
-1. Select an active Azure **Subscription** of which you're an administrator.
+1. Select an active Azure **Subscription** of which you're an owner.
 1. Under **Resource group**, select **Create new**, and then specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
 1. Select **Create**.
 

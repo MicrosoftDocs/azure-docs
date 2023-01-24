@@ -140,7 +140,7 @@ Four steps are needed to set up an authorization with the authorization code gra
     - Because the incoming request to API Management will consist of a query parameter called *username*, add the username to the backend call.
 
         > [!NOTE]
-        > The `get-authorization-context` policy references the authorization provider and authorization that were created earlier. [Learn more](api-management-access-restriction-policies.md#GetAuthorizationContext) about how to configure this policy.
+        > The `get-authorization-context` policy references the authorization provider and authorization that were created earlier. [Learn more](get-authorization-context-policy.md) about how to configure this policy.
 
         :::image type="content" source="media/authorizations-how-to/policy-configuration-cropped.png" lightbox="media/authorizations-how-to/policy-configuration.png" alt-text="Screenshot of configuring policy in the portal.":::
 1. Test the API. 

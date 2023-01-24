@@ -106,7 +106,7 @@ To send push notifications for messages missed by your users while they were awa
 For more details, see [Push Notifications](../notifications.md).
 
 > [!NOTE]
-> Currently sending chat push notifications with Notification Hub is generally available in Android version 1.1.0 and in public preview for iOS version 1.3.0-beta.1.
+> Currently sending chat push notifications with Notification Hub is generally available in Android version 1.1.0 and in IOS version 1.3.0.
 
 ## Build intelligent, AI powered chat experiences
 

@@ -36,7 +36,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 
 * **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource, Third-Party Security provider or **Network Virtual Appliance** specified as part of the Routing Policy.
 
-    In other words, when Traffic Routing Policy is configured on a Virtual WAN hub, the Virtual WAN will propagate a **default** route to all spokes and Gateways. In the case of a **Network Virtual Appliance** this routes will be learned and propagated through BGP via the vWAN Route Service and learned by the BGP speakers inside the **Network Virtual Appliance**
+    In other words, when Traffic Routing Policy is configured on a Virtual WAN hub, the Virtual WAN will advertise a **default** route to all spokes, Gateways and Network Virtual Appliances (deployed in the hub or spoke). This includes the **Network Virtual Appliance** that is the next hop for the Internet Traffic routing policy.
  
 * **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a Virtual WAN hub, **all** branch and Virtual Network traffic in and out of the Virtual WAN Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource or Network Virtual Appliance resource that was specified in the Private Traffic Routing Policy. 
 
@@ -101,7 +101,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 4. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks using non-IANA RFC1918 Prefixes, select **Additional Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
 
    > [!NOTE]
-   > At this point in time, Routing Policies for **Network Virtual Appliances** do not allow you to edit the RFC1918 prefixes. Azure vWAN will be propagating the RFC 1918 space to all spokes and Gateways across, as well as to BGP speakers inside the ****Network Virtual Appliances**. Be mindful of the implications about the propagation of these prefixes into your environment and create the appropriate policies inside your **Network Virtual Appliance** to control routing behavior.  Should it be desired to propagate more specific RFC 1918 spaces (i.e Spoke address space), those prefixes need to be added as well on the box below explicit. 
+   > At this point in time, Routing Policies for **Network Virtual Appliances** do not allow you to edit the RFC1918 prefixes. Virtual WAN will propagate the RFC1918 aggregate prefixes to all spoke Virtual networks, Gateways as well as the **Network Virtual Appliances**. Be mindful of the implications about the propagation of these prefixes into your environment and create the appropriate policies inside your **Network Virtual Appliance** to control routing behavior.  
 
     :::image type="content" source="./media/routing-policies/private-prefixes-nva.png"alt-text="Screenshot showing how to configure additional private prefixes for NVA  routing policies."lightbox="./media/routing-policies/private-prefixes-nva.png":::
 
@@ -194,7 +194,7 @@ The following section describes common issues encountered when you configure Rou
 
 ### Troubleshooting data path 
 
-* Currently, using Azure Firewall to inspect inter-hub traffic is  available for Virtual WAN hubs that are deployed in the **same** Azure Region. Inter-hub inspection for Virtual WAN hubs that are in different Azure regions is available on a limited basis. For a list of available regions, please email previewinterhub@mcirosoft.com.
+* Currently, using Azure Firewall to inspect inter-hub traffic is  available for Virtual WAN hubs that are deployed in the **same** Azure Region. Inter-hub inspection for Virtual WAN hubs that are in different Azure regions is available on a limited basis. For a list of available regions, please email previewinterhub@microsoft.com.
 * Currently, Private Traffic Routing Policies are not supported in Hubs with Encrypted ExpressRoute connections (Site-to-site VPN Tunnel running over ExpressRoute Private connectivity).
 * You can verify that the Routing Policies have been applied properly by checking the Effective Routes of the DefaultRouteTable. If Private Routing Policies are configured, you should see routes in the DefaultRouteTable for private traffic prefixes with next hop Azure Firewall. If Internet Traffic Routing Policies are configured, you should see a default (0.0.0.0/0) route in the DefaultRouteTable with next hop Azure Firewall.
 * If there are any Site-to-site VPN gateways or Point-to-site VPN gateways created **after** the feature has been confirmed to be enabled on your deployment, you will have to reach out again to previewinterhub@microsoft.com to get the feature enabled. 

@@ -50,12 +50,11 @@ Scheduled Events provides events in the following use cases:
   Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP so that it's not exposed outside the VM.
 
 ### Scope
-Scheduled events are delivered to:
+Scheduled events are delivered to and can be acknowleged by:
 
 - Standalone Virtual Machines.
-- All the VMs in a cloud service.
+- All the VMs in an [Azure cloud service (classic)](../../cloud-services/index.yml). 
 - All the VMs in an availability set.
-- All the VMs in an availability zone. 
 - All the VMs in a scale set placement group. 
 
 > [!NOTE]
@@ -97,7 +96,7 @@ Scheduled Events is disabled for your service if it does not make a request for 
 ### User-initiated Maintenance
 User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. You then can test the maintenance preparation logic in your application, and your application can prepare for user-initiated maintenance.
 
-If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions.
+If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. We advise having a primary and secondary VM communicating and approving user generated scheduled events in case the primary VM becomes unresponsive. This will prevent delays in recovering your application back to a good state.  
 
 ## Use the API
 
@@ -161,7 +160,7 @@ In the case where there are scheduled events, the response contains an array of 
 | NotBefore| Time after which this event can start. The event is guaranteed to not start before this time. Will be blank if the event has already started <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 | Description | Description of this event. <br><br> Example: <br><ul><li> Host server is undergoing maintenance. |
 | EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platform. <li>`User`: This event is initiated by user. |
-| DurationInSeconds | The expected duration of the interruption caused by the event. <br><br> Example: <br><ul><li> `9`: The interruption caused by the event will last for 9 seconds. <li>`-1`: The default value used if the impact duration is either unknown or not applicable. |
+| DurationInSeconds | The expected duration of the interruption caused by the event. <br><br> Example: <br><ul><li> `9`: The interruption caused by the event will last for 9 seconds. <li> `0`: The event will not interrupt the VM or impact its availability (eg. update to the network) <li>`-1`: The default value used if the impact duration is either unknown or not applicable. |
 
 ### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
@@ -251,7 +250,7 @@ The `DocumentIncarnation` is changing every time there is new information in `Ev
                        "NotBefore":  "Mon, 11 Apr 2022 22:26:58 GMT",
                        "Description":  "Virtual machine is being paused because of a memory-preserving Live Migration operation.",
                        "EventSource":  "Platform",
-                       "DurationInSeconds":  -1
+                       "DurationInSeconds":  5
                    }
                ]
 }
@@ -271,7 +270,7 @@ The `DocumentIncarnation` is changing every time there is new information in `Ev
                        "NotBefore":  "",
                        "Description":  "Virtual machine is being paused because of a memory-preserving Live Migration operation.",
                        "EventSource":  "Platform",
-                       "DurationInSeconds":  -1
+                       "DurationInSeconds":  5
                    }
                ]
 }

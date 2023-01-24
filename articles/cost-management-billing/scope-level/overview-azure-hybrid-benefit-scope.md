@@ -4,7 +4,7 @@ description: Azure Hybrid Benefit is a licensing benefit that lets you bring you
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/03/2021
+ms.date: 12/06/2022
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -88,17 +88,17 @@ The following table summarizes how many NCLs you need to fully discount the SQL 
 | --- | --- | --- |
 | SQL Managed Instance or Instance pool | Business Critical | 4 per vCore |
 | SQL Managed Instance or Instance pool | General Purpose | 1 per vCore |
-| SQL Database or Elastic pool<sup>1</sup> | Business Critical | 4 per vCore |
-| SQL Database or Elastic pool<sup>1</sup> | General Purpose | 1 per vCore |
-| SQL Database or Elastic pool<sup>1</sup> | Hyperscale | 1 per vCore |
+| SQL Database or Elastic pool¹ | Business Critical | 4 per vCore |
+| SQL Database or Elastic pool¹ | General Purpose | 1 per vCore |
+| SQL Database or Elastic pool¹ | Hyperscale | 1 per vCore |
 | Azure Data Factory SQL Server Integration Services | Enterprise | 4 per vCore |
 | Azure Data Factory SQL Server Integration Services | Standard | 1 per vCore |
-| SQL Server Virtual Machines<sup>2</sup> | Enterprise | 4 per vCPU |
-| SQL Server Virtual Machines<sup>2</sup> | Standard | 1 per vCPU |
+| SQL Server Virtual Machines² | Enterprise | 4 per vCPU |
+| SQL Server Virtual Machines² | Standard | 1 per vCPU |
 
-<sup>1</sup> *Azure Hybrid Benefit isn't available in the serverless compute tier of Azure SQL Database.*
+¹ *Azure Hybrid Benefit isn't available in the serverless compute tier of Azure SQL Database.*
 
-<sup>2</sup> *Subject to a minimum of four vCore licenses per Virtual Machine.*
+² *Subject to a minimum of four vCore licenses per Virtual Machine.*
 
 ## Ongoing scope-level management
 

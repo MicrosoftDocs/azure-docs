@@ -1,8 +1,8 @@
 ---
 title: Asset details page in the Microsoft Purview Data Catalog
 description: View relevant information and take action on assets in the data catalog
-author: djpmsft
-ms.author: daperlov
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
@@ -139,11 +139,15 @@ Microsoft Purview makes it easy to work with useful data you find the data catal
 
 If you're a data curator on the collection containing an asset, you can delete an asset by selecting the delete icon under the name of the asset.
 
+> [!IMPORTANT]
+> You cannot delete an asset that has child assets.
+> 
+> Currently, Microsoft Purview doesn't support cascaded deletes. For example, if you attempt to delete a storage account asset in your catalog the containers, folders and files within them will still exist in the data map and the the storage account asset will still exist in relation to them.
+
 Any asset you delete using the delete button is permanently deleted in Microsoft Purview. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Microsoft Purview catalog.
 
 If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset won't get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan. For example, say you manually delete a SQL table from the Microsoft Purview Data Map. Later, a data engineer adds a new column to the source table. When Microsoft Purview scans the database, the table will be reingested into the data map and be discoverable in the data catalog.
 
-If you delete an asset, only that asset is deleted. Microsoft Purview doesn't currently support cascaded deletes. For example, if you delete a storage account asset in your catalog - the containers, folders and files within them will still exist in the data map and be discoverable in the data catalog.
 
 ## Next steps
 

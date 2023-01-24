@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 08/26/2022
+ms.date: 10/11/2022
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
 ---
@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
 
 This article shows you how to create a new Azure Active Directory (Azure AD) application and service principal that can be used with the role-based access control. When you have applications, hosted services, or automated tools that need to access or modify resources, you can create an identity for the app. This identity is known as a service principal. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to log in with a user identity.
 
-This article shows you how to use the portal to create the service principal in the Azure portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.  You can also [use Azure PowerShell to create a service principal](howto-authenticate-service-principal-powershell.md).
+This article shows you how to use the portal to create the service principal in the Azure portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.  You can also [use Azure PowerShell](howto-authenticate-service-principal-powershell.md) or the [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli) to create a service principal.
 
 > [!IMPORTANT]
 > Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure AD authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
@@ -185,7 +185,7 @@ Keep in mind, you might need to configure additional permissions on resources th
     ![Add access policy](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## Next steps
-* Learn how to [use Azure PowerShell to create a service principal](howto-authenticate-service-principal-powershell.md).
+* Learn how to use [Azure PowerShell](howto-authenticate-service-principal-powershell.md) or [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli) to create a service principal.
 * To learn about specifying security policies, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md).
 * For information about working with app registrations by using **Microsoft Graph**, see the [Applications](/graph/api/resources/application) API reference.

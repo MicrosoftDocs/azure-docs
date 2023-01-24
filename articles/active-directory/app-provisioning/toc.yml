@@ -19,6 +19,8 @@ items:
         href: use-scim-to-provision-users-and-groups.md
       - name: Develop a sample SCIM endpoint
         href: use-scim-to-build-users-and-groups-endpoints.md
+      - name: Validate a SCIM endpoint
+        href: scim-validator-tutorial.md
     - name: On-prem app provisioning tutorials
       items:
       - name: Provisioning to On-premises SCIM-enabled apps
@@ -127,6 +129,8 @@ items:
         href: provisioning-agent-release-version-history.md
     - name: Migrate connector from MIM Sync
       href: on-premises-migrate-microsoft-identity-manager.md
+    - name: Prepare AD LDS for provisioning from Azure AD
+      href: on-premises-ldap-connector-prepare-directory.md
   - name: Resources
     items:
     - name: Support and help options for developers

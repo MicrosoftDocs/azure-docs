@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In this tutorial, learn how to diagnose a communication problem between an Azure virtual network connected to an on-premises, or other virtual network, through an Azure virtual network gateway, using Network Watcher's VPN diagnostics capability.
 services: network-watcher
 documentationcenter: na
-author: damendo
+author: shijaiswal
 
 # Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network. 
 
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
-ms.author: damendo
+ms.author: shijaiswal
 ms.custom: mvc
 ---
 
 # Tutorial: Diagnose a communication problem between networks using the Azure portal
 
-A virtual network gateway connects an Azure virtual network to an on-premises, or other virtual network. In this tutorial, you learn how to:
+A virtual network gateway connects an Azure virtual network to an on-premises or other virtual network. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Diagnose a problem with a virtual network gateway with Network Watcher's VPN diagnostics capability

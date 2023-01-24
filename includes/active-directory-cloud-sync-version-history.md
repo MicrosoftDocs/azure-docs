@@ -12,15 +12,27 @@ This article lists the versions and features of Azure Active Directory Connect P
 ## Download link
 You can download the latest version of the agent using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
 
+## 1.1.977.0
+
+Release date: September 23, 2022
+
+### New or changed functionality
+ - We added support for [cloud sync Self Service Password Reset](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md) General Availablility.
+ - WE added support for password writeback in disconnected forests.
+ 
+### Fixed issues
+
+ - We fixed various bug fixes to support SSPR with cloud sync
+
 ## 1.1.972.0
 
 Release date: August 8, 2022
 
 ### New or changed functionality
 
- - We added a new cmdlet to enable and disable writeback of passwords. For more information about this cmdlet and its use, see [Enable password writeback in Azure AD Connect cloud sync](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md#enable-password-writeback-in-azure-ad-connect-cloud-sync).
+ - We added a new cmdlet to enable and disable writeback of passwords. For more information about this cmdlet and its use, see [Enable password writeback in Azure AD Connect cloud sync](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md#enable-password-writeback-in-sspr).
  - We now return more info in the 'Get-AADCloudSyncDomains' cmdlet. 
- - We updated new cmdlets of CloudSync powershell module in the unattended agent install script. 
+ - We updated new cmdlets of CloudSync PowerShell module in the unattended agent install script. 
  - We have added support for the installation of the provisioning agent using the commandline. 
  - We added support for EX and RX environments.
   
@@ -37,6 +49,15 @@ Release date: August 8, 2022
  - We fixed an issue with updating of the password of a user with 'User must change password at next logon'.
  - We fixed an issue with the agent GMSA folder permissions.
  - We fixed an issue where group membership updates aren't always correct.
+
+## 1.1.818.0
+
+April 18, 2022 - released for download
+
+New features and improvements
+
+ - We fix bug where granting logon as a service right to a gMSA would fail.
+ - We updated the agent to honor the preferred Domain Controller list that is configured in the agent to also be used for the Self Service Password Reset feature.
 
 ## 1.1.587.0
 

@@ -16,6 +16,9 @@ ms.date: 06/14/2022
 
 # Common API response codes and their meaning
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 The [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) and [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general.
 
 ## Common status codes

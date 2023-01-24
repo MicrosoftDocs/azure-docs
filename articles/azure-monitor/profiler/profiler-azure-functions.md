@@ -17,7 +17,7 @@ In this article, you'll use the Azure portal to:
 > [!NOTE]
 > You can enable the Application Insights Profiler for Azure Functions apps on the **App Service** plan. 
 
-## Pre-requisites
+## Prerequisites
 
 - [An Azure Functions app](../../azure-functions/functions-create-function-app-portal.md). Verify your Functions app is on the **App Service** plan. 
      
@@ -60,13 +60,13 @@ From your Functions app overview page in the Azure portal:
 
 1. Click **Save** in the top menu, then **Continue**.
 
-   :::image type="content" source="./media/profiler-azure-functions/save-button.png" alt-text="Screenshot outlining the save button in the top menu of the configuration blade.":::
+   :::image type="content" source="./media/profiler-azure-functions/save-button.png" alt-text="Screenshot outlining the save button in the top menu of the configuration pane.":::
 
    :::image type="content" source="./media/profiler-azure-functions/continue-button.png" alt-text="Screenshot outlining the continue button in the dialog after saving.":::
 
 The app settings now show up in the table:
 
-   :::image type="content" source="./media/profiler-azure-functions/app-settings-table.png" alt-text="Screenshot showing the two new app settings in the table on the configuration blade.":::
+   :::image type="content" source="./media/profiler-azure-functions/app-settings-table.png" alt-text="Screenshot showing the two new app settings in the table on the configuration pane.":::
 
 
 > [!NOTE]

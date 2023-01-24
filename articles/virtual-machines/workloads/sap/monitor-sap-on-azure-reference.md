@@ -7,7 +7,7 @@ ms.author: ladolan
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap 
 ms.custom: subject-monitoring
-ms.date: 07/27/2022
+ms.date: 10/19/2022
 ---
 
 # Data reference for Azure Monitor for SAP solutions (preview)

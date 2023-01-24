@@ -3,10 +3,11 @@ title:  Access control and security for DPS by using Azure Active Directory | Mi
 description: Concepts - how to control access to Azure IoT Hub Device Provisioning Service (DPS) (DPS) for back-end apps. Includes information about Azure Active Directory and RBAC.
 author: jesusbar
 ms.author: jesusbar
-ms.service: iot-dps
+ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 02/07/2022
 ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-js, devx-track-csharp]
+ms.subservice: azure-iot-hub-device-provisioning-service
 ---
 # Control access to Azure IoT Hub Device Provisioning Service (DPS) by using Azure Active Directory (preview)
 
@@ -19,7 +20,7 @@ Authenticating access by using Azure AD and controlling permissions by using Azu
 
 ## Authentication and authorization
 
-When an Azure AD security principal requests access to an Azure IoT Hub Device Provisioning Service (DPS) API, the principal's identity is first *authenticated*. For authentication, the request needs to contain an OAuth 2.0 access token at runtime. The resource name for requesting the token is `https://iothubs.azure.net`. If the application runs in an Azure resource like an Azure VM, Azure Functions app, or Azure App Service app, it can be represented as a [managed identity](../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md). 
+When an Azure AD security principal requests access to an Azure IoT Hub Device Provisioning Service (DPS) API, the principal's identity is first *authenticated*. For authentication, the request needs to contain an OAuth 2.0 access token at runtime. The resource name for requesting the token is `https://azure-devices-provisioning.net`. If the application runs in an Azure resource like an Azure VM, Azure Functions app, or Azure App Service app, it can be represented as a [managed identity](../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md). 
 
 After the Azure AD principal is authenticated, the next step is *authorization*. In this step, Azure IoT Hub Device Provisioning Service (DPS) uses the Azure AD role assignment service to determine what permissions the principal has. If the principal's permissions match the requested resource or API, Azure IoT Hub Device Provisioning Service (DPS) authorizes the request. So this step requires one or more Azure roles to be assigned to the security principal. Azure IoT Hub Device Provisioning Service (DPS) provides some built-in roles that have common groups of permissions.
 

@@ -7,7 +7,7 @@ ms.author: rvadthyavath
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: template-how-to, sdkv1, event-tier1-build-2022
+ms.custom: template-how-to, sdkv1, event-tier1-build-2022, ignite-2022
 ms.date: 10/13/2021
 ---
 
@@ -15,7 +15,7 @@ ms.date: 10/13/2021
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
 > * [v1](how-to-prepare-datasets-for-automl-images-v1.md)
 > * [v2 (current version)](../how-to-prepare-datasets-for-automl-images.md)
   
@@ -50,7 +50,7 @@ If you already have a data labeling project and you want to use that data, you c
 
 ## Use conversion scripts
 
-If you have labeled data in popular computer vision data formats, like VOC or COCO, [helper scripts](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to generate JSONL files for training and validation data are available in [notebook examples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml).
+If you have labeled data in popular computer vision data formats, like VOC or COCO, [helper scripts](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to generate JSONL files for training and validation data are available in [notebook examples](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml).
 
 If your data doesn't follow any of the previously mentioned formats, you can use your own script to generate JSON Lines files based on schemas defined in [Schema for JSONL files for AutoML image experiments](../reference-automl-images-schema.md).
 
@@ -87,4 +87,4 @@ print("Training dataset name: " + training_dataset.name)
 
 * [Train computer vision models with automated machine learning](../how-to-auto-train-image-models.md).
 * [Train a small object detection model with automated machine learning](../how-to-use-automl-small-object-detect.md). 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](../tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](../tutorial-auto-train-image-models.md).

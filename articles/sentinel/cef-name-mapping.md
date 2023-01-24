@@ -1,16 +1,14 @@
 ---
 title: Common Event Format (CEF) key and CommonSecurityLog field mapping
 description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: reference
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
 ---
 
 # CEF and CommonSecurityLog field mapping
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The following tables map Common Event Format (CEF) field names to the names they use in Microsoft Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Microsoft Sentinel.
 
@@ -26,6 +24,7 @@ For more information, see [Connect your external solution using Common Event For
 |---------|---------|---------|
 | act    |    <a name="deviceaction"></a> DeviceAction     |  The action mentioned in the event.       |
 |   app  |    ApplicationProtocol     |  The protocol used in the application, such as HTTP, HTTPS, SSHv2, Telnet, POP, IMPA, IMAPS, and so on.   |
+| cat | DeviceEventCategory | Represents the category assigned by the originating device. Devices often use their own categorization schema to classify event. For example: `/Monitor/Disk/Read`. |
 | cnt    |    EventCount     |  A count associated with the event, showing how many times the same event was observed.       |
 
 
@@ -101,7 +100,7 @@ For more information, see [Connect your external solution using Common Event For
 |oldFileSize | OldFileSize | Size of the old file.|
 | oldFileType | OldFileType | File type of the old file, such as a pipe, socket, and so on.|
 | out | SentBytes | Number of bytes transferred outbound. |
-| Outcome | Outcome | Outcome of the event, such as `success` or `failure`.|
+| outcome | EventOutcome | Outcome of the event, such as `success` or `failure`.|
 |proto    |  Protocol       | Transport protocol that identifies the Layer-4 protocol used. <br><br>Possible values include protocol names, such as `TCP` or `UDP`.        |
 
 
@@ -109,6 +108,7 @@ For more information, see [Connect your external solution using Common Event For
 
 |CEF key name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
+| reason | Reason | The reason an audit event was generated. For example `badd password` or `unknown user`. This could also be an error or return code. For example: `0x1234`. |
 |Request     |   RequestURL      | The URL accessed for an HTTP request, including the protocol. For example, `http://www/secure.com`        |
 |requestClientApplication     |   RequestClientApplication      |   The user agent associated with the request.      |
 | requestContext | RequestContext | Describes the content from which the request originated, such as the HTTP Referrer. |

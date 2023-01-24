@@ -51,7 +51,7 @@ When you configure Bring Your Own Storage (BYOS), artifacts are uploaded into a 
 
     For example, if your Application Insights resource is in West US 2, your Storage Account must be also in West US 2.
 
-* Grant the `Storage Blob Data Contributor` role to the Azure AD application named `Diagnostic Services Trusted Storage Access` via the [Access Control (IAM)](/role-based-access-control/role-assignments-portal.md) page in your storage account.
+* Grant the `Storage Blob Data Contributor` role to the Azure AD application named `Diagnostic Services Trusted Storage Access` via the [Access Control (IAM)](../../role-based-access-control/role-assignments-portal.md) page in your storage account.
 * If Private Link is enabled, allow connection to our Trusted Microsoft Service from your virtual network.
 
 ## Enable BYOS
@@ -325,7 +325,7 @@ For general Profiler troubleshooting, refer to the [Profiler Troubleshoot docume
 
 For general Snapshot Debugger troubleshooting, refer to the [Snapshot Debugger Troubleshoot documentation](../app/snapshot-debugger-troubleshoot.md).
 
-## FAQs
+## Frequently asked questions
 
 ### If I have enabled Profiler/Snapshot Debugger and BYOS, will my data be migrated into my Storage Account?
 

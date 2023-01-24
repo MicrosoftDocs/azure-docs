@@ -16,7 +16,7 @@ This article presents a high-level methodology for preparing and running an effe
 [!INCLUDE [proof-of-concept-playbook-context](includes/proof-of-concept-playbook-context.md)]
 
 > [!TIP]
-> If you're new to dedicated SQL pools, we recommend you work through the [Work with Data Warehouses using Azure Synapse Analytics](/learn/paths/work-with-data-warehouses-using-azure-synapse-analytics/) learning path.
+> If you're new to dedicated SQL pools, we recommend you work through the [Work with Data Warehouses using Azure Synapse Analytics](/training/paths/work-with-data-warehouses-using-azure-synapse-analytics/) learning path.
 
 ## Prepare for the POC
 

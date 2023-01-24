@@ -3,11 +3,11 @@ title: View amortized reservation costs
 titleSuffix: Microsoft Cost Management
 description: This article helps you understand what amortized reservation costs are and how to view them in cost analysis.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/04/2022
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -23,9 +23,7 @@ To understand how amortized costs are shown in cost analysis, let's look at some
 
 First, let's look at a one-year virtual machine reservation that was purchased on January 1. Depending on your view, instead of seeing a $365 purchase on January 1, 2022, you'll see a $1.00 purchase every day from January 1, 2022 to December 31, 2022. In addition to basic amortization, the costs are also reallocated and associated to the specific resources that used the reservation. For example, if the $1.00 daily charge was split between two virtual machines, you'd see two $0.50 charges for the day. If part of the reservation isn't utilized for the day, you'd see one $0.50 charge associated with the applicable virtual machine and another $0.50 charge with a charge type of _UnusedReservation_. Unused reservation costs can be seen only when viewing amortized cost.
 
-Now, let's look at a one-year reservation purchased at some other point in a month. For example, if you buy a reservation on May 26, 2022 with an upfront payment, the amortized cost is divided by 365 (assuming it's not a leap year) and spread from May 26, 2022 through May 25, 2023. In this example, the daily cost would be the same for every day. However, the monthly cost will vary because of the varying number of days in a month. Also, if the reservation period includes a leap year, costs for the leap year are divided evenly by 366.
-
-If you pay monthly, the monthly fee is divided by the number of days in that month and spread evenly across May 26, 2022 through June 25, 2022, with the next month's fee spread across June 26, 2022 through July 25, 2022, and so on. An upfront (one time) reservation purchase is shown as an example in this article. However, the amortization of daily costs is the same as a reservation bought with monthly payments.
+Now, let's look at a one-year reservation purchased at some other point in a month. For example, if you buy a reservation on May 26, 2022 with a monthly or upfront payment, the amortized cost is divided by 365 (assuming it's not a leap year) and spread from May 26, 2022 through May 25, 2023. In this example, the daily cost would be the same for every day. However, the monthly cost will vary because of the varying number of days in a month. Also, if the reservation period includes a leap year, costs for the leap year are divided evenly by 366.
 
 Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views will show different total numbers. Depending on your view in Cost analysis, the total cost of months with a reservation purchase will decrease when viewing amortized costs, and months following a reservation purchase will increase. Amortization is available only for reservation purchases and doesn't apply to Azure Marketplace purchases currently.
 

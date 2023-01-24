@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Sensitive data and environment variables
 
-The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource's subscription key and region. The C++ code file contains two string values that are assigned from the host machine's environment variables: `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, so they're accessible within method bodies of the class: 
+The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource's key and region. The C++ code file contains two string values that are assigned from the host machine's environment variables: `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, so they're accessible within method bodies of the class: 
 
 ```cpp
 auto SPEECH__SUBSCRIPTION__KEY = getenv("SPEECH__SUBSCRIPTION__KEY");
@@ -67,7 +67,7 @@ void translateSpeech() {
 }
 ```
 
-The [`SpeechRecognitionLanguage`][recognitionlang] property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
+The [`SpeechRecognitionLanguage`][recognitionlang] property expects a language-locale format string. Refer to the [list of supported speech translation locales](../../../language-support.md?tabs=speech-translation).
 
 ## Add a translation language
 

@@ -204,4 +204,4 @@ You can find a list of common REST API error codes that the storage services ret
 - [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
 - [Troubleshoot performance issues](../common/troubleshoot-storage-performance.md?toc=/azure/storage/blobs/toc.json)
 - [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=/azure/storage/blobs/toc.json)
-- [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/)
+- [Monitor, diagnose, and troubleshoot your Azure Storage](/training/modules/monitor-diagnose-and-troubleshoot-azure-storage/)

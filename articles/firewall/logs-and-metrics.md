@@ -5,8 +5,9 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/02/2021
+ms.date: 10/31/2022
 ms.author: victorh
+ms.custom: FY23 content-maintenance
 ---
 
 # Azure Firewall logs and metrics

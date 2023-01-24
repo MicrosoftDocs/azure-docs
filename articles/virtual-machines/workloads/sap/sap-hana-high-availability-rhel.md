@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/24/2021
+ms.date: 12/07/2022
 ms.author: radeltch
 
 ---
@@ -134,20 +134,21 @@ To deploy the template, follow these steps:
       1. Select **OK**.
       1. After the new front-end IP pool is created, note the pool IP address.
 
-   1. Next, create a back-end pool:
-
-      1. Open the load balancer, select **backend pools**, and select **Add**.
+   1. Create a single back-end pool: 
+ 
+      1. Open the load balancer, select **Backend pools**, and then select **Add**.
       1. Enter the name of the new back-end pool (for example, **hana-backend**).
+      2. Select **NIC** for Backend Pool Configuration. 
       1. Select **Add a virtual machine**.
-      1. Select ** Virtual machine**.
-      1. Select the virtual machines of the SAP HANA cluster and their IP addresses.
-      1. Select **Add**.
+      1. Select the virtual machines of the HANA cluster.
+      1. Select **Add**.     
+      2. Select **Save**.
 
    1. Next, create a health probe:
 
       1. Open the load balancer, select **health probes**, and select **Add**.
       1. Enter the name of the new health probe (for example, **hana-hp**).
-      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5.
       1. Select **OK**.
 
    1. Next, create the load-balancing rules:
@@ -155,69 +156,11 @@ To deploy the template, follow these steps:
       1. Open the load balancer, select **load balancing rules**, and select **Add**.
       1. Enter the name of the new load balancer rule (for example, **hana-lb**).
       1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
+      2. Increase idle timeout to 30 minutes
       1. Select **HA Ports**.
       1. Increase the **idle timeout** to 30 minutes.
       1. Make sure to **enable Floating IP**.
       1. Select **OK**.
-
-
-1. Alternatively, ***only if*** your scenario dictates using basic load balancer, follow these configuration steps instead:
-   1. Configure the load balancer. First, create a front-end IP pool:
-
-      1. Open the load balancer, select **frontend IP pool**, and select **Add**.
-      1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-      1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
-      1. Select **OK**.
-      1. After the new front-end IP pool is created, note the pool IP address.
-
-   1. Next, create a back-end pool:
-
-      1. Open the load balancer, select **backend pools**, and select **Add**.
-      1. Enter the name of the new back-end pool (for example, **hana-backend**).
-      1. Select **Add a virtual machine**.
-      1. Select the availability set created in step 3.
-      1. Select the virtual machines of the SAP HANA cluster.
-      1. Select **OK**.
-
-   1. Next, create a health probe:
-
-      1. Open the load balancer, select **health probes**, and select **Add**.
-      1. Enter the name of the new health probe (for example, **hana-hp**).
-      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
-      1. Select **OK**.
-
-   1. For SAP HANA 1.0, create the load-balancing rules:
-
-      1. Open the load balancer, select **load balancing rules**, and select **Add**.
-      1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**15).
-      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-      1. Keep the **Protocol** set to **TCP**, and enter port 3**03**15.
-      1. Increase the **idle timeout** to 30 minutes.
-      1. Make sure to **enable Floating IP**.
-      1. Select **OK**.
-      1. Repeat these steps for port 3**03**17.
-
-   1. For SAP HANA 2.0, create the load-balancing rules for the system database:
-
-      1. Open the load balancer, select **load balancing rules**, and select **Add**.
-      1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**13).
-      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-      1. Keep the **Protocol** set to **TCP**, and enter port 3**03**13.
-      1. Increase the **idle timeout** to 30 minutes.
-      1. Make sure to **enable Floating IP**.
-      1. Select **OK**.
-      1. Repeat these steps for port 3**03**14.
-
-   1. For SAP HANA 2.0, first create the load-balancing rules for the tenant database:
-
-      1. Open the load balancer, select **load balancing rules**, and select **Add**.
-      1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**40).
-      1. Select the frontend IP address, backend pool, and health probe you created earlier (for example, **hana-frontend**).
-      1. Keep the **Protocol** set to **TCP**, and enter port 3**03**40.
-      1. Increase the **idle timeout** to 30 minutes.
-      1. Make sure to **enable Floating IP**.
-      1. Select **OK**.
-      1. Repeat these steps for ports 3**03**41 and 3**03**42.
 
 For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
 
@@ -557,12 +500,21 @@ Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](
 
 ## Implement the Python system replication hook SAPHanaSR
 
-This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.    
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR Python hook.
 
-1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
+1. **[A]** Install the SAP HANA resource agents on **all nodes**. Make sure to enable a repository that contains the package. You don't need to enable additional repositories, if using RHEL 8.x HA-enabled image.
+
+   ```bash
+   # Enable repository that contains SAP HANA resource agents
+   sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
+   
+   sudo yum install -y resource-agents-sap-hana
+   ```
+
+2. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.
 
    > [!TIP]
-   > The Python hook can only be implemented for HANA 2.0.        
+   > The Python hook can only be implemented for HANA 2.0.
 
    1. Prepare the hook as `root`.  
 
@@ -591,7 +543,7 @@ This is important step to optimize the integration with the cluster and improve 
     ha_dr_saphanasr = info
     ```
 
-2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
+3. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
     ```bash
     sudo visudo -f /etc/sudoers.d/20-saphana
     # Insert the following lines and then save
@@ -603,13 +555,13 @@ This is important step to optimize the integration with the cluster and improve 
     Defaults!SITE1_SOK, SITE1_SFAIL, SITE2_SOK, SITE2_SFAIL !requiretty
     ```
 
-3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
+4. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
 
     ```bash
     sapcontrol -nr 03 -function StartSystem 
     ```
 
-4. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
+5. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
 
     ```bash
      cdtrace
@@ -619,22 +571,13 @@ This is important step to optimize the integration with the cluster and improve 
      # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
      # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
      # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
-
     ```
 
 For more details on the implementation of the SAP HANA system replication hook see [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).  
- 
+
 ## Create SAP HANA cluster resources
 
-Install the SAP HANA resource agents on **all nodes**. Make sure to enable a repository that contains the package. You don't need to enable additional repositories, if using RHEL 8.x HA-enabled image.  
-
-<pre><code># Enable repository that contains SAP HANA resource agents
-sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
-   
-sudo yum install -y resource-agents-sap-hana
-</code></pre>
-
-Next, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
+Create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
 
 <pre><code>sudo pcs property set maintenance-mode=true
 
@@ -652,7 +595,7 @@ Next, create the HANA resources.
 If building a cluster on **RHEL 7.x**, use the following commands:  
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
-#
+
 sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
 op start timeout=3600 op stop timeout=3600 \
 op monitor interval=61 role="Slave" timeout=700 \
@@ -673,7 +616,7 @@ sudo pcs property set maintenance-mode=false
 If building a cluster on **RHEL 8.x**, use the following commands:  
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
-#
+
 sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
 op start timeout=3600 op stop timeout=3600 \
 op monitor interval=61 role="Slave" timeout=700 \
@@ -690,6 +633,10 @@ sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana
 
 sudo pcs property set maintenance-mode=false
 </code></pre>
+
+> [!IMPORTANT]
+> It's a good idea to set `AUTOMATED_REGISTER` to `false`, while you're performing failover tests, to prevent a failed primary instance to automatically register as secondary. After testing, as a best practice, set `AUTOMATED_REGISTER` to `true`, so that after takeover, system replication can resume automatically. 
+
 
 Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
 
