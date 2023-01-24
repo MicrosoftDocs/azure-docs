@@ -144,7 +144,7 @@ $Env:AZURE_CLIENT_ID="<client-id>"
 A$Env:AZURE_CLIENT_SECRET="<client-secret>"
 $Env:AZURE_TENANT_ID="<tenant-id>"
 $Env:MAPS_CLIENT_ID="<maps-client-id>"
-``` 
+```
 
 After setting up the environment variables, you can use them in your program to instantiate the `AzureMapsSearch` client:
 
@@ -163,8 +163,9 @@ public class Demo {
         MapsSearchClient client = builder.buildClient();
     }
 }
-``` 
-> [!Important]
+```
+
+> [!IMPORTANT]
 > The other environment variables created above, while not used in the code sample here, are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
 
 ### Using a subscription key credential
@@ -244,8 +245,8 @@ public class Demo {
                  address.getMunicipality(), address.getCountryCode(), address.getPostalCode(),
                  coordinate.getLatitude(), coordinate.getLongitude());
         }
-    } 
-} 
+    }
+}
 ```
 
 This code snippet demonstrates how to create a `MapsSearchClient` object using Azure credentials. Start by instantiating `AzureKeyCredential` using your Azure Maps subscription key, then passes the credentials to instantiate `MapsSearchClient`. `MapsSearchClient` methods such as `FuzzySearch` can use the point of interest (POI) name "Starbucks" and coordinates GeoPosition(-122.31, 47.61).
