@@ -40,6 +40,9 @@ External data users may freely download, analyze, and publish results based on a
 
 ENCODE request that researchers who use ENCODE datasets (published or unpublished) in publications and presentations cite the ENCODE Consortium in all of the following ways reported on [https://www.encodeproject.org/help/citing-encode/](https://www.encodeproject.org/help/citing-encode/).
 
+## Usage
+
+Sample notebook to access Encode data on Azure [Notebook](https://github.com/microsoft/genomicsnotebook/blob/main/sample-notebooks/genomics-encode.ipynb)
 ## Contact
 
 If you have any questions, concerns, or comments, email our help desk at encode-help@lists.stanford.edu.
