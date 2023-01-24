@@ -35,11 +35,9 @@ Follow these steps to create a lab plan from the Azure portal:
 
     :::image type="content" source="./media/quick-create-lab-plan-portal/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal home page, highlighting the Create a resource button.":::
 
-1. Search for **lab plan**.
+1. Enter **Lab Plan** in the search field, and then select **Create** > **Lab plan**.
 
-1. On the **Lab plan** tile, select the **Create** dropdown and choose **Lab plan**.
-
-    :::image type="content" source="./media/quick-create-lab-plan-portal/select-lab-plans-service.png" alt-text="Screenshot of how to search for and create a lab plan by using the Azure Marketplace.":::
+    :::image type="content" source="./media/quick-create-lab-plan-portal/select-lab-plans-service.png" alt-text="Screenshot of the Azure Marketplace and how to search for and create a lab plan resource.":::
 
 1. On the **Basics** tab of the **Create a lab plan** page, provide the following information:
 
@@ -54,20 +52,20 @@ Follow these steps to create a lab plan from the Azure portal:
 
 1. Review all the configuration settings and select **Create** to start the deployment of the Lab Plan.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/Create-lab-plan-review-create-tab.png" alt-text="Screenshot that shows the Review and Create tab of the Create a new lab plan experience.":::
-
 1. To view the new resource, select **Go to resource**.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/Create-lab-plan-deployment-complete.png" alt-text="Screenshot that the deployment of the lab plan resource is complete.":::
+    :::image type="content" source="./media/quick-create-lab-plan-portal/create-lab-plan-deployment-complete.png" alt-text="Screenshot that the deployment of the lab plan resource is complete.":::
 
 1. Confirm that you see the Lab Plan **Overview** page for *MyLabPlan*.
 
+    :::image type="content" source="./media/quick-create-lab-plan-portal/lab-plan-page.png" alt-text="Screenshot that shows the lab plan overview page in the Azure portal.":::
+
 ## Create a lab
 
-Next, you use the Azure Lab Services website to create a lab in the lab plan. In Azure Lab Services, a lab contains the configuration and settings for creating lab VMs.
+Next, you use the Azure Lab Services website to create a lab in the lab plan. In Azure Lab Services, a lab contains the configuration and settings for creating lab VMs. All lab VMs within a lab are identical.
 
 > [!NOTE]
-> To create a lab, your Azure account needs the Lab Creator Azure Active Directory (Azure AD) role. Owners of a lab plan can automatically create labs and do not need to be assigned the Lab Creator role.
+> To create a lab, your Azure account needs the Lab Creator Azure Active Directory (Azure AD) role. As the owner of the lab plan, you can automatically create labs and you don't need the Lab Creator role.
 
 Follow these steps to add a lab to the lab plan you created earlier:
 
@@ -86,9 +84,9 @@ Follow these steps to add a lab to the lab plan you created earlier:
     | **Virtual machine size** | Select *Medium*. |
     | **Location** | Leave the default value. |
 
-1. On the **Virtual machine credentials** page, specify the default **username** and **password** for all VMs in the lab, and then select **Next**.
-    
-    By default, all the lab VMs have the same password.
+1. On the **Virtual machine credentials** page, specify the default **username** and **password**, and then select **Next**.
+
+    By default, all the lab VMs use the same credentials.
 
     > [!IMPORTANT]
     > Make a note of user name and password. They won't be shown again.
@@ -99,25 +97,21 @@ Follow these steps to add a lab to the lab plan you created earlier:
 
 1. On the **Template virtual machine settings** page, select **Use virtual machine image without customization**.
 
-    In this quickstart, you use the VM image as-is, known as a *templateless VM*. Azure Lab Services enables you to also create a *template VM*, which lets you make configuration changes or install software on top of the VM image.
+    In this quickstart, you use the VM image as-is, known as a *templateless VM*. Azure Lab Services also supports creating a *template VM*, which lets you make configuration changes or install software on top of the VM image.
 
     :::image type="content" source="./media/quick-create-lab-plan-portal/templateless-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings page, with the option selected to create a templateless VM."::: 
 
-1. Select **Finish** to start the lab creation. You should see the following screen that shows the status of the template VM creation.
+1. Select **Finish** to start the lab creation. It might take several minutes for the lab creation to finish.
 
-    It might take several minutes for the lab creation to finish.
+1. When the lab creation finishes, you can see the lab details in the **Template** page.
 
-    :::image type="content" source="./media/quick-create-lab-plan-portal/create-template-vm-progress.png" alt-text="Screenshot that shows the status of the template VM creation.":::
-
-1. When the lab creation finishes, you'll see the **Template** page of the lab.
-
-     :::image type="content" source="./media/quick-create-lab-plan-portal/templateless-template.png" alt-text="Screenshot of Template page of a templateless lab with the template customization disabled message highlighted.":::
+    :::image type="content" source="./media/quick-create-lab-plan-portal/templateless-template.png" alt-text="Screenshot of Template page for a templateless lab.":::
 
 ## Publish lab
 
-Now that you created a lab, you can publish the lab. When you publish the lab, Azure Lab Services creates the VMs in the lab. All VMs in the lab have the same configuration as the lab template.
+Before Azure Lab Services can create lab VMs for your lab, you first need to publish the lab. When you publish the lab, you need to specify the maximum number of lab VMs that Azure Lab Services creates. All VMs in the lab share the same configuration as the lab template.
 
-To publish the lab:
+To publish the lab and create one lab VM:
 
 1. On the **Template** page, select **Publish** on the toolbar.
 
@@ -134,12 +128,9 @@ To publish the lab:
 
     :::image type="content" source="./media/quick-create-lab-plan-portal/publish-template-progress.png" alt-text="Screenshot of Azure Lab Services template page.  The publishing in progress message is highlighted.":::  
 
-1. On the **Virtual machine pool** page, confirm that the virtual machine is listed and marked as **Unassigned** and in a **Stopped** state.
+1. On the **Virtual machine pool** page, confirm that there is one lab VM, named **Unassigned**, that is in the **Stopped** state.
 
-   :::image type="content" source="./media/quick-create-lab-plan-portal/virtual-machines-stopped.png" alt-text="Screenshot that shows the list of virtual machines for the lab. The lab VM shows as unassigned and stopped.":::
-
-> [!NOTE]
-> When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
+    :::image type="content" source="./media/quick-create-lab-plan-portal/virtual-machines-stopped.png" alt-text="Screenshot that shows the list of virtual machines for the lab. The lab VM shows as unassigned and stopped.":::
 
 ## Start and connect to lab VM
 
@@ -159,6 +150,11 @@ After you publish the lab, you can now start the lab VM and connect to it by usi
 
     Use the credentials you specified when you created the lab previously to sign in to the VM.
 
+You can now explore and experiment within the lab virtual machine.
+
+> [!NOTE]
+> When a lab creator starts a lab VM, the lab user's quota is not affected. Quota for a user specifies the number of lab hours available to the user, outside of scheduled events. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
+
 ## Clean up resources
 
 [!INCLUDE [Clean up resources](./includes/lab-services-cleanup-resources.md)]
@@ -174,4 +170,4 @@ You've successfully created a lab virtual machine for experimenting inside the V
 Azure Lab Services supports different Azure AD roles to delegate specific tasks and responsibilities to different people in your organization. In the next tutorial, you learn how to set up a lab for classroom teaching, where you assign permissions to lab creators and invite lab users to connect to the lab VMs.
 
 > [!div class="nextstepaction"]
-> [Create a lab for classroom training](./tutorial-setup-lab-plan.md)
+> [Tutorial: Create a lab for classroom training](./tutorial-setup-lab-plan.md)
