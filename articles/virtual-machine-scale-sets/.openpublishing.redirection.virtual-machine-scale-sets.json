@@ -56,6 +56,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machine-scale-sets/tutorial-install-apps-template.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-install-apps-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-scaling-app-template.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
             "redirect_document_id": false

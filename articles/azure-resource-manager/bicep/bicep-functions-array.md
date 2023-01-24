@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/26/2022
+ms.date: 12/09/2022
 ---
 
 # Array functions for Bicep
@@ -37,8 +37,8 @@ The following example shows how to use the array function with different types.
 param intToConvert int = 1
 param stringToConvert string = 'efgh'
 param objectToConvert object = {
-  'a': 'b'
-  'c': 'd'
+  a: 'b'
+  c: 'd'
 }
 
 output intOutput array = array(intToConvert)
@@ -126,9 +126,9 @@ The following example shows how to use contains with different types:
 ```bicep
 param stringToTest string = 'OneTwoThree'
 param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param arrayToTest array = [
   'one'
@@ -402,15 +402,15 @@ The following example shows how to use intersection with arrays and objects:
 
 ```bicep
 param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 
 param secondObject object = {
-  'one': 'a'
-  'two': 'z'
-  'three': 'c'
+  one: 'a'
+  two: 'z'
+  three: 'c'
 }
 
 param firstArray array = [
@@ -615,10 +615,10 @@ param arrayToTest array = [
 ]
 param stringToTest string = 'One Two Three'
 param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
+  propA: 'one'
+  propB: 'two'
+  propC: 'three'
+  propD: {
     'propD-1': 'sub'
     'propD-2': 'sub'
   }
@@ -955,15 +955,15 @@ The following example shows how to use union with arrays and objects:
 
 ```bicep
 param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c1'
+  one: 'a'
+  two: 'b'
+  three: 'c1'
 }
 
 param secondObject object = {
-  'three': 'c2'
-  'four': 'd'
-  'five': 'e'
+  three: 'c2'
+  four: 'd'
+  five: 'e'
 }
 
 param firstArray array = [

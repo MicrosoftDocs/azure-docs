@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 01/05/2023
 ms.author: jeedes
 
 ---
@@ -27,15 +27,16 @@ In this tutorial, you'll learn how to integrate OpenText XM Fax and XM SendSecur
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* OpenText XM Fax and XM SendSecure single sign-on (SSO) enabled subscription.
-* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+* Azure AD Cloud Application Administrator or Application Administrator role.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
+* OpenText XM Fax and XM SendSecure subscription.
+* OpenText XM Fax and XM SendSecure administrator account.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* OpenText XM Fax and XM SendSecure supports **SP** initiated SSO.
+* OpenText XM Fax and XM SendSecure supports **SP-initiated** SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -98,9 +99,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | **Sign-on URL** |
     |-------------|
-    | `https://login.xmedius.com/` |
-    | `https://login.xmedius.eu/` |
-    | `https://login.xmedius.ca/` |
+    | `https://login.xmedius.com/{account}` |
+    | `https://login.xmedius.eu/{account}` |
+    | `https://login.xmedius.ca/{account}` |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -112,19 +113,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon:
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the user name in the following format: username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to OpenText XM Fax and XM SendSecure.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to OpenText XM Fax and XM SendSecure:
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **OpenText XM Fax and XM SendSecure**.
@@ -144,28 +145,33 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Provide the following required information:
 
-    a. In the **Sign In URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    a. In the **Issuer (Identity Provider)** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    
+    b. In the **Sign In URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    b. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Signing Certificate** textbox.
+    c. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Signing Certificate** textbox.
 
-    c. click **Save**.
+    d. click **Save**.
 
 > [!NOTE]
 > Keep the fail-safe URL (`https://login.[domain]/[account]/no-sso`) provided at the bottom of the SSO configuration section, it will allow you to log in using your XM Cloud account credentials if you lock yourself after SSO activation.
 
 ### Create OpenText XM Fax and XM SendSecure test user
 
-In this section, you create a user called Britta Simon at OpenText XM Fax and XM SendSecure. Work with [OpenText XM Fax and XM SendSecure support team](mailto:support@opentext.com) to add the users in the OpenText XM Fax and XM SendSecure platform. Users must be created and activated before you use single sign-on.
+Create a user called Britta Simon at OpenText XM Fax and XM SendSecure. Make sure the email is set to "B.Simon@contoso.com".
+
+> [!NOTE]
+> Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with the following options. 
 
 * Click on **Test this application** in Azure portal. This will redirect to OpenText XM Fax and XM SendSecure Sign-on URL where you can initiate the login flow. 
 
 * Go to OpenText XM Fax and XM SendSecure Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the OpenText XM Fax and XM SendSecure tile in the My Apps, this will redirect to OpenText XM Fax and XM SendSecure Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the OpenText XM Fax and XM SendSecure tile in the My Apps portal, this will redirect to OpenText XM Fax and XM SendSecure Sign-on URL. For more information about the My Apps portal, see [Introduction to the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

@@ -121,8 +121,6 @@
       href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md
-    - name: Ingest OPC UA data into Azure Digital Twins
-      href: how-to-ingest-opcua-data.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
@@ -215,8 +213,6 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
   - name: Customer data requests
     href: resources-customer-data-requests.md
-  - name: Differences from original release
-    href: resources-compare-original-release.md
   - name: APIs and SDKs
     items:
     - name: Control plane
@@ -242,7 +238,7 @@
       - name: Go SDK - GoDoc
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt
       - name: Go - Source code
-        href: https://github.com/Azure/azure-sdk-for-go/tree/main/services/digitaltwins/mgmt
+        href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/digitaltwins
     - name: Data plane
       items:    
       - name: Data plane Swagger
@@ -283,6 +279,8 @@
         href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: Azure Digital Twins Postman Collection
         href: https://github.com/microsoft/azure-digital-twins-postman-samples
+      - name: Sample for ingesting OPC UA data into Azure Digital Twins
+        href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
       - name: Azure Digital Twins end-to-end samples
         href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
       - name: DTDL Validator (sample)
@@ -309,6 +307,8 @@
         href: https://github.com/Azure/opendigitaltwins-smartcities
       - name: Energy grids
         href: https://github.com/Azure/opendigitaltwins-energygrid/
+      - name: Manufacturing
+        href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
   - name: DTDL
     items:
     - name: DTDL extension for VS Code

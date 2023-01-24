@@ -508,6 +508,11 @@
           href: troubleshoot-message-routing.md
         - name: Resolve error codes
           href: troubleshoot-error-codes.md
+        - name: Capture trace logs
+          href: how-to-collect-device-logs.md
+    - name: Migrate TLS certificate root
+      href: migrate-tls-certificate.md
+
 - name: Reference
   items:
     - name: Azure CLI
@@ -524,7 +529,7 @@
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Management)
       displayName: Microsoft.Azure.Management.DeviceUpdate, Microsoft.Azure.Management.DeviceUpdate.Models, Microsoft.Azure.Management.IotHub, Microsoft.Azure.Management.IotHub.Models
-      href: /dotnet/api/overview/azure/iot/management
+      href: /dotnet/api/microsoft.azure.management.iothub.models
     - name: Java (Device)
       displayName: com.microsoft.azure.sdk.iot.device
       href: /java/api/com.microsoft.azure.sdk.iot.device

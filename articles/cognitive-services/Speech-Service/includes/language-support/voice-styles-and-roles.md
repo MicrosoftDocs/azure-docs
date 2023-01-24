@@ -6,7 +6,6 @@ ms.date: 11/17/2022
 ms.topic: include
 ms.author: eur
 ---
-
 | Voice | Styles |Roles |
 | ----- | ----- | ----- |
 |en-GB-RyanNeural<sup>1</sup>|`cheerful`, `chat`|Not supported|
