@@ -36,13 +36,11 @@ This article requires that you already have a disk encryption set in each region
 
 When you're using customer-managed keys for encrypting images in an Azure Compute Gallery, these limitations apply:
 
-- Encryption key sets must be in the same subscription as your image.
-
 - Encryption key sets are regional resources, so each region requires a different encryption key set.
 
-- You can't copy or share images that use customer-managed keys. 
+- For Ultra Disks and Premium SSD v2 only: You can't copy or share images that use customer-managed keys. 
 
-- After you've used your own keys to encrypt a disk or image, you can't go back to using platform-managed keys for encrypting those disks or images.
+- For Ultra Disks and Premium SSD v2 only: After you've used your own keys to encrypt a disk or image, you can't go back to using platform-managed keys for encrypting those disks or images.
 
 - VM image version source doesn't currently support customer-managed key encryption.
 
