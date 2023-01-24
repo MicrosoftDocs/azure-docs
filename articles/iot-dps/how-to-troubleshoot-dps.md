@@ -72,8 +72,6 @@ Use this table to understand and resolve common errors.
 
 ### Suggested actions
 
-* If an IoT Edge device fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error`, see [DPS Client error](../iot-edge/troubleshoot-common-errors.md?preserve-view=true&view=iotedge-2018-06#dps-client-error) in the IoT Edge (1.1) documentation.
-
 * For 401 Unauthorized, 403 Forbidden, or 404 Not Found errors perform a full re-registration by calling the [DPS registration API](/rest/api/iot-dps/device/runtime-registration/register-device).
 
 * For a 429 error, follow the retry pattern of IoT Hub that has exponential backoff with a random jitter. You can follow the retry-after header provided by the SDK.
