@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 1/18/2023
+ms.date: 1/23/2023
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -203,10 +203,10 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Oracle Linux 6                                              |   | X |   |
 | Oracle Linux 6.4+                                           |   | X | X |
 | Red Hat Enterprise Linux Server 8.6                         | X<sup>3</sup> | X |   |
-| Red Hat Enterprise Linux Server 8                           | X | X |   |
+| Red Hat Enterprise Linux Server 8+                           | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
-| Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
+| Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Rocky Linux 8                                               | X | X |   |
 | SUSE Linux Enterprise Server 15 SP4                         | X<sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15 SP3                         | X |   |   |

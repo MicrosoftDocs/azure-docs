@@ -442,6 +442,9 @@ items:
     - name: Azure Synapse Analytics
       href: connector-azure-sql-data-warehouse.md
       displayName: polybase
+    - name: Azure Synapse Analytics (Artifacts)
+      href: connector-azure-synapse-analytics-artifacts.md
+      displayName: polybase
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
       displayName: timeout
@@ -725,6 +728,8 @@ items:
       href: transform-data-using-script.md
     - name: Compute linked services
       href: compute-linked-services.md
+    - name: Synapse Notebook activity
+      href: transform-data-synapse-notebook.md
     - name: Synapse Spark job definition activity
       href: transform-data-synapse-spark-job-definition.md     
   - name: Control flow

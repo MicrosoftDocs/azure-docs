@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect your Azure DevOps repositories to Microsoft Defender for Cloud'
 description: Learn how to connect your Azure DevOps repositories to Defender for Cloud.
-ms.date: 11/03/2022
+ms.date: 01/24/2023
 ms.topic: quickstart
 ms.custom: ignite-2022
 ---
@@ -88,7 +88,7 @@ API calls performed by Defender for Cloud count against the [Azure DevOps Global
 
 The Defender for DevOps service automatically discovers the organizations, projects, and repositories you select and analyzes them for any security issues. 
 
-When auto-discovery is selected during the onbaording process, it can take up to 4 hours for repositories to appear. 
+When auto-discovery is selected during the onboarding process, it can take up to 4 hours for repositories to appear. 
 
 The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository.
 
