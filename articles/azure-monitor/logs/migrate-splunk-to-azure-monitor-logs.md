@@ -143,7 +143,7 @@ To export your historical data from Splunk:
 ## Next steps
 
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
-- [Enable Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).
+- [Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).
 - Take the [Analyze logs in Azure Monitor with KQL training module](/training/modules/analyze-logs-with-kql/).
 
 
