@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 12/07/2022
+ms.date: 01/24/2023
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -309,6 +309,7 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Azure Files (shared file system).
 - Network File System (NFS).
 - Dynamic volumes.
+- iSCSI.
 - Windows Server containers, which create dynamic volumes for each container.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
