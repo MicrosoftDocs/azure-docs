@@ -23,7 +23,7 @@ recommendations: false
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-The Form Recognizer invoice model combines powerful Optical Character Recognition (OCR) capabilities with invoice understanding models to analyze and extract key fields and line items from sales invoices. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
+The Form Recognizer invoice model combines powerful Optical Character Recognition (OCR) capabilities with invoice understanding models to analyze and extract key fields and line items from sales invoices, Utility bills, and Purchase Orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
 
 ## Automated invoice processing
 
@@ -157,15 +157,15 @@ See how data, including customer information, vendor details, and line items, is
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
-|Invoice| <ul><li>Spanish—es</li></ul>| Spanish (United States)—es|
-|Invoice | <ul><li>German—de</li></ul>| German (Germany)-de|
-|Invoice | <ul><li>French—fr</li></ul>| French (France)—fr|
-|Invoice | <ul><li>Italian—it</li></ul>| Italian (Italy)—it|
-|Invoice | <ul><li>Portuguese—pt</li></ul>| Portuguese (Portugal)—pt|
-|Invoice | <ul><li>Dutch—nl</li></ul>| Dutch (Netherlands)—nl|
+| Language | Locale Code(s) |
+|:----------------------|:---------|
+| <ul><li>English</li></ul>| en-US, en-AU, en-CA, en-GB, en-IN|
+| <ul><li>Spanish</li></ul>|es|
+| <ul><li>German</li></ul>| de-DE|
+| <ul><li>French</li></ul>| fr-FR|
+| <ul><li>Italian</li></ul>| it—IT|
+| <ul><li>Portuguese</li></ul>| pt—PT, pt-BR|
+| <ul><li>Dutch</li></ul>| nl—NL|
 
 ## Field extraction
 
@@ -201,6 +201,11 @@ See how data, including customer information, vendor details, and line items, is
 | ServiceEndDate | Date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
 | PreviousUnpaidBalance | Number | Explicit previously unpaid balance | Integer |
 
+| CurrencyCode | String | The Currency Code associated with an extraced amount |  |
+| PaymentOptions | Array | An array that holds Payment Option details such as IBAN and SWIFT |  |
+| TotalDiscount | Number | The total disocunt applied to an invoice | Integer |
+| TaxItems (en-IN only) | Array | AN array that holds additonal tax information such as CGST, IGST, and SGST. This is currently only availabe for the en-IN locale  |  |
+
 ### Line items
 
 Following are the line items extracted from an invoice in the JSON output response (the output below uses this [sample invoice](media/sample-invoice.jpg))
@@ -215,7 +220,8 @@ Following are the line items extracted from an invoice in the JSON output respon
 | ProductCode | String| Product code, product number, or SKU associated with the specific line item | A123 | |
 | Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
 | Date | Date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
-| Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
+| Tax | Number | Tax associated with each line item. Possible values include tax amount and tax Y/N | 10.00 | |
+| TaxRate | Number | Tax Rate associated with each line item | 10% | |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
