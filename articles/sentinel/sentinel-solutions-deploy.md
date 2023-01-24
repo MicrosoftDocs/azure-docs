@@ -29,20 +29,20 @@ If you're a partner who wants to create your own solution, see the [Microsoft Se
 
 ## Prerequisites
 
-In order to install, update or delete solutions in content hub, you need the **Template Spec Contributor** role at the resource group level. See [Azure RBAC built in roles](../role-based-access-control/built-in-roles.md#template-spec-contributor) for details on this role. 
+In order to install, update and delete standalone content or solutions in content hub, you need the **Template Spec Contributor** role at the resource group level. See [Azure RBAC built in roles](../role-based-access-control/built-in-roles.md#template-spec-contributor) for details on this role. 
 
 This is in addition to Sentinel specific roles. For more information about other roles and permissions supported for Microsoft Sentinel, see [Permissions in Microsoft Sentinel](roles.md).
   
 
-## Discover solutions
+## Discover content
 
-The content hub offers the best way to find new solutions or manage the ones you already have installed.
+The content hub offers the best way to find new content or manage the solutions you already have installed.
 
 1. From the Microsoft Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
 
-1. The **Content hub** page displays a searchable grid or list of solutions.
+1. The **Content hub** page displays a searchable grid or list of solutions and standalone content.
 
-    Filter the list displayed, either by selecting specific values from the filters, or entering any part of a product name or description in the **Search** field.
+    Filter the list displayed, either by selecting specific values from the filters, or entering any part of a content name or description in the **Search** field.
 
     For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
 
@@ -50,9 +50,9 @@ The content hub offers the best way to find new solutions or manage the ones you
     > If a solution that you've deployed has updates since you deployed it, the list view will have a blue up arrow in the status column, and will be included in the **Updates** blue up arrow count at the top of the page.
     >
 
-Each solution shows categories that apply to it, and the types of content included.
+Each content item shows categories that apply to it, and solutions show the types of content included.
 
-For example, in the following image, the **Cisco Umbrella** solution shows a category of **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
+For example, in the following image, the **Cisco Umbrella** solution lists one of its categories as **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
 
 :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub.":::
 
