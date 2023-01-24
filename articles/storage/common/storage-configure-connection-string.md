@@ -7,7 +7,11 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
+<<<<<<< HEAD
 ms.date: 01/24/2023
+=======
+ms.date: 01/23/2023
+>>>>>>> 75af83475c405d7236ddddcec82d6b10c94edd0e
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: common
@@ -55,7 +59,7 @@ For example, your connection string might look similar to:
 Although Azure Storage supports both HTTP and HTTPS in a connection string, *HTTPS is highly recommended*.
 
 > [!TIP]
-> You can find your storage account's connection strings in the [Azure portal](https://portal.azure.com). Navigate to **SETTINGS** > **Access keys** in your storage account's menu blade to see connection strings for both primary and secondary access keys.
+> You can find your storage account's connection strings in the [Azure portal](https://portal.azure.com). Navigate to **Security + networking** > **Access keys** in your storage account's settings to see connection strings for both primary and secondary access keys.
 >
 
 ## Create a connection string using a shared access signature

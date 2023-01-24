@@ -3,7 +3,7 @@ title: Defender for Cloud Planning and Operations Guide
 description: This document helps you to plan before adopting Defender for Cloud and considerations regarding daily operations.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 01/08/2023
+ms.date: 01/24/2023
 ---
 
 # Planning and operations guide
