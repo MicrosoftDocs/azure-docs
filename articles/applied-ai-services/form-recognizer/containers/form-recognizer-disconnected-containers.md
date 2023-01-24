@@ -1,5 +1,5 @@
 ---
-title: Use For containers in disconnected environments
+title: Use Form Recognizer containers in disconnected environments
 titleSuffix: Azure Applied AI Services
 description: Learn how to run Azure Cognitive Services Docker containers disconnected from the internet.
 ms.service: applied-ai-services
@@ -7,7 +7,7 @@ ms.subservice: forms-recognizer
 author: laujan
 manager: nitinme
 ms.topic: reference
-ms.date: 01/18/2023
+ms.date: 01/23/2023
 ms.author: lajanuar
 ---
 

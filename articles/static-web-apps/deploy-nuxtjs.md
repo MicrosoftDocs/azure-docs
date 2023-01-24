@@ -143,7 +143,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nuxt-3-starter/actions
 
 ### Synchronize changes
 
-When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. Return to the terminal and run the following command to pull the commit containing the new file.
+When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. Return to the terminal and run the following command `git pull origin main` to pull the commit containing the new file.
 
 ## Configure dynamic routes
 
