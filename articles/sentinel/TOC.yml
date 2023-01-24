@@ -576,7 +576,7 @@
         - name: ASIM user management schema
           href: user-management-normalization-schema.md
         - name: ASIM web session schema
-          href: web-normalization-schema.md
+          href: normalization-schema-web.md
         - name: Legacy network normalization schema
           href: normalization-schema-v1.md
   - name: Data collection references

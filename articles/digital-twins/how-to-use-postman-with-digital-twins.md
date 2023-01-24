@@ -97,7 +97,7 @@ The following sections describe both of these processes. The rest of the article
 
 ## Import collection of Azure Digital Twins APIs
 
-A quick way to get started with Azure Digital Twins in Postman is to import a pre-built collection of requests for the control plane and data plane Azure Digital Twins APIs.
+A quick way to get started with Azure Digital Twins in Postman is to import a pre-built collection of requests for the APIs. Follow the steps below to import a collection of popular Azure Digital Twins data plane API requests containing sample request data.
 
 1. From the main Postman window, select the **Import** button.
     :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-import-collection.png" alt-text="Screenshot of a newly opened Postman window. The 'Import' button is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-import-collection.png":::
@@ -109,6 +109,9 @@ A quick way to get started with Azure Digital Twins in Postman is to import a pr
 The newly imported collection can now be seen from your main Postman view, in the Collections tab.
 
 :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-post-collection-imported.png" alt-text="Screenshot of the main Postman window. The newly imported collection is highlighted in the 'Collections' tab." lightbox="media/how-to-use-postman-with-digital-twins/postman-post-collection-imported.png":::
+
+>[!TIP]
+> To import the complete set of API calls for a certain version of the Azure Digital Twins APIs (including control plane or data plane), you can also import Swagger files as collections. For links to the Swagger files for the control plane and data plane APIs, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md).
 
 Next, continue on to the next section to add a bearer token to the collection for authorization and connect it to your Azure Digital twins instance.
 
