@@ -117,12 +117,12 @@ The following list mentions fields that have specific guidelines for Web Session
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| **EventType** | Mandatory | Enumerated | Describes the operation reported by the record and should be set to `HTTPsession`. |
+| <a name='eventtype'></a>**EventType** | Mandatory | Enumerated | Describes the operation reported by the record. Allowed values are:<br> - `HTTPsession`: Denotes a network session used for HTTP or HTTPS, typically reported by an intermediary device, such as a proxy or a Web security gateway.<br> - `WebServerSession`: Denotes an HTTP request reported by a web server. Such an event typically has less network related information. The URL reported should not include a schema and a server name, but only the path and parameters part of the URL. <br> - `Api`: Denotes an HTTP request reported associated with an API call, typically reported by an application server. Such an event typically has less network related information. When reported by the application server, the URL reported should not include a schema and a server name, but only the path and parameters part of the URL. |
 | **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes, refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
 | <a name="eventresultdetails"></a>**EventResultDetails** | Recommended | String | The HTTP status code.<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `WebSession`. |
-| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.5`         |
-| **Dvc** fields|        |      | For Web Session events,  device fields refer to the system reporting the Web Session event.  |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.6`         |
+| **Dvc** fields|        |      | For Web Session events,  device fields refer to the system reporting the Web Session event. This is typically an intermediary device for `HTTPSession` events, and the destination web or application server for `WebServerSession` and `ApiRequest` events. |
 
 
 #### All common fields
@@ -157,7 +157,7 @@ The following are additional fields that are specific to web sessions:
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| <a name="url"></a>**Url** | Mandatory | String | The full HTTP request URL, including parameters.<br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
+| <a name="url"></a>**Url** | Mandatory | String | The HTTP request URL, including parameters. For `HTTPSession` events, the URL should include the schema and server parts. For `WebServerSession` and for `ApiRequest` the URL would typlicaly not include the schema and server, which can be found in the `NetworkApplicationProtocol` and `DstFQDN` fields respectively. <br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
 | **UrlCategory** | Optional | String | The defined grouping of a URL or the domain part of the URL. The category is commonly provided by web security gateways and is based on the content of the site the URL points to.<br><br>Example: search engines, adult, news, advertising, and parked domains. |
 | **UrlOriginal** | Optional | String | The original value of the URL, when the URL was modified by the reporting device and both values are provided. |
 | **HttpVersion** | Optional | String | The HTTP Request Version.<br><br>Example: `2.0` |
@@ -179,7 +179,7 @@ The following are additional fields that are specific to web sessions:
 | **FileSHA512** | Optional | SHA512 | For HTTP uploads, the SHA512 hash of the uploaded file. |
 | <a name="hash"></a>**Hash** | Alias || Alias to the available Hash field. | 
 | **FileHashType** | Optional | Enumerated | The type of the hash in the [Hash](#hash) field. Possible values include: `MD5`, `SHA1`, `SHA256`, and `SHA512`. |
-| **FileSize** | Optional | Integer | For HTTP uploads, the size in bytes of the uploaded file. |
+| **FileSize** | Optional | Long | For HTTP uploads, the size in bytes of the uploaded file. |
 | **FileContentType** | Optional | String | For HTTP uploads, the content type of the uploaded file. |
 
 
@@ -193,6 +193,9 @@ The Web Session schema relies on the Network Session schema. Therefore, [Network
 
 The following are the changes in version 0.2.5 of the schema:
 - Added the field `HttpHost`.
+
+The following are the changes in version 0.2.6 of the schema:
+- The type of FileSize was changed from Integer to Long.
 
 ## Next steps
 
