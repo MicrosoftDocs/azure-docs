@@ -15,7 +15,7 @@ ms.author: jodowns
 In Azure Front Door, a *domain* represents a custom domain name that Front Door uses to receive your application's traffic. Azure Front Door supports adding three types of domain names:
 
 - **Subdomains** are the most common type of custom domain name. An example subdomain is `myapplication.contoso.com`.
-- **Apex domains**, also called *root domains* or *naked domains*, don't contain a subdomain. An example root domain is `contoso.com`.
+- **Apex domains** don't contain a subdomain. An example apex domain is `contoso.com`.
 - **Wildcard domains** allow traffic to be received for any subdomain. An example wildcard domain is `*.contoso.com`. For more information about using wildcard domains with Azure Front Door, see [Wildcard domains](./front-door-wildcard-domain.md).
 
 To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
@@ -42,13 +42,13 @@ All domains added to Azure Front Door must be validated. Validation helps to pro
 
 ### TXT record validation
 
-To validate a domain, you need to create a DNS TXT record. The name of the TXT record must match the subdomain. Azure Front Door provides a unique value for your TXT record when you start to add the domain to Azure Front Door.
+To validate a domain, you need to create a DNS TXT record. The name of the TXT record be of the form `_dnsauth.{subdomain}`. Azure Front Door provides a unique value for your TXT record when you start to add the domain to Azure Front Door.
 
 For example, suppose you want to use the custom subdomain `myapplication.contoso.com` with Azure Front Door. First, you should add the domain to your Azure Front Door profile, and note the TXT record value that you need to use. Then, you should configure a DNS record with the following properties:
 
 | Property | Value |
 |-|-|
-| Record name | `myapplication` |
+| Record name | `_dnsauth.myapplication` |
 | Record value | *use the value provided by Azure Front Door* |
 | Time to live (TTL) | 1 hour |
 
@@ -76,6 +76,12 @@ The following table lists the validation states that a domain might show.
 
 ## Apex domains
 
+Apex domains, also called *root domains* or *naked domains*, are at the root of a DNS zone and don't contain subdomains. For example, `contoso.com` is an apex domain.
+
+To add a root or apex domain to your Azure Front Door profile, see [Onboard a root or apex domain on your Azure Front Door profile](front-door-how-to-onboard-apex-domain.md).
+
+### CNAME flattening
+
 The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`, you can create a CNAME record for `myappliation.contoso.com`, but you can't create a CNAME record for `contoso.com` itself.
 
 Azure Front Door doesn't expose the frontend public IP address associated with your Azure Front Door endpoint. This means that you can't map an apex domain to an IP address if your intent is to onboard it to Azure Front Door. 
@@ -90,9 +96,17 @@ Mapping your apex or root domain to your Azure Front Door profile uses *CNAME fl
 > [!NOTE]
 > Other DNS providers support CNAME flattening or DNS chasing. However, Azure Front Door recommends using Azure DNS for hosting your apex domains.
 
-TODO validation process
+### TXT record validation
 
-To add a root or apex domain to your Azure Front Door profile, see [Onboard a root or apex domain on your Azure Front Door profile](front-door-how-to-onboard-apex-domain.md).
+To validate a domain, you need to create a DNS TXT record. The name of the TXT record be of the form `_dnsauth.{subdomain}`. Azure Front Door provides a unique value for your TXT record when you start to add the domain to Azure Front Door.
+
+For example, suppose you want to use the apex domain `contoso.com` with Azure Front Door. First, you should add the domain to your Azure Front Door profile, and note the TXT record value that you need to use. Then, you should configure a DNS record with the following properties:
+
+| Property | Value |
+|-|-|
+| Record name | `_dnsauth` |
+| Record value | *use the value provided by Azure Front Door* |
+| Time to live (TTL) | 1 hour |
 
 ## HTTPS for custom domains
 

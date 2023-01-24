@@ -31,7 +31,7 @@ You can use the Azure portal to onboard an apex domain on your Front Door and en
 
 ::: zone pivot="front-door-standard-premium"
 
-Apex domains are at the root of a DNS zone and don't contain subdomains. For example, `contoso.com` is an apex domain. Azure Front Door supports adding apex domains when you use Azure DNS. For more information on apex domains, see [Domains in Azure Front Door](domain.md).
+Apex domains are at the root of a DNS zone and don't contain subdomains. For example, `contoso.com` is an apex domain. Azure Front Door supports adding apex domains when you use Azure DNS. For more information about apex domains, see [Domains in Azure Front Door](domain.md).
 
 You can use the Azure portal to onboard an apex domain on your Azure Front Door profile, and you can enable HTTPS on it by associating it with a TLS certificate.
 
