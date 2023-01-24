@@ -69,7 +69,7 @@ The following list mentions fields that have specific guidelines for File activi
 
 | **Field** | **Class** | **Type**  | **Description** |
 | --- | --- | --- | --- |
-| **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>Supported values include: <br><br>- `FileAccessed`<br>- `FileCreated`<br>- `FileModified`<br>- `FileDeleted`<br>- `FileRenamed`<br>- `FileCopied`<br>- `FileMoved`<br>- `FolderCreated`<br>- `FolderDeleted`<br>- `FolderMoved`<br>- `FolderModified`<br>- `FileCreatedOrModified` |
+| <a name='eventtype'></a>**EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>Supported values include: <br><br>- `FileAccessed`<br>- `FileCreated`<br>- `FileModified`<br>- `FileDeleted`<br>- `FileRenamed`<br>- `FileCopied`<br>- `FileMoved`<br>- `FolderCreated`<br>- `FolderDeleted`<br>- `FolderMoved`<br>- `FolderModified`<br>- `FileCreatedOrModified` |
 | **EventSubType**           | Optional   | Enumerated |    Describes details about the operation reported in [EventType](#eventtype). Supported values per event type include:<br>- `FileCreated` -  `Upload`, `Checkin`<br>- `FileModified` - `Checkin`<br>- `FileCreatedOrModified` - `Checkin`    <br>- `FileAccessed` - `Download`, `Preview`, `Checkout`, `Extended`<br>- `FileDeleted` - `Recycled`, `Versions`, `Site` |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is **FileEvent**. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.1`         |
