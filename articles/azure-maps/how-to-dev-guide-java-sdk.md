@@ -155,7 +155,7 @@ import com.azure.maps.search.MapsSearchClient;
 import com.azure.maps.search.MapsSearchClientBuilder;
 
 public class Demo {
-    public static void main(String\[\] args) {
+    public static void main( String[] args) {
         MapsSearchClientBuilder builder = new MapsSearchClientBuilder();
         DefaultAzureCredential tokenCredential = new DefaultAzureCredentialBuilder().build();
         builder.credential(tokenCredential);
@@ -187,7 +187,7 @@ import com.azure.maps.search.MapsSearchClient;
 import com.azure.maps.search.MapsSearchClientBuilder;
 
 public class Demo {
-    public static void main(String\[\] args) {
+    public static void main( String[] args) {
 
         // Use Azure Maps subscription key authentication
         MapsSearchClientBuilder builder = new MapsSearchClientBuilder();
@@ -216,7 +216,7 @@ import com.azure.maps.search.models.SearchAddressResult;
 import com.azure.maps.search.models.SearchAddressResultItem;
 
 public class Demo {
-    public static void main(String\[\] args) throws IOException {
+    public static void main( String[] args) throws IOException {
     MapsSearchClientBuilder builder = new MapsSearchClientBuilder();
     
     // Instantiate with key credential. Get SUBSCRIPTION_KEY from environment variable: 
@@ -309,7 +309,7 @@ import com.azure.maps.search.models.SearchAddressResult;
 import com.azure.maps.search.models.SearchAddressResultItem;
 
 public class Demo {
-    public static void main(String\[\] args) throws IOException {
+    public static void main( String[] args) throws IOException {
     MapsSearchClientBuilder builder = new MapsSearchClientBuilder();
     
     // Instantiate with key credential: 
@@ -362,7 +362,7 @@ import com.azure.maps.search.models.ReverseSearchAddressOptions;
 import com.azure.maps.search.models.ReverseSearchAddressResultItem;
 
 public class Demo{
-    public static void main(String\[\] args) throws IOException {
+    public static void main( String[] args) throws IOException {
         MapsSearchClientBuilder builder = new MapsSearchClientBuilder();
         
         // Instantiate with key credential:
