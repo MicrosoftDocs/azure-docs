@@ -55,7 +55,7 @@ If you choose to set up the template machine manually, continue reading.  The re
 
 Follow the instructions to [enable nested virtualization](how-to-enable-nested-virtualization-template-vm.md) to prepare your template VM for nested virtualization.
 
-### Set up a nested virtual machine with Kali Linux Image
+### Set up a nested virtual machine with Kali Linux image
 
 Kali is a Linux distribution that includes tools for penetration testing and security auditing. To install the Kali nested VM on the template VM:
 
@@ -93,7 +93,7 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
     1. On the **Legacy Network Adapter** page, select **LabServicesSwitch** for the **Virtual Switch** setting, and select **OK**. LabServicesSwitch was created when preparing the template machine for Hyper-V in the **Prepare Template for Nested Virtualization** section.
     1. The Kali-Linux image is now ready for use. From **Hyper-V Manager**, choose **Action** -> **Start**, then choose **Action** -> **Connect** to connect to the virtual machine. The default username is `kali` and the password is `kali`.
 
-### Set up a nested VM with Metasploitable Image  
+### Set up a nested VM with Metasploitable image
 
 The Rapid7 Metasploitable image is an image purposely configured with security vulnerabilities. You use this image to test and find issues. The following instructions show you how to use a pre-created Metasploitable image. However, if a newer version of the Metasploitable image is needed, see [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3).
 
