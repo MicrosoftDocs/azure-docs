@@ -52,6 +52,14 @@ vision_source = visionsdk.VisionSource(url=image_url)
 > [!TIP]
 > You can also analyze a local image. See the [ComputerVisionClientOperationsMixin](tbd) methods, such as **analyze_image_in_stream**. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
 
+#### [C++](#tab/cpp)
+
+Save a reference to the URL of the image you want to analyze.
+
+```cpp
+auto imageSource = VisionSource::FromUrl("https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg");
+```
+
 ---
 
 
@@ -79,7 +87,7 @@ A populated URL might look like this:
 
 #### [C#](#tab/csharp)
 
-Define your new method for image analysis. Define an **ImageAnalysisOptions** object, which specifies visual features you'd like to extract in your analysis. See the **[VisualFeatureTypes](tbd)** enum for a complete list.
+Define an **ImageAnalysisOptions** object, which specifies visual features you'd like to extract in your analysis. See the **[VisualFeatureTypes](tbd)** enum for a complete list.
 
 ```csharp
 var analysisOptions = new ImageAnalysisOptions()
@@ -117,6 +125,27 @@ image_analysis_options.features = (
     visionsdk.ImageAnalysisFeature.TAGS
 )
 ```
+#### [C++](#tab/cpp)
+
+Define an **ImageAnalysisOptions** object, which specifies visual features you'd like to extract in your analysis. See the **[VisualFeatureTypes](tbd)** enum for a complete list.
+
+```cpp
+// Creates the options object that will control the ImageAnalyzer
+std::shared_ptr<ImageAnalysisOptions> analysisOptions = ImageAnalysisOptions::Create();
+
+// Mandatory. You must set one or more features to analyze. Here we use the full set of features.
+// Note that 'Captions' is only supported in Azure GPU regions (East US, France Central, Korea Central,
+// North Europe, Southeast Asia, West Europe, West US)
+analysisOptions->SetFeatures(
+{
+    ImageAnalysisFeature::CropSuggestions,
+    ImageAnalysisFeature::Captions,
+    ImageAnalysisFeature::Objects,
+    ImageAnalysisFeature::People,
+    ImageAnalysisFeature::Text,
+    ImageAnalysisFeature::Tags
+});
+```
 
 ---
 
@@ -143,7 +172,7 @@ A populated URL might look like this:
 
 #### [C#](#tab/csharp)
 
-Use the *language* property of **ImageAnalysisOptions** to specify a language.
+Use the *language* property of your **ImageAnalysisOptions** object to specify a language.
 
 ```csharp
 var analysisOptions = new ImageAnalysisOptions()
@@ -169,12 +198,22 @@ var analysisOptions = new ImageAnalysisOptions()
 
 #### [Python](#tab/python)
 
-Use the *language* property of your [ImageAnalysisOptions](tbd) object to specify a language.
+Use the *language* property of your **ImageAnalysisOptions** object to specify a language.
 
 ```python
 # Optional. Default is "en" for English. See https://aka.ms/cv-languages for a list of supported
 # language codes and which visual features are supported for each language.
 image_analysis_options.language = 'en'
+```
+
+#### [C++](#tab/cpp)
+
+Use the *language* property of your **ImageAnalysisOptions** object to specify a language.
+
+```cpp
+// Optional. Default is "en" for English. See https://aka.ms/cv-languages for a list of supported
+// language codes and which visual features are supported for each language.
+analysisOptions->SetLanguage("en");
 ```
 
 ---
@@ -407,6 +446,114 @@ image_analyzer = visionsdk.ImageAnalyzer(service_options=service_options,
         print("   Error code: {}".format(error_details.error_code))
         print("   Error message: {}".format(error_details.message))
         print(" Did you set the computer vision endpoint and key?")
+```
+
+#### [C++](#tab/cpp)
+
+The following code calls the Image Analysis API and prints the results to the console.
+
+```cpp
+std::shared_ptr<ImageAnalyzer> analyzer = ImageAnalyzer::Create(serviceOptions, imageSource, analysisOptions);
+
+// This call creates the network connection and blocks until Image Analysis results
+// return (or an error occurred). Note that there is also an asynchronous (non-blocking)
+// version of this method: analyzer->AnalyzeAsync().
+std::shared_ptr<ImageAnalysisResult> result = analyzer->Analyze();
+
+if (result->GetReason() == ImageAnalysisResultReason::Analyzed)
+{
+    std::cout << " Image height = " << result->GetImageHeight().Value() << std::endl;
+    std::cout << " Image width = " << result->GetImageWidth().Value() << std::endl;
+    std::cout << " Model version = " << result->GetModelVersion().Value() << std::endl;
+
+    const Nullable<ContentCaptions>& captions = result->GetCaptions();
+    if (captions.HasValue())
+    {
+        std::cout << " Captions:" << std::endl;
+        for (const ContentCaption& caption : captions.Value())
+        {
+            std::cout << "   \"" << caption.Content;
+            std::cout << "\", Confidence " << caption.Confidence << std::endl;
+        }
+    }
+
+    const Nullable<DetectedObjects>& objects = result->GetObjects();
+    if (objects.HasValue())
+    {
+        std::cout << " Objects:" << std::endl;
+        for (const DetectedObject& object : objects.Value())
+        {
+            std::cout << "   \"" << object.Name << "\", ";
+            std::cout << "Bounding box " << object.BoundingBox.ToString();
+            std::cout << ", Confidence " << object.Confidence << std::endl;
+        }
+    }
+
+    const Nullable<ContentTags>& tags = result->GetTags();
+    if (tags.HasValue())
+    {
+        std::cout << " Tags:" << std::endl;
+        for (const ContentTag& tag : tags.Value())
+        {
+            std::cout << "   \"" << tag.Name << "\"";
+            std::cout << ", Confidence " << tag.Confidence << std::endl;
+        }
+    }
+
+    const Nullable<DetectedPeople>& people = result->GetPeople();
+    if (people.HasValue())
+    {
+        std::cout << " People:" << std::endl;
+        for (const DetectedPerson& person : people.Value())
+        {
+            std::cout << "   Bounding box " << person.BoundingBox.ToString();
+            std::cout << ", Confidence " << person.Confidence << std::endl;
+        }
+    }
+
+    const Nullable<CropSuggestions>& cropSuggestions = result->GetCropSuggestions();
+    if (cropSuggestions.HasValue())
+    {
+        std::cout << " Crop Suggestions:" << std::endl;
+        for (const CropSuggestion& cropSuggestion : cropSuggestions.Value())
+        {
+            std::cout << "   Aspect ratio " << cropSuggestion.AspectRatio; 
+            std::cout << ": Crop suggestion " << cropSuggestion.BoundingBox.ToString() << std::endl;
+        }
+    }
+
+    const Nullable<DetectedText>& detectedText = result->GetText();
+    if (detectedText.HasValue())
+    {
+        std::cout << " Text:\n";
+        for (const DetectedTextLine& line : detectedText.Value().Lines)
+        {
+            std::cout << "   Line: \"" << line.Content << "\"";
+            std::cout << ", Bounding polygon " << PolygonToString(line.BoundingPolygon) << "}\n";
+
+            for (const DetectedTextWord& word: line.Words)
+            {
+                std::cout << "     Word: \"" << word.Content << "\"";
+                std::cout << ", Bounding polygon " << PolygonToString(word.BoundingPolygon);
+                std::cout << ", Confidence " << word.Confidence << std::endl;
+            }
+        }
+    }
+
+    std::cout << " Detailed result:\n";;
+    std::cout << "   Image ID = " << result->GetImageId() << std::endl;
+    std::cout << "   Result ID = " << result->GetResultId() << std::endl;
+    std::cout << "   JSON = " << result->GetJsonResult() << std::endl;
+}
+else if (result->GetReason() == ImageAnalysisResultReason::Error)
+{
+    std::shared_ptr<ImageAnalysisErrorDetails> errorDetails = ImageAnalysisErrorDetails::FromResult(result);
+    std::cout << " Analysis failed." << std::endl;
+    std::cout << "   Error reason = " << (int)errorDetails->GetReason() << std::endl;
+    std::cout << "   Error code = " << errorDetails->GetErrorCode() << std::endl;
+    std::cout << "   Error message = " << errorDetails->GetMessage() << std::endl;
+    std::cout << " Did you set the computer vision endpoint and key?" << std::endl;
+}
 ```
 
 ---
