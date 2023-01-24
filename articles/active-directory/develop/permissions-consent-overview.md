@@ -51,7 +51,7 @@ There are other ways in which applications can be granted authorization for app-
 
 ### Comparison of delegated and application permissions
 
-| | Delegated permissions | Application permissions |
+| Permission types | Delegated permissions | Application permissions |
 |--|--|--|
 | Types of apps | Web / Mobile / single-page app (SPA) | Web / Daemon |
 | Access context | Get access on behalf of a user | Get access without a user |
