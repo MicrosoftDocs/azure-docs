@@ -36,7 +36,7 @@ For more information about adding lab plans to Canvas, see [Configure Canvas to 
 Once Azure Lab Services is added to your course, you'll see **Azure Lab Services** in the course navigation menu. If you're authenticated in Canvas as an educator, you'll see this sign in screen before you can use the service. You'll need to sign in here with an Azure AD account or Microsoft account that has been added as a Lab Creator.
     :::image type="content" source="./media/how-to-manage-labs-within-canvas/welcome-to-lab-services.png" alt-text="Screenshot that shows the welcome page in Canvas.":::
 
-For instructions on how to create a lab, see [Create a lab](quick-create-lab-portal.md). Make sure to verify the resource group to use before creating the lab.
+For instructions on how to create a lab, see [Create a lab](./tutorial-setup-lab.md). Make sure to verify the resource group to use before creating the lab.
 
 > [!IMPORTANT]
 > Labs must be created using the Azure Lab Services app in Canvas. Labs created from the Azure Lab Services portal aren't visible from Canvas.

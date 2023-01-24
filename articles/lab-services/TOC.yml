@@ -10,32 +10,8 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create a lab plan (admin)
-      expanded: true
-      items:
-      - name: Azure portal
-        href: quick-create-lab-plan-portal.md
-      - name: ARM template
-        href: quick-create-lab-plan-template.md
-      - name: PowerShell
-        href: quick-create-lab-plan-powershell.md
-      - name: Bicep
-        href: quick-create-lab-plan-bicep.md
-      - name: Python
-        href: quick-create-lab-plan-python.md
-    - name: Create a lab (educator)
-      expanded: true
-      items:
-      - name: Azure Lab Services website
-        href: quick-create-lab-portal.md
-      - name: ARM template
-        href: quick-create-lab-template.md
-      - name: PowerShell
-        href: quick-create-lab-powershell.md
-      - name: Bicep
-        href: quick-create-lab-bicep.md
-      - name: Python
-        href: quick-create-lab-python.md
+    - name: Create a lab in the Azure portal
+      href: quick-create-lab-portal.md
 - name: Tutorials
   items:
   - name: Set up a lab plan (admin)
@@ -134,9 +110,19 @@
     - name: Request core limit increase
       href: how-to-request-capacity-increase.md?tabs=Labplans
     - name: Determine Usage and Quota
-      href: how-to-determine-your-quota-usage.md    
+      href: how-to-determine-your-quota-usage.md
     - name: Create and manage lab plans
-      href: how-to-manage-lab-plans.md
+      items:
+      - name: Create & manage lab plans (Azure portal)
+        href: how-to-manage-lab-plans.md
+      - name: Create a lab plan (ARM template)
+        href: quick-create-lab-plan-template.md
+      - name: Create a lab plan (PowerShell)
+        href: quick-create-lab-plan-powershell.md
+      - name: Create a lab plan (Bicep)
+        href: quick-create-lab-plan-bicep.md
+      - name: Create a lab plan (Python)
+        href: quick-create-lab-plan-python.md
     - name: Add a lab creator
       href: add-lab-creator.md
     - name: Configure auto-shutdown settings
@@ -178,7 +164,17 @@
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs
-      href: how-to-manage-labs.md
+      items:
+      - name: Create and manage labs (Azure portal)
+        href: how-to-manage-labs.md
+      - name: Create a lab (ARM template)
+        href: quick-create-lab-template.md
+      - name: Create a lab (PowerShell)
+        href: quick-create-lab-powershell.md
+      - name: Create a lab (Bicep)
+        href: quick-create-lab-bicep.md
+      - name: Create a lab (Python)
+        href: quick-create-lab-python.md
     - name: Use an Azure compute gallery
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop for Linux
