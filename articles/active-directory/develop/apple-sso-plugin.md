@@ -271,11 +271,11 @@ Disable app prompt and select an account from the list of matching SSO accounts 
 
 #### Unexpected SAML application prompts
 
-If an application prompts your users to sign in even though the Microsoft Enterprise SSO plug-in works for other applications on the device, the app might be bypassing SSO at the protocol layer. If the application is using SAML protocol, the Microsoft Enteprise SSO plug-in will not be able to provide SSO to such apps. Application vendor should be notified about this behavior and make a change in their app to not bypass SSO.
+If an application prompts your users to sign in even though the Microsoft Enterprise SSO plug-in works for other applications on the device, the app might be bypassing SSO at the protocol layer. If the application is using the SAML protocol, the Microsoft Enterprise SSO plug-in will not be able to provide SSO to the app. The application vendor should be notified about this behavior and make a change in their app to not bypass SSO.
 
 #### Change iOS experience for MSAL-enabled applications
 
-Apps that use a Microsoft Authentication Library will always invoke SSO extension natively for interactive requests. On some iOS devices, it might be not desirable. Specifically, if user also needs to complete the multi-factor authentication inside the Microsoft Authenticator app, an interactive redirect to that app might provide a better user experience. 
+Apps that use a Microsoft Authentication Library will always invoke SSO extension natively for interactive requests. On some iOS devices, it might be not desirable. Specifically, if the user also needs to complete the multi-factor authentication inside the Microsoft Authenticator app, an interactive redirect to that app might provide a better user experience. 
 
 This behavior can be configured using the `disable_inapp_sso_signin` flag. If this flag is enabled, apps that use a Microsoft Authentication Library will redirect to the Microsoft Authenticator app for all interactive requests. This flag will not impact silent token requests from those apps, behavior of apps that don't use a Microsoft Authentication Library, or macOS apps. This flag is disabled by default. 
 
@@ -295,7 +295,7 @@ Use the following configuration to enable Just in Time Registration for iOS/iPad
 Learn more about Just in Time Registration [here](https://techcommunity.microsoft.com/t5/intune-customer-success/just-in-time-registration-for-ios-ipados-with-microsoft-intune/ba-p/3660843). 
 
 #### Conditional access policies and password changes
-Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [AzureAD conditional access policies](/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to achieve compatibility. 
+Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [AzureAD conditional access policies](/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to be enabled to achieve compatibility. 
 
 Compatible events and policies are documented below. 
 
