@@ -24,7 +24,10 @@ We currently offer two APIs for defining entities:
 This article focuses primarily on the class-based syntax, as we expect it to be better suited for most applications. However, the [function-based syntax](#function-based-syntax) may be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate for implementing libraries that require genericity not currently supported by the class-based syntax. 
 
 > [!NOTE]
-> The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application. 
+> The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
+
+> [!NOTE]
+> Entities are not currently supported in Durable Functions for the dotnet-isolated worker.
  
 ## Defining entity classes
 

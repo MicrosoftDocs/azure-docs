@@ -271,7 +271,7 @@ Done!
 
 If you want to only write logs on non-replay executions, you can write a conditional expression to log only if the "is replaying" flag is `false`. Consider the example above, but this time with replay checks.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -310,6 +310,25 @@ public static async Task Run(
 
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+In Durable Functions dotnet-isolated, you can again create an `ILogger` that automatically filters out log statements during replay. The main difference with Durable Functions in-proc is that you do not need to provide an existing `ILogger`. This logger is created via the `TaskOrchestrationContext.CreateReplaySafeLogger` overloads.
+
+```csharp
+[Function("FunctionChain")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    ILogger log = context.CreateReplaySafeLogger("FunctionChain");
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
 
 # [JavaScript](#tab/javascript)
 

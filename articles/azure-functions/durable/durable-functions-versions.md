@@ -15,6 +15,9 @@ ms.author: azfuncdf
 
 This section describes the features of Durable Functions that are added in version 2.x.
 
+> [!NOTE]
+> This section does not apply to Durable Functions in dotnet isolated worker. For that, see [durable functions isolated process guide](./durable-functions-dotnet-isolated-guide.md).
+
 ### Durable entities
 
 In Durable Functions 2.x, we introduced a new [entity functions](durable-functions-entities.md) concept.

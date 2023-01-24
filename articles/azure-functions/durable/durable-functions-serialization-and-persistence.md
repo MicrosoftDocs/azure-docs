@@ -49,7 +49,7 @@ Alternatively, .NET users have the option of implementing custom serialization p
 
 ## Customizing serialization and deserialization
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ### Default serialization logic
 
@@ -131,9 +131,10 @@ namespace MyApplication
 }
 ```
 
+# [C# (Isolated)](#tab/csharp-isolated)
 ### .NET Isolated and System.Text.Json
 
-Durable Functions running in the [.NET Isolated worker process](../dotnet-isolated-process-guide.md) use [System.Text.Json](/dotnet/api/system.text.json) libraries for serialization rather than Newtonsoft.Json. There is currently no support for injecting serialization settings. However, attributes may be used to control aspects of serialization.
+Durable Functions running in the [.NET Isolated worker process](../dotnet-isolated-process-guide.md) uses the same object-serializer configured in Azure Functions [WorkerOptions](/dotnet/api/microsoft.azure.functions.worker.workeroptions). This happens to be [System.Text.Json](/dotnet/api/system.text.json) by default rather than Newtonsoft.Json. Any changes to `WorkerOptions.Serializer` will apply to Durable Functions.
 
 For more information on the built-in support for JSON serialization in .NET, see the [JSON serialization and deserialization in .NET overview documentation](/dotnet/standard/serialization/system-text-json-overview).
 

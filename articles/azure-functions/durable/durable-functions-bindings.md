@@ -57,7 +57,7 @@ The orchestration trigger binding supports both inputs and outputs. Here are som
 
 The following example code shows what the simplest "Hello World" orchestrator function might look like. Note that this example orchestrator doesn't actually schedule any tasks.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -70,6 +70,19 @@ public static string Run([OrchestrationTrigger] IDurableOrchestrationContext con
 
 > [!NOTE]
 > The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("HelloWorld")]
+public static string Run([OrchestrationTrigger] TaskOrchestrationContext context, string name)
+{
+    return $"Hello {name}!";
+}
+```
+
+> [!NOTE]
+> Durable functions in-proc requires input to be extracted via `context.GetInput<T>()`. This can also be done in dotnet-isolated, but we also support input being supplied as a parameter (as shown above). Parameter input binding will bind to the first parameter which has no binding attribute on it and is not a well-known type already covered by other input bindings (ie: `FunctionContext`).
 
 # [JavaScript](#tab/javascript)
 
@@ -119,7 +132,7 @@ public String helloWorldOrchestration(
 
 Most orchestrator functions call activity functions, so here is a "Hello World" example that demonstrates how to call an activity function:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -134,6 +147,18 @@ public static async Task<string> Run(
 
 > [!NOTE]
 > The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("HelloWorld")]
+public static async Task<string> Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context, string name)
+{
+    string result = await context.CallActivityAsync<string>("SayHello", name);
+    return result;
+}
+```
 
 # [JavaScript](#tab/javascript)
 
@@ -228,7 +253,7 @@ The activity trigger binding supports both inputs and outputs, just like the orc
 
 The following example code shows what a simple `SayHello` activity function might look like:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("SayHello")]
@@ -244,6 +269,18 @@ The default parameter type for the .NET `ActivityTriggerAttribute` binding is [I
 ```csharp
 [FunctionName("SayHello")]
 public static string SayHello([ActivityTrigger] string name)
+{
+    return $"Hello {name}!";
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+In the dotnet-isolated worker, only serializable types representing your input are supported. However, you can also perform addition functions binding, such as `FunctionContext`.
+
+```csharp
+[FunctionName("SayHello")]
+public static string SayHello([ActivityTrigger] string name, FunctionContext context)
 {
     return $"Hello {name}!";
 }
@@ -355,7 +392,7 @@ In .NET functions, you typically bind to [IDurableClient](/dotnet/api/microsoft.
 
 Here's an example queue-triggered function that starts a "HelloWorld" orchestration.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("QueueStart")]
@@ -370,6 +407,19 @@ public static Task Run(
 
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("QueueStart")]
+public static Task Run(
+    [QueueTrigger("durable-function-trigger")] string input,
+    [DurableClient] DurableClientContext durableContext)
+{
+    // Orchestration input comes from the queue message content.
+    return durableContext.Client.ScheduleNewOrchestrationInstanceAsync("HelloWorld", input);
+}
+```
 
 # [JavaScript](#tab/javascript)
 
@@ -502,7 +552,7 @@ If you're using JavaScript, Python, or PowerShell, the entity trigger is defined
 ```
 
 > [!NOTE]
-> Entity triggers are not yet supported in Java.
+> Entity triggers are not yet supported in Java or dotnet-isolated worker.
 
 By default, the name of an entity is the name of the function.
 
