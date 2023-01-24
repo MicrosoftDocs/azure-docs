@@ -28,7 +28,7 @@ This workbook:
 
 ## Enabling provisioning logs
 
-You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md) and [Provisioning Logs for troubleshooting cloud sync](how-to-troubleshoot.md#provisioning-logs).
+You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md) and [Provisioning Logs for troubleshooting cloud sync](../cloud-sync/how-to-troubleshoot.md#provisioning-logs).
 
 ## Source and Target
 At the top of the workbook, using the drop-down, specify the source directory and target directory.  You can also scope your search so that it is more granular using the additional fields provided.  Use the table below as a reference for queries.
@@ -98,7 +98,5 @@ To learn more about alerts, see [Azure Monitor Log Alerts](../../azure-monitor/a
 
 ## Next steps 
 
-- [What is provisioning?](what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
-- [Known limitations](how-to-prerequisites.md#known-limitations)
-- [Error codes](reference-error-codes.md)
+- [What is provisioning?](../cloud-sync/what-is-provisioning.md)
+- [Error codes](../cloud-sync/reference-error-codes.md)
