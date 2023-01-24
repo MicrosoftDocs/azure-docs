@@ -3,13 +3,13 @@ title: Diagnostic resource logging for a network security group
 titlesuffix: Azure Virtual Network
 description: Learn how to enable event and rule counter diagnostic resource logs for an Azure network security group.
 services: virtual-network
-author: mbender-ms
+author: asudbring
 manager: mtillman
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
-ms.author: mbender 
+ms.author: allensu 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---

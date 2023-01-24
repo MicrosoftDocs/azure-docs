@@ -3,13 +3,13 @@ title: Configure Text Analytics for health containers
 titleSuffix: Azure Cognitive Services
 description: Text Analytics for health containers uses a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
 

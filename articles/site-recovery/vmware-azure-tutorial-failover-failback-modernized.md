@@ -5,6 +5,8 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 08/19/2021
 ms.custom: MVC
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Fail over VMware VMs - Modernized
 
@@ -159,7 +161,10 @@ If issue persists, contact Microsoft support. **Do not** disable replication.
 
 After successful planned failover, the machine is active in your on-premises. To protect your machine  in the future, ensure that the machine is replicated to Azure (re-protected).
 
-To do this, go to the machine > **Re-protect**, select the appliance of your choice, select the replication policy and proceed.
+To do this, go to the machine > **Re-protect**, select the appliance of your choice, select the cache storage account and proceed. When selecting the appliance, ensure that the target datastore where the source machine is located, is accessible by the appliance. The datastore of the source machine should always be accessible by the appliance. Even if the machine and appliance are located in different ESX servers, as long as the data store is shared between them, reprotection will succeed. 
+
+  > [!NOTE]
+  > When selecting the appliance, ensure that the target datastore where the source machine is located, is accessible by the appliance.
 
 After successfully enabling replication and initial replication, recovery points will be generated to offer business continuity from unwanted disruptions.
 
@@ -168,5 +173,5 @@ After successfully enabling replication and initial replication, recovery points
 After failover, reprotect the Azure VMs to on-premises. After the VMs are reprotected and replicating to the on-premises site, fail back from Azure when you're ready.
 
 > [!div class="nextstepaction"]
-> [Reprotect Azure VMs](vmware-azure-reprotect.md)
-> [Fail back from Azure](vmware-azure-failback.md)
+> [Reprotect Azure VMs](failover-failback-overview-modernized.md)
+> [Fail back from Azure](failover-failback-overview-modernized.md)

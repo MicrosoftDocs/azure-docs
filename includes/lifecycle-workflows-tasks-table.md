@@ -1,16 +1,19 @@
 ---
-author: owinfrey
+author: owinfreyATL
 ms.service: active-directory
 ms.topic: include
 ms.date: 10/02/2022
-ms.author: owinfreyATL
+ms.author: owinfrey
 ---
+
+<!-- This include file is referenced in the Microsoft Graph docs repo. -->
 
 Lifecycle Workflows currently support the following tasks:
 
 |Task  |taskdefinitionID  |Category  |
 |---------|---------|---------|
 |[Send welcome email to new hire](../articles/active-directory/governance/lifecycle-workflow-tasks.md#send-welcome-email-to-new-hire)     |   70b29d51-b59a-4773-9280-8841dfd3f2ea      | Joiner         |
+|[Send onboarding reminder email](../articles/active-directory/governance/lifecycle-workflow-tasks.md#send-onboarding-reminder-email)     |   3C860712-2D37-42A4-928F-5C93935D26A1     | Joiner         |
 |[Generate Temporary Access Pass and send via email to user's manager](../articles/active-directory/governance/lifecycle-workflow-tasks.md#generate-temporary-access-pass-and-send-via-email-to-users-manager)     |  1b555e50-7f65-41d5-b514-5894a026d10d       | Joiner         |
 |[Add user to groups](../articles/active-directory/governance/lifecycle-workflow-tasks.md#add-user-to-groups)     |    22085229-5809-45e8-97fd-270d28d66910     | Joiner, Leaver
 |[Add user to teams](../articles/active-directory/governance/lifecycle-workflow-tasks.md#add-user-to-teams)      |  e440ed8d-25a1-4618-84ce-091ed5be5594       | Joiner, Leaver

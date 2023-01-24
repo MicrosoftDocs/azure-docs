@@ -1,17 +1,17 @@
 ---
 title: Configure control plane for automation framework
-description: Configure your deployment control plane for the SAP deployment automation framework on Azure.
+description: Configure your deployment control plane for the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 8/8/2022
+ms.date: 12/28/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
 # Configure the control plane
 
-The control plane for the [SAP deployment automation framework on Azure](automation-deployment-framework.md) consists of the following components:
+The control plane for the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) consists of the following components:
  - Deployer
  - SAP library
 
@@ -19,13 +19,13 @@ The control plane for the [SAP deployment automation framework on Azure](automat
 
 ## Deployer
 
-The [deployer](automation-deployment-framework.md#deployment-components) is the execution engine of the [SAP automation framework](automation-deployment-framework.md). It's a pre-configured virtual machine (VM) that is used for executing Terraform and Ansible commands.
+The [deployer](automation-deployment-framework.md#deployment-components) is the execution engine of the [SAP automation framework](automation-deployment-framework.md). It's a pre-configured virtual machine (VM) that is used for executing Terraform and Ansible commands. When using Azure DevOps the deployer is a self-hosted agent.
 
 The configuration of the deployer is performed in a Terraform tfvars variable file.
 
 ## Terraform Parameters
 
-The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts
+This table shows the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                                                                                  | Type       |
@@ -35,7 +35,7 @@ The table below contains the Terraform parameters, these parameters need to be 
 
 ### Environment Parameters
 
-The table below contains the parameters that define the resource naming.
+This table shows the parameters that define the resource naming.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                       | Type       | Notes                                                                                       |
@@ -46,7 +46,7 @@ The table below contains the parameters that define the resource naming.
 
 ### Resource Group
 
-The table below contains the parameters that define the resource group.
+This table shows the parameters that define the resource group.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
@@ -67,7 +67,7 @@ The recommended CIDR of the virtual network address space is /27, which allows s
 The recommended CIDR value for the management subnet is /28 that allows 16 IP addresses.
 The recommended CIDR value for the firewall subnet is /26 that allows 64 IP addresses.
 
-The table below contains the networking parameters.
+This table shows the networking parameters.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                    | Description                                                      | Type       | Notes  |
@@ -99,7 +99,7 @@ The table below contains the networking parameters.
 
 ### Deployer Virtual Machine Parameters
 
-The table below contains the parameters related to the deployer virtual machine.
+This table shows the parameters related to the deployer virtual machine.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                        | Description                                                                            | Type       |
@@ -124,21 +124,13 @@ The Virtual Machine image is defined using the following structure:
   "offer"           = "0001-com-ubuntu-server-focal"
   "sku"             = "20_04-lts"
   "version"         = "latest"
+  "type"            = "marketplace"
 }
 ```
 
-The plan defined using the following structure:
-```python
-{
-    "use"       = false
-    "name"      = "0001-com-ubuntu-server-focal"
-    "publisher" = "Canonical"
-    "product"   = "20_04-lts"
-  }
-```
-
 > [!NOTE]
-> Note that using the plan attribute will require that the image in question has been used at least once in the subscription. This is because the first usage prompts the user to accept the License terms and the automation has no mean to approve it.
+> type can be marketplace/marketplace_with_plan/custom
+> Note that using a image of type 'marketplace_with_plan' will require that the image in question has been used at least once in the subscription. This is because the first usage prompts the user to accept the License terms and the automation has no mean to approve it.
 
 
 
@@ -161,27 +153,40 @@ The table below defines the parameters used for defining the Virtual Machine aut
 The table below defines the parameters used for defining the Key Vault information
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                         | Description                                                                 | Type       |
-> | ------------------------------------------------ | --------------------------------------------------------------------------- | ---------- |
-> | `user_keyvault_id`	                             | Azure resource identifier for the user key vault                            | Optional	  |
-> | `spn_keyvault_id`                                | Azure resource identifier for the user key vault containing the SPN details | Optional	  |
-> | `deployer_private_key_secret_name`               | The Azure Key Vault secret name for the deployer private key                | Optional	  |
-> | `deployer_public_key_secret_name`                | The Azure Key Vault secret name for the deployer public key                 | Optional	  |
-> | `deployer_username_secret_name`	                 | The Azure Key Vault secret name for the deployer username                   | Optional	  |
-> | `deployer_password_secret_name`	                 | The Azure Key Vault secret name for the deployer password                   | Optional	  |
-> | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies | Optional	  |
+> | Variable                                         | Description                                                                       | Type       |
+> | ------------------------------------------------ | --------------------------------------------------------------------------------- | ---------- |
+> | `user_keyvault_id`	                             | Azure resource identifier for the user key vault                                  | Optional	  |
+> | `spn_keyvault_id`                                | Azure resource identifier for the key vault containing the deployment credentials | Optional	  |
+> | `deployer_private_key_secret_name`               | The Azure Key Vault secret name for the deployer private key                      | Optional	  |
+> | `deployer_public_key_secret_name`                | The Azure Key Vault secret name for the deployer public key                       | Optional	  |
+> | `deployer_username_secret_name`	                 | The Azure Key Vault secret name for the deployer username                         | Optional	  |
+> | `deployer_password_secret_name`	                 | The Azure Key Vault secret name for the deployer password                         | Optional	  |
+> | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies       | Optional	  |
+
+
+### DNS Support
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                            | Description                                                          | Type     |
+> | ----------------------------------- | -------------------------------------------------------------------- | -------- |
+> | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone                                     | Optional |
+> | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
+> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
 
 
 ### Other parameters
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                             | Description                                                            | Type        | Notes                         |
-> | ------------------------------------ | ---------------------------------------------------------------------- | ----------- | ----------------------------- |
-> | `firewall_deployment`	               | Boolean flag controlling if an Azure firewall is to be deployed        | Optional    |                               |
-> | `bastion_deployment`	               | Boolean flag controlling if Azure Bastion host is to be deployed       | Optional    |                               |
-> | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional    | Use only for test deployments |
-> | `use_private_endpoint`               | Are private endpoints created for storage accounts and key vaults.     | Optional    |                               |
-> | `use_service_endpoint`               | Are service endpoints defined for the subnets.                         | Optional    |                               |
+> | Variable                                     | Description                                                            | Type        | Notes                         |
+> | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- | ----------------------------- |
+> | `firewall_deployment`	                       | Boolean flag controlling if an Azure firewall is to be deployed        | Optional    |                               |
+> | `bastion_deployment`	                       | Boolean flag controlling if Azure Bastion host is to be deployed       | Optional    |                               |
+> | `enable_purge_control_for_keyvaults`         | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional    | Use only for test deployments |
+> | `use_private_endpoint`                       | Use private endpoints                                                  | Optional    |
+> | `use_service_endpoint`                       | Use service endpoints for subnets                                      | Optional    |
+> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets                                    | Optional    |
 
 ### Example parameters file for deployer (required parameters only)
 
@@ -220,16 +225,16 @@ The configuration of the SAP Library is performed in a Terraform tfvars variable
 
 ### Terraform Parameters
 
-The table below contains the Terraform parameters, these parameters need to be entered manually when not using the deployment scripts
+This table shows the Terraform parameters, these parameters need to be entered manually when not using the deployment scripts
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                | Description                           | Type       |
-> | ----------------------- | ------------------------------------- | ---------- |
-> | `deployer_tfstate_key`  | The state file name for the deployer  | Required   |
+> | Variable                | Description                           | Type       | Notes |
+> | ----------------------- | ------------------------------------- | ---------- | ----- |
+> | `deployer_tfstate_key`  | The state file name for the deployer  | Required   | 
 
 ### Environment Parameters
 
-The table below contains the parameters that define the resource naming.
+This table shows the parameters that define the resource naming.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                       | Type       | Notes                                                                                       |
@@ -240,7 +245,7 @@ The table below contains the parameters that define the resource naming.
 
 ### Resource Group
 
-The table below contains the parameters that define the resource group.
+This table shows the parameters that define the resource group.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
@@ -248,8 +253,6 @@ The table below contains the parameters that define the resource group.
 > | `resource_group_name`   | Name of the resource group to be created                 | Optional   |
 > | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
 > | `resourcegroup_tags`    | Tags to be associated with the resource group            | Optional   |
-
-
 
 
 ### SAP Installation media storage account
@@ -266,32 +269,36 @@ The table below contains the parameters that define the resource group.
 > | -------------------------------- | -------------------------- | ---------- |
 > | `library_terraform_state_arm_id` | Azure resource identifier  | Optional   |
 
+### DNS Support
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                            | Description                                                          | Type     |
+> | ----------------------------------- | -------------------------------------------------------------------- | -------- |
+> | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone                                     | Optional |
+> | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
+> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
+
+
 ### Extra parameters
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                      | Type     |
-> | ---------------------------------- | -------------------------------- | -------- |
-> | `dns_label`	                       | DNS name of the private DNS zone | Optional |
-> | `use_private_endpoint`             | Use private endpoints            | Optional |
+> | Variable                                     | Description                         | Type     |
+> | -------------------------------------------- | ----------------------------------- | -------- |
+> | `use_private_endpoint`                       | Use private endpoints               | Optional |
+> | `use_service_endpoint`                       | Use service endpoints for subnets   | Optional |
+> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets | Optional |
 
 ### Example parameters file for sap library (required parameters only)
 
 ```terraform
 # The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
-environment="MGMT"
+environment = "MGMT"
 
 # The location/region value is a mandatory field, it is used to control where the resources are deployed
-location="westeurope"
-
-# The deployer_environment value is a mandatory field, it is used for identifying the deployer
-deployer_environment="MGMT"
-
-# The deployer_location value is a mandatory field, it is used for identifying the deployer
-deployer_location="westeurope"
-
-# The deployer_vnet value is a mandatory field, it is used for identifying the deployer
-deployer_vnet="DEP00"
+location = "westeurope"
 
 ```
 

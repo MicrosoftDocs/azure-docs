@@ -4,7 +4,8 @@ description: This article summarizes how to migrate on-premises machines to Azur
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2020
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Migrate on-premises machines to Azure

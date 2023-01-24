@@ -19,7 +19,7 @@ The process to keep Windows Server nodes up to date is a little different. Windo
 This article shows you how to use the open-source [kured (KUbernetes REboot Daemon)][kured] to watch for Linux nodes that require a reboot, then automatically handle the rescheduling of running pods and node reboot process.
 
 > [!NOTE]
-> `Kured` is an open-source project by Weaveworks. Please direct issues to the [kured GitHub][kured]. Additional support can be found in the #weave-community Slack channel.
+> `Kured` is an open-source project in the Cloud Native Computing Foundation. Please direct issues to the [kured GitHub][kured]. Additional support can be found in the #kured channel on [CNCF Slack](https://slack.cncf.io).
 
 ## Before you begin
 
@@ -67,7 +67,7 @@ helm repo update
 kubectl create namespace kured
 
 # Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
-helm install my-release kubereboot/kured --namespace kured --set nodeSelector."kubernetes.io/os"=linux
+helm install my-release kubereboot/kured --namespace kured --set nodeSelector."kubernetes\.io/os"=linux
 ```
 
 You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured Helm chart][kured-install].
@@ -108,7 +108,7 @@ This article detailed how to use `kured` to reboot Linux nodes automatically as 
 For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 <!-- LINKS - external -->
-[kured]: https://github.com/weaveworks/kured
+[kured]: https://github.com/kubereboot/kured
 [kured-install]: https://github.com/kubereboot/kured/tree/main/cmd/kured
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 

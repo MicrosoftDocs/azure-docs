@@ -2,7 +2,7 @@
 title: Monitor Azure App Service performance | Microsoft Docs
 description: Application performance monitoring for Azure App Service. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 11/15/2022
 ms.custom: "devx-track-js, devx-track-dotnet"
 ---
 

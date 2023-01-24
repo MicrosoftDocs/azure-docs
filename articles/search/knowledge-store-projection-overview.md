@@ -166,7 +166,7 @@ Recall that projections are exclusive to knowledge stores, and are not used to s
 
 1. Check your results in Azure Storage. On subsequent runs, avoid naming collisions by deleting objects in Azure Storage or changing project names in the skillset.
 
-1. If you are using [Table projections](knowledge-store-projections-examples.md#define-a-table-projection) check [Understanding the Table Service data model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Scalability and performance targets for Table storage](/azure/storage/tables/scalability-targets) to make sure your data requirements are within Table storage documented limits.
+1. If you are using [Table projections](knowledge-store-projections-examples.md#define-a-table-projection) check [Understanding the Table Service data model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) to make sure your data requirements are within Table storage documented limits.
 
 ## Next steps
 

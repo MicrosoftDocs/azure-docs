@@ -76,6 +76,7 @@ Microsoft partners with the following ISVs to provide secure hybrid access to on
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
+| ![Screenshot of an Akamai logo.](./media/partner-gallery/akamai-logo.png) | [Akamai](./partner-akamai-secure-hybrid-access.md) provides a Zero Trust Network Access (ZTNA) solution that enables secure remote access to modern and legacy applications that reside in private datacenters.  |
 | ![Screenshot of a Datawiza logo](./media/partner-gallery/datawiza-logo.png) | [Datawiza](./partner-datawiza.md) enables SSO and granular access control for your applications and extends Azure AD B2C to protect on-premises legacy applications.  |
 | ![Screenshot of a F5 logo](./media/partner-gallery/f5-logo.png) | [F5](./partner-f5.md) enables legacy applications to securely expose to the internet through BIG-IP security combined with Azure AD B2C pre-authentication, Conditional Access (CA) and SSO.  |
 | ![Screenshot of a Ping logo](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) enables secure hybrid access to on-premises legacy applications across multiple clouds. |

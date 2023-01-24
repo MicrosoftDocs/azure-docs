@@ -12,6 +12,7 @@ ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
 ---
+
 # How to synchronize attributes for Lifecycle workflows
 Workflows, contain specific tasks, which can run automatically against users based on the specified execution conditions. Automatic workflow scheduling is supported based on the employeeHireDate and employeeLeaveDateTime user attributes in Azure AD.
 
@@ -23,7 +24,7 @@ The following table shows the scheduling (trigger) relevant attributes and the m
 |Attribute|Type|Supported in HR Inbound Provisioning|Support in Azure AD Connect Cloud Sync|Support in Azure AD Connect Sync| 
 |-----|-----|-----|-----|-----|
 |employeeHireDate|DateTimeOffset|Yes|Yes|Yes|
-|employeeLeaveDateTime|DateTimeOffset|Yes|Yes|Not currently|
+|employeeLeaveDateTime|DateTimeOffset|Yes|Yes|Yes|
 
 > [!NOTE]
 > Manually setting the employeeLeaveDateTime for cloud-only users requires special permissions. For more information, see: [Configure the employeeLeaveDateTime property for a user](/graph/tutorial-lifecycle-workflows-set-employeeleavedatetime)

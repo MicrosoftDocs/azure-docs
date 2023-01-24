@@ -6,9 +6,9 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.author: banders
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 ms.topic: troubleshooting
-ms.date: 09/15/2021
+ms.date: 12/06/2022
 ---
 
 # Troubleshoot reservation utilization

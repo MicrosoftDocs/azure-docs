@@ -237,9 +237,9 @@ The AppDynamics Agent will be upgraded regularly with JDK (quarterly). Agent upg
 * Existing applications using AppDynamics Agent before upgrade will be unchanged, but will require restart or redeploy to engage the new version of AppDynamics Agent.
 * Applications created after upgrade will use the new version of AppDynamics Agent.
 
-## Configure VNet injection instance outbound traffic
+## Configure virtual network injection instance outbound traffic
 
-For VNet injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md).
+For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
 
 ## Understand the limitations
 

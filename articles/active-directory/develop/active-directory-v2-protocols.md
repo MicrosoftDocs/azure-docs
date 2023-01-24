@@ -53,7 +53,7 @@ Your client app needs a way to trust the security tokens issued to it by the Mic
 
 When you register your app in Azure AD, the Microsoft identity platform automatically assigns it some values, while others you configure based on the application's type.
 
-Two the most commonly referenced app registration settings are:
+Two of the most commonly referenced app registration settings are:
 
 * **Application (client) ID** - Also called _application ID_ and _client ID_, this value is assigned to your app by the Microsoft identity platform. The client ID uniquely identifies your app in the identity platform and is included in the security tokens the platform issues.
 * **Redirect URI** - The authorization server uses a redirect URI to direct the resource owner's *user-agent* (web browser, mobile app) to another destination after completing their interaction. For example, after the end-user authenticates with the authorization server. Not all client types use redirect URIs.

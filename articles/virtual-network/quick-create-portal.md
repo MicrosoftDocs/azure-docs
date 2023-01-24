@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a virtual network - Azure portal'
 titleSuffix: Azure Virtual Network
 description: In this quickstart, learn how to create a virtual network using the Azure portal.
-author: mbender-ms
-ms.author: mbender
+author: asudbring
+ms.author: allensu
 ms.date: 06/20/2022
 ms.topic: quickstart
 ms.service: virtual-network
@@ -15,7 +15,7 @@ ms.custom: mode-ui
 
 # Quickstart: Create a virtual network using the Azure portal
 
-In this quickstart, you learn how to create a virtual network using the Azure portal. You deploy two virtual machines (VMs). Next, you securely communicate between VMs and connect to VMs from the internet. A virtual network is the fundamental building block for your private network in Azure. It enables Azure resources, like VMs, to securely communicate with each other and with the internet.
+In this quickstart, you'll learn how to create a virtual network using the Azure portal. You deploy two virtual machines (VMs). Next, you securely communicate between VMs and connect to VMs from the internet. A virtual network is the fundamental building block for your private network in Azure. It enables Azure resources, like VMs, to securely communicate with each other and with the internet.
 
 ## Prerequisites
 
@@ -29,29 +29,26 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create a resource** in the upper left-hand corner of the portal.
 
-
 1. In the search box, enter **Virtual Network**. Select **Virtual Network** in the search results.
 
 1. In the **Virtual Network** page, select **Create**.
 
 1. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
+    :::image type="content" source="./media/quick-create-portal/example-basics-tab.png" alt-text="Screenshot of creating a virtual network in Azure portal.":::
+
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**.  </br> Enter **myResourceGroup**. </br> Select **OK**. |
+    | Resource group | Select **myResourceGroup**. |
     | **Instance details** |   |
     | Name | Enter **myVNet**. |
     | Region | Select **(US) East US**. |
 
-
-    :::image type="content" source="./media/quick-create-portal/example-basics-tab.png" alt-text="Screenshot of creating a virtual network in Azure portal." border="true":::
-
-
-
-
 1. Select the **IP Addresses** tab, or select the **Next: IP Addresses** button at the bottom of the page and enter in the following information then select **Add**:
+
+    :::image type="content" source="./media/quick-create-portal/example-ip-address-tab.png" alt-text="Screenshot of editing ip address tab for virtual network.":::
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
@@ -60,13 +57,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Subnet name        | Enter **MySubnet**.        |
     | Subnet address range | Enter **10.1.0.0/24**.   |
     | Select **Add**.    |                            |
-   
-
-     :::image type="content" source="./media/quick-create-portal/example-ip-address-tab.png" alt-text="Screenshot of editing ip address tab for virtual network." border="true":::
 
 1. Select the **Security** tab, or select the **Next: Security** button at the bottom of the page.
 
 1. Under **BastionHost**, select **Enable**. Enter this information:
+
+    :::image type="content" source="./media/quick-create-portal/example-security-tab.png" alt-text="Screenshot of editing security tab for virtual network.":::
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
@@ -74,16 +70,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-
-    :::image type="content" source="./media/quick-create-portal/example-security-tab.png" alt-text="Screenshot of editing security tab for virtual network." border="true":::
-
-
-
 1. Select the **Review + create** tab or select the **Review + create** button.
 
 1. Select **Create**.
-
-
 
 ## Create virtual machines
 

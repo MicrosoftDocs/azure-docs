@@ -33,6 +33,7 @@ This article describes how you can create and configure a self-hosted IR.
 - Treat your data source as an on-premises data source that is behind a firewall, even when you use Azure ExpressRoute. Use the self-hosted integration runtime to connect the service to the data source.
 - Use the self-hosted integration runtime even if the data store is in the cloud on an Azure Infrastructure as a Service (IaaS) virtual machine.
 - Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, you have two options: store credentials/secret values in an Azure Key Vault or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](./self-hosted-integration-runtime-proxy-ssis.md), FIPS-compliant encryption can be enabled and will be used when moving data from on premises to Azure Blob Storage as a staging area.
+- Full licensing details are provided on the first page of the self-hosted integration runtime setup.
 
 > [!NOTE]
 > Currently self-hosted integration runtime can only be shared with multiple data factories, it can't be shared across Synapse workspaces or between data factory and Synapse workspace.
@@ -194,11 +195,13 @@ Here are details of the application's actions and arguments:
 |`-t`,<br/>`-Stop`||Stop the self-hosted integration runtime host service.|
 |`-sus`,<br/>`-StartUpgradeService`||Start the self-hosted integration runtime upgrade service.|
 |`-tus`,<br/>`-StopUpgradeService`||Stop the self-hosted integration runtime upgrade service.|
-|`-tonau`,<br/>`-TurnOnAutoUpdate`||Turn on the self-hosted integration runtime auto-update.|
-|`-toffau`,<br/>`-TurnOffAutoUpdate`||Turn off the self-hosted integration runtime auto-update.|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||Turn on the self-hosted integration runtime auto-update. This command is for Azure Data Factory V1 only.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||Turn off the self-hosted integration runtime auto-update. This command is for Azure Data Factory V1 only.|
 |`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts.|
 |`-elma`,<br/>`-EnableLocalMachineAccess`|| Enable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
 |`-dlma`,<br/>`-DisableLocalMachineAccess`|| Disable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
+|`-DisableLocalFolderPathValidation`|| Disable security validation to enable access to file system of the local machine.|
+|`-EnableLocalFolderPathValidation`||  Enable security validation to disable access to file system of the local machine. |
 
 ## Install and register a self-hosted IR from Microsoft Download Center
 
@@ -227,11 +230,11 @@ Here are details of the application's actions and arguments:
 > [!NOTE]
 > Release Notes are available on the same [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
 
-## Service account for Self-hosted integration runtime
+## Service account for self-hosted integration runtime
 
-The default log on service account of Self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
+The default log on service account of the self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
 
-:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="Service account for Self-hosted integration runtime":::
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="Service account for self-hosted integration runtime":::
 
 Make sure the account has the permission of Log on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
 
@@ -287,7 +290,7 @@ When the processor and available RAM aren't well utilized, but the execution of 
 >
 > Data movement in transit from a self-hosted IR to other data stores always happens within an encrypted channel, regardless of whether or not this certificate is set.
 
-### Credential Sync
+### Credential sync
 If you don't store credentials or secret values in an Azure Key Vault, the credentials or secret values will be stored in the machines where your self-hosted integration runtime locates. Each node will have a copy of credential with certain version. In order to make all nodes work together, the version number should be the same for all nodes. 
 
 ## Proxy server considerations
@@ -377,7 +380,7 @@ If you see error messages like the following ones, the likely reason is improper
 
   ```output
   Unable to connect to the remote server
-  A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
+  A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (self-hosted).
   ```
 
 ### Enable remote access from an intranet
@@ -421,6 +424,9 @@ Based on your source and sinks, you might need to allow additional domains and o
 
 For some cloud databases, such as Azure SQL Database and Azure Data Lake, you might need to allow IP addresses of self-hosted integration runtime machines on their firewall configuration.
 
+> [!NOTE]
+> It is not right to install both Integration Runtime and Power BI gateway in same machine, because mainly Integration Runtime uses port number 443, which is one of the main ports being used by Power BI gateway as well.
+
 ### Get URL of Azure Relay
 
 One required domain and port that need to be put in the allowlist of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the service portal. Follow these steps:
@@ -454,7 +460,7 @@ There are two ways to store the credentials when using self-hosted integration r
 This is the recommended way to store your credentials in Azure. The self-hosted integration runtime can directly get the credentials from Azure Key Vault which can highly avoid some potential security issues or any credential in-sync problems between self-hosted integration runtime nodes.
 2. Store credentials locally.
 The credentials will be push to the machine of your self-hosted integration runtime and be encrypted. 
-When your self-hosted integration runtime is recovered from crash, you can either recover credential from the one you backup before or edit linked service and let the credential be pushed to self-hosted integration runtime again. Otherwise, the pipeline doesn't work due to the lack of credential when running via self-hosted integration runtime.
+When your self-hosted integration runtime is recovered from crash, you can either recover credential from the one you back up before or edit linked service and let the credential be pushed to self-hosted integration runtime again. Otherwise, the pipeline doesn't work due to the lack of credential when running via self-hosted integration runtime.
 > [!NOTE]
 > If you prefer to store the credential locally, your need to put the domain for interactive authoring in the allowlist of your firewall 
 > and open the port. This channel is also for the self-hosted integration runtime to get the credentials. 
@@ -467,6 +473,16 @@ You can install the self-hosted integration runtime by downloading a Managed Ide
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine doesn't hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Regularly back up the credentials associated with the self-hosted integration runtime.
 - To automate self-hosted IR setup operations, refer to [Set up an existing self hosted IR via PowerShell](#setting-up-a-self-hosted-integration-runtime).
+
+## Important considerations
+
+When installing a self-hosted integration runtime consider following
+
+- Keep it close to your data source but not necessarily on the same machine
+- Don't install it on the same machine as Power BI gateway
+- Windows Server only(FIPS-compliant encryption servers might cause jobs to fail)
+- Share across multiple data sources
+- Share across multiple data factories
 
 ## Next steps
 

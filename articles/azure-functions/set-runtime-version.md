@@ -2,7 +2,7 @@
 title: How to target Azure Functions runtime versions
 description: Azure Functions supports multiple versions of the runtime. Learn how to specify the runtime version of a function app hosted in Azure.
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 10/22/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -27,17 +27,16 @@ When a new version is publicly available, a prompt in the portal gives you the c
 
 The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each major version to enable automatic updates:
 
-| Major version | `FUNCTIONS_EXTENSION_VERSION` value | Additional configuration  |
-| ------------- | ----------------------------------- | ------------------------- |
-| 4.x           | `~4`                                | [On Windows, enable .NET 6](./functions-versions.md#migrating-from-3x-to-4x) |
-| 3.x           | `~3`                                |                           |
-| 2.x           | `~2`                                |                           |
-| 1.x           | `~1`                                |                           |
+| Major version  | `FUNCTIONS_EXTENSION_VERSION` value | Additional configuration  |
+| -------------  | ----------------------------------- | ------------------------- |
+| 4.x            | `~4`                                | [On Windows, enable .NET 6](./migrate-version-3-version-4.md#upgrade-your-function-app-in-azure) |
+| 3.x<sup>*</sup>| `~3`                                |                           |
+| 2.x<sup>*</sup>| `~2`                                |                           |
+| 1.x            | `~1`                                |                           |
 
-A change to the runtime version causes a function app to restart.
+<sup>*</sup>Reached the end of life (EOL) for extended support on December 13, 2022. For a detailed support statement about end-of-life versions, see [this migration article](migrate-version-3-version-4.md).
 
->[!NOTE]
->.NET Function apps pinned to `~2.0` opt out of the automatic upgrade to .NET Core 3.1. To learn more, see [Functions v2.x considerations](functions-dotnet-class-library.md#functions-v2x-considerations).  
+A change to the runtime version causes a function app to restart. 
 
 ## View and update the current runtime version
 

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 06/17/2022
+ms.date: 10/26/2022
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors with using Azure Policy
@@ -50,7 +50,7 @@ A resource is in the _Not Started_ state, or the compliance details aren't curre
 
 #### Cause
 
-A new policy or initiative assignment takes about 30 minutes to be applied. New or updated
+A new policy or initiative assignment takes about five minutes to be applied. New or updated
 resources within scope of an existing assignment become available in about 15 minutes. A
 standard compliance scan occurs every 24 hours. For more information, see
 [evaluation triggers](../how-to/get-compliance-data.md#evaluation-triggers).

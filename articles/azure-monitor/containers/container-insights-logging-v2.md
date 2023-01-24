@@ -36,7 +36,7 @@ Customers can enable the ContainerLogV2 schema at the cluster level. To enable t
 Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 ### Configure an existing ConfigMap
-If your ConfigMap doesn't yet have the `log_collection_settings.schema` field, you'll need to append the following section in your existing ConfigMap .yaml file:
+This applies to the scenario where you have already enabled container insights for your AKS cluster and have [configured agent data collection settings](./container-insights-agent-config.md#configure-and-deploy-configmaps) using ConfigMap "_container-azm-ms-agentconfig.yaml_". If this ConfigMap doesn't yet have the `log_collection_settings.schema` field, you'll need to append the following section in this existing ConfigMap .yaml file:
 
 ```yaml
 [log_collection_settings.schema]
@@ -63,8 +63,8 @@ If your ConfigMap doesn't yet have the `log_collection_settings.schema` field, y
    Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`
 
 >[!NOTE]
->* The configuration change can take a few minutes to complete before it takes effect. All OMS agent pods in the cluster will restart. 
->* The restart is a rolling restart for all OMS agent pods. It won't restart all of them at the same time.
+>* The configuration change can take a few minutes to complete before it takes effect. All ama-logs pods in the cluster will restart. 
+>* The restart is a rolling restart for all ama-logs pods. It won't restart all of them at the same time.
 
 ## Next steps
 * Configure [Basic Logs](../logs/basic-logs-configure.md) for ContainerLogv2.

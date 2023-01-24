@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/17/2021
+ms.date: 11/18/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -207,33 +207,23 @@ By default, the Hybrid jobs run under the context of System account. However, to
 1. Select **Settings**.
 1. Change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
 1. Select the credential and click **Save**.
-1. If the following permissions are not assigned for Custom users, jobs might get suspended. Add these permission to the Hybrid Runbook Worker account on the runbook worker machine, instead of adding the account to **Administrators** group because the `Filtered Token` feature of UAC would grant standard user rights to this account when logging-in. For more details, refer to - [Information about UAC on Windows Server](/troubleshoot/windows-server/windows-security/disable-user-account-control#more-information).
-Use your discretion in assigning the elevated permissions corresponding to the following registry keys/folders: 
+1. If the following permissions are not assigned for Custom users, jobs might get suspended. 
+
+  | **Resource type** | **Folder permissions** |
+  | --- | --- |
+  |Azure VM | C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
+  |Arc-enabled Server | C:\ProgramData\AzureConnectedMachineAgent\Tokens (read)</br> C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
+        
+  >[!NOTE]
+  >Linux Hybrid Worker doesn't support Hybrid Worker credentials.
     
-**Registry path**
-
-- HKLM\SYSTEM\CurrentControlSet\Services\EventLog (read) </br>
-- HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters (full access) </br>
-- HKLM\SOFTWARE\Microsoft\Wbem\CIMOM (full access) </br>
-- HKLM\Software\Policies\Microsoft\SystemCertificates\Root (full access) </br>
-- HKLM\Software\Microsoft\SystemCertificates (full access) </br>
-- HKLM\Software\Microsoft\EnterpriseCertificates (full access) </br>
-- HKLM\software\Microsoft\HybridRunbookWorker (full access) </br>
-- HKLM\software\Microsoft\HybridRunbookWorkerV2 (full access) </br>
-- HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed (full access) </br>
-- HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles (full access) </br>
-
-**Folders**
-- C:\ProgramData\AzureConnectedMachineAgent\Tokens (read) </br>
-- C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\0.1.0.18\HybridWorkerPackage\HybridWorkerAgent (full access)
-
 ## <a name="runas-script"></a>Install Run As account certificate
 
 As part of your automated build process for deploying resources in Azure, you might require access to on-premises systems to support a task or set of steps in your deployment sequence. To provide authentication against Azure using the Run As account, you must install the Run As account certificate.
 
 >[!NOTE]
->This PowerShell runbook currently does not run on Linux machines. It runs only on  Windows machines.
->
+>This PowerShell runbook currently does not run on Linux machines. It runs only on Windows machines.
+
 
 The following PowerShell runbook, called **Export-RunAsCertificateToHybridWorker**, exports the Run As certificate from your Azure Automation account. The runbook downloads and imports the certificate into the local machine certificate store on a Hybrid Runbook Worker that is connected to the same account. Once it completes that step, the runbook verifies that the worker can successfully authenticate to Azure using the Run As account.
 
