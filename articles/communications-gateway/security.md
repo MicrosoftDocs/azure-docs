@@ -1,8 +1,8 @@
 ---
 title: Security for Azure Communications Gateway
 description: Understand how Microsoft keeps your Azure Communication Gateway and user data secure
-author: AtiqKhan-Docs
-ms.author: khanatiq
+author: rcdun
+ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
 ms.date: 01/10/2022

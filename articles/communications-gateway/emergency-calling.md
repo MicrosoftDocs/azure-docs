@@ -1,8 +1,8 @@
 ---
 title: Emergency Calling with Azure Communications Gateway
 description: Understand Azure Communications Gateway's support for emergency calling
-author: nslack
-ms.author: nickslack
+author: rcdun
+ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
 ms.date: 01/09/2023

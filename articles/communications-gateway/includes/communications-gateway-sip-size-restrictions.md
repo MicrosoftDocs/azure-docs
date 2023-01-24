@@ -1,3 +1,11 @@
+---
+author: rcdun
+ms.author: rdunstan
+ms.service: communications-gateway
+ms.topic: include
+ms.date: 01/10/2022
+---
+
 |Resource|Limit|
 |--------|-----|
 |Maximum SIP message size| 10 Kilobytes|

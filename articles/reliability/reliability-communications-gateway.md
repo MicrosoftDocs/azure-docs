@@ -1,8 +1,8 @@
 ---
 title: Reliability in Azure Communications Gateway
 description: Find out about reliability in Azure Communications Gateway
-author: nslack
-ms.author: nickslack
+author: rcdun
+ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
 ms.custom:

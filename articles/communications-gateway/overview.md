@@ -1,8 +1,8 @@
 ---
 title: What is Azure Communications Gateway?
 description: Azure Communications Gateway provides telecoms operators with the capabilities and network functions required to connect their network to Microsoft Teams through the Operator Connect program.
-author: nslack
-ms.author: nickslack
+author: rcdun
+ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: overview
 ms.date: 12/14/2022

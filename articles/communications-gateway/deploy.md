@@ -1,8 +1,8 @@
 ---
 title: Deploy Azure Communications Gateway 
 description: This article guides you through how to deploy an Azure Communications Gateway.
-author: AtiqKhan-Docs
-ms.author: khanatiq
+author: rcdun
+ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to 
 ms.date: 12/16/2022

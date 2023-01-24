@@ -1,8 +1,8 @@
 ---
 title: Prepare to deploy Azure Communications Gateway 
 description: Learn how to complete the prerequisite tasks required to deploy Azure Communications Gateway in Azure.
-author: AtiqKhan-Docs
-ms.author: khanatiq
+author: rcdun
+ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to 
 ms.date: 01/10/2022
