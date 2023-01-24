@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 01/09/2023
+ms.date: 01/20/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -377,12 +377,6 @@ For feature variations and limitations, see [Cloud feature availability for US G
 ## Storage
 
 This section outlines variations and considerations when using Storage services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,backup,storage&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
-
-### [Azure managed disks](../virtual-machines/managed-disks-overview.md)
-
-The following Azure managed disks **features aren't currently available** in Azure Government:
-
-- Zone-redundant storage (ZRS)
 
 ### [Azure NetApp Files](../azure-netapp-files/index.yml)
 
