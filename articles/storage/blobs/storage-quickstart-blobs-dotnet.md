@@ -102,6 +102,7 @@ If this command to add the package fails, follow these steps:
     ```
 
 Now that the package source is updated, run the command to install the package.
+
 ---
 
 ### Set up the app code
