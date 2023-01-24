@@ -1232,11 +1232,10 @@ import azure.functions as func
 import tempfile
 from os import listdir
 
-#---
-   tempFilePath = tempfile.gettempdir()
-   fp = tempfile.NamedTemporaryFile()
-   fp.write(b'Hello world!')
-   filesDirListInTemp = listdir(tempFilePath)
+tempFilePath = tempfile.gettempdir()
+fp = tempfile.NamedTemporaryFile()
+fp.write(b'Hello world!')
+filesDirListInTemp = listdir(tempFilePath)
 ```
 
 We recommend that you maintain your tests in a folder that's separate from the project folder. This action keeps you from deploying test code with your app.
@@ -1344,7 +1343,6 @@ function-level-extension==1.0.0
 ```
 
 ```python
-
 # <project_root>/Trigger/__init__.py
 
 from function_level_extension import FuncExtension
