@@ -81,7 +81,7 @@ You can find data by using the following method:
 
 The following example finds all blobs tagged as an image:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_find_blobs_by_tag":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_find_blobs_by_tags":::
 
 ## Resources
 
