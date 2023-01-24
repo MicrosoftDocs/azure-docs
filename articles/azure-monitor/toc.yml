@@ -572,8 +572,6 @@ items:
           href: app/tutorial-users.md
         - name: Dashboard with application data
           href: app/tutorial-app-dashboards.md
-        - name: Monitor mobile or UWP application
-          href: app/mobile-center-quickstart.md
     - name: Auto-instrumentation
       items:
       - name: Overview
@@ -940,8 +938,6 @@ items:
       items:
       - name: SharePoint sites
         href: app/sharepoint.md
-      - name: Windows desktop
-        href: app/windows-desktop.md
   - name: Container insights
     items:
     - name: Overview
