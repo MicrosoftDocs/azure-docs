@@ -11,7 +11,7 @@ ms.date: 12/09/2021
 
 # Microsoft Purview backup and recovery for migration best practices  
 
-This article provides guidance on backup and recovery strategy when your organization has Microsoft Purview in production deployment. You can also use this general guideline to implement account migration. The scope of this article is to cover [manual BCDR methods](disaster-recovery.md) where you could automate using APIs. There's some key information to consider upfront: 
+This article provides guidance on backup and recovery strategy when your organization has [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions) in production deployment. You can also use this general guideline to implement account migration. The scope of this article is to cover [manual BCDR methods](disaster-recovery.md) where you could automate using APIs. There's some key information to consider upfront: 
 
 - It isn't advisable to back up "scanned" assets' details. You should only back up the curated data such as mapping of classifications and glossaries on assets. The only case when you need to back up assets' details is when you have custom assets via custom `typeDef`.
 

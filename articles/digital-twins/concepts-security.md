@@ -50,7 +50,7 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 #### Authorization: Azure roles for Azure Digital Twins
 
-Azure provides two Azure built-in roles for authorizing access to the Azure Digital Twins [data plane APIs](concepts-apis-sdks.md#overview-data-plane-apis). You can refer to the roles either by name or by ID:
+Azure provides two Azure built-in roles for authorizing access to the Azure Digital Twins [data plane APIs](concepts-apis-sdks.md#data-plane-apis). You can refer to the roles either by name or by ID:
 
 | Built-in role | Description | ID | 
 | --- | --- | --- |

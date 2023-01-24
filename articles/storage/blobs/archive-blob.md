@@ -2,7 +2,6 @@
 title: Archive a blob
 titleSuffix: Azure Storage
 description: Learn how to create a blob in the Archive tier, or move an existing blob to the Archive tier.
-services: storage
 author: normesta
 
 ms.service: storage

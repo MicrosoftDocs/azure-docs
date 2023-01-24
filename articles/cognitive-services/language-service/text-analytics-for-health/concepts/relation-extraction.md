@@ -8,19 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
 
 # Relation extraction
 
-Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description.  
-
-
-## Relation extraction output
-
-Text Analytics for health recognizes relations between different concepts, including relations between attribute and entity (for example, direction of body structure, dosage of medication) and between entities (for example, abbreviation detection).
+Text Analytics for health features relation extraction, which is used to  identify meaningful connections between concepts, or entities, mentioned in the text. For example, a "time of condition" relation is found by associating a condition name with a time. Another example is a "dosage of medication" relation, which is found by relating an extracted medication to its extracted dosage. The following example shows how relations are expressed in the JSON output.
 
 > [!NOTE]
 > * Relations referring to CONDITION may refer to either the DIAGNOSIS entity type or the SYMPTOM_OR_SIGN entity type.
@@ -62,7 +57,7 @@ Relation extraction output contains URI references and assigned roles of the ent
 
 ## Recognized relations
 
-The following relations can be returned by the API. 
+The following list presents all the recognized relations by the Text Analytics for health API. 
 
 **ABBREVIATION**
 
@@ -133,3 +128,7 @@ The following relations can be returned by the API.
 **VALUE_OF_EXAMINATION**
 
 **VARIANT_OF_GENE**
+
+## Next steps
+
+* [How to call the Text Analytics for health](../how-to/call-api.md)

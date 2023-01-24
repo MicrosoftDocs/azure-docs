@@ -15,7 +15,16 @@ keywords:
 
 # What's new in Azure OpenAI
 
-## December 2022 - Azure OpenAI General Availability (GA)
+## January 2023
+
+### New Features
+
+* **Service GA**. Azure OpenAI is now generally available.​
+
+* **New models**: Addition of the latest text model, text-davinci-003
+
+
+## December 2022
 
 ### New features
 
@@ -59,7 +68,7 @@ keywords:
 }
 ```
 
-**GA API 2022-12-01:**
+**API version 2022-12-01:**
 
 ```json
 {​

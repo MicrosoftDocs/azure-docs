@@ -107,6 +107,10 @@
       href: global-hub-profile.md
     - name: User groups - assign client-specific addresses 
       href: user-groups-about.md
+  - name: ExpressRoute
+    items:
+    - name: About ExpressRoute in Virtual WAN
+      href: virtual-wan-expressroute-about.md
   - name: Virtual hub settings
     href: hub-settings.md
   - name: Gateway settings

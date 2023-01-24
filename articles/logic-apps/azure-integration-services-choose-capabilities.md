@@ -1,16 +1,18 @@
 ---
 title: Choose the best Azure integration services for your scenarios
 description: How to choose the best Azure Integration Services capabilities for your scenarios and requirements.
-services: architecture-center
-ms.service: architecture-center
+services: logic-apps
+ms.service: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, kewear, azla
+author: kewear
+ms.author: kewear
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/13/2022
-# As an Azure customer, I want to better understand which offerings in Azure Integration Services work best for my integration scenarios and requirements.
+ms.date: 12/15/2022
+# As an Azure customer, I want to better understand which Azure Integration Services capabilities work best for my integration scenarios and requirements.
 ---
 
-# Choose the best capabilities in Azure Integration Services for enterprise integration scenarios
+# Choose the best integration services in Azure for enterprise integration scenarios
 
 Azure Integration Services offers many capabilities across this collection of integration services, but some overlapping capabilities might exist. This guide provides information to help you choose the best services for your enterprise integration scenarios and requirements. Remember also to consider the full impact of using a particular service, including performance requirements, skill set availability, operational support, and costs.
 
@@ -18,7 +20,7 @@ Azure Integration Services offers many capabilities across this collection of in
 >
 > If you're a BizTalk Server customer looking to move your workloads to Azure Integration Services, 
 > you can get a migration overview and compare the capabilities between these two offerings by reviewing 
-> [Why migrate from BizTalk Server to Azure Integration Services?](biztalk-server-to-azure-integration-services-overview.md).
+> [Why migrate from BizTalk Server to Azure Integration Services?](biztalk-server-to-azure-integration-services-overview.md)
 
 ## When to choose a specific integration service and why
 

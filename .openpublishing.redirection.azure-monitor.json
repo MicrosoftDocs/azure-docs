@@ -1,6 +1,26 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/azure-monitor/best-practices.md",
+            "redirect_url": "/azure/azure-monitor/getting-started",
+            "redirect_document_id": false
+         },
+         {
+            "source_path_from_root": "/articles/azure-monitor/change/change-analysis-query.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-visualizations",
+            "redirect_document_id": false
+         },
+         {
+            "source_path_from_root": "/articles/azure-monitor/change/tutorial-outages.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-track-outages",
+            "redirect_document_id": false
+         }, 
+        {
+            "source_path_from_root": "/articles/azure-monitor/change/change-analysis-custom-filters.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-visualizations",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/change/change-analysis-powershell.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis",
             "redirect_document_id": false
@@ -3768,13 +3788,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema-definitions.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema-definitions.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema-definitions",
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-common-schema-definitions.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
             "redirect_document_id": false
         },
         {
@@ -5585,6 +5610,66 @@
         {
             "source_path_from_root": "/articles/azure-monitor/vm/tutorial-monitor-vm-enable.md",
             "redirect_url": "/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/collect-sccm.md",
+            "redirect_url": "/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-overview.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-migrate.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-enable.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-alerts.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-configure.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-configure-dcr.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-configure.md",
+            "redirect_url": "/azure/azure-monitor/vm/monitor-virtual-machine-data-collection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-security.md",
+            "redirect_url": "/azure/azure-monitor/vm/monitor-virtual-machine#security-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-workloads.md",
+            "redirect_url": "/azure/azure-monitor/vm/monitor-virtual-machine-data-collection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/azure-data-explorer-monitor-cross-service-query.md",
+            "redirect_url": "/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy",
             "redirect_document_id": false
         }
     ]

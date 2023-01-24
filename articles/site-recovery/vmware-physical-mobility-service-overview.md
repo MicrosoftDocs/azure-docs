@@ -6,7 +6,8 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 09/21/2022
+ms.date: 12/13/2022
+ms.custom: engagement-fy23
 ---
 
 # About the Mobility service for VMware VMs and physical servers
