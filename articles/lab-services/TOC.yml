@@ -11,7 +11,7 @@
   expanded: true
   items:
     - name: Create a lab in the Azure portal
-      href: quick-create-lab-portal.md
+      href: quick-create-lab-plan-portal.md
 - name: Tutorials
   items:
   - name: Set up a lab plan (admin)
