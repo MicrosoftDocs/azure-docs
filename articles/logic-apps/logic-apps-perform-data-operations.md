@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/06/2023
+ms.date: 01/26/2023
 # As a developer using Azure Logic Apps, I want to perform various data operations on arrays for my workflow in Azure Logic Apps.
 ---
 
@@ -707,54 +707,102 @@ If you used the Office 365 Outlook action, you get a result similar to the follo
 
 ## Filter array action
 
-To create a smaller array that has items, which meet specific criteria, from an existing array, use the **Filter array** action. You can then use the filtered array in actions that follow after the **Filter array** action.
+To create a subset array from an existing array where the subset items meet specific criteria, use the **Filter array** action. You can then use resulting filtered array in actions that follow the **Filter array** action.
 
 > [!NOTE]
-> Any filter text that you use in your condition is case sensitive. Also, this action can't change the format or components of items in the array. 
-> 
-> For actions to use the array output from the **Filter array** action, either those actions must accept arrays as input, or you might 
-> have to transform the output array into another compatible format.
-> 
-> If you call an HTTP endpoint and receive a JSON response, use the **Parse JSON** action to process the JSON response. 
-> Otherwise, the **Filter array** action can read only the response body and not the structure of the JSON payload.
+>
+> Any filter text that you use in your condition is case sensitive. Also, this action 
+> can't change the format or components of items in the array.
+>
+> For actions to use the array output from the **Filter array** action, either those 
+> actions must accept arrays as input, or you might have to transform the output array 
+> into another compatible format.
+>
+> If you call an HTTP endpoint and receive a JSON response, use the **Parse JSON** action 
+> to process the JSON response. Otherwise, the **Filter array** action can read only the 
+> response body and not the structure of the JSON payload.
 
-If you prefer working in the code view editor, you can copy the example **Filter array** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Filter array](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
+To try the **Filter array** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Filter array** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Filter array](logic-apps-data-operations-code-samples.md#filter-array-action-example). For more information about the **Filter array** action in the underlying JSON workflow definition, see the [Query action](logic-apps-workflow-actions-triggers.md#query-action).
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app in Logic App Designer.
+### [Consumption](#tab/consumption)
 
-   This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is an array that has some sample integers. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
+1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
+
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create where the initial value is an array that has some sample integer values.
 
    > [!NOTE]
+   >
    > Although this example uses a simple integer array, this action is especially useful for JSON 
    > object arrays where you can filter based on the objects' properties and values.
 
-   ![Starting sample logic app for "Filter array" action](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
+   ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the "Filter array" action.](./media/logic-apps-perform-data-operations/sample-start-filter-array-action-consumption.png)
 
-1. In your logic app where you want to create the filtered array, follow one of these steps: 
+1. In your workflow where you want to create the filtered array, follow one of these steps:
 
    * To add an action under the last step, select **New step**.
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. In the search box, enter `filter array` as your filter. From the actions list, select the **Filter array** action.
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **filter array**.
 
-   ![Select "Filter array" action](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
+1. From the actions list, select the action named **Filter array**.
 
-1. In the **From** box, provide the array or expression you want to filter.
+   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box with "filter array" entered, and the "Filter array" action selected.](./media/logic-apps-perform-data-operations/select-filter-array-action-consumption.png)
+
+1. In the **From** box, enter the array or expression to use as the filter.
 
    For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
 
-   ![Select array output for creating filtered array](./media/logic-apps-perform-data-operations/configure-filter-array-action.png)
+   ![Screenshot showing the designer for a Consumption workflow, the "Filter array" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-filter-array-action-consumption.png)
 
 1. For the condition, specify the array items to compare, select the comparison operator, and specify the comparison value.
 
-   This example uses the `item()` function for accessing each item in the array while the **Filter array** action searches for array items whose value is greater than one:
+   This example uses the `item()` function to access each item in the array, while the **Filter array** action searches for array items where the value is greater than one. The following screenshot shows the finished example **Filter array** action:
 
-   ![Finished example for "Filter array" action](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
+   ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Filter array" action.](./media/logic-apps-perform-data-operations/finished-filter-array-action-consumption.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-For more information about this action in your underlying workflow definition, see [Query action](../logic-apps/logic-apps-workflow-actions-triggers.md#query-action).
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
+
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create where the initial value is an array that has some sample integer values.
+
+   > [!NOTE]
+   >
+   > Although this example uses a simple integer array, this action is especially useful for JSON 
+   > object arrays where you can filter based on the objects' properties and values.
+
+   ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Filter array" action.](./media/logic-apps-perform-data-operations/sample-start-filter-array-action-standard.png)
+
+1. In your workflow where you want to create the filtered array, follow one of these steps:
+
+   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
+
+   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **filter array**.
+
+1. From the actions list, select the action named **Filter array**.
+
+   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "filter array" entered, and the "Filter array" action selected.](./media/logic-apps-perform-data-operations/select-filter-array-action-standard.png)
+
+1. In the **From** box, enter the array or expression to use as the filter.
+
+   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+
+   ![Screenshot showing the designer for a Standard workflow, the "Filter array" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-filter-array-action-standard.png)
+
+1. For the condition, specify the array items to compare, select the comparison operator, and specify the comparison value.
+
+   This example uses the `item()` function to access each item in the array, while the **Filter array** action searches for array items where the value is greater than one. The following screenshot shows the finished example **Filter array** action:
+
+   ![Screenshot showing the designer for a Standard workflow and the finished example for the "Filter array" action.](./media/logic-apps-perform-data-operations/finished-filter-array-action-standard.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+---
 
 ### Test your logic app
 
