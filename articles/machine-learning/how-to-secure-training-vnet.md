@@ -147,7 +147,11 @@ In the `az ml compute create` command, replace the following values:
 * `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
 
 ```azurecli
-az ml compute create --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute or ComputeInstance --enable-node-public-ip false
+# create a compute cluster with no public IP
+az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute --set enable_node_public_ip=False
+
+# create a compute instance with no public IP
+az ml compute create --name myci --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type ComputeInstance --set enable_node_public_ip=False
 ```
 
 # [Python](#tab/python)
@@ -246,7 +250,11 @@ In the `az ml compute create` command, replace the following values:
 * `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
 
 ```azurecli
-az ml compute create --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute or ComputeInstance
+# create a compute cluster with a public IP
+az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type AmlCompute
+
+# create a compute instance with a public IP
+az ml compute create --name myci --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --type ComputeInstance
 ```
 
 # [Python](#tab/python)
