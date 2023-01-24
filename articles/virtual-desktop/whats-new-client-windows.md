@@ -34,7 +34,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
    - Various bug fixes for multimedia redirection (MMR) video playback redirection.
 
 >[!IMPORTANT]
->This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the client with Windows 7, it won't work.
+>This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the client with Windows 7, it may not work as expected.
 
 ## Updates for version 1.2.3770
 
