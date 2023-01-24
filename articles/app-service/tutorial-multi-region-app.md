@@ -15,14 +15,14 @@ High availability and fault tolerance are key components of a well-architected s
 
 When you deploy your application to the cloud, you choose a region in that cloud where your application infrastructure is based. If your application is deployed to a single region, and the region becomes unavailable, your application will also be unavailable. This lack of availability may be unacceptable under the terms of your application's SLA. If so, deploying your application and its services across multiple regions is a good solution. A multi-region deployment can use an active-active or active-passive configuration. An active-active configuration distributes requests across multiple active regions. An active-passive configuration keeps warm instances in the secondary region, but doesn't send traffic there unless the primary region fails. For multi-region deployments, you should deploy to [paired regions](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For more information on designing apps for high availability and fault tolerance, see [Architect Azure applications for resiliency and availability](/azure/architecture/reliability/architect).
 
-In tutorial, you'll learn how to deploy a highly available multi-region web app. This scenario will be kept simple by restricting the application components to just a web app and [Azure Front Door](../frontdoor/front-door-overview.md), but the concepts can be expanded and applied to other infrastructure patterns. For example, if your application connects to an Azure database offering or storage account, see [active geo-replication for SQL databases](/azure/azure-sql/database/active-geo-replication-overview) and [redundancy options for storage accounts](../storage/common/storage-redundancy.md). For a reference architecture for a more detailed scenario, see [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+In this tutorial, you'll learn how to deploy a highly available multi-region web app. This scenario will be kept simple by restricting the application components to just a web app and [Azure Front Door](../frontdoor/front-door-overview.md), but the concepts can be expanded and applied to other infrastructure patterns. For example, if your application connects to an Azure database offering or storage account, see [active geo-replication for SQL databases](/azure/azure-sql/database/active-geo-replication-overview) and [redundancy options for storage accounts](../storage/common/storage-redundancy.md). For a reference architecture for a more detailed scenario, see [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 :::image type="content" source="./media/tutorial-multi-region-app/multi-region-app-service.png" alt-text="Architecture diagram of a multi-region App Service.":::
 
 With this architecture:
 
 - Identical App Service apps are deployed in two separate regions.
-- Public traffic directly to the App Services is blocked.
+- Public traffic directly to the App Service apps is blocked.
 - Azure Front Door is used route traffic to the primary/active region, while the other region is a hot-standby.
 
 What you'll learn:
@@ -158,7 +158,7 @@ In a browser, go to the endpoint hostname that the previous command returned: `<
 To test instant global failover:
 
 1. Open a browser and go to the endpoint hostname: `<myendpoint>-<hash>.z01.azurefd.net`.
-1. Stop the primary app by running [az webapp stop](/cli/azure/webapp#az-webapp-stop&preserve-view=true)
+1. Stop the primary app by running [az webapp stop](/cli/azure/webapp#az-webapp-stop&preserve-view=true).
 
     ```azurecli-interactive
     az webapp stop --name <web-app-east-us> --resource-group myresourcegroup
@@ -166,8 +166,8 @@ To test instant global failover:
 
 1. Refresh your browser. You should see the same information page because traffic is now directed to the running app in West US.
 
-> [!TIP]
-> You might need to refresh the page a couple times as failover may take a couple seconds.
+    > [!TIP]
+    > You might need to refresh the page a couple times as failover may take a couple seconds.
 
 1. Now stop the secondary app.
 
@@ -217,7 +217,9 @@ Deploying your application code directly to production apps/slots isn't recommen
 
 You already created the baseline infrastructure for this scenario. You'll now create deployment slots for each instance of your app and configure continuous deployment to these staging slots with GitHub Actions. As with infrastructure management, configuring continuous deployment for your application source code is also recommended to ensure changes across regions are in sync. If you don’t configure continuous deployment, you’ll need to manually update each app in each region every time there's a code change.
 
-Be sure to set the App Service stack settings for your apps. Stack settings refer to the language or runtime used for your app. This setting can be configured using the Azure CLI with the `az webapp config set` command or in the portal with the following steps.
+For the remaining steps in this tutorial, you should have an app ready to deploy to your App Services. If you need a sample app, you can use the [Node.js Hello World sample app](https://github.com/Azure-Samples/nodejs-docs-hello-world). Fork that repository so you have your own copy.
+
+Be sure to set the App Service stack settings for your apps. Stack settings refer to the language or runtime used for your app. This setting can be configured using the Azure CLI with the `az webapp config set` command or in the portal with the following steps. If you use the Node.js sample, set the stack settings to "Node 18 LTS".
 
 1. Going to your app and selecting **Configuration** in the left-hand table of contents.
 1. Select the **General settings** tab.
@@ -238,26 +240,31 @@ To set up continuous deployment, you should use the Azure portal. For detailed g
 To configure continuous deployment with GitHub Actions, complete the following steps for each of your staging slots.
 
 1. In the [Azure portal](https://portal.azure.com), go to the management page for one of your App Service app slots.
-
 1. In the left pane, select **Deployment Center**. Then select **Settings**. 
-
 1. In the **Source** box, select "GitHub" from the CI/CD options:
 
     :::image type="content" source="media/app-service-continuous-deployment/choose-source.png" alt-text="Screenshot that shows how to choose the deployment source":::
 
 1. If you're deploying from GitHub for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
-
 1. After you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to configure CI/CD for. If you can’t find an organization or repository, you might need to enable more permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
 
+    1. If you're using the Node.js sample app, use the following settings.
+        
+        |Setting       |Value                        |
+        |--------------|-----------------------------|
+        |Organization  |`<your-GitHub-organization>` |
+        |Repository    |nodejs-docs-hello-world      |
+        |Branch        |main                         |
+        
 1. Select **Save**.
-   
+
     New commits in the selected repository and branch now deploy continuously into your App Service app slot. You can track the commits and deployments on the **Logs** tab.
 
 A default workflow file that uses a publish profile to authenticate to App Service is added to your GitHub repository. You can view this file by going to the `<repo-name>/.github/workflows/` directory.
 
 ### Disable basic auth on App Service
 
-Consider [disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html), which limits access to the FTP and SCM endpoints to users that are backed by Azure Active Directory (Azure AD). If using a continuous deployment tool to deploy your application source code, disabling basic auth will require [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you won't be able to use a publish profile since that authentication mechanism doesn't used Azure AD backed credentials. Instead, you'll need to use either a [service principal or OpenID Connect](deploy-github-actions.md#generate-deployment-credentials).
+Consider [disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html), which limits access to the FTP and SCM endpoints to users that are backed by Azure Active Directory (Azure AD). If using a continuous deployment tool to deploy your application source code, disabling basic auth will require [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you won't be able to use a publish profile since that authentication mechanism doesn't use Azure AD backed credentials. Instead, you'll need to use either a [service principal or OpenID Connect](deploy-github-actions.md#generate-deployment-credentials).
 
 To disable basic auth for your App Service, run the following commands for each app and slot by replacing the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with your app names. The first set of commands disables FTP access for the production sites and staging slots, and the second set of commands disables basic auth access to the WebDeploy port and SCM site for the production sites and staging slots.
 
@@ -285,7 +292,7 @@ If you disable basic auth for your App Services, continuous deployment requires 
 
 To configure continuous deployment with GitHub Actions and a service principal, use the following steps.
 
-1. Run the following command to create the [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Replace the placeholders with your `<subscription-id>` and app names. The output is a JSON object with the role assignment credentials that provide access to your App Service apps. Copy this JSON object for the next step. It will include your client secret, which will only be visible at this time. It's always a good practice to grant minimum access. The scope in this example is limited to the apps and not the entire resource group.
+1. Run the following command to create the [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Replace the placeholders with your `<subscription-id>` and app names. The output is a JSON object with the role assignment credentials that provide access to your App Service apps. Copy this JSON object for the next step. It will include your client secret, which will only be visible at this time. It's always a good practice to grant minimum access. The scope in this example is limited to just the apps, not the entire resource group.
 
     ```bash
     az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/<web-app-east-us> /subscriptions/<subscription-id>/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/<web-app-west-us> --sdk-auth
@@ -293,11 +300,11 @@ To configure continuous deployment with GitHub Actions and a service principal, 
 
 1. You need to provide your service principal's credentials to the Azure Login action as part of the GitHub Action workflow you'll be using. These values can either be provided directly in the workflow or can be stored in a GitHub secret and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
     1. Open your GitHub repository and go to **Settings** > **Security** > **Secrets and variables** > **Actions** > **New repository secret**.
-    1. Paste the entire JSON output from the Azure CLI command from the initial step into the secret's value field. Use `AZURE_CREDENTIALS` for the name of the secret. When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action.
+    1. Paste the entire JSON output from the Azure CLI command from the initial step into the secret's value field. Use `AZURE_CREDENTIALS` for the name of the secret. When you configure the workflow file in the next step, you use the secret for the input `creds` of the Azure Login action.
 
 ### Create the GitHub Actions workflow
 
-Now that you have a service principal that can access your App Service apps, you need to edit the default workflows that were created for your apps when you configured continuous deployment. Authentication must be done using your service principal instead of the publish profile. For sample workflows, see the "Service principal" tab in [Deploy to App Service](deploy-github-actions.md#deploy-to-app-service). The following sample workflow can be used for Node.js apps.
+Now that you have a service principal that can access your App Service apps, you need to edit the default workflows that were created for your apps when you configured continuous deployment. Authentication must be done using your service principal instead of the publish profile. For sample workflows, see the "Service principal" tab in [Deploy to App Service](deploy-github-actions.md#deploy-to-app-service). The following sample workflow can be used for the Node.js sample app that was provided.
 
 1. Open your app's GitHub repository and go to the `<repo-name>/.github/workflows/` directory. You'll see the autogenerated workflows.
 1. For each workflow file, select the "pencil" button in the top right to edit the file. Replace the contents with the following text, which assumes you created the GitHub secrets earlier for your credential. Update the placeholder for `<web-app-name>` under the "env" section, and then commit directly to the main branch. This commit will trigger the GitHub Action to run again and deploy your code, this time using the service principal to authenticate.
@@ -407,7 +414,7 @@ With Azure App service, the SCM/advanced tools site is used to manage your apps 
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
