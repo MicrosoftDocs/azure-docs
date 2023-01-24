@@ -15,7 +15,7 @@ sections:
     questions:
       - question: What is MicrosoftServiceLinker and why is it registered in my subscription?
         answer: |
-         [!INCLUDE [Service Connector MicrosoftServiceLinker](../../includes/service-connector-service-linker.md)]
+         [!INCLUDE [Service Connector Microsoft.ServiceLinker](../../includes/service-connector-service-linker.md)]
       - question: How much does Service Connector cost?
         answer: | 
          There are no fees associated with using Service Connector.
