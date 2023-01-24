@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/23/2023
+ms.date: 01/24/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -53,7 +53,7 @@ Ensure the following prerequisites are met.
 * An Azure subscription
   * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free)
 * An Azure AD tenant linked to the Azure subscription
-  * See, [Quickstart: Create a new tenant in Azure Active Directory.](../fundamentals/active-directory-access-create-new-tenant.md)
+  * See, [Quickstart: Create a new tenant in Azure Active Directory](../fundamentals/active-directory-access-create-new-tenant.md)
 * Docker and Docker Compose
   * Go to docs.docker.com to [Get Docker](https://docs.docker.com/get-docker) and [Install Docker Compose](https://docs.docker.com/compose/install)
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to an on-premises directory
@@ -73,7 +73,7 @@ To integrate Oracle PeopleSoft with Azure AD:
   
    ![Screenshot of the Getting Started button.](./media/access-oracle-peoplesoft-using-datawiza/getting-started-button.png)
 
-4. In the Name and Description fields, enter the relevant information.
+4. In the **Name** and **Description** fields, enter information.
 
    ![Screenshot of the Name field under Deployment Name.](./media/access-oracle-peoplesoft-using-datawiza/deployment-details.png)
 
@@ -110,9 +110,9 @@ The Oracle PeopleSoft application needs to recognize the user. Using a name, it 
 
 1. In Oracle PeopleSoft, from the left navigation, select **Applications**.
 2. Select the **Attribute Pass** subtab.
-3. For Field, select email.
-4. For Expected, select PS_SSO_UID.
-5. For Type, select Header.
+3. For **Field**, select **email**.
+4. For **Expected**, select **PS_SSO_UID**.
+5. For **Type**, select **Header**.
 
    ![Screenshot of the Attribute Pass feature with Field, Expected and Type entries.](./media/access-oracle-peoplesoft-using-datawiza/attribute-pass.png)
 
@@ -188,7 +188,7 @@ To enable SSO in the Oracle PeopleSoft environment:
 9. Select the **Sign on PeopleCode** page.
 10. Enable **OAMSSO_AUTHENTICATION**.
 11. Select **Save**.
-12. To onfigure PeopleCode using the PeopleTools application designer, navigate to **File > Open > Definition: Record > Name: `FUNCLIB_LDAP`**.
+12. To configure PeopleCode using the PeopleTools application designer, navigate to **File > Open > Definition: Record > Name: `FUNCLIB_LDAP`**.
 13. Open **FUNCLIB_LDAP**.
 
     ![Screenshot of the Open Definition dialog.](./media/access-oracle-peoplesoft-using-datawiza/selection-criteria.png)
@@ -209,7 +209,7 @@ To confirm Oracle PeopleSoft application access occurs correctly, a prompt appea
 
 ## Next steps
 
-- Video: [Enable SSO and MFA for Oracle JD Edwards with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90).
+- Video: [Enable SSO and MFA for Oracle JD Edwards with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90)
 - [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-with-azure-ad.md)
 - [Tutorial: Configure Azure AD B2C with Datawiza to provide secure hybrid access](../../active-directory-b2c/partner-datawiza.md)
 - Go to docs.datawiza.com for Datawiza [User Guides](https://docs.datawiza.com/)
