@@ -154,7 +154,6 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 |`key`|The public key, in Privacy Enhanced Mail (PEM) format|N/A|
 |`cert`|The certificate, in PEM format|No|
 |`secret`|The private key and certificate, in PEM format|Yes|
-| | |
 
 ## Disable the Azure Key Vault Provider for Secrets Store CSI Driver on an existing AKS cluster
 
@@ -297,8 +296,7 @@ Metrics are served via Prometheus from port 8898, but this port isn't exposed ou
 * Access the metrics over localhost using `kubectl port-forward`.
 
     ```bash
-    kubectl port-forward -n kube-system ds/aks-secrets-store-provider-azure 8898:8898 &
-curl localhost:8898/metrics
+    kubectl port-forward -n kube-system ds/aks-secrets-store-provider-azure 8898:8898 & curl localhost:8898/metrics
     ```
 
 The following table lists the metrics that are provided by the Azure Key Vault Provider for Secrets Store CSI Driver:
@@ -307,7 +305,6 @@ The following table lists the metrics that are provided by the Azure Key Vault P
 |----|----|----|
 |keyvault_request|The distribution of how long it took to get from the key vault|`os_type=<runtime os>`, `provider=azure`, `object_name=<keyvault object name>`, `object_type=<keyvault object type>`, `error=<error if failed>`|
 |grpc_request|The distribution of how long it took for the gRPC requests|`os_type=<runtime os>`, `provider=azure`, `grpc_method=<rpc full method>`, `grpc_code=<grpc status code>`, `grpc_message=<grpc status message>`|
-| | |
 
 ### The Secrets Store CSI Driver
 
