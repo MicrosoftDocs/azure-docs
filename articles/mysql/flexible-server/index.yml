@@ -116,6 +116,8 @@ landingContent:
           url: connect-php.md
         - text: Connect using MySQL workbench
           url: connect-workbench.md
+        - text: Connect using Azure Data Studio
+          url: /sql/azure-data-studio/quickstart-mysql
         - text: Connect using Python
           url: connect-python.md
       - linkListType: tutorial
