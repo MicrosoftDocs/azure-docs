@@ -123,7 +123,7 @@ It's an optional step, after the site migration it is recommended to validate th
 The following WordPress settings are recommended. However, when the users migrate their custom sites, is it up to them to decide whether to use these settings or not.
 
 1. Open the WordPress Admin dashboard.
-2. Set the permalink structure to 'day and name', as it performs better compared to the plain permalinks that uses the format **?p=123**.
+2. Set the permalink structure to 'day and name', as it performs better compared to the plain permalinks that use the format **?p=123**.
 3. Under the comment settings, enable the option to break comments into pages.
 4. Show excerpts instead of the full post in the feed.
 
