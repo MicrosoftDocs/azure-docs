@@ -97,9 +97,15 @@ In this article you learn how to secure the following training compute resources
 ## Compute instance/cluster with no public IP
 
 > [!IMPORTANT]
-> If you have been using compute instances configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20 (when the feature is generally available).
+> If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20 (when the feature is generally available).
 > 
-> For existing compute clusters configured for no public IP, once the cluster has been reduced to 0 nodes (requires the minimum nodes to be configured as 0), it will take advantage of the new architecture the next time nodes are allocated after the subscription is allowlisted.
+> If you were previously using the preview of no public IP, you may also need to modify what traffic you allow inbound and outbound, as the requirements have changed for general availability:
+> * Outbound requirements - Two additional outbounds:
+>     - `AzureMachineLearning` service tag on UDP port 5831.
+>     - `BatchNodeManagement` service tag on TCP port 443.
+> * Inbound requirements - The inbound requirements have been removed for the no public IP configuration.
+> * Private endpoint and link policy - You no longer need to disable these policies to use the no public IP configuration.
+> * Network resources - We no longer create additional Azure Network resources for the no public IP configuration. Deleting and recreating your compute instance and compute cluster resources will remove any additional network resources that may have been created while using the public preview of this feature.
 
 The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** a compute instances/clusters configured for no public IP:
 
