@@ -11,6 +11,8 @@ This article describes how to manage individual sensors, such as managing activa
 
 You can also perform some management tasks for multiple sensors simultaneously from the Azure portal or an on-premises management console. For more information, see [Next steps](#next-steps).
 
+[!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
+
 ## View overall sensor status
 
 When you sign into your sensor, the first page shown is the **Overview** page.
@@ -454,7 +456,7 @@ This feature is supported for the following sensor versions:
 
 ## Retrieve forensics data stored on the sensor
 
-Use Defender for IoT data mining reports on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
+Use Defender for IoT data mining reports on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data are stored locally on OT sensors, for devices detected by that sensor:
 
 - Device data
 - Alert data
@@ -481,7 +483,7 @@ Clearing data deletes all detected or learned data on the sensor. After clearing
 
 1. In the confirmation dialog box, select **Yes** to confirm that you do want to clear all data from the sensor and reset it. For example:
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/clear-system-data.png" alt-text="Screenshot of clearing system data on the support page in the sensor console.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/clear-system-data.png" alt-text="Screenshot of clearing system data on the support page in the sensor console." lightbox="media/how-to-manage-individual-sensors/clear-system-data.png":::
 
 A confirmation message appears that the action was successful. All learned data, allowlists, policies, and configuration settings are cleared from the sensor.
 
