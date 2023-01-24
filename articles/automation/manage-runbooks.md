@@ -218,13 +218,8 @@ If your runbook normally runs within a time constraint, have the script implemen
 
 ## Retry logic in runbook to avoid transient failures
 
-As part of the core logic, most runbooks make calls to the remote systems. For example, the calls are to:
-- Azure via ARM
-- Azure Resource Graph
-- Other web services
-- SQL Services
-
-When the system (that the runbooks are calling) is busy, temporary unavailable or implementing throttling under load, the calls are vulnerable to have runtime errors. To build resiliency in the runbooks, you must implement the retry logic when making the calls so that the runbooks can handle a transient problem without failing. 
+Runbooks often make calls to remote systems such as Azure via ARM, Azure Resource Graph, SQL services and other web services.
+When the system that the runbooks are calling is busy, temporary unavailable or implementing throttling under load, the calls are vulnerable to have runtime errors. To build resiliency in the runbooks, you must implement retry logic when making the calls so that the runbooks can handle a transient problem without failing. 
 
 For more information, refer [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) and [General REST and retry guidelines](https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific#general-rest-and-retry-guidelines).
 
@@ -272,7 +267,7 @@ $resource = Get-AzureRmResource -ResourceType "Microsoft.Search/searchServices" 
 
 ### Example 2 : If the runbook is making frequent remote calls
 
-If the runbook is making frequent remote calls that it could experience transient runtime issues, then create a function that implements the logic for each call that is made and pass the call to be made in as a script block to execute.
+If the runbook is making frequent remote calls then it could experience transient runtime issues. Create a function that implements the retry logic for each call that is made and pass the call to be made in as a script block to execute.
 
 ```powershell
 Function ResilientRemoteCall {
