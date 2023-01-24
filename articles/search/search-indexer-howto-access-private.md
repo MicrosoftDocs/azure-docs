@@ -119,7 +119,7 @@ The definition of a shared private link is provided in a JSON file. The followin
 }
 ```
 
-When creating a private endpoint to a SQL Managed Instance, the `resourceRegion` parameter is required. This parameter comes from the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) of the [Fully Qualified Domain Name (FQDN)](/azure-sql/managed-instance/instance-create-quickstart#retrieve-connection-details-to-sql-managed-instance) of the SQL Managed Instance. For example, if the FQDN of the SQL Managed Instance is `my-sql-managed-instance.f1a3eb11c964.database.windows.net`, the `resourceRegion` should be `f1a3eb11c964`.
+When creating a shared private link to SQL Managed Instance, the `resourceRegion` parameter is required. This parameter comes from the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) of the [Fully Qualified Domain Name (FQDN)](/azure-sql/managed-instance/instance-create-quickstart#retrieve-connection-details-to-sql-managed-instance) of the SQL Managed Instance. For example, if the FQDN of the SQL Managed Instance is `my-sql-managed-instance.f1a3eb11c964.database.windows.net`, the `resourceRegion` should be `f1a3eb11c964`.
 
 ```json
 {
