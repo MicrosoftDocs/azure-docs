@@ -308,7 +308,7 @@ Currently, there's no support for downloading a report for a custom policy; only
 
 ### How can I create exceptions for some of the policies in the regulatory compliance dashboard?
 
-For policies that 's built into Defender for Cloud and included in the secure score, you can create exemptions for one or more resources directly in the portal as explained in [Exempting resources and recommendations from your secure score](exempt-resource.md).
+For policies are built into Defender for Cloud and included in the secure score, you can create exemptions for one or more resources directly in the portal as explained in [Exempting resources and recommendations from your secure score](exempt-resource.md).
 
 For other policies, you can create an exemption directly in the policy itself, by following the instructions in [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).
 

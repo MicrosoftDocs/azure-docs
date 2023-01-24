@@ -25,7 +25,7 @@ To get started with Defender for Cloud, you'll need a Microsoft Azure subscripti
 
 ## Enable Defender plans to get the enhanced security features
 
-To get all of the Defender for Cloud protections, you'll need to enable the Defender plans that protects for each of the workloads that you want to protect.
+To get all of the Defender for Cloud protections, you'll need to enable the Defender plans that protect for each of the workloads that you want to protect.
 
 > [!NOTE]
 > - You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level.

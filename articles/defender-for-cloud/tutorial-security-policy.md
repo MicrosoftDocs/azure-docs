@@ -94,7 +94,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 Some policies in your initiatives might be disabled by default. For example, in the Microsoft cloud security benchmark initiative, some policies are provided for you to enable only if they meet a specific regulatory or compliance requirement for your organization. Such policies include recommendations to encrypt data at rest with customer-managed keys, such as "Container registries should be encrypted with a customer-managed key (CMK)".
 
-To enable a disabled policy and ensure, it's assessed for your resources:
+To enable a disabled policy and ensure it's assessed for your resources:
 
 1. From Defender for Cloud's menu, open the **Environment settings** page. Here, you can see the management groups, subscriptions, and the initiatives applied to each.
 

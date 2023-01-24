@@ -117,7 +117,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 **To simulate a a Kubernetes workload security alert**:
  
-1. Create a pod to run a test command on. This pod can be any of the existing pods in the cluster, or a new pod. You can created using this sample yaml configuration:
+1. Create a pod to run a test command on. This pod can be any of the existing pods in the cluster, or a new pod. You can create using this sample yaml configuration:
     
     ```yaml
     apiVersion: v1
