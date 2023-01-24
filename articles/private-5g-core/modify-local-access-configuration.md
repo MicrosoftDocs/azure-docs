@@ -16,6 +16,10 @@ Access to the [distributed tracing](distributed-tracing.md) and [packet core das
 
 In this how-to guide, you'll learn how to use the Azure portal to change the certificate used for securing access to a site's local monitoring tools.
 
+> [!TIP]
+> If you have configured a user-assigned managed identity with access the HTTPS certificates for this site and do not want to replace this with local access configuration, do not follow this procedure.
+> Instead, if you want to modify the user-assigned identity configured for HTTPS certificates, [create a new or edit an existing user-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) using the information collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values).
+
 ## Prerequisites
 
 - Refer to [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to collect the required values and make sure they're in the correct format.
@@ -50,7 +54,7 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 
     :::image type="content" source="media//modify-local-access-configuration/local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab.":::
 
-1. Select **Next**. 
+1. Select **Next**.
 1. Azure will now validate the configuration values you entered. You should see a message indicating that your values have passed validation.
 
     :::image type="content" source="media//modify-local-access-configuration/modify-local-access-validation.png" alt-text="Screenshot of the Azure portal showing successful validation for a local access configuration change.":::
@@ -59,7 +63,7 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 1. Azure will now redeploy the packet core instance with the new configuration. The Azure portal will display a confirmation screen when this deployment is complete.
 1. Select **Go to resource**. Check that the fields under **Local access** contain the updated certificate information and successful provisioned status.
 1. If you added or updated a custom HTTPS certificate, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to check if your browser trusts the connection to your local monitoring tools. Note that:
-    
+
     - It may take up to four hours for the changes in the Key Vault to synchronize with the edge location.
     - You may need to clear your browser cache to observe the changes.
 

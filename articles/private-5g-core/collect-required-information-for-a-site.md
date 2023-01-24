@@ -83,7 +83,7 @@ If you want to configure diagnostics package gathering during site creation, fol
         1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. This will allow you to specify a time-based retention policy for the account in the next step.
     1. If you would like the content of your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
     1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your diagnostics.
-1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with write access to the storage account created above.
+1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with the **Storage Blob Data Contributor** role and write access to the storage account created above.
 1. Navigate to the **Packet core control plane** resource for the site.
 1. Assign the user-assigned managed identity you created to the **Packet core control plane** resource.
 
@@ -97,22 +97,28 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
 
    1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your certificate. Ensure the key vault is configured with **Azure Virtual Machines for deployment** resource access.
    1. Ensure your certificate is stored in your key vault. You can either [generate a Key Vault certificate](../key-vault/certificates/create-certificate.md) or [import an existing certificate to your Key Vault](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal#import-a-certificate-to-your-key-vault). Your certificate must:
-      
+
       - Be signed by a globally known and trusted CA.
       - Use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).
-      
+
       We also recommend setting a DNS name for your certificate.
 
    1. If you want to configure your certificate to renew automatically, see [Tutorial: Configure certificate auto-rotation in Key Vault](../key-vault/certificates/tutorial-rotate-certificates.md) for information on enabling auto-rotation.
 
       > [!NOTE]
+      >
       > - Certificate validation will always be performed against the latest version of the local access certificate in the Key Vault.
       > - If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
 
    1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).
 
       - [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Private Mobile Network** service principal.
-      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Private Mobile Network** service principal.
+      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (RBAC)](../key-vault/general/rbac-guide.md?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Private Mobile Network** service principal.
+
+   1. Assign the Key Vault access policy or Azure RBAC to a [user-assigned identity](../active-directory/managed-identities-azure-resources/overview.md).
+
+       - If you have an existing user-assigned identity configured for diagnostic collection you can modify.
+       - Otherwise, you can create a new user-assigned identity.
 
    1. Collect the values in the following table.
 
