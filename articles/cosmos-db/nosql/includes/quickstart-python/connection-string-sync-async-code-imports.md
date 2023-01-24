@@ -18,4 +18,6 @@ ms.custom: include file
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/002-quickstart-async/app.py" id="imports":::
 
+Note the `.aio` import for the async versions.
+
 ---

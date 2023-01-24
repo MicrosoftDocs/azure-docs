@@ -58,7 +58,7 @@ Use the `pip install` command to install packages you'll need in the tutorial.
 
 ### [Passwordless](#tab/passwordless)
 
-Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) and ['azure-identity`](https://pypi.org/project/azure-identity) PyPI packages to the Python app. 
+Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) and [`azure-identity`](https://pypi.org/project/azure-identity) PyPI packages to the Python app. 
 
 ```bash
 pip install azure-cosmos
@@ -117,7 +117,7 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-From the project directory, open the *app.py* file. In your editor, add modules to work with Cosmos as well as authenticate to Azure. You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the [`azure-identity`](https://pypi.org/project/azure-identity/) package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
+From the project directory, open the *app.py* file. In your editor, add modules to work with Cosmos as well as authenticate to Azure. You'll authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` from the [`azure-identity`](https://pypi.org/project/azure-identity/) package. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
 
 [!INCLUDE [sync async code imports - credential](./includes/quickstart-python/credential-string-sync-async-code-imports.md)]
 
