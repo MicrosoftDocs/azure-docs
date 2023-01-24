@@ -45,7 +45,7 @@ The following table describes the columns and data generated in the SentinelAudi
 
 | Resource types       | Operation names | Statuses |
 | -------------------- | --------------- | -------- |
-| **[Analytics rules](monitor-analytics-rule-integrity.md)** | - `Microsoft.SecurityInsights/alertRules/Write`<br>- `Microsoft.SecurityInsights/alertRules/Delete`<br>- ***OTHERS??? -YL*** | Success<br>Failure |
+| **[Analytics rules](monitor-analytics-rule-integrity.md)** | - `Microsoft.SecurityInsights/alertRules/Write`<br>- `Microsoft.SecurityInsights/alertRules/Delete` | Success<br>Failure |
 
 ## Extended properties
 

@@ -20,14 +20,10 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## January 2023
 
-- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
 - [Audit and monitor the health of your analytics rules (Preview)](#audit-and-monitor-the-health-of-your-analytics-rules-preview)
+- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
-
-### Monitor SAP system health and role (Preview)
-
-To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ### New incident investigation experience (Preview)
 
@@ -49,7 +45,9 @@ Learn more about [auditing and health monitoring in Microsoft Sentinel](health-a
 - [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
 - [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md)
 
+### Monitor SAP system health and role (Preview)
 
+To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ### Microsoft Purview Information Protection connector (Preview)
 

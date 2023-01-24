@@ -43,7 +43,9 @@ To configure the retention time for your audit and health events, see [Configure
 
 1. Scroll down to the **Auditing and health monitoring** section that appears below, and select it to expand.
 
-1. Select **Enable** to enable auditing and health monitoring across all resource types, or the **Configure diagnostic settings** link to enable health monitoring only for the data collector and automation resources, or to configure advanced options.
+1. Select **Enable** to enable auditing and health monitoring across all resource types and to send the auditing and monitoring data to your Microsoft Sentinel workspace (and nowhere else). 
+
+    Or, select the **Configure diagnostic settings** link to enable health monitoring only for the data collector and/or automation resources, or to configure advanced options, like additional places to send the data.
 
     :::image type="content" source="media/enable-monitoring/enable-health-monitoring.png" alt-text="Screenshot shows how to get to the health monitoring settings.":::
 
@@ -61,6 +63,8 @@ To configure the retention time for your audit and health events, see [Configure
 
         :::image type="content" source="media/enable-monitoring/diagnostic-settings.png" alt-text="Screenshot of diagnostic settings screen for enabling auditing and health monitoring.":::
 
+        If you require, you may select other destinations to which to send your data, in addition to the Log Analytics workspace.
+
 1. Select **Save** on the top banner to save your new setting.
 
 The *SentinelHealth* and *SentinelAudit* data tables are created at the first event generated for the selected resources.
@@ -70,7 +74,7 @@ The *SentinelHealth* and *SentinelAudit* data tables are created at the first ev
 In the Microsoft Sentinel **Logs** page, run a query on the  *SentinelHealth* table. For example:
 
 ```kusto
-SentinelHealth
+_SentinelHealth()
  | take 20
 ```
 
