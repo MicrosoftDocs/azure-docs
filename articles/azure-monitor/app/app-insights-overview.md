@@ -132,10 +132,10 @@ Supported platforms and frameworks are listed here.
   * [React](./javascript-react-plugin.md)
   * [React Native](./javascript-react-native-plugin.md)
   * [Angular](./javascript-angular-plugin.md)
-* [Windows desktop applications, services, and worker roles](./windows-desktop.md)
-* [Universal Windows app](../app/mobile-center-quickstart.md) (App Center)
-* [Android](../app/mobile-center-quickstart.md) (App Center)
-* [iOS](../app/mobile-center-quickstart.md) (App Center)
+* [Windows desktop applications, services, and worker roles](https://github.com/Microsoft/appcenter)
+* [Universal Windows app](https://github.com/Microsoft/appcenter) (App Center)
+* [Android](https://github.com/Microsoft/appcenter) (App Center)
+* [iOS](https://github.com/Microsoft/appcenter) (App Center)
 
 > [!NOTE]
 > OpenTelemetry-based instrumentation is available in preview for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
