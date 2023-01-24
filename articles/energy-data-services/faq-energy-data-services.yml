@@ -46,3 +46,9 @@ sections:
           answer: > 
             Microsoft Energy Data Services Preview is a fully managed OSDU&trade; Data Platform. It means that the underlying infrastructure, security updates, new features, and upgrade to new OSDU™ versions is fully managed by Microsoft.
 
+   - name: Feature updates
+      questions:
+        - question: Can I move a Microsoft Energy Data Services resource from one subscription or resource group to another? 
+          answer: > 
+            Today, you cannot move a Microsoft Energy Data Services resource from one subscription or resource group to another. Instead you can, delete the existing Microsoft Energy Data Services instance in the current resource group or subscription. Create a new Microsoft Energy Data Services instance in the target resource group or subscription. Next, re-ingest the data into the new Microsoft Energy Data Service instance.
+
