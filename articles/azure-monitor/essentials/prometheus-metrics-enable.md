@@ -216,7 +216,7 @@ The final `azureMonitorWorkspaceResourceId` entry is already in the template and
 
 Deploy the template with the parameter file using any valid method for deploying Resource Manager templates. See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates) for examples of different methods.
 
-## Limitations
+### Limitations
 
 - Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There's a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature won't work as expected.
 - A data collection rule and data collection endpoint is created with the name `MSProm-\<short-cluster-region\>-\<cluster-name\>`. These names can't currently be modified.
