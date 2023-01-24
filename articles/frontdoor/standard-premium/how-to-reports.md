@@ -347,10 +347,10 @@ The **security report** provides graphical and statistics views of WAF activity.
 |---------|---------|
 | Overview metrics - Matched WAF rules | Requests that match custom WAF rules, managed WAF rules and bot protection rules. |
 | Overview metrics - Blocked Requests | The percentage of requests that are blocked by WAF rules among all the requests that matched WAF rules. |
-| Overview metrics - Matched Managed Rules | Four line-charts trend for requests by action. Actions are *Block*, *Log*, *Allow*, and *Redirect*. |
+| Overview metrics - Matched Managed Rules | Requests that match managed WAF rules. |
 | Overview metrics - Matched Custom Rule | Requests that match custom WAF rules. |
 | Overview metrics - Matched Bot Rule | Requests that match bot protection rules. |
-| WAF request trend by action | Four line-charts trend for requests vy action. Actions are *Block*, *Log*, *Allow*, and *Redirect*. |
+| WAF request trend by action | Four line-charts trend for requests by action. Actions are *Block*, *Log*, *Allow*, and *Redirect*. |
 | Events by Rule Type | Doughnut chart of the WAF requests distribution by rule type. Rule types include bot protection rules, custom rules, and managed rules. |
 | Events by Rule Group | Doughnut chart of the WAF requests distribution by rule group. |
 | Requests by actions | A table of requests by actions, in descending order. |
