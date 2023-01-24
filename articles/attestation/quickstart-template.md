@@ -7,7 +7,7 @@ ms.service: attestation
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: mbaldwin
-ms.date: 11/14/2022
+ms.date: 01/23/2023
 ---
 
 # Quickstart: Create an Azure Attestation provider with an ARM template

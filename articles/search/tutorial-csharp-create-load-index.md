@@ -7,48 +7,69 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/01/2022
+ms.date: 12/04/2022
 ms.custom: devx-track-csharp
 ms.devlang: csharp
 ---
 
 # 2 - Create and load Search Index with .NET
 
-Continue to build your Search-enabled website by:
-* Create a Search resource with the VS Code extension
+Continue to build your search-enabled website by following these steps:
+* Create a search resource
 * Create a new index
 * Import data with .NET using the sample script and Azure SDK [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/).
 
-## Create an Azure Search resource 
+## Create an Azure Cognitive Search resource
 
-Create a new Search resource with the [Azure Cognitive Search](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) extension for Visual Studio Code.
+Create a new search resource using PowerShell and the **Az.Search** module. In this section, you'll also create a query key used for read-access to the index, and get the built-in admin key used for adding objects.
 
-1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
+1. In Visual Studio Code, open a new terminal window.
 
-1. In the Side bar, **right-click on your Azure subscription** under the `Azure: Cognitive Search` area and select **Create new search service**.
+1. Connect to Azure:
 
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-create-search-resource.png" alt-text="Screenshot of Visual Studio code showing the Azure explorer bar, right-click on your Azure subscription under the Azure: Cognitive Search area and select Create new search service.":::
+   ```powershell
+   Connect-AzAccount -TenantID <your-tenant-ID>
+   ```
 
-1. Follow the prompts to provide the following information:
+   > [!NOTE]
+   > You might need to provide a tenant ID, which you can find in the Azure portal in [Portal settings > Directories + subscriptions](../azure-portal/set-preferences.md).
+
+1. Before creating a new search service, you can list existing search services for your subscription to see if there's one you want to use:
+
+   ```powershell
+   Get-AzResource -ResourceType Microsoft.Search/searchServices | ft
+   ```
+
+1. Load the **Az.Search** module: 
+
+   ```powershell
+   Install-Module -Name Az.Search
+   ```
+
+1. Create a new search service. Use the following cmdlet as a template, substituting valid values for the resource group, service name, tier, region, partitions, and replicas:
+
+   ```powershell
+   New-AzSearchService -ResourceGroupName "my resource group"  -Name "myDemoSearchSvc" -Sku "Free" -Location "West US" -PartitionCount 1 -ReplicaCount 1 -HostingMode Default
+   ```
 
     |Prompt|Enter|
     |--|--|
-    |Enter a globally unique name for the new Search Service.|**Remember this name**. This resource name becomes part of your resource endpoint.|
+    |Enter a globally unique name for the new search service.|**Remember this name**. This resource name becomes part of your resource endpoint.|
     |Select a resource group for new resources|Use the resource group you created for this tutorial.|
-    |Select the SKU for your Search service.|Select **Free** for this tutorial. You can't change a SKU pricing tier after the service is created.|
+    |Select the SKU for your search service.|Use **Free** for this tutorial. You can't change a SKU pricing tier after the service is created.|
     |Select a location for new resources.|Select a region close to you.|
 
-1. After you complete the prompts, your new Search resource is created. 
+1. Create a query key that grants read access to a search service. Query keys have to be explicitly created. Copy the query key to Notepad so that you can paste it into the client code in a later step:
 
-## Get your Search resource admin key
+   ```powershell
+   New-AzSearchQueryKey -ResourceGroupName "my resource group"  -ServiceName "myDemoSearchSvc" -Name "mySrchQueryKey"
+   ```
 
-Get your Search resource admin key with the Visual Studio Code extension. 
+1. Get the search service admin API key that was automatically created for your search service. An admin API key provides write access to the search service. Copy either one of the admin keys to Notepad so that you can use it in the bulk import step that creates and loads an index:
 
-1. In Visual Studio Code, in the Side bar, right-click on your Search resource and select **Copy Admin Key**.
-
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-admin-key.png" alt-text="Screenshot of Visual Studio code showing the Azure explorer bar, right-click on your Search resource and select Copy Admin Key.":::
-
-1. Keep this admin key, you'll need to use it in [a later section](#prepare-the-bulk-import-script-for-search). 
+   ```powershell
+   Get-AzSearchAdminKeyPair  -ResourceGroupName "my resource group" -ServiceName "myDemoSearchSvc" 
+   ```
 
 ## Prepare the bulk import script for Search
 

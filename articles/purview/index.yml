@@ -196,6 +196,8 @@ landingContent:
           url: how-to-policies-devops-azure-sql-db.md
         - text: DevOps policies - Azure Arc enabled SQL Servers
           url: how-to-policies-devops-arc-sql-server.md
+        - text: DevOps policies - Resource groups and subscriptions
+          url: how-to-policies-devops-resource-group.md
         - text: Authoring and publishing data owner access policies
           url: how-to-policies-data-owner-authoring-generic.md
         - text: Data owner policies for Azure Storage

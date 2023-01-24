@@ -1,9 +1,6 @@
 ---
 title: "CI/CD Workflow using GitOps (Flux v2) - Azure Arc-enabled Kubernetes"
-description: "This article provides a conceptual overview of a CI/CD workflow using GitOps"
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Helm, Arc, AKS, CI/CD, Azure DevOps"
-services: azure-arc
-ms.service: azure-arc
+description: "This article provides a conceptual overview of a CI/CD workflow using GitOps."
 ms.date: 11/29/2021
 ms.topic: conceptual
 author: eedorenko

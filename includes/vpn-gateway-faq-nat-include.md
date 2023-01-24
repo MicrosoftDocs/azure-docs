@@ -39,7 +39,8 @@ Yes, you can use BGP with NAT. Here are some important considerations:
 
 * Select **Enable BGP Route Translation** on the NAT Rules configuration page to ensure the learned routes and advertised routes are translated to post-NAT address prefixes (External Mappings) based on the NAT rules associated with the connections. You need to ensure the on-premises BGP routers advertise the exact prefixes as defined in the IngressSNAT rules.
 
-* If the on-premises VPN router uses APIPA (169.254.x.x) as the BGP speaker/peer IP, use the APIPA address directly in the **BGP peer IP address** field of the local network gateway. If the on-premises VPN router uses regular, non-APIPA address and it collides with the VNet address space or other on-premises network spaces, ensure the IngressSNAT rule will translate the BGP peer IP to a unique, non-overlapped address and put the post-NAT address in the **BGP peer IP address** field of the local network gateway.
+* If the on-premises VPN router uses regular, non-APIPA address and it collides with the VNet address space or other on-premises network spaces, ensure the IngressSNAT rule will translate the BGP peer IP to a unique, non-overlapped address and put the post-NAT address in the **BGP peer IP address** field of the local network gateway. 
+* NAT isn't supported with BGP APIPA addresses.
 
 ### Do I need to create the matching DNAT rules for the SNAT rule?
 

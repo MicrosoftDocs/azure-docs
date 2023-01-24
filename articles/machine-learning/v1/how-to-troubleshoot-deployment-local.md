@@ -5,7 +5,7 @@ description: Try a local model deployment as a first step in troubleshooting mod
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: ssalgado
+ms.author: joburges
 author: ssalgadodev
 ms.date: 08/15/2022
 ms.topic: troubleshooting

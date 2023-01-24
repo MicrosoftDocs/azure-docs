@@ -248,7 +248,8 @@ Use the following steps to deploy and build applications. For these steps, make 
        --name payment-service \
        --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern payment/default \
-       --source-path apps/acme-payment
+       --source-path apps/acme-payment \
+       --build-env BP_JVM_VERSION=17
    ```
 
 1. Use the following command to build and deploy the catalog service:
@@ -259,7 +260,8 @@ Use the following steps to deploy and build applications. For these steps, make 
        --name catalog-service \
        --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern catalog/default \
-       --source-path apps/acme-catalog
+       --source-path apps/acme-catalog \
+       --build-env BP_JVM_VERSION=17
    ```
 
 1. Use the following command to build and deploy the order service:

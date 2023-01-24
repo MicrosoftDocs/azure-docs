@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to migrate an existing application in Basic or Standard tier to Enterprise tier. When you migrate from Basic or Standard tier to Enterprise tier, VMware Tanzu components will replace the OSS Spring Cloud components to provide more feature support.
+This article shows you how to migrate an existing application in Basic or Standard tier to Enterprise tier. When you migrate from Basic or Standard tier to Enterprise tier, VMware Tanzu components will replace the open-source software (OSS) Spring Cloud components to provide more feature support.
 
 This article will use the Pet Clinic sample apps as examples of how to migrate.
 
@@ -87,7 +87,7 @@ It takes about 5 minutes to finish the resource provisioning.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
-   az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
+   az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan asa-ent-hr-mtr
    ```
 
 1. Enter a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can  only contain lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
@@ -132,11 +132,14 @@ The app creation steps are the same as Standard Tier.
 
 ## Use Application Configuration Service for external configuration
 
-In Enterprise tier, Application Configuration Service provides external configuration support for your apps. Managed Spring Cloud Config Server is only available in Basic and Standard tiers and isn't available in Enterprise tier.
+For externalized configuration in a distributed system, managed Spring Cloud Config Server is only available in Basic and Standard tiers. In Enterprise tier, Application Configuration Service for Tanzu (ACS) provides similar functions for your apps. The following table describes some differences in usage between the OSS config server and ACS.
 
-| Component     | Standard Tier                                                               | Enterprise Tier                                                                                   |
-|---------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| Config Server | OSS config server <br> Auto bound (always injection) <br>Always provisioned | Application Configuration Service for Tanzu <br> Need manual binding to app <br> Enable on demand |
+| Component                                   | Support tiers  | Enabled           | Bind to app | Profile                                                               |
+|---------------------------------------------|----------------|-------------------|-------------|-----------------------------------------------------------------------|
+| Spring Cloud Config Server                  | Basic/Standard | Always enabled.   | Auto bound  | Configured in app's source code.                                      |
+| Application Configuration Service for Tanzu | Enterprise     | Enable on demand. | Manual bind | Provided as `config-file-pattern` in an Azure Spring Apps deployment. |
+
+Unlike the client-server mode in the OSS config server, ACS manages configuration by using the Kubernetes-native `ConfigMap`, which is populated from properties defined in backend Git repositories. ACS can't get the active profile configured in the app's source code to match the right configuration, so the explicit configuration `config-file-pattern` should be specified at the Azure Spring Apps deployment level.
 
 ## Configure Application Configuration Service for Tanzu settings
 
@@ -299,7 +302,7 @@ To build locally, use the following steps:
 
 ## Use Application Insight
 
-Azure Enterprise tier uses the build service feature [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` instead of In-Process Agent.
+Azure Spring Apps Enterprise tier uses buildpack bindings to integrate [Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` instead of In-Process Agent. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 | Standard Tier                                                      | Enterprise Tier                                                                    |
 |--------------------------------------------------------------------|------------------------------------------------------------------------------------|

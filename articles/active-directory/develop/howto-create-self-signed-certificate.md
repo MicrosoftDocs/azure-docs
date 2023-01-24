@@ -18,7 +18,7 @@ ms.custom: scenarios:getting-started, engagement-fy23
 
 # Create a self-signed public certificate to authenticate your application
 
-Azure Active Directory (Azure AD) supports two types of authentication for service principals: **password-based authentication** (app secret) and **certificate-based authentication**. While app secrets can easily be created in the Azure portal, they're long-lived, and not as secure as certificates. It's therefore recommended that your application uses a certificate rather than a secret.
+Azure Active Directory (Azure AD) supports two types of authentication for service principals: **password-based authentication** (app secret) and **certificate-based authentication**. While app secrets can easily be created in the Azure portal or using a Microsoft API like Microsoft Graph, they're long-lived, and not as secure as certificates. It's therefore recommended that your application uses a certificate rather than a secret.
 
 For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. In this how-to, you'll use Windows PowerShell to create and export a self-signed certificate.
 
@@ -27,9 +27,9 @@ For testing, you can use a self-signed public certificate instead of a Certifica
 
 While creating the certificate using PowerShell, you can specify parameters like cryptographic and hash algorithms, certificate validity period, and domain name. The certificate can then be exported with or without its private key depending on your application needs. 
 
-The application that initiates the authentication session requires the private key while the application that confirms the authentication requires the public key. So, if you're authenticating from your PowerShell desktop app to Azure AD, you only export the public key (*.cer* file) and upload it to the Azure portal. The PowerShell app uses the private key from your local certificate store to initiate authentication and obtain access tokens for Microsoft Graph.
+The application that initiates the authentication session requires the private key while the application that confirms the authentication requires the public key. So, if you're authenticating from your PowerShell desktop app to Azure AD, you only export the public key (*.cer* file) and upload it to the Azure portal. The PowerShell app uses the private key from your local certificate store to initiate authentication and obtain access tokens for calling Microsoft APIs like Microsoft Graph.
 
-Your application may also be running from another machine, such as Azure Automation. In this scenario, you export the public and private key pair from your local certificate store, upload the public key to the Azure portal, and the private key (a *.pfx* file) to Azure Automation. Your application running in Azure Automation will use the private key to initiate authentication and obtain access tokens for Microsoft Graph.
+Your application may also be running from another machine, such as Azure Automation. In this scenario, you export the public and private key pair from your local certificate store, upload the public key to the Azure portal, and the private key (a *.pfx* file) to Azure Automation. Your application running in Azure Automation will use the private key to initiate authentication and obtain access tokens for calling Microsoft APIs like Microsoft Graph.
 
 This article uses the `New-SelfSignedCertificate` PowerShell cmdlet to create the self-signed certificate and the `Export-Certificate` cmdlet to export it to a location that is easily accessible. These cmdlets are built-in to modern versions of Windows (Windows 8.1 and greater, and Windows Server 2012R2 and greater). The self-signed certificate will have the following configuration:
 
@@ -54,7 +54,9 @@ $cert = New-SelfSignedCertificate -Subject "CN=$certname" -CertStoreLocation "Ce
 
 ```
 
-The `$cert` variable in the previous command stores your certificate in the current session and allows you to export it. The command below exports the certificate in *.cer* format. You can also export it in other formats supported on the Azure portal including *.pem* and *.crt*.
+The `$cert` variable in the previous command stores your certificate in the current session and allows you to export it.
+
+The command below exports the certificate in *.cer* format. You can also export it in other formats supported on the Azure portal including *.pem* and *.crt*.
 
 ```powershell
 

@@ -11,6 +11,9 @@ ms.reviwer: dalek git
 
 The most significant charges for most Azure Monitor implementations will typically be ingestion and retention of data in your Log Analytics workspaces. Several features in Azure Monitor don't have a direct cost but add to the workspace data that's collected. This article describes how data charges are calculated for your Log Analytics workspaces and Application Insights resources and the different configuration options that affect your costs.
 
+[!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
+
+
 ## Pricing model
 
 The default pricing for Log Analytics is a pay-as-you-go model that's based on ingested data volume and data retention. Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. [Pricing for Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) is set regionally. The amount of data ingestion can be considerable, depending on:
@@ -52,7 +55,8 @@ See the documentation for different services and solutions for any unique billin
 In addition to the pay-as-you-go model, Log Analytics has *commitment tiers*, which can save you as much as 30 percent compared to the pay-as-you-go price. With commitment tier pricing, you can commit to buy data ingestion for a workspace, starting at 100 GB per day, at a lower price than pay-as-you-go pricing. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected.
 
 - During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
-- At the end of the commitment period, the workspace retains the selected commitment tier, and the workspace can be moved to pay-as-you-go or to a different commitment tier at any time.
+- At the end of the commitment period, the workspace retains the selected commitment tier, and the workspace can be moved to Pay-As-You-Go or to a lower commitment tier at any time.
+- If a workspace is inadvertently moved into a commitment tier, contact Microsoft Support to reset the commitment period so you can move back to the Pay-As-You-Go pricing tier.
 
 Billing for the commitment tiers is done per workspace on a daily basis. If the workspace is part of a [dedicated cluster](#dedicated-clusters), the billing is done for the cluster. See the following "Dedicated clusters" section. For a list of the commitment tiers and their prices, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -186,7 +190,7 @@ The following considerations pertain to legacy Log Analytics tiers and how usage
 - If the workspace is in the legacy Per Node tier, Microsoft Defender for Cloud is billed using the current [Microsoft Defender for Cloud node-based pricing model](https://azure.microsoft.com/pricing/details/security-center/).
 - In other pricing tiers (including commitment tiers), if Microsoft Defender for Cloud was enabled before June 19, 2017, Microsoft Defender for Cloud is billed only for Log Analytics data ingestion. Otherwise, Microsoft Defender for Cloud is billed using the current Microsoft Defender for Cloud node-based pricing model.
 
-More information on pricing tier limitations is available at [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces).
+More information on pricing tier limitations is available at [Azure subscription and service limits, quotas, and constraints](../service-limits.md#log-analytics-workspaces).
 
 None of the legacy pricing tiers have regional-based pricing.
 
@@ -207,6 +211,8 @@ Use the following query to make a recommendation for the optimal pricing tier ba
 // Set these parameters before running query
 // For pay-as-you-go (per-GB) and commitment tier pricing details, see https://azure.microsoft.com/pricing/details/monitor/.
 // You can see your per-node costs in your Azure usage and charge data. For more information, see https://learn.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage.  
+let workspaceHasSecurityCenter = true;
+let daysToEvaluate = 7;
 let PerNodePrice = 15.; // Monthly price per monitored node
 let PerNodeOveragePrice = 2.30; // Price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter the pay-as-you-go price for your workspace's region (from https://azure.microsoft.com/pricing/details/monitor/)

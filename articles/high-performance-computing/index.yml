@@ -9,13 +9,12 @@ metadata:
   description: Azure high-performance computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads.
   imageSrc: ../high-performance-computing/media/hpc-logo.png
   subject: high-performance-computing
-  ms.service: virtual-machines-workloads
-  ms.subservice: hpc
+  ms.service: hpc-fundamentals
   ms.topic: hub-page
   author: padmalathas
   ms.author: padmalathas
   ms.reviewer: mattmcinnes
-  ms.date: 11/11/2022
+  ms.date: 12/12/2022
 
 # Main Items (Icons)
 # Maximum of 8 items
@@ -62,7 +61,7 @@ productDirectory:
       links:
         - url: ../virtual-machines/overview.md
           text: Linux and Windows VMs on Azure
-        - url: /azure/virtual-machines/whats-new/
+        - url: ../virtual-machines/whats-new.md
           text: What's New for Azure VMs?
     # Card
     - title: Virtual Desktop Infrastructure (VDI)
@@ -84,9 +83,9 @@ productDirectory:
     - title: HPC Cache
       imageSrc: ../high-performance-computing/media/azure-hpc-cache.svg
       links:
-        - url: /azure/hpc-cache/hpc-cache-overview/
+        - url: ../hpc-cache/hpc-cache-overview.md
           text: What is Azure HPC Cache?
-        - url: /azure/hpc-cache/hpc-cache-create?tabs=azure-portal/
+        - url: ../hpc-cache/hpc-cache-create.md?tabs=azure-portal%2f
           text: Create an Azure HPC Cache
 
 #Additional Content (No Title)
@@ -100,22 +99,22 @@ conceptualContent:
         # Card
         - title: Compute
           links:
-            - url: /azure/virtual-machines/sizes-hpc
+            - url: ../virtual-machines/sizes-hpc.md
               itemType: concept
               text: CPU Optimized VMs
-            - url: /azure/virtual-machines/sizes-gpu
+            - url: ../virtual-machines/sizes-gpu.md
               itemType: concept
               text: GPU Optimized VMs
-            - url: /azure/virtual-machines/hx-series
+            - url: ../virtual-machines/hx-series.md
               itemType: concept
               text: Memory Optimized VMs
-            - url: /azure/virtual-machines/workloads/hpc/configure#ubuntu-hpc-vm-images
+            - url: ../virtual-machines/workloads/hpc/configure.md#ubuntu-hpc-vm-images
               itemType: concept
               text: HPC VM Images      
         # Card
         - title: Storage
           links:
-            - url: /azure/hpc-cache/hpc-cache-netapp
+            - url: ../hpc-cache/hpc-cache-netapp.md
               itemType: concept
               text: Use Azure HPC Cache and NetApp Files
             - url: /training/modules/introduction-azure-hpc-cache/
@@ -125,17 +124,20 @@ conceptualContent:
               itemType: tutorial
               text: Accelerating storage with HPC Cache
         # Card
-        - title: Workloads
+        - title: Scenarios & Frameworks 
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
               itemType: overview
-              text: 3d Video Rendering
+              text: 3D Video Rendering
             - url: /azure/architecture/example-scenario/apps/hpc-saas
               itemType: overview
               text: Computer-aided Engineering
             - url: /azure/architecture/example-scenario/infrastructure/image-modeling/
               itemType: overview
               text: Digital image-based modeling on Azure
+            - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
+              itemType: overview
+              text: Cloud Adoption Framework
 
 # Super Computing Announcement included
 

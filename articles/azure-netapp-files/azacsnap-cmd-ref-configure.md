@@ -105,7 +105,7 @@ When you add an *SAP HANA database* to the configuration, the following values a
 
 [Azure Backup](../backup/index.yml) service provides an alternate backup tool for SAP HANA, where database and log backups are streamed into the 
 Azure Backup Service.  Some customers would like to combine the streaming backint-based backups with regular snapshot-based backups.  However, backint-based 
-backups block other methods of backup, such as using a files-based backup or a storage snapshot-based backup (for example, AzAcSnap).  Guidance is provided on the Azure Backup site on how to [Run SAP HANA Studio backup on a database with Azure Backup enabled](../backup/backup-azure-sap-hana-database.md#run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled). 
+backups block other methods of backup, such as using a files-based backup or a storage snapshot-based backup (for example, AzAcSnap).  Guidance is provided on the Azure Backup site on how to [Run SAP HANA native clients backup on a database with Azure Backup enabled](../backup/backup-azure-sap-hana-database.md#run-sap-hana-native-clients-backup-on-a-database-with-azure-backup). 
 
 The process described in the Azure Backup documentation has been implemented with AzAcSnap to automatically do the following steps:
 

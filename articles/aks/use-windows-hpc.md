@@ -71,12 +71,11 @@ spec:
         - name: powershell
           image: mcr.microsoft.com/powershell:lts-nanoserver-1809
           securityContext:
-            privileged: true
             windowsOptions:
               hostProcess: true
               runAsUserName: "NT AUTHORITY\\SYSTEM"
           command:
-            - pwsh.exe
+            - powershell.exe
             - -command
             - |
               $AdminRights = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")

@@ -79,7 +79,7 @@ These actions are performed before the destination endpoint listed in the Incomi
 
 **Redirect** – Using the IncomingCall event from Event Grid, a call can be redirected to one or more endpoints creating a single or simultaneous ringing (sim-ring) scenario. This means the call isn't answered by your application, it's simply ‘redirected’ to another destination endpoint to be answered.
 
-**Make Call** - Make Call action can be used to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
+**Create Call** - Create Call action can be used to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
 
 ### Mid-call actions
 
@@ -144,6 +144,8 @@ To understand which events are published for different actions, refer to [this g
 
 1. Using the incorrect IdentifierType for endpoints for `Transfer` requests (like using CommunicationUserIdentifier to specify a phone number) returns a 500 error instead of a 400 error code. Solution: Use the correct type, CommunicationUserIdentifier for Communication Users and PhoneNumberIdentifier for phone numbers. 
 2. Taking a pre-call action like Answer/Reject on the original call after redirected it gives a 200 success instead of failing on 'call not found'.
+3. Transferring a call with more than two participants is currently not supported.
+4. After transferring a call, you may receive two `CallDisconnected` events and will need to handle this behavior by ignoring the duplicate.
 
 ## Next steps
 

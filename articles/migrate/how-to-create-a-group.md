@@ -5,7 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 07/17/2019
+ms.date: 07/28/2021
+ms.custom: engagement-fy23
 ---
 
 # Create a group for assessment

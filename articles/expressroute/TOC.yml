@@ -42,7 +42,7 @@
     - name: Azure PowerShell
       href: expressroute-howto-linkvnet-arm.md
     - name: Azure CLI
-      href: howto-linkvnet-cli.md
+      href: expressroute-howto-linkvnet-cli.md
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal

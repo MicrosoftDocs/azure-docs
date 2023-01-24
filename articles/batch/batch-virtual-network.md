@@ -2,7 +2,7 @@
 title: Provision a pool in a virtual network
 description: How to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 11/15/2022
 ms.custom: seodec18
 ---
 
@@ -44,9 +44,9 @@ or `CloudServiceConfiguration`. `VirtualMachineConfiguration` for Batch pools is
 pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 
 > [!IMPORTANT]
-> Batch pools can be configured in one of two communication modes. `Classic` communication
-> mode is where the Batch service initiates communication to the compute nodes.
-> [`Simplified` communication mode](simplified-compute-node-communication.md)
+> Batch pools can be configured in one of two node communication modes. Classic node communication mode is
+> where the Batch service initiates communication to the compute nodes.
+> [Simplified](simplified-compute-node-communication.md) node communication mode
 > is where the compute nodes initiate communication to the Batch Service.
 
 ## Pools in Virtual Machine Configuration
@@ -93,8 +93,8 @@ NSG with at least the inbound and outbound security rules that are shown in the 
 
 > [!WARNING]
 > Batch service IP addresses can change over time. Therefore, we highly recommend that you use the
-> BatchNodeManagement.*region* service tag (or a regional variant) for the NSG rules indicated in the
-> following tables. Avoid populating NSG rules with specific Batch service IP addresses.
+> BatchNodeManagement.*region* service tag for the NSG rules indicated in the following tables. Avoid
+> populating NSG rules with specific Batch service IP addresses.
 
 #### Inbound security rules
 

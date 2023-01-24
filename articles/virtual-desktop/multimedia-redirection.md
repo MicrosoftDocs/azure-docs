@@ -18,7 +18,7 @@ This article will show you how to use multimedia redirection (MMR) for Azure Vir
 > [!NOTE]
 > Multimedia redirection isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
->Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the [Windows Desktop client, version 1.2.3573 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). For more information, see [Prerequisites](#prerequisites).
+>Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the [Windows Desktop client, version 1.2.3573 or later](users/connect-windows.md) with Insider releases enabled. For more information, see [Prerequisites](#prerequisites).
 
 ## Prerequisites
 
@@ -28,6 +28,7 @@ Before you can use multimedia redirection on Azure Virtual Desktop, you'll need 
 - Microsoft Edge or Google Chrome installed on your session hosts.
 - Microsoft Visual C++ Redistributable 2015-2022, version 14.32.31332.0 or later installed on your session hosts. You can download the latest version from [Microsoft Visual C++ Redistributable latest supported downloads](/cpp/windows/latest-supported-vc-redist).
 - Windows Desktop client, version 1.2.3573 or later on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. This includes the multimedia redirection plugin (`C:\Program Files\Remote Desktop\MsMmrDVCPlugin.dll`), which is required on the client device. Your device must meet the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- While in preview, you must configure the Windows Desktop client to use Insider releases. For more information, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
 
 ## Install the multimedia redirection extension
 
@@ -152,35 +153,9 @@ You can install the multimedia redirection extension using Group Policy, either 
 
 ---
 
-## Configure the Remote Desktop client
-
-During the preview, you'll need to configure the Remote Desktop client to use Insider features. To learn more about the Insiders program, see [Windows Desktop client for admins](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups).
-
-To enable Insider features:
-
-1. Add the following registry key and value:
-
-   - **Key**: HKLM\\Software\\Microsoft\\MSRDC\\Policies
-   - **Type**: REG_SZ
-   - **Name**: ReleaseRing
-   - **Data**: insider
-
-   You can do configure the registry with PowerShell. On your local device, open an elevated PowerShell prompt and run the following commands:
-
-   ```powershell
-   New-Item -Path "HKLM:\SOFTWARE\Microsoft\MSRDC\Policies" -Force
-   New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\MSRDC\Policies" -Name ReleaseRing -PropertyType String -Value insider -Force
-   ```
-
-1. Restart your local device.
-
-1. Open the Remote Desktop client. The title in the top left-hand corner should be **Remote Desktop (Insider)**:
-
-   :::image type="content" source="./media/remote-desktop-client-windows-insider.png" alt-text="A screenshot of the Remote Desktop client with Insider features enabled. The title is highlighted in a red box.":::
-
 ## Check the extension status
 
-You can check the extension status by visiting a website with media content, such as one from the list at [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection), and hovering your mouse cursor over [the multimedia redirection extension icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon) in the extension bar on the top-right corner of your browser. A message will appear and tell you about the current status, as shown in the following screenshot.
+While in preview, you must first configure the Windows Desktop client to use Insider releases, as listed in the [prerequisites](#prerequisites). Once you've enabled Insider releases, you can check the extension status by visiting a website with media content, such as one from the list at [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection), and hovering your mouse cursor over [the multimedia redirection extension icon](multimedia-redirection-intro.md#the-multimedia-redirection-status-icon) in the extension bar on the top-right corner of your browser. A message will appear and tell you about the current status, as shown in the following screenshot.
 
 :::image type="content" source="./media/mmr-extension-status-popup.png" alt-text="A screenshot of the MMR extension in the Microsoft Edge extension bar.":::
 
