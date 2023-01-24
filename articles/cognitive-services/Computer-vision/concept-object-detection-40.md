@@ -1,7 +1,7 @@
 ---
-title: Object detection - Computer Vision
+title: Object detection - Image Analysis 4.0
 titleSuffix: Azure Cognitive Services
-description: Learn concepts related to the object detection feature of the Computer Vision API - usage and limits.
+description: Learn concepts related to the object detection feature of the Image Analysis 4.0 API - usage and limits.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
 
-# Object detection
+# Object detection (version 4.0)
 
 Object detection is similar to [tagging](concept-tagging-images-40.md), but the API returns the bounding box coordinates (in pixels) for each object found in the image. For example, if an image contains a dog, cat and person, the Detect operation will list those objects with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine whether there are multiple instances of the same object in an image.
 

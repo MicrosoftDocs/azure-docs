@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Image Analysis REST API"
+title: "Quickstart: Image Analysis 4.0 REST API"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, get started with the Image Analysis REST API.
+description: In this quickstart, get started with the Image Analysis 4.0 REST API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

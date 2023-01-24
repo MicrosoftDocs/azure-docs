@@ -1,7 +1,7 @@
 ---
-title: Call the Image Analysis API
+title: Call the Image Analysis 4.0 API
 titleSuffix: Azure Cognitive Services
-description: Learn how to call the Image Analysis API and configure its behavior.
+description: Learn how to call the Image Analysis 4.0 API and configure its behavior.
 services: cognitive-services
 manager: nitinme
 
@@ -12,7 +12,7 @@ ms.date: 12/27/2022
 ms.custom: "seodec18"
 ---
 
-# Call the Image Analysis API
+# Call the Image Analysis 4.0 API
 
 This article demonstrates how to call the Image Analysis API to return information about an image's visual features. It also shows you how to parse the returned information using the client SDKs or REST API.
 

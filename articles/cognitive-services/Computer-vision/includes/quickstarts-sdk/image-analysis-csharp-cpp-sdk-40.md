@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Image Analysis client library for .NET"
-description: In this quickstart, get started with the Image Analysis client library for .NET.
+title: "Quickstart: Image Analysis 4.0 client library for .NET"
+description: In this quickstart, get started with the Image Analysis 4.0 client library for .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

@@ -1,7 +1,7 @@
 ---
-title: Image descriptions - Computer Vision
+title: Image descriptions - Image Analysis 4.0
 titleSuffix: Azure Cognitive Services
-description: Concepts related to the image description feature of the Computer Vision API.
+description: Concepts related to the image description feature of the Image Analysis 4.0 API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
 
-# Image description generation
+# Image description generation (version 4.0)
 
 Computer Vision can analyze an image and generate a human-readable phrase that describes its contents. The algorithm returns several descriptions based on different visual features, and each description is given a confidence score. The final output is a list of descriptions ordered from highest to lowest confidence.
 

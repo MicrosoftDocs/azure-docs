@@ -1,7 +1,7 @@
 ---
-title: Content tags - Computer Vision
+title: Content tags - Image Analysis 4.0
 titleSuffix: Azure Cognitive Services
-description: Learn concepts related to the images tagging feature of the Computer Vision API.
+description: Learn concepts related to the images tagging feature of the Image Analysis 4.0 API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
 
-# Image tagging
+# Image tagging (version 4.0)
 
 Image Analysis can return content tags for thousands of recognizable objects, living beings, scenery, and actions that appear in images. Tags are not organized as a taxonomy and do not have inheritance hierarchies. A collection of content tags forms the foundation for an image [description](./concept-describing-images-40.md) displayed as human readable language formatted in complete sentences. When tags are ambiguous or not common knowledge, the API response provides hints to clarify the meaning of the tag in context of a known setting.
 
