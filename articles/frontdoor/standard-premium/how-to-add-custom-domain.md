@@ -57,7 +57,7 @@ A custom domain is configured on the **Domains** page of the Azure Front Door pr
     :::image type="content" source="../media/how-to-add-custom-domain/validation-state-submitting.png" alt-text="Screenshot of domain validation state submitting.":::
 
     > [!NOTE]
-    > An Azure pre-validated domain will have a validation state of **Pending** and will automatically change to **Approved** after a few minutes. Once validation gets approved, skip to [**Associate the custom domain to your Front Door endpoint**](#associate-the-custom-domain-to-your-front-door-endpoint) and complete the remaining steps. 
+    > An Azure pre-validated domain will have a validation state of **Pending** and will automatically change to **Approved** after a few minutes. Once validation gets approved, skip to [**Associate the custom domain to your Front Door endpoint**](#associate-the-custom-domain-with-your-azure-front-door-endpoint) and complete the remaining steps. 
 
     The validation state will change to **Pending** after a few minutes.
 

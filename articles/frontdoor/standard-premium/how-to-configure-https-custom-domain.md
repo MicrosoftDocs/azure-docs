@@ -187,7 +187,7 @@ Front Door won't automatically rotate certificates in the following scenarios:
 * The custom domain CNAME record is pointing to other DNS resources.
 * The custom domain points to the Azure Front Door through a long chain. For example, if you put Azure Traffic Manager before Azure Front Door, the CNAME chain is `contoso.com` CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`.
 
-The domain validation state will become *Pending Revalidation* 45 days before the managed certificate expires, or *Rejected* if the managed certificate issuance is rejected by the certificate authority.  Refer to [Add a custom domain](../domain.md#domain-validation-state) for actions for each of the domain states.
+The domain validation state will become *Pending Revalidation* 45 days before the managed certificate expires, or *Rejected* if the managed certificate issuance is rejected by the certificate authority.  Refer to [Add a custom domain](../domain.md#domain-validation-states) for actions for each of the domain states.
 
 ### Azure managed certificate for Azure pre-validated domain
 

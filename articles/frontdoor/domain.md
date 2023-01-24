@@ -15,13 +15,14 @@ ms.author: jodowns
 In Azure Front Door, a *domain* represents a custom domain name that Front Door uses to receive your application's traffic. Azure Front Door supports adding three types of domain names:
 
 - **Subdomains** are the most common type of custom domain name. An example subdomain is `myapplication.contoso.com`.
-- **Apex domains**, also called *root domains**, don't contain a subdomain. An example root domain is `contoso.com`.
+- **Apex domains**, also called *root domains* or *naked domains*, don't contain a subdomain. An example root domain is `contoso.com`.
 - **Wildcard domains** allow traffic to be received for any subdomain. An example wildcard domain is `*.contoso.com`. For more information about using wildcard domains with Azure Front Door, see [Wildcard domains](./front-door-wildcard-domain.md).
 
 To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
 
 ## DNS records
 
+<!-- TODO -->
 - Each domain typically needs two DNS records:
   - TXT record, to validate ownership
   - CNAME record, to control traffic flow
@@ -59,35 +60,35 @@ The following table lists the validation states that a domain might show.
 
 | Domain validation state | Description and actions |
 |--|--|
-| Submitting | The custom domain is being created. Please wait until the domain resource is ready. |
-| Pending | The DNS TXT record value has been generated. Add the DNS TXT record to your DNS provider and wait for the validation to complete. If the status remains **Pending** even after the TXT record has been updated with the DNS provider, select **Regenerate** to refresh the TXT record then add the TXT record to your DNS provider again. |
-| Pending re-validation | The managed certificate is less than 45 days from expiring. If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain is pointed to another CNAME record, select the **Pending re-validation** status, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
-| Refreshing validation token | A domain goes into a *Refreshing Validation Token* state for a brief period after the **Regenerate** button is selected. Once a new TXT record value is issued, the state will change to **Pending**. |
-| Approved | The domain has been successfully validated. |
-| Rejected | The certificate provider/authority has rejected the issuance for the managed certificate. For example, the domain name might be invalid. Select the **Rejected** link and then select **Regenerate** on the *Validate the custom domain* page, as shown in the screenshots below this table. Then select **Add** to add the TXT record in the DNS provider. |
-| Timeout | The TXT record wasn't added to your DNS provider within seven days, or an invalid DNS TXT record was added. Select the **Timeout** link and then select **Regenerate** on the *Validate the custom domain* page. Then select **Add** to add the TXT record to the DNS provider. |
-| Internal error | Retry validation by selecting the **Refresh** or **Regenerate** button. If you're still experiencing issues, submit a support request to Azure support. |
+| Submitting | The custom domain is being created. <br /> Please wait until the domain resource is ready. |
+| Pending | The DNS TXT record value has been generated, and Azure Front Door is ready for you to add the DNS TXT record. <br /> Add the DNS TXT record to your DNS provider and wait for the validation to complete. If the status remains **Pending** even after the TXT record has been updated with the DNS provider, select **Regenerate** to refresh the TXT record then add the TXT record to your DNS provider again. |
+| Pending re-validation | The managed certificate is less than 45 days from expiring. <br /> If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain is pointed to another CNAME record, select the **Pending re-validation** status, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
+| Refreshing validation token | A domain goes into a *Refreshing Validation Token* state for a brief period after the **Regenerate** button is selected. Once a new TXT record value is issued, the state will change to **Pending**. <br /> No action is required. |
+| Approved | The domain has been successfully validated. <br /> No action is required. |
+| Rejected | The certificate provider/authority has rejected the issuance for the managed certificate. For example, the domain name might be invalid. <br /> Select the **Rejected** link and then select **Regenerate** on the *Validate the custom domain* page, as shown in the screenshots below this table. Then, select **Add** to add the TXT record in the DNS provider. |
+| Timeout | The TXT record wasn't added to your DNS provider within seven days, or an invalid DNS TXT record was added. <br /> Select the **Timeout** link and then select **Regenerate** on the *Validate the custom domain* page. Then select **Add** to add a new TXT record to the DNS provider. Ensure that you use the updated value. |
+| Internal error | An unknown error occurred. <br /> Retry validation by selecting the **Refresh** or **Regenerate** button. If you're still experiencing issues, submit a support request to Azure support. |
 
 > [!NOTE]
 > - The default TTL for TXT records is 1 hour. When you need to regenerate the TXT record for re-validation, please pay attention to the TTL for the previous TXT record. If it doesn't expire, the validation will fail until the previous TXT record expires. 
 > - If the **Regenerate** button doesn't work, delete and recreate the domain.
 > - If the domain state doesn't reflect as expected, select the **Refresh** button.
 
-## Root/apex domains
+## Apex domains
 
-The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`, you can create a CNAME record for `myappliation.contoso.com`, but you can't create a CNAME record for `contoso.com` itself. These records are called *apex*, *root*, or *naked* domains.
+The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`, you can create a CNAME record for `myappliation.contoso.com`, but you can't create a CNAME record for `contoso.com` itself.
 
-Azure Front Door doesn't expose the frontend IP address associated with your Azure Front Door endpoint. This means that you can't map an apex domain to an IP address if your intent is to onboard it to Azure Front Door. 
+Azure Front Door doesn't expose the frontend public IP address associated with your Azure Front Door endpoint. This means that you can't map an apex domain to an IP address if your intent is to onboard it to Azure Front Door. 
 
 > [!WARNING]
-> TODO don't add an A record as IP address might change
+> Don't create an A record with the public IP address of your Azure Front Door endpoint. Your Azure Front Door endpoint's public IP address might change and we don't provide any guarantees that it will remain the same.
 
 However, this problem can be resolved by using alias records in Azure DNS. Unlike CNAME records, alias records are created at the zone apex. You can point a zone apex record to an Azure Front Door profile that has public endpoints. Multiple application owners can point to the same Azure Front Door endpoint that's used for any other domain within their DNS zone. For example, `contoso.com` and `www.contoso.com` can point to the same Azure Front Door endpoint.
 
 Mapping your apex or root domain to your Azure Front Door profile uses *CNAME flattening*, sometimes called *DNS chasing*. CNAME flattening is where a DNS provider recursively resolves CNAME entries until it resolves an IP address. This functionality is supported by Azure DNS for Azure Front Door endpoints.
 
 > [!NOTE]
-> There are other DNS providers as well that support CNAME flattening or DNS chasing. However, Azure Front Door recommends using Azure DNS for its customers for hosting their domains.
+> Other DNS providers support CNAME flattening or DNS chasing. However, Azure Front Door recommends using Azure DNS for hosting your apex domains.
 
 TODO validation process
 
@@ -95,22 +96,30 @@ To add a root or apex domain to your Azure Front Door profile, see [Onboard a ro
 
 ## HTTPS for custom domains
 
+<!-- TODO -->
+
 For more information on how Azure Front Door works with TLS, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
-### Managed TLS certificates
+### Azure-managed TLS certificates
+
+<!-- TODO -->
 
 - Issuance process
 - Extra verification
 
-### BYO TLS certificates
+### Customer-managed TLS certificates
+
+<!-- TODO -->
 
 - Need to create a secret as a reference to a KV cert
 - Auth - managed identity vs. service principal
 - To try it, see TODO how to
 
-## WAF policies
+## Security policies
 
-TODO
+<!-- TODO -->
+
+TODO link a domain to WAF policy
 
 ## Next steps
 
