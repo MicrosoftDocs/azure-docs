@@ -29,7 +29,7 @@ Azure Front Door supports two types of domains, non-Azure validated domain and A
 
 ## Prerequisites
 
-* Before you can complete the steps in this tutorial, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door Standard/Premium](create-front-door-portal.md).
+* Before you can complete the steps in this tutorial, you must first create an Azure Front Door profile. For more information, see [Quickstart: Create a Front Door Standard/Premium](create-front-door-portal.md).
 
 * If you don't already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](../../app-service/manage-custom-dns-buy-domain.md).
 
@@ -40,7 +40,7 @@ Azure Front Door supports two types of domains, non-Azure validated domain and A
 > [!NOTE]
 > If a custom domain is validated in an Azure Front Door or a Microsoft CDN profile already, then it can't be added to another profile.
 
-A custom domain is configured on the **Domains** page of the Front Door profile. A custom domain can be set up and validated prior to endpoint association. A custom domain and its subdomains can only be associated with a single endpoint at a time. However, you can use different subdomains from the same custom domain for different Front Door profiles. You may also map custom domains with different subdomains to the same Front Door endpoint.
+A custom domain is configured on the **Domains** page of the Azure Front Door profile. A custom domain can be set up and validated prior to endpoint association. A custom domain and its subdomains can only be associated with a single endpoint at a time. However, you can use different subdomains from the same custom domain for different Azure Front Door profiles. You may also map custom domains with different subdomains to the same Azure Front Door endpoint.
 
 1. Select **Domains** under settings for your Azure Front Door profile and then select **+ Add** button.
 
@@ -82,7 +82,7 @@ A custom domain is configured on the **Domains** page of the Front Door profile.
 
 For more infromation about domain validation states, see [Domains in Azure Front Door](../domain.md#domain-validation).
 
-## Associate the custom domain to your Front Door endpoint
+## Associate the custom domain with your Azure Front Door endpoint
 
 After you validate your custom domain, you can associate it to your Azure Front Door Standard/Premium endpoint.
 

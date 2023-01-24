@@ -12,18 +12,18 @@ ms.author: jodowns
 
 # Domains in Azure Front Door
 
-In Azure Front Door, a *domain* represents a custom domain name that Front Door uses to receive your application's traffic.
+In Azure Front Door, a *domain* represents a custom domain name that Front Door uses to receive your application's traffic. Azure Front Door supports adding three types of domain names:
 
-## Domain types
+- **Subdomains** are the most common type of custom domain name. An example subdomain is `myapplication.contoso.com`.
+- **Apex domains**, also called *root domains**, don't contain a subdomain. An example root domain is `contoso.com`.
+- **Wildcard domains** allow traffic to be received for any subdomain. An example wildcard domain is `*.contoso.com`. For more information about using wildcard domains with Azure Front Door, see [Wildcard domains](./front-door-wildcard-domain.md).
 
-- Subdomains.
-- Root/apex domains.
-- Wildcard domains. For information about using wildcard domains with Azure Front Door, see [Wildcard domains](./front-door-wildcard-domain.md).
+To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
 
 ## DNS records
 
-- Each domain typically needs two DNS changes:
-  - TXT record, to validate
+- Each domain typically needs two DNS records:
+  - TXT record, to validate ownership
   - CNAME record, to control traffic flow
 - Can be created ahead of any DNS changes, to avoid downtime
 - Azure DNS vs. third-party
