@@ -1,19 +1,20 @@
 ---
 title: Configure Container insights cost optimization data collection rules | Microsoft Docs
-description: This article describes how you can configure the Container insights agent to control data collection.
+description: This article describes how you can configure the Container insights agent to control data collection for metric counters
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 01/23/2023
 ms.reviewer: aul
 ---
 
 # Enable cost optimization settings (preview)
 
+Cost optimization settings offer users the ability to customize and control the metrics data collected through the Container Insights agent. This preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). This can be used for controlling the volume of ingestion and reduce the monitoring costs.
+
 >[!NOTE]
 >This feature is currently in public preview. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
 
-This preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md).
 
-This feature reduces the volume of data being ingested and in turn helps to reduce the total cost.
+## Data collection parameters
 
 The container insights agent periodically checks for the data collection settings, validates, and applies the applicable settings to applicable Container Insights Log Analytics tables and Custom Metrics. The data collection settings should be applied in the subsequent configured Data collection interval.
 
@@ -25,7 +26,7 @@ The following table describes about supported data collection settings
 | **namespaceFilteringMode** | Allowed values are _Include_, _Exclude_, or _Off_. Choosing Include collects only data from the values in the namespaces field. Choosing Exclude collects data from all namespaces except for the values in the namespaces field. Off will ignore any namespace selections and collect data on all namespaces.
 | **namespaces** | Array of comma separated Kubernetes namespaces for which inventory and perf data will be included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting will collect only these two namespaces. With an _Exclude_ setting, the agent will collect data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent will collect data from all namespaces including _kube-system_ and _default_.|
 
-## Log Analytics
+## Log Analytics data collection
 
 The below table outlines the list of the container insights Log Analytics tables for which data collection settings applied and what data collection settings applicable.
 
