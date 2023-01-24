@@ -94,6 +94,11 @@
       "source_path": "articles/lab-services/troubleshoot.md",
       "redirect_url": "/azure/lab-services/troubleshoot-lab-creation",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/quick-create-lab-portal.md",
+      "redirect_url": "/azure/lab-services/quick-create-lab-plan-portal",
+      "redirect_document_id": false
     }
   ]
 }
