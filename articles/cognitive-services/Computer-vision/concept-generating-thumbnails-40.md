@@ -18,6 +18,8 @@ ms.custom: seodec18, ignite-2022
 
 A thumbnail is a reduced-size representation of an image. Thumbnails are used to represent images and other data in a more economical, layout-friendly way. The Computer Vision API uses smart cropping to create intuitive image thumbnails that include the most important regions of an image with priority given to any detected faces.
 
+
+
 The Computer Vision smart-cropping utility takes one or more aspect ratios in the range [0.75, 1.80] and returns the bounding box coordinates (in pixels) of the region(s) identified. Your app can then crop and return the image using those coordinates.
 
 > [!IMPORTANT]
