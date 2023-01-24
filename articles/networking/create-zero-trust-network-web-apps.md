@@ -555,7 +555,7 @@ You'll create a route table with user-defined route force traffic all App Servic
 1. Repeat this process for another subnet by selecting **+ Associate**.
 1. Select the **mySpokeVNet** virtual network, and then select the **AppGwSubnet** subnet. Select **OK**.
 1. After the association appears, select the link to the **App1** association.
-1. In the **Network policy for private endpoints** section, select **Route Tables** and select **Save**.
+1. In the **Network policy for private endpoints** section, select **Network security groups** and **Route Tables**, and then select **Save**.
 
 
 ### Test again

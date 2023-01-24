@@ -2,14 +2,13 @@
 title: Run U-SQL jobs locally - Azure Data Lake U-SQL SDK
 description: Learn how to run and test U-SQL jobs locally using the command line and programming interfaces on your local workstation.
 ms.service: data-lake-analytics
-author: yanacai
-
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ---
 
 # Run and test U-SQL with Azure Data Lake U-SQL SDK
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 When developing U-SQL script, it is common to run and test U-SQL script locally before submit it to cloud. Azure Data Lake provides a Nuget package called Azure Data Lake U-SQL SDK for this scenario, through which you can easily scale U-SQL run and test. It is also possible to integrate this U-SQL test with CI (Continuous Integration) system to automate the compile and test.
 

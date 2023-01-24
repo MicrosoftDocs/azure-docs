@@ -202,9 +202,12 @@ After executing the `az aro create` command, it normally takes about 35 minutes 
 > By default OpenShift uses self-signed certificates for all of the routes created on `*.apps.<random>.<location>.aroapp.io`.  If you choose Custom DNS, after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom certificate for your ingress controller](https://docs.openshift.com/container-platform/4.8/security/certificates/replacing-default-ingress-certificate.html) and [custom certificate for your API server](https://docs.openshift.com/container-platform/4.8/security/certificates/api-server.html).
 
 
-### Create a private cluster without a public IP address
+### Create a private cluster without a public IP address (preview)
 
 Typically, private clusters are created with a public IP address and load balancer, providing a means for outbound connectivity to other services. However, you can create a private cluster without a public IP address. This may be required in situations in which security or policy requirements prohibit the use of public IP addresses.
+
+> [!IMPORTANT]
+> Currently, this Azure Red Hat OpenShift feature is being offered in preview only. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they are excluded from the service-level agreements and limited warranty. Azure Red Hat OpenShift previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use.
 
 To create a private cluster without a public IP address, register for the feature flag `UserDefinedRouting` using the following command structure:
 
