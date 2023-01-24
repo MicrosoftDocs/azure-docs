@@ -214,6 +214,11 @@ The final `azureMonitorWorkspaceResourceId` entry is already in the template and
 
 Deploy the template with the parameter file using any valid method for deploying Resource Manager templates. See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates) for examples of different methods.
 
+## Limitations
+
+- Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There's a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature won't work as expected.
+- A data collection rule and data collection endpoint is created with the name `MSProm-\<short-cluster-region\>-\<cluster-name\>`. These names can't currently be modified.
+- You must get the existing Azure Monitor workspace integrations for a Grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
 
 ---
 
@@ -253,9 +258,6 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 
 ## Limitations
 
-- Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There's a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature won't work as expected.
-- A data collection rule and data collection endpoint is created with the name `MSProm-\<short-cluster-region\>-\<cluster-name\>`. These names can't currently be modified.
-- You must get the existing Azure Monitor workspace integrations for a Grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
 - CPU and Memory requests and limits can't be changed for Container insights metrics addon. If changed, they'll be reconciled and replaced by original values in a few seconds.
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
 
@@ -332,5 +334,7 @@ When you allow a default Azure Monitor workspace to be created when you install 
 
 ## Next steps
 
-- [See the default configuration for Prometheus metrics](prometheus-metrics-scrape-default.md).
-- [Customize Prometheus metric scraping for the cluster](prometheus-metrics-scrape-configuration.md).
+- [See the default configuration for Prometheus metrics](./prometheus-metrics-scrape-default.md).
+- [Customize Prometheus metric scraping for the cluster](./prometheus-metrics-scrape-configuration.md).
+- [Use Azure Monitor managed service for Prometheus (preview) as data source for Grafana](./prometheus-grafana.md)
+- [Configure self-hosted Grafana to use Azure Monitor managed service for Prometheus (preview)](./prometheus-self-managed-grafana-azure-active-directory.md)
