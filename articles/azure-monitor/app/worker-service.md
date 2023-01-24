@@ -314,7 +314,7 @@ The following sections list the full telemetry automatically collected by Applic
 
 ### ILogger logs
 
-Logs emitted via `ILogger` with the severity Warning or greater are automatically captured. Follow [ILogger docs](ilogger.md#logging-level) to customize which log levels are captured by Application Insights.
+Logs emitted via `ILogger` with the severity Warning or greater are automatically captured. Follow [ILogger docs](/dotnet/core/extensions/logging#configure-logging) to customize which log levels are captured by Application Insights.
 
 ### Dependencies
 

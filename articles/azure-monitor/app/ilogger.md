@@ -91,7 +91,7 @@ To add Application Insights logging to ASP.NET Core applications, use the `Micro
 
 ---
 
-<!--DEV: Should we keep the rest of this section below or delete it (i.e., delete the text below, up to "## Console application")? -->
+<!--DEV: To confirm, should we keep the rest of this section below (i.e., the text below, up to "## Console application")? I kept it because the code sample appears to resemble a code sample included in the first version of ilogger.md: https://github.com/MicrosoftDocs/azure-docs/commit/281667034c026531ab1cd4ae8ec3fc877da8a35f#diff-b8c9ab08fca62150132618d2c4043098a6c82c9309c68903069e12761078f7a2 -->
 
 With the NuGet package installed, and the provider being registered with dependency injection, the app is ready to log. With constructor injection, either <xref:Microsoft.Extensions.Logging.ILogger> or the generic-type alternative <xref:Microsoft.Extensions.Logging.ILogger%601> is required. When these implementations are resolved, `ApplicationInsightsLoggerProvider` will provide them. Logged messages or exceptions will be sent to Application Insights. 
 
@@ -121,6 +121,8 @@ public class ValuesController : ControllerBase
 For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 ## Console application
+
+<!--DEV: Do we need to add a link to the install page for the Microsoft.Extensions.DependencyInjection package (https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection)? -->
 
 To add Application Insights logging to console applications, first install the [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai] NuGet provider package.
 
@@ -184,7 +186,7 @@ namespace ConsoleApp
 
 ```
 
-<!-- DEV: Do any FAQs need to be moved or deleted (to align with only talking about ILogger aspects in this article)? -->
+<!-- DEV: Do any more FAQs need to be removed (to align with only talking about ILogger aspects in this article)? -->
 ## Frequently asked questions
 
 ### Why are some ILogger logs shown twice in Application Insights?
@@ -255,10 +257,6 @@ builder.AddApplicationInsights(
 ### I don't have the SDK installed, and I use the Azure Web Apps extension to enable Application Insights for my ASP.NET Core applications. How do I use the new provider? 
 
 The Application Insights extension in Azure Web Apps uses the new provider. You can modify the filtering rules in the *appsettings.json* file for your application.
-
-### I can't see some of the logs from my application in the workspace. 
-
-Missing data can occur due to adaptive sampling. Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). See the [Sampling in Application Insights](./sampling.md) for more details.
 
 ## Next steps
 
