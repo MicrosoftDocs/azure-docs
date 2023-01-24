@@ -1,16 +1,16 @@
 ---
-title: 'Connectivity providers and locations: Azure ExpressRoute | Microsoft Docs'
-description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by connectivity provider.
+title: Connectivity providers and locations for Azure ExpressRoute
+description: This article provides a detailed overview of peering locations served by each ExpressRoute connectivity provider to connect to Azure.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/04/2022
+ms.date: 01/23/2023
 ms.author: duau
-ms.custom: references_regions
-
+ms.custom: references_regions, template-concept, engagement-fy23
 ---
+
 # ExpressRoute connectivity partners and peering locations
 
 > [!div class="op_single_selector"]
@@ -23,15 +23,14 @@ The tables in this article provide information on ExpressRoute geographical cove
 > [!Note]
 > Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
 >
->
 
 ## Azure regions
 Azure regions are global datacenters where Azure compute, networking, and storage resources are located. When creating an Azure resource, a customer needs to select a resource location. The resource location determines which Azure datacenter (or availability zone) the resource is created in.
 
 ## ExpressRoute locations
-ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft's network – and are globally distributed, providing customers the opportunity to connect to Microsoft's network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft's network. In general, the ExpressRoute location does not need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
+ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft's network – and are globally distributed, providing customers the opportunity to connect to Microsoft's network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft's network. In general, the ExpressRoute location doesn't need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
 
-You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region.
+You'll have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region.
 
 [!INCLUDE [expressroute-azure-regions-geopolitical-region](../../includes/expressroute-azure-regions-geopolitical-region.md)]
 
@@ -78,7 +77,7 @@ The following table shows locations by service provider. If you want to view ava
 | **du datamena** |Supported |Supported | Dubai2 |
 | **[eir](https://www.eirevo.ie/cloud-services/cloud-connectivity)** |Supported |Supported | Dublin|
 | **[Epsilon Global Communications](https://epsilontel.com/solutions/cloud-connect/)** |Supported |Supported | Hong Kong2, Singapore, Singapore2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported | Amsterdam, Amsterdam2, Atlanta, Berlin, Bogota, Canberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Frankfurt2, Geneva, Hong Kong SAR, Hong Kong2, London, London2, Los Angeles*, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Paris2, Quebec City, Rio de Janeiro, Sao Paulo, Seattle, Seoul, Silicon Valley, Singapore, Singapore2, Stockholm, Sydney, Tokyo, Tokyo2, Toronto, Washington DC, Zurich</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Please create new circuits in Los Angeles2.* |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported | Amsterdam, Amsterdam2, Atlanta, Berlin, Bogota, Canberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Frankfurt2, Geneva, Hong Kong SAR, Hong Kong2, London, London2, Los Angeles*, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Paris2, Quebec City, Rio de Janeiro, Sao Paulo, Seattle, Seoul, Silicon Valley, Singapore, Singapore2, Stockholm, Sydney, Tokyo, Tokyo2, Toronto, Washington DC, Zurich</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Create new circuits in Los Angeles2.* |
 | **Etisalat UAE** |Supported |Supported | Dubai |
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Supported |Supported | Amsterdam, Amsterdam2, Dublin, Frankfurt, London |
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Supported |Supported | Taipei |
@@ -172,11 +171,9 @@ The following table shows locations by service provider. If you want to view ava
 | **XL Axiata** | Supported | Supported | Jakarta |
 | **[Zayo](https://www.zayo.com/services/packet/cloudlink/)** |Supported |Supported | Amsterdam, Chicago, Dallas, Denver, Dublin, Hong Kong, London, London2, Los Angeles, Montreal, New York, Paris, Phoenix, San Antonio, Seattle, Silicon Valley, Toronto, Vancouver, Washington DC, Washington DC2, Zurich|
 
- **+** denotes coming soon
-
 ### National cloud environment
 
-Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud cannot connect to the Azure regions in the others. 
+Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others. 
 
 ### US Government cloud
 
@@ -198,7 +195,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **China Unicom** | Supported | Not Supported | Beijing2, Shanghai2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |Supported |Not Supported |Beijing2, Shanghai2 |
 
-To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/).
+To learn more, see [ExpressRoute in China](https://www.azure.cn/home/features/expressroute/).
 
 ### Germany
 
@@ -213,9 +210,9 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 
 ## Connectivity through Exchange providers
 
-If your connectivity provider is not listed in previous sections, you can still create a connection.
+If your connectivity provider isn't listed in previous sections, you can still create a connection.
 
-* Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
+* Check with your connectivity provider to see if they're connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
   * [DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
@@ -233,7 +230,7 @@ If your connectivity provider is not listed in previous sections, you can still 
   * Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
 ## Connectivity through satellite operators
-If you are remote and do not have fiber connectivity or you want to explore other connectivity options you can check the following satellite operators. 
+If you're remote and don't have fiber connectivity, or you want to explore other connectivity options you can check the following satellite operators. 
 
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
@@ -337,7 +334,7 @@ If you are remote and do not have fiber connectivity or you want to explore othe
 | **SINET**|
 | **Surfnet, through GÉANT**|
 
-* If your connectivity provider is not listed here, please check to see if they are connected to any of the ExpressRoute Exchange Partners listed above.
+* If your connectivity provider isn't listed here, check to see if they're connected to any of the ExpressRoute Exchange Partners listed above.
 
 ## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
