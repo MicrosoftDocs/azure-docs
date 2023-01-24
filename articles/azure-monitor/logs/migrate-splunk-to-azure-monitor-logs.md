@@ -138,6 +138,8 @@ To export your historical data from Splunk:
     
     1. Collect the exported data directly with the Logs Ingestion API, as described in [Send data to Azure Monitor Logs by using a REST API](../logs/tutorial-logs-ingestion-api.md). 
 
+:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
+
 ## Next steps
 
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
