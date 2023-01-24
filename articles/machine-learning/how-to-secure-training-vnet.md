@@ -103,9 +103,6 @@ In this article you learn how to secure the following training compute resources
 > * Outbound requirements - Two additional outbounds:
 >     - `AzureMachineLearning` service tag on UDP port 5831.
 >     - `BatchNodeManagement` service tag on TCP port 443.
-> * Inbound requirements - The inbound requirements have been removed for the no public IP configuration.
-> * Private endpoint and link policy - You no longer need to disable these policies to use the no public IP configuration.
-> * Network resources - We no longer create additional Azure Network resources for the no public IP configuration. Deleting and recreating your compute instance and compute cluster resources will remove any additional network resources that may have been created while using the public preview of this feature.
 
 The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** a compute instances/clusters configured for no public IP:
 
