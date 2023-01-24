@@ -535,12 +535,29 @@ If any of the above-listed properties are specified in your environment definiti
 * Python SDK v1 [Environment Class](https://aka.ms/azureml/environment/environment-class-v1)
 
 ### Location type not supported/Unknown location type
-- The following are accepted location types:
-    - Git
-        - Git URLs can be provided to AzureML, but images can't yet be built using them. Use a storage
-        account until builds have Git support
-        - [How to use git repository as build context](https://aka.ms/azureml/environment/git-repo-as-build-context)
-    - Storage account 
+<!--issueDescription-->
+**Potential causes:**
+* You specified a location type for your Docker build context that isn't supported or is unknown
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+The following are accepted location types:
+* Git
+	* Git URLs can be provided to AzureML, but images can't yet be built using them. Use a storage account until builds have Git support
+* Storage account
+	* The format of a blob storage URL is `https://<storage-account>.blob.core.windows.net`
+	* See a [storage account overview](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview)
+	* See how to [create a storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create)
+	
+**Resources**
+* See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
+* [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
 
 ### Invalid location
 - The specified location of the Docker build context is invalid
