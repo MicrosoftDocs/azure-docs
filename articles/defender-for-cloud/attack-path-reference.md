@@ -4,13 +4,13 @@ titleSuffix: Defender for Cloud
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 01/22/2023
+ms.date: 01/24/2023
 ---
 
 
 # Reference list of attack paths and cloud security graph components
 
-This article lists the attack paths, connections and insights you might see in Microsoft Defender for Cloud related to Defender for Cloud Security Posture Management (CSPM). What you are shown in your environment depends on the resources you're protecting and your customized configuration. You'll need to [enable Defender for CSPM](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) to view your attack paths. Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
+This article lists the attack paths, connections, and insights you might see in Microsoft Defender for Cloud related to Defender for Cloud Security Posture Management (CSPM). What you are shown in your environment depends on the resources you're protecting and your customized configuration. You'll need to [enable Defender for CSPM](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) to view your attack paths. Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
 
 To learn about how to [Identify and remediate attack paths](how-to-manage-attack-path.md).
 
@@ -23,14 +23,14 @@ Prerequisite: For a list of prerequisites, see the [Availability table](how-to-m
 | Attack Path Display Name | Attack Path Description |
 |--|--|
 | Internet exposed VM has high severity vulnerabilities | A virtual machine is reachable from the internet and has high severity vulnerabilities. |
-| Internet exposed VM has high severity vulnerabilities and high permission to a subscription | A virtual machine is reachable from the internet, has high severity vulnerabilities an identity with permission to a subscription. |
-| Internet exposed VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine is reachable from the internet, has high severity vulnerabilities with read permission to a data store containing sensitive data. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
-| Internet exposed VM has high severity vulnerabilities and read permission to a data store | A virtual machine is reachable from the internet and has high severity vulnerabilities with read permission to a data store. |
-| Internet exposed VM has high severity vulnerabilities and read permission to a Key Vault | A virtual machine is reachable from the internet and has high severity vulnerabilities with read permission to a key vault. |
+| Internet exposed VM has high severity vulnerabilities and high permission to a subscription | A virtual machine is reachable from the internet, has high severity vulnerabilities, and identity and permission to a subscription. |
+| Internet exposed VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine is reachable from the internet, has high severity vulnerabilities and read permission to a data store containing sensitive data. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
+| Internet exposed VM has high severity vulnerabilities and read permission to a data store | A virtual machine is reachable from the internet and has high severity vulnerabilities and read permission to a data store. |
+| Internet exposed VM has high severity vulnerabilities and read permission to a Key Vault | A virtual machine is reachable from the internet and has high severity vulnerabilities and read permission to a key vault. |
 | VM has high severity vulnerabilities and high permission to a subscription | A virtual machine has high severity vulnerabilities and has high permission to a subscription. |
-| VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine has high severity vulnerabilities with read permission to a data store containing sensitive data. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
-| VM has high severity vulnerabilities and read permission to a key vault | A virtual machine has high severity vulnerabilities with read permission to a key vault |
-| VM has high severity vulnerabilities and read permission to a data store | A virtual machine has high severity vulnerabilities with read permission to a data store. |
+| VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine has high severity vulnerabilities and read permission to a data store containing sensitive data. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
+| VM has high severity vulnerabilities and read permission to a key vault | A virtual machine has high severity vulnerabilities and read permission to a key vault. |
+| VM has high severity vulnerabilities and read permission to a data store | A virtual machine has high severity vulnerabilities and read permission to a data store. |
 
 ### AWS Instances
 
