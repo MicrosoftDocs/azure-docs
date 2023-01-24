@@ -78,7 +78,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
 
 3. Copy the value of `accessToken` in the result, and save it to use in the next section. This value is your **token value** that you'll provide to Postman to authorize your requests.
 
-   :::image type="content" source="media/how-to-use-postman-with-digital-twins/console-access-token.png" alt-text="Screenshot of the console showing the result of the az account get-access-token command. The accessToken field with its sample value is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/console-access-token.png":::
+   :::image type="content" source="media/how-to-use-postman-with-digital-twins/console-access-token.png" alt-text="Screenshot of the console showing the result of the az account get-access-token command. The accessToken field with its sample value highlighted." lightbox="media/how-to-use-postman-with-digital-twins/console-access-token.png":::
 
 >[!TIP]
 >This token is valid for at least five minutes and a maximum of 60 minutes. If you run out of time allotted for the current token, you can repeat the steps in this section to get a new one.
