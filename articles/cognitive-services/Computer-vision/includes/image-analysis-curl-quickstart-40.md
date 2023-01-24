@@ -46,18 +46,10 @@ To analyze an image for various visual features, do the following steps:
 1. Open a command prompt window.
 1. Paste the command from the text editor into the command prompt window, and then run the command.
 
-    #### [Version 3.2](#tab/3-2)
-
-    ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Tags" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
-    ```
-
-    #### [Version 4.0](#tab/4-0)
 
     ```bash
     curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Description,Tags,Read&model-version=latest&language=en&api-version=2022-10-12-preview" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
     ```
-    ---
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Analyze-image" target="_target">I ran into an issue</a>
@@ -66,46 +58,6 @@ To analyze an image for various visual features, do the following steps:
 
 A successful response is returned in JSON. The sample application parses and displays a successful response in the command prompt window, similar to the following example:
 
-#### [Version 3.2](#tab/3-2)
-```json
-{{
-   "tags":[
-      {
-         "name":"text",
-         "confidence":0.9992657899856567
-      },
-      {
-         "name":"post-it note",
-         "confidence":0.9879657626152039
-      },
-      {
-         "name":"handwriting",
-         "confidence":0.9730165004730225
-      },
-      {
-         "name":"rectangle",
-         "confidence":0.8658561706542969
-      },
-      {
-         "name":"paper product",
-         "confidence":0.8561884760856628
-      },
-      {
-         "name":"purple",
-         "confidence":0.5961999297142029
-      }
-   ],
-   "requestId":"2788adfc-8cfb-43a5-8fd6-b3a9ced35db2",
-   "metadata":{
-      "height":945,
-      "width":1000,
-      "format":"Jpeg"
-   },
-   "modelVersion":"2021-05-01"
-}
-```
-
-#### [Version 4.0](#tab/4-0)
 
 ```json
 {
@@ -373,7 +325,6 @@ A successful response is returned in JSON. The sample application parses and dis
     }
 }
 ```
----
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
