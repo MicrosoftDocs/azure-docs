@@ -222,6 +222,8 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 # [Speech-to-text](#tab/stt)
 
+### Run the container connected to the internet 
+
 To run the standard speech-to-text container, execute the following `docker run` command:
 
 ```bash
@@ -244,7 +246,21 @@ This command:
 > To install GStreamer in a container, 
 > follow Linux instructions for GStreamer in [Use codec compressed audio input with the Speech SDK](how-to-use-codec-compressed-audio-input-streams.md).
 
-#### Diarization on the speech-to-text output
+### Run the container disconnected from the internet (authorization required)
+
+[!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
+
+The speech-to-text container provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
+### Diarization on the speech-to-text output
 
 Diarization is enabled by default. To get diarization in your response, use `diarize_speech_config.set_service_property`.
 
@@ -269,7 +285,7 @@ Diarization is enabled by default. To get diarization in your response, use `dia
     > "Identity" mode returns `"SpeakerId": "Customer"` or `"SpeakerId": "Agent"`.
     > "Anonymous" mode returns `"SpeakerId": "Speaker 1"` or `"SpeakerId": "Speaker 2"`.
     
-#### Analyze sentiment on the speech-to-text output
+### Analyze sentiment on the speech-to-text output
 
 Starting in v2.6.0 of the speech-to-text container, you should use Language service 3.0 API endpoint instead of the preview one. For example:
 
@@ -303,7 +319,7 @@ This command:
 * Performs the same steps as the preceding command.
 * Stores a Language service API endpoint and key, for sending sentiment analysis requests.
 
-#### Phraselist v2 on the speech-to-text output
+### Phraselist v2 on the speech-to-text output
 
 Starting in v2.6.0 of the speech-to-text container, you can get the output with your own phrases, either the whole sentence or phrases in the middle. For example, *the tall man* in the following sentence:
 
@@ -472,6 +488,23 @@ This command:
 * Allocates 6 CPU cores and 12 GB of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
+
+
+### Run the container disconnected from the internet (authorization required)
+
+[!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
+
+
+The neural text-to-speech container provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
 
 # [Speech language identification](#tab/lid)
 
