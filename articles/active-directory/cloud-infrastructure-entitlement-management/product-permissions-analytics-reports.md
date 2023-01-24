@@ -1,6 +1,6 @@
 ---
-title: View and download the Permissions analytics report in Permissions Management
-description: How to view and download the Permissions analytics report in Permissions Management.
+title: Generate and download the Permissions analytics report in Permissions Management
+description: How to generate and download the Permissions analytics report in Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -49,6 +49,8 @@ You can view the Permissions Analytics Report information directly in the Permis
 7. Click **Save**
 
     The following message displays: **Report has been created**.
+
+    Once the Excel file is generated, the report is automatically sent to your email.
 
 ## Download the Permissions Analytics Report in PDF format
 
