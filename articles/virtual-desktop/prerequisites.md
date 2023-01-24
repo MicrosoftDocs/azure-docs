@@ -62,9 +62,11 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 
 | Identity scenario | Session hosts | User accounts |
 |--|--|--|
-| Azure AD + AD DS | Joined to AD DS | In AD DS and Azure AD, synchronized |
+| Azure AD + AD DS | Joined to AD DS | In Azure AD and AD DS, synchronized |
+| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized|
 | Azure AD + Azure AD DS | Joined to Azure AD DS | In Azure AD and Azure AD DS, synchronized |
 | Azure AD + Azure AD DS + AD DS | Joined to Azure AD DS | In Azure AD and AD DS, synchronized |
+| Azure AD + Azure AD DS | Joined to Azure AD | In Azure AD and Azure AD DS, synchronized|
 | Azure AD only | Joined to Azure AD | In Azure AD |
 
 > [!NOTE]
