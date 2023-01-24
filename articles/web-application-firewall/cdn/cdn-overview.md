@@ -14,7 +14,7 @@ ms.author: victorh
 Azure Web Application Firewall (WAF) on Azure Content Delivery Network (CDN) from Microsoft provides centralized protection for your web content. WAF defends your web services against common exploits and vulnerabilities. It keeps your service highly available for your users and helps you meet compliance requirements.
 
 > [!IMPORTANT]
-> The WAF on Azure CDN from Microsoft public preview is no longer accepting new customers. Custoemrs are encouraged to use the WAF on Azure Front Door instead [Azure Front Door WAF](../../../afds/afds-overview.md). Existing CDN WAF customers are provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+> Azure WAF on Azure CDN from Microsoft preview is no longer accepting new customers. Customers are encouraged to use the [Azure WAF on Azure Front Door](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) instead. Existing CDN WAF customers are provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 WAF on Azure CDN is a global and centralized solution. It's deployed on Azure network edge locations around the globe. WAF stops malicious attacks close to the attack sources, before they reach your origin. You get global protection at scale without sacrificing performance. 
 
