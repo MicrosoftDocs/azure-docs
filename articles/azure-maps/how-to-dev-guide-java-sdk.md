@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Java REST SDK Developers Guide (preview)  
+# Java REST SDK Developers Guide (preview)
 
 The Azure Maps Java SDK can be integrated with Java applications and libraries to build maps-related and location-aware applications. The Azure Maps Java SDK contains APIs for Search, Route, Render, Elevation, Geolocation, Traffic, Timezone, and Weather. These APIs support operations such as searching for an address, routing between different coordinates, obtaining the geo-location of a specific IP address etc.
 
@@ -37,22 +37,22 @@ The following PowerShell code snippet demonstrates how to use PowerShell to crea
 
 ```powershell
 mvn archetype:generate "-DgroupId=groupId" "-DartifactId=DemoProject" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DarchetypeVersion=1.4" "-DinteractiveMode=false" 
-``` 
+```
 
 | Parameter   | Description                                                  |
 |-------------|--------------------------------------------------------------|
 | `-DGroupId` | Group ID uniquely identifies your project across all projects|
 | `-DartifactId` | Project name. It will be created as a new folder.         |
 | `-DarchetypeArtifactId` | project type. `maven-archetype-quickstart` results in a sample project. |
-| `-DinteractiveMode` | Setting to `false` results in a blank Java project with default options. | 
+| `-DinteractiveMode` | Setting to `false` results in a blank Java project with default options. |
 
 ### Install the packages
 
-To use the Azure Maps Java SDK, you will need to install all required packages. Each service in Azure Maps is available in its own package. Services include Search, Render, Traffic, Weather, etc. You only need to install the packages for the service or services you will be using in your project. 
+To use the Azure Maps Java SDK, you will need to install all required packages. Each service in Azure Maps is available in its own package. Services include Search, Render, Traffic, Weather, etc. You only need to install the packages for the service or services you will be using in your project.
 
-After creating the maven project, there should be a `pom.xml` file with basic information such as group ID, name, artifact ID. This is where you will add a dependency for each of the Azure Maps services, as shown below: 
+After creating the maven project, there should be a `pom.xml` file with basic information such as group ID, name, artifact ID. This is where you will add a dependency for each of the Azure Maps services, as shown below:
 
-```xml 
+```xml
 <dependency> 
   <groupId>com.azure</groupId> 
   <artifactId>azure-maps-search</artifactId> 
@@ -93,8 +93,8 @@ After creating the maven project, there should be a `pom.xml` file with basic in
 Run `mvn clean install` on your project, then create a java file named `demo.java` and import what you need from Azure maps into the file:
 
 ```powershell
-cd DemoProject 
-New-Item demo.java 
+cd DemoProject
+New-Item demo.java
 ```
 
 > [!TIP]
@@ -161,10 +161,10 @@ public class Demo {
         builder.credential(tokenCredential);
         builder.mapsClientId(System.getenv("MAPS_CLIENT_ID"));
         MapsSearchClient client = builder.buildClient();
-    } 
-} 
+    }
+}
 ``` 
-> [!Important] 
+> [!Important]
 > The other environment variables created above, while not used in the code sample here, are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
 
 ### Using a subscription key credential
@@ -196,9 +196,9 @@ public class Demo {
         MapsSearchClient client = builder.buildClient();
     }
 }
-``` 
+```
 
-## Fuzzy search an entity 
+## Fuzzy search an entity
 
 The following code snippet demonstrates how, in a simple console application, to import the `azure-maps-search` package and perform a fuzzy search on "Starbucks" near Seattle:
 
@@ -250,10 +250,10 @@ public class Demo {
 
 This code snippet demonstrates how to create a `MapsSearchClient` object using Azure credentials. Start by instantiating `AzureKeyCredential` using your Azure Maps subscription key, then passes the credentials to instantiate `MapsSearchClient`. `MapsSearchClient` methods such as `FuzzySearch` can use the point of interest (POI) name "Starbucks" and coordinates GeoPosition(-122.31, 47.61).
 
-Execute the program from the project folder in the command line:  
+Execute the program from the project folder in the command line:
 
 ```powershell
-java .\demo.java 
+java .\demo.java
 ```
 
 You should see a list of Starbucks address and coordinate results:
@@ -335,9 +335,9 @@ public class Demo {
         SearchAddressResultItem item = results.getResults().get(0);
         System.out.format("The coordinates is (%.4f, %.4f)", 
             item.getPosition().getLatitude(), item.getPosition().getLongitude());
-        } 
-    } 
-} 
+        }
+    }
+}
 ```
 
 In this sample, the `client.SearchAddress` method returns results ordered by confidence score and prints the coordinates of the first result.
@@ -386,9 +386,9 @@ public class Demo{
             for (ReverseSearchAddressResultItem result : item.getResult().getAddresses()) {
                 System.out.println(result.getAddress().getFreeformAddress());
             }
-        } 
-    } 
-} 
+        }
+    }
+}
 ```
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
