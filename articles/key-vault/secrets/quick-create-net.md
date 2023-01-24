@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault secrets client library for .NET
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/23/2020
+ms.date: 01/20/2023
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -174,7 +174,7 @@ await client.SetSecretAsync(secretName, secretValue);
 ```
 
 > [!NOTE]
-> If secret name exists, above code will create new version of that secret.
+> If secret name exists, the code will create new version of that secret.
 
 
 ### Retrieve a secret
