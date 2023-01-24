@@ -57,7 +57,7 @@ You can configure the zone redundant option by using either Azure Portal or ARM 
 
 # [ARM API](#tab/arm)
 
-The following REST API commands can be used to enable the zone redundant configuration using the boolean `zoneRedundant` parameter.
+Use the following REST API commands to enable zone redundant configuration with the boolean `zoneRedundant` parameter.
 
 - [Managed Instances - Create Or Update - REST API (Azure SQL Database)](/rest/api/sql/2021-02-01-preview/managed-instances/create-or-update?tabs=HTTP)
 - [Managed Instances - Update - REST API (Azure SQL Database)](/rest/api/sql/2021-02-01-preview/managed-instances/update?tabs=HTTP)
