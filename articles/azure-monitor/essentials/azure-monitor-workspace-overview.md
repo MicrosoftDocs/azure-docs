@@ -3,6 +3,7 @@ title: Azure Monitor workspace overview (preview)
 description: Overview of Azure Monitor workspace, which is a unique environment for data collected by Azure Monitor.
 author: EdB-MSFT
 ms.author: edbaynash 
+ms.reviewer: poojaa
 ms.topic: conceptual
 ms.date: 01/22/2023
 ---
@@ -39,7 +40,7 @@ The following table presents criteria to consider when designing an Azure Monito
 
 * The default Azure Monitor workspace limit is 1 million active times series and 1 million events per minute ingested. 
 
-* There is no reduction in performance due to the amount of data in your Azure Monitor workspace. Multiple services can send data to the same account simultaneously. There is, however, a limit on how large an Azure Monitor workspace can scale as explained below.
+* There's no reduction in performance due to the amount of data in your Azure Monitor workspace. Multiple services can send data to the same account simultaneously. There is, however, a limit on how large an Azure Monitor workspace can scale as explained below.
 
 ### Growing account capacity  
 
