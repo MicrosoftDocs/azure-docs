@@ -351,7 +351,8 @@ During the MDM configuration of the Microsoft Enterprise SSO Extension, optional
 |**3**    |**[disable_explicit_app_prompt](../develop/apple-sso-plugin.md#disable-oauth-2-application-prompts)**         |Replaces **prompt=login** authentication requests from applications to reduce prompting|
 |**4**     |**[AppPrefixAllowList](../develop/apple-sso-plugin.md#enable-sso-for-all-apps-with-a-specific-bundle-id-prefix)**         |Any Non-MSAL application that has a Bundle ID that starts with **`com.micorosoft.`** can be intercepted and handled by the SSO Extension broker             |
 
->[!Important] Feature flags set to **null** means that their **default** configuration is in place. Check **[Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options)** for more details]
+>[!Important]
+>Feature flags set to **null** means that their **default** configuration is in place. Check **[Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options)** for more details]
 
  
 
