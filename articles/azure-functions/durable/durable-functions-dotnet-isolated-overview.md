@@ -1,7 +1,7 @@
 ---
 title: Overview of Durable Functions in the Azure Functions .NET isolated worker process
 description: Learn about Durable Functions in the Azure Functions .NET isolated worker process, which supports non-LTS versions of .NET and .NET Framework apps.
-author: javia
+author: jviau
 ms.topic: overview
 ms.date: 01/24/2023
 ms.author: azfuncdf
@@ -27,7 +27,7 @@ Not all features from in-process Durable functions have yet been migrated to the
 ### Feature improvements over in-process Durable functions
 
 - Orchestration input can be injected directly: `MyOrchestration([OrchestrationTrigger] TaskOrchestrationContext context, T input)`
-- Support for class-based activities and orchestrations (NOTE: in preview, see [here](#class-based-activities-and-orchestrations) for more details.)
+- Support for strongly-typed calls and class-based activities and orchestrations (NOTE: in preview, see [here](#source-generator-and-class-based-activities-and-orchestrations) for more details.)
 - Plus all the benefits of Azure Functions .NET isolated worker.
 
 ### Source Generator and class-based activities and orchestrations

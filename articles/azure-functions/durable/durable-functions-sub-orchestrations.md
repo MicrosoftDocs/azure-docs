@@ -177,6 +177,7 @@ public static async Task ProvisionNewDevices(
 
     // ...
 }
+```
 
 # [JavaScript](#tab/javascript)
 

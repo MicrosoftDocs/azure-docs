@@ -891,7 +891,7 @@ public class Counter
 }
 ```
 
-# [C# (Isolated)](#tab/csharp-inproc)
+# [C# (Isolated)](#tab/csharp-isolated)
 
 Durable entities are currently not supported in the dotnet-isolated worker.
 

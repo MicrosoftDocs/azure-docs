@@ -322,7 +322,30 @@ The activity function call in the previous example takes a parameter for configu
 
 ## Custom retry handlers
 
-When using the .NET isolated worker or Java, you also have the option to implement retry handlers in code. This is useful when declarative retry policies are not expressive enough. For languages that don't support custom retry handlers, you still have the option of implementing retry policies using loops, exception handling, and timers for injecting delays between retries.
+When using the .NET or Java, you also have the option to implement retry handlers in code. This is useful when declarative retry policies are not expressive enough. For languages that don't support custom retry handlers, you still have the option of implementing retry policies using loops, exception handling, and timers for injecting delays between retries.
+
+# [C# (InProc)](#tab/csharp-inproc)
+
+```csharp
+RetryOptions retryOptions = new RetryOptions(new RetryOptions(
+    firstRetryInterval: TimeSpan.FromSeconds(5),
+    maxNumberOfAttempts: int.MaxValue)
+    {
+        Handle = exception =>
+        {
+            // True to handle and try again, false to not handle and throw.
+            if (exception is TaskFailedException failure)
+            {
+                // Exceptions from TaskActivities are always this type. Inspect the
+                // inner Exception to get more details.
+            }
+
+            return false;
+        };
+    }
+
+await ctx.CallActivityWithRetryAsync("FlakeyActivity", retryOptions, null);
+```
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
