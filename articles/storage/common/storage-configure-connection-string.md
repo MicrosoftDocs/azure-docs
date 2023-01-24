@@ -139,5 +139,6 @@ To learn how to authorize access to Azure Storage with the account key or with a
 
 ## Next steps
 
-- [Use the Azurite emulator for local Azure Storage development](storage-use-azurite.md)
+- [Use the Azure Identity library to get an access token for authorization](identity-library-acquire-token.md)
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
+- [Use the Azurite emulator for local Azure Storage development](storage-use-azurite.md)
