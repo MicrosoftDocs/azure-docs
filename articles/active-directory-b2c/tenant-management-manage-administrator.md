@@ -9,14 +9,9 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-<<<<<<< HEAD:articles/active-directory-b2c/tenant-management-manage-administrator.md
 ms.custom: project-no-code, b2c-docs-improvements
 ms.date: 01/30/2023
 ms.reviewer: yoelh
-=======
-ms.date: 12/29/2022
-ms.custom: project-no-code
->>>>>>> cdb26719981e2dbd3a12a19829018a6c515c1ad9:articles/active-directory-b2c/tenant-management.md
 ms.author: kengaderdus
 ms.subservice: B2C
 ---

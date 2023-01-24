@@ -213,7 +213,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
 ## Step 6 - Test policy 
 
-Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy.
+Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-6---test-the-custom-policy) to test your custom policy.
 
 After the policy finishes execution, and you receive your ID token, check that the user record has been stored: 
 
