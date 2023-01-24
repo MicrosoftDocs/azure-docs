@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 01/10/2023
 ---
+
 # Integrate security solutions in Microsoft Defender for Cloud
 
 This document helps you to manage security solutions already connected to Microsoft Defender for Cloud and add new ones.
