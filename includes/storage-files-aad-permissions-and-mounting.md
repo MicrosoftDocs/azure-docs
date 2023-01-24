@@ -5,7 +5,7 @@
  author: khdownie
  ms.service: storage
  ms.topic: include
- ms.date: 12/07/2022
+ ms.date: 01/24/2023
  ms.author: kendownie
  ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -147,7 +147,7 @@ if ($connectTestResult.TcpTestSucceeded) {
 You can also use the `net-use` command from a Windows prompt to mount the file share. Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values.
 
 ```
-net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:localhost\<YourStorageAccountName>
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
 ```
 
 ## Mount the file share from a non-domain-joined VM

@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 01/24/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -52,7 +52,7 @@ if ($connectTestResult.TcpTestSucceeded) {
 You can also use the `net-use` command from a Windows prompt to mount the file share. Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values.
 
 ```
-net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:localhost\<YourStorageAccountName>
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
 ```
 
 If you run into issues mounting with AD DS credentials, refer to [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) for guidance.
