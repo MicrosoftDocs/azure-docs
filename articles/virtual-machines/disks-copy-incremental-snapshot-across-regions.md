@@ -13,7 +13,9 @@ ms.devlang: azurecli
 
 # Copy an incremental snapshot to a new region
 
-Incremental snapshots can be copied to any region. The process is managed by Azure, removing the maintenance overhead of managing the copy process by staging a storage account in the target region. Azure ensures that only changes since the last snapshot in the target region are copied to the target region to reduce the data footprint, reducing the recovery point objective. You can check the progress of the copy so you know when a target snapshot is ready to restore disks in the target region. You're only charged for the bandwidth cost of the data transfer across the region and the read transactions on the source snapshots. Don't delete your source snapshot while the target snapshot is being copied.
+Incremental snapshots can be copied to any region. There are two options for copying an incremental snapshot across regions. The first option, a managed process (recommended), that'll perform the copy for you. The managed process is handled by Azure and removes the maintenance overhead of managing the copy process by staging a storage account in the target region. Azure ensures that only changes since the last snapshot in the target region are copied to the target region to reduce the data footprint, reducing the recovery point objective. You can check the process of a copy so you know when a target snapshot is ready to restore disks in the target region. You're only billed for the bandwidth cost of the data transfer across the region, and the read transactions on the source snapshot. Don't delete your source snapshot while the target snapshot is being copied. 
+
+There is a second option, [a manual copy](#manual-copy), where you get the changes between two incremental snapshots, down to the block level, and manually copy it from one region to another. Most users should use the managed process but, if you're interested in improving the copy speed, the second option allows you to leverage your compute resources to make the copy faster.
 
 This article covers copying an incremental snapshot from one region to another. See [Create an incremental snapshot for managed disks](disks-incremental-snapshots.md) for conceptual details on incremental snapshots.
 
@@ -24,11 +26,7 @@ This article covers copying an incremental snapshot from one region to another. 
 - You can copy 100 incremental snapshots in parallel at the same time per subscription per region.
 - If you use the REST API, you must use version 2020-12-01 or newer of the Azure Compute REST API.
 
-## Get started
-
-There are two options for copying an incremental snapshot across regions. The first option (recommended) which is using native commands in either Azure CLI or the Azure PowerShell module to perform the copy for you. And the second, [a manual copy](#manual-copy), where you get the changes between two incremental snapshots, down to the block level, and manually copy it from one region to another. Most users should use the first option but, if you're interested in improving the copy speed, the second option allows you to leverage your compute resources to make the copy faster.
-
-## CLI and PowerShell copy
+## Managed copy
 
 # [Azure CLI](#tab/azure-cli)
 
