@@ -83,9 +83,7 @@ Fill out and submit the [request form](https://aka.ms/csgate) to request access 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-## Get the container image with docker pull
-
-Container images for Speech are available in the following container registry.
+## Speech container images
 
 # [Speech-to-text](#tab/stt)
 
@@ -132,7 +130,7 @@ To use the latest version of the container, you can use the `latest` tag. You ca
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### Docker pull for the Speech containers
+### Get the container image with docker pull
 
 # [Speech-to-text](#tab/stt)
 
