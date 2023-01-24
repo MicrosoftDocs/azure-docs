@@ -1,10 +1,16 @@
 ---
 title: Recover data from an Azure Backup Server
 description: Recover the data you've protected to a Recovery Services vault from any Azure Backup Server registered to that vault.
-ms.topic: conceptual
-ms.date: 07/09/2019
+ms.topic: how-to
+ms.date: 01/24/2023
+author: jyothisuri
+ms.author: jsuri
+ms.service: backup
+ms.custom: engagement-fy23
 ---
 # Recover data from Azure Backup Server
+
+This article describes how to recover data from Azure Backup Server.
 
 You can use Azure Backup Server to recover the data you've backed up to a Recovery Services vault. The process for doing so is integrated into the Azure Backup Server management console, and is similar to the recovery workflow for other Azure Backup components.
 
@@ -12,6 +18,8 @@ You can use Azure Backup Server to recover the data you've backed up to a Recove
 > This article is applicable for [System Center Data Protection Manager 2012 R2 with UR7 or later](https://support.microsoft.com/kb/3065246), combined with the [latest Azure Backup agent](https://aka.ms/azurebackup_agent).
 >
 >
+
+## RData recovery workflow
 
 To recover data from an Azure Backup Server:
 
