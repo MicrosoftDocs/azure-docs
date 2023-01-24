@@ -172,7 +172,7 @@ az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGrou
 
 ## More configuration options
 
-### Enable autorotation
+### Enable and disable autorotation
 
 > [!NOTE]
 > When the Azure Key Vault Provider for Secrets Store CSI Driver is enabled, it updates the pod mount and the Kubernetes secret that's defined in the `secretObjects` field of `SecretProviderClass`. It does so by polling for changes periodically, based on the rotation poll interval you've defined. The default rotation poll interval is 2 minutes.
@@ -211,7 +211,7 @@ az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secret
 az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
 ```
 
-### Disable autorotation
+#### Disable autorotation
 
 * To disable autorotation, first disable the addon. Then, re-enable the addon without the `enable-secret-rotation` parameter.
 
