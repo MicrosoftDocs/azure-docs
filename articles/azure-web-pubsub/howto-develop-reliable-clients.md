@@ -23,13 +23,13 @@ The Web PubSub service supports two reliable subprotocols `json.reliable.webpubs
 
 To use reliable subprotocols, you must set the subprotocol when constructing Websocket connections. In JavaScript, you can use the following code:
 
-- Use Json reliable subprotocol
+- Use Json reliable subprotocol:
 
     ```js
     var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.reliable.webpubsub.azure.v1');
     ```
 
-- Use Protobuf reliable subprotocol
+- Use Protobuf reliable subprotocol:
 
     ```js
     var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.reliable.webpubsub.azure.v1');
@@ -52,7 +52,7 @@ When the client reconnects to the service using reliable subprotocols, the clien
 }
 ```
 
-Once the WebSocket connection drops, the client should try to reconnect with the same `connectionId` to keep the restore the same session. Clients don't need to negotiate with the server and obtain the `access_token`. Instead, reconnection should make a websocket connect request directly to the service with the service host name, `connection_id`, and `reconnection_token`:
+Once the WebSocket connection drops, the client should try to reconnect with the same `connectionId` to restore the same session. Clients don't need to negotiate with the server and obtain the `access_token`. Instead, on reconnection the client should make a WebSocket connect request directly to the service with the service host name, `connection_id`, and `reconnection_token`:
 
 ```text
 wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connection_id>&awps_reconnection_token=<reconnection_token>
@@ -65,7 +65,9 @@ Reconnection may fail if the network issue hasn't been recovered yet. The client
 
 ## Publisher
 
-Clients that send events to event handlers or publish messages to other clients are called publishers. Publishers should set `ackId` in the message to receive an acknowledgment from the Web PubSub service that publishing the message was successful or not. The `ackId` in message is the identifier of the message, each new message should use a unique ID.  The original `ackId` should be used when resending a message.
+Clients that send events to event handlers or publish messages to other clients are called publishers. Publishers should set `ackId` in the message to receive an acknowledgment from the Web PubSub service that publishing the message was successful or not. 
+
+The `ackId` is the identifier of the message, each new message should use a unique ID.  The original `ackId` should be used when resending a message.
 
 A sample group send message:
 
@@ -107,7 +109,7 @@ When the service experiences a transient internal error and the message can't be
 
 ![Message Failure](./media/howto-develop-reliable-clients/message-failed.png)
 
-If the service's ack response is lost because the WebSocket connection dropped, the publisher should resend message with the same `ackId` after reconnection. When the message was previously processed by the service, it will send an ack containing a `Duplicate` error and the publisher should stop resending this message.
+If the service's ack response is lost because the WebSocket connection dropped, the publisher should resend the message with the same `ackId` after reconnection. When the message was previously processed by the service, it will send an ack containing a `Duplicate` error.  The publisher should stop resending this message.
 
 ```json
 {
