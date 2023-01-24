@@ -54,14 +54,6 @@ You can configure the zone redundant option by using either Azure Portal or ARM 
 
 # [Azure Portal](#tab/portal)
 
-The following versions of Windows support Storage Explorer:
-
-* Windows 11
-* Windows 10
-* Windows 8
-* Windows 7
-
-For all versions of Windows, Storage Explorer requires .NET Framework 4.7.2 at a minimum.
 
 # [ARM API](#tab/arm)
 
