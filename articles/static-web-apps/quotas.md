@@ -18,7 +18,7 @@ The following quotas exist for Azure Static Web Apps.
 | Included bandwidth          | 100 GB per month, per subscription | 100 GB per month, per subscription |
 | Overage bandwidth           | Unavailable      | $0.20 per GB |
 | Apps per Azure subscription | 10               | Unlimited |
-| Storage | • 500 MB total for all staging and production environments<br>• 250 MB max per app | • 2 GB max combined across all staging and production environments<br>• 500 MB max app size for a single deployment |
+| Storage | • 500 MB max for all staging and production environments<br><br>• 250 MB max per app | • 2 GB max for all staging and production environments<br><br>• 500 MB max per app |
 | Pre-production environments | 3                | 10 |
 | Custom domains              | 2 per app        | 5 per app |
 | Allowed IP ranges           | Unavailable      | 25 |
