@@ -215,7 +215,7 @@ When you will configure PingAccess in the following step, the Web Session you wi
 
 Now that you've completed all the Azure Active Directory setup steps, you can move on to configuring PingAccess.
 
-The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation. Follow the instructions in [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configuring_pa_apps_for_azure) on the Ping Identity web site and download the [latest version of PingAccess](https://www.pingidentity.com/en/lp/azure-download.html).
+The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation. Follow the instructions in [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configuring_apps_for_azure) on the Ping Identity web site and download the [latest version of PingAccess](https://www.pingidentity.com/en/lp/azure-download.html).
 
 Those steps help you install PingAccess and set up a PingAccess account (if you don't already have one). Then, to create an Azure AD OpenID Connect (OIDC) connection, you set up a token provider with the **Directory (tenant) ID** value that you copied from the Azure AD portal. Next, to create a web session on PingAccess, you use the **Application (client) ID** and `PingAccess key` values. After that, you can set up identity mapping and create a virtual host, site, and application.
 
@@ -225,6 +225,6 @@ When you've completed all these steps, your application should be up and running
 
 ## Next steps
 
-- [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configuring_pa_apps_for_azure)
+- [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configuring_apps_for_azure)
 - [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 - [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md)
