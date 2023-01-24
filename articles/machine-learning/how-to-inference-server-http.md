@@ -170,7 +170,7 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
             ]
         }
         ```
-   1. Start the inference server using CLI.
+   1. Start the inference server using CLI (`azmlinfsrv --entry_script score.py`).
    1. Start debugging session in VS Code.
       1. In VS Code, select "Run" -> "Start Debugging" (or `F5`).
       1. Enter the process ID using the logs (from the inference server) displayed in the CLI.
