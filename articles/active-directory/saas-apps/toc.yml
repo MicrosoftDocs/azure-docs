@@ -915,8 +915,6 @@
         href: firmex-vdr-tutorial.md
       - name: FirmPlay - Employee Advocacy for Recruiting
         href: firmplay-tutorial.md
-      - name: Firstbird
-        href: firstbird-tutorial.md
       - name: FiscalNote
         href: fiscalnote-tutorial.md
       - name: Five9 Plus Adapter (CTI, Contact Center Agents)
@@ -1927,6 +1925,8 @@
         href: r-and-d-tax-credit-services-tutorial.md
       - name: Rackspace SSO
         href: rackspacesso-tutorial.md
+      - name: Radancy's Employee Referrals
+        href: radancys-employee-referrals-tutorial.md
       - name: Raketa
         href: raketa-tutorial.md
       - name: Rally Software
@@ -3178,6 +3178,8 @@
         href: starleaf-provisioning-tutorial.md
       - name: Storegate
         href: storegate-provisioning-tutorial.md
+      - name: SurveyMonkey Enterprise
+        href: surveymonkey-enterprise-provisioning-tutorial.md
       - name: Swit
         href: swit-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
