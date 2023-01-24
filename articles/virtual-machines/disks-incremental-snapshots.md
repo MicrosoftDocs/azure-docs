@@ -15,6 +15,12 @@ ms.devlang: azurecli
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
+Incremental snapshots are point in time backups for managed disks that, when taken, consist only of the changes since the last snapshot. When you restore a disk from an incremental snapshot, the system reconstructs the full disk that represents the point in time backup of the disk when the incremental snapshot was taken. This capability for managed disk snapshots potentially allows them to be more cost effective, since, unless you choose to, you don't have to store the entire disk with each individual snapshot. Just like full snapshots, incremental snapshots can be used to either create a full managed disk or a full snapshot. Both full snapshots and incremental snapshots can be used immediately after being taken. In other words, once you take either snapshot, you can immediately read the underlying VHD and use it to restore disks.
+
+There are a few differences between an incremental snapshot and a full snapshot. Incremental snapshots will always use standard HDD storage, irrespective of the storage type of the disk, whereas full snapshots can use premium SSDs. If you're using full snapshots on Premium Storage to scale up VM deployments, we recommend you use custom images on standard storage in the [Azure Compute Gallery](../articles/virtual-machines/shared-image-galleries.md). It will help you achieve a more massive scale with lower cost. Additionally, incremental snapshots potentially offer better reliability with [zone-redundant storage](../articles/storage/common/storage-redundancy.md) (ZRS). If ZRS is available in the selected region, an incremental snapshot will use ZRS automatically. If ZRS isn't available in the region, then the snapshot will default to [locally-redundant storage](../articles/storage/common/storage-redundancy.md) (LRS). You can override this behavior and select one manually but, we don't recommend that.
+
+Incremental snapshots are billed for the used size only. You can find the used size of your snapshots by looking at the [Azure usage report](../articles/cost-management-billing/understand/review-individual-bill.md). For example, if the used data size of a snapshot is 10 GiB, the **daily** usage report will show 10 GiB/(31 days) = 0.3226 as the consumed quantity.
+
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](../../includes/virtual-machines-disks-incremental-snapshots-description.md)]
 
 ## Restrictions
@@ -23,7 +29,7 @@ ms.devlang: azurecli
 
 # [Azure CLI](#tab/azure-cli)
 
-You can use the Azure CLI to create an incremental snapshot. You will need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
+You can use the Azure CLI to create an incremental snapshot. You'll need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
 
 The following script will create an incremental snapshot of a particular disk:
 
@@ -60,13 +66,13 @@ az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremen
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-You can use the Azure PowerShell module to create an incremental snapshot. You will need the latest version of the Azure PowerShell module. The following command will either install it or update your existing installation to latest:
+You can use the Azure PowerShell module to create an incremental snapshot. You'll need the latest version of the Azure PowerShell module. The following command will either install it or update your existing installation to latest:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
 
-Once that is installed, login to your PowerShell session with `Connect-AzAccount`.
+Once that is installed, sign in to your PowerShell session with `Connect-AzAccount`.
 
 To create an incremental snapshot with Azure PowerShell, set the configuration with [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig) with the `-Incremental` parameter and then pass that as a variable to [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) through the `-Snapshot` parameter.
 
@@ -83,7 +89,7 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName -Snapshot $snapshotConfig 
 ```
 
-You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you were to delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
+You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
 
 You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following example to list your existing incremental snapshots:
 
@@ -168,7 +174,7 @@ diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
 az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
 ```
 
-Now that you have a list of snapshots, you can check the `CompletionPercent` property of an snapshot to get its status. Replace `$sourceSnapshotName` with the name of your snapshot. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
+Now that you have a list of snapshots, you can check the `CompletionPercent` property of a snapshot to get its status. Replace `$sourceSnapshotName` with the name of your snapshot. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
 
 ```azurecli
 az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [completionPercent] -o tsv

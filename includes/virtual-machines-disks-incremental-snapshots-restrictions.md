@@ -21,6 +21,7 @@
 
 ### Incremental snapshots of Ultra Disks (preview)
 
+- You must request and receive access to the preview from the following link: [https://aka.ms/UltraPremiumv2SnapshotPreview](https://aka.ms/UltraPremiumv2SnapshotPreview)
 - Currently only available in Sweden Central and US West 3.
 - Snapshots with a 4096 logical sector size can only be used to create Ultra Disks. They can't be used to create other disk types. To determine what sector size your snapshot has, see [check sector size](#check-sector-size).
 - When an incremental snapshot of an Ultra Disk is created, a background copy process for that disk is started. While a background copy is ongoing, you can have up to three total snapshots pending. The process must complete before any additional snapshots of that disk can be created.
