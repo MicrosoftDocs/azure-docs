@@ -1,13 +1,13 @@
 ---
 title: Defender for Cloud glossary
 description: The glossary provides a brief description of important Defender for Cloud platform terms and concepts.
-ms.date: 10/30/2022
+ms.date: 01/24/2023
 ms.topic: article
 ---
 
 # Defender for Cloud glossary
 
-This glossary provides a brief description of important terms and concepts for the Microsoft Defender for Cloud platform. Select the **Learn more** links to go to related terms in the glossary. This will help you to learn and use the product tools quickly and effectively.
+This glossary provides a brief description of important terms and concepts for the Microsoft Defender for Cloud platform. Select the **Learn more** links to go to related terms in the glossary. This glossary can help you to learn and use the product tools quickly and effectively.
 
 <a name="glossary-a"></a>
 
@@ -96,8 +96,8 @@ This glossary provides a brief description of important terms and concepts for t
 |--|--|--|
 |**MDC**| Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) for all of your Azure, on-premises, and multicloud (Amazon AWS and Google GCP) resources. | [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)|
 |**MDE**| Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats.|[Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)|
-|**MFA**|multi factor authentication, a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or a fingerprint scan.|[How it works: Azure Multi Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)|
-|**MITRE ATT&CK**| a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.|[MITRE ATT&CK](https://attack.mitre.org/)|
+|**MFA**|multi factor authentication, a process in which users are prompted during the sign-in process for an extra form of identification, such as a code on their cellphone or a fingerprint scan.|[How it works: Azure Multi Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)|
+|**MITRE ATT&CK**| A globally accessible knowledge base of adversary tactics and techniques based on real-world observations.|[MITRE ATT&CK](https://attack.mitre.org/)|
 |**MMA**| Microsoft Monitoring Agent, also known as Log Analytics Agent|[Log Analytics Agent Overview](../azure-monitor/agents/log-analytics-agent.md)|
 
 ## N
