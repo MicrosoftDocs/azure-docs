@@ -26,7 +26,9 @@ Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to m
 
 - Define a set of rules and require that a user input obeys one or more of the rules. This approach uses *Predicates*, which you add when you declare a claim.
 
-- Configure a *Validation Technical Profile* that defines complex business rules that aren't possible to define at claim declaration level. For example, you collect a user input, which needs to be validated against a set of other values in another claim.      
+- Configure a *Validation Technical Profile* that defines complex business rules that aren't possible to define at claim declaration level. For example, you collect a user input, which needs to be validated against a set of other values in another claim.  
+
+- Use the special claim type *reenterPassword* to validate that the user correctly re-entered their password during user input collection.   
 
 ## Prerequisites
 
