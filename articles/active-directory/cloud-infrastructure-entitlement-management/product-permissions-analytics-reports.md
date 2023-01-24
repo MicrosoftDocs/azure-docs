@@ -14,7 +14,7 @@ ms.author: jfields
 
 # View and download the Permissions analytics report
 
-This article describes how to view and download the **Permissions analytics report** in Permissions Management for AWS, Azure, and GPC authorization systems.
+This article describes how to view and download the **Permissions Analytics Report** in Permissions Management for AWS, Azure, and GPC authorization systems.
 
 >[NOTE]
 >The Permissions analytics report can be downloaded in Excel and PDF formats.
@@ -27,7 +27,7 @@ You can view the Permissions Analytics Report information directly in the Permis
 2. Locate the **Permissions Analytics Report** in the list, then select it.
 3. View detailed report information from the list of categories that are displayed.
    >[NOTE]
-   > Categories will vary depending on which Authorization System you are viewing.
+   > Categories will vary depending on which authorization system you are viewing.
 
 4. To view more detailed information into each category, select the drop-down arrow next to the category name.
 
@@ -45,7 +45,7 @@ You can view the Permissions Analytics Report information directly in the Permis
 5. Click on **Schedule** and, if you want to download this report regularly, select the frequency for which you want it downloaded. You can also leave this at the default setting of **None**.
 6. Click on **Authorization Systems** and select which system you want to download the report for (AWS, Azure, or GCP).
    >[NOTE]
-   > To download a report for all Authorization Systems, check the **Collate** box. This will combine all selected Authorization Systems into one report.
+   > To download a report for all authorization systems, check the **Collate** box. This will combine all selected authorization systems into one report.
 7. Click **Save**
 
     The following message displays: **Report has been created**.
@@ -56,9 +56,9 @@ You can view the Permissions Analytics Report information directly in the Permis
     
     The **Systems Reports** subtab displays a list of reports names in the **Reports** table.
 2. Locate the **Permissions Analytics Report** in the list, then select it.
-3. Select which Authorization System you want to generate the PDF download for (AWS, Azure, or GCP).
+3. Select which authorization system you want to generate the PDF download for (AWS, Azure, or GCP).
    >[NOTE]
-   > The PDF can only be downloaded for one Authorization System at a time. If more than one Authorization System is selected, the **Export PDF** button will be disabled. 
+   > The PDF can only be downloaded for one authorization system at a time. If more than one authorization system is selected, the **Export PDF** button will be disabled. 
 4. To download the report in PDF format, click on **Export PDF**.
     
     The following message displays: **Successfully started to generate PDF report**. 
