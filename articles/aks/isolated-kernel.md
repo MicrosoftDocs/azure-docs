@@ -85,7 +85,9 @@ The solution architecture is based on the following components:
 
 Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers, the deployment includes kata-runtime options that can be defined in the pod template.
 
-For a pod to use the this feature, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec. When a pod uses the *kata-mshv-vm-isolation* runtimeClass, a VM is created to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is 1 core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When the Container resource manifest limit for CPU or memory is specified, the VM has `containers[].resources.limits.cpu` with the `1` argument to use 1 CPU, and `containers[].resources.limits.memory` with the `2` argument to specify 2GB of memory. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
+For a pod to use the this feature, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec.
+
+When a pod uses the *kata-mshv-vm-isolation* runtimeClass, a VM is created to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is 1 core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When the Container resource manifest limit for CPU or memory is specified, the VM has `containers[].resources.limits.cpu` with the `1` argument to use 1 CPU, and `containers[].resources.limits.memory` with the `2` argument to specify 2GB of memory. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
 
 ## Deploy new cluster
 
