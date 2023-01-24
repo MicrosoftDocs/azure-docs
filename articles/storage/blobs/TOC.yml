@@ -202,14 +202,16 @@ items:
         href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Customer-managed failover for disaster recovery
         href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Blob access tiers and lifecycle management
+    - name: Access tiers and lifecycle management
       items:
-      - name: Overview
+      - name: Access tiers overview
         href: access-tiers-overview.md
-      - name: Blob rehydration from Archive tier
-        href: archive-rehydrate-overview.md
+      - name: Access tiers best practices
+        href: access-tiers-best-practices.md
       - name: Lifecycle management policies
         href: lifecycle-management-overview.md
+      - name: Blob rehydration from archive tier
+        href: archive-rehydrate-overview.md
     - name: Object replication
       href: object-replication-overview.md
     - name: Performance and scalability
@@ -322,6 +324,8 @@ items:
           href: ../common/storage-account-move.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Upgrade to Data Lake Storage Gen2
           href: upgrade-to-data-lake-storage-gen2-how-to.md
+        - name: Migrate a classic account to Azure Resource Manager
+          href: ../common/storage-account-migrate-classic.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Create and manage containers
         items:
         - name: Manage containers (Azure portal)
@@ -342,6 +346,8 @@ items:
           href: blob-inventory-how-to.md
         - name: Calculate blob count and total size
           href: calculate-blob-count-size.md
+        - name: Convert append and page blobs to block blobs
+          href: convert-append-and-page-blobs-to-block-blobs.md
       - name: Authorize access to blob data
         items:
         - name: Authorization options for users

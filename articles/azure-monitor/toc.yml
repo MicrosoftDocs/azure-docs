@@ -70,8 +70,10 @@ items:
         href: vm/monitor-virtual-machine-alerts.md
       - name: Migrate management pack logic
         href: vm/monitor-virtual-machine-management-packs.md
-  - name: Self-monitoring
+  - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md 
+  - name: Migrate from Splunk to Azure Monitor Logs
+    href: logs/migrate-splunk-to-azure-monitor-logs.md 
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -945,7 +947,7 @@ items:
       - name: SharePoint sites
         href: app/sharepoint.md
       - name: Windows desktop
-        href: app/windows-desktop.md 
+        href: app/windows-desktop.md
   - name: Container insights
     items:
     - name: Overview
@@ -1261,8 +1263,6 @@ items:
           href: logs/resource-expression.md
         - name: Unify application data resources
           href: logs/unify-app-resource-data.md
-        - name: Cross service query between Azure Monitor and Azure Data Explorer overview
-          href: logs/azure-data-explorer-monitor-cross-service-query.md
         - name: Query Azure Data Explorer from Azure Monitor
           href: logs/azure-monitor-data-explorer-proxy.md
       - name: API
