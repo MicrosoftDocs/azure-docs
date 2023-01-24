@@ -180,16 +180,23 @@ First, get a list of all snapshots associated with a particular disk. Replace `y
 
 ```azurepowershell
 $resourceGroupName = "yourResourceGroupNameHere"
-
 $snapshots = Get-AzSnapshot -ResourceGroupName $resourceGroupName
+$diskName = "yourDiskNameHere"
+
+$yourDisk = Get-AzDisk -DiskName $diskName -ResourceGroupName $resourceGroupName
 
 $incrementalSnapshots = New-Object System.Collections.ArrayList
 
 foreach ($snapshot in $snapshots)
 {
-if($snapshot.Incremental -and $snapshot.CreationData.SourceResourceId -eq $yourDisk.Id -and $snapshot.CreationData.SourceUniqueId -eq $yourDisk.UniqueId){
-$incrementalSnapshots.Add($snapshot)
-}
+    if($snapshot.Incremental -and $snapshot.CreationData.SourceResourceId -eq $yourDisk.Id -and $snapshot.CreationData.SourceUniqueId -eq $yourDisk.UniqueId)
+    {
+    $targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
+        {
+        if($targetSnapshot.CompletionPercent -lt 100)
+        }
+    $incrementalSnapshots.Add($snapshot)
+    }
 }
 
 $incrementalSnapshots
