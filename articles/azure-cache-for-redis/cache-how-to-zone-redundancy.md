@@ -92,4 +92,3 @@ When your cache uses zone redundancy configured with multiple Availability Zones
 Learn more about Azure Cache for Redis features.
 
 - [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
-- 
