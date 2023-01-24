@@ -15,7 +15,7 @@ ms.date: 11/29/2022
 
 # Debugging scoring script with Azure Machine Learning inference HTTP server (preview)
 
-The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
+The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
 
 The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with the candidate script and run the test suite against the local endpoint.
 
@@ -127,7 +127,7 @@ Now you can modify the scoring script (`score.py`) and test your changes by runn
 
 There are two ways to use Visual Studio Code (VS Code) and [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) to debug with [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package ([Launch and Attach modes](https://code.visualstudio.com/docs/editor/debugging#_launch-versus-attach-configurations)). 
 
--  **Launch mode**: set up the `launch.json` in the VS Code and starts the AzureML Inference HTTP Server within VS Code.
+-  **Launch mode**: set up the `launch.json` in VS Code and start the AzureML Inference HTTP Server within VS Code.
    1. Start VS Code and open the folder containing the script (`score.py`).
    1. Add below configuration to `launch.json` for that workspace in VS Code:
 
