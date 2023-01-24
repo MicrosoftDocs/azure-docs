@@ -308,15 +308,15 @@ Only use storage accounts without production workload for the preview.
 
 To add or update a storage account asset to a share, you need ONE of the following permissions:
 
-* **Microsoft.Authorization/roleAssignments/write** - This permission is available in the *Owner* role.
-* **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/** - This permission is available in the *Blob Storage Data Owner* role.
+* **Microsoft.Authorization/roleAssignments/write** - This permission is available in the _Owner_ role.
+* **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/** - This permission is available in the _Blob Storage Data Owner_ role.
 
 ### Storage account permissions required to receive shared data
 
 To map a storage account asset in a received share, you need ONE of the following permissions:
 
-* **Microsoft.Storage/storageAccounts/write** - This permission is  available in the *Contributor* and *Owner* role.
-* **Microsoft.Storage/storageAccounts/blobServices/containers/write** - This permission is available in the *Contributor*, *Owner*, *Storage Blob Data Contributor* and *Storage Blob Data Owner* role.
+* **Microsoft.Storage/storageAccounts/write** - This permission is  available in the _Contributor_ and _Owner_ role.
+* **Microsoft.Storage/storageAccounts/blobServices/containers/write** - This permission is available in the _Contributor_, _Owner_, _Storage Blob Data Contributor_ and _Storage Blob Data Owner_ role.
 
 ### Update shared data in source storage account
 
@@ -329,6 +329,8 @@ The target storage account enables recipient to access the shared data read-only
 ### Service limit
 
 Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, please contact Support.
+
+## Access policy
 
 The following types of policies are supported on this data resource from Microsoft Purview:
 - [Data owner policies](concept-policies-data-owner.md)
