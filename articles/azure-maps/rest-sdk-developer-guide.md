@@ -30,7 +30,6 @@ Azure Maps C# SDK supports any .NET version that is compatible with [.NET standa
 For more information, see the [C# SDK Developers Guide](how-to-dev-guide-csharp-sdk.md).
 
 ## Python  SDK
-
 Azure Maps Python SDK supports Python version 3.7 or later. Check the [Azure SDK for Python policy planning][Python-version-support-policy] for more details on future Python versions.
 
 | Service Name  | PyPi package            |  Samples     |
@@ -63,8 +62,8 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 | [Routing][java routing readme] | [azure-maps-routing][java routing package] | [routing samples][java routing sample] |
 | [Rendering][java rendering readme]| [azure-maps-rendering][java rendering package]|[rendering sample][java rendering sample] |
 | [Geolocation][java geolocation readme]|[azure-maps-geolocation][java geolocation package]|[geolocation sample][java geolocation sample] |
-| [TimeZone][java timezone readme] | [azure-maps-TimeZone][java timezone package] | [TimeZone samples][java timezone sample] |
-| [Elevation][java elevation readme] | [azure-maps-Elevation][java elevation package] | [Elevation samples][java elevation sample] |
+| [Timezone][java timezone readme] | [azure-maps-timezone][java timezone package] | [timezone samples][java timezone sample] |
+| [Elevation][java elevation readme] | [azure-maps-elevation][java elevation package] | [elevation samples][java elevation sample] |
 
 For more information, see the [Java SDK Developers Guide](how-to-dev-guide-java-sdk.md).
 
