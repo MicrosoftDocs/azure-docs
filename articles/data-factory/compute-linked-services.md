@@ -574,6 +574,10 @@ You create an Azure Synapse Analytics linked service and use it with the [Stored
 
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a pipeline. See [SQL Server connector](connector-sql-server.md#linked-service-properties) article for details about this linked service.
 
+## Azure Synapse Analytics (Artifacts) linked service
+
+You create an Azure Synapse Analytics (Artifacts) linked service and use it with the [Synapse Notenook Activity](transform-data-synapse-notebook.md) and [Synapse Spark job definition Activity](transform-data-synapse-spark-job-definition.md) to invoke a stored procedure from a pipeline. See [Azure Synapse Analytics (Artifacts) Connector](connector-azure-synapse-analytics-artifacts.md) article for details about this linked service.
+
 ## Azure Function linked service
 
 You create an Azure Function linked service and use it with the [Azure Function activity](control-flow-azure-function-activity.md) to run Azure Functions in a pipeline. The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a `JObject`.) Any return type other than `JObject` fails and raises the user error *Response Content is not a valid JObject*.
