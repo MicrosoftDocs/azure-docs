@@ -32,8 +32,8 @@ The Enterprise SSO plug-in is currently a built-in feature of the following apps
 The Microsoft Enterprise SSO plug-in for Apple devices offers the following benefits:
 
 - It provides SSO for Azure AD accounts across all applications that support the Apple Enterprise SSO feature.
-- It can be enabled by any mobile device management (MDM) solution and supported in both device and user enrollment. 
-- It extends SSO to applications that don't yet use Microsoft identity platform libraries.
+- It can be enabled by any mobile device management (MDM) solution and is supported in both device and user enrollment. 
+- It extends SSO to applications that don't yet use Microsoft Authentication libraries.
 - It extends SSO to applications that use OAuth 2, OpenID Connect, and SAML.
 
 ## Requirements
@@ -97,7 +97,7 @@ Common settings:
 ### More configuration options
 You can add more configuration options to extend SSO functionality to other apps.
 
-#### Enable SSO for apps that don't use a Microsoft identity platform library
+#### Enable SSO for apps that don't use a Microsoft Authentication Library
 
 The SSO plug-in allows any application to participate in SSO even if it wasn't developed by using a Microsoft SDK like Microsoft Authentication Library (MSAL).
 
@@ -110,10 +110,10 @@ Your organization likely uses the Authenticator app for scenarios like multifact
 >[!IMPORTANT]
 > The Microsoft Enterprise SSO plug-in supports only apps that use native Apple network technologies or webviews. It doesn't support applications that ship their own network layer implementation.  
 
-Use the following parameters to configure the Microsoft Enterprise SSO plug-in for apps that don't use a Microsoft identity platform library.
+Use the following parameters to configure the Microsoft Enterprise SSO plug-in for apps that don't use a Microsoft Authentication library.
 
 >[!IMPORTANT]
-> You don't need to add apps that use a Microsoft identity platform library to this allow-list. Those apps will participate in SSO by default. Most of the Microsoft-built apps use a Microsoft identity platform library. 
+> You don't need to add apps that use a Microsoft Authentication Library to this allow-list. Those apps will participate in SSO by default. Most of the Microsoft-built apps use a Microsoft Authentication Library. 
 
 #### Enable SSO for all managed apps
 
@@ -219,9 +219,9 @@ Use the bundle IDs to configure SSO for the apps. Disable admin mode once done.
 
 #### Allow users to sign in from unknown applications and the Safari browser
 
-By default, the Microsoft Enterprise SSO plug-in will acquire a shared credential when it's called by another app that uses a Microsoft identity platform library during a new token acquisition. Depending on the configuration, Microsoft Enterprise SSO plug-in can also acquire a shared credential when it is called by apps that don't use Microsoft Identity platform libraries. 
+By default, the Microsoft Enterprise SSO plug-in will acquire a shared credential when it's called by another app that uses a Microsoft Authentication Library during a new token acquisition. Depending on the configuration, Microsoft Enterprise SSO plug-in can also acquire a shared credential when it is called by apps that don't use Microsoft Authentication Libraries. 
 
-When you enable the `browser_sso_interaction_enabled` flag, apps that don't use a Microsoft identity platform library can do the initial bootstrapping and get a shared credential. The Safari browser can also do the initial bootstrapping and get a shared credential. 
+When you enable the `browser_sso_interaction_enabled` flag, apps that don't use a Microsoft Authentication Library can do the initial bootstrapping and get a shared credential. The Safari browser can also do the initial bootstrapping and get a shared credential. 
 
 If the Microsoft Enterprise SSO plug-in doesn't have a shared credential yet, it will try to get one whenever a sign-in is requested from an Azure AD URL inside the Safari browser, ASWebAuthenticationSession, SafariViewController, or another permitted native application. 
 
@@ -239,9 +239,9 @@ If an application prompts your users to sign in even though the Microsoft Enterp
 
 These parameters specify whether the SSO extension should prevent native and web applications from bypassing SSO at the protocol layer and forcing the display of a sign-in prompt to the user.
 
-For a consistent SSO experience across all apps on the device, we recommend you enable one of these settings for apps that don't use a Microsoft identity platform library. You should only enable this for apps that use a Microsoft identity platform library if your users are experiencing unexpected prompts. 
+For a consistent SSO experience across all apps on the device, we recommend you enable one of these settings for apps that don't use a Microsoft Authentication Library. You should only enable this for apps that use a Microsoft Authentication Library if your users are experiencing unexpected prompts. 
 
-##### Apps that don't use a Microsoft identity platform library:
+##### Apps that don't use a Microsoft Authentication Library:
   
 Disable the app prompt and display the account picker:
 
@@ -254,7 +254,7 @@ Disable app prompt and select an account from the list of matching SSO accounts 
 - **Type**: `Integer`
 - **Value**: 1 or 0. This value is set to 0 by default.
 
-##### Apps that use a Microsoft identity platform library:
+##### Apps that use a Microsoft Authentication Library:
 
 Following settings are not recommended if [App protection policies](/mem/intune/apps/app-protection-policy) are in use. 
 
@@ -275,9 +275,9 @@ If an application prompts your users to sign in even though the Microsoft Enterp
 
 #### Change iOS experience for MSAL-enabled applications
 
-Apps that use a Microsoft identity platform library will always invoke SSO extension natively for interactive requests. On some iOS devices, it might be not desirable. Specifically, if user also needs to complete the multi-factor authentication inside the Microsoft Authenticator app, an interactive redirect to that app might provide a better user experience. 
+Apps that use a Microsoft Authentication Library will always invoke SSO extension natively for interactive requests. On some iOS devices, it might be not desirable. Specifically, if user also needs to complete the multi-factor authentication inside the Microsoft Authenticator app, an interactive redirect to that app might provide a better user experience. 
 
-This behavior can be configured using the `disable_inapp_sso_signin` flag. If this flag is enabled, apps that use a Microsoft identity platform library will redirect to the Microsoft Authenticator app for all interactive requests. This flag will not impact silent token requests from those apps, behavior of apps that don't use a Microsoft identity platform library, or macOS apps. This flag is disabled by default. 
+This behavior can be configured using the `disable_inapp_sso_signin` flag. If this flag is enabled, apps that use a Microsoft Authentication Library will redirect to the Microsoft Authenticator app for all interactive requests. This flag will not impact silent token requests from those apps, behavior of apps that don't use a Microsoft Authentication Library, or macOS apps. This flag is disabled by default. 
 
 - **Key**: `disable_inapp_sso_signin`
 - **Type**: `Integer`
@@ -354,7 +354,7 @@ If the SSO plug-in isn't enabled by MDM but the Microsoft Authenticator app is p
 
 ### Applications that don't use MSAL
 
-Applications that don't use a Microsoft identity platform library, like MSAL, can still get SSO if an administrator adds these applications to the allowlist. 
+Applications that don't use a Microsoft Authentication Library, like MSAL, can still get SSO if an administrator adds these applications to the allowlist. 
 
 You don't need to change the code in those apps as long as the following conditions are satisfied:
 
