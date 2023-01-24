@@ -12,7 +12,7 @@ services: azure-maps
 
 # Java REST SDK Developers Guide (preview)  
 
-The Azure Maps Java SDK can be integrated with Java applications and libraries to build maps-related and location-aware applications. The Azure Maps Java SDK contains APIs for Search, Route, Render, Elevation, Geolocation, Traffic, TimeZone, and Weather. These APIs support operations such as searching for an address, routing between different coordinates, obtaining the geo-location of a specific IP address etc.
+The Azure Maps Java SDK can be integrated with Java applications and libraries to build maps-related and location-aware applications. The Azure Maps Java SDK contains APIs for Search, Route, Render, Elevation, Geolocation, Traffic, Timezone, and Weather. These APIs support operations such as searching for an address, routing between different coordinates, obtaining the geo-location of a specific IP address etc.
 
 > [!NOTE]
 > Azure Maps Java SDK is baselined on Java 8, with testing and forward support up until the latest Java long-term support release (currently Java 18). For the list of Java versions for download, see [Java Standard Versions].
@@ -108,8 +108,8 @@ New-Item demo.java 
 | [Routing][java routing readme] | [azure-maps-routing][java routing package] | [routing samples][java routing sample] |
 | [Rendering][java rendering readme]| [azure-maps-rendering][java rendering package]|[rendering sample][java rendering sample] |
 | [Geolocation][java geolocation readme]|[azure-maps-geolocation][java geolocation package]|[geolocation sample][java geolocation sample] |
-| [TimeZone][java timezone readme] | [azure-maps-TimeZone][java timezone package] | [TimeZone samples][java timezone sample] |
-| [Elevation][java elevation readme] | [azure-maps-Elevation][java elevation package] | [Elevation samples][java elevation sample] |
+| [Timezone][java timezone readme] | [azure-maps-timezone][java timezone package] | [timezone samples][java timezone sample] |
+| [Elevation][java elevation readme] | [azure-maps-elevation][java elevation package] | [elevation samples][java elevation sample] |
 
 ## Create and authenticate a MapsSearchClient
 
