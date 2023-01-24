@@ -107,7 +107,7 @@ For example:
 The maximum number of events shown in the event timeline is dependent on [the hardware profile](ot-appliance-sizing.md) selected during sensor installation.
 Each profile has a maximum capacity of events that will show on the event timeline. Once the maximum event capacity is reached, the oldest events will be rolled over and deprecated.
 
-For more information on the maximum event capacity for each hardware profile, see (data retention xref)
+For more information on the maximum event capacity for each hardware profile, see [OT event timeline retention](/azure/defender-for-iot/organizations/references-data-retention?branch=pr-en-us-221446).
 
 ## Next steps
 
