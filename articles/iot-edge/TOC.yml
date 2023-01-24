@@ -16,12 +16,8 @@
     href: quickstart-linux.md
 - name: Tutorials
   items:
-  - name: Set up development environment
-    items:
-    - name: Develop with Linux containers
-      href: tutorial-develop-for-linux.md
-    - name: Develop with Windows containers
-      href: tutorial-develop-for-windows.md
+  - name: Develop with Linux containers
+    href: tutorial-develop-for-linux.md
   - name: Develop custom code modules
     items:
     - name: C
@@ -34,12 +30,6 @@
       href: tutorial-node-module.md
     - name: Python
       href: tutorial-python-module.md
-    - name: Use Windows containers
-      items:
-      - name: C
-        href: tutorial-c-module-windows.md
-      - name: C#
-        href: tutorial-csharp-module-windows.md
   - name: Deploy Azure services as modules
     items:
     - name: Filter data with Azure Functions
@@ -54,22 +44,6 @@
     items:
     - name: Create hierarchies of IoT Edge devices
       href: tutorial-nested-iot-edge.md
-  - name: Machine learning at the edge
-    items:
-    - name: Introduction
-      href: tutorial-machine-learning-edge-01-intro.md
-    - name: Set up development machine and Azure services
-      href: tutorial-machine-learning-edge-02-prepare-environment.md
-    - name: Generate simulated device data
-      href: tutorial-machine-learning-edge-03-generate-data.md
-    - name: Train and deploy an Azure Machine Learning model
-      href: tutorial-machine-learning-edge-04-train-model.md
-    - name: Configure a transparent gateway
-      href: tutorial-machine-learning-edge-05-configure-edge-device.md
-    - name: Create and deploy IoT Edge modules
-      href: tutorial-machine-learning-edge-06-custom-modules.md
-    - name: Send data to IoT Hub via transparent gateway
-      href: tutorial-machine-learning-edge-07-send-data-to-hub.md
   - name: Monitor devices and modules
     href: tutorial-monitor-with-workbooks.md
   - name: Configure EST server
@@ -138,22 +112,6 @@
           href: how-to-provision-devices-at-scale-linux-tpm.md
         - name: Symmetric key attestation
           href: how-to-provision-devices-at-scale-linux-symmetric.md
-    - name: Windows containers on Windows hosts
-      items:
-      - name: Provision a single device
-        items:
-        - name: Symmetric key attestation
-          href: how-to-provision-single-device-windows-symmetric.md
-        - name: X.509 certificate attestation
-          href: how-to-provision-single-device-windows-x509.md
-      - name: Provision devices at scale
-        items:
-        - name: Symmetric key attestation
-          href: how-to-provision-devices-at-scale-windows-symmetric.md
-        - name: X.509 certificate attestation
-          href: how-to-provision-devices-at-scale-windows-x509.md
-        - name: TPM attestation
-          href: how-to-provision-devices-at-scale-windows-tpm.md
     - name: Update IoT Edge
       href: how-to-update-iot-edge.md
     - name: Manage device certificates
@@ -348,10 +306,6 @@
   items:
   - name: Runtime modules environment variables
     href: https://github.com/Azure/iotedge/blob/release/1.4/doc/EnvironmentVariables.md
-  - name: PowerShell functions
-    items:
-    - name: IoT Edge for Windows
-      href: reference-windows-scripts.md
   - name: Create test certificates
     href: how-to-create-test-certificates.md
   - name: Azure CLI
