@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: conceptual
 author: heidilohr
 ms.author: helohr
-ms.date: 12/14/2022
+ms.date: 01/24/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -18,7 +18,23 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Minimum supported version | Download |
 |---------|----------------|---------------------------|--|
 | Public  | 1.2.3770       | 1.2.1672                  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.3770       | 1.2.1672                  | As above |
+| Insider | 1.2.3916       | 1.2.1672                  | As above |
+
+## Updates for version 1.2.3916 (Insider)
+
+*Date published: January 23, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+- Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity.
+- Fixed a bug where refreshes increased memory usage.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Updates to Teams for Azure Virtual Desktop, including the following:
+   - Bug fix for Background Effects persistence between Teams sessions.
+   - Various bug fixes for multimedia redirection (MMR) video redirection.
+
+>[!IMPORTANT]
+>This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the client with Windows 7, it won't work.
 
 ## Updates for version 1.2.3770
 
@@ -41,7 +57,7 @@ Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/bi
 
 In this release, we've made the following changes:
 
-- Added User Datagram Protocol (UDP) support to the client's ARM64 platform.
+- Added User Datagram Protocol support to the client's ARM64 platform.
 - Fixed an issue where the tooltip didn't disappear when the user moved the mouse cursor away from the tooltip area.
 - Fixed an issue where the application crashes when calling reset manually from the command line.
 - Fixed an issue where the client stops responding when disconnecting, which prevents the user from launching another connection.
