@@ -194,6 +194,9 @@ foreach ($snapshot in $snapshots)
     $targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
         {
         if($targetSnapshot.CompletionPercent -lt 100)
+            {
+            $incrementalSnapshots.Add($targetSnapshot)
+            }
         }
     $incrementalSnapshots.Add($snapshot)
     }
