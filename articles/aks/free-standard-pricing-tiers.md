@@ -15,11 +15,10 @@ Azure Kubernetes Service (AKS) is now offering two pricing tiers for control pla
 |------------------|---------|--------|
 |**When to use**|• You want to experiment with AKS at no extra cost <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA|
 |**Supported cluster types**|• Development clusters or small scale testing environments <br> • Clusters with fewer than 10 nodes|• Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes|
-|**Pricing**|• Free cluster management <br> • Pay-as-you-go for resources you consume|• $0.10 per cluster per hour for greater scaling and performance support <br> • Pay-as-you-go for resources you consume|
+|**Pricing**|• Free cluster management <br> • Pay-as-you-go for resources you consume|• Pay-as-you-go for resources you consume|
 |**Feature comparison**|• Recommended for clusters with fewer than 10 nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• Uptime SLA is enabled by default <br> • Greater control plane reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features
 
-> [!NOTE]
-> You can still create an unlimited number of free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO.
+For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
 ## Uptime SLA
 
@@ -37,11 +36,11 @@ Azure Kubernetes Service (AKS) is now offering two pricing tiers for control pla
 > "Basic" and "Paid" will be removed in the 2023-07-01 API version, and this will be a breaking change in API version 2023-07-01 or newer. If you use automated scripts, CD pipelines, ARM templates, Terraform, or other third-party tooling that relies on the above parameters, please be sure to make the necessary changes before upgrading to the 2023-07-01 or newer API version. From API version 2023-01-01 and newer, you can start transitioning to the new API parameters "Base" and "Standard".
 >
 
-The Uptime SLA feature in the Standard tier enables a financially backed, higher SLA for your AKS clusters. Clusters in the Standard tier come with a greater amount of control plane resources and provide automatic scaling. The Uptime SLA feature guarantees 99.95% availability of the Kubernetes API server endpoint for clusters using [Availability Zones][availability-zones], and 99.9% of availability for clusters that aren't using Availability Zones. AKS uses main node replicas across update and fault domains to ensure the SLA requirements are met.
+For more information, see [SLA for AKS](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
 
 ### Uptime SLA terms and conditions
 
-The Uptime SLA feature is included in the Standard tier and is enabled per cluster. The pricing is $0.10 per cluster per hour. For more information, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
+The Uptime SLA feature is included in the Standard tier and is enabled per cluster. For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
 ## Region availability
 
