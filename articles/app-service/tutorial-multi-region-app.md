@@ -13,9 +13,9 @@ ms.author: jordanselig
 
 High availability and fault tolerance are key components of a well-architected solution. It’s best to prepare for the unexpected by having an emergency plan that can shorten downtime and keep your systems up and running automatically when something fails.
 
-When you deploy your application to the cloud, you choose a region in that cloud where your application infrastructure is based. If your application is deployed to a single region, and the region becomes unavailable, your application will also be unavailable. This lack of availability may be unacceptable under the terms of your application's SLA. If so, deploying your application and its services across multiple regions is a good solution. A multi-region deployment can use an active-active or active-passive configuration. An active-active configuration distributes requests across multiple active regions. An active-passive configuration keeps warm instances in the secondary region, but doesn't send traffic there unless the primary region fails. For multi-region deployments, you should deploy to [paired regions](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For more information on designing apps for high availability and fault tolerance, see [Architect Azure applications for resiliency and availability](azure/architecture/reliability/architect.md).
+When you deploy your application to the cloud, you choose a region in that cloud where your application infrastructure is based. If your application is deployed to a single region, and the region becomes unavailable, your application will also be unavailable. This lack of availability may be unacceptable under the terms of your application's SLA. If so, deploying your application and its services across multiple regions is a good solution. A multi-region deployment can use an active-active or active-passive configuration. An active-active configuration distributes requests across multiple active regions. An active-passive configuration keeps warm instances in the secondary region, but doesn't send traffic there unless the primary region fails. For multi-region deployments, you should deploy to [paired regions](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For more information on designing apps for high availability and fault tolerance, see [Architect Azure applications for resiliency and availability](/azure/architecture/reliability/architect).
 
-In tutorial, you'll learn how to deploy a highly available multi-region web app. This scenario will be kept simple by restricting the application components to just a web app and [Azure Front Door](../frontdoor/front-door-overview.md), but the concepts can be expanded and applied to other infrastructure patterns. For example, if your application connects to an Azure database offering or storage account, see [active geo-replication for SQL databases](../azure-sql/database/active-geo-replication-overview.md) and [redundancy options for storage accounts](../storage/common/storage-redundancy.md). For a reference architecture for a more detailed scenario, see [Highly available multi-region web application](..architecture/reference-architectures/app-service-web-app/multi-region.md).
+In tutorial, you'll learn how to deploy a highly available multi-region web app. This scenario will be kept simple by restricting the application components to just a web app and [Azure Front Door](../frontdoor/front-door-overview.md), but the concepts can be expanded and applied to other infrastructure patterns. For example, if your application connects to an Azure database offering or storage account, see [active geo-replication for SQL databases](/azure/azure-sql/database/active-geo-replication-overview) and [redundancy options for storage accounts](../storage/common/storage-redundancy.md). For a reference architecture for a more detailed scenario, see [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 :::image type="content" source="./media/tutorial-multi-region-app/multi-region-app-service.png" alt-text="Architecture diagram of a multi-region App Service.":::
 
@@ -209,7 +209,7 @@ In this section, you'll learn:
 
 ### Infrastructure deployment best practice
 
-For this tutorial, you used the Azure CLI to deploy your infrastructure resources. Consider configuring a continuous deployment mechanism to manage your application infrastructure. Since you're deploying resources in different regions, you'll need to independently manage those resources across the regions. To ensure the resources are identical across each region, infrastructure as code (IaC) such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](azure/developer/terraform/overview.md) should be used with deployment pipelines such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) or [GitHub Actions](https://docs.github.com/actions). This way, if configured appropriately, any change to resources would trigger updates across all regions you're deployed to. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
+For this tutorial, you used the Azure CLI to deploy your infrastructure resources. Consider configuring a continuous deployment mechanism to manage your application infrastructure. Since you're deploying resources in different regions, you'll need to independently manage those resources across the regions. To ensure the resources are identical across each region, infrastructure as code (IaC) such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](/azure/developer/terraform/overview) should be used with deployment pipelines such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) or [GitHub Actions](https://docs.github.com/actions). This way, if configured appropriately, any change to resources would trigger updates across all regions you're deployed to. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
 
 ### Use staging slots
 
@@ -302,8 +302,6 @@ Now that you have a service principal that can access your App Service apps, you
 1. Open your app's GitHub repository and go to the `<repo-name>/.github/workflows/` directory. You'll see the autogenerated workflows.
 1. For each workflow file, select the "pencil" button in the top right to edit the file. Replace the contents with the following text, which assumes you created the GitHub secrets earlier for your credential. Update the placeholder for `<web-app-name>` under the "env" section, and then commit directly to the main branch. This commit will trigger the GitHub Action to run again and deploy your code, this time using the service principal to authenticate.
 
-    {% raw %}
-
     ```yml
 
     name: Build and deploy Node.js app to Azure Web App
@@ -373,8 +371,6 @@ Now that you have a service principal that can access your App Service apps, you
               az logout
     ```
 
-    {% endraw %}
-
 ### Slot traffic routing
 
 Traffic routing with slots allows you to direct a pre-defined portion of your user traffic to each slot. Initially, 100% of traffic is directed to the production site. However, you have the ability, for example, to send 10% of your traffic to your staging slot. If you configure slot traffic routing in this way, when users try to access your app, 10% of them will automatically be routed there with no changes to your Front Door instance. To learn more about slot swaps and staging environments in App Service see [Set up staging environments in Azure App Service](deploy-staging-slots.md).
@@ -431,4 +427,4 @@ To learn how to deploy ARM/Bicep templates, see [How to deploy resources with Bi
 > [How to deploy a highly available multi-region web app](https://azure.github.io/AppService/2022/12/02/multi-region-web-app.html)
 
 > [!div class="nextstepaction"]
-> [Highly available zone-redundant web application](../architecture/reference-architectures/app-service-web-app/zone-redundant)
+> [Highly available zone-redundant web application](/azure/architecture/reference-architectures/app-service-web-app/zone-redundant)
