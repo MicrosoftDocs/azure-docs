@@ -7,11 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-<<<<<<< HEAD
 ms.date: 01/24/2023
-=======
-ms.date: 01/23/2023
->>>>>>> 75af83475c405d7236ddddcec82d6b10c94edd0e
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: common
