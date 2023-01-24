@@ -9,7 +9,7 @@ ms.date: 01/24/2023
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 
-Container workloads running on Azure Kubernetes Service (AKS) share kernel and container host resources. This exposes the cluster to untrusted or potentially malicious code. To further secure and protect your workloads, AKS now includes a mechanism called Pod Sandboxing (preview) that provides an isolation boundary between the container application, and the shared kernel and resources of the container host (for example CPU, memory, and networking).  
+Container workloads running on Azure Kubernetes Service (AKS) share kernel and container host resources. This exposes the cluster to untrusted or potentially malicious code. To further secure and protect your workloads, AKS now includes a mechanism called Pod Sandboxing (preview). Pod Sandboxing provides an isolation boundary between the container application, and the shared kernel and compute resources of the container host. For example CPU, memory, and networking.
 
 Pod Sandboxing compliments other security measures or data protection controls with your overall architecture to help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
@@ -73,7 +73,7 @@ What limitations need to be specified?
 
 ## How it works
 
-To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing provides the ability to extend the benefits of hardware isolation such as separate kernel per each Kata Container, and allocate resources for each pod that aren't shared with other Kata Containers or namespace containers running on the same host.
+To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing extends the benefits of hardware isolation such as separate kernel per each Kata Container. Hardware isolation allocates resources for each pod that aren't shared with other Kata Containers or namespace containers that run on the same host.
 
 The solution architecture is based on the following components:
 
@@ -97,8 +97,8 @@ Perform the following steps to deploy an AKS Mariner cluster using either the Az
 
 1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
 
-   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. With this parameter, these additional parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-    * **--kubernetes-version**: Value must be 1.24.0 and higher. Earlier versions of Kubernetes are not supported in this preview release.
+   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. With this parameter, these other parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+    * **--kubernetes-version**: Value must be 1.24.0 and higher. Earlier versions of Kubernetes aren't supported in this preview release.
     * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in this preview release.
     * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
@@ -320,8 +320,8 @@ To update an existing AKS cluster, if the cluster is running version 1.24.0 and 
    * **--resource-group**: Enter the name of an existing resource group to create the AKS cluster in.
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--name**: Enter a unique name for your clusters nodepool, such as *nodepool2*.
-   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. With this parameter, these additional parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-    * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in this preview release.
+   * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. When using the `--workload-runtime` parameter, these additional parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
+    * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in the preview release.
     * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
@@ -376,7 +376,7 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
 
 To demonstrate the deployed application on the AKS cluster isn't isolated and is on the untrusted shim, perform the following steps.
 
-1. Create a file named *untrusted-app.yaml* to describe an un-trusted DaemonSet, and then paste the following manifest.
+1. Create a file named *untrusted-app.yaml* to describe an untrusted DaemonSet, and then paste the following manifest.
 
     ```yml
     kind: Pod
