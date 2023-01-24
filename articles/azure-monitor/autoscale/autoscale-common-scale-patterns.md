@@ -45,9 +45,14 @@ The image below shows a scale rule that is scaling a Virtual Machine Scale Set b
 ## Scale differently on weekends
 
 You can scale your resources differently on different days of the week..  
-For example, you have a web app and want to:
-- Set a minimum of 3 instances on weekdays.
-- Scale down to 1 instance on weekends when there's less traffic.
+For example, you have a Virtual Machine scale set and want to:
+- Set a minimum of 3 instances on weekdays, scaling based on inbound flows.
+- Scale down to a fixed 1 instance on weekends when there's less traffic.
+
+In this example:
++ The end times are left blank. The weekday profile will end when the weekend profile starts and vice-versa.
++ The weekend profile starts at 00:01, Saturday morning and ends at 04:00 on Monday morning.
++ There is no need for a default profile as there is no time that is not covered by the other profiles.
 
 :::image type="content" source="./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png" alt-text="A screenshot showing two autoscale profiles, one default and one for weekends." lightbox="./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png":::
 
