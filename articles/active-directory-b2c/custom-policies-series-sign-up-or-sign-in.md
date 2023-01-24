@@ -356,7 +356,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
 ## Step 7 - Test policy 
 
-Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy. Once the policy runs, you'll see an interface similar to the screenshot below:
+Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-6---test-the-custom-policy) to test your custom policy. Once the policy runs, you'll see an interface similar to the screenshot below:
 
 :::image type="content" source="media/custom-policies-series-sign-up-or-sign-in/screenshot-sign-up-or-sign-in-interface.png" alt-text="screenshot of sign-up or sign-in interface."::: 
 

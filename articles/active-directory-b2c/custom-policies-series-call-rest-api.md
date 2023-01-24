@@ -217,7 +217,7 @@ Make sure your Node.js app is running, and then follow the steps in [Upload cust
 
 ## Step 4 - Test the custom policy
 
-Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy:
+Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-6---test-the-custom-policy) to test your custom policy:
 
 1. For **Account Type**, select **Personal Account**
 1. Enter the rest of the details as required, and then select **Continue**. You'll see a new screen.

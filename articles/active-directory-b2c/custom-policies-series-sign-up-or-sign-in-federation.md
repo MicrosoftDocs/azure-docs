@@ -458,7 +458,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
 ## Step 7 - Test policy 
 
-Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy. 
+Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-6---test-the-custom-policy) to test your custom policy. 
 
 You're redirected to a Facebook sign-in page. Enter your Facebook credentials, and then select **Log In**. 
 You're directly redirected to Facebook as we set it so in our orchestration steps since we don't have multiple sign-in options to choose from. Typically, in an app, you'd add a button like **Sign in with Facebook**, which when selected, runs the policy. 

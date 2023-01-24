@@ -143,7 +143,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
 ## Step 4 - Test policy 
 
-1. Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy.
+1. Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-6---test-the-custom-policy) to test your custom policy.
 
 1. Test your custom policy again by using the same **Email Address** you used in your previous user account, and a different **Surname** or **Display Name**. This time, instead of seeing an error, the policy completes execution, and that user account is updated.
 
