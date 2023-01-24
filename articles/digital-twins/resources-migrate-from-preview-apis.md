@@ -12,7 +12,7 @@ services: digital-twins
 
 # Migrate from Azure Digital Twins preview control plane APIs to the stable GA version 
 
-As of May 2nd, 2023, the following Azure Digital Twins preview control plane APIs have been retired:
+As of May 2nd, 2023, the following Azure Digital Twins preview control plane APIs will be retired:
 * [2020-03-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview)
 * [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2021-06-30-preview) 
 
@@ -33,8 +33,8 @@ After the 2020-03-01-preview API version, stable API versions contain the follow
     * In the 2020-03-01-preview API, `DigitalTwinsResource` has a [SKU property](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json#L723) that is no longer in the 2020-10-31 (GA) API version. Therefore, any reference to `SKU` of an Azure Digital Twins instance should be removed.
 
 If you're using an associated SDK of the 2020-03-01-preview API, it's recommended to update to the latest version of the management SDK.
-* .NET: Migrate from the [2020-03-01-preview .NET SDK package](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) to the [2022-10-31 .NET SDK package](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins/1.1.0), according to the [Java and .NET SDK migration guidance](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md).
-* Java: Migrate from the [2020-03-01-preview Java SDK package](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins/1.0.0-beta/jar) to the [2022-10-31 Java SDK package](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.1.0/jar), according to the [Java and .NET SDK migration guidance](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md).
+* .NET: Migrate from the [2020-03-01-preview .NET SDK package](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) to the [2022-10-31 .NET SDK package](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins/1.1.0), according to the [.NET SDK migration guidance](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/MigrationGuide.md).
+* Java: Migrate from the [2020-03-01-preview Java SDK package](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins/1.0.0-beta/jar) to the [2022-10-31 Java SDK package](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.1.0/jar), according to the [Java SDK migration guidance](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md).
 * Go: Migrate from the [2020-03-01-preview Go SDK package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/digitaltwins/2020-05-31-preview/digitaltwins) to the [2022 Go SDK package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins), according to the [Go SDK migration guidance](https://github.com/Azure/azure-sdk-for-go/blob/main/documentation/MIGRATION_GUIDE.md).
 
 
@@ -45,7 +45,7 @@ The target replacement API version ([2022-10-31 (GA) API version](https://github
 There are no breaking changes for migrating to the target replacement API version ([2022-10-31 (GA) API version](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2022-10-31)). There is one minor change: Endpoints and TSDB connections now have an explicit *Updating* state defined in the API contract. 
 
 If you're using an associated SDK of the 2021-10-31-preview API, it's recommended to update to the latest version of the management SDK.
-* .NET: Migrate from the [2021-06-30-preview .NET SDK package](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.2.0-beta.1) to the [2022-10-31 .NET SDK package](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins/1.1.0), according to the [Java and .NET SDK migration guidance](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md). 
+* .NET: Migrate from the [2021-06-30-preview .NET SDK package](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.2.0-beta.1) to the [2022-10-31 .NET SDK package](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins/1.1.0), according to the [.NET SDK migration guidance](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/MigrationGuide.md). 
 * Java: Migrate from the [2021-06-30-preview Java SDK package](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.0.0-beta.2/jar) to the [2022-10-31 Java SDK package](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.1.0/jar), and set the service version in the SDK client to call the 2022-10-31 (GA) API.
 
 ## Next steps
