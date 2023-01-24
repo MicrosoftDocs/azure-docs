@@ -40,72 +40,78 @@ This documentation contains the following types of articles:
 For a more structured approach, follow a Training module for Image Analysis.
 * [Analyze images with the Computer Vision service](/training/modules/analyze-images-computer-vision/)
 
+[!INCLUDE [image analysis versions](../includes/image-analysis-versions.md)]
+
 ## Image Analysis features
 
 You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library.md) to get started.
 
-### Extract text from images (preview)
+### Extract text from images (v4.0 only)
 
 Version 4.0 preview of Image Analysis offers the ability to extract text from images. Compared with the async Computer Vision 3.2 GA Read, the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR in a single API operation. [Extract text from images](concept-ocr.md)
 
 
-### Detect people in images (preview)
+### Detect people in images (v4.0 only)
 
 Version 4.0 preview of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. [People detection](concept-people-detection.md)
 
 ### Tag visual features
 
-Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. [Tag visual features](concept-tagging-images.md)
+Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. [Tag visual features (v3.2)](concept-tagging-images.md) [(v4.0)](concept-tagging-images-40.ms)
 
 :::image type="content" source="Images/tagging.png" alt-text="An images of a skateboarder with tags listen on the right":::
 
 
 ### Detect objects
 
-Object detection is similar to tagging, but the API returns the bounding box coordinates for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process further relationships between the objects in an image. It also lets you know when there are multiple instances of the same tag in an image. [Detect objects](concept-object-detection.md)
+Object detection is similar to tagging, but the API returns the bounding box coordinates for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process further relationships between the objects in an image. It also lets you know when there are multiple instances of the same tag in an image. [Detect objects (v3.2)](concept-object-detection.md) [(v4.0)](concept-object-detection-40.md)
 
 :::image type="content" source="Images/detect-objects.png" alt-text="An image of an office with a rectangle drawn around a laptop":::
 
 
-### Detect brands
+### Detect brands (v3.2 only)
 
 Identify commercial brands in images or videos from a database of thousands of global logos. You can use this feature, for example, to discover which brands are most popular on social media or most prevalent in media product placement. [Detect brands](concept-brand-detection.md)
 
-### Categorize an image
+### Categorize an image (v3.2 only)
 
 Identify and categorize an entire image, using a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies. Categories can be used alone, or with our new tagging models.<br/>Currently, English is the only supported language for tagging and categorizing images. [Categorize an image](concept-categorizing-images.md)
 
 ### Describe an image
 
-Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. [Describe an image](concept-describing-images.md)
+Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. [Describe an image (v3.2)](concept-describing-images.md) [(v4.0)](concept-describing-images-40.md)
 
 :::image type="content" source="Images/description.png" alt-text="An image of cows with a simple description on the right":::
 
-### Detect faces
+### Generate image captions (v4.0 only)
+
+The image captioning model is a more advanced implementation of image descriptions. It is only available in version 4.0, and only in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+
+### Detect faces (v3.2 only)
 
 Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face. [Detect faces](concept-detecting-faces.md)
 
 You can also use the dedicated [Face API](./index-identity.yml) for these purposes. It provides more detailed analysis, such as facial identification and pose detection.
 
-### Detect image types
+### Detect image types (v3.2 only)
 
 Detect characteristics about an image, such as whether an image is a line drawing or the likelihood of whether an image is clip art. [Detect image types](concept-detecting-image-types.md)
 
-### Detect domain-specific content
+### Detect domain-specific content (v3.2 only)
 
 Use domain models to detect and identify domain-specific content in an image, such as celebrities and landmarks. For example, if an image contains people, Computer Vision can use a domain model for celebrities to determine if the people detected in the image are known celebrities. [Detect domain-specific content](concept-detecting-domain-content.md)
 
-### Detect the color scheme
+### Detect the color scheme (v3.2 only)
 
 Analyze color usage within an image. Computer Vision can determine whether an image is black & white or color and, for color images, identify the dominant and accent colors. [Detect the color scheme](concept-detecting-color-schemes.md)
 
 ### Get the area of interest / smart crop
 
-Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. [Generate a thumbnail](concept-generating-thumbnails.md)
+Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. [Generate a thumbnail (v3.2)](concept-generating-thumbnails.md) [(v4.0)](concept-generating-thumbnails-40.md)
 
 :::image type="content" source="Images/thumbnail-demo.png" alt-text="An image of a person on a mountain, with cropped versions to the right":::
 
-### Moderate content in images
+### Moderate content in images (v3.2 only)
 
 You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
 
