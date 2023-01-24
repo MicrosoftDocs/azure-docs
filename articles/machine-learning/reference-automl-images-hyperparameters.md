@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.custom: ignite-2022
 ms.topic: reference
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 author: swatig007
 ms.author: swatig
 ms.date: 01/18/2022
