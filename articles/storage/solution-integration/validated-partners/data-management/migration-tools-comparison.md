@@ -99,7 +99,7 @@ The following comparison matrix shows basic functionality of different tools tha
 - Internal hash validation
 
 > [!TIP]
-> Azure File Sync can be utilized for migrating data to Azure Files, even if you don't intend to use a hybrid solution for on-premises caching or syncing. This migration process is efficient and causes no downtime. To use Azure File Sync as a migration tool, [simply deploy it]((../../../file-sync/file-sync-deployment-guide.md)) and, after the migration is finished, [remove the server endpoint](../../../file-sync/file-sync-server-endpoint-delete.md).
+> Azure File Sync can be utilized for migrating data to Azure Files, even if you don't intend to use a hybrid solution for on-premises caching or syncing. This migration process is efficient and causes no downtime. To use Azure File Sync as a migration tool, [simply deploy it](../../../file-sync/file-sync-deployment-guide.md) and, after the migration is finished, [remove the server endpoint](../../../file-sync/file-sync-server-endpoint-delete.md).
 
 ### Datadobi DobiMigrate
 
