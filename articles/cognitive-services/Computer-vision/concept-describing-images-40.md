@@ -58,8 +58,8 @@ The image description feature is part of the [Analyze Image](https://aka.ms/visi
 
 
 
-* [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Image Analysis REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)
 
 ## Next steps
 
-Learn the related concepts of [tagging images](concept-tagging-images.md) and [categorizing images](concept-categorizing-images.md).
+Learn the related concepts of [tagging images](concept-tagging-images-40.md).

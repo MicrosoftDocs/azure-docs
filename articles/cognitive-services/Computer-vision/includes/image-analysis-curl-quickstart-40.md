@@ -17,7 +17,7 @@ ms.custom: seodec18, ignite-2022
 Use the Image Analysis REST API to analyze an image for tags and read text in the image (version 4.0 only).
 
 > [!TIP]
-> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../how-to/call-analyze-image.md) for examples that showcase all of the available features.
+> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
 
 > [!NOTE]
 > This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST), and [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST).
@@ -383,6 +383,6 @@ A successful response is returned in JSON. The sample application parses and dis
 In this quickstart, you learned how to make basic image analysis calls using the REST API. Next, learn more about the Analyze API features.
 
 > [!div class="nextstepaction"]
->[Call the Analyze API](../how-to/call-analyze-image.md)
+>[Call the Analyze API](../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)
