@@ -68,11 +68,10 @@ In this step, you'll create the mobile network site resource representing the ph
     Once you've finished filling out the fields, select **Attach**.
 
 1. Repeat the previous step for each additional data network you want to configure.
-1. If you decided you want to to configure diagnostics packet collection for this site, select **Next : Diagnostics Packet Collection >**. If you decided not to configure diagnostics packet collection for this site, you can skip this step.
-    1. Toggle **Enable diagnostics file collection for packet core**.
-    1. Select or create the storage account you want to use for diagnostics packet collection in the **Storage account** dropdown.
-        - If you need to create the storage account, follow the steps in [Collect values for diagnostics package gathering](collect-required-information-for-a-site.md#collect-values-for-diagnostics-package-gathering).
-    1. Select **Managed identity** to provide a user assigned managed with write access to the selected storage account. In the **Select Managed Identity** side panel:
+1. If you decided you want to to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificate for this site, select **Next : Identity >**.  
+If you decided not to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificates for this site, you can skip this step.
+    1. Select **+ Add** to configure a user assigned managed identity.
+    1. In the **Select Managed Identity** side panel:
         - Select the **Subscription** from the dropdown.
         - Select the **Managed identity** from the dropdown.
 1. If you decided you want to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate at this stage, you can skip this step.
