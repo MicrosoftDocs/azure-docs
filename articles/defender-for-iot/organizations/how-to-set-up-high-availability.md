@@ -83,7 +83,7 @@ Before you perform the procedures in this article, verify that you've met the fo
         sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <Secondary token>
         ```
 
-        where `<Secondary IP>` is the IP address of the secondary appliance and `<Secondary token>` is the second part of the connection string after the colon, which you'd copied from to the clipboard earlier.
+        where `<Secondary IP>` is the IP address of the secondary appliance and `<Secondary token>` is the second part of the connection string after the colon, which you'd copied to the clipboard earlier.
         
         For example:
 
@@ -96,7 +96,7 @@ Before you perform the procedures in this article, verify that you've met the fo
         ```bash
         sudo cyberx-management-trusted-hosts-apply
         ```
-    1. Verify that the certificate is installed correctly on the primary. Run:
+    1. Verify that the certificate is installed correctly on the primary appliance. Run:
 
         ```bash
         cyberx-management-trusted-hosts-list
