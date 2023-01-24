@@ -10,7 +10,7 @@ ms.devlang: php
 ms.custom: seodec18
 
 ---
-# Migrate WordPRess on App Service on Linux
+# Migrate WordPress on App Service on Linux
 
 This article describes two ways to migrate WordPress from App Service on Windows or external hosting providers to App Service on Linux. 
 
@@ -23,7 +23,7 @@ This article describes two ways to migrate WordPress from App Service on Windows
  1. WordPress plugin: All-In-One WP Migration
  2. Manual process of migration
 
-## Migrate WordPress with All-In-One WP Migration Plugin
+## Migrate WordPress with All-In-One WP Migration plugin
 
 This plugin is popular for migrating sites with ease. This approach is recommended for sites less than 256MB. If it's more, you can either **purchase the premium version** of the plugin or **migrate manually** using the steps outlined in [manual migration process](#manual-migration-process).
 
@@ -55,11 +55,11 @@ By default, the file upload size for WordPress on Linux App Services is limited 
     - Then click on the **Dashboard** option shown below it.
     - On the dashboard, you will see a button with the label **Empty All Caches**.
 
-## Manual Migration Process
+## Manual migration process
 
 The prerequisite is that the WordPress on Linux Azure App Service must have been created with an appropriate hosting plan from here: [WordPress on Linux App Service](https://aka.ms/linux-wordpress).
 
-### Manually Export the data at source site
+### Manually export the data at source site
 
 > [!NOTE]
 > Depending on the size of your content and your internet connection, this operation could take several minutes.
@@ -69,7 +69,7 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 
 1. Export the contents of the source database into an SQL file. You can perform this task either using MySQL client tools like HeidiSQL, [MySQL workbench](https://dev.mysql.com/downloads/workbench/), [PhpMyAdmin](https://docs.phpmyadmin.net/en/latest/setup.html) or through command line interface. For more information on exporting the database, refer to the following [documentation](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html).
 
-### Manually Import the data at destination site
+### Manually import the data at destination site
 
 1. Create a new Wordpress app using our [WordPress on Linux App Service template](https://aka.ms/linux-wordpress)
 
@@ -104,9 +104,9 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 
     ![Database Application Settings](./media/app-service-migrate-wordpress/wordpress_database_application_settings.png)
 
-## Post Migration Actions
+## Post migration actions
 
-### Install Recommended Plugins
+### Install recommended plugins
 
 It's an optional step, after the site migration it is recommended to validate that you have the default recommended/equivalent plugins activated and configured accurate as before. If you're prohibited from not configuring them as per your organization governing policies, then you can uninstall the plugins.
 
@@ -118,7 +118,7 @@ It's an optional step, after the site migration it is recommended to validate th
 
 - WP Smush plugin is activated and configured properly for image optimization. See [Image Compression](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_image_compression.md) for more information on configuration.
 
-### Recommended WordPress Settings
+### Recommended WordPress settings
 
 The following WordPress settings are recommended. However, when the users migrate their custom sites, is it up to them to decide whether to use these settings or not.
 
@@ -127,19 +127,19 @@ The following WordPress settings are recommended. However, when the users migrat
 3. Under the comment settings, enable the option to break comments into pages.
 4. Show excerpts instead of the full post in the feed.
 
-## Search And Replace (paths and domains)
+## Search and replace (paths and domains)
 
 One common issue that users face during migration is that some of the contents of their old site use absolute urls/paths instead of relative ones. To resolve this issue, you can use plugins like [Search and Replace](https://wordpress.org/plugins/search-replace/) to update the database records.
 
-## Configuring Custom Domain
+## Configuring custom domain
 
 To configure your site with a custom domain follow the steps described here: Tutorial: [Map existing custom DNS name](app-service-web-tutorial-custom-domain.md?tabs=a%2Cazurecli)
 
-## Migrating Custom Domain
+## Migrating custom domain
 
 When you migrate a live site and its DNS domain name to App Service, that DNS name is already serving live traffic. You can avoid DNS resolution downtime by binding the active DNS name to your app as described in [Migrate an active DNS name](manage-custom-dns-migrate-domain.md).
 
-## Updating SSL Certificates
+## Updating SSL certificates
 
 If your site is configured with SSL certs, then follow [Add and manage TLS/SSL certificates](configure-ssl-certificate.md?tabs=apex%2Cportal) to configure SSL.
 
