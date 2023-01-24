@@ -11,31 +11,29 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster
 
-The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of an Azure key vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume][kube-csi].
+The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of an Azure key vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume][kube-csi] and has the following features:
+
+* Mounts secrets, keys, and certificates to a pod by using a CSI volume
+* Supports CSI inline volumes
+* Supports mounting multiple secrets store objects as a single volume
+* Supports pod portability with the `SecretProviderClass` CRD
+* Supports Windows containers
+* Syncs with Kubernetes secrets
+* Supports auto rotation of mounted contents and synced Kubernetes secrets
 
 ## Limitations
 
-*  A container using subPath volume mount will not receive secret updates when it is rotated. [See](https://secrets-store-csi-driver.sigs.k8s.io/known-limitations.html#secrets-not-rotated-when-using-subpath-volume-mount)
+A container using subPath volume mount won't receive secret updates when it's rotated. For more information, see [Secrets Store CSI Driver known limitations](https://secrets-store-csi-driver.sigs.k8s.io/known-limitations.html#secrets-not-rotated-when-using-subpath-volume-mount).
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Before you start, ensure that your version of the Azure CLI is 2.30.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
-- If restricting Ingress to the cluster, ensure Ports 9808 and 8095 are open.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* Before you start, ensure that your version of the Azure CLI is 2.30.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
+* If restricting Ingress to the cluster, ensure Ports 9808 and 8095 are open.
 
 ### Supported Kubernetes versions
 
 The minimum recommended Kubernetes version is based on the [rolling Kubernetes version support window][kubernetes-version-support]. Ensure that you're running version N-2 or later.
-
-## Features
-
-- Mounts secrets, keys, and certificates to a pod by using a CSI volume
-- Supports CSI inline volumes
-- Supports mounting multiple secrets store objects as a single volume
-- Supports pod portability with the `SecretProviderClass` CRD
-- Supports Windows containers
-- Syncs with Kubernetes secrets
-- Supports auto rotation of mounted contents and synced Kubernetes secrets
 
 ## Create an AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver support
 
