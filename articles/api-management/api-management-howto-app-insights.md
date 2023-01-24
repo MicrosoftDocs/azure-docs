@@ -51,7 +51,7 @@ To use Application Insights, [create an instance of the Application Insights ser
 > Behind the scenes, a [Logger](/rest/api/apimanagement/current-ga/logger/create-or-update) entity is created in your API Management instance, containing the instrumentation key of the Application Insights instance.
 
 > [!TIP]
-> If you need to update the instrumentation key configured in the Application Insights logger, select the logger's row in the list (not the name of the logger). Enter the instrumentaiton key, and select **Save**.
+> If you need to update the instrumentation key configured in the Application Insights logger, select the logger's row in the list (not the name of the logger). Enter the instrumentation key, and select **Save**.
 
 ## Enable Application Insights logging for your API
 
