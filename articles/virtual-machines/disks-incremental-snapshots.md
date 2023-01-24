@@ -176,7 +176,7 @@ az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [completio
 
 ### PowerShell
 
-First, get a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following script to list your existing incremental snapshots of Ultra Disks:
+The following script creates a list of all incremental snapshots associated with a particular disk that haven't completed their background copy. Replace `yourResourceGroupNameHere` and `yourDiskNameHere`, then run the script.
 
 ```azurepowershell
 $resourceGroupName = "yourResourceGroupNameHere"
@@ -198,19 +198,10 @@ foreach ($snapshot in $snapshots)
             $incrementalSnapshots.Add($targetSnapshot)
             }
         }
-    $incrementalSnapshots.Add($snapshot)
     }
 }
 
 $incrementalSnapshots
-```
-
-Now that you have a list of snapshots, you can check the `CompletionPercent` property of an individual snapshot to get its status. Replace `$snapshotName` with the name of your snapshot, then run the following script to get the snapshot's status. The snapshot process must be complete for the snapshot to be used for restoring a disk or generating a SAS to download the snapshot.
-
-```azurepowershell
-$targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
-
-$targetSnapshot.CompletionPercent
 ```
 
 ## Check sector size
