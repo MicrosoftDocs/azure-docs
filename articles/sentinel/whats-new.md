@@ -20,13 +20,9 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## January 2023
 
-- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
+- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
-
-### Monitor SAP system health and role (Preview)
-
-To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ### New incident investigation experience (Preview)
 
@@ -39,6 +35,10 @@ While triaging, investigating, and responding to a security incident, analysts r
 Learn more about the new investigation experience:
 - [Understand Microsoft Sentinel's incident investigation and case management capabilities](incident-investigation.md)
 - [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
+
+### Monitor SAP system health and role (Preview)
+
+To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ### Microsoft Purview Information Protection connector (Preview)
 
@@ -119,9 +119,48 @@ A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-
 
 ## Announcements
 
+- [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules)
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
+
+### New behavior for alert grouping in analytics rules
+
+As of **February 2, 2023**, Microsoft is changing the way that incidents are created from analytics rules with certain event and alert grouping settings, and also the way that such incidents are updated by automation rules.
+
+The affected analytics rules are those with both of the following two settings:
+- **Event grouping** is set to **Trigger an alert for each event** (sometimes referred to as "alert per row").
+- **Alert grouping** is enabled, in any one of the three possible configurations.
+
+Rules with these two settings generate unique alerts for each event (result) returned by the query. These alerts are then all grouped together into a single incidents or a small number of incidents (depending on the alert grouping configuration choice).
+
+The following table describes the change in the incident creation and automation behaviors:
+
+| When incident created/updated with multiple alerts | Before the change | After the change |
+| -- | -- | -- |
+| **SecurityIncident** table in Log Analytics shows... | -&nbsp;One&nbsp;row&nbsp;for&nbsp;*incident&nbsp;created*&nbsp;with&nbsp;one&nbsp;alert.<br>- Multiple&nbsp;events&nbsp;of&nbsp;*alert&nbsp;added*. | One row for *incident created* only after all alerts triggered by this rule execution have been added and grouped to this incident. |
+| **Automation rule** conditions (trigger: when an incident is created/updated) will be evaluated based on... | The first alert of the incident only. This causes unexpected behavior ('race condition') when evaluating automation rules conditions. | after all alerts and entities, triggered by this rule execution and grouped to this incident, have been added, with the most recent incident properties (such severity and tactics). |
+| **Playbook input** (Microsoft Sentinel incident trigger) | Alerts list contains only the first alert of the incident | Alerts list contains all the alerts triggered by this rule execution and grouped to this incident |
+
+#### How to prepare for this change?
+
+- Check whether you have automation rules with **When incident is created** or **When incident is updated** which are set to run on analytics rule with the configuration above.
+
+    These automation rules' conditions will now be evaluated based on the incident after all alerts, triggered by this rule execution and grouped to this incident, and their entities have been added, with the most recent incident properties.
+
+- If these automation rules also trigger playbooks, and these playbooks work on the incident alerts or entities, they may now get more alerts and entities than they used to.
+
+- If you have any scripts  or pre-defined queries running based on the *SecurityIncident* table, please note that for these analytics rules, the way rows are added to the table will be different (One row for incident created after all alerts have been added).
+
+#### Before the change – in depth
+
+Incidents created by analytics rules with this configuration may contain, by design, up to one hundred and fifty alerts on creation or update. However, in our current public experience, they are created only after the first alert, and subsequent alerts join one after the other as incident updates. The downside of this of this behavior is: 
+1. Unexpected behavior ('race condition') when evaluating automation rules conditions. In this scenario, the incident may continue to change while alerts are added. However, each execution of the automation rule will only consider the incident status on the first alert. For example, the tenth alert may be higher in severity than the previous ones; however, the incident alert was already set by the first alert.
+1. Automation rules conditions may ignore entities that later become part of the incident but that were not included in the first alert/creation of the incident.
+1. Because of the previous behavior, Playbooks may only consider the details of the first alert in an incident, but not those from subsequent alerts. 
+ 
+
+
 
 ### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 
