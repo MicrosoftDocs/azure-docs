@@ -80,7 +80,6 @@ LOCATION="EastUS"
 WEB_PUBSUB_NAME="<your-unique-name>"
 ```
 
-```azurecli
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
