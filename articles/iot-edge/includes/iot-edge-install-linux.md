@@ -182,7 +182,7 @@ The steps in this section represent the typical process to install the latest Io
 
 # [Ubuntu](#tab/ubuntu)
 
-Install the latest version of IoT Edge and the IoT identity service package (if you're not already [up-to-date](/version-history.md)):
+Install the latest version of IoT Edge and the IoT identity service package (if you're not already [up-to-date](../version-history.md)):
 
    ```bash
    sudo apt-get update; \
@@ -193,7 +193,7 @@ The `defender-iot-micro-agent-edge` package includes the Microsoft Defender for 
 
 # [Debian](#tab/debian)
 
-Install the latest version of IoT Edge and the IoT identity service package (if you're not already [up-to-date](/version-history.md)):
+Install the latest version of IoT Edge and the IoT identity service package (if you're not already [up-to-date](../version-history.md)):
 
    ```bash
    sudo apt-get update; \
