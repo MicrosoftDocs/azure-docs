@@ -71,5 +71,3 @@ Use the following methods to collect data from your cloud resources that doesn't
 
 Through [Arc-enabled servers](../azure-arc/servers/overview.md), Azure Automation provides a consistent deployment and management experience for your non-Azure machines. It enables integration with the Automation service using the VM extension framework to deploy the Hybrid Runbook Worker role, and simplify onboarding to Update Management and Change Tracking and Inventory.
 
-## Next steps
-
