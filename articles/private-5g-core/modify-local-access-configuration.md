@@ -20,9 +20,9 @@ In this how-to guide, you'll learn how to use the Azure portal to change the aut
 
 ## Prerequisites
 
-- If you want to enable Azure AD authentication, complete the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
+- Refer to [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) and [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to collect the required values and make sure they're in the correct format.
 - If you want to add or update a custom HTTPS certificate for accessing your local monitoring tools, you'll need a certificate signed by a globally known and trusted CA. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).
-- Refer to [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to collect the required values and make sure they're in the correct format.
+- If you want to update your local monitoring authentication method, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file. <!-- TODO: See <link> for instructions on how to obtain this. -->
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## View the local access configuration
@@ -62,11 +62,34 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 1. Select **Create**.
 1. Azure will now redeploy the packet core instance with the new configuration. The Azure portal will display a confirmation screen when this deployment is complete.
 1. Select **Go to resource**. Check that the fields under **Local access** contain the updated authentication and certificate information.
-1. If you changed the authentication method, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to check if you can access your local monitoring tools using the new method.
 1. If you added or updated a custom HTTPS certificate, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to check if your browser trusts the connection to your local monitoring tools. Note that:
     
     - It may take up to four hours for the changes in the Key Vault to synchronize with the edge location.
     - You may need to clear your browser cache to observe the changes.
+
+## Configure local monitoring access authentication
+
+Follow this step if you changed the authentication type for local monitoring access.
+
+If you switched from local usernames and passwords to Azure AD, follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
+
+If you switched from Azure AD to local usernames and passwords:
+
+1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, delete the Kubernetes Secret Objects:
+
+    `kubectl delete secrets sas-auth-secrets grafana-auth-secrets --kubeconfig=<core kubeconfig>`
+
+1. Restart the distributed tracing and packet core dashboards pods.
+
+    1. Obtain the name of your packet core dashboards pod:
+        
+        `kubectl get pods -n core --kubeconfig=<core kubeconfig>" | grep "grafana"`
+
+    1. Copy the output of the previous step and replace it into the following command to restart your pods.
+
+        `kubectl delete pod sas-core-search-0 <packet core dashboards pod> -n core --kubeconfig=<core kubeconfig>`
+
+1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to check if you can access your local monitoring tools using the new method.
 
 ## Next steps
 

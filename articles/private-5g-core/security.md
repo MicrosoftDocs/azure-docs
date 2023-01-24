@@ -67,7 +67,7 @@ You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authenti
 
 Azure AD allows you to natively authenticate using passwordless methods to simplify the sign-in experience and reduce the risk of attacks. Therefore, to improve security in your deployment, we recommend setting up Azure AD authentication over local usernames and passwords.
 
-If you decide to set up Azure AD for local monitoring access, before deploying a mobile network site, you'll need to follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
+If you decide to set up Azure AD for local monitoring access, after deploying a mobile network site, you'll need to follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
 
 See [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) for additional information on configuring local monitoring access authentication.
 

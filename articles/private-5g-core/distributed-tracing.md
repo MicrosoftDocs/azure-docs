@@ -23,7 +23,7 @@ Azure Private 5G Core Preview offers a *distributed tracing web GUI*, which you 
 
 To sign in to the distributed tracing web GUI if you enabled Azure Active Directory authentication:
 
-1. In your browser, enter https://*\<local monitoring domain\>*/sas, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](azure-active-directory-prerequisites.md#configure-domain-system-name-dns-for-local-monitoring-ip).
+1. In your browser, enter https://*\<local monitoring domain\>*/sas, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](enable-azure-active-directory.md#configure-domain-system-name-dns-for-local-monitoring-ip).
 1. Follow the prompts to sign in with your account credentials.
 
 ### Local username and password

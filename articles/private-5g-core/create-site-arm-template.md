@@ -94,6 +94,6 @@ Four Azure resources are defined in the template.
 
 ## Next steps
 
-If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
+If you decided to set up Azure AD for local monitoring access, follow the steps in [Modify the local access configuration in a site](modify-local-access-configuration.md) and [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
 
-- [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
+If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows. See [Policy control](policy-control.md) to learn more about designing the policy control configuration for your private mobile network.

@@ -73,9 +73,9 @@ For each data network that you want to configure, collect all the values in the 
 
 Azure Private 5G Core provides dashboards for monitoring your deployment and a web GUI for collecting detailed signal traces. You can access these tools using [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
 
-If you want to access your local monitoring tools using Azure AD, before creating a site you'll need to follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
+If you want to access your local monitoring tools using Azure AD, after creating a site you'll need to follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
 
-If you want to access your local monitoring tools using local usernames and passwords, you don't need to do anything at this stage. After deploying the site, set up your username and password by following [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards).
+If you want to access your local monitoring tools using local usernames and passwords, you don't need to set any additional configuration. After deploying the site, set up your username and password by following [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards).
 
 You'll be able to change the authentication method later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
@@ -109,8 +109,6 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
        |The name of the CA-signed custom HTTPS certificate within the Azure Key Vault. |**Certificate**|
 
 ## Next steps
-
-If you decided to set up Azure AD for local monitoring access, follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
 
 Use the information you've collected to create the site:
 

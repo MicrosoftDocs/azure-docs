@@ -112,8 +112,8 @@ items:
       href: create-overview-dashboard.md
   - name: Local monitoring tools
     items:
-    - name: Complete the prerequisites for enabling Azure Active Directory
-      href: azure-active-directory-prerequisites.md
+    - name: Enable Azure Active Directory
+      href: enable-azure-active-directory.md
     - name: Export, upload and share traces
       href: distributed-tracing-share-traces.md
     - name: Modify a packet core instance's local access configuration
