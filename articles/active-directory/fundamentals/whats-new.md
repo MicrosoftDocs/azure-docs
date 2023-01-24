@@ -55,7 +55,7 @@ Cross-tenant synchronization allows you to set up a scalable and automated solut
 **Service category:** Device Access Management                
 **Product capability:** End User Experiences          
 
-In the All Devices blade under the registered column, you can now select any pending devices you have, and it will open a context pane to help troubleshoot why the device may be pending. You can also offer feedback on if the summarized information is helpful or not. For more information, see: [Pending devices in Azure Active Directory](/troubleshoot/azure/active-directory/pending-devices).
+In the **All Devices** blade under the registered column, you can now select any pending devices you have, and it will open a context pane to help troubleshoot why the device may be pending. You can also offer feedback on if the summarized information is helpful or not. For more information, see: [Pending devices in Azure Active Directory](/troubleshoot/azure/active-directory/pending-devices).
 
 
 ---
