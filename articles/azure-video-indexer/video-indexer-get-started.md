@@ -2,7 +2,7 @@
 title: Sign up for Azure Video Indexer and upload your first video - Azure
 description: Learn how to sign up and upload your first video using the Azure Video Indexer website.
 ms.topic: quickstart
-ms.date: 08/24/2022
+ms.date: 01/24/2023
 ms.author: juliako
 ms.custom: mode-other
 ---
