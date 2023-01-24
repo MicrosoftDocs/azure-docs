@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 01/24/2023
 ms.custom: "seodec18"
 ---
 

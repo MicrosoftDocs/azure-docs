@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 01/20/2023
+ms.date: 01/24/2023
 ms.author: pafarley
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, mode-api
