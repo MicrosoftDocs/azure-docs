@@ -38,7 +38,11 @@ To use a Notebook activity for Synapse in a pipeline, complete the following ste
 
 Select the  **Azure Synapse Analytics (Artifacts)** tab to select or create a new [Azure Synapse Analytics linked service](compute-linked-services.md#azure-synapse-analytics-linked-service) that will execute the Notebook activity. 
 
-:::image type="content" source="./media/transform-data-synapse-notebook/notebook-activity.png" alt-text="Shows the UI for the linked service tab for a Notebook activity.":::
+:::image type="content" source="./media/transform-data-synapse-notebook/notebook-activity.png" alt-text="Screenshot of the linked service tab for a Notebook activity." lightbox="./media/transform-data-synapse-notebook/notebook-activity.png":::
+
+
+
+
 
 ## Settings tab
 1. Select the new Synapse Notebook activity on the canvas if it is not already selected.
@@ -49,15 +53,15 @@ Select the  **Azure Synapse Analytics (Artifacts)** tab to select or create a ne
 
 4. Click the Open button to open the page of the linked service where the selected notebook is located.
 
-> NOTE
+> [!NOTE]
 >
 > If the Workspace resource ID in the linked service is empty, the Open button will be disabled.
 > 
-> :::image type="content" source="./media/transform-data-synapse-notebook/resource-id-empty.png" alt-text="Shows the open button is disabled.":::
+> :::image type="content" source="./media/transform-data-synapse-notebook/resource-id-empty.png" alt-text="Screenshot of the open button is disabled." lightbox="./media/transform-data-synapse-notebook/resource-id-empty.png":::
 
 5. Select the **Settings** tab and choose the notebook, and optional base parameters to pass to the notebook.
 
-    :::image type="content" source="./media/transform-data-synapse-notebook/notebook-activity-settings.png" alt-text="Shows the UI for the Settings tab for a Notebook activity.":::
+    :::image type="content" source="./media/transform-data-synapse-notebook/notebook-activity-settings.png" alt-text="Screenshot of the Settings tab for a Notebook activity." lightbox="./media/transform-data-synapse-notebook/notebook-activity-settings.png":::
 
 6. (Optional) You can fill in information for Synapse notebook. If the following settings are empty, the settings of the Synapse notebook itself will be used to run; if the following settings are not empty, these settings will replace the settings of the Synapse notebook itself.
 
@@ -160,10 +164,10 @@ You can reference other notebooks in a Synapse notebook activity via calling [%r
 
 Go to Pipeline runs under the **Monitor** tab, you'll see the pipeline you have triggered. Open the pipeline that contains notebook activity to see the run history.
 
-:::image type="content" source="./media/transform-data-synapse-notebook/input-output-history-notebook.png" alt-text="Shows the UI for the input and output for a Notebook activity.":::
+:::image type="content" source="./media/transform-data-synapse-notebook/input-output-history-notebook.png" alt-text="Screenshot of the input and output for a Notebook activity." lightbox="./media/transform-data-synapse-notebook/input-output-history-notebook.png":::
 
 For Open notebook snapshot, this feature is not currently supported.
 
 You can see the notebook activity input or output by selecting the input or Output button. If your pipeline failed with a user error, select the output to check the result field to see the detailed user error traceback.
 
-:::image type="content" source="./media/transform-data-synapse-notebook/notebook-output-user-error.png" alt-text="Shows the UI for the output user error for a Notebook activity.":::
+:::image type="content" source="./media/transform-data-synapse-notebook/notebook-output-user-error.png" alt-text="Screenshot of the output user error for a Notebook activity." lightbox="./media/transform-data-synapse-notebook/notebook-output-user-error.png":::
