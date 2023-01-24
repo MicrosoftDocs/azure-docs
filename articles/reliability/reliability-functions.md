@@ -43,13 +43,13 @@ Zone-redundant Premium plans are available in the following regions:
 | Americas         | Europe               | Middle East   | Africa             | Asia Pacific   |
 |------------------|----------------------|---------------|--------------------|----------------|
 | Brazil South     | France Central       | Qatar Central | South Africa North | Australia East |
-| Canada Central   | Germany West Central |               |                    | Central India  |
+| Canada Central   | Germany West Central | UAE North     |                    | Central India  |
 | Central US       | North Europe         |               |                    | China North 3  |
-| East US          | Sweden Central       |               |                    | East Asia      |
-| East US 2        | UK South             |               |                    | Japan East     |
-| South Central US | West Europe          |               |                    | Southeast Asia |
-| West US 2        |                      |               |                    |                |
-| West US 3        |                      |               |                    |                |
+| East US          | Norway East          |               |                    | East Asia      |
+| East US 2        | Sweden Central       |               |                    | Japan East     |
+| South Central US | Switzerland North    |               |                    | Southeast Asia |
+| West US 2        | UK South             |               |                    |                |
+| West US 3        | West Europe          |               |                    |                |
 
 ### Prerequisites
 

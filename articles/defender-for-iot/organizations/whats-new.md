@@ -19,7 +19,15 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | **Version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)  |
+|**OT networks**     | - **Sensor version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)<br>- **Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal-public-preview)   |
+
+### Update sensor software from the Azure portal (Public preview)
+
+For cloud-connected sensor versions [22.2.3](release-notes.md#2223) and higher, now you can update your sensor software directly from the new **Sites and sensors** page on the Azure portal.
+
+:::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
+
+For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors).
 
 ### Azure connectivity status shown on OT sensors
 
@@ -35,7 +43,7 @@ For more information, see [Manage individual sensors](how-to-manage-individual-s
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans) |
+|**OT networks**     |  [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)    |
 |**Enterprise IoT networks**     | [Enterprise IoT sensor alerts and recommendations (Public Preview)](#enterprise-iot-sensor-alerts-and-recommendations-public-preview) |
 
 ### Enterprise IoT sensor alerts and recommendations (Public Preview)
