@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to 
-ms.date: 01/24/2023
+ms.date: 01/2/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -29,7 +29,7 @@ A container using subPath volume mount won't receive secret updates when it's ro
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Check that your version of the Azure CLI is 2.30.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
-* If you're restricting Ingress to the cluster, check that Ports 9808 and 8095 are open.
+* If you're restricting Ingress to the cluster, check that ports **9808** and **8095** are open.
 
 ### Supported Kubernetes versions
 
@@ -49,7 +49,7 @@ az group create -n myResourceGroup -l eastus2
 az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-managed-identity
 ```
 
-3. A user-assigned managed identity, named `azurekeyvaultsecretsprovider-*`, is created by the add-on for the purpose of accessing Azure resources. The following example uses this identity to connect to the Azure key vault where the secrets will be stored, but you can also use other [identity access methods][identity-access-methods]. Take note of the identity's `clientId` in the output.
+3. A user-assigned managed identity, named `azurekeyvaultsecretsprovider-*`, is created by the add-on to access Azure resources. The following example uses this identity to connect to the Azure key vault where the secrets will be stored, but you can also use other [identity access methods][identity-access-methods]. Take note of the identity's `clientId` in the output.
 
 ```json
 ...,
@@ -170,7 +170,7 @@ az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGrou
 > [!NOTE]
 > If the add-on is disabled, existing workloads will have no issues and will not see any updates in the mounted secrets. If the pod restarts or a new pod is created as part of scale-up event, the pod will fail to start because the driver is no longer running.
 
-## Additional configuration options
+## More configuration options
 
 ### Enable autorotation
 
@@ -230,7 +230,7 @@ You might want to create a Kubernetes secret to mirror the mounted content. When
 > [!NOTE]
 > The YAML examples here are incomplete. You'll need to modify them to support your chosen method of access to your key vault identity. For details, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods].
 
-The secrets will sync only after you start a pod to mount them. To rely solely on syncing with the Kubernetes secrets feature doesn't work. When all the pods that consume the secret are deleted, the Kubernetes secret is also deleted.
+The secrets will sync only after you start a pod to mount them. Relying only on syncing with the Kubernetes secrets feature doesn't work. When all the pods that consume the secret are deleted, the Kubernetes secret is also deleted.
 
 ```yml
 apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -311,7 +311,7 @@ The following table lists the metrics that are provided by the Azure Key Vault P
 
 ### The Secrets Store CSI Driver
 
-Metrics are served from port 8095, but this port is not exposed outside the pod by default. 
+Metrics are served from port 8095, but this port isn't exposed outside the pod by default.
 
 * Access the metrics over localhost using `kubectl port-forward`.
 
