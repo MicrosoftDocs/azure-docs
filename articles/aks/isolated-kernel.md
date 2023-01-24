@@ -265,10 +265,10 @@ To add Mariner to an existing ARM template, you need to add the following:
     * **clusterName**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
     * **dnsPrefix**: Enter a unique DNS prefix for your cluster, such as *myakscluster*.
     * **linuxAdminUsername**: Enter a username to connect using SSH, such as *azureuser*.
-    * **sshRSAPublicKey**: Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*).
+    * **sshRSAPublicKey**: Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*). If you don't have a SSH key pair created and are unfamiliar with how to create one, see [Create and use an SSH public-private key pair for Linux VMs in Azure][create-ssh-public-key-linux].
 
     ```azurecli
-    az deployment group create --resource-group myResourceGroup --template-file marineraksarm.yml --parameters clusterName=myAKSCluster dnsPrefix=myakscluster linuxAdminUsername=azureuser sshRSAPublicKey=`<contents of your id_rsa.pub>`
+    az deployment group create --resource-group myResourceGroup --template-file marineraksarm.yml --parameters clusterName=myAKSCluster dnsPrefix=myakscluster linuxAdminUsername=azureuser sshRSAPublicKey='<contents of your id_rsa.pub>'
     ```
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
@@ -321,8 +321,8 @@ To update an existing AKS cluster, if the cluster is running version 1.24.0 and 
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--name**: Enter a unique name for your clusters nodepool, such as *nodepool2*.
    * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. When using the `--workload-runtime` parameter, these additional parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-    * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in the preview release.
-    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
+     * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in the preview release.
+     * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
@@ -444,3 +444,4 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 [connect-to-aks-cluster-nodes]: node-access.md
 [dv3-series]: ../virtual-machines/dv3-dsv3-series.md#dsv3-series
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
+[create-ssh-public-key-linux]: ../virtual-machines/linux/mac-create-ssh-keys.md
