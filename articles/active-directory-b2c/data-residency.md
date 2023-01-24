@@ -78,7 +78,7 @@ At the moment, the following countries have the local data residence option:
 
 |If you're in  | What to do  |
 |-------------|---------|
-| Australia | If you've existing Azure AD B2C tenant that you created since **April 2021**, your data is resident in Australia. You need to opt-in to start using Go-Local add-on. <br> If you're creating a new Azure AD B2C tenant, you can enable Go-Local add-on when you create it.|
+| Australia | If you've existing Azure AD B2C tenant that you created since **April 2021**, your data is resident in Australia. You need to opt in to start using Go-Local add-on. <br> If you're creating a new Azure AD B2C tenant, you can enable Go-Local add-on when you create it.|
 | Japan | You can enable Go-Local add-on when you create a new Azure AD B2C tenant. |
 
 
@@ -105,7 +105,7 @@ With Azure AD B2C [custom policies](custom-policy-overview.md), you can integrat
 - During the sign-up and profile editing flows, Azure AD B2C calls a custom REST API to persist the user profile to the remote data source. The user's credentials are stored in Azure AD B2C directory. 
 - Upon sign in, after credentials validation with a local or social account, Azure AD B2C invokes the REST API, which sends the user's unique identifier as a user primary key (email address or user objectId). The REST API reads the data from the remote database and returns the user profile.  
 
-After sign-up, profile editing, or sign in is complete, Azure AD B2C includes the user profile in the access token that is returned to the application. For more information, see the [Azure AD B2C Remote profile sample solution](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) in GitHub.
+After sign-up, profile editing, or sign-in action is complete, Azure AD B2C includes the user profile in the access token that is returned to the application. For more information, see the [Azure AD B2C Remote profile sample solution](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) in GitHub.
 
 ## Next steps
 
