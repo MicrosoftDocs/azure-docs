@@ -136,19 +136,68 @@ The new VM Extension for SAP uses a managed identity that is assigned to the VM 
 
 ## <a name="ba74712c-4b1f-44c2-9412-de101dbb1ccc"></a>Manually configure the Azure VM extension for SAP solutions
 
-If you want to use Azure Resource Manager, Terraform or other tools to deploy the VM Extension for SAP, please use the following publisher and extension type:
+If you want to use Azure Resource Manager, Terraform or other tools to deploy the VM Extension for SAP, you can also deploy the VM Extension for SAP manually i.e. without using the dedicated PowerShell or Azure CLI commands.
 
-For Linux:
-* **Publisher**: Microsoft.AzureCAT.AzureEnhancedMonitoring
-* **Extension Type**: MonitorX64Linux
-* **Version**: 1.*
+Before deploying the VM Extension for SAP, please make sure to assign a user or system assigned managed identity to the virtual machine. For more information, read the following guides:
 
-For Windows:
-* **Publisher**: Microsoft.AzureCAT.AzureEnhancedMonitoring
-* **Extension Type**: MonitorX64Windows
-* **Version**: 1.*
+* [Configure managed identities for Azure resources on a VM using the Azure portal](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+* [Configure managed identities for Azure resources on an Azure VM using Azure CLI](/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
+* [Configure managed identities for Azure resources on an Azure VM using PowerShell](/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
+* [Configure managed identities for Azure resources on an Azure VM using templates](/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
+* [Terraform VM Identity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine#identity)
 
-If you want to disable automatic updates for the VM extension or want to deploy a spefici version of the extension, you can retrieve the available versions with Azure CLI or Azure PowerShell.
+After assigning an identity to the virtual machine, give the VM read access to either the resource group or the individual resources associated to the virtual machine (VM, Network Interfaces, OS Disks and Data Disks). It is recommended to use the built-in Reader role to grant the acceess to these resources. You can also grant this access by adding the VM identity to an Azure Active Directory group that already has read access to the required resources.
+
+There are different ways how to deploy the VM Extension for SAP manually. Please find a few examples in the next chapters.
+
+### Deploy manually with Azure PowerShell
+
+The following code contains four examples. It shows how to deploy the extension on Windows and Linux, using a system or user assigned identity. Make sure to replace the name of the resource group, the location and VM name in the example.
+
+``` powershell
+# Windows VM - user assigned identity
+Set-AzVMExtension -Publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" -ExtensionType "MonitorX64Windows" -ResourceGroupName "<rg name>" -VMName "<vm name>" `
+   -Name "MonitorX64Windows" -TypeHandlerVersion "1.0" -Location "<location>" -SettingString '{"cfg":[{"key":"msi_res_id","value":"<user assigned resource id>"}]}'
+
+# Windows VM - system assigned identity
+Set-AzVMExtension -Publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" -ExtensionType "MonitorX64Windows" -ResourceGroupName "<rg name>" -VMName "<vm name>" `
+   -Name "MonitorX64Windows" -TypeHandlerVersion "1.0" -Location "<location>" -SettingString '{"cfg":[]}'
+
+# Linux VM - user assigned identity
+Set-AzVMExtension -Publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" -ExtensionType "MonitorX64Linux" -ResourceGroupName "<rg name>" -VMName "<vm name>" `
+   -Name "MonitorX64Linux" -TypeHandlerVersion "1.0" -Location "<location>" -SettingString '{"cfg":[{"key":"msi_res_id","value":"<user assigned resource id>"}]}'
+
+# Linux VM - system assigned identity
+Set-AzVMExtension -Publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" -ExtensionType "MonitorX64Linux" -ResourceGroupName "<rg name>" -VMName "<vm name>" `
+   -Name "MonitorX64Linux" -TypeHandlerVersion "1.0" -Location "<location>" -SettingString '{"cfg":[]}'
+```
+
+### Deploy manually with Azure CLI
+
+``` bash
+# Windows VM - user assigned identity
+az vm extension set --publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" --name "MonitorX64Windows" --resource-group "<rg name>" --vm-name "<vm name>" \
+   --extension-instance-name "MonitorX64Windows" --settings '{"cfg":[{"key":"msi_res_id","value":"<user assigned resource id>"}]}'
+
+# Windows VM - system assigned identity
+az vm extension set --publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" --name "MonitorX64Windows" --resource-group "<rg name>" --vm-name "<vm name>" \
+   --extension-instance-name "MonitorX64Windows" --settings '{"cfg":[]}'
+   
+# Linux VM - user assigned identity
+az vm extension set --publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" --name "MonitorX64Linux" --resource-group "<rg name>" --vm-name "<vm name>" \
+   --extension-instance-name "MonitorX64Linux" --settings '{"cfg":[{"key":"msi_res_id","value":"<user assigned resource id>"}]}'
+
+# Linux VM - system assigned identity
+az vm extension set --publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" --name "MonitorX64Linux" --resource-group "<rg name>" --vm-name "<vm name>" \
+   --extension-instance-name "MonitorX64Linux" --settings '{"cfg":[]}'
+```
+
+### Deploy manually with Azure Resource Manager Templates
+### Deploy manually with Terraform
+
+### Versions of the VM Extension for SAP
+
+If you want to disable automatic updates for the VM extension or want to deploy a specific version of the extension, you can retrieve the available versions with Azure CLI or Azure PowerShell.
 
 **Azure PowerShell**
 ```powershell
@@ -185,15 +234,6 @@ This check makes sure that all performance metrics that appear inside your SAP a
    ```bash
    curl http://127.0.0.1:11812/azure4sap/metrics
    ```
-   **Expected result**: Returns an XML document that contains the monitoring information of the virtual machine, its disks and network interfaces.
-   1. Connect to the Azure Virtual Machine by using SSH.
-
-1. Check the output of the following command
-
-    ```console
-    curl http://127.0.0.1:11812/azure4sap/metrics
-    ```
-    
    **Expected result**: Returns an XML document that contains the monitoring information of the virtual machine, its disks and network interfaces.
 
 If the preceding check was not successful, run these additional checks:
