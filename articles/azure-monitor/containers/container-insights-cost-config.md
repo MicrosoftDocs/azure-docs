@@ -6,10 +6,10 @@ ms.date: 09/12/2022
 ms.reviewer: aul
 ---
 
-# Cost Optimization DCR Settings
+# Enable cost optimization settings (preview)
 
 >[!NOTE]
->Support for this feature is currently in preview. We recommend only using preview features in safe testing environments.
+>This feature is currently in public preview. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
 
 This preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md).
 
@@ -21,12 +21,16 @@ The following table describes about supported data collection settings
 
 | **Data collection setting** | **Description** |
 | --- | --- |
-| **interval** | Allowed values are 1m, 2m … 30m. If the value outside this range [1m, 30m], then default value is set to be 1m (i.e., 60 seconds) and **m** suffix denotes the minutes. |
-| **excludeNameSpaces** | Array of comma separated Kubernetes namespaces for which inventory and perf data will not be collected. For example, **excludeNameSpaces** = ["kube-system", "default"] |
+| **interval** | Allowed values are _1m, 2m … 30m_. If the value outside this range [_1m_, _30m_], then default value is set to be _1m_ (i.e., 60 seconds) and **m** suffix denotes the minutes. |
+| **namespaceFilteringMode** | Allowed values are _Include_, _Exclude_, or _Off_. Choosing Include collects only data from the values in the namespaces field. Choosing Exclude collects data from all namespaces except for the values in the namespaces field. Off will ignore any namespace selections and collect data on all namespaces.
+| **namespaces** | Array of comma separated Kubernetes namespaces for which inventory and perf data will be included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting will collect only these two namespaces. With an _Exclude_ setting, the agent will collect data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent will collect data from all namespaces including _kube-system_ and _default_.|
 
 ## Log Analytics
 
 The below table outlines the list of the container insights Log Analytics tables for which data collection settings applied and what data collection settings applicable.
+
+>[!NOTE]
+>This feature only configures the settings for the following counters, to configure settings on the ContainerLog please update the ConfigMap listed in documentation for [agent data Collection settings](../containers/container-insights-agent-config.md)
 
 | ContainerInsights Table Name | Is Data collection setting: interval applicable? | Is Data collection setting: excludeNameSpaces applicable? | Remarks |
 | --- | --- | --- | --- |
@@ -54,7 +58,8 @@ The below table outlines the list of the container insights Log Analytics tables
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
     - If the AKS Cluster is using Service Principal, it MUST be upgraded to use [Managed Identity](../../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity)
 
-- Install latest version of the [Azure CLI](/cli/azure/install-azure-cli)
+- Install [Azure CLI](/cli/azure/install-azure-cli) version 2.44.1 or higher
+    - aks-preview version 0.5.125 or higher
 
 ## Cost presets and advanced collection settings
 Cost presets are available for selection in the Azure Portal to allow easy configuration. By default, container insights ships with the Standard preset, however, you may choose one of the following to modify your collection settings.
@@ -64,6 +69,15 @@ Cost presets are available for selection in the Azure Portal to allow easy confi
 | Standard | 1m | None | Not enabled |
 | Cost-optimized | 5m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
 | Advanced | Custom | Custom | Enabled by default (but can be turned off) |
+| ContainerLog only | None | None | Off by default |
+
+## Onboarding to a new AKS cluster
+
+Use the following command to enable monitoring of your AKS cluster
+
+```azcli
+az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring --data-collection-settings datacollectionsettings.json --generate-ssh-keys 
+```
 
 ## Onboarding to an existing AKS Cluster
 
@@ -97,8 +111,9 @@ curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-paramet
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
 - For _workspaceLocation_, use the Location of your Log Analytics workspace
 - For _resourceTagValues_, use the existing tag values specified for the AKS cluster
-- For _dataCollectionInterval_, specifythe interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
-- For _excludeNamespacesForDataCollection_, specify array of the namespaces to exclude for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"]
+- For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
+- For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namepspaces field.
+- For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
 
 3. Deploy the ARM template
 
@@ -141,8 +156,9 @@ curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-paramet
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
 - For _workspaceLocation_, use the Location of your Log Analytics workspace
 - For _resourceTagValues_, use the existing tag values specified for the AKS cluster
-- For _dataCollectionInterval_, specifythe interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
-- For _excludeNamespacesForDataCollection_, specify array of the namespaces to exclude for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"]
+- For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
+- For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namepspaces field.
+- For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
 
 3. Deploy the ARM template
 
@@ -182,13 +198,13 @@ curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-par
 
 2. Edit the values in the parameter file: existingClusterParam.json
 
-- For _clusterResourceId_ and _clusterRegion_, use the values of Azure Arc Kubernetes cluster resource id and location
+- For _aksResourceId_ and _aksResourceLocation_, use the values on the  **AKS Overview**  page for the AKS cluster.
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
-- For _workspaceRegion_, use the Location of your Log Analytics workspace
-- For _workspaceDomain_, use _opinsights.azure.com_for Azure Public Cloud and for Azure China Cloud, use _opinsights.azure.cn_and for Azure Government Cloud, use _opinsights.azure.us_
-- For _resourceTagValues_, use the existing tag values specified for the Azure Arc Kubernetes cluster
-- For _dataCollectionInterval_, specifythe interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
-- For _excludeNamespacesForDataCollection_, specify array of the Kubernetes namespaces to exclude for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"]
+- For _workspaceLocation_, use the Location of your Log Analytics workspace
+- For _resourceTagValues_, use the existing tag values specified for the AKS cluster
+- For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
+- For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namepspaces field.
+- For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
 
 3. Deploy the ARM template
 
@@ -211,5 +227,5 @@ To update your data collection Settings, modify the values in parameter files, a
 
 ## Known Issues/Limitations
 
-- Recommended alerts will not work as expected if the Data collection interval is configured more than 1 minute interval. Plan is to migrate to Metrics addon for the metrics once it becomes available.
+- Recommended alerts will not work as expected if the Data collection interval is configured more than 1 minute interval. To continue using Recommend alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
 - There will be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
