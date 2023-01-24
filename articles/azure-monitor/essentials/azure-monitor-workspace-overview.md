@@ -34,7 +34,7 @@ The following table presents criteria to consider when designing an Azure Monito
 
 ### Considerations when creating an Azure Monitor workspace 
 
-* Azure Monitor workspaces are region. When you create a new Azure Monitor workspace, you provide a region, setting the location in which the data is stored.  
+* Azure Monitor workspaces are regional. When you create a new Azure Monitor workspace, you provide a region, setting the location in which the data is stored.  
 
 * Start with a single workspace to reduce the complexity of managing and querying data from multiple Azure resources.
 
