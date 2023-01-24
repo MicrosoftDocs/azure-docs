@@ -42,6 +42,8 @@
         href: migrate-recovery-services-vault.md
       - name: Azure Storage accounts
         href: migrate-storage.md
+      - name: Azure SQL managed instance
+        href: migrate-sql-managed-instance.md
       - name: Azure Virtual Machines and virtual machine scale sets
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
