@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Java REST SDK Developers Guide.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 01/15/2023
+ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -33,7 +33,7 @@ The Azure Maps Java SDK can be integrated with Java applications and libraries t
 
 ## Create a Maven project
 
-The following PowerShell code snippet demonstrates how to use PowerShell to create a maven project. First we will run maven command to create maven project:
+The following PowerShell code snippet demonstrates how to use PowerShell to create a maven project. First we'll run maven command to create maven project:
 
 ```powershell
 mvn archetype:generate "-DgroupId=groupId" "-DartifactId=DemoProject" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DarchetypeVersion=1.4" "-DinteractiveMode=false" 
@@ -90,14 +90,17 @@ After creating the maven project, there should be a `pom.xml` file with basic in
 </dependency> 
 ```
 
-Run `mvn clean install` on your project. If this causes errors, try `mvn clean install -U` and then create a java file `demo.java` and import what you need from Azure maps into the file as shown in examples below.
+Run `mvn clean install` on your project, then create a java file named `demo.java` and import what you need from Azure maps into the file:
 
 ```powershell
 cd DemoProject 
 New-Item demo.java 
-``` 
+```
 
-#### Azure Maps services
+> [!TIP]
+> If running `mvn clean install` results in an error, try running `mvn clean install -U`.
+
+### Azure Maps services
 
 | Service Name  | Maven package           |  Samples     |
 |---------------|-------------------------|--------------|
@@ -108,15 +111,13 @@ New-Item demo.java 
 | [TimeZone][java timezone readme] | [azure-maps-TimeZone][java timezone package] | [TimeZone samples][java timezone sample] |
 | [Elevation][java elevation readme] | [azure-maps-Elevation][java elevation package] | [Elevation samples][java elevation sample] |
 
-
 ## Create and authenticate a MapsSearchClient
 
-The client object used to access the Azure Maps Search APIs require either an AzureKeyCredential object to authenticate when using an Azure Maps subscription key or a TokenCredential object with the Azure Maps client ID when authenticating using Azure Active Directory (Azure AD). For more information on authentication, see [Authentication with Azure Maps][authentication]. 
+The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a TokenCredential object with the Azure Maps client ID when authenticating using Azure Active Directory (Azure AD). For more information on authentication, see [Authentication with Azure Maps][authentication].
 
- 
 ### Using an Azure AD credential
 
-You can authenticate with Azure AD using the [Azure Identity library][Identity library]. To use the [DefaultAzureCredential][defaultazurecredential] provider, you'll need to add the mvn dependency in the `pom.xml` file: 
+You can authenticate with Azure AD using the [Azure Identity library][Identity library]. To use the [DefaultAzureCredential] provider, you'll need to add the mvn dependency in the `pom.xml` file:
 
 ```xml
 <dependency>
@@ -247,9 +248,9 @@ public class Demo {
 } 
 ```
 
-The above code snippet demonstrates how to create a `MapsSearchClient` object using your Azure credentials. Start by instantiating `AzureKeyCredential` using your Azure Maps subscription key. Alternatively, you can authenticate using Azure AD by creating a default credential that looks for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID` and `AZURE_CLIENT_SECRET` environment variables. We then feed the credential to instantiate `MapsSearchClient`. The methods provided by `MapsSearchClient` such as `FuzzySearch` will pass in the point of interest (POI) name "starbucks" and coordinates GeoPosition(-122.31, 47.61). In the simple fuzzy search example above, we can search for a point of interest (POI) with just the keyword "starbucks". However, as shown in the fuzzy search with options example, we can also fuzzy search with options that can include additional information such as coordinates.
+This code snippet demonstrates how to create a `MapsSearchClient` object using Azure credentials. Start by instantiating `AzureKeyCredential` using your Azure Maps subscription key, then passes the credentials to instantiate `MapsSearchClient`. `MapsSearchClient` methods such as `FuzzySearch` can use the point of interest (POI) name "Starbucks" and coordinates GeoPosition(-122.31, 47.61).
 
-After finishing the program, go to the project folder and run `java .\demo.java` in the command line:  
+Execute the program from the project folder in the command line:  
 
 ```powershell
 java .\demo.java 
@@ -339,11 +340,11 @@ public class Demo {
 } 
 ```
 
-The returned results of the `client.SearchAddress` method is ordered by confidence score and in this example, it prints only the coordinates of the first result.    
+In this sample, the `client.SearchAddress` method returns results ordered by confidence score and prints the coordinates of the first result.
 
 ## Batch reverse search
 
-Azure Maps Search also provides some batch query methods. These methods will return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically. The example below demonstrates how to call the batch reverse search method:
+Azure Maps Search also provides some batch query methods. These methods will return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically as demonstrated in the batch reverse search method:
 
 ```java
 import java.util.ArrayList;
@@ -388,11 +389,7 @@ public class Demo{
         } 
     } 
 } 
-```  
-
-## Additional information
-
-TODO: Need a link to additional information.
+```
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
@@ -401,13 +398,11 @@ TODO: Need a link to additional information.
 [Java Standard Versions]: https://www.oracle.com/java/technologies/downloads/
 [Java Version 8]: /azure/developer/java/fundamentals/?view=azure-java-stable
 [maven]: /azure/developer/java/sdk/get-started-maven
-[authentication]: /azure/azure-maps/azure-maps-authentication
 [Identity library]: /java/api/overview/azure/identity-readme?source=recommendations&view=azure-java-stable
 [defaultazurecredential]: /azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential
 [Host daemon]: /azure/azure-maps/how-to-secure-daemon-app#host-a-daemon-on-non-azure-resources
 
 <!--  Java SDK Developers Guide  --->
-[Java 8]: https://www.java.com/en/download/java8_update.jsp
 [java search package]: https://repo1.maven.org/maven2/com/azure/azure-maps-search
 [java search readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-search/README.md
 [java search sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-search/src/samples/java/com/azure/maps/search/samples
