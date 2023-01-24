@@ -148,7 +148,7 @@ An alternate method for ASP.NET Web apps is to instantiate the initializer in co
 
 **ASP.NET Core apps: Load an initializer to TelemetryConfiguration**
 
-For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, to add a new `TelemetryInitializer` instance, you add it to the Dependency Injection container, as shown. You do this step in the `ConfigureServices` method of your `Startup.cs` class.
+For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, to add a new `TelemetryInitializer` instance, you add it to the Dependency Injection container, as shown. You do this step in the `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -411,7 +411,7 @@ There are many filter combinations. Here are some suggestions that apply to most
     :::image type="content" source="media/app-map/image-12.png" alt-text="A screenshot displaying the Intelligent Overview toggle.":::
 
 -   Hide low-traffic connectors with no errors to quickly focus on issues that have higher impact:
-     :::image type="content" source="media/app-map/image-13.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 876, and highlihgted errors filters.":::
+     :::image type="content" source="media/app-map/image-13.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 876, and highlighted errors filters.":::
     
 -   Show high-traffic connectors with high average duration to focus on potential performance issues:
      :::image type="content" source="media/app-map/image-14.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 3057, and average time greater than 467 filters.":::
@@ -511,7 +511,7 @@ If you're having trouble getting Application Map to work as expected, try these 
 
 1. Confirm the [cloud role name](#set-or-override-cloud-role-name) is correctly configured.
 
-1. If you're missing a dependency, make sure it's in the list of [autocollected dependencies](./auto-collect-dependencies.md). If not, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
+1. If you're missing a dependency, make sure it's in the list of [autocollected dependencies](asp-net-dependencies.md#dependency-auto-collection). If not, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
 ### Too many nodes on the map
 

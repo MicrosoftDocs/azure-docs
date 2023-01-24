@@ -1,9 +1,8 @@
 ---
 title: Create and delete managed private endpoints in an Azure Stream Analytics cluster
 description: Learn how to managed private endpoints in an Azure Stream Analytics cluster.
-author: sidramadoss
-ms.author: sidram
-
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc

@@ -216,7 +216,7 @@ Open the *app_config.py* file. This file contains information about your Azure A
 
 |Key  |Value  |
 |---------|---------|
-|`ENDPOINT`| The URI of your web API (for example, `https://localhost:44332/hello`).|
+|`ENDPOINT`| The URI of your web API (for example, `https://localhost:5000/getAToken`).|
 |`SCOPE`| The web API [scopes](#step-62-configure-scopes) that you created.|
 | | |
 
@@ -238,7 +238,7 @@ CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder - for use ONLY during t
 ### More code here
 
 # This is the API resource endpoint
-ENDPOINT = 'https://localhost:44332' 
+ENDPOINT = 'https://localhost:5000' 
 
 
 SCOPE = ["https://contoso.onmicrosoft.com/api/demo.read", "https://contoso.onmicrosoft.com/api/demo.write"] 

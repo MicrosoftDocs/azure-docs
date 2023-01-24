@@ -1,21 +1,24 @@
 ---
 title: Configure private endpoints for Azure Event Grid topics or domains
-description: This article describes how to configure private endpoints for Azure Event Grid topics or domain. 
+description: This article describes how to configure private endpoints for Azure Event Grid custom topics or domain. 
 ms.topic: how-to
-ms.date: 03/07/2022 
+ms.date: 12/06/2022 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Configure private endpoints for Azure Event Grid topics or domains
-You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the VNet address space for your topic or domain. For more conceptual information, see [Network security](network-security.md).
+# Configure private endpoints for Azure Event Grid custom topics or domains
+You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your custom topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the VNet address space for your custom topic or domain. For more conceptual information, see [Network security](network-security.md).
 
-This article describes how to configure private endpoints for topics or domains.
+This article describes how to configure private endpoints for custom topics or domains.
+
+> [!NOTE]
+> Currently, private endpoints aren't supported for system topics.
 
 ## Use Azure portal 
 This section shows you how to use the Azure portal to create a private endpoint for a topic or a domain.
 
 > [!NOTE]
-> The steps shown in this section are mostly for topics. You can use similar steps to create private endpoints for **domains**. 
+> The steps shown in this section are mostly for custom topics. You can use similar steps to create private endpoints for **domains**. 
 
 ### When creating a new topic
 
@@ -41,7 +44,7 @@ This section shows you how to enable private network access for an Event Grid to
     1. Select an **Azure subscription** in which you want to create the private endpoint. 
     2. Select an **Azure resource group** for the private endpoint. 
     3. Enter a **name** for the endpoint. 
-    4. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can in a different region from the private link resource (in this example, an  event grid topic). 
+    4. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can in a different region from the private link resource (in this example, an  Event Grid topic). 
     5. Then, select **Next: Resource >** button at the bottom of the page. 
 
         :::image type="content" source="./media/configure-private-endpoints/basics-page.png" alt-text="Screenshot showing the Basics page of the Create a private endpoint wizard.":::
@@ -137,7 +140,7 @@ az network private-endpoint create \
     --name <PRIVATE ENDPOINT NAME> \
     --vnet-name <VIRTUAL NETWORK NAME> \
     --subnet <SUBNET NAME> \
-    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME> \
+    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>" \
     --connection-name <PRIVATE LINK SERVICE CONNECTION NAME> \
     --location <LOCATION> \
     --group-ids topic
@@ -181,7 +184,7 @@ az network private-endpoint create \
     --name <PRIVATE ENDPOINT NAME> \
     --vnet-name <VIRTUAL NETWORK NAME> \
     --subnet <SUBNET NAME> \
-    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME> \
+    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>" \
     --connection-name <PRIVATE LINK SERVICE CONNECTION NAME> \
     --location <LOCATION> \
     --group-ids topic

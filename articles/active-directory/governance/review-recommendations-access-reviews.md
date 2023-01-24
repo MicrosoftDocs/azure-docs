@@ -1,6 +1,6 @@
 ---
-title: Review recommendations for Access reviews - Azure AD
-description: Learn how to review access of group members with review recommendations in Azure Active Directory access reviews.
+title: Review recommendations for Access reviews
+description: Learn how to review access of group members with review recommendations in Microsoft Entra access reviews.
 services: active-directory
 author: amsliu
 manager: amycolannino

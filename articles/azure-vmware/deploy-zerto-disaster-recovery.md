@@ -67,7 +67,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 - Network connectivity, ExpressRoute based, from Azure VMware Solution to the vNET used for disaster recovery.
 
-- Follow the [Zerto Virtual Replication Azure Enterprise Guidelines](https://www.zerto.com/wp-content/uploads/2016/11/Zerto-Virtual-Replication-5.0-for-Azure.pdf) for the rest of the prerequisites.
+- Follow the [Zerto Virtual Replication Azure Quickstart Guide](https://help.zerto.com/bundle/QS.Azure.HTML.95/page/Zerto_Quick_Start_Azure_Environments.htm) for the rest of the prerequisites.
 
 ## Install Zerto on Azure VMware Solution
 
@@ -87,9 +87,9 @@ After the ZVM installation, select the options below from the Zerto Virtual Mana
 
 ## Configure Zerto for disaster recovery
 
-To configure Zerto for the on-premises VMware to Azure VMware Solution disaster recovery and Azure VMware Solution to Azure VMware Solution Cloud disaster recovery scenarios, see the [Zerto Virtual Manager Administration Guide vSphere Environment](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/Zerto%20Virtual%20Manager%20vSphere%20Administration%20Guide.pdf?cb=1629311409).
+To configure Zerto for the on-premises VMware to Azure VMware Solution disaster recovery and Azure VMware Solution to Azure VMware Solution Cloud disaster recovery scenarios, see the [Zerto Virtual Manager Administration Guide vSphere Environment](https://help.zerto.com/bundle/Admin.VC.HTML/page/Introduction_to_the_Zerto_Solution.htm).
 
-For more information, see the [Zerto technical documentation](https://www.zerto.com/myzerto/technical-documentation/). Alternatively, you can download all the Zerto guides part of the [v8.5 Search Tool for Zerto Software PDFs documentation bundle](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/SEARCH_TOOL.zip?cb=1629311409).
+For more information, see the [Zerto technical documentation](https://www.zerto.com/myzerto/technical-documentation/).
 
 ## Ongoing management of Zerto
 

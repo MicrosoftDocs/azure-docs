@@ -5,7 +5,7 @@ author: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/09/2018
+ms.date: 12/20/2022
 ms.author: mimckitt
 ---
 

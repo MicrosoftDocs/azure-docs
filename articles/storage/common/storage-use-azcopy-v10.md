@@ -208,13 +208,16 @@ See any of the following resources:
 
 - [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)
 
-## Use a previous version
+## Use a previous version (deprecated)
 
 If you need to use the previous version of AzCopy, see either of the following links:
 
 - [AzCopy on Windows (v8)](/previous-versions/azure/storage/storage-use-azcopy)
 
 - [AzCopy on Linux (v7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
+
+> [!NOTE]
+> These versions AzCopy are been deprecated. Microsoft recommends using AzCopy v10.
 
 ## Next steps
 

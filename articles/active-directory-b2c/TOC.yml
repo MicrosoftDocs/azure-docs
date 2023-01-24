@@ -9,9 +9,6 @@
   - name: Technical overview
     href: technical-overview.md
     displayName: Azure AD B2C architecture, SLA, Azure AD B2C high availability, Azure AD B2C SLA, HA
-    # Add learn module
-  - name: 'Authenticate users: NodeJs quick course'
-    href: /learn/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/ 
   - name: What's new in docs?
     href: whats-new-docs.md
 # Node Quickstarts
@@ -38,7 +35,7 @@
   # - name: 4 - Create custom policies
     # Create this file (tutorial-create-custom-policies.md), and content into it. You also need to update the index.yml's card, Customize, to reflect the new file name
     # What keywords users are searching in TOC: https://review.docs.microsoft.com/en-us/help/contribute/kusto/samples/discoverability-toc-filter?branch=main 
-    # href: tutorial-create-user-flows.md
+    # href:tutorial-create-user-flows.md
   - name: 4 - Manage your tenant
     items:
     - name: Add administrator (work account)
@@ -76,6 +73,18 @@
     - name: Authentication library
       href: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
       displayName: MSAL, client library, Microsoft Authentication Library
+  - name: Azure AD B2C global identity framework
+    items:
+      - name: Global identity solutions
+        href: azure-ad-b2c-global-identity-solutions.md
+      - name: Funnel-based design
+        href: azure-ad-b2c-global-identity-funnel-based-design.md
+      - name: Region-based design
+        href: azure-ad-b2c-global-identity-region-based-design.md
+      - name: Funnel-based proof of concept 
+        href: azure-ad-b2c-global-identity-proof-of-concept-funnel.md
+      - name: Region-based proof of concept 
+        href: azure-ad-b2c-global-identity-proof-of-concept-regional.md
   - name: Azure AD B2C best practices
     href: best-practices.md
   - name: Application types
@@ -461,6 +470,7 @@
       items:
       - name: Azure AD B2C partner gallery
         href: partner-gallery.md 
+        displayName: marketplace, integration, extensibility, extend, customization, customisation
     - name: Custom policies guide series
       items:
       - name: 1 - Overview 

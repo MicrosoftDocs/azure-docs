@@ -117,6 +117,8 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
     - name: Python SDK
       href: quickstart-python.md
     - name: Samples on GitHub

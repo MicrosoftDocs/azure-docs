@@ -8,6 +8,7 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 10/06/2022
 ms.author: normesta
+ms.devlang: csharp
 ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 

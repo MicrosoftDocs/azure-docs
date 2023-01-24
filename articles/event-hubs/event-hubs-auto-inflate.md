@@ -14,7 +14,7 @@ Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hu
 The Event Hubs service increases the throughput when load increases beyond the minimum threshold, without any requests failing with ServerBusy errors.
 
 > [!NOTE]
-> To learn more about the **premium** tier, see [Event Hubs Premium](event-hubs-premium-overview.md).
+> The auto-inflate feature is currently supported only in the standard tier. 
 
 ## How Auto-inflate works in standard tier
 Event Hubs traffic is controlled by TUs (standard tier). For the limits such as ingress and egress rates per TU, see [Event Hubs quotas and limits](event-hubs-quotas.md). Auto-inflate enables you to start small with the minimum required TUs you choose. The feature then scales automatically to the maximum limit of TUs you need, depending on the increase in your traffic. Auto-inflate provides the following benefits:
@@ -28,8 +28,6 @@ Event Hubs traffic is controlled by TUs (standard tier). For the limits such as 
 
  ## Enable Auto-inflate on a namespace
 You can enable or disable Auto-inflate on a standard tier Event Hubs namespace by using either [Azure portal](https://portal.azure.com) or an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate).
-
-For a premium Event Hubs namespace, the feature is automatically enabled. You can't disable it. 
 
 > [!NOTE]
 > Basic tier Event Hubs namespaces do not support Auto-inflate.

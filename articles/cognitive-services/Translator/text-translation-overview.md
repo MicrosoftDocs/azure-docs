@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 04/26/2022
+ms.date: 11/29/2022
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service, custom translator
@@ -56,7 +56,7 @@ Add Text Translation to your projects and applications using the following resou
 
     > [!IMPORTANT]
     >
-    > * The Translator container is in gated preview. To use it, you must complete and submit the [**Azure Cognitive Services Application for Gated Services**](https://aka.ms/csgate-translator) online request form and have it approved to acquire access to the container.
+    > * To use the Translator container you must complete and submit the [**Azure Cognitive Services Application for Gated Services**](https://aka.ms/csgate-translator) online request form and have it approved to acquire access to the container.
     >
     > * The [**Translator container image**](https://hub.docker.com/_/microsoft-azure-cognitive-services-translator-text-translation) supports limited features compared to cloud offerings.
     >

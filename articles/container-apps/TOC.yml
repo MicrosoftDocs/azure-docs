@@ -54,6 +54,8 @@
         href: vnet-custom-internal.md
       - name: Securing a custom VNET
         href: firewall-integration.md
+      - name: Network proxying
+        href: network-proxy.md
     - name: Observability
       items:
       - name: Overview
@@ -76,6 +78,8 @@
       href: authentication.md
     - name: Dapr integration
       href: dapr-overview.md
+    - name: Azure Arc-enabled Kubernetes clusters
+      href: azure-arc-overview.md
 - name: How-to guides
   items:
     - name: Deploy an app with containerapp up
@@ -153,6 +157,12 @@
       href: background-processing.md
     - name: Create an Azure Files storage mount
       href: storage-mounts-azure-files.md
+    - name: Azure Arc
+      items:
+      - name: 1 - Set up Azure Arc-enabled Kubernetes clusters
+        href: azure-arc-enable-cluster.md
+      - name: 2 - Create container app
+        href: azure-arc-create-container-app.md
 - name: Reference
   items:
     - name: ARM and YAML specifications
