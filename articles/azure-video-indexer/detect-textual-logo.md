@@ -125,7 +125,7 @@ Insert the following:
 * `Access token`: The token, at least at a contributor level permission. 
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/textual-logo-detection/logo-group-api.png" alt-text="Diagram of logo group API":::
+> :::image type="content" source="./media/textual-logo-detection/logo-group-api.png" alt-text="Diagram of logo group API.":::
 
 In the **Body** paste the logo ID from the previous step.
 
@@ -224,8 +224,8 @@ In the first part of this article, we had one instance of a logo and we have ass
 
     1. Logo group ID is the output received at step 2.
     1. At the ‘Body’ of the request, paste the existing list of logos from step 3.
-    1. Then add to the list the logo Id from step 1.
-1. Validate the response of the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) making sure the list contains the previous ids and the new.
+    1. Then add to the list the logo ID from step 1.
+1. Validate the response of the [Update logo group](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Logo-Groups) making sure the list contains the previous IDs and the new.
 
 ### Additional information and limitations 
  
