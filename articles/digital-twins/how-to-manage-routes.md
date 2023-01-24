@@ -40,7 +40,7 @@ Next, follow the instructions below if you intend to use the Azure CLI while fol
 
 ## Create an event route
 
-After creating an endpoint, you'll need to define an *event route* to actually send data to the endpoint. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Endpoints and event routes](concepts-route-events.md).
+After [creating an endpoint](how-to-manage-endpoints.md), you'll need to define an *event route* to actually send data to the endpoint. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Endpoints and event routes](concepts-route-events.md).
 
 >[!NOTE]
 > Make sure you've created at least one endpoint as described in the [Prerequisites](#prerequisites) before you move on to creating a route.

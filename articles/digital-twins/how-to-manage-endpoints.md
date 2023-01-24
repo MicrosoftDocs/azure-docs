@@ -28,11 +28,11 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
     - Instance name
     - Resource group
 
-You can find these details in the [Azure portal](https://portal.azure.com) after setting up your instance. 
+    You can find these details in the [Azure portal](https://portal.azure.com) after setting up your instance. 
+    
+    :::image type="content" source="media/includes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted." lightbox="media/includes/instance-details.png":::
 
-:::image type="content" source="media/includes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted." lightbox="media/includes/instance-details.png":::
-
-Follow the instructions below if you intend to use the Azure CLI while following this guide.
+Next, follow the instructions below if you intend to use the Azure CLI while following this guide.
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
@@ -361,4 +361,4 @@ Here's an example of a dead-letter message for a [twin create notification](conc
 
 ## Next steps
 
-To actually send data from Azure Digital Twins to an endpoint, you'll need to define an [event route](concepts-route-events.md). These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Continue on to create an event route to your endpoint in [Manage routes](how-to-manage-routes.md).
+To actually send data from Azure Digital Twins to an endpoint, you'll need to define an [event route](concepts-route-events.md). These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Continue on to create an event route to your endpoint in [Manage routes and filters](how-to-manage-routes.md).
