@@ -117,11 +117,11 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-From the project directory, open the *app.py* file. In your editor, add modules to work with Cosmos as well as authenticate to Azure. You'll authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` from the [`azure-identity`](https://pypi.org/project/azure-identity/) package. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
+From the project directory, open the *app.py* file. In your editor, add modules to work with Cosmos and authenticate to Azure. You'll authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` from the [`azure-identity`](https://pypi.org/project/azure-identity/) package. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
 
 [!INCLUDE [sync async code imports - credential](./includes/quickstart-python/credential-string-sync-async-code-imports.md)]
 
-Create an environment variables that specifies your Cosmos DB endpoint.
+Create an environment variable that specifies your Cosmos DB endpoint.
 
 [!INCLUDE [sync async code environment variables - credential](./includes/quickstart-python/credential-string-sync-async-code-environment-variables.md)]
 
@@ -174,7 +174,7 @@ az cosmosdb sql database create `
     --name cosmicworks
 ```
 
-The command line above is for PowerShell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for Bash, use backslash ("\\"). Or, remove the continuation characters and enter the command on one line.
+The command line to create a database is for PowerShell, shown on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for Bash, use backslash ("\\"). Or, remove the continuation characters and enter the command on one line.
 
 ## [Connection String](#tab/connection-string)
 
@@ -207,7 +207,7 @@ az cosmosdb sql container create `
     --name products
 ```
 
-The command line above is for PowerShell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for Bash, use backslash ("\\"). Or, remove the continuation characters and enter the command on one line. For Bash, you'll also need to add `MSYS_NO_PATHCONV=1` before the command so that Bash deals with the partition key parameter correctly.
+The command line to create a container is for PowerShell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for Bash, use backslash ("\\"). Or, remove the continuation characters and enter the command on one line. For Bash, you'll also need to add `MSYS_NO_PATHCONV=1` before the command so that Bash deals with the partition key parameter correctly.
 
 After the resources have been created, use classes from the `Microsoft.Azure.Cosmos` client libraries to connect to and query the database.
 
