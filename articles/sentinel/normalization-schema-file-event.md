@@ -69,7 +69,8 @@ The following list mentions fields that have specific guidelines for File activi
 
 | **Field** | **Class** | **Type**  | **Description** |
 | --- | --- | --- | --- |
-| **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For File records, supported values include: <br><br>- `FileAccessed`<br>- `FileCreated`<br>- `FileModified`<br>- `FileDeleted`<br>- `FileRenamed`<br>- `FileCopied`<br>- `FileMoved`<br>- `FolderCreated`<br>- `FolderDeleted` |
+| **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>Supported values include: <br><br>- `FileAccessed`<br>- `FileCreated`<br>- `FileModified`<br>- `FileDeleted`<br>- `FileRenamed`<br>- `FileCopied`<br>- `FileMoved`<br>- `FolderCreated`<br>- `FolderDeleted`<br>- `FolderMoved`<br>- `FolderModified`<br>- `FileCreatedOrModified` |
+| **EventSubType**           | Optional   | Enumerated |    Describes details about the operation reported in [EventType](#eventtype). Supported values per event type include:<br>- `FileCreated` -  `Upload`, `Checkin`<br>- `FileModified` - `Checkin`<br>- `FileCreatedOrModified` - `Checkin`    <br>- `FileAccessed` - `Download`, `Preview`, `Checkout`, `Extended`<br>- `FileDeleted` - `Recycled`, `Versions`, `Site` |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is **FileEvent**. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.1`         |
 | **Dvc** fields| -      | -    | For File activity events, device fields refer to the system on which the file activity occurred. |
@@ -110,7 +111,7 @@ The following fields represent information about the target file in a file opera
 | **TargetFileSHA512**| Optional| SHA512|The SHA-512 hash of the source file. |
 | **Hash** | Alias | |Alias to the best available Target File hash. |
 | **HashType** | Recommended | String | The type of hash stored in the HASH alias field, allowed values are `MD5`, `SHA`, `SHA256`, `SHA512` and `IMPHASH`. Mandatory if `Hash` is populated. |  
-| **TargetFileSize** |Optional | Integer|The size of the target file in bytes. |
+| **TargetFileSize** |Optional | Long |The size of the target file in bytes. |
 
 ### Source file fields
 
@@ -129,7 +130,7 @@ The following fields represent information about the source file in a file opera
 |**SrcFileSHA1**|Optional |SHA1 |The SHA-1 hash of the source file.<br><br>Example:<br>`d55c5a4df19b46db8c54`<br>`c801c4665d3338acdab0` |
 |**SrcFileSHA256** | Optional|SHA256 |The SHA-256 hash of the source file. <br><br>Example:<br> `e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274`|
 |**SrcFileSHA512** |Optional | SHA512|The SHA-512 hash of the source file. |
-|**SrcFileSize**| Optional|Integer | The size of the source file in bytes.|
+|**SrcFileSize**| Optional| Long | The size of the source file in bytes.|
 
 
 ### Actor fields
@@ -222,8 +223,8 @@ The following fields are used to represent that inspection performed by a securi
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the file activity. |
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the file activity.<br><br>Example: `EICAR Test File` |
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the file activity.<br><br>Example: `Trojan` |
-| **ThreatRiskLevel** | Optional | Integer | The risk level associated with the identified threat. The level should be a number between **0** and **100**.<br><br>**Note**: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatRiskLevelOriginal](#threatoriginalriskleveloriginal). |
-| <a name="threatoriginalriskleveloriginal"></a>**ThreatOriginalRiskLevel** | Optional | String | The risk level as reported by the reporting device. |
+| **ThreatRiskLevel** | Optional | Integer | The risk level associated with the identified threat. The level should be a number between **0** and **100**.<br><br>**Note**: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatRiskLevelOriginal](#threatoriginalrisklevel). |
+| <a name="threatoriginalrisklevel"></a>**ThreatOriginalRiskLevel** | Optional | String | The risk level as reported by the reporting device. |
 | **ThreatFilePath** | Optional | String | A file path for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatFilePath** represents. |
 | <a name="threatfield"></a>**ThreatField** | Optional | Enumerated | The field for which a threat was identified. The value is either `SrcFilePath` or `DstFilePath`. |
 | **ThreatConfidence** | Optional | Integer | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
