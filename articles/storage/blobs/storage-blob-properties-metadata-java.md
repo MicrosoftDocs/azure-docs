@@ -53,7 +53,7 @@ The following code example gets a blob's system properties and displays some of 
 
 ## Set and retrieve metadata
 
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a JSON object of name-value pairs using the following method:
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a [Map](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html) object containing name-value pairs using the following method:
 
 - [setMetadata](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
