@@ -74,9 +74,24 @@ The following table lists the validation states that a domain might show.
 > - If the domain state doesn't reflect as expected, select the **Refresh** button.
 
 ## Root/apex domains
-Root/apex domains
 
-For more information, see [Onboard a root or apex domain on your Front Door](front-door-how-to-onboard-apex-domain.md).
+The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`, you can create a CNAME record for `myappliation.contoso.com`, but you can't create a CNAME record for `contoso.com` itself. These records are called *apex*, *root*, or *naked* domains.
+
+Azure Front Door doesn't expose the frontend IP address associated with your Azure Front Door endpoint. This means that you can't map an apex domain to an IP address if your intent is to onboard it to Azure Front Door. 
+
+> [!WARNING]
+> TODO don't add an A record as IP address might change
+
+However, this problem can be resolved by using alias records in Azure DNS. Unlike CNAME records, alias records are created at the zone apex. You can point a zone apex record to an Azure Front Door profile that has public endpoints. Multiple application owners can point to the same Azure Front Door endpoint that's used for any other domain within their DNS zone. For example, `contoso.com` and `www.contoso.com` can point to the same Azure Front Door endpoint.
+
+Mapping your apex or root domain to your Azure Front Door profile uses *CNAME flattening*, sometimes called *DNS chasing*. CNAME flattening is where a DNS provider recursively resolves CNAME entries until it resolves an IP address. This functionality is supported by Azure DNS for Azure Front Door endpoints.
+
+> [!NOTE]
+> There are other DNS providers as well that support CNAME flattening or DNS chasing. However, Azure Front Door recommends using Azure DNS for its customers for hosting their domains.
+
+TODO validation process
+
+To add a root or apex domain to your Azure Front Door profile, see [Onboard a root or apex domain on your Azure Front Door profile](front-door-how-to-onboard-apex-domain.md).
 
 ## HTTPS for custom domains
 
