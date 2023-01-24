@@ -10,9 +10,6 @@ ms.service: service-bus
 ms.topic: how-to
 ms.custom:
   - devx-track-csharp
-  - passwordless-java
-  - passwordless-js
-  - passwordless-python
   - passwordless-dotnet
 ms.devlang: csharp
 ---
@@ -26,7 +23,9 @@ Application requests to Azure Service Bus must be authenticated using either acc
 The following code example demonstrates how to connect to Azure Service Bus using a connection string that includes an access key. When you create a Service Bus, Azure generates these keys and connection strings automatically. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past. If your application currently uses connection strings, consider migrating to passwordless connections using the steps described in this document.
 
 ```csharp
-var serviceBusClient = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>", clientOptions);
+var serviceBusClient = new ServiceBusClient(
+    "<NAMESPACE-CONNECTION-STRING>",
+    clientOptions);
 ```
 
 Connection strings should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
@@ -164,7 +163,7 @@ az containerapp identity assign \
     --name <app-name>
 ```
 
-### [Azure virtual machines](#tab/virtual-machines-identity)
+### [Azure Virtual Machines](#tab/virtual-machines-identity)
 
 You can assign a managed identity to a virtual machine with the [az vm identity assign](/cli/azure/vm/identity) command.
 
@@ -202,7 +201,7 @@ If you connected your services using the Service Connector you don't need to com
 
 1. Navigate to your Service Bus overview page and select **Access Control (IAM)** from the left navigation.
 
-1. Choose **Add role assignment**
+1. Choose **Add role assignment**.
 
    :::image type="content" source="../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../includes/passwordless/media/migration-add-role.png":::
 
@@ -227,7 +226,7 @@ az servicebus show \
     --query id
 ```
 
-Copy the output ID from the preceding command. You can then assign roles using the az role command of the Azure CLI.
+Copy the output ID from the preceding command. You can then assign roles using the `az role` command of the Azure CLI.
 
 ```azurecli
 az role assignment create \
@@ -245,7 +244,3 @@ After making these code changes, browse to your hosted application in the browse
 ## Next steps
 
 In this tutorial, you learned how to migrate an application to passwordless connections.
-
-You can read the following resources to explore the concepts discussed in this article in more depth:
-
-* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
