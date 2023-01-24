@@ -25,7 +25,7 @@ Additionally, [reports](standard-premium/how-to-reports.md) provide insight into
 
 ## Metrics
 
-Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to be processed by Azure Monitor and to appear in the Azure portal. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, the Azure PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).  
+Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to be processed by Azure Monitor, and they might not appear until processing is completed. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, Azure PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).  
 
 The metrics listed in the table below are recorded and stored free of charge. You can enable additional metrics or storage for an extra cost.
 
@@ -48,7 +48,7 @@ The metrics listed in the table below are recorded and stored free of charge. Yo
 
 ## Logs
 
-Logs track all requests that pass through the Azure Front Door. Logs can take a few minutes to be stored and processed.
+Logs track all requests that pass through Azure Front Door. Logs can take a few minutes to be stored and processed.
 
 There are multiple Front Door logs, which you can use for different purposes:
 
@@ -98,7 +98,7 @@ Information about every request is logged into the access log. Each access log e
 
 ## Health probe log
 
-Health probe logs provide logging for every failed probe to help you diagnose if your origin is healthy or unhealthy. The logs provide you with the information that you can use to bring the origin back to a healthy status.
+Azure Front Door logs ever failed health probe requests, which can help you to diagnose problems with an origin. The logs provide you with information that you can use to investigate the failure reason and then bring the origin back to a healthy status.
 
 Some scenarios this log can be useful for are:
 
