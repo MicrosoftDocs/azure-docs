@@ -25,24 +25,7 @@ Your first step when troubleshooting IoT Edge should be to use the `check` comma
 
 You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-On Linux:
-
-```bash
-sudo iotedge check
-```
-
-On Windows:
-
-```powershell
-iotedge check
-```
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- 1.1 -->
+<!-- 1.4 -->
 :::moniker range=">=iotedge-2020-11"
 
 ```bash
@@ -79,24 +62,6 @@ For information about each of the diagnostic checks this tool runs, including wh
 When you need to gather logs from an IoT Edge device, the most convenient way is to use the `support-bundle` command. By default, this command collects module, IoT Edge security manager and container engine logs, `iotedge check` JSON output, and other useful debug information. It compresses them into a single file for easy sharing. The `support-bundle` command is available in [release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) and later.
 
 Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs. For example `6h` will get logs since the last six hours, `6d` since the last six days, `6m` since the last six minutes and so on. Include the `--help` flag to see a complete list of options.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-On Linux:
-
-```bash
-sudo iotedge support-bundle --since 6h
-```
-
-On Windows:
-
-```powershell
-iotedge support-bundle --since 6h
-```
-
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
@@ -153,82 +118,6 @@ This command will output all the edgeAgent [reported properties](./module-edgeag
 ## Check the status of the IoT Edge security manager and its logs
 
 The [IoT Edge security manager](iot-edge-security-manager.md) is responsible for operations like initializing the IoT Edge system at startup and provisioning devices. If IoT Edge isn't starting, the security manager logs may provide useful information.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-On Linux:
-
-* View the status of the IoT Edge security manager:
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
-
-* View the logs of the IoT Edge security manager:
-
-   ```bash
-   sudo journalctl -u iotedge -f
-   ```
-
-* View more detailed logs of the IoT Edge security manager:
-
-  1. Edit the IoT Edge daemon settings:
-
-     ```bash
-     sudo systemctl edit iotedge.service
-     ```
-
-  2. Update the following lines:
-
-     ```bash
-     [Service]
-     Environment=IOTEDGE_LOG=debug
-     ```
-
-  3. Restart the IoT Edge security daemon:
-
-     ```bash
-     sudo systemctl cat iotedge.service
-     sudo systemctl daemon-reload
-     sudo systemctl restart iotedge
-     ```
-
-On Windows:
-
-* View the status of the IoT Edge security manager:
-
-   ```powershell
-   Get-Service iotedge
-   ```
-
-* View the logs of the IoT Edge security manager:
-
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-   ```
-
-* View only the last 5 minutes of the IoT Edge security manager logs:
-
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog -StartTime ([datetime]::Now.AddMinutes(-5))
-   ```
-
-* View more detailed logs of the IoT Edge security manager:
-
-  1. Add a system-level environment variable:
-
-     ```powershell
-     [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
-     ```
-
-  2. Restart the IoT Edge Security Daemon:
-
-     ```powershell
-     Restart-Service iotedge
-     ```
-
-:::moniker-end
-<!--end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
@@ -296,50 +185,6 @@ docker rm --force <container name>
 For ongoing logs maintenance and production scenarios, [Set up default logging driver](production-checklist.md#set-up-default-logging-driver).
 
 ## View the messages going through the IoT Edge hub
-
-<!--1.1 -->
-:::moniker range="iotedge-2018-06"
-
-You can view the messages going through the IoT Edge hub, and gather insights from verbose logs from the runtime containers. To turn on verbose logs on these containers, set `RuntimeLogLevel` in your yaml configuration file. To open the file:
-
-On Linux:
-
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-On Windows:
-
-   ```cmd
-   notepad C:\ProgramData\iotedge\config.yaml
-   ```
-
-By default, the `agent` element will look like the following example:
-
-   ```yaml
-   agent:
-     name: edgeAgent
-     type: docker
-     env: {}
-     config:
-       image: mcr.microsoft.com/azureiotedge-agent:1.1
-       auth: {}
-   ```
-
-Replace `env: {}` with:
-
-   ```yaml
-   env:
-     RuntimeLogLevel: debug
-   ```
-
-   > [!WARNING]
-   > YAML files cannot contain tabs as indentation. Use 2 spaces instead. Top-level items cannot have leading whitespace.
-
-Save the file and restart the IoT Edge security manager.
-
-<!-- end 1.1 -->
-:::moniker-end
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"

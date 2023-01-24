@@ -35,14 +35,6 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
 
 Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own device CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-> [!NOTE]
-> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
-
-:::moniker-end
-
 To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
@@ -372,17 +364,6 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the  default.  
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-```
-
-:::moniker-end
-<!-- end 1.1 -->
-
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 
@@ -430,15 +411,6 @@ You can also configure your `log-opts` keys to use appropriate values in the `da
 ```
 
 Add (or append) this information to a file named `daemon.json` and place it in the following location:
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-| Platform | Location |
-| -------- | -------- |
-| Linux | `/etc/docker/` |
-| Windows | `C:\ProgramData\iotedge-moby\config\` |
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"

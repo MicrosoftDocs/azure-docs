@@ -43,14 +43,6 @@ The following example shows how an IoT Edge scenario operates in offline mode:
 
 The extended offline capabilities described in this article are available in [IoT Edge version 1.0.7 or higher](https://github.com/Azure/azure-iotedge/releases). Earlier versions have a subset of offline features. Existing IoT Edge devices that don't have extended offline capabilities can't be upgraded by changing the runtime version, but must be reconfigured with a new IoT Edge device identity to gain these features.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-Only non-IoT Edge devices can be added as downstream devices.
-
-:::moniker-end
-<!-- end 1.1 -->
-
 IoT Edge devices and their assigned downstream devices can function indefinitely offline after the initial, one-time sync. However, storage of messages depends on the time to live (TTL) setting and the available disk space for storing the messages.
 
 A device's *EdgeAgent* updates its reported properties whenever there is a change in the deployment status such as a new or failed deployment. When a device is offline, the *EdgeAgent* can't report status to the Azure portal. Therefore, the device status in the Azure portal may remain **200 OK** when IoT Edge device has no internet connectivity.
@@ -61,14 +53,6 @@ By default, a parent device can have up to 100 children. You can change this lim
 
 >[!NOTE]
 >A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-Downstream devices can be any non-IoT Edge device registered to the same IoT Hub.
-
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range="iotedge-2020-11"

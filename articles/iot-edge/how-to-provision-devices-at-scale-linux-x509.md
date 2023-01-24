@@ -50,15 +50,6 @@ You need the following files to set up automatic provisioning with X.509:
 * A full chain certificate, which should have at least the device identity and the intermediate certificates in it. The full chain certificate is passed to the IoT Edge runtime.
 * An intermediate or root CA certificate from the certificate chain of trust. This certificate is uploaded to DPS if you create a group enrollment.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-> [!NOTE]
-> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
-
-:::moniker-end
-<!-- end 1.1 -->
-
 ### Use test certificates (optional)
 
 If you don't have a certificate authority available to create new identity certs and want to try out this scenario, the Azure IoT Edge git repository contains scripts that you can use to generate test certificates. These certificates are designed for development testing only, and must not be used in production.
@@ -85,57 +76,6 @@ Have the following information ready:
 * The DPS **ID Scope** value. You can retrieve this value from the overview page of your DPS instance in the Azure portal.
 * The device identity certificate chain file on the device.
 * The device identity key file on the device.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-1. Open the configuration file on the IoT Edge device.
-
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-1. Find the provisioning configurations section of the file. Uncomment the lines for DPS X.509 certificate provisioning, and make sure any other provisioning lines are commented out.
-
-   The `provisioning:` line should have no preceding whitespace, and nested items should be indented by two spaces.
-
-   ```yml
-   # DPS X.509 provisioning configuration
-   provisioning:
-     source: "dps"
-     global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "SCOPE_ID_HERE"
-     attestation:
-       method: "x509"
-   #   registration_id: "OPTIONAL_REGISTRATION_ID_LEAVE_COMMENTED_OUT_TO_REGISTER_WITH_CN_OF_IDENTITY_CERT"
-       identity_cert: "REQUIRED_URI_TO_DEVICE_IDENTITY_CERTIFICATE_HERE"
-       identity_pk: "REQUIRED_URI_TO_DEVICE_IDENTITY_PRIVATE_KEY_HERE"
-
-   # always_reprovision_on_startup: true
-   # dynamic_reprovisioning: false
-   ```
-
-1. Update the values of `scope_id`, `identity_cert`, and `identity_pk` with your DPS and device information.
-
-   When you add the X.509 certificate and key information to the config.yaml file, the paths should be provided as file URIs. For example:
-
-   `file:///<path>/identity_certificate_chain.pem`
-   `file:///<path>/identity_key.pem`
-
-1. Optionally, provide the `registration_id` for the device, which needs to match the common name (CN) of the identity certificate. If you leave that line commented out, the CN will automatically be applied.
-
-1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge (and all modules) will restart and reprovision if a reprovisioning event is detected, like if the device is moved from one IoT Hub to another. Specifically, IoT Edge checks for `bad_credential` or `device_disabled` errors from the SDK to detect the reprovision event. To trigger this event manually, disable the device in IoT Hub. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
-1. Save and close the config.yaml file.
-
-1. Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device.
-
-   ```bash
-   sudo systemctl restart iotedge
-   ```
-
-:::moniker-end
-<!-- end 1.1. -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
@@ -224,29 +164,6 @@ You can verify that the group enrollment that you created in device provisioning
 ---
 
 Use the following commands on your device to verify that the IoT Edge installed and started successfully.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-Check the status of the IoT Edge service.
-
-```cmd/sh
-systemctl status iotedge
-```
-
-Examine service logs.
-
-```cmd/sh
-journalctl -u iotedge --no-pager --no-full
-```
-
-List running modules.
-
-```cmd/sh
-iotedge list
-```
-
-:::moniker-end
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"

@@ -52,36 +52,6 @@ Update apt.
    > [!NOTE]
    > For instructions to get the latest repository configuration from Microsoft see the preliminary steps to [Install IoT Edge](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-Check to see which versions of IoT Edge are available.
-
-   ```bash
-   apt list -a iotedge
-   ```
-
-If you want to update to the most recent version of the runtime module, use the following command, which also updates **libiothsm-std** to the latest version:
-
-   ```bash
-   sudo apt-get install iotedge
-   ```
-
-If you want to update to a specific version of the runtime module, specify the version from the apt list output. Whenever **iotedge** is updated, it automatically tries to update the **libiothsm-std** package to its latest version, which may cause a dependency conflict. If you aren't going to the most recent version, be sure to target both packages for the same version. For example, the following command installs a specific version of the 1.1 release:
-
-   ```bash
-   sudo apt-get install iotedge=1.1.1 libiothsm-std=1.1.1
-   ```
-
-If the version that you want to install isn't available through apt-get, you can use curl to target any version from the [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) repository. For whichever version you want to install, locate the appropriate **libiothsm-std** and **iotedge** files for your device. For each file, right-click the file link and copy the link address. Use the link address to install the specific versions of those components:
-
-```bash
-curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
-curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
-```
-<!-- end 1.1 -->
-:::moniker-end
-
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
@@ -104,14 +74,6 @@ It's recommended to install the micro agent with the Edge agent to enable securi
 
 <!--Repeated Linux content for RHEL-->
 # [Red Hat Enterprise Linux](#tab/rhel)
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux 8.
-
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
@@ -144,48 +106,9 @@ For information about IoT Edge for Linux on Windows updates, see [EFLOW Updates]
 >[!NOTE]
 >Currently, there is no support for IoT Edge version 1.4 running on Windows devices.
 >
->To view the steps for updating IoT Edge for Linux on Windows, see [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=windows).
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-With IoT Edge for Windows, IoT Edge runs directly on the Windows device.
-
-Use the `Update-IoTEdge` command to update the module runtime. The script automatically pulls the latest version of the module runtime.
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge
-```
-
-Running the `Update-IoTEdge` command removes and updates the runtime module from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine. Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process.
-
-If you want to update to a specific version of the security subsystem, find the version from 1.1 release channel you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the **Microsoft-Azure-IoTEdge.cab** file. Then, use the `-OfflineInstallationPath` parameter to point to the local file location. For example:
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -OfflineInstallationPath <absolute path to directory>
-```
-
->[!NOTE]
->The `-OfflineInstallationPath` parameter looks for a file named **Microsoft-Azure-IoTEdge.cab** in the directory provided. Rename the file to remove the architecture suffix if it has one.
-
-If you want to update a device offline, find the version you want to target from [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the *IoTEdgeSecurityDaemon.ps1* and *Microsoft-Azure-IoTEdge.cab* files. It's important to use the PowerShell script from the same release as the .cab file that you use because the functionality changes to support the features in each release.
-
-If the .cab file you downloaded has an architecture suffix on it, rename the file to just **Microsoft-Azure-IoTEdge.cab**.
-
-To update with offline components, [dot source](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) the local copy of the PowerShell script. Then, use the `-OfflineInstallationPath` parameter as part of the `Update-IoTEdge` command and provide the absolute path to the file directory. For example,
-
-```powershell
-. <path>\IoTEdgeSecurityDaemon.ps1
-Update-IoTEdge -OfflineInstallationPath <path>
-```
-
-For more information about update options, use the command `Get-Help Update-IoTEdge -full` or refer to [PowerShell scripts for IoT Edge with Windows containers](reference-windows-scripts.md).
-
-:::moniker-end
-<!-- end 1.1 -->
 
 ---
 

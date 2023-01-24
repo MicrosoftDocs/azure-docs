@@ -33,19 +33,6 @@ Azure IoT Edge for Linux on Windows works by running a Linux virtual machine on 
 
 Azure IoT Edge for Linux on Windows uses the following components to enable Linux and Windows workloads to run alongside each other and communicate seamlessly:
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-* **A Linux virtual machine running Azure IoT Edge**: A Linux virtual machine, based on Microsoft's first party [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) operating system, is built with the Azure IoT Edge runtime and validated as a tier 1 supported environment for Azure IoT Edge workloads.
-
-* **Windows Admin Center**: An Azure IoT Edge extension for Windows Admin Center facilitates installation, configuration, and diagnostics of Azure IoT Edge on the Linux virtual machine. Windows Admin Center can deploy Azure IoT Edge for Linux on Windows on the local device, or can connect to target devices and manage them remotely.
-
-* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and Azure IoT Edge up to date. For more information about IoT Edge for Linux on Windows updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
-
-
-![Windows and the Linux VM run in parallel, while the Windows Admin Center controls both components](./media/iot-edge-for-linux-on-windows/architecture-and-communication.png)
-:::moniker-end
-<!-- end 1.1 -->
-
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 * **A Linux virtual machine running Azure IoT Edge**: A Linux virtual machine, based on Microsoft's first party [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) operating system, is built with the Azure IoT Edge runtime and validated as a tier 1 supported environment for Azure IoT Edge workloads.

@@ -17,17 +17,6 @@ The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The r
 
 To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-:::moniker range="iotedge-2018-06"
-This article lists the steps to deploy an Ubuntu 18.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured using a pre-supplied device connection string. The deployment is accomplished using a [cloud-init](../virtual-machines/linux/using-cloud-init.md) based [Bicep file](../azure-resource-manager/bicep/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.1) project repository.
-
-On first boot, the virtual machine [installs the latest version of the Azure IoT Edge runtime via cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/1.1/cloud-init.txt). It also sets a supplied connection string before the runtime starts, allowing you to easily configure and connect the IoT Edge device without the need to start an SSH or remote desktop session.
-:::moniker-end
-:::moniker range=">=iotedge-2020-11"
-This article lists the steps to deploy an Ubuntu 20.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured using a pre-supplied device connection string. The deployment is accomplished using a [cloud-init](../virtual-machines/linux/using-cloud-init.md) based [Bicep file](../azure-resource-manager/bicep/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.4) project repository.
-
-On first boot, the virtual machine [installs the latest version of the Azure IoT Edge runtime via cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/1.4/cloud-init.txt). It also sets a supplied connection string before the runtime starts, allowing you to easily configure and connect the IoT Edge device without the need to start an SSH or remote desktop session.
-:::moniker-end
-
 ## Deploy from Azure CLI
 
 You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/master/edgeDeploy.bicep) locally as **main.bicep**.
@@ -66,38 +55,7 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
    ```
 
 1. Create a new virtual machine:
-   :::moniker range="iotedge-2018-06"
-   To use an **authenticationType** of `password`, see the example below:
 
-   ```azurecli
-   az deployment group create \
-   --resource-group IoTEdgeResources \
-   --template-file "main.bicep" \
-   --parameters dnsLabelPrefix='my-edge-vm1' \
-   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
-   --parameters authenticationType='password' \
-   --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-   --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
-   ```
-
-   To authenticate with an SSH key, you may do so by specifying an **authenticationType** of `sshPublicKey`, then provide the value of the SSH key in the **adminPasswordOrKey** parameter.  An example is shown below.
-
-   ```azurecli
-   #Generate the SSH Key
-   ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""
-
-   #Create a VM using the iotedge-vm-deploy script
-   az deployment group create \
-   --resource-group IoTEdgeResources \
-   --template-file "main.bicep" \
-   --parameters dnsLabelPrefix='my-edge-vm1' \
-   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
-   --parameters authenticationType='sshPublicKey' \
-   --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-   --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
-   ```
-
-   :::moniker-end
    :::moniker range=">=iotedge-2020-11"
    To use an **authenticationType** of `password`, see the example below:
 

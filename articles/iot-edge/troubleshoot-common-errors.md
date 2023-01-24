@@ -35,61 +35,6 @@ Only use one type of deployment mechanism per device, either an automatic deploy
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-### Can't get the IoT Edge runtime logs on Windows
-
-#### Symptoms
-
-You get an EventLogException when using `Get-WinEvent` on Windows.
-
-#### Cause
-
-The `Get-WinEvent` PowerShell command relies on a registry entry to be present to find logs by a specific `ProviderName`.
-
-#### Solution
-
-Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
-
-```reg
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
-"CustomSource"=dword:00000001
-"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
-"TypesSupported"=dword:00000007
-```
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-### DPS client error
-
-#### Symptoms
-
-IoT Edge fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`
-
-#### Cause
-
-A group enrollment is used to provision an IoT Edge device to an IoT Hub. The IoT Edge device is moved to a different hub. The registration is deleted in DPS. A new registration is created in DPS for the new hub. The device isn't reprovisioned.
-
-#### Solution
-
-1. Verify your DPS credentials are correct.
-1. Apply your configuration using `sudo iotedge apply config`.
-1. If the device isn't reprovisioned, restart the device using `sudo iotedge system restart`.
-1. If the device isn't reprovisioned, force reprovisioning using `sudo iotedge system reprovision`.
-
-To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic reprovisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting down all Edge modules and itself. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
-
-When using external provisioning, the daemon will also notify the external provisioning endpoint about the reprovisioning event before shutting down. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
-:::moniker-end
-<!-- end 1.1 -->
-
 ## IoT Edge runtime
 
 ### IoT Edge agent stops after a minute
@@ -140,27 +85,6 @@ Specify the DNS server for your environment in the container engine settings, wh
 ```
 
 This DNS server is set to a publicly accessible DNS service. However some networks, such as corporate networks, have their own DNS servers installed and won't allow access to public DNS servers. Therefore, if your edge device can't access a public DNS server, replace it with an accessible DNS server address.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-Place `daemon.json` in the right location for your platform:
-
-| Platform | Location |
-| --------- | -------- |
-| Linux | `/etc/docker` |
-| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
-
-If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
-
-Restart the container engine for the updates to take effect.
-
-| Platform | Command |
-| --------- | -------- |
-| Linux | `sudo systemctl restart docker` |
-| Windows (Admin PowerShell) | `Restart-Service iotedge-moby -Force` |
-
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
@@ -371,26 +295,6 @@ You don't need to disable socket activation on a distribution where socket activ
 1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
 1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-### Could not start module due to OS mismatch
-
-#### Symptom
-
-The edgeHub module fails to start in IoT Edge version 1.1.
-
-#### Cause
-
-Windows module uses a version of Windows that is incompatible with the version of Windows on the host. IoT Edge Windows version 1809 build 17763 is needed as the base layer for the module image, but a different version is in use.
-
-#### Solution
-
-Check the version of your various Windows operating systems in [Troubleshoot host and container image mismatches](/virtualization/windowscontainers/deploy-containers/update-containers#troubleshoot-host-and-container-image-mismatches). If the operating systems are different, update them to IoT Edge Windows version 1809 build 17763 and rebuild the Docker image used for that module.
-
-:::moniker-end
-<!-- end 1.1 -->
-
-
 ## Networking
 
 ### IoT Edge security daemon fails with an invalid hostname
@@ -410,33 +314,6 @@ The IoT Edge runtime can only support hostnames that are shorter than 64 charact
 #### Solution
 
 When you see this error, you can resolve it by configuring the DNS name of your virtual machine, and then setting the DNS name as the hostname in the setup command.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-1. In the Azure portal, navigate to the overview page of your virtual machine.
-2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
-
-   ![Configure DNS name of virtual machine](./media/troubleshoot/configure-dns.png)
-
-3. Provide a value for **DNS name label** and select **Save**.
-4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
-5. Inside the virtual machine, use the following command to set up the IoT Edge runtime with your DNS name:
-
-   * On Linux:
-
-      ```bash
-      sudo nano /etc/iotedge/config.yaml
-      ```
-
-   * On Windows:
-
-      ```cmd
-      notepad C:\ProgramData\iotedge\config.yaml
-      ```
-
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
@@ -481,37 +358,6 @@ Containers rely on IP packet forwarding in order to connect to the internet so t
 #### Solution
 
 Use the following steps to enable IP packet forwarding.
-
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-On Windows:
-
-1. Open the **Run** application.
-
-1. Enter `regedit` in the text box and select **Ok**.
-
-1. In the **Registry Editor** window, browse to **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters**.
-
-1. Look for the **IPEnableRouter** parameter.
-
-   1. If the parameter exists, set the value of the parameter to **1**.
-
-   1. If the parameter doesn't exist, add it as a new parameter with the following settings:
-
-      | Setting | Value |
-      | ------- | ----- |
-      | Name    | IPEnableRouter |
-      | Type    | REG_DWORD |
-      | Value   | 1 |
-
-1. Close the registry editor window.
-
-1. Restart your system to apply the changes.
-
-On Linux:
-:::moniker-end
-<!-- end -->
 
 1. Open the **sysctl.conf** file.
 

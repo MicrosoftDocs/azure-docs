@@ -37,18 +37,6 @@ In the transparent gateway pattern, devices that theoretically could connect to 
 
 For more information about how the IoT Edge hub manages communication between downstream devices and the cloud, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-<!-- 1.1 -->
-
-::: moniker range="iotedge-2018-06"
-![Diagram - Transparent gateway pattern](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
-
-> [!NOTE]
-> In IoT Edge version 1.1 and older, IoT Edge devices cannot be downstream of an IoT Edge gateway.
->
-> Beginning with version 1.2 of IoT Edge, transparent gateways can handle connections from downstream IoT Edge devices. For more information, switch to the [IoT Edge 1.2](?view=iotedge-2020-11&preserve-view=true) version of this article.
-
-::: moniker-end
-
 <!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
@@ -112,20 +100,6 @@ When multiple IoT Edge gateways connect to each other in a gateway hierarchy, al
 All IoT Hub primitives that work with IoT Edge's messaging pipeline also support transparent gateway scenarios. Each IoT Edge gateway has store and forward capabilities for messages coming through it.
 
 Use the following table to see how different IoT Hub capabilities are supported for devices compared to devices behind gateways.
-
-<!-- 1.1 -->
-
-::: moniker range="iotedge-2018-06"
-
-| Capability | IoT device | IoT behind a gateway |
-| ---------- | ---------- | -------------------- |
-| [Device-to-cloud (D2C) messages](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Yes - IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Yes - child IoT D2C](./media/iot-edge-as-gateway/check-yes.png) |
-| [Cloud-to-device (C2D) messages](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Yes - IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Yes - IoT child C2D](./media/iot-edge-as-gateway/check-yes.png) |
-| [Direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Yes - IoT direct method](./media/iot-edge-as-gateway/check-yes.png) | ![Yes - child IoT direct method](./media/iot-edge-as-gateway/check-yes.png) |
-| [Device twins](../iot-hub/iot-hub-devguide-device-twins.md) and [Module twins](../iot-hub/iot-hub-devguide-module-twins.md) | ![Yes - IoT twins](./media/iot-edge-as-gateway/check-yes.png) | ![Yes - child IoT twins](./media/iot-edge-as-gateway/check-yes.png) |
-| [File upload](../iot-hub/iot-hub-devguide-file-upload.md) | ![Yes - IoT file upload](./media/iot-edge-as-gateway/check-yes.png) | ![No - IoT child file upload](./media/iot-edge-as-gateway/crossout-no.png) |
-
-::: moniker-end
 
 <!-- iotedge-2020-11 -->
 

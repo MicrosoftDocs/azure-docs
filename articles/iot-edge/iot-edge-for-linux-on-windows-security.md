@@ -20,16 +20,6 @@ Azure IoT Edge for Linux on Windows benefits from all the security offerings fro
 
 The IoT Edge for Linux (EFLOW) curated virtual machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner). CBL-Mariner is an internal Linux distribution for Microsoft's cloud infrastructure and edge products and services. CBL-Mariner is designed to provide a consistent platform for these devices and services and  enhances Microsoft's ability to stay current on Linux updates. For more information, see [CBL-Mariner security](https://github.com/microsoft/CBL-Mariner/blob/1.0/SECURITY.md). 
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-The EFLOW virtual machine is built on a three-point comprehensive security platform:
-1. Servicing updates
-1. Read-only root filesystem
-1. Firewall lockdown
-
-:::moniker-end
-<!-- end 1.1 -->
-
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 The EFLOW virtual machine is built on a four-point comprehensive security platform:
@@ -47,22 +37,6 @@ When security vulnerabilities arise, CBL-Mariner makes the latest security patch
 The EFLOW virtual machine is made up of two main partitions *rootfs*, and *data*. The rootFS-A or rootFS-B partitions are interchangeable and one of the two is mounted as a read-only filesystem at `/`, which means that no changes are allowed on files stored inside this partition. On the other hand, the *data* partition mounted under `/var` is readable and writeable, allowing the user to modify the content inside the partition. The data stored on this partition isn't manipulated by the update process and hence won't be modified across updates.
 
 Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specific use cases, write access for these directories is done by overlaying them onto our data partition specifically to the directory `/var/.eflow/overlays`. The end result of this is that users can write anything to the previous mentioned directories. For more information about overlays, see [*overlayfs*](https://docs.kernel.org/filesystems/overlayfs.html).
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-![EFLOW 1.1LTS partition layout](./media/iot-edge-for-linux-on-windows-security/eflow-lts-partition-layout.png)
-
-| Partition | Size | Description | 
-| --------- |---------- |------------ |
-| Boot | 192 MB | Contains the bootloader |
-| RootFS A | 2 GB | One of two active/passive partitions holding the root file system |
-| RootFS B | 2 GB | One of two active/passive partitions holding the root file system |
-| AB Update | 2 GB | Holds the update files. Ensure there's always enough space in the VM for updates |
-| Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according to the deployment configuration |
-
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
