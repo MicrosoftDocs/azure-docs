@@ -702,6 +702,22 @@ items:
               href: storage-blob-tags-javascript.md
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata-javascript.md
+        - name: Python
+          items:
+          - name: Get started
+            href: storage-blob-python-get-started.md
+          - name: Container actions
+            items:
+            - name: Create a container
+              href: storage-blob-container-create-python.md
+            - name: Delete and restore containers
+              href: storage-blob-container-delete-python.md
+            - name: List containers
+              href: storage-blob-containers-list-python.md
+            - name: Manage container leases
+              href: storage-blob-container-lease-python.md
+            - name: Manage properties and metadata
+              href: storage-blob-container-properties-metadata-python.md
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
