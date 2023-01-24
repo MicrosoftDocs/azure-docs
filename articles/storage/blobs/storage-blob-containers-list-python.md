@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/24/2023
 ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: python
@@ -34,13 +34,17 @@ To filter the list of containers, specify a string or character for the `name_st
 
 ## Code examples
 
-The following example lists all containers, including metadata, and specifies a limit for the number of results per page:
+The following example lists all containers names and any associated metadata:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers":::
 
-The following example lists all containers that begin with the specified prefix:
+The following example lists only containers that begin with a specified prefix:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers_prefix":::
+
+You can also specify a limit for the number of results per page:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers_pages":::
 
 ## Resources
 

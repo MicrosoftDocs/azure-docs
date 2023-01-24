@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/24/2023
 ms.author: pauljewell
 ms.devlang: python
 ms.custom: devx-track-python, devguide-pythons
