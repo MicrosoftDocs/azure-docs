@@ -41,11 +41,11 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
     #### [Visual Studio IDE](#tab/visual-studio)
 
-    Using Visual Studio, create a new .NET Core application. 
+    Using Visual Studio, create a new **Console app (.NET Framework)** application. 
 
     ### Install the client library 
 
-    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `tbd`. Select version `tbd`, and then **Install**. 
+    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.Core` and `Azure.AI.Vision.ImageAnalysis`. Select **Install** for each of them.
 
     #### [CLI](#tab/cli)
 

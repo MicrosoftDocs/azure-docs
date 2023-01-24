@@ -45,14 +45,13 @@ Use the Image Analysis client library for C++ to analyze an image for content ta
 
     ### Install the client library 
 
-    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `tbd`. Select version `tbd`, and then **Install**. 
-
+    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.Core` and `Azure.AI.Vision.ImageAnalysis`. Select **Install** for each of them. 
 
 1. Find the key and endpoint.
 
     [!INCLUDE [find key and endpoint](../find-key.md)]
 
-1. From the project directory, open the *Program.cpp* file in your preferred editor or IDE. Paste in the following code:
+1. From the project directory, open the _ImageAnalysisQuickstart.cpp_ file in your preferred editor or IDE. Clear its contents and paste in the following code:
 
    [!code-cpp[](~/cognitive-services-quickstart-code/cpp/ComputerVision/ImageAnalysisQuickstart-single-40.cpp?name=snippet_single)]
 
