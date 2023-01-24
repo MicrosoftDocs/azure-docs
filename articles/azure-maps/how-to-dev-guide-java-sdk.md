@@ -37,7 +37,6 @@ The following PowerShell code snippet demonstrates how to use PowerShell to crea
 
 ```powershell
 mvn archetype:generate "-DgroupId=groupId" "-DartifactId=DemoProject" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DarchetypeVersion=1.4" "-DinteractiveMode=false" 
-cd DemoProject 
 ``` 
 
 | Parameter   | Description                                                  |
@@ -156,11 +155,11 @@ import com.azure.maps.search.MapsSearchClientBuilder;
 
 public class Demo {
     public static void main(String\[\] args) {
-        MapsSearchClientBuilder builder = new MapsSearchClientBuilder(); 
-        DefaultAzureCredential tokenCredential = new DefaultAzureCredentialBuilder().build(); 
-        builder.credential(tokenCredential); 
-        builder.mapsClientId(System.getenv("MAPS_CLIENT_ID")); 
-        MapsSearchClient client = builder.buildClient(); 
+        MapsSearchClientBuilder builder = new MapsSearchClientBuilder();
+        DefaultAzureCredential tokenCredential = new DefaultAzureCredentialBuilder().build();
+        builder.credential(tokenCredential);
+        builder.mapsClientId(System.getenv("MAPS_CLIENT_ID"));
+        MapsSearchClient client = builder.buildClient();
     } 
 } 
 ``` 
@@ -208,7 +207,7 @@ import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.models.GeoPosition;
 // Enable the 2 imports below if you want to use AAD authentication 
 // import com.azure.identity.DefaultAzureCredential;
-// import com.azure.identity.DefaultAzureCredentialBuilder; 
+// import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.maps.search.MapsSearchClient;
 import com.azure.maps.search.MapsSearchClientBuilder;
 import com.azure.maps.search.models.FuzzySearchOptions;
@@ -217,16 +216,16 @@ import com.azure.maps.search.models.SearchAddressResultItem;
 
 public class Demo {
     public static void main(String\[\] args) throws IOException {
-    MapsSearchClientBuilder builder = new MapsSearchClientBuilder(); 
+    MapsSearchClientBuilder builder = new MapsSearchClientBuilder();
     
     // Instantiate with key credential. Get SUBSCRIPTION_KEY from environment variable: 
-    AzureKeyCredential keyCredential = new AzureKeyCredential(System.getenv("SUBSCRIPTION_KEY")); 
+    AzureKeyCredential keyCredential = new AzureKeyCredential(System.getenv("SUBSCRIPTION_KEY"));
     builder.credential(keyCredential);
     
     // Or you can also instantiate with token credential: 
-    // DefaultAzureCredential tokenCredential = new DefaultAzureCredentialBuilder().build(); 
-    // builder.credential(tokenCredential); 
-    // builder.mapsClientId(System.getenv("MAPS_CLIENT_ID")); 
+    // DefaultAzureCredential tokenCredential = new DefaultAzureCredentialBuilder().build();
+    // builder.credential(tokenCredential);
+    // builder.mapsClientId(System.getenv("MAPS_CLIENT_ID"));
     MapsSearchClient client = builder.buildClient();
     
     // Fuzzy search with options: 
@@ -295,50 +294,50 @@ You should see a list of Starbucks address and coordinate results:
 
 Call the `SearchAddress` method to get the coordinate of an address. Modify the Main program from the sample as follows:
 
-```java  
-import java.io.IOException; 
-import com.azure.core.credential.AzureKeyCredential; 
-import com.azure.core.models.GeoPosition; 
+```java
+import java.io.IOException;
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.models.GeoPosition;
 // Enable the 2 imports below if you want to use AAD authentication 
-// import com.azure.identity.DefaultAzureCredential; 
-// import com.azure.identity.DefaultAzureCredentialBuilder; 
-import com.azure.maps.search.MapsSearchClient; 
-import com.azure.maps.search.MapsSearchClientBuilder; 
-import com.azure.maps.search.models.SearchAddressOptions; 
-import com.azure.maps.search.models.SearchAddressResult; 
-import com.azure.maps.search.models.SearchAddressResultItem; 
+// import com.azure.identity.DefaultAzureCredential;
+// import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.azure.maps.search.MapsSearchClient;
+import com.azure.maps.search.MapsSearchClientBuilder;
+import com.azure.maps.search.models.SearchAddressOptions;
+import com.azure.maps.search.models.SearchAddressResult;
+import com.azure.maps.search.models.SearchAddressResultItem;
 
-public class Demo { 
-    public static void main(String\[\] args) throws IOException { 
-    MapsSearchClientBuilder builder = new MapsSearchClientBuilder(); 
+public class Demo {
+    public static void main(String\[\] args) throws IOException {
+    MapsSearchClientBuilder builder = new MapsSearchClientBuilder();
     
     // Instantiate with key credential: 
     AzureKeyCredential keyCredential = new  
-        AzureKeyCredential(System.getenv("SUBSCRIPTION_KEY")); 
-    builder.credential(keyCredential); 
+        AzureKeyCredential(System.getenv("SUBSCRIPTION_KEY"));
+    builder.credential(keyCredential);
     
     // Or you can also instantiate with token credential: 
-    // DefaultAzureCredential tokenCredential = new DefaultAzureCredentialBuilder().build(); 
-    // builder.credential(tokenCredential); 
-    // builder.mapsClientId(System.getenv("MAPS_CLIENT_ID")); 
+    // DefaultAzureCredential tokenCredential = new DefaultAzureCredentialBuilder().build();
+    // builder.credential(tokenCredential);
+    // builder.mapsClientId(System.getenv("MAPS_CLIENT_ID"));
     
-    MapsSearchClient client = builder.buildClient(); 
-    client.searchAddress(new SearchAddressOptions("15127 NE 24th Street, Redmond, WA 98052")); 
+    MapsSearchClient client = builder.buildClient();
+    client.searchAddress(new SearchAddressOptions("15127 NE 24th Street, Redmond, WA 98052"));
     
     // Search address with options and return top 5 results: 
     SearchAddressResult results = client.searchAddress(new SearchAddressOptions("1  
         Main Street").setCoordinates(new GeoPosition(-74.011454,  
-        40.706270)).setRadiusInMeters(40000).setTop(5)); 
+        40.706270)).setRadiusInMeters(40000).setTop(5));
     
     // Print results: 
-    if (results.getResults().size() > 0) { 
-        SearchAddressResultItem item = results.getResults().get(0); 
+    if (results.getResults().size() > 0) {
+        SearchAddressResultItem item = results.getResults().get(0);
         System.out.format("The coordinates is (%.4f, %.4f)", 
-            item.getPosition().getLatitude(), item.getPosition().getLongitude()); 
+            item.getPosition().getLatitude(), item.getPosition().getLongitude());
         } 
     } 
 } 
-```  
+```
 
 The returned results of the `client.SearchAddress` method is ordered by confidence score and in this example, it prints only the coordinates of the first result.    
 
@@ -371,9 +370,9 @@ public class Demo{
         builder.credential(keyCredential);
         
         // Or you can also instantiate with token credential: 
-        // DefaultAzureCredential tokenCredential = new DefaultAzureCredentialBuilder().build(); 
-        // builder.credential(tokenCredential); 
-        // builder.mapsClientId(System.getenv("MAPS_CLIENT_ID")); 
+        // DefaultAzureCredential tokenCredential = new DefaultAzureCredentialBuilder().build();
+        // builder.credential(tokenCredential);
+        // builder.mapsClientId(System.getenv("MAPS_CLIENT_ID"));
         
         MapsSearchClient client = builder.buildClient();
         List<ReverseSearchAddressOptions> reverseOptionsList = new ArrayList<>();
