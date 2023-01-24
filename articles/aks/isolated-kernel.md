@@ -3,7 +3,7 @@ title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as VM Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 01/23/2023
+ms.date: 01/24/2023
 
 ---
 
@@ -84,6 +84,8 @@ The solution architecture is based on the following components:
 * Integration with Kata Container framework
 
 Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers, the deployment includes kata-runtime options that can be defined in the pod template.
+
+For a pod to use the this feature, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec. When a pod uses the *kata-mshv-vm-isolation* runtimeClass, a VM is created to serve as the pod sandbox to host the containers. The VM's default memory is 2 GB and the default CPU is 1 core if the [Container resource manifest][container-resource-manifest] (`containers[].resources.limits`) doesn't specify a limit for CPU and memory. When the Container resource manifest limit for CPU or memory is specified, the VM has `containers[].resources.limits.cpu` with the `1` argument to use 1 CPU, and `containers[].resources.limits.memory` with the `2` argument to specify 2GB of memory. Containers can only use CPU and memory to the limits of the containers. The `containers[].resources.requests` are ignored in this preview while we work to reduce the CPU and memory overhead.
 
 ## Deploy new cluster
 
@@ -226,7 +228,8 @@ To add Mariner to an existing ARM template, you need to add the following:
                 "vmSize": "[parameters('agentVMSize')]",
                 "osType": "[parameters('osType')]",
                 "osSKU": "[parameters('osSKU')]",
-                "storageProfile": "ManagedDisks"
+                "storageProfile": "ManagedDisks",
+                "workload-runtime": "KataMshvVmIsolation"
               }
             ],
             "linuxProfile": {
@@ -402,10 +405,26 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
 ## Verify isolation configuration
 
-1. Start a shell session to the container in your cluster by running the [kubectl exec][kubectl-exec] command.
+1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command.
 
     ```bash
     kubectl exec -it trusted -- /bin/bash
+    ```
+
+   Kubectl connects to your cluster, runs `/bin/sh` inside the first container within the *trusted* pod, and forward your terminal's input and output streams to the container's process. You can also start a shell session to the container hosting the *untrusted* pod.
+
+2. After starting a shell to the container to either the *untrusted* or *trusted* pod, you can run the following commands to verify that the untrusted container is running in a VM that has different number of CPUs and memory from the trusted container.
+
+   To see the number of CPUs available, run:
+
+    ```bash
+    cat /proc/cpuinfo
+    ```
+
+   To see the how much memory is available, run:
+
+    ```bash
+    cat /proc/meminfo
     ```
 
 <!-- EXTERNAL LINKS -->
@@ -414,6 +433,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [install-kubectl-linux]: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
+[container-resource-manifest]: https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure/install-azure-cli
