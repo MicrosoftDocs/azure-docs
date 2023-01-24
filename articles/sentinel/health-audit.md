@@ -68,7 +68,7 @@ To start collecting health and audit data, you need to [enable health and audit 
 - Run queries on the *SentinelHealth* and *SentinelAudit* data tables from the Microsoft Sentinel **Logs** blade.
     - [Data connectors](monitor-data-connector-health.md#run-queries-to-detect-health-drifts)
     - [Automation rules and playbooks](monitor-automation-health.md#get-the-complete-automation-picture) (join query with Azure Logic Apps diagnostics)
-    - [Analytics rules](monitor-analytics-rule-integrity.md#bookmark)
+    - [Analytics rules](monitor-analytics-rule-integrity.md)
 
 - Use the health monitoring workbooks provided in Microsoft Sentinel.
     - [Data connectors](monitor-data-connector-health.md#use-the-health-monitoring-workbook)
