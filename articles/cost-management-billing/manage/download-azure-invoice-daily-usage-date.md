@@ -45,7 +45,7 @@ For more information about your invoice, see [Understand your bill for Microsoft
 Invoices are generated for each [billing profile](../understand/mca-overview.md#billing-profiles) in the Microsoft Customer Agreement. You must be a billing profile Owner, Contributor, Reader, or Invoice manager to download invoices from the Azure portal.
 
 > [!NOTE]
-> VAT taxes shown on your invoice might have imprecise decimal point rounding that results in tax that's under or overcharged. For more information, see [What is the Modern Limited Risk Distributor (LRD) model?](../understand/mca-understand-your-invoice.md#what-is-the-modern-limited-risk-distributor-lrd-model).
+> VAT taxes shown on your invoice might have imprecise decimal point rounding that results in tax that's under or overcharged. For more information, see [What is the Modern Limited Risk Distributor model?](../understand/mca-understand-your-invoice.md#what-is-the-modern-limited-risk-distributor-model)
 
 1. Search for **Cost Management + Billing**.
 2. Select a billing profile.

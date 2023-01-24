@@ -104,9 +104,9 @@ At the bottom of the invoice, there are instructions for paying your bill. You c
 
 If you have third-party services in your bill, the name and address of each publisher is listed at the bottom of your invoice.
 
-## What is the Modern Limited Risk Distributor (LRD) model?
+## What is the Modern Limited Risk Distributor model?
 
-An LRD (Limited Risk Distributor) is a subsidiary that Microsoft established as buy-sell distributor who sells directly or indirectly. The model affects customers buying directly from Microsoft through the Microsoft Customer Agreement (MCA). It also demonstrates the Microsoft commitment to our business in the following countries/regions:
+A Limited Risk Distributor (LRD) is a subsidiary that Microsoft established as buy-sell distributor who sells directly or indirectly. The model affects customers buying directly from Microsoft through the Microsoft Customer Agreement. It also demonstrates the Microsoft commitment to our business in the following countries/regions:
 
 - Australia
 - New Zealand
@@ -144,7 +144,7 @@ For customers not part of the LRD model and for legacy/ regular invoices, the bi
 - For India, the billing entity is Microsoft Corporation India Private Limited.
 - For Brazil, the billing entity is A MICROSOFT DO BRASIL IMP E COM DE SOFTWARE E VIDEO GAMES LTDA.
 
-Microsoft has received guidance that due to decimal point rounding, some Limited Risk Distributor (LRD) invoices may show tax that's under or overcharged. The taxes are compared to the amount that should have been calculated based on the local tax regulation.
+Microsoft has received guidance that due to decimal point rounding, some LRD invoices may show tax that's under or overcharged. The taxes are compared to the amount that should have been calculated based on the local tax regulation.
 
 *While we work to resolve this issue, you're only required to pay the VAT amount calculated at the subtotal level of the invoice*. Microsoft will be reporting the same amount in its VAT return and will write off the difference for any overcharges. Microsoft is bearing the risk of the undercharged VAT if there are audits. Unfortunately, it's currently impossible for Microsoft to reissue an amended invoice due to a system limitation.
 
