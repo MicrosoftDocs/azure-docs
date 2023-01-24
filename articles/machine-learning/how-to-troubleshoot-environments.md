@@ -136,7 +136,7 @@ This issue can happen when the name of your custom environment uses terms reserv
 
 ### *Docker issues*
 
-*Applies to: Azure CLI & Python SDK v1 (Deprecated)*
+*Applies to: Azure CLI & Python SDK v1*
 
 To create a new environment, you must use one of the following approaches (see [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)):
 - Base image
@@ -165,7 +165,7 @@ To create a new environment, you must use one of the following approaches:
     - [Sample here](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
 ### Missing Docker definition
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 <!--issueDescription-->
 This issue can happen when your environment definition is missing a `DockerSection.` This section configures settings related to the final Docker image built from your environment specification.
  
@@ -200,7 +200,7 @@ myenv.docker.base_dockerfile = dockerfile
  
 **Potential causes:**
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 You have more than one of these Docker options specified in your environment definition
 - `base_image`
@@ -223,7 +223,7 @@ You have more than one of these Docker options specified in your environment def
 
 Choose which Docker option you'd like to use to build your environment. Then set all other specified options to None.
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 ```
 from azureml.core import Environment
@@ -244,7 +244,7 @@ myenv.docker.base_image = None
  
 **Potential causes:**
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 You didn't specify one of the following options in your environment definition
 - `base_image`
@@ -267,7 +267,7 @@ You didn't specify one of the following options in your environment definition
 
 Choose which Docker option you'd like to use to build your environment, then populate that option in your environment definition.
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 ```
 from azureml.core import Environment
@@ -303,7 +303,7 @@ ml_client.environments.create_or_update(env_docker_image)
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 Add the missing username or password to your environment definition to fix the issue
 
@@ -328,7 +328,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 ```
 
 > [!NOTE]
-> * Providing credentials in your environment definition is deprecated. Use workspace connections instead.
+> * Providing credentials in your environment definition is no longer supported. Use workspace connections instead.
  
 **Resources**
 * [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
@@ -348,7 +348,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 If you're using workspace connections, view the connections you have set, and delete whichever one(s) you don't want to use
 
@@ -366,7 +366,7 @@ myEnv.docker.base_image_registry.registry_identity = None
 ```
 
 > [!NOTE]
-> * Providing credentials in your environment definition is deprecated. Use workspace connections instead.
+> * Providing credentials in your environment definition is no longer supported. Use workspace connections instead.
  
 **Resources**
 * [Delete a workspace connection v1](https://aka.ms/azureml/environment/delete-connection-v1)
@@ -387,9 +387,9 @@ myEnv.docker.base_image_registry.registry_identity = None
 
 **Troubleshooting steps**
 
-Specifying credentials in your environment definition is deprecated. Delete credentials from your environment definition and use workspace connections instead.
+Specifying credentials in your environment definition is no longer supported. Delete credentials from your environment definition and use workspace connections instead.
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 Set a workspace connection on your workspace
 
@@ -432,7 +432,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 Instead of specifying these attributes in the `DockerSection` of your environment definition, use [DockerConfiguration](https://aka.ms/azureml/environment/docker-configuration-class)
  
@@ -467,7 +467,7 @@ Shorten your Dockerfile to get it under this limit
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 Include a path in the `build_context` of your [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
@@ -494,7 +494,7 @@ This issue can happen when AzureML fails to find your Dockerfile. As a default, 
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 In the `build_context` of your [DockerSection](https://aka.ms/azureml/environment/docker-section-class), include a `dockerfile_path`
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
@@ -525,7 +525,7 @@ This issue can happen when you've specified properties in your environment defin
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 
 If any of the above-listed properties are specified in your environment definition, remove them
 * If you're using a Docker build context and want to specify conda dependencies, your conda specification should reside in your build context directory
