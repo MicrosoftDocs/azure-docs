@@ -26,18 +26,18 @@ Application Gateway v2 can now address each of these items to further eliminate 
 1) Ability to multiple the default route out to the internet (0.0.0.0/0)
 1) DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers), including private link private DNS zones.
 
-Each of these features can be enabled independently. For example, if a public IP should be used to allow traffic inbound from the internet, but you want to define a _Deny All_ outbound rule in the network security group configuration to further prevent data exfiltration, that is a valid configuration.
+Each of these features can be enabled independently. For example, a public IP address can be used to allow traffic inbound from the Internet and you can define a **_Deny All_** outbound rule in the network security group configuration to prevent data exfiltration. This is a valid configuration.
 
 # Onboard to public preview
-The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, is currently in public preview.  To join the public preview, you can opt-in to the experience via Azure PowerShell, Azure CLI, or REST API.
+The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, is currently in public preview.  To join the public preview, you can opt-in to the experience using Azure PowerShell, Azure CLI, or REST API.
 
-When joining the preview, note that all new gateways will begin to provision with the ability to enable any combination of the NSG, Route Table, or private IP configuration features.  If you wish to offboard from the new functionality / return to the current generall available functionality of Application Gateway, you may do so by unregistering the feature.
+When you join the preview, note that all new gateways will begin to provision with the ability to enable any combination of the NSG, Route Table, or private IP configuration features.  If you wish to offboard from the new functionality and return to the current generally available functionality of Application Gateway, you may do so by unregistering the feature.
 
 ## Register to the preview
 
 # [Azure Portal](#tab/portal)
 
-To enroll into the public preview for the enhanced Application Gateway network controls via Portal, the following steps can referenced:
+To enroll into the public preview for the enhanced Application Gateway network controls via Portal, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box, enter _subscriptions_ and select **Subscriptions**.
@@ -102,7 +102,7 @@ More details on registering preview features can be found [here](../azure-resour
 ## Unregister from the preview
 # [Azure Portal](#tab/portal)
 
-To opt-out of the public preview for the enhanced Application Gateway network controls via Portal, the following steps can referenced:
+To opt-out of the public preview for the enhanced Application Gateway network controls via Portal, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box, enter _subscriptions_ and select **Subscriptions**.
@@ -212,7 +212,7 @@ In the current offering of Application Gateway, association of a route table wit
 
 After registration of the public preview feature, the ability to forward traffic to a virtual appliance is now possible via definition of a route table rule defining 0.0.0.0/0 with a next hop to Virtual Appliance.
 
-Forced Tunneling, learning of 0.0.0.0/0 route through BGP advertisied, will not affect Application Gateway health and be honored for traffic flow. This scenario may be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
+Forced Tunneling, learning of 0.0.0.0/0 route through BGP advertising, will not affect Application Gateway health and be honored for traffic flow. This scenario may be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
 
 ## Limitations / Known Issues
 While in public preview, the following limitations are known.
@@ -230,7 +230,7 @@ If Application Gateway has a backend target or key vault reference to a private 
 AGIC does not currently support private IP frontend only deployments.
 
 ### Backend Health status typo
-If backend health is unknown due to DNS resolution or other reason, the error message will erroneously state that you need a NSG and to eliminate route tables. The message to require NSG rules or eliminate the UDR is incorrect and can be ignored. This issue will be fixed in a future release.
+If backend health is unknown due to DNS resolution or other reason, the error message will erroneously state that you need an NSG and to eliminate route tables. The message to require NSG rules or eliminate the UDR is incorrect and can be ignored. This issue will be fixed in a future release.
 
 ### Tags in Route Table Rules
 If a tag is defined via Route Table, this may lead to provisioning failure of Application Gateway.
