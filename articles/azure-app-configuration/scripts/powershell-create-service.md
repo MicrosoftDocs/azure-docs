@@ -11,9 +11,9 @@ ms.author: malev
 ms.custom: devx-track-azurepowershell
 ---
 
-# Create an Azure App Configuration store
+# Create an Azure App Configuration store with Powershell
 
-This sample script creates a new instance of Azure App Configuration in a new resource group.
+This sample script creates a new instance of Azure App Configuration in a new resource group using Powershell.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,13 +25,13 @@ To execute the sample scripts, you need a functional setup of [Azure PowerShell]
 ## Sample script
 
 ```powershell
-# Create resource group 
+# Create a resource group 
 New-AzResourceGroup -Name <resource-group-name> -Location <location>
 
-# Create App Configuration store
+# Create an App Configuration store
 New-AzAppConfigurationStore -Name <store-name> -ResourceGroupName <resource-group-name> -Location <location> -Sku <sku>
 
-# Get the AppConfig connection string 
+# Get the App Configuration connection string 
 Get-AzAppConfigurationStoreKey -Name <store-name> -ResourceGroupName <resource-group-name>
 ```
 
@@ -51,10 +51,10 @@ This script uses the following commands to create a new resource group and an Ap
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzAppConfigurationStore](/powershell/module/az.appconfiguration/new-azappconfigurationstore) | Creates an App Configuration store resource. |
-| [Get-AzAppConfigurationStoreKey](/powershell/module/az.appconfiguration/get-azappconfigurationstorekey) | List access keys for an App Configuration store. |
+| [Get-AzAppConfigurationStoreKey](/powershell/module/az.appconfiguration/get-azappconfigurationstorekey) | Lists access keys for an App Configuration store. |
 
 ## Next steps
 
-For more information about Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
+For more information about Azure PowerShell, check out the [Azure PowerShell documentation](/powershell/azure/).
 
 More App Configuration script samples for PowerShell can be found in the [Azure App Configuration PowerShell samples](../powershell-samples.md).

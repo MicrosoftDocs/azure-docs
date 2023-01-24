@@ -12,7 +12,7 @@ ms.author: malev
 ms.custom: devx-track-azurecli
 ---
 
-# Create an Azure App Configuration store with PowerShell
+# Create an Azure App Configuration store with the Azure CLI
 
 This sample script creates a new instance of Azure App Configuration using the Azure CLI in a new resource group.
 
