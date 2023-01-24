@@ -54,6 +54,22 @@ You can configure the zone redundant option by using either Azure Portal or ARM 
 
 # [Azure Portal](#tab/portal)
 
+<!-- Need to update these steps - these are for create -->
+
+To update a current Business Critical managed instance to use zone redundant configuration:
+
+1. Select Configure Managed Instance in the Create Azure SQL Managed Instance tab.
+
+1. In the Compute + Storage page select Yes to make the instance zone redundant.
+
+1. Select **Apply**.
+
+1. Choose one of the compatible redundancy options for backup storage:
+    
+    - ZRS (Zone Redundant Storage)
+    - GZRS (Geo Zone Redundant Storage)
+
+    To learn more about backup storage redundancy options, see [Introducing Geo-Zone Redundant Storage (GZRS) for Azure SQL Managed Instance backups](https://techcommunity.microsoft.com/t5/azure-sql-blog/introducing-geo-zone-redundant-storage-gzrs-for-azure-sql/ba-p/3654947).
 
 # [ARM API](#tab/arm)
 
