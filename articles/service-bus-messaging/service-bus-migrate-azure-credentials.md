@@ -178,9 +178,10 @@ az vm identity assign \
 You can assign a managed identity to an Azure Kubernetes Service (AKS) instance with the [az aks update](/cli/azure/aks) command.
 
 ```azurecli
-az vm identity assign \
+az aks update \
     --resource-group <resource-group-name> \
     --name <virtual-machine-name>
+    --enable-managed-identity
 ```
 
 ---
