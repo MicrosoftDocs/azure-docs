@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/17/2023
+ms.date: 01/24/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
