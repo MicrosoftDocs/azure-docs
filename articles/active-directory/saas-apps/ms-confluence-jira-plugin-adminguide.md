@@ -131,7 +131,7 @@ The following image shows the configuration screen in both Jira and Confluence:
 |  1.0.20         |   Bug Fixes:                                                                              | Jira Core and Software:             |
 |                 |   1. JIRA SAML SSO add-on redirects to incorrect URL from mobile browser.                 |  7.0.0 to 9.5.0                     |
 |                 |   2. The mark log section after enabling the JIRA plugin.                                 |                                     |
-|                 |   3. JIRA plugin needs to report the last login date in the JIRA log.The issue is in Jira itself, the Last Login Date for a user does not update when sign in is via SSO.                                                                                      |                                     |
+|                 |   3. The last login date for a user does not update when user signs in via SSO            |                                     |
 |                 |                                                                                           |                                     |
 |  1.0.19         |   New Feature:                                                                            | Jira Core and Software:             |
 |                 |    Application Proxy Support - Checkbox on the configure plugin screen to toggle the App Proxy mode so as to make the Reply URL editable as per the need to point the App Proxy mode so as to make the Reply URL editable as per the need to point it to the proxy server URL |  6.0 to 9.3.1           |
