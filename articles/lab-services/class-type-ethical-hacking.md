@@ -47,9 +47,11 @@ To configure the template VM, complete the following three tasks:
 
 3. Set up the Metasploitable image. For this example, you use the [Metasploitable3](https://github.com/rapid7/metasploitable3) image. This image is created to purposely have security vulnerabilities.
 
-You can complete these tasks by executing the [Lab Services Hyper-V Script](https://aka.ms/azlabs/scripts/hyperV) and [Lab Services Ethical Hacking Script](https://aka.ms/azlabs/scripts/EthicalHacking) PowerShell scripts on the template machine. Once the scripts have completed, continue to the [Next steps](#next-steps).
+You can complete these tasks in either of two ways:
 
-If you choose to set up the template machine manually, continue reading.  The rest of this article will cover the manual completion of template configuration tasks.  
+- Run the following PowerShell scripts on the template machine: [Lab Services Hyper-V Script](https://aka.ms/azlabs/scripts/hyperV) and [Lab Services Ethical Hacking Script](https://aka.ms/azlabs/scripts/EthicalHacking). Once the scripts have completed, continue to the [Next steps](#next-steps).
+
+- Set up the template machine manually by completing the steps outlined below.
 
 ### Prepare template machine for nested virtualization
 
