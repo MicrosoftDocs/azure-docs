@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 1/20/2023
+ms.date: 1/23/2023
 ms.author: jasteppe
 ---
 
@@ -67,7 +67,7 @@ At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, alon
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients, it is advised you create a virtual device resource that is specific to the patient and send the virtual device identifier in the device message payload. The virtual device can be linked to the actual device resource as a parent.
 
-If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [Resolution Type](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to `Lookup`, the specific message is ignored, and the pipeline will continue to process other incoming device messages. If set to `Create`, the MedTech service will create a minimal Device and Patient resources on the FHIR service.  
+If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of [Resolution Type](deploy-new-config.md#configure-the-destination-tab) set at the time of the MedTech service deployment. When set to `Lookup`, the specific message is ignored, and the pipeline will continue to process other incoming device messages. If set to `Create`, the MedTech service will create minimal Device and Patient resources on the FHIR service.  
 
 > [!NOTE]
 > The `Resolution Type` can also be adjusted post deployment of the MedTech service in the event that a different type is later desired.
