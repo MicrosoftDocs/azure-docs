@@ -32,11 +32,12 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+|`Content-Type`| application/json |
 
 ### Body
 
 > [!NOTE]
-> Each intent should only be of one type only from (CLU,LUIS and qna)
+> Each intent within the `intents` array should only refer to a single project that you want to connect (Conversational Language Understanding (CLU), LUIS or question answering). For more information, see the [reference documentation]().
 
 Use the following sample JSON as your body.
 
