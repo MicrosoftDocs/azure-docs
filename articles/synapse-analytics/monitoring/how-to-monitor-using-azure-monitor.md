@@ -64,7 +64,7 @@ Here are some of the metrics emitted by dedicated SQL pools created in Azure Syn
 | WLGEffectiveMinResourcePercent | Effective min resource percent | Percent | Max (default), Min, Avg, Sum | The effective min resource percentage setting allowed considering the service level and the workload group settings. The effective min_percentage_resource can be adjusted higher on lower service levels |
 
 > [!NOTE]
-> Dedicated SQL pool measures performance in compute data warehouse units (cDWUs). Even though we do not surface details of individual nodes such as memory per node or number of CPUs per node, the intent behind emitting metrics such as `MemoryUsedPercent`; `CPUPercent` etc. is to show general usage trend over a period of time. These trends will help administrators understand how an instance of dedicated SQL pool is utilized, and changes in footprint of memory and/or CPU could be a trigger for one or more actions such as scale-up or scale-down cDWUs; investigating a query (or queries) which may require optimization etc.
+> Dedicated SQL pool measures performance in compute data warehouse units (cDWUs). Even though we do not surface details of individual nodes such as memory per node or number of CPUs per node, the intent behind emitting metrics such as `MemoryUsedPercent`; `CPUPercent` etc. is to show general usage trend over a period of time. These trends will help administrators understand how an instance of dedicated SQL pool is utilized, and changes in footprint of memory and/or CPU could be a trigger for one or more actions such as scale-up or scale-down cDWUs, investigating a query (or queries) which may require optimization, etcetera.
 
 ### Apache Spark pool metrics
 
