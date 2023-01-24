@@ -21,6 +21,7 @@ ms.collection: M365-identity-device-management
 Using Azure Active Directory (Azure AD) portal, you can bulk download the list of all the groups in your organization to a comma-separated values (CSV) file. All admins and non-admin users can download group lists.
 
 ## To download a list of groups
+
 >[!NOTE]
 > The columns downloaded are pre-defined
 
