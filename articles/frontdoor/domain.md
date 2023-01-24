@@ -54,14 +54,27 @@ In Azure Front Door, a *domain* represents a custom domain name that Front Door 
 > - If the domain state doesn't reflect as expected, select the **Refresh** button.
 
 ## Root/apex domains
-- Root/apex domains
+Root/apex domains
+
+For more information, see [Onboard a root or apex domain on your Front Door](front-door-how-to-onboard-apex-domain.md).
 
 ## HTTPS for custom domains
-  
-- Managed TLS certificates
-- BYO TLS certificates
+
+For more information on how Azure Front Door works with TLS, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
+
+### Managed TLS certificates
+
+- Issuance process
+- Extra verification
+
+### BYO TLS certificates
+
+- Need to create a secret as a reference to a KV cert
+- Auth - managed identity vs. service principal
+- To try it, see TODO how to
 
 ## WAF policies
+
 TODO
 
 ## Next steps
