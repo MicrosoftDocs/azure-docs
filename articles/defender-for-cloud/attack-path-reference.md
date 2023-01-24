@@ -4,13 +4,13 @@ titleSuffix: Defender for Cloud
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 12/07/2022
+ms.date: 01/24/2022
 ---
 
 
 # Reference list of attack paths and cloud security graph components
 
-This article lists the attack paths, connections and insights you might see in Microsoft Defender for Cloud related to Defender for Cloud Security Posture Management (CSPM). What you are shown in your environment depends on the resources you're protecting and your customized configuration. You will need to [enable Defender for CSPM](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) to view your attack paths. Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md).
+This article lists the attack paths, connections and insights you might see in Microsoft Defender for Cloud related to Defender for Cloud Security Posture Management (CSPM). What you are shown in your environment depends on the resources you're protecting and your customized configuration. You'll need to [enable Defender for CSPM](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) to view your attack paths. Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md).
 
 To learn about how to respond to these attack paths, see [Identify and remediate attack paths](how-to-manage-attack-path.md).
 
@@ -18,7 +18,7 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 
 ### Azure VMs
 
-Prerequisite: For a list of prerequisites see the [Availability](how-to-manage-attack-path.md#availability) table for attack paths.
+Prerequisite: For a list of prerequisites, see the [Availability](how-to-manage-attack-path.md#availability) table for attack paths.
 
 | Attack Path Display Name | Attack Path Description |
 |--|--|
