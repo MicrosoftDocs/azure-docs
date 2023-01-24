@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 01/31/202 3
+ms.date: 01/31/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
