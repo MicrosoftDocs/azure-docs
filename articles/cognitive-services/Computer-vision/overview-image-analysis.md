@@ -40,7 +40,7 @@ This documentation contains the following types of articles:
 For a more structured approach, follow a Training module for Image Analysis.
 * [Analyze images with the Computer Vision service](/training/modules/analyze-images-computer-vision/)
 
-[!INCLUDE [image analysis versions](../includes/image-analysis-versions.md)]
+[!INCLUDE [image analysis versions](./includes/image-analysis-versions.md)]
 
 ## Image Analysis features
 
@@ -57,7 +57,7 @@ Version 4.0 preview of Image Analysis offers the ability to detect people appear
 
 ### Tag visual features
 
-Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. [Tag visual features (v3.2)](concept-tagging-images.md) [(v4.0)](concept-tagging-images-40.ms)
+Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. [Tag visual features (v3.2)](concept-tagging-images.md) [(v4.0)](concept-tagging-images-40.md)
 
 :::image type="content" source="Images/tagging.png" alt-text="An images of a skateboarder with tags listen on the right":::
 
