@@ -67,7 +67,7 @@ Once you have [Node.js](https://nodejs.org/en/download/) installed, open up a te
 ```console
 npx create-react-app msal-react-tutorial # Create a new React app
 cd msal-react-tutorial # Change to the app directory
-npm install @azure/msal-browser @azure/msal-react @azure/msal-common # Install the MSAL packages
+npm install @azure/msal-browser @azure/msal-react @azure/msal-common  # Install the MSAL packages
 npm install react-bootstrap bootstrap # Install Bootstrap for styling
 ```
 
