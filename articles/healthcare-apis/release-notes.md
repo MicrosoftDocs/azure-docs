@@ -22,10 +22,11 @@ Azure Health Data Services is a set of managed API services based on open standa
 ## December 2022
 ### Azure Health Data Services
 
-
-
 ## November 2022
+### Azure Health Data Services
 
+
+## October 2022
 ### Azure Health Data Services 
 
 #### **Bug Fixes**
