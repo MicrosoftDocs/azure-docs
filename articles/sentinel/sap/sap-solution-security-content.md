@@ -4,13 +4,10 @@ description: Learn about the built-in security content provided by the Microsoft
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
-ms.custom: mvc, ignite-fall-2021
-ms.date: 04/27/2022
+ms.date: 01/24/2023
 ---
 
 # Microsoft Sentinel Solution for SAP: security content reference
-
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 This article details the security content available for the Microsoft Sentinel Solution for SAP.
 
