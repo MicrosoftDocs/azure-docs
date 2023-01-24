@@ -1,9 +1,11 @@
 ---
 title: Enable Azure Monitor managed service for Prometheus (preview)
 description: Enable Azure Monitor managed service for Prometheus (preview) and configure data collection from your Azure Kubernetes Service (AKS) cluster.
+author: EdB-MSFT
+ms.author: edbaynash
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 01/24/2022
 ms.reviewer: aul
 ---
 
