@@ -127,7 +127,7 @@ To manually upload the offline backup certificate to a previously created Azure 
 
     ![Screenshot shows how to copy value from the thumbprint field.](./media/offline-backup-dpm-mabs-previous-versions/thumbprint-field.png)
 
-1. Continue to the [Workflow](#workflow) section to proceed with the offline backup process.
+1. Continue to the [Finish the offline workflow](#finish-the-offline-backup-workflow) section to proceed with the offline backup process.
 
 ## Finish the offline backup workflow
 
