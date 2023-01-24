@@ -318,7 +318,8 @@ Analyzing the SSO Extension logs is an excellent way to troubleshoot the authent
   - PRT acquisition
   - Device Registration
 
->[!Caution] The SSO Extension logs are extremely verbose, especially when looking at Keychain credenential operations. For this reason, it's always best to understand the sceanrio before looking at the logs during troubleshooting.
+>[!Caution] 
+>The SSO Extension logs are extremely verbose, especially when looking at Keychain credenential operations. For this reason, it's always best to understand the sceanrio before looking at the logs during troubleshooting.
 
 
 #### Log Structure
@@ -338,9 +339,6 @@ The SSO Extension logs are broken down into columns. The following screenshot sh
 |**7**    |**Correlation ID**            |Lines in the logs that have to do with Azure AD or Keychain operations extend the UTC Date/Time column with a Correlation ID         |
 |**8**     |**Message**             |Shows the detailed messaging of the logs. Most of the troubleshooting information can be found by examining this column         |
 
-
-
-
 #### Feature Flag Configuration
 
 During the MDM configuration of the Microsoft Enterprise SSO Extension, optional extension specific data can be sent as instructions to change how the SSO Extension behaves. These configuration specific instructions are known as **Feature Flags**. The Feature Flag configuration is especially important for Non-MSAL/Browser SSO authorization requests types, as the Bundle ID (or prefixes) can determine if the Extension will be invoked or not. See [Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options). Every authorization request begins with a Feature Flag configuration report. The following screenshot will walk through an example feature flag configuration:
@@ -353,7 +351,7 @@ During the MDM configuration of the Microsoft Enterprise SSO Extension, optional
 |**3**    |**[disable_explicit_app_prompt](../develop/apple-sso-plugin.md#disable-oauth-2-application-prompts)**         |Replaces **prompt=login** authentication requests from applications to reduce prompting|
 |**4**     |**[AppPrefixAllowList](../develop/apple-sso-plugin.md#enable-sso-for-all-apps-with-a-specific-bundle-id-prefix)**         |Any Non-MSAL application that has a Bundle ID that starts with **`com.micorosoft.`** can be intercepted and handled by the SSO Extension broker             |
 
->[!Important Feature flags set to **null** means that their **default** configuration is in place. Check **[Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options)** for more details]
+>[!Important] Feature flags set to **null** means that their **default** configuration is in place. Check **[Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options)** for more details]
 
  
 
