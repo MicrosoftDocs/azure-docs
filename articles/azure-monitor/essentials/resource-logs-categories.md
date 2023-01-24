@@ -212,7 +212,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|WebApplicationFirewallLogs |Web Appliation Firewall Logs |No |
+|WebApplicationFirewallLogs |Web Application Firewall Logs |No |
 
 
 ## Microsoft.Cdn/profiles  
@@ -449,7 +449,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |SSISPackageEventMessages |SSIS package event messages |No |
 |SSISPackageExecutableStatistics |SSIS package executable statistics |No |
 |SSISPackageExecutionComponentPhases |SSIS package execution component phases |No |
-|SSISPackageExecutionDataStatistics |SSIS package exeution data statistics |No |
+|SSISPackageExecutionDataStatistics |SSIS package execution data statistics |No |
 |TriggerRuns |Trigger runs log |No |
 
 
