@@ -14,7 +14,7 @@ ms.custom: "seodec18"
 
 # Call the Image Analysis 4.0 API
 
-This article demonstrates how to call the Image Analysis API to return information about an image's visual features. It also shows you how to parse the returned information using the client SDKs or REST API.
+This article demonstrates how to call the Image Analysis 4.0 API to return information about an image's visual features. It also shows you how to parse the returned information.
 
 This guide assumes you've already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL. If you're using a client SDK, you'll also need to authenticate a client object. If you haven't done these steps, follow the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) to get started.
   
@@ -32,37 +32,25 @@ To analyze a local image, you'd put the binary image data in the HTTP request bo
 
 In your main class, save a reference to the URL of the image you want to analyze.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart.cs?name=snippet_analyze_url)]
+```csharp
+var imageSource = VisionSource.FromUrl(new Uri("https://docs.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"));
+```
 
 > [!TIP]
-> You can also analyze a local image. See the [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ImageAnalysisQuickstart.cs) for scenarios involving local images.
+> You can also analyze a local image. See the [ComputerVisionClient](tbd) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
 
-#### [Java](#tab/java)
-
-In your main class, save a reference to the URL of the image you want to analyze.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_urlimage)]
-
-> [!TIP]
-> You can also analyze a local image. See the [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) methods, such as **AnalyzeImage**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java) for scenarios involving local images.
-
-#### [JavaScript](#tab/javascript)
-
-In your main function, save a reference to the URL of the image you want to analyze.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ImageAnalysisQuickstart.js?name=snippet_describe_image)]
-
-> [!TIP]
-> You can also analyze a local image. See the [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) methods, such as **describeImageInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ImageAnalysisQuickstart.js) for scenarios involving local images.
 
 #### [Python](#tab/python)
 
 Save a reference to the URL of the image you want to analyze.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart.py?name=snippet_remoteimage)]
+```python
+image_url = 'https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg'
+vision_source = visionsdk.VisionSource(url=image_url)
+```
 
 > [!TIP]
-> You can also analyze a local image. See the [ComputerVisionClientOperationsMixin](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin) methods, such as **analyze_image_in_stream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ImageAnalysisQuickstart.py) for scenarios involving local images.
+> You can also analyze a local image. See the [ComputerVisionClientOperationsMixin](tbd) methods, such as **analyze_image_in_stream**. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
 
 ---
 
@@ -91,29 +79,44 @@ A populated URL might look like this:
 
 #### [C#](#tab/csharp)
 
-Define your new method for image analysis. Add the code below, which specifies visual features you'd like to extract in your analysis. See the **[VisualFeatureTypes](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes)** enum for a complete list.
+Define your new method for image analysis. Define an **ImageAnalysisOptions** object, which specifies visual features you'd like to extract in your analysis. See the **[VisualFeatureTypes](tbd)** enum for a complete list.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart.cs?name=snippet_visualfeatures)]
-
-
-#### [Java](#tab/java)
-
-Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes) enum for a complete list.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_features_remote)]
-
-#### [JavaScript](#tab/javascript)
-
-Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest&preserve-view=true) enum for a complete list.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ImageAnalysisQuickstart.js?name=snippet_features_remote)]
+```csharp
+var analysisOptions = new ImageAnalysisOptions()
+{
+    // Mandatory. You must set one or more features to analyze. Here we use the full set of features.
+    // Note that 'Captions' is only supported in Azure GPU regions (East US, France Central, Korea Central,
+    // North Europe, Southeast Asia, West Europe, West US)
+    Features =
+            ImageAnalysisFeature.CropSuggestions
+        | ImageAnalysisFeature.Captions
+        | ImageAnalysisFeature.Objects
+        | ImageAnalysisFeature.People
+        | ImageAnalysisFeature.Text
+        | ImageAnalysisFeature.Tags
+};
+```
 
 #### [Python](#tab/python)
 
-Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-python&preserve-view=true) enum for a complete list.
+Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/tbd) enum for a complete list.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart.py?name=snippet_features_remote)]
+```python
+# Set the language and one or more visual features as analysis options
+image_analysis_options = visionsdk.ImageAnalysisOptions()
 
+# Mandatory. You must set one or more features to analyze. Here we use the full set of features.
+# Note that 'Captions' is only supported in Azure GPU regions (East US, France Central, Korea Central,
+# North Europe, Southeast Asia, West Europe, West US)
+image_analysis_options.features = (
+    visionsdk.ImageAnalysisFeature.CROP_SUGGESTIONS |
+    visionsdk.ImageAnalysisFeature.CAPTIONS |
+    visionsdk.ImageAnalysisFeature.OBJECTS |
+    visionsdk.ImageAnalysisFeature.PEOPLE |
+    visionsdk.ImageAnalysisFeature.TEXT |
+    visionsdk.ImageAnalysisFeature.TAGS
+)
+```
 
 ---
 
@@ -140,38 +143,38 @@ A populated URL might look like this:
 
 #### [C#](#tab/csharp)
 
-Use the *language* parameter of [AnalyzeImageAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions.analyzeimageasync?view=azure-dotnet#microsoft-azure-cognitiveservices-vision-computervision-computervisionclientextensions-analyzeimageasync(microsoft-azure-cognitiveservices-vision-computervision-icomputervisionclient-system-string-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-visualfeaturetypes))))-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-details))))-system-string-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-descriptionexclude))))-system-string-system-threading-cancellationtoken&preserve-view=true)) call to specify a language. A method call that specifies a language might look like the following.
+Use the *language* property of **ImageAnalysisOptions** to specify a language.
 
 ```csharp
-ImageAnalysis results = await client.AnalyzeImageAsync(imageUrl, visualFeatures: features, language: "en");
+var analysisOptions = new ImageAnalysisOptions()
+{
+    // Mandatory. You must set one or more features to analyze. Here we use the full set of features.
+    // Note that 'Captions' is only supported in Azure GPU regions (East US, France Central, Korea Central,
+    // North Europe, Southeast Asia, West Europe, West US)
+
+    Features =
+        ImageAnalysisFeature.CropSuggestions
+        | ImageAnalysisFeature.Captions
+        | ImageAnalysisFeature.Objects
+        | ImageAnalysisFeature.People
+        | ImageAnalysisFeature.Text
+        | ImageAnalysisFeature.Tags,
+
+    // Optional. Default is "en" for English. See https://aka.ms/cv-languages for a list of supported
+    // language codes and which visual features are supported for each language.
+    Language = "en",
+};
 ```
 
-#### [Java](#tab/java)
-
-Use the [AnalyzeImageOptionalParameter](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.analyzeimageoptionalparameter) input in your Analyze call to specify a language. A method call that specifies a language might look like the following.
-
-
-```java
-ImageAnalysis analysis = compVisClient.computerVision().analyzeImage().withUrl(pathToRemoteImage)
-    .withVisualFeatures(featuresToExtractFromLocalImage)
-    .language("en")
-    .execute();
-```
-
-#### [JavaScript](#tab/javascript)
-
-Use the **language** property of the [ComputerVisionClientAnalyzeImageOptionalParams](/javascript/api/@azure/cognitiveservices-computervision/computervisionclientanalyzeimageoptionalparams) input in your Analyze call to specify a language. A method call that specifies a language might look like the following.
-
-```javascript
-const result = (await computerVisionClient.analyzeImage(imageURL,{visualFeatures: features, language: 'en'}));
-```
 
 #### [Python](#tab/python)
 
-Use the *language* parameter of your [analyze_image](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python#azure-cognitiveservices-vision-computervision-operations-computervisionclientoperationsmixin-analyze-image&preserve-view=true) call to specify a language. A method call that specifies a language might look like the following.
+Use the *language* property of your [ImageAnalysisOptions](tbd) object to specify a language.
 
 ```python
-results_remote = computervision_client.analyze_image(remote_image_url , remote_image_features, remote_image_details, 'en')
+# Optional. Default is "en" for English. See https://aka.ms/cv-languages for a list of supported
+# language codes and which visual features are supported for each language.
+image_analysis_options.language = 'en'
 ```
 
 ---
@@ -252,26 +255,159 @@ See the following list of possible errors and their causes:
 
 The following code calls the Image Analysis API and prints the results to the console.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart.cs?name=snippet_analyze)]
+```csharp
+var analyzer = new ImageAnalyzer(serviceOptions, imageSource, analysisOptions);
+var result = analyzer.Analyze();
 
-#### [Java](#tab/java)
+if (result.Reason == ImageAnalysisResultReason.Analyzed)
+{
+    Console.WriteLine($" Image height = {result.ImageHeight}");
+    Console.WriteLine($" Image width = {result.ImageWidth}");
+    Console.WriteLine($" Model version = {result.ModelVersion}");
 
-The following code calls the Image Analysis API and prints the results to the console.
+    if (result.Captions != null)
+    {
+        Console.WriteLine(" Captions:");
+        foreach (var caption in result.Captions)
+        {
+            Console.WriteLine($"   \"{caption.Content}\", Confidence {caption.Confidence:0.0000}");
+        };
+    }
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart.java?name=snippet_analyze)]
+    if (result.Objects != null)
+    {
+        Console.WriteLine(" Objects:");
+        foreach (var detectedObject in result.Objects)
+        {
+            Console.WriteLine($"   \"{detectedObject.Name}\", Bounding box {detectedObject.BoundingBox}, Confidence {detectedObject.Confidence:0.0000}");
+        }
+    }
 
-#### [JavaScript](#tab/javascript)
+    if (result.Tags != null)
+    {
+        Console.WriteLine($" Tags:");
+        foreach (var tag in result.Tags)
+        {
+            Console.WriteLine($"   \"{tag.Name}\", Confidence {tag.Confidence:0.0000}");
+        }
+    }
 
-The following code calls the Image Analysis API and prints the results to the console.
+    if (result.People != null)
+    {
+        Console.WriteLine($" People:");
+        foreach (var person in result.People)
+        {
+            Console.WriteLine($"   Bounding box {person.BoundingBox}, Confidence {person.Confidence:0.0000}");
+        }
+    }
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ImageAnalysisQuickstart.js?name=snippet_analyze)]
+    if (result.CropSuggestions != null)
+    {
+        Console.WriteLine($" Crop Suggestions:");
+        foreach (var cropSuggestion in result.CropSuggestions)
+        {
+            Console.WriteLine($"   Aspect ratio {cropSuggestion.AspectRatio}: "
+                + $"Crop suggestion {cropSuggestion.BoundingBox}");
+        };
+    }
+
+    if (result.Text != null)
+    {
+        Console.WriteLine($" Text:");
+        foreach (var line in result.Text.Lines)
+        {
+            string pointsToString = "{" + string.Join(',', line.BoundingPolygon.Select(pointsToString => pointsToString.ToString())) + "}";
+            Console.WriteLine($"   Line: '{line.Content}', Bounding polygon {pointsToString}");
+
+            foreach (var word in line.Words)
+            {
+                pointsToString = "{" + string.Join(',', word.BoundingPolygon.Select(pointsToString => pointsToString.ToString())) + "}";
+                Console.WriteLine($"     Word: '{word.Content}', Bounding polygon {pointsToString}, Confidence {word.Confidence:0.0000}");
+            }
+        }
+    }
+
+    var detailedResult = ImageAnalysisResultDetails.FromResult(result);
+    Console.WriteLine($" Detailed result:");
+    Console.WriteLine($"   Image ID = {detailedResult.ImageId}");
+    Console.WriteLine($"   Result ID = {detailedResult.ResultId}");
+    Console.WriteLine($"   JSON = {detailedResult.JsonResult}");
+}
+else if (result.Reason == ImageAnalysisResultReason.Error)
+{
+    var errorDetails = ImageAnalysisErrorDetails.FromResult(result);
+    Console.WriteLine(" Analysis failed.");
+    Console.WriteLine($"   Error reason : {errorDetails.Reason}");
+    Console.WriteLine($"   Error code : {errorDetails.ErrorCode}");
+    Console.WriteLine($"   Error message: {errorDetails.Message}");
+}
+```
+
 
 #### [Python](#tab/python)
 
 The following code calls the Image Analysis API and prints the results to the console.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart.py?name=snippet_analyze)]
+```python
+image_analyzer = visionsdk.ImageAnalyzer(service_options=service_options,
+    vision_source=vision_source,
+    image_analysis_options=image_analysis_options)
 
+    result = image_analyzer.analyze()
+
+    # Checks result.
+    if result.reason == visionsdk.ImageAnalysisResultReason.ANALYZED:
+
+        if result.captions is not None:
+            print(' Captions:')
+            for caption in result.captions:
+                print('   \'{}\', Confidence {:.4f}'.format(caption.content, caption.confidence))
+
+        if result.objects is not None:
+            print(' Objects:')
+            for object in result.objects:
+                print('   \'{}\', {} Confidence: {:.4f}'.format(object.name, object.bounding_box, object.confidence))
+
+        if result.tags is not None:
+            print(' Tags:')
+            for tag in result.tags:
+                print('   \'{}\', Confidence {:.4f}'.format(tag.name, tag.confidence))
+
+        if result.people is not None:
+            print(' People:')
+            for person in result.people:
+                print('   {}, Confidence {:.4f}'.format(person.bounding_box, person.confidence))
+
+        if result.crop_suggestions is not None:
+            print(' Crop Suggestions:')
+            for crop_suggestion in result.crop_suggestions:
+                print('   Aspect ratio {}: Crop suggestion {}'.format(crop_suggestion.aspect_ratio, crop_suggestion.bounding_box))
+
+        if result.text is not None:
+            print(' Text:')
+            for line in result.text.lines:
+                points_string = '{' + ', '.join([str(int(point)) for point in line.bounding_polygon]) + '}'
+                print('   Line: \'{}\', Bounding polygon {}'.format(line.content, points_string))
+                for word in line.words:
+                    points_string = '{' + ', '.join([str(int(point)) for point in word.bounding_polygon]) + '}'
+                    print('     Word: \'{}\', Bounding polygon {}, Confidence {:.4f}'.format(word.content, points_string, word.confidence))
+
+        print(' Image Height: {}'.format(result.image_height))
+        print(' Image Width: {}'.format(result.image_width))
+        print(' Image ID: {}'.format(result.image_id))
+        print(' Result ID: {}'.format(result.result_id))
+        print(' Model Version: {}'.format(result.model_version))
+        print(' JSON Result: {}'.format(result.json_result))
+
+    elif result.reason == visionsdk.ImageAnalysisResultReason.ERROR:
+
+        error_details = visionsdk.ImageAnalysisErrorDetails.from_result(result)
+        print(" Analysis failed.")
+        print("   Error reason: {}".format(error_details.reason))
+        print("   Error code: {}".format(error_details.error_code))
+        print("   Error message: {}".format(error_details.message))
+        print(" Did you set the computer vision endpoint and key?")
+```
 
 ---
 
