@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 1/23/2023
+ms.date: 1/24/2023
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -82,6 +82,8 @@ In addition to the generally available data collection listed above, Azure Monit
 |	 [Change Tracking](../../automation/change-tracking/overview.md) |	 Public preview 	|	Change Tracking extension	|	[Change Tracking and Inventory using Azure Monitor Agent](../../automation/change-tracking/overview-monitoring-agent.md)	|
 |	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
 |	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Public preview	|	Azure NetworkWatcher extension	|	[Monitor network connectivity by using Azure Monitor Agent](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
+| SQL Best Practices Assessment | Generally available |  | [Configure best practices assessment using Azure Monitor Agent](/sql/sql-server/azure-arc/assess?view=sql-server-ver16#enable-best-practices-assessment) |
+
 
 ## Supported regions
 
