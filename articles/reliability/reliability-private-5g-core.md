@@ -35,7 +35,7 @@ The application ensures that all cloud state is replicated between availability 
 
 ## Disaster recovery: cross-region failover
 
-Where Azure Private 5G Core is available in a multi-region (3+n) geography, the service automatically replicates customer content (SIM credentials) owned by the service to a backup region in the same geography so there is no loss of data in the event of region failure. Within four hours of the failure, all resources located in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered.
+Where Azure Private 5G Core is available in a multi-region (3+N) geography, the service automatically replicates SIM credentials owned by the service to a backup region in the same geography so there is no loss of data in the event of region failure. Within four hours of the failure, all resources located in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered.
 
 In single region (3+0) geographies there is no replication of data outside the region.
 
@@ -53,7 +53,7 @@ Microsoft are responsible for outage detection, notification and support for the
 
 Microsoft monitor the underlying resources providing the Azure Private 5G Core service in each region. If those resources start to show failures or health monitoring alerts that are not restricted to a single availability zone then Microsoft will move the service to another supported region in the same geography. This is an Active-Active pattern. The service health for a particular region can be found on [Azure Service Health](https://status.azure.com/en-gb/status) (Azure Private 5G Core is listed in the **Networking** section). You will be notified of any region failures through normal Azure communications channels.
 
-The service automatically replicates customer content (SIM credentials) owned by the service to the backup region using CosmosDB multi-region writes, so there is no loss of data in the event of region failure.
+The service automatically replicates SIM credentials owned by the service to the backup region using CosmosDB multi-region writes, so there is no loss of data in the event of region failure.
 
 Azure Private 5G Core resources deployed in the failed region will become read-only, but resources in all other regions will continue to operate unaffected. If you need to be able to write resources at all times, follow the instructions in [Set up disaster recovery and outage detection](#set-up-disaster-recovery-and-outage-detection) to perform your own disaster recovery operation and set up the service in another region.
 
@@ -93,24 +93,27 @@ For security reasons, Azure Private 5G Core will never return the SIM credential
 Your Azure Private 5G Core deployment may make use of Azure Key Vaults for storing [SIM encryption keys](/azure/private-5g-core/security#customer-managed-key-encryption-at-rest) or HTTPS certificates for [local monitoring](/azure/private-5g-core/security#access-to-local-monitoring-tools). You must follow the [key vault documentation](/azure/key-vault/general/disaster-recovery-guidance) to ensure that your keys and certificates will be available in the backup region.
 
 ##### Recovery
-In the event of a region failure, first validate that all the resources in your backup region are present by querying the configuration through the Azure portal or API (see [Move resources to a different region](/azure/private-5g-core/region-move)). If all the resources are not present,stop here and not follow the rest of this procedure. You may not be able to recover service at the edge site without the resource configuration.
+In the event of a region failure, first validate that all the resources in your backup region are present by querying the configuration through the Azure portal or API (see [Move resources to a different region](/azure/private-5g-core/region-move)). If all the resources are not present, stop here and do not follow the rest of this procedure. You may not be able to recover service at the edge site without the resource configuration.
 
 The recovery process is split into three stages for each packet core:
 
-1. Disconnect the edge device from the failed region by performing a reset
-1. Connect the edge device to the backup region
+1. Disconnect the Azure Stack Edge device from the failed region by performing a reset
+1. Connect the Azure Stack Edge device to the backup region
 1. Re-install and validate the installation.
 
-You must repeat this process for every packet core in your mobile network. It is recommended that you only perform this procedure for packet cores where you have a business-critical need to manage the Azure Private 5G Core deployment through Azure during the region failure because the procedure will cause a network outage lasting several hours for each packet core.
+You must repeat this process for every packet core in your mobile network.
 
-**Disconnect the edge device from the failed region**
-The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate you Azure Stack Edge device](https://learn.microsoft.com/en-us/azure/databox-online/azure-stack-edge-reset-reactivate-device). Note that this will remove ALL software currently running on your edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this ASE.
+> [!CAUTION]
+> The recovery procedure will cause an outage of your packet core service and interrupt network connectivity to your UEs for up to eight hours for each packet core. We recommended that you only perform this procedure where you have a business-critical need to manage the Azure Private 5G Core deployment through Azure during the region failure.
 
-**Connect the edge device to the new region**
-Re-run the installation script provided by your trials engineer to redeploy the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your ASE device. Ensure that you use a different name for this new installation to avoid clashes when the failed region recovers. As part of this process you will get a new custom location ID for the cluster, which you should note down.
+**Disconnect the Azure Stack Edge device from the failed region**
+The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate you Azure Stack Edge device](https://learn.microsoft.com/en-us/azure/databox-online/azure-stack-edge-reset-reactivate-device). Note that this will remove ALL software currently running on your Azure Stack Edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this Azure Stack Edge device.
+
+**Connect the Azure Stack Edge device to the new region**
+Re-run the installation script provided by your trials engineer to redeploy the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your Azure Stack Edge device. Ensure that you use a different name for this new installation to avoid clashes when the failed region recovers. As part of this process you will get a new custom location ID for the cluster, which you should note down.
 
 **Reinstall and validation**
-Take a copy of the packetCoreControlPlanes.platform values you stored in [Preparation](#preparation) and update the packetCoreControlPlane.platform.customLocation field with the custom location ID you noted above. Ensure that packetCoreControlPlane.platform.azureStackEdgeDevice matches the ID of the ASE you want to install the packet core on. Now follow [Modify a packet core](/azure/private-5g-core/modify-packet-core) to update the backup packet core with the platform values. This will trigger a packet core deployment onto the edge device.
+Take a copy of the packetCoreControlPlanes.platform values you stored in [Preparation](#preparation) and update the packetCoreControlPlane.platform.customLocation field with the custom location ID you noted above. Ensure that packetCoreControlPlane.platform.azureStackEdgeDevice matches the ID of the Azure Stack Edge device you want to install the packet core on. Now follow [Modify a packet core](/azure/private-5g-core/modify-packet-core) to update the backup packet core with the platform values. This will trigger a packet core deployment onto the Azure Stack Edge device.
 
 You should follow your normal process for validating a new site install to confirm that UE connectivity has been restored and all network functionality is operational. In particular, you should confirm that the site dashboards in the Azure portal show UE registrations and that data is flowing through the data plane.
 
@@ -120,7 +123,7 @@ When the failed region recovers, you should ensure the configuration in the two 
 
 You must also check for and remove any resources in the recovered region that have not been destroyed by the preceding steps:
 
-- For each ASE that you moved to the backup region (following the steps in [Recovery](#recovery)) you must find and delete the old ARC cluster resource. The ID of this resource is in the packetCoreControlPlane.platform.customLocation field from the values you backed up in [Preparation](#preparation). The state of this resource will be "disconnected" because the corresponding Kubernetes cluster was deleted as part of the recovery process.
+- For each Azure Stack Edge device that you moved to the backup region (following the steps in [Recovery](#recovery)) you must find and delete the old ARC cluster resource. The ID of this resource is in the packetCoreControlPlane.platform.customLocation field from the values you backed up in [Preparation](#preparation). The state of this resource will be "disconnected" because the corresponding Kubernetes cluster was deleted as part of the recovery process.
 - For each packet core that you moved to the backup region (following the steps in [Recovery](#recovery)) you must find and delete any NFM objects in the recovered region. These will be listed in the same resource group as the packet core control plane resources and the "Region" value will match the recovered region.
 
 You then have two choices for ongoing management:
