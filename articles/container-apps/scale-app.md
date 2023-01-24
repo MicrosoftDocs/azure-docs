@@ -51,6 +51,8 @@ Scaling is driven by three different categories of triggers:
     - Apache Kafka
     - Redis
 
+If you define more than one scale rule, the container app begins to scale once the first condition of any rules is met.
+
 ## HTTP
 
 With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales.
