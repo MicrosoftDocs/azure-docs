@@ -5,6 +5,7 @@ description: Learn about how MLflow uses the concept of models instead of artifa
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 11/04/2022

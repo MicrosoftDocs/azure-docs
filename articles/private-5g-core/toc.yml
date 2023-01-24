@@ -118,6 +118,10 @@ items:
       href: distributed-tracing-share-traces.md
   - name: Gather diagnostics
     href: gather-diagnostics.md
+  - name: Move between regions
+    items:
+    - name: Move private mobile network resources
+      href: region-move-private-mobile-network-resources.md
 - name: Reference
   items:
    - name: REST API
