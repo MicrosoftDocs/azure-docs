@@ -84,7 +84,7 @@ You need to create an [application](https://learn.microsoft.com/graph/api/resour
 
      - Using Microsoft Graph 
      ```
-     GET /servicePrincipals(appId='{appId}')
+     GET GET /servicePrincipals?$filter=(appId eq '{appId}').
      ```
      For more information see [get service principal](https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http)
 
