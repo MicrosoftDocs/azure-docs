@@ -231,7 +231,7 @@ Use these parameters to enable the flag:
 - **Type**: `Integer`
 - **Value**: 1 or 0. This value is set to 1 by default. 
 
-Both iOS and macOS require this setting so that Microsoft Enterprise SSO plug-in can provide a consistent experience across all apps. The setting is enabled by default and it should only be disabled if end user is unable to sign-in with their credentials.
+Both iOS and macOS require this setting so that the Microsoft Enterprise SSO plug-in can provide a consistent experience across all apps. This setting is enabled by default and it should only be disabled if the end user is unable to sign in with their credentials.
 
 #### Disable OAuth 2 application prompts
 
