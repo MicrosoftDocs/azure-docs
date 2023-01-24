@@ -15,7 +15,7 @@ ms.custom: devx-track-python, devguide-python
 
 # Get started with Azure Blob Storage and Python
 
-This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library Python. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Python. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
 [API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (PyPi)](https://pypi.org/project/azure-storage-blob/) | [Samples](../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 
@@ -23,8 +23,27 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
+- [Python](https://www.python.org/downloads/) 3.6+
 
 ## Set up your project
+
+This section walks you through preparing a project to work with the Azure Blob Storage client library for Python.
+
+From your project directory, install packages for the Azure Blob Storage and Azure Identity client libraries using the `pip install` command. The **azure-identity** package is needed for passwordless connections to Azure services.
+
+```console
+pip install azure-storage-blob azure-identity
+```
+
+Then open your code file and add the necessary import statements. In this example, we add the following to our *.py* file:
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+```
+
+Blob client library information:
+- [azure.storage.blob](/python/api/azure-storage-blob/azure.storage.blob): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
 
 ## Authorize access and connect to Blob Storage
 

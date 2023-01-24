@@ -1,7 +1,7 @@
 ---
-title: Create and manage blob or container leases with Python
+title: Create and manage container leases with Python
 titleSuffix: Azure Storage
-description: Learn how to manage a lock on a blob or container in your Azure Storage account using the Python client library.
+description: Learn how to manage a lock on a container in your Azure Storage account using the Python client library.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
@@ -14,7 +14,7 @@ ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
-# Create and manage blob container leases with Python
+# Create and manage container leases with Python
 
 This article shows how to create and manage container leases using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
@@ -24,11 +24,15 @@ You can use the Python client library to acquire, renew, release and break lease
 
 ## Acquire a lease
 
-When you acquire a lease, you'll obtain a lease ID that your code can use to operate on the blob or container. To acquire a lease, create an instance of the [BlobLeaseClient](/python/api/azure-storage-blob/azure.storage.blob.blobleaseclient) class, and then use the following method:
+When you acquire a lease, you'll obtain a lease ID that your code can use to operate on the container. To acquire a lease, create an instance of the [BlobLeaseClient](/python/api/azure-storage-blob/azure.storage.blob.blobleaseclient) class, and then use the following method:
 
 - [BlobLeaseClient.acquire](/python/api/azure-storage-blob/azure.storage.blob.blobleaseclient#azure-storage-blob-blobleaseclient-acquire)
 
-The following example acquires a 30-second lease for a blob:
+You can also acquire a lease using the following method from the [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) class:
+
+- [ContainerClient.acquire_lease](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-acquire-lease)
+
+The following example acquires a 30-second lease on a container:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_acquire_container_lease":::
 
@@ -38,7 +42,7 @@ If your lease expires, you can renew it. To renew a lease, use the following met
 
 - [BlobLeaseClient.renew](/python/api/azure-storage-blob/azure.storage.blob.blobleaseclient#azure-storage-blob-blobleaseclient-renew)
 
-The following example renews a lease for a blob:
+The following example renews a lease for a container:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_renew_container_lease":::
 
@@ -48,7 +52,7 @@ You can either wait for a lease to expire or explicitly release it. When you rel
 
 - [BlobLeaseClient.release](/python/api/azure-storage-blob/azure.storage.blob.blobleaseclient#azure-storage-blob-blobleaseclient-release)
 
-The following example releases the lease on a blob:
+The following example releases the lease on a container:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_release_container_lease":::
 
@@ -58,7 +62,7 @@ When you break a lease, the lease ends, but other clients can't acquire a lease 
 
 - [BlobLeaseClient.break_lease](/python/api/azure-storage-blob/azure.storage.blob.blobleaseclient#azure-storage-blob-blobleaseclient-break-lease)
 
-The following example breaks the lease on a blob:
+The following example breaks the lease on a container:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_break_container_lease":::
 

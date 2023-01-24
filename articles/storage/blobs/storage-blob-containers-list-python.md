@@ -34,15 +34,15 @@ To filter the list of containers, specify a string or character for the `name_st
 
 ## Code examples
 
-The following example lists all containers names and any associated metadata:
+The following example lists all containers and metadata. You can include container metadata by setting `include_metadata` to :
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers":::
 
-The following example lists only containers that begin with a specified prefix:
+The following example lists only containers that begin with a prefix specified in the `name_starts_with` parameter:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers_prefix":::
 
-You can also specify a limit for the number of results per page:
+You can also specify a limit for the number of results per page. This example passes in `results_per_page` and paginates the results:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers_pages":::
 
