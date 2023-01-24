@@ -53,47 +53,6 @@ Have the following information ready:
 * The device **Registration ID** you created
 * Either the **Primary Key** from an individual enrollment, or a [derived key](#derive-a-device-key) for devices using a group enrollment.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-1. Open the configuration file on the IoT Edge device.
-
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-1. Find the provisioning configurations section of the file. Uncomment the lines for DPS symmetric key provisioning, and make sure any other provisioning lines are commented out.
-
-   The `provisioning:` line should have no preceding whitespace, and nested items should be indented by two spaces.
-
-    ```yml
-    # DPS TPM provisioning configuration
-    provisioning:
-      source: "dps"
-      global_endpoint: "https://global.azure-devices-provisioning.net"
-      scope_id: "PASTE_YOUR_SCOPE_ID_HERE"
-      attestation:
-        method: "symmetric_key"
-        registration_id: "PASTE_YOUR_REGISTRATION_ID_HERE"
-        symmetric_key: "PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE"
-
-   # always_reprovision_on_startup: true
-   # dynamic_reprovisioning: true
-   ```
-
-1. Update the values of `scope_id`, `registration_id`, and `symmetric_key` with your DPS and device information.
-
-1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge (and all modules) will restart and reprovision if a reprovisioning event is detected, like if the device is moved from one IoT Hub to another. Specifically, IoT Edge checks for `bad_credential` or `device_disabled` errors from the SDK to detect the reprovision event. To trigger this event manually, disable the device in IoT Hub. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
-1. Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device.
-
-   ```bash
-   sudo systemctl restart iotedge
-   ```
-
-:::moniker-end
-<!-- end 1.1 -->
-
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
@@ -176,30 +135,6 @@ You can verify that the group enrollment that you created in device provisioning
 ---
 
 Use the following commands on your device to verify that the IoT Edge installed and started successfully.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-Check the status of the IoT Edge service.
-
-```cmd/sh
-systemctl status iotedge
-```
-
-Examine service logs.
-
-```cmd/sh
-journalctl -u iotedge --no-pager --no-full
-```
-
-List running modules.
-
-```cmd/sh
-iotedge list
-```
-
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"

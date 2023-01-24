@@ -143,27 +143,6 @@ After the installation is finished and you've signed back in to your VM, you're 
 
 ## Retrieve provisioning information for your TPM
 
-<!-- 1.1 -->
-:::moniker range="<iotedge-1.4"
-In this section, you build a tool that you can use to retrieve the registration ID and endorsement key for your TPM.
-
-1. Sign in to your device, and then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
-
-1. Run the following commands to build the SDK tool that retrieves your device provisioning information for your TPM.
-
-   ```bash
-   cd azure-iot-sdk-c/cmake
-   cmake -Duse_prov_client:BOOL=ON ..
-   cd provisioning_client/tools/tpm_device_provision
-   make
-   sudo ./tpm_device_provision
-   ```
-
-1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
-
-:::moniker-end
-<!-- end 1.1 -->
-
 <!-- iotedge-1.4 -->
 :::moniker range=">=iotedge-1.4"
 
@@ -239,44 +218,6 @@ After you have your registration ID and endorsement key, you're ready to continu
 
 After the runtime is installed on your device, configure the device with the information it uses to connect to the device provisioning service and IoT Hub.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-1. Know your device provisioning service **ID Scope** and device **Registration ID** that were gathered previously.
-
-1. Open the configuration file on your IoT Edge device.
-
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-1. Find the provisioning configuration section of the file. Uncomment the lines for TPM provisioning, and make sure any other provisioning lines are commented out.
-
-   The `provisioning:` line should have no preceding whitespace, and nested items should be indented by two spaces.
-
-   ```yml
-   # DPS TPM provisioning configuration
-   provisioning:
-     source: "dps"
-     global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "SCOPE_ID_HERE"
-     attestation:
-       method: "tpm"
-       registration_id: "REGISTRATION_ID_HERE"
-
-   # always_reprovision_on_startup: true
-   # dynamic_reprovisioning: false
-   ```
-
-1. Update the values of `scope_id` and `registration_id` with your device provisioning service and device information. The `scope_id` value is the **ID Scope** from your device provisioning service instance's overview page.
-
-1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge (and all modules) will restart and reprovision if a reprovisioning event is detected, like if the device is moved from one IoT Hub to another. Specifically, IoT Edge checks for `bad_credential` or `device_disabled` errors from the SDK to detect the reprovision event. To trigger this event manually, disable the device in IoT Hub. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
-1. Save and close the file.
-
-:::moniker-end
-<!-- end 1.1 -->
-
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
@@ -331,65 +272,6 @@ After the runtime is installed on your device, configure the device with the inf
 <!-- end iotedge-2020-11 -->
 
 ## Give IoT Edge access to the TPM
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-The IoT Edge runtime needs to access the TPM to automatically provision your device.
-
-You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the `iotedge` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
-
-1. Create a new rule that will give the IoT Edge runtime access to `tpm0` and `tpmrm0`.
-
-   ```bash
-   sudo touch /etc/udev/rules.d/tpmaccess.rules
-   ```
-
-1. Open the rules file.
-
-   ```bash
-   sudo nano /etc/udev/rules.d/tpmaccess.rules
-   ```
-
-1. Copy the following access information into the rules file. The `tpmrm0` might not be present on devices that use a kernel earlier than 4.12. Devices that don't have `tpmrm0` will safely ignore that rule.
-
-   ```input
-   # allow iotedge access to tpm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="iotedge", MODE="0600"
-   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="iotedge", MODE="0600"
-   ```
-
-1. Save and exit the file.
-
-1. Trigger the `udev` system to evaluate the new rule.
-
-   ```bash
-   /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
-   ```
-
-1. Verify that the rule was successfully applied.
-
-   ```bash
-   ls -l /dev/tpm*
-   ```
-
-   Successful output appears as follows:
-
-   ```output
-   crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpm0
-   crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpmrm0
-   ```
-
-   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh `udev`.
-
-1. Restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device.
-
-   ```bash
-   sudo systemctl restart iotedge
-   ```
-
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
@@ -451,36 +333,6 @@ You can give access to the TPM by overriding the systemd settings so that the `a
 <!-- end iotedge-2020-11 -->
 
 ## Verify successful installation
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-If you didn't already, restart the IoT Edge runtime so that it picks up all the configuration changes that you made on the device.
-
-   ```bash
-   sudo systemctl restart iotedge
-   ```
-
-Check to see that the IoT Edge runtime is running.
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
-
-Examine daemon logs.
-
-```cmd/sh
-journalctl -u iotedge --no-pager --no-full
-```
-
-If you see provisioning errors, it might be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon again.
-
-   ```bash
-   sudo systemctl daemon-reload
-   ```
-
-Or, try restarting your VM to see if the changes take effect on a fresh start.
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"

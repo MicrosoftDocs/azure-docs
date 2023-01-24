@@ -16,13 +16,6 @@ ms.service: iot-edge
 
 The Azure IoT Edge security manager is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware. The security manager is the focal point for security hardening and provides technology integration point to original equipment manufacturers (OEM).
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-The security manager abstracts the secure silicon hardware on an IoT Edge device.
-
-![Azure IoT Edge security manager](media/edge-security-manager/iot-edge-security-manager.png)
-:::moniker-end
-
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 The security manager abstracts the secure silicon hardware on an IoT Edge device and provides an extensibility framework for additional security services.
@@ -39,18 +32,6 @@ Additionally, the IoT Edge security manager provides a safe framework for securi
 
 The responsibilities of the IoT Edge security manager include, but aren't limited to:
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-* Bootstrap the Azure IoT Edge device.
-* Control access to the device hardware root of trust through notary services.
-* Monitor the integrity of IoT Edge operations at runtime.
-* Receives trust delegation from the hardware security module (HSM)
-* Provision the device identity and manage transition of trust where applicable.
-* Host and protect device components of cloud services like Device Provisioning Service.
-* Provision IoT Edge modules with unique identities.
-:::moniker-end
-
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 
@@ -63,14 +44,6 @@ The responsibilities of the IoT Edge security manager include, but aren't limite
 
 The IoT Edge security manager consists of three components:
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-* The IoT Edge security daemon
-* The hardware security module platform abstraction layer (HSM PAL)
-* A hardware silicon root of trust or HSM (optional, but highly recommended)
-:::moniker-end
-
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 
@@ -81,13 +54,6 @@ The IoT Edge security manager consists of three components:
 ## Changes in version 1.2 and later
 
 In versions 1.0 and 1.1 of IoT Edge, a component called the **security daemon** was responsible for the logical security operations of the security manager. In the update to version 1.2, several key responsibilities were delegated to the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/) security subsystem. Once these security-based tasks were removed from the security daemon, its name no longer made sense. To better reflect the work that this component does in version 1.2 and beyond, we renamed it to the **module runtime**.
-:::moniker-end
-
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-## The IoT Edge security daemon
-
-The IoT Edge security daemon is responsible for the logical security operations of the security manager. It represents a significant portion of the trusted computing base of the IoT Edge device.
 :::moniker-end
 
 <!--iotedge-2020-11-->
@@ -105,12 +71,6 @@ IoT Edge follows two core principles: maximize operational integrity, and minimi
 
 #### Maximize operational integrity
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-The IoT Edge security daemon operates with the highest integrity possible within the defense capability of any given root of trust hardware. With proper integration, the root of trust hardware measures and monitors the security daemon statically and at runtime to resist tampering.
-:::moniker-end
-
-<!--1.1-->
 :::moniker range=">=iotedge-2020-11"
 The IoT Edge module runtime operates with the highest integrity possible within the defense capability of any given root of trust hardware. With proper integration, the root of trust hardware measures and monitors the security daemon statically and at runtime to resist tampering.
 :::moniker-end
@@ -125,11 +85,6 @@ Two kinds of execution environments exist to use hardware root of trust:
 * The standard or rich execution environment (REE) that relies on the use of secure elements to protect sensitive information.
 * The trusted execution environment (TEE) that relies on the use of secure enclave technology to protect sensitive information and offer protection to software execution.
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-For devices using secure enclaves as hardware root of trust, sensitive logic within the IoT Edge security daemon should be inside the enclave.  Non-sensitive portions of the security daemon can be outside of the TEE.  In all cases, we strongly recommend that original design manufacturers (ODM) and original equipment manufacturers (OEM) extend trust from their HSM to measure and defend the integrity of the IoT Edge security daemon at boot and runtime.
-:::moniker-end
-
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 For devices using secure enclaves as hardware root of trust, sensitive logic within the IoT Edge module runtime should be inside the enclave.  Non-sensitive portions of the module runtime can be outside of the TEE.  In all cases, we strongly recommend that original design manufacturers (ODM) and original equipment manufacturers (OEM) extend trust from their HSM to measure and defend the integrity of the IoT Edge module runtime at boot and runtime.
@@ -137,25 +92,12 @@ For devices using secure enclaves as hardware root of trust, sensitive logic wit
 
 #### Minimize bloat and churn
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-Another core principle for the IoT Edge security daemon is to minimize churn.  For the highest level of trust, the IoT Edge security daemon can tightly couple with the device hardware root of trust and operate as native code.  In these cases, it's common to update the IoT Edge software through the hardware root of trust's secure update paths rather than the operating system's update mechanisms, which can be challenging.  Security renewal is recommended for IoT devices, but excessive update requirements or large update payloads can expand the threat surface in many ways. For example, you may be tempted to skip some updates in order to maximize device availability. As such, the design of the IoT Edge security daemon is concise to keep the well-isolated trusted computing base small to encourage frequent updates.
-:::moniker-end
-
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 Another core principle for the IoT Edge module runtime is to minimize churn.  For the highest level of trust, the IoT Edge module runtime can tightly couple with the device hardware root of trust and operate as native code.  In these cases, it's common to update the IoT Edge software through the hardware root of trust's secure update paths rather than the operating system's update mechanisms, which can be challenging.  Security renewal is recommended for IoT devices, but excessive update requirements or large update payloads can expand the threat surface in many ways. For example, you may be tempted to skip some updates in order to maximize device availability. As such, the design of the IoT Edge module runtime is concise to keep the well-isolated trusted computing base small to encourage frequent updates.
 :::moniker-end
 
 ### Architecture
-
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-The IoT Edge security daemon takes advantage of any available hardware root of trust technology for security hardening.  It also allows for split-world operation between a standard/rich execution environment (REE) and a trusted execution environment (TEE) when hardware technologies offer trusted execution environments. Role-specific interfaces enable the major components of IoT Edge to assure the integrity of the IoT Edge device and its operations.
-
-![Azure IoT Edge security daemon architecture](media/edge-security-manager/iot-edge-security-daemon.png)
-:::moniker-end
 
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
@@ -170,15 +112,6 @@ The IoT Edge module runtime takes advantage of any available hardware root of tr
 The cloud interface enables access to cloud services that complement device security.  For example, this interface allows access to the [Device Provisioning Service](../iot-dps/index.yml) for device identity lifecycle management.  
 
 #### Management API
-
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-The management API is called by the IoT Edge agent when creating/starting/stopping/removing an IoT Edge module. The security daemon stores "registrations" for all active modules. These registrations map a module's identity to some properties of the module. For example, these module properties include the process identifier (pid) of the process running in the container and the hash of the docker container's contents.
-
-These properties are used by the workload API (described below) to verify that the caller is authorized for an action.
-
-The management API is a privileged API, callable only from the IoT Edge agent.  Since the IoT Edge security daemon bootstraps and starts the IoT Edge agent, it verifies that the IoT Edge agent hasn't been tampered with, then it can create an implicit registration for the IoT Edge agent. The same attestation process that the workload API uses also restricts access to the management API to only the IoT Edge agent.
-:::moniker-end
 
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
@@ -197,22 +130,12 @@ The container API interacts with the container system in use for module manageme
 
 The workload API is accessible to all modules. It provides proof of identity, either as an HSM rooted signed token or an X509 certificate, and the corresponding trust bundle to a module. The trust bundle contains CA certificates for all the other servers that the modules should trust.
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-The IoT Edge security daemon uses an attestation process to guard this API. When a module calls this API, the security daemon attempts to find a registration for the identity. If successful, it uses the properties of the registration to measure the module. If the result of the measurement process matches the registration, a new proof of identity is generated. The corresponding CA certificates (trust bundle) are returned to the module.  The module uses this certificate to connect to IoT Hub, other modules, or start a server. When the signed token or certificate nears expiration, it's the responsibility of the module to request a new certificate.
-:::moniker-end
-
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 The IoT Edge module runtime uses an attestation process to guard this API. When a module calls this API, the module runtime attempts to find a registration for the identity. If successful, it uses the properties of the registration to measure the module. If the result of the measurement process matches the registration, a new proof of identity is generated. The corresponding CA certificates (trust bundle) are returned to the module.  The module uses this certificate to connect to IoT Hub, other modules, or start a server. When the signed token or certificate nears expiration, it's the responsibility of the module to request a new certificate.
 :::moniker-end
 
 ### Integration and maintenance
-
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-Microsoft maintains the main code base for the [IoT Edge security daemon on GitHub](https://github.com/Azure/iotedge/tree/release/1.1/edgelet).
-:::moniker-end
 
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
@@ -223,11 +146,6 @@ When you read the IoT Edge codebase, remember that the **module runtime** evolve
 
 #### Installation and updates
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-Installation and updates of the IoT Edge security daemon are managed through the operating system's package management system. IoT Edge devices with hardware root of trust should provide additional hardening to the integrity of the daemon by managing its lifecycle through the secure boot and updates management systems. Device makers should explore these avenues based on their respective device capabilities.
-:::moniker-end
-
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 Installation and updates of the IoT Edge module runtime are managed through the operating system's package management system. IoT Edge devices with hardware root of trust should provide additional hardening to the integrity of the module runtime by managing its lifecycle through the secure boot and updates management systems. Device makers should explore these avenues based on their respective device capabilities.
@@ -235,22 +153,12 @@ Installation and updates of the IoT Edge module runtime are managed through the 
 
 #### Versioning
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-The IoT Edge runtime tracks and reports the version of the IoT Edge security daemon. The version is reported as the *runtime.platform.version* attribute of the IoT Edge agent module reported property.
-:::moniker-end
-
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 The IoT Edge runtime tracks and reports the version of the IoT Edge module runtime. The version is reported as the *runtime.platform.version* attribute of the IoT Edge agent module reported property.
 :::moniker-end
 
 ## Hardware security module
-
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-The hardware security module platform abstraction layer (HSM PAL) abstracts all root of trust hardware to isolate the developer or user of IoT Edge from their complexities.  It includes a combination of application programming interface (API) and trans-domain communication procedures, for example communication between a standard execution environment and a secure enclave.  The actual implementation of the HSM PAL depends on the specific secure hardware in use. Its existence enables the use of virtually any secure silicon hardware.
-:::moniker-end
 
 <!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"

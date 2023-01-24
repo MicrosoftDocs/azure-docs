@@ -22,18 +22,6 @@ The commands described in this article are from the `AzureEFLOW.psm1` file, whic
 
 If you don't have the **AzureEflow** folder in your PowerShell directory, use the following steps to download and install Azure IoT Edge for Linux on Windows: 
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
-
-   ```powershell
-   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-   $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
-   ```
-:::moniker-end
-<!-- end iotedge-2018-06 -->
-
 <!-- iotedge-2020-11 -->
 :::moniker range="iotedge-2020-11"
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
@@ -188,27 +176,6 @@ For more information, use the command `Get-Help Copy-EflowVMFile -full`.
 ## Deploy-Eflow
 
 The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to modify settings for the virtual machine during creation.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-| Parameter | Accepted values | Comments |
-| --------- | --------------- | -------- |
-| acceptEula | **Yes** or **No** | A shortcut to accept/deny EULA and bypass the EULA prompt. |
-| acceptOptionalTelemetry | **Yes** or **No** |  A shortcut to accept/deny optional telemetry and bypass the telemetry prompt. |
-| cpuCount | Integer value between 1 and the device's CPU cores |  Number of CPU cores for the VM.<br><br>**Default value**: 1 vCore. |
-| memoryInMB | Integer **even** value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
-| vmDiskSize | Between 8 GB and 2 TB | Maximum logical disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 16 GB. |
-| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
-| vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
-| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
-| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
-| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
-| gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
-| gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
-| gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
-| customSsh | None | Determines whether user wants to use their custom OpenSSH.Client installation. If present, ssh.exe must be available to the EFLOW PSM |
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
@@ -463,15 +430,6 @@ For more information, use the command `Get-Help Set-EflowVmDNSServers -full`.
 ## Set-EflowVmFeature
 
 The **Set-EflowVmFeature** command enables or disables the status of IoT Edge for Linux on Windows features.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-| Parameter | Accepted values | Comments |
-| --------- | --------------- | -------- |
-| feature | **DpsTpm** | Feature name to toggle. |
-| enable | None | If this flag is present, the command enables the feature. |
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"

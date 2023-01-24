@@ -65,38 +65,6 @@ You're ready to set up your device with its cloud identity and authentication in
 
 To provision your device using symmetric keys, you will need your device's **connection string**.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-You can use the Windows Admin Center or an elevated PowerShell session to provision your devices.
-
-# [PowerShell](#tab/powershell)
-
-Run the following command in an elevated PowerShell session on your target device. Replace the placeholder text with your own values.
-
-```powershell
-Provision-EflowVm -provisioningType ManualConnectionString -devConnString "PASTE_DEVICE_CONNECTION_STRING_HERE"
-```
-
-For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#provision-eflowvm).
-
-# [Windows Admin Center](#tab/windowsadmincenter)
-
-1. On the **Azure IoT Edge device provisioning** pane, select **Connection String (Manual)** from the provisioning method dropdown.
-
-1. Provide the **Device connection string** that you retrieved from IoT Hub after registering the device.
-
-1. Select **Provisioning with the selected method**.
-
-   ![Choose provisioning with the selected method after pasting your device's connection string](./media/how-to-provision-single-device-linux-on-windows-symmetric/provisioning-with-selected-method-connection-string.png)
-
-1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed with the type `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
-
----
-
-:::moniker-end
-<!-- end 1.1 -->
-
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
@@ -114,64 +82,6 @@ For more information about the `Provision-EflowVM` command, see [PowerShell func
 ## Verify successful configuration
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-# [PowerShell](#tab/powershell)
-
-1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
-
-   ```powershell
-   Connect-EflowVm
-   ```
-
-   >[!NOTE]
-   >The only account allowed to SSH to the virtual machine is the user that created it.
-
-1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
-
-   ```bash
-   sudo iotedge list
-   ```
-
-1. If you need to troubleshoot the IoT Edge service, use the following Linux commands.
-
-    1. Retrieve the service logs.
-
-       ```bash
-       sudo journalctl -u iotedge
-       ```
-
-    2. Use the `check` tool to verify configuration and connection status of the device.
-
-       ```bash
-       sudo iotedge check
-       ```
-
-    >[!NOTE]
-    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
-    >
-    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
-    >
-    >**Could not check current state of edgeHub container**
-    >
-    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
-
-# [Windows Admin Center](#tab/windowsadmincenter)
-
-1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
-
-1. The device overview page displays some information about the device:
-
-   * The **IoT Edge Module List** section shows running modules on the device. When the IoT Edge service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
-
-   * The **IoT Edge Status** section shows the service status, and should be reporting **active (running)**.
-
----
-
-:::moniker-end
-<!-- end 1.1 -->
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"

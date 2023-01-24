@@ -82,36 +82,6 @@ To reduce the bandwidth that your IoT Edge solution uses, the IoT Edge hub optim
 
 IoT Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, IoT Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the IoT Edge hub's module twin. The size of the cache isn't capped and will grow as long as the device has storage capacity. For more information, see [Offline capabilities](offline-capabilities.md).
 
-<!-- <1.1> -->
-::: moniker range="iotedge-2018-06"
-
-### Module communication
-
-IoT Edge hub facilitates module to module communication. Using IoT Edge hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages. A solution developer can stitch these inputs and outputs together so that the modules process data in the order specific to that solution.
-
-![IoT Edge Hub facilitates module-to-module communication](./media/iot-edge-runtime/module-endpoints.png)
-
-To send data to the IoT Edge hub, a module calls the SendEventAsync method. The first argument specifies on which output to send the message. The following pseudocode sends a message on **output1**:
-
-   ```csharp
-   ModuleClient client = await ModuleClient.CreateFromEnvironmentAsync(transportSettings);
-   await client.OpenAsync();
-   await client.SendEventAsync("output1", message);
-   ```
-
-To receive a message, register a callback that processes messages coming in on a specific input. The following pseudocode registers the function messageProcessor to be used for processing all messages received on **input1**:
-
-   ```csharp
-   await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
-   ```
-
-For more information about the ModuleClient class and its communication methods, see the API reference for your preferred SDK language: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothub_module_client.h), [Python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient), or [Node.js](/javascript/api/azure-iot-device/moduleclient).
-
-The solution developer is responsible for specifying the rules that determine how IoT Edge hub passes messages between modules. Routing rules are defined in the cloud and pushed down to IoT Edge hub in its module twin. The same syntax for IoT Hub routes is used to define routes between modules in Azure IoT Edge. For more information, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
-
-![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-routing.png)
-::: moniker-end
-
 <!-- <iotedge-2020-11> -->
 ::: moniker range=">=iotedge-2020-11"
 

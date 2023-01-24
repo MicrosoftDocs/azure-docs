@@ -53,13 +53,6 @@ Make sure your IoT Edge device meets the following requirements:
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
->[!NOTE]
->This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=windowsadmincenter).
-:::moniker-end
-<!-- end 1.1 -->
-
 ## Create an IoT hub
 
 Start by creating an IoT hub with the Azure CLI.
@@ -119,16 +112,6 @@ Run the following PowerShell commands on the target device where you want to dep
    ```
 
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
-
-      <!-- 1.1 -->
-   :::moniker range="iotedge-2018-06"
-   ```powershell
-   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-   $ProgressPreference = 'SilentlyContinue'
-   ​Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
-   ```
-   :::moniker-end
-   <!-- end 1.1 -->
 
    <!-- iotedge-2020-11 -->
    :::moniker range="iotedge-2020-11"

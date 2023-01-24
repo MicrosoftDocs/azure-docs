@@ -56,41 +56,6 @@ This article covers registering your IoT Edge device and installing IoT Edge on 
 
 Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to set up the device with its cloud identity and authentication information.
 
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
-
-On the IoT Edge device, open the configuration file.
-
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-Find the provisioning configurations of the file and uncomment the **Manual provisioning configuration using a connection string** section, if it isn't already uncommented.
-
-   ```yml
-   # Manual provisioning configuration using a connection string
-   provisioning:
-     source: "manual"
-     device_connection_string: "ADD_DEVICE_CONNECTION_STRING_HERE"
-   ```
-
-Update the value of **device_connection_string** with the connection string from your IoT Edge device. Make sure that any other provisioning sections are commented out. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
-
-To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
-
-Save and close the file.
-
-   `CTRL + X`, `Y`, `Enter`
-
-After entering the provisioning information in the configuration file, restart the daemon:
-
-   ```bash
-   sudo systemctl restart iotedge
-   ```
-
-<!-- end 1.1 -->
-::: moniker-end
-
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
@@ -126,15 +91,6 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
 Check to see that the IoT Edge system service is running.
 
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
-
-::: moniker-end
-
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
@@ -147,15 +103,6 @@ A successful status response is `Ok`.
 ::: moniker-end
 
 If you need to troubleshoot the service, retrieve the service logs.
-
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
-
-   ```bash
-   journalctl -u iotedge
-   ```
-
-::: moniker-end
 
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
@@ -202,34 +149,6 @@ The steps in this section are for scenarios not covered by the standard installa
 Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
-
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
-
-1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target.
-
-2. Expand the **Assets** section for that version.
-
-3. Every release should have new files for the IoT Edge security daemon and the hsmlib. If you're going to install IoT Edge on an offline device, download these files ahead of time. Otherwise, use the following commands to update those components.
-
-   1. Find the **libiothsm-std** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
-
-   2. Use the copied link in the following command to install that version of the hsmlib:
-
-      ```bash
-      curl -L <libiothsm-std_link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
-      ```
-
-   3. Find the **iotedge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
-
-   4. Use the copied link in the following command to install that version of the IoT Edge security daemon.
-
-      ```bash
-      curl -L iotedge_link_here -o iotedge.deb && sudo apt-get install ./iotedge.deb
-      ```
-
-<!-- end 1.1 -->
-::: moniker-end
 
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
@@ -283,15 +202,6 @@ Now that the container engine and the IoT Edge runtime are installed on your dev
 If you want to remove the IoT Edge installation from your device, use the following commands.
 
 Remove the IoT Edge runtime.
-
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
-
-```bash
-sudo apt-get autoremove iotedge
-```
-
-::: moniker-end
 
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"

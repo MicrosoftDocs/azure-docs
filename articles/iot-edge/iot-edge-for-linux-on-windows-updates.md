@@ -62,18 +62,6 @@ On premises updates using WSUS is supported for IoT Edge for Linux on Windows up
 
 In some scenarios with restricted or limited internet connectivity, you may want to manually apply EFLOW updates offline. This is possible using Microsoft Update offline mechanisms. You can manually download and install an IoT Edge for Linux on Windows updates with the following steps:
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-1. Check the current EFLOW installed version. Open **Settings**, select **Apps** -> **Apps & features**  search for *Azure IoT Edge LTS*.
-
-1. Search and download the required update from [EFLOW - Microsoft Update catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20IoT%20Edge%20for%20Linux%20on%20Windows).
-
-1. Extract *AzureIoTEdge.msi* from the downloaded *.cab* file.
-
-1. Install the extracted *AzureIoTEdge.msi*.
-<!-- end 1.1 -->
-:::moniker-end
-
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 1. Check the current EFLOW installed version. Open **Settings**, select **Apps** -> **Apps & features**  search for *Azure IoT Edge*. 
@@ -94,27 +82,6 @@ As explained before, IoT Edges for Linux on Windows updates are serviced using M
 1. **CSP Policies** - By using the **Update/AllowMUUpdateService** CSP Policy - For more information about Microsoft Updates CSP policy, see [Policy CSP - MU Update](/windows/client-management/mdm/policy-csp-update#update-allowmuupdateservice).
 
 1. **Manually manage Microsoft Updates** - For more information about how to Opt-In to Microsoft Updates, see [Opt-In to Microsoft Update](/windows/win32/wua_sdk/opt-in-to-microsoft-update).
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-## Special case: Migration from HCS to VMMS on Server SKUs
-
-If you're updating a Windows Server SKU device previous to [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) version of IoT Edge for Linux on Windows to the latest available version, you need to do a manual migration.
-
-Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) introduced a change to the VM technology (HCS to VMMS) used for EFLOW Windows Server deployments. You can execute the VM migration with the following steps:
-
- 1. Using Microsoft Update, download and install the [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) update (same as any other EFLOW update, no need for manual steps as long as EFLOW updates are turned on).
- 2. Once EFLOW update is finished, open an elevated PowerShell session.
- 3. Run the migration script:
-
-    ```powershell
-    Migrate-EflowVmFromHcsToVmms
-    ```
-
->[!NOTE]
->Fresh EFLOW 1.1.2110.0311 MSI installations on Windows Server SKUs will result in EFLOW deployments using VMMS technology, so no migration is needed.
-<!-- end 1.1 -->
-:::moniker-end
 
 ## Migration between EFLOW 1.1LTS and EFLOW 1.4LTS
 
