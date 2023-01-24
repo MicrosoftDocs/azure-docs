@@ -1,8 +1,7 @@
 ---
-title: 'Tutorial: Federate a single AD forest environment to Azure'
-description: Learn how to set up a hybrid identity environment in Azure by using federation.
+title: 'Tutorial: Create a hybrid identity Active Directory tenant by using federation'
+description: Learn how to set up a hybrid identity environment by using federation to integrate a Windows Server Active Directory tenant with Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: amycolannino
 ms.service: active-directory
@@ -16,20 +15,25 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Federate a single AD forest environment to Azure
+# Tutorial: Create a hybrid identity Active Directory tenant by using federation
 
-![Create](media/tutorial-federation/diagram.png)
+This tutorial shows you how to create a hybrid identity environment in Azure by using federation and Windows Server Active Directory (Windows Server AD). You can use the hybrid identity environment you create for testing or to get more familiar with how hybrid identity works.
 
-This tutorial shows you how to create a hybrid identity environment in Azure by using federation. You can use the environment for testing or to get more familiar with how a hybrid identity works.
+:::image type="content" source="media/tutorial-federation/diagram.png" border="false" alt-text="Diagram that shows how to create a hybrid identity environment in Azure by using federation.":::
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
 > - Create a virtual machine.
-> - Create a Windows Server AD environment.
-> - Create a Windows Server AD user.
-> - 
+> - Create a Windows Server Active Directory environment.
+> - Create a Windows Server Active Directory user.
+> - Create a certificate.
+> - Create an Azure Active Directory tenant.
+> - Create a Hybrid Identity Administrator in Azure.
+> - Add a custom domain to your directory.
+> - Set up Azure Active Directory Connect.
+> - Test and verify that users are synced.
 
 ## Prerequisites
 
@@ -53,7 +57,7 @@ To complete the tutorial, you need these items:
 To create a hybrid identity environment, the first task is to create a virtual machine to use as an on-premises Windows Server AD server.
 
 > [!NOTE]
-> If you've never run a script in PowerShell on your host machine, before you run any scripts, open Windows PowerShell ISE as an administrator and run `Set-ExecutionPolicy remotesigned`. At the prompt, enter **yes**.
+> If you've never run a script in PowerShell on your host machine, before you run any scripts, open Windows PowerShell ISE as an administrator and run `Set-ExecutionPolicy remotesigned`. In the **Execution Policy Change** dialog, select **Yes**.
 
 To create the virtual machine:
 
@@ -85,7 +89,7 @@ To create the virtual machine:
     Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive 
     ```
 
-## Finish the operating system deployment
+## Deploy the operating system
 
 To finish creating the virtual machine, finish installing the operating system:
 
@@ -105,7 +109,7 @@ To finish creating the virtual machine, finish installing the operating system:
 Before you install Windows Server AD, run a script that installs prerequisites:
 
 1. Open Windows PowerShell ISE as administrator.
-1. Run `Set-ExecutionPolicy remotesigned` and enter **yes** to all [A]. Select Enter.
+1. Run `Set-ExecutionPolicy remotesigned`. In the **Execution Policy Change** dialog, select **Yes to All**.
 1. Run the following script:
 
     ```powershell
@@ -140,7 +144,7 @@ Before you install Windows Server AD, run a script that installs prerequisites:
 
 ## Create a Windows Server AD environment
 
-Now, install and configure Active Directory Domain Services:
+Now, install and configure Active Directory Domain Services to create the environment:
 
 1. Open Windows PowerShell ISE as administrator.
 1. Run the following script:
@@ -171,7 +175,7 @@ Now, install and configure Active Directory Domain Services:
 
 ## Create a Windows Server AD user
 
-Next, create a test account. You create this account in your on-premises Active Directory environment. The account is then synced to Azure Active Directory.
+Next, create a test account. You create this account in your on-premises Active Directory environment. The account is then synced to Azure Active Directory (Azure AD).
 
 1. Open Windows PowerShell ISE as administrator.
 1. Run the following script:
@@ -195,7 +199,7 @@ Next, create a test account. You create this account in your on-premises Active 
 
 ## Create a certificate for Active Directory Federation Services
 
-You need a TLS/SSL certificate that AD FS will use. This is a self-signed certificate, and you create it to use only for testing. We don't recommend that using a self-signed certificate in a production environment.
+You need a TLS or SSL certificate that Active Directory Federation Services (AD FS) will use. The certificate is self-signed certificate, and you create it to use only for testing. We recommend that you don't use a self-signed certificate in a production environment.
 
 To create a certificate:
 
@@ -211,129 +215,136 @@ To create a certificate:
     New-SelfSignedCertificate -DnsName $DNSname -CertStoreLocation $Location
     ```
 
-## Create an Azure AD tenant
+## Create an Azure Active Directory tenant
 
-Now, create an Azure AD tenant so you can sync your users in the cloud.
+Now, create an Azure AD tenant, so you can sync your users in Azure.
 
-To create a new Azure AD tenant:
+To create an Azure AD tenant:
 
 1. In the [Azure portal](https://portal.azure.com), sign in with the account that's associated with your Azure subscription.
 1. Search for and then select **Azure Active Directory**.
 1. Select **Create**.
 
-   ![Screenshot that shows how to create an Azure AD tenant.](media/tutorial-password-hash-sync/create1.png)
+   :::image type="content" source="media/tutorial-federation/create1.png" alt-text="Screenshot that shows how to create an Azure AD tenant.":::
 
 1. Enter a name for the organization and an initial domain name. Then select **Create** to create your directory.
 1. To manage the directory, select the **here** link.
 
 ## Create a Hybrid Identity Administrator in Azure AD
 
-The next task is to create a Hybrid Identity Administrator account. This account is used to create the Azure AD Connector account during Azure AD Connect installation. The Azure AD Connector account is used to write information to Azure AD.
+The next task is to create a Hybrid Identity Administrator account. This account is used to create the Azure AD Connector account during Azure Active Directory Connect installation. The Azure AD Connector account is used to write information to Azure AD.
 
 To create the Hybrid Identity Administrator account:
 
 1. In the left menu under **Manage**, select **Users**.
 
-   ![Screenshot that shows the User option selected in the Manage section where you create a Hybrid Identity Administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)
+   :::image type="content" source="media/tutorial-federation/gadmin1.png" alt-text="Screenshot that shows Users selected under Manage in the resource menu to create a Hybrid Identity Administrator in Azure AD.":::
 
 1. Select **All users**, and then select **New user**.
 
-1. In the **User** pane:
-
-   1. Enter a name and a username for the user. This is your Hybrid Identity Administrator account for the tenant.
-   1. You can show and copy the temporary password.
+1. In **User**, enter a name and a user name for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
 
    In the **Directory role** pane, select **Hybrid Identity Administrator**. Then select **Create**.
 
-   ![Screenshot that shows the Create button you select when you create a global administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)
+   :::image type="content" source="media/tutorial-federation/gadmin2.png" alt-text="Screenshot that shows the Create button you select when you create a Hybrid Identity Administrator account in Azure AD.":::
 
-1. Open a new web browser and sign in to myapps.microsoft.com by using the new global administrator account and the temporary password.
+1. In a new web browser window, sign in to myapps.microsoft.com by using the new Hybrid Identity Administrator account and the temporary password.
 
 1. Choose a new password for the Hybrid Identity Administrator account and change the password.
 
-## Add the custom domain name to your directory
+## Add a custom domain name to your directory
 
-Now that we have a tenant and a Hybrid Identity Administrator, we need to add our custom domain so that Azure can verify it. Do the following:
+Now that you have a tenant and a Hybrid Identity Administrator account, add your custom domain so that Azure can verify it.
+
+To add a custom domain name to a directory:
 
 1. In the [Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), be sure to close the **All users** pane.
-1. In the left menu, select **Custom domain names**.
+1. In the left menu under **Manage**, select **Custom domain names**.
 1. Select **Add custom domain**.
 
-   ![Screenshot that shows the Add custom domain button highlighted.](media/tutorial-federation/custom1.png)
+   :::image type="content" source="media/tutorial-federation/custom1.png" alt-text="Screenshot that shows the Add custom domain button highlighted.":::
 
 1. In **Custom domain names**, enter the name of your custom domain, and then select **Add domain**.
-1. On the custom domain name screen you'll be supplied with either TXT or MX information. This information must be added to the DNS information of the domain registrar under your domain. So you need to go to your domain registrar, enter either the TXT or MX information in the DNS settings for your domain. This will allow Azure to verify your domain. This may take up to 24 hours for Azure to verify it. For more information, see the [add a custom domain](../../active-directory/fundamentals/add-custom-domain.md) documentation.
+1. In **Custom domain name**, either TXT or MX information is shown. You must add this information to the DNS information of the domain registrar under your domain. Go to your domain registrar and enter either the TXT or the MX information in the DNS settings for your domain.
 
-   ![Screenshot that shows where you add the TXT or MX information.](media/tutorial-federation/custom2.png)
+   :::image type="content" source="media/tutorial-federation/custom2.png" alt-text="Screenshot that shows where you get TXT or MX information.":::
 
-1. To ensure that it's verified, select **Verify**.
+   Adding this information to your domain registrar allows Azure to verify your domain. Domain verification might take up to 24 hours.
 
-   ![Screenshot that shows a successful verification message after you select Verify.](media/tutorial-federation/custom3.png)
+   For more information, see the [add a custom domain](../../active-directory/fundamentals/add-custom-domain.md) documentation.
 
-## Download and install Azure AD Connect
+1. To ensure that the domain is verified, select **Verify**.
 
-Now it's time to download and install Azure AD Connect. Once it has been installed we'll run through the express installation. Do the following:
+   :::image type="content" source="media/tutorial-federation/custom3.png" alt-text="Screenshot that shows a success message after you select Verify.":::
 
-1. Download [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+## Download and install Azure Active Directory Connect
+
+Now it's time to download and install Azure Active Directory Connect. After it's installed, you'll go through the express installation.
+
+To download and install Azure Active Directory Connect:
+
+1. Download [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 1. Go to *AzureADConnect.msi* and double-click to open the installation file.
-1. On the Welcome screen, select the box agreeing to the licensing terms and select **Continue**. 
-1. On the Express settings screen, select **Customize**. 
-1. On the Install required components screen, select **Install**. 
-1. On the User Sign-in screen, select **Federation with AD FS**, and then select **Next**.
+1. In **Welcome**, select the checkbox to agree to the licensing terms, and then select **Continue**.
+1. In **Express settings**, select **Customize**.
+1. In **Install required components**, select **Install**.
+1. In **User sign-in**, select **Federation with AD FS**, and then select **Next**.
 
-   ![Screenshot that shows where to select Federation with AD FS.](media/tutorial-federation/fed1.png)
+   :::image type="content" source="media/tutorial-federation/fed1.png" alt-text="Screenshot that shows where to select Federation with AD FS.":::
 
-1. On the Connect to Azure AD screen, enter the username and password of the global admin we created above and select **Next**.
-1. On the Connect your directories screen, select **Add Directory**. Then select **Create new AD account** and enter the contoso\Administrator username and password and select **OK**.
+1. In **Connect to Azure AD**, enter the user name and password of the Hybrid Identity Administrator account you created earlier and select **Next**.
+1. In **Connect your directories**, select **Add Directory**. Then select **Create new AD account** and enter the contoso\Administrator user name and password. Select **OK**.
 1. Select **Next**.
-1. On the Azure AD sign-in configuration pane, select **Continue without matching all UPN suffixes to verified domains**. Select **Next.**
-1. On the Domain and OU filtering screen, select **Next**.
-1. On the Uniquely identifying your users screen, select **Next**.
-1. On the Filter users and devices screen, select **Next**.
-1. On the Optional features screen, select **Next**.
-1. On the Domain Administrator credentials page, enter the contoso\Administrator username and password and select **Next.**
-1. On the AD FS farm screen, make sure **Configure a new AD FS farm** is selected.
-1. Select **Use a certificate installed on the federation servers** and select **Browse**.
+1. In **Azure AD sign-in configuration**, select **Continue without matching all UPN suffixes to verified domains**. Select **Next.**
+1. In **Domain and OU filtering**, select **Next**.
+1. In **Uniquely identifying your users**, select **Next**.
+1. In **Filter users and devices**, select **Next**.
+1. In **Optional features**, select **Next**.
+1. In **Domain Administrator credentials**, enter the contoso\Administrator user name and password, and then select **Next.**
+1. In **AD FS farm**, make sure that **Configure a new AD FS farm** is selected.
+1. Select **Use a certificate installed on the federation servers**, and then select **Browse**.
 1. In the search box, enter and then select **DC1**. Select **OK**.
 1. For **Certificate File**, select **adfs.contoso.com**, the certificate you created. Select **Next**.
 
-   ![Screenshot that shows where to select the certificate file that you created.](media/tutorial-federation/fed2.png)
+   :::image type="content" source="media/tutorial-federation/fed2.png" alt-text="Screenshot that shows where to select the certificate file you created.":::
 
-1. On the AD FS server screen, select **Browse** and enter DC1 in the search box and select it when it's found. Select **Ok**. Select **Next**.
+1. In **AD FS server**, select **Browse**. In the search box, enter **DC1**, and then select it in the search results. Select **OK**, and then select **Next**.
 
-   ![Federation](media/tutorial-federation/fed3.png)
+   :::image type="content" source="media/tutorial-federation/fed3.png" alt-text="Screenshot that shows where to select your AD FS server.":::
 
-1. On the Web application Proxy servers screen, select **Next**.
-1. On the AD FS service account screen, enter the contoso\Administrator username and password and select **Next.**
-1. On the Azure AD Domain screen, select your verified custom domain from the drop-down and select **Next**.
-1. On the Ready to configure screen, select **Install**.
-1. When the installation completes, select **Exit**.
-1. After the installation has completed, sign out and sign in again before you use the Synchronization Service Manager or Synchronization Rule Editor.
+1. In **Web application Proxy servers**, select **Next**.
+1. In **AD FS service account**, enter the contoso\Administrator user name and password, and then select **Next.**
+1. In **Azure AD Domain**, select your verified custom domain, and then select **Next**.
+1. In **Ready to configure**, select **Install**.
+1. When the installation is finished, select **Exit**.
+1. Before you use the Synchronization Service Manager or Synchronization Rule Editor, sign out, and then sign in again.
 
-## Verify users are created and synchronization is occurring
+## Check for users in the portal
 
-We'll now verify that the users that we had in our on-premises directory have been synchronized and now exist in out Azure AD tenant. This section might take a few hours to complete.
+Now you'll verify that the users that you had in your on-premises Active Directory tenant have synced and are now in your Azure AD tenant. This section might take a few hours to complete.
 
-To verify that users are synced:
+To verify that the users are synced:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
-1. In the left menu, select **Azure Active Directory**.
-1. Under **Manage**, select **Users**.
-1. Verify that you see the new users in your tenant.
+1. In the [Azure portal](https://portal.azure.com), sign in to the account that's associated with your Azure subscription.
+1. In the portal menu, select **Azure Active Directory**.
+1. In the resource menu under **Manage**, select **Users**.
+1. Verify that the new users appear in your tenant.
 
-   ![Sync.](media/tutorial-password-hash-sync/synch1.png)
+   :::image type="content" source="media/tutorial-federation/sync1.png" alt-text="Screenshot that shows verifying that users were synced in Azure Active Directory.":::
+  
+## Test user sync
 
-## Test signing in with one of our users
+To test that users from your Windows Server AD tenant are synced with your Azure AD tenant, sign in as one of the users:
 
 1. Go to [https://myapps.microsoft.com](https://myapps.microsoft.com).
-1. Sign in with a user account that was created in your new tenant. Use the same password that the user uses to sign in on-premises in the following format: `user@domain.onmicrosoft.com`.
+1. Sign in with a user account that was created in your new tenant.
 
-   ![Verify](media/tutorial-password-hash-sync/verify1.png)
+   For the user name, use the format `user@domain.onmicrosoft.com`. Use the same password the user uses to sign in to on-premises Active Directory.
 
-You have now successfully set up a hybrid identity environment that you can use to test and to get familiar with what Azure has to offer.
+You've successfully set up a hybrid identity environment that you can use to test and to get familiar with what Azure has to offer.
 
 ## Next steps
 
-- [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
+- [Hardware and prerequisites](how-to-connect-install-prerequisites.md)
 - [Customized settings](how-to-connect-install-custom.md)
-- [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
+- [Azure Active Directory Connect and federation](how-to-connect-fed-whatis.md)
