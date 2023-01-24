@@ -41,7 +41,7 @@ The most important fields in a Web Session schema are:
 
 - [Url](#url), which reports the url that the client requested from the server.
 - The [SrcIpAddr](network-normalization-schema.md#srcipaddr) (aliased to [IpAddr](network-normalization-schema.md#ipaddr)), which represents the IP address from which the request was generated. 
-- [EventResultDetails](#eventresultdetails) field, which reports the HTTP Status Code.
+- [EventResultDetails](#eventresultdetails) field, which typically reports the HTTP Status Code.
 
 Web Session events may also include [User](network-normalization-schema.md#user) and [Process](process-events-normalization-schema.md) information for the user and process initiating the request. 
 
@@ -119,7 +119,7 @@ The following list mentions fields that have specific guidelines for Web Session
 |---------------------|-------------|------------|--------------------|
 | **EventType** | Mandatory | Enumerated | Describes the operation reported by the record and should be set to `HTTPsession`. |
 | **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes, refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
-| <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | String | For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
+| <a name="eventresultdetails"></a>**EventResultDetails** | Recommended | String | The HTTP status code.<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `WebSession`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.5`         |
 | **Dvc** fields|        |      | For Web Session events,  device fields refer to the system reporting the Web Session event.  |
