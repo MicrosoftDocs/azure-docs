@@ -3,7 +3,7 @@ title: Related files for Device Update for Azure IoT Hub
 description: Create import manifests that reference multiple update files using the Device Update for IoT Hub related files feature.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 01/23/2023
+ms.date: 01/24/2023
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -20,7 +20,7 @@ When creating an import manifest using the related files feature, you can add a 
 
 The related files feature is available for import manifests that are version 5 or later.
 
-When you add related files to an import manifest, you can include the following information:
+When you add related files to an import manifest, include the following information:
 
 * File details
 
@@ -38,7 +38,7 @@ For more information about the import schema for related files, see [relatedFile
 
 ## Example import manifest using related files
 
-Below is an example of an import manifest that uses the related files feature to import a delta update. In this example, you can see that in the `files` section, there's a full image specified (`full-image-file-name`) with a `properties` item. The `properties` item in turn has an associated `relatedFiles` item below it. Within the `relatedFiles` section, you can see another `properties` section for the delta update file (`delta-from-v1-file-name`), and also a `downloadHandler` item with the appropriate `id` listed (`microsoft/delta:1`).
+The following sample import manifest demonstrates how the related files feature is used to import a delta update. In this example, you can see that in the `files` section, there's a full image specified (`full-image-file-name`) with a `properties` item. The `properties` item in turn has an associated `relatedFiles` item below it. Within the `relatedFiles` section, you can see another `properties` section for the delta update file (`delta-from-v1-file-name`), and also a `downloadHandler` item with the appropriate `id` listed (`microsoft/delta:1`).
 
 >[!NOTE]
 >This example uses delta updates to demonstrate how to reference related files. If you want to use delta updates as a feature, learn more in the [delta update documentation](delta-updates.md).
