@@ -100,7 +100,7 @@ As you build your application, your code will primarily interact with three type
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
+![Diagram of Blob storage architecture.](./media/storage-blobs-introduction/blob1.png)
 
 Each type of resource is represented by one or more associated Python classes. These are the basic classes:
 
