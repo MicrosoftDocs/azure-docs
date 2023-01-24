@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 04/20/2022
+ms.date: 01/25/2023
 ms.author: jfields
 ---
 
@@ -148,6 +148,11 @@ Permissions Management is $125 per resources/year ($10.40 per resource/month). P
 
 ## Do I need to pay for all resources?
 
+Although Permissions Management supports all resources, Microsoft only requires licenses for certain resources per cloud. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
+
+## How do I figure out how many resources I have? 
+
+To find out how many resources you have across your multicloud infrastructure, view the Billable Resources tab in Permissions Management.
 
 ## What do I do if I’m using Public Preview version of Entra Permissions Management?  
 
