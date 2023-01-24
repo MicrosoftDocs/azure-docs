@@ -16,7 +16,7 @@ items:
     href: prepare-for-live-traffic.md
 - name: Concepts
   items:
-  - name: Microsoft Teams Onboarding 
+  - name: Onboarding to Microsoft Teams
     href: onboarding.md
   - name: Interoperability with Microsoft Teams 
     href: interoperability.md

@@ -1,6 +1,6 @@
 ---
 title: Onboarding to Microsoft Teams Phone with Azure Communications Gateway
-description: Understand the Azure Communications Gateway Basic Integration Included Benefit for onboarding to Teams Operator Connect and your other options for onboarding
+description: Understand the Azure Communications Gateway Basic Integration Included Benefit for onboarding to Operator Connect and your other options for onboarding
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
@@ -9,7 +9,7 @@ ms.date: 01/18/2023
 ms.custom: template-concept 
 ---
 
-# Onboarding onto Microsoft Operator Connect and Microsoft Teams Phone Mobile with Azure Communications Gateway
+# Onboarding to Microsoft Teams with Azure Communications Gateway
 
 To launch Operator Connect and/or Teams Phone Mobile, you'll need an onboarding partner. Launching requires changes to the Operator Connect or Teams Phone Mobile environments and your onboarding partner manages the integration process and coordinates with Microsoft Teams on your behalf. They can also help you design and set up your network for success.
 

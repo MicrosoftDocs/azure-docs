@@ -9,7 +9,7 @@ ms.date: 12/07/2022
 ms.custom: template-concept
 ---
 
-# Interoperability of Operator Connect and Teams Phone Mobile with Azure Communications Gateway
+# Interoperability of Azure Communications Gateway with Microsoft Teams
 
 Azure Communications Gateway sits at the edge of your network. This position allows it to manipulate signaling and media to meet the requirements of your networks and the Microsoft Phone System. Azure Communications Gateway includes many interoperability settings by default, and you can arrange further interoperability configuration.
 
