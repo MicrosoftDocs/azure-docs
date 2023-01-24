@@ -34,7 +34,7 @@ To filter the list of containers, specify a string or character for the `name_st
 
 ## Code examples
 
-The following example lists all containers and metadata. You can include container metadata by setting `include_metadata` to :
+The following example lists all containers and metadata. You can include container metadata by setting `include_metadata` to `True`:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers":::
 

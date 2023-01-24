@@ -18,7 +18,7 @@ ms.custom: devx-track-python, devguide-python
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
-## Name a container
+## Container names
 
 A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
 
@@ -42,7 +42,7 @@ You can also create a container using the following method from the [ContainerCl
 
 Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another. An exception is thrown if a container with the same name already exists. 
 
-This following example creates a container from a `BlobServiceClient` object:
+The following example creates a container from a `BlobServiceClient` object:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_create_container":::
 
