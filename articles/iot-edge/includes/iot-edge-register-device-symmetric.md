@@ -89,7 +89,7 @@ Now that you have a device registered in IoT Hub, you can retrieve provisioning 
 
 ## View registered devices and retrieve provisioning information
 
-Devices that use symmetric key authentication need their connection strings to complete installation and provisioning of the IoT Edge runtime. The connection string was generated for your IoT Edge device when you created it. For Visual Studio Code and Azure CLI, the connection string is in the JSON printout. If you used the Azure portal to create your device, you can find the connection string from the device itself. When you select your device in your IoT hub, it's listed as `Primary connection string` on the device page.
+Devices that use symmetric key authentication need their connection strings to complete installation and provisioning of the IoT Edge runtime. The connection string gets generated for your IoT Edge device when you create the device. For Visual Studio Code and Azure CLI, the connection string is in the JSON output. If you use the Azure portal to create your device, you can find the connection string from the device itself. When you select your device in your IoT hub, it's listed as `Primary connection string` on the device page.
 
 # [Portal](#tab/azure-portal)
 
@@ -125,7 +125,7 @@ To see all devices in your IoT hub, use the [az iot hub device-identity list](/c
    az iot hub device-identity list --hub-name hub_name_here
    ```
 
-Any device that is registered as an IoT Edge device will have the property **capabilities.iotEdge** set to **true**. You will see a lot of other metadata as a JSON printout, including your device IDs.
+Any device that is registered as an IoT Edge device will have the property **capabilities.iotEdge** set to **true**. You see a lot of other metadata as JSON output as well, including your device IDs.
 
 When you're ready to set up your device, you need its connection string that links your physical device with its identity in the IoT hub. Use the following [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string) command to return the connection string for a single device. Replace `[device_id]` and `[hub_name]` with your own values. The value for the `device-identity` parameter is case-sensitive.
 
@@ -133,11 +133,11 @@ When you're ready to set up your device, you need its connection string that lin
    az iot hub device-identity connection-string show --device-id [device_id] --hub-name [hub_name]
    ```
 
-You should see a JSON printout in the console, similar to the following:
+You should see JSON output in the console, similar to the following:
 
 ```json
 {
-  "connectionString": "HostName=my-iot-hub.azure-devices.net;DeviceId=my-edge-device-1;SharedAccessKey=saQ02bt6BBUlRcdsqWuxPMAx4ysQwWEb5+1eidwzHPY="
+  "connectionString": "HostName=my-iot-hub.azure-devices.net;DeviceId=my-edge-device-1;SharedAccessKey=saQ52bt6BBUlRfusqWuxPMAx4ysQwWEb5+1eidwzHPY="
 }
 ```
 

@@ -15,7 +15,7 @@ ms.author: patricka
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, which includes installing IoT Edge.
 
-Each device that connects to an [IoT hub](/azure/iot-hub/) has a device ID that's used to track [cloud-to-device](/azure/iot-hub/iot-hub-devguide-c2d-guidance) or [device-to-cloud](/azure/iot-hub/iot-hub-devguide-d2c-guidance) communications. You configure a device with its connection information, which includes: 
+Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](..iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes: 
 
 * IoT hub hostname
 * Device ID
@@ -130,9 +130,25 @@ After entering the provisioning information in the configuration file, restart t
    ```bash
    sudo nano /etc/aziot/config.toml
    ```
-
+Verify successful configuration
 <!-- end iotedge-2020-11 -->
 ::: moniker-end
+
+## Deploy modules
+
+To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
+
+1. Select **Devices** from the IoT Hub menu.
+
+1. Select your device to open its page.
+
+1. Select the **Set Modules** tab.
+
+1. Since we want to deploy the IoT Edge default modules (edgeAgent and edgeHub), we don't need to add any modules to this pane, so select **Review + create** at the bottom.
+
+1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.<br>
+   
+For more information, see [Deploy a module](/quickstart-linux#deploy-a-module.md).
 
 ## Verify successful configuration
 
@@ -143,25 +159,25 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
 1. Check to see that the IoT Edge system service is running.
 
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
+   <!-- 1.1 -->
+   ::: moniker range="iotedge-2018-06"
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-::: moniker-end
+   ::: moniker-end
 
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
+   <!-- iotedge-2020-11 -->
+   ::: moniker range=">=iotedge-2020-11"
 
    ```bash
    sudo iotedge system status
    ```
 
-   A successful status response is `Ok`.
+   A successful status response shows the `aziot` services as running or ready.
 
-::: moniker-end
+   ::: moniker-end
 
 1. To troubleshoot the service, retrieve the service logs.
 
@@ -198,20 +214,14 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
    >[!NOTE]
    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+   >
    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
    >**Could not check current state of edgeHub container**
    >
-   >This error is expected on a newly provisioned device because the IoT Edge Hub module is not yet running. You need to deploy your device and then deploy the IoT Edge modules.
+   >This error is expected on a newly provisioned device because the IoT Edge Hub module is not yet running. Be sure your IoT Edge modules were deployed in the previous steps. Deployment resolves this error.
    >
-   >Use the `az deployment group create` command to deploy your device. For more information, see [Deploy the IoT Edge device](quickstart-linux.md#deploy-the-iot-edge-device).
+   >Alternatively, you may see a status code as `417 -- The device's deployment configuration is not set`. Once your modules are deployed, this status will change.
    >
-   >To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
-   >1. Select **Devices** from the IoT Hub menu.
-   >1. Select your device to open its page.
-   >1. Select the **Set Modules** tab.
-   >1. Since we want to deploy the IoT Edge default modules (edgeAgent and edgeHub), we don't need to add any modules to this pane, so select **Review + create** at the bottom.
-   >1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.
-   >For more information, see [Deploy a module](/quickstart-linux#deploy-a-module.md).
 
 1. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
 
@@ -225,9 +235,6 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
    sudo iotedge list
    ```
 
-   >[!NOTE]
-   >When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
-
 ## Offline or specific version installation (optional)
 
 The steps in this section are for scenarios not covered by the standard installation steps. This may include:
@@ -235,7 +242,7 @@ The steps in this section are for scenarios not covered by the standard installa
 * Installing IoT Edge while offline
 * Installing a release candidate version
 
-Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
+Use the steps in this section if you want to install a [specific version of the Azure IoT Edge runtime](version-history.md) that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
 

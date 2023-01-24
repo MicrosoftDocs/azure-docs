@@ -64,7 +64,7 @@ Installing can be done with a few commands. Open a terminal and run the followin
 
 ---
 
-For more information about operating system versions, see [Azure IoT Edge supported platforms](/support?#linux-containers).
+For more information about operating system versions, see [Azure IoT Edge supported platforms](../support.md?#linux-containers).
 
 > [!NOTE]
 > Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you don't agree with the license terms, don't use that package.
@@ -137,7 +137,7 @@ The following steps show you how to configure your container to use [`local` log
 
 The IoT Edge security daemon provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
-The steps in this section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation](/how-to-provision-single-device-linux-symmetric#offline-or-specific-version-installation-optional) steps later in this article.
+The steps in this section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the **Offline or specific version installation** steps later in this article.
 
 Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
 
@@ -175,10 +175,10 @@ The IoT Edge service provides and maintains security standards on the IoT Edge d
 > [!NOTE]
 > Beginning with version 1.2, the [IoT identity service](https://azure.github.io/iot-identity-service/) handles identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub.
 
-The steps in this section represent the typical process to install the latest IoT Edge version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation](/how-to-provision-single-device-linux-symmetric#offline-or-specific-version-installation-optional) steps later in this article.
+The steps in this section represent the typical process to install the latest IoT Edge version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the **Offline or specific version installation** steps later in this article.
 
 > [!TIP]
-> If you already have an IoT Edge device running an older version and want to upgrade to the latest release, use the steps in [Update the IoT Edge security daemon and runtime](/articles/iot-edge/how-to-update-iot-edge.md). Later versions are sufficiently different from previous versions of IoT Edge that specific steps are necessary to upgrade.
+> If you already have an IoT Edge device running an older version and want to upgrade to the latest release, use the steps in [Update the IoT Edge security daemon and runtime](../how-to-update-iot-edge.md). Later versions are sufficiently different from previous versions of IoT Edge that specific steps are necessary to upgrade.
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -204,7 +204,7 @@ The defender-iot-micro-agent-edge package includes the Microsoft Defender for Io
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 
-  Install the latest version of IoT Edge and the IoT identity service package (if you're not already [up-to-date](/version-history.md)):
+  Install the latest version of IoT Edge and the IoT identity service package (if you're not already [up-to-date](../version-history.md)):
 
    ```bash
    sudo yum install aziot-edge
