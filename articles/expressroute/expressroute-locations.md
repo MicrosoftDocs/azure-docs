@@ -41,7 +41,7 @@ The following table shows locations by service provider. If you want to view ava
 
 ### Global commercial Azure
 
-| **Service provider** | **Microsoft Azure** | **Microsoft 365**  | **Locations** |
+| Service provider | Microsoft Azure | Microsoft 365  | Locations |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Supported |Supported | Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Supported | Supported | Chennai2, Mumbai2 |
@@ -177,7 +177,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 
 ### US Government cloud
 
-| **Service provider** | **Microsoft Azure** | **Office 365** | **Locations** |
+| Service provider | Microsoft Azure | Office 365 | Locations |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supported |Supported |Chicago, Phoenix, Silicon Valley, Washington DC |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Supported |Supported |New York, Phoenix, San Antonio, Washington DC |
@@ -189,7 +189,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 
 ### China
 
-| **Service provider** | **Microsoft Azure** | **Office 365** | **Locations** |
+| Service provider | Microsoft Azure | Office 365 | Locations |
 | --- | --- | --- | --- |
 | **China Telecom** |Supported |Not Supported |Beijing, Beijing2, Shanghai, Shanghai2 |
 | **China Unicom** | Supported | Not Supported | Beijing2, Shanghai2 |
@@ -199,7 +199,7 @@ To learn more, see [ExpressRoute in China](https://www.azure.cn/home/features/ex
 
 ### Germany
 
-| **Service provider** | **Microsoft Azure** | **Office 365** | **Locations** |
+| Service provider | Microsoft Azure | Office 365 | Locations |
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |Supported |Not Supported |Frankfurt |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Not Supported |Frankfurt |
@@ -238,7 +238,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 
 ## Connectivity through additional service providers
 
-| **Connectivity provider** | **Exchange** | **Locations** |
+| Connectivity provider | Exchange | Locations |
 | --- | --- | --- |
 | **[1CLOUDSTAR](https://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** | Equinix |Singapore |
 | **[Airgate Technologies, Inc.](https://www.airgate.ca/)** | Equinix, Cologix | Toronto, Montreal |
@@ -280,8 +280,8 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[NexGen Networks](https://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | London |
 | **[Nianet](https://www.globalconnect.dk/)** |Equinix | Amsterdam, Frankfurt |
 | **[Oncore Cloud Service Inc](https://www.oncore.cloud/services/ue-for-expressroute)**| Equinix | Toronto |
-| **[POST Telecom Luxembourg](https://www.teralinksolutions.com/cloud-connectivity/cloudbridge-to-azure-expressroute/)**|Equinix | Amsterdam |
-| **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**|Equinix | Amsterdam, Dublin, London, Paris |
+| **[POST Telecom Luxembourg](https://www.teralinksolutions.com/cloud-connectivity/cloudbridge-to-azure-expressroute/)**| Equinix | Amsterdam |
+| **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**| Equinix | Amsterdam, Dublin, London, Paris |
 | **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/products/cloud-connect)** | Equinix | Amsterdam |
 | **Rogers** | Cologix, Equinix | Montreal, Toronto |
@@ -304,7 +304,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 
 ## Connectivity through datacenter providers
 
-| **Provider** | **Exchange** |
+| Provider | Exchange |
 | --- | --- |
 | **[CyrusOne](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport, PacketFabric |
 | **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport, PacketFabric |
@@ -321,7 +321,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 
 ## Connectivity through National Research and Education Networks (NREN)
 
-| **Provider**|
+| Provider |
 | --- |
 | **AARNET**| 
 | **DeIC, through GÉANT**|
@@ -339,7 +339,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 ## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
 
-| **System integrator** | **Continent** |
+| System integrator | Continent |
 | --- | --- |
 | **[Altogee](https://altogee.be/diensten/express-route/)** | Europe |
 | **[Avanade Inc.](https://www.avanade.com/)** | Asia, Europe, North America, South America |
