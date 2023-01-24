@@ -22,7 +22,7 @@ This article explains how to migrate from these versions to the stable GA versio
 
 Below is a list of changes to be aware of when you're preparing to migrate from the [2020-03-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) API version to the [2022-10-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2022-10-31) (GA) API version. The changes include altered item names or naming requirements, endpoint requirements, and changes to the instance and API responses. 
 
-After the 2020-03-01-preview API version, stable API versions contain the following changes:
+The changes from the 2020-03-01-preview API version to the 2022-10-31 (GA) API version are as follows:
 * For Event Hubs endpoints, the values *connectionString-PrimaryKey* and *connectionString-SecondaryKey* have changed to *connectionStringPrimaryKey* and *connectionStringSecondaryKey*, respectively (the dashes are removed).
 * The Patch API response has changed from synchronous to asynchronous.
     * Because patch updates now complete asynchronously, the Patch API of Azure Digital Twins resources now returns [202 Accepted](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2022-10-31/examples/DigitalTwinsPatch_example.json) instead of [200 OK](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/examples/DigitalTwinsPatch_example.json)). Users can track the status of the update with a PUT request. 
