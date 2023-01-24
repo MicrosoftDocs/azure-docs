@@ -6,6 +6,7 @@ services: machine-learning
 author: abeomor
 ms.author: osomorog
 ms.service: machine-learning
+ms.reviewer: larryfr
 ms.subservice: mlops
 ms.date: 11/29/2022
 ms.topic: conceptual
