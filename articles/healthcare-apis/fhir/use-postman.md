@@ -60,7 +60,7 @@ Open Postman, select the **workspace**, **collection**, and **environment** you 
 
 [ ![Screenshot of create a new request.](media/postman/postman-create-new-request.png) ](media/postman/postman-create-new-request.png#lightbox)
 
-To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and select 'Send'. You should be able to see Status of FHIR service without need of bearer token. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
+To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and select 'Send'. You should be able to see Status of FHIR service - HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
 
 ## Get capability statement
 
