@@ -16,7 +16,7 @@ ms.author: jfields
 
 This article describes how to view and download the **Permissions analytics report** in Permissions Management for AWS, Azure, and GPC authorization systems.
 
->[NOTE]
+>[!NOTE]
 >The Permissions analytics report can be downloaded in Excel and PDF formats.
 
 ## View the Permissions Analytics Report in the Permissions Management UI
@@ -26,7 +26,7 @@ You can view the Permissions Analytics Report information directly in the Permis
 1. In Permissions Management, select **Reports** in the navigation menu.
 2. Locate the **Permissions Analytics Report** in the list, then select it.
 3. View detailed report information from the list of categories that are displayed.
-   >[NOTE]
+   >[!NOTE]
    > Categories will vary depending on which Authorization System you are viewing.
 
 4. To view more detailed information into each category, select the drop-down arrow next to the category name.
@@ -44,7 +44,7 @@ You can view the Permissions Analytics Report information directly in the Permis
 4. Click on **Report Format** and make sure that **XLSX** is selected.
 5. Click on **Schedule** and, if you want to download this report regularly, select the frequency for which you want it downloaded. You can also leave this at the default setting of **None**.
 6. Click on **Authorization Systems** and select which system you want to download the report for (AWS, Azure, or GCP).
-   >[NOTE]
+   >[!NOTE]
    > To download a report for all Authorization Systems, check the **Collate** box. This will combine all selected Authorization Systems into one report.
 7. Click **Save**
 
@@ -59,7 +59,7 @@ You can view the Permissions Analytics Report information directly in the Permis
     The **Systems Reports** subtab displays a list of reports names in the **Reports** table.
 2. Locate the **Permissions Analytics Report** in the list, then select it.
 3. Select which Authorization System you want to generate the PDF download for (AWS, Azure, or GCP).
-   >[NOTE]
+   >[!NOTE]
    > The PDF can only be downloaded for one Authorization System at a time. If more than one Authorization System is selected, the **Export PDF** button will be disabled. 
 4. To download the report in PDF format, click on **Export PDF**.
     
