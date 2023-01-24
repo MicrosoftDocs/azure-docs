@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
    | Subscription | Select your subscription |
    | Resource Group | Select your resource group |
    | Name | Enter spacecraft name |
-   | Region | Select **West US 2** |
+   | Region | Enter region, e.g. West US 2 |
    | NORAD ID | Enter NORAD ID |
    | TLE title line | Enter TLE title line |
    | TLE line 1 | Enter TLE line 1 |

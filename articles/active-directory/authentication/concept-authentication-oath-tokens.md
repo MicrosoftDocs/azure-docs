@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 01/18/2023
 
 ms.author: justinha
 author: justinha
@@ -60,6 +60,16 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 >[!IMPORTANT]
 >The preview is only supported in Azure Global and Azure Government clouds.
+
+
+## Determine OATH token registration type in mysecurityinfo 
+Users can manage and add OATH token registrations by accessing https://aka.ms/mysecurityinfo or by selecting Security info from My Account. Specific icons are used to differentiate whether the OATH token registration is hardware or software based.  
+
+OATH token registration type | Icon
+------ | ------
+OATH software token   | <img width="63" alt="Software OATH token" src="media/concept-authentication-methods/software-oath-token-icon.png">  
+OATH hardware token | <img width="63" alt="Hardware OATH token" src="media/concept-authentication-methods/hardware-oath-token-icon.png">
+
 
 ## Next steps
 

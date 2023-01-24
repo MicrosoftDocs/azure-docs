@@ -25,6 +25,10 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 
 ## January 2023
 
+### Textual logo detection
+
+A **textual logo detection** insight is an OCR-based textual detection which matches a specific predefined text. For example, if a user created a textual logo: "Microsoft", different appearances of the word *Microsoft* will be detected as the "Microsoft" logo. For more information, see [Detect textual logo](detect-textual-logo.md).
+
 ### Language support
 
 * New languages are now supported: Irish, Bulgarian, Catalan, Greek, Estonian, Croatian, Latvian, Romanian, Slovak, Slovenian, Telugu, Malayalam, Kannada, Icelandic,  Armenian, Gujarati, Malay, and Tamil.

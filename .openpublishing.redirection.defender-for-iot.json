@@ -653,6 +653,16 @@
             "source_path_from_root": "/articles/defender-for-iot/device-builders/concept-security-agent-authentication.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/tutorial-standalone-agent-binary-installation",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-connect-sensor-by-proxy.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/connect-sensors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/references-defender-for-iot-glossary.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/overview",
+            "redirect_document_id": false
         }
     ]
 }
