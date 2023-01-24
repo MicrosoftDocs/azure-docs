@@ -3,7 +3,7 @@ title: Airflow pricing
 description: This article describes the pricing for Airflow.
 author: nabhishek
 ms.service: data-factory
-ms.subservice: conceptual
+ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 01/24/2023
 ms.author: abnarain

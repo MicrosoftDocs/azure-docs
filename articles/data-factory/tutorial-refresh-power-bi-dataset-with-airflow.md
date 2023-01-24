@@ -80,5 +80,5 @@ This tutorial shows you how to refresh a Power BI dataset with Airflow.
 ## Next Steps
 
 - [Run an existing pipeline with Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Airflow pricing](pricing-airflow.md)
+- [Airflow pricing](airflow-pricing.md)
 - [Changing password for Airflow environments](password-change-airflow.md)

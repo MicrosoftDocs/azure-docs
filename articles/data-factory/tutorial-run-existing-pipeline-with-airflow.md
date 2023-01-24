@@ -92,5 +92,5 @@ Data Factory pipelines provides 100+ data source connectors that provides scalab
 ## Next steps
 
 - [Refresh a Power BI dataset](tutorial-refresh-power-bi-dataset-with-airflow.md)
-- [Airflow pricing](pricing-airflow.md)
+- [Airflow pricing](airflow-pricing.md)
 - [Changing password for Airflow environments](password-change-airflow.md)

@@ -3,7 +3,7 @@ title: Changing a password for an Airflow environment
 description: This article describes how to change a password for an Airflow environment.
 author: nabhishek
 ms.service: data-factory
-ms.subservice: conceptual
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 01/24/2023
 ms.author: abnarain
