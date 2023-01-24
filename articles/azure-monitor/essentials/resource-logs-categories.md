@@ -3,7 +3,7 @@ title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 author: EdB-MSFT
 ms.topic: reference
-ms.date: 01/12/2023
+ms.date: 01/24/2023
 ms.author: edbaynash
 ms.reviewer: lualderm
 
@@ -474,17 +474,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Requests |Request Logs |No |
 
 
-## Microsoft.DataProtection/BackupVaults  
-<!-- Data source : naam-->
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|AddonAzureBackupJobs |Addon Azure Backup Job Data |Yes |
-|AddonAzureBackupPolicy |Addon Azure Backup Policy Data |Yes |
-|AddonAzureBackupProtectedInstance |Addon Azure Backup Protected Instance Data |Yes |
-|CoreAzureBackup |Core Azure Backup Data |Yes |
-
-
 ## Microsoft.DataShare/accounts  
 <!-- Data source : arm-->
 
@@ -641,6 +630,19 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |---|---|---|
 |DeviceOperations |Device Operations |No |
 |ServiceOperations |Service Operations |No |
+
+
+## Microsoft.DigitalTwins/digitalTwinsInstances  
+<!-- Data source : arm-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DataHistoryOperation |DataHistoryOperation |Yes |
+|DigitalTwinsOperation |DigitalTwinsOperation |No |
+|EventRoutesOperation |EventRoutesOperation |No |
+|ModelsOperation |ModelsOperation |No |
+|QueryOperation |QueryOperation |No |
+|ResourceProviderOperation |ResourceProviderOperation |Yes |
 
 
 ## Microsoft.DocumentDB/cassandraClusters  
@@ -1267,6 +1269,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ScanResults |AntimalwareScanResults |Yes |
 
 
+## Microsoft.Security/defenderForStorageSettings  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ScanResults |AntimalwareScanResults |Yes |
+
+
 ## microsoft.securityinsights/settings  
 <!-- Data source : naam-->
 
@@ -1281,7 +1291,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ApplicationMetricsLogs |Application Metrics Logs |Yes |
+|ApplicationMetricsLogs |Application Metrics Logs(Unused) |Yes |
 |OperationalLogs |Operational Logs |No |
 |RuntimeAuditLogs |Runtime Audit Logs |Yes |
 |VNetAndIPFilteringLogs |VNet/IP Filtering Connection Logs |No |
@@ -1310,6 +1320,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|Activity |Activity Logs |Yes |
 |Execution |Execution Logs |Yes |
 
 
@@ -1456,7 +1467,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |---|---|---|
 |Command |Synapse Data Explorer Command |Yes |
 |FailedIngestion |Synapse Data Explorer Failed Ingestion |Yes |
-|Ingestion Batching |Synapse Data Explorer Ingestion Batching |Yes |
+|IngestionBatching |Synapse Data Explorer Ingestion Batching |Yes |
 |Query |Synapse Data Explorer Query |Yes |
 |SucceededIngestion |Synapse Data Explorer Succeeded Ingestion |Yes |
 |TableDetails |Synapse Data Explorer Table Details |Yes |
@@ -1569,4 +1580,4 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
 
 
-<!--Gen Date:  Thu Jan 12 2023 14:50:44 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Tue Jan 24 2023 08:57:30 GMT+0200 (Israel Standard Time)-->
