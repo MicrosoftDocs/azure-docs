@@ -70,7 +70,7 @@ Next you'll need to update your code to use passwordless connections.
         TransportType = ServiceBusTransportType.AmqpWebSockets
     };
 
-    //TODO: Replace the "<NAMESPACE-NAME>" placeholder.
+    //TODO: Replace the "<SERVICE-BUS-NAMESPACE-NAME>" placeholder.
     client = new ServiceBusClient(
         "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
         new DefaultAzureCredential(),
@@ -108,7 +108,7 @@ az webapp connection create servicebus \
     --system-identity
 ```
 
-If you're using Azure Spring Apps, use `the az spring connection` command:
+If you're using Azure Spring Apps, use the `az spring connection` command:
 
 ```azurecli
 az spring connection create servicebus \
