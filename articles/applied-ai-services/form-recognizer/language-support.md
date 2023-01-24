@@ -260,7 +260,7 @@ The **2022-06-30** and later releases  include Japanese language support:
 
 Language| Locale code |
 |:-----|:----:|
-|English (United States) |en-US|
+|English |en-US, en-IN, en-GB, en-CA, en-AU|
 |Spanish| es|
 |German (**2022-06-30** and later)| de|
 |French (**2022-06-30** and later)| fr|
