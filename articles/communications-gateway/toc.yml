@@ -18,8 +18,10 @@ items:
   items:
   - name: Onboarding to Microsoft Teams
     href: onboarding.md
-  - name: Interoperability with Microsoft Teams 
+  - name: Interoperability with Microsoft Teams
     href: interoperability.md
+  - name: Emergency calling
+    href: emergency-calling.md
   - name: Reliability
     href: ../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
   - name: Security

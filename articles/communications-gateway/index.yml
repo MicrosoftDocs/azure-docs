@@ -27,10 +27,12 @@ landingContent:
         links:
           - text: Interoperability with Microsoft Teams
             url: interoperability.md
-          - text: Reliability
-            url: ../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
           - text: Emergency calling
             url: emergency-calling.md
+          - text: Reliability
+            url: ../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
+          - text: Security
+            url: security.md
 
   # Card
   - title: Learn how to deploy Azure Communications Gateway
@@ -59,7 +61,9 @@ landingContent:
         links:
           - text: Get support or request changes
             url: request-changes.md
+          - text: Set up user roles
+            url: provision-user-roles.md
           - text: Plan and manage costs
             url: plan-and-manage-costs.md
-          - text: Set up user roles
-            url: provision-user-roles.md 
+          - text: Rotate secrets
+            url: rotate-secrets.md
