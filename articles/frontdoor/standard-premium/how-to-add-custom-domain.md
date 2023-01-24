@@ -18,15 +18,6 @@ When you use Azure Front Door for application delivery, a custom domain is neces
 
 After you create an Azure Front Door Standard/Premium profile, the default frontend host will have a subdomain of `azurefd.net`. This subdomain gets included in the URL when Azure Front Door Standard/Premium delivers content from your backend by default. For example, `https://contoso-frontend.azurefd.net/activeusers.htm`. For your convenience, Azure Front Door provides the option of associating a custom domain with the default host. With this option, you deliver your content with a custom domain in your URL instead of an Azure Front Door owned domain name. For example, `https://www.contoso.com/photo.png`.
 
-Azure Front Door supports two types of domains, non-Azure validated domain and Azure pre-validated domain. Azure managed certificate and customer certificate are supported for both types. For more information, see [Configure HTTPS on a custom domain](how-to-configure-https-custom-domain.md).
-
-* **Azure pre-validated domains** - are domains validated by another Azure service. This domain type is used when you onboard and validated a domain to an Azure service, and then configured the Azure service behind an Azure Front Door. You don't need to validate the domain through the Azure Front Door when you use this type of domain.
-
-    > [!NOTE]
-    > Currently Azure pre-validated domain only supports domain validated by Static Web App.
-
-* **Non-Azure validated domains** - are domains that aren't validated by any Azure service. This domain type can be hosted with any DNS service and requires domain ownership validation with Azure Front Door. 
-
 ## Prerequisites
 
 * Before you can complete the steps in this tutorial, you must first create an Azure Front Door profile. For more information, see [Quickstart: Create a Front Door Standard/Premium](create-front-door-portal.md).

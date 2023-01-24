@@ -30,6 +30,19 @@ To learn how to add a custom domain to your Azure Front Door profile, see [Confi
 
 ## Domain validation
 
+All domains added to Azure Front Door must be validated. Validation helps to protect you from accidental misconfiguration, and also helps to protect other people from domain spoofing. In some situation, domains can be *pre-validated* by another Azure service. Otherwise, you need to follow the Azure Front Door domain validatio process to prove your ownership of the domain name.
+
+> [!NOTE]
+> Azure managed certificate and customer certificate are supported for TODO . For more information, see [Configure HTTPS on a custom domain](how-to-configure-https-custom-domain.md).
+
+* **Azure pre-validated domains** - are domains validated by another Azure service. This domain type is used when you onboard and validated a domain to an Azure service, and then configured the Azure service behind an Azure Front Door. You don't need to validate the domain through the Azure Front Door when you use this type of domain.
+
+    > [!NOTE]
+    > Currently Azure pre-validated domain only supports domain validated by Static Web App.
+
+* **Non-Azure validated domains** - are domains that aren't validated by a supported Azure service. This domain type can be hosted with any DNS service and requires domain ownership validation with Azure Front Door. 
+
+
 - Pre-validated domains
 - Validation
   - Must be validated
