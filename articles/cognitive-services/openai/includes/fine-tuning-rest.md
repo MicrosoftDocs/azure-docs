@@ -242,7 +242,7 @@ print(f'Found {len((r.json())["data"])} fine-tune jobs.')
 
 ## Deploy a customized model
 
-When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the `FineTune.retrieve()` method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenai/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
+When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the `FineTune.retrieve()` method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaipreview/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
 
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
