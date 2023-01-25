@@ -214,7 +214,7 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 
     ```azurecli-interactive
     # disable the addon
-    az aks addon disable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation
+    az aks addon disable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
 
     # re-enable the addon without the `enable-secret-rotation` parameter
     az aks addon enable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
@@ -222,12 +222,12 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 
 ### Sync mounted content with a Kubernetes secret
 
-You might want to create a Kubernetes secret to mirror the mounted content. When you create a `SecretProviderClass`, use the `secretObjects` field to define the desired state of the Kubernetes secret, as shown in the following example.
-
 > [!NOTE]
 > The YAML examples here are incomplete. You'll need to modify them to support your chosen method of access to your key vault identity. For details, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods].
 
-The secrets will sync only after you start a pod to mount them. Relying only on syncing with the Kubernetes secrets feature doesn't work. When the pods that consume the secret are deleted, the Kubernetes secret is also deleted.
+You might want to create a Kubernetes secret to mirror your mounted secrets content. Your secrets will sync after you start a pod to mount them. When you delete the pods that consume the secrets, your Kubernetes secret will also be deleted.
+
+To sync mounted content with a Kubernetes secret, use the `secretObjects` field when creating a `SecretProviderClass` to define the desired state of the Kubernetes secret, as shown in the following example.
 
 ```yml
 apiVersion: secrets-store.csi.x-k8s.io/v1
