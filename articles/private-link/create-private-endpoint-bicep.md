@@ -2,12 +2,12 @@
 title: 'Quickstart: Create a private endpoint using Bicep'
 description: In this quickstart, you'll learn how to create a private endpoint using Bicep.
 services: private-link
-author: schaffererin
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 05/02/2022
-ms.author: v-eschaffer
+ms.author: allensu
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint using Bicep.
 ---
 
@@ -29,7 +29,7 @@ This Bicep file creates a private endpoint for an instance of Azure SQL Database
 
 The Bicep file that this quickstart uses is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/private-endpoint-sql/).
 
-:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.sql/private-endpoint-sql/azuredeploy.json":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.sql/private-endpoint-sql/main.bicep":::
 
 The Bicep file defines multiple Azure resources:
 

@@ -1,11 +1,11 @@
 ---
 title: Azure Load Balancer health probes
 description: Learn about the different types of health probes and configuration for Azure Load Balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 02/10/2022
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Azure Load Balancer health probes
@@ -150,7 +150,7 @@ If all probes for all instances in a backend pool fail, existing UDP flows will 
 
 ## Probe source IP address
 
-Load Balancer uses a distributed probing service for its internal health model. The probing service resides on each host where VMs and can be programmed on-demand to generate health probes per the customer's configuration. The health probe traffic is directly between the probing service that generates the health probe and the customer VM. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source. You can use an IP address space inside of a virtual network that isn't RFC1918 space. Use of a globally reserved, Microsoft owned IP address reduces the chance of an IP address conflict with the IP address space you use inside the virtual network. The IP address is the same in all regions. The IP doesn't change and isn't a security risk. Only the internal Azure platform can source a packet from the IP address. 
+Load Balancer uses a distributed probing service for its internal health model. The probing service resides on each host where VMs and can be programmed on-demand to generate health probes per the customer's configuration. The health probe traffic is directly between the probing service that generates the health probe and the customer VM. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.
 
 The **AzureLoadBalancer** service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default.
 
@@ -206,5 +206,6 @@ Azure Monitor logs aren't available for both public and internal Basic Load Bala
 ## Next steps
 
 - Learn more about [Standard Load Balancer](./load-balancer-overview.md)
+- Learn [how to manage health probes](../load-balancer/manage-probes-how-to.md)
 - [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [REST API for health probes](/rest/api/load-balancer/loadbalancerprobes/)

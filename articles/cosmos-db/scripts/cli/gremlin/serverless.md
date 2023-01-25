@@ -1,20 +1,21 @@
 ---
-title: Azure Cosmos DB Gremlin serverless account, database, and graph
-description: Use this Azure CLI script to create an Azure Cosmos DB Gremlin serverless account, database, and graph.
-author: markjbrown
-ms.author: mjbrown
+title: Azure Cosmos DB for Gremlin serverless account, database, and graph
+description: Use this Azure CLI script to create an Azure Cosmos DB for Gremlin serverless account, database, and graph.
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.topic: sample
 ms.date: 05/02/2022
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, ignite-2022
 ---
 
 # Use Azure CLI to create a Gremlin serverless account, database, and graph
 
-[!INCLUDE [appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
-The script in this article creates an Azure Cosmos DB Gremlin API serverless account, database, and graph.
+The script in this article creates an Azure Cosmos DB for Gremlin serverless account, database, and graph.
 
 ## Prerequisites
 
@@ -22,7 +23,7 @@ The script in this article creates an Azure Cosmos DB Gremlin API serverless acc
 
 - This script requires Azure CLI version 2.30 or later.
 
-  - You can run the script in the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart). When Cloud Shell opens, make sure to select **Bash** in the environment field at the upper left of the shell window. Cloud Shell has the latest version of Azure CLI.
+  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/quickstart.md). When Cloud Shell opens, make sure to select **Bash** in the environment field at the upper left of the shell window. Cloud Shell has the latest version of Azure CLI.
 
     [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
@@ -34,8 +35,8 @@ This script uses the following commands:
 
 - [az group create](/cli/azure/group#az-group-create) creates a resource group to store all resources.
 - [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) with the `--capabilities EnableGremlin EnableServerless` parameter creates a Gremlin-enabled, serverless Azure Cosmos DB account.
-- [az cosmosdb gremlin database create](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-create) creates an Azure Cosmos DB Gremlin database.
-- [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) creates an Azure Cosmos DB Gremlin graph.
+- [az cosmosdb gremlin database create](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-create) creates an Azure Cosmos DB for Gremlin database.
+- [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) creates an Azure Cosmos DB for Gremlin graph.
 
 :::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/serverless.sh" id="FullScript":::
 

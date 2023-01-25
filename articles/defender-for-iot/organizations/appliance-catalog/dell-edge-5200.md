@@ -11,14 +11,14 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | SMB|
-|**Performance** | 	Max bandwidth: 60 Mbp/s<br>Max devices: 1,000 |
+|**Hardware profile** | E500|
+|**Performance** | Max bandwidth: 1 Gbps<br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
 |**Status** | Supported, Not available pre-configured|
 
 ## Specifications
 
-|Component |	Technical specifications|
+|Component |Technical specifications|
 |:----|:----|
 |Chassis|	Desktop / Wall mount server Rugged MIL-STD-810G|
 |Dimensions|	211 mm (W) x 240 mm (D) x 86 mm (H)|
@@ -36,7 +36,7 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 
 |Quantity|PN|Description|
 |:----|:----|:----|
-|1|210-BCNV|Dell EMC Edge Gateway 5200,Core i7-9700TE.32G.512G, Win 10 IoT.TPM,OEM|
+|1|210-BCNV|Dell EMC Edge Gateway 5200,Core i7-9700TE.32G.512G, Win 10 IoT.TPM, OEM|
 |1|631-ADIJ|User Documentation EMEA 2|
 |1|683-1187|No Installation Service Selected (Contact Sales Rep for more details)|
 |1|709-BDGW|Parts Only Warranty 15 Months|
@@ -50,6 +50,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

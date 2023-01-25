@@ -14,14 +14,27 @@ ms.service: azure-communication-services
 
 # Pre-Call diagnostic
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
 The Pre-Call API enables developers to programmatically validate a client’s readiness to join an Azure Communication Services Call. The Pre-Call APIs can be accessed through the Calling SDK. They provide multiple diagnostics including device, connection, and call quality. Pre-Call APIs are available only for Web (JavaScript). We will be enabling these capabilities across platforms in the future, please provide us feedback on what platforms you would like to see Pre-Call APIs on.
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
+- An active Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
+- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../quickstarts/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token. (Need to grab connection string from the resource through Azure portal.)
+
+  ```azurecli-interactive
+  az communication identity token issue --scope voip --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/access-tokens.md?pivots=platform-azcli).
 
 ## Accessing Pre-Call APIs
 
 >[!IMPORTANT]
->Pre-Call diagnostics are available starting on the version [1.5.2-alpha.20220415.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.5.2-alpha.20220415.1) of the Calling SDK. Make sure to use that version when trying the instructions below.
+>Pre-Call diagnostics are available starting on the version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Make sure to use that version when trying the instructions below.
 
 To Access the Pre-Call API, you will need to initialize a `callClient` and provision an Azure Communication Services access token. There you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
@@ -29,7 +42,8 @@ To Access the Pre-Call API, you will need to initialize a `callClient` and provi
 import { CallClient, Features} from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
-const tokenCredential = new AzureCommunicationTokenCredential(); 
+const callClient = new CallClient(); 
+const tokenCredential = new AzureCommunicationTokenCredential("INSERT ACCESS TOKEN");
 const preCallDiagnosticsResult = await callClient.feature(Features.PreCallDiagnostics).startTest(tokenCredential);
 
 ```
@@ -107,6 +121,9 @@ In the case that devices are not available, the user shouldn't continue into joi
 ### InCall diagnostics
 Performs a quick call to check in-call metrics for audio and video and provides results back. Includes connectivity (`connected`, boolean), bandwidth quality (`bandWidth`, `'Bad' | 'Average' | 'Good'`) and call diagnostics for audio and video (`diagnostics`). Diagnostic are provided `jitter`, `packetLoss` and `rtt` and results are generated using a simple quality grade (`'Bad' | 'Average' | 'Good'`).
 
+InCall diagnostics leverages [media quality stats](./media-quality-sdk.md) to calculate quality scores and diagnose issues. During the pre-call diagnostic, the full set of media quality stats are available for consumption. These will include raw values across video and audio metrics that can be used programatically. The InCall diagnostic provides a convenience layer on top of media quality stats to consume the results without the need to process all the raw data. See section on media stats for instructions to access.
+
+
 ```javascript
 
   const inCallDiagnostics =  await preCallDiagnosticsResult.inCallDiagnostics;
@@ -119,18 +136,32 @@ Performs a quick call to check in-call metrics for audio and video and provides 
 
 ```
 
-At this step, there are multiple failure points to watch out for:
+At this step, there are multiple failure points to watch out for. The values provided by the API are based on the threshold values required by the service. Those raw thresholds can be found in our [media quality stats documentation](./media-quality-sdk.md#best-practices).
 
 - If connection fails, the user should be prompted to recheck their network connectivity. Connection failures can also be attributed to network conditions like DNS, Proxies or Firewalls. For more information on recommended network setting check out our [documentation](network-requirements.md).
 - If bandwidth is `Bad`, the user should be prompted to try out a different network or verify the bandwidth availability on their current one. Ensure no other high bandwidth activities might be taking place.
 
 ### Media stats
-For granular stats on quality metrics like jitter, packet loss, rtt, etc. `callMediaStatistics` are provided as part of the `preCallDiagnosticsResult` feature. You can subscribe to the call media stats to get full collection of them.
+For granular stats on quality metrics like jitter, packet loss, rtt, etc. `callMediaStatistics` are provided as part of the `preCallDiagnosticsResult` feature.  See the [full list and description of the available metrics](./media-quality-sdk.md) in the linked article.  You can subscribe to the call media stats to get full collection of them. This is the raw metrics that are used to calculate InCall diagnostic results and which can be consumed granularly for further analysis.
+
+```javascript
+
+const mediaStatsCollector = callMediaStatistics.startCollector(); 
+
+mediaStatsCollector.on('mediaStatsEmitted', (mediaStats: SDK.MediaStats) => { 
+    // process the stats for the call. 
+    console.log(mediaStats);
+});
+
+```
 
 ## Pricing
 
-When the Pre-Call diagnostic test runs, behind the scenes it uses calling minutes to run the diagnostic. The test lasts for roughly 1 minute, using up 1 minute of calling which is charged at the standard rate of $0.004 per participant per minute. For the case of Pre-Call diagnostic, the charge will be for 1 participant x 1 minutes = $0.004. 
+When the Pre-Call diagnostic test runs, behind the scenes it uses calling minutes to run the diagnostic. The test lasts for roughly 30 seconds, using up 30 seconds of calling which is charged at the standard rate of $0.004 per participant per minute. For the case of Pre-Call diagnostic, the charge will be for 1 participant x 30 seconds = $0.002. 
 
 ## Next steps
 
-This feature is currently in private preview. Please provide feedback on the API design, capabilities and pricing. Feedback is key for the team to move forward and push the feature into public preview and general availability. 
+- [Check your network condition with the diagnostics tool](../developer-tools/network-diagnostic.md)
+- [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
+- [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
+- [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)

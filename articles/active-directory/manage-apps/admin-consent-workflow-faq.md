@@ -1,16 +1,15 @@
 ---
 title: Frequently asked questions about the admin consent workflow
-titleSuffix: Azure AD
 description: Find answers to frequently asked questions (FAQs) about the admin consent workflow.
 services: active-directory
-author: eringreenlee
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: how-to
-ms.date: 11/17/2021
-ms.author: ergreenl
+ms.topic: reference
+ms.date: 05/27/2022
+ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 

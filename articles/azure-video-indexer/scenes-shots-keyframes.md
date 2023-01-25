@@ -1,14 +1,14 @@
 ---
-title: Azure Video Indexer (formerly Azure Video Analyzer for Media) scenes, shots, and keyframes 
-description: This topic gives an overview of the Azure Video Indexer (formerly Azure Video Analyzer for Media) scenes, shots, and keyframes.
+title: Azure Video Indexer scenes, shots, and keyframes 
+description: This topic gives an overview of the Azure Video Indexer scenes, shots, and keyframes.
 ms.topic: how-to
-ms.date: 07/05/2019
+ms.date: 06/07/2022
 ms.author: juliako
 ---
 
 # Scenes, shots, and keyframes
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) supports segmenting videos into temporal units based on structural and semantic properties. This capability enables customers to easily browse, manage, and edit their video content based on varying granularities. For example, based on scenes, shots, and keyframes, described in this topic.   
+Azure Video Indexer supports segmenting videos into temporal units based on structural and semantic properties. This capability enables customers to easily browse, manage, and edit their video content based on varying granularities. For example, based on scenes, shots, and keyframes, described in this topic.   
 
 ![Scenes, shots, and keyframes](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
  
@@ -35,11 +35,11 @@ To extract high-resolution keyframes for your video, you must first upload and i
 
 #### With the Azure Video Indexer website
 
-To extract keyframes using the Azure Video Indexer website, upload and index your video. Once the indexing job is complete, click on the **Download** button and select **Artifacts (ZIP)**. This will download the artifacts folder to your computer. 
+To extract keyframes using the Azure Video Indexer website, upload and index your video. Once the indexing job is complete, click on the **Download** button and select **Artifacts (ZIP)**. This will download the artifacts folder to your computer (make sure to view the warning regarding artifacts below).  Unzip and open the folder. In the *_KeyframeThumbnail* folder, and you will find all of the keyframes that were extracted from your video. 
 
 ![Screenshot that shows the "Download" drop-down with "Artifacts" selected.](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
-Unzip and open the folder. In the *_KeyframeThumbnail* folder, and you will find all of the keyframes that were extracted from your video. 
+[!INCLUDE [artifacts](./includes/artifacts.md)]
 
 #### With the Azure Video Indexer API
 

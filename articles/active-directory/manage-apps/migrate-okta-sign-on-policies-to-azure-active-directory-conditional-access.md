@@ -1,6 +1,5 @@
 ---
 title: Tutorial to migrate Okta sign-on policies to Azure Active Directory Conditional Access
-titleSuffix: Active Directory
 description: In this tutorial, you learn how to migrate Okta sign-on policies to Azure Active Directory Conditional Access.
 services: active-directory
 author: gargi-sinha

@@ -3,7 +3,7 @@ title: How Accelerated Networking works in Linux and FreeBSD VMs
 description: How Accelerated Networking Works in Linux and FreeBSD VMs
 services: virtual-network
 documentationcenter: ''
-author: steveesp
+author: asudbring
 manager: gedegrac
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/15/2022
-ms.author: steveesp
+ms.author: allensu
 ---
 
 # How Accelerated Networking works in Linux and FreeBSD VMs
@@ -229,9 +229,9 @@ The mlx5 driver initializes the VF interface, and the interface is now functiona
 
 The data path has been switched back to the VF interface. 
 
-## Disable/Enable Accelerated Networking in a Running VM 
+## Disable/Enable Accelerated Networking in a non-running VM 
 
-Accelerated Networking can be toggled on a virtual NIC in a running VM with Azure CLI. For example: 
+Accelerated Networking can be toggled on a virtual NIC in a non-running VM with Azure CLI. For example: 
 
 ```output
 $ az network nic update --name u1804895 --resource-group testrg --accelerated-network false 

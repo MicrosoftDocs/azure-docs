@@ -3,13 +3,14 @@ title: How to choose between manual and autoscale on Azure Cosmos DB
 description: Learn how to choose between standard (manual) provisioned throughput and autoscale provisioned throughput for your workload.
 author: deborahc
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 04/01/2022
 ms.author: dech
 ---
 
 # How to choose between standard (manual) and autoscale provisioned throughput 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB supports two types or offers of provisioned throughput: standard (manual) and autoscale. Both throughput types are suitable for mission-critical workloads that require high performance and scale, and are backed by the same Azure Cosmos DB SLAs on throughput, availability, latency, and consistency.
 
@@ -46,7 +47,7 @@ Use the Azure Cosmos DB [capacity calculator](estimate-ru-with-capacity-planner.
 
 ### Existing applications ###
 
-If you have an existing application using standard (manual) provisioned throughput, you can use [Azure Monitor metrics](../azure-monitor/insights/cosmosdb-insights-overview.md) to determine if your traffic pattern is suitable for autoscale. 
+If you have an existing application using standard (manual) provisioned throughput, you can use [Azure Monitor metrics](insights-overview.md) to determine if your traffic pattern is suitable for autoscale. 
 
 First, find the [normalized request unit consumption metric](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) of your database or container. Normalized utilization is a measure of how much you are currently using your standard (manual) provisioned throughput. The closer the number is to 100%, the more you are fully using your provisioned RU/s. [Learn more](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) about the metric.
 
@@ -60,7 +61,7 @@ Next, determine how the normalized utilization varies over time. Find the highes
 Let's take a look at two different example workloads and analyze if they are suitable for manual or autoscale throughput. To illustrate the general approach, we'll analyze three hours of history to determine the cost difference between using manual and autoscale. For production workloads, it's recommended to use 7 to 30 days of history (or longer if available) to establish a pattern of RU/s usage.
 
 > [!NOTE]
-> All the examples shown in this doc are based on the price for an Azure Cosmos account deployed in a non-government region in the US. The pricing and calculation vary depending on the region you are using, see the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
+> All the examples shown in this doc are based on the price for an Azure Cosmos DB account deployed in a non-government region in the US. The pricing and calculation vary depending on the region you are using, see the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
 
 Assumptions:
 - Suppose we currently have manual throughput of 30,000 RU/s. 
@@ -133,8 +134,8 @@ When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/
 
 ## Next steps
 * Use [RU calculator](https://cosmos.azure.com/capacitycalculator/) to estimate throughput for new workloads.
-* Use [Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to monitor your existing workloads.
-* Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
+* Use [Azure Monitor](monitor.md#view-operation-level-metrics-for-azure-cosmos-db) to monitor your existing workloads.
+* Learn how to [provision autoscale throughput on an Azure Cosmos DB database or container](how-to-provision-autoscale-throughput.md).
 * Review the [autoscale FAQ](autoscale-faq.yml).
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 

@@ -1,9 +1,8 @@
 ---
- description: include file
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/24/2022
+ ms.date: 06/13/2022
  ms.author: cherylmc
 ---
 In the Azure portal, you can view the connection status for a classic VNet VPN Gateway by navigating to the connection. The following steps show one way to navigate to your connection and verify.

@@ -3,7 +3,7 @@ title: Assign a managed identity to an application role using Azure CLI - Azure 
 description: Step-by-step instructions for assigning a managed identity access to another application's role, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: christoc
+author: xstof
 manager:
 editor: 
 
@@ -32,7 +32,7 @@ In this article, you learn how to assign a managed identity to an application ro
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Assign a managed identity access to another application's app role
 
@@ -64,7 +64,7 @@ In this article, you learn how to assign a managed identity to an application ro
 
     ```azurecli
     appName="{name for your application}"
-    serverSPOID=$(az ad sp list --filter "displayName eq 'My App'" --query '[0].objectId' -o tsv | tr -d '[:space:]')
+    serverSPOID=$(az ad sp list --filter "displayName eq '$appName'" --query '[0].id' -o tsv | tr -d '[:space:]')
     echo "object id for server service principal is: $serverSPOID"
     ```
 
@@ -75,7 +75,7 @@ In this article, you learn how to assign a managed identity to an application ro
 
     ```azurecli
     appID="{application id for your application}"
-    serverSPOID=$(az ad sp list --filter "appId eq '$appID'" --query '[0].objectId' -o tsv | tr -d '[:space:]')
+    serverSPOID=$(az ad sp list --filter "appId eq '$appID'" --query '[0].id' -o tsv | tr -d '[:space:]')
     echo "object id for server service principal is: $serverSPOID"
     ```
 

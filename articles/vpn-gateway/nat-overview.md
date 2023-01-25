@@ -38,8 +38,9 @@ NAT on a gateway device translates the source and/or destination IP addresses, b
 Another consideration is the address pool size for translation. If the target address pool size is the same as the original address pool, use static NAT rule to define a 1:1 mapping in a sequential order. If the target address pool is smaller than the original address pool, use dynamic NAT rule to accommodate the differences.
 
 > [!IMPORTANT]
-> * NAT is supported on the the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
+> * NAT is supported on the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
 > * NAT is supported on IPsec cross-premises connections only. VNet-to-VNet connections or P2S connections are not supported.
+> * Every Dynamic NAT rule can be assigned to a single connection.
 
 ## <a name="mode"></a>NAT mode: ingress & egress
 

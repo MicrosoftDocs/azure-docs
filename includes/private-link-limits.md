@@ -18,6 +18,7 @@ ms.custom: include file
 |Number of private endpoints per virtual network     |  1000       |
 |Number of private endpoints per subscription       |   64000       |
 |Number of private link services per subscription         |   800      |
+|Number of private link services per Standard Load Balancer         |   8      |
 |Number of IP Configurations on a private link service     |  8 (This number is for the NAT IP addresses used per PLS)       |
 |Number of private endpoints on the same private link service   |  1000       |
 |Number of subscriptions allowed in visibility setting on private link service   |  100       |

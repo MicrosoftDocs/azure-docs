@@ -5,6 +5,7 @@ ms.service:  azure-monitor
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.devlang: csharp
+ms.reviewer: casocha
 ---
 
 # Custom metric collection in .NET and .NET Core
@@ -32,8 +33,7 @@ In summary `GetMetric()` is the recommended approach since it does pre-aggregati
 
 ## Getting started with GetMetric
 
-For our examples, we're going to use a basic .NET Core 3.1 worker service application. If you would like to replicate the test environment used with these examples, follow steps 1-6 of the [monitoring worker service article](./worker-service.md#net-core-30-worker-service-application). These steps will add Application Insights to a basic worker service project template and the concepts apply to any general application where the SDK can be used including web apps and console apps.
-
+For our examples, we're going to use a basic .NET Core 3.1 worker service application. If you would like to replicate the test environment used with these examples, follow steps 1-6 of the [monitoring worker service article](worker-service.md#net-core-lts-worker-service-application). These steps will add Application Insights to a basic worker service project template and the concepts apply to any general application where the SDK can be used including web apps and console apps.
 ### Sending metrics
 
 Replace the contents of your `worker.cs` file with the following code:

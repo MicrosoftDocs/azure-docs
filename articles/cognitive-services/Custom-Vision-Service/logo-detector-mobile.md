@@ -91,7 +91,7 @@ To learn more about how the app handles this data, start with the **GetResources
 
 The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Computer Vision service as well. The app uses the Computer Vision text recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Computer Vision is pretrained to perform certain operations on images or videos.
 
-Subscribe to the Computer Vision service to get a key and endpoint URL. For help on this step, see [How to obtain subscription keys](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
+Subscribe to the Computer Vision service to get a key and endpoint URL. For help on this step, see [How to obtain keys](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
 ![The Computer Vision service in the Azure portal, with the Quickstart menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
 

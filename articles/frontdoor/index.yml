@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Azure Front Door documentation
+title: Azure Front Door and CDN documentation
 summary: Azure Front Door is a scalable and secure entry point for fast delivery of your global web applications.
 
 metadata:
-  title: Azure Front Door Documentation
+  title: Azure Front Door and CDN Documentation
   description: Azure Front Door provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
   services: frontdoor
   ms.service: frontdoor
   ms.topic: landing-page
   author: duongau
   ms.author: duau
-  ms.date: 03/20/2022
+  ms.date: 06/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -28,7 +28,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Front Door
-            url: /learn/modules/intro-to-azure-front-door/       
+            url: /training/modules/intro-to-azure-front-door/       
        
   # Card
   - title: Create a Front Door
@@ -37,6 +37,20 @@ landingContent:
         links:
           - text: Create a Front Door
             url: create-front-door-portal.md
+
+  # Card
+  - title: Learn about Front Door and CDN architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Expose Azure Spring Apps through a reverse proxy
+            url: /azure/architecture/reference-architectures/microservices/spring-cloud-reverse-proxy
+          - text: CDN guidance
+            url: /azure/architecture/best-practices/cdn
+          - text: Scalable and secure WordPress on Azure
+            url: /azure/architecture/example-scenario/infrastructure/wordpress
+          - text: Content Delivery Network analytics
+            url: /azure/architecture/solution-ideas/articles/content-delivery-network-azure-data-explorer
 
   # Card
   - title: Configure Endpoint Manager

@@ -74,7 +74,7 @@ You can now upload VHD straight into a managed disk. For instructions, see [Uplo
 
 You can also create a customized VM in Azure and then copy the OS disk and attach it to a new VM to create another copy. This is fine for testing, but if you want to use an existing Azure VM as the model for multiple new VMs, create an *image* instead. For more information about creating an image from an existing Azure VM, see [Create a custom image of an Azure VM by using the CLI](tutorial-custom-images.md).
 
-If you want to copy an existing VM to another region, you might want to use azcopy to [creat a copy of a disk in another region](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk). 
+If you want to copy an existing VM to another region, you might want to use azcopy to [create a copy of a disk in another region](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk). 
 
 Otherwise, you should take a snapshot of the VM and then create a new OS VHD from the snapshot.
 

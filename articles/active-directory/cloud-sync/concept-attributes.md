@@ -4,13 +4,13 @@ description: This article describes the Azure AD schema, the attributes that the
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/25/2021
+ms.date: 01/11/2023
 ms.subservice: hybrid
 ms.author: billmath
 

@@ -86,7 +86,7 @@ Following example uses these validation technical profiles:
 ```xml
 <ValidationTechnicalProfiles>
   <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false" />
-  <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomertsDatabase" ContinueOnError="true" >
+  <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomersDatabase" ContinueOnError="true" >
     <Preconditions>
       <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
         <Value>userType</Value>

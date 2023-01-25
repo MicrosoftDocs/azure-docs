@@ -5,13 +5,13 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: mikaelw
-author: mikaelweave
-ms.date: 03/22/2022
+ms.author: kesheth
+author: expekesheth
+ms.date: 06/03/2022
 ---
 
 # Client application registration for Azure API for FHIR
+
 In the previous tutorial, you deployed and set up your Azure API for FHIR. Now that you have your Azure API for FHIR setup, we’ll register a public client application. You can read through the full [register a public client app](register-public-azure-ad-client-app.md) how-to guide for more details or troubleshooting, but we’ve called out the major steps for this tutorial in this article.
 
 1. Navigate to Azure Active Directory
@@ -52,7 +52,10 @@ Now that you have set up the correct authentication, set the API permissions:
 :::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Screenshot of the Add API permissions blade, with the steps to add API permissions highlighted.":::
 
 ## Next Steps
+
 You now have a public client application. In the next tutorial, we’ll walk through testing and gaining access to this application through Postman.
 
 >[!div class="nextstepaction"]
 >[Test client application in Postman](tutorial-web-app-test-postman.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

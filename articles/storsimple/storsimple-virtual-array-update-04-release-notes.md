@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/05/2017
+ms.date: 08/19/2022
 ms.author: alkohli
 
 ---
 # StorSimple Virtual Array Update 0.4 release notes
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 ## Overview
 

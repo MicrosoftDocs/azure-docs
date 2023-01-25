@@ -74,7 +74,7 @@ In Azure Time Series Insights Gen2, you can add contextual data to incoming tele
 
     [![Copy the value for the primary key connection string](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Go to <https://tsiclientsample.azurewebsites.net/windFarmGen.html>. The URL creates and runs simulated windmill devices.
+1. Navigate to the [TSI Sample Wind Farm Pusher](https://tsiclientsample.azurewebsites.net/windFarmGen.html). The site creates and runs simulated windmill devices.
 1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in the [windmill input field](#push-events-to-windmills-sample).
 
     [![Paste the primary key connection string in the Event Hub Connection String box](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)

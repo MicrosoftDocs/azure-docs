@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Recognize speech-to-text from a microphone
 
-Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion). Running the script will start a recognition session on your default microphone and output text.
+Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). Running the script will start a recognition session on your default microphone and output text.
 
 ```go
 package main
@@ -53,8 +53,8 @@ func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
 }
 
 func main() {
-    subscription :=  "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
+    subscription :=  "YourSpeechKey"
+    region := "YourSpeechRegion"
 
 	audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
 	if err != nil {
@@ -103,7 +103,7 @@ For detailed information, see the [reference content for the `SpeechConfig` clas
 
 ## Recognize speech-to-text from an audio file
 
-Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion). Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file and output the text result.
+Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file and output the text result.
 
 ```go
 package main
@@ -117,8 +117,8 @@ import (
 )
 
 func main() {
-    subscription :=  "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
+    subscription :=  "YourSpeechKey"
+    region := "YourSpeechRegion"
     file := "path/to/file.wav"
 
 	audioConfig, err := audio.NewAudioConfigFromWavFileInput(file)

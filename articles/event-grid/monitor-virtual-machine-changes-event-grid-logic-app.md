@@ -1,6 +1,6 @@
 ---
-title: Monitor virtual machines changes - Azure Event Grid & Logic Apps
-description: Check for changes in virtual machines (VMs) by using Azure Event Grid and Logic Apps
+title: Monitor virtual machines changes with Azure Event Grid
+description: Check for changes in virtual machines (VMs) by using Azure Event Grid and Azure Logic Apps.
 services: logic-apps, event-grid
 ms.service: logic-apps
 ms.suite: integration
@@ -8,14 +8,16 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: estfan, azla
 ms.topic: tutorial
-ms.date: 01/01/2022
+ms.date: 06/10/2022
 ---
 
-# Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps
+# Tutorial: Monitor virtual machine changes by using Azure Event Grid and Azure Logic Apps
 
-To monitor and respond to specific events that happen in Azure resources or third-party resources, you can create an automated [logic app workflow](../logic-apps/logic-apps-overview.md) with minimal code using Azure Logic Apps. You can have these resources publish events to an [Azure event grid](../event-grid/overview.md). In turn, the event grid pushes those events to subscribers that have queues, webhooks, or [event hubs](../event-hubs/event-hubs-about.md) as endpoints. As a subscriber, your workflow waits for these events to arrive in the event grid before running the steps to process the events.
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-For example, here are some events that publishers can send to subscribers through the Azure Event Grid service:
+You can monitor and respond to specific events that happen in Azure resources or external resources by using Azure Event Grid and Azure Logic Apps. You can create an automated [Consumption logic app workflow](../logic-apps/logic-apps-overview.md) with minimal code using Azure Logic Apps. You can have these resources publish events to [Azure Event Grid](../event-grid/overview.md). In turn, Azure Event Grid pushes those events to subscribers that have queues, webhooks, or [event hubs](../event-hubs/event-hubs-about.md) as endpoints. As a subscriber, your workflow waits for these events to arrive in Azure Event Grid before running the steps to process the events.
+
+For example, here are some events that publishers can send to subscribers through Azure Event Grid:
 
 * Create, read, update, or delete a resource. For example, you can monitor changes that might incur charges on your Azure subscription and affect your bill.
 
@@ -25,14 +27,14 @@ For example, here are some events that publishers can send to subscribers throug
 
 * A new message appears in a queue.
 
-This tutorial creates a Consumption logic app resource that runs in [*multi-tenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through an event grid to the workflow. 
+This tutorial creates a Consumption logic app resource that runs in [*multi-tenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through Azure Event Grid to the workflow. 
 
 ![Screenshot showing the workflow designer with a workflow that monitors a virtual machine using Azure Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a logic app resource and workflow that monitors events from an event grid.
+> * Create a logic app resource and workflow that monitors events from Azure Event Grid.
 > * Add a condition that specifically checks for virtual machine changes.
 > * Send email when your virtual machine changes.
 
@@ -52,7 +54,7 @@ In this tutorial, you learn how to:
 
 * A [virtual machine](https://azure.microsoft.com/services/virtual-machines) that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the [Create a VM tutorial](../virtual-machines/windows/quick-create-portal.md). To make the virtual machine publish events, you [don't need to do anything else](../event-grid/overview.md).
 
-* If you have a firewall that limits traffic to specific IP addresses, set up your firewall to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by Azure Logic Apps in the Azure region where you create your logic app workflow.
+* If you have a firewall that limits traffic to specific IP addresses, you have to set up your firewall to allow access for Azure Logic Apps to communicate through the firewall. You need to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by Azure Logic Apps in the Azure region where you create your logic app.
 
   This example uses managed connectors that require your firewall to allow access for *all* the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses) in the Azure region for your logic app resource.
 
@@ -72,15 +74,18 @@ In this tutorial, you learn how to:
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Select the same Azure subscription for all the services in this tutorial. |
    | **Resource Group** | Yes | <*Azure-resource-group*> | The Azure resource group name for your logic app, which you can select for all the services in this tutorial. |
-   | **Type** | Yes | Consumption | The resource type for your logic app. For this tutorial, make sure that you select **Consumption**. |
    | **Logic App name** | Yes | <*logic-app-name*> | Provide a unique name for your logic app. |
    | **Publish** | Yes | Workflow | Select the deployment destination for your logic app. For this tutorial, make sure that you select **Workflow**, which deploys to Azure. |
    | **Region** | Yes | <*Azure-region*> | Select the same region for all services in this tutorial. |
+   | **Plan type** | Yes | Consumption | The resource type for your logic app. For this tutorial, make sure that you select **Consumption**. |
    |||||
 
    > [!NOTE]
-   > If you later want to use the Event Grid operations with a Standard logic app resource instead, make sure that you create a *stateful* workflow, not a stateless workflow. 
-   > To add the Event Grid operations to your workflow in the designer, on the operations picker pane, make sure that you select the **Azure** tab. 
+   > 
+   > If you later want to use the Azure Event Grid operations with a Standard logic app resource instead, 
+   > make sure that you create a *stateful* workflow, not a stateless workflow. This tutorial applies only 
+   > to Consumption logic apps, which follow a different user experience. To add Azure Event Grid operations 
+   > to your workflow in the designer, on the operations picker pane, make sure that you select the **Azure** tab. 
    > For more information about multi-tenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
 
 1. When you're done, select **Review + create**. On the next pane, confirm the provided information, and select **Create**.
@@ -93,25 +98,30 @@ In this tutorial, you learn how to:
 
 1. Under **Templates**, select **Blank Logic App**.
 
-   ![Screenshot of Logic Apps templates, showing selection to create a blank logic app.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
+   > [!NOTE]
+   > 
+   > The workflow templates gallery is available only for Consumption logic apps, not Standard logic apps.
 
-   The workflow designer now shows you the [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) that you can use to start your logic app. Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, Azure Logic Apps creates a workflow instance that runs your logic app.
+   ![Screenshot showing Azure Logic Apps templates with selected "Blank Logic App" template.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-## Add an Event Grid trigger
+   The workflow designer now shows you the [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) that you can use to start your logic app. Every workflow must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, Azure Logic Apps creates a workflow instance that runs your logic app.
 
-Now add the Event Grid trigger, which you use to monitor the resource group for your virtual machine.
+## Add an Azure Event Grid trigger
+
+Now add the Azure Event Grid trigger, which you use to monitor the resource group for your virtual machine.
 
 1. On the designer, in the search box, enter `event grid`. From the triggers list, select the **When a resource event occurs** trigger.
 
-   ![Screenshot that shows the workflow designer with the selected Event Grid trigger.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Screenshot that shows the workflow designer with the selected Azure Event Grid trigger.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 1. When prompted, sign in to Azure Event Grid with your Azure account credentials. In the **Tenant** list, which shows the Azure Active Directory tenant that's associated with your Azure subscription, check that the correct tenant appears, for example:
 
-   ![Screenshot that shows the workflow designer with the Azure sign-in prompt to connect to Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
+   ![Screenshot that shows the workflow designer with the Azure sign-in prompt to connect to Azure Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
+   > 
    > If you're signed in with a personal Microsoft account, such as @outlook.com or @hotmail.com, 
-   > the Event Grid trigger might not appear correctly. As a workaround, select 
+   > the Azure Event Grid trigger might not appear correctly. As a workaround, select 
    > [Connect with Service Principal](../active-directory/develop/howto-create-service-principal-portal.md), 
    > or authenticate as a member of the Azure Active Directory that's associated with 
    > your Azure subscription, for example, *user-name*@emailoutlook.onmicrosoft.com.
@@ -125,23 +135,23 @@ Now add the Event Grid trigger, which you use to monitor the resource group for 
    | **Subscription** | Yes | <*event-publisher-Azure-subscription-name*> | Select the name for the Azure subscription that's associated with the *event publisher*. For this tutorial, select the Azure subscription name for your virtual machine. |
    | **Resource Type** | Yes | <*event-publisher-Azure-resource-type*> | Select the Azure resource type for the event publisher. For more information about Azure resource types, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). For this tutorial, select the `Microsoft.Resources.ResourceGroups` value to monitor Azure resource groups. |
    | **Resource Name** |  Yes | <*event-publisher-Azure-resource-name*> | Select the Azure resource name for the event publisher. This list varies based on the resource type that you selected. For this tutorial, select the name for the Azure resource group that includes your virtual machine. |
-   | **Event Type Item** |  No | <*event-types*> | Select one or more specific event types to filter and send to your event grid. For example, you can optionally add these event types to detect when resources are changed or deleted: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>For more information, see these topics: <p><p>- [Azure Event Grid event schema for resource groups](../event-grid/event-schema-resource-groups.md) <br>- [Understand event filtering](../event-grid/event-filtering.md) <br>- [Filter events for Event Grid](../event-grid/how-to-filter-events.md) |
+   | **Event Type Item** |  No | <*event-types*> | Select one or more specific event types to filter and send to Azure Event Grid. For example, you can optionally add these event types to detect when resources are changed or deleted: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>For more information, see these topics: <p><p>- [Azure Event Grid event schema for resource groups](../event-grid/event-schema-resource-groups.md) <br>- [Understand event filtering](../event-grid/event-filtering.md) <br>- [Filter events for Azure Event Grid](../event-grid/how-to-filter-events.md) |
    | To add optional properties, select **Add new parameter**, and then select the properties that you want. | No | {see descriptions} | * **Prefix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>* **Suffix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types. <p>* **Subscription Name**: For this tutorial, you can provide a unique name for your event subscription. |
    |||
 
-1. Save your logic app. On the designer toolbar, select **Save**. To collapse and hide an action's details in your logic app, select the action's title bar.
+1. Save your logic app workflow. On the designer toolbar, select **Save**. To collapse and hide an action's details in your workflow, select the action's title bar.
 
    ![Screenshot that shows the workflow designer and the "Save" button selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
-   When you save your logic app with an event grid trigger, Azure automatically creates an event subscription for your logic app to your selected resource. So when the resource publishes an event to the event grid, that event grid automatically pushes the event to your logic app. This event triggers your logic app, then creates and runs an instance of the workflow that you define in these next steps.
+   When you save your logic app workflow with an Azure Event Grid trigger, Azure automatically creates an event subscription for your logic app to your selected resource. So when the resource publishes an event to the Azure Event Grid service, the service automatically pushes the event to your logic app. This event triggers and runs the logic app workflow you define in these next steps.
 
-Your logic app is now live and listens to events from the event grid, but doesn't do anything until you add actions to the workflow.
+Your logic app is now live and listens to events from Azure Event Grid, but doesn't do anything until you add actions to the workflow.
 
 ## Add a condition
 
-If you want to your logic app to run only when a specific event or operation happens, add a condition that checks for the `Microsoft.Compute/virtualMachines/write` operation. When this condition is true, your logic app sends you email with details about the updated virtual machine.
+If you want to your logic app workflow to run only when a specific event or operation happens, add a condition that checks for the **Microsoft.Compute/virtualMachines/write** operation. When this condition is true, your logic app workflow sends you an email, which has details about the updated virtual machine.
 
-1. In Logic App Designer, under the event grid trigger, select **New step**.
+1. In the workflow designer, under the Azure Event Grid trigger, select **New step**.
 
    ![Screenshot that shows the workflow designer with "New step" selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-new-step-condition.png)
 
@@ -149,7 +159,7 @@ If you want to your logic app to run only when a specific event or operation hap
 
    ![Screenshot that shows the workflow designer with "Condition" selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/select-condition.png)
 
-   The Logic App Designer adds an empty condition to your workflow, including action paths to follow based whether the condition is true or false.
+   The workflow designer adds an empty condition to your workflow, including action paths to follow based whether the condition is true or false.
 
    ![Screenshot that shows the workflow designer with an empty condition added to the workflow.](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
 
@@ -157,7 +167,7 @@ If you want to your logic app to run only when a specific event or operation hap
 
    ![Screenshot that shows the workflow designer with the condition editor's context menu and "Rename" selected.](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
 
-1. Create a condition that checks the event `body` for a `data` object where the `operationName` property is equal to the `Microsoft.Compute/virtualMachines/write` operation. Learn more about [Event Grid event schema](../event-grid/event-schema.md).
+1. Create a condition that checks the event `body` for a `data` object where the `operationName` property is equal to the `Microsoft.Compute/virtualMachines/write` operation. Learn more about [Azure Event Grid event schema](../event-grid/event-schema.md).
 
    1. On the first row under **And**, click inside the left box. In the dynamic content list that appears, select **Expression**.
 
@@ -169,7 +179,7 @@ If you want to your logic app to run only when a specific event or operation hap
 
       For example:
 
-      ![Screenshot of Logic Apps designer, showing condition editor with expression to extract the operation name.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
+      ![Screenshot showing workflow designer and condition editor with expression to extract the operation name.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
    1. In the middle box, keep the operator **is equal to**.
 
@@ -229,23 +239,23 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
    > [!NOTE]
    > If you select a field that represents an array, the designer automatically adds a **For each** loop around 
-   > the action that references the array. That way, your logic app performs that action on each array item.
+   > the action that references the array. That way, your logic app workflow performs that action on each array item.
 
    Now, your email action might look like this example:
 
    ![Screenshot that shows the workflow designer with selected outputs to send in email when VM is updated.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
 
-   And your finished logic app might look like this example:
+   And your finished logic app workflow might look like the following example:
 
-   ![Screenshot that shows the workflow designer with finished logic app and details for trigger and actions.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
+   ![Screenshot showing designer with complete workflow and details for trigger and actions.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
 1. Save your logic app. To collapse and hide each action's details in your logic app, select the action's title bar.
 
-   Your logic app is now live, but waits for changes to your virtual machine before doing anything. To test your logic app now, continue to the next section.
+   Your logic app is now live, but waits for changes to your virtual machine before doing anything. To test your workflow now, continue to the next section.
 
 ## Test your logic app workflow
 
-1. To check that your logic app is getting the specified events, update your virtual machine.
+1. To check that your workflow is getting the specified events, update your virtual machine.
 
    For example, you can [resize your virtual machine](../virtual-machines/resize-vm.md).
 
@@ -261,7 +271,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
    ![Screenshot of logic app's runs history, showing details for each run.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
 
-Congratulations, you've created and run a logic app that monitors resource events through an event grid and emails you when those events happen. You also learned how easily you can create workflows that automate processes and integrate systems and cloud services.
+Congratulations, you've created and run a logic app workflow that monitors resource events through Azure Event Grid and emails you when those events happen. You also learned how easily you can create workflows that automate processes and integrate systems and cloud services.
 
 You can monitor other configuration changes with event grids and logic apps, for example:
 
@@ -274,7 +284,7 @@ You can monitor other configuration changes with event grids and logic apps, for
 
 This tutorial uses resources and performs actions that incur charges on your Azure subscription. So when you're done with the tutorial and testing, make sure that you disable or delete any resources where you don't want to incur charges.
 
-* To stop running your logic app without deleting your work, disable your app. On your logic app menu, select **Overview**. On the toolbar, select **Disable**.
+* To stop running your workflow without deleting your work, disable your app. On your logic app menu, select **Overview**. On the toolbar, select **Disable**.
 
   ![Screenshot of logic app's overview, showing Disable button selected to disable the logic app.](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
 
@@ -285,9 +295,9 @@ This tutorial uses resources and performs actions that incur charges on your Azu
 
 ## Next steps
 
-* [Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
+* [Create and route custom events with Azure Event Grid](../event-grid/custom-event-quickstart.md)
 
-See the following samples to learn about publishing events to and consuming events from Event Grid using different programming languages. 
+See the following samples to learn about publishing events to and consuming events from Azure Event Grid using different programming languages. 
 
 - [Azure Event Grid samples for .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
 - [Azure Event Grid samples for Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)

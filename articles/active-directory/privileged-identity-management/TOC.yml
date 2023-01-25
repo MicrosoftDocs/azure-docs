@@ -8,10 +8,8 @@
   items:
   - name: License requirements
     href: subscription-requirements.md
-  - name: Privileged Access groups
-    href: groups-features.md
-  - name: Role-assignable vs Privileged Access groups
-    href: concept-privileged-access-versus-role-assignable.md
+  - name: PIM for Groups
+    href: concept-pim-for-groups.md
   - name: Roles you can't manage with PIM 
     href: pim-roles.md
   - name: Secure privileged access in Azure AD
@@ -32,13 +30,19 @@
     href: pim-deployment-plan.md
   - name: Start using PIM
     href: pim-getting-started.md
+  - name: Bring under management
+    items:
+    - name: Azure resources
+      href: pim-resource-roles-discover-resources.md
+    - name: Groups
+      href: groups-discover-groups.md
   - name: Assign
     items:
     - name: Azure AD roles
       href: pim-how-to-add-role-to-user.md
     - name: Azure roles
       href: pim-resource-roles-assign-roles.md
-    - name: Privileged Access groups
+    - name: Groups
       href: groups-assign-member-owner.md
   - name: Activate
     items:
@@ -46,7 +50,7 @@
       href: pim-how-to-activate-role.md
     - name: Azure roles
       href: pim-resource-roles-activate-your-roles.md
-    - name: Privileged Access groups
+    - name: Groups
       href: groups-activate-roles.md 
   - name: Approve
     items:
@@ -54,21 +58,15 @@
       href: azure-ad-pim-approval-workflow.md
     - name: Azure roles
       href: pim-resource-roles-approval-workflow.md
-    - name: Privileged Access groups
+    - name: Groups
       href: groups-approval-workflow.md
-  - name: Bring under management
-    items:
-    - name: Azure resources
-      href: pim-resource-roles-discover-resources.md
-    - name: Privileged Access groups
-      href: groups-discover-groups.md
   - name: Extend or renew
     items:
     - name: Azure AD roles
       href: pim-how-to-renew-extend.md
     - name: Azure roles
       href: pim-resource-roles-renew-extend.md
-    - name: Privileged Access groups
+    - name: Groups
       href: groups-renew-extend.md
   - name: Set role settings
     items:
@@ -76,7 +74,7 @@
       href: pim-how-to-change-default-settings.md
     - name: Azure roles
       href: pim-resource-roles-configure-role-settings.md
-    - name: Privileged Access groups
+    - name: Groups
       href: groups-role-settings.md
   - name: Set up alerts
     items:
@@ -90,7 +88,7 @@
       href: pim-how-to-use-audit-log.md
     - name: Azure roles
       href: azure-pim-resource-rbac.md
-    - name: Privileged Access groups
+    - name: Groups
       href: groups-audit.md
   - name: Review access
     items:
@@ -110,8 +108,8 @@
     href: pim-troubleshoot.md
 - name: Reference
   items:
-  - name: Graph API  
-    href: /graph/api/resources/azure-ad-overview
+  - name: Microsoft Graph API  
+    href: /graph/api/resources/privilegedidentitymanagementv3-overview
   - name: Azure AD CLI    
     href: /cli/azure/ad
   - name:  Azure AD PowerShell for Graph

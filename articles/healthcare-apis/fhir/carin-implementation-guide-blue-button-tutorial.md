@@ -5,10 +5,9 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: mikaelw
-author: mikaelweave
-ms.date: 03/01/2022
+ms.author: kesheth
+author: expekesheth
+ms.date: 06/06/2022
 ---
 
 # CARIN Implementation Guide for Blue Button&#174;
@@ -75,5 +74,7 @@ The final test we'll walk through is testing [error handling](https://touchstone
 In this tutorial, we walked through how to pass the CARIN IG for Blue Button tests in Touchstone. Next, you can review how to test the Da Vinci formulary tests.
 
 >[!div class="nextstepaction"]
->[DaVinci Drug Formulary](davinci-drug-formulary-tutorial.md)       
+>[DaVinci Drug Formulary](davinci-drug-formulary-tutorial.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.       
  

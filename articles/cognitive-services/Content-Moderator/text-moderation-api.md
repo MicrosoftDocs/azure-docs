@@ -124,11 +124,13 @@ The following example shows a sample response:
 
 ## Auto-correction
 
-Suppose the input text is (the "qu!ck," "f0x," and "lzay" are intentional):
+The text moderation response can optionally return the text with basic auto-correction applied. 
 
-> The qu!ck brown f0x jumps over the lzay dog.
+For example, the following input text has a misspelling.
 
-If you ask for auto-correction, the response contains the corrected version of the text:
+> The quick brown fox jumps over the lazzy dog.
+
+If you specify auto-correction, the response contains the corrected version of the text:
 
 > The quick brown fox jumps over the lazy dog.
 

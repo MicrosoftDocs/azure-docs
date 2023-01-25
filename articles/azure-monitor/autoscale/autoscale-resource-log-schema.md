@@ -1,9 +1,12 @@
 ---
 title: Azure autoscale log events schema
 description: Format of logs for monitoring and troubleshooting autoscale actions
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.subservice: autoscale
+ms.reviewer: akkumari
 ---
 
 # Azure Monitor autoscale actions resource log schema

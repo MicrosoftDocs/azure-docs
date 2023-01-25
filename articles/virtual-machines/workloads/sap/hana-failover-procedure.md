@@ -3,16 +3,15 @@ title: HANA failover procedure to a disaster site for SAP HANA on Azure (Large I
 description: Learn how to fail over to a disaster recovery site for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter:
-author: mamccrea
+author: lauradolan
 manager: juergent
 editor:
 ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/16/2021
-ms.author: mamccrea
+ms.author: ladolan
 ms.custom: H1Hack27Feb2017
 
 ---

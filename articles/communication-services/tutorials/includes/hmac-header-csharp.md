@@ -96,11 +96,16 @@ string resourceEndpoint = "resourceEndpoint";
 // Create a uri you are going to call.
 var requestUri = new Uri($"{resourceEndpoint}/identities?api-version=2021-03-07");
 // Endpoint identities?api-version=2021-03-07 accepts list of scopes as a body
-var body = new[] { "chat" }; 
+var body = new
+    {
+        createTokenWithScopes = new[] { "chat" }
+    };
+
 var serializedBody = JsonConvert.SerializeObject(body);
+
 var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
 {
-    Content = new StringContent(serializedBody, Encoding.UTF8)
+    Content = new StringContent(serializedBody, Encoding.UTF8, "application/json")
 };
 ```
 

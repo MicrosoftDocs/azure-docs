@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Register and scan an on-premises SQL Server'
 description: This tutorial describes how to register an on-prem SQL Server to Microsoft Purview, and scan the server using a self-hosted IR. 
-author: viseshag
-ms.author: viseshag
+author: heniot
+ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 09/27/2021
+ms.date: 11/03/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active [Azure Key Vault](../key-vault/general/quick-create-portal.md).
-- An Microsoft Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
+- A Microsoft Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
 - An [on-premises SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads).
 
 ## Sign in to the Microsoft Purview governance portal
@@ -113,11 +113,14 @@ This tutorial assumes the machine where you'll install your self-hosted integrat
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/successfully-registered.png" alt-text="successfully registered.":::
 
-## Set up SQL authentication
+## Set up authentication
 
-There is only one way to set up authentication for SQL server on-premises:
+There are two ways to set up authentication for SQL server on-premises:
 
 - SQL Authentication
+- Windows Authentication
+
+This tutorial includes steps to use SQL authentication. For more information about scanning on-premises SQL Server with Windows authentication, see [Set up SQL server authentication](register-scan-on-premises-sql-server.md#set-up-sql-server-authentication).
 
 ### SQL authentication
 

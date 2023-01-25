@@ -1,11 +1,10 @@
 ---
 title: How to Create a Lab with a Shared Resource | Azure Lab Services
 description: Learn how to create a lab that requires a resource shared among the students.  
-author: emaher
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 07/04/2022
 ms.custom: devdivchpfy22
-ms.author: enewman
+ms.service: lab-services
 ---
 
 # How to create a lab with a shared resource in Azure Lab Services
@@ -13,9 +12,9 @@ ms.author: enewman
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [How to create a lab with a shared resource in Azure Lab Services (deprecated)](how-to-create-a-lab-with-shared-resource-1.md).
+> If using a version of Azure Lab Services prior to the [August 2022 Update](lab-services-whats-new.md), see [How to create a lab with a shared resource in Azure Lab Services when using lab accounts](how-to-create-a-lab-with-shared-resource-1.md).
 
-When you're creating a lab, there might be some resources that need to be shared among all the students in a lab. For example, you have a licensing server or SQL Server for a database class. This article will discuss the steps to enable the shared resource for a lab. We’ll also talk about how to limit access to the shared resource.
+When you're creating a lab, there might be some resources that need to be shared among all the students in a lab. For example, you have a licensing server or SQL Server for a database class. This article will discuss the steps to enable the shared resource for a lab. We'll also talk about how to limit access to the shared resource.
 
 ## Architecture
 
@@ -40,7 +39,7 @@ To use a shared resource, the lab plan must be set up to use advanced networking
 > [!WARNING]
 > Advanced networking must be enabled during lab plan creation. It can't be added later.
 
-When your lab plan is set to use advanced networking, the template VM and student VMs should now have access to the shared resource.  You might have to update the virtual network's [network security group](/azure/virtual-network/network-security-groups-overview), virtual network's [user-defined routes](/azure/virtual-network/virtual-networks-udr-overview#user-defined) or server's firewall rules.
+When your lab plan is set to use advanced networking, the template VM and student VMs should now have access to the shared resource.  You might have to update the virtual network's [network security group](../virtual-network/network-security-groups-overview.md), virtual network's [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) or server's firewall rules.
 
 ## Tips
 

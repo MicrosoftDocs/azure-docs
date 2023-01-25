@@ -3,12 +3,12 @@ title: Authorize access to queue data with a managed identity
 titleSuffix: Azure Storage
 description: Use managed identities for Azure resources to authorize queue data access from applications running in Azure VMs, function apps, and others.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/11/2021
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-csharp
@@ -51,13 +51,12 @@ The following code example shows how to get the authenticated token credential a
 public static void CreateQueue(string accountName, string queueName)
 {
     // Construct the blob container endpoint from the arguments.
-    string queueEndpoint = string.Format("https://{0}.queue.core.windows.net/{1}",
-                                                accountName,
-                                                queueName);
+    string queueEndpoint = $"https://{accountName}.queue.core.windows.net/{queueName}";
 
     // Get a token credential and create a service client object for the queue.
-    QueueClient queueClient = new QueueClient(new Uri(queueEndpoint), 
-                                                new DefaultAzureCredential());
+    QueueClient queueClient = new QueueClient(
+        new Uri(queueEndpoint), 
+        new DefaultAzureCredential());
 
     try
     {

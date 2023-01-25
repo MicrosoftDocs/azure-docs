@@ -62,7 +62,7 @@ A computer that's running either:
 
 # [Visual Studio](#tab/visual-studio)
 
-* [Visual Studio 2022 17.0 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the **ASP.NET and web development** workload
+* [Visual Studio 2022 17.0 or later](https://visualstudio.microsoft.com/downloads) with the **ASP.NET and web development** workload
 * [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 # [Visual Studio Code](#tab/visual-studio-code)

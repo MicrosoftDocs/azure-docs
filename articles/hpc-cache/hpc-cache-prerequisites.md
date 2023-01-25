@@ -1,11 +1,11 @@
 ---
 title: Azure HPC Cache prerequisites
 description: Prerequisites for using Azure HPC Cache
-author: ronhogue
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 02/24/2022
-ms.author: rohogue
+ms.date: 12/30/2022
+ms.author: v-erinkelly
 ---
 
 # Prerequisites for Azure HPC Cache
@@ -45,6 +45,7 @@ These network-related prerequisites need to be set up before you can use your ca
 The Azure HPC Cache needs a dedicated subnet with these qualities:
 
 * The subnet must have at least 64 IP addresses available.
+* Communication inside the subnet must be unrestricted. If you use a network security group for the cache subnet, make sure that it permits all services between internal IP addresses.
 * The subnet can't host any other VMs, even for related services like client machines.
 * If you use multiple Azure HPC Cache instances, each one needs its own subnet.
 
@@ -147,6 +148,12 @@ A successful connection gives this response:
 OCSP Response Status: successful (0x0)
 ```
 
+### Event server access
+
+Azure HPC Cache uses Azure event server endpoints to monitor cache health and send diagnostic information.
+
+Make sure that the cache can securely access hosts in the domain events.data.microsoft.com - that is, open TCP port 443 for traffic to `*.events.data.microsoft.com`.
+
 ## Permissions
 
 Check these permission-related prerequisites before starting to create your cache.
@@ -230,15 +237,7 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   * Check firewall settings to be sure that they allow traffic on all of these required ports. Be sure to check firewalls used in Azure as well as on-premises firewalls in your data center.
 
-* Root access (read/write): The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
-  
-  * Enable `no_root_squash`. This option ensures that the remote root user can access files owned by root.
-
-  * Check export policies to make sure they don't include restrictions on root access from the cache's subnet.
-
-  * If your storage has any exports that are subdirectories of another export, make sure the cache has root access to the lowest segment of the path. Read [Root access on directory paths](troubleshoot-nas.md#allow-root-access-on-directory-paths) in the NFS storage target troubleshooting article for details.
-
-* NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
+* NFS back-end storage must be a compatible hardware/software platform. The storage must support NFS Version 3 (NFSv3). Contact the Azure HPC Cache team for details.
 
 ### NFS-mounted blob (ADLS-NFS) storage requirements
 

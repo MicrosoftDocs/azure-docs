@@ -1,41 +1,54 @@
 ---
-title: "How to use new APIs available with Atlas 2.2"
-description: This tutorial describes the new APIs available with Atlas 2.2 upgrade.
+title: "Use new APIs available with Atlas 2.2."
+description: This tutorial describes the new APIs available with the Atlas 2.2 upgrade.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 04/18/2021
+ms.date: 04/18/2022
 
-# Customer intent: I can use the new APIs available with Atlas 2.2
+# Customer intent: As a developer, I want to use the new APIs available with Atlas 2.2 to interact programmatically with the data map in Microsoft Purview.
 ---
 
 # Tutorial: Atlas 2.2 new functionality
 
-In this tutorial, you learn how to programmatically interact with new Atlas 2.2 APIs with Microsoft Purview's data map.
-
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+In this tutorial, learn to programmatically interact with new Atlas 2.2 APIs with the data map in Microsoft Purview.
 
 ## Prerequisites
 
-* To get started, you must have an existing Microsoft Purview account. If you don't have a catalog, see the [quickstart for creating a Microsoft Purview account](create-catalog-portal.md).
+* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-* To establish bearer token and to call any Data Plane APIs see [the documentation about how to call REST APIs for Purview Data planes](tutorial-using-rest-apis.md).
+* You must have an existing Microsoft Purview account. If you don't have a catalog, see the [quickstart for creating a Microsoft Purview account](create-catalog-portal.md).
 
-## Business Metadata APIs
+* To establish a bearer token and to call any data plane APIs, see [the documentation about how to call REST APIs for Microsoft Purview data planes](tutorial-using-rest-apis.md).
 
-Business Metadata is a template containing multiple custom attributes (key values) which can be created globally and then applied across multiple typedefs.
+## Business metadata APIs
 
-### Create a Business metadata with attributes
+Business metadata is a template that contains custom attributes (key values). You can create these attributes globally and then apply them across multiple typedefs.
 
-You can send POST request to the following endpoint
+### Atlas endpoint
+
+For all the requests, you'll need the Atlas endpoint for your Microsoft Purview account.
+
+1. Find your Microsoft Purview account in the [Azure portal](https://portal.azure.com)
+1. Select the **Properties** page on the left side menu
+1. Copy the **Atlas endpoint** value
+
+:::image type="content" source="media/tutorial-atlas-2-2-apis/endpoint.png" alt-text="Screenshot of the properties page for Microsoft Purview with the Atlas endpoint box highlighted." border="true":::
+
+### Create business metadata with attributes
+
+You can send a `POST` request to the following endpoint:
 
 ```
 POST {{endpoint}}/api/atlas/v2/types/typedefs
 ```
 
-Sample JSON
+>[!TIP]
+> The **applicableEntityTypes** property tells which data types the metadata will be applied to.
+
+Sample JSON:
 
 ```json
    {
@@ -67,15 +80,15 @@ Sample JSON
 }
 ```
 
-### Add/Update an attribute to an existing business metadata 
+### Add or update an attribute to existing business metadata
 
-You can send PUT request to the following endpoint:
+You can send a `PUT` request to the following endpoint:
 
 ```
 PUT {{endpoint}}/api/atlas/v2/types/typedefs
 ```
 
-Sample JSON
+Sample JSON:
 
 ```json
    {
@@ -118,23 +131,23 @@ Sample JSON
 }
 ```
 
-### Get Business metadata definition
+### Get a business metadata definition
 
-You can send GET request to the following endpoint
+You can send a `GET` request to the following endpoint:
 
 ```
 GET {endpoint}}/api/atlas/v2/types/typedef/name/{{Business Metadata Name}}
 ```
 
-### Set Business metadata attribute to an entity 
+### Set a business metadata attribute to an entity
 
-You can send POST request to the following endpoint
+You can send a `POST` request to the following endpoint:
 
 ```
 POST {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/businessmetadata?isOverwrite=true
 ```
 
-Sample JSON
+Sample JSON:
 
 ```json
 {
@@ -145,15 +158,15 @@ Sample JSON
  }
 ```
 
-### Delete Business metadata attribute from an entity 
+### Delete a business metadata attribute from an entity
 
-You can send DELETE request to the following endpoint
+You can send a `DELETE` request to the following endpoint:
 
 ```
-DELETE {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/businessmetadata?isOverwrite=true
+'DELETE' {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/businessmetadata?isOverwrite=true
 ```
 
-Sample JSON
+Sample JSON:
 
 ```json
 {
@@ -163,27 +176,27 @@ Sample JSON
 }
 ```
 
-### Delete Business metadata type definition
+### Delete a business metadata type definition
 
-You can send DELETE request to the following endpoint
+You can send a `DELETE` request to the following endpoint:
 
 ```
 DELETE {{endpoint}}/api/atlas/v2/types/typedef/name/{{Business Metadata Name}}
 ```
 
-## Custom Attribute APIs
+## Custom attribute APIs
 
-Custom Attributes are key value pairs which can be directly added to an atlas entity.
+Custom attributes are key/value pairs that can be directly added to an Atlas entity.
 
-### Set Custom Attribute to an entity 
+### Set a custom attribute to an entity
 
-You can send POST request to the following endpoint
+You can send a `POST` request to the following endpoint:
 
 ```
 POST {{endpoint}}/api/atlas/v2/entity
 ```
 
-Sample JSON
+Sample JSON:
 
 ```json
 {
@@ -204,17 +217,17 @@ Sample JSON
 ```
 ## Label APIs
 
-Labels are free text tags which can be applied to any atlas entity.
+Labels are free text tags that can be applied to any Atlas entity.
 
 ### Set labels to an entity
 
-You can send POST request to the following endpoint
+You can send a `POST` request to the following endpoint:
 
 ```
 POST {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/labels
 ```
 
-Sample JSON
+Sample JSON:
 
 ```json
 [
@@ -225,13 +238,13 @@ Sample JSON
 
 ### Delete labels to an entity
 
-You can send DELETE request to the following endpoint:
+You can send a `DELETE` request to the following endpoint:
 
 ```
 DELETE {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/labels
 ```
 
-Sample JSON
+Sample JSON:
 
 ```json
 [
@@ -243,4 +256,4 @@ Sample JSON
 
 > [!div class="nextstepaction"]
 > [Manage data sources](manage-data-sources.md)
-> [Purview Data Plane REST APIs](/rest/api/purview/)
+> [Microsoft Purview data plane REST APIs](/rest/api/purview/)

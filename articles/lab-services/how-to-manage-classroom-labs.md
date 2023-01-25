@@ -1,11 +1,13 @@
 ---
-title: Manage labs in Azure Lab Services (deprecated) | Microsoft Docs
-description: Learn how to create and configure a lab, view all the labs, share the registration link with a lab user, or delete a lab. (deprecated)
+title: Manage labs in Azure Lab Services when using lab accounts| Microsoft Docs
+description: Learn how to create and configure a lab, view all the labs, share the registration link with a lab user, or delete a lab. 
 ms.topic: how-to
 ms.date: 11/12/2021
 ---
 
-# Manage labs in Azure Lab Services (deprecated)
+# Manage labs in Azure Lab Services when using lab accounts
+
+[!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article describes how to create and delete a lab. It also shows you how to view all the labs in a lab account.
 
@@ -46,7 +48,7 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
     4. Then, select **Next** on the **Virtual machine credentials** page.
 6. On the **Lab policies** page, do the following steps:
     1. Enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab.
-    2. For the **Auto-shutdown of virtual machines** option, specify whether you want the VM to be automatically shutdown when user disconnects. You can also specify how long the VM should wait for the user to reconnect before automatically shutting down.. For more information, see [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md).
+    2. For the **Auto-shutdown of virtual machines** option, specify whether you want the VM to be automatically shut down when user disconnects. You can also specify how long the VM should wait for the user to reconnect before automatically shutting down. For more information, see [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md).
     3. Then, select **Finish**.
 
         ![Quota for each user](./media/how-to-manage-classroom-labs/quota-for-each-user.png)
@@ -118,7 +120,7 @@ To switch to another lab from the current, select the drop-down list of labs in 
 You can also create a new lab using the **New lab** in this drop-down list.
 
 > [!NOTE]
-> You can also use the Az.LabServices PowerShell module (preview) to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://aka.ms/azlabs/samples/PowerShellModule).
+> You can also use the Az.LabServices PowerShell module to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://aka.ms/azlabs/samples/PowerShellModule).
 
 To switch to a different lab account, select the drop-down next to the lab account and select the other lab account.
 

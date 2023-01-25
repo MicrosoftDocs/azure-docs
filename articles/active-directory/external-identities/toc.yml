@@ -34,7 +34,7 @@
     href: external-identities-pricing.md
   - name: Best practices
     href: b2b-fundamentals.md
-  - name: Cross-tenant access overview (Preview)
+  - name: Cross-tenant access overview
     href: cross-tenant-access-overview.md
   - name: B2B collaboration
     expanded: false
@@ -53,7 +53,7 @@
       href: user-token.md
     - name: B2B collaboration for hybrid organizations
       href: hybrid-organizations.md
-  - name: B2B direct connect (Preview)
+  - name: B2B direct connect
     href: b2b-direct-connect-overview.md
   - name: Self-service sign-up
     expanded: false
@@ -75,9 +75,11 @@
   items:
   - name: Configure B2B collaboration
     items:
-    - name: Cross-tenant access settings (Preview)
+    - name: Cross-tenant access settings
       displayName: XTAS, XTAP, inbound, outbound, organizational settings, trust settings
       href: cross-tenant-access-settings-b2b-collaboration.md
+    - name: Microsoft cloud settings (Preview)
+      href: cross-cloud-settings.md
     - name: External collaboration settings
       displayName: guest access, guest invite restrictions, self-service, domains
       href: external-collaboration-settings-configure.md
@@ -109,8 +111,6 @@
       href: add-users-information-worker.md
     - name: Invite internal users to B2B
       href: invite-internal-users.md
-    - name: Add B2B users without an invitation
-      href: add-user-without-invite.md
     - name: Customize invitations using API
       href: customize-invitation-api.md
   - name: Add self-service sign-up for guest users
@@ -133,7 +133,7 @@
       href: use-dynamic-groups.md
     - name: Understand the B2B user
       href: user-properties.md
-    - name: Reset redemption status (Preview)
+    - name: Reset redemption status
       href: reset-redemption-status.md
     - name: B2B for Azure AD integrated apps
       href: configure-saas-apps.md

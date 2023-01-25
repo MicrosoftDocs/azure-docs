@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 12/16/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -20,6 +20,13 @@ This article helps direct and indirect Azure Enterprise Agreement (Azure EA) cus
 - Roles used in the Azure Enterprise portal.
 - Subscription creation.
 - Cost analysis in the Azure Enterprise portal and the Azure portal.
+
+> [!NOTE]
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
+>
+> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 ## Get started with EA onboarding
 
@@ -59,7 +66,7 @@ To view usage summary, download reports, and manage enrollment invoices, see [Az
 
 If you'd like to know about how Azure reservations for VM reserved instances can help you save money with your enterprise enrollment, see [Azure EA VM reserved instances](./ea-portal-vm-reservations.md).
 
-For information on which REST APIs to use with your Azure enterprise enrollment and an explanation for how to resolve common issues with REST APIs, see [Azure Enterprise REST APIs](./ea-portal-rest-apis.md).
+For information on which REST APIs to use with your Azure enterprise enrollment and an explanation for how to resolve common issues with REST APIs, see [Azure Enterprise REST APIs](./enterprise-rest-apis.md).
 
 [Azure EA agreements and amendments](./ea-portal-agreements.md) describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
 

@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 05/09/2022
+ ms.date: 05/26/2022
  ms.author: tamram
  ms.custom: include file, references_regions
 ---
@@ -19,12 +19,13 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 
 | Resource | Limit |
 |--|--|
-| Number of storage accounts per region per subscription, including standard, and premium storage accounts. | 250 |
+| Maximum number of storage accounts with standard endpoints per region per subscription, including standard and premium storage accounts. | 250 |
+| Maximum number of storage accounts with Azure DNS zone endpoints (preview) per region per subscription, including standard and premium storage accounts. | 5000 (preview) |
 | Default maximum storage account capacity | 5 PiB <sup>1</sup> |
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account. | No limit |
 | Default maximum request rate per storage account | 20,000 requests per second<sup>1</sup> |
 | Default maximum ingress per general-purpose v2 and Blob storage account in the following regions (LRS/GRS):<br /><ul><li>Australia East</li><li>Central US</li><li>East Asia</li><li>East US 2</li><li>Japan East</li><li>Korea Central</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US</li></ul> | 60 Gbps<sup>1</sup> |
-| Default maximum ingress per general-purpose v2 and Blob storage account in the following regions (ZRS):<br /><ul><li>Australia East</li><li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li></ul> | 60 Gbps<sup>1</sup> |
+| Default maximum ingress per general-purpose v2 and Blob storage account in the following regions (ZRS):<br /><ul><li>Australia East</li><li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li></ul> | 60 Gb ps<sup>1</sup> |
 | Default maximum ingress per general-purpose v2 and Blob storage account in regions that aren't listed in the previous row. | 25 Gbps<sup>1</sup> |
 | Default maximum ingress for general-purpose v1 storage accounts (all regions) | 10 Gbps<sup>1</sup> |
 | Default maximum egress for general-purpose v2 and Blob storage accounts in the following regions (LRS/GRS):<br /><ul><li>Australia East</li><li>Central US</li><li>East Asia</li><li>East US 2</li><li>Japan East</li><li>Korea Central</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US</li></ul> | 120 Gbps<sup>1</sup> |

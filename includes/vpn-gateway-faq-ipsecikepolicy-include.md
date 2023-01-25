@@ -1,13 +1,9 @@
 ---
  title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
- ms.topic: include
- ms.date: 03/23/2021
+ ms.date: 05/25/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 ### Is Custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
 
@@ -19,7 +15,7 @@ You can only specify ***one*** policy combination for a given connection.
 
 ### Can I specify a partial policy on a connection? (for example, only IKE algorithms, but not IPsec)
 
-No, you must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification is not allowed.
+No, you must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification isn't allowed.
 
 ### What are the algorithms and key strengths supported in the custom policy?
 
@@ -38,7 +34,7 @@ The following table lists the supported cryptographic algorithms and key strengt
 |                  |                                                                               |
 
 > [!IMPORTANT]
-> *  DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group **14** in IKE and IPsec PFS. See [Diffie-Hellman Groups](#DH) for the complete mappings.
+> * DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group **14** in IKE and IPsec PFS. See [Diffie-Hellman Groups](#DH) for the complete mappings.
 > * For GCMAES algorithms, you must specify the same GCMAES algorithm and key length for both IPsec Encryption and Integrity.
 > * IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways.
 > * QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102GB) are used.
@@ -56,7 +52,7 @@ Your on-premises VPN device configuration must match or contain the following al
 * PFS Group
 * Traffic Selector (*)
 
-The SA lifetimes are local specifications only, do not need to match.
+The SA lifetimes are local specifications only, don't need to match.
 
 If you enable **UsePolicyBasedTrafficSelectors**, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
 * 10.1.0.0/16 <====> 192.168.0.0/16
@@ -116,24 +112,24 @@ No. IPsec/IKE policy only works on S2S VPN and VNet-to-VNet connections via the 
 
 ### How do I create connections with IKEv1 or IKEv2 protocol type?
 
-IKEv1 connections can be created on all RouteBased VPN type SKUs, except the Basic SKU, Standard SKU, and other [legacy SKUs](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#gwsku). You can specify a connection protocol type of IKEv1 or IKEv2 while creating connections. If you do not specify a connection protocol type, IKEv2 is used as default option where applicable. For more information, see the [PowerShell cmdlet](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) documentation. For SKU types and IKEv1/IKEv2 support, see [Connect gateways to policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+IKEv1 connections can be created on all RouteBased VPN type SKUs, except the Basic SKU, Standard SKU, and other [legacy SKUs](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#gwsku). You can specify a connection protocol type of IKEv1 or IKEv2 while creating connections. If you don't specify a connection protocol type, IKEv2 is used as default option where applicable. For more information, see the [PowerShell cmdlet](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) documentation. For SKU types and IKEv1/IKEv2 support, see [Connect gateways to policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-### Is transit between between IKEv1 and IKEv2 connections allowed?
+### Is transit between IKEv1 and IKEv2 connections allowed?
 
 Yes. Transit between IKEv1 and IKEv2 connections is supported.
 
 ### Can I have IKEv1 site-to-site connections on Basic SKUs of RouteBased VPN type?
 
-No. The Basic SKU does not support this.
+No. The Basic SKU doesn't support this.
 
 ### Can I change the connection protocol type after the connection is created (IKEv1 to IKEv2 and vice versa)?
 
-No. Once the connection is created, IKEv1/IKEv2 protocols cannot be changed. You must delete and recreate a new connection with the desired protocol type.
+No. Once the connection is created, IKEv1/IKEv2 protocols can't be changed. You must delete and recreate a new connection with the desired protocol type.
 
 ### Why is my IKEv1 connection frequently reconnecting?
-If your static routing or route based IKEv1 connection is disconnecting at routine intervals, it is likely due to VPN gateways not supporting in-place rekeys. When Main mode is getting rekeyed, your IKEv1 tunnels will disconnect and take up to 5 seconds to reconnect. Your Main mode negotiation time out value will determine the frequency of rekeys. To prevent these reconnects, you can switch to using IKEv2, which supports in-place rekeys.
+If your static routing or route based IKEv1 connection is disconnecting at routine intervals, it's likely due to VPN gateways not supporting in-place rekeys. When Main mode is getting rekeyed, your IKEv1 tunnels will disconnect and take up to 5 seconds to reconnect. Your Main mode negotiation time out value will determine the frequency of rekeys. To prevent these reconnects, you can switch to using IKEv2, which supports in-place rekeys.
 
-If your connection is reconnecting at random times, follow our [troubleshooting guide](../articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md). 
+If your connection is reconnecting at random times, follow our [troubleshooting guide](../articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md).
 
 ### Where can I find more configuration information for IPsec?
 

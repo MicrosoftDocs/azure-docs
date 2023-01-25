@@ -3,9 +3,9 @@ title: Create and deploy workflows with Azure Arc-enabled Logic Apps
 description: Create and deploy single-tenant based logic app workflows that run anywhere that Kubernetes can run.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, reylons, archidda, sopai, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 08/20/2022
 ms.custom: ignite-fall-2021, devx-track-azurecli
 #Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---

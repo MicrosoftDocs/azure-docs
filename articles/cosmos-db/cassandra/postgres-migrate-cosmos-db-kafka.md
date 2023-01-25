@@ -1,19 +1,20 @@
 ---
-title: Migrate data from PostgreSQL to Azure Cosmos DB Cassandra API account using Apache Kafka
-description: Learn how to use Kafka Connect to synchronize data from PostgreSQL to Azure Cosmos DB Cassandra API in real time.
-author: rothja
+title: Migrate data from PostgreSQL to Azure Cosmos DB for Apache Cassandra account using Apache Kafka
+description: Learn how to use Kafka Connect to synchronize data from PostgreSQL to Azure Cosmos DB for Apache Cassandra in real time.
+author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/02/2022
-ms.author: jroth
+ms.author: sidandrews
 ms.reviewer: abhishgu
 ---
 
-# Migrate data from PostgreSQL to Azure Cosmos DB Cassandra API account using Apache Kafka
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Migrate data from PostgreSQL to Azure Cosmos DB for Apache Cassandra account using Apache Kafka
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
-Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for various reasons such as:
+API for Cassandra in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for various reasons such as:
 
 * **Significant cost savings:** You can save cost with Azure Cosmos DB, which includes the cost of VM’s, bandwidth, and any applicable Oracle licenses. Additionally, you don’t have to manage the data centers, servers, SSD storage, networking, and electricity costs.
 
@@ -23,29 +24,29 @@ Cassandra API in Azure Cosmos DB has become a great choice for enterprise worklo
 
 [Kafka Connect](https://kafka.apache.org/documentation/#connect) is a platform to stream data between [Apache Kafka](https://kafka.apache.org/) and other systems in a scalable and reliable manner. It supports several off the shelf connectors, which means that you don't need custom code to integrate external systems with Apache Kafka.
 
-This article will demonstrate how to use a combination of Kafka connectors to set up a data pipeline to continuously synchronize records from a relational database such as [PostgreSQL](https://www.postgresql.org/) to [Azure Cosmos DB Cassandra API](cassandra-introduction.md).
+This article will demonstrate how to use a combination of Kafka connectors to set up a data pipeline to continuously synchronize records from a relational database such as [PostgreSQL](https://www.postgresql.org/) to [Azure Cosmos DB for Apache Cassandra](introduction.md).
 
 ## Overview
 
 Here is high-level overview of the end to end flow presented in this article.
 
-Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html), which is a Kafka Connect **source** connector. Inserts, updates, or deletion to records in the PostgreSQL table will be captured as `change data` events and sent to Kafka topic(s). The [DataStax Apache Kafka connector](https://docs.datastax.com/en/kafka/doc/kafka/kafkaIntro.html) (Kafka Connect **sink** connector), forms the second part of the pipeline. It will synchronize the change data events from Kafka topic to Azure Cosmos DB Cassandra API tables.
+Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html), which is a Kafka Connect **source** connector. Inserts, updates, or deletion to records in the PostgreSQL table will be captured as `change data` events and sent to Kafka topic(s). The [DataStax Apache Kafka connector](https://docs.datastax.com/en/kafka/doc/kafka/kafkaIntro.html) (Kafka Connect **sink** connector), forms the second part of the pipeline. It will synchronize the change data events from Kafka topic to Azure Cosmos DB for Apache Cassandra tables.
 
 > [!NOTE]
 > Using specific features of the DataStax Apache Kafka connector allows us to push data to multiple tables. In this example, the connector will help us persist change data records to two Cassandra tables that can support different query requirements.
 
 ## Prerequisites
 
-* [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account)
-* [Use cqlsh for validation](cassandra-support.md#cql-shell)
+* [Provision an Azure Cosmos DB for Apache Cassandra account](manage-data-dotnet.md#create-a-database-account)
+* [Use cqlsh for validation](support.md#cql-shell)
 * JDK 8 or above
 * [Docker](https://www.docker.com/) (optional)
 
 ## Base setup
 
-### Set up PostgreSQL database if you haven't already. 
+### Set up PostgreSQL database if you haven't already.
 
-This could be an existing on-premise database or you could [download and install one](https://www.postgresql.org/download/) on your local machine. It's also possible to use a [Docker container](https://hub.docker.com/_/postgres).
+This could be an existing on-premises database or you could [download and install one](https://www.postgresql.org/download/) on your local machine. It's also possible to use a [Docker container](https://hub.docker.com/_/postgres).
 [!INCLUDE [pull-image-include](../../../includes/pull-image-include.md)]
 
 To start a container:
@@ -87,7 +88,7 @@ CREATE TABLE retail.orders_by_customer (order_id int, customer_id int, purchase_
 CREATE TABLE retail.orders_by_city (order_id int, customer_id int, purchase_amount int, city text, purchase_time timestamp, PRIMARY KEY (city,order_id)) WITH cosmosdb_cell_level_timestamp=true AND cosmosdb_cell_level_timestamp_tombstones=true AND cosmosdb_cell_level_timetolive=true;
 ```
 
-### Setup Apache Kafka 
+### Setup Apache Kafka
 
 This article uses a local cluster, but you can choose any other option. [Download Kafka](https://kafka.apache.org/downloads), unzip it, start the Zookeeper and Kafka cluster.
 
@@ -255,10 +256,9 @@ You can continue to insert more data into PostgreSQL and confirm that the record
 
 ## Next steps
 
-* [Integrate Apache Kafka and Azure Cosmos DB Cassandra API using Kafka Connect](kafka-connect.md)
+* [Integrate Apache Kafka and Azure Cosmos DB for Apache Cassandra using Kafka Connect](kafka-connect.md)
 * [Integrate Apache Kafka Connect on Azure Event Hubs (Preview) with Debezium for Change Data Capture](../../event-hubs/event-hubs-kafka-connect-debezium.md)
-* [Migrate data from Oracle to Azure Cosmos DB Cassandra API using Arcion](oracle-migrate-cosmos-db-arcion.md)
-* [Provision throughput on containers and databases](../set-throughput.md) 
+* [Migrate data from Oracle to Azure Cosmos DB for Apache Cassandra using Arcion](oracle-migrate-cosmos-db-arcion.md)
+* [Provision throughput on containers and databases](../set-throughput.md)
 * [Partition key best practices](../partitioning-overview.md#choose-partitionkey)
 * [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md) articles
-

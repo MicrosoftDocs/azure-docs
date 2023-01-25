@@ -3,12 +3,12 @@ title: Claims-aware apps - Azure Active Directory Application Proxy
 description: How to publish on-premises ASP.NET applications that accept AD FS claims for secure remote access by your users. 
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---

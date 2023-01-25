@@ -3,7 +3,7 @@ title: Run Apache Sqoop jobs with Azure HDInsight (Apache Hadoop)
 description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between a Hadoop cluster and an Azure SQL database.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 08/28/2022
 ---
 
 # Use Apache Sqoop with Hadoop in HDInsight
@@ -54,7 +54,7 @@ In this article, you use these two datasets to test Sqoop import and export.
 
 ## <a name="create-cluster-and-sql-database"></a>Set up test environment
 
-The cluster, SQL database, and other objects are created through the Azure portal using an Azure Resource Manager template. The template can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to a SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
+The cluster, SQL database, and other objects are created through the Azure portal using an Azure Resource Manager template. The template can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to a SQL database. If you want to use a private container for the bacpac files, use the following values in the template:
 
 ```json
 "storageKeyType": "Primary",

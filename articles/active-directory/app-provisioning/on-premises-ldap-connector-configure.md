@@ -1,9 +1,9 @@
 ---
-title: Azure AD Provisioning to LDAP directories (preview)
+title: Azure AD Provisioning to LDAP directories
 description: This document describes how to configure Azure AD to provision users into an LDAP directory.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to

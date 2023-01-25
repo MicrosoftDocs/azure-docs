@@ -2,10 +2,9 @@
 title: Import and Export data in Azure Cache for Redis
 description: Learn how to import and export data to and from blob storage with your premium Azure Cache for Redis instances
 author: flang-msft
-
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/31/2017
+ms.date: 09/01/2022
 ms.author: franlanglois
 
 ---
@@ -18,12 +17,9 @@ Import/Export is an Azure Cache for Redis data management operation. It allows y
 
 Import/Export enables you to migrate between different Azure Cache for Redis instances or populate the cache with data before use.
 
-This article provides a guide for importing and exporting data with Azure Cache for Redis and provides the answers to commonly asked questions.
+This article provides a guide for importing and exporting data with Azure Cache for Redis and provides the answers to commonly asked questions. 
 
-> [!IMPORTANT]
-> Import/Export is only available for [Premium tier](cache-overview.md#service-tiers) caches.
->
->
+For information on which Azure Cache for Redis tiers support import and export, see [feature comparison](cache-overview.md#feature-comparison).
 
 ## Import
 
@@ -34,18 +30,22 @@ Use import to bring Redis compatible RDB files from any Redis server running in 
 >
 >
 
-1. To import one or more exported cache blobs, [browse to your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the Azure portal and select **Import data** from the **Resource menu**.
+1. To import one or more exported cache blobs, [browse to your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the Azure portal and select **Import data** from the **Resource menu**. In the working pane, you see **Choose Blob(s)** where you can find RDB files.
 
-    ![Import data](./media/cache-how-to-import-export-data/cache-import-data.png)
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-data.png" alt-text="Screenshot showing Import data selected in the Resource menu.":::
+
 2. Select **Choose Blob(s)** and select the storage account that contains the data to import.
 
-    ![Choose storage account](./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png)
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png" alt-text="Screenshot showing a list of storage accounts.":::
+
 3. Select the container that contains the data to import.
 
-    ![Choose container](./media/cache-how-to-import-export-data/cache-import-choose-container.png)
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-choose-container.png" alt-text="Screenshot showing list of containers from the previously chosen storage account.":::
+
 4. Select one or more blobs to import by selecting the area to the left of the blob name, and then **Select**.
 
-    ![Choose blobs](./media/cache-how-to-import-export-data/cache-import-choose-blobs.png)
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-choose-blobs.png" alt-text="Screenshot showing a blob from the container. ":::
+
 5. Select **Import** to begin the import process.
 
    > [!IMPORTANT]
@@ -53,20 +53,21 @@ Use import to bring Redis compatible RDB files from any Redis server running in 
    >
    >
 
-    ![Import](./media/cache-how-to-import-export-data/cache-import-blobs.png)
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-blobs.png" alt-text="Screenshot showing the Import button to select to begin the import.":::
 
     You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-monitor/essentials/activity-log.md).
 
-    ![Import progress](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-data-import-complete.png" alt-text="Screenshot showing the import progress in the notifications area.":::
 
 ## Export
 
 Export allows you to export the data stored in Azure Cache for Redis to Redis compatible RDB file(s). You can use this feature to move data from one Azure Cache for Redis instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Cache for Redis server instance. Then, the file is uploaded to the chosen storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
-1. To export the current contents of the cache to storage, [browse to your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the Azure portal and select **Export data** from the **Resource menu**.
+1. To export the current contents of the cache to storage, [browse to your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the Azure portal and select **Export data** from the **Resource menu**. You see **Choose Storage Container** in the working pane.
 
-    ![On the navigation pane for contoso5premium, the Export data option on the Administration list is highlighted.](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
-2. Select **Choose Storage Container** and select the storage account you want. The storage account must be in the same subscription and region as your cache.
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png" alt-text="Screenshot showing Export data selected in the Resource menu":::
+
+2. Select **Choose Storage Container** and to display a list of available storage accounts. Select the storage account you want. The storage account must be in the same subscription and region as your cache. 
 
    > [!IMPORTANT]
    >
@@ -77,17 +78,19 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
    > For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
    >
 
-    ![Storage account](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
-3. Choose the blob container you want, then **Select**. To use new a container, select **Add Container** to add it first and then select it from the list.
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-export-data-choose-account.png" alt-text="Screenshot showing a list of containers in the working pane.":::
 
-    ![On Containers for contoso55, the + Container option is highlighted. There is one container in the list, cachesaves, and it is selected and highlighted. The Selection option is selected and highlighted.](./media/cache-how-to-import-export-data/cache-export-data-container.png)
+3. Choose the storage container you want to hold your export, then **Select**. If you want a new container, select **Add Container** to add it first, and then select it from the list.
+
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-export-data-container.png" alt-text="Screenshot of a list of containers with one highlighted and a select button.":::
+
 4. Type a **Blob name prefix** and select **Export** to start the export process. The blob name prefix is used to prefix the names of files generated by this export operation.
 
-    ![Export](./media/cache-how-to-import-export-data/cache-export-data.png)
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-export-data.png" alt-text="Screenshot showing a blob name prefix and an Export button.":::
 
     You can monitor the progress of the export operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-monitor/essentials/activity-log.md).
 
-    ![Export data complete](./media/cache-how-to-import-export-data/cache-export-data-export-complete.png)
+    :::image type="content" source="./media/cache-how-to-import-export-data/cache-export-data-export-complete.png" alt-text="Screenshot showing the export progress in the notifications area.":::
 
     Caches remain available for use during the export process.
 
@@ -112,7 +115,7 @@ Import/Export is available only in the premium pricing tier.
 
 ### Can I import data from any Redis server?
 
-Yes, you can importing data exported from Azure Cache for Redis instances, and you can import RDB files from any Redis server running in any cloud or environment. The environments include Linux, Windows, or cloud providers such as Amazon Web Services. To do import this data, upload the RDB file from the Redis server you want into a page or block blob in an Azure Storage Account. Then, import it into your premium Azure Cache for Redis instance. For example, you might want to export the data from your production cache and import it into a cache that is used as part of a staging environment for testing or migration.
+Yes, you can import data that was exported from Azure Cache for Redis instances. You can import RDB files from any Redis server running in any cloud or environment. The environments include Linux, Windows, or cloud providers such as Amazon Web Services. To do import this data, upload the RDB file from the Redis server you want into a page or block blob in an Azure Storage Account. Then, import it into your premium Azure Cache for Redis instance. For example, you might want to export the data from your production cache and import it into a cache that is used as part of a staging environment for testing or migration.
 
 > [!IMPORTANT]
 > To successfully import data exported from Redis servers other than Azure Cache for Redis when using a page blob, the page blob size must be aligned on a 512 byte boundary. For sample code to perform any required byte padding, see [Sample page blob upload](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
@@ -163,7 +166,7 @@ To resolve this error, start the import or export operation before 15 minutes ha
 
 ### I got an error when exporting my data to Azure Blob Storage. What happened?
 
-Export works only with RDB files stored as page blobs. Other blob types aren't currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
+Export works only with RDB files stored as page blobs. Other blob types aren't currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md). If you're using an access key to authenticate a storage account, having firewall exceptions on the storage account tends to cause the import/export process to fail.
 
 ## Next steps
 

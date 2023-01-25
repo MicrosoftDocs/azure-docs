@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/07/2021
+ms.date: 10/21/2022
 ms.author: alkohli
 ---
-# Azure Data Box system requirements
+# Azure Data Box system requirements 
 
 This article describes important system requirements for your Microsoft Azure Data Box and for clients that connect to the Data Box. We recommend you review the information carefully before you deploy your Data Box and then refer to it when you need to during deployment and operation.
 
@@ -27,7 +27,6 @@ The software requirements include supported operating systems, file transfer pro
 ### Supported operating systems for clients
 
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
-
 
 ### Supported file transfer protocols for clients
 

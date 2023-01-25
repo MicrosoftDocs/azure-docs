@@ -5,7 +5,8 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.reviewer: erd
+ms.date: 12/28/2022
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -66,11 +67,15 @@ The scale set upgrade orchestrator checks for the overall scale set health befor
 
 ## Supported extensions
 Automatic Extension Upgrade supports the following extensions (and more are added periodically):
+- [Azure Automation Hybrid Worker extension](../automation/extension-based-hybrid-runbook-worker-install.md) - Linux and Windows
 - Dependency Agent – [Linux](./extensions/agent-dependency-linux.md) and [Windows](./extensions/agent-dependency-windows.md)
 - [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Linux and Windows
 - [Guest Configuration Extension](./extensions/guest-configuration.md) – Linux and Windows
 - Key Vault – [Linux](./extensions/key-vault-linux.md) and [Windows](./extensions/key-vault-windows.md)
 - [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md)
+- [Log Analytics Agent for Linux](../azure-monitor/agents/log-analytics-agent.md)
+- [Azure Diagnostics extension for Linux](../azure-monitor/agents/diagnostics-extension-overview.md)
+- [DSC extension for Linux](extensions/dsc-linux.md)
 
 
 ## Enabling Automatic Extension Upgrade

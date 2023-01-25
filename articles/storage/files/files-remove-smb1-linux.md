@@ -1,5 +1,5 @@
 ---
-title: Secure your Azure and on-premises environments by removing SMB 1 on Linux | Microsoft Docs
+title: Secure your Azure and on-premises environments by removing SMB 1 on Linux
 description: Azure Files supports SMB 3.x and SMB 2.1, not insecure legacy versions of SMB such as SMB 1. Before connecting to an Azure file share, you may wish to disable older versions of SMB such as SMB 1.
 author: khdownie
 ms.service: storage

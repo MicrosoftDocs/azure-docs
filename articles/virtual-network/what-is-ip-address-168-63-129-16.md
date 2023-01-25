@@ -3,7 +3,7 @@ title: What is IP address 168.63.129.16? | Microsoft Docs
 description: Learn about IP address 168.63.129.16, specifically that it's used to facilitate a communication channel to Azure platform resources.
 services: virtual-network
 documentationcenter: na
-author: genlin
+author: asudbring
 manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
-ms.author: genli
+ms.author: allensu
 
 ---
 
@@ -39,7 +39,7 @@ The public IP address 168.63.129.16 is used in all regions and all national clou
 
 - 168.63.129.16 can provide DNS services to the VM. If this is not desired, outbound traffic to 168.63.129.16 ports 53/udp and 53/tcp can be blocked in the local firewall on the VM.
 
-  By default DNS communication is not subject to the configured network security groups unless specifically targeted leveraging the [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) service tag. To block DNS traffic to Azure DNS through NSG, create an outbound rule to deny traffic to [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags), and specify "*" as "Destination port ranges" and "Any" as protocol.
+  By default DNS communication is not subject to the configured network security groups unless specifically targeted leveraging the [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) service tag. To block DNS traffic to Azure DNS through NSG, create an outbound rule to deny traffic to [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags), and specify "Any" as "Source", "*" as "Destination port ranges", "Any" as protocol and "Deny" as action.
 
 - When the VM is part of a load balancer backend pool, [health probe](../load-balancer/load-balancer-custom-probe-overview.md) communication should be allowed to originate from 168.63.129.16. The default network security group configuration has a rule that allows this communication. This rule leverages the [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) service tag. If desired this traffic can be blocked by configuring the network security group however this will result in probes that fail.
 

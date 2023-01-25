@@ -3,15 +3,14 @@ title: Monitoring and troubleshooting from HANA side on SAP HANA on Azure (Large
 description: Learn how to monitor and troubleshoot your SAP HANA on Azure (Large Instances) using resources provided by SAP HANA.
 services: virtual-machines-linux
 documentationcenter: 
-author: mamccrea
+author: lauradolan
 manager: bburns
 ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/18/2021
-ms.author: mamccrea
+ms.author: ladolan
 ms.custom: H1Hack27Feb2017, contperf-fy21q4
 ---
 # Monitoring and troubleshooting from HANA side
@@ -169,7 +168,7 @@ Do an SAP HANA Health Check through HANA\_Configuration\_Minichecks. This tool r
 
 ## Next steps
 
-Learn how to set up high availability on the SUSE operating system using the STONITH device.
+Learn how to set up high availability on the SUSE operating system using the fencing device.
 
 > [!div class="nextstepaction"]
-> [High availability set up in SUSE using the STONITH](ha-setup-with-stonith.md)
+> [High availability set up in SUSE using a fencing device](ha-setup-with-fencing-device.md)

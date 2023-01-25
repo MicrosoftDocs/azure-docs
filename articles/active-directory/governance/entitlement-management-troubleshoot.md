@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot entitlement management - Azure AD
+title: Troubleshoot entitlement management
 description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want checklists and tips to help troubleshoot entitlement management to unblock users from performing their job.
 
 ---
-# Troubleshoot Azure AD entitlement management
+# Troubleshoot entitlement management
 
-This article describes some items you should check to help you troubleshoot Azure Active Directory (Azure AD) entitlement management.
+This article describes some items you should check to help you troubleshoot entitlement management.
 
 ## Administration
 

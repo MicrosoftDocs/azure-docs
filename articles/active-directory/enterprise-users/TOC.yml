@@ -40,8 +40,10 @@
       href: users-bulk-add.md    
     - name: Manage user profiles
       href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Add custom data using extensions - Microsoft Graph
+      href: /graph/extensibility-overview?toc=/azure/active-directory/enterprise-users/toc.json&bc=/azure/active-directory/enterprise-users/breadcrumb/toc.json
     - name: Assign custom security attributes
-      href: users-custom-security-attributes.md    
+      href: users-custom-security-attributes.md
     - name: Download user info
       href: users-bulk-download.md
     - name: Share user accounts
@@ -64,6 +66,10 @@
       href: ../external-identities/what-is-b2b.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Restrict guest user access
       href: users-restrict-guest-permissions.md
+    - name: Clean up unmanaged accounts
+      href: clean-up-unmanaged-azure-ad-accounts.md 
+    - name: Clean up stale guest accounts
+      href: clean-up-stale-guest-accounts.md
     - name: Dynamic groups and guests   
       href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Organization (tenant)
@@ -86,18 +92,16 @@
       href: ../hybrid/whatis-hybrid-identity.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Groups
     items: 
+    - name: Learn about groups and access rights  
+      href: ../fundamentals/concept-learn-about-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Manage access with groups
-      href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context  
-    - name: Create a group (Azure portal)    
-      href: ../fundamentals/active-directory-groups-create-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/how-to-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context  
     - name: Manage groups PowerShell for Graph (v2)   
       href: groups-settings-v2-cmdlets.md
     - name: Manage groups with PowerShell MSOnline    
       href: groups-settings-cmdlets.md
     - name: Search group and member lists   
       href: groups-members-owners-search.md
-    - name: Add or remove group members    
-      href: ../fundamentals/active-directory-groups-members-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Dynamic groups    
       items: 
       - name: Create a dynamic group    
@@ -110,6 +114,8 @@
         href: groups-dynamic-rule-more-efficient.md
       - name: Change group membership type  
         href: groups-change-type.md
+    - name: Group as memberOf a dynamic group
+      href: groups-dynamic-rule-member-of.md
     - name: Add members in bulk
       href: groups-bulk-import-members.md
     - name: Remove members in bulk
@@ -120,12 +126,8 @@
       href: groups-bulk-download.md
     - name: Restore deleted groups   
       href: groups-restore-deleted.md
-    - name: Manage group settings
-      href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Manage group owners
-      href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Manage groups in groups
-      href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Manage group writeback
+      href: groups-write-back-portal.md
     - name: Add group access to SaaS apps
       href: groups-saasapps.md
     - name: Set group naming policy
@@ -157,7 +159,7 @@
   - name: Sign-in
     items:    
     - name: Customize company branding    
-      href: ../fundamentals/customize-branding.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/how-to-customize-branding.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Sign-in options
       href: signin-account-support.md
     - name: Home Realm Discovery
@@ -171,14 +173,14 @@
   - name: Troubleshoot
     items:
     - name: Get support for Azure AD    
-      href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/how-to-get-support.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Troubleshoot groups   
       href: groups-troubleshooting.md
     - name: Troubleshoot group licensing    
       href: licensing-groups-resolve-problems.md
 - name: Reference
   items:
-  - name: Graph API  
+  - name: Microsoft Graph API  
     href: /graph/api/resources/azure-ad-overview
   - name: Azure AD CLI    
     href: /cli/azure/ad

@@ -1,9 +1,8 @@
 ---
-title: "Migrate your JavaScript application from ADAL.js to MSAL.js | Azure"
-titleSuffix: Microsoft identity platform
+title: "Migrate your JavaScript application from ADAL.js to MSAL.js"
 description: How to update your existing JavaScript application to use the Microsoft Authentication Library (MSAL) for authentication and authorization instead of the Active Directory Authentication Library (ADAL).
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/06/2021
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: has-adal-ref
 #Customer intent: As an application developer, I want to learn how to change the code in my JavaScript application from using ADAL.js as its authentication library to MSAL.js.
 ---
@@ -25,15 +24,15 @@ ms.custom: has-adal-ref
 
 ## Prerequisites
 
-- You must set the **Platform** / **Reply URL Type** to **Single-page application** on App Registration portal (if you have other platforms added in your app registration, such as **Web**, you need to make sure the redirect URIs do not overlap. See: [Redirect URI restrictions](./reply-url.md))
-- You must provide [polyfills](./msal-js-use-ie-browser.md) for ES6 features that MSAL.js relies on (e.g. promises) in order to run your apps on **Internet Explorer**
-- Make sure you have migrated your Azure AD apps to [v2 endpoint](../azuread-dev/azure-ad-endpoint-comparison.md) if you haven't already
+- You must set the **Platform** / **Reply URL Type** to **Single-page application** on App Registration portal (if you have other platforms added in your app registration, such as **Web**, you need to make sure the redirect URIs don't overlap. See: [Redirect URI restrictions](./reply-url.md))
+- You must provide [polyfills](./msal-js-use-ie-browser.md) for ES6 features that MSAL.js relies on (for example, promises) in order to run your apps on **Internet Explorer**
+- Migrate your Azure AD apps to [v2 endpoint](v2-overview.md) if you haven't already
 
 ## Install and import MSAL
 
 There are two ways to install the MSAL.js 2.x library:
 
-### Via NPM:
+### Via npm:
 
 ```console
 npm install @azure/msal-browser
@@ -86,7 +85,7 @@ const msalConfig = {
 const msalInstance = new msal.PublicClientApplication(msalConfig);
 ```
 
-In both ADAL.js and MSAL.js, the authority URI defaults to `https://login.microsoftonline.com/common` if you do not specify it.
+In both ADAL.js and MSAL.js, the authority URI defaults to `https://login.microsoftonline.com/common` if you don't specify it.
 
 > [!NOTE]
 > If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any Azure AD organization or a personal Microsoft account (MSA). In MSAL.js, if you want to restrict login to any Azure AD account (same behavior as with ADAL.js), use `https://login.microsoftonline.com/organizations` instead.
@@ -230,23 +229,23 @@ const getAccessToken = async() => {
 
 ## Cache and retrieve tokens
 
-Like ADAL.js, MSAL.js caches tokens and other authentication artifacts in browser storage, using the [Web Storage API](https://developer.mozilla.org/docs/Web/API/Web_Storage_API). You are recommended to use `sessionStorage` option (see: [configuration](#configure-msal)) because it is more secure in storing tokens that are acquired by your users, but `localStorage` will give you [Single Sign On](./msal-js-sso.md) across tabs and user sessions.
+Like ADAL.js, MSAL.js caches tokens and other authentication artifacts in browser storage, using the [Web Storage API](https://developer.mozilla.org/docs/Web/API/Web_Storage_API). You're recommended to use `sessionStorage` option (see: [configuration](#configure-msal)) because it's more secure in storing tokens that are acquired by your users, but `localStorage` will give you [Single Sign On](./msal-js-sso.md) across tabs and user sessions.
 
-Importantly, you are not supposed to access the cache directly. Instead, you should use an appropriate MSAL.js API for retrieving authentication artifacts like access tokens or user accounts.
+Importantly, you aren't supposed to access the cache directly. Instead, you should use an appropriate MSAL.js API for retrieving authentication artifacts like access tokens or user accounts.
 
 ## Renew tokens with refresh tokens
 
-ADAL.js uses the [OAuth 2.0 implicit flow](./v2-oauth2-implicit-grant-flow.md), which does not return refresh tokens for security reasons (refresh tokens have longer lifetime than access tokens and are therefore more dangerous in the hands of malicious actors). Hence, ADAL.js performs token renewal using a hidden Iframe so that the user is not repeatedly prompted to authenticate.
+ADAL.js uses the [OAuth 2.0 implicit flow](./v2-oauth2-implicit-grant-flow.md), which doesn't return refresh tokens for security reasons (refresh tokens have longer lifetime than access tokens and are therefore more dangerous in the hands of malicious actors). Hence, ADAL.js performs token renewal using a hidden IFrame so that the user isn't repeatedly prompted to authenticate.
 
-With the auth code flow with PKCE support, apps using MSAL.js 2.x obtain refresh tokens along with ID and access tokens, which can be used to renew them. The usage of refresh tokens is abstracted away, and the developers are not supposed to build logic around them. Instead, MSAL manages token renewal using refresh tokens by itself. Your previous token cache with ADAL.js will not be transferable to MSAL.js, as the token cache schema has changed and incompatible with the schema used in ADAL.js.
+With the auth code flow with PKCE support, apps using MSAL.js 2.x obtain refresh tokens along with ID and access tokens, which can be used to renew them. The usage of refresh tokens is abstracted away, and the developers aren't supposed to build logic around them. Instead, MSAL manages token renewal using refresh tokens by itself. Your previous token cache with ADAL.js won't be transferable to MSAL.js, as the token cache schema has changed and incompatible with the schema used in ADAL.js.
 
 ## Handle errors and exceptions
 
-When using MSAL.js, the most common type of error you might face is the `interaction_in_progress` error. This error is thrown when an interactive API (`loginPopup`, `loginRedirect`, `acquireTokenPopup`, `acquireTokenRedirect`) is invoked while another interactive API is still in progress. The `login*` and `acquireToken*` APIs are *async* so you will need to ensure that the resulting promises have resolved before invoking another one.
+When using MSAL.js, the most common type of error you might face is the `interaction_in_progress` error. This error is thrown when an interactive API (`loginPopup`, `loginRedirect`, `acquireTokenPopup`, `acquireTokenRedirect`) is invoked while another interactive API is still in progress. The `login*` and `acquireToken*` APIs are *async* so you'll need to ensure that the resulting promises have resolved before invoking another one.
 
-Another common error is `interaction_required`. This error is often resolved by simply initiating an interactive token acquisition prompt. For instance, the web API you are trying to access might have a [conditional access](../conditional-access/overview.md) policy in place, requiring the user to perform [multifactor authentication](../authentication/concept-mfa-howitworks.md) (MFA). In that case, handling `interaction_required` error by triggering `acquireTokenPopup` or `acquireTokenRedirect` will prompt the user for MFA, allowing them to fullfil it.
+Another common error is `interaction_required`. This error is often resolved by initiating an interactive token acquisition prompt. For instance, the web API you're trying to access might have a [conditional access](../conditional-access/overview.md) policy in place, requiring the user to perform [multifactor authentication](../authentication/concept-mfa-howitworks.md) (MFA). In that case, handling `interaction_required` error by triggering `acquireTokenPopup` or `acquireTokenRedirect` will prompt the user for MFA, allowing them to fullfil it.
 
-Yet another common error you might face is `consent_required`, which occurs when permissions required for obtaining an access token for a protected resource are not consented by the user. As in `interaction_required`, the solution for `consent_required` error is often initiating an interactive token acquisition prompt, using either `acquireTokenPopup` or `acquireTokenRedirect`.
+Yet another common error you might face is `consent_required`, which occurs when permissions required for obtaining an access token for a protected resource aren't consented by the user. As in `interaction_required`, the solution for `consent_required` error is often initiating an interactive token acquisition prompt, using either `acquireTokenPopup` or `acquireTokenRedirect`.
 
 See for more: [Common MSAL.js errors and how to handle them](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/errors.md)
 
@@ -265,11 +264,11 @@ const callbackId = msalInstance.addEventCallback((message) => {
 });
 ```
 
-For performance, it is important to unregister event callbacks when they are no longer needed. See for more: [MSAL.js Events API](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/events.md)
+For performance, it's important to unregister event callbacks when they're no longer needed. See for more: [MSAL.js Events API](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/events.md)
 
 ## Handle multiple accounts
 
-ADAL.js has the concept of a *user* to represent the currently authenticated entity. MSAL.js replaces *users* with *accounts*, given the fact that a user can have more than one account associated with her. This also means that you now need to control for multiple accounts and choose the appropriate one to work with. The snippet below illustrates this process:
+ADAL.js has the concept of a *user* to represent the currently authenticated entity. MSAL.js replaces *users* with *accounts*, given the fact that a user can have more than one account associated with them. This also means that you now need to control for multiple accounts and choose the appropriate one to work with. The snippet below illustrates this process:
 
 ```javascript
 let homeAccountId = null; // Initialize global accountId (can also be localAccountId or username) used for account lookup later, ideally stored in app state
@@ -295,7 +294,7 @@ For more information, see: [Accounts in MSAL.js](https://github.com/AzureAD/micr
 
 ## Use the wrappers libraries
 
-If you are developing for Angular and React frameworks, you can use [MSAL Angular v2](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) and [MSAL React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react), respectively. These wrappers expose the same public API as MSAL.js while offering framework-specific methods and components that can streamline the authentication and token acquisition processes.
+If you're developing for Angular and React frameworks, you can use [MSAL Angular v2](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) and [MSAL React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react), respectively. These wrappers expose the same public API as MSAL.js while offering framework-specific methods and components that can streamline the authentication and token acquisition processes.
 
 ## Run the app
 
@@ -305,7 +304,7 @@ Once your changes are done, run the app and test your authentication scenario:
 npm start
 ```
 
-## Example: Securing web apps with ADAL Node vs. MSAL Node
+## Example: Securing a SPA with ADAL.js vs. MSAL.js
 
 The snippets below demonstrates the minimal code required for a single-page application authenticating users with the Microsoft identity platform and getting an access token for Microsoft Graph using first ADAL.js and then MSAL.js:
 

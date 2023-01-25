@@ -6,7 +6,6 @@ ms.author: rymend
 ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
-ms.subservice: education-hub
 ---
 
 # Azure for Students Starter
@@ -38,4 +37,4 @@ any time to a pay-as-you-go subscription to get access to all Azure services, us
 - [Get help with login errors](troubleshoot-login.md)
 - [Download software (Azure for Students Starter)](download-software.md)
 - [Azure for Students program](azure-students-program.md)
-- [Microsoft Learn: a free online learning platform](/learn/)
+- [Microsoft Learn training](/training/)

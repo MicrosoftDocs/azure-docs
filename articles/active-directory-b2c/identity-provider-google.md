@@ -3,7 +3,7 @@ title: Set up sign-up and sign-in with a Google account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Google accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/10/2022
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -43,9 +43,10 @@ To enable sign-in for users with a Google account in Azure Active Directory B2C 
 1. In the upper-left corner of the page, select the project list, and then select **New Project**.
 1. Enter a **Project Name**, select **Create**.
 1. Make sure you are using the new project by selecting the project drop-down in the top-left of the screen. Select your project by name, then select **Open**.
-1. In the left menu, select **OAuth consent screen**, select **External**, and then select **Create**.
+1. In the left menu, select **APIs and services** and then **OAuth consent screen**. Select **External** and then select **Create**.
     1. Enter a **Name** for your application. 
     1. Select a **User support email**. 
+    1. In the **App domain** section, enter a link to your **Application home page**, a link to your **Application privacy policy**, and a link to your **Application terms of service**.
     1. In the **Authorized domains** section, enter *b2clogin.com*.
     1. In the **Developer contact information** section, enter comma separated emails for Google to notify you about any changes to your project. 
     1. Select **Save**.

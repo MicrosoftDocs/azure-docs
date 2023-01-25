@@ -42,6 +42,16 @@ In this tutorial, you learn how to:
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
 
+# [Python](#tab/python)
+
+* A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+
+* [Python](https://www.python.org/downloads/) (v3.6 ~ v3.9). See [supported Python versions](../azure-functions/functions-reference-python.md#python-version).
+
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+
+* The [Azure CLI](/cli/azure) to manage Azure resources.
+
 ---
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -62,20 +72,40 @@ In this tutorial, you learn how to:
     func init --worker-runtime dotnet
     ```
 
-2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
-
-    > [!NOTE]
-    > The step will be optional when [Extension bundles](../azure-functions/functions-bindings-register.md#extension-bundles) are supported.
-
-   a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
+    # [Python](#tab/python)
+    ```bash
+    func init --worker-runtime python
+    ```
+    
+2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
+   
+    # [JavaScript](#tab/javascript)
+    Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support.
     ```json
     {
-        "version": "2.0"
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[3.3.*, 4.0.0)"
+        }
     }
     ```
-   b. Run command to install specific function extension package.
+    
+    # [C#](#tab/csharp)
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.1.0
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.WebPubSub
+    ```
+
+    # [Python](#tab/python)
+    Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support.
+    ```json
+    {
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[3.3.*, 4.0.0)"
+        }
+    }
     ```
 
 3. Create an `index` function to read and host a static web page for clients.
@@ -86,23 +116,23 @@ In this tutorial, you learn how to:
    - Update `index/function.json` and copy following json codes.
         ```json
         {
-            "bindings": [
-                {
-                    "authLevel": "anonymous",
-                    "type": "httpTrigger",
-                    "direction": "in",
-                    "name": "req",
-                    "methods": [
-                      "get",
-                      "post"
-                    ]
-                },
-                {
-                    "type": "http",
-                    "direction": "out",
-                    "name": "res"
-                }
-            ]
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ]
         }
         ```
    - Update `index/index.js` and copy following codes.
@@ -154,6 +184,41 @@ In this tutorial, you learn how to:
         }
         ```
 
+   # [Python](#tab/python)
+   - Update `index/function.json` and copy following json codes.
+        ```json
+        {
+          "scriptFile": "__init__.py",
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "$return"
+            }
+          ]
+        }
+        ```
+   - Update `index/__init__.py` and copy following codes.
+        ```py
+        import os
+
+        import azure.functions as func
+
+        def main(req: func.HttpRequest) -> func.HttpResponse:
+            f = open(os.path.dirname(os.path.realpath(__file__)) + '/../index.html')
+            return func.HttpResponse(f.read(), mimetype='text/html')
+        ```
+
 4. Create a `negotiate` function to help clients get service connection url with access token.
     ```bash
     func new -n negotiate -t HttpTrigger
@@ -162,25 +227,25 @@ In this tutorial, you learn how to:
    - Update `negotiate/function.json` and copy following json codes.
         ```json
         {
-            "bindings": [
-                {
-                    "authLevel": "anonymous",
-                    "type": "httpTrigger",
-                    "direction": "in",
-                    "name": "req"
-                },
-                {
-                    "type": "http",
-                    "direction": "out",
-                    "name": "res"
-                },
-                {
-                    "type": "webPubSubConnection",
-                    "name": "connection",
-                    "hub": "notification",
-                    "direction": "in"
-                }
-            ]
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req"
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            },
+            {
+              "type": "webPubSubConnection",
+              "name": "connection",
+              "hub": "notification",
+              "direction": "in"
+            }
+          ]
         }
         ```
    - Update `negotiate/index.js` and copy following codes.
@@ -208,32 +273,68 @@ In this tutorial, you learn how to:
         ```c#
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         ```
+    # [Python](#tab/python)
+   - Update `negotiate/function.json` and copy following json codes.
+        ```json
+        {
+          "scriptFile": "__init__.py",
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req"
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "$return"
+            },
+            {
+              "type": "webPubSubConnection",
+              "name": "connection",
+              "hub": "notification",
+              "direction": "in"
+            }
+          ]
+        }
+        ```
+   - Update `negotiate/__init__.py` and copy following codes.
+        ```py
+        import logging
+
+        import azure.functions as func
+
+
+        def main(req: func.HttpRequest, connection) -> func.HttpResponse:
+            return func.HttpResponse(connection)
+        ```
 
 5. Create a `notification` function to generate notifications with `TimerTrigger`.
-   ```bash
+    ```bash
     func new -n notification -t TimerTrigger
     ```
     # [JavaScript](#tab/javascript)
-   - Update `notification/function.json` and copy following json codes.
+    - Update `notification/function.json` and copy following json codes.
         ```json
         {
-            "bindings": [
-                {
-                "name": "myTimer",
-                "type": "timerTrigger",
-                "direction": "in",
-                "schedule": "*/10 * * * * *"
-                },
-                {
-                "type": "webPubSub",
-                "name": "actions",
-                "hub": "notification",
-                "direction": "out"
-                }
-            ]
+          "bindings": [
+            {
+              "name": "myTimer",
+              "type": "timerTrigger",
+              "direction": "in",
+              "schedule": "*/10 * * * * *"
+            },
+            {
+              "type": "webPubSub",
+              "name": "actions",
+              "hub": "notification",
+              "direction": "out"
+            }
+          ]
         }
         ```
-   - Update `notification/index.js` and copy following codes.
+    - Update `notification/index.js` and copy following codes.
         ```js
         module.exports = function (context, myTimer) {
             context.bindings.actions = {
@@ -248,8 +349,8 @@ In this tutorial, you learn how to:
             return (baseNum + 2 * floatNum * (Math.random() - 0.5)).toFixed(3);
         }
         ```
-   # [C#](#tab/csharp)
-   - Update `notification.cs` and replace `Run` function with following codes.
+    # [C#](#tab/csharp)
+    - Update `notification.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("notification")]
         public static async Task Run([TimerTrigger("*/10 * * * * *")]TimerInfo myTimer, ILogger log,
@@ -269,10 +370,47 @@ In this tutorial, you learn how to:
             return value.ToString("0.000");
         }
         ``` 
-   - Add below `using` statements in header to resolve required dependencies.
+    - Add below `using` statements in header to resolve required dependencies.
         ```c#
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         using Microsoft.Azure.WebPubSub.Common;
+        ```
+    # [Python](#tab/python)
+    - Update `notification/function.json` and copy following json codes.
+        ```json
+        {
+          "scriptFile": "__init__.py",
+          "bindings": [
+            {
+              "name": "myTimer",
+              "type": "timerTrigger",
+              "direction": "in",
+              "schedule": "*/10 * * * * *"
+            },
+            {
+              "type": "webPubSub",
+              "name": "actions",
+              "hub": "notification",
+              "direction": "out"
+            }
+          ]
+        }
+        ```
+    - Update `notification/__init__.py` and copy following codes.
+        ```py
+        import datetime
+        import random
+        import json
+
+        import azure.functions as func
+
+        def main(myTimer: func.TimerRequest, actions: func.Out[str]) -> None:
+            time = datetime.datetime.now().strftime("%A %d-%b-%Y %H:%M:%S")
+            actions.set(json.dumps({
+                'actionName': 'sendToAll',
+                'data': '\x5B DateTime: {0} \x5D Temperature: {1:.3f} \xB0C, Humidity: {2:.3f} \x25'.format(time, 22 + 2 * (random.random() - 0.5), 44 + 4 * (random.random() - 0.5)),
+                'dataType': 'text'
+            }))
         ```
 
 6. Add the client single page `index.html` in the project root folder and copy content as below.
@@ -299,7 +437,7 @@ In this tutorial, you learn how to:
         </body>
     </html>
     ```
-
+    
     # [JavaScript](#tab/javascript)
 
     # [C#](#tab/csharp)
@@ -311,6 +449,8 @@ In this tutorial, you learn how to:
         </None>
     </ItemGroup>
     ```
+    
+    # [Python](#tab/python)
 
 7. Configure and run the Azure Function app
 
@@ -334,7 +474,7 @@ In this tutorial, you learn how to:
     func start
     ```
 
-    And checking the running logs, you can visit your local host static page by visiting: `https://localhost:7071/api/index`.
+    And checking the running logs, you can visit your local host static page by visiting: `http://localhost:7071/api/index`.
 
 ## Deploy Function App to Azure
 
@@ -379,6 +519,12 @@ Use the following commands to create these item.
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
 
+    # [Python](#tab/python)
+
+    ```azurecli
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime python --runtime-version 3.9 --functions-version 3 --name <FUNCIONAPP_NAME> --os-type linux --storage-account <STORAGE_NAME>
+    ```
+
 1. Deploy the function project to Azure:
 
     After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](../azure-functions/functions-run-local.md) command.
@@ -407,10 +553,10 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+> [Tutorial: Create a simple chatroom with Azure Web PubSub](./tutorial-build-chat.md)
 
 > [!div class="nextstepaction"]
-> [Azure Web PubSub bindings for Azure Functions](https://azure.github.io/azure-webpubsub/references/functions-bindings)
+> [Azure Web PubSub bindings for Azure Functions](./reference-functions-bindings.md)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)

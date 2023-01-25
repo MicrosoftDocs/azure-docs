@@ -9,11 +9,11 @@ ms.topic: tutorial
 
 This tutorial will help you learn how to configure the Microsoft Defender for IoT agent-based solution.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Enable data collection
-> - Create a log analytics workspace
+> - Create a Log Analytics workspace
 > - Enable geolocation and IP address handling
 
 ## Prerequisites
@@ -26,9 +26,9 @@ In this tutorial you will learn how to:
 
 - You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
 
-- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
-- You must have [installed the Defender for IoT micro agent (Preview)](quickstart-standalone-agent-binary-installation.md)
+- You must have [installed the Defender for IoT micro agent](quickstart-standalone-agent-binary-installation.md)
 
 ## Enable data collection
 
@@ -46,9 +46,9 @@ In this tutorial you will learn how to:
 
 1. Select **Save**.
 
-## Create a log analytics workspace
+## Create a Log Analytics workspace
 
-Defender for IoT allows you to store security alerts, recommendations, and raw security data, in your Log Analytics workspace. Log Analytics ingestion in IoT Hub is set to **off** by default in the Defender for IoT solution. It is possible, to attach Defender for IoT to a Log Analytic workspace, and to store the security data there as well.
+Defender for IoT allows you to store security alerts, recommendations, and raw security data, in your Log Analytics workspace. Log Analytics ingestion in IoT Hub is set to **off** by default in the Defender for IoT solution. It is possible, to attach Defender for IoT to a Log Analytics workspace, and to store the security data there as well.
 
 There are two types of information stored by default in your Log Analytics workspace by Defender for IoT:
 
@@ -67,13 +67,13 @@ You can choose to add storage of an additional information type as `raw events`.
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Settings** > **Data Collection**.
 
-1. Under the Workspace configuration, switch the Log Analytics toggle to **On**.
+1. Under the **Workspace configuration**, switch the Log Analytics toggle to **On**.
 
 1. Select a subscription from the drop-down menu.
 
-1. Select a workspace from the drop-down menu. If you do not already have an existing Log Analytics workspace, you can select **Create New Workspace** to create a new one.
+1. Select a workspace from the drop-down menu. If you don't already have an existing Log Analytics workspace, you can select **Create New Workspace** to create a new one.
 
-1. Verify that the **Access to raw security data** option is selected.  
+1. Verify that the **Access to raw security data** option is selected.
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/data-settings.png" alt-text="Ensure Access to raw security data is selected.":::
 

@@ -1,16 +1,16 @@
 ---
 title: 'Quickstart: View enterprise applications'
 description: View the enterprise applications that are registered to use your Azure Active Directory tenant.
-titleSuffix: Azure AD
 services: active-directory
-author: AllisonAm
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 03/24/2022
-ms.author: alamaral
+ms.author: jomondi
+ms.reviewer: alamaral
 ms.custom: mode-other
 #Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
 ---
@@ -78,4 +78,4 @@ If you created a test application named **Azure AD SAML Toolkit 1** that was use
 
 Learn how to delete an enterprise application.
 > [!div class="nextstepaction"]
-> [Delete an application](add-application-portal.md)
+> [Delete an application](delete-application-portal.md)

@@ -3,8 +3,7 @@ title: 'Azure AD Connect: Getting Started using express settings | Microsoft Doc
 description: Learn how to download, install and run the setup wizard for Azure AD Connect.
 services: active-directory
 author: billmath
-manager: karenhoran
-editor: curtand
+manager: amycolannino
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
 ms.workload: identity
@@ -30,7 +29,7 @@ If express settings does not match your topology, see [related documentation](#r
 3. On the Welcome screen, select the box agreeing to the licensing terms and click **Continue**.  
 4. On the Express settings screen, click **Use express settings**.  
    ![Welcome to Azure AD Connect](./media/how-to-connect-install-express/express.png)
-5. On the Connect to Azure AD screen, enter the username and password of a global administrator for your Azure AD. Click **Next**.  
+5. On the Connect to Azure AD screen, enter the username and password of a Hybrid Identity Administrator for your Azure AD. Click **Next**.  
    ![Connect to Azure AD](./media/how-to-connect-install-express/connectaad.png)  
    If you receive an error and have problems with connectivity, then see [Troubleshoot connectivity problems](tshoot-connect-connectivity.md).
 6. On the Connect to AD DS screen, enter the username and password for an enterprise admin account. You can enter the domain part in either NetBios or FQDN format, that is, FABRIKAM\administrator or fabrikam.com\administrator. Click **Next**.  

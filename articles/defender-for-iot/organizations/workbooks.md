@@ -1,15 +1,11 @@
 ---
-title: Use Azure Monitor workbooks in Microsoft Defender for IoT
+title: Visualize Microsoft Defender for IoT data with Azure Monitor workbooks
 description: Learn how to view and create Azure Monitor workbooks for Defender for IoT data.
 ms.topic: how-to
-ms.date: 03/06/2022
+ms.date: 09/04/2022
 ---
 
-# Use Azure Monitor workbooks in Microsoft Defender for IoT (Public preview)
-
-> [!IMPORTANT]
->
-> The **Workbooks** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Visualize Microsoft Defender for IoT data with Azure Monitor workbooks
 
 Azure Monitor workbooks provide graphs, charts, and dashboards that visually reflect data stored in your Azure Resource Graph subscriptions and are available directly in Microsoft Defender for IoT.
 
@@ -20,7 +16,7 @@ Each workbook graph or chart is based on an Azure Resource Graph (ARG) query run
 - Gather sensor statuses
 - Identify new devices in your network
 - Find alerts related to specific IP addresses
-- Understand which alerts are seen by each sensor.
+- Understand which alerts are seen by each sensor
 
 ## View workbooks
 
@@ -28,7 +24,7 @@ To view out-of-the-box workbooks created by Microsoft, or other workbooks alread
 
 1. In the Azure portal, go to **Defender for IoT** and select **Workbooks** on the left.
 
-    :::image type="content" source="media/release-notes/workbooks.png" alt-text="Screenshot of the new Workbooks page." lightbox="media/release-notes/workbooks.png":::
+    :::image type="content" source="media/workbooks/workbooks.png" alt-text="Screenshot of the Workbooks page." lightbox="media/release-notes/workbooks.png":::
 
 1. Modify your filtering options if needed, and select a workbook to open it.
 
@@ -37,7 +33,7 @@ Defender for IoT provides the following workbooks out-of-the-box:
 - **Sensor health**. Displays data about your sensor health, such as the sensor console software versions installed on your sensors.
 - **Alerts**. Displays data about alerts occurring on your sensors, including alerts by sensor, alert types, recent alerts generated, and more.
 - **Devices**. Displays data about your device inventory, including devices by vendor, subtype, and new devices identified.
-
+- **Vulnerabilities**. Displays data about the Vulnerabilities detected in OT devices across your network. Select an item in the **Device vulnerabilities**, **Vulnerable devices**, or **Vulnerable components** tables to view related information in the tables on the right.
 
 ## Create custom workbooks
 
@@ -57,12 +53,11 @@ Use the Defender for IoT **Workbooks** page to create custom Azure Monitor workb
     |**Query**     |  Add a query to use when creating your workbook graphs and charts.   <br><br>- Make sure to select **Azure Resource Graph** as your **Data source** and select all of your relevant subscriptions. <br>- Add a graphical representation for your data by selecting a type from the **Visualization** options.  |
     |**Metric**     | Add metrics to use when creating workbook graphs and charts.       |
     |**Group**     |  Add groups to organize your workbooks into sub-areas.       |
-    |     |         |
 
     For each option, after you've defined all available settings, select the **Add...** or **Run...** button to create that workbook element. For example, **Add parameter** or **Run Query**.
 
     > [!TIP]
-    > You can build your queries in the [Azure Resource Graph Explorer](https://ms.portal.azure.com/#blade/HubsExtension/ArgQueryBlade) and copy them into your workbook query.
+    > You can build your queries in the [Azure Resource Graph Explorer](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade) and copy them into your workbook query.
 
 1. In the toolbar, select **Save** :::image type="icon" source="media/workbooks/save-icon.png" border="false"::: or **Save as** :::image type="icon" source="media/workbooks/save-as-icon.png" border="false"::: to save your workbook, and then select **Done editing**.
 

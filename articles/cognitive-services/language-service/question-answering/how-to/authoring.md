@@ -15,7 +15,7 @@ ms.date: 11/23/2021
 The question answering Authoring API is used to automate common tasks like adding new question answer pairs, as well as creating, publishing, and maintaining projects/knowledge bases. 
 
 > [!NOTE]
-> Currently authoring functionality is only available via the REST API. This article provides examples of using the REST API with cURL. For full documentation of all parameters and functionality available consult the [REST API reference content](/rest/api/cognitiveservices/questionanswering/question-answering-projects).
+> Authoring functionality is available via the REST API and [Authoring SDK (preview)](/dotnet/api/overview/azure/ai.language.questionanswering-readme). This article provides examples of using the REST API with cURL. For full documentation of all parameters and functionality available consult the [REST API reference content](/rest/api/cognitiveservices/questionanswering/question-answering-projects).
 
 ## Prerequisites
 
@@ -281,7 +281,7 @@ curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applicat
         "value": [
           {
             "displayName": "source1",
-            "sourceUri": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview",
+            "sourceUri": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/overview/overview",
             "sourceKind": "url",
             "lastUpdatedDateTime": "2021-05-01T15:13:22Z"
           },
@@ -475,7 +475,7 @@ If you try to access the resultUrl directly, you will get a 404 error. You must 
 
 ```bash
 curl -X POST -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: application/json" -d '{
-      "ImportJobOptions": {"fileUri": "FILE-URI-PATH"}
+      "fileUri": "FILE-URI-PATH"
   }' -i 'https://{ENDPOINT}.api.cognitive.microsoft.com/language/query-knowledgebases/projects/{PROJECT-NAME}/:import?api-version=2021-10-01&format=tsv'
 ```
 
@@ -669,7 +669,7 @@ curl -X PATCH -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applic
         "op": "add",
         "value":{
             "id": 1,
-            "answer": "The latest question answering docs are on https://docs.microsoft.com",
+            "answer": "The latest question answering docs are on https://learn.microsoft.com",
             "source": "source5",
             "questions": [
                 "Where do I find docs for question answering?"

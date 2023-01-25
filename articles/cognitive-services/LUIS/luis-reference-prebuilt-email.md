@@ -14,6 +14,9 @@ ms.date: 09/27/2019
 ---
 
 # Email prebuilt entity for a LUIS app
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Email extraction includes the entire email address from an utterance. Because this entity is already trained, you do not need to add example utterances containing email to the application intents. Email entity is supported in `en-us` culture only.
 
 ## Resolution for prebuilt email

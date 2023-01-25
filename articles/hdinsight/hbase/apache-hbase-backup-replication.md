@@ -4,7 +4,7 @@ description: Set up Backup and replication for Apache HBase and Apache Phoenix i
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/19/2019
+ms.date: 12/27/2022
 ---
 
 # Set up backup and replication for Apache HBase and Apache Phoenix on HDInsight
@@ -30,7 +30,7 @@ HBase in HDInsight uses the default storage selected when creating the cluster, 
 
 `/hbase`
 
-* In an Azure Storage account the `hbase` folder resides at the root of the blob container:
+* In an Azure Storage account' the `hbase` folder resides at the root of the blob container:
 
   `wasbs://<containername>@<accountname>.blob.core.windows.net/hbase`
 
@@ -84,7 +84,7 @@ This approach offers table-level granularity. You can also specify a date range 
 hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
 ```
 
-Note that you have to specify the number of versions of each row to export. To include all versions in the date range, set `<numberOfVersions>` to a value greater than your maximum possible row versions, such as 100000.
+You have to specify the number of versions of each row to export. To include all versions in the date range, set `<numberOfVersions>` to a value greater than your maximum possible row versions, such as 100000.
 
 ## Copy tables
 
@@ -217,7 +217,7 @@ If your destination cluster is an ADLS Gen 2 cluster, change the preceding comma
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<account_name>.dfs.core.windows.net=<key> -Dfs.azure.account.auth.type.<account_name>.dfs.core.windows.net=SharedKey -Dfs.azure.always.use.https.<account_name>.dfs.core.windows.net=false -Dfs.azure.account.keyprovider.<account_name>.dfs.core.windows.net=org.apache.hadoop.fs.azurebfs.services.SimpleKeyProvider -snapshot 'Snapshot1' -copy-to 'abfs://<container>@<account_name>.dfs.core.windows.net/hbase'
 ```
 
-After the snapshot is exported, SSH into the head node of the destination cluster and restore the snapshot by using the `restore_snapshot` command as described earlier.
+After the snapshot is exported, SSH into the head node of the destination cluster and restore the snapshot by using the `clone_snapshot` command as described earlier.
 
 Snapshots provide a complete backup of a table at the time of the `snapshot` command. Snapshots don't provide the ability to perform incremental snapshots by windows of time, nor to specify subsets of columns families to include in the snapshot.
 

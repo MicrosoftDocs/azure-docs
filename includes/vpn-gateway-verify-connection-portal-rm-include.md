@@ -1,12 +1,11 @@
 ---
- description: include file
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/24/2022
+ ms.date: 06/13/2022
  ms.author: cherylmc
 ---
-In the Azure portal, you can view the connection status of a Resource Manager VPN Gateway by navigating to the connection. The following steps show one way to navigate to your connection and verify.
+In the Azure portal, you can view the connection status of a VPN gateway by going to the connection. The following steps show one way to navigate to your connection and verify.
 
 1. In the [Azure portal](https://portal.azure.com), go to your virtual network gateway.
 1. On the page for your virtual network gateway, click **Connections**. You can see the status of each connection.

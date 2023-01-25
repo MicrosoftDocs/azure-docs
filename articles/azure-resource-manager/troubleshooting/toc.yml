@@ -22,7 +22,7 @@
     items:
     - name: Common deployment errors
       href: common-deployment-errors.md
-    - name: Account name invalid
+    - name: Storage account name invalid
       href: error-storage-account-name.md
     - name: Deployment quota exceeded
       href: deployment-quota-exceeded.md
@@ -32,7 +32,7 @@
       href: error-job-size-exceeded.md
     - name: No registered provider found
       href: error-register-resource-provider.md
-    - name: Not found
+    - name: Resource not found
       href: error-not-found.md
     - name: Parent resource not found
       href: error-parent-resource.md
@@ -74,8 +74,8 @@
     href: /python/api/overview/azure/resources
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/paths/deploy-manage-resource-manager-templates/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/paths/deploy-manage-resource-manager-templates/
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap

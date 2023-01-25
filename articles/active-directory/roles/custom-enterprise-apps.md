@@ -3,7 +3,7 @@ title: Create custom roles to manage enterprise apps in Azure Active Directory
 description: Create and assign custom Azure AD roles for enterprise apps access in Azure Active Directory
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

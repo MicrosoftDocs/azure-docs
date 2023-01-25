@@ -17,7 +17,7 @@ items:
   expanded: true
   items:
   - name: Access DICOM service
-    expanded: true
+    expanded: false
     items:
     - name: Using DICOMweb Standard APIs with C#
       href: dicomweb-standard-apis-c-sharp.md
@@ -26,25 +26,31 @@ items:
     - name: Using DICOMweb Standard APIs with Python
       href: dicomweb-standard-apis-python.md   
   - name: Configure settings
-    expanded: true
+    expanded: false
     items:
     - name: Configure Azure RBAC for the DICOM service 
       href: dicom-configure-azure-rbac.md#assign-roles-for-the-dicom-service
+    - name: Configure CORS
+      href: configure-cross-origin-resource-sharing.md
   - name: Diagnostic logging
-    expanded: true
+    expanded: false
     items: 
     - name: Enable diagnostic logging in the DICOM service
       href: enable-diagnostic-logging.md
   - name: Operations
-    expanded: true
+    expanded: false
     items:
+    - name: Export DICOM Files
+      href: export-dicom-files.md
     - name: Pull DICOM changes using the Change Feed
       href: pull-dicom-changes-from-change-feed.md
   - name: Using Azure Active Directory (Azure AD) for DICOM service
-    expanded: true
+    expanded: false
     items:
     - name: Get access token for the DICOM service using Azure CLI
       href: dicom-get-access-token-azure-cli.md#obtain-and-use-an-access-token-for-the-dicom-service
+  - name: Register a client application for the DICOM service in Azure Active Directory
+    href: dicom-register-application.md
 - name: Concepts
   expanded: true
   items:

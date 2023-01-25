@@ -21,7 +21,7 @@ Follow these steps to retrieve the ID for a subscription in the Azure portal.
 1. Copy the **Subscription ID**. You can paste this value into a text document or other location.
 
 > [!TIP]
-> You can also list your subscriptions and view their IDs programmatically by using [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?view=latest) (Azure PowerShell) or [az account list](/cli/azure/account?view=azure-cli-latest) (Azure CLI).
+> You can also list your subscriptions and view their IDs programmatically by using [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?view=latest&preserve-view=true) (Azure PowerShell) or [az account list](/cli/azure/account?view=azure-cli-latest&preserve-view=true) (Azure CLI).
 
 ## Find your Azure AD tenant
 

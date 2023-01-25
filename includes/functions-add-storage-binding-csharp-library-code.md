@@ -2,8 +2,9 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 08/15/2021
+ms.date: 06/10/2022
 ms.author: glenga
+ms.custom: devdivchpfy22
 ---
 
 # [In-process](#tab/in-process)
@@ -12,7 +13,7 @@ Add code that uses the `msg` output binding object to create a queue message. Ad
 
 :::code language="csharp" range="28-32" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" :::
 
-At this point, your function should look as follows:
+At this point, your function must look as follows:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-36":::
 

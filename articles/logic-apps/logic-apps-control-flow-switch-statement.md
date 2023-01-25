@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/08/2018
+ms.date: 09/01/2022
 ---
 
 # Create switch actions that run workflow actions based on specific values in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To run specific actions based on the values of objects, expressions, 
 or tokens, add a *switch* action. This structure evaluates the object, 

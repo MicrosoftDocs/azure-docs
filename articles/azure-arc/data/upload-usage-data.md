@@ -4,16 +4,16 @@ description: Upload usage Azure Arc-enabled data services data to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 05/27/2022
 ms.topic: how-to
 ---
 
 # Upload usage data to Azure in **indirect** mode
 
-Periodically, you can export out usage information. The export and upload of this information creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export out usage information. The export and upload of this information creates and updates the data controller, SQL managed instance, and PostgreSQL resources in Azure.
 
 > [!NOTE] 
 > Usage information is automatically uploaded for Azure Arc data controller deployed in **direct** connectivity mode. The instructions in this article only apply to uploading usage information for Azure Arc data controller deployed in **indirect** connectivity mode..
@@ -42,12 +42,12 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
    az arcdata dc export --type usage --path usage.json --k8s-namespace <namespace> --use-k8s
    ```
  
-   This command creates a `usage.json` file with all the Azure Arc-enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
+   This command creates a `usage.json` file with all the Azure Arc-enabled data resources such as SQL managed instances and PostgreSQL instances etc. that are created on the data controller.
 
 
 For now, the file is not encrypted so that you can see the contents. Feel free to open in a text editor and see what the contents look like.
 
-You will notice that there are two sets of data: `resources` and `data`. The `resources` are the data controller, PostgreSQL Hyperscale server groups, and SQL Managed Instances. The `resources` records in the data capture the pertinent events in the history of a resource - when it was created, when it was updated, and when it was deleted. The `data` records capture how many cores were available to be used by a given instance for every hour.
+You will notice that there are two sets of data: `resources` and `data`. The `resources` are the data controller, PostgreSQL, and SQL Managed Instances. The `resources` records in the data capture the pertinent events in the history of a resource - when it was created, when it was updated, and when it was deleted. The `data` records capture how many cores were available to be used by a given instance for every hour.
 
 Example of a `resource` entry:
 
@@ -103,6 +103,21 @@ Example of a `data` entry:
    ```azurecli
    az arcdata dc upload --path usage.json
    ```
+
+## Upload frequency
+
+In the **indirect** mode, usage information needs to be uploaded to Azure at least once in every 30 days. It is highly recommended to upload more frequently, such as daily. If usage information is not uploaded past 32 days, you will see some degradation in the service such as being unable to provision any new resources. 
+
+There will be two types of notifications for delayed usage uploads - warning phase and degraded phase. In the warning phase there will be a message such as `Billing data for the Azure Arc data controller has not been uploaded in {0} hours.  Please upload billing data as soon as possible.`. 
+
+In the degraded phase, the message will look like `Billing data for the Azure Arc data controller has not been uploaded in {0} hours.  Some functionality will not be available until the billing data is uploaded.`.
+
+> [!NOTE]
+> You will see the warning message if usage has not been uploaded for more than 48 hours. 
+
+The Azure portal Overview page for Data Controller and the Custom Resource status of the Data controller in your kubernetes cluster will  both indicate the last upload date and the status message(s).
+
+
 
 ## Automating uploads (optional)
 

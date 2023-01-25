@@ -1,6 +1,6 @@
 ---
-title: Azure Video Indexer (formerly Azure Video Analyzer for Media) failover and disaster recovery
-description: Learn how to fail over to a secondary Azure Video Indexer (formerly Azure Video Analyzer for Media) account if a regional datacenter failure or disaster occurs.
+title: Azure Video Indexer failover and disaster recovery
+description: Learn how to fail over to a secondary Azure Video Indexer account if a regional datacenter failure or disaster occurs.
 author: juliako
 manager: femila
 editor: ''
@@ -12,7 +12,7 @@ ms.author: juliako
 ---
 # Azure Video Indexer failover and disaster recovery
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) doesn't provide instant failover of the service if there's a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for apps and minimized recovery time if a disaster occurs.
+Azure Video Indexer doesn't provide instant failover of the service if there's a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for apps and minimized recovery time if a disaster occurs.
 
 We recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure's isolation and availability policies. For more information, see [Azure paired regions](../availability-zones/cross-region-replication-azure.md).
 

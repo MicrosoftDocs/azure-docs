@@ -3,11 +3,12 @@ title: Troubleshoot SNAT exhaustion and connection timeouts
 titleSuffix: Azure Load Balancer
 description: Resolutions for common problems with outbound connectivity with Azure Load Balancer. 
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
+ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 04/21/2022
-ms.author: allensu
+ms.author: mbender
 ---
 # Troubleshoot SNAT exhaustion and connection timeouts
 
@@ -60,7 +61,7 @@ For smaller scale deployments, you can consider assigning a public IP to a VM. I
 We highly recommend considering utilizing NAT gateway instead, as assigning individual public IP addresses isn't a scalable solution.
 
 > [!NOTE]
-> If you need to connect your Azure virtual network to Azure PaaS services like Storage, SQL, Cosmos DB, or any other of the Azure services [listed here](../private-link/availability.md), you can leverage Azure Private Link to avoid SNAT entirely. Azure Private Link sends traffic from your virtual network to Azure services over the Azure backbone network instead of over the internet.
+> If you need to connect your Azure virtual network to Azure PaaS services like Azure Storage, Azure SQL, Azure Cosmos DB, or other [available Azure services](../private-link/availability.md), you can use Azure Private Link to avoid SNAT entirely. Azure Private Link sends traffic from your virtual network to Azure services over the Azure backbone network instead of over the internet.
 >
 >Private Link is the recommended option over service endpoints for private access to Azure hosted services. For more information on the difference between Private Link and service endpoints, see [Compare Private Endpoints and Service Endpoints](../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 

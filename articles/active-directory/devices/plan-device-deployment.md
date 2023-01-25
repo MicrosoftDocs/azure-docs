@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 09/30/2022
 
-ms.author: baselden
-author: BarbaraSelden
+ms.author: gasinh
+author: gargi-sinha
 manager: martinco
 ms.reviewer: sandeo
 
@@ -55,7 +55,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood. 
+When technology projects fail, they typically do because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders,](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood. 
 
 For this plan, add the following stakeholders to your list:
 
@@ -103,6 +103,7 @@ iOS and Android devices may only be Azure AD registered. The following table pre
 | **Client operating systems** | | |  |
 | Windows 11 or Windows 10 devices | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 | Windows down-level devices (Windows 8.1 or Windows 7) | | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Linux Desktop - Ubuntu 20.04/22.04 | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | | | 
 |**Sign in options** | | |  |
 | End-user local credentials | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | |  |
 | Password | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
@@ -135,6 +136,7 @@ BYOD and corporate owned mobile device are registered by users installing the Co
 * [Android](/mem/intune/user-help/enroll-device-android-company-portal)
 * [Windows 10 or newer](/mem/intune/user-help/enroll-windows-10-device)
 * [macOS](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
+* [Linux Desktop - Ubuntu 20.04/22.04](/mem/intune/user-help/enroll-device-linux)
 
 If registering your devices is the best option for your organization, see the following resources:
 

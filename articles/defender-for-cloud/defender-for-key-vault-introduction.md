@@ -8,7 +8,7 @@ author: bmansheim
 ms.custom: references_regions
 ---
 
-# Introduction to Microsoft Defender for Key Vault
+# Overview of Microsoft Defender for Key Vault
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. 
 
@@ -32,7 +32,7 @@ When anomalous activities occur, Defender for Key Vault shows alerts and optiona
 ## Microsoft Defender for Key Vault alerts
 When you get an alert from Microsoft Defender for Key Vault, we recommend you investigate and respond to the alert as described in [Respond to Microsoft Defender for Key Vault](defender-for-key-vault-usage.md). Microsoft Defender for Key Vault protects applications and credentials, so even if you're familiar with the application or user that triggered the alert, it's important to check the situation surrounding every alert.
 
-The alerts appear in Key Vault's **Security** page, the Workload protections, and Defender for Cloud's alerts page.
+The alerts appear in Key Vault's **Security** page, the Workload protections, and Defender for Cloud's security alerts page.
 
 :::image type="content" source="./media/defender-for-key-vault-intro/key-vault-security-page.png" alt-text="Azure Key Vault's security page":::
 

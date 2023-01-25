@@ -16,7 +16,7 @@ zone_pivot_groups: front-door-tiers
 ::: zone pivot="front-door-classic"
 
 > [!NOTE]
-> An *Origin* and a *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
+> *Origin* and *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
 >
 
 ::: zone-end

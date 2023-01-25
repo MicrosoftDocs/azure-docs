@@ -13,7 +13,7 @@ services: iot-edge
 
 # Get notified about issues using alerts
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Use [Azure Monitor Log alerts](../azure-monitor/alerts/alerts-unified-log.md) to monitor IoT Edge devices at scale. As highlighted in the [solution architecture](how-to-collect-and-transport-metrics.md#architecture), Azure Monitor Log Analytics is used as the metrics database. This integration unlocks powerful and flexible alerting capabilities using resource-centric log alerts.
 
@@ -30,9 +30,9 @@ To access the example alert queries, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 1. Select **Logs** from the **Monitoring** section of the menu.
-1. Select **Queries** to open the example query browser.
+1. The **Queries** example query browser will automatically open. If this is your first time to **Logs** you may have to close a video tutorial before you can see the query browser. The **Queries** tab can be used to bring up the example query browser again if you don't see it.
 
-:::image type="content" source="./media/how-to-create-alerts/example-alerts.png" alt-text="Access example alert queries." lightbox="./media/how-to-create-alerts/example-alerts.png":::
+:::image type="content" source="./media/how-to-create-alerts/example-alerts.png" alt-text="Screenshot of how to access the example alert queries." lightbox="./media/how-to-create-alerts/example-alerts.png":::
 
 The [metrics-collector module](how-to-collect-and-transport-metrics.md#metrics-collector-module) ingests all data into the standard [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. You can create alert rules based on metrics data from custom modules by querying the same table.
 

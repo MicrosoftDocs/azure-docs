@@ -3,16 +3,15 @@ title: Disaster recovery principles and preparation on SAP HANA on Azure (Large 
 description: Become familiar with disaster recovery principles and preparation on SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter:
-author: mamccrea
+author: lauradolan
 manager: gwallace
 editor:
 ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 7/01/2021
-ms.author: mamccrea
+ms.author: ladolan
 ms.custom: H1Hack27Feb2017
 
 ---

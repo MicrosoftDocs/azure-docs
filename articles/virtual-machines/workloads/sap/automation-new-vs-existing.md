@@ -1,6 +1,6 @@
 ---
 title: Configuring the automation framework for new and existing deployments
-description: How to configure the SAP deployment automation framework on Azure for both new and existing scenarios.
+description: How to configure the SAP on Azure Deployment Automation Framework for both new and existing scenarios.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configuring for new and existing deployments
 
-You can use the [SAP deployment automation framework on Azure](automation-deployment-framework.md) in both new and existing deployment scenarios. 
+You can use the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) in both new and existing deployment scenarios. 
 
 In new deployment scenarios, the automation framework doesn't use existing Azure infrastructure. The deployment process creates the virtual networks, subnets, key vaults, and more.
 
@@ -46,7 +46,7 @@ In this scenario, the automation framework creates all Azure components, and use
 
 To test this scenario: 
 
-Clone the [SAP deployment automation framework](https://github.com/Azure/sap-automation/) repository and copy the sample files to your root folder for parameter files:
+Clone the [SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-automation/) repository and copy the sample files to your root folder for parameter files:
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment

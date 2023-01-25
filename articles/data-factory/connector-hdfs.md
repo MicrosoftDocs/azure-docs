@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 01/11/2023
 ms.author: jianleishen
 ---
 
@@ -23,11 +23,15 @@ This article outlines how to copy data from the Hadoop Distributed File System (
 
 ## Supported capabilities
 
-The HDFS connector is supported for the following activities:
+This HDFS connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source and sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [Delete activity](delete-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 Specifically, the HDFS connector supports:
 

@@ -13,8 +13,12 @@ ms.date: 05/25/2021
 
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster.
 
+[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
+
 > [!NOTE]
 > You can also deploy self-hosted gateway to an [Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md) as a [cluster extension](../azure-arc/kubernetes/extensions.md).
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 
@@ -33,19 +37,26 @@ This article describes the steps for deploying the self-hosted gateway component
 5. Select the **Kubernetes** tab under **Deployment scripts**.
 6. Select the **\<gateway-name\>.yml** file link and download the YAML file.
 7. Select the **copy** icon at the lower-right corner of the **Deploy** text box to save the `kubectl` commands to the clipboard.
-8. Paste commands to the terminal (or command) window. The first command creates a Kubernetes secret that contains the access token generated in step 4. The second command applies the configuration file downloaded in step 6 to the Kubernetes cluster and expects the file to be in the current directory.
-9. Run the commands to create the necessary Kubernetes objects in the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) and start self-hosted gateway pods from the [container image](https://aka.ms/apim/sputnik/dhub) downloaded from the Microsoft Container Registry.
+8. When using Azure Kubernetes Service (AKS), run `az aks get-credentials --resource-group <resource-group-name> --name <resource-name> --admin` in a new terminal session.
+9. Run the commands to create the necessary Kubernetes objects in the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) and start self-hosted gateway pods from the [container image](https://aka.ms/apim/shgw/registry-portal) downloaded from the Microsoft Artifact Registry.
+   - The first step creates a Kubernetes secret that contains the access token generated in step 4. Next, it creates a Kubernetes deployment for the self-hosted gateway which uses a ConfigMap with the configuration of the gateway.
 10. Run the following command to check if the deployment succeeded. Note that it might take a little time for all the objects to be created and for the pods to initialize.
 
     ```console
     kubectl get deployments
-    NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+    ```
+    It should return
+    ```console
+        NAME             READY   UP-TO-DATE   AVAILABLE   AGE
     <gateway-name>   1/1     1            1           18s
     ```
 11. Run the following command to check if the service was successfully created. Note that your service IPs and ports will be different.
 
     ```console
     kubectl get services
+    ```
+    It should return
+    ```console
     NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
     <gateway-name>   LoadBalancer   10.99.236.168   <pending>     80:31620/TCP,443:30456/TCP   9m1s
     ```

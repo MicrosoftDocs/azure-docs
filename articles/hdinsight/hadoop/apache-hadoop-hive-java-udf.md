@@ -4,7 +4,7 @@ description: Learn how to create a Java-based user-defined function (UDF) that w
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
-ms.date: 11/20/2019
+ms.date: 06/30/2022
 ---
 
 # Use a Java UDF with Apache Hive in HDInsight

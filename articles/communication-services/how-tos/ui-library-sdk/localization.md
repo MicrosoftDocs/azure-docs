@@ -1,7 +1,7 @@
 ---
 title: Localization over the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services Mobile UI library to setup localization
+description: Use Azure Communication Services UI Library for Mobile native to set up localization
 author: jorgegarc
 ms.author: jorgegarc
 ms.service: azure-communication-services
@@ -10,7 +10,7 @@ ms.date: 04/03/2022
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android
 
-#Customer intent: As a developer, I want to setup the localization of my application
+#Customer intent: As a developer, I want to set up the localization of my application
 ---
 
 # Localization
@@ -40,4 +40,4 @@ Learn how to set up the localization correctly using the UI Library in your appl
 
 ## Next steps
 
-- [Learn more about UI Library](../../quickstarts/ui-library/get-started-composites.md)
+- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)

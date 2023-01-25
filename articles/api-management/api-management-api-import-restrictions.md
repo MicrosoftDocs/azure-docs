@@ -1,7 +1,7 @@
 ---
 title: Restrictions and details of API formats support
 titleSuffix: Azure API Management
-description: Details of known issues and restrictions on Open API, WSDL, and WADL formats support in Azure API Management.
+description: Details of known issues and restrictions on OpenAPI, WSDL, and WADL formats support in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -31,6 +31,8 @@ If you prefer a different behavior, you can either:
 
 * Manually change via form-based editor, or 
 * Remove the "required" attribute from the OpenAPI definition, thus not converting them to template parameters.
+
+For GET, HEAD, and OPTIONS operations, API Management discards a request body parameter if defined in the OpenAPI specification. 
 
 ## <a name="open-api"> </a>OpenAPI/Swagger import limitations
 
@@ -225,6 +227,10 @@ You can create [SOAP pass-through](import-soap-api.md) and [SOAP-to-REST](restif
 * The `wsdl:import`, `xsd:import`, and `xsd:include` directives aren't supported. Instead, merge the dependencies into one document. 
 
 * For an open-source tool to resolve and merge `wsdl:import`, `xsd:import`, and `xsd:include` dependencies in a WSDL file, see this [GitHub repo](https://github.com/Azure-Samples/api-management-schema-import).
+
+### WS-* specifications
+
+WSDL files incorporating WS-* specifications are not supported.
 
 ### Messages with multiple parts 
 This message type is not supported.

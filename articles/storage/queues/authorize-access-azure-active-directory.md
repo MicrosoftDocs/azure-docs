@@ -3,13 +3,13 @@ title: Authorize access to queues using Active Directory
 titleSuffix: Azure Storage
 description: Authorize access to Azure queues using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
-ms.author: tamram
-ms.subservice: common
+ms.date: 09/14/2022
+ms.author: jammart
+ms.subservice: queues
 ---
 
 # Authorize access to queues using Azure Active Directory

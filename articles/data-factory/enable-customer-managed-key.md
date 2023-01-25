@@ -6,7 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.subservice: security
 ms.topic: quickstart
-ms.date: 10/22/2021
+ms.date: 10/14/2022
 ms.reviewer: mariozi
 ms.custom: mode-other
 ---
@@ -55,7 +55,7 @@ Make sure Azure Key Vault and Azure Data Factory are in the same Azure Active Di
 
 ### Generate or upload customer-managed key to Azure Key Vault
 
-You can either create your own keys and store them in a key vault. Or you can use the Azure Key Vault APIs to generate keys. Only 2048-bit RSA keys are supported with Data Factory encryption. For more information, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
+You can either create your own keys and store them in a key vault. Or you can use the Azure Key Vault APIs to generate keys. Only RSA keys are supported with Data Factory encryption. RSA-HSM  is also supported. For more information, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 
   :::image type="content" source="media/enable-customer-managed-key/03-create-key.png" alt-text="Screenshot showing how to generate Customer-Managed Key.":::
 

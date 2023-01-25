@@ -4,13 +4,14 @@ description: Monitor system and custom .NET/.NET Core EventCounters in Applicati
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
+ms.reviewer: cithomas
 ---
 
 # EventCounters introduction
 
 [`EventCounter`](/dotnet/core/diagnostics/event-counters) is .NET/.NET Core mechanism to publish and consume counters or statistics. EventCounters are supported in all OS platforms - Windows, Linux, and macOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
 
-While users can publish any custom `EventCounters` to meet their needs, .NET Core 3.0 and higher runtime publishes a set of these counters by default. This document will walk through the steps required to collect and view `EventCounters` (system defined or user defined) in Azure Application Insights.
+While users can publish any custom `EventCounters` to meet their needs, .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) and higher runtime publishes a set of these counters by default. This document will walk through the steps required to collect and view `EventCounters` (system defined or user defined) in Azure Application Insights.
 
 ## Using Application Insights to collect EventCounters
 
@@ -25,7 +26,7 @@ To get a list of well known counters published by the .NET Runtime, see [Availab
 
 ## Customizing counters to be collected
 
-The following example shows how to add/remove counters. This customization would be done in the `ConfigureServices` method of your application after Application Insights telemetry collection is enabled using either `AddApplicationInsightsTelemetry()` or `AddApplicationInsightsWorkerService()`. Following is an example code from an ASP.NET Core application. For other type of applications, refer to [this](worker-service.md#configuring-or-removing-default-telemetrymodules) document.
+The following example shows how to add/remove counters. This customization would be done in the `ConfigureServices` method of your application after Application Insights telemetry collection is enabled using either `AddApplicationInsightsTelemetry()` or `AddApplicationInsightsWorkerService()`. Following is an example code from an ASP.NET Core application. For other type of applications, refer to [this](worker-service.md#configure-or-remove-default-telemetry-modules) document.
 
 ```csharp
     using Microsoft.ApplicationInsights.Extensibility.EventCounterCollector;

@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.custom: non-critical
+ms.custom: cogserv-non-critical-vision
 ---
 
 # Telemetry and troubleshooting

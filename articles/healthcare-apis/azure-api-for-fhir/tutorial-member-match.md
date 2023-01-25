@@ -5,10 +5,9 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: mikaelw
-author: mikaelweave
-ms.date: 02/15/2022
+ms.author: kesheth
+author: expekesheth
+ms.date: 06/03/2022
 ---
 
 # $member-match operation for Azure API for FHIR
@@ -52,3 +51,5 @@ In this guide, you've learned about the $member-match operation. Next, you can l
 
 >[!div class="nextstepaction"]
 >[DaVinci PDex](../fhir/davinci-pdex-tutorial.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

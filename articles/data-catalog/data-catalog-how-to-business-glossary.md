@@ -3,11 +3,11 @@ title: Set up the business glossary in Azure Data Catalog
 description: How-to article highlighting the business glossary in Azure Data Catalog for defining and using a common business vocabulary to tag registered data assets.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 12/14/2022
 ---
 # Set up the business glossary for governed tagging
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 ## Introduction
 
@@ -57,7 +57,7 @@ The use of hierarchies in the business glossary is optional. Leaving the parent 
 
 After glossary terms have been defined within the catalog, the experience of tagging assets is optimized to search the glossary as a user types a tag. The Data Catalog portal displays a list of matching glossary terms to choose from. If the user selects a glossary term from the list, the term is added to the asset as a tag (also called a glossary tag). The user can also choose to create a new tag by typing a term that's not in the glossary (also called a user tag).
 
-:::image type="content" source="./media/data-catalog-how-to-business-glossary/03-tagged-asset.png" alt-text="An example data asset is selected, and its tags are highlighted in the middle of its card. The properties pane is open, with the tags section highlighted. There is an Add button that can be used to add more tags.":::
+:::image type="content" source="./media/data-catalog-how-to-business-glossary/03-tagged-asset.png" alt-text="An example data asset is selected, and its tags are highlighted in the middle of its card. The properties pane is open, with the tags section highlighted. There's an Add button that can be used to add more tags.":::
 
 > [!NOTE]
 > User tags are the only type of tag supported in the Free Edition of Data Catalog.
