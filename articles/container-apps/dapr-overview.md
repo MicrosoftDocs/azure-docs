@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 01/25/2023
 ---
 
 # Dapr integration with Azure Container Apps
@@ -175,6 +175,9 @@ There are a few approaches supported in container apps to securely establish con
 
 For Azure-hosted services, Dapr can use the managed identity of the scoped container apps to authenticate to the backend service provider. When using managed identity, you don't need to include secret information in a component manifest. Using managed identity is preferred as it eliminates storage of sensitive input in components and doesn't require managing a secret store.
 
+> [!NOTE]
+> The `azureClientId` metadata field (the client ID of the managed identity) is **required** for any component authenticating with user-assigned managed identity.
+
 #### Using a Dapr secret store component reference
 
 When you create Dapr components for non-AD enabled services, certain metadata fields require sensitive input values. The recommended approach for retrieving these secrets is to reference an existing Dapr secret store component that securely accesses secret information.
@@ -199,7 +202,7 @@ metadata:
     value: [your_keyvault_name]
   - name: azureEnvironment
     value: "AZUREPUBLICCLOUD"
-  - name: azureClientId # Only required if using user-assigned managed identity
+  - name: azureClientId # Only required for authenticating user-assigned managed identity
     value: [your_managed_identity_client_id]
 scopes:
   - publisher-app
