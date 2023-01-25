@@ -1,23 +1,24 @@
 ---
-title: 'What is Azure Virtual Network Manager (Preview)?'
+title: 'What is Azure Virtual Network Manager?'
 description: Learn how Azure Virtual Network Manager can simplify management and scalability of your virtual networks.
 services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: overview
-ms.date: 08/11/2022
+ms.date: 01/31/2023
 ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021
 #Customer intent: As an IT administrator, I want to learn about Azure Virtual Network Manager and what I can use it for.
 ---
 
-# What is Azure Virtual Network Manager (Preview)?
+# What is Azure Virtual Network Manager?
 
 Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once.
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+>
+> Mesh connectivity configurations are in Public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How does Azure Virtual Network Manager work?
@@ -44,39 +45,7 @@ Next, you create connectivity and/or security configuration(s) applied to those 
 
 * Roll out network changes through a specific region sequence and frequency of your choosing.
 
-## Public preview regions
-
-* North Central US
-
-* South Central US
-
-* West US
-
-* West US 2
-
-* East US
-
-* East US 2
-
-* Canada Central
-
-* North Europe
-
-* West Europe
-
-* UK South
-
-* Switzerland North
-
-* Southeast Asia
-
-* Japan East
-
-* Japan West
-
-* Australia East
-
-* Central India
+For current information on the regions where Azure Virtual Network Manager is available, see [Azure Virtual Network Manager regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-network-manager).
 
 ## Next steps
 
