@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: nickomang
 ms.author: nickoman
-ms.date: 09/27/2022
+ms.date: 11/30/2022
 ---
 
 # Prepare Azure container technical assets for a Kubernetes app
@@ -57,9 +57,14 @@ In addition to your solution domain, your engineering team should have knowledge
 
 ## Publishing overview
 
-The first step to publish your Kubernetes app-based Container offer on the Azure Marketplace is to package your application as a [Cloud Native Application Bundle (CNAB)][cnab]. This CNAB, comprised of your application’s artifacts, will be first published to your private Azure Container Registry (ACR) and later pushed to an Azure Marketplace-specific public ACR and will be used as the single artifact you reference in Partner Center.
+The first step to publish your Kubernetes app-based Container offer on the Azure Marketplace is to package your application as a [Cloud Native Application Bundle (CNAB)][cnab]. This CNAB, comprised of your application’s artifacts, will be first published to your private Azure Container Registry (ACR) and later pushed to a Microsoft-owned ACR and will be used as the single artifact you reference in Partner Center.
+
+From there, vulnerability scanning is performed to ensure images are secure. Finally, the Kubernetes application is registered as an extension type for an Azure Kubernetes Service (AKS) cluster.
 
 Once your offer is published, your application will leverage the [cluster extensions for AKS][cluster-extensions] feature to manage your application lifecycle inside an AKS cluster.
+
+:::image type="content" source="./media/azure-container/bundle-processing.png" alt-text="A diagram showing the three stages of bundle processing, flowing from 'Copy the bundle to a Microsoft-owned registry' to 'Vulnerability scanning' to 'Extension type registration'.":::
+
 
 ## Grant access to your Azure Container Registry
 
@@ -253,7 +258,7 @@ The fields used in the manifest are as follows:
 |applicationName|String|Name of the application| 
 |publisher|String|Name of the Publisher|
 |description|String|Short description of the package|
-|version|SemVer string|SemVer string that describes the application package version, may or may not match the version of the binaries inside. Mapped to Porter’s version field|
+|version|String in `#.#.#` format|Version string that describes the application package version, may or may not match the version of the binaries inside. Mapped to Porter’s version field|
 |helmChart|String|Local directory where the Helm chart can be found relative to this `manifest.yaml`|
 |clusterARMTemplate|String|Local path where an ARM template that describes an AKS cluster that meets the requirements in restrictions field can be found|
 |uiDefinition|String|Local path where a JSON file that describes an Azure portal Create experience can be found|
@@ -263,6 +268,27 @@ The fields used in the manifest are as follows:
 |namespace|String|(Optional) Specify the namespace the extension will install into. This property is required when `defaultScope` is set to `cluster`. For namespace naming restrictions, see [Namespaces and DNS][namespaces-and-dns].|
 
 For a sample configured for the voting app, see the following [manifest file example][manifest-sample].
+
+### User parameter flow
+
+It's important to understand how user parameters flow throughout the artifacts you're creating and packaging. Parameters are initially defined when creating the UI through a *createUiDefinition.json* file:
+
+:::image type="content" source="./media/azure-container/user-param-ui.png" alt-text="A screenshot of the createUiDefinition example linked in this article. Definitions for 'value1' and 'value2' are shown.":::
+
+> [!NOTE]
+> In this example, `extensionResourceName` is also parameterized and passed to the cluster extension resource. Similarly, other extension properties can be parameterized, such as enabling auto upgrade for minor versions. For more on cluster extension properties, see [optional parameters][extension-parameters].
+
+and are exported via the `outputs` section:
+
+:::image type="content" source="./media/azure-container/user-param-ui-2.png" alt-text="A screenshot of the createUiDefinition example linked in this article. Output lines for application title, 'value1', and 'value2' are shown.":::
+
+From there, the values are passed to the Azure Resource Manager template and will be propagated to the Helm chart during deployment:
+
+:::image type="content" source="./media/azure-container/user-param-arm.png" alt-text="A screenshot of the Azure Resource Manager template example linked in this article. Under 'configurationSettings', the parameters for application title, 'value1', and 'value2' are shown.":::
+
+Finally, the values are consumed by the Helm chart:
+
+:::image type="content" source="./media/azure-container/user-param-helm.png" alt-text="A screenshot of the Helm chart example linked in this article. Values for application title, 'value1', and 'value2' are shown.":::
 
 ### Structure your application
 
@@ -289,6 +315,8 @@ The following Docker command pulls the latest packaging tool image and also moun
 Assuming `~\<path-to-content>` is a directory containing the contents to be packaged, the following docker command will mount `~/<path-to-content>` to `/data` in the container. Be sure to replace `~/<path-to-content>` with your own app's location.
 
 ```bash
+docker pull mcr.microsoft.com/container-package-app:latest
+
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/<path-to-content>:/data --entrypoint "/bin/bash" mcr.microsoft.com/container-package-app:latest 
 ```
 
@@ -297,6 +325,8 @@ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/<path-to-conten
 Assuming `D:\<path-to-content>` is a directory containing the contents to be packaged, the following docker command will mount `d:/<path-to-content>` to `/data` in the container. Be sure to replace `d:/<path-to-content>` with your own app's location.
 
 ```bash
+docker pull mcr.microsoft.com/container-package-app:latest
+
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v d:/<path-to-content>:/data --entrypoint "/bin/bash" mcr.microsoft.com/container-package-app:latest 
 ```
 
@@ -351,3 +381,4 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 [pipeline-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples/.pipelines/AzurePipelines/azure-pipelines.yml
 [arm-template-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/mainTemplate.json
 [manifest-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/manifest.yaml
+[extension-parameters]: ../aks/cluster-extensions.md#optional-parameters

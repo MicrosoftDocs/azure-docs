@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/26/2022
+ms.date: 01/20/2023
+ms.custom: engagement-fy23
 ---
 
 # Azure Machine Learning data exfiltration prevention
@@ -24,7 +25,7 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
     * __Storage Outbound__: This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
 
-    * __AzureFrontDoor.frontend outbound__: Azure Front Door is required by the Azure Machine Learning studio UI and AutoML. To narrow down the list of possible outbound destinations to just the ones required by Azure ML, allowlist the following fully qualified domain names (FQDN) on your firewall.
+    * __AzureFrontDoor.frontend outbound__: Azure Front Door is used by the Azure Machine Learning studio UI and AutoML. Instead of allowing outbound to the service tag (AzureFrontDoor.frontend), switch to the following fully qualified domain names (FQDN). Switching to these FQDNs removes unnecessary outbound traffic included in the service tag and allows only what is needed for Azure Machine Learning studio UI and AutoML.
 
         - `ml.azure.com`
         - `automlresources-prod.azureedge.net`
@@ -35,6 +36,13 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 * An Azure Virtual Network (VNet)
 * An Azure Machine Learning workspace with a private endpoint that connects to the VNet.
     * The storage account used by the workspace must also connect to the VNet using a private endpoint.
+* You need to recreate compute instance or scale down compute cluster to zero node.
+    * Not required if you have joined preview.
+    * Not required if you have new compute instance and compute cluster created after December 2022.
+
+## Why do I need to use the service endpoint policy
+
+Service endpoint policies allow you to filter egress virtual network traffic to Azure Storage accounts over service endpoint and allow data exfiltration to only specific Azure Storage accounts. Azure Machine Learning compute instance and compute cluster requires access to Microsoft-managed storage accounts for its provisioning. The Azure Machine learning alias in service endpoint policies includes Microsoft-managed storage accounts. We use service endpoint policies with the Azure Machine Learning alias to prevent data exfiltration or control the destination storage accounts. You can learn more in [Service Endpoint policy documentation](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
 
 ## 1. Create the service endpoint policy
 
@@ -63,14 +71,17 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
 1. Select __Review + Create__, and then select __Create__.
 
+> [!IMPORTANT]
+> If your compute instance and compute cluster need access to additional storage accounts, your service endpoint policy should include the additional storage accounts in the resources section. Note that it is not required if you use Storage private endpoints. Service endpoint policy and private endpoint are independent.
+
 ## 2. Allow inbound and outbound network traffic
 
 ### Inbound
 
 > [!IMPORTANT]
-> The following information __modifies__ the guidance provided in the [Inbound traffic](how-to-secure-training-vnet.md#inbound-traffic) section of the "Secure training environment with virtual networks" article.
+> The following information __modifies__ the guidance provided in the [How to secure training environment](how-to-secure-training-vnet.md) article.
 
-When using Azure Machine Learning __compute instance__ _with a public IP address_, allow inbound traffic from Azure Batch management (service tag `BatchNodeManagement.<region>`). A compute instance _with no public IP_ (preview) __doesn't__ require this inbound communication.
+When using Azure Machine Learning __compute instance__ _with a public IP address_, allow inbound traffic from Azure Batch management (service tag `BatchNodeManagement.<region>`). A compute instance _with no public IP_ __doesn't__ require this inbound communication.
 
 ### Outbound 
 
@@ -93,12 +104,12 @@ __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace
 
 * `<region>.batch.azure.com`
 * `<region>.service.batch.com`
-* `*.blob.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
-* `*.queue.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
-* `*.table.core.windows.net` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
 
-> [!IMPORTANT]
-> If you use one firewall for multiple Azure services, having outbound storage rules impacts other services. In this case, limit thee source IP of the outbound storage rule to the address space of the subnet that contains your compute instance and compute cluster resources. This limits the rule to the compute resources in the subnet.
+> [!WARNING]
+> If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts:
+> * `*.blob.core.windows.net`
+> * `*.queue.core.windows.net`
+> * `*.table.core.windows.net`
 
 ---
 
@@ -134,7 +145,7 @@ When using Azure ML curated environments, make sure to use the latest environmen
 
     # [Firewall](#tab/firewall)
 
-    __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
+    __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs:
 
     * `mcr.microsoft.com`
     * `*.data.mcr.microsoft.com`

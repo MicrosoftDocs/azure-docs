@@ -212,7 +212,7 @@ For information on what and how to monitor configuration information refer to:
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
 | Scheduler changes|High | PowerShell| Set-ADSyncScheduler| Look for modifications to schedule |
-| Changes to scheduled tasks| High | Azure AD Audit logs| Activity = 4699(S): A scheduled task was deleted<br>-or-<br>Activity = 4701(s): A scheduled task was disabled<br>-or-<br>Activity = 4701(s): A scheduled task was updated| Monitor all |
+| Changes to scheduled tasks| High | Azure AD Audit logs| Activity = 4699(S): A scheduled task was deleted<br>-or-<br>Activity = 4701(s): A scheduled task was disabled<br>-or-<br>Activity = 4702(s): A scheduled task was updated| Monitor all |
 
 * For more information on logging PowerShell script operations, see [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows), which is part of the PowerShell reference documentation.
 

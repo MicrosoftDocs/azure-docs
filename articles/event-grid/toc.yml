@@ -280,6 +280,8 @@ items:
         href: subscribe-to-partner-events.md
       - name: Subscribe to SAP events
         href: subscribe-to-sap-events.md        
+      - name: Subscribe to Tribal Group events
+        href: subscribe-to-tribal-group-events.md        
       - name: Auth0
         items:
         - name: Subscribe to Auth0 events

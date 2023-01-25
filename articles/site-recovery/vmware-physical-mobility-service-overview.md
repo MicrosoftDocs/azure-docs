@@ -6,7 +6,8 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 09/21/2022
+ms.date: 12/13/2022
+ms.custom: engagement-fy23
 ---
 
 # About the Mobility service for VMware VMs and physical servers
@@ -293,7 +294,7 @@ Locate the installer files for the server’s operating system using the followi
 2. Run the below command to extract the installer file:
 
    ```cmd
-   .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Program Files (x86)\Microsoft Azure Site Recovery
+   .\Microsoft-ASR_UA*Windows*release.exe /q /x:"C:\Program Files (x86)\Microsoft Azure Site Recovery"
    ```
 
 3. Run the following command to proceed with the installation. This will launch the installer UI:

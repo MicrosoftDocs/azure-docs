@@ -213,8 +213,6 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
   - name: Customer data requests
     href: resources-customer-data-requests.md
-  - name: Differences from original release
-    href: resources-compare-original-release.md
   - name: APIs and SDKs
     items:
     - name: Control plane
@@ -240,7 +238,7 @@
       - name: Go SDK - GoDoc
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt
       - name: Go - Source code
-        href: https://github.com/Azure/azure-sdk-for-go/tree/main/services/digitaltwins/mgmt
+        href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/digitaltwins
     - name: Data plane
       items:    
       - name: Data plane Swagger

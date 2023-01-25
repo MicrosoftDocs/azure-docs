@@ -109,7 +109,7 @@ To transfer files between your local device and your remote session:
 
 1. Once you're remote session has started, an extra icon will appear in the Remote Desktop Web client taskbar for **Upload new file** (the upwards arrow icon). Selecting this will open a file explorer window on your local device.
 
-1. Browse to and select files you want to upload to the remote session. You can select multiple files by holding down the <kbd>CTRL</kbd> key on your keyboard for Windows, or the <kbd>Command</kbd> key for macOS, then select **Open**.
+1. Browse to and select files you want to upload to the remote session. You can select multiple files by holding down the <kbd>CTRL</kbd> key on your keyboard for Windows, or the <kbd>Command</kbd> key for macOS, then select **Open**. There is a file size limit of 255MB.
 
 1. In your remote session, open **File Explorer**, then select **This PC**.
 

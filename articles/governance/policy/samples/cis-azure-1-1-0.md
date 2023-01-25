@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchmark 1.1.0
 description: Details of the CIS Microsoft Azure Foundations Benchmark 1.1.0 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 11/04/2022
+ms.date: 01/05/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -1026,9 +1026,9 @@ This built-in initiative is deployed as part of the
 |[Develop an incident response plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b4e134f-1e4c-2bff-573e-082d85479b6e) |CMA_0145 - Develop an incident response plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0145.json) |
 |[Set automated notifications for new and trending cloud applications in your organization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf38215f-70c4-0cd6-40c2-c52d86690a45) |CMA_0495 - Set automated notifications for new and trending cloud applications in your organization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0495.json) |
 
-### Ensure that Activity Log Alert exists for Create or Update Security Solution
+### Ensure that Activity Log Alert exists for Delete Security Solution
 
-**ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.6
+**ID**: CIS Microsoft Azure Foundations Benchmark recommendation 5.2.7
 **Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |

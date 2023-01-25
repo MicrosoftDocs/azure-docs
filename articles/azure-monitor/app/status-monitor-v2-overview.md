@@ -2,7 +2,7 @@
 title: Application Insights Agent overview | Microsoft Docs
 description: Learn how to use Application Insights Agent to monitor website performance without redeploying the website. It works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 01/09/2023
 ms.reviewer: abinetabate
 ---
 
@@ -37,7 +37,7 @@ Application Insights Agent is located in the [PowerShell Gallery](https://www.po
 - [Set-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#set-applicationinsightsmonitoringconfig)
 - [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
 
-## FAQ
+## Frequently asked questions
 
 This section provides answers to common questions.
 
