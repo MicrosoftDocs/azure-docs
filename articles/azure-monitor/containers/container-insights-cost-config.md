@@ -59,7 +59,7 @@ The below table outlines the list of the container insights Log Analytics tables
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
     - If the AKS Cluster is using Service Principal, it MUST be upgraded to use [Managed Identity](../../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity)
 
-- IThe latest version of the Azure CLI. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI](../../install-azure-cli).
+- IThe latest version of the Azure CLI. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
     - For AKS clusters, aks-preview version 0.5.125 or higher
     - For Arc enabled Kubernetes and AKS hybrid, k8s-extension version 1.3.7 or higher
 
