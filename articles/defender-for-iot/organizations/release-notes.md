@@ -42,6 +42,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | 22.3.5 | 01/2023 | Patch | 12/2023 |
 | 22.3.4 | 01/2023 | Major | 12/2023 |
 | **22.2** | | | |
+| 22.2.9 | 01/2023 | Patch | 12/2023 |
 | 22.2.8 | 11/2022 | Patch | 10/2023 |
 | 22.2.7| 10/2022   | Patch | 09/2023          |
 | 22.2.6|09/2022 |Patch | 04/2023|
