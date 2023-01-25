@@ -19,7 +19,7 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 [Reference documentation](tbd) | [Library source code](tbd) | [Package (NuGet)](tbd) | [Samples](tbd)
 
 > [!TIP]
-> You can also analyze a local image. See the [ComputerVisionClient](tbd) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](tbd) for scenarios involving local images.
+> You can also analyze a local image. See the [ComputerVisionClient](tbd) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/csharp/image-analysis/dotnetcore/Samples.cs) for scenarios involving local images.
 
 > [!TIP]
 > The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -140,4 +140,4 @@ In this quickstart, you learned how to install the Image Analysis client library
 >[Call the Analyze API](../../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
-* The source code for this sample can be found on [GitHub](tbd).
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/csharp/image-analysis/dotnetcore/Samples.cs).
