@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/07/2022
+ms.date: 01/25/2023
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -112,33 +112,33 @@ Ultra disks offer two extra throttles, for a total of four throttles. Due to thi
 
 With premium SSD, the disk IOPS and throughput is fixed, for example, IOPS of a P30 is 5000. This value remains whether the disk is shared across 2 VMs or 5 VMs. The disk limits can be reached from a single VM or divided across two or more VMs. 
 
-### Ultra disk performance throttles
+### Ultra Disk performance throttles
 
-Ultra disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared ultra disks have two more attributes.
+Ultra Disks and Premium SSD v2 managed disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared Ultra Disks and shared Premium SSD v2 managed disks have two more attributes.
 
 
 |Attribute  |Description  |
 |---------|---------|
-|DiskIOPSReadWrite     |The total number of IOPS allowed across all VMs mounting the shared disk with write access.         |
-|DiskMBpsReadWrite     |The total throughput (MB/s) allowed across all VMs mounting the shared disk with write access.         |
-|DiskIOPSReadOnly*     |The total number of IOPS allowed across all VMs mounting the shared disk as `ReadOnly`.         |
-|DiskMBpsReadOnly*     |The total throughput (MB/s) allowed across all VMs mounting the shared disk as `ReadOnly`.         |
+|DiskIOPSReadWrite (Read/write disk IOPS)     |The total number of IOPS allowed across all VMs mounting the shared disk with write access.         |
+|DiskMBpsReadWrite (Read/write disk throughput)    |The total throughput (MB/s) allowed across all VMs mounting the shared disk with write access.         |
+|DiskIOPSReadOnly* (Read-only disk IOPS)    |The total number of IOPS allowed across all VMs mounting the shared disk as `ReadOnly`.         |
+|DiskMBpsReadOnly* (Read-only disk throughput)    |The total throughput (MB/s) allowed across all VMs mounting the shared disk as `ReadOnly`.         |
 
-\* Applies to shared ultra disks only
+\* Applies to shared Ultra Disks and shared Premium SSD v2 managed disks only
 
 The following formulas explain how the performance attributes can be set, since they're user modifiable:
 
-- DiskIOPSReadWrite:
+- DiskIOPSReadWrite (Read/write disk IOPS):
     - Has a baseline minimum IOPS of 100, for disks 100 GiB and smaller.
         - For disks larger than 100 GiB, the baseline minimum IOPS you can set increases by 1 per GiB. So the lowest you can set DiskIOPSReadWrite for a 101 GiB disk is 101 IOPS.
     - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
-- DiskMBpsReadWrite
+- DiskMBpsReadWrite (Read/write disk throughput)
     - The minium throughput (MB/s) of this attribute is determined by your IOPS, the formula is 4 KiB per second per IOPS. So if you had 101 IOPS, the minium MB/s you can set is 1.
     - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
-- DiskIOPSReadOnly
+- DiskIOPSReadOnly (Read-only disk IOPS)
     - The minimum baseline IOPS for this attribute is 100. For DiskIOPSReadOnly, the baseline doesn't increase with disk size.
     - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
-- DiskMBpsReadOnly
+- DiskMBpsReadOnly (Read-only disk throughput)
     - The minimum throughput (MB/s) for this attribute is 1. For DiskMBpsReadOnly, the baseline doesn't increase with IOPS.
     - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
 
