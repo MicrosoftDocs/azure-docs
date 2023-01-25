@@ -190,8 +190,8 @@ If you can’t easily deploy a copy of your application in Azure, you'll need to
 
 There are two main approaches to generating the test payload (SQL statement samples):
 
-1. Observe/record the SQL traffic occurring in your current database, then generate SQL samples based on those observations. For details on how to record query traffic by leveraging a combination of audit logs and slow query logging in Azure Database for MySQL.
-2. Use actual query logs as the payload. Third party tools such as “Percona Playback” can generate multi-threaded workloads based on MySQL Slow Query Logs.
+- Observe/record the SQL traffic occurring in your current database, then generate SQL samples based on those observations. For details on how to record query traffic by leveraging a combination of audit logs and slow query logging in Azure Database for MySQL.
+- Use actual query logs as the payload. Third party tools such as “Percona Playback” can generate multi-threaded workloads based on MySQL Slow Query Logs.
 
 If you decide to generate SQL sample manually, be sure that the sample contains:
 
@@ -226,10 +226,10 @@ Assume that you decide to run benchmarks against a db.r3.2xlarge server and find
 
 ### Measure both sustained and peak performance
 
-The test strategy you choose should provide you with answers to the following two questions:
+The test strategy you choose should provide you with answers to whether the database will provide adequate:
 
-1. Will the database provide adequate sustained performance? In other words, will it perform as expected under the normal workload, when user traffic is smooth and well within expected levels?
-2. Will the database provide adequate peak performance? That is, will it ensure application responsiveness during traffic spikes?
+- Sustained performance - Will it perform as expected under the normal workload, when user traffic is smooth and well within expected levels?
+- Peak performance - Will it ensure application responsiveness during traffic spikes?
 
 Consider the following guidelines:
 
