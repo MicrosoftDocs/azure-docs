@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft
 
-In this tutorial learn how to enable Azure Active Directory (Azure AD) single sign-on (SSO) and Azure AD Multi-Factor Authentication (MFA) for an
+In this tutorial, learn how to enable Azure Active Directory (Azure AD) single sign-on (SSO) and Azure AD Multi-Factor Authentication (MFA) for an
 Oracle PeopleSoft application using Datawiza Access Proxy (DAP).
 
 Learn more: [Datawiza Access Proxy](https://www.datawiza.com/)
@@ -24,7 +24,7 @@ Benefits of integrating applications with Azure AD using DAP:
 
 * [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust) - a security model that adapts to modern environments and embraces hybrid workplace, while it protects people, devices, apps, and data
 * [Azure Active Directory single sign-on](https://azure.microsoft.com/solutions/active-directory-sso/#overview) - secure and seamless access for users and apps, from any location, using a device
-* [How it works: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) - users are prompted during sign-in for additional forms of identification, such as a code on their cellphone or a fingerprint scan
+* [How it works: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) - users are prompted during sign-in for forms of identification, such as a code on their cellphone or a fingerprint scan
 * [What is Conditional Access?](../conditional-access/overview.md) - policies are if-then statements, if a user wants to access a resource, then they must complete an action
 * [Easy authentication and authorization in Azure AD with no-code Datawiza](https://www.microsoft.com/security/blog/2022/05/17/easy-authentication-and-authorization-in-azure-active-directory-with-no-code-datawiza/) - use web applications such as: Oracle JDE, Oracle E-Business Suite, Oracle Sibel, and home-grown apps
 * Use the [Datawiza Cloud Management Console](https://console.datawiza.com) (DCMC) - manage access to applications in public clouds and on-premises
@@ -106,7 +106,7 @@ To integrate Oracle PeopleSoft with Azure AD:
 
 DAP gets user attributes from the identity provider (IdP) and passes them to the upstream application with a header or cookie.
 
-The Oracle PeopleSoft application needs to recognize the user. Using a name, it instructs DAP to pass the values from the IdP to the application through the HTTP header.
+The Oracle PeopleSoft application needs to recognize the user. Using a name, the application instructs DAP to pass the values from the IdP to the application through the HTTP header.
 
 1. In Oracle PeopleSoft, from the left navigation, select **Applications**.
 2. Select the **Attribute Pass** subtab.
@@ -132,7 +132,7 @@ The Oracle PeopleSoft application needs to recognize the user. Using a name, it 
 
    ![Screenshot of the Cert Type dropdown with available options, Self-signed and Upload.](./media/access-oracle-peoplesoft-using-datawiza/cert-type-new.png)
 
-4. For testing, there is a self-signed certificate.
+4. For testing the configuration, there's a self-signed certificate.
 
    ![Screenshot of the Cert Type option with Self Signed selected.](./media/access-oracle-peoplesoft-using-datawiza/self-signed-cert.png)
 
