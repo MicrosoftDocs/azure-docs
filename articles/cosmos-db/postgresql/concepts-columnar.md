@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 01/25/2023
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -194,8 +194,7 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 
 ## Limitations
 
-This feature still has significant limitations. See [limits and
-limitations](reference-limits.md#columnar-storage).
+[!INCLUDE[columnar-limitations](includes/columnar-limitations.md)]
 
 ## Next steps
 
