@@ -164,7 +164,7 @@ The `Microsoft.Azure.Cosmos` client library enables you to perform *data* operat
 > - [Azure Resource Manager templates (ARM templates)](manage-with-templates.md)
 > - [Azure Resource Manager .NET client library](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
 
-The Azure CLI approach is used in for this quickstart and passwordless access. Use the [`az cosmosdb sql database create`](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) command to create a Cosmos DB NoSQL database.
+The Azure CLI approach is used in for this quickstart and passwordless access. Use the [`az cosmosdb sql database create`](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) command to create a Cosmos DB for NoSQL database.
 
 ```azurecli
 # Create a SQL API database `
