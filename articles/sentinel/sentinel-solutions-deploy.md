@@ -57,9 +57,9 @@ For example, in the following image, the **Cisco Umbrella** solution lists one o
 :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub.":::
 
 
-## Install content
+## Install or update content
 
-Standalone content and solutions can be installed individually or all together in bulk. Here's the process for an individual solution.
+Standalone content and solutions can be installed individually or all together in bulk. For more information on bulk operations, see [Bulk install and update content](#bulk-install-and-update-content) in the next section. Here's an example showing the install of an individual solution.
 
 1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**. 
 
