@@ -75,7 +75,7 @@ To recover data from an Azure Backup Server, follow these steps:
 
     ![Screenshot shows how to clear external DPM.](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
-## Troubleshooting error messages
+## Troubleshoot error messages
 
 | Error Message | Cause | Resolution |
 |:--- |:--- |:--- |
