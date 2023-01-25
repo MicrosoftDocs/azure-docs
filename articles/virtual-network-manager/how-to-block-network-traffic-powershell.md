@@ -25,7 +25,7 @@ Before you start configuring security rules, confirm the following steps:
 
 * You understand each element in a [Security admin rule](concept-security-admins.md).
 * You've created an [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md).
-* Installed version of `Az.Network` of `4.20.1`or higher is required to access the required cmdlets.
+* Installed version of `Az.Network` of `5.3.0`or higher is required to access the required cmdlets.
 
 ## Create a SecurityAdmin configuration
 
