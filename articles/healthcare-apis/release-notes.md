@@ -54,10 +54,10 @@ Bug is now fixed and Resource will updated if matches the Etag header. For detai
 
 **Azure Health Data Services Toolkit is released**
 
-The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit), which was previously in a pre-release state, is now released. The toolkit is an open-source project that enables our customers to more easily customize and extend the functionality of their Azure Health Data Services implementations. The NuGet packages of the toolkit are available for download from the NuGet gallery, and you can find links to them from the repo documentation. 
+The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit), which was previously in a pre-release state, is now in **Public Preview** . The toolkit is open-source project and allows customers to more easily customize and extend the functionality of their Azure Health Data Services implementations. The NuGet packages of the toolkit are available for download from the NuGet gallery, and you can find links to them from the repo documentation. 
 
 ## October 2022
-### FHIR service
+### MedTech service
 
 
  **Added Deploy to Azure button**
@@ -66,14 +66,7 @@ The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-heal
 
 **Added the Dropped Event Metrics**
 
-Customers can now determine if their mappings are working as they intended, as they can now see dropped events as a metric to ensure that data is flowing through accurately. 
-
-### Toolkit and Samples Open Source
-
-**Azure Health Data Services Toolkit is released**
-
-The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit), which was previously in a pre-release state, is now released. The toolkit is an open-source project that enables our customers to more easily customize and extend the functionality of their Azure Health Data Services implementations. The NuGet packages of the toolkit are available for download from the NuGet gallery, and you can find links to them from the repo documentation. 
-
+Customers can now determine if their mappings are working as intended, as they can now see dropped events as a metric to ensure that data is flowing through accurately. 
 
 
 ## September 2022
