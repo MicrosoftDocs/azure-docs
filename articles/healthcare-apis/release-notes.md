@@ -39,11 +39,6 @@ Azure Health Data Services [Events](events/events-overview.md) now include a pub
 ## November 2022
 ### FHIR service
 
-**AExport -Introducing _till parameter**
-
- Introducing "_till" optional filter parameter .  _till allows  to only export resources that have been modified since the time provided. This parameter is applicable to only System-Level export.
-
-
 **Fixed the Error generated when resource is updated using if-match header and PATCH**
 
 Bug is now fixed and Resource will updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
