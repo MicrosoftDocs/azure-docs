@@ -50,7 +50,7 @@ Bug is now fixed and Resource will updated if matches the Etag header. For detai
 |
 
 
-#### Toolkit and Samples Open Source
+### Toolkit and Samples Open Source
 
 
 **Azure Health Data Services Toolkit is released**
