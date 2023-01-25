@@ -86,17 +86,17 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
    > 
    > To learn about how to work with diagnostic logs, see [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
 
-## Use the Log Analytics workspace to view the MedTech service logs - Optional
+## Use the Log Analytics workspace to view the MedTech service logs
 
-If you choose to include your Log Analytics workspace as a destination option for your diagnostic setting, you can view the error logs within **Logs** in your MedTech service. If there are any error logs, they'll be a result of exceptions for your MedTech service (for example: *HealthCheck* exceptions).
+If you choose to include your Log Analytics workspace as a destination option for your diagnostic setting, you can view the logs within **Logs** in your MedTech service. If there are any logs, they'll be a result of exceptions for your MedTech service (for example: *HealthCheck* exceptions).
 
 1. To access your Log Analytics workspace, select the **Logs** button within your MedTech service.
 
    :::image type="content" source="media/how-to-enable-diagnostic-settings/select-logs-button.png" alt-text="Screenshot of logs option." lightbox="media/how-to-enable-diagnostic-settings/select-logs-button.png":::
 
-2. Copy the below table query string into your Log Analytics workspace query window and select **Run**.
+2. Copy the below table query string into your Log Analytics workspace query area and select **Run**. Using the *AHDSMedTechDiagnosticLogs* table will provide you with all logs contained in the entire table for the selected time period (default is 24 hours). The MedTech service provides five pre-defined queries that will be addressed in the section [Accessing the pre-defined MedTech service Log Analytics queries](how-to-enable-diagnostic-settings.md#accessing-the-pre-defined-medtech-service-log-analytics-queries)
 
-   ```Table
+   ```Kusto
    AHDSMedTechDiagnosticLogs
    ```
    :::image type="content" source="media/how-to-enable-diagnostic-settings/select-run-query.png" alt-text="Screenshot of query run option." lightbox="media/how-to-enable-diagnostic-settings/select-run-query.png":::
@@ -117,14 +117,48 @@ If you choose to include your Log Analytics workspace as a destination option fo
 
    :::image type="content" source="media/how-to-enable-diagnostic-settings/clean-query-result-post-error-fix.png" alt-text="Screenshot of query after fixing error." lightbox="media/how-to-enable-diagnostic-settings/clean-query-result-post-error-fix.png":::
 
-> [!TIP]
-> To learn about how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
+> [!WARNING]
+> The above custom query is not saved and will have to be recreated if you leave your Log Analytics workspace without saving the custom query.
 >
-> To learn about how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot the MedTech service error messages and conditions](troubleshoot-error-messages-and-conditions.md).
+> To learn how to save a custom query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](/azure/azure-monitor/logs/save-query) 
+
+> [!TIP]
+> To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
+>
+> To learn how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot MedTech service errors](troubleshoot-errors.md).
+
+## Accessing the pre-defined MedTech service Log Analytics queries
+
+The MedTech service comes with pre-defined queries that can be used anytime in your Log Analytics workspace and can also be customized and saved/shared.
+
+1. To access the pre-defined MedTech service queries, select **Queries**, type *MedTech* in the **Search** area, select a pre-defined query by using a double-click, and select **Run** to execute the pre-defined query. In this example, we've selected *MedTech healthcheck exceptions*. You'll select a pre-defined query of your own choosing.
+
+   > [!TIP]
+   > You can click on each of the MedTech service pre-defined queries to see their description and access different options for running the query or placing it into the Log Analytics workspace query area. 
+
+   :::image type="content" source="media/how-to-enable-diagnostic-settings/select-and-run-pre-defined-query.png" alt-text="Screenshot of searching, selecting, and running a MedTech service pre-defined query." lightbox="media/how-to-enable-diagnostic-settings/select-and-run-pre-defined-query.png":::
+
+2. Multiple pre-defined MedTech service queries can be selected. In this example, we've additionally selected *Log count per MedTech log or exception type*. You'll select another pre-defined query of your own choosing.
+
+   :::image type="content" source="media/how-to-enable-diagnostic-settings/select-and-run-additional-pre-defined-query.png" alt-text="Screenshot of searching, selecting, and running a MedTech service and additional pre-defined query." lightbox="media/how-to-enable-diagnostic-settings/select-and-run-additional-pre-defined-query.png":::
+
+3. Only the highlighted pre-defined query will be executed.
+
+   :::image type="content" source="media/how-to-enable-diagnostic-settings/results-of-select-and-run-additional-pre-defined-query.png" alt-text="Screenshot of results of running a MedTech service and additional pre-defined query." lightbox="media/how-to-enable-diagnostic-settings/results-of-select-and-run-additional-pre-defined-query.png":::
+
+> [!WARNING]
+> Any changes that you've made to the pre-defined queries are not saved and will have to be recreated if you leave your Log Analytics workspace without saving custom changes you've made to the pre-defined queries.
+>
+> To learn how to save a query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](/azure/azure-monitor/logs/save-query) 
+
+> [!TIP]
+> To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
+>
+> To learn how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot MedTech service errors](troubleshoot-errors.md).   
 
 ## Next steps
 
-In this article, you learned how to enable the diagnostics settings for the MedTech service.
+In this article, you learned how to enable the diagnostics settings for the MedTech service and use the Log Analytics workspace to query and view the MedTech service logs.
 
 To learn about the MedTech service frequently asked questions (FAQs), see
 
