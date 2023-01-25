@@ -93,7 +93,7 @@ For more information about deploying resources with templates in the Azure porta
 
 ---
 
-## List blob versions with .NET
+## List blob versions
 
 To display a blob's versions, use the Azure portal, PowerShell, or Azure CLI. You can also list a blob's versions using one of the Blob Storage SDKs.
 
