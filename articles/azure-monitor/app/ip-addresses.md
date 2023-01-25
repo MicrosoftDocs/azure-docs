@@ -35,7 +35,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 > [!NOTE]
 > As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Application Insights connection-string based regional telemetry endpoints only support TLS 1.2. Global telemetry endpoints continue to support TLS 1.0 and TLS 1.1.
 >
-> If you're using an older version of TLS, Application Insights will not ingest any telemetry. For applications based on .NET Framework see [Transport Layer Security (TLS) best practices with the .NET Framework](https://learn.microsoft.com/dotnet/framework/network-programming/tls) to support the newer TLS version.
+> If you're using an older version of TLS, Application Insights will not ingest any telemetry. For applications based on .NET Framework see [Transport Layer Security (TLS) best practices with the .NET Framework](/dotnet/framework/network-programming/tls) to support the newer TLS version.
 
 ## Status Monitor
 
