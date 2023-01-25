@@ -114,8 +114,8 @@ The following table provides a list of high-level features and capabilities comp
 | PgCron, lo, pglogical | No | Yes |
 | pgAudit | Preview | Yes |
 | **Security** | | |
-| Azure Active Directory Support(AAD) | Yes | Preview |
-| Customer managed encryption key(BYOK) | Yes | Preview |
+| Azure Active Directory Support(AAD) | Yes | Yes |
+| Customer managed encryption key(BYOK) | Yes | Yes |
 | SCRAM Authentication (SHA-256) | No | Yes |
 | Secure Sockets Layer support (SSL) | Yes | Yes |
 | **Other features** | | |
