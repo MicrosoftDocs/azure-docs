@@ -45,39 +45,7 @@ Next, you create connectivity and/or security configuration(s) applied to those 
 
 * Roll out network changes through a specific region sequence and frequency of your choosing.
 
-## Public preview regions
-
-* North Central US
-
-* South Central US
-
-* West US
-
-* West US 2
-
-* East US
-
-* East US 2
-
-* Canada Central
-
-* North Europe
-
-* West Europe
-
-* UK South
-
-* Switzerland North
-
-* Southeast Asia
-
-* Japan East
-
-* Japan West
-
-* Australia East
-
-* Central India
+For current information on the regions where Azure Virtual Network Manager is available, see [Azure Virtual Network Manager regions](regions.md).
 
 ## Next steps
 
