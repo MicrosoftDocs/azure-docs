@@ -25,7 +25,7 @@ The Permissions Management **Dashboard** provides an overview of the authorizati
 
    The **Permission Creep Index (PCI)** chart updates to display information about the accounts and folders you selected. The number of days since the information was last updated displays in the upper right corner.
 
-   >[NOTE]
+   >[!NOTE]
    >Default and GCP-managed service accounts are not included in the PCI calculation.
 
 1. In the Permission Creep Index (PCI) graph, select a bubble.
