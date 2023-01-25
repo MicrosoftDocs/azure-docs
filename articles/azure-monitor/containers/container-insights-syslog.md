@@ -8,11 +8,11 @@ ms.reviewer: damendo
 
 # Syslog collection with Container Insights (preview)
 
-Container Insights offers the ability to collect Syslog events from your Linux nodes in [Azure Kubernetes Service AKS](../../aks/intro-kubernetes.md) cluster. Customers can use Syslog for monitoring security and health events, typically by ingesting syslog into SIEM systems like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
+Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. Customers can use Syslog for monitoring security and health events, typically by ingesting syslog into SIEM systems like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
 
 ## Prerequisites 
 
-- You will need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: This which will create a Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName` 
+- You will need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: This which will create a Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>` 
 - Minimum versions of Azure components
   - **Azure CLI**: Minimum version required for Azure CLI is [2.44.1 (link to release notes)](/cli/azure/release-notes-azure-cli#january-11-2023). See [How to update the Azure CLI](/cli/azure/update-azure-cli) for upgrade instructions. 
   - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [ 0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](https:///cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
