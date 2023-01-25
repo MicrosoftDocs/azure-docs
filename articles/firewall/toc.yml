@@ -65,6 +65,8 @@ items:
       href: infrastructure-fqdns.md
     - name: Logs and metrics
       href: logs-and-metrics.md
+    - name: Structured Firewall Logs
+      href: firewall-structured-logs.md
     - name: Threat intelligence
       href: threat-intel.md
     - name: Policy rule sets
