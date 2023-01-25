@@ -1,5 +1,5 @@
 ---
-title: What is Azure Data Factory Managed Airflow?
+title: What is Managed Apache Airflow?
 titleSuffix: Azure Data Factory
 description: Learn about when to use Managed Apache Airflow, basic concepts and supported regions.
 ms.service: data-factory
@@ -9,7 +9,7 @@ ms.author: abnarain
 ms.date: 01/20/2023
 ---
 
-# What is Azure Data Factory Managed Airflow?
+# What is Azure Data Factory Managed Apache Airflow?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
