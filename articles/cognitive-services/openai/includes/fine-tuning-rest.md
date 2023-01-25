@@ -104,7 +104,7 @@ You can use the [Models API](/rest/api/cognitiveservices/azureopenaipreview/mode
 
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. Once you've prepared your training data, you can upload your files to the service. We offer two ways to upload training data:
 
-- [From a local file](/rest/api/cognitiveservices/azureopenai/files/upload?tabs=HTTP)
+- [From a local file](/rest/api/cognitiveservices/azureopenaipreview/files/upload)
 - [Import from an Azure Blob store or other web location](/rest/api/cognitiveservices/azureopenaipreview/files/import)
 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
@@ -420,7 +420,7 @@ r = requests.delete(api_base + 'openai/fine-tunes/' + job_id,
 You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
-- [REST APIs](/rest/api/cognitiveservices/azureopenai/files/delete)
+- [REST APIs](/rest/api/cognitiveservices/azureopenaipreview/files/delete)
 - Python SDK
 
 The following Python example uses the REST API to delete the training, validation, and result files for your customized model.
