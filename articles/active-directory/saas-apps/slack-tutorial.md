@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type the URL:
     `https://slack.com`
 	
-    c. For **Reply URL**, enter one of the following URL pattern:
+    c. For **Reply URL**, enter one of the following URL patterns:
     
 	| Reply URL|
 	|----------|
@@ -160,7 +160,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Setup configuration](common/setup-sso.png)
 
-3. If you want to setup Slack manually, in a different web browser window, sign in to your Slack company site as an administrator.
+3. If you want to set up Slack manually, in a different web browser window, sign in to your Slack company site as an administrator.
 
 2. click on your workspace name in the top left, then go to **Settings & administration** -> **Workspace settings**.
 
