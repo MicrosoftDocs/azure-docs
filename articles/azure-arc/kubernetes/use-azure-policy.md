@@ -1,6 +1,6 @@
 ---
 title: "Apply Flux v1 configurations at-scale using Azure Policy"
-ms.date: 8/23/2022
+ms.date: 12/02/2022
 ms.topic: how-to
 description: "Apply Flux v1 configurations at-scale using Azure Policy"
 ---
@@ -10,7 +10,7 @@ description: "Apply Flux v1 configurations at-scale using Azure Policy"
 You can use Azure Policy to apply Flux v1 configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations` resource type) at scale on Azure Arc-enabled Kubernetes clusters (`Microsoft.Kubernetes/connectedclusters`).
 
 > [!IMPORTANT]
-> This article is for GitOps with Flux v1.  GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the article for using policy with Flux v2](./use-azure-policy-flux-2.md). Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
+> This article is for GitOps with Flux v1.  GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the article for using policy with Flux v2](./use-azure-policy-flux-2.md). Eventually Azure will stop supporting GitOps with Flux v1, so we recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
 
 To use Azure Policy, select a built-in GitOps policy definition and create a policy assignment. When creating the policy assignment:
 1. Set the scope for the assignment.

@@ -36,6 +36,7 @@ ms.custom: "include file"
 | Maximum days that job data is retained|30 days|
 | Maximum PowerShell workflow state size |5 MB| Applies to PowerShell workflow runbooks when checkpointing workflow.|
 | Maximum number of tags supported by an Automation account|15||
+|Maximum number of characters in the value field of a variable| 1048576||
 
 <sup>1</sup>A sandbox is a shared environment that can be used by multiple jobs. Jobs that use the same sandbox are bound by the resource limitations of the sandbox.
 

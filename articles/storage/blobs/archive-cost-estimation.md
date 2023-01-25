@@ -3,12 +3,12 @@ title: Estimate the cost of archiving data (Azure Blob Storage)
 titleSuffix: Azure Storage
 description: Learn how to calculate the cost of storing and maintaining data in the archive storage tier.
 author: normesta
+
 ms.author: normesta
 ms.date: 11/09/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-
 ---
 
 # Estimate the cost of archiving data

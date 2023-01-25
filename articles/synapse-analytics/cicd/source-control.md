@@ -11,6 +11,7 @@ ms.reviewer: pimorano
 ms.search.keywords:  CICD, Synapse, source control
 ms.search.form: CICD, source control 1
 ms.search.features:  CICD, source control 2
+tags: CICD, source control 1
 searchScope: 
     - Source control  
     - CICD

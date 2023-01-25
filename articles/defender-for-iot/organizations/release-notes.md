@@ -2,7 +2,7 @@
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
 ms.topic: overview
-ms.date: 11/22/2022
+ms.date: 1/02/2023
 ---
 
 # OT monitoring software versions
@@ -38,6 +38,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
+| **22.3** | | | |
+| 22.3.4 | 01/2023 | Major | 12/2023 |
 | **22.2** | | | |
 | 22.2.8 | 11/2022 | Patch | 10/2023 |
 | 22.2.7| 10/2022   | Patch | 09/2023          |
@@ -53,8 +55,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | 22.1.3|03/2022 |Patch | 10/2022|
 | 22.1.2| 02/2022 | Major|10/2022  |
 | **10.5** | | | |
-|10.5.5 |12/2022 |Patch |  09/2022|
-|10.5.4 |12/2022 |Patch |  09/2022|
+|10.5.5 |12/2021 |Patch |  09/2022|
+|10.5.4 |12/2021 |Patch |  09/2022|
 | 10.5.3| 10/2021 |Patch | 07/2022|
 | 10.5.2| 10/2021 | Major| 07/2022|
 
@@ -70,8 +72,16 @@ Defender for IoT provides **1 year of support** for every new version, starting 
 
 Earlier versions use a legacy support model, with support dates [detailed for each version](#on-premises-monitoring-software-versions).
 
+### On-premises appliance security
+
+The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control is allowed only through the [management port](best-practices/understand-network-architecture.md), via HTTP for web access and SSH for the support shell.
+
+Defender for IoT adheres to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) throughout the entire development lifecycle, including activities like training, compliance, code reviews, threat modeling, design requirements, component governance, and pen testing. All appliances are locked down according to industry best practices and should not be modified.
+
+Maintain your sensors and on-premises management consoles, for activities like backups, log exports, or health monitoring, via the web interface, or the Defender for IoT [CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+
 > [!IMPORTANT]
-> Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
+> Manual changes to software packages or additions of external packages may have detrimental security or functional effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
 >
 
 ### Feature documentation per versions
@@ -79,6 +89,16 @@ Earlier versions use a legacy support model, with support dates [detailed for ea
 Version numbers are listed only in this article and in the [What's new in Microsoft Defender for IoT?](whats-new.md) article, and not in detailed descriptions elsewhere in the documentation.
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
+
+## Versions 22.3.x
+
+### 22.3.4
+
+**Release date**: 01/2021
+
+**Supported until**: 12/2023
+
+- [Azure connectivity status shown on OT sensors](how-to-manage-individual-sensors.md#validate-connectivity-status)
 
 ## Versions 22.2.x
 
@@ -150,13 +170,15 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
+- [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors)
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
-- [Bi-directional alert synch between sensors and the Azure portal](how-to-manage-cloud-alerts.md#managing-alerts-in-a-hybrid-deployment)
+- [Bi-directional alert synch between OT sensors and the Azure portal](alerts.md#managing-ot-alerts-in-a-hybrid-environment)
 - [Sensor connections restored after certificate rotation](how-to-deploy-certificates.md)
 - [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
 - [Sensor names shown in browser tabs](how-to-manage-individual-sensors.md)
+- [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
 
 ## Versions 22.1.x
 
@@ -219,6 +241,7 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
+
 - [New sensor installation wizard](how-to-install-software.md)
 
 - [Sensor redesign and unified Microsoft product experience](how-to-manage-individual-sensors.md)
@@ -235,7 +258,7 @@ This version includes the following new updates and fixes:
     - A new **Backup Activity with Antivirus Signatures** alert
     - Alert management changes during software updates
 
-- [Enhancements for creating custom alerts on the sensor](how-to-accelerate-alert-incident-response.md#customize-alert-rules): Hit count data, advanced scheduling options, and more supported fields and protocols
+- [Enhancements for creating custom alerts on the sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor): Hit count data, advanced scheduling options, and more supported fields and protocols
 
 - [Modified CLI commands](references-work-with-defender-for-iot-cli-commands.md): Including the following new commands:
 
@@ -255,13 +278,15 @@ This version includes the following new updates and fixes:
 
 - [Updated process for sensor name changes](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor)
 
+- [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
+
 ## Versions 10.5.x
 
 To update your software to the latest version available, first update to version 22.1.7, and then update again to the latest 22.2.x version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### 10.5.5
 
-**Release date**: 12/2022
+**Release date**: 12/2021
 
 **Supported until**: 9/2022
 
@@ -290,7 +315,7 @@ This version includes the following new updates and fixes:
 - [New integration APIs](api/management-integration-apis.md)
 - [Network traffic analysis enhancements for multiple OT and ICS protocols](concept-supported-protocols.md)
 - [Automatic deletion for older, archived alerts](how-to-view-alerts.md)
-- [Export alert enhancements](how-to-work-with-alerts-on-premises-management-console.md#export-alert-information)
+- [Export alert enhancements](how-to-work-with-alerts-on-premises-management-console.md#export-alerts-to-a-csv-file)
 
 ### 10.5.2
 
@@ -302,7 +327,7 @@ This version includes the following new updates and fixes:
 
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- [On-premises management console audit](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-audit-logs-for-troubleshooting)
+- [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
 - [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
 - [Unicode support for certificate passphrases](how-to-deploy-certificates.md)
 

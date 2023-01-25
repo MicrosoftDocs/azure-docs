@@ -185,6 +185,8 @@
       href: cache-administration.md#schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
+    - name: Create and manage a cache using CLI
+      href: cache-manage-cli.md
     - name: Move between regions
       href: cache-moving-resources.md
     - name: Publishing Azure Cache for Redis events

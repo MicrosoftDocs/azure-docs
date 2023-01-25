@@ -61,7 +61,7 @@ In the following example, we can see the result contains two columns, `Category`
 
 ## Azure Monitor Log Analytics API errors
 
-If a fatal error occurs during query execution, an error status code is returned with a [OneAPI](https://github.com/Microsoft/api-guidelines/blob/vNext/Guidelines.md#errorresponse--object) error object describing the error. See the [reference](https://dev.loganalytics.io/reference/post-query) for a list of error status codes.
+If a fatal error occurs during query execution, an error status code is returned with a [OneAPI](https://github.com/Microsoft/api-guidelines/blob/vNext/Guidelines.md#errorresponse--object) error object describing the error.
 
 If a non-fatal error occurs during query execution, the response status code is `200 OK` and contains the query results in the `tables` property as described above. The response will also contain an `error` property, which is OneAPI error object with code `PartialError`. Details of the error are included in the `details` property.
 

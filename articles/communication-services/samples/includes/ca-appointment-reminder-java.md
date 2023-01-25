@@ -33,7 +33,7 @@ ms.author: kpunjabi
     - `ConnectionString`: Azure Communication Service resource's connection string.
     - `SourcePhone`: Phone number associated with the Azure Communication Service resource.
     - `DestinationIdentity`: Target Phone number.
-    - `Format`: "OutboundTarget(Phone Number)". For e.g. "+1425XXXAAAA"
+    - `Format`: "OutboundTarget(Phone Number)". For example, "+1425XXXAAAA"
     - `CallbackUrl`: Ngrok Forwarding URL.
     - `CognitiveServiceKey`: (Optional) Cognitive service key used for generating custom messages.
     - `CognitiveServiceRegion`: (Optional) Region associated with cognitive service.

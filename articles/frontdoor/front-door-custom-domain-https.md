@@ -157,9 +157,13 @@ Azure Front Door can now access this key vault and the certificates it contains.
     - The available secret versions.
 
     > [!NOTE]
-    >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed.
+    >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed.
     >
     > :::image type="content" source="./media/front-door-custom-domain-https/certificate-version.png" alt-text="Screenshot of selecting secret version on update custom domain page.":::
+
+    > [!WARNING]
+    > This is an Azure portal only warning. You need to configure your service principal to have a GET permission on the Key Vault. In order for a user to see the certificate in the portal drop-down, the user account must have LIST and GET permissions on the Key Vault. If a user doesn't have these permissions, they'll see an inaccessible error message in portal. An inaccessible error message doesn't have any impact on certificate auto-rotation or any HTTPS function. No actions are required for this error message if you don't intend to make changes to the certificate or the version. If you want to change the information on this page, see [provide permission to Key Vault](../key-vault/general/rbac-guide.md?tabs=azure-cli) to add your account to the LIST and GET permission of the Key Vault.
+
 
 5. When you use your own certificate, domain validation isn't required. Continue to [Wait for propagation](#wait-for-propagation).
 

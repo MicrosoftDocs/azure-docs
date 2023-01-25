@@ -1,7 +1,7 @@
 ---
 title: Understand Device Update for Azure IoT Hub Agent| Microsoft Docs
 description: Understand Device Update for Azure IoT Hub Agent.
-author: EshaShah
+author: eshashah-msft
 ms.author: eshashah
 ms.date: 9/12/2022
 ms.topic: conceptual

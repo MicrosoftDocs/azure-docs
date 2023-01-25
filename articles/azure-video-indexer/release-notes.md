@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 11/22/2022
+ms.date: 01/24/2023
 ms.author: juliako
 ---
 
@@ -13,11 +13,36 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
-<!--* [Important notice](#upcoming-critical-changes) about planned changes-->
+* [Important notice](#important-notice) about planned changes
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## Important notice
+
+[!INCLUDE [announcement](./includes/deprecation-announcement.md)]
+
+## January 2023
+
+### Notification experience
+
+The [Azure Video Indexer website](https://www.videoindexer.ai/) now has a notification panel where you can stay informed of important product updates, such as service impacting events, new releases, and more.
+
+### Textual logo detection
+
+A **textual logo detection** insight is an OCR-based textual detection which matches a specific predefined text. For example, if a user created a textual logo: "Microsoft", different appearances of the word *Microsoft* will be detected as the "Microsoft" logo. For more information, see [Detect textual logo](detect-textual-logo.md).
+
+### Language support
+
+* New languages are now supported: Irish, Bulgarian, Catalan, Greek, Estonian, Croatian, Latvian, Romanian, Slovak, Slovenian, Telugu, Malayalam, Kannada, Icelandic,  Armenian, Gujarati, Malay, and Tamil.
+* Use an API to get all supported languages: [Get Supported Languages](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Supported-Languages).
+
+For more information, see [supported languages](language-support.md).
+
+### Face grouping
+
+Significantly reduced number of low-quality face detection occurrences in the UI and [insights.json](video-indexer-output-json-v2.md#insights). Enhancing the quality and usability through improved grouping algorithm.
 
 ## November 2022
 
@@ -399,7 +424,7 @@ You can now use the search feature, at the top of  the [Azure Video Indexer webs
 
 ### Multiple account owners
 
-Account owner role was added to Azure Video Indexer. You can add, change, and remove users; change their role. For details on how to share an account, see [Invite users](invite-users.md).
+Account owner role was added to Azure Video Indexer. You can add, change, and remove users; change their role. For details on how to share an account, see [Invite users](restricted-viewer-role.md#share-the-account).
 
 ### Audio event detection (public preview)
 
@@ -461,7 +486,7 @@ You will be able to sign up and sign in using one of these providers: Azure AD, 
 > [!NOTE]
 > The Azure Video Indexer accounts connected to LinkedIn and Facebook will not be accessible after March 1st 2021.
 >
-> You should [invite](invite-users.md) an Azure AD, Microsoft, or Google email you own to the Azure Video Indexer account so you will still have access. You can add an additional owner of supported providers, as described in [invite](invite-users.md). <br/>
+> You should [invite](restricted-viewer-role.md#share-the-account) an Azure AD, Microsoft, or Google email you own to the Azure Video Indexer account so you will still have access. You can add an additional owner of supported providers, as described in [invite](restricted-viewer-role.md#share-the-account). <br/>
 > Alternatively, you can create a paid account and migrate the data.
 
 ## August 2020

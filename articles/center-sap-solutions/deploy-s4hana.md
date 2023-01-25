@@ -89,16 +89,26 @@ There are three deployment options that you can select for your infrastructure, 
     1. If you choose to use an **Existing public key**, you can either Provide the SSH public key from **local file** stored on your computer or **copy paste** the public key.
     
     1. Provide the corresponding SSH private key from **local file** stored on your computer or **copy paste** the private key.
+
+1. Under **SAP Transport Directory**, enter how you want to set up the transport directory on this SID. This is applicable for Distributed with High Availability and Distributed deployments only.
+
+    1. For **SAP Transport Options**, you can choose to **Create a new SAP transport Directory** or **Use an existing SAP transport Directory** or completely skip the creation of transport directory by choosing **Dont include SAP transport directory** option. Currently, only NFS on AFS storage account fileshares are supported.
+
+    1. If you choose to **Create a new SAP transport Directory**, this will create and mount a new transport fileshare on the SID. By Default, this option will create an NFS on AFS storage account and a transport fileshare in the resource group where SAP system wil be deployed. However, you can choose to create this storage account in a different resource group by providing the resource group name in **Transport Resource Group**. You can also provide a custom name for the storage account to be created under **Storage account name** section. Leaving the **Storage account name** will create the storage account with service default name **""SIDname""nfs""random characters""** in the chosen transport resource group. Creating a new transport directory will create a ZRS based replication for zonal deployments and LRS based replication for non-zonal deployments. If your region doesnt support ZRS replication deploying a zonal VIS will lead to a failure. In such cases, you can deploy a transport fileshare outside ACSS with ZRS replication and then create a zonal VIS where you select **Use an existing SAP transport Directory** to mount the pre-created fileshare.
    
+    1. If you choose to **Use an existing SAP transport Directory**, select the pre - existing NFS fileshare under **File share name** option. The existing transport fileshare will be only mounted on this SID. The selected fileshare shall be in the same region as that of SAP system being created . Currently, file shares existing in a different region can not be selected. Provide the associated privated endpoint of the  storage account where the selected fileshare exists under **Private Endpoint** option.
+    
+    1. You can skip the creation of transport file share by selecting **Dont include SAP transport directory** option . The transport fileshare will neither be created or mounted for this SID.
+    
 1. Under **Configuration Details**, enter the FQDN for you SAP System .
 
-    1. For **SAP FQDN**, provide FQDN for you system such "sap.contoso.com"
+    1. For **SAP FQDN**, provide only the domain name for you system such "sap.contoso.com"
 
 1. Under **User assigned managed identity**, provide the identity which Azure Center for SAP solutions will use to deploy infrastructure.
 
-    1. For **Managed identity source**, choose if you want to create a new identity or use an existing identity.
+    1. For **Managed identity source**, choose if you want the service to create a new managed identity or you can instead use an existing identity. If you wish to allow the service to create a managed identity, acknowledge the checkbox which asks for your consent for the identity to be created and the contributor role access to be added for all resource groups.
 
-    1. For **Managed identity name**, enter a name for a new identity you want to create or select an existing identity from the drop down menu. If you are selecting an existing identity, it should have **Contributor** role access on the Subscription or on Resource Groups related to this SAP system you are trying to deploy. That is, it requires Contributor access to the SAP application Resource Group, Virtual Network Resource Group and Resource Group which has the existing SSHKEY.
+    1. For **Managed identity name**, enter a name for a new identity you want to create or select an existing identity from the drop down menu. If you are selecting an existing identity, it should have **Contributor** role access on the Subscription or on Resource Groups related to this SAP system you are trying to deploy. That is, it requires Contributor access to the SAP application Resource Group, Virtual Network Resource Group and Resource Group which has the existing SSHKEY. If you wish to later install the SAP system using ACSS, we also recommend to give the **Storage Blob Data Reader and Reader** and **Data Access roles** on the Storage Account which has the SAP software media.
 
 1. Select **Next: Virtual machines**.
 

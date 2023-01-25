@@ -6,7 +6,7 @@ ms.date: 07/15/2022
 ---
 
 # Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)
-The [Logs Ingestion API (preview)](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
+The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
 
 > [!NOTE]
 > This tutorial uses ARM templates and a REST API to configure custom logs. For a similar tutorial using the Azure portal, see [Tutorial: Send data to Azure Monitor Logs using REST API (Azure portal)](tutorial-logs-ingestion-portal.md).

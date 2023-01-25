@@ -4,7 +4,7 @@ description: Learn how to troubleshoot Python functions.
 ms.topic: article
 ms.date: 11/21/2022
 ms.devlang: python
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 zone_pivot_groups: python-mode-functions
 ---
 

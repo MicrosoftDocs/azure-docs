@@ -20,7 +20,7 @@ zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
 [!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](./includes/phone-numbers-azcli.md)]
+[!INCLUDE [Azure CLI](./includes/phone-numbers-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azp"
