@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 10/03/2022
 ms.author: kianaharris
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ---
 
 # Create an Azure HPC Cache
