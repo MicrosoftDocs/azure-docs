@@ -76,7 +76,7 @@ With dedicated data endpoints, the bad actor is blocked from writing to other st
 > [!NOTE]
 > Switching to dedicated data-endpoints will impact clients that have configured firewall access to the existing `*.blob.core.windows.net` endpoints, causing pull failures. To assure clients have consistent access, add the new data-endpoints to the client firewall rules. Once completed, existing registries can enable dedicated data-endpoints through the `az cli`.
 
-To use the Azure CLI steps in this article, Azure CLI version 2.4.0 or later is required. If you need to install or upgrade, see Install [Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
+To use the Azure CLI steps in this article, Azure CLI version 2.4.0 or later is required. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli) or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 
 * Run the [az acr update](/cli/azure/acr#az-acr-update) command to enable dedicated data endpoint.
 
