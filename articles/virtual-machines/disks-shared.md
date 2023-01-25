@@ -100,9 +100,9 @@ The flow is as follows:
 1. This reservation is enforced on your Azure disk.
 1. All nodes in the cluster can now read from the disk. Only one node writes back results to the disk, on behalf of all nodes in the cluster.
 
-### Ultra disks reservation flow
+### Ultra Disk and Premium SSD v2 reservation flow
 
-Ultra disks offer two extra throttles, for a total of four throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
+Ultra disks and Premium SSD v2 managed disks offer two extra throttles, for a total of four throttles. Due to this, the reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="An image of a table that depicts the `ReadOnly` or `Read/Write` access for Reservation Holder, Registered, and Others.":::
 
@@ -112,7 +112,7 @@ Ultra disks offer two extra throttles, for a total of four throttles. Due to thi
 
 With premium SSD, the disk IOPS and throughput is fixed, for example, IOPS of a P30 is 5000. This value remains whether the disk is shared across 2 VMs or 5 VMs. The disk limits can be reached from a single VM or divided across two or more VMs. 
 
-### Ultra Disk performance throttles
+### Ultra Disk and Premium SSD v2 performance throttles
 
 Ultra Disks and Premium SSD v2 managed disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared Ultra Disks and shared Premium SSD v2 managed disks have two more attributes.
 
