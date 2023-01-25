@@ -20,8 +20,8 @@ Remember that the storage exports must be accessible from your cache's virtual n
 Add storage targets after creating your cache. Follow this process:
 
 1. [Create the cache](hpc-cache-create.md)
-2. Define a storage target (information in this article)
-3. [Create the client-facing paths](add-namespace-paths.md) (for the [aggregated namespace](hpc-cache-namespace.md))
+1. Define a storage target (information in this article)
+1. [Create the client-facing paths](add-namespace-paths.md) (for the [aggregated namespace](hpc-cache-namespace.md))
 
 The procedure to add a storage target is slightly different depending on the type of storage it uses. Details for each are below.
 
