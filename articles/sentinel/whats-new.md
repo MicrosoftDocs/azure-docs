@@ -142,6 +142,12 @@ The following table describes the change in the incident creation and automation
 | **Automation rule** conditions (trigger: when an incident is created/updated) will be evaluated based on... | The first alert of the incident only. This causes unexpected behavior ('race condition') when evaluating automation rules conditions. | after all alerts and entities, triggered by this rule execution and grouped to this incident, have been added, with the most recent incident properties (such severity and tactics). |
 | **Playbook input** (Microsoft Sentinel incident trigger) | Alerts list contains only the first alert of the incident | Alerts list contains all the alerts triggered by this rule execution and grouped to this incident |
 
+
+| Scenario | Old behavior | New behavior |
+| -- | -- | -- |
+| **Analytics rule runs**,<br>alert-per-row setting enabled,<br>query generates 100 records,<br>resulting in 100 alerts. | - Incident is created with one alert.<br>- Incident is updated 99 times<br>&nbsp;&nbsp;&nbsp;with the remaining alerts. | - A single incident is created<br>&nbsp;&nbsp;&nbsp;*after* all the alerts are generated.<br>- The incident contains all 100 alerts. |
+| **Automation rule/s** triggered<br>when
+
 #### How to prepare for this change?
 
 - Check whether you have automation rules with **When incident is created** or **When incident is updated** which are set to run on analytics rule with the configuration above.
