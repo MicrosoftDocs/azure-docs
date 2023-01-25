@@ -139,30 +139,30 @@ This issue can happen when the name of your custom environment uses terms reserv
 *Applies to: Azure CLI & Python SDK v1*
 
 To create a new environment, you must use one of the following approaches (see [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)):
-- Base image
-    - Provide base image name, repository from which to pull it, and credentials if needed
-    - Provide a conda specification
-- Base Dockerfile 
-    - Provide a Dockerfile
-    - Provide a conda specification
-- Docker build context
-    - Provide the location of the build context (URL)
-    - The build context must contain at least a Dockerfile, but may contain other files as well
+* Base image
+    * Provide base image name, repository from which to pull it, and credentials if needed
+    * Provide a conda specification
+* Base Dockerfile 
+    * Provide a Dockerfile
+    * Provide a conda specification
+* Docker build context
+    * Provide the location of the build context (URL)
+    * The build context must contain at least a Dockerfile, but may contain other files as well
 
 *Applies to: Azure CLI & Python SDK v2*
 
 To create a new environment, you must use one of the following approaches:
-- Docker image
-    - Provide the image URI of the image hosted in a registry such as Docker Hub or Azure Container Registry
-    - [Sample here](https://aka.ms/azureml/environment/create-env-docker-image-v2)
-- Docker build context
-    - Specify the directory that will serve as the build context
-    - The directory should contain a Dockerfile and any other files needed to build the image
-    - [Sample here](https://aka.ms/azureml/environment/create-env-build-context-v2)
-- Conda specification 
-    - You must specify a base Docker image for the environment; the conda environment will be built on top of the Docker image provided
-    - Provide the relative path to the conda file
-    - [Sample here](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
+* Docker image
+    * Provide the image URI of the image hosted in a registry such as Docker Hub or Azure Container Registry
+    * [Sample here](https://aka.ms/azureml/environment/create-env-docker-image-v2)
+* Docker build context
+    * Specify the directory that will serve as the build context
+    * The directory should contain a Dockerfile and any other files needed to build the image
+    * [Sample here](https://aka.ms/azureml/environment/create-env-build-context-v2)
+* Conda specification 
+    * You must specify a base Docker image for the environment; the conda environment will be built on top of the Docker image provided
+    * Provide the relative path to the conda file
+    * [Sample here](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
 ### Missing Docker definition
 *Applies to: Python SDK v1*
@@ -180,7 +180,7 @@ This issue can happen when your environment definition is missing a `DockerSecti
 
  Add a `DockerSection` to your environment definition, specifying either a base image, base dockerfile, or docker build context.
 
-```
+```python
 from azureml.core import Environment
 myenv = Environment(name="myenv")
 # Specify docker steps as a string.
@@ -203,17 +203,17 @@ myenv.docker.base_dockerfile = dockerfile
 *Applies to: Python SDK v1*
 
 You have more than one of these Docker options specified in your environment definition
-- `base_image`
-- `base_dockerfile`
-- `build_context`
-- See [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
+* `base_image`
+* `base_dockerfile`
+* `build_context`
+* See [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
 
 *Applies to: Azure CLI & Python SDK v2*
 
 You have more than one of these Docker options specified in your environment definition
-- `image`
-- `build`
-- See [azure.ai.ml.entities.Environment](https://aka.ms/azureml/environment/environment-class-v2)
+* `image`
+* `build`
+* See [azure.ai.ml.entities.Environment](https://aka.ms/azureml/environment/environment-class-v2)
  
 **Affected areas (symptoms):**
 * Failure in registering your environment
@@ -225,7 +225,7 @@ Choose which Docker option you'd like to use to build your environment. Then set
 
 *Applies to: Python SDK v1*
 
-```
+```python
 from azureml.core import Environment
 myenv = Environment(name="myEnv")
 dockerfile = r'''
@@ -247,17 +247,17 @@ myenv.docker.base_image = None
 *Applies to: Python SDK v1*
 
 You didn't specify one of the following options in your environment definition
-- `base_image`
-- `base_dockerfile`
-- `build_context`
-- See [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
+* `base_image`
+* `base_dockerfile`
+* `build_context`
+* See [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
 
 *Applies to: Azure CLI & Python SDK v2*
 
 You didn't specify one of the following options in your environment definition
-- `image`
-- `build`
-- See [azure.ai.ml.entities.Environment](https://aka.ms/azureml/environment/environment-class-v2)
+* `image`
+* `build`
+* See [azure.ai.ml.entities.Environment](https://aka.ms/azureml/environment/environment-class-v2)
  
 **Affected areas (symptoms):**
 * Failure in registering your environment
@@ -269,7 +269,7 @@ Choose which Docker option you'd like to use to build your environment, then pop
 
 *Applies to: Python SDK v1*
 
-```
+```python
 from azureml.core import Environment
 myenv = Environment(name="myEnv")
 myenv.docker.base_image = "pytorch/pytorch:latest"
@@ -277,7 +277,7 @@ myenv.docker.base_image = "pytorch/pytorch:latest"
 
 *Applies to: Python SDK v2*
 
-```
+```python
 env_docker_image = Environment(
     image="pytorch/pytorch:latest",
     name="docker-image-example",
@@ -307,13 +307,13 @@ ml_client.environments.create_or_update(env_docker_image)
 
 Add the missing username or password to your environment definition to fix the issue
 
-```
+```python
 myEnv.docker.base_image_registry.username = "username"
 ```
 
 Alternatively, provide authentication via [workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
 
-```
+```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ws.set_connection("connection1", "ACR", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
@@ -352,7 +352,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 If you're using workspace connections, view the connections you have set, and delete whichever one(s) you don't want to use
 
-```
+```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ws.list_connections()
@@ -361,7 +361,7 @@ ws.delete_connection("myConnection2")
 
 If you've specified credentials in your environment definition, choose one set of credentials to use, and set all others to null
 
-```
+```python
 myEnv.docker.base_image_registry.registry_identity = None
 ```
 
@@ -393,7 +393,7 @@ Specifying credentials in your environment definition is no longer supported. De
 
 Set a workspace connection on your workspace
 
-```
+```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ws.set_connection("connection1", "ACR", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
@@ -551,81 +551,135 @@ The following are accepted location types:
 * Git
 	* Git URLs can be provided to AzureML, but images can't yet be built using them. Use a storage account until builds have Git support
 * Storage account
-	* The format of a blob storage URL is `https://<storage-account>.blob.core.windows.net`
-	* See a [storage account overview](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview)
-	* See how to [create a storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create)
+	* See this [storage account overview](../storage/common/storage-account-overview.md)
+	* See how to [create a storage account](../storage/common/storage-account-create.md)
 	
 **Resources**
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
 * [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
 
 ### Invalid location
-- The specified location of the Docker build context is invalid
-- If the build context is stored in a git repository, the path of the build context must be specified as a git URL
-- If the build context is stored in a storage account, the path of the build context must be specified as 
-    - `https://storage-account.blob.core.windows.net/container/path/`
+<!--issueDescription-->
+**Potential causes:**
+* The specified location of your Docker build context is invalid
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+For scenarios in which you're storing your Docker build context in a storage account
+* The path of the build context must be specified as `https://<storage-account>.blob.core.windows.net/<container>/<path>`
+* Ensure that the location you provided is a valid URL
+* Ensure that you've specified a container and a path
+	
+**Resources**
+* See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
+* [Python SDK/Azure CLI v2 sample](https://aka.ms/azureml/environment/create-env-build-context-v2)
+* [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
 
 ### *Base image issues*
 ### Base image is deprecated
-- The following base images are deprecated:
-    - `azureml/base`
-    - `azureml/base-gpu`
-    - `azureml/base-lite`
-    - `azureml/intelmpi2018.3-cuda10.0-cudnn7-ubuntu16.04`
-    - `azureml/intelmpi2018.3-cuda9.0-cudnn7-ubuntu16.04`
-    - `azureml/intelmpi2018.3-ubuntu16.04`
-    - `azureml/o16n-base/python-slim`
-    - `azureml/openmpi3.1.2-cuda10.0-cudnn7-ubuntu16.04`
-    - `azureml/openmpi3.1.2-ubuntu16.04`
-    - `azureml/openmpi3.1.2-cuda10.0-cudnn7-ubuntu18.04`
-    - `azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04`
-    - `azureml/openmpi3.1.2-cuda10.2-cudnn7-ubuntu18.04`
-    - `azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04`
-- AzureML can't provide troubleshooting support for failed builds with deprecated images. 
-- Deprecated images are also at risk for vulnerabilities since they're no longer updated or maintained. 
-It's best to use newer, non-deprecated versions.
+<!--issueDescription-->
+**Potential causes:**
+* You used a deprecated base image
+	* AzureML can't provide troubleshooting support for failed builds with deprecated images
+	* These images aren't updated or maintained, so they're at risk of vulnerabilities
+
+The following base images are deprecated:
+* `azureml/base`
+* `azureml/base-gpu`
+* `azureml/base-lite`
+* `azureml/intelmpi2018.3-cuda10.0-cudnn7-ubuntu16.04`
+* `azureml/intelmpi2018.3-cuda9.0-cudnn7-ubuntu16.04`
+* `azureml/intelmpi2018.3-ubuntu16.04`
+* `azureml/o16n-base/python-slim`
+* `azureml/openmpi3.1.2-cuda10.0-cudnn7-ubuntu16.04`
+* `azureml/openmpi3.1.2-ubuntu16.04`
+* `azureml/openmpi3.1.2-cuda10.0-cudnn7-ubuntu18.04`
+* `azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04`
+* `azureml/openmpi3.1.2-cuda10.2-cudnn7-ubuntu18.04`
+* `azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04`
+* `azureml/openmpi3.1.2-ubuntu18.04`
+* `azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04`
+* `azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04`
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Upgrade your base image to a newer, non-deprecated version
+* See available [base images](https://github.com/Azure/AzureML-Containers/tree/master/base)
 
 ### No tag or digest
-- For the environment to be reproducible, one of the following must be included on a provided base image:
-    - Version tag
-    - Digest
-- See [image with immutable identifier](https://aka.ms/azureml/environment/pull-image-by-digest)
+<!--issueDescription-->
+**Potential causes:**
+* You didn't include a version tag or a digest on your specified base image
+* Without one of these, the environment isn't reproducible
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Include at least one of the following on your specified base image
+* Version tag
+* Digest
+* See [image with immutable identifier](https://aka.ms/azureml/environment/pull-image-by-digest)
 
 ### *Environment variable issues*
 ### Misplaced runtime variables
-- An environment definition shouldn't contain runtime variables
-- Use the `environment_variables` attribute on the [RunConfiguration object](https://aka.ms/azureml/environment/environment-variables-on-run-config) instead
+<!--issueDescription-->
+**Potential causes:**
+* You specified runtime variables in your environment definition 
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+Use the `environment_variables` attribute on the [RunConfiguration object](https://aka.ms/azureml/environment/environment-variables-on-run-config) instead
 
 ### *Python issues*
 ### Python section missing
-*V1*
+<!--issueDescription-->
+**Potential causes:**
+* Your environment definition doesn't have a Python section
 
-- An environment definition must have a Python section
-- Conda dependencies are specified in this section, and Python (along with its version) should be one of them
-```json
-"python": {
-    "baseCondaEnvironment": null,
-    "condaDependencies": {
-        "channels": [
-            "anaconda",
-            "conda-forge"
-        ],
-        "dependencies": [
-            "python=3.8"
-        ],
-    },
-    "condaDependenciesFile": null,
-    "interpreterPath": "python",
-    "userManagedDependencies": false
-}
-```
-- See [PythonSection class](https://aka.ms/azureml/environment/environment-python-section)
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+Populate the Python section of your environment definition
+* See [PythonSection class](https://aka.ms/azureml/environment/environment-python-section)
 
 ### Python version missing
-*V1*
+<!--issueDescription-->
+**Potential causes:**
+* You haven't specified a Python version in your environment definition
 
-- A Python version must be specified in the environment definition 
-- A Python version can be added by adding Python as a conda package and specifying the version:
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+Add Python as a conda package and specify the version
 
 ```python
 from azureml.core.environment import CondaDependencies
@@ -634,7 +688,23 @@ myenv = Environment(name="myenv")
 conda_dep = CondaDependencies()
 conda_dep.add_conda_package("python==3.8")
 ```
-- See [Add conda package](https://aka.ms/azureml/environment/add-conda-package-v1)
+
+*Applies to: all scenarios*
+
+If you're using a yaml for your conda specification, include Python as a dependency
+
+```yaml
+name: project_environment
+dependencies:
+  - python=3.8
+  - pip:
+      - azureml-defaults
+channels:
+  - anaconda
+```
+
+**Resources**
+* [Add conda package v1](https://aka.ms/azureml/environment/add-conda-package-v1)
 
 ### Multiple Python versions
 - Only one Python version can be specified in the environment definition
@@ -738,7 +808,7 @@ This issue can happen by failing to access a workspace's associated Azure Contai
 
 Update the workspace image build compute property using SDK:
 
-```
+```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ws.update(image_build_compute = 'mycomputecluster')
@@ -971,7 +1041,7 @@ This issue can happen when one or more conda packages listed in your specificati
 
 Specify channels in your conda specification:
 
-```
+```yaml
 channels:
   - conda-forge
   - anaconda
@@ -1003,7 +1073,7 @@ This issue can happen when a Python module listed in your conda specification do
 * If you haven't listed a specific Python version in your conda specification, make sure to list a specific version that's compatible with your module otherwise a default may be used that isn't compatible
 
 Pin a Python version that's compatible with the pip module you're using:
-```
+```yaml
 channels:
   - conda-forge
   - anaconda
@@ -1036,13 +1106,13 @@ This issue can happen when there's no package found that matches the version you
 
 How to list channels in a conda yaml specification:
 
-```
+```yaml
 channels:
-	- conda-forge
-	- anaconda
+  - conda-forge
+  - anaconda
 dependencies:
-	- python = 3.8
-	- tensorflow = 2.8
+  - python = 3.8
+  - tensorflow = 2.8
 Name: my_environment
 ```
 
@@ -1096,7 +1166,7 @@ Provide authentication via workspace connections
 
 *Applies to: Python SDK v1*
 
-```
+```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ws.set_connection("connection1", "PythonFeed", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
