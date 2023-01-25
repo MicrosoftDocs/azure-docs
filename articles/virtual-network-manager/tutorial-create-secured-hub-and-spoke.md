@@ -102,7 +102,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Public IP address name | Enter the name **VNet-A-WestUS-GW-IP** for the public IP. |
 
     
-1. Select **Review + create** and then select **Create** after validation has passed. The deployment of a virtual network gateway can take about 30 minutes. You can move on to the next section while waiting for this deployment to complete.
+1. Select **Review + create** and then select **Create** after validation has passed. The deployment of a virtual network gateway can take about 30 minutes. You can move on to the next section while waiting for this deployment to complete. However, you may find **VNet-A-WestUS-GW** does not display that it has a gateway due to timing and sync across the Azure portal.
 
 ## Create a dynamic network group
 
@@ -170,6 +170,9 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 1.  Select **Select a hub** under **Hub** setting. Then, select **VNet-A-WestUS** to serve as your network hub and select **Select**.
 
     :::image type="content" source="media/tutorial-create-secured-hub-and-spoke/select-hub.png" alt-text="Screenshot of Select a hub configuration.":::
+    
+    > [!NOTE] 
+    > Depending on the timing of deployment, you may not see the target hub virtual networked as have a gateway under **Has gateway**. This is due to the deployment of the virtual network gateway. It can take up to 30 minutes to deploy, and may not display immediately in the various Azure portal views.
     
 1.  Under **Spoke network groups**, select **+ add**. Then, select **myNetworkGroupB** for the network group and select **Select**.
 
