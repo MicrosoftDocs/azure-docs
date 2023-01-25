@@ -33,7 +33,7 @@ General availability (GA) of Azure Health Data services in France Central, North
 
  **DICOM Events available in public preview**
 
-Azure Health Data Services [Events](events/events-overview) now include a public preview of [two new event types](events/events-message-structure#dicom-events-message-structure) for the DICOM service.  These new event types enable applications that use Event Grid to use event-driven workflows when DICOM images are created or deleted.
+Azure Health Data Services [Events](events/events-overview.md) now include a public preview of [two new event types](events/events-message-structure.md#dicom-events-message-structure) for the DICOM service.  These new event types enable applications that use Event Grid to use event-driven workflows when DICOM images are created or deleted.
 
 
 ## November 2022
