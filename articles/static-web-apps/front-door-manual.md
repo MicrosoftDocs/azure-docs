@@ -13,21 +13,14 @@ ms.author: cshoe
 
 Add [Azure Front Door](../frontdoor/front-door-overview.md) as the CDN for your static web app. Azure Front Door is a scalable and secure entry point for fast delivery of your web applications.
 
-In this tutorial, learn how to do the following tasks:
-
-> [!div class="checklist"]
->
-> - Create an Azure Front Door Standard/Premium instance
-> - Associate Azure Front Door with your Azure Static Web Apps site
-
-> [!NOTE]
-> - Consider using [enterprise-grade edge](enterprise-edge.md) for faster page loads, enhanced security, and optimized reliability for global applications.
-> - This tutorial requires the Azure Static Web Apps Standard and Azure Front Door Standard / Premium plans.
+In this tutorial, learn how to create an Azure Front Door Standard/Premium instance and associate Azure Front Door with your Azure Static Web Apps site.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- A static web app. [Build your first static web app](get-started-portal.md).
+- An Azure Static Web Apps site. [Build your first static web app](get-started-portal.md)
+- Azure Static Web Apps Standard and Azure Front Door Standard / Premium plans. For more information, see [Static Web Apps pricing](https://azure.microsoft.com/pricing/details/app-service/static/)
+- Consider using [enterprise-grade edge](enterprise-edge.md) for faster page loads, enhanced security, and optimized reliability for global applications.
 <!--
 ## Copy web app URL
 
@@ -82,7 +75,7 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 1. From your Front Door, under *Settings*, select **Rule set**.
 
-2. Select **+ Add**.
+2. Select **Add**.
 
 3. In the *Rule set name* textbox, enter **Security**.
 
@@ -97,10 +90,9 @@ Add the following settings to disable Front Door's caching policies from trying 
 8. Select the **Edit** link above the *Value* textbox.
 
 9. Enter `/.auth` in the textbox, and then select **Update**.
-<!-->
-10. Select the **No transform** option from the *Case transform* dropdown.
-I don't see this option available when I run through this task.
--->
+
+10. Select no options from the *String transform* dropdown.
+
 ### Add an action
 
 1. Select the **Add an action** dropdown.
@@ -195,7 +187,7 @@ With this configuration, your site is no longer available via the generated `*.a
 
 ## Considerations
 
-- **Custom domains**: Now that Front Door is managing your site, you no long use the Azure Static Web Apps custom domain feature. Azure Front Door has a separate process for adding a custom domain. Refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md). When you add a custom domain to Front Door, you'll need to update your static web app configuration file to include it in the `allowedForwardedHosts` list.
+- **Custom domains**: Now that Front Door is managing your site, you no longer use the Azure Static Web Apps custom domain feature. Azure Front Door has a separate process for adding a custom domain. Refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md). When you add a custom domain to Front Door, you'll need to update your static web app configuration file to include it in the `allowedForwardedHosts` list.
 
 - **Traffic statistics**: By default, Azure Front Door configures [health probes](../frontdoor/front-door-health-probes.md) that may affect your traffic statistics. You may want to edit the default values for the [health probes](../frontdoor/front-door-health-probes.md).
 
