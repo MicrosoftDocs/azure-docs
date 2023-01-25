@@ -26,7 +26,7 @@ When you onboard to Defender for Cloud, the GCloud template is used to create th
 
 The authentication process works as follows:
 
-:::image type="content" source="media/concept-gcp-connector/authentication-process.png" alt-text="A diagram of the Defender for Cloud GCP connector authentication process.":::
+:::image type="content" source="media/concept-gcp-connector/authentication-process.png" alt-text="A diagram of the Defender for Cloud GCP connector authentication process." lightbox="media/concept-gcp-connector/authentication-process.png":::
 
 (1) - Microsoft Defender for Cloud's CSPM service acquires an Azure AD token. The token is signed by Azure AD using the RS256 algorithm and is valid for 1 hour.
 
@@ -44,7 +44,7 @@ There are four parts to the onboarding process that take place when you create t
 
 In the first section, you'll need to add the basic properties of the connection between your GCP project and Defender for Cloud.
 
-:::image type="content" source="media/concept-gcp-connector/single-project-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process.":::
+:::image type="content" source="media/concept-gcp-connector/single-project-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process." lightbox="media/concept-gcp-connector/single-project-details.png":::
 
 Here you'll name your connector, select a subscription and resource group, which will be used to create an ARM template resource that is called security connector. The security connector represents a configuration resource that holds the projects settings.
 
@@ -54,7 +54,7 @@ You'll also select a location and add the organization ID for your project.
 
 After entering your organization's details, you'll then be able to select which plans to enable.
 
-:::image type="content" source="media/concept-gcp-connector/select-plans-gcp-project.png" alt-text="Screenshot of the available plans you can enable for your GCP project.":::
+:::image type="content" source="media/concept-gcp-connector/select-plans-gcp-project.png" alt-text="Screenshot of the available plans you can enable for your GCP project." lightbox="media/concept-gcp-connector/select-plans-gcp-project.png":::
 
 From here, you can decide which resources you want to protect based on the security value you want to receive.
 
@@ -62,7 +62,7 @@ From here, you can decide which resources you want to protect based on the secur
 
 Once you've selected the plans, you want to enable and the resources you want to protect you'll then have to configure access between Defender for Cloud and your GCP project.
 
-:::image type="content" source="media/concept-gcp-connector/configure-access-gcp-connector.png" alt-text="Screenshot of the configure access screen between Defender for Cloud and your GCP project.":::
+:::image type="content" source="media/concept-gcp-connector/configure-access-gcp-connector.png" alt-text="Screenshot of the configure access screen between Defender for Cloud and your GCP project." lightbox="media/concept-gcp-connector/configure-access-gcp-connector.png":::
 
 In this step, you'll find the GCloud script that needs to be run on the GCP project that is going to onboarded. The GCloud script is generated based on the plans you selected to onboard.
 
@@ -77,7 +77,7 @@ The GCloud script creates all of the required resources on your GCP environment 
 
 The final step for onboarding is to review all of your selections and to create the connector.
 
-:::image type="content" source="media/concept-gcp-connector/review-and-generate.png" alt-text="Screenshot of the review and generate screen with all of your selections listed.":::
+:::image type="content" source="media/concept-gcp-connector/review-and-generate.png" alt-text="Screenshot of the review and generate screen with all of your selections listed." lightbox="media/concept-gcp-connector/review-and-generate.png":::
 
 ## What happens when you onboard an organization
 
@@ -87,7 +87,7 @@ Similar to onboarding a single project, When onboarding a GCP organization, Defe
 
 In the first section, you'll need to add the basic properties of the connection between your GCP organization and Defender for Cloud.
 
-:::image type="content" source="media/concept-gcp-connector/organization-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process.":::
+:::image type="content" source="media/concept-gcp-connector/organization-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process." lightbox="media/concept-gcp-connector/organization-details.png":::
 
 Here you'll name your connector, select a subscription and resource group that will be used to create an ARM template resource that is called security connector. The security connector represents a configuration resource that holds the projects settings.
 
@@ -99,7 +99,7 @@ When you onboard an organization, you can also choose to exclude project numbers
 
 After entering your organization's details, you'll then be able to select which plans to enable.
 
-:::image type="content" source="media/concept-gcp-connector/select-plans-gcp-project.png" alt-text="Screenshot of the available plans you can enable for your GCP project.":::
+:::image type="content" source="media/concept-gcp-connector/select-plans-gcp-project.png" alt-text="Screenshot of the available plans you can enable for your GCP project." lightbox="media/concept-gcp-connector/select-plans-gcp-project.png":::
 
 From here, you can decide which resources you want to protect based on the security value you want to receive.
 
@@ -107,7 +107,7 @@ From here, you can decide which resources you want to protect based on the secur
 
 Once you've selected the plans, you want to enable and the resources you want to protect you'll then have to configure access between Defender for Cloud and your GCP project.
 
-:::image type="content" source="media/concept-gcp-connector/configure-access-organization.png" alt-text="Screenshot of the configure access screen between Defender for Cloud and your GCP project.":::
+:::image type="content" source="media/concept-gcp-connector/configure-access-organization.png" alt-text="Screenshot of the configure access screen between Defender for Cloud and your GCP project." lightbox="media/concept-gcp-connector/configure-access-organization.png":::
 
 When you onboard an organization, there's a section to include management project details. Similar to other GCP projects, the organization is also considered a project and will be utilized by Defender for Cloud to create all of the required resources needed to connect the organization to Defender for Cloud.
 
@@ -134,7 +134,7 @@ Some of the APIs won't be in direct use with the management project. Instead the
 
 The final step for onboarding is to review all of your selections and to create the connector.
 
-:::image type="content" source="media/concept-gcp-connector/review-and-generate.png" alt-text="Screenshot of the review and generate screen with all of your selections listed.":::
+:::image type="content" source="media/concept-gcp-connector/review-and-generate-organization.png" alt-text="Screenshot of the review and generate screen with all of your selections listed." lightbox="media/concept-gcp-connector/review-and-generate-organization.png":::
 
 ## Next steps
 
