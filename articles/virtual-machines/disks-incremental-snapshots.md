@@ -41,7 +41,7 @@ az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID -
 ```
 
 > [!IMPORTANT]
-> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it. See the [CLI](#cli) section of the Check status section for details.
+> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it. See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 You can identify incremental snapshots from the same disk with the `SourceResourceId` property of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk.
 
@@ -87,7 +87,7 @@ New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
 ```
 
 > [!IMPORTANT]
-> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it. See the [PowerShell](#powershell) section of the Check status section for details.
+> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
 
@@ -112,6 +112,9 @@ $incrementalSnapshots
 
 # [Portal](#tab/azure-portal)
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-portal](../../includes/virtual-machines-disks-incremental-snapshots-portal.md)]
+
+> [!IMPORTANT]
+> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
@@ -148,13 +151,16 @@ You can also use Azure Resource Manager templates to create an incremental snaps
   ]
 }
 ```
+> [!IMPORTANT]
+> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
+
 ---
 
-## Check snapshot status
+## Check status of snapshots or disks
 
 Incremental snapshots of Ultra Disks (preview) can't be used to create new disks until the background process copying the data into the snapshot has completed. Similarly, Ultra Disks created from incremental snapshots can't be attached to a VM until the background process copying the data into the disk has completed.
 
-You can check the status of this copy process with the scripts in the following sections.
+You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to check the status of the background copy from a disk to a snapshot and you can use the [Check disk creation status](#check-disk-creation-status) section to check the status of a background copy from a snapshot to a disk.
 
 ### CLI
 
@@ -174,7 +180,7 @@ diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
 az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
 ```
 
-Now that you have a list of snapshots, you can check the `CompletionPercent` property of a snapshot to get its status. Replace `$sourceSnapshotName` with the name of your snapshot. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
+Now that you have a list of snapshots, you can check the `CompletionPercent` property of an individual snapshot to get its status. Replace `$sourceSnapshotName` with the name of your snapshot. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
 
 ```azurecli
 az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [completionPercent] -o tsv
@@ -210,7 +216,7 @@ foreach ($snapshot in $snapshots)
 $incrementalSnapshots
 ```
 
-Use the following script to get the `CompletionPercent` of an individual snapshot.
+Now that you have a list of snapshots, you can check the `CompletionPercent` property of an individual snapshot to get its status. Replace `yourResourceGroupNameHere` and `yourSnapshotName` then run the script. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
 
 ```azurepowershell
 $resourceGroupName = "yourResourceGroupNameHere"
@@ -221,7 +227,7 @@ $targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotNa
 $targetSnapshot.CompletionPercent
 ```
 
-## Check disk creation status
+### Check disk creation status
 
 When creating a disk from an Ultra Disk snapshot, you must wait for the background copy process to complete before you can attach it. Currently, you must use the Azure CLI to check the progress of the copy process.
 
