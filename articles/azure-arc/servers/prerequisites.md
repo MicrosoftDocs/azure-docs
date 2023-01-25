@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 11/18/2022
+ms.date: 01/25/2023
 ms.topic: conceptual 
 ---
 
@@ -29,6 +29,7 @@ The following versions of the Windows and Linux operating system are officially 
 * Windows Server 2008 R2 SP1, 2012 R2, 2016, 2019, and 2022
   * Both Desktop and Server Core experiences are supported
   * Azure Editions are supported when running as a virtual machine on Azure Stack HCI
+* Windows 10, 11 (see [client operating system guidance](#client-operating-system-guidance))
 * Windows IoT Enterprise
 * Azure Stack HCI
 * Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
@@ -41,7 +42,7 @@ The following versions of the Windows and Linux operating system are officially 
 * Oracle Linux 7
 
 > [!NOTE]
-> On Linux, Azure Arc-enabled servers install several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers are not supported, even if the distribution is otherwise supported. These environments include **Windows Subsystem for Linux** (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
+> On Linux, Azure Arc-enabled servers install several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers are not supported, even if the distribution is otherwise supported. These environments include Windows Subsystem for Linux (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
 
 > [!WARNING]
 > If the Linux hostname or Windows computer name uses a reserved word or trademark, attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
@@ -51,6 +52,22 @@ The following versions of the Windows and Linux operating system are officially 
 >
 > * The Dependency agent used by Azure Monitor VM insights
 > * Azure Automation Update Management
+
+### Client operating system guidance
+
+The Azure Arc service and Azure Connected Machine Agent are supported on Windows 10 and 11 client operating systems only when those computers are being used in a server-like environment. That is, the computer should always be:
+
+* Connected to the internet
+* Connected to a power source
+* Powered on
+
+For example, a computer running Windows 11 that's responsible for digital signage, point-of-sale solutions, and general back office management tasks is a good candidate for Azure Arc. End-user productivity machines, such as a laptop which may go offline for long periods of time, shouldn't use Azure Arc and instead should consider [Microsoft Intune](/mem/intune) or [Microsoft Endpoint Configuration Manager](/mem/configmgr).
+
+### Short-lived servers and virtual desktop infrastructure
+
+It is not recommended to use Azure Arc on short-lived (ephemeral) servers or virtual desktop infrastructure (VDI) VMs. Azure Arc is designed for long-term management of servers and is not optimized for scenarios where you are regularly creating and deleting servers. For example, Azure Arc does not know if the agent is offline due to planned system maintenance or if the VM has been deleted, so it will not automatically clean up server resources. This could result in a conflict if a VM is re-created with the same name and tries connecting to Azure Arc, but a resource with the same name already exists.
+
+[Azure Virtual Desktop on Azure Stack HCI](../../virtual-desktop/azure-stack-hci-overview.md) does not use short-lived VMs and supports running Azure Arc in the desktop VMs.
 
 ## Software requirements
 
