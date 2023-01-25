@@ -161,7 +161,7 @@
     "groups": {
       "grp-iot-edge": {
         "dest": "destiotedge",
-        "moniker_range": ">=iotedge-2018-06"
+        "moniker_range": ">=iotedge-1.4"
       },
       "grp-form-recognizer": {
         "dest": "destformrecognizer",
@@ -262,6 +262,9 @@
         "articles/defender-for-cloud/*": true,
         "articles/azure-monitor/*": true,
         "articles/key-vault/*": true
+      },
+      "archive_url": {
+        "articles/iot-edge/*": "/previous-versions/azure/iot-edge/"
       },
       "author": {
         "articles/advisor/*.md": "ikhapova",
