@@ -107,7 +107,7 @@ The following process is used when a user signs in with a FIDO2 security key:
 
 ### FIDO2 security key providers
 
-The following providers offer FIDO2 security keys of different form factors that are known to be compatible with the passwordless experience. We encourage you to evaluate the security properties of these keys by contacting the vendor as well as FIDO Alliance.
+The following providers offer FIDO2 security keys of different form factors that are known to be compatible with the passwordless experience. We encourage you to evaluate the security properties of these keys by contacting the vendor as well as the [FIDO Alliance](https://fidoalliance.org/).
 
 | Provider                  |     Biometric     | USB | NFC | BLE | FIPS Certified | Contact                                                                                             |
 |---------------------------|:-----------------:|:---:|:---:|:---:|:--------------:|-----------------------------------------------------------------------------------------------------|
