@@ -11,7 +11,7 @@ ms.subservice: pim
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2023
+ms.date: 01/25/2023
 ms.author: amsliu
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -64,6 +64,14 @@ There are two ways to make a group of users eligible for Azure AD role:
 2.	Make active assignment of a role to a group and assign users to be eligible to group membership.
 
 To provide a group of users with just-in-time access to Azure AD directory roles with permissions in SharePoint, Exchange, or Security & Microsoft Purview compliance portal (for example, Exchange Administrator role), be sure to make active assignments of users to the group, and then assign the group to a role as eligible for activation (Option #1 above). If you choose to make active assignment of a group to a role and assign users to be eligible to group membership instead, it may take significant time to have all permissions of the role activated and ready to use.
+
+## Privileged Identity Management and group nesting
+
+In Azure AD, role-assignable groups can’t have other groups nested inside them. To learn more, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md). This is applicable to active membership: one group cannot be an active member of another group that is role-assignable.
+
+One group can be an eligible member of another group, even if one of those groups is role-assignable.
+
+If an user is active member of Group A, and Group A is an eligible member of Group B, the user can activate their membership in Group B. This activation will be only for the user that requested the activation for, it does not mean that the entire Group A becomes an active member of Group B.
 
 ## Next steps
 
