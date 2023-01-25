@@ -111,6 +111,22 @@ landingContent:
             url: ./data-transformation-functions.md 
           - text: Change Data Capture (CDC)
             url: ./concepts-change-data-capture.md
+  - title: Managed Apache Airflow
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Managed Apache Airflow
+            url: concept-managed-airflow.md
+      - linkListType: how-to-guide
+        links:
+          - text: How does Managed Apache Airflow work?
+            url: how-does-managed-airflow-work.md
+      - linkListType: tutorial
+        links:
+          - text: Run an existing pipeline with Apache Airflow
+            url: tutorial-run-existing-pipeline-with-airflow.md
+          - text: Refresh a Power BI dataset with Apache Airflow
+            url: tutorial-refresh-power-bi-dataset-with-airflow.md
   - title: SAP knowledge center
     linkLists:
       - linkListType: concept
