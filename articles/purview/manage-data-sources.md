@@ -15,7 +15,10 @@ In this article, you learn how to register new data sources, manage collections 
 
 ## Register a new source
 
-Use the following steps to register a new source.
+>[!NOTE]
+> You'll need to be a [Data Source Admin](catalog-permissions.md#who-should-be-assigned-to-what-role) to register a source and manage it in the Microsoft Purview governance portal.
+
+Use the following steps to register a new source:
 
 1. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/), navigate to the **Data Map**, **Sources**, and select **Register**.
 
