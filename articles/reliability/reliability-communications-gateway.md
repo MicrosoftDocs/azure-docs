@@ -53,9 +53,9 @@ Each site in your network must:
 >     - If the SRV lookup returns multiple targets, use the weight and priority of each target to select a single target.
 > - Use SIP OPTIONS (or a combination of OPTIONS and SIP traffic) to monitor the availability of the Azure Communication Gateway peers.
 > - Send new calls to available Azure Communication Gateway peers.
-> - Reroute INVITEs that received a 503 response (indicating congestion) or did not receive a response to other available peers in the local site. Hunt to the second service region only if all those peers have failed.
+> - Retry INVITEs that received 408 responses, 503 responses or 504 responses or did not receive responses, by rerouting them to other available peers in the local site. Hunt to the second service region only if all peers in the local service region have failed.
 
-Your network must not retry calls that receive error responses other than 503.
+Your network must not retry calls that receive error responses other than 408, 503 and 504.
 
 The details of this routing behavior will be specific to your network. You must agree them with your onboarding team during your integration project.
 
