@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop Web client for Azu
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 12/07/2022
+ms.date: 01/25/2023
 ---
 # What's new in the Remote Desktop Web client for Azure Virtual Desktop
 
@@ -17,7 +17,7 @@ You can find more detailed information about the Windows Desktop client at [Conn
 
 ## Updates for version 2.0.0.3 (preview)
 
-*Date published: December 8th 2022*
+*Date published: January 26th 2023*
 
 A new user interface is available in preview, which has the following new functionality:
 
