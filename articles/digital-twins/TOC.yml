@@ -215,8 +215,6 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
   - name: Customer data requests
     href: resources-customer-data-requests.md
-  - name: Differences from original release
-    href: resources-compare-original-release.md
   - name: APIs and SDKs
     items:
     - name: Control plane

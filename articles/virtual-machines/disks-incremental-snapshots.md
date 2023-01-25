@@ -4,10 +4,10 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 01/25/2023
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions
 ms.devlang: azurecli
 ---
 
@@ -23,7 +23,7 @@ ms.devlang: azurecli
 
 # [Azure CLI](#tab/azure-cli)
 
-You can use the Azure CLI to create an incremental snapshot. You will need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
+You can use the Azure CLI to create an incremental snapshot. You'll need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
 
 The following script will create an incremental snapshot of a particular disk:
 
@@ -58,16 +58,15 @@ diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
 az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
 ```
 
-
 # [Azure PowerShell](#tab/azure-powershell)
 
-You can use the Azure PowerShell module to create an incremental snapshot. You will need the latest version of the Azure PowerShell module. The following command will either install it or update your existing installation to latest:
+You can use the Azure PowerShell module to create an incremental snapshot. You'll need the latest version of the Azure PowerShell module. The following command will either install it or update your existing installation to latest:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
 
-Once that is installed, login to your PowerShell session with `Connect-AzAccount`.
+Once that is installed, sign in to your PowerShell session with `Connect-AzAccount`.
 
 To create an incremental snapshot with Azure PowerShell, set the configuration with [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig) with the `-Incremental` parameter and then pass that as a variable to [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) through the `-Snapshot` parameter.
 
@@ -84,7 +83,7 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName -Snapshot $snapshotConfig 
 ```
 
-You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you were to delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
+You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
 
 You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following example to list your existing incremental snapshots:
 
@@ -144,6 +143,78 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 }
 ```
 ---
+
+## Check snapshot status
+
+Incremental snapshots of Ultra Disks (preview) can't be used to create new disks until the background process copying the data into the snapshot has completed. Similarly, Ultra Disks created from incremental snapshots can't be attached to a VM until the background process copying the data into the disk has completed.
+
+You can check the status of this copy process with the scripts in the following sections.
+
+### CLI
+
+First, get a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following script to list your existing incremental snapshots of Ultra Disks:
+
+
+```azurecli
+# Declare variables and create snapshot list
+subscriptionId="yourSubscriptionId"
+resourceGroupName="yourResourceGroupNameHere"
+diskName="yourDiskNameHere"
+
+az account set --subscription $subscriptionId
+
+diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
+
+az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
+```
+
+Now that you have a list of snapshots, you can check the `CompletionPercent` property of a snapshot to get its status. Replace `$sourceSnapshotName` with the name of your snapshot. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
+
+```azurecli
+az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [completionPercent] -o tsv
+```
+
+### PowerShell
+
+The following script creates a list of all incremental snapshots associated with a particular disk that haven't completed their background copy. Replace `yourResourceGroupNameHere` and `yourDiskNameHere`, then run the script.
+
+```azurepowershell
+$resourceGroupName = "yourResourceGroupNameHere"
+$snapshots = Get-AzSnapshot -ResourceGroupName $resourceGroupName
+$diskName = "yourDiskNameHere"
+
+$yourDisk = Get-AzDisk -DiskName $diskName -ResourceGroupName $resourceGroupName
+
+$incrementalSnapshots = New-Object System.Collections.ArrayList
+
+foreach ($snapshot in $snapshots)
+{
+    if($snapshot.Incremental -and $snapshot.CreationData.SourceResourceId -eq $yourDisk.Id -and $snapshot.CreationData.SourceUniqueId -eq $yourDisk.UniqueId)
+    {
+    $targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
+        {
+        if($targetSnapshot.CompletionPercent -lt 100)
+            {
+            $incrementalSnapshots.Add($targetSnapshot)
+            }
+        }
+    }
+}
+
+$incrementalSnapshots
+```
+
+## Check sector size
+
+Snapshots with a 4096 logical sector size can only be used to create Ultra Disks. They can't be used to create other disk types. Snapshots of disks with 4096 logical sector size are stored as VHDX, whereas snapshots of disks with 512 logical sector size are stored as VHD. Snapshots inherit the logical sector size from the parent disk.
+
+To determine whether or your Ultra Disk snapshot is a VHDX or a VHD, get the `LogicalSectorSize` property of the snapshot. 
+
+The following command displays the logical sector size of a snapshot:
+
+```azurecli
+az snapshot show -g resourcegroupname-n snapshotname--query [creationData.logicalSectorSize] -o tsv
+```
 
 ## Next steps
 

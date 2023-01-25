@@ -122,8 +122,13 @@
     },
     {
       "source_path": "overview-differences.md",
-      "redirect_url": "/azure/digital-twins/resources-compare-original-release",
-      "redirect_document_id": true
+      "redirect_url": "/azure/digital-twins/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "resources-compare-original-release.md",
+      "redirect_url": "/azure/digital-twins/overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "concepts-convert-models.md",
