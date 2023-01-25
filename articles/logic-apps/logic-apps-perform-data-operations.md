@@ -880,7 +880,7 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
 1. In the **From** box, enter the array that has the items you want to join as a string.
 
-   For this example, when you click inside the **From** box, the dynamic content list that appears so that you can select the previously created variable:  
+   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:  
 
    ![Screenshot showing the designer for a Consumption workflow, the "Join" action, and the selected array output to use join as a string.](./media/logic-apps-perform-data-operations/configure-join-action-consumption.png)
 
@@ -980,49 +980,180 @@ If you used the Office 365 Outlook action, you get a result similar to the follo
 
 ## Parse JSON action
 
-To reference or access properties in JavaScript Object Notation (JSON) content, you can create user-friendly fields or tokens for those properties by using the **Parse JSON** action. That way, you can select those properties from the dynamic content list when you specify inputs for your logic app. For this action, you can either provide a JSON schema or generate a JSON schema from your sample JSON content or payload.
+To reference or access properties in JavaScript Object Notation (JSON) content, you can create user-friendly fields or tokens for those properties by using the **Parse JSON** action. That way, you can select those properties from the dynamic content list when you specify inputs for subsequent actions in your workflow. For this action, you can either provide a JSON schema or generate a JSON schema from your sample JSON content or payload.
 
-If you prefer working in the code view editor, you can copy the example **Parse JSON** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Parse JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
+To try the **Parse JSON** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Parse JSON** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Parse JSON](logic-apps-data-operations-code-samples.md#parse-json-action-example). 
+For more information about this action in your underlying workflow definition, see [Parse JSON action](logic-apps/logic-apps-workflow-actions-triggers.md).
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app in Logic App Designer.
+### [Consumption](#tab/consumption)
 
-   This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is a JSON object that has properties and values. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
+1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
 
-   ![Starting sample logic app for "Parse JSON" action](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
+   This example uses the Azure portal and a sample workflow with a **Recurrence** trigger followed by an **Initialize variable** action. This action is set up to create a variable whose initial value is the following JSON object with properties and values:
 
-1. In your logic app where you want to parse the JSON content, follow one of these steps:
+   ```json
+   {
+       "Member": {
+           "Email": "Sophia.Owen@fabrikam.com",
+           "FirstName": "Sophia",
+           "LastName": "Owen"
+       }
+   }
+   ```
+
+   ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/sample-start-parse-json-action-consumption.png)
+
+1.  In your workflow where you want to parse the JSON object, follow one of these steps:
 
    * To add an action under the last step, select **New step**.
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. In the search box, enter `parse json` as your filter. From the actions list, select the **Parse JSON** action.
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **parse json**.
 
-   ![Select "Parse JSON" action](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
+1. From the actions list, select the action named **Parse JSON**.
 
-1. In the **Content** box, provide the JSON content you want to parse.
+   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box, and the "Parse JSON" action selected.](./media/logic-apps-perform-data-operations/select-parse-json-action-consumption.png)
+
+1. In the **Content** box, enter the JSON object that you want to parse.
 
    For this example, when you click inside the **Content** box, the dynamic content list appears so that you can select the previously created variable:
 
-   ![Select JSON object for parse JSON action](./media/logic-apps-perform-data-operations/configure-parse-json-action.png)
+   ![Screenshot showing the designer for a Consumption workflow, the "Parse JSON" action, and the selected JSON object variable to use in the "Parse JSON" action.](./media/logic-apps-perform-data-operations/configure-parse-json-action-consumption.png)
 
-1. Enter the JSON schema that describes the JSON content you're parsing.
+1. Enter the JSON schema that describes the JSON object, or *payload*, that you want to parse.
 
-   For this example, here is the JSON schema:
+   For this example, use the following schema for the sample JSON object:
 
-   ![Provide JSON schema for the JSON object you want to parse](./media/logic-apps-perform-data-operations/provide-schema-parse-json-action.png)
+   ```json
+   {
+       "type": "object",
+       "properties": {
+           "Member": {
+               "type": "object",
+               "properties": {
+                   "Email": {
+                       "type": "string"
+                   },
+                   "FirstName": {
+                       "type": "string"
+                   },
+                   "LastName": {
+                       "type": "string"
+                   }
+               }
+           }
+       }
+   }
+   ```
 
-   If you don't have the schema, you can generate that schema from the JSON content, or *payload*, you're parsing. 
-   
-   1. In the **Parse JSON** action, select **Use sample payload to generate schema**.
+   ![Screenshot showing the designer for a Consumption workflow, the "Parse JSON" action, and the JSON schema for the JSON object that you want to parse.](./media/logic-apps-perform-data-operations/provide-schema-parse-json-action-consumption.png)
 
-   1. Under **Enter or paste a sample JSON payload**, provide the JSON content, and then select **Done**.
+   If you don't have a schema, you can generate the schema from the JSON object:
 
-      ![Enter the JSON content for generating the schema](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png)
+   1. In the **Parse JSON** action, under the **Schema** box, select **Use sample payload to generate schema**.
+
+   1. In the **Enter or paste a sample JSON payload** box, enter the JSON content or object, and then select **Done**, for example:
+
+      ```json
+      {
+          "Member": {
+             "Email": "Sophia.Owen@fabrikam.com",
+             "FirstName": "Sophia",
+             "LastName": "Owen"
+          }
+      }
+      ```
+
+      ![Screenshot showing the designer for a Consumption workflow, the "Parse JSON" action, and the "Enter or paste a sample JSON payload" box with the JSON entered to generate the schema.](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action-consumption.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-For more information about this action in your underlying workflow definition, see [Parse JSON action](../logic-apps/logic-apps-workflow-actions-triggers.md).
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
+
+   This example uses the Azure portal and a sample workflow with a **Recurrence** trigger followed by an **Initialize variable** action. This action is set up to create a variable whose initial value is the following JSON object with properties and values:
+
+   ```json
+   {
+       "Member": {
+           "Email": "Sophia.Owen@fabrikam.com",
+           "FirstName": "Sophia",
+           "LastName": "Owen"
+       }
+   }
+   ```
+
+   ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/sample-start-parse-json-action-standard.png)
+
+1.  In your workflow where you want to parse the JSON object, follow one of these steps:
+
+   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
+
+   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **parse json**.
+
+1. From the actions list, select the action named **Parse JSON**.
+
+   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box, and the "Parse JSON" action selected.](./media/logic-apps-perform-data-operations/select-parse-json-action-standard.png)
+
+1. In the **Content** box, enter the JSON object that you want to parse.
+
+   For this example, when you click inside the **Content** box, the dynamic content list appears so that you can select the previously created variable:
+
+   ![Screenshot showing the designer for a Standard workflow, the "Parse JSON" action, and the selected JSON object variable to use in the "Parse JSON" action.](./media/logic-apps-perform-data-operations/configure-parse-json-action-standard.png)
+
+1. Enter the JSON schema that describes the JSON object, or *payload*. that you want to parse.
+
+   For this example, use the following schema for the sample JSON object:
+
+   ```json
+   {
+       "type": "object",
+       "properties": {
+           "Member": {
+               "type": "object",
+               "properties": {
+                   "Email": {
+                       "type": "string"
+                   },
+                   "FirstName": {
+                       "type": "string"
+                   },
+                   "LastName": {
+                       "type": "string"
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   ![Screenshot showing the designer for a Standard workflow, the "Parse JSON" action, and the JSON schema for the JSON object that you want to parse.](./media/logic-apps-perform-data-operations/provide-schema-parse-json-action-standard.png)
+
+   If you don't have a schema, you can generate the schema from the JSON object:
+
+   1. In the **Parse JSON** action, under the **Schema** box, select **Use sample payload to generate schema**.
+
+   1. In the **Enter or paste a sample JSON payload** box, enter the JSON content or object, and then select **Done**, for example:
+
+      ```json
+      {
+          "Member": {
+             "Email": "Sophia.Owen@fabrikam.com",
+             "FirstName": "Sophia",
+             "LastName": "Owen"
+          }
+      }
+      ```
+
+      ![Screenshot showing the designer for a Standard workflow, the "Parse JSON" action, and the "Enter or paste a sample JSON payload" box with the JSON entered to generate the schema.](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action-standard.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+---
 
 ### Test your logic app
 
