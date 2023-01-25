@@ -7,13 +7,13 @@ ms.service: traffic-manager
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2021
+ms.date: 01/25/2023
 ms.author: greglin
 ---
 
 # Traffic Manager endpoint monitoring
 
-Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures.
+Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures. Endpoint monitoring is enabled by default. To disable monitoring, see [Health Checks: Always serve](#health-checks-always-serve-preview).
 
 ## Configure endpoint monitoring
 
@@ -72,6 +72,7 @@ Endpoint monitor status is a Traffic Manager-generated value that shows the stat
 | Enabled |Enabled |Degraded |Endpoint monitoring health checks are failing. The endpoint isn't included in DNS responses and doesn't receive traffic. <br>An exception is if all endpoints are degraded. In which case all of them are considered to be returned in the query response).</br>|
 | Enabled |Enabled |CheckingEndpoint |The endpoint is monitored, but the results of the first probe haven't been received yet. CheckingEndpoint is a temporary state that usually occurs immediately after adding or enabling an endpoint in the profile. An endpoint in this state is included in DNS responses and can receive traffic. |
 | Enabled |Enabled |Stopped |The web app that the endpoint points to isn't running. Check the web app settings. This status can also happen if the endpoint is of type nested endpoint and the child profile get disabled or is inactive. <br>An endpoint with a Stopped status isn't monitored. It isn't included in DNS responses and doesn't receive traffic. An exception is if all endpoints are degraded. In which case all of them will be considered to be returned in the query response.</br>|
+| Enabled |Enabled |Not monitored |The endpoint is configured to always serve traffic. Health checks are not enabled. |
 
 For details about how endpoint monitor status is calculated for nested endpoints, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
@@ -89,6 +90,7 @@ The profile monitor status is a combination of the configured profile status and
 | Enabled |The status of at least one endpoint is Online. No endpoints have a Degraded status. |Online |The service is accepting traffic. No further action is required. |
 | Enabled |The status of at least one endpoint is CheckingEndpoint. No endpoints are in Online or Degraded status. |CheckingEndpoints |This transition state occurs when a profile if created or enabled. The endpoint health is being checked for the first time. |
 | Enabled |The statuses of all endpoints in the profile are either Disabled or Stopped, or the profile has no defined endpoints. |Inactive |No endpoints are active, but the profile is still Enabled. |
+
 
 ## Endpoint failover and recovery
 
@@ -159,44 +161,41 @@ For more information, see [Traffic Manager traffic-routing methods](traffic-mana
 
 For more information about troubleshooting failed health checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
+## Health Checks: Always serve (Preview)
+
+An option is available in Azure Traffic Manager to configure endpoint **Health Checks** to **Always serve** traffic. This setting will disable all health checks for that endpoint. When **Always serve** is selected, monitoring is bypassed and traffic is always sent to an endpoint. The [endpoint monitor status](#endpoint-monitor-status) displayed will be **Unmonitored**. This option is currently in public preview.
+
+To configure this setting:
+1. Select **Endpoints** in the **Settings** section of your Traffic Manager profile blade. 
+2. Select the endpoint that you want to configure.
+3. Choose **Always serve traffic** under **Health Checks**.
+4. Select **Save**.
+
+> [!NOTE]
+> - The **Always serve** setting for **Health Checks** is not available on nested endpoints.
+> - Enabling and disabling an endpoint does not reset the **Health Checks** configuration.
+> - Selecting **Enable** under **Health Checks** will enable health probes as described in this article. This is the default setting.
+
 ## FAQs
 
 * [Is Traffic Manager resilient to Azure region failures?](./traffic-manager-faqs.md#is-traffic-manager-resilient-to-azure-region-failures)
-
 * [How does the choice of resource group location affect Traffic Manager?](./traffic-manager-faqs.md#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
-
 * [How do I determine the current health of each endpoint?](./traffic-manager-faqs.md#how-do-i-determine-the-current-health-of-each-endpoint)
-
 * [Can I monitor HTTPS endpoints?](./traffic-manager-faqs.md#can-i-monitor-https-endpoints)
-
 * [Do I use an IP address or a DNS name when adding an endpoint?](./traffic-manager-faqs.md#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
-
 * [What types of IP addresses can I use when adding an endpoint?](./traffic-manager-faqs.md#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
-
 * [Can I use different endpoint addressing types within a single profile?](./traffic-manager-faqs.md#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
-
 * [What happens when an incoming query’s record type is different from the record type associated with the addressing type of the endpoints?](./traffic-manager-faqs.md#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
-
 * [Can I use a profile with IPv4 / IPv6 addressed endpoints in a nested profile?](./traffic-manager-faqs.md#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
-
 * [I stopped a web application endpoint in my Traffic Manager profile but I'm not receiving any traffic even after I restarted it. How can I fix this?](./traffic-manager-faqs.md#i-stopped-a-web-application-endpoint-in-my-traffic-manager-profile-but-im-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
-
 * [Can I use Traffic Manager even if my application doesn't have support for HTTP or HTTPS?](./traffic-manager-faqs.md#can-i-use-traffic-manager-even-if-my-application-doesnt-have-support-for-http-or-https)
-
 * [What specific responses are required from the endpoint when using TCP monitoring?](./traffic-manager-faqs.md#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
-
 * [How fast does Traffic Manager move my users away from an unhealthy endpoint?](./traffic-manager-faqs.md#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
-
 * [How can I specify different monitoring settings for different endpoints in a profile?](./traffic-manager-faqs.md#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
-
 * [How can I assign HTTP headers to the Traffic Manager health checks to my endpoints?](./traffic-manager-faqs.md#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
-
 * [What host header do endpoint health checks use?](./traffic-manager-faqs.md#what-host-header-do-endpoint-health-checks-use)
-
 * [What are the IP addresses from which the health checks originate?](./traffic-manager-faqs.md#what-are-the-ip-addresses-from-which-the-health-checks-originate)
-
 * [How many health checks to my endpoint can I expect from Traffic Manager?](./traffic-manager-faqs.md#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
-
 * [How can I get notified if one of my endpoints goes down?](./traffic-manager-faqs.md#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
 
 ## Next steps
