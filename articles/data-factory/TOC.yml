@@ -1291,6 +1291,12 @@ items:
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout, troubleshooting
+- name: Managed Airflow
+  items:
+  - name: Concepts
+    href: concept-managed-airflow.md
+  - name: How-to
+    href: how-does-managed-airflow-work.md
 - name: Reference
   items:
   - name: Data flow script
