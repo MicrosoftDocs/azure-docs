@@ -85,7 +85,7 @@ Information about every request is logged into the access log. Each access log e
 | Endpoint | The domain name of the Azure Front Door endpoint, such as `contoso-123.z01.azurefd.net`. |
 | HttpStatusCode | The HTTP status code returned from Azure Front Door. If the request to the origin timed out, the value for the HttpStatusCode field is **0**.|
 | Pop | The Azure Front Door edge point of presence (PoP) that responded to the user request.  |
-| Cache Status | How the request was handled by the Azure Front Door cache. Possible values are: <ul><li>**HIT** and **REMOTE_HIT**: The HTTP request was served from the Azure Front Door cache.</li><li>**MISS**: The HTTP request was served from origin. </li><li> **PARTIAL_HIT**: Some of the bytes were served from the Fornt Door edge PoP cache, and other bytes were served from the origin. This status indicates an [object chunking](./front-door-caching.md#delivery-of-large-files) scenario. </li><li> **CACHE_NOCONFIG**: The request was forwarded without without caching settings, including bypass scenarios. </li><li> **PRIVATE_NOSTORE**: There was no cache configured in the caching settings by the customer. </li><li> **N/A**: The request was denied by a signed URL or the Rules Engine.</li></ul> |
+| Cache Status | How the request was handled by the Azure Front Door cache. Possible values are: <ul><li>**HIT** and **REMOTE_HIT**: The HTTP request was served from the Azure Front Door cache.</li><li>**MISS**: The HTTP request was served from origin. </li><li> **PARTIAL_HIT**: Some of the bytes were served from the Fornt Door edge PoP cache, and other bytes were served from the origin. This status indicates an [object chunking](./front-door-caching.md#delivery-of-large-files) scenario. </li><li> **CACHE_NOCONFIG**: The request was forwarded without caching settings, including bypass scenarios. </li><li> **PRIVATE_NOSTORE**: There was no cache configured in the caching settings by the customer. </li><li> **N/A**: The request was denied by a signed URL or the Rules Engine.</li></ul> |
 | MatchedRulesSetName | The names of the Rules Engine rules that were processed. |
 | RouteName | The name of the route that the request matched. |
 | ClientPort | The IP port of the client that made the request. |
@@ -98,7 +98,7 @@ Information about every request is logged into the access log. Each access log e
 
 ## Health probe log
 
-Azure Front Door logs ever failed health probe requests, which can help you to diagnose problems with an origin. The logs provide you with information that you can use to investigate the failure reason and then bring the origin back to a healthy status.
+Azure Front Door logs every failed health probe request. These logs can help you to diagnose problems with an origin. The logs provide you with information that you can use to investigate the failure reason and then bring the origin back to a healthy status.
 
 Some scenarios this log can be useful for are:
 
