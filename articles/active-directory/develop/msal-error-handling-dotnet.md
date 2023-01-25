@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/26/2020
+ms.date: 01/25/2023
 ms.author: dmwendia
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
@@ -60,7 +60,7 @@ The interaction aims at having the user do an action. Some of those conditions a
 
 ### `MsalUiRequiredException` classification enumeration
 
-MSAL exposes a `Classification` field, which you can read to provide a better user experience. For example to tell the user that their password expired or that they'll need to provide consent to use some resources. The supported values are part of the `UiRequiredExceptionClassification` enum:
+MSAL exposes a `Classification` field, which you can read to provide a better user experience. For example to tell the user that their password expired or that they'll need to provide consent to use some resources. The supported values are part of the [`UiRequiredExceptionClassification`](/dotnet/api/microsoft.identity.client.uirequiredexceptionclassification) enum:
 
 | Classification    | Meaning           | Recommended handling |
 |-------------------|-------------------|----------------------|
@@ -134,7 +134,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 
 When calling an API requiring Conditional Access from MSAL.NET, your application will need to handle claim challenge exceptions. This will appear as an [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) where the [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims) property won't be empty.
 
-To handle the claim challenge, you'll need to use the `.WithClaim()` method of the `PublicClientApplicationBuilder` class.
+To handle the claim challenge, you'll need to use the `.WithClaim()` method of the [`PublicClientApplicationBuilder`](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder) class.
 
 [!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
 
