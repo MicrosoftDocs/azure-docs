@@ -106,7 +106,7 @@ You must repeat this process for every packet core in your mobile network.
 > The recovery procedure will cause an outage of your packet core service and interrupt network connectivity to your UEs for up to eight hours for each packet core. We recommended that you only perform this procedure where you have a business-critical need to manage the Azure Private 5G Core deployment through Azure during the region failure.
 
 **Disconnect the Azure Stack Edge device from the failed region**
-The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate you Azure Stack Edge device](https://learn.microsoft.com/azure/databox-online/azure-stack-edge-reset-reactivate-device). Note that this will remove ALL software currently running on your Azure Stack Edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this Azure Stack Edge device.
+The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate you Azure Stack Edge device](/azure/databox-online/azure-stack-edge-reset-reactivate-device). Note that this will remove ALL software currently running on your Azure Stack Edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this Azure Stack Edge device.
 
 **Connect the Azure Stack Edge device to the new region**
 Re-run the installation script provided by your trials engineer to redeploy the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your Azure Stack Edge device. Ensure that you use a different name for this new installation to avoid clashes when the failed region recovers. As part of this process you will get a new custom location ID for the cluster, which you should note down.
@@ -133,15 +133,6 @@ You then have two choices for ongoing management:
 ##### Testing
 
 If you want to test your disaster recovery plans, you can follow the recovery procedure for a single packet core at any time. Note that this will cause a service outage of your packet core service and interrupt network connectivity to your UEs for up to four hours, so we recommend only doing this with non-production packet core deployments or at a time when an outage will not adversely affect your business.
-
-<!-->
-### Capacity and proactive disaster recovery resiliency
-
- [FMC 22-Dec-2022] proactive disaster recovery is the backup deployment setup, described above. There are no capacity concerns for Azure Private 5G Core so people don't need to pre-allocate resources or similar. I think this means we can remove this section? <-->
-
-<!-->
-## Additional guidance
- TODO: Add your additional guidance <-->
 
 ## Next steps
 
