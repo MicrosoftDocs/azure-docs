@@ -200,7 +200,7 @@ In this section, you'll test the NAT gateway. You'll first discover the public I
 
 3. Make note of the public IP address:
 
-    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
+    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/find-public-ip.png" alt-text="Screenshot of discover public IP address of NAT gateway." border="true":::
 
 4. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -216,7 +216,7 @@ In this section, you'll test the NAT gateway. You'll first discover the public I
 
 9. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
 
-    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/my-ip.png" alt-text="Internet Explorer showing external outbound IP" border="true":::
+    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/my-ip.png" alt-text="Screenshot of Internet Explorer showing external outbound IP." border="true":::
 
 ## Clean up resources
 
