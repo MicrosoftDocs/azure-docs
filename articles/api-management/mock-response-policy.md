@@ -36,6 +36,10 @@ The `mock-response` policy, as the name implies, is used to mock APIs and operat
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
+### Usage notes
+
+-  [Policy expressions](api-management-policy-expressions.md) can't be used in attribute values for this policy.
+
 ## Examples
 
 ```xml
