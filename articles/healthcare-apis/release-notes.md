@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Release notes: Azure Health Data Services
 
->[!Note]
+>[Note]
 > Azure Health Data Services is Generally Available. 
 >
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
@@ -22,18 +22,63 @@ Azure Health Data Services is a set of managed API services based on open standa
 ## December 2022
 ### Azure Health Data Services
 
-## November 2022
-### Azure Health Data Services
 
+### DICOM service
+
+
+
+|Features & Enhancements    | Related information |
+| :------------------------ | :------------------------------- |
+|[**Feature**] DICOM Events available in public preview |Azure Health Data Services [Events](https://learn.microsoft.com/en-us/azure/healthcare-apis/events/events-overview) now include a public preview of [two new event types](https://learn.microsoft.com/en-us/azure/healthcare-apis/events/events-message-structure?tabs=event-grid-event-schema#dicom-events-message-structure) for the DICOM service.  These new event types enable applications that use Event Grid to use event-driven workflows when DICOM images are created or deleted.|
+|
+
+## November 2022
+## Azure Health Data Services
+
+### FHIR service
+
+
+| Features & Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|[**Feature**] Export -Introducing _till parameter |Introducing "_till" optional filter parameter .  _till allows  to only export resources that have been modified since the time provided. This parameter is applicable to only System-Level export.|
+|
+
+
+
+|Bug Fixes  | Related information |
+| :------------------------ | :------------------------------- |
+|Error thrown when resource is updated using if-match header and PATCH |Bug is now fixed and Resource will updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)|
+|
+
+
+### Toolkit and Samples Open Source
+
+
+|Features & Enhancements  | Related information |
+| :------------------------ | :------------------------------- |
+|[**Feature**] Azure Health Data Services Toolkit is released |The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit), which was previously in a pre-release state, is now released. The toolkit is an open-source project that enables our customers to more easily customize and extend the functionality of their Azure Health Data Services implementations. The NuGet packages of the toolkit are available for download from the NuGet gallery, and you can find links to them from the repo documentation. 
 
 ## October 2022
-### Azure Health Data Services 
+## Azure Health Data Services
 
-#### **Bug Fixes**
+### FHIR service
 
-| Bug Fix |Related information |
-| :------------------- | :--------------- |
-| TEST Content  | The issue is now fixed and querying with :not operator should provide correct results. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2785). |
+
+
+| Features & Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+| [**Feature**] Deploy to Azure button |Customers can now deploy the MedTech service fully, including Event Hub, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service with a QuickStart template - Azure Health Data Services | Microsoft Learn](https://learn.microsoft.com/en-us/azure/healthcare-apis/iotdeploy-02-new-button#deploy-to-azure-button)
+|[**Feature**] Dropped Event Metrics |Customers can now determine if their mappings are working as they intended, as they can now see dropped events as a metric to ensure that data is flowing through accurately. 
+
+### Toolkit and Samples Open Source
+
+
+| Features & Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|[**Feature**]Azure Health Data Services Toolkit is released|The [Azure Health Data Services Toolkit](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fazure-health-data-services-toolkit&data=05%7C01%7CEva.Chen%40microsoft.com%7C68f017391cce4f17e9bd08dab603a050%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638022423978929274%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=D%2FVUynfbp%2Ftw3xZdunSf%2FVV%2Bv2eJ4T57%2FdJBhND7niA%3D&reserved=0), which was previously in a pre-release state, is now released. The toolkit is an open-source project that enables our customers to more easily customize and extend the functionality of their Azure Health Data Services implementations. The NuGet packages of the toolkit are available for download from the NuGet gallery, and you can find links to them from the repo documentation. 
+
+
+
 ## September 2022
 
 ### Azure Health Data Services 
