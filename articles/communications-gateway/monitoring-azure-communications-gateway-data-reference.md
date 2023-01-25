@@ -16,7 +16,7 @@ Learn about the data and resources collected by Azure Monitor from your Azure Co
 
 ## Metrics
 
-This section lists all the automatically collected metrics collected for Azure Communications Gateway. The resource provider for these metrics is [Microsoft.VoiceServices/communicationsGateways](/azure/azure-monitor/platform/metrics-supported#microsoftvoiceservicescommunicationsgateways).
+This section lists all the automatically collected metrics collected for Azure Communications Gateway. The resource provider for these metrics is `Microsoft.VoiceServices/communicationsGateways`.
 
 ### Error metrics
 
