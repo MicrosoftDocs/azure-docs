@@ -181,7 +181,7 @@ You can find SOAR integrations and their components in the following places:
 | **Minemeld**<br>(Available as solution) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Create indicator, <br>Enrich incident |
 |
   
- ## Neustar IP GEO Point 
+## Neustar IP GEO Point 
 
 | Product | Integration components | Supported by | Scenarios |
 | --- | --- | --- | --- |
