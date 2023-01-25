@@ -38,7 +38,7 @@ Users also need one of the following Log Analytics workspace roles:
 
 ### Stream sign-in logs from Azure AD to Azure Monitor logs 
 
-If you have not integrated Azure AD logs with Azure Monitor logs, you will need to take the following steps before the workbook will load:  
+If you haven't integrated Azure AD logs with Azure Monitor logs, you'll need to take the following steps before the workbook will load:  
 
 1. [Create a Log Analytics workspace in Azure Monitor](../../azure-monitor/logs/quick-create-workspace.md).
 1. [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
@@ -78,7 +78,7 @@ Once the parameters have been set, the impact summary loads. The summary shows h
 
 **Failure**: The number of users or sign-ins during the time period where the result of at least one of the selected policies was “Failure” or “Report-only: Failure”.
 
-**User action required**: The number of users or sign-ins during the time period where the combined result of the selected policies was “Report-only: User action required”. User action is required when an interactive grant control, such as multi-factor authentication is required by a report-only Conditional Access policy. Since interactive grant controls are not enforced by report-only policies, success or failure cannot be determined.  
+**User action required**: The number of users or sign-ins during the time period where the combined result of the selected policies was “Report-only: User action required”. User action is required when an interactive grant control, such as multifactor authentication is required by a report-only Conditional Access policy. Since interactive grant controls aren't enforced by report-only policies, success or failure can't be determined.  
 
 **Not applied**: The number of users or sign-ins during the time period where none of the selected policies applied.
 
@@ -114,12 +114,12 @@ To configure a Conditional Access policy in report-only mode:
 
 ### Why are queries failing due to a permissions error?
 
-In order to access the workbook, you need the proper Azure AD permissions as well as Log Analytics workspace permissions. To test whether you have the proper workspace permissions by running a sample log analytics query:
+In order to access the workbook, you need the proper Azure AD permissions and Log Analytics workspace permissions. To test whether you have the proper workspace permissions by running a sample log analytics query:
 
 1. Sign in to the **Azure portal**.
 1. Browse to **Azure Active Directory** > **Log Analytics**.
 1. Type `SigninLogs` into the query box and select **Run**.
-1. If the query does not return any results, your workspace may not have been configured correctly. 
+1. If the query doesn't return any results, your workspace may not have been configured correctly. 
 
 ![Troubleshoot failing queries](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
@@ -127,7 +127,7 @@ For more information about how to stream Azure AD sign-in logs to a Log Analytic
 
 ### Why are the queries in the workbook failing?
 
-Customers have noticed that queries sometimes fail if the wrong or multiple workspaces are associated with the workbook. To fix this problem, click **Edit** at the top of the workbook and then the Settings gear. Select and then remove workspaces that are not associated with the workbook. There should be only one workspace associated with each workbook.
+Customers have noticed that queries sometimes fail if the wrong or multiple workspaces are associated with the workbook. To fix this problem, click **Edit** at the top of the workbook and then the Settings gear. Select and then remove workspaces that aren't associated with the workbook. There should be only one workspace associated with each workbook.
 
 ### Why is the Conditional Access policies parameter is empty?
 
@@ -143,11 +143,11 @@ When the volume of sign-ins exceeds the query capacity of Log Analytics, the wor
 
 ### Can I save my parameter selections?  
 
-You can save your parameter selections at the top of the workbook by going to **Azure Active Directory** > **Workbooks** > **Conditional Access Insights and reporting**. Here you will find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. 
+You can save your parameter selections at the top of the workbook by going to **Azure Active Directory** > **Workbooks** > **Conditional Access Insights and reporting**. Here you'll find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. 
 
 ### Can I edit and customize the workbook with additional queries? 
 
-You can edit and customize the workbook by going to **Azure Active Directory** > **Workbooks** > **Conditional Access Insights and reporting**. Here you will find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. To start editing the queries, click **Edit** at the top of the workbook.  
+You can edit and customize the workbook by going to **Azure Active Directory** > **Workbooks** > **Conditional Access Insights and reporting**. Here you'll find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. To start editing the queries, click **Edit** at the top of the workbook.  
  
 ## Next steps
 
