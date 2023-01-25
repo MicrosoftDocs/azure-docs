@@ -5,9 +5,9 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/03/2022
-ms.author: v-erinkelly 
+ms.author: kianaharris
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
-ms.devlang: 
+ms.devlang: azure-cli
 ---
 
 # Create an Azure HPC Cache
@@ -54,15 +54,15 @@ Before you can choose throughput or storage capacity, you need to choose the cac
 
 * Read-write standard caching: A flexible general-purpose cache
 * Read-only caching: A high-throughput cache designed to minimize file access latency
-* Read-write premium caching (PREVIEW): A disk-optimized cache with the lowest latency and highest throughput
-<!-- * Read-only scalable standard caching (PREVIEW): A general-purpose cache that can be made larger or smaller (at predefined sizes) to accommodate variable workloads -->
+* Read-write premium caching (Preview): A disk-optimized cache with the lowest latency and highest throughput
+<!-- * Read-only scalable standard caching (Preview): A general-purpose cache that can be made larger or smaller (at predefined sizes) to accommodate variable workloads -->
 
-![Screenshot of the cache tab in the Azure portal create wizard, with the Cache type selector open.](media/new-cache-types.png)
+![Screenshot of the cache tab in the Azure portal create wizard, with the Cache type selector open.](media/cache-type-dropdown-with-premium.png)
 
 Read more about these cache types below in [Choose the cache type for your needs](#choose-the-cache-type-for-your-needs).
 
 > [!TIP]
-> Cache types that are named "read-write" can be configured for either read-only caching or read/write caching. Cache types that are labeled "read-only" only support read-only caching. Learn more about caching modes in [Understand cache usage models](cache-usage-models.md).
+> Cache types that are named "Read-write" can be configured for either read-only caching or read/write caching. Cache types that are labeled "Read-only" only support read-only caching. Learn more about caching modes in [Understand cache usage models](cache-usage-models.md).
 
 Each cache type also lets you customize the cache's capacity. The capacity is made up of two values:
 
@@ -70,8 +70,6 @@ Each cache type also lets you customize the cache's capacity. The capacity is ma
 * **Cache size** - The amount of storage allocated for cached data, in TB
 
 ![Screenshot of cache sizing page in the Azure portal.](media/cache-size-options.png)
-
-Read [Understand throughput and cache size](#understand-throughput-and-cache-size), below, for more information.
 
 ### Understand throughput and cache size
 
@@ -85,14 +83,6 @@ Azure HPC Cache manages which files are cached and pre-loaded to maximize cache 
 
 Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
 
-Throughput and cache size also affect how many storage targets are supported for a particular cache. If you want to use more than 10 storage targets with your cache, you must choose one of the following options:
-
-* A standard cache type **and** the highest cache storage value available for that throughput size
-* A premium cache type
-* The high-throughput read-only cache type
-
-Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
-
 If you need help sizing your cache correctly, contact Microsoft Service and Support.
 
 
@@ -102,9 +92,9 @@ There are two basic cache types: "standard" and "premium".
 
 **Standard** caches are general-use HPC Cache systems. You can select from multiple storage sizes after choosing your throughput value, and you can attach any of the HPC Cache supported storage target types.
 
-**Premium** caches are designed for the fastest possible file service. They use advanced high-throughput disks, which means that premium caches have a different pricing structure and slightly different capabilities.
+**Premium** caches are designed for the fastest possible file service. They use high-throughput disks, which means that premium caches have a different pricing structure and slightly different capabilities.
 
-Here are some typical type options you might see:
+Cache options include:
 <!-- type options shown in TIP1 portal Dec 28 2022 (aos 2022.12.0) - 
 read-write standard caching
 read-only caching
@@ -117,13 +107,13 @@ read-only scalable caching (preview) -->
 
 * **Read-only caching**
 
-  This type of cache provides higher throughput than a standard cache, but is designed to optimize file read access only. You can't configure a read-only cache to also cache client writes. This type of cache has only one storage capacity option for each throughput option.
+  This type of cache provides higher throughput than a standard cache, but is designed to optimize file read access only. You can't configure a read-only cache to also cache client writes. This type of cache has only one cache size option for each throughput option.
 
-* **Read-write premium caching (preview)**
+* **Read-write premium caching (Preview)**
   
-  A high-throughput cache that can be configured for either read-only or read-write caching. These caches have only one storage size option for each throughput option.
+  A high-throughput cache that can be configured for either read-only or read-write caching. These caches have only one cache size option for each throughput option.
 
-<!-- * **Read-only scalable caching (preview)**
+<!-- * **Read-only scalable caching (Preview)**
 
   A standard throughput cache that can be made larger or smaller to accommodate variable workflows. You can choose from a variety of storage sizes for each throughput size.
 
@@ -132,16 +122,17 @@ read-only scalable caching (preview) -->
 
   Read [Use scalable caches](scale-cache.md) to learn more about creating and using scalable caches. -->
 
-This table explains some important differences between the two options.
+This table explains important differences among the three cache types.
 
 | Attribute | Read-Write Standard Caching | Read-Only Caching | Read-Write Premium Caching |
 |--|--|--|--|
 | Throughput sizes | 2, 4, or 8 GB/sec | 4.5, 9, or 16 GB/sec | 5, 10, or 20 GB/sec |
 | Cache sizes | 3, 6, or 12 TB for 2 GB/sec<br/> 6, 12, or 24 TB for 4 GB/sec<br/> 12, 24, or 48 TB for 8 GB/sec| 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec | 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec |
-| Maximum number of storage targets | 20 | 20 | 20 |
-| Compatible storage target types | Azure Blob <br/> NFS (on-premises)<br />ADLS-NFS (NFS-enabled blob) | NFS (on-premises)<br />ADLS-NFS (NFS-enabled blob) | Azure Blob <br/> NFS (on-premises)<br />ADLS-NFS (NFS-enabled blob) |
+| Compatible storage target types | Azure Blob <br/> NFS (on-premises)<br />ADLS-NFS (NFSv3-enabled Azure Blob) | NFS (on-premises)<br />ADLS-NFS (NFSv3-enabled Azure Blob) | Azure Blob <br/> NFS (on-premises)<br />ADLS-NFS (NFSv3-enabled Azure Blob) |
 | Caching styles | Read caching or read-write caching | Read caching only | Read-write caching |
 | Cache can be stopped to save cost when not needed | Yes | No | No |
+
+All three caching options have a maximum storage target count of 20.
 
 Learn more about these options:
 
