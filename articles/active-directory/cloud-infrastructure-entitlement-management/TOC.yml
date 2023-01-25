@@ -143,7 +143,7 @@
         href: report-view-system-report.md
       - name: Create, view, and share a custom report
         href: report-create-custom-report.md
-      - name: Generate and download the Permissions analytics report
+      - name: View and download the Permissions analytics report
         href: product-permissions-analytics-reports.md
   - name: Troubleshoot
     expanded: false

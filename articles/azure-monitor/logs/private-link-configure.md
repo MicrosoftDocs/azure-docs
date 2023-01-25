@@ -68,6 +68,12 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 
 1. On the **Virtual Network** tab:
    1. Select the virtual network and subnet that you want to connect to your Azure Monitor resources.
+   1. For **Network policy for private endpoints**, select **edit** if you want to apply network security groups or Route tables to the subnet that contains the private endpoint. In **Edit subnet network policy**, select the checkboxes next to **Network security groups** and **Route tables**. Select **Save**.
+   
+      For more information, see [Manage network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md).
+
+   1. For **Private IP configuration**, by default, **Dynamically allocate IP address** is selected. If you want to assign a static IP address, select **Statically allocate IP address**. Then enter a name and private IP.
+   1. Optionally, you can select or create an **Application security group**. You can use application security groups to group virtual machines and define network security policies based on those groups.
    1. Select **Next: DNS**.
    
       :::image type="content" source="./media/private-link-security/ampls-select-private-endpoint-create-5.png" alt-text="Screenshot that shows the Create a private endpoint page in the Azure portal with the Virtual Network tab selected." lightbox="./media/private-link-security/ampls-select-private-endpoint-create-5.png":::
