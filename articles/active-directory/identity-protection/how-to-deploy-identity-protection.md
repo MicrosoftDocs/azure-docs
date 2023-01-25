@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 01/25/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -65,15 +65,13 @@ Conditional Access brings signals together to make decisions and enforce organiz
 
 ### Related features
 
-For users to self-remediate risk they must register for Azure Active Directory self-service password reset and Azure AD Multifactor Authentication. 
+For users to self-remediate risk though, they must register for Azure AD Multifactor Authentication before they become risky. For more information see the article, [Plan an Azure Active Directory Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
-We have guidance and deployment plans for both Azure AD self-service password reset and Azure AD Multifactor Authentication. 
+Other features that you may wish to consider include:
 
-Combined registration MFA registration and SSPR - Enable combined security information registration - Azure Active Directory - Microsoft Entra | Microsoft Docs
-
-Plan your Azure Active Directory self-service password reset deployment and enable users - Enable Azure Active Directory self-service password reset - Microsoft Entra | Microsoft Docs
-
-Plan your Azure Active Directory Multi-Factor Authentication deployment with Conditional Access - Enable Azure AD Multi-Factor Authentication - Microsoft Entra | Microsoft Docs
+- [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md)
+- [Plan an Azure Active Directory self-service password reset deployment](../authentication/howto-sspr-deployment.md)
+- [Plan and deploy on-premises Azure Active Directory Password Protection](../authentication/howto-password-ban-bad-on-premises-deploy.md)
 
 ### Known network locations
 
