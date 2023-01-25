@@ -57,11 +57,11 @@ For example, in the following image, the **Cisco Umbrella** solution lists one o
 :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub.":::
 
 
-## Install or update a solution
+## Install content
 
-Solutions can be installed and updated individually or in bulk. Here's the process for an individual solution.
+Standalone content and solutions can be installed individually or all together in bulk. Here's the process for an individual solution.
 
-1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**. For example:
+1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**. 
 
 1. On the solution details page, select **Create** or **Update** to start the solution wizard. On the **Basics** tab, enter the subscription, resource group, and workspace to deploy the solution. For example:
 
@@ -79,18 +79,17 @@ Solutions can be installed and updated individually or in bulk. Here's the proce
 
 1. Each content type within the solution may require additional steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
 
-## Bulk install and update solutions
+## Bulk install and update content
 
-Content hub supports a list view in addition to the default card view. Multiple solutions can be selected with this view to install and update them all at once. 
+Content hub supports a list view in addition to the default card view. Multiple solutions and standalone content can be selected with this view to install and update them all at once. Standalone content is kept up-to-date automatically. Any active or 
+custom content created based on solutions or standalone content installed from content hub remains untouched.
 
 1. To install and/or update items in bulk, change to the list view.
-   :::image type="content" source="media/sentinel-solutions-deploy/content-hub-list-view.png" alt-text="Screenshot of the list view icon button highlighted." lightbox="media/sentinel-solutions-deploy/content-hub-list-view.png":::
 
-1. The list view is paginated, so choose a filter to ensure the solutions you want to bulk install and modify are in view. Select their checkboxes and click the **Install/Update** button.
-
-1. The content hub interface will indicate *in progress* for installs and updates. Azure notifications will also indicate the action taken.
-
+1. The list view is paginated, so choose a filter to ensure the content you want to bulk install are in view. Select their checkboxes and click the **Install/Update** button.
     :::image type="content" source="media/sentinel-solutions-deploy/bulk-install-update.png" alt-text="Screenshot of solutions list view with multiple solutions selected and in progress for installation." lightbox="media/sentinel-solutions-deploy/bulk-install-update.png":::
+
+1. The content hub interface will indicate *in progress* for installs and updates. Azure notifications will also indicate the action taken. If a solution or standalone content that was already installed or updated was selected, no action will be taken on that item and it won't interfere with the update and install of the other items.
 
 1. Check each installed solution's **Manage** view. Content types within the solution may require additional steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
 
@@ -110,7 +109,7 @@ Centrally manage content items for installed solutions from the content hub.
 1. Select a content item to get started. 
 
 ### Management options for each content type
-Below are some tips on how to interact with various content types when managing the solution.
+Below are some tips on how to interact with various content types when managing a solution. 
 
 #### Data connector
 1. Select **Open connector page**. 
@@ -160,7 +159,7 @@ When a solution is installed, any parsers included are added as workspace functi
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-playbook.png" alt-text="Screenshot of playbook type content type in a solution." lightbox="media/sentinel-solutions-deploy/manage-solution-playbook.png":::
 
 
-## Find the support model for your solution
+## Find the support model for your content
 
 Each solution explains its support model on the solution's details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
 
@@ -172,7 +171,7 @@ When contacting support, you may need other details about your solution, such as
 
 ## Next steps
 
-In this document, you learned about Microsoft Sentinel solutions and how to find and deploy built-in content.
+In this document, you learned how to find and deploy built-in solutions and standalone content for Microsoft Sentinel.
 
 - Learn more about [Microsoft Sentinel solutions](sentinel-solutions.md).
 - See the full Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
