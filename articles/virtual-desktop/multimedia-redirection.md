@@ -3,7 +3,7 @@ title: Use multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection on Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 01/12/2023
+ms.date: 01/31/2023
 ms.author: daknappe
 manager: femila
 ---
