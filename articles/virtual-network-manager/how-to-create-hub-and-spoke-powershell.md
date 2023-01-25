@@ -22,21 +22,33 @@ In this article, you'll learn how to create a hub and spoke network topology wit
 
 * Read about [Hub-and-spoke](concept-connectivity-configuration.md#hub-and-spoke-topology) network topology.
 * Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md#create-virtual-network-manager).
-* Identify virtual networks you want to use in the hub-and-spokes configuration or create new [virtual networks](../virtual-network/quick-create-powershell.md). 
+* Identify virtual networks you want to use in the hub-and-spokes configuration or create new [virtual networks](../virtual-network/quick-create-powershell.md).
+* The `5.3.0` version of `Az.Network` is required to access the required cmdlets for Azure Virtual Network Manager.
+* If you're running PowerShell locally, you need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a network group
 
 This section will help you create a network group containing the virtual networks you'll be using for the hub-and-spoke network topology.
 
-### Static membership
-
-1. Create a static virtual network member with New-AzNetworkManagerGroupMembersItem.
+Create a network group for virtual networks with New-AzNetworkManagerGroup.
 
     ```azurepowershell-interactive
-    $member = New-AzNetworkManagerGroupMembersItem –ResourceId "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA"
+    $ng = @{
+            Name = 'myNetworkGroup'
+            ResourceGroupName = 'myAVNMResourceGroup'
+            NetworkManagerName = 'myAVNM'
+        }
+        $networkgroup = New-AzNetworkManagerGroup @ng
+    ```
+### Add Static membership
+
+1. Create a static virtual network member with New-AzNetworkManagerStaticMember.
+
+    ```azurepowershell-interactive
+    $member = New-AzNetworkManagerGroupMembersItem –ResourceId "/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA"
     ```
 
-1. Add the static member to the static membership group with the following commands:
+1. Add the static member to the static membership group with New-AzNetworkManagerStaticMember:
 
     ```azurepowershell-interactive
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerGroupMembersItem]]$groupMembers = @()  
@@ -64,11 +76,21 @@ This section will help you create a network group containing the virtual network
     $ng = @{
         Name = 'myNetworkGroup'
         ResourceGroupName = 'myAVNMResourceGroup'
-        GroupMember = $groupMembers
+        GroupMember = "VNetA"
+        NetworkManagerName = 'myAVNM'
+        MemberType = 'Microsoft.Network/VirtualNetworks
+    }
+
+    ```azurepowershell-interactive
+    $ng = @{
+        Name = 'myNetworkGroup'
+        ResourceGroupName = 'myAVNMResourceGroup'
+        GroupMember = "VNetA"
         ConditionalMembership = $conditionalMembership
         NetworkManagerName = 'myAVNM'
         MemberType = 'Microsoft.Network/VirtualNetworks
     }
+
     $networkgroup = New-AzNetworkManagerGroup @ng
     ```
 
@@ -98,7 +120,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerHub]]$hubList = @()
     
     $hub = @{
-        ResourceId = '/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
+        ResourceId = '/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
         ResourceType = 'Microsoft.Network/virtualNetworks'
     } 
     $hubvnet = New-AzNetworkManagerHub @hub
