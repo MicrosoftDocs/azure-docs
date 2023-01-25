@@ -2,14 +2,14 @@
 title: Planning for migration from classic to Azure Resource Manager
 description: In this article, learn how to plan for migration of IaaS resources from classic to Azure Resource Manager.
 services: virtual-machines
-author: tanmaygore
+author: oriwolman
 manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 02/06/2020
-ms.author: tagore
+ms.date: 01/25/2023
+ms.author: oriwolman
 ---
 
 
