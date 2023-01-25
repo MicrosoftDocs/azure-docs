@@ -25,23 +25,23 @@ You'll need to store your container images in an Azure Container Registry (ACR) 
 
 ### [Azure CLI](#tab/azure-cli)
 
-The below example uses [az acr create][az-acr-create] to create an ACR named *MyHelmACR* in *MyResourceGroup* with the *Basic* SKU.
+The below example uses [az acr create][az-acr-create] to create an ACR named *myhelmacr* in *MyResourceGroup* with the *Basic* SKU.
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location eastus
-az acr create --resource-group MyResourceGroup --name MyHelmACR --sku Basic
+az acr create --resource-group MyResourceGroup --name myhelmacr --sku Basic
 ```
 
-Output will be similar to the following example. Take note of your *loginServer* value for your ACR since you'll use it in a later step. In the below example, *myhelmacr.azurecr.io* is the *loginServer* for *MyHelmACR*.
+Output will be similar to the following example. Take note of your *loginServer* value for your ACR since you'll use it in a later step. In the below example, *myhelmacr.azurecr.io* is the *loginServer* for *myhelmacr*.
 
 ```console
 {
   "adminUserEnabled": false,
   "creationDate": "2019-06-11T13:35:17.998425+00:00",
-  "id": "/subscriptions/<ID>/resourceGroups/MyResourceGroup/providers/Microsoft.ContainerRegistry/registries/MyHelmACR",
+  "id": "/subscriptions/<ID>/resourceGroups/MyResourceGroup/providers/Microsoft.ContainerRegistry/registries/myhelmacr",
   "location": "eastus",
   "loginServer": "myhelmacr.azurecr.io",
-  "name": "MyHelmACR",
+  "name": "myhelmacr",
   "networkRuleSet": null,
   "provisioningState": "Succeeded",
   "resourceGroup": "MyResourceGroup",
@@ -58,20 +58,20 @@ Output will be similar to the following example. Take note of your *loginServer*
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-The below example uses the [New-AzContainerRegistry][new-azcontainerregistry] cmdlet to create an ACR named *MyHelmACR* in *MyResourceGroup* with the *Basic* SKU.
+The below example uses the [New-AzContainerRegistry][new-azcontainerregistry] cmdlet to create an ACR named *myhelmacr* in *MyResourceGroup* with the *Basic* SKU.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyResourceGroup -Location eastus
-New-AzContainerRegistry -ResourceGroupName MyResourceGroup -Name MyHelmACR -Sku Basic
+New-AzContainerRegistry -ResourceGroupName MyResourceGroup -Name myhelmacr -Sku Basic
 ```
 
-Output will be similar to the following example. Take note of your *LoginServer* value for your ACR since you'll use it in a later step. In the below example, *myhelmacr.azurecr.io* is the *LoginServer* for *MyHelmACR*.
+Output will be similar to the following example. Take note of your *LoginServer* value for your ACR since you'll use it in a later step. In the below example, *myhelmacr.azurecr.io* is the *LoginServer* for *myhelmacr*.
 
 ```output
 Registry Name    Sku        LoginServer              CreationDate               Provisioni AdminUserE StorageAccountName
                                                                                   ngState    nabled
 -------------    ---        -----------              ------------               ---------- ---------- ------------------
-MyHelmACR        Basic      myhelmacr.azurecr.io     5/30/2022 9:16:14 PM       Succeeded  False      
+myhelmacr        Basic      myhelmacr.azurecr.io     5/30/2022 9:16:14 PM       Succeeded  False      
 ```
 
 ---
@@ -79,19 +79,19 @@ MyHelmACR        Basic      myhelmacr.azurecr.io     5/30/2022 9:16:14 PM       
 ## Create an AKS cluster
 
 Your new AKS cluster needs access to your ACR to pull the container images and run them. Use the following command to:
-* Create an AKS cluster called *MyAKS* and attach *MyHelmACR*.
-* Grant the *MyAKS* cluster access to your *MyHelmACR* ACR.
+* Create an AKS cluster called *MyAKS* and attach *myhelmacr*.
+* Grant the *MyAKS* cluster access to your *myhelmacr* ACR.
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az aks create --resource-group MyResourceGroup --name MyAKS --location eastus --attach-acr MyHelmACR --generate-ssh-keys
+az aks create --resource-group MyResourceGroup --name MyAKS --location eastus --attach-acr myhelmacr --generate-ssh-keys
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzAksCluster -ResourceGroupName MyResourceGroup -Name MyAKS -Location eastus -AcrNameToAttach MyHelmACR -GenerateSshKey 
+New-AzAksCluster -ResourceGroupName MyResourceGroup -Name MyAKS -Location eastus -AcrNameToAttach myhelmacr -GenerateSshKey 
 ```
 
 ---
