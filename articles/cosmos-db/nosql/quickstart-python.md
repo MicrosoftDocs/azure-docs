@@ -157,7 +157,7 @@ Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
-The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
+The `Microsoft.Azure.Cosmos` client library enables you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations, such as creating and deleting databases, you must use RBAC through one of the following options:
 
 > - [Azure CLI scripts](manage-with-cli.md)
 > - [Azure PowerShell scripts](manage-with-powershell.md)
