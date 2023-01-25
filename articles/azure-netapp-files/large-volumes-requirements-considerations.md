@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/19/2023
+ms.date: 01/25/2023
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes (preview)
@@ -23,24 +23,7 @@ This article describes the requirements and considerations you need to be aware 
 
 The large volumes feature for Azure NetApp Files is currently in public preview. This preview is offered under the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and is controlled via Azure Feature Exposure Control (AFEC) settings on a per subscription basis. 
 
-Follow the registration steps if you're using the feature for the first time.
-
-1.  Register the feature by running the following commands:
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. -->
+To enroll in the preview for large volumes, use the sign-up form available at https://aka.ms/anflargevolumespreviewsignup.
 
 ## Requirements and considerations
 
@@ -52,6 +35,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * Large volumes are not currently supported with cross-region replication.
 * You cannot create a large volume with application volume groups.
 * Large volumes are not currently supported with cross-zone replication.
+* The SDK for large volumes is not currently available. 
 * Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You'll be able to grow to 500 TiB with the throughput ceiling as per the table below. 
 
 | Capacity tier | Volume size (TiB) | Throughput (MiB/s) |
