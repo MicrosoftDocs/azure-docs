@@ -16,24 +16,24 @@ This article is a list of updates to Compute Gallery features in Azure.
 
 ## January 2023 Updates:
 
-- [Launched public preview of Direct shared gallery on 07/25](https://learn.microsoft.com/azure/virtual-machines/share-gallery-direct?tabs=portaldirect)
+- [Launched public preview of Direct shared gallery on 07/25](/azure/virtual-machines/share-gallery-direct?tabs=portaldirect)
 
-- [Best Practices document now available](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery#best-practices)
+- [Best Practices document now available](/azure/virtual-machines/azure-compute-gallery#best-practices)
 
-- [Replica count for 'Image Versions' increased from 50 to 100](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery#limits)
+- [Replica count for 'Image Versions' increased from 50 to 100](/azure/virtual-machines/azure-compute-gallery#limits)
 
 ### Supported Features:
 
-- ['ARM64' image support](https://learn.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create)
+- ['ARM64' image support](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create&preserve-view=true)
 
-- ['TrustedLaunch' support](https://learn.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create)
+- ['TrustedLaunch' support](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create&preserve-view=true)
 
-- ['ConfidentialVM' support](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create)
+- ['ConfidentialVM' support](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create&preserve-view=true)
 
-- ['IsAcceleratedNetworkSupported' support](https://learn.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create)
+- ['IsAcceleratedNetworkSupported' support](/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create&preserve-view=true)
 
-- [Replication Mode: Full and Shallow](/cli/azure/sig/image-version?view=azure-cli-latest#commands)
-  - Shallow replication support image size up to 32TB
+- [Replication Mode: Full and Shallow](/cli/azure/sig/image-version?view=azure-cli-latest#commands&preserve-view=true)
+  - Shallow replication support image size up to 32 TB
   - Shallow replication is only for test images
 
 ## Next steps
