@@ -104,8 +104,9 @@ The Azure Communication Gateway service includes continuous monitoring for poten
 
 We'll investigate the potential fault, and determine whether the fault relates to Azure Communications Gateway or the Microsoft Phone System. We may require you to carry out some troubleshooting steps in your networks to help isolate the fault.
 
-Azure Communications Gateway provides metrics that you can use to monitor the overall health of your Azure Communications Gateway deployment. You can also view detailed metrics about calls and Quality of Service. If you notice any concerning metrics, you can raise an Azure Communications Gateway support ticket.
+Azure Communications Gateway provides metrics that you can use to monitor the overall health of your Azure Communications Gateway deployment. If you notice any concerning metrics, you can raise an Azure Communications Gateway support ticket.
 
 ## Next steps
 
+- Learn about [monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md).
 - Learn about [requesting changes to Azure Communications Gateway](request-changes.md).

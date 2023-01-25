@@ -145,7 +145,7 @@ You must test that you can raise tickets in the Azure portal to report problems 
 
 ## 8. Learn about monitoring Azure Communications Gateway
 
-Your staff can monitor Azure Communications Gateway with a range of key metrics. These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway.
+Your staff can use a selection of key metrics to monitor Azure Communications Gateway. These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway. See [Monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md).
 
 ## 9. Verify API integration
 
@@ -180,4 +180,5 @@ Your service can be launched on specific dates each month. Your onboarding team 
 
 - Wait for your launch date.
 - Learn about [getting support and requesting changes for Azure Communications Gateway](request-changes.md).
+- Learn about [monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md).
 - Learn about [planning and managing costs for Azure Communications Gateway](plan-and-manage-costs.md).
