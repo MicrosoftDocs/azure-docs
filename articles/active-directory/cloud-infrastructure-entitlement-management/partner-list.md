@@ -45,6 +45,6 @@ If you're a partner and would like to be considered for the Entra Permissions Ma
 | ![Screenshot of a Vu logo.](media/epm-partner-oxfordcg.png) | [Permissions Management implementation and remediation](https://oxfordcomputergroup.com/microsoft-entra-permissions-management-implementation/)|
 | ![Screenshot of a Onfido logo.](media/epm-partner-adaquest.png) | [adaQuest Microsoft Entra Permissions Management Risk Assessment](https://adaquest.com/entra-permission-risk-assessment/)
 
-# Next steps
+## Next steps
 
 * For an overview of Permissions Management, see [What's Permissions Management?](overview.md)
