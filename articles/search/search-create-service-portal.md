@@ -137,11 +137,9 @@ Unless you're using the portal, programmatic access to your new service requires
 
    :::image type="content" source="media/search-create-service-portal/get-endpoint.png" lightbox="media/search-create-service-portal/get-endpoint.png" alt-text="Screenshot of the service overview page with URL endpoint." border="true":::
 
-1. To set authentication options, use the **Keys** page:
+1. To set authentication options, use the **Keys** page. Most quickstarts and tutorials use API keys for simplicity, but if you're setting up a service for production workloads, consider using Azure roles. You can copy keys from this page.
 
    :::image type="content" source="media/search-create-service-portal/set-auth-options.png" lightbox="media/search-create-service-portal/set-auth-options.png" alt-text="Screenshot of the keys page with authentication options." border="true":::
-
-Most quickstarts and tutorials use API keys for simplicity, but if you're setting up a service for production workloads, consider using Azure roles.
 
 An endpoint and key aren't needed for portal-based tasks. The portal is already linked to your Azure Cognitive Search resource with admin rights. For a portal walkthrough, start with [Quickstart: Create an Azure Cognitive Search index in the portal](search-get-started-portal.md).
 
