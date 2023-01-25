@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 01/24/2023
+ms.date: 01/25/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -16,11 +16,11 @@ ms.custom: devx-track-python, devguide-python
 
 # Copy a blob with Python
 
-This article demonstrates how to copy a blob in an Azure Storage account. It also shows how to abort a copy operation. The example code uses the [Azure Storage client library for Python](/python/api/overview/azure/storage).
+This article shows how to copy a blob in a storage account using the [Azure Storage client library for Python](/python/api/overview/azure/storage). It also shows how to abort a pending copy operation.
 
 ## About copying blobs
 
-When you copy a blob within the same storage account, it's a synchronous operation. When you copy across accounts, it's an asynchronous operation.
+When you copy a blob within a storage account, the copy operation is synchronous. When you copy across storage accounts, it's an asynchronous operation.
 
 The source blob for a copy operation may be a block blob, an append blob, a page blob, a snapshot, or a blob version. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
 
@@ -44,7 +44,12 @@ To copy a blob, use the following method:
 
 - [BlobClient.start_copy_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-start-copy-from-url)
 
-This method synchronously copies the data at the source URL to a blob and waits for the copy to complete before returning a response. The source must be a block blob no larger than 256 MB. The source URL must include a SAS token that provides permissions to read the source blob. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
+This method returns a dictionary containing *copy_status* and *copy_id*, which can be used to check the status of the copy operation:
+- *copy_status* will be 'success' if the copy completed synchronously or 'pending' if the copy has been started asynchronously
+- For asynchronous copies, the status can be checked by polling the `get_blob_properties` method and checking *copy_status*
+- Set *requires_sync* to True to force the copy to be synchronous
+
+The source must be a block blob no larger than 256 MB. The source URL must include a SAS token that provides permissions to read the source blob. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
 
 The following code example gets a `BlobClient` object representing an existing blob and copies it to a new blob in a different container. This example also gets a lease on the source blob before copying so that no other client can modify the blob until the copy is complete and the lease is broken.
 

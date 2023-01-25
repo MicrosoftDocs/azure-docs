@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 01/25/2023
 ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: python

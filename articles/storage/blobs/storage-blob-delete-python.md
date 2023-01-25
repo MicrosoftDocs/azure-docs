@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 01/24/2023
+ms.date: 01/25/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -16,7 +16,7 @@ ms.custom: devx-track-python, devguide-python
 
 # Delete and restore a blob with Python
 
-This article shows how to delete blobs with the [Azure Storage client library for Python](/python/api/overview/azure/storage). If you've enabled blob soft delete, you can restore deleted blobs.
+This article shows how to delete blobs using the [Azure Storage client library for Python](/python/api/overview/azure/storage). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
 
 ## Delete a blob
 
@@ -32,7 +32,7 @@ If the blob has any associated snapshots, you must delete all of its snapshots t
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_delete_blob_snapshots":::
 
-To delete *only* the snapshots and not the blob itself, you can set the `delete_snapshots` parameter to **"only"**.
+To delete *only* the snapshots and not the blob itself, you can pass the parameter `delete_snapshots="only"`.
 
 ## Restore a deleted blob
 
@@ -42,7 +42,7 @@ You can use the Azure Storage client libraries to restore a soft-deleted blob or
 
 #### Restore soft-deleted objects when versioning is disabled
 
-To restore deleted blobs, call the following method:
+To restore deleted blobs when versioning is disabled, call the following method:
 
 - [BlobClient.undelete_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-undelete-blob)
 
@@ -55,8 +55,6 @@ This method restores the content and metadata of a soft-deleted blob and any ass
 To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use the following method:
 
 - [start_copy_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-start-copy-from-url)
-
-This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect. 
 
 The following code example gets the latest version of a deleted blob, and restores the latest version by copying it to the base blob:
 

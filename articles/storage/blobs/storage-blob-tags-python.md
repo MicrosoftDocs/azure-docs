@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 01/24/2023
+ms.date: 01/25/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -24,7 +24,7 @@ To learn more about this feature along with known issues and limitations, see [M
 
 ## Set tags
 
-You can set and get index tags if your code has authorized access to blob data through one of the following mechanisms:
+You can set index tags if your code has authorized access to blob data through one of the following mechanisms:
 - Azure AD built-in role assigned as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or higher
 - Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write](../../role-based-access-control/resource-provider-operations.md#microsoftstorage)
 - Shared Access Signature with permission to access the blob's tags (`t` permission)
@@ -46,7 +46,7 @@ You can delete all tags by passing an empty `dict` object into the `set_blob_tag
 
 ## Get tags
 
-You can set and get index tags if your code has authorized access to blob data through one of the following mechanisms:
+You can get index tags if your code has authorized access to blob data through one of the following mechanisms:
 - Azure AD built-in role assigned as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or higher
 - Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read](../../role-based-access-control/resource-provider-operations.md#microsoftstorage)
 - Shared Access Signature with permission to access the blob's tags (`t` permission)
@@ -79,7 +79,7 @@ You can find data by using the following method:
 
 - [ContainerClient.find_blobs_by_tag](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-find-blobs-by-tags)
 
-The following example finds all blobs tagged as an image:
+The following example finds and lists all blobs tagged as an image:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_find_blobs_by_tags":::
 

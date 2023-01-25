@@ -16,7 +16,7 @@ ms.custom: devx-track-python, devguide-python
 
 # Download a blob with Python
 
-This article shows how to download a blob with the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can download a blob by using the following method:
+This article shows how to download a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can download a blob by using the following method:
 
 - [BlobClient.download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-download-blob)
 
@@ -42,7 +42,7 @@ The following example downloads a blob and iterates over chunks in the download 
 
 ## Download to a string
 
-The following example downloads blob contents as text. In this example, [StorageStreamDownloader.content_as_text](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader#azure-storage-blob-storagestreamdownloader-content-as-text) downloads the contents of the blob and decodes as text:
+The following example downloads blob contents as text. In this example, the `encoding` parameter is necessary for `readall()` to return a string, otherwise it returns bytes:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_download_blob_text":::
 

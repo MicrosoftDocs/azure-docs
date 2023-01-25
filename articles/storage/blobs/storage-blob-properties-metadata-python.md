@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 01/24/2023
+ms.date: 01/25/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -39,7 +39,7 @@ To set properties on a blob, use the following method:
 
 Any properties not explicitly set are cleared. To preserve any existing properties, you can first retrieve the blob properties, then use them to populate the headers that aren't being updated.
 
-The following code example sets the `content_type` and `content_language` system properties on a blob:
+The following code example sets the `content_type` and `content_language` system properties on a blob, while preserving the existing properties:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_set_blob_properties":::
 
@@ -49,13 +49,13 @@ To retrieve properties on a blob, use the following method:
 
 The following code example gets a blob's system properties and displays some of the values:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_set_blob_properties":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_get_blob_properties":::
 
-## Set metadata
+## Set and retrieve metadata
 
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a [dict](https://docs.python.org/3/library/stdtypes.html#dict) containing name-value pairs using the following method:
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a [dictionary](https://docs.python.org/3/library/stdtypes.html#dict) containing name-value pairs using the following method:
 
-- [BlobClient.set_blob_metadata]/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-set-blob-metadata
+- [BlobClient.set_blob_metadata](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-set-blob-metadata)
 
 The following code example sets metadata on a blob:
 
