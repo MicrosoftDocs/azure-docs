@@ -62,6 +62,8 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 * If the source storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft. Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It's automatically registered at the time of share provider adding an asset if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located.
 This registration is only needed the first time when sharing or receiving data into a storage account in the Azure subscription.
 
+* A storage account needs to be registered in the collection to create a share using the Microsoft Purview compliance portal experience. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages. This step is not required to use the SDK.
+
 ## Create a share
 
 1. Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to share using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md).
