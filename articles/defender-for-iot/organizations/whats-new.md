@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: overview
-ms.date: 01/03/2023
+ms.date: 01/25/2023
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -20,6 +20,18 @@ Features released earlier than nine months ago are described in the [What's new 
 |Service area  |Updates  |
 |---------|---------|
 |**OT networks**     | - **Sensor version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)<br>- **Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal-public-preview)   |
+| **Cloud features** | - [New Microsoft Sentinel incident experience for Defender for IoT](#new-microsoft-sentinel-incident-experience-for-defender-for-iot) |
+
+### New Microsoft Sentinel incident experience for Defender for IoT
+
+Microsoft Sentinel's new [incident experience](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-new-incident-experience-is-here/ba-p/3717042) includes specific features for Defender for IoT customers. SOC analysts can now use the following incident enhancements when investigating OT/IoT-related incidents:
+
+- Better understand an incident's business impact and physical location by viewing the related sites, zones, sensors, and device importance on an incident details page
+- Review a timeline of affected devices and related device details directly on the incident page, instead of investigating on entity details pages for the related devices
+- Review OT alert remediation steps directly on the incident details page
+
+For more information, see [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md) and [Navigate and investigate incidents in Microsoft Sentinel](/azure/sentinel/investigate-incidents).
+
 
 ### Update sensor software from the Azure portal (Public preview)
 

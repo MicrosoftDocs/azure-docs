@@ -93,24 +93,23 @@ After you’ve [configured your Defender for IoT data to trigger new incidents i
 
     :::image type="content" source="media/iot-solution/investigate-iot-incidents.png" alt-text="Screenshot of a Microsoft Defender for IoT incident in Microsoft Sentinel.":::
 
-    > [!TIP]
-    > To investigate the incident in Defender for IoT, select the **Investigate in Microsoft Defender for IoT** link at the top of the incident details pane.
+1. Select the incident to open the incident details page, where you can find additional details. For example:
+
+    - Understand the incident's business impact and physical location using details like the an IoT device's site, zone, sensor name, and device importance.
+    - Learn about recommended remediation steps by selecting an alert in the incident timeline and viewing the **Remediation steps** area.
 
 For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](../../sentinel/investigate-cases.md).
 
+> [!TIP]
+> To investigate the incident in Defender for IoT, select the **Investigate in Microsoft Defender for IoT** link at the top of the incident details pane.
+
 ### Investigate further with IoT device entities
 
-When investigating an incident in Microsoft Sentinel, in an incident details pane, select an IoT device entity from the **Entities** list to open its device entity page. You can identify an IoT device by the IoT device icon: :::image type="icon" source="media/iot-solution/iot-device-icon.png" border="false":::
+When investigating an incident in Microsoft Sentinel, in an incident details pane, select an IoT device entity from the **Entities** list to view more details in the entities pane on the right. You can identify an IoT device by the IoT device icon: :::image type="icon" source="media/iot-solution/iot-device-icon.png" border="false":::
 
-If you don't see your IoT device entity right away, select **View full details** under the entities listed to open the full incident page. In the **Entities** tab, select an IoT device to open its entity page. For example:
+If you don't see your IoT device entity right away, select **View full details** under the entities listed to open the full incident page, and then check the **Entities** tab. Select an IoT device entity to view entity details on the right, including basic device details, owner contact information, and a timeline of events that occurred on the device.
 
- :::image type="content" source="media/iot-solution/incident-full-details-iot-device.png" alt-text="Screenshot of a full detail incident page.":::
-
-The IoT device entity page provides contextual device information, with basic device details and device owner contact information. The device entity page can help prioritize remediation based on device importance and business impact, as per each alert's site, zone, and sensor. For example:
-
-:::image type="content" source="media/iot-solution/iot-device-entity-page.png" alt-text="Screenshot of the IoT device entity page.":::
-
-For more information on entity pages, see [Investigate entities with entity pages in Microsoft Sentinel](../../sentinel/entity-pages.md).
+To drill down even further, select the IoT device entity link and open the device entity details page. For more information, see [Investigate entities with entity pages in Microsoft Sentinel](../../sentinel/entity-pages.md).
 
 You can also hunt for vulnerable devices on the Microsoft Sentinel **Entity behavior** page. For example, view the top five IoT devices with the highest number of alerts, or search for a device by IP address or device name:
 
