@@ -29,36 +29,7 @@ In Azure Lab Services, a lab plan serves as a collection of configurations and s
 
 Follow these steps to create a lab plan from the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
-
-1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
-
-    :::image type="content" source="./media/quick-create-lab-plan-portal/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal home page, highlighting the Create a resource button.":::
-
-1. Enter **Lab Plan** in the search field, and then select **Create** > **Lab plan**.
-
-    :::image type="content" source="./media/quick-create-lab-plan-portal/select-lab-plans-service.png" alt-text="Screenshot of the Azure Marketplace and how to search for and create a lab plan resource.":::
-
-1. On the **Basics** tab of the **Create a lab plan** page, provide the following information:
-
-    | Field        | Description                |
-    | ------------ | -------------------------- |
-    | **Subscription** | Select the Azure subscription that you want to use for this lab plan resource. |
-    | **Resource group** | Select **Create New** and enter *MyResourceGroup*. |
-    | **Name** | Enter *MyLabPlan* as the lab plan name. |
-    | **Region** | Select a geographic location to host your lab plan resource. |
-
-1. After you're finished configuring the resource, select **Review + Create**.
-
-1. Review all the configuration settings and select **Create** to start the deployment of the Lab Plan.
-
-1. To view the new resource, select **Go to resource**.
-
-    :::image type="content" source="./media/quick-create-lab-plan-portal/create-lab-plan-deployment-complete.png" alt-text="Screenshot that the deployment of the lab plan resource is complete.":::
-
-1. Confirm that you see the Lab Plan **Overview** page for *MyLabPlan*.
-
-    :::image type="content" source="./media/quick-create-lab-plan-portal/lab-plan-page.png" alt-text="Screenshot that shows the lab plan overview page in the Azure portal.":::
+[!INCLUDE [Create a lab plan](./includes/lab-services-tutorial-create-lab-plan.md)]
 
 ## Create a lab
 
