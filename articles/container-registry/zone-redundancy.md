@@ -189,7 +189,7 @@ Copy the following contents to a new file and save it using a filename such as `
       {
         "comments": "Container registry for storing docker images",
         "type": "Microsoft.ContainerRegistry/registries",
-        "apiVersion": "2020-11-01-preview",
+        "apiVersion": "2020-11-01",
         "name": "[parameters('acrName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -207,7 +207,7 @@ Copy the following contents to a new file and save it using a filename such as `
       },
       {
         "type": "Microsoft.ContainerRegistry/registries/replications",
-        "apiVersion": "2020-11-01-preview",
+        "apiVersion": "2020-11-01",
         "name": "[concat(parameters('acrName'), '/', parameters('acrReplicaLocation'))]",
         "location": "[parameters('acrReplicaLocation')]",
           "dependsOn": [
@@ -220,7 +220,7 @@ Copy the following contents to a new file and save it using a filename such as `
     ],
     "outputs": {
       "acrLoginServer": {
-        "value": "[reference(resourceId('Microsoft.ContainerRegistry/registries',parameters('acrName')),'2019-12-01-preview').loginServer]",
+        "value": "[reference(resourceId('Microsoft.ContainerRegistry/registries',parameters('acrName')),'2019-12-01').loginServer]",
         "type": "string"
       }
     }
