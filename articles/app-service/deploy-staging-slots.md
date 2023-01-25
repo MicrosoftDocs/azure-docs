@@ -147,7 +147,7 @@ When you perform a swap with preview, App Service performs the same [swap operat
 If you cancel the swap, App Service reapplies configuration elements to the source slot.
 
 > [!NOTE]
-> Swap with preview cannot be used when one of the slots has site authentication enabled.
+> Swap with preview can't be used when one of the slots has site authentication enabled.
 > 
 
 To swap with preview:
