@@ -74,7 +74,7 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 1. Create a new Wordpress app using our [WordPress on Linux App Service template](https://aka.ms/linux-wordpress)
 
 2. Open an SSH session using **WebSSH** from the Azure portal.
-![Web SSH](./media/app-service-migrate-wordpress/post_startup_script_1.png)
+![Web SSH](./media/app-service-migrate-wordpress/post-startup-script-1.png)
 
 3. Delete the existing content of **/home/site/wwwroot/wp-content** folder using the following command.
 
@@ -102,7 +102,7 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
     |    DATABASE_USERNAME           |      Not Required                        |
     |    DATABASE_PASSWORD           |      Not Required                        |
 
-    ![Database Application Settings](./media/app-service-migrate-wordpress/wordpress_database_application_settings.png)
+    ![Database Application Settings](./media/app-service-migrate-wordpress/wordpress-database-application-settings.png)
 
 ## Post migration actions
 
