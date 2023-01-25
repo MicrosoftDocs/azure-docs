@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Azure Cosmos DB for NoSQL client library for Python
-description: Learn how to build a Python app to manage Azure Cosmos DB for NoSQL account resources and data in this quickstart.
+description: Learn how to build a Python app to manage Azure Cosmos DB for NoSQL account resources and data.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
