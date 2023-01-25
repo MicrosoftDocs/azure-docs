@@ -29,33 +29,13 @@ The following features are available in preview.
 
 ### Network rule name logging (preview)
 
-Currently, a network rule hit event shows the following attributes in the logs: 
-
-   - Source and destination IP/port
-   - Action (allow, or deny)
-
- With this new feature, the event logs for network rules also show the following attributes:
+With this new feature, the event logs for network rules adds the following attributes:
    - Policy name
    - Rule collection group
    - Rule collection
    - Rule name 
 
-To enable the Network Rule name Logging feature, the following commands need to be run in Azure PowerShell. For the feature to immediately take effect, an operation needs to be run on the firewall. This can be a rule change (least intrusive), a setting change, or a stop/start operation. Otherwise, the firewall/s is updated with the feature within several days.
-
-Run the following Azure PowerShell commands to configure Azure Firewall network rule name logging:
-
-```azurepowershell
-Connect-AzAccount 
-Select-AzSubscription -Subscription "subscription_id or subscription_name" 
-Register-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network 
-```
-
-Run the following Azure PowerShell command to turn off this feature:
-
-```azurepowershell
-Unregister-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network 
-```
+For more information, see [Azure network rule name logging (preview)](firewall-network-rule-logging.md).
 
 ### Structured Firewall Logs (preview)
 
