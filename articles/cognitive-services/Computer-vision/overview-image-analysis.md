@@ -77,15 +77,15 @@ Identify commercial brands in images or videos from a database of thousands of g
 
 Identify and categorize an entire image, using a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies. Categories can be used alone, or with our new tagging models.<br/>Currently, English is the only supported language for tagging and categorizing images. [Categorize an image](concept-categorizing-images.md)
 
-### Describe an image
+### Generate image captions
 
-Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. [Describe an image (v3.2)](concept-describing-images.md) [(v4.0)](concept-describing-images-40.md)
+Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. 
+
+The version 4.0 image captioning model is a more advanced implementation. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+
+[Describe an image (v3.2)](concept-describing-images.md) [(v4.0)](concept-describing-images-40.md)
 
 :::image type="content" source="Images/description.png" alt-text="An image of cows with a simple description on the right":::
-
-### Generate image captions (v4.0 only)
-
-The image captioning model is a more advanced implementation of image descriptions. It is only available in version 4.0, and only in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 ### Detect faces (v3.2 only)
 
