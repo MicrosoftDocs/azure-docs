@@ -98,7 +98,7 @@ The first step in creating a customized model is to choose a base model. The cho
 - `davinci`\*
     \* available by request
 
-You can use the [Models API](/rest/api/cognitiveservices/azureopenai/models) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
+You can use the [Models API](/rest/api/cognitiveservices/azureopenaipreview/models) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
 
 ## Upload your training data
 
