@@ -80,7 +80,7 @@ Network connections determine the region into which dev boxes are deployed and a
 
 To create a network connection, you must have:
 
-- An existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Create a virtual network and subnet](#create-a-virtual-network-and-subnet) to create them. 
+- An existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Create a virtual network and subnet [Optional]](#create-a-virtual-network-and-subnet-optional) to create them.
 - A configured and working Hybrid AD join or Azure AD join.
     - **Azure AD join:** To learn how to join devices directly to Azure Active Directory (Azure AD), see [Plan your Azure Active Directory join deployment](../active-directory/devices/azureadjoin-plan.md).
     - **Hybrid AD join:** To learn how to join your AD DS domain-joined computers to Azure AD from an on-premises Active Directory Domain Services (AD DS) environment, see [Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-azuread-join-plan.md).
