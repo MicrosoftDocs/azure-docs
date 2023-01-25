@@ -485,7 +485,7 @@
         href: custom-policies-series-branch-in-user-journey.md
       - name: 6 - Validate custom policy files
         href: custom-policies-series-install-xml-extensions.md
-      - name: 7 - Make HTTP call custom policy
+      - name: 7 - Make HTTP call from custom policy
         href: custom-policies-series-call-rest-api.md
         displayName: call rest api, http call, http request
       - name: 8 - Create user record custom policy
