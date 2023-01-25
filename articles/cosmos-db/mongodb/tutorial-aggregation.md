@@ -11,17 +11,21 @@ ms.reviewer: mjbrown
 ---
 
 # Getting Started with Aggregation Pipeline
+
 The aggregation pipeline is a powerful tool that allows developers to perform advanced data analysis and manipulation on their collections. The pipeline is a sequence of data processing operations, which are performed on the input documents to produce a computed output. The pipeline stages process the input documents and pass the result to the next stage. Each stage performs a specific operation on the data, such as filtering, grouping, sorting, and transforming.
 
 ## Basic Syntax
+
 The basic syntax for an aggregation pipeline is as follows:
 
 ```javascript
 db.collection.aggregate([    { stage1 },    { stage2 },    ...    { stageN }])
 ```
+
 Where db.collection is the MongoDB collection you want to perform the aggregation on, and stage1, stage2, ..., stageN are the pipeline stages you want to apply.
 
 ## Sample Stages
+
 Cosmos DB for MongoDB provides a wide range of stages that you can use in your pipeline, including:
 
 * $match: Filters the documents to pass only the documents that match the specified condition.
@@ -75,6 +79,7 @@ db.collection.aggregate([
 ```
 
 ## Example with multiple stages
+
 ```javascript
 db.sales.aggregate([
   { $match: { date: { $gte: "2021-01-01", $lt: "2021-03-01" } } },

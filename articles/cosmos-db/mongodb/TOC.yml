@@ -60,6 +60,8 @@
       href: tutorial-global-distribution.md
     - name: Getting started with aggregation pipeline
       href: tutorial-aggregation.md
+    - name: Getting started with inserting data
+      href: tutorial-insert.md
     - name: Create Jupyter notebooks
       href: ../nosql/tutorial-create-notebook.md
 - name: Samples
