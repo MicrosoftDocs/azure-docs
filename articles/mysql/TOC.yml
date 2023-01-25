@@ -765,6 +765,8 @@
     href: single-server/concept-monitoring-best-practices.md
   - name: Performance best practices
     href: single-server/concept-performance-best-practices.md
+  - name: Performance benchmark best practices
+    href: single-server/concept-perf-benchmark-best-practices.md
   - name: Application Development best practices
     href: single-server/app-development-best-practices.md
     displayName: application
