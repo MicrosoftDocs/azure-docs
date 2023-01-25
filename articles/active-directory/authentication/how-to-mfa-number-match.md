@@ -31,31 +31,31 @@ Number matching can be targeted to only a single group, which can be dynamic or 
 
 Number matching is available for the following scenarios. When enabled, all scenarios support number matching.
 
-- [Multifactor authentication](tutorial-enable-azure-mfa.md)
-- [Self-service password reset](howto-sspr-deployment.md)
-- [Combined SSPR and MFA registration during Authenticator app set up](howto-registration-mfa-sspr-combined.md)
-- [AD FS adapter](howto-mfaserver-adfs-windows-server.md)
-- [NPS extension](howto-mfa-nps-extension.md)
+- [Multifactor authentication](#multifactor-authentication)
+- [Self-service password reset](#sspr)
+- [Combined SSPR and MFA registration during Authenticator app set up](#combined-registration)
+- [AD FS adapter](#ad-fs-adapter)
+- [NPS extension](#nps-extension)
 
 Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
 
 ### Multifactor authentication
 
-When a user responds to an MFA push notification using the Authenticator app, they'll be presented with a number. They need to type that number into the app to complete the approval. 
+When a user responds to an MFA push notification using the Authenticator app, they'll be presented with a number. They need to type that number into the app to complete the approval. For more information about how to set up MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
 ![Screenshot of user entering a number match.](media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
 ### SSPR
 
-Self-service password reset (SSPR) with Microsoft Authenticator will require number matching when using Microsoft Authenticator. During self-service password reset, the sign-in page will show a number that the user will need to type into the Microsoft Authenticator notification. This number will only be seen by users who are enabled for number matching.
+Self-service password reset (SSPR) with Microsoft Authenticator will require number matching when using Microsoft Authenticator. During self-service password reset, the sign-in page will show a number that the user will need to type into the Microsoft Authenticator notification. This number will only be seen by users who are enabled for number matching. For more information about how to set up SSPR, see [Tutorial: Enable users to unlock their account or reset passwords](howto-sspr-deployment.md).
 
 ### Combined registration
 
-Combined registration with Microsoft Authenticator will require number matching. When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
+Combined registration with Microsoft Authenticator will require number matching. When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. For more information about how to set up combined registration, see [Enable combined security information registration](howto-registration-mfa-sspr-combined.md).
 
 ### AD FS adapter
 
-AD FS adapter will require number matching on supported versions of Windows Server. On earlier versions, users will continue to see the **Approve**/**Deny** experience and won’t see number matching until you upgrade. The AD FS adapter supports number matching only after installing one of the updates in the following table. 
+AD FS adapter will require number matching on supported versions of Windows Server. On earlier versions, users will continue to see the **Approve**/**Deny** experience and won’t see number matching until you upgrade. The AD FS adapter supports number matching only after installing one of the updates in the following table. For more information about how to set up AD FS adapter, see [Configure Azure Multi-Factor Authentication Server to work with AD FS in Windows Server](howto-mfaserver-adfs-windows-server.md).
 
 >[!NOTE]
 >Unpatched versions of Windows Server don't support number matching. Users will continue to see the **Approve**/**Deny** experience and won't see number matching unless these updates are applied.
@@ -336,6 +336,10 @@ Regardless of their default method, any user who is prompted to sign-in with Aut
 ### Will users who don't use number matching be able to perform MFA?
 
 It depends on how the **Enable and Target** tab is configured. The scope for number match approvals will change under the **Configure** tab to include everyone, but it only applies for users and groups targeted on the **Enable and Target** tab for Push or Any. However, if Target on the **Enable and Target** tab is set to specific groups for Push or Any, and the user isn't a member of those groups, then they won't receive the number matching approvals once the change is implemented on February 27th, 2023 because they aren't a member of the groups defined on the **Enable and Target** tab for Push and/or Any.
+
+### Does number matching work with MFA server?
+
+No, MFA server is [deprecated](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454) and doesn't support number matching.
 
 ### What happens if a user runs an older version of Microsoft Authenticator?
 
