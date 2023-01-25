@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Inserting Data into Cosmos DB for MongoDB
-One of the most basic operations is inserting data into a collection. In this guide, we will cover everything you need to know about inserting data into MongoDB using the Mongo Shell (Mongosh).
+One of the most basic operations is inserting data into a collection. In this guide, we will cover everything you need to know about inserting data using the Mongo Shell (Mongosh).
 
 ## Inserting a Single Document
 
