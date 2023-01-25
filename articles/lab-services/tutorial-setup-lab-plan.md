@@ -1,17 +1,17 @@
 ---
-title: Create a lab plan with Azure Lab Services
+title: Create a lab for classroom training
 titleSuffix: Azure Lab Services
-description: Learn how to set up a lab plan with Azure Lab Services and assign lab creation permissions to a user by using the Azure portal.
+description: Learn how to set up a lab for classroom training with Azure Lab Services. Assign lab creators, customize lab VM image, and invite lab users to register for the lab.
 ms.topic: tutorial
 services: lab-services
 ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
-ms.date: 01/17/2023
+ms.date: 01/24/2023
 ms.custom: subject-rbac-steps
 ---
 
-# Tutorial: Create a lab plan with Azure Lab Services
+# Tutorial: Create a lab for classroom training with Azure Lab Services
 
 In Azure Lab Services, the lab plan serves as a collection of configurations and settings that apply to the labs you create from it. In your lab plan, give permission to others to create labs, and set policies that apply to newly created labs. In this tutorial, learn how to create a lab plan by using the Azure portal.
 
