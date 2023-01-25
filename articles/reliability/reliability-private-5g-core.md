@@ -41,17 +41,16 @@ In single region (3+0) geographies there is no replication of data outside the r
 
 In either scenario, the packet running at the Edge continues to operate without interruption and network connectivity will be maintained.
 
-You can view all regions that support Azure Private 5G Core at https://azure.microsoft.com/explore/global-infrastructure/products-by-region/.
+To view all regions that support Azure Private 5G Core, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
 ### Cross-region disaster recovery in multi-region geography
 
-Microsoft are responsible for outage detection, notification and support for the Azure cloud aspects of the Azure Private 5G Core service.
+Microsoft is responsible for outage detection, notification and support for the Azure cloud aspects of the Azure Private 5G Core service.
 
-<!-- We should also state the inverse - something about monitoring the Edge device? -->
 
 #### Outage detection, notification, and management
 
-Microsoft monitor the underlying resources providing the Azure Private 5G Core service in each region. If those resources start to show failures or health monitoring alerts that are not restricted to a single availability zone then Microsoft will move the service to another supported region in the same geography. This is an Active-Active pattern. The service health for a particular region can be found on [Azure Service Health](https://status.azure.com/en-gb/status) (Azure Private 5G Core is listed in the **Networking** section). You will be notified of any region failures through normal Azure communications channels.
+Microsoft monitors the underlying resources providing the Azure Private 5G Core service in each region. If those resources start to show failures or health monitoring alerts that are not restricted to a single availability zone then Microsoft will move the service to another supported region in the same geography. This is an Active-Active pattern. The service health for a particular region can be found on [Azure Service Health](https://status.azure.com/status) (Azure Private 5G Core is listed in the **Networking** section). You will be notified of any region failures through normal Azure communications channels.
 
 The service automatically replicates SIM credentials owned by the service to the backup region using CosmosDB multi-region writes, so there is no loss of data in the event of region failure.
 
