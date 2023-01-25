@@ -206,15 +206,15 @@ Ensure the Helm chart adheres to the following rules:
 
 ### Available billing models
 
-Billing model  |Definition  
----------------|-----------
-Per core|Usage is charged for every core used by the Kubernetes application’s extension instance (reported at hourly frequency)
-Per every core in cluster|Usage is charged based on total number of cores in the kubernetes cluster (reported at hourly frequency
-Per cluster|Usage is charged for each instance of the Kubernetes application extension on the cluster (reported at hourly frequency)
-Per every node in cluster|Usage is charged based on total number of nodes in the cluster (reported at hourly frequency)
-Per node|Usage is charged for each node on which the Kubernetes application’s extension instance runs on (reported at hourly frequency)
-Per pod|Usage is charged for each pod on which the Kubernetes application’s extension instance runs (reported at hourly frequency)
-Bring your own licensing (BYOL)|Usage is charged based on existing licensing that the customer can bring in.
+| Billing model                   | Definition                                                                                                                     |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Per core                        | Usage is charged for every core used by the Kubernetes application’s extension instance (reported at hourly frequency)         |
+| Per every core in cluster       | Usage is charged based on total number of cores in the kubernetes cluster (reported at hourly frequency)                       |
+| Per cluster                     | Usage is charged for each instance of the Kubernetes application extension on the cluster (reported at hourly frequency)       |
+| Per every node in cluster       | Usage is charged based on total number of nodes in the cluster (reported at hourly frequency)                                  |
+| Per node                        | Usage is charged for each node on which the Kubernetes application’s extension instance runs on (reported at hourly frequency) |
+| Per pod                         | Usage is charged for each pod on which the Kubernetes application’s extension instance runs (reported at hourly frequency)     |
+| Bring your own licensing (BYOL) | Usage is charged based on existing licensing that the customer can bring in                                                    |
 
 
 ### Make updates based on your billing model
