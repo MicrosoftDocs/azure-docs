@@ -33,7 +33,7 @@ This section will help you create a network group containing the virtual network
 
 1. Create a network group for virtual networks with New-AzNetworkManagerGroup.
 
-    ``azurepowershell-interactive
+    ```azurepowershell-interactive
     $ng = @{
             Name = 'myNetworkGroup'
             ResourceGroupName = 'myAVNMResourceGroup'
