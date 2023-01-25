@@ -1,5 +1,5 @@
 ---
-title: Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift a
+title: Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift
 description: This article explains how to use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift.
 author: johnmarco
 ms.author: johnmarc
