@@ -11,7 +11,7 @@ services: iot-edge
 
 # Understand extended offline capabilities for IoT Edge devices, modules, and child devices
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Azure IoT Edge supports extended offline operations on your IoT Edge devices, and enables offline operations on downstream devices too. As long as an IoT Edge device has had one opportunity to connect to IoT Hub, that device and any downstream devices can continue to function with intermittent or no internet connection.
 
@@ -54,23 +54,11 @@ By default, a parent device can have up to 100 children. You can change this lim
 >[!NOTE]
 >A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
 
-<!-- iotedge-2020-11 -->
-:::moniker range="iotedge-2020-11"
-
 Downstream devices can be any device, IoT Edge or non-IoT Edge, registered to the same IoT Hub.
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 If you're unfamiliar with creating a parent-child relationship between an IoT Edge device and an IoT device, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md). The symmetric key, self-signed X.509, and CA-signed X.509 sections show examples of how to use the Azure portal and Azure CLI to define the parent-child relationships when creating devices. For existing devices, you can declare the relationship from the device details page of either the parent or child device.
 
-<!-- iotedge-2020-11 -->
-:::moniker range="iotedge-2020-11"
-
 If you're unfamiliar with creating a parent-child relationship between two IoT Edge devices, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 ### Set up the parent device as a gateway
 

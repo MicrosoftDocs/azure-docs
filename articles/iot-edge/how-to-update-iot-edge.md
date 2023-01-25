@@ -13,7 +13,7 @@ services: iot-edge
 
 # Update IoT Edge
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
@@ -52,9 +52,6 @@ Update apt.
    > [!NOTE]
    > For instructions to get the latest repository configuration from Microsoft see the preliminary steps to [Install IoT Edge](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 Check to see which versions of IoT Edge are available.
 
 ```bash
@@ -69,14 +66,8 @@ sudo apt-get install aziot-edge defender-iot-micro-agent-edge
 
 It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../defender-for-iot/device-builders/overview.md).
 
-<!-- end iotedge-2020-11 -->
-:::moniker-end
-
 <!--Repeated Linux content for RHEL-->
 # [Red Hat Enterprise Linux](#tab/rhel)
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 Check to see which versions of IoT Edge are available.
 
@@ -89,9 +80,6 @@ If you want to update to the most recent version of IoT Edge, use the following 
 ```bash
 sudo yum install aziot-edge
 ```
-
-<!-- end iotedge-2020-11 -->
-:::moniker-end
 <!--End repeated Linux content for RHEL-->
 
 # [Linux on Windows](#tab/linuxonwindows)
@@ -100,15 +88,9 @@ For information about IoT Edge for Linux on Windows updates, see [EFLOW Updates]
 
 # [Windows](#tab/windows)
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 >[!NOTE]
 >Currently, there is no support for IoT Edge version 1.4 running on Windows devices.
 >
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 ---
 
@@ -183,7 +165,7 @@ Some of the key differences between the latest release and version 1.1 and earli
 * The **libiothsm-std** package is no longer used. If you used the standard package provided as part of the IoT Edge release, then your configurations can be transferred to the new version. If you used a different implementation of libiothsm-std, then any user-provided certificates like the device identity certificate, device CA, and trust bundle will need to be reconfigured.
 * A new identity service, **[aziot-identity-service](https://azure.github.io/iot-identity-service/)** was introduced as part of the 1.2 release. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub, like [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md).
 * The default config file has a new name and location. Formerly `/etc/iotedge/config.yaml`, your device configuration information is now expected to be in `/etc/aziot/config.toml` by default. The `iotedge config import` command can be used to help migrate configuration information from the old location and syntax to the new one.
-  * The import command can't detect or modify access rules to a device's trusted platform module (TPM). If your device uses TPM attestation, you need to manually update the /etc/udev/rules.d/tpmaccess.rules file to give access to the aziottpm service. For more information, see [Give IoT Edge access to the TPM](how-to-auto-provision-simulated-device-linux.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm).
+  * The import command can't detect or modify access rules to a device's trusted platform module (TPM). If your device uses TPM attestation, you need to manually update the /etc/udev/rules.d/tpmaccess.rules file to give access to the aziottpm service. For more information, see [Give IoT Edge access to the TPM](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
 * The workload API in the latest version saves encrypted secrets in a new format. If you upgrade from an older version to latest version, the existing master encryption key is imported. The workload API can read secrets saved in the prior format using the imported encryption key. However, the workload API can't write encrypted secrets in the old format. Once a secret is re-encrypted by a module, it's saved in the new format. Secrets encrypted in the latest version are unreadable by the same module in version 1.1. If you persist encrypted data to a host-mounted folder or volume, always create a backup copy of the data *before* upgrading to retain the ability to downgrade if necessary.
 * For backward compatibility when connecting devices that don't support TLS 1.2, you can configure Edge Hub to still accept TLS 1.0 or 1.1 via the [SslProtocols environment variable](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md#edgehub).  Please note that support for [TLS 1.0 and 1.1 in IoT Hub is considered legacy](../iot-hub/iot-hub-tls-support.md) and may also be removed from Edge Hub in future releases.  To avoid future issues, use TLS 1.2 as the only TLS version when connecting to Edge Hub or IoT Hub.
 * The preview for the experimental MQTT broker in Edge Hub 1.2 has ended and isn't included in Edge Hub 1.4. We're continuing to refine our plans for an MQTT broker based on feedback received. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like Mosquitto as an IoT Edge module. 

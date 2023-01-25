@@ -13,7 +13,7 @@ ms.custom:  "amqp, mqtt, devx-track-csharp"
 
 # Understand the Azure IoT Edge runtime and its architecture
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 The IoT Edge runtime is a collection of programs that turn a device into an IoT Edge device. Collectively, the IoT Edge runtime components enable IoT Edge devices to receive code to run at the edge and communicate the results.
 
@@ -32,10 +32,8 @@ The IoT Edge runtime is responsible for the following functions on IoT Edge devi
 * Manage communication between modules on an IoT Edge device.
 
 * Manage communication between an IoT Edge device and the cloud.
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
+
 * Manage communication between IoT Edge devices.
-::: moniker-end
 
 ![Runtime communicates insights and module health to IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
@@ -81,9 +79,6 @@ To reduce the bandwidth that your IoT Edge solution uses, the IoT Edge hub optim
 ![IoT Edge hub is a gateway between physical devices and IoT Hub](./media/iot-edge-runtime/gateway-communication.png)
 
 IoT Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, IoT Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the IoT Edge hub's module twin. The size of the cache isn't capped and will grow as long as the device has storage capacity. For more information, see [Offline capabilities](offline-capabilities.md).
-
-<!-- <iotedge-2020-11> -->
-::: moniker range=">=iotedge-2020-11"
 
 ### Local communication
 
@@ -151,8 +146,6 @@ By verifying that a client belongs to its set of trusted clients defined in IoT 
 The IoT Edge hub is entirely controlled by the cloud. It gets its configuration from IoT Hub via its [module twin](iot-edge-modules.md#module-twins). The twin contains a desired property called routes that declares how messages are passed within a deployment. For more information on routes, see [declare routes](module-composition.md#declare-routes).
 
 Additionally, several configurations can be done by setting up [environment variables on the IoT Edge hub](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
-::: moniker-end
-<!-- end iotedge-2020-11 -->
 
 ## Runtime quality telemetry
 

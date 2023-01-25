@@ -12,7 +12,7 @@ ms.custom: contperf-fy21q2
 
 # Create and provision IoT Edge devices at scale on Linux using X.509 certificates
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more Linux IoT Edge devices using X.509 certificates. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
@@ -77,9 +77,6 @@ Have the following information ready:
 * The device identity certificate chain file on the device.
 * The device identity key file on the device.
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
    ```bash
@@ -129,15 +126,8 @@ Have the following information ready:
 
 1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
-:::moniker-end
-
-<!-- iotedge-1.4 -->
-:::moniker range=">=iotedge-1.4"
 1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
-:::moniker-end
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 1. Save and close the file.
 
 1. Apply the configuration changes that you made to IoT Edge.
@@ -145,9 +135,6 @@ Have the following information ready:
    ```bash
    sudo iotedge config apply
    ```
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 ## Verify successful installation
 
@@ -164,9 +151,6 @@ You can verify that the group enrollment that you created in device provisioning
 ---
 
 Use the following commands on your device to verify that the IoT Edge installed and started successfully.
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 Check the status of the IoT Edge service.
 
@@ -185,8 +169,6 @@ List running modules.
 ```cmd/sh
 sudo iotedge list
 ```
-
-:::moniker-end
 
 ## Next steps
 

@@ -127,44 +127,6 @@ Once the Moby engine is successfully installed, configure it to use [`local` log
 
 ### Install the IoT Edge runtime
 
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
-
-The IoT Edge security daemon provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
-
-The steps in this section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the **Offline or specific version installation** steps later in this article.
-
-Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
-
-# [Ubuntu](#tab/ubuntu)
-
-   ```bash
-   sudo apt-get update; \
-     sudo apt-get install iotedge
-   ```
-
-# [Debian](#tab/debian)
-
-   ```bash
-   sudo apt-get update; \
-     sudo apt-get install iotedge
-   ```
-
-# [Red Hat Enterprise Linux](#tab/rhel)
-
-IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux 8.
-
----
-
->[!NOTE]
->IoT Edge version 1.1 is the long-term support branch of IoT Edge. If you are running an older version, we recommend installing or updating to the latest patch as older versions are no longer supported.
-
-<!-- end 1.1 -->
-::: moniker-end
-
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
-
 The IoT Edge service provides and maintains security standards on the IoT Edge device. The service starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
 Beginning with version 1.2, the IoT identity service handles identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub.
@@ -204,6 +166,3 @@ The defender-iot-micro-agent-edge package includes the Microsoft Defender for Io
    sudo yum install aziot-edge
    ```
 ---
-
-<!-- end iotedge-2020-11 -->
-::: moniker-end
