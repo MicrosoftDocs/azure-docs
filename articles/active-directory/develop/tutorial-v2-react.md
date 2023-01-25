@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 24/01/2023
+ms.date: 01/24/2023
 ms.author: dmwendia
 ms.reviewer: jamesmantu
 ms.custom: aaddev, devx-track-js
