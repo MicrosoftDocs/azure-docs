@@ -23,6 +23,10 @@ This article helps you understand this new feature, and how to implement it.
 
 - The `aks-preview` Azure CLI extension version 0.5.123 or later to select the Mariner 2.0 operating system SKU.
 
+- The `KataVMIsolationPreview` feature is registered in your Azure subscription.
+
+- Kubernetes version 1.24.6 and higher. Earlier versions of Kubernetes aren't supported in this preview release.
+
 - If you want to run `kubectl` locally on your Windows system, you can install it using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
 
     ```azurepowershell
@@ -31,7 +35,7 @@ This article helps you understand this new feature, and how to implement it.
 
    To install it locally on your Linux system, see [Install and setup Kubectl on Linux][install-kubectl-linux].
 
-## Install the aks-preview Azure CLI extension
+### Install the aks-preview Azure CLI extension
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -47,7 +51,7 @@ Run the following command to update to the latest version of the extension relea
 az extension update --name aks-preview
 ```
 
-## Register the 'KataVMIsolationPreview' feature flag
+### Register the 'KataVMIsolationPreview' feature flag
 
 Register the `KataVMIsolationPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
@@ -98,14 +102,13 @@ Perform the following steps to deploy an AKS Mariner cluster using either the Az
 1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
 
    * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. With this parameter, these other parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-    * **--kubernetes-version**: Value must be 1.24.6 and higher. Earlier versions of Kubernetes aren't supported in this preview release.
     * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in this preview release.
     * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --kubernetes-version 1.24.6
+    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
@@ -302,7 +305,7 @@ To add Mariner to an existing ARM template, you need to add the following:
     default_node_pool {
       name = "default"
       node_count = 2
-      vm_size = "Standard_D2_v2"
+      vm_size = "Standard_D4s_v3"
       os_sku = "CBLMariner"
     }
     ```
@@ -313,7 +316,7 @@ You can also specify the Mariner `os_sku` in [`azurerm_kubernetes_cluster_node_p
 
 ## Deploy to an existing cluster
 
-To update an existing AKS cluster, if the cluster is running version 1.24.0 and higher, you can use the following command to enable Pod Sandboxing (preview).
+To update an existing AKS cluster, if the cluster is running version 1.24.6 and higher, you can use the following command to enable Pod Sandboxing (preview).
 
 1. Create an AKS cluster using the [az aks nodepool add][az-aks-nodepool-add] command and specifying the following parameters:
 
@@ -327,7 +330,7 @@ To update an existing AKS cluster, if the cluster is running version 1.24.0 and 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli
-    az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --kubernetes-version 1.24.0
+    az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
     ```
 
 ## Deploy a trusted application
