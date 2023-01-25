@@ -143,7 +143,7 @@ The Oracle JDE application needs to recognize the user. Using a name, the applic
    >[!NOTE]
    >You have the option to upload a certificate from a file.
 
-   ![Screenshot that shows uploading cert from a file option.](media/datawiza-azure-ad-sso-oracle-jde/upload-cert-new.png)
+   ![Screenshot that shows uploading cert from a file option.](media/datawiza-azure-ad-sso-oracle-jde/cert-upload-new.png)
 
 8. Select **Save**.
 
