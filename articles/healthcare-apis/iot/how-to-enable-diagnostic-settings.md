@@ -15,7 +15,7 @@ ms.author: jasteppe
 In this article, you'll learn how to enable diagnostic settings for the MedTech service to:
 
 > [!div class="checklist"]
-> - Create a diagnostic setting to export logs and metrics for audit, analysis, backup, or troubleshooting of your MedTech service.
+> - Create a diagnostic setting to export logs and metrics for audit, analysis, or troubleshooting of the MedTech service.
 > - Use the Azure Log Analytics workspace to view the MedTech service logs.
 > - Access the MedTech service pre-defined Azure Log Analytics queries.
 
