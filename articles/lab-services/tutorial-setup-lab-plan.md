@@ -21,8 +21,9 @@ In this tutorial, you'll learn how to:
 > * Create a lab plan
 > * Assign a user to the Lab Creator role
 > * Create a lab
-> * Customize the template VM
+> * Customize the lab template
 > * Publish the lab to create lab VMs
+> * Add a recurring lab schedule
 > * Invite users to the lab via email
 
 ## Prerequisites
@@ -31,46 +32,69 @@ In this tutorial, you'll learn how to:
 
 ## Create a lab plan
 
-The following steps illustrate how to use the Azure portal to create a lab plan with Azure Lab Services.
+In Azure Lab Services, a lab plan serves as a collection of configurations and settings that apply to all the labs created from it.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+Follow these steps to create a lab plan from the Azure portal:
 
-    :::image type="content" source="./media/tutorial-setup-lab-plan/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal home page, highlighting the Create a resource button.":::
-
-1. Search for **lab plan**.  (**Lab plan** can also be found under the **DevOps** category.)
-1. On the **Lab plan** tile, select the **Create** dropdown and choose **Lab plan**.
-
-    :::image type="content" source="./media/tutorial-setup-lab-plan/select-lab-plans-service.png" alt-text="Screenshot of how to search for and create a lab plan by using the Azure Marketplace.":::
-
-1. On the **Basics** tab of the **Create a lab plan** page, provide the following information:
-
-    | Field        | Description                |
-    | ------------ | -------------------------- |
-    | **Subscription** | Select the Azure subscription that you want to use to create the lab plan. |
-    | **Resource group** | Select an existing resource group or select **Create new**, and enter a name for the new resource group. |
-    | **Name** | Enter a unique lab plan name. <br/>For more information about naming restrictions, see [Microsoft.LabServices resource name rules](../azure-resource-manager/management/resource-name-rules.md#microsoftlabservices). |
-    | **Region** | Select a geographic location to host your lab plan. |
-
-1. After you're finished configuring the resource, select **Review + Create**.
-
-    :::image type="content" source="./media/tutorial-setup-lab-plan/lab-plan-basics-page.png" alt-text="Screenshot that shows the Basics tab to create a new lab plan in the Azure portal.":::
-
-1. Review all the configuration settings and select **Create** to start the deployment of the Lab Plan.
-
-1. To view the new resource, select **Go to resource**.
-
-    :::image type="content" source="./media/tutorial-setup-lab-plan/go-to-lab-plan.png" alt-text="Screenshot that shows the resource deployment completion page in the Azure portal.":::
-
-1. Confirm that you see the lab plan **Overview** page.
-
-    :::image type="content" source="./media/tutorial-setup-lab-plan/lab-plan-page.png" alt-text="Screenshot that shows the lab plan overview page in the Azure portal.":::
+[!INCLUDE [Create a lab plan](./includes/lab-services-tutorial-create-lab-plan.md)]
 
 You've now successfully created a lab plan by using the Azure portal. To let others create labs in the lab plan, you assign them the Lab Creator role.
 
 ## Add a user to the Lab Creator role
 
 [!INCLUDE [Add Lab Creator role](./includes/lab-services-add-lab-creator.md)]
+
+## Create a lab
+
+Next, you use the Azure Lab Services website to create a customizable lab (lab template) in the lab plan. In Azure Lab Services, a lab contains the configuration and settings for creating lab VMs. All lab VMs within a lab are identical. In the next section, you'll customize the lab template for the classroom training.
+
+Follow these steps to add a lab to the lab plan you created earlier:
+
+1. Sign in to the [Azure Lab Services website](https://labs.azure.com) by using the credentials for your Azure subscription.
+
+1. Select **New lab**.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/new-lab-button.png" alt-text="Screenshot of the Azure Lab Services website, highlighting the New lab button.":::
+
+1. On the **New Lab** page, enter the following information, and then select **Next**:
+
+    | Field        | Description                |
+    | ------------ | -------------------------- |
+    | **Name** | Enter *Programming-101*. |
+    | **Virtual machine image** | Select *Windows 11 Pro*. |
+    | **Virtual machine size** | Select *Small*. |
+    | **Location** | Leave the default value. |
+
+1. On the **Virtual machine credentials** page, specify the default **username** and **password**, and then select **Next**.
+
+    By default, all the lab VMs use the same credentials.
+
+    > [!IMPORTANT]
+    > Make a note of user name and password. They won't be shown again.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/new-lab-credentials.png" alt-text="Screenshot of the Virtual machine credentials page in the Azure Lab Services website.":::
+
+1. On the **Lab policies** page, leave the default values and select **Next**.
+
+1. On the **Template virtual machine settings** page, select **Create a template virtual machine**.
+
+    A *template virtual machine* enables you to make configuration changes or install software on top of the base VM image.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/template-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings page, highlighting the option to create a template VM.":::
+
+1. Select **Finish** to start the lab creation. It might take several minutes for the lab creation to finish.
+
+1. When the lab creation finishes, you can see the lab details in the **Template** page.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/lab-template.png" alt-text="Screenshot of Template page for a lab.":::
+
+## Customize the lab template
+
+## Publish lab
+
+## Add a lab schedule
+
+## Invite users
 
 ## Troubleshooting
 
