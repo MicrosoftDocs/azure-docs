@@ -31,7 +31,7 @@ Details about each sensor are listed in the following columns:
 |**Zone**| Displays the zone that contains this sensor.|
 |**Subscription name**| Displays the name of the Microsoft Azure account subscription that this sensor belongs to. |
 |**Sensor version**| Displays the OT monitoring software version installed on your sensor. |
-|**Sensor health**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview).|
+|**Sensor health**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health).|
 |**Last connected (UTC)**| Displays how long ago the sensor was last connected.|
 |**Threat Intelligence version**| Displays the [Threat Intelligence version](how-to-work-with-threat-intelligence-packages.md) installed on an OT sensor. The name of the version is based on the day the package was built by Defender for IoT. |
 |**Threat Intelligence mode**| Displays whether the Threat Intelligence update mode is manual or automatic. If it's manual that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages will be automatically installed on all OT, cloud-connected sensors. |
@@ -72,7 +72,7 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Create an activation command**     | Individual, Enterprise IoT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  Select **Edit** and   then select **Create activation command**. <br><br>For more information, see [Install Enterprise IoT sensor software](eiot-sensor.md#install-enterprise-iot-sensor-software).        |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Edit automatic threat intelligence updates**     | Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  <br><br>Select **Edit** and then toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes. |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-delete.png" border="false"::: **Delete a sensor**    |   For individual sensors only, from the **...** options menu or a sensor details page.      |
-| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support (Public preview)](#upload-a-diagnostics-log-for-support-public-preview).|
+| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support](#upload-a-diagnostics-log-for-support).|
 | **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).|
 | **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
 |<a name="endpoint"></a> **Download endpoint details** (Public preview) | Available from the **Sites and sensors** toolbar **More actions** menu, for OT sensor versions 22.x only. <br><br>Download the list of endpoints that must be enabled as secure endpoints from OT network sensors. Make sure that HTTPS traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.<br><br>To enable this option, select a sensor with a supported software version, or a site with one or more sensors with supported versions. |
@@ -156,7 +156,7 @@ This procedure describes how to view sensor health data from the Azure portal. S
 
 For more information, see our [Sensor health message reference](sensor-health-messages.md).
 
-## Upload a diagnostics log for support (Public preview)
+## Upload a diagnostics log for support
 
 If you need to open a support ticket for a locally managed sensor, upload a diagnostics log to the Azure portal for the support team.
 
@@ -170,7 +170,7 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
 
 1. In Defender for IoT in the Azure portal, go to the **Sites and sensors** page and select the locally managed sensor that's related to your support ticket.
 
-1. For your selected sensor, select the **...** options menu on the right > **Send diagnostic files to support (Preview)**. For example:
+1. For your selected sensor, select the **...** options menu on the right > **Send diagnostic files to support**. For example:
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
 
