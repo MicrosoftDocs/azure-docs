@@ -11,7 +11,7 @@ services: iot-edge
 ---
 # Manage IoT Edge certificates
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
@@ -32,9 +32,6 @@ All IoT Edge devices use certificates to create secure connections between the r
     ```bash
     sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
     ```
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 ## Format requirements
 
@@ -606,9 +603,6 @@ retry = "2%"
 ```
 
 Automatic renewal for Edge CA can't be disabled when issuance method is set to EST, since Edge CA expiration must be avoided as it breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method](#example-use-edge-ca-certificate-files-from-pki-provider) instead.
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 ## Module server certificates
 

@@ -13,18 +13,12 @@ ms.custom:  [amqp, mqtt]
 
 # Configure an IoT Edge device to act as a transparent gateway
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides detailed instructions for configuring an IoT Edge device to function as a transparent gateway for other devices to communicate with IoT Hub. This article uses the term *IoT Edge gateway* to refer to an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
 
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
-
 >[!NOTE]
 >Downstream devices can't use file upload.
-
-::: moniker-end
-<!--end iotedge-2020-11-->
 
 There are three general steps to set up a successful transparent gateway connection. This article covers the first step:
 
@@ -34,11 +28,7 @@ There are three general steps to set up a successful transparent gateway connect
 
 For a device to act as a gateway, it needs to securely connect to its downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we're allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the gateway device. This identity check prevents your devices from connecting to potentially malicious gateways.
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](../iot-hub/index.yml) cloud service. These applications often use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself.
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), a series of certificates signed with this CA, and a CA for the IoT Edge device.
 
@@ -198,9 +188,6 @@ Now, you need to copy the certificates to the Azure IoT Edge for Linux on Window
 
 ### Configure certificates on device
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 1. On your IoT Edge device, open the config file: `/etc/aziot/config.toml`. If you're using IoT Edge for Linux on Windows, you'll have to connect to the EFLOW virtual machine using the `Connect-EflowVm` PowerShell cmdlet.
 
    >[!TIP]
@@ -219,9 +206,6 @@ Now, you need to copy the certificates to the Azure IoT Edge for Linux on Window
    ```bash
    sudo iotedge config apply
    ```
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 ## Deploy edgeHub and route messages
 

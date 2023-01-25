@@ -10,7 +10,7 @@ services: iot-edge
 ---
 # Create and provision IoT Edge devices at scale on Linux using symmetric key
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more Linux IoT Edge devices using symmetric keys. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
@@ -19,10 +19,8 @@ The tasks are as follows:
 1. Create either an **individual enrollment** for a single device or a **group enrollment** for a set of devices.
 1. Install the IoT Edge runtime and connect to the IoT Hub.
 
-:::moniker range=">=iotedge-2020-11"
 >[!TIP]
 >For a simplified experience, try the [Azure IoT Edge configuration tool](https://github.com/azure/iot-edge-config). This command-line tool, currently in public preview, installs IoT Edge on your device and provisions it using DPS and symmetric key attestation.
-:::moniker-end
 
 Symmetric key attestation is a simple approach to authenticating a device with a device provisioning service instance. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or do not have strict security requirements. Device attestation using a [TPM](../iot-dps/concepts-tpm-attestation.md) or [X.509 certificates](../iot-dps/concepts-x509-attestation.md) is more secure, and should be used for more stringent security requirements.
 
@@ -52,9 +50,6 @@ Have the following information ready:
 * The DPS **ID Scope** value
 * The device **Registration ID** you created
 * Either the **Primary Key** from an individual enrollment, or a [derived key](#derive-a-device-key) for devices using a group enrollment.
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
@@ -97,17 +92,9 @@ Have the following information ready:
 
 Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
-:::moniker-end
-
-<!-- iotedge-1.4 -->
-:::moniker range=">=iotedge-1.4"
 
 Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
 
-:::moniker-end
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 Save and close the file.
 
@@ -116,9 +103,6 @@ Apply the configuration changes that you made to IoT Edge.
 ```bash
 sudo iotedge config apply
 ```
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 ## Verify successful installation
 
@@ -135,9 +119,6 @@ You can verify that the group enrollment that you created in device provisioning
 ---
 
 Use the following commands on your device to verify that the IoT Edge installed and started successfully.
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 Check the status of the IoT Edge service.
 
@@ -156,8 +137,6 @@ List running modules.
 ```cmd/sh
 sudo iotedge list
 ```
-
-:::moniker-end
 
 ## Next steps
 

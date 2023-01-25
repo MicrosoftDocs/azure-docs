@@ -11,7 +11,7 @@ services: iot-edge
 ---
 # Create and provision IoT Edge devices at scale with a TPM on Linux
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Linux device by using a Trusted Platform Module (TPM). You can automatically provision IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
@@ -143,9 +143,6 @@ After the installation is finished and you've signed back in to your VM, you're 
 
 ## Retrieve provisioning information for your TPM
 
-<!-- iotedge-1.4 -->
-:::moniker range=">=iotedge-1.4"
-
 > [!NOTE]
 > This article previously used the `tpm_device_provision` tool from the IoT C SDK to generate provisioning info. If you relied on that tool previously, then be aware the steps below generate a different registration ID for the same public endorsement key. If you need to recreate the registration ID as before then refer to how the C SDK's [tpm_device_provision tool](https://github.com/Azure/azure-iot-sdk-c/tree/main/provisioning_client/tools/tpm_device_provision) generates it. Be sure the registration ID for the individual enrollment in DPS matches the regisration ID the IoT Edge device is configured to use.
 
@@ -200,9 +197,6 @@ Run the following script to read the endorsement key, creating one if it does no
 
 The output window displays the device's **Endorsement key** and a unique **Registration ID**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
-:::moniker-end
-<!-- end iotedge-1.4 -->
-
 After you have your registration ID and endorsement key, you're ready to continue.
 
 > [!TIP]
@@ -217,9 +211,6 @@ After you have your registration ID and endorsement key, you're ready to continu
 ## Provision the device with its cloud identity
 
 After the runtime is installed on your device, configure the device with the information it uses to connect to the device provisioning service and IoT Hub.
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 1. Know your device provisioning service **ID Scope** and device **Registration ID** that were gathered previously.
 
@@ -257,26 +248,12 @@ After the runtime is installed on your device, configure the device with the inf
 1. Update the values of `id_scope` and `registration_id` with your device provisioning service and device information. The `scope_id` value is the **ID Scope** from your device provisioning service instance's overview page.
 
 1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-:::moniker-end
 
-<!-- iotedge-1.4 -->
-:::moniker range=">=iotedge-1.4"
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
 
-Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
-:::moniker-end
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
-Save and close the file.
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
+1. Save and close the file.
 
 ## Give IoT Edge access to the TPM
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 The IoT Edge runtime relies on a TPM service that brokers access to a device's TPM. This service needs to access the TPM to automatically provision your device.
 
@@ -331,13 +308,8 @@ You can give access to the TPM by overriding the systemd settings so that the `a
    sudo iotedge config apply
    ```
 
-:::moniker-end
-<!-- end iotedge-2020-11 -->
-
 ## Verify successful installation
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 If you didn't already, apply the configuration changes that you made on the device.
 
    ```bash
@@ -363,8 +335,6 @@ If you see provisioning errors, it might be that the configuration changes haven
    ```
 
 Or, try restarting your VM to see if the changes take effect on a fresh start.
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 If the runtime started successfully, you can go into your IoT hub and see that your new device was automatically provisioned. Now your device is ready to run IoT Edge modules.
 

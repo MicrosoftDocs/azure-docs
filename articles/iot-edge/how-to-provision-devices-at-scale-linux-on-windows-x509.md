@@ -11,16 +11,9 @@ services: iot-edge
 
 # Create and provision IoT Edge for Linux on Windows devices at scale using X.509 certificates
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) devices using X.509 certificates. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
-
-<!-- iotedge-2020-11 -->
-:::moniker range="=iotedge-2020-11"
->[!NOTE]
->The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.3, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use if a general availability (GA) release is available. For more information, see [EFLOW versions](./version-history.md).
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 The tasks are as follows:
 
@@ -82,16 +75,11 @@ Have the following information ready:
 * The device identity certificate chain file on the device.
 * The device identity key file on the device.
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 Run the following command in an elevated PowerShell session with the placeholder values updated with your own values:
 
 ```powershell
 Provision-EflowVm -provisioningType DpsX509 -scopeId PASTE_YOUR_ID_SCOPE_HERE -registrationId PASTE_YOUR_REGISTRATION_ID_HERE -identityCertPath PASTE_ABSOLUTE_PATH_TO_IDENTITY_CERTIFICATE_HERE -identityPrivateKey PASTE_ABSOLUTE_PATH_TO_IDENTITY_PRIVATE_KEY_HERE
 ```
-
-:::moniker-end
 
 ## Verify successful installation
 
@@ -106,9 +94,6 @@ You can verify that the individual enrollment that you created in device provisi
 You can verify that the group enrollment that you created in device provisioning service was used. Navigate to your device provisioning service instance in the Azure portal. Open the enrollment details for the group enrollment that you created. Go to the **Registration Records** tab to view all devices registered in that group.
 
 ---
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
 
@@ -147,9 +132,6 @@ You can verify that the group enrollment that you created in device provisioning
     >**Could not check current state of edgeHub container**
     >
     >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 

@@ -11,16 +11,9 @@ ms.author: patricka
 
 # Create and provision an IoT Edge for Linux on Windows device using symmetric keys
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides end-to-end instructions for registering and provisioning an IoT Edge for Linux on Windows device.
-
-<!-- iotedge-2020-11 -->
-:::moniker range="=iotedge-2020-11"
->[!NOTE]
->The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.3, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use if a general availability (GA) release is available. For more information, see [EFLOW versions](./version-history.md).
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 Every device that connects to an IoT hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
 
@@ -65,9 +58,6 @@ You're ready to set up your device with its cloud identity and authentication in
 
 To provision your device using symmetric keys, you will need your device's **connection string**.
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 Run the following command in an elevated PowerShell session on your target device. Replace the placeholder text with your own values.
 
 ```powershell
@@ -76,15 +66,9 @@ Provision-EflowVm -provisioningType ManualConnectionString -devConnString "PASTE
 
 For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#provision-eflowvm).
 
-:::moniker-end
-<!-- end iotedge-2020-11 -->
-
 ## Verify successful configuration
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
 
@@ -124,9 +108,6 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
     >
     >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 

@@ -11,7 +11,7 @@ ms.author: patricka
 
 # Create an IoT Edge device
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides an overview of the options available to you for installing and provisioning IoT Edge on your devices.
 
@@ -29,9 +29,6 @@ If you know what type of platform, provisioning, and authentication options you 
 
 If you want more information about how to choose the right option for you, continue through this article to learn more.
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 >[!NOTE]
 >The following table reflects the supported scenarios for IoT Edge version 1.4.
 
@@ -44,8 +41,6 @@ If you want more information about how to choose the right option for you, conti
 |--| ----- | ---------------- |
 | **Manual provisioning (single device)** | [X.509 certificates](how-to-provision-single-device-linux-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-symmetric.md) | [X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) |
 | **Autoprovisioning (devices at scale)** | [X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md) | [X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md) |
-
-:::moniker-end
 
 ## Terms and concepts
 
@@ -85,11 +80,7 @@ IoT Edge for Linux on Windows is the recommended way to run IoT Edge on Windows 
 
 ### Windows containers on Windows
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 IoT Edge version 1.4 doesn't support Windows containers. Windows containers are not supported beyond version 1.1.
-:::moniker-end
-<!--end iotedge-2020-11-->
 
 ## Choose how to provision your devices
 
