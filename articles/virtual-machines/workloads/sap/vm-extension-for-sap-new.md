@@ -146,9 +146,14 @@ Before deploying the VM Extension for SAP, please make sure to assign a user or 
 * [Configure managed identities for Azure resources on an Azure VM using templates](/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
 * [Terraform VM Identity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine#identity)
 
-After assigning an identity to the virtual machine, give the VM read access to either the resource group or the individual resources associated to the virtual machine (VM, Network Interfaces, OS Disks and Data Disks). It is recommended to use the built-in Reader role to grant the acceess to these resources. You can also grant this access by adding the VM identity to an Azure Active Directory group that already has read access to the required resources.
+After assigning an identity to the virtual machine, give the VM read access to either the resource group or the individual resources associated to the virtual machine (VM, Network Interfaces, OS Disks and Data Disks). It is recommended to use the built-in Reader role to grant the access to these resources. You can also grant this access by adding the VM identity to an Azure Active Directory group that already has read access to the required resources. It is then no longer needed to have Owner privileges when deploying the VM Extension for SAP if you use a user assigned identity that already has the required permissions.
 
 There are different ways how to deploy the VM Extension for SAP manually. Please find a few examples in the next chapters.
+
+The extension currently supports the following configuration keys. In the example below, the msi_res_id is shown.
+
+* msi_res_id: ID of the user assigned identity the extension should use to get the required information about the VM and its resources
+* proxy: URL of the proxy the extension should use to connect to the internet, for example to retrieve information about the virtual machine and its resources.
 
 ### Deploy manually with Azure PowerShell
 
@@ -174,6 +179,8 @@ Set-AzVMExtension -Publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" -Exten
 
 ### Deploy manually with Azure CLI
 
+The following code contains four examples. It shows how to deploy the extension on Windows and Linux, using a system or user assigned identity. Make sure to replace the name of the resource group, the location and VM name in the example.
+
 ``` bash
 # Windows VM - user assigned identity
 az vm extension set --publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" --name "MonitorX64Windows" --resource-group "<rg name>" --vm-name "<vm name>" \
@@ -192,8 +199,92 @@ az vm extension set --publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" --n
    --extension-instance-name "MonitorX64Linux" --settings '{"cfg":[]}'
 ```
 
-### Deploy manually with Azure Resource Manager Templates
 ### Deploy manually with Terraform
+
+The following manifest contains four examples. It shows how to deploy the extension on Windows and Linux, using a system or user assigned identity. Make sure to replace the ID of the VM and ID of the user assigned identity in the example.
+
+```terraform
+
+# Windows VM - user assigned identity
+
+resource "azurerm_virtual_machine_extension" "example" {
+  name                 = "MonitorX64Windows"
+  virtual_machine_id   = "<vm id>"
+  publisher            = "Microsoft.AzureCAT.AzureEnhancedMonitoring"
+  type                 = "MonitorX64Windows"
+  type_handler_version = "1.0"
+  auto_upgrade_minor_version = true
+
+  settings = <<SETTINGS
+{
+    "cfg":[
+        {
+            "key":"msi_res_id",
+            "value":"<user assigned resource id>"
+        }
+    ]
+}
+SETTINGS
+}
+
+# Windows VM - system assigned identity
+
+resource "azurerm_virtual_machine_extension" "example" {
+  name                 = "MonitorX64Windows"
+  virtual_machine_id   = "<vm id>"
+  publisher            = "Microsoft.AzureCAT.AzureEnhancedMonitoring"
+  type                 = "MonitorX64Windows"
+  type_handler_version = "1.0"
+  auto_upgrade_minor_version = true
+
+  settings = <<SETTINGS
+{
+    "cfg":[
+    ]
+}
+SETTINGS
+}
+
+# Linux VM - user assigned identity
+
+resource "azurerm_virtual_machine_extension" "example" {
+  name                 = "MonitorX64Linux"
+  virtual_machine_id   = "<vm id>"
+  publisher            = "Microsoft.AzureCAT.AzureEnhancedMonitoring"
+  type                 = "MonitorX64Linux"
+  type_handler_version = "1.0"
+  auto_upgrade_minor_version = true
+
+  settings = <<SETTINGS
+{
+    "cfg":[
+        {
+            "key":"msi_res_id",
+            "value":"<user assigned resource id>"
+        }
+    ]
+}
+SETTINGS
+}
+
+# Linux VM - system assigned identity
+
+resource "azurerm_virtual_machine_extension" "example" {
+  name                 = "MonitorX64Linux"
+  virtual_machine_id   = "<vm id>"
+  publisher            = "Microsoft.AzureCAT.AzureEnhancedMonitoring"
+  type                 = "MonitorX64Linux"
+  type_handler_version = "1.0"
+  auto_upgrade_minor_version = true
+
+  settings = <<SETTINGS
+{
+    "cfg":[
+    ]
+}
+SETTINGS
+}
+```
 
 ### Versions of the VM Extension for SAP
 
