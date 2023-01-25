@@ -33,7 +33,7 @@ The [Azure Video Indexer website](https://www.videoindexer.ai/) now has a notifi
 
 **Textual logo detection** enables you to customize text logos to be detected within videos. For more information, see [Detect textual logo](detect-textual-logo.md).
 
-### Switch directories
+### Switching directories
 
 You can now switch Azure AD directories and manage Azure Video Indexer accounts across tenants using the [Azure Video Indexer website](https://www.videoindexer.ai/).
 
