@@ -62,18 +62,20 @@ You now have a minishell session set up ready to enable your Azure Kubernetes Se
 
 ## Enable Azure Kubernetes Service on the Azure Stack Edge device
 
-Run the following commands at the Powershell prompt, specifying the object ID you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+Run the following commands at the PowerShell prompt, specifying the object ID you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
-`Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId <oid_from_prereqs>}`
+```powershell
+Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId <oid_from_prereqs>}
 
-`Invoke-Command -Session $minishellSession -ScriptBlock {Enable-HcsAzureKubernetesService -f}`
+Invoke-Command -Session $minishellSession -ScriptBlock {Enable-HcsAzureKubernetesService -f}
+```
 
 Once you've run these commands, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted":::
 
 You'll set up the configuration in [Add Compute and IP addresses](#add-compute-and-ip-addresses).
-Additionally, if you go to the Azure portal and find your Azure Stack Edge resource you should see an Azure Kubernetes Service option (shown in the following image). You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
+Additionally, if you go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-ASE-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
 
@@ -81,7 +83,9 @@ Additionally, if you go to the Azure portal and find your Azure Stack Edge resou
 
 Azure Private 5G Core private requires high performance networking (HPN) to be enabled on Azure Stack Edge using a minishell command. You can continue to use the minishell session you started in [Enter a minishell session](#enter-a-minishell-session). Run the following command:
 
-`Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsNumaLpMapping -UseSkuPolicy}`
+```powershell
+Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsNumaLpMapping -UseSkuPolicy}
+```
 
 Wait for the machine to reboot if necessary (approximately 5 minutes).
 
@@ -92,34 +96,32 @@ You now need to configure virtual switches and virtual networks on those switche
 You can input all the settings on this page before selecting **Apply** at the bottom to apply them all at once.
 
 
-1. Configure three virtual switches. There must be a virtual switch associated with each port before the next step. The virtual switches may already be present if you have other Virtual Network Functions (VNFs) set up.
+1. Configure three virtual switches. There must be a virtual switch associated with each port before the next step. The virtual switches may already be present if you have other virtual network functions (VNFs) set up.
 
     - Select **Add virtual switch** and fill in the side panel appropriately for each switch before selecting **Modify** to save that configuration.
-      - Create a virtual switch on the port that should have compute enabled (the management port). We recommend using the format *vswitch-portX*, where *X* is the number of the port. For example, create *vswitch-port3* on port 3.  
-      - Create a virtual switch on port 5 with the name *vswitch-port5*.
-      - Create a virtual switch on port 6 with the name *vswitch-port6*.
+      - Create a virtual switch on the port that should have compute enabled (the management port). We recommend using the format **vswitch-portX**, where **X** is the number of the port. For example, create **vswitch-port*3* on port 3.  
+      - Create a virtual switch on port 5 with the name **vswitch-port5**.
+      - Create a virtual switch on port 6 with the name **vswitch-port6**.
 
     You should now see something similar to the following image:
     :::image type="content" source="media/commission-a-cluster/commission-a-cluster-virtual-switch.png" alt-text="Screenshot showing three virtual switches, where the names correspond to the network interface the switch is on. ":::
     
-1. Configure virtual networks for your ports.
+1. Create virtual networks representing the following interfaces (which you allocated subnets and IP addresses for in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses)):
+    - control plane access interface
+    - user plane access interface
+    - user plane data interface(s)
 
-    - Create virtual networks representing the following interfaces:
-      - Control Plane Access Interface
-      - User Plane Access Interface
-      - User Plane Date Interface(s)
-    - You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core.
-      - For example, if you’re deploying a 5G core, you can use the names N2, N3 and N6-DN1, N6-DN2, N6-DN3 (for a deployment with multiple data networks (DNs); just N6 for a single DN deployment). The following example is for a multi-DN deployment.
+    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, if you’re deploying a 5G core, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a deployment with multiple data networks (DNs); just **N6** for a single DN deployment). The following example is for a 5G multi-DN deployment.
 
-1. Carry out the following procedure three times plus once for each of the supplementary data networks (so five times in total if you have 3 DNs on the N6 side): 
+1. Carry out the following procedure three times plus once for each of the supplementary data networks (so five times in total if you have three data networks): 
 
     - Select **Add virtual network** and fill in the side panel.
-      - **Virtual switch**: select *vswitch-port5* for N2 and N3, and select *vswitch-port6* for N6-DN1, N6-DN2, and N6-DN3.
+      - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
       - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
       - **VLAN**: 0
       - **Subnet mask** and **Gateway** must match the external values for the port.
         - For example, *255.255.255.0* and *10.232.44.1*
-        - If there's no gateway between the Access Interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
+        - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
       - Select **Modify** to save the configuration for this virtual network.
     - Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
     
@@ -129,18 +131,18 @@ You can input all the settings on this page before selecting **Apply** at the bo
 
 ## Add compute and IP addresses
 
-In the local Azure Stack Edge UI, go to the Kubernetes (Preview) page. You'll set up all of the configuration and then apply it once, as you did in [Set up Advanced Networking](#set-up-advanced-networking).
+In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'll set up all of the configuration and then apply it once, as you did in [Set up Advanced Networking](#set-up-advanced-networking).
 
 1. Under **Compute virtual switch**, select **Modify**.
       - Select the management vswitch (for example, *vswitch-port3*)
       - Enter six IP addresses in a range for the node IP addresses on the management network.
       - Enter one IP address in a range for the service IP address, also on the management network.
       - Select **Modify** at the bottom of the panel to save the configuration.
-1. Under **Virtual network**, select a vnet (from **N2**, **N3**, **N6-DN1**, **N6-DN2**, and **N6-DN3**). In the side panel:
-      - Enable the vnet for Kubernetes and add a pool of IP addresses.
+1. Under **Virtual network**, select a virtual network (from **N2**, **N3**, **N6-DN1**, **N6-DN2**, and **N6-DN3**). In the side panel:
+      - Enable the virtual network for Kubernetes and add a pool of IP addresses.
         - Add a range of one IP address for the appropriate address (N2, N3, N6-DN1, N6-DN2 or N6-DN3 as collected earlier.
         - For example, *10.10.10.20-10.10.10.20*.
-      - Repeat for each of the N2, N3, N6-DN1, N6-DN2, and N6-DN3 vnets.
+      - Repeat for each of the N2, N3, N6-DN1, N6-DN2, and N6-DN3 virtual networks.
       - Select **Modify** at the bottom of the panel to save the configuration.
 1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 15 minutes.
 
@@ -150,24 +152,24 @@ The page should now look like the following image:
 
 ## Start the cluster and set up Arc
 
-Access the Azure portal and go to the Azure Stack Edge resource created in the Azure portal.
+Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
 
 If you're running other VMs on your Azure Stack Edge, we recommend that you stop them now, and start them again once the cluster is deployed. The cluster requires access to specific CPU resources that running VMs may already be using.
 
 You will need Owner permission on the resource group.
 
-1. To deploy the cluster, select the Kubernetes option and then select the **Add** button to configure the cluster.
+1. To deploy the cluster, select the **Kubernetes** option and then select the **Add** button to configure the cluster.
 
    :::image type="content" source="media/commission-a-cluster/commission-a-cluster-add-kubernetes.png" alt-text="Screenshot of Kubernetes Overview pane, showing the Add button to configure Kubernetes service.":::
 
 1. For the **Node size**, select **Standard_F16s_HPN**.
 1. Ensure the **Arc enabled Kubernetes** checkbox is selected.
-1. The Arc enabled Kubernetes service is automatically created in the same resource group as your Azure Stack Edge resource. If your Azure Stack Edge resource group is not in a region that supports Azure Private 5G Core, you must change the region using the **Change** link.
+1. The Arc enabled Kubernetes service is automatically created in the same resource group as your **Azure Stack Edge** resource. If your Azure Stack Edge resource group is not in a region that supports Azure Private 5G Core, you must change the region using the **Change** link.
 1. Work through the prompts to set up the service.
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-create-kubernetes-service.png" alt-text="Screenshot of Create Kubernetes service, showing the basic cluster configuration described in steps 1 to 4.":::
 
-The creation of the Kubernetes cluster takes about 20 minutes. During creation, there may be a critical alarm displayed on the Azure Stack Edge resource. This alarm is expected and should disappear after a few minutes.
+The creation of the Kubernetes cluster takes about 20 minutes. During creation, there may be a critical alarm displayed on the **Azure Stack Edge** resource. This alarm is expected and should disappear after a few minutes.
 
 Once deployed, the portal should show that the Kubernetes service is healthy, as in the following image:
 
@@ -201,11 +203,9 @@ The Azure Private 5G Core deployment uses the *core* namespace. If you need to c
     
     `Invoke-Command -Session $miniShellSession -ScriptBlock { Get-HcsKubernetesUserConfig -UserName "core" }`
 
-For full administrator access to the cluster, you need to use a support session to obtain the administrator *kubeconfig*. This should only be required if there's a suspected issue with the platform itself. If you need this, contact your support representative.
-
 ## Set up portal access
 
-Open your Azure Stack Edge resource in the Azure portal. Go to the Azure Kubernetes Service pane (shown in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc)) and select the **Manage** link to open the **Arc** pane.
+Open your **Azure Stack Edge** resource in the Azure portal. Go to the Azure Kubernetes Service pane (shown in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc)) and select the **Manage** link to open the **Arc** pane.
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-manage-kubernetes.png" alt-text="Screenshot of part of the Azure Kubernetes Service (PREVIEW) Overview pane, showing the Manage link for Arc enabled Kubernetes.":::
 
@@ -243,12 +243,11 @@ You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Nam
 
 <!-- Should all the $ strings just be placeholder text for the user to replace (and we should have a table to collect this info)? Or all set as environment variables as the first step? -->
 
-1. Log in to the Azure CLI and prepare your environment: <!-- Not sure how to descibe what's going on here -->
+1. Log in to the Azure CLI and prepare your environment:
 
     ```azurecli-interactive
-    az_setup
-          az cloud set --name AzureCloud --only-show-errors --output none
-          az account set --subscription "$ARG_SUBSCRIPTION_ID"
+    az cloud set --name AzureCloud --only-show-errors --output none
+    az account set --subscription "$ARG_SUBSCRIPTION_ID"
     ```
 
 1. Register preview features in your Azure subscription:
@@ -323,7 +322,7 @@ You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Nam
     --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
     ```
 
-You should see the new Custom Location visible as a resource in the Azure portal within the specified Resource Group. Using the `kubectl get pods -A` command (with access to your *kubeconfig* file) should also show new pods corresponding to the extensions that have been installed. There should be one pod in the *azurehybridnetwork* namespace, and one in the *packet-core-monitor* namespace.
+You should see the new **Custom Location** visible as a resource in the Azure portal within the specified resource group. Using the `kubectl get pods -A` command (with access to your *kubeconfig* file) should also show new pods corresponding to the extensions that have been installed. There should be one pod in the *azurehybridnetwork* namespace, and one in the *packet-core-monitor* namespace.
 
 ## Rollback
 

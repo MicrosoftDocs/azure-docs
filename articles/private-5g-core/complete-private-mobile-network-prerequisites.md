@@ -16,8 +16,6 @@ In this how-to guide, you'll carry out each of the tasks you need to complete be
 
 ## Get access to Azure Private 5G Core for your Azure subscription
 
-<!-- Need to drop the trials engineer requirement. How does this work from GA? -->
-
 Contact your trials engineer and ask them to register your Azure subscription for access to Azure Private 5G Core. If you don't already have a trials engineer and are interested in trialing Azure Private 5G Core, contact your Microsoft account team, or express your interest through the [partner registration form](https://aka.ms/privateMECMSP).
 
 Once your trials engineer has confirmed your access, register the Mobile Network resource provider (Microsoft.MobileNetwork) for your subscription, as described in [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
@@ -112,18 +110,20 @@ You should set these up in addition to the [ports required for Azure Stack Edge 
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
 | All IP traffic       | Port 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
 
-## Obtain the Object ID (OID)
+## Obtain the object ID (OID)
 
-You need to obtain the Object ID (OID) of the Custom Location Resource Provider in your Azure tenant.  You will need to provide this OID when you configure your ASE to use AKS-HCI.  You can obtain the OID using the Azure CLI. You will need to be an owner of your Azure subscription.
+You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant.  You will need to provide this OID when you configure your ASE to use AKS-HCI.  You can obtain the OID using the Azure CLI. You will need to be an owner of your Azure subscription.
 
 > [!TIP]
-> If you do not have the Azure CLI installed, see installation instructions at [https://learn.microsoft.com/cli/azure/install-azure-cli](/cli/azure/install-azure-cli). Alternatively, you can use the Azure Cloud Shell on the portal.
+> If you do not have the Azure CLI installed, see installation instructions at [How to install the Azure CLI](/cli/azure/install-azure-cli). Alternatively, you can use the Azure Cloud Shell on the portal.
     
-- Log into the Azure CLI with a user account that is associated with the Azure tenant that you are deploying AP5GC into:
+- Log into the Azure CLI with a user account that is associated with the Azure tenant that you are deploying Azure Private 5G Core into:
     ```azurecli-interactive
     az login
     ```
-    This may open a browser, or browse to the provided URL and enter your credentials. The web page may display a text string which if present you must enter in the Azure CLI.
+    > [!TIP]
+    > See [Sign in interactively](/cli/azure/authenticate-azure-cli) for full instructions.
+    
 - If your account has multiple subscriptions, make sure you are in the correct one:
     ```azurecli-interactive
     az account set –-subscription <subscription_id>
@@ -133,8 +133,8 @@ You need to obtain the Object ID (OID) of the Custom Location Resource Provider 
     ```azurecli-interactive
     az version
     ```
-    If the CLI version is below 2.37.0, you will need to upgrade your Azure CLI to a newer version. See [https://learn.microsoft.com/cli/azure/update-azure-cli](/cli/azure/update-azure-cli).
-- Once you have logged in, register with the required namespace:
+    If the CLI version is below 2.37.0, you will need to upgrade your Azure CLI to a newer version. See [How to update the Azure CLI](/cli/azure/update-azure-cli).
+- Register with the required namespace:
     ```azurecli-interactive
     az provider register --namespace Microsoft.ExtendedLocation  
     ```
@@ -142,7 +142,7 @@ You need to obtain the Object ID (OID) of the Custom Location Resource Provider 
     ```azurecli-interactive
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
     ```
-    This command queries the Custom Location and will output an OID string.  Save this string for use later when you are commissioning the Azure Stack Edge device.
+    This command queries the custom location and will output an OID string.  Save this string for use later when you're commissioning the Azure Stack Edge device.
 
 ## Order and set up your Azure Stack Edge Pro device(s)
 
@@ -150,7 +150,7 @@ Do the following for each site you want to add to your private mobile network. D
 
 | Step No. | Description | Detailed instructions |
 |--|--|--|
-| 1. | Complete the Azure Stack Edge Pro deployment checklist up to and including *Step 4 - configuring the network*. We recommend that you set your management port to be DHCP-enabled so you can retain remote access after the new image has been installed.  Only this management port needs to be set up at this point; installing the new image will reset the other port configuration.  | [Deployment checklist for your Azure Stack Edge Pro GPU device](../databox-online/azure-stack-edge-gpu-deploy-checklist.md)|
+| 1. | Complete the Azure Stack Edge Pro deployment checklist.| [Deployment checklist for your Azure Stack Edge Pro GPU device](../databox-online/azure-stack-edge-gpu-deploy-checklist.md)|
 | 2. | Order and prepare your Azure Stack Edge Pro device. | [Tutorial: Prepare to deploy Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal) |
 | 3. | Rack and cable your Azure Stack Edge Pro device. </br></br>When carrying out this procedure, you must ensure that the device has its ports connected as follows:</br></br>- Port 5 - access network</br>- Port 6 - data networks</br></br>Additionally, you must have a port connected to your management network. You can choose any port from 2 to 4. | [Tutorial: Install Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-install.md) |
 | 4. | Connect to your Azure Stack Edge Pro device using the local web UI. | [Tutorial: Connect to Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-connect.md) |
