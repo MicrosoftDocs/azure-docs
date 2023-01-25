@@ -98,14 +98,14 @@ Perform the following steps to deploy an AKS Mariner cluster using either the Az
 1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
 
    * **--workload-runtime**: *KataMshvVmIsolation* has to be specified. This enables the Pod Sandboxing feature on the node pool. With this parameter, these other parameters must meet the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-    * **--kubernetes-version**: Value must be 1.24.0 and higher. Earlier versions of Kubernetes aren't supported in this preview release.
+    * **--kubernetes-version**: Value must be 1.24.6 and higher. Earlier versions of Kubernetes aren't supported in this preview release.
     * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in this preview release.
     * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --kubernetes-version 1.24.0
+    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --kubernetes-version 1.24.6
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
@@ -360,18 +360,6 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
     pod/trusted created
     ```
 
-3. To verify the deployment and that the kernel is isolated, run the following command.
-
-    ```bash
-    kubectl get nodes
-    ```
-
-    The output resembles the following for an isolated node:
-
-    ```output
-    blah
-    ```
-
 ## Deploy an untrusted application
 
 To demonstrate the deployed application on the AKS cluster isn't isolated and is on the untrusted shim, perform the following steps.
@@ -391,7 +379,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
         command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
     ```
 
-   The value for **runtimeClassNameSpec** can be `kata-qemu` or `kata-mhsv`.
+   The value for **runtimeClassNameSpec** can be `kata-qemu` or `kata-mhsv-vm-isolation`.
 
 2. Deploy the Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *untrusted-app.yaml* file:
 
