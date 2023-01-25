@@ -103,7 +103,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
     You can observe that when a user submits a wrong access code, you can return an error directly from the REST API. Custom policies allow you to return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code with a response JSON body formatted as shown in `errorResponse` variable. The source of the accessCode in the app could be read from a database. Learn more about [Returning validation error message](restful-technical-profile.md#returning-validation-error-message).   
 
 1. To test the app works as expected, use the following steps:
-    1. In your terminal, run the `node index.js` command to start your app server on port `80`. 
+    1. In your terminal, run the `node index.js` command to start your app server. 
     1. To make a POST request similar to the one shown below, you can use an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview) or [Postman](https://www.postman.com/):
     
     ```http
@@ -154,10 +154,10 @@ You can test the app you've deployed by using an HTTP client such as [Microsoft 
 
 ## Step 2 - Call the REST API
 
-Now that your app is running, you need to make an HTTP call from your custom policy. Azure AD B2C custom policy provides a [RESTful Technical Profile](restful-technical-profile.md#returning-validation-error-message) that you use to call an external service.  
+Now that your app is running, you need to make an HTTP call from your custom policy. Azure AD B2C custom policy provides a [RESTful technical profile](restful-technical-profile.md#returning-validation-error-message) that you use to call an external service.  
 
 
-### Step 2.1 - Define a RESTful Technical profile 
+### Step 2.1 - Define a RESTful technical profile 
 
 In your `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` section, and define a new RESTful technical profile by using the following code: 
 
@@ -194,7 +194,7 @@ From the protocol, you can observe that we configure the Technical Profile to us
 
 - The *PartnerClaimType* attribute in the `InputClaim` specifies how you'll receive your data in the API. 
    
-### Step 2.2 - Update Validation Technical Profile
+### Step 2.2 - Update validation technical profile
 
 In [Create branching in user journey by using Azure AD B2C custom policy](custom-policies-series-branch-in-user-journey.md), you validated the *accessCode* by using a Claims Transformation. In this article, you validate the *accessCode* by making an HTTP call to an external service. So, you'll need to update your custom policy to reflect the new approach. 
 
