@@ -23,7 +23,7 @@ For more information on deploying bots with local data residency and regional co
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if the one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview.md).
+Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if the one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview).
 
 For regional bots, Azure Bot Service supports zone redundancy by default.  You don't need to set it up or reconfigure for availability zone support. 
 
@@ -45,4 +45,4 @@ Azure Bot Service runs in active-active mode for both global and regional servic
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview.md)
+> [Resiliency in Azure](/azure/availability-zones/overview)
