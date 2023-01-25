@@ -6,7 +6,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.topic: conceptual
-ms.date: 1/19/23
+ms.date: 1/19/2023
 ms.custom: references_regions
 
 ---
@@ -17,7 +17,6 @@ This article details the availability and quota limits of Azure Container Instan
 Values presented are the maximum resources available per deployment of a [container group](container-instances-container-groups.md). Values are current at time of publication. 
 
 > [!NOTE] 
-
 > Container groups created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower resource settings, or try your deployment at a later time or in a different region with available resources. 
 
 ## Default Quota Limits 
