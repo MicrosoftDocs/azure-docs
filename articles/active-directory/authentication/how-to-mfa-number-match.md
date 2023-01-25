@@ -293,7 +293,7 @@ No, the changes on February 27th won't affect the **Enable and Target** tab for 
 
 When Microsoft begins protecting all organizations by enabling number matching on February 27th, 2023, administrators will see the **Require number matching for push notifications** setting on the **Configure** tab of the Microsoft Authenticator policy is set to **Enabled** for **All users** and can't be disabled. In addition, the **Exclude** option for this setting will be removed.
 
-Users who are enabled for MFA push notifications in the legacy MFA policy will also see number match February 27th, 2023. 
+Users who are enabled for MFA push notifications in the legacy MFA policy will also see number match after February 27th, 2023. 
 
 ### How should users be prepared for default number matching?
 
@@ -329,7 +329,7 @@ Yes, currently you can disable number matching. We highly recommend that you ena
 
 ### Does number matching only apply if Microsoft Authenticator is set as the default authentication method?
 
-If the user has a different default authentication method, there won't be any change to their default sign-in. If the default method is Microsoft Authenticator and they are members of groups targeted for **Push** or **Any** on the **Enable and Target** tab, they'll start to receive number matching approval on February 27th, 2023.
+If the user has a different default authentication method, there won't be any change to their default sign-in. If the default method is Microsoft Authenticator and they are members of groups targeted for **Push** or **Any** on the **Enable and Target** tab, they'll start to receive number matching approval after February 27th, 2023.
 
 Regardless of their default method, any user who is prompted to sign-in with Authenticator push notifications will see number match after February 27th, 2023. If the user is prompted for another method, they won't see any change. 
 
