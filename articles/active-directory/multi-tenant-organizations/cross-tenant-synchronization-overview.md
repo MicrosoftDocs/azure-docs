@@ -129,7 +129,7 @@ Using this feature requires Azure AD Premium P1 licenses. Each user who is synch
 
 Which clouds can cross-tenant synchronization be used in?
 
-- Cross-tenant synchronization is supported within the commercial and Azure Government clouds.
+- Cross-tenant synchronization is supported within the commercial cloud. It is not supported within Azure Government or Azure China.
 - Synchronization is only supported between two tenants in the same cloud.
 - Cross-cloud (such as public cloud to Azure Government) isn't currently supported.
 

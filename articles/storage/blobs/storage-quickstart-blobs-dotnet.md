@@ -81,9 +81,27 @@ To interact with Azure Blob Storage, install the Azure Blob Storage client libra
 
 ### [.NET CLI](#tab/net-cli)
 
+Use the following command to install the `Azure.Storage.Blobs` package:
+
 ```dotnetcli
 dotnet add package Azure.Storage.Blobs
 ```
+
+If this command to add the package fails, follow these steps:
+
+- Make sure that `nuget.org` is added as a package source. You can list the package sources using the [dotnet nuget list source](/dotnet/core/tools/dotnet-nuget-list-source#examples) command:
+
+    ```dotnetcli
+    dotnet nuget list source
+    ```
+
+- If you don't see `nuget.org` in the list, you can add it using the [dotnet nuget add source](/dotnet/core/tools/dotnet-nuget-add-source#examples) command:
+
+    ```dotnetcli
+    dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
+    ```
+
+Now that the package source is updated, run the command to install the package.
 
 ---
 
