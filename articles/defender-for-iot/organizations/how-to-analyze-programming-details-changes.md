@@ -50,27 +50,13 @@ The **Programming Timeline** window displays both authorized and unauthorized pr
 
 Access the **Programming Timeline** window from the following places in the sensor:
 
-- [Event Timeline](how-to-track-sensor-activity.md)
-
 - [Unauthorized Programming Alerts](#unauthorized-programming-alerts)
 
 - [Device map](#device-map)
 
 - [Device inventory](#device-inventory)
 
-### Event timeline
-
-Use the event timeline to display a timeline of events in which programming changes were detected.
-
-1. Sign into the sensor console and go to **Event timeline**.
-
-1. Filter events by keyword **DeltaV** (optional).
-
-1. Select the event you want to analyze to open the event details pane on the right.
-
-1. Select **View programming** to open the programming timeline.
-
-:::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="Screenshot of the event timeline.":::
+- [Event Timeline](how-to-track-sensor-activity.md)
 
 ### Unauthorized programming alerts
 
@@ -84,7 +70,7 @@ Alerts are triggered when unauthorized programming devices carry out programming
 
 1. Select the alert to open the alert details in the pane on the right.
 
-1. Select **Programming** top open the programming timeline. 
+1. Select **Programming** to open the **Programming timeline**.
 
 :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Screenshot of unauthorized programming alerts":::
 
@@ -114,6 +100,20 @@ The device inventory indicates if a device is a programming device, and the devi
 
 1. On the device properties page, go to the **Programming timeline** tab to select a file and view programming details. You can also download the file, or compare it to other recent files. For more information, see [Working in the programming timeline window](#working-in-the-programming-timeline-window).
 
+### Event timeline
+
+Use the event timeline to display a timeline of events in which programming changes were detected.
+
+1. Sign into the sensor console and go to **Event timeline**.
+
+1. Filter events by keyword **DeltaV** (optional).
+
+1. Select the event you want to analyze to open the event details pane on the right.
+
+1. Select **View programming** to open the programming timeline. You can also download the file, or compare it to other recent files. For more information, see [Working in the programming timeline window](#working-in-the-programming-timeline-window).
+
+:::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="Screenshot of the event timeline.":::
+
 ## Working in the programming timeline window
 
 This section describes how to view programming files and compare versions. Search for specific files sent to a programmed device. Search for files based on:
@@ -141,7 +141,7 @@ This section describes how to choose a file to review.
 
 **To choose a file to review:**
 
-1. Select an event from the **Recent Events** pane.
+1. Select an event period from the **Recent Events** pane.
 
 2. Select a file from the **File** pane. The file appears in the pane on the right.
 
@@ -153,7 +153,7 @@ This section describes how to compare programming files.
 
 **To compare:**
 
-1. Select an event from the **Recent Events** pane.
+1. Select an event period from the **Recent Events** pane.
 
 2. Select a file from the **File** pane. The file appears in the pane on the right. You can compare this file to other files.
 
@@ -161,8 +161,9 @@ This section describes how to compare programming files.
 
    :::image type="content" source="media/how-to-work-with-maps/compare.png" alt-text="Screenshot of the compare indicator.":::
 
-1. Select a file for comparison by clicking on the scale icon next to the file. 
+1. Select a file for comparison by clicking on the scale icon under **Action** next to the file. 
 
+    <!--Remove all of this? I don';'t see this option of differences or dates-->
    The window displays all dates the selected file was detected on the programmed device. The file may have been updated on the programmed device by multiple programming devices.
 
    The number of differences detected appears in the upper right-hand corner of the window. You may need to scroll down to view differences.
@@ -173,7 +174,9 @@ This section describes how to compare programming files.
 
    :::image type="content" source="media/how-to-work-with-maps/program-timeline.png" alt-text="Screenshot of the programming timeline view." lightbox="media/how-to-work-with-maps/program-timeline.png":::
 
-4. Select a date. The file detected on the selected date appears in the window.
+<!--Remove all of this? I don''t see this option of differences or dates-->
+
+4. Select a date. The file detected on the selected date appears in the window. <!--Remove? I don't see this option-->
 
 5. The file selected from the **Recent Events** or **Files** pane always appears on the right.
 
