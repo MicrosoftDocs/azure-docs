@@ -34,7 +34,7 @@ Get started with the Azure Cosmos DB client library for Python to create databas
 
 ### Prerequisite check
 
-- In a terminal or command window, run ``python --version`` to check that the version is 3.7 or later.
+- In a command shell, run `python --version` to check that the version is 3.7 or later.
 - Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
 ## Setting up
