@@ -1,16 +1,22 @@
 ---
-title: 'View configurations applied by Azure Virtual Network Manager (Preview)'
+title: 'View configurations applied by Azure Virtual Network Manager '
 description: Learn how to view configurations applied by Azure Virtual Network Manager.
 author: mbender-ms    
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 01/31/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
-# View configurations applied by Azure Virtual Network Manager (Preview)
+# View configurations applied by Azure Virtual Network Manager
 
 Azure Virtual Network Manager provides a few different ways for you to verify if configurations are being applied correctly. In this article, we'll look at how you can verify configurations applied both at virtual network and virtual machine level. We'll also go over operations you'll see in the activity log.
+
+> [!IMPORTANT]
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+>
+> Mesh connectivity configurations are in Public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Virtual network visibility
 Effective network group membership and applied configurations can be viewed on the per virtual network level.
