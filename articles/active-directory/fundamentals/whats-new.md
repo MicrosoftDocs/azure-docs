@@ -92,7 +92,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 
 ---
 
-### Public preview - New provisioning connectors in the Azure AD Application Gallery - January 2023
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - January 2023
 
 
 
@@ -106,6 +106,39 @@ We've added the following new applications in our App gallery with Provisioning 
 
 
 For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+
+---
+
+### Public Preview - Azure AD cloud sync new user experience
+
+
+**Type:** Changed feature   
+**Service category:** Azure AD Connect Cloud Sync                  
+**Product capability:** Identity Governance         
+
+Try out the new guided experience for syncing objects from AD to Azure AD using Azure AD Cloud Sync in Azure Portal. With this new experience, Hybrid Identity Administrators can easily determine which sync engine to use for their scenarios and learn more about the various options they have with our sync solutions. With a rich set of tutorials and videos, customers will be able to learn everything about Azure AD cloud sync in one single place. 
+
+This experience will also help administrators walk through the different steps involved in setting up a cloud sync configuration as well as an intuitive experience to help them easily manage it. Admins can also get insights into their sync configuration by using the "Insights" option which is integrated with Azure Monitor and Workbooks. 
+
+For more information:, see:
+
+- [Blah](../cloud-sync/how-to-configure.md)
+- [Blah](../cloud-sync/how-to-attribute-mapping.md)
+
+---
+
+### Public Preview - Support for Directory Extensions using Azure AD cloud sync
+
+
+
+**Type:** New feature   
+**Service category:** Provisioning               
+**Product capability:** AAD Connect Cloud Sync         
+
+Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to simply map the needed attributes using Cloud Sync's attribute mapping experience. 
+
+For more details on how to enable this feature, see:
 
 
 ---
