@@ -40,6 +40,9 @@ yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --outp
 az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true
 ```
 
+> [!IMPORTANT]
+> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it. See the [CLI](#cli) section of the Check status section for details.
+
 You can identify incremental snapshots from the same disk with the `SourceResourceId` property of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk.
 
 You can use `SourceResourceId` to create a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following example to list your existing incremental snapshots:
@@ -83,6 +86,9 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName -Snapshot $snapshotConfig 
 ```
 
+> [!IMPORTANT]
+> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it. See the [PowerShell](#powershell) section of the Check status section for details.
+
 You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
 
 You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following example to list your existing incremental snapshots:
@@ -109,7 +115,7 @@ $incrementalSnapshots
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
-You can also use Azure Resource Manager templates to create an incremental snapshot. You'll need to make sure the apiVersion is set to **2019-03-01** and that the incremental property is also set to true. The following snippet is an example of how to create an incremental snapshot with Resource Manager templates:
+You can also use Azure Resource Manager templates to create an incremental snapshot. You'll need to make sure the apiVersion is set to **2022-03-22** and that the incremental property is also set to true. The following snippet is an example of how to create an incremental snapshot with Resource Manager templates:
 
 ```json
 {
@@ -130,7 +136,7 @@ You can also use Azure Resource Manager templates to create an incremental snaps
     "type": "Microsoft.Compute/snapshots",
     "name": "[concat( parameters('diskName'),'_snapshot1')]",
     "location": "[resourceGroup().location]",
-    "apiVersion": "2019-03-01",
+    "apiVersion": "2022-03-22",
     "properties": {
       "creationData": {
         "createOption": "Copy",
@@ -202,6 +208,33 @@ foreach ($snapshot in $snapshots)
 }
 
 $incrementalSnapshots
+```
+
+Use the following script to get the `CompletionPercent` of an individual snapshot.
+
+```azurepowershell
+$resourceGroupName = "yourResourceGroupNameHere"
+$snapshotName = "yourSnapshotName"
+
+$targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
+
+$targetSnapshot.CompletionPercent
+```
+
+## Check disk creation status
+
+When creating a disk from an Ultra Disk snapshot, you must wait for the background copy process to complete before you can attach it. Currently, you must use the Azure CLI to check the progress of the copy process.
+
+The following script gives you the status:
+
+```azurecli
+subscriptionId=yourSubscriptionID
+resourceGroupName=yourResourceGroupName
+diskName=yourDiskName
+
+az account set --subscription $subscriptionId
+
+az disk show –n $diskName -g $resourceGroupName --query [completionPercent] -o tsv
 ```
 
 ## Check sector size
