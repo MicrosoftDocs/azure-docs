@@ -162,7 +162,7 @@ See how data, including customer information, vendor details, and line items, is
 ## Supported languages and locales
 
 >[!NOTE]
- > Form Recognizer autodetects language and locale data.
+ > Form Recognizer auto-detects language and locale data.
 
 | Supported languages | Details |
 |:----------------------|:---------|
