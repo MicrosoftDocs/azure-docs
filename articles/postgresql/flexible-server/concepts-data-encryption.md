@@ -4,7 +4,7 @@ description: Azure Database for PostgreSQL Flexible server data encryption with 
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 11/03/2022
+ms.date: 1/24/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -103,7 +103,7 @@ When you're using data encryption by using a customer-managed key, here are reco
     :::image type="content" source="media/concepts-data-encryption/key-vault-trusted-service.png" alt-text="Screenshot of an image of networking screen with trusted-service-with-AKV setting." lightbox="media/concepts-data-encryption/key-vault-trusted-service.png":::
 
 > [!NOTE]
->Important to note, that after choosing **disable public access** option in Azure Key Vault networking and allowing only *trusted Microsoft* services you may see error similar to following : *You have enabled the network access control. Only allowed networks will have access to this key vault* while attempting to administer Azure Key Vault via portal through public access, since portal is not considered to be trusted service.
+>Important to note, that after choosing **disable public access** option in Azure Key Vault networking and allowing only *trusted Microsoft* services you may see error similar to following : *You have enabled the network access control. Only allowed networks will have access to this key vault* while attempting to administer Azure Key Vault via portal through public access. This doesn't preclude ability to provide key during CMK setup or fetch keys from Azure Key Vault during server operations. 
 
 Here are recommendations for configuring a customer-managed key:
 
@@ -176,11 +176,11 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server usi
 
 1. Provide required information on Basics and Networking tabs
 
-1. Navigate to Security(preview) tab. On the screen, provide Azure Active Directory (Azure AD)  identity that has access to the Key Vault and Key in Key Vault in the same region where you're creating this server
+1. Navigate to Security tab. On the screen, provide Azure Active Directory (Azure AD)  identity that has access to the Key Vault and Key in Key Vault in the same region where you're creating this server
 
 1. On Review Summary tab, make sure that you provided correct information in Security section and press Create button
 
-1. Once it's finished, you should be able to navigate to Data Encryption (preview) screen for the server and update identity or key if necessary
+1. Once it's finished, you should be able to navigate to Data Encryption  screen for the server and update identity or key if necessary
 
 
 ### CLI:
@@ -229,7 +229,7 @@ Follow the steps below to update CMK on CMK enabled Flexible Server using Azure 
 
 1. Navigate to Azure Database for PostgreSQL - Flexible Server create a page via the Azure portal.
 
-1. Navigate to Data Encryption (preview) screen under Security tab
+1. Navigate to Data Encryption screen under Security tab
 
 1. Select different identity to connect to Azure Key Vault, remembering that this identity needs to have proper access rights to the Key Vault
 
