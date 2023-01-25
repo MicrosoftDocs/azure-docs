@@ -14,9 +14,9 @@ Container Insights offers the ability to collect Syslog events from your Linux n
 
 - You will need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: This which will create a Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName` 
 - Minimum versions of Azure components
-  - **Azure CLI**: Minimum version required for Azure CLI is [2.44.1 (link to release notes)](https://learn.microsoft.com/cli/azure/release-notes-azure-cli#january-11-2023). See [How to update the Azure CLI](https://learn.microsoft.com/cli/azure/update-azure-cli)) for upgrade instructions. 
-  - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [ 0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
-  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/azure/aks/node-image-upgrade) for upgrade help. 
+  - **Azure CLI**: Minimum version required for Azure CLI is [2.44.1 (link to release notes)](/cli/azure/release-notes-azure-cli#january-11-2023). See [How to update the Azure CLI](/cli/azure/update-azure-cli) for upgrade instructions. 
+  - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [ 0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](https:///cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
+  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https:///azure/aks/node-image-upgrade) for upgrade help. 
 
 ## How to enable Syslog
   
@@ -78,9 +78,6 @@ Select the minimum log level for each facility that you want to collect.
 
 ## Next steps
 
-- Read more about [Syslog record properties](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-syslog#syslog-record-properties)
-- See more sample [log queries with Syslog records](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-syslog#log-queries-with-syslog-records)
-- Learn about [log queries](https://learn.microsoft.com/azure/azure-monitor/logs/log-query-overview) to analyze the data collected from data sources and solutions.
-- Use [custom fields](https://learn.microsoft.com/azure/azure-monitor/logs/custom-fields) to parse data from Syslog records into individual fields.
+- Read more about [Syslog record properties](/azure/azure-monitor/reference/tables/syslog)
 
 
