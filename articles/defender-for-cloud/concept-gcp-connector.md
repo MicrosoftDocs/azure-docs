@@ -36,7 +36,7 @@ The authentication process works as follows:
 
 (4) - Defender for Cloud's CSPM service uses the Google STS token to impersonate the service account. Defender for Cloud's CSPM receives service account credentials which will then be used to scan the project.
 
-## What happens when you onboard a project
+## What happens when you onboard a single project
 
 There are four parts to the onboarding process that take place when you create the security connection between your GCP project and Microsoft Defender for Cloud.
 
@@ -44,9 +44,9 @@ There are four parts to the onboarding process that take place when you create t
 
 In the first section you will need to add the basic properties of the connection between your GCP project and Defender for Cloud.
 
-:::image type="content" source="media/concept-gcp-connector/organization-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process.":::
+:::image type="content" source="media/concept-gcp-connector/single-project-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process.":::
 
-Here you will name your connector, connect it to a subscription and resource group which will be sed to create an ARM resource which is called security connector. The security connector represents a configuation resource that holds the projects settings.
+Here you will name your connector, select a subscription and resource group which will be used to create an ARM resource which is called security connector. The security connector represents a configuration resource that holds the projects settings.
 
 You will also select a location and add the organization ID for your project.
 
@@ -73,7 +73,7 @@ The GCloud script creates all of the required resources on your GCP environment 
 - Service accounts
 - Project level policy bindings (service account will have access only to the specific project)
 
-## Review and generate
+### Review and generate
 
 The final step for onboarding is to review all of your selections and to create the connector.
 
@@ -81,17 +81,15 @@ The final step for onboarding is to review all of your selections and to create 
 
 ## What happens when you onboard an organization
 
-Similar to single project onboarding, the organization onboarding option creates a security connector too. The security connector represents the configuration that connects Defender for Cloud and your GCP organization. In order to create onboarding resources on each project automatically, you should enter the details for GCP projects that will be used by Defender for Cloud to provision resources.
-
-When onboarding a GCP organization, MDC creates a security connector for each project under the organization (unless specific projects were excluded, see step 1 for more details).
+Similar to onboarding a single project, When onboarding a GCP organization, Defender for Cloud creates a security connector for each project under the organization (unless specific projects were excluded).
 
 ### Organization details
 
-In the first section you will need to add the basic properties of the connection between your GCP project and Defender for Cloud.
+In the first section you will need to add the basic properties of the connection between your GCP organization and Defender for Cloud.
 
 :::image type="content" source="media/concept-gcp-connector/organization-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process.":::
 
-Here you will name your connector, connect it to a subscription and resource group which will be sed to create an ARM resource which is called security connector. The security connector represents a configuation resource that holds the projects settings.
+Here you will name your connector, select a subscription and resource group which will be used to create an ARM resource which is called security connector. The security connector represents a configuration resource that holds the projects settings.
 
 You will also select a location and add the organization ID for your project.
 
@@ -118,7 +116,7 @@ The GCloud script creates all of the required resources on your GCP environment 
 - Service accounts
 - Project level policy bindings (service account will have access only to the specific project)
 
-## Review and generate
+### Review and generate
 
 The final step for onboarding is to review all of your selections and to create the connector.
 
