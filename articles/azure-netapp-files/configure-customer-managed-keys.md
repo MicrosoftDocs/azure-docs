@@ -33,7 +33,7 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
 * MSI Automatic certificate renewal is not currently supported.  
 * The MSI certificate has a lifetime of 90 days. It will be eligible for renewal after 46 days. **After 90 days, the certificate will no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
     * To renew, you need to call the NetApp account operation `renewCredentials` if eligible for renewal. If it's not eligible, you will get an error message stating when the account will be eligible for renewal. 
-    * Version 2.42 of the Azure CLI supports running the `renewCredentials` operation with the [az netappfiles account command](/cli/azure/netappfiles/account?view=azure-cli-latest#az-netappfiles-account-renew-credentials). For example:
+    * Version 2.42 or later of the Azure CLI supports running the `renewCredentials` operation with the [az netappfiles account command](/cli/azure/netappfiles/account?view=azure-cli-latest#az-netappfiles-account-renew-credentials). For example:
     
     `az netappfiles account renew-credentials –-account-name myaccount –resource-group myresourcegroup`
 
@@ -173,8 +173,6 @@ If your NetApp account is already configured for customer-managed keys and has o
 
 1. Select **OK** to save. The rekey operation may take several minutes. 
 
-<!-- Commenting out Error Messages subsection. If needed, this content will be a standalone article and placed under Troubleshooting node of TOC -->
-<!-- 
 ## Error messages and troubleshooting
 
 This section lists error messages and possible resolutions when Azure NetApp Files fails to configure customer-managed key encryption or create a volume using a customer-managed key. 
@@ -199,7 +197,6 @@ This section lists error messages and possible resolutions when Azure NetApp Fil
 | `Volume cannot be encrypted with Microsoft.KeyVault, NetAppAccount has not been configured with KeyVault encryption` | Your NetApp account does not have customer-managed key encryption enabled. Configure the NetApp account to use customer-managed key. |
 | `EncryptionKeySource cannot be changed` | No resolution. The `EncryptionKeySource` property of a volume cannot be changed. |
 | `Unable to use the configured encryption key, please check if key is active` | Check that: <ol><li>Are all access policies correct on the key vault: Get, Encrypt, Decrypt?</li><li>Does a private endpoint for the key vault exist?</li><li>Is there a Virtual Network NAT in the VNet, with the delegated Azure NetApp Files subnet enabled?</li></ol> |
--->
 
 ## Next steps
 
