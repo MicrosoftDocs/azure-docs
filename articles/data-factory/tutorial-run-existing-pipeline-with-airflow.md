@@ -14,6 +14,9 @@ ms.author: abnarain
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+> [!NOTE]
+> Managed Apache Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
+
 Data Factory pipelines provides 100+ data source connectors that provides scalable and reliable data integration/ data flows. There are scenarios where you would like to run an existing data factory pipeline from your Apache Airflow DAG.  This tutorial shows you how to do just that.
 
 ## Prerequisites

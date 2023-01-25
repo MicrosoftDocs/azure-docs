@@ -13,6 +13,9 @@ ms.author: abnarain
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+> [!NOTE]
+> Managed Apache Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
+
 This tutorial shows you how to refresh a Power BI dataset with managed Apache Airflow in Azure Data Factory.
 
 ## Prerequisites
