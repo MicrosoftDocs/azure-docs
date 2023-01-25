@@ -58,6 +58,8 @@
       href: tutorial-query.md
     - name: 3 - Distribute data globally
       href: tutorial-global-distribution.md
+    - name: Getting started with aggregation pipeline
+      href: tutorial-aggregation.md
     - name: Create Jupyter notebooks
       href: ../nosql/tutorial-create-notebook.md
 - name: Samples
