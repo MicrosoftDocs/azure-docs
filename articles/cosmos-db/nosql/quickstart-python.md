@@ -186,7 +186,7 @@ Use the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/
 
 ### Create a container
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
 
