@@ -1,6 +1,6 @@
 ---
-title: Configure customer-managed keys for Azure NetApp Files | Microsoft Docs
-description: Describes how to configure customer-managed keys in Azure NetApp Files volume encryption. 
+title: Configure customer-managed keys for Azure NetApp Files volume encryption | Microsoft Docs
+description: Describes how to configure customer-managed keys for Azure NetApp Files volume encryption. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -16,7 +16,7 @@ ms.date: 01/24/2023
 ms.author: anfdocs
 ---
 
-# Configure customer-managed keys for Azure NetApp Files
+# Configure customer-managed keys for Azure NetApp Files volume encryption
 
 Customer-managed keys in Azure NetApp Files volume encryption enable you to use your own keys rather than a Microsoft-managed key when creating a new volume. With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys. 
 
