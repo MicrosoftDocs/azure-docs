@@ -7,10 +7,10 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 01/25/2023
 ms.author: normesta
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-5rack-azurepowershell
 ---
 
 # Point-in-time restore for block blobs
@@ -90,6 +90,7 @@ Point-in-time restore for block blobs has the following limitations and known is
 - Snapshots are not created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - Point-in-time restore is not supported for hierarchical namespaces or operations via Azure Data Lake Storage Gen2.
 - Point-in-time restore is not supported when a private endpoint is enabled on the storage account.
+- Point-in-time restore is not supported when the storage account's **AllowedCopyScope** property is set to restrict copy scope to the same Azure AD tenant or virtual network. For more information, see [About Permitted scope for copy operations (preview)](../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json&tabs=portal#about-permitted-scope-for-copy-operations-preview).
 
 > [!IMPORTANT]
 > If you restore block blobs to a point that is earlier than September 22, 2020, preview limitations for point-in-time restore will be in effect. Microsoft recommends that you choose a restore point that is equal to or later than September 22, 2020 to take advantage of the generally available point-in-time restore feature.
