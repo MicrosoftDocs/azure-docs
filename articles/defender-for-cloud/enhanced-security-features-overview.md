@@ -2,7 +2,7 @@
 title: Understand the basic and extended security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 12/13/2022
+ms.date: 01/24/2023
 ms.custom: references_regions, ignite-2022
 ---
 
@@ -12,7 +12,7 @@ Defender for Cloud offers basic, and many enhanced security features that can he
 
 ## Basic features
 
-When you open Defender for Cloud in the Azure portal for the first time or if you enable it through the API, Defender for Cloud is enabled for free on all your Azure subscriptions. By default, Defender for Cloud provides foundational cloud security and posture management (CSPM) features, including [secure score](secure-score-security-controls.md), [security policy and basic recommendations](security-policy-concept.md), and [network security assessment](protect-network-resources.md) to help you protect your Azure resources.
+When you open Defender for Cloud in the Azure portal for the first time or if you enable it through the API, Defender for Cloud is enabled for free on all your Azure subscriptions. Defender for Cloud provides foundational cloud security and posture management (CSPM) features by default. The foundational CSPM includes, [secure score](secure-score-security-controls.md), [security policy and basic recommendations](security-policy-concept.md), and [network security assessment](protect-network-resources.md) to help you protect your Azure resources.
 
 ## Try out enhanced features
 
@@ -102,7 +102,7 @@ The discount will be effective starting from the approval date, and won't take p
 
 ### My subscription has Microsoft Defender for Servers enabled, which machines do I pay for?
 
-When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, all machines in that subscription (including machines that are part of PaaS services and reside in this subscription) are billed according to their power state as shown in the following table:
+When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, all machines including machines that are part of PaaS services, in that subscription are billed according to their power state as shown in the following table:
 
 | State        | Description                                                                                                                                      | Instance usage billed |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
