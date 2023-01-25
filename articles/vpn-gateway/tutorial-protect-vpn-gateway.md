@@ -100,6 +100,7 @@ Create a virtual network gateway using the following values:
 * **Public IP address name:** VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+
 [!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
 
 A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the Overview page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
@@ -137,7 +138,7 @@ these resources using the following steps:
 
 ## Next steps
 
-Once you have a VPN gateway, you can configure connections. The articles below will help you create a few of the most common configurations:
+Once you have a VPN gateway, you can configure connections. The following articles will help you create a few of the most common configurations:
 
 > [!div class="nextstepaction"]
 > [Site-to-Site VPN connections](./tutorial-site-to-site-portal.md)
