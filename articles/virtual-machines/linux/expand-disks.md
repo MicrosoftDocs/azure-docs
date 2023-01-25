@@ -55,7 +55,7 @@ lrwxrwxrwx. 1 root root  13 Sep  9 21:54 lun2-part1 -> ../../../sde1
 
 ### Expand without downtime
 
-You now may be able to expand your managed disks without deallocating your VM.
+You may be able to expand your managed disks without deallocating your VM.
 
 This feature has the following limitations:
 
