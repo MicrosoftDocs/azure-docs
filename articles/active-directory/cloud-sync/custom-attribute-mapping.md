@@ -19,11 +19,11 @@ ms.collection: M365-identity-device-management
 # Cloud Sync directory extensions and custom attribute mapping
 
 ## Directory extensions
-You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [extensions](https://docs.microsoft.com/graph/extensibility-overview). You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
+You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. 
 
-•	Here and maybe in the first cross-link section too, it may be worth mentioning that for cloud sync to discover truly new Active Directory extension attributes, the provisioning agent must have been restarted since the attributes were created. This does not apply for AAD extension attributes
+For additional information on directory extensions see [Using directory extension attributes in claims](../develop/active-directory-schema-extensions.md)
 
-
+ You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
 
 >[!NOTE]
 > In order to discover new Active Directory extension attributes, the provisioning agent needs to be restarted.  You should restart the agent after the directory extensions have been created.  For Azure AD extension attributes, the agent does not need to be restarted.
@@ -138,5 +138,5 @@ For more information on extension attributes, see [Syncing extension attributes 
 ## Additional resources
 
 - [Understand the Azure AD schema and custom expressions](concept-attributes.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
-- [Installing cloud sync](how-to-install.md)
+- [Azure AD Connect sync: Directory extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md)
+- [Attribute mapping in Azure AD Connect cloud sync](how-to-attribute-mapping.md)
