@@ -157,7 +157,7 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Compose** action, select **Outputs**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Compose** action, select **Outputs**.
 
    For this example, the result appears in the email's body, so add the **Outputs** field to the **Body** box.
 
@@ -171,7 +171,7 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Compose** action, select **Outputs**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Compose** action, select **Outputs**.
 
    > [!NOTE]
    >
@@ -406,7 +406,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create CSV table** action, select **Output**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create CSV table** action, select **Output**.
 
    ![Screenshot showing a Consumption workflow with the "Send an email" action and the "Output" field from the preceding "Create CSV table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-consumption.png)
 
@@ -425,7 +425,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create CSV table** action, select **Output**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create CSV table** action, select **Output**.
 
    ![Screenshot showing a Standard workflow with the "Send an email" action and the "Output" field from the preceding "Create CSV table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-standard.png)
 
@@ -662,7 +662,7 @@ To confirm whether the **Create HTML table** action creates the expected results
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create HTML table** action, select **Output**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create HTML table** action, select **Output**.
 
    ![Screenshot showing a Consumption workflow with the "Send an email" action and the "Output" field from the preceding "Create HTML table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-consumption.png)
 
@@ -685,7 +685,7 @@ To confirm whether the **Create HTML table** action creates the expected results
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create HTML table** action, select **Output**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create HTML table** action, select **Output**.
 
    ![Screenshot showing a Standard workflow with the "Send an email" action and the "Output" field from the preceding "Create HTML table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-standard.png)
 
@@ -816,7 +816,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Filter array** action, enter the following expression, which includes the **Filter array** action name, and then select **OK**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Filter array** action, enter the following expression, which includes the **Filter array** action name, and then select **OK**.
 
    `actionBody('Filter_array')`
 
@@ -832,7 +832,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 1. In your workflow, add an action that can send you the results from the **Filter array** action.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Filter array** action, enter the following expression, which includes the **Filter array** action name, and then select **OK**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Filter array** action, enter the following expression, which includes the **Filter array** action name, and then select **OK**.
 
    `@actionBody('Filter_array')`
 
@@ -938,7 +938,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Join** action, select **Output**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Join** action, select **Output**.
 
    ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Join" action.](./media/logic-apps-perform-data-operations/send-email-join-action-complete-consumption.png)
 
@@ -957,7 +957,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Join** action, select **Output**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Join** action, select **Output**.
 
    ![Screenshot showing a Standard workflow with the finished "Send an email" action for the "Join" action.](./media/logic-apps-perform-data-operations/send-email-join-action-complete-standard.png)
 
@@ -1159,23 +1159,62 @@ For more information about this action in your underlying workflow definition, s
 
 To confirm whether the **Parse JSON** action creates the expected results, send yourself a notification that includes output from the **Parse JSON** action.
 
-1. In your logic app, add an action that can send you the results from the **Parse JSON** action.
+#### [Consumption](#tab/consumption)
 
-1. In that action, click anywhere you want the results to appear. From the dynamic content list that opens, under the **Parse JSON** action, you can now select the properties from the parsed JSON content.
+1. In your workflow, add an action that can send you the results from the **Parse JSON** action.
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the **FirstName**, **LastName**, and **Email** fields in the email's body:
+   This example continues by using the Office 365 Outlook action named **Send an email**.
 
-   ![JSON properties in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-parse-json-action.png)
+1. In this action, click inside the edit boxes where you want the results to appear. From the dynamic content list that opens, under the **Parse JSON** action, you can now select the properties from the parsed JSON object.
 
-   Here is the finished email action:
+   This example selects the following properties: **FirstName**, **LastName**, and **Email**
 
-   ![Finished example for email action](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
+   ![Screenshot showing a Consumption workflow with JSON properties in the "Send an email" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-consumption.png)
 
-1. Now, manually run your logic app. On the designer toolbar, select **Run**. 
+   > [!NOTE]
+   >
+   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
+   > select **See more** next to the **Parse JSON** label in the list.
+   >
+   > ![Screenshot showing a Standard workflow and the dynamic content list with "See more" selected for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-see-more.png)
 
-   Based on the email connector you used, here are the results you get:
+   When you're done, the **Send an email** action looks similar to the following example:
 
-   ![Email with "Parse JSON" action results](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
+   ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2-consumption.png)
+
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
+
+#### [Standard](#tab/standard)
+
+1. In your workflow, add an action that can send you the results from the **Join** action.
+
+   This example continues by using the Office 365 Outlook action named **Send an email**.
+
+1. In this action, click inside the edit boxes where you want the results to appear. From the dynamic content list that opens, under the **Parse JSON** action, you can now select the properties from the parsed JSON object.
+
+   This example selects the following properties: **FirstName**, **LastName**, and **Email**
+
+   ![Screenshot showing a Standard workflow with JSON properties in the "Send an email" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-standard.png)
+
+   > [!NOTE]
+   >
+   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
+   > select **See more** next to the **Parse JSON** label in the list.
+   >
+   > ![Screenshot showing a Standard workflow and the dynamic content list with "See more" selected for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-see-more.png)
+
+   When you're done, the **Send an email** action looks similar to the following example:
+
+   ![Screenshot showing a Standard workflow with the finished "Send an email" action for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-complete-standard.png)
+
+1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
+
+---
+
+If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+
+![Screenshot showing an email with the "Parse JSON" action results.](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
+
 
 <a name="select-action"></a>
 
@@ -1229,9 +1268,9 @@ For more information about this action in your underlying workflow definition, s
 
 To confirm whether the **Select** action creates the expected results, send yourself a notification that includes output from the **Select** action.
 
-1. In your logic app, add an action that can send you the results from the **Select** action.
+1. In your workflow, add an action that can send you the results from the **Select** action.
 
-1. In that action, click anywhere you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Select** action, enter this expression that includes the **Select** action's name:
+1. In this action, click anywhere you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Select** action, enter this expression that includes the **Select** action's name:
 
    `@actionBody('Select')`
 
