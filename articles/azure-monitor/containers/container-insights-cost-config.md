@@ -33,21 +33,21 @@ The below table outlines the list of the container insights Log Analytics tables
 >[!NOTE]
 >This feature only configures the settings for the following counters, to configure settings on the ContainerLog please update the ConfigMap listed in documentation for [agent data Collection settings](../containers/container-insights-agent-config.md)
 
-| ContainerInsights Table Name | Is Data collection setting: interval applicable? | Is Data collection setting: excludeNameSpaces applicable? | Remarks |
+| ContainerInsights Table Name | Is Data collection setting: interval applicable? | Is Data collection setting: namespaces applicable? | Remarks |
 | --- | --- | --- | --- |
 | ContainerInventory | Yes | Yes | |
-| ContainerNodeInventory | Yes | No | Data collection setting for excludeNameSpaces is not applicable since Kubernetes Node is not a namespace scoped resource |
-| KubeNodeInventory | Yes | No | Data collection setting excludeNameSpaces is not applicable Kubernetes Node is not a namespace scoped resource |
+| ContainerNodeInventory | Yes | No | Data collection setting for namespaces is not applicable since Kubernetes Node is not a namespace scoped resource |
+| KubeNodeInventory | Yes | No | Data collection setting namespaces is not applicable Kubernetes Node is not a namespace scoped resource |
 | KubePodInventory | Yes | Yes ||
 | KubePVInventory | Yes | Yes | |
 | KubeServices | Yes | Yes | |
 | KubeEvents | No | Yes | Data collection setting interval is not applicable for the Kubernetes Events |
-| Perf | Yes | Yes\* | \*Data collection setting excludeNameSpaces is not applicablefor the Kubernetes Node related metrics since the Kubernetes Node is not a namespace scoped object. |
-| InsightsMetrics| Yes\*\* | Yes\*\* | \*\*Data collection settings only applicable for the metrics which collected with following namespaces: container.azm.ms/kubestate, container.azm.ms/pv and container.azm.ms/gpu |
+| Perf | Yes | Yes\* | \*Data collection setting namespaces is not applicable for the Kubernetes Node related metrics since the Kubernetes Node is not a namespace scoped object. |
+| InsightsMetrics| Yes\*\* | Yes\*\* | \*\*Data collection settings are only applicable for the metrics which collected with following namespaces: container.azm.ms/kubestate, container.azm.ms/pv and container.azm.ms/gpu |
 
 ## Custom Metrics
 
-| Metric namespace | Is Data collection setting: interval applicable? | Is Data collection setting: excludeNameSpaces applicable? | Remarks |
+| Metric namespace | Is Data collection setting: interval applicable? | Is Data collection setting: namespaces applicable? | Remarks |
 | --- | --- | --- | --- |
 | Insights.container/nodes| Yes | No | Node is not a namespace scoped resource |
 |Insights.container/pods | Yes | Yes| |
@@ -59,7 +59,7 @@ The below table outlines the list of the container insights Log Analytics tables
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
     - If the AKS Cluster is using Service Principal, it MUST be upgraded to use [Managed Identity](../../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity)
 
-- IThe latest version of the Azure CLI. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI](install-azure-cli).
+- IThe latest version of the Azure CLI. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI](../../install-azure-cli).
     - For AKS clusters, aks-preview version 0.5.125 or higher
     - For Arc enabled Kubernetes and AKS hybrid, k8s-extension version 1.3.7 or higher
 
