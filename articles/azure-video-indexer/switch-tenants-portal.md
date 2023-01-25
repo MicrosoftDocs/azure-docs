@@ -11,14 +11,17 @@ When working with multiple tenants/directories in the Azure environment user mig
 
 When logging in the Azure Video Indexer website, a default directory will load and the relevant accounts and list them in the **Account list**.
 
-This article shows how to switch tenants from the Azure Video Indexer website and also by using the Azure portal.
-
 > [!Note]
 > Trial accounts and Classic accounts are global and not tenant-specific. Hence, the tenant switching described in this article only applies to your ARM accounts.
 >
 > The option to switch directories is available only for users using Azure Active Directory (Azure AD) to log in. 
 
-## Switch tenants from the Azure Video Indexer browser
+This article shows two options to solve the same problem - how to switch tenants:
+
+- When starting from within the Azure Video Indexer website.
+- When starting from outside of the Azure Video Indexer website.
+
+## Switch tenants from within the Azure Video Indexer website
 
 1. To switch between directories in the [Azure Video Indexer](https://www.videoindexer.ai/), open the **User menu** > select **Switch directory**.
 
@@ -32,7 +35,7 @@ This article shows how to switch tenants from the Azure Video Indexer website an
 
     Once clicked, the logged-in credentials will be used to relog-in to the Azure Video Indexer website with the new directory. 
 
-## Get the domain name from the Azure portal
+## Switch tenants from outside the Azure Video Indexer website
 
 This section shows how to get the domain name from the Azure portal. You can then sign in with it into th the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 
