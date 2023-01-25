@@ -27986,6 +27986,11 @@
           "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/uptime-sla.md",
+            "redirect_url": "/azure/aks/free-standard-pricing-tiers",
+            "redirect_document_id": "false"
+        },
+        {
           "source_path": "articles/dotnet-develop-multitenant-applications.md",
           "redirect_URL": "/azure/architecture/guide/multitenant/overview",
           "redirect_document_id": false
