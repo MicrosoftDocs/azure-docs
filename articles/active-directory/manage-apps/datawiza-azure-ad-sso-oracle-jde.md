@@ -86,26 +86,25 @@ To integrate Oracle JDE with Azure AD:
 
    ![Screenshot of Public Domain, Listen Port, and Upstream Server entries.](media/datawiza-azure-ad-sso-oracle-jde/add-application.png)
 
-8. On the **Configure IdP** dialog, enter information.
+12. On the **Configure IdP** dialog, enter information.
 
    >[!Note]
    >Use DCMC one-click integration to help complete Azure AD configuration. DCMC calls the Graph API to create an application registration on your behalf in your Azure AD tenant. Go to docs.datawiza.com for [One Click Integration With Azure AD](https://docs.datawiza.com/tutorial/web-app-azure-one-click.html).
 
-9. Select **Create**.
+13. Select **Create**.
 
    ![Screenshot of Protocol, Identity Provider, and Supported account types entries, also the Create button.](media/datawiza-azure-ad-sso-oracle-jde/configure-idp.png)
 
-10. The DAP deployment page appears.
-11. Make a note of the deployment Docker Compose file. The file includes the DAP image, Provisioning Key, and Provision Secret, which pulls the latest configuration and policies from DCMC.
+14. The DAP deployment page appears.
+15. Make a note of the deployment Docker Compose file. The file includes the DAP image, Provisioning Key, and Provision Secret, which pulls the latest configuration and policies from DCMC.
 
     ![Screenshot of Docker entries.](media/datawiza-azure-ad-sso-oracle-jde/provision.png)
-
 
 ## SSO and HTTP headers
 
 DAP gets user attributes from IdP and passes them to the upstream application with a header or cookie.
 
-The Oracle JDE application needs to recognize the user. Using a name, the application instructs DAP to pass the values from the IdP to the application through the HTTP header.
+The Oracle JDE application needs to recognize the user: using a name, the application instructs DAP to pass the values from the IdP to the application through the HTTP header.
 
 1. In Oracle JDE, from the left navigation, select **Applications**.
 2. Select the **Attribute Pass** subtab.
@@ -131,12 +130,12 @@ The Oracle JDE application needs to recognize the user. Using a name, the applic
 
 7. Select **Enable SSL**.
 
-6. From the **Cert Type** dropdown, select a type.
+8. From the **Cert Type** dropdown, select a type.
 
    ![Screenshot that shows the cert type dropdown.](media/datawiza-azure-ad-sso-oracle-jde/cert-type-new.png)
 
 
-7. For testing purposes, we'll be providing a self-signed certificate. 
+9. For testing purposes, we'll be providing a self-signed certificate. 
 
    ![Screenshot that shows the enable SSL menu.](media/datawiza-azure-ad-sso-oracle-jde/enable-ssl-new.png)
 
@@ -145,7 +144,7 @@ The Oracle JDE application needs to recognize the user. Using a name, the applic
 
    ![Screenshot that shows uploading cert from a file option.](media/datawiza-azure-ad-sso-oracle-jde/cert-upload-new.png)
 
-8. Select **Save**.
+10. Select **Save**.
 
 ## Enable Azure AD Multi-Factor Authentication 
 
@@ -187,5 +186,5 @@ To confirm Oracle JDE application access occurs, a prompt appears to use an Azur
 
 * Video [Enable SSO and MFA for Oracle JDE) with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90)
 * [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-with-azure-ad.md)
-* [Tutorial: Configure Azure AD B2C with Datawiza to provide secure hybrid acces](../../active-directory-b2c/partner-datawiza.md)
+* [Tutorial: Configure Azure AD B2C with Datawiza to provide secure hybrid access](../../active-directory-b2c/partner-datawiza.md)
 * Go to docs.datawiza.com for Datawiza [User Guides](https://docs.datawiza.com/)
