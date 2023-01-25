@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Deploy & configure Azure Firewall and policy using the Azure portal'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy rules using the Azure portal. 
+title: 'Tutorial: Deploy a firewall with Azure DDoS Protection Standard'
+description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy rules using the Azure portal with Azure DDoS protection.
 services: firewall
 author: asudbring
 ms.service: firewall
@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
-# Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal
+# Tutorial: Deploy a firewall with Azure DDoS Protection Standard
 
 This article helps you create an Azure Firewall with a DDoS protected virtual network. Azure DDoS Protection Standard enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your firewall from large scale DDoS attacks.
 
@@ -69,8 +69,6 @@ The resource group contains all the resources for the tutorial.
 1. In the search box at the top of the portal, enter **DDoS protection**. Select **DDoS protection plans** in the search results and then select **+ Create**.
 
 1. In the **Basics** tab of **Create a DDoS protection plan** page, enter or select the following information:
-
-    :::image type="content" source="./media/tutorial-protect-application-gateway/create-ddos-plan.png" alt-text="Screenshot of basics tab for creating a DDoS protection plan.":::
 
     | Setting | Value |
     |--|--|
