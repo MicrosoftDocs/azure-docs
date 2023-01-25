@@ -102,7 +102,7 @@ The following parameters can be used to configure private DNS zone.
 
 - **system** - This is the default value. If the `--private-dns-zone` argument is omitted, AKS creates a Private DNS zone in the node resource group.
 - **none** - the default is public DNS. AKS won't create a private DNS zone.  
-- **CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID**, requires you to create a private DNS zone only in the following format for Azure global cloud: `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io`. You'll need the Resource ID of that private DNS zone going forward. Additionally, you need a user assigned identity or service principal with at least the `private dns zone contributor`  and `network contributor` roles. When deploying using API server VNet integration, a private DNS zone additionally supports the naming format of `private.<region>.azmk8s.io` or `<subzone>.private.<region>.azmk8s.io`.
+- **CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID**, requires you to create a private DNS zone only in the following format for Azure global cloud: `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io`. You'll need the Resource ID of that private DNS zone going forward. Additionally, you need a user assigned identity or service principal with at least the [Private DNS Zone Contributor][private-dns-zone-contributor-role]  and [Network Contributor][network-contributor-role] roles. When deploying using API server VNet integration, a private DNS zone additionally supports the naming format of `private.<region>.azmk8s.io` or `<subzone>.private.<region>.azmk8s.io`.
   - If the private DNS zone is in a different subscription than the AKS cluster, you need to register the Azure provider **Microsoft.ContainerServices** in both subscriptions.
   - "fqdn-subdomain" can be utilized with "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" only to provide subdomain capabilities to `privatelink.<region>.azmk8s.io`
 
@@ -274,3 +274,5 @@ For associated best practices, see [Best practices for network connectivity and 
 [azure-home]: ../azure-portal/azure-portal-overview.md#azure-home
 [operator-best-practices-network]: operator-best-practices-network.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[private-dns-zone-contributor-role]: ../role-based-access-control/built-in-roles.md#dns-zone-contributor
+[network-contributor-role]: ../role-based-access-control/built-in-roles.md#network-contributor
