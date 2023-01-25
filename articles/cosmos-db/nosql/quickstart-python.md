@@ -56,7 +56,7 @@ Create a new Python code file (*app.py*) in an empty folder using your preferred
 
 Use the `pip install` command to install packages you'll need in the quickstart.
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) and [`azure-identity`](https://pypi.org/project/azure-identity) PyPI packages to the Python app. 
 
