@@ -26,6 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 - Identify the names of the interfaces corresponding to ports 5 and 6 on your Azure Stack Edge Pro device.
 - Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
+- If the new site will support 4G user equipment (UEs), you must have [created a network slice](create-manage-network-slices.md#create-a-network-slice) with slice/service type (SST) value of 1 and an empty slice differentiator (SD).
 
 ## Review the template
 
@@ -63,8 +64,8 @@ Four Azure resources are defined in the template.
     | **Control Plane Access Ip Address** | Enter the IP address for the control plane interface on the access network. |
     | **User Plane Access Interface Name** | Enter the virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface. |
     | **User Plane Data Interface Name** | Enter the virtual network name on port 6 on your Azure Stack Edge Pro device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface. |
-    |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
-    |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
+    |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to UEs in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
+    |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to UEs in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
     | **Core Network Technology** | Enter *5GC* for 5G, or *EPC* for 4G. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |

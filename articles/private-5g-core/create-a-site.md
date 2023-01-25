@@ -20,6 +20,7 @@ Azure Private 5G Core Preview private mobile networks include one or more *sites
 - Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
 - Refer to the release notes for the current version of packet core, and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, [update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
+- If the new site will support 4G user equipment (UEs), you must have [created a network slice](create-manage-network-slices.md#create-a-network-slice) with slice/service type (SST) value of 1 and an empty slice differentiator (SD).
 
 ## Create the mobile network site resource
 
