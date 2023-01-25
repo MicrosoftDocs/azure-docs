@@ -146,7 +146,7 @@ The following Resource Provider modes are fully supported:
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
-- `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/overview) keys using Azure Policy.
+- `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/overview.md) keys using Azure Policy.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
