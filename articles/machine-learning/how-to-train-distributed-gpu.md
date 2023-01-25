@@ -70,7 +70,7 @@ Make sure your code follows these tips:
 
 `DeepSpeed` can be enabled using either Pytorch distribution or MPI for running distributed training. Azure Machine Learning supports the `DeepSpeed` launcher to launch distributed training as well as autotuning to get optimal `ds` configuration.
 
-You can use the [curated environment](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`. and `Pytorch` for your DeepSpeed training jobs.
+You can use a [curated environment](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`. and `Pytorch` for your DeepSpeed training jobs.
 
 ### Environment variables from Open MPI
 
