@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/13/2022
+ms.date: 01/25/2023
 ---
 
 # Create an Azure Cognitive Search service in the portal
@@ -17,7 +17,7 @@ ms.date: 10/13/2022
 
 If you have an Azure subscription, including a [trial subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), you can create a search service for free. Free services have limitations, but you can complete all of the quickstarts and most tutorials.
 
-The easiest way to create search service is using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), the [Management REST API](/rest/api/searchmanagement/), an [Azure Resource Manager service template](https://azure.microsoft.com/resources/templates/azure-search-create/), or a [Bicep file](search-get-started-bicep.md).
+The easiest way to create search service is using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md#create-or-delete-a-service), [Azure CLI](search-manage-azure-cli.md#create-or-delete-a-service), the [Management REST API](search-manage-rest.md#create-or-update-a-service), an [Azure Resource Manager service template](search-get-started-arm.md), or a [Bicep file](search-get-started-bicep.md).
 
 [![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
