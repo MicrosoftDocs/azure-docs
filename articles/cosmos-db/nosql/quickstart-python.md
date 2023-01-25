@@ -117,7 +117,7 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-From the project directory, open the *app.py* file. In your editor, add modules to work with Cosmos and authenticate to Azure. You'll authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` from the [`azure-identity`](https://pypi.org/project/azure-identity/) package. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
+From the project directory, open the *app.py* file. In your editor, add modules to work with Cosmos DB and authenticate to Azure. You'll authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` from the [`azure-identity`](https://pypi.org/project/azure-identity/) package. `DefaultAzureCredential` will automatically discover and use the account you signed-in with previously.
 
 [!INCLUDE [sync async code imports - credential](./includes/quickstart-python/credential-string-sync-async-code-imports.md)]
 
