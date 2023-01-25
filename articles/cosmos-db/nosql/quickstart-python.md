@@ -39,7 +39,7 @@ Get started with the Azure Cosmos DB client library for Python to create databas
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos DB account and setting up a project that uses Azure Cosmos DB for NoSQL client library for Python to manage resources.
+This section walks you through creating an Azure Cosmos DB account and setting up a project that uses the Azure Cosmos DB for NoSQL client library for Python to manage resources.
 
 ### Create an Azure Cosmos DB account
 
