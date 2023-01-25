@@ -58,7 +58,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 A gallery is the primary resource used for enabling image sharing. 
 
-Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
+Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name can't contain dashes. Gallery names must be unique within your subscription. 
 
 Create a gallery using [az sig create](/cli/azure/sig#az-sig-create). The following example creates a resource group named gallery named *myGalleryRG* in *East US*, and a gallery named *myGallery*.
 
@@ -85,7 +85,7 @@ Copy the ID of your VM to use later.
 
 ## Create an image definition
 
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. 
+Image definitions create a logical grouping for images. They're used to manage information about the image versions that are created within them. 
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
 
@@ -115,7 +115,7 @@ Create an image version from the VM using [az sig image-version create](/cli/azu
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. The replication regions must include the region the source VM is located.
+In this example, the version of our image is *1.0.0* and we're going to create two replicas in the *West Central US* region, one replica in the *South Central US* region and one replica in the *East US 2* region using zone-redundant storage. The replication regions must include the region the source VM is located.
 
 Replace the value of `--managed-image` in this example with the ID of your VM from the previous step.
 
@@ -139,11 +139,11 @@ az sig image-version create \
  
 ## Create the VM
 
-Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate the image is a specialized image.
+Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the `--specialized` parameter to indicate the image is a specialized image.
 
 Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`. 
 
-In this example, we are creating a VM from the latest version of the *myImageDefinition* image.
+In this example, we're creating a VM from the latest version of the *myImageDefinition* image.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -179,7 +179,7 @@ For more information about how to share resources using Azure RBAC, see [Add or 
 
 ## Azure Image Builder
 
-Azure also offers a service, built on Packer, [Azure VM Image Builder](../image-builder-overview.md). Simply describe your customizations in a template, and it will handle the image creation. 
+Azure also offers a service, built on Packer, [Azure VM Image Builder](../image-builder-overview.md). Describe your customizations in a template, and it will handle the image creation. 
 
 ## Next steps
 
