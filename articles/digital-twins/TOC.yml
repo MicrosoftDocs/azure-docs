@@ -119,8 +119,8 @@
       href: how-to-ingest-iot-hub-data.md
     - name: Automanage devices with DPS
       href: how-to-provision-using-device-provisioning-service.md
-    - name: Integrate with Logic Apps
-      href: how-to-integrate-logic-apps.md
+  - name: Integrate with Power Platform and Logic Apps
+    href: how-to-use-power-platform-logic-apps-connector.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
@@ -199,6 +199,8 @@
         href: reference-query-operators.md
       - name: Reserved keywords
         href: reference-query-reserved.md
+  - name: Azure Digital Twins Power Platform and Logic Apps connector
+    href: /connectors/azuredigitaltwins/
 - name: Resources
   items:
   - name: Digital Twins service limits
@@ -213,8 +215,6 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
   - name: Customer data requests
     href: resources-customer-data-requests.md
-  - name: Differences from original release
-    href: resources-compare-original-release.md
   - name: APIs and SDKs
     items:
     - name: Control plane
@@ -297,8 +297,6 @@
         href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
       - name: SignalR integration sample
         href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
-      - name: Custom Swaggers for Logic Apps connector
-        href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
       - name: Multivariate Anomaly Detection Toolkit
         href: /samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/
   - name: Ontologies

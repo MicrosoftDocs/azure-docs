@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -230,11 +230,11 @@ Choose **Selected** and selects the users you want to add to the local administr
 
 ![Additional local administrators on Azure AD joined devices](./media/azureadjoin-plan/02.png)
 
-### Require multi-factor authentication (MFA) to join devices
+### Require multifactor authentication (MFA) to join devices
 
 Select **“Yes** if you require users to do MFA while joining devices to Azure AD.
 
-![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
+![Require multifactor Auth to join devices](./media/azureadjoin-plan/03.png)
 
 **Recommendation:** Use the user action [Register or join devices](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) in Conditional Access for enforcing MFA for joining devices.
 

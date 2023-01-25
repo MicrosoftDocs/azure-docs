@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: edebar01
 ms.author:  ericadebarge
+ms.reviewer: larryfr
 ms.date: 03/01/2022
 ms.topic: troubleshooting
 ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
@@ -136,7 +137,7 @@ This issue can happen when the name of your custom environment uses terms reserv
 
 ### *Docker issues*
 
-*Applies to: Azure CLI & Python SDK v1 (Deprecated)*
+*Applies to: Azure CLI & Python SDK v1*
 
 To create a new environment, you must use one of the following approaches (see [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)):
 - Base image
@@ -165,7 +166,7 @@ To create a new environment, you must use one of the following approaches:
     - [Sample here](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
 ### Missing Docker definition
-*Applies to: Azure CLI & Python SDK v1 (Deprecated)*
+*Applies to: Python SDK v1*
 <!--issueDescription-->
 This issue can happen when your environment definition is missing a `DockerSection.` This section configures settings related to the final Docker image built from your environment specification.
  
@@ -195,16 +196,12 @@ myenv.docker.base_dockerfile = dockerfile
 **Resources**
 * [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)
 
-### Missing Docker build context location
-- If you're specifying a Docker build context as part of your environment build, you must provide the path of the build context directory
-- See [BuildContext](https://aka.ms/azureml/environment/build-context-class)
-
 ### Too many Docker options
 <!--issueDescription-->
  
 **Potential causes:**
 
-*Applies to: Azure CLI & Python SDK v1*
+*Applies to: Python SDK v1*
 
 You have more than one of these Docker options specified in your environment definition
 - `base_image`
@@ -227,7 +224,7 @@ You have more than one of these Docker options specified in your environment def
 
 Choose which Docker option you'd like to use to build your environment. Then set all other specified options to None.
 
-*Applies to: Azure CLI & Python SDK v1*
+*Applies to: Python SDK v1*
 
 ```
 from azureml.core import Environment
@@ -248,7 +245,7 @@ myenv.docker.base_image = None
  
 **Potential causes:**
 
-*Applies to: Azure CLI & Python SDK v1*
+*Applies to: Python SDK v1*
 
 You didn't specify one of the following options in your environment definition
 - `base_image`
@@ -271,7 +268,7 @@ You didn't specify one of the following options in your environment definition
 
 Choose which Docker option you'd like to use to build your environment, then populate that option in your environment definition.
 
-*Applies to: Azure CLI & Python SDK v1*
+*Applies to: Python SDK v1*
 
 ```
 from azureml.core import Environment
@@ -279,7 +276,7 @@ myenv = Environment(name="myEnv")
 myenv.docker.base_image = "pytorch/pytorch:latest"
 ```
 
-*Applies to: Azure CLI & Python SDK v2*
+*Applies to: Python SDK v2*
 
 ```
 env_docker_image = Environment(
@@ -295,55 +292,248 @@ ml_client.environments.create_or_update(env_docker_image)
 * [Environment class v1](https://aka.ms/azureml/environment/environment-class-v1)
 
 ### Container registry credentials missing either username or password
-- To access the base image in the container registry specified, you must provide both a username and password. One is missing.
-- Providing credentials in this way is deprecated. For the current method of providing credentials, see the *secrets in base image registry* section.
+<!--issueDescription-->
+
+**Potential causes:**
+
+* You've specified either a username or a password for your container registry in your environment definition, but not both
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+Add the missing username or password to your environment definition to fix the issue
+
+```
+myEnv.docker.base_image_registry.username = "username"
+```
+
+Alternatively, provide authentication via [workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+
+```
+from azureml.core import Workspace
+ws = Workspace.from_config()
+ws.set_connection("connection1", "ACR", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
+```
+
+*Applies to: Azure CLI extensions v1 & v2*
+
+Create a workspace connection from a YAML specification file
+
+```
+az ml connection create --file connection.yml --resource-group my-resource-group --workspace-name my-workspace
+```
+
+> [!NOTE]
+> * Providing credentials in your environment definition is no longer supported. Use workspace connections instead.
+ 
+**Resources**
+* [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Multiple credentials for base image registry
-- When specifying credentials for a base image registry, you must specify only one set of credentials. 
-- The following authentication types are currently supported:
-    - Basic (username/password)
-    - Registry identity (clientId/resourceId)
-- If you're using workspace connections to specify credentials, [delete one of the connections](https://aka.ms/azureml/environment/delete-connection-v1)
-- If you've specified credentials directly in your environment definition, choose either username/password or registry identity 
-to use, and set the other credentials you won't use to `null`
-    - Specifying credentials in this way is deprecated. It's recommended that you use workspace connections. See
-    *secrets in base image registry* below
+<!--issueDescription-->
+
+**Potential causes:**
+
+* You've specified more than one set of credentials for your base image registry
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+If you're using workspace connections, view the connections you have set, and delete whichever one(s) you don't want to use
+
+```
+from azureml.core import Workspace
+ws = Workspace.from_config()
+ws.list_connections()
+ws.delete_connection("myConnection2")
+```
+
+If you've specified credentials in your environment definition, choose one set of credentials to use, and set all others to null
+
+```
+myEnv.docker.base_image_registry.registry_identity = None
+```
+
+> [!NOTE]
+> * Providing credentials in your environment definition is no longer supported. Use workspace connections instead.
+ 
+**Resources**
+* [Delete a workspace connection v1](https://aka.ms/azureml/environment/delete-connection-v1)
+* [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Secrets in base image registry
-- If you specify a base image in your `DockerSection`, you must specify the registry address from which the image will be pulled,
-and credentials to authenticate to the registry, if needed.
-- Historically, credentials have been specified in the environment definition. However, this method isn't secure and should be 
-avoided.
-- Users should set credentials using workspace connections. For instructions, see [set_connection](https://aka.ms/azureml/environment/set-connection-v1) 
+<!--issueDescription-->
+
+**Potential causes:**
+
+* You've specified credentials in your environment definition
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Specifying credentials in your environment definition is no longer supported. Delete credentials from your environment definition and use workspace connections instead.
+
+*Applies to: Python SDK v1*
+
+Set a workspace connection on your workspace
+
+```
+from azureml.core import Workspace
+ws = Workspace.from_config()
+ws.set_connection("connection1", "ACR", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
+```
+
+*Applies to: Azure CLI extensions v1 & v2*
+
+Create a workspace connection from a YAML specification file
+
+```
+az ml connection create --file connection.yml --resource-group my-resource-group --workspace-name my-workspace
+```
+ 
+**Resources**
+* [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Deprecated Docker attribute
-- The following `DockerSection` attributes are deprecated:
-    - `enabled`
-    - `arguments`
-    - `shared_volumes`
-    - `gpu_support`
-        - Azure Machine Learning now automatically detects and uses NVIDIA Docker extension when available.
-    - `smh_size`
-- Use [DockerConfiguration](https://aka.ms/azureml/environment/docker-configuration-class) instead
-- See [DockerSection deprecated variables](https://aka.ms/azureml/environment/docker-section-class)
+<!--issueDescription-->
+
+**Potential causes:**
+
+* You've specified Docker attributes in your environment definition that are now deprecated
+* The following are deprecated:
+	* `enabled`
+	* `arguments`
+	* `shared_volumes`
+	* `gpu_support`
+		* AzureML now automatically detects and uses NVIDIA Docker extension when available
+	* `smh_size`
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+Instead of specifying these attributes in the `DockerSection` of your environment definition, use [DockerConfiguration](https://aka.ms/azureml/environment/docker-configuration-class)
+ 
+**Resources**
+* See `DockerSection` [deprecated variables](https://aka.ms/azureml/environment/docker-section-class)
 
 ### Dockerfile length over limit
-- The specified Dockerfile can't exceed the maximum Dockerfile size of 100 KB
-- Consider shortening your Dockerfile to get it under this limit
+<!--issueDescription-->
+**Potential causes:**
+* Your specified Dockerfile exceeded the maximum size of 100 KB
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Shorten your Dockerfile to get it under this limit
+ 
+**Resources**
+* See [best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 ### *Docker build context issues*
+### Missing Docker build context location
+<!--issueDescription-->
+**Potential causes:**
+* You didn't provide the path of your build context directory in your environment definition
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+Include a path in the `build_context` of your [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
+* See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
+
+*Applies to: Azure CLI & Python SDK v2*
+
+Ensure that you include a path for your build context
+* See [BuildContext class](https://aka.ms/azureml/environment/build-context-class)
+* See this [sample](https://aka.ms/azureml/environment/create-env-build-context-v2)
+
+**Resources**
+* [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
+
 ### Missing Dockerfile path
-- In the Docker build context, a Dockerfile path must be specified
-- The path should be relative to the root of the Docker build context directory
-- See [Build Context class](https://aka.ms/azureml/environment/build-context-class)
+<!--issueDescription-->
+This issue can happen when AzureML fails to find your Dockerfile. As a default, AzureML will look for a Dockerfile named 'Dockerfile' at the root of your build context directory unless a Dockerfile path is specified.
+
+**Potential causes:**
+* Your Dockerfile isn't at the root of your build context directory and/or is named something other than 'Dockerfile,' and you didn't provide its path
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+In the `build_context` of your [DockerSection](https://aka.ms/azureml/environment/docker-section-class), include a `dockerfile_path`
+* See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
+
+*Applies to: Azure CLI & Python SDK v2*
+
+Specify a Dockerfile path
+* [See BuildContext class](https://aka.ms/azureml/environment/build-context-class)
+* See this [sample](https://aka.ms/azureml/environment/create-env-build-context-v2)
+
+**Resources**
+* [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
 
 ### Not allowed to specify attribute with Docker build context
-- If a Docker build context is specified, then the following items can't also be specified in the
-environment definition:
-    - Environment variables
-    - Conda dependencies
-    - R
-    - Spark 
+<!--issueDescription-->
+This issue can happen when you've specified properties in your environment definition that can't be included with a Docker build context.
+
+**Potential causes:**
+* You specified a Docker build context, along with at least one of the following in your environment definition:
+	* Environment variables
+	* Conda dependencies
+	* R
+	* Spark
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+If any of the above-listed properties are specified in your environment definition, remove them
+* If you're using a Docker build context and want to specify conda dependencies, your conda specification should reside in your build context directory
+
+**Resources**
+* [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
+* Python SDK v1 [Environment Class](https://aka.ms/azureml/environment/environment-class-v1)
 
 ### Location type not supported/Unknown location type
 - The following are accepted location types:
@@ -439,7 +629,7 @@ conda_dep.add_conda_package("python==3.8")
 - See [Python versions](https://aka.ms/azureml/environment/python-versions) and [Python end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
 
 ### Python version not recommended
-- The Python version used in the environment definition is deprecated, and its use should be avoided
+- The Python version used in the environment definition is at or near its end of life, and should be avoided
 - Consider using a newer version of Python as the specified version will eventually be unsupported
 - See [Python versions](https://aka.ms/azureml/environment/python-versions) and [Python end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
 
@@ -528,7 +718,7 @@ This issue can happen by failing to access a workspace's associated Azure Contai
 
 **Troubleshooting steps**
 
-*Applies to: Python SDK azureml V1*
+*Applies to: Python SDK v1*
 
 Update the workspace image build compute property using SDK:
 
@@ -538,7 +728,7 @@ ws = Workspace.from_config()
 ws.update(image_build_compute = 'mycomputecluster')
 ```
 
-*Applies to: Azure CLI extensions V1 & V2*
+*Applies to: Azure CLI extensions v1 & v2*
 
 Update the workspace image build compute property using Azure CLI:
 
@@ -577,7 +767,7 @@ If you suspect that the path name to your container registry is incorrect
 * For a registry `my-registry.io` and image `test/image` with tag `3.2`, a valid image path would be `my-registry.io/test/image:3.2`
 * See [registry path documentation](https://aka.ms/azureml/environment/docker-registries)
 
-If your container registry is behind a virtual network and is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
 * Configure the container registry by using the service endpoint (public access) from the portal and retry
 * After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
 
@@ -871,35 +1061,233 @@ Ensure that you're using a compatible python version
 * [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 
 ### Interactive auth was attempted
-- Failed to create or update the conda environment because pip attempted interactive authentication 
-- Instead, provide authentication via [workspace connection](https://aka.ms/azureml/environment/set-connection-v1)
+<!--issueDescription-->
+This issue can happen when pip attempts interactive authentication during package installation.
+
+**Potential causes:**
+* You've listed a package that requires authentication, but you haven't provided credentials
+* During the image build, pip tried to prompt you to authenticate which failed the build
+because you can't provide interactive authentication during a build
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Provide authentication via workspace connections
+
+*Applies to: Python SDK v1*
+
+```
+from azureml.core import Workspace
+ws = Workspace.from_config()
+ws.set_connection("connection1", "PythonFeed", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
+```
+
+*Applies to: Azure CLI extensions v1 & v2*
+
+Create a workspace connection from a YAML specification file
+
+```
+az ml connection create --file connection.yml --resource-group my-resource-group --workspace-name my-workspace
+```
+
+**Resources**
+* [Python SDK v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+* [Python SDK v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Forbidden blob
-- Failed to create or update the conda environment because a blob contained in the associated storage account was inaccessible
-- Either open up permissions on the blob or add/replace the SAS token in the URL
+<!--issueDescription-->
+This issue can happen when an attempt to access a blob in a storage account is rejected.
+
+**Potential causes:**
+* The authorization method you're using to access the storage account is invalid
+* You're attempting to authorize via shared access signature (SAS), but the SAS token is expired or invalid
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Read the following to understand [how to authorize access to blob data in the Azure portal](../storage/blobs/authorize-data-operations-portal.md)
+
+Read the following to understand [how to authorize access to data in Azure storage](../storage/common/authorize-data-access.md)
+
+Read the following if you're interested in [using SAS to access Azure storage resources](../storage/common/storage-sas-overview.md)
 
 ### Horovod build
-- Failed to create or update the conda environment because horovod failed to build
-- See [horovod installation](https://aka.ms/azureml/environment/install-horovod)
+<!--issueDescription-->
+This issue can happen when the conda environment fails to be created or updated because horovod failed to build.
+
+**Potential causes:**
+* Horovod installation requires other modules that you haven't installed
+* Horovod installation requires certain libraries that you haven't included
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Many issues could cause a horovod failure, and there's a comprehensive list of them in horovod's documentation
+* Review the [horovod troubleshooting guide](https://horovod.readthedocs.io/en/stable/troubleshooting_include.html#) 
+* Review your Build log to see if there's an error message that surfaced when horovod failed to build
+* It's possible that the problem you're encountering is detailed in the horovod troubleshooting guide, along with a solution
+
+**Resources**
+* [horovod installation](https://aka.ms/azureml/environment/install-horovod)
 
 ### Conda command not found
-- Failed to create or update the conda environment because the conda command is missing 
-- For system-managed environments, conda should be in the path in order to create the user's environment
-from the provided conda specification
+<!--issueDescription-->
+This issue can happen when the conda command isn't recognized during conda environment creation or update.
+
+**Potential causes:**
+* conda isn't installed in the base image you're using
+* conda isn't installed via your Dockerfile before you try to execute the conda command
+* conda isn't included in or wasn't added to your path
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Ensure that you have a conda installation step in your Dockerfile before trying to execute any conda commands
+* Review this [list of conda installers](https://docs.conda.io/en/latest/miniconda.html) to determine what you need for your scenario
+
+If you've tried installing conda and are experiencing this issue, ensure that you've added conda to your path
+* Review this [example](https://stackoverflow.com/questions/58269375/how-to-install-packages-with-miniconda-in-dockerfile) for guidance
+* Review how to set [environment variables in a Dockerfile](https://docs.docker.com/engine/reference/builder/#env)
+
+**Resources**
+* All available conda distributions are found in the [conda repository](https://repo.anaconda.com/miniconda/)
 
 ### Incompatible Python version
-- Failed to create or update the conda environment because a package specified in the conda environment isn't compatible with the specified python version
-- Update the Python version or use a different version of the package
+<!--issueDescription-->
+This issue can happen when there's a package specified in your conda environment that isn't compatible with your specified Python version.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Use a different version of the package that's compatible with your specified Python version
+
+Alternatively, use a different version of Python that's compatible with the package you've specified
+* If you're changing your Python version, use a version that's supported and that isn't nearing its end-of-life soon
+* See Python [end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
+
+**Resources**
+* [Python documentation by version](https://aka.ms/azureml/environment/python-versions)
 
 ### Conda bare redirection
-- Failed to create or update the conda environment because a package was specified on the command line using ">" or "<"
-without using quotes. Consider adding quotes around the package specification
+<!--issueDescription-->
+This issue can happen when a package is specified on the command line using "<" or ">" without using quotes, causing conda environment creation or update to fail.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Add quotes around the package specification
+* For example, change `conda install -y pip<=20.1.1` to `conda install -y "pip<=20.1.1"`
+
+### UTF-8 decoding error
+<!--issueDescription-->
+This issue can happen when there's a failure decoding a character in your conda specification. 
+
+**Potential causes:**
+* Your conda YAML file contains characters that aren't compatible with UTF-8.
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
 
 ### *Pip issues during build*
 ### Failed to install packages
-- Failed to install Python packages
-- Review the image build log for more information on this error
+<!--issueDescription-->
+This issue can happen when your image build fails during Python package installation.
+
+**Potential causes:**
+* There are many issues that could cause this error
+* This is a generic message that's surfaced when the error you're encountering isn't yet covered by AzureML analysis
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Review your Build log for more information on your image build failure 
+
+Leave feedback for the AzureML team to analyze the error you're experiencing
+* [File a problem or suggestion](https://github.com/Azure/azureml-assets/issues/new?assignees=&labels=environmentLogs&template=environmentLogsFeedback.yml)
 
 ### Can't uninstall package
-- Pip failed to uninstall a Python package that was installed via the OS's package manager
-- Consider creating a separate environment using conda instead
+<!--issueDescription-->
+This can happen when pip fails to uninstall a Python package that was installed via the operating system's package manager.
+
+**Potential causes:**
+* An existing pip problem or a problematic pip version
+* An issue arising from not using an isolated environment
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Read the following and determine if your failure is caused by an existing pip problem
+* [Cannot uninstall while creating Docker image](https://stackoverflow.com/questions/63383400/error-cannot-uninstall-ruamel-yaml-while-creating-docker-image-for-azure-ml-a)
+* [pip 10 disutils partial uninstall issue](https://github.com/pypa/pip/issues/5247)
+* [pip 10 no longer uninstalls disutils packages](https://github.com/pypa/pip/issues/4805)
+
+Try the following
+
+```
+pip install --ignore-installed [package]
+```
+
+Try creating a separate environment using conda
+
+### *Docker push issues*
+### Failed to store Docker image
+<!--issueDescription-->
+This issue can happen when a Docker image fails to be stored (pushed) to a container registry.  
+
+**Potential causes:**
+* A transient issue has occurred with the ACR associated with the workspace
+* A container registry behind a virtual network is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+
+**Affected areas (symptoms):**
+* Failure in building environments from the UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**  
+
+Retry the environment build if you suspect this is a transient issue with the workspace's Azure Container Registry (ACR)  
+
+If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+* Configure the container registry by using the service endpoint (public access) from the portal and retry
+* After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
+
+If you aren't using a virtual network, or if you've configured it correctly, test that your credentials are correct for your ACR by attempting a simple local build
+* Get credentials for your workspace ACR from the Azure Portal
+* Log in to your ACR using `docker login <myregistry.azurecr.io> -u "username" -p "password"`
+* For an image "helloworld", test pushing to your ACR by running `docker push helloworld`
+* See [Quickstart: Build and run a container image using Azure Container Registry Tasks](../container-registry/container-registry-quickstart-task-cli.md)

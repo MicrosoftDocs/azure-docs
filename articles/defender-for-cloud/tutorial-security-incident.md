@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to triage security alerts and de
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.topic: tutorial
 ms.custom: ignite-2022
-ms.date: 01/08/2023
+ms.date: 01/17/2023
 ---
 
 # Tutorial: Triage, investigate, and respond to security alerts
@@ -91,7 +91,7 @@ After you've investigated a security alert and understood its scope, you can res
     > [!TIP]
     > We review your feedback to improve our algorithms and provide better security alerts.
 
-## CLean up resources
+## Clean up resources
 
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Defender for Cloud's enhanced security features enabled. 
 

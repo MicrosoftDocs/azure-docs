@@ -15,29 +15,26 @@ items:
     href: get-started.md
   - name: Deploy the MedTech service
     expanded: true
-    items:
-    - name: Deployment methods   
-      expanded: true
-      items:
-      - name: Choose a deployment method
-        href: deploy-new-choose.md
-      - name: ARM template
-        href: deploy-new-arm.md
-      - name: Azure PowerShell or the Azure CLI
-        href: deploy-new-powershell-cli.md
-      - name: Azure Bicep
-        href: deploy-new-bicep-powershell-cli.md
-      - name: Azure portal - Manual
-        href: deploy-new-manual.md
-      - name: Azure portal - Configure
-        href: deploy-new-config.md
-      - name: Azure portal - Deploy
-        href: deploy-new-deploy.md   
+    items:    
+    - name: Choose a deployment method
+      href: deploy-new-choose.md
+    - name: ARM template
+      href: deploy-new-arm.md
+    - name: Azure PowerShell or the Azure CLI
+      href: deploy-new-powershell-cli.md
+    - name: Azure Bicep
+      href: deploy-new-bicep-powershell-cli.md
+    - name: Azure portal - Manual
+      href: deploy-new-manual.md
+    - name: Azure portal - Configure
+      href: deploy-new-config.md
+    - name: Azure portal - Deploy
+      href: deploy-new-deploy.md   
 - name: Tutorials
   expanded: true
   items:
-  - name: Receive device data through Azure IoT Hub
-    href: device-data-through-iot-hub.md 
+  - name: Receive device messages through Azure IoT Hub
+    href: device-messages-through-iot-hub.md 
 - name: How-to guides
   expanded: true
   items: 
@@ -63,7 +60,7 @@ items:
   - name: Create copies of mappings
     href: how-to-create-mappings-copies.md
   - name: Monitor
-    expanded: false
+    expanded: true
     items:
     - name: Use the monitoring tab
       href: how-to-use-monitoring-tab.md
@@ -71,13 +68,11 @@ items:
       href: how-to-configure-metrics.md
     - name: Enable diagnostic settings
       href: how-to-enable-diagnostic-settings.md
-  - name: Troubleshoot and problem solve
+  - name: Troubleshoot
     expanded: false
     items:
-    - name: Errors and conditions
-      href: troubleshoot-error-messages-and-conditions.md
-    - name: Device and FHIR destination mappings
-      href: troubleshoot-mappings.md
+    - name: Errors
+      href: troubleshoot-errors.md
 - name: Concepts
   expanded: false
   items:

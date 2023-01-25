@@ -3,7 +3,7 @@ title: Set up Private Link for Azure Virtual Desktop preview - Azure
 description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 01/12/2023
 ms.author: helohr
 manager: femila
 ---
@@ -105,7 +105,7 @@ To configure Private Link in the Azure portal:
 
 1. In the **Virtual Network** tab, make sure the values in the **Virtual Network** and **subnet** fields are correct.
 
-1. In the **Private IP configuration** field, choose whether you want to dynamically or statically allocate IP addresses from the subnet you selected in the previous step. <!--What's the difference between these two and why should I choose each?-->
+1. In the **Private IP configuration** field, choose whether you want to dynamically or statically allocate IP addresses from the subnet you selected in the previous step. 
     
     - If you choose to statically allocate IP addresses, you'll need to fill in the **Name** and **Private IP** for each listed member.
 
@@ -166,8 +166,10 @@ Follow the directions in [Tutorial: Filter network traffic with a network securi
 
 When you set up your NSG, you must configure it to allow both the URLs in the [required URL list](safe-url-list.md) and your private endpoints. Make sure to include the URLs for Azure Monitor.
 
->[!NOTE]
->If you intend to restrict network ports from either the user client devices or your session host VMs to the private endpoints, you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the private endpoint for the host pool resource using the *connection* sub-resource. If you restrict ports to the endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
+> [!NOTE]
+> If you intend to restrict network ports from either the user client devices or your session host VMs to the private endpoints, you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the private endpoint for the host pool resource using the *connection* sub-resource. The entire TCP dynamic port range is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource.
+>
+> If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
 
 ## Validate your Private Link deployment
 
