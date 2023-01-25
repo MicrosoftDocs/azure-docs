@@ -28,10 +28,10 @@ Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overvi
 
 | **Operations** | **Roles and Permissions** |
 |---|---|
-|**Data provider**: create share, add asset and recipients, revoke access | **Microsoft Purview collection role**: Data Share Contributor |
+|**Data provider**: create share, add asset and recipients, revoke access | **Microsoft Purview collection role**: minimum of Data Reader to use the Microsoft Purview compliance portal experience, none to use API or SDK |
 | |**Storage account role** checked when adding and updating asset: Owner or Storage Blob Data Owner |
 | |**Storage account permissions** checked when adding and updating asset: Microsoft.Authorization/roleAssignments/write OR Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/|
-|**Data consumer**: Receive share, map asset, terminate share |**Microsoft Purview collection role**: Data Share Contributor |
+|**Data consumer**: Receive share, map asset, terminate share |**Microsoft Purview collection role**: minimum of Data Reader to use the Microsoft Purview compliance portal experience, none to use API or SDK |
 | |**Storage account role** checked when mapping asset: Contributor OR Owner OR Storage Blob Data Contributor OR Storage Blob Data Owner |
 | |**Storage account permissions** checked when mapping asset: Microsoft.Storage/storageAccounts/write OR Microsoft.Storage/storageAccounts/blobServices/containers/write|	
 |**Data consumer**: Access shared data| No share-specific role required. You can access shared data with regular storage account permission just like any other data. Data consumer's ability to apply ACLs for shared data is currently not supported.|

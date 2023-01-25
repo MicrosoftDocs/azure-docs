@@ -20,8 +20,9 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 ### Microsoft Purview prerequisites
 
 * [A Microsoft Purview account](create-catalog-portal.md). 
-* **Data Share Contributor** roles to a Purview collection. If you created the Microsoft Purview account, you're automatically assigned this role to the root collection. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
+* No Microsoft Purview permission needed to use the updated data sharing SDK. A minimum of Data Reader role on a Microsoft Purview collection to use data sharing user experience in the Microsoft Purview compliance portal. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
 * Your data recipient's Azure sign-in email address, which you'll use to send the invitation to receive a share. The recipient's email alias won't work.
+* You'll need to be a Data Source Admin and one of the other Purview roles (for example, Data Reader) to register a source and manage it in the Microsoft Purview governance portal. Refer to the registration steps for [Blob Storage](register-scan-azure-blob-storage-source.md) and [ADLSGen2](register-scan-adls-gen2.md) respectively.
 
 ### Azure Storage account prerequisites
 
@@ -56,9 +57,12 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     > - Performance: Standard
     > - Redundancy options: LRS, GRS, RA-GRS
 
-* You need the **Owner** or **Storage Blob Data Owner** role on the source storage account to be able to share data. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
+* You need the **Owner** or **Storage Blob Data Owner** role on the source storage account to be able to share data. You need the **Reader** role on the source storage account to be able to view list of sent shares and received shares. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
+
 * If the source storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft. Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It's automatically registered at the time of share provider adding an asset if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located.
 This registration is only needed the first time when sharing or receiving data into a storage account in the Azure subscription.
+
+* A storage account needs to be registered in the collection to create a share using the Microsoft Purview compliance portal experience. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages. This step is not required to use the SDK.
 
 ## Create a share
 
@@ -76,6 +80,8 @@ This registration is only needed the first time when sharing or receiving data i
 
 1. Search for and add all the assets you'd like to share out at the folder and file level, and then select **Continue**.
 
+   > [!IMPORTANT]
+   > Only files and folders that belong to the current Blob or ADLSGen2 Storage account can be added to the share.
    > [!NOTE]
    > When sharing from a storage account, only files and folders are currently supported. Sharing from container isn't currently supported.
 
@@ -131,7 +137,7 @@ Save any changes by selecting **Save**.
 
 On the **Asset** tab of the [edit share page](#update-a-sent-share) you can see all the shared files and folders.
 
-You can **remove** any files or folders from the share by selecting the delete button in the asset's row.
+You can **remove** any files or folders from the share by selecting the delete button in the asset's row however you can't remove all the assets of a sent share.
 
 :::image type="content" source="./media/how-to-share-data/remove-asset.png" alt-text="Screenshot of the Asset tab of the edit page, with the delete button highlighted next to an asset." border="true":::
 
@@ -153,7 +159,6 @@ Here are what each of the recipient statuses mean:
 |---|---|
 |Active | The share has been accepted and the recipient has access to the shared data. |
 |Detached | The recipient hasn't accepted the invitation or is no longer active. They aren't receiving the share. |
-|Expired | The share has expired. You'll need to reshare to this recipient if you want to continue sharing data. |
 
 You can **remove or delete recipients** by either selecting the delete button on the recipient's row, or selecting multiple recipients and then selecting the **Delete recipients** button at the top of the page.
 
@@ -195,34 +200,24 @@ Here are some common issues for sharing data and how to troubleshoot.
 
 If you're getting an error related to *quota* when creating a Microsoft Purview account, it means your organization has exceeded [Microsoft Purview service limit](how-to-manage-quotas.md). If you require an increase in limit, contact support.
 
-### Both sent shares and received shares are disabled
+### Can't find my Storage account in the Catalog
+* Data source is not registered in Microsoft Purview. Check [Prerequisite](#prerequisites-to-share-data) for details on registering a data source. 
 
-If both *sent shares* and *received shares* are disabled in the navigation, you don't have **Data Share Contributor** role on any collections in this Microsoft Purview account. 
+### Can't create shares or edit shares
+* Permission issue to the data store where you want to share data from. Check [Prerequisite](#prerequisites-to-share-data) for required data store permissions.
 
-### Can't select a collection when creating a share or register a data source
-
-If you can't select a collection when creating a share or register a data source, you don't have proper permission to the collection. You need to have **Data Share Contributor** role to a Microsoft Purview collection in order to register data source and add asset to a share.
+### Can't view shares
+* Permission issue to the data store where you want to share data from. Check [Prerequisite](#prerequisites-to-share-data) for required data store permissions.
 
 ### Issue add or update asset
-
-If your storage account isn't listed for you to select, it's likely due to the following reasons:
-
-* The storage account isn't supported. Microsoft Purview Data Sharing only [supports storage accounts with specific configurations](#azure-storage-account-prerequisites).
-* You don't have **Data Share Contributor** role to the collection where the storage account is registered in. Data Share Contributor role is required to view the list of registered storage account in a collection and share data.
-
 If you failed to add or update asset, it's likely due to the following reasons:
 
-* Permission issue to the data store where you want to share data from. Check [Prerequisite](#prerequisites-to-share-data) for required data store permissions.
-* The share and source data store don't belong to the same Microsoft Purview collection. In order to share data from a data store, the share and source data store need to belong to the same Microsoft Purview collection.
 * You tried to share data from a *storage container*. Sharing from container isn't currently supported. You can select all files and folders within the container to share.
-* Exceeding limit. Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, contact Support.
-
-### Failed to reinstate a recipient
-
-After successfully revoking access to a recipient, you'll need to wait for a minute before reinstating the recipient.
 
 ## Next steps
 
 * [How to receive share](how-to-receive-share.md)
 * [FAQ for data sharing](how-to-data-share-faq.md)
 * [REST API reference](/rest/api/purview/)
+* Discover share assets in Catalog
+* See data sharing lineage
