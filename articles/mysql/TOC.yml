@@ -155,7 +155,7 @@
     - name: Application Development
       items:
       - name: WordPress on App Service
-        href: flexible-server/tutorial-wordpress-app-service.md
+        href: ../app-service/quickstart-wordpress.md
       - name: WordPress on Azure Kubernetes
         href: flexible-server/tutorial-deploy-wordpress-on-aks.md
       - name: PHP (Laravel) app on App Service in VNet
