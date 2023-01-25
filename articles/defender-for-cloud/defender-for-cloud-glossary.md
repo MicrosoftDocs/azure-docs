@@ -1,7 +1,7 @@
 ---
 title: Defender for Cloud glossary
 description: The glossary provides a brief description of important Defender for Cloud platform terms and concepts.
-ms.date: 01/24/2023
+ms.date: 01/25/2023
 ms.topic: article
 ---
 
@@ -40,6 +40,7 @@ This glossary provides a brief description of important terms and concepts for t
 |**Cacls** | Change access control list, Microsoft Windows native command-line utility often used for modifying the security permission on folders and files.| [access-control-lists](/windows/win32/secauthz/access-control-lists) |
 |**CIS Benchmark** | (Kubernetes) Center for Internet Security benchmark| [CIS](../aks/cis-kubernetes.md)|
 |**CORS**| Cross origin resource sharing, an HTTP feature that enables a web application running under one domain to access resources in another domain.| [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)|
+|**CNAPP**|Cloud Native Application Protection Platform|[Build cloud native applications in Azure](https://azure.microsoft.com/solutions/cloud-native-apps/)|
 |**CNCF**|Cloud Native Computing Foundation|[Build CNCF projects by using Azure Kubernetes service](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)|
 |**CSPM**|Cloud Security Posture Management| [Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md)|
 |**CWPP** | Cloud Workload Protection Platform | [CWPP](./overview-page.md)|
@@ -54,6 +55,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
+|**EASM**| External Attack Surface Management|[EASM Overview](how-to-manage-attack-path.md#external-attack-surface-management-easm)|
 |**EDR**| Endpoint Detection and Response|[Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)|
 |**EKS**| Amazon Elastic Kubernetes Service, Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.|[EKS](https://aws.amazon.com/eks/)|
 |**eBPF**|Extended Berkley Packet Filter |[What is eBPF?](https://ebpf.io/)|
@@ -71,6 +73,12 @@ This glossary provides a brief description of important terms and concepts for t
 |--|--|--|
 |**GCP**| Google Cloud Platform | [Onboard a GPC Project](../active-directory/cloud-infrastructure-entitlement-management/onboard-gcp.md)|
 |**GKE**| Google Kubernetes Engine, Google's managed environment for deploying, managing, and scaling applications using GCP infrastructure.|[Deploy a Kubernetes workload using GPU sharing on your Azure Stack Edge Pro](../databox-online/azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md)|
+
+## I
+
+| Term | Description | Learn more |
+|--|--|--|
+| **IAM** | Identity and Access management |[Introduction to IAM](https://www.microsoft.com/security/business/security-101/what-is-identity-access-management-iam)|
 
 ## J
 
@@ -94,6 +102,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
+|**MCSB**| Microsoft Cloud Security Benchmark | [MCSB in Defender for Cloud](concept-regulatory-compliance.md#microsoft-cloud-security-benchmark-in-defender-for-cloud)|
 |**MDC**| Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) for all of your Azure, on-premises, and multicloud (Amazon AWS and Google GCP) resources. | [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)|
 |**MDE**| Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats.|[Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)|
 |**MFA**|multi factor authentication, a process in which users are prompted during the sign-in process for an extra form of identification, such as a code on their cellphone or a fingerprint scan.|[How it works: Azure Multi Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)|
@@ -124,6 +133,7 @@ This glossary provides a brief description of important terms and concepts for t
 |**Secure Score**|Defender for Cloud continually assesses your cross-cloud resources for security issues. It then aggregates all the findings into a single score that represents your current security situation: the higher the score, the lower the identified risk level.|[Security posture for Microsoft Defender for Cloud](secure-score-security-controls.md)|
 |**Security Initiative** | A collection of Azure Policy Definitions, or rules, that are grouped together towards a specific goal or purpose. | [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
 |**Security Policy**| An Azure rule about specific security conditions that you want controlled.|[Understanding Security Policies](security-policy-concept.md)|
+|**SIEM**| Security Information and Event Management.| [What is SIEM?](https://www.microsoft.com/security/business/security-101/what-is-siem?rtc=1)|
 |**SOAR**| Security Orchestration Automated Response, a collection of software tools designed to collect data about security threats from multiple sources and respond to low-level security events without human assistance.| [SOAR](../sentinel/automation.md)|
 
 ## T
