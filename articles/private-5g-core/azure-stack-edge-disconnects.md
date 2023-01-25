@@ -16,19 +16,19 @@ There are several reasons why your *Azure Private 5G Core (AP5GC)* may have *Azu
 
 ## Temporary disconnects
 
-Azure Stack Edge can tolerate small periods of unplanned temporary disconnect. The following sections detail the behavior expected during these times and behavior after ASE reconnect.
+ASE can tolerate small periods of unplanned connectivity issues. The following sections detail the behavior expected during these times and behavior after ASE connectivity resumes.
 
 Throughout any temporary disconnects, the **Azure Stack Edge overview** will display a banner stating `The device heartbeat is missing. Some operations will not be available in this state. Critical alert(s) present. Click here to view details.`
 
 ### Configuration and provisioning actions during temporary disconnects
 
-It's common to see configuration and provisioning failures while ASE is temporarily disconnected. AP5GC can handle such events without major issues by automatically retrying configuration and provisioning actions once the ASE reconnects. If the action hasn't succeed within 10 minutes, an error displays and you will need to repeat the action manually once ASE reconnects.
+It's common to see temporary failures such as timeouts of configuration and provisioning while ASE is online, but there is a connectivity issue. AP5GC can handle such events by automatically retrying configuration and provisioning actions once the ASE connectivity is restored. If ASE connectivity is not restored within 10 minutes or ASE is detected as being offline, ongoing operations will fail and you will need to repeat the action manually once ASE reconnects.
 
-Throughout disconnects, the **SIM overview** blade displays SIM provisioning status in the **Site Details** section allowing you to monitor progress for any pending configuration and provisioning actions.
+The **Sim overview** and **Sim Policy overview** blades display provisioning status of the resource in the site. This allows you to monitor the progress of provisioning actions. Additionally, the **Packet core control plane overview** displays the **Installation state** which can be used to monitor changes due to configuration actions.
 
-### ASE behavior after reconnecting
+### ASE behavior after connectivity resumes
 
-Once ASE reconnects, several features will resume:
+Once ASE connectivity resumes, several features will resume:
 
 - ASE management will resume immediately.
 - **Resource Health** will be viewable immediately.
