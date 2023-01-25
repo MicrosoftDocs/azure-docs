@@ -75,7 +75,8 @@ If you switched from local usernames and passwords to Azure AD, follow the steps
 
 If you switched from Azure AD to local usernames and passwords:
 
-1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, delete the Kubernetes Secret Objects:
+1. Sign in to [Azure Cloud Shell](/azure/cloud-shell/overview) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](/azure/azure-arc/kubernetes/cluster-connect?tabs=azure-cli) to configure kubectl access.
+1. Delete the Kubernetes Secret Objects:
 
     `kubectl delete secrets sas-auth-secrets grafana-auth-secrets --kubeconfig=<core kubeconfig>`
 
@@ -89,7 +90,7 @@ If you switched from Azure AD to local usernames and passwords:
 
         `kubectl delete pod sas-core-search-0 <packet core dashboards pod> -n core --kubeconfig=<core kubeconfig>`
 
-1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to check if you can access your local monitoring tools using the new method.
+1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to check if you can access your local monitoring tools using local usernames and passwords.
 
 ## Next steps
 
