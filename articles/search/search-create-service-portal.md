@@ -130,15 +130,14 @@ Your service is deployed within minutes. You can monitor progress through Azure 
 
 Unless you're using the portal, programmatic access to your new service requires that you provide the URL endpoint and an authenticated connection. You can use either or both of these options:
 
-+ [Azure role-based access control with Azure Active Directory](search-security-rbac.md) 
++ [Connect using key-based authentication](search-security-api-keys.md)
++ [Connect using Azure roles](search-security-rbac.md) 
 
-+ [Key-based authentication](search-security-api-keys.md)
-
-1. To set up a programmatic connection, you'll need the search service endpoint. On the **Overview** page, locate and copy the URL endpoint on the right side of the page.
+1. When setting up a programmatic connection, you'll need the search service endpoint. On the **Overview** page, locate and copy the URL endpoint on the right side of the page.
 
    :::image type="content" source="media/search-create-service-portal/get-endpoint.png" lightbox="media/search-create-service-portal/get-endpoint.png" alt-text="Screenshot of the service overview page with URL endpoint." border="true":::
 
-1. To set authentication, set options on the **Keys** page:
+1. To set authentication options, use the **Keys** page:
 
    :::image type="content" source="media/search-create-service-portal/set-auth-options.png" lightbox="media/search-create-service-portal/set-auth-options.png" alt-text="Screenshot of the keys page with authentication options." border="true":::
 
