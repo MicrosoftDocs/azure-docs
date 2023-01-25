@@ -5,7 +5,7 @@ author: pagienge
 ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 01/06/2023
+ms.date: 01/24/2023
 ms.author: pagienge
 ms.subservice: disks
 ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli 
@@ -55,23 +55,11 @@ lrwxrwxrwx. 1 root root  13 Sep  9 21:54 lun2-part1 -> ../../../sde1
 
 ### Expand without downtime
 
-You now may be able to expand your managed disks without deallocating your VM.
+You may be able to expand your managed disks without deallocating your VM.
 
 This feature has the following limitations:
 
 [!INCLUDE [virtual-machines-disks-expand-without-downtime-restrictions](../../../includes/virtual-machines-disks-expand-without-downtime-restrictions.md)]
-
-To register for the feature, use the following command:
-
-```azurecli
-az feature register --namespace Microsoft.Compute --name LiveResize
-```
-
-It may take a few minutes for registration to take complete. To confirm that you've registered, use the following command:
-
-```azurecli
-az feature show --namespace Microsoft.Compute --name LiveResize
-```
 
 ### Expand Azure Managed Disk
 
@@ -82,7 +70,7 @@ This article requires an existing VM in Azure with at least one data disk attach
 In the following samples, replace example parameter names such as *myResourceGroup* and *myVM* with your own values.
 
 > [!IMPORTANT]
-> If you've enabled **LiveResize** and your disk meets the requirements in [Expand without downtime](#expand-without-downtime), you can skip step 1 and 3. 
+> If your disk meets the requirements in [Expand without downtime](#expand-without-downtime), you can skip step 1 and 3. 
 
 1. Operations on virtual hard disks can't be performed with the VM running. Deallocate your VM with [az vm deallocate](/cli/azure/vm#az-vm-deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
 
