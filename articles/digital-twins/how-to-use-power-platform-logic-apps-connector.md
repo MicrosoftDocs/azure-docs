@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to connect Power Platform and Logic Apps to Azure Digital Twins using the connector
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/23/2023
+ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -49,7 +49,7 @@ Follow the steps below to create a sample flow with the connector in Power Autom
 1. Enter a **Flow name** and select **Manually trigger a flow** from the list of triggers. **Create** the flow.
 1. Add a step to the flow, and search for *Azure Digital Twins* to find the connection. Select the Azure Digital Twins connection.
     :::image type="content" source="media/how-to-use-power-platform-logic-apps-connector/power-automate-action-1.png" alt-text="Screenshot of Power Automate, showing the Azure Digital Twins connector in a new flow." lightbox="media/how-to-use-power-platform-logic-apps-connector/power-automate-action-1-big.png":::
-1. You'll see a list of all the [actions]() that are available with the connector. Pick one of them to interact with the [Azure Digital Twins APIs](/rest/api/azure-digitaltwins/).
+1. You'll see a list of all the [actions](/connectors/azuredigitaltwins) that are available with the connector. Pick one of them to interact with the [Azure Digital Twins APIs](/rest/api/azure-digitaltwins/).
     :::image type="content" source="media/how-to-use-power-platform-logic-apps-connector/power-automate-action-2.png" alt-text="Screenshot of Power Automate, showing all the actions for the Azure Digital Twins connector." lightbox="media/how-to-use-power-platform-logic-apps-connector/power-automate-action-2-big.png":::
 1. You can continue to edit or add more steps to your workflow, using other connectors to build out your integration scenario.
     :::image type="content" source="media/how-to-use-power-platform-logic-apps-connector/power-automate-action-3.png" alt-text="Screenshot of Power Automate, showing a Get twin by ID action from the Azure Digital Twins connector in a flow." lightbox="media/how-to-use-power-platform-logic-apps-connector/power-automate-action-3.png":::
@@ -58,7 +58,7 @@ Follow the steps below to create a sample flow with the connector in Power Apps.
 1. In Power Apps, select **+ Create** from the left navigation menu. Select **Blank app** and follow the prompts to create a new app.
 1. In the app builder, select **Data** from the left navigation menu. Select **Add data** and search for *Azure Digital Twins* to find the data connection. Select the Azure Digital Twins connection.
     :::image type="content" source="media/how-to-use-power-platform-logic-apps-connector/power-apps-action-1.png" alt-text="Screenshot of Power Apps, showing the Azure Digital Twins connector as a data source." lightbox="media/how-to-use-power-platform-logic-apps-connector/power-apps-action-1.png":::
-1. Now, the [actions]() from the Azure Digital Twins connector will be available as functions to use in your app.
+1. Now, the [actions](/connectors/azuredigitaltwins) from the Azure Digital Twins connector will be available as functions to use in your app.
     :::image type="content" source="media/how-to-use-power-platform-logic-apps-connector/power-apps-action-2.png" alt-text="Screenshot of Power Apps, showing the Get twin by ID action being used in a function." lightbox="media/how-to-use-power-platform-logic-apps-connector/power-apps-action-2.png":::
 1. You can continue to build out your application with access to Azure Digital Twins data. For more information about building Power Apps, see [Overview of creating apps in Power Apps](/power-apps/maker/).
 
@@ -67,7 +67,7 @@ Follow the steps below to create a sample flow with the connector in Logic Apps.
 1. Select your new flow and enter into the **Designer**.
 1. Select **Choose an operation** to add a trigger. Search for *Azure Digital Twins* to find the data connection. Select the Azure Digital Twins connection.
     :::image type="content" source="media/how-to-use-power-platform-logic-apps-connector/logic-apps-action.png" alt-text="Screenshot of Logic Apps, showing the Azure Digital Twins connector." lightbox="media/how-to-use-power-platform-logic-apps-connector/logic-apps-action.png":::
-1. You'll see a list of all the [actions]() that are available with the connector. Pick one of them to interact with the [Azure Digital Twins APIs](/rest/api/azure-digitaltwins/).
+1. You'll see a list of all the [actions](/connectors/azuredigitaltwins) that are available with the connector. Pick one of them to interact with the [Azure Digital Twins APIs](/rest/api/azure-digitaltwins/).
 1. After selecting an action from the Azure Digital Twins connector, you'll be asked to enter authentication details to create the connection.
 1. You can continue to edit or add more steps to your workflow, using other connectors to build out your integration scenario.
 
