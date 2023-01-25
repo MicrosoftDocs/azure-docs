@@ -51,7 +51,7 @@ Azure Maps JavaScript/TypeScript SDK supports LTS versions of [Node.js][Node.js]
 | [Search][js search readme] | [@azure/maps-search][js search package] | [search samples][js search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
 | [Render][js render readme] | [@azure-rest/maps-render][js render package]|[render sample][js render sample] |
-| [Geolocation][js geolocation readme]|[@azure-rest/maps-geolocation][js geolocation package]|[geolocation sample][js geolocation sample] |
+| [Geolocation][js geolocation readme]|[@azure-rest/maps-geolocation][js geolocation package]|[geolocation sample][js geolocation sample] |
 
 For more information, see the [JavaScript/TypeScript SDK Developers Guide](how-to-dev-guide-js-sdk.md).
 
