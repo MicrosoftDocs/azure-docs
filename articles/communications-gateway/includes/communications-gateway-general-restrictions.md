@@ -1,3 +1,11 @@
+---
+author: rcdun
+ms.author: rdunstan
+ms.service: communications-gateway
+ms.topic: include
+ms.date: 01/10/2022
+---
+
 The following restrictions apply to all Azure Communications Gateways:
 
 * All traffic must use IPv4.

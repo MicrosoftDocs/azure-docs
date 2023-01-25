@@ -1,8 +1,8 @@
 ---
-title: Monitoring your Azure Communications Gateway  
-description: Start here to learn how to monitor Azure Communications Gateway. 
-author: AtiqKhan-Docs
-ms.author: khanatiq
+title: Monitoring your Azure Communication Gateway
+description: Start here to learn how to monitor Azure Communications Gateway.
+author: rcdun
+ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
 ms.custom: subject-monitoring

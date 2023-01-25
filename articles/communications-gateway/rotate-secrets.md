@@ -1,8 +1,8 @@
 ---
 title: Rotate your Azure Communications Gateway secrets
 description: Learn how to rotate your secrets to keep your Azure Communications Gateway secure.
-author: AtiqKhan-Docs
-ms.author: khanatiq
+author: rcdun
+ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to 
 ms.date: 01/12/2023

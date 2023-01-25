@@ -1,8 +1,8 @@
 ---
 title: Onboarding onto Microsoft Operator Connect and Microsoft Teams Phone Mobile with Azure Communications Gateway
 description: Understand the Azure Communications Gateway Basic Integration Included Benefit for onboarding to Teams Operator Connect and your other options for onboarding
-author: nslack
-ms.author: nickslack
+author: rcdun
+ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual 
 ms.date: 01/18/2023
