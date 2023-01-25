@@ -5,7 +5,7 @@ author: vamckMS
 ms.service: azure-dedicated-host
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 1/23/2023
+ms.date: 1/25/2023
 ms.author: vakavuru
 ms.reviewer: mattmcinnes
 
@@ -18,6 +18,7 @@ ms.reviewer: mattmcinnes
 
 Azure Dedicated Host is a service that provides physical servers able to host one or more virtual machines assigned to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided instead as a directly accessible hardware resource. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place VMs directly into your provisioned hosts in whatever configuration best meets your needs.
 
+## Video Introduction
 <!-- markdownlint-disable MD034 -->
 
 > [!VIDEO https://www.youtube.com/embed/Lk9mA1WzfAQ]
