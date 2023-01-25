@@ -126,6 +126,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
 |		|	Change Tracking	| X (Public preview) |	X	|		|
+|       |   SQL Best Practices Assessment | X |     |       |
 
 ### Linux agents
 
