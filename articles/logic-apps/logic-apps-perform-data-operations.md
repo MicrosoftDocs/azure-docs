@@ -983,7 +983,7 @@ If you used the Office 365 Outlook action, you get a result similar to the follo
 To reference or access properties in JavaScript Object Notation (JSON) content, you can create user-friendly fields or tokens for those properties by using the **Parse JSON** action. That way, you can select those properties from the dynamic content list when you specify inputs for subsequent actions in your workflow. For this action, you can either provide a JSON schema or generate a JSON schema from your sample JSON content or payload.
 
 To try the **Parse JSON** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Parse JSON** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Parse JSON](logic-apps-data-operations-code-samples.md#parse-json-action-example). 
-For more information about this action in your underlying workflow definition, see [Parse JSON action](logic-apps/logic-apps-workflow-actions-triggers.md).
+For more information about this action in your underlying workflow definition, see [Parse JSON action](logic-apps-workflow-actions-triggers.md).
 
 ### [Consumption](#tab/consumption)
 
