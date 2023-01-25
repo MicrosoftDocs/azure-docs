@@ -3078,7 +3078,7 @@ The [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core
 
 + **New features**
   + Azure Machine Learning now provides first class support for popular DNN framework Chainer. Using [`Chainer`](/python/api/azureml-train-core/azureml.train.dnn.chainer) class users can easily train and deploy Chainer models.
-    + Learn how to [run distributed training with ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/distributed-chainer/distributed-chainer.ipynb)
+    + Learn how to [run distributed training with ChainerMN](https://github.com/Azure/azureml-examples/blob/main/tutorials/e2e-distributed-pytorch-image/e2e-object-classification-distributed-pytorch.ipynb)
     + Learn how to [run hyperparameter tuning with Chainer using HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning Pipelines added ability to trigger a Pipeline run based on datastore modifications. The pipeline [schedule notebook](https://aka.ms/pl-schedule) is updated to showcase this feature.
 
