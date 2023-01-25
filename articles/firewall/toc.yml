@@ -36,6 +36,8 @@ items:
     href: tutorial-hybrid-portal-policy.md
   - name: Filter inbound traffic with DNAT
     href: tutorial-firewall-dnat-policy.md
+  - name: Deploy firewall with DDoS protection
+    href: tutorial-protect-firewall.md
 
 - name: Samples
   items:

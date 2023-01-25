@@ -18385,6 +18385,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/web-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-web",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/sentinel/dns-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-dns",
             "redirect_document_id": true
@@ -27964,6 +27969,11 @@
           "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
           "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
           "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/uptime-sla.md",
+            "redirect_url": "/azure/aks/free-standard-pricing-tiers",
+            "redirect_document_id": "false"
         },
         {
           "source_path": "articles/dotnet-develop-multitenant-applications.md",
