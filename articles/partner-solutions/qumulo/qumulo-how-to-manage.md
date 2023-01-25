@@ -26,7 +26,7 @@ This article describes how to manage your instance of Azure Native Qumulo Scalab
 
 ## Configure and use the Qumulo file system
 
-For help with configuring and using your file system, see the [Qumulo documentation hub](https://docs.qumulo.com/cloud-guide/).
+For help with configuring and using your file system, see the [Qumulo documentation hub](https://docs.qumulo.com/azure-guide/).
 
 ## Delete the Qumulo file system
 
