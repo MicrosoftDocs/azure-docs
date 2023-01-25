@@ -23,7 +23,7 @@ The following table lists the supported clients for use with the URI schemes:
 
 | Client | Version |
 |--|--|
-| [Remote Desktop client for Windows](users/connect-windows.md) | 1.2.???? |
+| [Remote Desktop client for Windows](users/connect-windows.md) | TODO: 1.2.???? |
 
 ## Available URI schemes
 
@@ -53,6 +53,8 @@ Here's the list of currently supported commands for *ms-avd* and their correspon
 | user | User Principal Name (UPN), for example `user@contoso.com`. | Specify a valid user with access to specified resource. |
 | env *(optional)* | **avdrm** (commercial Azure)<br />**avdgov** (Azure Government) | Specify the Azure cloud where resources are located. |
 | version | **0** | Specify the version of the connect URI scheme to use. |
+| launchpartnerid *(optional)*| GUID. | Specifies the partner or customer-provided identity (recommend GUID) to enable identification with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md). |
+| peeractivityid *(optional)*| GUID. | Specifies the partner or customer-provided activity ID (recommend GUID) to enable troubleshooting with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md). |
 
 **Example:**
 ```
@@ -83,6 +85,13 @@ Here's the list of currently supported commands for *ms-rd* and their correspond
 ```
 ms-rd:subscribe?url=https://rdweb.wvd.microsoft.com
 ```
+
+## Known Limitations
+
+Here are known limitations with the URI schemes:
+
+- Display properties cannot be configured via URI. You can configure display properties as an admin [on a host pool](customize-rdp-properties.md) or end users can configure display properties in the [Azure Virtual Desktop client](users/remote-desktop-clients-overview.md).
+
 
 ## Next steps
 
