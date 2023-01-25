@@ -5,13 +5,15 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to 
-ms.date: 01/24/2023
+ms.date: 01/25/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster
 
-The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of an Azure key vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume][kube-csi] and has the following features:
+The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of an Azure key vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume][kube-csi].
+
+## Features
 
 * Mounts secrets, keys, and certificates to a pod by using a CSI volume
 * Supports CSI inline volumes
@@ -29,7 +31,7 @@ A container using subPath volume mount won't receive secret updates when it's ro
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Check that your version of the Azure CLI is 2.30.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
-* If you're restricting Ingress to the cluster, check that ports **9808** and **8095** are open.
+* If you're restricting Ingress to the cluster, make sure ports **9808** and **8095** are open.
 
 ### Supported Kubernetes versions
 
@@ -49,7 +51,7 @@ The minimum recommended Kubernetes version is based on the [rolling Kubernetes v
     az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-managed-identity
     ```
 
-3. A user-assigned managed identity, named `azurekeyvaultsecretsprovider-*`, is created by the add-on to access Azure resources. The following example uses this identity to connect to the Azure key vault where the secrets will be stored, but you can also use other [identity access methods][identity-access-methods]. Take note of the identity's `clientId` in the output.
+3. A user-assigned managed identity, named `azureKeyvaultSecretsProvider`, is created by the add-on to access Azure resources. The following example uses this identity to connect to the Azure key vault where the secrets will be stored, but you can also use other [identity access methods][identity-access-methods]. Take note of the identity's `clientId` in the output.
 
     ```json
     ...,
@@ -65,17 +67,13 @@ The minimum recommended Kubernetes version is based on the [rolling Kubernetes v
 
 ## Upgrade an existing AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver support
 
-* Upgrade an existing AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver capability using the [`az aks enable-addons`][az-aks-enable-addons] command with the `azure-keyvault-secrets-provider` add-on.
+* Upgrade an existing AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver capability using the [`az aks enable-addons`][az-aks-enable-addons] command with the `azure-keyvault-secrets-provider` add-on. The add-on creates a user-assigned managed identity you can use to authenticate to your Azure key vault.
 
     ```azurecli-interactive
     az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluster --resource-group myResourceGroup
     ```
 
-As mentioned in the preceding section, the add-on creates a user-assigned managed identity that you can use to authenticate to your Azure key vault.
-
 ## Verify the Azure Key Vault Provider for Secrets Store CSI Driver installation
-
-The preceding command installs the Secrets Store CSI Driver and the Azure Key Vault Provider on your nodes.
 
 * Verify the installation is finished using the `kubectl get pods` command to list all pods that have the `secrets-store-csi-driver` and `secrets-store-provider-azure` labels in the kube-system namespace, and ensure that your output looks similar to the following output:
 
@@ -91,13 +89,13 @@ The preceding command installs the Secrets Store CSI Driver and the Azure Key Va
     aks-secrets-store-provider-azure-f5qlm   1/1     Running   0          4m25s
     ```
 
-Make sure there's a Secrets Store CSI Driver pod and a Secrets Store Provider Azure pod running on each node in your cluster's node pools.
+* Verify that each node in your cluster's node pool has a Secrets Store CSI Driver pod and a Secrets Store Provider Azure pod running.
 
 ## Create or use an existing Azure key vault
 
-In addition to an AKS cluster, you'll need an Azure key vault resource that stores the secret content. Keep in mind that the key vault's name must be globally unique.
+In addition to an AKS cluster, you'll need an Azure key vault resource that stores the secret content.
 
-1. Create an Azure key vault using the [`az keyvault create`][az-keyvault-create] command.
+1. Create an Azure key vault using the [`az keyvault create`][az-keyvault-create] command. The name of the key vault must be globally unique.
 
     ```azurecli
     az keyvault create -n <keyvault-name> -g myResourceGroup -l eastus2
@@ -229,7 +227,7 @@ You might want to create a Kubernetes secret to mirror the mounted content. When
 > [!NOTE]
 > The YAML examples here are incomplete. You'll need to modify them to support your chosen method of access to your key vault identity. For details, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods].
 
-The secrets will sync only after you start a pod to mount them. Relying only on syncing with the Kubernetes secrets feature doesn't work. When all the pods that consume the secret are deleted, the Kubernetes secret is also deleted.
+The secrets will sync only after you start a pod to mount them. Relying only on syncing with the Kubernetes secrets feature doesn't work. When the pods that consume the secret are deleted, the Kubernetes secret is also deleted.
 
 ```yml
 apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -299,7 +297,7 @@ Metrics are served via Prometheus from port 8898, but this port isn't exposed ou
     kubectl port-forward -n kube-system ds/aks-secrets-store-provider-azure 8898:8898 & curl localhost:8898/metrics
     ```
 
-The following table lists the metrics that are provided by the Azure Key Vault Provider for Secrets Store CSI Driver:
+#### Metrics provided by the Azure Key Vault Provider for Secrets Store CSI Driver
 
 |Metric|Description|Tags|
 |----|----|----|
@@ -317,7 +315,7 @@ Metrics are served from port 8095, but this port isn't exposed outside the pod b
     curl localhost:8095/metrics
     ```
 
-The following table lists the metrics provided by the Secrets Store CSI Driver:
+#### Metrics provided by the Secrets Store CSI Driver
 
 |Metric|Description|Tags|
 |----|----|----|
