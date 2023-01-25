@@ -63,7 +63,7 @@ items:
   - name: Create copies of mappings
     href: how-to-create-mappings-copies.md
   - name: Monitor
-    expanded: false
+    expanded: true
     items:
     - name: Use the monitoring tab
       href: how-to-use-monitoring-tab.md
