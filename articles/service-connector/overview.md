@@ -40,7 +40,7 @@ Once a service connection is created, developers can validate and check the heal
 **Compute Services:**
 
 * Azure App Service
-* Azure Spring Cloud
+* Azure Spring Apps
 * Azure Container Apps
 
 **Target Services:**
@@ -71,8 +71,16 @@ There are two major ways to use Service Connector for your Azure application:
 Follow the tutorials listed below to start building your own application with Service Connector.
 
 > [!div class="nextstepaction"]
-> - [Quickstart: Service Connector in App Service using Azure CLI](./quickstart-cli-app-service-connection.md)
-> - [Quickstart: Service Connector in App Service using Azure portal](./quickstart-portal-app-service-connection.md)
-> - [Quickstart: Service Connector in Spring Cloud Service using Azure CLI](./quickstart-cli-spring-cloud-connection.md)
-> - [Quickstart: Service Connector in Spring Cloud using Azure portal](./quickstart-portal-spring-cloud-connection.md)
-> - [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+> [Quickstart: Service Connector in App Service using Azure CLI](./quickstart-cli-app-service-connection.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Service Connector in App Service using Azure portal](./quickstart-portal-app-service-connection.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Service Connector in Spring Cloud Service using Azure CLI](./quickstart-cli-spring-cloud-connection.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Service Connector in Spring Cloud using Azure portal](./quickstart-portal-spring-cloud-connection.md)
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

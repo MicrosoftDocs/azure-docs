@@ -40,7 +40,7 @@ items:
     - name: 4. Write web application
       href: tutorial-web-app-write-web-app.md
   - name: SMART on FHIR 
-    href: use-smart-on-fhir-proxy.md
+    href: smart-on-fhir.md
   - name: Interoperability and Patient Access
     expanded: false
     items:

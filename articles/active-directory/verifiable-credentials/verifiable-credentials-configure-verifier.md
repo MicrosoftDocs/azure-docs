@@ -128,7 +128,7 @@ Now you are ready to present and verify your first verified credential expert ca
 
     ```bash
     cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint
-    dotnet build "asp-net-core-api-idtokenhint.csproj" -c Debug -o .\bin\Debug\netcoreapp3.1  
+    dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\bin\Debug\netcoreapp3.1  
     dotnet run
     ```
 

@@ -66,15 +66,15 @@ The following table shows minimum threshold limits that you can set for differen
 
 > [!NOTE]
 > Limits set on the throttling policy's threshold value would take precedence over any value set for Kafka topic properties. For example, `IncomingBytes` would have higher priority over `message.max.bytes`.  
-
+> Application group throttling is expected to throttle consistent higher than permitted traffic scenarios (spanning across few minutes).Quick bursts in traffic for few seconds might not experience throttling via Application Groups. Looking at permitted throughput over the time horizon of few minutes is recommended approach to validate throttling.
 ### Protocol support and error codes 
  
 Application group supports throttling operations happening via following protocols – AMQP, Kafka and HTTP. The following table provides you the expected error codes returned by application groups: 
 
 | Protocol | Operation | Error code  | Error message |
 | -------- | --------- | ---------- | ------------- |
-| AMQP | Send | 50004 | Application group is throttled with application group ID & policy name |
-| HTTP | Send | 503 | Subcode: 50004. Application group is throttled with application group ID and policy name  |
+| AMQP | Send | 50004 |SubCode:50013, Application group is throttled with application group ID & policy name |
+| HTTP | Send | 503 | Subcode: 50013. Application group is throttled with application group ID and policy name  |
 | Kafka | Send | PolicyViolation | Broker: policy violation |
 
 Due to restrictions at protocol level, error messages aren't supported during receive operation. When application groups are throttling on receive operations, you would experience sluggish consumption of messages at consumer side.  

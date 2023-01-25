@@ -8,7 +8,7 @@ ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/11/2022
+ms.date: 12/28/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -22,7 +22,7 @@ Remark about the units used throughout this article. The public cloud vendors mo
 
 Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Premium SSD v2, and Ultra disk keeps the base VHD (with OS) and VM attached data disks or VHDs in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica if there's a storage node failure, is transparent. As a result of this redundancy, it's **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs as other native Azure storage.
 
-There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that apply to some of the different storage types Azure has to offer. 
+There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that applies to some of the different storage types Azure has to offer. 
 
 > [!NOTE]
 > Using Azure storage for storing database data and redo log file, LRS is the only supported reseleincy level at this point in time
@@ -34,16 +34,8 @@ Also keep in mind that different Azure storage types influence the single VM ava
 
 Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the [availability set][virtual-machines-manage-availability] of the virtual machine they're attached to. With such an alignment, you experience an improvement of the availability of your virtual machine and the services that are running in the virtual machine. For more information, read the [overview article](../../managed-disks-overview.md).
 
-Related to resiliency, this example demonstrates the advantage of managed disks:
-
-- You're deploying your two DBMS VMs for your SAP system in an Azure availability set 
-- As Azure deploys the VMs, the disk with the OS image will be placed in a different storage cluster. This split across different storage clusters avoids that both VMs get impacted by an issue of a single Azure storage cluster
-- As you create new managed disks that you assign to these VMs to store the data and log files of your database, these new disks for the two VMs are also deployed in separate storage clusters. So, that none of disks of the first VM are sharing storage clusters with the disks of the second VM
-
-Deploying without managed disks in customer defined storage accounts, disk allocation is arbitrary and has no awareness of the fact that VMs are deployed within an AvSet for resiliency purposes.
-
 > [!NOTE]
-> Out of this reason and several other improvements that are exclusively available through managed disks, we require that new deployments of VMs that use Azure block storage for their disks (all Azure storage except Azure NetApp Files) need to use Azure managed disks for the base VHD/OS disks, data disks that contain SAP database files. Independent on whether you deploy the VMs through availability set, across Availability Zones or independent of the sets and zones. Disks that are used for the purpose of storing backups aren't necessarily required to be managed disks.
+> We require that new deployments of VMs that use Azure block storage for their disks (all Azure storage except Azure NetApp Files and Azure Files) need to use Azure managed disks for the base VHD/OS disks and data disks which store SAP database files. Independent on whether you deploy the VMs through availability set, across Availability Zones or independent of the sets and zones. Disks that are used for the purpose of storing backups aren't necessarily required to be managed disks.
 
 
 ## Storage scenarios with SAP workloads
@@ -54,7 +46,7 @@ Persisted storage is needed in SAP workload in various components of the stack t
 - File shares or shared disks that contain your global transport directory for NetWeaver or S/4HANA. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
 - The /sapmnt directory or common file shares for EDI processes or similar. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
 
-In the next few sections, the different Azure storage types and their usability for SAP workload gets discussed that apply to the four scenarios above. A general categorization of how the different Azure storage types should be used is documented in the article [What disk types are available in Azure?](../../disks-types.md). The recommendations for using the different Azure storage types for SAP workload aren't going to be majorly different.
+In the next few sections, the different Azure storage types and their usability for the four SAP workload scenarios gets discussed. A general categorization of how the different Azure storage types should be used is documented in the article [What disk types are available in Azure?](../../disks-types.md). The recommendations for using the different Azure storage types for SAP workload aren't going to be majorly different.
 
 For support restrictions on Azure storage types for SAP NetWeaver/application layer of S/4HANA, read the [SAP support note 2015553](https://launchpad.support.sap.com/#/notes/2015553). For SAP HANA certified and supported Azure storage types, read the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
@@ -65,7 +57,7 @@ Our reference architectures foresee the usage of DBMS functionality like SQL Ser
   
 
 ## Storage recommendations for SAP storage scenarios
-Before going into the details, we're presenting the summary and recommendations already at the beginning of the document. Whereas the details for the particular types of Azure storage are following this section of the document. Summarizing the storage recommendations for the SAP storage scenarios in a table, it looks like:
+Before going into the details, we're presenting the summary and recommendations already at the beginning of the document. Whereas the details for the particular types of Azure storage are following this section of the document. When we summarize the storage recommendations for the SAP storage scenarios in a table, it looks like:
 
 | Usage scenario | Standard HDD | Standard SSD | Premium Storage | Premium SSD v2 | Ultra disk | Azure NetApp Files | Azure Premium Files |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -98,7 +90,7 @@ Characteristics you can expect from the different storage types list like:
 | HANA supported | No | No | yes<sup>1</sup> | Yes | Yes | Yes | No |
 | Disk snapshots possible | Yes | Yes | Yes | No | No | Yes | No |
 | Allocation of disks on different storage clusters when using availability sets | Through managed disks | Through managed disks | Through managed disks | Disk type not supported with VMs deployed through availability sets | Disk type not supported with VMs deployed through availability sets | No<sup>3</sup> | No |
-| Aligned with Availability Zones | Yes | Yes | Yes | Yes | Yes | Needs engagement of Microsoft | No |
+| Aligned with Availability Zones | Yes | Yes | Yes | Yes | Yes | In public preview | No |
 | Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | No | Yes |
 | Geo redundancy | Not for managed disks | Not for managed disks | No | No | No | Possible | No |
 
@@ -111,7 +103,8 @@ Characteristics you can expect from the different storage types list like:
 
 
 > [!IMPORTANT]
-> To achieve less than 1 millisecond I/O latency using Azure NetApp Files (ANF), you need to work with Microsoft to arrange the correct placement between your VMs and the NFS shares based on ANF. So far there's no mechanism in place that provides an automatic proximity between a VM deployed and the NFS volumes hosted on ANF. Given the different setup of the different Azure regions, the network latency added could push the I/O latency beyond 1 millisecond if the VM and the NFS share aren't allocated in proximity. [Application Volume Groups](../../../azure-netapp-files/application-volume-group-introduction.md), which is a functionality still in preview phase are a way to create an alignment in an easier manner.
+> Check out the Azure NetApp Files section of this document to find specifics around proximity placement of NFS volumes and VMs when less than 1 millisecond latencies are required.
+>
 
 
 ## Azure premium storage
@@ -165,7 +158,7 @@ For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst f
 
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
 
-- Low to moderate read workload since data ideally is cached in memory, or like in the case of HANA should be completely in memory
+- Low to moderate read workload since data ideally is cached in memory. Or like with SAP HANA should be completely in memory
 - Bursts of write triggered by database checkpoints or savepoints that are issued regularly
 - Backup workload that reads in a continuous stream in cases where backups aren't executed via storage snapshots
 - For SAP HANA, load of the data into memory after an instance restart
@@ -216,7 +209,7 @@ The capability matrix for SAP workload looks like:
 
 In opposite to Azure premium storage, Azure Premium SSD v2 fulfills SAP HANA storage latency KPIs. As a result, you **DON'T need to use Azure Write Accelerator caching** as described in the article [Enable Write Accelerator](../../how-to-enable-write-accelerator.md). 
 
-**Summary:** Azure Premium SSD v2 is the block storage that fits the best price/performance ratio for SAP workloads. Azure Premium SSD v2 is suited to handle database workloads. The submillisecond latency is ideal storage for demanding DBMS workloads. Though it's a new storage type that just released. Therefore, there still might be some limitations that are going to go away over the next few months.
+**Summary:** Azure Premium SSD v2 is the block storage that fits the best price/performance ratio for SAP workloads. Azure Premium SSD v2 is suited to handle database workloads. The submillisecond latency is ideal storage for demanding DBMS workloads. Though it's a newer storage type that got  released in November 2022. Therefore, there still might be some limitations that are going to go away over the next few months.
 
 
 ## Azure Ultra disk
@@ -260,7 +253,7 @@ The capability matrix for SAP workload looks like:
 
 
 ## Azure NetApp files (ANF)
-[Azure NetApp Files](https://azure.microsoft.com/services/netapp/) is the result out of a cooperation between Microsoft and NetApp with the goal to provide high performing Azure native NFS and SMB shares. The emphasis is to provide high bandwidth and low latency storage that enables DBMS deployment scenarios, and over time enable typical operational functionality of the NetApp storage through Azure as well. NFS/SMB shares are offered in three different service levels that differentiate in storage throughput and in price. The service levels are documented in the article [Service levels for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). For the different types of SAP workload the following service levels are highly recommended:
+[Azure NetApp Files](https://azure.microsoft.com/services/netapp/) is the result out of the cooperation between Microsoft and NetApp with the goal to provide high performing Azure native NFS and SMB shares. The emphasis is to provide high bandwidth and low latency storage that enables DBMS deployment scenarios, and over time enable typical operational functionality of the NetApp storage through Azure as well. NFS/SMB shares are offered in three different service levels that differentiate in storage throughput and in price. The service levels are documented in the article [Service levels for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). For the different types of SAP workload the following service levels are highly recommended:
 
 - SAP DBMS workload:  	Performance, ideally Ultra
 - SAPMNT share:			Performance, ideally Ultra
@@ -318,6 +311,17 @@ Other built-in functionality of ANF storage:
 - Cloning of ANF volumes from snapshots
 - Restore volumes from snapshots (snap-revert)
 - [Application consistent Snapshot backup for SAP HANA and Oracle](../../../azure-netapp-files/azacsnap-introduction.md) 
+
+> [!IMPORTANT]
+> Specifically for database deployments you want to achieve low latencies for at least your redo logs. Especially for SAP HANA, SAP requires a latency of less than than 1 millisecond for HANA redo log writes of smaller sizes. To get to such latencies, see the possibilities below.
+
+- You can use a public preview functionality that allows you to create the NFS share in the same Azure Availability Zones as you placed your VM that should mount the NFS shares into. This functionality is documented in the article [Manage availability zone volume placement for Azure NetApp Files](../../../azure-netapp-files/manage-availability-zone-volume-placement.md). For most of the deployment cases, the colocationof the NFS volume in the same zone as the virtual machine should be able to deliver a latency of less than 1 millisecond for smaller writes. Advantage of this method is that you don't need to go through a manual pinning process as this is the case today, and that you're flexible with change VM sizes and families within all the VM types and families offered in the Availability Zone you deployed. So, that you can react flexible on changing conditions or move faster to more cost efficient VM sizes or families.
+- You go for the closest proximity between VM and NFS share that can be arranged by using [Application Volume Groups](../../../azure-netapp-files/application-volume-group-introduction.md). The advantage of Application Volume Groups, besides allocating best proximity and with that creating lowest latency, is that your different NFS shares for SAP HANA deployments are distributed across different controllers in the Azure NetApp Files backend clusters. Disadvantage of this method is that you need to go through a pinning process again. A process that will end restricting your VM deployment to a single datacenter. Instead of an Availability Zones as the first method introduced. This means less flexibility in changing VM sizes and VM families of the VMs that have the NFS volumes mounted.
+- Current process of not using Availability Placement Groups. Which so far are available for SAP HANA only. This process also uses the same manual pinning process as this is the case with Availability Volume groups. This method is the method used for the last three years. It has the same flexibility restrictions as the process has with Availability Volume Groups.
+
+
+As preferences for allocating NFS volumes based on ANF for database specific usage, you should attempt to allocate the NFS volume in the same zone as your VM first. Especially for non-HANA databases. Only if latency proves to be insufficient you should go through a manual pinning process. For smaller HANA workload or non-production HANA workload, you should follow a zonal allocation method as well. Only in cases where performance and latency aren't sufficient you should use Application Volume Groups.
+
 
 **Summary**: Azure NetApp Files is a HANA certified low latency storage that allows to deploy NFS and SMB volumes or shares. The storage comes with three different service levels that provide different throughput  and IOPS in a linear manner per GiB capacity of the volume. The ANF storage is enabling to deploy SAP HANA scale-out scenarios with a standby node. The storage is suitable for providing file shares as needed for /sapmnt or SAP global transport directory. ANF storage come with functionality availability that is available as native NetApp functionality.  
 
@@ -432,7 +436,7 @@ In opposite to on-premises scenarios, the individual VM type you're selecting, p
 
 As limitations, you need to note that:
 
-- The smaller the VM, the fewer disks you can attach. This doesn't apply to ANF. Since you mount NFS or SMB shares, you don't encounter a limit of number of shared volumes to be attached
+- The smaller the VM, the fewer disks you can attach. This restriction doesn't apply to ANF. Since you mount NFS or SMB shares, you don't encounter a limit of number of shared volumes to be attached
 - VMs have I/O throughput and IOPS limits that easily could be exceeded with premium storage disks and Ultra disks
 - With ANF and Azure Premium Files, the traffic to the shared volumes is consuming the VM's network bandwidth and not storage bandwidth
 - With large NFS volumes in the double digit TiB capacity space, the throughput accessing such a volume out of a single VM is going to plateau based on limits of Linux for a single session interacting with the shared volume. 

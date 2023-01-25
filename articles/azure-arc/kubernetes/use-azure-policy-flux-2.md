@@ -1,10 +1,8 @@
 ---
 title: "Deploy applications consistently at scale using Flux v2 configurations and Azure Policy"
-services: azure-arc, container-service
 ms.date: 8/23/2022
 ms.topic: how-to
 description: "Use Azure Policy to apply Flux v2 configurations at scale on Azure Arc-enabled Kubernetes or AKS clusters."
-keywords: "Kubernetes, K8s, Arc, AKS, Azure, containers, GitOps, Flux v2, policy"
 ---
 
 # Deploy applications consistently at scale using Flux v2 configurations and Azure Policy

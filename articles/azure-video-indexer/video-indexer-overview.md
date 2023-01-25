@@ -2,13 +2,11 @@
 title: What is Azure Video Indexer?
 description: This article gives an overview of the Azure Video Indexer service.
 ms.topic: overview
-ms.date: 08/18/2022
+ms.date: 12/19/2022
 ms.author: juliako
 ---
 
 # What is Azure Video Indexer?
-
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
 
 [!INCLUDE [regulation](./includes/regulation.md)]
 
@@ -54,7 +52,6 @@ Unless specified otherwise, a model is generally available.
 * **Black frame detection**: Identifies black frames presented in the video.
 * **Keyframe extraction**: Detects stable keyframes in a video.
 * **Rolling credits**: Identifies the beginning and end of the rolling credits in the end of TV shows and movies.
-* **Animated characters detection** : Detects, groups, and recognizes characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). For more information, see [Animated character detection](animated-characters-recognition.md).
 * **Editorial shot type detection**: Tags shots based on their type (like wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, and so on). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * **Observed people tracking** (preview): Detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
     * **People's detected clothing** (preview): Detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing is associated with the people wearing it and the exact timestamp (start, end) along with a confidence level for the detection are provided. For more information, see [detected clothing](detected-clothing.md).
@@ -67,6 +64,7 @@ Unless specified otherwise, a model is generally available.
     * Textless slate detection, including scene matching.
 
     For details, see [Slate detection](slate-detection-insight.md).
+* **Textual logo detection** (preview): Matches a specific predefined text using Azure Video Indexer OCR. For example, if a user created a textual logo: "Microsoft", different appearances of the word *Microsoft* will be detected as the "Microsoft" logo. For more information, see [Detect textual logo](detect-textual-logo.md).
 
 ### Audio models
 
@@ -84,7 +82,7 @@ Unless specified otherwise, a model is generally available.
 * **Translation**: Creates translations of the audio transcript to many different languages. For more information, see [Azure Video Indexer language support](language-support.md).
 * **Audio effects detection** (preview): Detects the following audio effects in the non-speech segments of the content: alarm or siren, dog barking, crowd reactions (cheering, clapping, and booing), gunshot or explosion, laughter, breaking glass, and silence.
 
-    The detected acoustic events are in the closed captions file. The file can be downloaded from the Azure Video Indexer portal. For more information, see [Audio effects detection](audio-effects-detection.md).
+    The detected acoustic events are in the closed captions file. The file can be downloaded from the Azure Video Indexer website. For more information, see [Audio effects detection](audio-effects-detection.md).
 
     > [!NOTE]
     > The full set of events is available only when you choose **Advanced Audio Analysis** when uploading a file, in upload preset. By default, only silence is detected.

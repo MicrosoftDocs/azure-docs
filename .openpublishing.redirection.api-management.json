@@ -1,0 +1,154 @@
+{
+  "redirections": [
+    {
+        "source_path_from_root": "/articles/api-management/api-management-access-restriction-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#access-restriction-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-advanced-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#advanced-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-authentication-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#authentication-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-caching-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#caching-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-cross-domain-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#cross-domain-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-dapr-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#dapr-integration-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/graphql-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#graphql-api-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-transformation-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#transformation-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
+        "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
+        "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/zone-redundancy.md",
+        "redirect_url": "/azure/availability-zones/migrate-api-mgt",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/developer-portal-implement-widgets.md",
+        "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/import-api-app-as-api.md",
+        "redirect_url": "/azure/api-management/import-app-service-as-api",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-product.md",
+        "redirect_url": "/azure/api-management/api-management-howto-add-products",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/graphql-validation-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#graphql-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-policy-reference.md",
+        "redirect_url": "/azure/api-management/api-management-policies",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-docker.md",
+        "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-docker",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-k8s.md",
+        "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-kubernetes",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-get-started.md",
+        "redirect_url": "/azure/api-management/import-and-publish",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-create-apis.md",
+        "redirect_url": "/azure/api-management/import-and-publish",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-import-api.md",
+        "redirect_url": "/azure/api-management/import-and-publish",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-add-operations.md",
+        "redirect_url": "/azure/api-management/mock-api-responses",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/policy-samples.md",
+        "redirect_url": "/azure/api-management/policy-reference",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-security-attributes.md",
+        "redirect_url": "/azure/api-management/security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-security-controls.md",
+        "redirect_url": "/azure/api-management/security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/api-management-howto-product-with-rules.md",
+        "redirect_url": "/azure/api-management/transform-api",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md",
+        "redirect_url": "/azure/api-management/export-api-power-platform",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/service-fabric/service-fabric-api-management-quick-start.md",
+        "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-api-management",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/azure-api-management-certs.md",
+        "redirect_url": "/previous-versions/azure/azure-api-management-certs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/validation-policies.md",
+        "redirect_url": "/azure/api-management/api-management-policies#validation-policies",
+        "redirect_document_id": false
+    }
+  ]
+}

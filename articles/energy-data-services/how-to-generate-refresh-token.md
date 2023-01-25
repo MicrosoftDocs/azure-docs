@@ -87,7 +87,7 @@ Your app uses the authorization code received in the previous step to request an
 
 ```bash
   curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id={AppReg ID}
-  &scope={AppReg ID}%2f.default+openid+profile+offline_access
+  &scope={AppReg ID}%2f.default openid profile offline_access
   &code={authorization code}
   &redirect_uri=http%3A%2F%2Flocalhost%3a8080
   &grant_type=authorization_code

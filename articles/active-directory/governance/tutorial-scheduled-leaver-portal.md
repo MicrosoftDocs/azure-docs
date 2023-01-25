@@ -23,6 +23,12 @@ This post off-boarding scenario will run a scheduled workflow and accomplish the
 2. Remove user from all Teams
 3. Delete user account
 
+## Prerequisites
+
+- Azure AD Premium P2
+
+For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
+
 ##  Before you begin
 
 As part of the prerequisites for completing this tutorial, you will need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md).

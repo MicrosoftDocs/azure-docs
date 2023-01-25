@@ -1,7 +1,9 @@
 ---
 title: Mount Azure Blob Storage by using the NFS 3.0 protocol
+titleSuffix: Azure Storage
 description: Learn how to mount a container in Blob Storage from an Azure virtual machine (VM) or a client that runs on-premises by using the NFS 3.0 protocol.
 author: normesta
+
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual

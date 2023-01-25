@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 11/09/2022
+ms.date: 12/06/2022
 ms.topic: conceptual
 ---
 
@@ -20,20 +20,6 @@ The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge
 ```azurecli
 $HOME\.KVA\.ssh\logkey.pub
 $HOME\.KVA\.ssh\logkey 
-```
-
-To run the `az arcappliance logs` command, the Appliance VM IP, Control Plane IP, or kubeconfig can be passed in the corresponding parameter. If `az arcappliance deploy` was not completed, then the kubeconfig file may be empty, so it can't be used for logs collection. In this case, the Appliance VM IP address can be used to collect logs.  
-
-The Appliance VM IP is assigned when the `az arcappliance deploy` command is run, after Control Plane endpoint reconciliation. For example, if the message displayed in the command window reads "Appliance IP is 192.168.1.1", the command to use for logs collection would be:
-
-```azurecli
-az arcappliance logs hci --ip 192.168.1.1 --out-dir c:\logs`
-```
-
-To specify the IP address of the Azure Arc resource bridge virtual machine, run the following command:
-
-```azurecli
-az arcappliance logs <provider> --out-dir <path to specified output directory> --ip XXX.XXX.XXX.XXX
 ```
 
 ### Remote PowerShell is not supported
@@ -78,31 +64,7 @@ When the appliance is deployed to a host resource pool, there is no high availab
 
 ### Restricted outbound connectivity
 
-Below is the list of firewall and proxy URLs that need to be allowlisted to enable communication from the host machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
-
-#### Proxy URLs used by appliance agents and services
-
-|**Service**|**Port**|**URL**|**Direction**|**Notes**|
-|--|--|--|--|--|
-|Microsoft container registry | 443 | `https://mcr.microsoft.com`| Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images for installation. |  
-|Azure Arc Identity service | 443 | `https://*.his.arc.azure.com` | Appliance VM IP and Control Plane IP need outbound connection. | Manages identity and access control for Azure resources |  
-|Azure Arc configuration service | 443 | `https://*.dp.kubernetesconfiguration.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used for Kubernetes cluster configuration.|
-|Cluster connect service | 443 | `https://*.servicebus.windows.net` | Appliance VM IP and Control Plane IP need outbound connection. | Provides cloud-enabled communication to connect on-premises resources with the cloud. |
-|Guest Notification service| 443 | `https://guestnotificationservice.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used to connect on-premises resources to Azure.|
-|SFS API endpoint | 443 | msk8s.api.cdp.microsoft.com | Deployment machine,  Appliance VM IP and Control Plane IP need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
-|Resource bridge (appliance) Dataplane service| 443 | `https://*.dp.prod.appliances.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Communicate with resource provider in Azure.|
-|Resource bridge (appliance) container image download| 443 | `*.blob.core.windows.net, https://ecpacr.azurecr.io`| Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
-|Resource bridge (appliance) image download| 80 | `*.dl.delivery.mp.microsoft.com`| Deployment machine,  Appliance VM IP and Control Plane IP need outbound connection. |  Download the Arc Resource Bridge OS images.  |
-|Azure Arc for Kubernetes container image download| 443 | `https://azurearcfork8sdev.azurecr.io`|  Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
-|ADHS telemetry service | 443 | adhs.events.data.microsoft.com| Appliance VM IP and Control Plane IP need outbound connection. | Runs inside the appliance/mariner OS. Used periodically to send Microsoft required diagnostic data from control plane nodes. Used when telemetry is coming off Mariner, which would mean any Kubernetes control plane. |
-|Microsoft events data service | 443 |v20.events.data.microsoft.com| Appliance VM IP and Control Plane IP need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
-
-#### Used by other Arc agents
-
-|**Service**|**URL**|
-|--|--|
-|Azure Resource Manager| `https://management.azure.com`|
-|Azure Active Directory| `https://login.microsoftonline.com`|
+If you are experiencing connectivity, check to make sure your network allows all of the firewall and proxy URLs that are required to enable communication from the host machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
 
 ### Azure Arc resource bridge is unreachable
 
@@ -116,9 +78,9 @@ To resolve this issue, reboot the resource bridge (preview) VM, and it should re
 
 ### SSL proxy configuration issues
 
-Azure Arc resource bridge must be configured for proxy so that it can connect to the Azure services. This configuration is handled automatically. However, proxy configuration of the client machine isn't configured by the Azure Arc resource bridge.
+Be sure that the proxy server on your client machine trusts both the SSL certificate for your SSL proxy and the SSL certificate of the Microsoft download servers.
 
-There are only two certificates that should be relevant when deploying the Arc resource bridge behind an SSL proxy: the SSL certificate for your SSL proxy (so that the host and guest trust your proxy FQDN and can establish an SSL connection to it), and the SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
+For more information, see [SSL proxy configuration](network-requirements.md#ssl-proxy-configuration).
 
 ### KVA timeout error
 

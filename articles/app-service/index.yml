@@ -7,7 +7,7 @@ metadata:
   title: Azure App Service documentation
   description: Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.
   ms.topic: landing-page
-  ms.author: cephalin
+  ms.author: msangapu
   ms.service: app-service
   ms.date: 01/14/2022
 
@@ -39,6 +39,8 @@ landingContent:
             url: quickstart-nodejs.md
           - text: Deploy a PHP web app
             url: quickstart-php.md
+          - text: Deploy a Go app (experimental)
+            url: quickstart-golang.md           
           - text: Deploy a Java app
             url: quickstart-java.md
           - text: Create a WordPress site

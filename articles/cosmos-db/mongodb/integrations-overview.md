@@ -84,7 +84,7 @@ Azure Networking features allow you to connect and deliver your hybrid and cloud
 ### Azure Key Vault
 Azure Key Vault helps you to securely store and manage application secrets.
 You can use Azure Key Vault to -
-* [Secure Azure Cosmos DB for MongoDB account credentials.](../access-secrets-from-keyvault.md)
+* [Secure Azure Cosmos DB for MongoDB account credentials.](../store-credentials-key-vault.md)
 * [Configure customer-managed keys for your account.](../how-to-setup-cmk.md)
 
 ### Azure AD

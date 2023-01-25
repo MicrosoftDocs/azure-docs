@@ -2,7 +2,7 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 01/24/2023
 ms.devlang: csharp, java, javascript, vb
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: mmcc
@@ -20,7 +20,7 @@ The core API is uniform across all platforms, apart from a few variations like `
 
 | Method | Used for |
 | --- | --- |
-| [`TrackPageView`](#page-views) |Pages, screens, blades, or forms. |
+| [`TrackPageView`](#page-views) |Pages, screens, panes, or forms. |
 | [`TrackEvent`](#trackevent) |User actions and other events. Used to track user behavior or to monitor performance. |
 | [`GetMetric`](#getmetric) |Zero and multidimensional metrics, centrally configured aggregation, C# only. |
 | [`TrackMetric`](#trackmetric) |Performance measurements such as queue lengths not related to specific events. |
@@ -220,7 +220,7 @@ The telemetry is available in the `customMetrics` table in [Application Insights
 
 ## Page views
 
-In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change the default to track page views at more or different times. For example, in an app that displays tabs or blades, you might want to track a page whenever the user opens a new blade.
+In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change the default to track page views at more or different times. For example, in an app that displays tabs or panes, you might want to track a page whenever the user opens a new pane.
 
 User and session data is sent as properties along with page views, so the user and session charts come alive when there's page view telemetry.
 
@@ -1155,7 +1155,7 @@ None. You don't need to wrap them in try-catch clauses. If the SDK encounters pr
 
 ### Is there a REST API to get data from the portal?
 
-Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [Power BI](..\logs\log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md) or [continuous export](./export-telemetry.md) if you're still on a classic resource.
+Yes, the [data access API](/rest/api/application-insights/). Other ways to extract data include [Power BI](..\logs\log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md) or [continuous export](./export-telemetry.md) if you're still on a classic resource.
 
 ### Why are my calls to custom events and metrics APIs ignored?
 
