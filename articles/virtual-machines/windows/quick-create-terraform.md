@@ -81,13 +81,13 @@ In this article, you learn how to:
 ## Verify the results
 
 1. Run the following command to get the VM's public IP address and make note of it:
- ```azurecli-interactive
-echo $(terraform output -raw public_ip_address)
-```
+    ```azurecli-interactive
+    echo $(terraform output -raw public_ip_address)
+    ```
 
 2. With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained from the previous command. The following example shows the default IIS web site:
 
-![IIS default site](./media/quick-create-powershell/default-iis-website.png)
+    ![IIS default site](./media/quick-create-powershell/default-iis-website.png)
 
 ## Clean up resources
 
