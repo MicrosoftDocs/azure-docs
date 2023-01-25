@@ -6,11 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-<<<<<<< HEAD
-ms.date: 1/18/2023
-=======
 ms.date: 1/24/2023
->>>>>>> d83e53c347be4ac116f721ecb49e57f957f0d390
 ms.author: jasteppe
 ---
 
@@ -129,9 +125,6 @@ If you choose to include your Log Analytics workspace as a destination option fo
 > [!WARNING]
 > The above custom query is not saved and will have to be recreated if you leave your Log Analytics workspace without saving the custom query.
 >
-<<<<<<< HEAD
-> To learn about how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot MedTech service errors](troubleshoot-errors.md).
-=======
 > To learn how to save a custom query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](/azure/azure-monitor/logs/save-query) 
 
 > [!TIP]
@@ -167,7 +160,6 @@ The MedTech service comes with pre-defined queries that can be used anytime in y
 > To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 >
 > To learn how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot MedTech service errors](troubleshoot-errors.md).   
->>>>>>> d83e53c347be4ac116f721ecb49e57f957f0d390
 
 ## Next steps
 
