@@ -2,27 +2,23 @@
 title: 'Tutorial: Deploy & configure Azure Firewall and policy using the Azure portal'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy rules using the Azure portal. 
 services: firewall
-author: vhorne
+author: asudbring
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/28/2022
-ms.author: victorh
-ms.custom: template-tutorial, mvc, engagement-fy23
+ms.date: 01/24/2022
+ms.author: allensu
+ms.custom: template-tutorial
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
 # Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal
 
-Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites. Or, you may want to limit the outbound IP addresses and ports that can be accessed.
+This article helps you create an Azure Firewall with a DDoS protected virtual network. Azure DDoS Protection Standard enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your firewall from large scale DDoS attacks.
 
-One way you can control outbound network access from an Azure subnet is with Azure Firewall and Firewall Policy. With Azure Firewall and Firewall Policy, you can configure:
+> [!IMPORTANT]
+> Azure DDoS Protection incurs a cost when you use the Standard SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
 
-* Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet.
-* Network rules that define source address, protocol, destination port, and destination address.
-
-Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
-
-For this tutorial, you create a simplified single VNet with two subnets for easy deployment.
+For this tutorial, you create a simplified single VNet with two subnets for easy deployment. Azure DDoS Protection Standard is enabled for the virtual network.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
@@ -68,6 +64,25 @@ The resource group contains all the resources for the tutorial.
 1. Select **Review + create**.
 1. Select **Create**.
 
+### Create a DDoS protection plan
+
+1. In the search box at the top of the portal, enter **DDoS protection**. Select **DDoS protection plans** in the search results and then select **+ Create**.
+
+1. In the **Basics** tab of **Create a DDoS protection plan** page, enter or select the following information:
+
+    :::image type="content" source="./media/tutorial-protect-application-gateway/create-ddos-plan.png" alt-text="Screenshot of basics tab for creating a DDoS protection plan.":::
+
+    | Setting | Value |
+    |--|--|
+    | **Project details** |   |
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select **Test-FW-RG**. |
+    | **Instance details** |   |
+    | Name | Enter **myDDoSProtectionPlan**. |
+    | Region | Select the region. |
+
+1. Select **Review + create** and then select **Create** to deploy the DDoS protection plan.
+
 ### Create a VNet
 
 This VNet will have two subnets.
@@ -88,18 +103,21 @@ This VNet will have two subnets.
     | Region | Select the same location that you used previously. |
 
 1. Select **Next: IP addresses**.
-1. For **IPv4 Address space**, accept the default **10.0.0.0/16**.
+1. For **IPv4 Address space**, accept the default **10.1.0.0/16**.
 1. Under **Subnet**, select **default**.
 1. For **Subnet name** change the name to **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-1. For **Address range**, type **10.0.1.0/26**.
+1. For **Address range**, type **10.1.1.0/26**.
 1. Select **Save**.
 
    Next, create a subnet for the workload server.
 
 1. Select **Add subnet**.
 1. For **Subnet name**, type **Workload-SN**.
-1. For **Subnet address range**, type **10.0.2.0/24**.
+1. For **Subnet address range**, type **10.1.2.0/24**.
 1. Select **Add**.
+1. Select **Next: Security**.
+1. In **DDoS Protection Standard** select **Enable**.
+1. Select **myDDoSProtectionPlan** in **DDoS protection plan**.
 1. Select **Review + create**.
 1. Select **Create**.
 
