@@ -107,7 +107,7 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 [!INCLUDE [python-default-azure-credential-overview](../../../includes/passwordless/python-default-azure-credential-overview.md)]
 
