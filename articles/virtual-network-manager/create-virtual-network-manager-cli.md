@@ -235,7 +235,6 @@ az network manager connect-config create \
 For the configuration to take effect, commit the configuration to the target regions with [az network manager post-commit](/cli/azure/network/manager#az-network-manager-post-commit):
 
 ```azurecli
-#Currently broken - can only do via portal
 az network manager post-commit \
     --network-manager-name "myAVNM" \
     --commit-type "Connectivity" \
