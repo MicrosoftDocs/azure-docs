@@ -401,9 +401,9 @@ For the final step, you'll need to delete the resource bridge VM and the VM temp
 
 ## Preview FAQ
 
-**Is Arc supported in all the Azure VMware Solution regions?**
+**Region support for Azure Vmware Solution**
  
-Arc is supported in EastUS, WestEU, UK South, Australia East, Canada Central and Southeast Asia regions however we are working to extend the regional support.
+Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-prem is supported. For more details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview).
 
 **How does support work?**
 
