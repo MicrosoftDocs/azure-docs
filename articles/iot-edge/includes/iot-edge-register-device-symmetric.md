@@ -19,7 +19,7 @@ In your IoT hub in the Azure portal, IoT Edge devices are created and managed se
 
 1. In the left pane, select **Devices** from the menu, then select **Add Device**.
 
-   :::image type="content" source="media/iot-edge-register-device-symmetric/add-edge-device.png" alt-text="Screenshot of where to find the 'Add Device' button in the IoT Hub of the Azure portal.":::
+   :::image type="content" source="media/iot-edge-register-device-symmetric/add-edge-device.png" alt-text="Screenshot of where to find the Add Device button in the IoT Hub of the Azure portal.":::
 
 1. On the **Create a device** page, provide the following information:
 
@@ -80,12 +80,12 @@ This command includes three parameters:
 
 If your CLI says **The command requires the extension azure-iot. Do you want to install it now?**, then type `Y` and press `Enter` to initiate the download to create your device.
 
-:::image type="content" source="media/iot-edge-register-device-symmetric/create-edge-device-cli.png" alt-text="Screenshot that shows the console output from running the 'az iot hub device-identity create' command.":::
+:::image type="content" source="media/iot-edge-register-device-symmetric/create-edge-device-cli.png" alt-text="Screenshot that shows the console output from running the az iot hub device-identity create command.":::
 
 <!-- The 3 dashes are needed to end the tabs.-->
 ---
 
-Now that you have a device registered in IoT Hub, you can retrieve provisioning information used to complete the installation and provisioning of the [IoT Edge runtime](/iot-edge/iot-edge-runtime.md) in the next step.
+Now that you have a device registered in IoT Hub, you can retrieve provisioning information used to complete the installation and provisioning of the [IoT Edge runtime](../iot-edge-runtime.md) in the next step.
 
 ## View registered devices and retrieve provisioning information
 

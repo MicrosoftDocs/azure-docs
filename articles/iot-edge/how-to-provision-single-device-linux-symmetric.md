@@ -148,7 +148,7 @@ To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
 
 1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.<br>
    
-For more information, see [Deploy a module](/quickstart-linux#deploy-a-module.md).
+For more information, see [Deploy a module](quickstart-linux.md#deploy-a-module).
 
 ## Verify successful configuration
 
@@ -207,7 +207,7 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
    You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red).
 
-   :::image type="content" source="media/how-to-provision-single-device-linux-symmetrical/config-checks.png" alt-text="Screenshot of sample responses from the 'check' command.":::
+   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/config-checks.png" alt-text="Screenshot of sample responses from the check command." lightbox="media/how-to-provision-single-device-linux-symmetric/config-checks.png":::
 
    >[!TIP]
    >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
@@ -227,7 +227,7 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
    Check that your device and modules are deployed and running, by viewing your device page in the Azure portal.
 
-   :::image type="content" source="media/how-to-provision-single-device-linux-symmetrical/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal.":::   
+   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal.":::   
 
    Once your modules are deployed and running, list them in your device or virtual machine with the following command:
 
