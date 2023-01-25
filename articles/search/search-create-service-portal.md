@@ -91,7 +91,7 @@ Two notable exceptions might lead to provisioning one or more search services in
 
 + [Outbound connections from Cognitive Search to Azure Storage](search-indexer-securing-resources.md). You might want storage in a different region if you're enabling a firewall.
 
-+ Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
++ Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Central US, for each search service.
 
 Some features are subject to regional availability. If you require any of following features, choose a region that provides them:
 
@@ -139,7 +139,7 @@ Unless you're using the portal, programmatic access to your new service requires
 
 1. To set authentication options, use the **Keys** page. Most quickstarts and tutorials use API keys for simplicity, but if you're setting up a service for production workloads, consider using Azure roles. You can copy keys from this page.
 
-   :::image type="content" source="media/search-create-service-portal/set-auth-options.png" lightbox="media/search-create-service-portal/set-auth-options.png" alt-text="Screenshot of the keys page with authentication options." border="true":::
+   :::image type="content" source="media/search-create-service-portal/set-authentication-options.png" lightbox="media/search-create-service-portal/set-authentication-options.png" alt-text="Screenshot of the keys page with authentication options." border="true":::
 
 An endpoint and key aren't needed for portal-based tasks. The portal is already linked to your Azure Cognitive Search resource with admin rights. For a portal walkthrough, start with [Quickstart: Create an Azure Cognitive Search index in the portal](search-get-started-portal.md).
 
