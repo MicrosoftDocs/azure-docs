@@ -64,7 +64,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow removing attributes from flowing from AD to Azure AD |● |● |
 | Allow advanced customization for attribute flows |● | |
 | Support for password writeback |● |● |
-| Support for device writeback|● |Customers should use [Cloud Kerberos trust](https://learn.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust?tabs=intune) for this moving forward|
+| Support for device writeback|● |Customers should use [Cloud Kerberos trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust?tabs=intune) for this moving forward|
 | Support for group writeback|● | |
 | Support for merging user attributes from multiple domains|● | |
 | Azure AD Domain Services support|● | |
