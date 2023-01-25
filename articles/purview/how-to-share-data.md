@@ -57,7 +57,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     > - Performance: Standard
     > - Redundancy options: LRS, GRS, RA-GRS
 
-* You need the **Owner** or **Storage Blob Data Owner** role on the source storage account to be able to share data. You need the **Reader** role on the source storage account to be able to view sent shares and received shares. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
+* You need the **Owner** or **Storage Blob Data Owner** role on the source storage account to be able to share data. You need the **Reader** role on the source storage account to be able to view list of sent shares and received shares. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
 
 * If the source storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft. Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It's automatically registered at the time of share provider adding an asset if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located.
 This registration is only needed the first time when sharing or receiving data into a storage account in the Azure subscription.
@@ -211,8 +211,6 @@ If you're getting an error related to *quota* when creating a Microsoft Purview 
 If you failed to add or update asset, it's likely due to the following reasons:
 
 * You tried to share data from a *storage container*. Sharing from container isn't currently supported. You can select all files and folders within the container to share.
-* Exceeding limit. Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, contact Support.
-
 
 ## Next steps
 

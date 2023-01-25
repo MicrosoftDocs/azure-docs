@@ -19,7 +19,9 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 ### Microsoft Purview prerequisites
 
 * [A Microsoft Purview account](create-catalog-portal.md).
-* **Data Share Contributor** role on a Microsoft Purview collection. If you created the Microsoft Purview account, you're automatically assigned this role to the root collection. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collections and roles.
+* No Microsoft Purview permission needed to use the updated data sharing SDK. A minimum of Data Reader role on a Microsoft Purview collection to use data sharing user experience in the Microsoft Purview compliance portal. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
+* Your data recipient's Azure sign-in email address, which you'll use to send the invitation to receive a share. The recipient's email alias won't work.
+* You'll need to be a Data Source Admin and one of the other Purview roles (for example, Data Reader) to register a source and manage it in the Microsoft Purview governance portal. Refer to the registration steps for [Blob Storage](register-scan-azure-blob-storage-source.md) and [ADLSGen2](register-scan-adls-gen2.md) respectively.
 
 ### Azure Storage account prerequisites
 
@@ -58,7 +60,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     > - Performance: Standard
     > - Redundancy options: LRS, GRS, RA-GRS
  
-* You'll need the **Contributor** or **Owner** or **Storage Blob Data Owner** or **Storage Blob Data Contributor** role on the target storage account. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source pages.
+* You'll need the **Contributor** or **Owner** or **Storage Blob Data Owner** or **Storage Blob Data Contributor** role on the target storage account. You need the **Reader** role on the source storage account to be able to view list of sent shares and received shares. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source pages.
 * If the target storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft.Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It's automatically registered at the time of share consumer mapping the asset and if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located. 
 This registration is only needed the first time when sharing or receiving data into a storage account in the Azure subscription.
 * A storage account needs to be registered in the collection where you'll receive the share. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages.
@@ -72,7 +74,9 @@ This registration is only needed the first time when sharing or receiving data i
 
     :::image type="content" source="./media/how-to-receive-share/view-invites.png" alt-text="Screenshot showing the Share invites page in the Microsoft Purview governance portal." border="true":::  
 
-1. Select name of the pending share you want to view or configure.
+1. Alternately, Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to receive the share into using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md). Select the **Data Share** drop down, and then select **+Manage Shares**. You can see all the invitations in the **Share invites** tab.
+
+1. Select name of the share invite you want to view or configure.
 
 1. If you don't want to accept the invitation, select **Delete**.
 
@@ -104,11 +108,14 @@ Once you accepted a share, you can update asset mapping, or stop the sharing rel
 
 ### Update asset mapping
 
-You can map or unmap an asset within a received share.
+You can map or remap a received share depending on its state.
 
-You can map an asset in the *unmapped* state. To map asset, first select the received share, and then select **Assets** tab. Locate the asset you want to map, and select the **Map** action next to the asset name. You can now specify a target data store where you want to access the shared data. Once you confirm your selection, it will take a few minutes for the asset mapping to complete, and your will see the shared data in your target data store. 
+You can map or attach a share in the *detached* state. To map, first select the received share, and then specify a target data store where you want to access the shared data. Once you confirm your selection, it will take a few minutes for the attach activity to complete, and then you will see the shared data in your target data store. 
 
-You can unmap an asset in the *mapped* or *Failed* state. To unmap an asset, first select the received share, and then select **Assets** tab. Locate the asset you want to unmap, and select the **Unmap** action next to the asset name. It will take a few minutes to complete. Once asset is unmapped, you can no longer access the shared data.
+You can remap a received share to a different storage account or to a different path in the storage account to which it is already mapped to. 
+> [!NOTE]
+> While remapping, if you selected a storage account that is registered to a collection that you don't have permissions to or a storage account that is not registered in Microsoft Purview, you will be shown the appropriate message. You will see the shared data in your target data store. 
+
 
 ## Delete received share
 
@@ -138,35 +145,24 @@ Here are some common issues for receiving share and how to troubleshoot them.
 
 If you're getting an error related to *quota* when creating a Microsoft Purview account, it means your organization has exceeded [Microsoft Purview service limit](how-to-manage-quotas.md). If you require an increase in limit, contact support.
 
-### Both Sent Shares and Received Shares are disabled
+### Can't view share invite
 
-If both *sent shares* and *received shares* are disabled in the navigation, you don't have **Data Share Contributor** role to any collections in this Microsoft Purview account. 
+If you've been notified that you've received a share, but can't view share invite in your Microsoft Purview account, it could be due to the following reasons:
 
-### Can't view pending share
-
-If you've been notified that you've received a share, but can't view pending share in your Microsoft Purview account, it could be due to the following reasons:
-
-* You don't have **Data Share Contributor** role to any collections in this Microsoft Purview account. Contact your *Microsoft Purview Collection Admin* to grant you access to **Data Share Contributor** role to view, accept and configure the received share. 
-* Pending share invitation is sent to your email alias or an email distribution group instead of your Azure sign-in email. Contact your data provider and ensure that they've sent the invitation to your Azure sign-in e-mail address.
-* Share has already been accepted.  If you've already accepted the share, it will no longer show up in *Pending* tab. Select *Accepted* tab under *Received shares* to see your active shares.
+* You don't have a minimum of **Data Reader** role to any collections in this Microsoft Purview account. Contact your *Microsoft Purview Collection Admin* to grant you access to **Data Reader** role to view, accept and configure the received share. 
+* Share invitation is sent to your email alias or an email distribution group instead of your Azure sign-in email. Contact your data provider and ensure that they've sent the invitation to your Azure sign-in e-mail address.
+* Share has already been accepted.  If you've already accepted the share, it will no longer show up in *Share invites* tab. Select *Received shares* in any Storage account that you have permissions to and see your active shares.
 * You're a guest user of the tenant. If you're a guest user of a tenant, [you need to verify your email address for the tenant in order to view pending share for the first time](#guest-user-verification). Once verified, it's valid for 12 months.
 
-### Can't select a collection when accepting a pending share or register a data source
+### Can't see target storage account in the list when mapping an asset
 
-If you can't select a collection when accepting a pending share or register a data source, you don't have proper permission to the collection. You need to have **Data Share Contributor** role to a Microsoft Purview collection in order to register data source and receive share. 
-
-### Can't select target storage account when mapping an asset
-
-When you map an asset to a target, if your storage account isn't listed for you to select, it's likely due to the following reasons:
-* The storage account isn't supported. Microsoft Purview Data share only [supports storage accounts with specific configurations](#azure-storage-account-prerequisites).
-* You don't have **Data Share Contributor** role to the collection where the storage account is registered in. Data Share Contributor role is required to view the list of registered storage account in a collection. 
-
+When you map an asset to a target, if your storage account isn't listed for you to select, it's likely due to the following reasons: You do not have required permissions to the storage account. Check [prerequisite](#prerequisites-to-share-data) for details on required storage permissions. 
 
 ### Failed to map asset
 
 If you failed to map an asset, it's likely due to the following reasons:
 * Permission issue to the target data store. Check [prerequisites](#prerequisites-to-receive-shared-data) for required data store permissions.
-* The share and target data store don't belong to the same Microsoft Purview collection. In order to receive data into a data store, the share and target data store need to belong to the same Microsoft Purview collection. 
+* The storage account isn't supported. Microsoft Purview Data share only [supports storage accounts with specific configurations](#azure-storage-account-prerequisites).
 * The *Path* you specified includes container created outside of Microsoft Purview Data Sharing. You can only receive data into containers created during asset mapping.
 * The *New Folder* you specified to receive storage data isn't empty.
 * Source and target storage account is the same. Sharing from the same source storage account to the same target isn't supported.
@@ -185,4 +181,5 @@ If you can't access shared data, it's likely due to the following reasons:
 * [How to share data](how-to-share-data.md)
 * [FAQ for data sharing](how-to-data-share-faq.md)
 * [REST API reference](/rest/api/purview/)
-
+* Discover share assets in Catalog
+* See data sharing lineage
