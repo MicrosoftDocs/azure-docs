@@ -41,7 +41,7 @@ az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID -
 ```
 
 > [!IMPORTANT]
-> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it. See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
+> After taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it. See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 You can identify incremental snapshots from the same disk with the `SourceResourceId` property of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk.
 
@@ -87,7 +87,7 @@ New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
 ```
 
 > [!IMPORTANT]
-> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
+> After taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
 
@@ -114,7 +114,7 @@ $incrementalSnapshots
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-portal](../../includes/virtual-machines-disks-incremental-snapshots-portal.md)]
 
 > [!IMPORTANT]
-> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
+> After taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
@@ -152,7 +152,7 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 }
 ```
 > [!IMPORTANT]
-> When taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
+> After taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 ---
 
