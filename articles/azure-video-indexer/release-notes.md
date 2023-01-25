@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 11/22/2022
+ms.date: 01/24/2023
 ms.author: juliako
 ---
 
@@ -24,6 +24,14 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 [!INCLUDE [announcement](./includes/deprecation-announcement.md)]
 
 ## January 2023
+
+### Notification experience
+
+The [Azure Video Indexer website](https://www.videoindexer.ai/) now has a notification panel where you can stay informed of important product updates, such as service impacting events, new releases, and more.
+
+### Textual logo detection
+
+A **textual logo detection** insight is an OCR-based textual detection which matches a specific predefined text. For example, if a user created a textual logo: "Microsoft", different appearances of the word *Microsoft* will be detected as the "Microsoft" logo. For more information, see [Detect textual logo](detect-textual-logo.md).
 
 ### Language support
 
