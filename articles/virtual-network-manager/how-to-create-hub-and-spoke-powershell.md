@@ -33,15 +33,15 @@ This section will help you create a network group containing the virtual network
 
 Create a network group for virtual networks with New-AzNetworkManagerGroup.
 
-    ```azurepowershell-interactive
-    $ng = @{
-            Name = 'myNetworkGroup'
-            ResourceGroupName = 'myAVNMResourceGroup'
-            NetworkManagerName = 'myAVNM'
-        }
-        $networkgroup = New-AzNetworkManagerGroup @ng
-    ```
-### Add Static membership
+``azurepowershell-interactive
+$ng = @{
+        Name = 'myNetworkGroup'
+        ResourceGroupName = 'myAVNMResourceGroup'
+        NetworkManagerName = 'myAVNM'
+    }
+    $networkgroup = New-AzNetworkManagerGroup @ng
+```
+### Add Static membership`
 
 1. Create a static virtual network member with New-AzNetworkManagerStaticMember.
 
