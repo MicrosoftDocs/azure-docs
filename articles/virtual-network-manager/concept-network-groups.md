@@ -1,20 +1,22 @@
 ---
-title: "What is a network group in Azure Virtual Network Manager (Preview)?"
+title: "What is a network group in Azure Virtual Network Manager?"
 description: Learn about how Network groups can help you manage your virtual networks.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 08/11/2022
-ms.custom: template-concept, ignite-fall-2021
+ms.date: 01/31/2023
+ms.custom: template-concept
 ---
 
-# What is a network group in Azure Virtual Network Manager (Preview)?
+# What is a network group in Azure Virtual Network Manager?
 
 In this article, you'll learn about *network groups* and how they can help you group virtual networks together for easier management. You'll also learn about *Static group membership* and *Dynamic group membership* and how to use each type of membership.
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+>
+> Mesh connectivity configurations are in Public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -49,5 +51,5 @@ To create an Azure Policy initiative definition and assignment for Azure Virtual
 
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal
 - Learn how to create a [Hub and spoke topology](how-to-create-hub-and-spoke.md) with Azure Virtual Network Manager
-- Learn how to block network traffic with a [SecurityAdmin configuration](how-to-block-network-traffic-portal.md)
+- Learn how to block network traffic with a [Security admin configuration](how-to-block-network-traffic-portal.md)
 - Review [Azure Policy basics](../governance/policy/overview.md)
