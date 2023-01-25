@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 1/23/2023
+ms.date: 01/25/2023
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -253,7 +253,7 @@ To configure the network for a 2-node device, follow these steps on the first no
     * Serial number for any port corresponds to the node serial number.
 
       > [!IMPORTANT]
-      > On a two node cluster, you must set an IP address for a network interface on your device. Two node clusters without IP configurations are not supported.
+      > For a two node cluster, only the network interfaces with a set IP address are supported by the network topology.
 
     Once you apply the network settings, select **Next: Advanced networking >** to configure your network topology.
 
