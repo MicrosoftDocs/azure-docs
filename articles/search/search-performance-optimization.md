@@ -64,6 +64,7 @@ Azure Cognitive Search currently supports Availability Zones for Standard tier o
 | South Central US | April 30, 2021 or later |
 | South East Asia | January 31, 2021 or later |
 | Sweden Central | January 21, 2022 or later |
+| UAE North | September 9, 2022 or later |
 | UK South | January 30, 2021 or later |
 | US Gov Virginia | April 30, 2021 or later |
 | West Europe | January 29, 2021 or later |
