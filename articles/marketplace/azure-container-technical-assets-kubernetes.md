@@ -209,7 +209,7 @@ Ensure the Helm chart adheres to the following rules:
 | Billing model                   | Definition                                                                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | Per core                        | Usage is charged for every core used by the Kubernetes application’s extension instance (reported at hourly frequency)         |
-| Per every core in cluster       | Usage is charged based on total number of cores in the kubernetes cluster (reported at hourly frequency)                       |
+| Per every core in cluster       | Usage is charged based on total number of cores in the Kubernetes cluster (reported at hourly frequency)                       |
 | Per cluster                     | Usage is charged for each instance of the Kubernetes application extension on the cluster (reported at hourly frequency)       |
 | Per every node in cluster       | Usage is charged based on total number of nodes in the cluster (reported at hourly frequency)                                  |
 | Per node                        | Usage is charged for each node on which the Kubernetes application’s extension instance runs on (reported at hourly frequency) |
@@ -221,7 +221,7 @@ Ensure the Helm chart adheres to the following rules:
 
 After reviewing the billing models available, select one appropriate for your use case and complete the following steps:
 
-Follow steps to add identifier in the *Per core* billing model:
+Complete the following steps to add identifier in the *Per core* billing model:
 
 - Add a billing identifier label and cpu cores request to your `deployment.yaml` file.
 
@@ -233,7 +233,7 @@ Follow steps to add identifier in the *Per core* billing model:
 
     :::image type="content" source="./media/azure-container/billing-identifier-value.png" alt-text="A screenshot of a properly formatted values.yaml file, showing the global > azure > billingIdentifier field.":::
 
-Follow steps to add a billing identifier label in the *Per core* billing model:
+Complete the following steps to add a billing identifier label in the *Per pod* and *Per node* billing model:
 
 - Add a billing identifier label `azure-extensions-usage-release-identifier` to your `deployment.yaml` file (Under **Template** > **Metadata** > **Labels**>).
 
