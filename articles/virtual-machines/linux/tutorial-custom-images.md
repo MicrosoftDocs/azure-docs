@@ -1,15 +1,15 @@
 ---
 title: Tutorial - Create custom VM images with the Azure CLI 
 description: In this tutorial, you learn how to use the Azure CLI to create a custom virtual machine image in Azure
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 05/04/2020
-ms.author: cynthn
+ms.date: 01/25/2023
+ms.author: mattmcinnes
 ms.custom: mvc, devx-track-azurecli
-ms.reviewer: mimckitt
+ms.reviewer: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about how to create custom VM images to minimize the number of post-deployment configuration tasks.
 ---
@@ -30,13 +30,13 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 
 This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.35.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.35.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Overview
 
 An [Azure Compute Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
-The Azure Compute Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
+The Azure Compute Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want them to be available in, and who you want to share them with. 
 
 The Azure Compute Gallery feature has multiple resource types:
 
