@@ -28,7 +28,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ### Data flow
 
-SQL change data capture (CDC) incremental extract - supports numeric columns in mapping dataflow
+SQL change data capture (CDC) incremental extract - supports numeric columns in mapping dataflow [Learn more](connector-azure-sql-database.md?tabs=data-factory#source-transformation)
 
 ### Data movement
 
