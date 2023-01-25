@@ -102,6 +102,9 @@
     items:
     - name: The Defender for Cloud multicloud solution
       href: multicloud.yml
+    - name: Protecting your GCP projects and organizations
+      displayName: GCP, connector, project, organizations
+      href: concept-gcp-connector.md
     - name: Planning multicloud security
       items:
       - name: Get started
