@@ -64,12 +64,8 @@
   items:
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
-    - name: Set up your development environment
-      items:
-        - name: Set up your cloud workstation
-          href: quickstart-run-notebooks.md
-        - name: Configure Apache Spark jobs (preview)
-          href: quickstart-spark-jobs.md
+    - name: Set up your cloud workstation
+      href: quickstart-run-notebooks.md
 - name: Quickstart
   expanded: true
   items:
@@ -475,8 +471,10 @@
               href: how-to-add-users.md
             - name: Outsource labeling tasks
               href: how-to-outsource-data-labeling.md
-        - name: Prepare data with Apache Spark
+        - name: Prepare data with Apache Spark (preview)
           items:
+            - name: Configure Apache Spark jobs 
+              href: quickstart-spark-jobs.md
             - name: Submit Spark jobs in Azure Machine Learning
               displayName: Submit Spark jobs in Azure Machine Learning
               href: how-to-submit-spark-jobs.md
