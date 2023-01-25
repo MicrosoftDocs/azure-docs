@@ -27,8 +27,8 @@ This software can be applied to your device if you're running **Azure Stack Edge
 
 You can also upgrade to the latest version using the following upgrade paths:
 
-|Current version      |Upgrade to |Then apply |
-|------------------- -|-----------|-----------|
+| Current version     | Upgrade to | Then apply |
+| --------------------| -----------| -----------|
 |2106 (2.2.1636.3457) |2207       |2301       |
 |2110                 |2207       |2301       |
 |2111                 |2207       |2301       |
