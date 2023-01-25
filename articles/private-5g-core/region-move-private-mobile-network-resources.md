@@ -16,8 +16,6 @@ In this how-to guide, you'll learn how to move your private mobile network resou
 
 You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to create a backup of your deployment, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
-If you also want to move your Arc-enabled Kubernetes cluster, contact your support representative.
-
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.

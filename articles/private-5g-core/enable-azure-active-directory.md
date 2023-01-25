@@ -72,7 +72,7 @@ If your deployment contains multiple sites, you can use the same two redirect UR
 
 To support Azure AD on Azure Private 5G Core applications, you'll need a YAML file containing Kubernetes secrets.
 
-1. Convert each of the values you collected in [Collect the information for Kubernetes Secret Objects](#collect-the-information-for-kubernetes-secret-objects) into Base64 format. For example, you can run the following command in a Linux shell:
+1. Convert each of the values you collected in [Collect the information for Kubernetes Secret Objects](#collect-the-information-for-kubernetes-secret-objects) into Base64 format. For example, you can run the following command in an Azure Cloud Shell **Bash** window:
     
     `$ echo -n  <Value> | base64`
 
@@ -111,7 +111,8 @@ To support Azure AD on Azure Private 5G Core applications, you'll need a YAML fi
 
 You'll need to apply your Kubernetes Secret Objects if you're enabling Azure AD for a site, after a packet core outage, or after updating the Kubernetes Secret Object YAML file.
 
-1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
+1. Sign in to [Azure Cloud Shell](/azure/cloud-shell/overview) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](/azure/azure-arc/kubernetes/cluster-connect?tabs=azure-cli) to configure kubectl access.
+1. Apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
     
     `kubectl apply -f  /home/centos/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
 
@@ -131,7 +132,7 @@ You'll need to apply your Kubernetes Secret Objects if you're enabling Azure AD 
 
         `kubectl delete pod sas-core-search-0 <packet core dashboards pod> -n core --kubeconfig=<core kubeconfig>`
 
-## Verify
+## Verify access
 
 Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to check if you can access your local monitoring tools using Azure AD.
 
@@ -141,7 +142,7 @@ Follow this step if you need to update your existing Kubernetes Secret Objects; 
 
 1. Make the required changes to the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](#create-kubernetes-secret-objects).
 1. [Apply Kubernetes Secret Objects](#apply-kubernetes-secret-objects).
-1. [Verify](#verify).
+1. [Verify access](#verify-access).
 
 ## Next steps
 
