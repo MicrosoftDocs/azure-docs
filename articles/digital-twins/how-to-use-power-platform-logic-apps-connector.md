@@ -71,10 +71,6 @@ Follow the steps below to create a sample flow with the connector in Logic Apps.
 1. After selecting an action from the Azure Digital Twins connector, you'll be asked to enter authentication details to create the connection.
 1. You can continue to edit or add more steps to your workflow, using other connectors to build out your integration scenario.
 
-## See example flows
-
-For examples of using the connector in Power Platform flows, see [Azure Digital Twins getting started samples](https://github.com/Azure-Samples/azure-digital-twins-getting-started).
-
 ## Limitations and suggestions
 
 Here are some limitations of the connector and suggestions for working with them.
