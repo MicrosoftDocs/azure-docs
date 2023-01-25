@@ -761,8 +761,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path": "flexible-server/tutorial-wordpress-app-service.md",
-        "redirect_url": "/azure/app-service/quickstart-wordpress.md",
+        "source_path_from_root": "articles/mysql/flexible-server/tutorial-wordpress-app-service.md",
+        "redirect_url": "/articles/app-service/quickstart-wordpress.md",
         "redirect_document_id": true
     }
   ]
