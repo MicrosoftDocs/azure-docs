@@ -74,7 +74,7 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
 2. **Contributor guide** - If you have a contributor role in the subscription, then you would not see the option to enable metrics collection because in Azure, a contributor cannot assign a ‘monitoring reader’ role to a resource which is required by the metrics crawler to collect metrics. 
  
-  :::image type="content" source="media/dynatrace-create/dynatrace-contributor-UI.png" alt-text="Screenshot showing contributor view.":::
+  :::image type="content" source="media/dynatrace-create/dynatrace-contributor-UI.png" alt-text="Screenshot showing contributor view of metrics and logs.":::
   
   Complete the resource provisioning excluding the metrics configuration and ask an owner to assign an appropriate role manually to your resource.
   
@@ -86,11 +86,11 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
         - Select the subscription, managed identity (Dynatrace) and the Dynatrace resource created by the contributor.
         - Review + assign
 
- :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-1.png" alt-text="Screenshot showing settings for contributor access 1.":::
+ :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-1.png" alt-text="Screenshot showing the access control page.":::
  
- :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-2.png" alt-text="Screenshot showing settings for contributor access 2.":::
+ :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-2.png" alt-text="Screenshot showing the process for selecting Monitoring reader role.":::
   
- :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-3.png" alt-text="Screenshot showing settings for contributor access 3.":::
+ :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-3.png" alt-text="Screenshot showing the process to assign a role to a managed identity.":::
    
 3. When creating the Dynatrace resource, you can set up automatic log forwarding for three types of logs:
 
