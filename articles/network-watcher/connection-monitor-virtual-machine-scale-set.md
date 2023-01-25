@@ -4,18 +4,20 @@ description: In this tutorial, you'll learn how to monitor network communication
 services: network-watcher
 author: halkazwini
 tags: azure-resource-manager
-# Customer intent: I need to monitor communication between a virtual machine scale set and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
 ms.service: network-watcher
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 01/25/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, mvc, engagement-fy23
+# Customer intent: I need to monitor communication between a virtual machine scale set and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
 ---
 
 # Tutorial: Monitor network communication between two virtual machine scale sets using the Azure portal
 
-Successful communication between a virtual machine scale set and an another endpoint, such as virtual machine (VM), can be critical for your organization. Sometimes, the introduction of configuration changes can break communication. In this tutorial, you learn how to:
+Successful communication between a virtual machine scale set and another endpoint, such as virtual machine (VM), can be critical for your organization. Sometimes, the introduction of configuration changes can break communication.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual machine scale set and a VM.
@@ -30,7 +32,11 @@ Successful communication between a virtual machine scale set and an another endp
 > As of July 1, 2021, you can't add new connection monitors in Connection monitor (classic) but you can continue to use earlier versions that were created prior to that date. To minimize service disruption to your current workloads, [migrate from Connection monitor (classic) to the latest Connection monitor](migrate-to-connection-monitor-from-connection-monitor-classic.md) in Azure Network Watcher before February 29, 2024.
 
 
-Before you begin, if you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+* An Azure subscription
 
 ## Sign in to Azure
 
@@ -44,9 +50,9 @@ In the following sections, you create a virtual machine scale set.
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) distributes incoming traffic among healthy virtual machine instances. 
 
-First, create a public standard load balancer by using the Azure portal. The name and public IP address you create are automatically configured as the load balancer's front end.
+First, create a public standard load balancer using the Azure portal. The name and public IP address you create are automatically configured as the load balancer's front end.
 
-1. In the search box, type **load balancer** and then, under **Marketplace** in the search results, select **Load balancer**.
+1. In the search box, enter **load balancer** and then, under **Marketplace** in the search results, select **Load balancer**.
 1. On the **Basics** pane of the **Create load balancer** page, do the following:
 
    | Setting | Value |
@@ -65,15 +71,12 @@ First, create a public standard load balancer by using the Azure portal. The nam
 1. Select **Review + create**. 
 1. After it passes validation, select **Create**. 
 
-
 ### Create a virtual machine scale set
 
 You can deploy a scale set with a Windows Server image or Linux images such as RHEL, CentOS, Ubuntu, or SLES.
 
 1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual machine scale sets**. 
-1. On the **Virtual machine scale sets** pane, select **Create**.
-
-   The **Create a virtual machine scale set** page opens. 
+1. On the **Virtual machine scale sets** pane, select **Create**. The **Create a virtual machine scale set** page opens. 
 1. On the **Basics** pane, under **Project details**, ensure that the correct subscription is selected, and then select **myVMSSResourceGroup** in the resource group list. 
 1. For **Name**, type **myScaleSet**.
 1. For **Region**, select a region that's close to your area.
@@ -191,7 +194,7 @@ In the Azure portal, to create a test group in a connection monitor, do the foll
 
      When you select a virtual network, subnet, a single VM or a virtual machine scale set the corresponding resource ID is set as the endpoint. By default, all VMs in the selected virtual network or subnet participate in monitoring. To reduce the scope, either select specific subnets or agents or change the value of the scope property. 
 
-     :::image type="content" source="./media/connection-monitor-2-preview/add-sources-1.png" alt-text="Screenshot that shows the 'Add Sources' pane and the Azure endpoints, including the 'VMSS' pane, in Connection monitor.":::
+     :::image type="content" source="./media/connection-monitor-2-preview/add-sources-1.png" alt-text="Screenshot that shows the 'Add Sources' pane and the Azure endpoints, including the 'virtual machine scale set' pane, in Connection monitor.":::
 
    * To choose on-premises agents, select the **Non–Azure endpoints** tab. By default, agents are grouped into workspaces by region. All these workspaces have the Network Performance Monitor configured. 
  
@@ -295,7 +298,7 @@ After the creation process is successful, it takes about 5 minutes for the conne
 
 Currently, Connection monitor provides default coverage for the scale set instances that are selected as endpoints. This means that only a default percentage of all the added scale set instances would be randomly selected to monitor connectivity from the scale set to the endpoint. 
 
-As a best practice, to avoid loss of data because of a downscaling of instances, we recommend that you select *all* instances in a scale set while you're creating a test group, instead of selecting a particular few for monitoring your endpoints. 
+As a best practice, to avoid loss of data due to downscaling of instances, we recommend that you select *all* instances in a scale set while you're creating a test group, instead of selecting a particular few for monitoring your endpoints. 
 
 ## Scale limits
 
