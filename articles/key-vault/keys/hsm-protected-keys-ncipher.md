@@ -65,11 +65,11 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 
 You'll use the following five steps to generate and transfer your key to an Azure Key Vault HSM:
 
-* [Step 1: Prepare your Internet-connected workstation](#step-1-prepare-your-internet-connected-workstation)
-* [Step 2: Prepare your disconnected workstation](#step-2-prepare-your-disconnected-workstation)
-* [Step 3: Generate your key](#step-3-generate-your-key)
-* [Step 4: Prepare your key for transfer](#step-4-prepare-your-key-for-transfer)
-* [Step 5: Transfer your key to Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
+* [Step 1: Prepare your Internet-connected workstation](#prepare-your-internet-connected-workstation)
+* [Step 2: Prepare your disconnected workstation](#prepare-your-disconnected-workstation)
+* [Step 3: Generate your key](#generate-your-key)
+* [Step 4: Prepare your key for transfer](#prepare-your-key-for-transfer)
+* [Step 5: Transfer your key to Azure Key Vault](#transfer-your-key-to-azure-key-vault)
 
 ## Prepare your Internet-connected workstation
 
@@ -578,7 +578,7 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SUI-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SUI-1
    ```
 
-When you run this command, replace *contosokey* with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
+When you run this command, replace *contosokey* with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#generate-your-key) step.
 
 You are asked to plug in your security world admin cards.
 
@@ -598,7 +598,7 @@ You may inspects the ACLS using following commands using the nCipher nShield uti
    "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
    ```
 
-  When you run these commands, replace contosokey with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
+  When you run these commands, replace contosokey with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#generate-your-key) step.
 
 ### Encrypt your key by using Microsoft's Key Exchange Key
 
@@ -714,8 +714,8 @@ Run one of the following commands, depending on your geographic region or instan
 
 When you run this command, use these instructions:
 
-* Replace *contosokey* with the identifier that you used to generate the key in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
-* Replace *SubscriptionID* with the ID of the Azure subscription that contains your key vault. You retrieved this value previously, in **Step 1.2: Get your Azure subscription ID** from the [Prepare your Internet-connected workstation](#step-1-prepare-your-internet-connected-workstation) step.
+* Replace *contosokey* with the identifier that you used to generate the key in **Step 3.5: Create a new key** from the [Generate your key](#generate-your-key) step.
+* Replace *SubscriptionID* with the ID of the Azure subscription that contains your key vault. You retrieved this value previously, in **Step 1.2: Get your Azure subscription ID** from the [Prepare your Internet-connected workstation](#prepare-your-internet-connected-workstation) step.
 * Replace *ContosoFirstHSMKey* with a label that is used for your output file name.
 
 When this completes successfully, it displays **Result: SUCCESS** and there is a new file in the current folder that has the following name: KeyTransferPackage-*ContosoFirstHSMkey*.byok
