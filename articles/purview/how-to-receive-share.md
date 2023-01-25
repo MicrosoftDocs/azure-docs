@@ -156,7 +156,7 @@ If you've been notified that you've received a share, but can't view share invit
 
 ### Can't see target storage account in the list when mapping an asset
 
-When you map an asset to a target, if your storage account isn't listed for you to select, it's likely due to the following reasons: You do not have required permissions to the storage account. Check [prerequisite](#prerequisites-to-share-data) for details on required storage permissions. 
+When you map an asset to a target, if your storage account isn't listed for you to select, it's likely due to the following reasons: You do not have required permissions to the storage account. Check [prerequisite](#prerequisites-to-receive-shared-data) for details on required storage permissions. 
 
 ### Failed to map asset
 
