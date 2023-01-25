@@ -14,7 +14,7 @@ ms.author: jfields
 
 # Microsoft Entra Permissions Management partners
 
-These Microsoft verified partners can help you onboard Microsoft Entra Permissions Management and run a risk assessment across your entire multicloud environment.
+Microsoft verified partners can help you onboard Microsoft Entra Permissions Management and run a risk assessment across your entire multicloud environment.
 
 ## Benefits of working with Microsoft verified partners
 
@@ -29,13 +29,12 @@ These Microsoft verified partners can help you onboard Microsoft Entra Permissio
 
 * **Onboarding and Deployment Support**
 
-    Partners can guide you through the entire onboarding and deployment process for Permissions Management across AWS, Azure, and  
-    GCP.
+    Partners can guide you through the entire onboarding and deployment process for Permissions Management across AWS, Azure, and GCP.
 
 
 ## Partner list
 
-Select a partner from the list provided to begin your Permissions Management risk assessment. Additionally, Microsoft provides a [full list of partners](https://appsource.microsoft.com/en-us/marketplace/consulting-services?exp=ubp8&page=1&product=m365-sa-identity-and-access-management) that can help secure your organization.
+Select a partner from the list provided to begin your Permissions Management risk assessment. Additionally, Microsoft provides a [full list of security partners](https://appsource.microsoft.com/en-us/marketplace/consulting-services?exp=ubp8&page=1&product=m365-sa-identity-and-access-management) that can help secure your organization.
 
 If you're a partner and would like to be considered for the Entra Permissions Management partner list, submit a [request](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRzw7upfFlddNq4ce6ckvEvhUNzE3V0RQNkpPWjhDSU5FNkk1U1RWUDdDTC4u). 
 
