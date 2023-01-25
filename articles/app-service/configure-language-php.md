@@ -320,7 +320,7 @@ As an alternative to using a `.user.ini` file, you can use [ini_set()](https://w
 
 ::: zone pivot="platform-linux"
 
-To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives for linux web apps, such as upload_max_filesize, expose_php, and others can be modified using a custom “ini” file. You can use either SSH or Bash to accomplish this.  
+To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives for linux web apps, such as upload_max_filesize, expose_php, use a custom “ini” file. You can create it in an [SSH session](configure-linux-open-ssh-session.md). 
 
 1. Go to your KUDU site https://\<sitename\>.scm.azurewebsites.net
 2. Select Bash or SSH from the top menu.
