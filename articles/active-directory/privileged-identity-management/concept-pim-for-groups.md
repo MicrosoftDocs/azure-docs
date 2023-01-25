@@ -22,11 +22,11 @@ ms.collection: M365-identity-device-management
 
 # Privileged Identity Management (PIM) for Groups (preview)
 
-With Azure Active Directory (Azure AD), part of Microsoft Entra, you can provide users just-in-time membership in the group and just-in-time ownership of the group using the Azure AD Privileged Identity Management for Groups feature. These groups can be used to govern access to a variety of scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, other application roles, and 3rd party applications.
+With Azure Active Directory (Azure AD), part of Microsoft Entra, you can provide users just-in-time membership in the group and just-in-time ownership of the group using the Azure AD Privileged Identity Management for Groups feature. These groups can be used to govern access to various scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, other application roles, and third party applications.
 
 ## What is PIM for Groups?
 
-PIM for Groups is part of Azure AD Privileged Identity Management – alongside with PIM for Azure AD Roles and PIM for Azure Resources, PIM for Groups enables users to activate the ownership or membership of an Azure AD security group or Microsoft 365 group. Groups can be used to govern access to a variety of scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, other application roles, and 3rd party applications.
+PIM for Groups is part of Azure AD Privileged Identity Management – alongside with PIM for Azure AD Roles and PIM for Azure Resources, PIM for Groups enables users to activate the ownership or membership of an Azure AD security group or Microsoft 365 group. Groups can be used to govern access to various scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, other application roles, and third party applications.
 
 With PIM for Groups you can use policies similar to ones you use in PIM for Azure AD Roles and PIM for Azure Resources: you can require approval for membership or ownership activation, enforce multi-factor authentication (MFA), require justification, limit maximum activation time, and more. Each group in PIM for Groups has two policies: one for activation of membership and another for activation of ownership in the group. Up until January 2023, PIM for Groups feature was called “Privileged Access Groups”.
 
