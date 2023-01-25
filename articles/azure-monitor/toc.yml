@@ -397,6 +397,8 @@ items:
         href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
         href: essentials/azure-monitor-workspace-overview.md
+      - name: Manage Azure Monitor workspaces
+        href: essentials/azure-monitor-workspace-manage.md
       - name: Enable on AKS cluster
         displayName: Prometheus
         href: essentials/prometheus-metrics-enable.md      
@@ -578,8 +580,6 @@ items:
           href: app/tutorial-users.md
         - name: Dashboard with application data
           href: app/tutorial-app-dashboards.md
-        - name: Monitor mobile or UWP application
-          href: app/mobile-center-quickstart.md
     - name: Auto-instrumentation
       items:
       - name: Overview
@@ -946,8 +946,6 @@ items:
       items:
       - name: SharePoint sites
         href: app/sharepoint.md
-      - name: Windows desktop
-        href: app/windows-desktop.md
   - name: Container insights
     items:
     - name: Overview

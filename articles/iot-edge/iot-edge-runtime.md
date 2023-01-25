@@ -27,13 +27,11 @@ The IoT Edge runtime is responsible for the following functions on IoT Edge devi
 
 * Report module health to the cloud for remote monitoring.
 
-* Manage communication between downstream devices and IoT Edge devices.
-
-* Manage communication between modules on an IoT Edge device.
-
-* Manage communication between an IoT Edge device and the cloud.
-
-* Manage communication between IoT Edge devices.
+* Manage communication between:
+  - Downstream devices and IoT Edge devices
+  - Modules on an IoT Edge device
+  - An IoT Edge device and the cloud
+  - IoT Edge devices
 
 ![Runtime communicates insights and module health to IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
