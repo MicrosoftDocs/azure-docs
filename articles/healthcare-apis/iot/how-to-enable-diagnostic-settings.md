@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 1/24/2023
 ms.author: jasteppe
 ---
 
@@ -94,7 +94,7 @@ If you choose to include your Log Analytics workspace as a destination option fo
 
    :::image type="content" source="media/how-to-enable-diagnostic-settings/select-logs-button.png" alt-text="Screenshot of logs option." lightbox="media/how-to-enable-diagnostic-settings/select-logs-button.png":::
 
-2. Copy the below table query string into your Log Analytics workspace query area and select **Run**. Using the *AHDSMedTechDiagnosticLogs* table will provide you with all logs contained in the entire table for the selected time period (default is 24 hours). The MedTech service provides five pre-defined queries that will be addressed in the section [Accessing the pre-defined MedTech service Log Analytics queries](how-to-enable-diagnostic-settings.md#accessing-the-pre-defined-medtech-service-log-analytics-queries)
+2. Copy the below table query string into your Log Analytics workspace query area and select **Run**. Using the *AHDSMedTechDiagnosticLogs* table will provide you with all logs contained in the entire table for the selected time period (the default value is **Time range: Last 24 hours**). The MedTech service provides five pre-defined queries that will be addressed in the section [Accessing the MedTech service pre-defined Log Analytics queries](how-to-enable-diagnostic-settings.md#accessing-the-medtech-service-pre-defined-log-analytics-queries)
 
    ```Kusto
    AHDSMedTechDiagnosticLogs
@@ -127,18 +127,18 @@ If you choose to include your Log Analytics workspace as a destination option fo
 >
 > To learn how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot MedTech service errors](troubleshoot-errors.md).
 
-## Accessing the pre-defined MedTech service Log Analytics queries
+## Accessing the MedTech service pre-defined Log Analytics queries
 
-The MedTech service comes with pre-defined queries that can be used anytime in your Log Analytics workspace and can also be customized and saved/shared.
+The MedTech service comes with pre-defined queries that can be used anytime in your Log Analytics workspace to filter and summarize your logs for more precise investigation. The queries can also be customized and saved/shared.
 
-1. To access the pre-defined MedTech service queries, select **Queries**, type *MedTech* in the **Search** area, select a pre-defined query by using a double-click, and select **Run** to execute the pre-defined query. In this example, we've selected *MedTech healthcheck exceptions*. You'll select a pre-defined query of your own choosing.
+1. To access the pre-defined queries, select **Queries**, type *MedTech* in the **Search** area, select a pre-defined query by using a double-click, and select **Run** to execute the pre-defined query. In this example, we've selected *MedTech healthcheck exceptions*. You'll select a pre-defined query of your own choosing.
 
    > [!TIP]
    > You can click on each of the MedTech service pre-defined queries to see their description and access different options for running the query or placing it into the Log Analytics workspace query area. 
 
    :::image type="content" source="media/how-to-enable-diagnostic-settings/select-and-run-pre-defined-query.png" alt-text="Screenshot of searching, selecting, and running a MedTech service pre-defined query." lightbox="media/how-to-enable-diagnostic-settings/select-and-run-pre-defined-query.png":::
 
-2. Multiple pre-defined MedTech service queries can be selected. In this example, we've additionally selected *Log count per MedTech log or exception type*. You'll select another pre-defined query of your own choosing.
+2. Multiple pre-defined queries can be selected. In this example, we've additionally selected *Log count per MedTech log or exception type*. You'll select another pre-defined query of your own choosing.
 
    :::image type="content" source="media/how-to-enable-diagnostic-settings/select-and-run-additional-pre-defined-query.png" alt-text="Screenshot of searching, selecting, and running a MedTech service and additional pre-defined query." lightbox="media/how-to-enable-diagnostic-settings/select-and-run-additional-pre-defined-query.png":::
 
