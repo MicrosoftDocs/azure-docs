@@ -20,6 +20,8 @@ You can use this information to create a site in an existing private mobile netw
 
 You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
+If you want to give Azure role-based access control (Azure RBAC) to storage accounts, you must have the relevant permissions on your account.
+
 ## Collect mobile network site resource values
 
 Collect all the values in the following table for the mobile network site resource that will represent your site.
@@ -114,11 +116,10 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
 
       - [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Private Mobile Network** service principal.
       - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (RBAC)](../key-vault/general/rbac-guide.md?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Private Mobile Network** service principal.
+      - If you want to, assign the Key Vault access policy or Azure RBAC to a [user-assigned identity](../active-directory/managed-identities-azure-resources/overview.md).
 
-   1. Assign the Key Vault access policy or Azure RBAC to a [user-assigned identity](../active-directory/managed-identities-azure-resources/overview.md).
-
-       - If you have an existing user-assigned identity configured for diagnostic collection you can modify.
-       - Otherwise, you can create a new user-assigned identity.
+          - If you have an existing user-assigned identity configured for diagnostic collection you can modify it.
+          - Otherwise, you can create a new user-assigned identity.
 
    1. Collect the values in the following table.
 
