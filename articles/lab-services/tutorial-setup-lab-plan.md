@@ -13,17 +13,21 @@ ms.custom: subject-rbac-steps
 
 # Tutorial: Create a lab for classroom training with Azure Lab Services
 
-In Azure Lab Services, the lab plan serves as a collection of configurations and settings that apply to the labs you create from it. In your lab plan, give permission to others to create labs, and set policies that apply to newly created labs. In this tutorial, learn how to create a lab plan by using the Azure portal.
+Azure Lab Services enables you to create labs, whose infrastructure is managed by Azure. In this tutorial, you create a lab for classroom training with Azure Lab Services. Learn how to set up a customized lab template, and invite students to register for their lab virtual machine (VM). Use Azure Active Directory (Azure AD) role-based access control (RBAC) to assign permissions that match your organization's roles and reponsibilities.
 
-In this tutorial, you do the following actions:
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create a lab plan
 > * Assign a user to the Lab Creator role
+> * Create a lab
+> * Customize the template VM
+> * Publish the lab to create lab VMs
+> * Invite users to the lab via email
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
 
 ## Create a lab plan
 
