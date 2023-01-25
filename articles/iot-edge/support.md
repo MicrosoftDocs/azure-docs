@@ -23,7 +23,7 @@ If you experience problems while using the Azure IoT Edge service, there are sev
 
 **Microsoft Customer Support team** - Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Feature requests** - The Azure IoT Edge product tracks feature requests via the product's [Azure feedback - Share your Ideas](https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0) community.
+**Feature requests** - The Azure IoT Edge product tracks feature requests via the product's [Azure feedback](https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0) community.
 
 ## Container engines
 
