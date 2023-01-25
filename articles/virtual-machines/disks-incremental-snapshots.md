@@ -240,7 +240,7 @@ diskName=yourDiskName
 
 az account set --subscription $subscriptionId
 
-az disk show –n $diskName -g $resourceGroupName --query [completionPercent] -o tsv
+az disk show -n $diskName -g $resourceGroupName --query [completionPercent] -o tsv
 ```
 
 ## Check sector size
@@ -252,7 +252,7 @@ To determine whether or your Ultra Disk snapshot is a VHDX or a VHD, get the `Lo
 The following command displays the logical sector size of a snapshot:
 
 ```azurecli
-az snapshot show -g resourcegroupname-n snapshotname--query [creationData.logicalSectorSize] -o tsv
+az snapshot show -g resourcegroupname -n snapshotname --query [creationData.logicalSectorSize] -o tsv
 ```
 
 ## Next steps
