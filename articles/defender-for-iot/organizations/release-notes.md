@@ -175,7 +175,7 @@ This version includes the following new updates and fixes:
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
 - [Bi-directional alert synch between OT sensors and the Azure portal](alerts.md#managing-ot-alerts-in-a-hybrid-environment)
 - [Sensor connections restored after certificate rotation](how-to-deploy-certificates.md)
-- [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
+- [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
 - [Sensor names shown in browser tabs](how-to-manage-individual-sensors.md)
 - [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
@@ -231,7 +231,7 @@ This version includes the following new updates and fixes:
 - [Diagnostic logs automatically available to support for cloud-connected sensors](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
 - [Rockwell protocol: Device inventory shows PLC operating mode key state, run state, and security mode](how-to-manage-device-inventory-for-organizations.md)
 - [Automatic CLI session timeouts](references-work-with-defender-for-iot-cli-commands.md)
-- [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview)
+- [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health)
 
 ### 22.1.1
 
