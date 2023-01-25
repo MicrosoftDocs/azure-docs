@@ -27,7 +27,7 @@ In this article, you'll learn how to create a hub and spoke network topology wit
 * The `5.3.0` version of `Az.Network` is required to access the required cmdlets for Azure Virtual Network Manager.
 * If you're running PowerShell locally, you need to run `Connect-AzAccount` to create a connection with Azure.
 
-## Create a network group and membership
+## Create a network group and add members
 
 This section will help you create a network group containing the virtual networks you'll be using for the hub-and-spoke network topology.
 

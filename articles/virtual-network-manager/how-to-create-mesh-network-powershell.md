@@ -1,5 +1,5 @@
 ---
-title: 'Create a mesh network topology with Azure Virtual Network Manager (Preview) - Azure PowerShell'
+title: 'Create a mesh network topology with Azure Virtual Network Manager - Azure PowerShell'
 description: Learn how to create a mesh network topology with Azure Virtual Network Manager using Azure PowerShell.
 author: mbender-ms    
 ms.author: mbender
@@ -9,7 +9,7 @@ ms.date: 1/31/2023
 ms.custom: ignite-fall-2021
 ---
 
-# Create a mesh network topology with Azure Virtual Network Manager (Preview) - Azure PowerShell
+# Create a mesh network topology with Azure Virtual Network Manager - Azure PowerShell
 
 In this article, you'll learn how to create a mesh network topology with Azure Virtual Network Manager using Azure PowerShell. With this configuration, all the virtual networks of the same region in the same network group can communicate with one another. You can enable cross region connectivity by enabling the global mesh setting in the connectivity configuration.
 
@@ -23,50 +23,33 @@ In this article, you'll learn how to create a mesh network topology with Azure V
 * Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md#create-virtual-network-manager).
 * Identify virtual networks you want to use in the mesh configuration or create new [virtual networks](../virtual-network/quick-create-powershell.md).
 
-## Create a network group
+## Create a network group and add members
 
 This section will help you create a network group containing the virtual networks you'll be using for the hub-and-spoke network topology.
 
-1. Create a static virtual network member with New-AzNetworkManagerGroupMembersItem.
+1. Create a network group for virtual networks with New-AzNetworkManagerGroup.
 
-    ```azurepowershell-interactive
-    $member = New-AzNetworkManagerGroupMembersItem –ResourceId "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA"
-    ```
-
-1. Add the static member to the static membership group with the following commands:
-
-    ```azurepowershell-interactive
-    [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerGroupMembersItem]]$groupMembers = @()  
-    $groupMembers.Add($member)
-    ```
-
-### Dynamic membership
-
-1. Define the conditional statement and store it in a variable:
-
-    ```azurepowershell-interactive
-    $conditionalMembership = '{ 
-        "allof":[ 
-            { 
-            "field": "name", 
-            "contains": "VNet" 
-            } 
-        ] 
-    }' 
-    ```
-
-1. Create the network group using either the static membership group (GroupMember) or the dynamic membership group (ConditionalMembership) defined previously using New-AzNetworkManagerGroup.
-
-    ```azurepowershell-interactive
+    ``azurepowershell-interactive
     $ng = @{
-        Name = 'myNetworkGroup'
+            Name = 'myNetworkGroup'
+            ResourceGroupName = 'myAVNMResourceGroup'
+            NetworkManagerName = 'myAVNM'
+        }
+        $networkgroup = New-AzNetworkManagerGroup @ng
+    ```
+
+1. Add the static member to the static membership group with New-AzNetworkManagerStaticMember:
+
+    ```azurepowershell-interactive
+        $vnet = get-AZVirtualNetwork -ResourceGroupName 'myAVNMResourceGroup' -Name 'VNetA'
+        $sm = @{
+        NetworkGroupName = $networkgroup.name
         ResourceGroupName = 'myAVNMResourceGroup'
-        GroupMember = $groupMembers
-        ConditionalMembership = $conditionalMembership
         NetworkManagerName = 'myAVNM'
-        MemberType = 'Microsoft.Network/VirtualNetworks
-    }
-    $networkgroup = New-AzNetworkManagerGroup @ng
+        Name = 'statiMember'
+        ResourceId = $vnet.id
+        }
+        $staticmember = New-AzNetworkManagerStaticMember @sm
     ```
 
 ## Create a mesh connectivity configuration
