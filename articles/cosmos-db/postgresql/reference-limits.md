@@ -83,13 +83,6 @@ cluster, the `citus` database. Creating another
 database is currently not allowed, and the CREATE DATABASE command will fail
 with an error.
 
-### Columnar storage
-
-Azure Cosmos DB for PostgreSQL currently has these limitations with [columnar
-tables](concepts-columnar.md):
-
-[!INCLUDE[columnar-limitations](includes/columnar-limitations.md)]
-
 ## Next steps
 
 * Learn how to [create a cluster in the
