@@ -18,13 +18,13 @@ Cost optimization settings offer users the ability to customize and control the 
 
 The container insights agent periodically checks for the data collection settings, validates, and applies the applicable settings to applicable Container Insights Log Analytics tables and Custom Metrics. The data collection settings should be applied in the subsequent configured Data collection interval.
 
-The following table describes about supported data collection settings
+The following table describes the supported data collection settings
 
-| **Data collection setting** | **Description** |
-| --- | --- |
-| **interval** | Allowed values are _1m, 2m … 30m_. If the value outside this range [_1m_, _30m_], then default value is set to be _1m_ (i.e., 60 seconds) and **m** suffix denotes the minutes. |
-| **namespaceFilteringMode** | Allowed values are _Include_, _Exclude_, or _Off_. Choosing Include collects only data from the values in the namespaces field. Choosing Exclude collects data from all namespaces except for the values in the namespaces field. Off will ignore any namespace selections and collect data on all namespaces.
-| **namespaces** | Array of comma separated Kubernetes namespaces for which inventory and perf data will be included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting will collect only these two namespaces. With an _Exclude_ setting, the agent will collect data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent will collect data from all namespaces including _kube-system_ and _default_.|
+| **Data collection setting** | **Allowed Values** | **Description** |
+| -- | --- | -- |
+| **interval**  | \[1m, 30m] in 1m intervals | This value determines how often data is collected. The default value is 1m, where m denotes the minutes. If the value is outside the allowed range, then default value is set to be _1m_ (i.e., 60 seconds). |
+| **namespaceFilteringMode** | Include, Exclude, or Off | Choosing Include collects only data from the values in the namespaces field. Choosing Exclude collects data from all namespaces except for the values in the namespaces field. Off will ignore any namespace selections and collect data on all namespaces.
+| **namespaces** | An array of names i.e. \["kube-system", "default"]  | Array of comma separated Kubernetes namespaces for which inventory and perf data will be included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting will collect only these two namespaces. With an _Exclude_ setting, the agent will collect data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent will collect data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces will be ignored. |
 
 ## Log Analytics data collection
 
@@ -59,42 +59,87 @@ The below table outlines the list of the container insights Log Analytics tables
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
     - If the AKS Cluster is using Service Principal, it MUST be upgraded to use [Managed Identity](../../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity)
 
-- Install [Azure CLI](/cli/azure/install-azure-cli) version 2.44.1 or higher
-    - aks-preview version 0.5.125 or higher
+- IThe latest version of the Azure CLI. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI](install-azure-cli).
+    - For AKS clusters, aks-preview version 0.5.125 or higher
+    - For Arc enabled Kubernetes and AKS hybrid, k8s-extension version 1.3.7 or higher
 
 ## Cost presets and advanced collection settings
 Cost presets are available for selection in the Azure Portal to allow easy configuration. By default, container insights ships with the Standard preset, however, you may choose one of the following to modify your collection settings.
 
-| Cost preset | Collection frequency | Namespace filters |Syslog collection |
+| Cost preset | Collection frequency | Namespace filters | Syslog collection |
 | --- | --- | --- | --- |
 | Standard | 1m | None | Not enabled |
 | Cost-optimized | 5m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
 | Advanced | Custom | Custom | Enabled by default (but can be turned off) |
 | ContainerLog only | None | None | Off by default |
 
+If you are using the ContainerLog only profile and would still like to collect metrics on your AKS cluster, then please use the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md).
+
+## Configuring AKS data collection settings using Azure CLI
+
+Using the CLI to enable monitoring for your AKS requires passing in configuration as a JSON file.
+
+The default schema for the config file follows this format:
+
+```json
+{
+  "interval": "string",
+  "namespaceFilteringMode": "string",
+  "namespaces": ["string"]
+}
+```
+
+* `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
+* `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
+* `namespaces`: An array of Kubernetes namespaces as strings, to be included or excluded
+
+Example input:
+
+```json
+{
+  "interval": "1m",
+  "namespaceFilteringMode": "Include",
+  "namespaces": ["kube-system"]
+}
+```
+Create a file and provide values for _interval_, _namespaceFilteringMode_, and _namespaces_. The following CLI instructions use the name dataCollectionSettings.json.
+
 ## Onboarding to a new AKS cluster
 
 Use the following command to enable monitoring of your AKS cluster
 
 ```azcli
-az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring --data-collection-settings datacollectionsettings.json --generate-ssh-keys 
+az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring --data-collection-settings dataCollectionSettings.json --generate-ssh-keys 
 ```
 
 ## Onboarding to an existing AKS Cluster
+
+## [Azure CLI](#tab/create-CLI)
+
+### Onboard to a cluster without the monitoring addon
+
+```azcli
+az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <clusterResourceGroup> -n <clusterName> --data-collection-settings dataCollectionSettings.json
+```
+
+### Onboard to a cluster with an existing monitoring addon
+
+```azcli    
+az aks disable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName>
+
+az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <clusterResourceGroup> -n <clusterName> --data-collection-settings dataCollectionSettings.json
+```
 
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the AKS cluster that you wish to monitor
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
-4. If you are configuring Container Insights for the first time, select the "Use managed identity (preview)" checkbox
-5. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+4. If you are configuring Container Insights for the first time or have not migrated to using [managed identity authentication (preview)](../containers/container-insights-onboard.md#authentication), select the "Use managed identity (preview)" checkbox
+5. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit profile settings"
 6. Click the blue "Configure" button to finish
-
-## [Azure CLI](#tab/create-CLI)
 
 
 ## [ARM](#tab/create-arm)
-
 
 1. Download the Azure Resource Manager Template and Parameter files
 
@@ -130,6 +175,18 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 
 ## Onboarding to an existing AKS hybrid Cluster
 
+## [Azure CLI](#tab/create-CLI)
+
+```azcli
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true dataCollectionSettings='{\"interval\": \"1m\",\"namespaceFilteringMode\": \"Include\", \"namespaces\": [ \"kube-system\"]}'
+```
+
+The collection settings can be modified through the input of the `dataCollectionSettings` field.
+
+* `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
+* `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
+* `namespaces`: An array of Kubernetes namespaces as strings, to be included or excluded
+
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the AKS hybrid cluster that you wish to monitor
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
@@ -144,19 +201,19 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 1. Download the Azure Resource Manager Template and Parameter files
 
 ```bash
-curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file -o existingClusterOnboarding.json
+curl -L https://aka.ms/existingClusterOnboarding.json -o existingClusterOnboarding.json
 ```
 
 ```bash
-curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-parameter-file -o existingClusterParam.json
+curl -L https://aka.ms/existingClusterParam.json -o existingClusterParam.json
 ```
 
 2. Edit the values in the parameter file: existingClusterParam.json
 
-- For _aksResourceId_ and _aksResourceLocation_, use the values on the  **AKS Overview**  page for the AKS cluster.
+- For _clusterResourceId_ and _clusterResourceLocation_, use the values on the  **Overview**  page for the AKS hybrid cluster.
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
 - For _workspaceLocation_, use the Location of your Log Analytics workspace
-- For _resourceTagValues_, use the existing tag values specified for the AKS cluster
+- For _resourceTagValues_, use the existing tag values specified for the AKS hybrid cluster
 - For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
 - For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namepspaces field.
 - For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
@@ -175,6 +232,17 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 
 ## Onboarding to an existing Azure Arc K8s Clusters
 
+## [Azure CLI](#tab/create-CLI)
+
+```azcli
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogsagent.useAADAuth=true dataCollectionSettings='{\"interval\": \"1m\",\"namespaceFilteringMode\": \"Include\", \"namespaces\": [ \"kube-system\"]}'
+```
+
+The collection settings can be modified through the input of the `dataCollectionSettings` field.
+
+* `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
+* `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
+* `namespaces`: An array of Kubernetes namespaces as strings, to be included or excluded
 
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the Arc cluster that you wish to monitor
@@ -199,10 +267,10 @@ curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-par
 
 2. Edit the values in the parameter file: existingClusterParam.json
 
-- For _aksResourceId_ and _aksResourceLocation_, use the values on the  **AKS Overview**  page for the AKS cluster.
+- For _clusterResourceId_ and  _clusterRegion_, use the values on the  **Overview**  page for the Arc enabled Kubernetes cluster.
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
 - For _workspaceLocation_, use the Location of your Log Analytics workspace
-- For _resourceTagValues_, use the existing tag values specified for the AKS cluster
+- For _resourceTagValues_, use the existing tag values specified for the Arc cluster
 - For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1m, 2m … 30m where m suffix indicates the minutes.
 - For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namepspaces field.
 - For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
@@ -222,9 +290,9 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 
 To update your data collection Settings, modify the values in parameter files, and re-deploy the Azure Resource Manager Templates to your corresponding AKS or Azure Arc Kubernetes cluster.
 
-## Portal Experience
+## Troubleshooting
 
-- Navigate to Azure Portal [https://aka.ms/cicostsettings](https://aka.ms/cicostsettings) for Container Insights experience
+- Only clusters using[managed identity authentication (preview)](../containers/container-insights-onboard.md#authentication), are able to use this feature.
 
 ## Known Issues/Limitations
 
