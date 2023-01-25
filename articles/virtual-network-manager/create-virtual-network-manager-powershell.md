@@ -25,7 +25,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * The `5.3.0` or greater version of `Az.Network` is required to access the required cmdlets for Azure Virtual Network Manager.
-* If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+* Run `Connect-AzAccount` to create a local connection with Azure.
 
 > [!IMPORTANT]
 > Perform this quickstart using Powershell locally, not through Azure Cloud Shell. The version of `Az.Network` in Azure Cloud Shell does not currently support the Azure Virtual Network Manager cmdlets.
@@ -35,7 +35,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 Install the latest *Az.Network* Azure PowerShell module using this command:
 
 ```azurepowershell-interactive
- Install-Module -Name Az.Network -RequiredVersion 4.15.1-preview -AllowPrerelease
+ Install-Module -Name Az.Network -RequiredVersion 5.3.0
 ```
 
 ## Create a resource group
