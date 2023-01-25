@@ -26,7 +26,7 @@ For additional information on directory extensions see [Using directory extensio
  You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
 
 >[!NOTE]
-> In order to discover new Active Directory extension attributes, the provisioning agent needs to be restarted.  You should restart the agent after the directory extensions have been created.  For Azure AD extension attributes, the agent does not need to be restarted.
+> In order to discover new Active Directory extension attributes, the provisioning agent needs to be restarted.  You should restart the agent after the directory extensions have been created.  For Azure AD extension attributes, the agent doesn't need to be restarted.
  
 ## Syncing directory extensions for Azure Active Directory Connect cloud sync 
 
@@ -37,7 +37,7 @@ You can use [directory extensions](https://learn.microsoft.com/graph/api/resourc
 
 ### Create application and service principal for directory extension 
 
-You need to create an [application](https://learn.microsoft.com/graph/api/resources/application?view=graph-rest-1.0) with the identifier URI "api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp" if it does not exist and create a service principal for the application if it does not exist. 
+You need to create an [application](https://learn.microsoft.com/graph/api/resources/application?view=graph-rest-1.0) with the identifier URI "api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp" if it doesn't exist and create a service principal for the application if it doesn't exist. 
 
 
  1. Check if application with the identifier URI "api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp" exists. 
@@ -48,7 +48,7 @@ You need to create an [application](https://learn.microsoft.com/graph/api/resour
      GET /applications?$filter=identifierUris/any(uri:uri eq 'api://<tenantId>/CloudSyncCustomExtensionsApp')
      ```
 
-     For more information see [Get application](https://learn.microsoft.com/graph/api/application-get?view=graph-rest-1.0&tabs=http)
+     For more information, see [Get application](https://learn.microsoft.com/graph/api/application-get?view=graph-rest-1.0&tabs=http)
 
      - Using PowerShell 
      
@@ -56,9 +56,9 @@ You need to create an [application](https://learn.microsoft.com/graph/api/resour
      Get-AzureADApplication -Filter "identifierUris/any(uri:uri eq 'api://<tenantId>/CloudSyncCustomExtensionsApp')"
      ```
 
-     For more information see [Get-AzureADApplication](https://learn.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0)
+     For more information, see [Get-AzureADApplication](https://learn.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0)
 
- 2. If the application does not exist, create the application with identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp.”
+ 2. If the application doesn't exist, create the application with identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp.”
 
      - Using Microsoft Graph 
      ```
@@ -70,13 +70,13 @@ You need to create an [application](https://learn.microsoft.com/graph/api/resour
       "identifierUris": ["api://<tenant id>/CloudSyncCustomExtensionsApp"]
      }
      ```
-     For more information see [create application](https://learn.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http)
+     For more information, see [create application](https://learn.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http)
 
      - Using PowerShell 
      ```
      New-AzureADApplication -DisplayName "CloudSyncCustomExtensionsApp" -IdentifierUris "api://<tenant id>/CloudSyncCustomExtensionsApp"
      ```
-     For more information see [New-AzureADApplication](https://learn.microsoft.com/powershell/module/azuread/new-azureadapplication?view=azureadps-2.0)
+     For more information, see [New-AzureADApplication](https://learn.microsoft.com/powershell/module/azuread/new-azureadapplication?view=azureadps-2.0)
 
  
 
@@ -86,16 +86,16 @@ You need to create an [application](https://learn.microsoft.com/graph/api/resour
      ```
      GET GET /servicePrincipals?$filter=(appId eq '{appId}').
      ```
-     For more information see [get service principal](https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http)
+     For more information, see [get service principal](https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http)
 
      - Using PowerShell 
      ```
      Get-AzureADServicePrincipal -ObjectId  '<application objectid>'
      ```
-     For more information see [Get-AzureADServicePrincipal](https://learn.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0)
+     For more information, see [Get-AzureADServicePrincipal](https://learn.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0)
  
 
- 4. If a service principal does not exist, create a new service principal for the application with identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp”
+ 4. If a service principal doesn't exist, create a new service principal for the application with identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp”
 
      - Using Microsoft Graph 
      ```
@@ -107,14 +107,14 @@ You need to create an [application](https://learn.microsoft.com/graph/api/resour
      "<application appId>"
      }
      ```
-     For more information see [create servicePrincipal](https://learn.microsoft.com/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http)
+     For more information, see [create servicePrincipal](https://learn.microsoft.com/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http)
 
      - Using PowerShell 
      
      ```
      New-AzureADServicePrincipal -AppId '<appId>'
      ```
-     For more information see [New-AzureADServicePrincipal](https://learn.microsoft.com/powershell/module/azuread/new-azureadserviceprincipal?view=azureadps-2.0)
+     For more information, see [New-AzureADServicePrincipal](https://learn.microsoft.com/powershell/module/azuread/new-azureadserviceprincipal?view=azureadps-2.0)
  
  5. You can create directory extensions in Azure AD in several different ways. 
 
