@@ -43,7 +43,9 @@ You might also decide not to split when you want a condition on multiple resourc
 You might want to see a list of the alerts by affected computer. You can use a custom workbook that uses a custom [resource graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
 
 ## Create a log query alert rule
-[This example of a log query alert](../vm/monitor-virtual-machine-alerts.md#example-log-query-alert) provides a complete walkthrough of creating a log query alert rule. You can use these same processes to create alert rules for AKS clusters by using queries similar to the ones in this article.
+To create a log query alert rule by using the portal, see [this example of a log query alert](../alerts/tutorial-log-alert.md), which provides a complete walkthrough. You can use these same processes to create alert rules for AKS clusters by using queries similar to the ones in this article.
+
+To create a query alert rule by using an Azure Resource Manager (ARM) template, see [Resource Manager template samples for log alert rules in Azure Monitor](../alerts/resource-manager-alerts-log.md). You can use these same processes to create ARM templates for the log queries in this article.
 
 ## Resource utilization
 

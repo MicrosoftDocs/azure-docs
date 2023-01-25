@@ -156,7 +156,7 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the **Application settings** tab of the **Configuration** page, verify that (`DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS`) are present. They'll be injected into the runtime environment as environment variables.
+        **Step 2.** In the **Application settings** tab of the **Configuration** page, verify that `DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS` are present. They'll be injected into the runtime environment as environment variables.
         App settings are a good way to keep connection secrets out of your code repository.
     :::column-end:::
     :::column:::
@@ -326,8 +326,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 1.** Back in the App Service page:
-        1. In the left menu, select **SSH**. 
+        **Step 1.** Back in the App Service page, in the left menu, select **SSH**. 
         1. Select **Go**.
     :::column-end:::
     :::column:::
@@ -350,8 +349,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 1.** Back in the App Service page:
-        1. In the left menu, select **SSH**. 
+        **Step 1.** Back in the App Service page, in the left menu, select **SSH**. 
         1. Select **Go**.
     :::column-end:::
     :::column:::

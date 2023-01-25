@@ -57,7 +57,7 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
-When you're ready to upload a model, you can use the following code snippet for the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true):
+When you're ready to upload a model, you can use the following code snippet for the [.NET SDK](/dotnet/api/overview/azure/digitaltwins.core-readme):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 

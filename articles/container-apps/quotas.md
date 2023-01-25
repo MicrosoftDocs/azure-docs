@@ -23,7 +23,7 @@ To request an increase in quota amounts for your container app, learn [how to re
 | Revisions | Container app | 100 | No | |
 | Replicas | Revision | 30 | Yes | |
 | Cores | Replica | 2 | No | Maximum number of cores that can be requested by a revision replica. |
-| Cores | Environment | 20 | Yes | Maximum number of cores an environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. |
+| Cores | Environment | 40 | Yes | Maximum number of cores an environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. |
 
 For more information regarding quotas, see the [Quotas Roadmap](https://github.com/microsoft/azure-container-apps/issues/503) in the Azure Container Apps GitHub repository.
 

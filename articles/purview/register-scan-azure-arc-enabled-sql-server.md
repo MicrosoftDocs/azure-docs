@@ -20,7 +20,7 @@ This article shows how to register an Azure Arc-enabled SQL Server instance. It 
 
 |Metadata extraction|Full scan|Incremental scan|Scoped scan|Classification|Access policy|Lineage|Data sharing|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#access-policy) | Limited** | No |
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes - GA](#access-policy) | Limited** | No |
 
 \** Lineage is supported if the dataset is used as a source/sink in the [Azure Data Factory copy activity](how-to-link-azure-data-factory.md). 
 
@@ -209,8 +209,8 @@ Before you can create policies, you must register the Azure Arc-enabled SQL Serv
 
 To create an access policy for Azure Arc-enabled SQL Server, follow these guides:
 
-* [DevOps policy on a single Azure Arc-enabled SQL Server instance](./how-to-policies-devops-arc-sql-server.md#create-a-new-devops-policy)
-* [Data owner policy on a single Azure Arc-enabled SQL Server instance](./how-to-policies-data-owner-arc-sql-server.md#create-and-publish-a-data-owner-policy)
+* [DevOps policy on a single Azure Arc-enabled SQL Server instance - GA](./how-to-policies-devops-arc-sql-server.md#create-a-new-devops-policy)
+* [Data owner policy on a single Azure Arc-enabled SQL Server instance - Public Preview](./how-to-policies-data-owner-arc-sql-server.md#create-and-publish-a-data-owner-policy)
 
 To create policies that cover all data sources inside a resource group or Azure subscription, see [Discover and govern multiple Azure sources in Microsoft Purview](register-scan-azure-multiple-sources.md#access-policy).
 

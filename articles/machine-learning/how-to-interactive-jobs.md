@@ -5,7 +5,7 @@ description: Debug or monitor your Machine Learning job as it runs on AzureML co
 services: machine-learning
 ms.author: shoja
 author: shouryaj
-ms.reviewer: ssalgadodev
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -75,7 +75,7 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 # [Python SDK](#tab/python)
 1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use your own custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
 
-   Note that you have to import the `JobService` class from the `azure.ai.entities` package to configure interactive services via the SDKv2. 
+   Note that you have to import the `JobService` class from the `azure.ai.ml.entities` package to configure interactive services via the SDKv2. 
 
     ```python
     command_job = command(...
@@ -183,7 +183,7 @@ To interact with your running job, click the button **Debug and monitor** on the
 
 Clicking the applications in the panel opens a new tab for the applications. You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with.
 
-:::image type="content" source="media/interactive-jobs/interactive-jobs-right-panel.png" alt-text="Screenshot of interactive jobs right panel information. Information content will vary depending on the users data":::
+:::image type="content" source="media/interactive-jobs/interactive-jobs-application-list.png" alt-text="Screenshot of interactive jobs right panel information. Information content will vary depending on the user's data.":::
 
 It might take a few minutes to start the job and the training applications specified during job creation. If you don't see the above options, make sure you have enabled the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 
@@ -192,7 +192,7 @@ It might take a few minutes to start the job and the training applications speci
     
 - To connect via SSH to the container where the job is running, run the command `az ml job connect-ssh --name <job-name> --node-index <compute node index> --private-key-file-path <path to private key>`. To set up the Azure Machine Learning CLIv2, follow this [guide](./how-to-configure-cli.md). 
   
-You can find the reference documentation for the SDKv2 [here](/sdk/azure/ml).
+You can find the reference documentation for the SDKv2 [here](./index.yml).
 
 You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with by passing in the node index.
 

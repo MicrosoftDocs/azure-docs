@@ -171,6 +171,7 @@ You can roll out these options:
 - **Pass-through authentication** + **Seamless SSO**
 - **Not supported** - **Password hash sync** + **Pass-through authentication** + **Seamless SSO**
 - **Certificate-based authentication settings**
+- **Azure multifactor authentication**
 
 To configure Staged Rollout, follow these steps:
 

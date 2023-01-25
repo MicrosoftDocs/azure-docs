@@ -1,6 +1,6 @@
 ---
-title: Configure an automatic assignment policy for an access package in Microsoft Entra entitlement management - Azure Active Directory
-description: Learn how to configure automatic assignments based on rules for an access package in Microsoft Entra entitlement management.
+title: Configure an automatic assignment policy for an access package in entitlement management - Microsoft Entra
+description: Learn how to configure automatic assignments based on rules for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: markwahl-msft
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package to include a policy for users to get and lose access package assignments automatically, without them or an administrator needing to request access.
 
 ---
-# Configure an automatic assignment policy for an access package in Microsoft Entra entitlement management (Preview)
+# Configure an automatic assignment policy for an access package in entitlement management (Preview)
 
 You can use rules to determine access package assignment based on user properties in Azure Active Directory (Azure AD), part of Microsoft Entra.  In Entitlement Management, an access package can have multiple policies, and each policy establishes how users get an assignment to the access package, and for how long.  As an administrator, you can establish a policy for automatic assignments by supplying a membership rule, that Entitlement Management will follow to create and remove assignments automatically.  Similar to a [dynamic group](../enterprise-users/groups-create-rule.md), when an automatic assignment policy is created, user attributes are evaluated for matches with the policy's membership rule. When an attribute changes for a user, these automatic assignment policy rules in the access packages are processed for membership changes. Assignments to users are then added or removed depending on whether they meet the rule criteria.
 
@@ -72,11 +72,11 @@ To create a policy for an access package, you need to start from the access pack
 
 There are two ways to create an access package assignment policy for automatic assignment programmatically, through Microsoft Graph and through the PowerShell cmdlets for Microsoft Graph.
 
-### Creating an access package assignment policy through Graph
+### Create an access package assignment policy through Graph
 
 You can create a policy using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application in a catalog role or with the `EntitlementManagement.ReadWrite.All` permission, can call the [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-1.0&preserve-view=true) API. In your [request payload](/graph/api/resources/accesspackageassignmentpolicy?view=graph-rest-1.0&preserve-view=true), include the `displayName`, `description`, `specificAllowedTargets`, [`automaticRequestSettings`](/graph/api/resources/accesspackageautomaticrequestsettings?view=graph-rest-1.0&preserve-view=true) and `accessPackage` properties of the policy.
 
-### Creating an access package assignment policy through PowerShell
+### Create an access package assignment policy through PowerShell
 
 You can also create a policy in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.
 

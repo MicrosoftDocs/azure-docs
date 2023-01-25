@@ -1,14 +1,16 @@
 ---
 title: Schedule Azure Data Lake Analytics U-SQL jobs using SSIS
 description: Learn how to use SQL Server Integration Services to schedule U-SQL jobs with inline script or from U-SQL query files.
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 07/17/2018
+ms.date: 01/20/2023
 ---
 # Schedule U-SQL jobs using SQL Server Integration Services (SSIS)
 
 In this document, you learn how to orchestrate and create U-SQL jobs using SQL Server Integration Service (SSIS). 
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## Prerequisites
 
@@ -87,7 +89,7 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
 
        ![Screenshot that shows the File Connection Manager Editor with "Existing file" selected for "Usage type".](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-   3. In **Connection Managers** view, right-click the file connection created just now, and choose **Properties**.
+   3. In **Connection Managers** view, right-click the file connection created, and choose **Properties**.
 
    4. In the **Properties** window, expand **Expressions**, and set **ConnectionString** to the variable defined in Foreach Loop Container, for example, `@[User::FileName]`.
 
@@ -110,7 +112,7 @@ You can use U-SQL files in Azure Blob Storage by using **Azure Blob Download Tas
 
 The steps are similar with [Scenario 2: Use U-SQL files in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Change the Azure Data Lake Store File System Task to Azure Blob Download Task. [Learn more about Azure Blob Download Task](/sql/integration-services/control-flow/azure-blob-download-task).
 
-The control flow is like below.
+The control flow is like this:
 
 ![Use U-SQL files in Azure Data Lake Store](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-blob-storage.png)
 
@@ -120,7 +122,7 @@ Besides of using U-SQL files stored on cloud, you can also use files on your loc
 
 1. Right-click **Connection Managers** in SSIS project and choose **New Connection Manager**.
 
-2. Select **File** type and click **Add...**.
+2. Select **File** type and select **Add...**.
 
 3. Set **Usage type** to **Existing file**, and set the **File** to the file on the local machine.
 
@@ -128,7 +130,7 @@ Besides of using U-SQL files stored on cloud, you can also use files on your loc
 
 4. Add **Azure Data Lake Analytics** Task and:
     1. Set **SourceType** to **FileConnection**.
-    2. Set **FileConnection** to the File Connection created just now.
+    2. Set **FileConnection** to the File Connection created.
 
 5. Finish other configurations for Azure Data Lake Analytics Task.
 
@@ -142,13 +144,13 @@ In some cases, you may need to dynamically generate the U-SQL statements. You ca
 
 3. Add **Azure Data Lake Analytics Task** and:
     1. Set **SourceType** to **Variable**.
-    2. Set **SourceVariable** to the SSIS Variable created just now.
+    2. Set **SourceVariable** to the SSIS Variable created now.
 
 4. Finish other configurations for Azure Data Lake Analytics Task.
 
 ## Scenario 6-Pass parameters to U-SQL script
 
-In some cases, you may want to dynamically set the U-SQL variable value in the U-SQL script. **Parameter Mapping** feature in Azure Data Lake Analytics Task help with this scenario. There are usually two typical user cases:
+In some cases, you may want to dynamically set the U-SQL variable value in the U-SQL script. **Parameter Mapping** feature in Azure Data Lake Analytics Task helps with this scenario. There are usually two typical user cases:
 
 - Set the input and output file path variables dynamically based on current date and time.
 - Set the parameter for stored procedures.

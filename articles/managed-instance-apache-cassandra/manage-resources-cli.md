@@ -14,7 +14,7 @@ keywords: azure resource manager cli
 
 This article describes common commands to automate the management of your Azure Managed Instance for Apache Cassandra clusters using Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
 > This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.

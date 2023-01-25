@@ -11,7 +11,7 @@ services: iot-edge
 ---
 # Create and provision IoT Edge devices at scale with a TPM on Linux
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Linux device by using a Trusted Platform Module (TPM). You can automatically provision IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
@@ -44,7 +44,7 @@ The tasks are as follows:
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 ### Device requirements
 
@@ -233,7 +233,7 @@ After you have your registration ID and endorsement key, you're ready to continu
 [!INCLUDE [tpm-create-a-device-provision-service-enrollment.md](../../includes/tpm-create-a-device-provision-service-enrollment.md)]
 
 <!-- Install IoT Edge on Linux H2 and content -->
-[!INCLUDE [install-iot-edge-linux.md](../../includes/iot-edge-install-linux.md)]
+[!INCLUDE [install-iot-edge-linux.md](includes/iot-edge-install-linux.md)]
 
 ## Provision the device with its cloud identity
 
@@ -320,12 +320,14 @@ After the runtime is installed on your device, configure the device with the inf
 
 <!-- iotedge-1.4 -->
 :::moniker range=">=iotedge-1.4"
-1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+
+Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
 :::moniker-end
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
-1. Save and close the file.
+
+Save and close the file.
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->

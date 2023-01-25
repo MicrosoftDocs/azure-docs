@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Remove Microsoft Sentinel from your workspace
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 If you no longer want to use Microsoft Sentinel, this article explains how to remove it from your workspace.
 
 ## How to remove Microsoft Sentinel

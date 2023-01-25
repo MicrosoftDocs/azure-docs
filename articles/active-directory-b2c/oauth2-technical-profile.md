@@ -210,7 +210,7 @@ For identity providers that support private key JWT authentication, configure th
 
 ```xml
 <Item Key="AccessTokenEndpoint">https://contoso.com/oauth2/token</Item>
-<Item Key="token_endpoint_auth_method">client_secret_basic</Item>
+<Item Key="token_endpoint_auth_method">private_key_jwt</Item>
 <Item Key="token_signing_algorithm">RS256</Item>
 ```
 

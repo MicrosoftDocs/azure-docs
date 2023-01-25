@@ -39,7 +39,7 @@ To create a custom workbook based on any of these workbooks, select the **View W
 
 - **Subnet IP Usage**: Interactive IP usage charts for each node within a cluster by the following perspectives:
  
-    - IPs allocated form subnet.
+    - IPs allocated from subnet.
     - IPs assigned to a pod.
 
 >[!NOTE]
