@@ -231,7 +231,7 @@ $targetSnapshot.CompletionPercent
 
 When creating a disk from an Ultra Disk snapshot, you must wait for the background copy process to complete before you can attach it. Currently, you must use the Azure CLI to check the progress of the copy process.
 
-The following script gives you the status:
+The following script gives you the status of an individual disk's copy process. The value of `completionPercent` must be 100 before the disk can be attached.
 
 ```azurecli
 subscriptionId=yourSubscriptionID
