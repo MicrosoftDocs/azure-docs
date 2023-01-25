@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 01/25/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -26,11 +26,11 @@ recommendations: false
 The Form Recognizer invoice model combines powerful Optical Character Recognition (OCR) capabilities with invoice understanding models to analyze and extract key fields and line items from sales invoices, Utility bills, and Purchase Orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
 
 **Supported document types:
+
 * Invoices
-* Utiltiy bills
+* Utility bills
 * Sales orders
 * Purchase orders
-
 
 ## Automated invoice processing
 
@@ -162,17 +162,17 @@ See how data, including customer information, vendor details, and line items, is
 ## Supported languages and locales
 
 >[!NOTE]
- > Form Recognizer auto-detects language and locale data.
+> Form Recognizer auto-detects language and locale data.
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| <ul><li>English</li></ul>| United States (US), Australia (AU), Canada (CA), Great Britain (GB), India (IN)|
-| <ul><li>Spanish</li></ul>|Spain (ES)|
-| <ul><li>German</li></ul>| Germany (DE)|
-| <ul><li>French</li></ul>| France (FR) |
-| <ul><li>Italian</li></ul>| Italy (IT)|
-| <ul><li>Portuguese</li></ul>| Portugual (PT), Brazil (BR)|
-| <ul><li>Dutch</li></ul>| Netherlands (DE)|
+| <ul><li>English</li></ul>| United States (us), Australia (au), Canada (ca), Great Britain (gb), India (in)|
+| <ul><li>Spanish</li></ul>|Spain (es)|
+| <ul><li>German</li></ul>| Germany (de)|
+| <ul><li>French</li></ul>| France (fr) |
+| <ul><li>Italian</li></ul>| Italy (it)|
+| <ul><li>Portuguese</li></ul>| Portugal (pt), Brazil (br)|
+| <ul><li>Dutch</li></ul>| Netherlands (de)|
 
 ## Field extraction
 
@@ -208,10 +208,10 @@ See how data, including customer information, vendor details, and line items, is
 | ServiceEndDate | Date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
 | PreviousUnpaidBalance | Number | Explicit previously unpaid balance | Integer |
 
-| CurrencyCode | String | The Currency Code associated with an extraced amount |  |
-| PaymentOptions | Array | An array that holds Payment Option details such as IBAN and SWIFT |  |
-| TotalDiscount | Number | The total disocunt applied to an invoice | Integer |
-| TaxItems (en-IN only) | Array | AN array that holds additonal tax information such as CGST, IGST, and SGST. This is currently only availabe for the en-IN locale  |  |
+| CurrencyCode | String | The Currency Code associated with an extracted amount |  |
+| PaymentOptions | Array | An array that holds Payment Option details such as `IBAN`and `SWIFT` |  |
+| TotalDiscount | Number | The total discount applied to an invoice | Integer |
+| TaxItems (en-IN only) | Array | AN array that holds additional tax information such as `CGST`, `IGST`, and `SGST`. This is currently only available for the en-in locale  |  |
 
 ### Line items
 
@@ -228,7 +228,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
 | Date | Date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | Number | Tax associated with each line item. Possible values include tax amount and tax Y/N | 10.00 | |
-| TaxRate | Number | Tax Rate associated with each line item | 10% | |
+| TaxRate | Number | Tax Rate associated with each line item. | 10% | |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 

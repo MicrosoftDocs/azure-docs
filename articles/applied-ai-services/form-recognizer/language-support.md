@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 01/06/2023
+ms.date: 01/25/2023
 ms.author: lajanuar
 ---
 
@@ -514,7 +514,6 @@ Prebuilt Receipt and Business Cards support all English receipts and business ca
 |English (Australia)| United States (US), Australia (AU), Great Britain (GB), India (IN)|
 |French | France (FR) |
 |Spanish | Spain (ES) |
-
 
 ## Prebuilt invoice
 
