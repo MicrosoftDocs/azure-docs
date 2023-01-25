@@ -107,7 +107,7 @@ You can use the [Models API](/rest/api/cognitiveservices/azureopenaipreview/mode
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. Once you've prepared your training data, you can upload your files to the service. We offer two ways to upload training data:
 
 - [From a local file](/rest/api/cognitiveservices/azureopenaipreview/files/upload)
-- [Import from an Azure Blob store or other web location](/rest/api/cognitiveservices/azureopenai/files/import)
+- [Import from an Azure Blob store or other web location](/rest/api/cognitiveservices/azureopenaipreview/files/import)
 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
 
@@ -347,7 +347,7 @@ You can use various methods to delete the deployment for your customized model:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-model-deployment)</a>
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?preserve-view=true#az-cognitiveservices-account-deployment-delete)
-- [REST APIs](/rest/api/cognitiveservices/azureopenai/deployments/delete)
+- [REST APIs](/rest/api/cognitiveservices/azureopenaipreview/deployments/delete)
 - Python SDK
 
 The following Python example uses the Python SDK to delete the deployment for your customized model.
