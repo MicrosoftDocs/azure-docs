@@ -29,20 +29,24 @@ Azure AD Connect cloud sync is the future for accomplishing your hybrid identity
 |Back-up your Azure AD Connect configuration|Before making any changes, you should back-up your Azure AD Connect configuration.  This way, you can role-back should you need to.  For more information, see [Import and export Azure AD Connect configuration settings](../hybrid/how-to-connect-import-export-config.md).|
 |Review the migration tutorial|To become familiar with the migration process, review the [Migrate to Azure AD Connect cloud sync for an existing synced AD forest](tutorial-pilot-aadc-aadccp.md) tutorial.  This tutorial will guide you through the migration process in a sandbox environment.|
 |Create or identify an OU for the migration|Create a new OU or identify an existing OU that will contain the users you'll test migration on.|
-|Run PowerShell scripts to verify users and groups in scope|Before   
+|Move users into new OU (optional)|If you are using an newly created OU, move the users that will be in scope for this pilot into that OU now.  Before continuing, let Azure AD Connect pick up the changes so that it is synchronizing them in the new OU.| 
+|Run PowerShell on OU|You can run the following PowerShell cmdlt to get the counts of the users that are in the pilot OU.  </br>`Get-ADUser -Filter * -SearchBase "<DN path of OU>"`</br> Example: `Get-ADUser -Filter * -SearchBase "OU=Finance,OU=UserAccounts,DC=FABRIKAM,DC=COM"`|
 |Stop the scheduler|Before creating new sync rules, you need to stop the Azure AD Connect scheduler.  For more information, see [how to stop the scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#stop-the-scheduler).
 |Create the custom sync rules|In the Azure AD Connect Synchronization Rules editor, you need to create an inbound sync rule that filters out users in the OU you created or identified previously.  The inbound sync rule will be a join rule with a target attribute of cloudNoFlow.  You'll also need an outbound sync rule with a link type of JoinNoFlow and the scoping filter that has the cloudNoFlow attribute set to True.  For more information, see [Migrate to Azure AD Connect cloud sync for an existing synced AD forest](tutorial-pilot-aadc-aadccp.md#create-custom-user-inbound-rule) tutorial for how to create these rules.|
-|Move users into new OU (optional)|If you are using an newly created OU, move the users that will be in scope for this pilot into that OU now.| 
 |Install the provisioning agent|If you haven't done so, install the provisioning agent.  For more information, see [how to install the agent](how-to-install.md).|
 |Configure cloud sync|Once the agent is installed, you need to configure cloud sync.  In the configuration, you need to create a scope to the OU that was created or identified previously.  For more information, see [Configuring cloud sync](how-to-configure.md).|
-|Run PowerShell on OU|You can run the following PowerShell cmdlt to get the counts of the users that are in the pilot OU.  </br>`Get-ADUser -Filter * -SearchBase "<DN path of OU>"`</br> Example: `Get-ADUser -Filter * -SearchBase "OU=Finance,OU=UserAccounts,DC=FABRIKAM,DC=COM"`
-|Verify pilot users are being provisioned|Verify that the users are now being synchronized in the portal.  You can use the PowerShell script below to get a count of the number of users that have the on-premises pilot OU in their distinguished name.  This number should match the count of users in the previous step.|
+|Verify pilot users are synchronizing and being provisioned|Verify that the users are now being synchronized in the portal.  You can use the PowerShell script below to get a count of the number of users that have the on-premises pilot OU in their distinguished name.  This number should match the count of users in the previous step.  If you create a new user in this OU, verify that it is being provisioned.|
 |Start the scheduler|Now that you've verifed users are provisioning and synchronizing, you can go ahead and start the Azure AD Connect scheduler.   For more information, see [how to start the scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 |Schedule you remaining users|Now you should come up with a plan on migrating more users.  You should use a phased approach so that you can verify that the migrations are successful.|
 |Verify all users are provisioned|As you migrate users, verify that they're provisioning and synchronizing correctly.|
-|Stop Azure AD Connect|Once you've verified that all of your users are migrated, you can turn of the Azure AD Connect synchronization service.  Microsoft recommends that you leave the server is a disabled state for a period of time, so you can verify the migration was successful
+|Stop Azure AD Connect|Once you've verified that all of your users are migrated, you can turn off the Azure AD Connect synchronization service.  Microsoft recommends that you leave the server is a disabled state for a period of time, so you can verify the migration was successful
 |Verify everything is good|After a period of time, verify that everything is good.|
-|Decommission the Azure AD Connect server|Once you've verified everything is good you can take the Azure AD Connect server offline.|
+|Decommission the Azure AD Connect server|Once you've verified everything is good you can use the steps below to take the Azure AD Connect server offline.|
+
+## Decommissioning your Azure AD Connect server
+The following section provides the recommended steps for decommissioning your Azure AD Connect server, once you have verified the cloud sync migration.
+
+
 
 
 ## Verify Users script
