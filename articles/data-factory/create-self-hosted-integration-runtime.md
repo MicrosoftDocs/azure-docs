@@ -33,6 +33,7 @@ This article describes how you can create and configure a self-hosted IR.
 - Treat your data source as an on-premises data source that is behind a firewall, even when you use Azure ExpressRoute. Use the self-hosted integration runtime to connect the service to the data source.
 - Use the self-hosted integration runtime even if the data store is in the cloud on an Azure Infrastructure as a Service (IaaS) virtual machine.
 - Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, you have two options: store credentials/secret values in an Azure Key Vault or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](./self-hosted-integration-runtime-proxy-ssis.md), FIPS-compliant encryption can be enabled and will be used when moving data from on premises to Azure Blob Storage as a staging area.
+- Full licensing details are provided on the first page of the self-hosted integration runtime setup.
 
 > [!NOTE]
 > Currently self-hosted integration runtime can only be shared with multiple data factories, it can't be shared across Synapse workspaces or between data factory and Synapse workspace.
@@ -194,11 +195,13 @@ Here are details of the application's actions and arguments:
 |`-t`,<br/>`-Stop`||Stop the self-hosted integration runtime host service.|
 |`-sus`,<br/>`-StartUpgradeService`||Start the self-hosted integration runtime upgrade service.|
 |`-tus`,<br/>`-StopUpgradeService`||Stop the self-hosted integration runtime upgrade service.|
-|`-tonau`,<br/>`-TurnOnAutoUpdate`||Turn on the self-hosted integration runtime auto-update.|
-|`-toffau`,<br/>`-TurnOffAutoUpdate`||Turn off the self-hosted integration runtime auto-update.|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||Turn on the self-hosted integration runtime auto-update. This command is for Azure Data Factory V1 only.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||Turn off the self-hosted integration runtime auto-update. This command is for Azure Data Factory V1 only.|
 |`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts.|
 |`-elma`,<br/>`-EnableLocalMachineAccess`|| Enable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
 |`-dlma`,<br/>`-DisableLocalMachineAccess`|| Disable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
+|`-DisableLocalFolderPathValidation`|| Disable security validation to enable access to file system of the local machine.|
+|`-EnableLocalFolderPathValidation`||  Enable security validation to disable access to file system of the local machine. |
 
 ## Install and register a self-hosted IR from Microsoft Download Center
 

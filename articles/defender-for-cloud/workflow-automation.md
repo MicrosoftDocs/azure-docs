@@ -116,7 +116,7 @@ To implement these policies:
     |Workflow automation for regulatory compliance changes|[Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
 
     > [!NOTE]
-    > The three workflow automation policies have recently been rebranded. nfortunately, this change came with an unavoidable breaking change. To learn how to mitigate this breaking change, see [mitigate breaking change](#mitigate-breaking-change),
+    > The three workflow automation policies have recently been rebranded. Unfortunately, this change came with an unavoidable breaking change. To learn how to mitigate this breaking change, see [mitigate breaking change](#mitigate-breaking-change),
 
     > [!TIP]
     > You can also find these by searching Azure Policy:

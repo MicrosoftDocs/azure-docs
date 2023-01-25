@@ -16,12 +16,12 @@ Defender for IoT can detect the following protocols when identifying assets and 
 
 |Brand / Vendor |Protocols  |
 |---------|---------|
-|**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)      |
+|**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)<br> CNCP<br> RNRP<br>      |
 |**ASHRAE**     |    BACnet<br> BACnet BACapp<br> BACnet BVLC     |
 |**Beckhoff**     |   AMS (ADS)<br> Twincat       |
 |**Cisco**     |   CAPWAP Control<br> CAPWAP Data<br> CDP<br>  LWAPP      |
 |**DNP. org**     |   DNP3      |
-|**Emerson**     |   DeltaV<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
+|**Emerson**     |   DeltaV<br> DeltaV - Discovery<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
 |**Emerson Fischer**     |  ROC       |
 |**Eurocontrol**     |      ASTERIX   |
 |**GE**     | Bentley Nevada (System 1 / BN3500)<br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br>  SRTP (GE)        |
@@ -35,6 +35,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Microsoft**     | Horizon community dissectors<br> Horizon proprietary dissectors (developed by customers)        |
 |**Mitsubishi**     |   Melsoft / Melsec (Mitsubishi Electric)      |
 |**Omron**     |  FINS       |
+|**OPC**     |  UA       |
 |**Oracle**     |   TDS<br> TNS      |
 |**Rockwell Automation**     |   ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above      |
 |**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)<br> Schneider TSAA        |
@@ -43,7 +44,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Schneider Electric / Wonderware**     |    Wonderware Suitelink     |
 |**Siemens**     | CAMP<br> PCS7<br> PCS7 WinCC – Historian<br> Profinet DCP<br> Profinet Realtime<br> Siemens PHD<br> Siemens S7<br> Siemens S7-Plus<br> Siemens SICAM<br> Siemens WinCC        |
 |**Toshiba**     |Toshiba Computer Link         |
-|**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> Vnet/IP      |
+|**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> FA-M3<br> Vnet/IP      |
 
 [!INCLUDE [active-monitoring-protocols](includes/active-monitoring-protocols.md)]
 
@@ -72,9 +73,10 @@ The Horizon ICS community shares knowledge between domain experts in critical in
 
 To join the Horizon community, email us at: [horizon-community@microsoft.com](mailto:horizon-community@microsoft.com)
 
+
 ## Next steps
 
 For more information:
 
-- [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules)
-- [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information)
+- [Create custom alert rules on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor)
+- [Forward OT alert information](how-to-forward-alert-information-to-partners.md)

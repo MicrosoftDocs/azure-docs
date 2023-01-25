@@ -14,10 +14,6 @@ ms.reviewer: imotiwala, yexu
 
 This article provides a guide on how to get started with monitoring your Azure Synapse Link for Azure SQL Database connections. Before you go through this article, you should know how to create and start an Azure Synapse Link for Azure SQL Database link connection from [Get started with Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md). Once you've created and started your Synapse Link connection, you can monitor your link connection through Synapse Studio or Azure Monitor. 
 
-> [!IMPORTANT]
-> Azure Synapse Link for SQL is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Monitor the status of an Azure Synapse Link for Azure SQL Database connection in Synapse Studio
 
 You can monitor the status of your Azure Synapse Link connection, see which tables are being initially copied over (*snapshotting*), and see which tables are in continuous replication mode (*replicating*) directly in Synapse Studio. In this section, we'll deep dive link-level monitoring and table-level monitoring:
@@ -204,7 +200,7 @@ In this section, we're going to walk through how you can set up alerts for your 
  
 1. In this example, let's use the **Event Hubs** action type, so we'll need to input the **subscription name**, **Event Hub namespace**, and select an **Event Hub name**. Then click on **OK**. 
 
-    a. If you don’t have an Event Hub created, refer to the document here to create one: [Configure an expiration policy for shared accessed signatures (SAS)](/azure/event-hubs/event-hub-create.md?context=/azure/synapse-analytics/context/context)
+    a. If you don’t have an Event Hub created, refer to the document here to create one: [Configure an expiration policy for shared accessed signatures (SAS)](/rest/api/eventhub/create-event-hub)
     
     :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-create-action-group-2.png" alt-text="Screenshot that shows how to create an action group and specify an action type when an alert rule's conditions are met.":::
 

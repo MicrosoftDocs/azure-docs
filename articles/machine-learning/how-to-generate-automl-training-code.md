@@ -5,6 +5,7 @@ description: How to view model training code for an automated ML trained model a
 services: machine-learning
 author: shouryaj
 ms.author: shoja
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.custom: sdkv1, event-tier1-build-2022, ignite-2022

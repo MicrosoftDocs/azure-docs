@@ -27,7 +27,7 @@ In this section, you'll create a virtual network and an internal Azure Load Bala
 
 Create a virtual network and subnet to host the load balancer that accesses your Private Link service.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -235,7 +235,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
 
 8. Select **Add**.
 
-9. Select the **Review + create** tab or select **Review + create**.
+9. Select **Review + create**.
 
 10. Select **Create**.
 

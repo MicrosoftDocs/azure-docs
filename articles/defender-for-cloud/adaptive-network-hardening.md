@@ -4,7 +4,7 @@ description: Learn how to use actual traffic patterns to harden your network sec
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 12/13/2022
 ---
 # Improve your network security posture with adaptive network hardening
 
@@ -16,7 +16,7 @@ This page explains how to configure and manage adaptive network hardening in Def
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
 

@@ -89,6 +89,8 @@
     - name: Manage users, roles, and their access levels
       expanded: false
       items:
+      - name: Add or remove a user in Permissions Management
+        href: how-to-add-remove-user-to-group.md
       - name: Manage users and groups
         href: ui-user-management.md
       # - name: Define and manage users, roles, and access levels
@@ -141,7 +143,7 @@
         href: report-view-system-report.md
       - name: Create, view, and share a custom report
         href: report-create-custom-report.md
-      - name: Generate and download the Permissions analytics report
+      - name: View and download the Permissions analytics report
         href: product-permissions-analytics-reports.md
   - name: Troubleshoot
     expanded: false

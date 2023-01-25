@@ -129,6 +129,8 @@ items:
         href: provisioning-agent-release-version-history.md
     - name: Migrate connector from MIM Sync
       href: on-premises-migrate-microsoft-identity-manager.md
+    - name: Prepare AD LDS for provisioning from Azure AD
+      href: on-premises-ldap-connector-prepare-directory.md
   - name: Resources
     items:
     - name: Support and help options for developers

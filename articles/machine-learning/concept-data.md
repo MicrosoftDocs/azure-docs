@@ -24,7 +24,7 @@ Azure Machine Learning lets you bring data from a local machine or an existing c
 
 > [!div class="checklist"]
 > - [**URIs**](#uris) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it very easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`. If you want to consume a file as an input of a job, you can define this job input by providing `type` as `uri_file`, `path` as where the file is.
-> - [**MLTable**](#mltable) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could use `uri_file`, `uri_folder`.
+> - [**MLTable**](#mltable) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in Python you could use `uri_file`, `uri_folder`.
 > - [**Data asset**](#data-asset) - If you plan to share your data (URIs or MLTables) in your workspace to team members, or you want to track data versions, or track lineage, you can create data assets from URIs or MLTables you have. But if you didn't create data asset, you can still consume the data in jobs without lineange tracking, version management, etc.
 > - [**Datastore**](#datastore) - Azure Machine Learning Datastores securely keep the connection information(storage container name, credentials) to your data storage on Azure, so you don't have to code it in your scripts. You can use AzureML datastore uri and relative path to your data to point to your data. You can also register files/folders in your AzureML datastore into data assets.
 
@@ -41,7 +41,7 @@ Azure Machine Learning distinguishes two types of URIs:
 Data type | Description | Examples
 ---|------|---
 `uri_file` | Refers to a specific **file** location | `https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>`<br> `azureml://datastores/<datastore_name>/paths/<folder>/<file>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>`
-`uri_folder`| Refers to a specific **folder** location | `https://<account_name>.blob.core.windows.net/<container_name>/<folder>`<br> `azureml://datastores/<datastore_name>/paths/<folder>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/`
+`uri_folder`| Refers to a specific **folder** location | `azureml://datastores/<datastore_name>/paths/<folder>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/`
 
 URIs are mapped to the filesystem on the compute target, hence using URIs is like using files or folders in the command that consumes/produces them. URIs leverage **identity-based authentication** to connect to storage services with either your Azure Active Directory ID (default) or Managed Identity.
 
@@ -93,7 +93,7 @@ command: |
 inputs:
   sampledata:
     type: uri_folder
-    path: https://<account_name>.blob.core.windows.net/<container_name>/<folder>
+    path: azureml://datastores/<datastore_name>/paths/<folder>
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
 compute: azureml:cpu-cluster
 ```

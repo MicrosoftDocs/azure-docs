@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Send custom events to storage queue - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint.'
-ms.date: 11/17/2022
+ms.date: 12/20/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, mode-api
 ---
@@ -34,7 +34,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## Create a custom topic
 
-An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The event grid topic name must be unique because it's represented by a DNS entry.
+An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The Event Grid topic name must be unique because it's represented by a DNS entry.
 
 1. Specify a name for the topic. 
 
@@ -72,7 +72,11 @@ The following example subscribes to the custom topic you created, and passes the
 
 `/subscriptions/<AZURE SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/queueservices/default/queues/<QUEUE NAME>`
 
-The following script gets the resource ID of the storage account for the queue. It constructs the ID for the queue storage, and subscribes to an event grid topic. It sets the endpoint type to `storagequeue` and uses the queue ID for the endpoint.
+The following script gets the resource ID of the storage account for the queue. It constructs the ID for the queue storage, and subscribes to an Event Grid topic. It sets the endpoint type to `storagequeue` and uses the queue ID for the endpoint.
+
+
+> [!IMPORTANT]
+> Replace expiration date placeholder (`<yyyy-mm-dd>`) with an actual value. For example: `2022-11-17` before running the command.
 
 ```azurecli-interactive
 storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
@@ -110,7 +114,7 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-To simplify this article, you use sample event data to send to the custom topic. Typically, an application or Azure service would send the event data. CURL is a utility that sends HTTP requests. In this article, you use CURL to send the event to the custom topic.  The following example sends three events to the event grid topic:
+To simplify this article, you use sample event data to send to the custom topic. Typically, an application or Azure service would send the event data. CURL is a utility that sends HTTP requests. In this article, you use CURL to send the event to the custom topic.  The following example sends three events to the Event Grid topic:
 
 ```azurecli-interactive
 for i in 1 2 3
@@ -123,12 +127,6 @@ done
 Navigate to the Queue storage in the portal, and notice that Event Grid sent those three events to the queue.
 
 :::image type="content" source="./media/custom-event-to-queue-storage/messages.png" alt-text="Screenshot showing the list of messages in the queue that are received from Event Grid.":::
-
-> [!NOTE]
-> If you use an [Azure Queue storage trigger for Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) for a queue that receives messages from Event Grid, you may see the following error message on the function execution: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
-> 
-> The reason is that when you use an [Azure Queue storage trigger](../azure-functions/functions-bindings-storage-queue-trigger.md), Azure Functions expect a **base64 encoded string**, but Event Grid sends messages to a storage queue in a plain text format. Currently, it's not possible to configure the queue trigger for Azure Functions to accept plain text. 
-
 
 ## Clean up resources
 If you plan to continue working with this event, don't clean up the resources created in this article. Otherwise, use the following command to delete the resources you created in this article.

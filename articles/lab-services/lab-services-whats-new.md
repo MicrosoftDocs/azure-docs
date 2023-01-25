@@ -8,13 +8,15 @@ ms.custom: devdivchpfy22
 
 # What's new in Azure Lab Services August 2022 Update
 
-We've made fundamental improvements for the service to boost performance, reliability, and scalability. In this article, we'll describe all the great changes and new features that are available in this preview!
+[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
+
+We've made fundamental improvements for the service to boost performance, reliability, and scalability. In this article, we'll describe all the great changes and new features that are available in this update!
 
 ## Overview
 
 **[Lab plans replace lab accounts](#lab-plans-replace-lab-accounts).** The lab account concept is being replaced with a new concept called a lab plan. Although similar in functionality, there are some fundamental differences between the two concepts. The lab plan serves as a collection of configurations and settings that apply to the labs created from it. Also, labs are now an Azure resource in their own right and a sibling resource to lab plans.
 
-**[Canvas Integration](how-to-get-started-create-lab-within-canvas.md)**. Now, educators don't have to leave Canvas to create their labs. Students can connect to a virtual machine from inside their course.
+**[Canvas Integration](how-to-configure-canvas-for-lab-plans.md)**. Now, educators don't have to leave Canvas to create their labs. Students can connect to a virtual machine from inside their course.
 
 **[Per customer assigned capacity](capacity-limits.md#per-customer-assigned-capacity)**. No more sharing capacity with others. If your organization has requested more quota, Azure Lab Services will save it just for you.
 
@@ -110,12 +112,13 @@ Let's cover each step to get started with the August 2022 Update in more detail.
 
 1. **Request capacity**.  Forecast and [request dedicated VM capacity](capacity-limits.md#request-a-limit-increase).  Even if enrollment isn't finalized, you can use preliminary estimates for your initial capacity request.  You can request more capacity later, if needed.
 1.    **Validate images**.  Each of the VM sizes has been remapped to use a newer Azure VM Compute SKU. If using an [attached compute gallery](how-to-attach-detach-shared-image-gallery.md), validate images with new [Azure VM Compute SKUs](administrator-guide.md#vm-sizing).  Validate that each image in the compute gallery is replicated to regions the lab plans and labs are in.
-1.    **Configure integrations**.  Optionally, configure [integration with Canvas](lab-services-within-canvas-overview.md) including [adding the app and linking lab plans](how-to-get-started-create-lab-within-canvas.md). Alternately, configure [integration with Teams](lab-services-within-teams-overview.md) by [adding the app to Teams groups](how-to-get-started-create-lab-within-teams.md).
+1.    **Configure integrations**.  Optionally, configure [integration with Canvas](lab-services-within-canvas-overview.md) including [adding the app and linking lab plans](how-to-configure-canvas-for-lab-plans.md). Alternately, configure [integration with Teams](lab-services-within-teams-overview.md) by [adding the app to Teams groups](how-to-configure-teams-for-lab-plans.md).
 1.    **Create labs**.  Create labs to test educator and student experience in preparation for general availability of the updates. Lab administrators and educators should validate performance based on common student workloads.
 1.    **Update cost management reports.**  Update reports to include the new cost entry type, `Microsoft.LabServices/labs`, for labs created using the August 2022 Update.  [Built-in and custom tags](cost-management-guide.md#understand-the-entries) allow for [grouping](../cost-management-billing/costs/quick-acm-cost-analysis.md) in cost analysis.  For more information about tracking costs, see [Cost management for Azure Lab Services](cost-management-guide.md).
 
 ## Next steps
 
+- As an admin, [Migrate to August 2022 Update](migrate-to-2022-update.md) 
 - As an admin, [create a lab plan](tutorial-setup-lab-plan.md).
 - As an admin, [manage your lab plan](how-to-manage-lab-plans.md).
 - As an educator, [create a lab](tutorial-setup-lab.md).

@@ -5,7 +5,7 @@ services: active-directory, app-service-web, storage, microsoft-graph
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 12/10/2021
@@ -13,6 +13,7 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 #Customer intent: As an application developer, I want to learn how to secure access to a web app running on Azure App Service.
+ms.subservice: web-apps
 ---
 
 # Tutorial: Enable authentication in App Service and access storage and Microsoft Graph

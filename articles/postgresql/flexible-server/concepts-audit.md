@@ -111,10 +111,12 @@ For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgre
 You can use this query to get started. You can configure alerts based on queries.
 
 Search for all pgAudit entries in Postgres logs for a particular server in the last day
+
 ```kusto
 AzureDiagnostics
-| where LogicalServerName_s == "myservername"
-| where TimeGenerated > ago(1d) 
+| where Resource =~ "myservername"
+| where Category == "PostgreSQLLogs"
+| where TimeGenerated > ago(1d)
 | where Message contains "AUDIT:"
 ```
 

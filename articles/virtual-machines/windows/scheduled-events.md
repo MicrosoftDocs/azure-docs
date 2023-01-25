@@ -51,12 +51,11 @@ Scheduled Events provides events in the following use cases:
   Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP so that it's not exposed outside the VM.
 
 ### Scope
-Scheduled events are delivered to:
+Scheduled events are delivered to and can be acknowleged by:
 
 - Standalone Virtual Machines.
 - All the VMs in an [Azure cloud service (classic)](../../cloud-services/index.yml).
 - All the VMs in an availability set.
-- All the VMs in an availability zone.
 - All the VMs in a scale set placement group. 
 
 > [!NOTE]
@@ -97,7 +96,7 @@ Scheduled Events is disabled for your service if it does not make a request for 
 ### User-initiated maintenance
 User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. You then can test the maintenance preparation logic in your application, and your application can prepare for user-initiated maintenance.
 
-If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. 
+If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled. Typically events with a user event source can be immediately approved to avoid a delay on user-initiated actions. We advise having a primary and secondary VM communicating and approving user generated scheduled events in case the primary VM becomes unresponsive. This will prevent delays in recovering your application back to a good state.  
 
 ## Use the API
 
@@ -206,6 +205,8 @@ The following JSON sample is expected in the `POST` request body. The request sh
 
 The service will always return a 200 success code in the case of a valid event ID, even if it was already approved by a different VM. A 400 error code indicates that the request header or payload was malformed. 
 
+> [!Note] 
+> Events will not proceed unless they are  either approved via a POST message or the NotBefore time elapses. This includes user triggered events such as VM restarts from the Azure portal. 
 
 #### Bash sample
 ```

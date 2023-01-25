@@ -10,13 +10,14 @@ ms.custom: ignite-fall-2021
 
 # Collect data from Linux-based sources using Syslog
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 **Syslog** is an event logging protocol that is common to Linux. You can use the Syslog daemon built into Linux devices and appliances to collect local events of the types you specify, and have it send those events to Microsoft Sentinel using the **Log Analytics agent for Linux** (formerly known as the OMS agent).
 
 This article describes how to connect your data sources to Microsoft Sentinel using Syslog. For more information about supported connectors for this method, see [Data connectors reference](data-connectors-reference.md).
+
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 ## Architecture
 
