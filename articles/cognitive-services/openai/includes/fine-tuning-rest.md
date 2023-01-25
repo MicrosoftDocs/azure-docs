@@ -383,7 +383,7 @@ You can use various methods to delete the deployment for your customized model:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-model-deployment)
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete)
-- [REST APIs](/rest/api/cognitiveservices/azureopenai/deployments/delete)
+- [REST APIs](/rest/api/cognitiveservices/azureopenaipreview/deployments/delete)
 - Python SDK
 
 The following Python example uses the REST API to delete the deployment for your customized model.
