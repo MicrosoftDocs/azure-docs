@@ -45,7 +45,7 @@ Next, you create connectivity and/or security configuration(s) applied to those 
 
 * Roll out network changes through a specific region sequence and frequency of your choosing.
 
-For current information on the regions where Azure Virtual Network Manager is available, see [Azure Virtual Network Manager regions](regions.md).
+For current information on the regions where Azure Virtual Network Manager is available, see [Azure Virtual Network Manager regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-network-manager).
 
 ## Next steps
 
