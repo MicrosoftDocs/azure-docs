@@ -63,6 +63,8 @@ Select **Data Collection Rules** from the **Monitor** menu in the Azure portal.
 :::image type="content" source="media/container-insights-syslog/DCR1.png" lightbox="media/container-insights-syslog/DCR1.png" alt-text="Data Collection Rules tab in the Azure Monitor portal UI" border="false":::
 
 Select your DCR and then **View data sources**. Select the **Linux Syslog** data source to view the Syslog collection details.
+>[!NOTE]
+> A DCR is created automatically when you enable syslog. The DCR follows the naming convention `MSCI-<WorkspaceRegion>-<ClusterName>`.
 
 :::image type="content" source="media/container-insights-syslog/DCR3.png" lightbox="media/container-insights-syslog/DCR3.png" alt-text="Data Sources tab for Syslog data collection rule" border="false":::
 
