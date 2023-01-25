@@ -209,7 +209,7 @@ status = (r.json())["status"]
 print(f'Fine-tuning model with job ID: {job_id}.')
 ```
 
-You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. For the previous Python example, we've set the `n_epochs` hyperparameter to 1, indicating that we want just one full cycle through the training data. For more information about these hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaipreview/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenai/fine-tunes) documentation.
+You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. For the previous Python example, we've set the `n_epochs` hyperparameter to 1, indicating that we want just one full cycle through the training data. For more information about these hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaipreview/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenaipreview/fine-tunes) documentation.
 
 ## Check the status of your customized model
 
