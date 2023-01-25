@@ -36,33 +36,29 @@ These service regions are identical in operation and provide resiliency to both 
 
 Azure Communications Gateway offers a 'successful redial' redundancy model: calls handled by failing peers are terminated, but new calls are routed to healthy peers. This model mirrors the redundancy model provided by Microsoft Teams itself.
 
-The cross-connectivity between regions within Azure Communications Gateway and your network is crucial for this redundancy model. Each Azure Communications Gateway service region provides an SRV record containing all SIP peers within the region. Your network should:
-
-- Address peers within Azure Communications Gateway using the behavior specified in RFC 2782.
-- Use SIP OPTIONS (or a combination of OPTIONs and SIP traffic) to monitor the health of your Azure Communication Gateway peers.
-- Send new calls to healthy peers.
-- Reroute INVITEs for failed call attempts to a healthy peer, so that the calls are retried.
-
-It's expected that your network consists of two geographically redundant sites. Each site should be paired with an Azure Communications Gateway region. Ensure that:
-
-- Each site in your network must first try to send traffic to its local Azure Communications Gateway service region.
-- Your sites use the following retry behavior if a call fails to connect:
-  - If the first service region's Azure Communications Gateway sends a SIP 503 (indicating congestion), hunt to the second service region immediately.
-  - Otherwise, try all the other results returned by the SRV record for the first site. Hunt to the second service region only if all those results have failed,
-
-The details of this hunting behavior but will be specific to your network. You must agree them with your onboarding team during your integration project.
+We expect your network to have two geographically redundant sites. Each site should be paired with an Azure Communications Gateway region. The redundancy model relies on cross-connectivity between your network and Azure Communications Gateway service regions.
 
 :::image type="complex" source="media/communications-gateway/communications-gateway-service-region-redundancy.png" alt-text="Diagram of two operator sites and two service regions. Both service regions connect to both sites, with primary and secondary routes.":::
     Diagram of two operator sites (operator site A and operator site B) and two service regions (service region A and service region B). Operator site A has a primary route to service region A and a secondary route to service region B. Operator site B has a primary route to service region B and a secondary route to service region A.
 :::image-end:::
 
-Your infrastructure must:
+Each Azure Communications Gateway service region provides an SRV record containing all SIP peers within the region.
+
+Each site in your network must:
 
 > [!div class="checklist"]
-> - Use OPTIONS polling towards Azure Communications Gateway.
-> - Only send new calls to healthy peers.
-> - Re-route INVITE requests to an alternative Azure Communications Gateway endpoint on failure.
-> - Be capable of re-routing INVITE requests to the second service region if all peers in the local region return an error or fail to respond.
+> - Send traffic to its local Azure Communications Gateway service region by default.
+> - Locate Azure Communications Gateway peers within a region using DNS-SRV, as outlined in RFC 3263.
+>     - Make a DNS SRV lookup on the domain name for the service region, for example pstn-region1.xyz.commsgw.azure.example.com.
+>     - If the SRV lookup returns multiple targets, use the weight and priority of each target to select a single target.
+> - Use SIP OPTIONS (or a combination of OPTIONS and SIP traffic) to monitor the availability of the Azure Communication Gateway peers.
+> - Send new calls to available Azure Communication Gateway peers.
+> - Reroute INVITEs that received a 503 response (indicating congestion) or did not receive a response to other available peers in the local site. Hunt to the second service region only if all those peers have failed.
+
+Your network must not retry calls that receive error responses other than 503.
+
+The details of this routing behavior will be specific to your network. You must agree them with your onboarding team during your integration project.
+
 
 ## Management regions
 
