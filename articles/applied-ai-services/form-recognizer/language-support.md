@@ -505,23 +505,31 @@ This table lists the written languages supported by each Form Recognizer service
 ## Prebuilt receipt and business card
 
 >[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+ >The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
 Prebuilt Receipt and Business Cards support all English receipts and business cards with the following locales:
 
-|Language| Locale code |
+|Supported Languages| Details |
 |:-----|:----:|
-|English (Australia)|`en-au`|
-|English (Canada)|`en-ca`|
-|English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
-|English (United States)| `en-us`|
+|English (Australia)| United States (US), Australia (AU), Great Britain (GB), India (IN)|
+|French | France (FR) |
+|Spanish | Spain (ES) |
+
 
 ## Prebuilt invoice
 
-Language| Locale code |
-|:-----|:----:|
-|English (United States)|en-us|
+>[!NOTE]
+ >The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+
+| Supported languages | Details |
+|:----------------------|:---------|
+| <ul><li>English</li></ul>| United States (US), Australia (AU), Canada (CA), Great Britain (GB), India (IN)|
+| <ul><li>Spanish</li></ul>|Spain (ES)|
+| <ul><li>German</li></ul>| Germany (DE)|
+| <ul><li>French</li></ul>| France (FR) |
+| <ul><li>Italian</li></ul>| Italy (IT)|
+| <ul><li>Portuguese</li></ul>| Portugual (PT), Brazil (BR)|
+| <ul><li>Dutch</li></ul>| Netherlands (DE)|
 
 ## Prebuilt identity documents
 
