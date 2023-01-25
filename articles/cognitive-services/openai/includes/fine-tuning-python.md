@@ -100,7 +100,7 @@ The first step in creating a customized model is to choose a base model. The cho
 - `davinci`\*
     \* available by request
 
-You can use the [Models API](/rest/api/cognitiveservices/azureopenai/models/list) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
+You can use the [Models API](/rest/api/cognitiveservices/azureopenaipreview/models/list) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
 
 ## Upload your training data
 
@@ -234,7 +234,7 @@ print(f'Found {len(result)} fine-tune jobs.')
 
 ## Deploy a customized model
 
-When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the FineTune.retrieve() method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenai/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
+When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the FineTune.retrieve() method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaipreview/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
 
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
@@ -363,7 +363,7 @@ result = openai.Deployment.delete(sid=deployment_id)
 Similarly, you can use various methods to delete your customized model:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-customized-model)
-- [REST APIs](/rest/api/cognitiveservices/azureopenai/fine-tunes/delete?tabs=HTTP) 
+- [REST APIs](/rest/api/cognitiveservices/azureopenaipreview/fine-tunes/delete) 
 - Python SDK
 
 > [!NOTE]
