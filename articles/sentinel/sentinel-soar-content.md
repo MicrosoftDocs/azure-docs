@@ -185,7 +185,7 @@ You can find SOAR integrations and their components in the following places:
 
 | Product | Integration components | Supported by | Scenarios |
 | --- | --- | --- | --- |
-| **Neustar IP GEO Point **<br>(Available as solution) |  Playbooks | Microsoft | Get IP Geo Info |
+| **Neustar IP GEO Point**<br>(Available as solution) |  Playbooks | Microsoft | Get IP Geo Info |
 |   
 
 ## Okta
