@@ -118,7 +118,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 ### Simple token validation
 
-The following policy is the minimal form of the `validate-azure-ad-token` policy.  It expects the JWT to be provided in the `Authorization` header using the `Bearer` scheme. In this example, the Azure AD tenant ID and client application ID are provided using named values.
+The following policy is the minimal form of the `validate-azure-ad-token` policy.  It expects the JWT to be provided in the default `Authorization` header using the `Bearer` scheme. In this example, the Azure AD tenant ID and client application ID are provided using named values.
 
 ```xml
 <validate-azure-ad-token tenant-id="{{aad-tenant-id}}">
