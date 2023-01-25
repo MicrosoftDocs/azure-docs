@@ -68,7 +68,7 @@ The following table shows environment variables prefixes that App Service uses f
 | `SQLAZURECONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `POSTGRESQLCONNSTR_` | Signifies a PostgreSQL connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `CUSTOMCONNSTR_` | Signifies a custom connection string in the app configuration. It's injected into a .NET app as a connection string. |
-| `MYSQLCONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
+| `MYSQLCONNSTR_` | Signifies a MySQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `AZUREFILESSTORAGE_` | A connection string to a custom share for a custom container in Azure Files. |
 | `AZUREBLOBSTORAGE_` | A connection string to a custom storage account for a custom container in Azure Blob Storage. |
 | `NOTIFICATIONHUBCONNSTR_` | Signifies a connection string to a notification hub in Azure Notification Hubs. |

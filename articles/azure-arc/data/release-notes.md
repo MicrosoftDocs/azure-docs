@@ -67,9 +67,6 @@ For complete release version information, see [Version log](version-log.md#novem
 
 New for this release:
 
-- Azure Arc data controller
-  - Support database as resource in Azure Arc data resource provider 
-
 - Arc-enabled PostgreSQL server
   - Add support for automated backups
 
