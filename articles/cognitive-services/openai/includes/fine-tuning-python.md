@@ -411,5 +411,5 @@ for id in results:
 
 ## Next steps
 
-- Explore the control plane REST API Reference documentation to learn more about all the fine-tuning capabilities. You can find the [control plane REST documentation here](/rest/api/cognitiveservices/azureopenai/deployments).
+- Explore the control plane REST API Reference documentation to learn more about all the fine-tuning capabilities. You can find the [control plane REST documentation here](/rest/api/cognitiveservices/azureopenaipreview/deployments).
 - Explore more of the [Python SDK operations here](https://github.com/openai/openai-python/blob/main/examples/azure/finetuning.ipynb).
