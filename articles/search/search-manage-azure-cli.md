@@ -151,7 +151,7 @@ Results should look similar to the following output:
 }
 ```
 
-[**az search service delete**](/cli/azure/search/service?view=azure-cli-latest#az-search-service-delete-required-parameters) removes the service and its data.
+[**az search service delete**](/cli/azure/search/service#az-search-service-delete-required-parameters) removes the service and its data.
 
 ```azurecli-interactive
 az search service delete --name <service-name> \
