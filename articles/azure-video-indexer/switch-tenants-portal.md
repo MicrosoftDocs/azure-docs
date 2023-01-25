@@ -70,7 +70,7 @@ If you want to see domains for all of your directories and switch between them, 
 
     > [!div class="mx-imgBorder"]
     > ![Sign in to an organization.](./media/switch-directory/sign-in-organization.png)
-1. Enter the domain name you copied in the [Get the domain name from the Azure portal](#get-the-domain-name-from-the-azure-portal) section.
+1. Enter the domain name you copied in the [Get the domain name from the Azure portal](#get-the-domain-name) section.
 
     > [!div class="mx-imgBorder"]
     > ![Find the organization.](./media/switch-directory/find-your-organization.png)
