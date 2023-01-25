@@ -1,6 +1,6 @@
 ---
-title: Refresh a Power BI dataset with managed Apache Airflow
-description: This tutorial provides step-by-step instructions for refreshing a Power BI dataset with managed Apache Airflow.
+title: Refresh a Power BI dataset with Managed Apache Airflow
+description: This tutorial provides step-by-step instructions for refreshing a Power BI dataset with Managed Apache Airflow.
 author: nabhishek
 ms.service: data-factory
 ms.subservice: tutorials
@@ -9,14 +9,14 @@ ms.date: 01/24/2023
 ms.author: abnarain
 ---
 
-# Refresh a Power BI dataset with managed Apache Airflow
+# Refresh a Power BI dataset with Managed Apache Airflow
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
 > Managed Apache Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
-This tutorial shows you how to refresh a Power BI dataset with managed Apache Airflow in Azure Data Factory.
+This tutorial shows you how to refresh a Power BI dataset with Managed Apache Airflow in Azure Data Factory.
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ This tutorial shows you how to refresh a Power BI dataset with managed Apache Ai
 
   You will have to fill in your **client_id**, **client_secret**, **tenant_id**, and **dataset_name** with your own values.
 
-  Also, you will need to install the **powerbi** python package to use the above code using managed Apache Airflow requirements. Edit a managed Apache Airflow environment and add the **powerbi** python package under **Airflow requirements**.
+  Also, you will need to install the **powerbi** python package to use the above code using Managed Apache Airflow requirements. Edit a Managed Apache Airflow environment and add the **powerbi** python package under **Airflow requirements**.
 
 - Upload the **pbi-dataset-refresh.py** file to the blob storage within a folder named **DAG**.
 - [Import the **DAG** folder into your Airflow environment]().  If you do not have one, [create a new one]().
@@ -82,6 +82,6 @@ This tutorial shows you how to refresh a Power BI dataset with managed Apache Ai
 
 ## Next Steps
 
-- [Run an existing pipeline with managed Apache Airflow](tutorial-run-existing-pipeline-with-airflow.md)
+- [Run an existing pipeline with Managed Apache Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Apache Airflow pricing](airflow-pricing.md)
-- [Changing password for managed Apache Airflow environments](password-change-airflow.md)
+- [Changing password for Managed Apache Airflow environments](password-change-airflow.md)

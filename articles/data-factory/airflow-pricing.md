@@ -1,6 +1,6 @@
 ---
 title: Managed Apache Airflow pricing
-description: This article describes the pricing for managed Apache Airflow.
+description: This article describes the pricing for Managed Apache Airflow.
 author: nabhishek
 ms.service: data-factory
 ms.subservice: pricing
@@ -13,16 +13,16 @@ ms.author: abnarain
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article describes the pricing for managed Apache Airflow usage within data factory.
+This article describes the pricing for Managed Apache Airflow usage within data factory.
 
 ## Pricing details
 
 Managed Apache Airflow supports either small (D2v4) or large (D4v4) node sizing.  Small can support up to 50 DAGs simultaneously, and large can support up to 1000 DAGs.The following table describes pricing for each option:
 
-:::image type="content" source="media/airflow-pricing/airflow-pricing.png" alt-text="Image showing a table of pricing options for managed Apache Airflow configuration.":::
+:::image type="content" source="media/airflow-pricing/airflow-pricing.png" alt-text="Image showing a table of pricing options for Managed Apache Airflow configuration.":::
 
 ## Next steps
 
-- [Run an existing pipeline with managed Apache Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Refresh a Power BI dataset with managed Apache Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
+- [Run an existing pipeline with Managed Apache Airflow](tutorial-run-existing-pipeline-with-airflow.md)
+- [Refresh a Power BI dataset with Managed Apache Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
 - [Changing password for Apache Airflow environments](password-change-airflow.md)

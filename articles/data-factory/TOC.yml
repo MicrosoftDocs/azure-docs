@@ -1293,10 +1293,22 @@ items:
       displayName: timeout, troubleshooting
 - name: Managed Airflow
   items:
+  - name: Tutorials
+    items:
+    - name: Run an existing pipeline with Apache Airflow
+      href: tutorial-run-existing-pipeline-with-airflow.md
+    - name: Refresh a Power BI dataset with Apache Airflow
+      href: tutorial-refresh-power-bi-dataset-with-airflow.md
   - name: Concepts
     href: concept-managed-airflow.md
   - name: How-to
-    href: how-does-managed-airflow-work.md
+    items:
+    - name: How does Managed Apache Airflow work
+      href: how-does-managed-airflow-work.md
+    - name: How to change the Apache Airflow password
+      href: password-change-airflow.md
+  - name: Pricing
+    href: airflow-pricing.md
 - name: Reference
   items:
   - name: Data flow script

@@ -1,7 +1,7 @@
 ---
 title: What is Azure Data Factory Managed Airflow?
 titleSuffix: Azure Data Factory
-description: Learn about when to use managed Airflow, basic concepts and supported regions.
+description: Learn about when to use Managed Apache Airflow, basic concepts and supported regions.
 ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
@@ -11,18 +11,23 @@ ms.date: 01/20/2023
 
 # What is Azure Data Factory Managed Airflow?
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 > [!NOTE]
 > This feature is in public preview. For questions or feature suggestions, please send an email on ManagedAirflow@microsoft.commailto:abnarain@microsoft.com with the details.
 
+> [!NOTE]
+> Managed Apache Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
+
 Azure Data Factory offers serverless pipelines for data process orchestration, data movement with 100+ managed connectors, and visual transformations with the mapping data flow.
 
-ADF-managed airflow is a managed orchestration service for [Apache Airflow](https://airflow.apache.org/) that simplifies the creation and management of Airflow environments on which you can operate end-to-end data pipelines at scale. Apache Airflow is an open-source tool used to programmatically author, schedule, and monitor sequences of processes and tasks referred to as "workflows." With the ADF-managed Airflow, you can use Airflow and Python to create data workflows without managing the underlying infrastructure for scalability, availability, and security.  
+Managed Apache Airflow in Azure Data Factory is a managed orchestration service for [Apache Airflow](https://airflow.apache.org/) that simplifies the creation and management of Airflow environments on which you can operate end-to-end data pipelines at scale. Apache Airflow is an open-source tool used to programmatically author, schedule, and monitor sequences of processes and tasks referred to as "workflows." With Managed Apache Airflow in Azure Data Factory, you can use Airflow and Python to create data workflows without managing the underlying infrastructure for scalability, availability, and security.  
 
 :::image type="content" source="media/concept-managed-airflow/data-integration.png" alt-text="Screenshot shows data integration.":::
 
 ## When to use Managed Airflow?
 
-Azure Data Factory offers [Pipelines](concepts-pipelines-activities.md) to visually orchestrate data processes (UI-based authoring). While Managed Airflow, offers Apache Airflow based python DAGs (python code-centric authoring) for defining the data orchestration process. If you have the Apache Airflow background, or are currently using Apace Airflow, you may prefer to use the Managed Airflow instead of the pipelines. On the contrary, if you would not like to write/ manage python-based DAGs for data process orchestration, you may prefer to use pipelines.  
+Azure Data Factory offers [Pipelines](concepts-pipelines-activities.md) to visually orchestrate data processes (UI-based authoring). While Managed Apache Airflow, offers Apache Airflow based python DAGs (python code-centric authoring) for defining the data orchestration process. If you have the Apache Airflow background, or are currently using Apace Airflow, you may prefer to use the Managed Airflow instead of the pipelines. On the contrary, if you would not like to write/ manage python-based DAGs for data process orchestration, you may prefer to use pipelines.  
 
 With Managed Airflow, Azure Data Factory now offers multi-orchestration capabilities spanning across visual, code-centric, OSS orchestration requirements.
 
@@ -32,19 +37,19 @@ With Managed Airflow, Azure Data Factory now offers multi-orchestration capabili
 
 * **Automatic scaling** – Automatically scale Apache Airflow Workers by setting the minimum and maximum number of Workers that run in your environment. ADF Managed Airflow monitors the Workers in your environment. It uses its autoscaling component to add Workers to meet demand until it reaches the maximum number of Workers you defined.
 
-* **Built-in authentication** – Enable Azure Active Directory (AAD) role-based authentication and authorization for your Apache Airflow Web server by defining AAD RBAC's access control policies.  
+* **Built-in authentication** – Enable Azure Active Directory (Azure AD) role-based authentication and authorization for your Apache Airflow Web server by defining AAD RBAC's access control policies.  
 
 * **Built-in security** – Metadata is also automatically encrypted by Azure-managed keys, so your environment is secure by default. Additionally, it supports double encryption with a Customer-Managed Key (CMK).  
 
-* **Streamlined upgrades and patches** – ADF Managed Airflow provide new versions of Apache Airflow periodically. The ADF Managed Airflow team will auto-update and patch the minor versions. 
+* **Streamlined upgrades and patches** – Azure Data Factory Managed Airflow provide new versions of Apache Airflow periodically. The ADF Managed Airflow team will auto-update and patch the minor versions. 
 
-* **Workflow monitoring** – View Apache Airflow logs and Apache Airflow metrics in Azure Monitor to identify Apache Airflow task delays or workflow errors without needing additional third-party tools. ADF Managed Airflow automatically sends environment metrics—and if enabled—Apache Airflow logs to Azure Monitor. 
+* **Workflow monitoring** – View Apache Airflow logs and Apache Airflow metrics in Azure Monitor to identify Apache Airflow task delays or workflow errors without needing additional third-party tools. Managed Airflow automatically sends environment metrics—and if enabled—Apache Airflow logs to Azure Monitor. 
 
-* **Azure integration** – ADF Managed Airflow supports open-source integrations with Azure Data Factory pipelines, Azure Batch, Azure CosmosDB, Azure Key Vault, ACI, ADLS Gen2, Azure Kusto, as well as hundreds of built-in and community-created operators and sensors.
+* **Azure integration** – Azure Data Factory Managed Airflow supports open-source integrations with Azure Data Factory pipelines, Azure Batch, Azure CosmosDB, Azure Key Vault, ACI, ADLS Gen2, Azure Kusto, as well as hundreds of built-in and community-created operators and sensors.
 
 ## Architecture (Image to be updated) 
 
-   :::image type="content" source="media/concept-managed-airflow/architecture.png" alt-text="Screenshot shows architecture in airflow.":::
+   :::image type="content" source="media/concept-managed-airflow/architecture.png" alt-text="Screenshot shows architecture in Managed Apache Airflow.":::
 
 ## Region availability (Public preview) 
 
@@ -61,7 +66,7 @@ With Managed Airflow, Azure Data Factory now offers multi-orchestration capabili
 * AustraliaEast
 
 > [!NOTE]
-> By GA, all ADF regions will be supported. The Airflow environment region is defaulted to the Data Factory region and is not configurable, so ensure you use a Data Factory in the above supported region to be able to access the Managed Airflow preview.  
+> By GA, all ADF regions will be supported. The Airflow environment region is defaulted to the Data Factory region and is not configurable, so ensure you use a Data Factory in the above supported region to be able to access the Managed Apache Airflow preview.  
 
 ## Supported Apache Airflow versions
 
@@ -72,6 +77,13 @@ With Managed Airflow, Azure Data Factory now offers multi-orchestration capabili
 
 Apache Airflow integrates with Microsoft Azure services through microsoft.azure [provider](https://airflow.apache.org/docs/apache-airflow-providers-microsoft-azure/stable/index.html).  
 
-You can install any provider package by editing the airflow environment from the ADF UI. It takes around a couple of minutes to install the package.
+You can install any provider package by editing the airflow environment from the Azure Data Factory UI. It takes around a couple of minutes to install the package.
 
    :::image type="content" source="media/concept-managed-airflow/airflow-integration.png" alt-text="Screenshot shows airflow integration.":::
+
+## Next Steps
+
+- [Run an existing pipeline with Managed Apache Airflow](tutorial-run-existing-pipeline-with-airflow.md)
+- [Refresh a Power BI dataset with Managed Apache Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
+- [Managed Apache Airflow pricing](airflow-pricing.md)
+- [How to change the password for Managed Apache Airflow environments](password-change-airflow.md)
