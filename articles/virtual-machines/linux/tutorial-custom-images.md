@@ -44,7 +44,7 @@ The Azure Compute Gallery feature has multiple resource types:
 
 ## Before you begin
 
-The steps below detail how to take an existing VM and turn it into a reusable custom image that you can use to create new VM instances.
+The following steps show how to take an existing VM and turn it into a reusable custom image that you can use to create new VM instances.
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, you can see the [CLI quickstart](quick-create-cli.md) to create a VM to use for this tutorial. When working through the tutorial, replace the resource names where needed.
 
