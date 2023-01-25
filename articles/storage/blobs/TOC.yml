@@ -324,6 +324,8 @@ items:
           href: ../common/storage-account-move.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Upgrade to Data Lake Storage Gen2
           href: upgrade-to-data-lake-storage-gen2-how-to.md
+        - name: Migrate a classic account to Azure Resource Manager
+          href: ../common/storage-account-migrate-classic.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Create and manage containers
         items:
         - name: Manage containers (Azure portal)
@@ -700,6 +702,22 @@ items:
               href: storage-blob-tags-javascript.md
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata-javascript.md
+        - name: Python
+          items:
+          - name: Get started
+            href: storage-blob-python-get-started.md
+          - name: Container actions
+            items:
+            - name: Create a container
+              href: storage-blob-container-create-python.md
+            - name: Delete and restore containers
+              href: storage-blob-container-delete-python.md
+            - name: List containers
+              href: storage-blob-containers-list-python.md
+            - name: Manage container leases
+              href: storage-blob-container-lease-python.md
+            - name: Manage properties and metadata
+              href: storage-blob-container-properties-metadata-python.md
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
