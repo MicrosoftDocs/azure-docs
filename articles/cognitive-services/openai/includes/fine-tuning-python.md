@@ -204,7 +204,7 @@ status = resp["status"]
 print(f'Fine-tuning model with job ID: {job_id}.')
 ```
 
-You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. For the previous Python example, we've set the `n_epochs` hyperparameter to 1, indicating that we want just one full cycle through the training data. For more information about these hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenai/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenai/fine-tunes) documentation.
+You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. For the previous Python example, we've set the `n_epochs` hyperparameter to 1, indicating that we want just one full cycle through the training data. For more information about these hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaipreview/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenaipreview/fine-tunes) documentation.
 
 ## Check the status of your customized model
 
@@ -382,7 +382,7 @@ result = openai.FineTune.delete(sid=job_id)
 You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
-- [REST APIs](/rest/api/cognitiveservices/azureopenai/files/delete?tabs=HTTP)
+- [REST APIs](/rest/api/cognitiveservices/azureopenaipreview/files/delete)
 - Python SDK
 
 The following Python example uses the Python SDK to delete the training, validation, and result files for your customized model.
