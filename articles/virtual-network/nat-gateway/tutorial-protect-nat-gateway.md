@@ -17,10 +17,6 @@ This article helps you create an Azure Virtual Network NAT gateway with a DDoS p
 > [!IMPORTANT]
 > Azure DDoS Protection incurs a cost when you use the Standard SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../../ddos-protection/ddos-protection-overview.md).
 
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -29,6 +25,10 @@ In this tutorial, you learn how to:
 > * Create a virtual network and associate the DDoS protection plan
 > * Create a test virtual machine
 > * Test the NAT gateway
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create a NAT gateway
 
