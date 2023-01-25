@@ -10,7 +10,7 @@ ms.author: rogarana
 ms.custom: include file
 ---
 
-Ultra disks can't be used as OS disks, they can only be created as empty data disks. Ultra disks also can't be used with some features and functionality, including disk export, disk snapshots, changing disk type, VM images, availability sets, or Azure disk encryption. Azure Backup and Azure Site Recovery do not support ultra disks. In addition, only un-cached reads and un-cached writes are supported.
+Ultra disks can't be used as OS disks, they can only be created as empty data disks. Ultra disks also can't be used with some features and functionality, including disk export, changing disk type, VM images, availability sets, or Azure disk encryption. Azure Backup and Azure Site Recovery do not support ultra disks. In addition, only un-cached reads and un-cached writes are supported. Currently, snapshots for ultra disks are available as a public preview and only in Sweden Central and US West 3, they aren't available in any other region.
 
 Ultra disks support a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 

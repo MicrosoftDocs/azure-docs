@@ -4090,16 +4090,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WarmStorageUsedProperties |Yes |Warm Storage Used Properties  |Count |Maximum |Number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU |No Dimensions |
 
 
-## Microsoft.VoiceServices/CommunicationsGateways  
-<!-- Data source : naam-->
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|ActiveCallFailures |No |Active Call Failures |Percent |Average |Percentage of active call failures |PerimetaRegion |
-|ActiveCalls |No |Active Calls |Count |Average |Count of the total number of active calls (signaling sessions) |PerimetaRegion |
-|ActiveEmergencyCalls |No |Active Emergency Calls |Count |Average |Count of the total number of active emergency calls |PerimetaRegion |
-
-
 ## Microsoft.Web/containerapps  
 <!-- Data source : naam-->
 
