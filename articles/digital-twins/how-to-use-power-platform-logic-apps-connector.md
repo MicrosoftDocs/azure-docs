@@ -17,7 +17,7 @@ You can integrate Azure Digital Twins into a [Microsoft Power Platform](/power-p
 
 The connector is a wrapper around the Azure Digital Twins [data plane APIs](concepts-apis-sdks.md#data-plane-apis) for twin, model and query operations, which allows the underlying service to talk to [Microsoft Power Automate](/power-automate/getting-started), [Microsoft Power Apps](/power-apps/powerapps-overview), and [Azure Logic Apps](../logic-apps/logic-apps-overview.md). The connector provides a way for users to connect their accounts and leverage a set of prebuilt actions to build their apps and workflows.
 
-For more information about the Azure Digital Twins Power Platform connector, including a complete list of the connector's actions and their parameters, see the [Azure Digital Twins connector reference documentation]().
+For more information about the Azure Digital Twins Power Platform connector, including a complete list of the connector's actions and their parameters, see the [Azure Digital Twins connector reference documentation](/connectors/azuredigitaltwins).
 
 ## Prerequisites
 
