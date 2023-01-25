@@ -1,17 +1,24 @@
 ---
-title: 'Common issues seen with Azure Virtual Network Manager (Preview)'
+title: 'Common issues seen with Azure Virtual Network Manager'
 description: Learn about common issues seen when using Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 1/31/2023
 ms.custom: template-concept, ignite-fall-2021
 ---
 
-# Common issues seen with Azure Virtual Network Manager (Preview)
+# Common issues seen with Azure Virtual Network Manager
 
 In this article, we'll cover common issues you may face when using Azure Virtual Network Manager and provide some possible solutions.
+
+> [!IMPORTANT]
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+>
+> Mesh connectivity configurations are in Public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Why isn't my configuration getting applied? 
 

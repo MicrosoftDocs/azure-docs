@@ -1,20 +1,22 @@
 ---
-title: "Configuring Azure Policy with network groups in Azure Virtual Network Manager (Preview)"
+title: "Configuring Azure Policy with network groups in Azure Virtual Network Manager"
 description: Learn about how to utilize Azure Policy to configure a high scale and dynamic network group used with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 01/31/2023
 ms.custom: template-concept
 ---
 
-# Configuring Azure Policy with network groups in Azure Virtual Network Manager (Preview)
+# Configuring Azure Policy with network groups in Azure Virtual Network Manager
 
 In this article, you'll learn how [Azure Policy](../governance/policy/overview.md) is used in Azure Virtual Network Manager to define dynamic network group membership. Dynamic network groups allow you to create scalable and dynamically adapting virtual network environments in your organization. 
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+>
+> Mesh connectivity configurations are in Public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -87,7 +89,7 @@ If you're following management group best practices using [Azure management grou
 
 ### Deleting an Azure Policy definition associated with a network group
 
-You may come across instances where you no longer need an Azure Policy definition. This could be when a network group associated with a Policy is deleted, or you have a unused Policy no longer need. To delete the Policy, you need to delete the Policy association object and then delete the policy definition in [Azure Policy](../governance/policy/tutorials/create-custom-policy-definition.md#clean-up-resources). Once this has been completed, the definition cannot be reused or re-referenced by name when associating a new definition to a network group.
+You may come across instances where you no longer need an Azure Policy definition. This could be when a network group associated with a Policy is deleted, or you have an unused Policy that you no longer need. To delete the Policy, you need to delete the Policy association object and then delete the policy definition in [Azure Policy](../governance/policy/tutorials/create-custom-policy-definition.md#clean-up-resources). Once this has been completed, the definition cannot be reused or re-referenced by name when associating a new definition to a network group.
 
 ## Next steps
 
