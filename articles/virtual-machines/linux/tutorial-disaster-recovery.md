@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: recovery
 ms.topic: tutorial
-ms.date: 11/05/2020
+ms.date: 01/25/2023
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to prepare for disaster recovery by replicating my Linux VMs to another Azure region.
