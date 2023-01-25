@@ -6,9 +6,8 @@ author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
-ms.topic: quickstart 
+ms.topic: tutorial 
 ms.date: 01/24/2022
-ms.custom: template-quickstart
 ---
 
 # Tutorial: Protect your NAT gateway with Azure DDoS Protection Standard
