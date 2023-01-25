@@ -63,13 +63,14 @@ Make sure your code follows these tips:
 * For the full notebook to run the above example, see [azureml-examples: Train a basic neural network with distributed MPI on the MNIST dataset using Horovod](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb)
 
 ### DeepSpeed
+[DeepSpeed](https://www.deepspeed.ai/) is supported as a first-class citizen within Azure Machine Learning to run distributed jobs with near linear scalabibility in terms of 
 
-Don't use DeepSpeed's custom launcher to run distributed training with the [DeepSpeed](https://www.deepspeed.ai/) library on Azure ML. Instead, configure an MPI job to launch the training job [with MPI](https://www.deepspeed.ai/getting-started/#mpi-and-azureml-compatibility).
+* Increase in model size
+* Increase in number of GPUs
 
-Make sure your code follows these tips:
+`DeepSpeed` can be enabled using either Pytorch distribution or MPI for running distributed training. Azure Machine Learning supports the `DeepSpeed` launcher to launch distributed training as well as autotuning to get optimal `ds` configuration.
 
-* Your Azure ML environment contains DeepSpeed and its dependencies, Open MPI, and mpi4py.
-* Create an `MpiConfiguration` with your distribution.
+You can use the [curated environment](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`. and `Pytorch` for your DeepSpeed training jobs.
 
 ### Environment variables from Open MPI
 
