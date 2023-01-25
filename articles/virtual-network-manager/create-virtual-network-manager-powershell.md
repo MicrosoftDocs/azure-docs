@@ -24,7 +24,6 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* The `5.3.0` or greater version of `Az.Network` is required to access the required cmdlets for Azure Virtual Network Manager.
 * Run `Connect-AzAccount` to create a local connection with Azure.
 
 > [!IMPORTANT]
