@@ -1,6 +1,6 @@
 ---
-title: Refresh a Power BI dataset with Airflow
-description: This tutorial provides step-by-step instructions for refreshing a Power BI dataset with Airflow.
+title: Refresh a Power BI dataset with managed Apache Airflow
+description: This tutorial provides step-by-step instructions for refreshing a Power BI dataset with managed Apache Airflow.
 author: nabhishek
 ms.service: data-factory
 ms.subservice: tutorials
@@ -9,17 +9,17 @@ ms.date: 01/24/2023
 ms.author: abnarain
 ---
 
-# Refresh a Power BI dataset with Airflow
+# Refresh a Power BI dataset with managed Apache Airflow
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This tutorial shows you how to refresh a Power BI dataset with Airflow.
+This tutorial shows you how to refresh a Power BI dataset with managed Apache Airflow in Azure Data Factory.
 
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.*
-* **Setup a Service Principal**. You will need to [create a new service principal](../active-directory/develop/howto-create-service-principal-portal.md) or use an existing one and grant it permission to run the pipeline (example – contributor role in the data factory where the existing pipelines exist), even if the Managed Airflow environment and the pipelines exist in the same data factory. You will need to get the Service Principal’s Client ID and Client Secret (API Key).
+* **Setup a Service Principal**. You will need to [create a new service principal](../active-directory/develop/howto-create-service-principal-portal.md) or use an existing one and grant it permission to run the pipeline (example – contributor role in the data factory where the existing pipelines exist), even if the Managed Apache Airflow environment and the pipelines exist in the same data factory. You will need to get the Service Principal’s Client ID and Client Secret (API Key).
 
 ## Steps
 
@@ -71,14 +71,14 @@ This tutorial shows you how to refresh a Power BI dataset with Airflow.
 
   You will have to fill in your **client_id**, **client_secret**, **tenant_id**, and **dataset_name** with your own values.
 
-  Also, you will need to install the **powerbi** python package to use the above code using Airflow requirements. Edit an Airflow environemtn and add the **powerbi** python package under **Airflow requirements**.
+  Also, you will need to install the **powerbi** python package to use the above code using managed Apache Airflow requirements. Edit a managed Apache Airflow environment and add the **powerbi** python package under **Airflow requirements**.
 
 - Upload the **pbi-dataset-refresh.py** file to the blob storage within a folder named **DAG**.
 - [Import the **DAG** folder into your Airflow environment]().  If you do not have one, [create a new one]().
-  :::image type="content" source="media/tutorial_run_existing_pipeline_with_airflow/airflow_environment.png" alt-text="Screenshot showing the data factory management tabwith the Airflow section selected.":::
+  :::image type="content" source="media/tutorial_run_existing_pipeline_with_airflow/airflow_environment.png" alt-text="Screenshot showing the data factory management tab with the Airflow section selected.":::
 
 ## Next Steps
 
-- [Run an existing pipeline with Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Airflow pricing](airflow-pricing.md)
-- [Changing password for Airflow environments](password-change-airflow.md)
+- [Run an existing pipeline with managed Apache Airflow](tutorial-run-existing-pipeline-with-airflow.md)
+- [Managed Apache Airflow pricing](airflow-pricing.md)
+- [Changing password for managed Apache Airflow environments](password-change-airflow.md)
