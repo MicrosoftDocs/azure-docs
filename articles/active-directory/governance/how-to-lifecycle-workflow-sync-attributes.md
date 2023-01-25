@@ -7,7 +7,7 @@ manager: billmath
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/20/2022
+ms.date: 01/25/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
@@ -85,7 +85,7 @@ To ensure timing accuracy of scheduled workflows it’s curial to consider:
 - When importing the data, you should understand if and how the source provides time zone information for your users to potentially make adjustments to ensure timing accuracy.
 
 
-## Create a custom synch rule in Azure AD Connect cloud sync for EmployeeHireDate
+## Create a custom sync rule in Azure AD Connect cloud sync for EmployeeHireDate
  The following steps will guide you through creating a synchronization rule using cloud sync.
  1.  In the Azure portal, select **Azure Active Directory**.
  2.  Select **Azure AD Connect**.
@@ -105,7 +105,7 @@ To ensure timing accuracy of scheduled workflows it’s curial to consider:
 
 For more information on attributes, see [Attribute mapping in Azure AD Connect cloud sync.](../cloud-sync/how-to-attribute-mapping.md)
 
-## How to create a custom synch rule in Azure AD Connect for EmployeeHireDate
+## How to create a custom sync rule in Azure AD Connect for EmployeeHireDate
 The following example will walk you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Azure AD.
 
    1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false` to disable the scheduler.
@@ -146,10 +146,8 @@ The following example will walk you through setting up a custom synchronization 
    17. Close the Synchronization Rules Editor
    18. Enable the scheduler again by running `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
-
-
-
-
+> [!NOTE]
+> **msDS-cloudExtensionAttribute1** is an example source.
 
 For more information, see [How to customize a synchronization rule](../hybrid/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/how-to-connect-sync-change-the-configuration.md)
 
