@@ -22,19 +22,19 @@ Azure Health Data Services is a set of managed API services based on open standa
 ## December 2022
 ### Azure Health Data Services
 
-
+|Features & Enhancements    | Related information |
+| :------------------------ | :------------------------------- |
+|Azure Health Data services General Available (GA) in new regions|General availability (GA) of Azure Health Data services in France Central, North Central US and Qatar Central Regions.|
 ### DICOM service
 
 
 
 |Features & Enhancements    | Related information |
 | :------------------------ | :------------------------------- |
-|[**Feature**] DICOM Events available in public preview |Azure Health Data Services [Events](https://learn.microsoft.com/en-us/azure/healthcare-apis/events/events-overview) now include a public preview of [two new event types](https://learn.microsoft.com/en-us/azure/healthcare-apis/events/events-message-structure?tabs=event-grid-event-schema#dicom-events-message-structure) for the DICOM service.  These new event types enable applications that use Event Grid to use event-driven workflows when DICOM images are created or deleted.|
+|[**Feature**] DICOM Events available in public preview |Azure Health Data Services [Events](https://learn.microsoft.com/azure/healthcare-apis/events/events-overview) now include a public preview of [two new event types](https://learn.microsoft.com/azure/healthcare-apis/events/events-message-structure?tabs=event-grid-event-schema#dicom-events-message-structure) for the DICOM service.  These new event types enable applications that use Event Grid to use event-driven workflows when DICOM images are created or deleted.|
 |
 
 ## November 2022
-## Azure Health Data Services
-
 ### FHIR service
 
 
@@ -59,15 +59,13 @@ Azure Health Data Services is a set of managed API services based on open standa
 |[**Feature**] Azure Health Data Services Toolkit is released |The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit), which was previously in a pre-release state, is now released. The toolkit is an open-source project that enables our customers to more easily customize and extend the functionality of their Azure Health Data Services implementations. The NuGet packages of the toolkit are available for download from the NuGet gallery, and you can find links to them from the repo documentation. 
 
 ## October 2022
-## Azure Health Data Services
-
 ### FHIR service
 
 
 
 | Features & Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-| [**Feature**] Deploy to Azure button |Customers can now deploy the MedTech service fully, including Event Hub, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service with a QuickStart template - Azure Health Data Services | Microsoft Learn](https://learn.microsoft.com/en-us/azure/healthcare-apis/iotdeploy-02-new-button#deploy-to-azure-button)
+| [**Feature**] Deploy to Azure button |Customers can now deploy the MedTech service fully, including Event Hub, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service with a QuickStart template - Azure Health Data Services | Microsoft Learn](https://learn.microsoft.com/azure/healthcare-apis/iotdeploy-02-new-button#deploy-to-azure-button)
 |[**Feature**] Dropped Event Metrics |Customers can now determine if their mappings are working as they intended, as they can now see dropped events as a metric to ensure that data is flowing through accurately. 
 
 ### Toolkit and Samples Open Source
