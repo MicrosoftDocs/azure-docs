@@ -318,7 +318,7 @@ Analyzing the SSO Extension logs is an excellent way to troubleshoot the authent
   - PRT acquisition
   - Device Registration
 
->[!Caution] 
+>[!Caution]  
 >The SSO Extension logs are extremely verbose, especially when looking at Keychain credenential operations. For this reason, it's always best to understand the sceanrio before looking at the logs during troubleshooting.
 
 
@@ -341,7 +341,7 @@ The SSO Extension logs are broken down into columns. The following screenshot sh
 
 #### Feature Flag Configuration
 
-During the MDM configuration of the Microsoft Enterprise SSO Extension, optional extension specific data can be sent as instructions to change how the SSO Extension behaves. These configuration specific instructions are known as **Feature Flags**. The Feature Flag configuration is especially important for Non-MSAL/Browser SSO authorization requests types, as the Bundle ID (or prefixes) can determine if the Extension will be invoked or not. See [Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options). Every authorization request begins with a Feature Flag configuration report. The following screenshot will walk through an example feature flag configuration:
+During the MDM configuration of the Microsoft Enterprise SSO Extension, an optional extension specific data can be sent as instructions to change how the SSO Extension behaves. These configuration specific instructions are known as **Feature Flags**. The Feature Flag configuration is especially important for Non-MSAL/Browser SSO authorization requests types, as the Bundle ID (or prefixes) can determine if the Extension will be invoked or not. See [Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options). Every authorization request begins with a Feature Flag configuration report. The following screenshot will walk through an example feature flag configuration:
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/feature-flag-configuration.png" alt-text="Screenshot showing an example feature flag configuration of the Microsoft SSO Extension":::
 
 |**Callout#**  |**Feature Flag**  |**Description** |
@@ -352,7 +352,7 @@ During the MDM configuration of the Microsoft Enterprise SSO Extension, optional
 |**4**     |**[AppPrefixAllowList](../develop/apple-sso-plugin.md#enable-sso-for-all-apps-with-a-specific-bundle-id-prefix)**         |Any Non-MSAL application that has a Bundle ID that starts with **`com.micorosoft.`** can be intercepted and handled by the SSO Extension broker             |
 
 >[!Important]
->Feature flags set to **null** means that their **default** configuration is in place. Check **[Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options)** for more details]
+>Feature flags set to **null** means that their **default** configuration is in place. Check **[Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options)** for more details
 
  
 
