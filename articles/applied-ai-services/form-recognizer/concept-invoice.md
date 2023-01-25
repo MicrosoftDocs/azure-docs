@@ -25,6 +25,13 @@ recommendations: false
 
 The Form Recognizer invoice model combines powerful Optical Character Recognition (OCR) capabilities with invoice understanding models to analyze and extract key fields and line items from sales invoices, Utility bills, and Purchase Orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
 
+**Supported document types:
+* Invoices
+* Utiltiy bills
+* Sales orders
+* Purchase orders
+
+
 ## Automated invoice processing
 
 Automated invoice processing is the process of extracting key accounts payable fields from billing account documents. Extracted data includes line items from invoices integrated with your accounts payable (AP) workflows for reviews and payments. Historically, the accounts payable process has been done manually and, hence, very time consuming. Accurate extraction of key data from invoices is typically the first and one of the most critical steps in the invoice automation process.
@@ -155,17 +162,17 @@ See how data, including customer information, vendor details, and line items, is
 ## Supported languages and locales
 
 >[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+ > Form Recognizer autodetects language and locale data.
 
-| Language | Locale Code(s) |
+| Supported languages | Details |
 |:----------------------|:---------|
-| <ul><li>English</li></ul>| en-US, en-AU, en-CA, en-GB, en-IN|
-| <ul><li>Spanish</li></ul>|es|
-| <ul><li>German</li></ul>| de-DE|
-| <ul><li>French</li></ul>| fr-FR|
-| <ul><li>Italian</li></ul>| it—IT|
-| <ul><li>Portuguese</li></ul>| pt—PT, pt-BR|
-| <ul><li>Dutch</li></ul>| nl—NL|
+| <ul><li>English</li></ul>| United States (US), Australia (AU), Canada (CA), Great Britain (GB), India (IN)|
+| <ul><li>Spanish</li></ul>|Spain (ES)|
+| <ul><li>German</li></ul>| Germany (DE)|
+| <ul><li>French</li></ul>| France (FR) |
+| <ul><li>Italian</li></ul>| Italy (IT)|
+| <ul><li>Portuguese</li></ul>| Portugual (PT), Brazil (BR)|
+| <ul><li>Dutch</li></ul>| Netherlands (DE)|
 
 ## Field extraction
 
