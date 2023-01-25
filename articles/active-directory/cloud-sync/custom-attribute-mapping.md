@@ -80,7 +80,7 @@ You need to create an [application](https://learn.microsoft.com/graph/api/resour
 
  
 
- 3. Check if the service principal exists for the application with identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp” exists. 
+ 3. Check if the service principal exists for the application with identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp”. 
 
      - Using Microsoft Graph 
      ```
