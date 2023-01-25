@@ -3178,6 +3178,8 @@
         href: starleaf-provisioning-tutorial.md
       - name: Storegate
         href: storegate-provisioning-tutorial.md
+      - name: SurveyMonkey Enterprise
+        href: surveymonkey-enterprise-provisioning-tutorial.md
       - name: Swit
         href: swit-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
