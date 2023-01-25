@@ -13,6 +13,13 @@ ms.custom: template-concept
 
 In this article, you'll learn about *network groups* and how they can help you group virtual networks together for easier management. You'll also learn about *Static group membership* and *Dynamic group membership* and how to use each type of membership.
 
+> [!IMPORTANT]
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+>
+> Mesh connectivity configurations are in Public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Network group
 
 A *network group* is global container that includes a set of virtual network resources from any region. Then, configurations are applied to target the network group, which applies the configuration to all members of the group.

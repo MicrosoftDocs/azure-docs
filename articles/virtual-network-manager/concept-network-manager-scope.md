@@ -14,7 +14,9 @@ ms.custom: template-concept
 In this article, you'll learn about how Azure Virtual Network Manager uses the concept of *scope* to enable management groups or subscriptions to use certain features of Virtual Network Manager. You'll also learn about *hierarchy* and how that can affect your users when using Virtual Network Manager. 
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+>
+> Mesh connectivity configurations are in Public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

@@ -1,17 +1,24 @@
 ---
-title: 'Security admin rules in Azure Virtual Network Manager (Preview)'
+title: 'Security admin rules in Azure Virtual Network Manager'
 description: Learn about what security admin rules are in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 01/31/2023
 ms.custom: template-concept, ignite-fall-2021
 ---
 
-# Security admin rules in Azure Virtual Network Manager (Preview)
+# Security admin rules in Azure Virtual Network Manager
 
 Azure Virtual Network Manager provides two different types of configurations you can deploy across your virtual networks, one of them being a **security admin** configuration. A security admin configuration contains a set of rule collections. Each rule collection contains one or more security admin rules. You then associate the rule collection with the network groups that you want to apply the security admin rules to.
+
+> [!IMPORTANT]
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+>
+> Mesh connectivity configurations are in Public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Security admin rules
 

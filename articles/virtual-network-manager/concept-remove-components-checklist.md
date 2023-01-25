@@ -13,6 +13,13 @@ ms.custom: ignite-fall-2021
 
 In this article, you'll see a checklist of steps you need to complete to remove or update a configuration component of Azure Virtual Network Manager.
 
+> [!IMPORTANT]
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+>
+> Mesh connectivity configurations are in Public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="remove"></a>Remove components checklist
 
 | Action | Steps | 
