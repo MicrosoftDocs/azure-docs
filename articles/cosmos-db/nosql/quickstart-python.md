@@ -54,7 +54,7 @@ Create a new Python code file (*app.py*) in an empty folder using your preferred
 
 ### Install packages
 
-Use the `pip install` command to install packages you'll need in the tutorial.
+Use the `pip install` command to install packages you'll need in the quickstart.
 
 ### [Passwordless](#tab/passwordless)
 
