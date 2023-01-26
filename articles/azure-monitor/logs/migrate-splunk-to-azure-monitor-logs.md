@@ -27,7 +27,7 @@ The benefits of migrating to Azure Monitor Logs include:
 - [End-to-end, at-scale monitoring](../overview.md) and [native monitoring of Azure resources](../essentials/platform-logs-overview.md).
 - [Cost optimization features](../../azure-monitor/best-practices-cost.md), such as [Basic logs](../logs/basic-logs-configure.md).
 - [Privacy and compliance](../security-controls-policy.md).
-- Native integration with [Microsoft Sentinel](../../sentinel/migration.md) for security information and event management.
+- Native integration with [Microsoft Sentinel](../../sentinel/overview.md) for security information and event management.
 
 ## Compare offerings
 
