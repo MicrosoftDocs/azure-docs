@@ -126,4 +126,4 @@ From the list, select the IdP.
 
 - [Edit Azure AD B2C Identity Experience Framework (IEF) XML with Grit Visual IEF Editor](partner-grit-editor.md)
 
-- [Grit biometric authentication](partner-grit-authentication.md)
+- [Configure Grit biometric authentication with Azure AD B2C](partner-grit-authentication.md)
