@@ -95,3 +95,5 @@ Repeat the same steps for another device. No need to sign up again, use the cred
 - [Configure the Grit IAM B2B2C solution with Azure AD B2C](partner-grit-iam.md)
 
 - [Edit Azure AD B2C Identity Experience Framework (IEF) XML with Grit Visual IEF Editor](partner-grit-editor.md)
+
+- [Migrate apps without code change with Grit's app proxy](partner-grit-app-proxy.md)
