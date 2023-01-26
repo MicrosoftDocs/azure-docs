@@ -73,7 +73,7 @@
       href: tutorial-sql-server-managed-instance-online-ads.md
     - name: to Azure SQL Managed Instance (offline) in Azure Data Studio
       href: tutorial-sql-server-managed-instance-offline-ads.md
-    - name: to SQL Server for Azure Virtual Machines (online) in Azure Data Studpwio
+    - name: to SQL Server for Azure Virtual Machines (online) in Azure Data Studio
       href: tutorial-sql-server-to-virtual-machine-online-ads.md
     - name: to SQL Server for Azure Virtual Machines (offline) in Azure Data Studio
       href: tutorial-sql-server-to-virtual-machine-offline-ads.md
