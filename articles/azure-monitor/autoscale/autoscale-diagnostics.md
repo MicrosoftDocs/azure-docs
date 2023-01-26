@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 06/22/2022
 ms.reviewer: akkumari
 
-# Customer intent: As a dev opps admin I want to collect and analyze autoscale metrics and logs
+# Customer intent: As a devops admin, I want to collect and analyze autoscale metrics and logs.
 ---
 
 >>> Where is the flapping logs ?
@@ -17,7 +17,10 @@ ms.reviewer: akkumari
 
 # Diagnostic settings in Autoscale
 
-Autoscale has two log categories and a set of metrics which can be enabled via the **Diagnostics settings** tab on the autoscale settings page.
+Autoscale has two log categories and a set of metrics which can be enabled via the **Diagnostics settings** tab on the autoscale setting page.
+
+:::image type="content" source="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png" alt-text="A screenshot showing the menu in the autoscale setting page":::
+
 
 The two categories are 
 * [Autoscale Evaluations](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/autoscaleevaluationslog) containing log data relating to rule evaluation.
@@ -246,4 +249,183 @@ Recorded at different intervals of an instance scale action.
 }
 ```
 
+## Activity Logs
+The follwoing events are logged to the Activity log with CategoryValue =="Autoscale".
 
+* Autoscale scale up initiated
+* Autoscale scale up completed
+* Autoscale scale down initiated
+* Autoscale scale down completed
+* Predictive Autoscale scale up initiated
+* Predictive Autoscale scale up completed
+* Metric Failure
+* Metric Recovery
+* Predictive Metric Failure
+* Flapping
+
+An extract of each log event name, showing the relevant parts of the `Propertes` element are shown below:
+
+### Autoscale action 
+
+Logged when autoscale attempts to scale in or out.
+
+```json
+{
+   "eventCategory": "Autoscale",
+    "eventName": "AutoscaleAction",
+    ...
+    "eventProperties": "{
+        "Description": "The autoscale engine attempting to scale resource '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/    resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan' from 2 instances count to 1 instances     count.",
+        "ResourceName": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/ed-rg-001/providers/Microsoft.Web/    serverFarms/ScaleableAppServicePlan",
+        "OldInstancesCount": 2,
+        "NewInstancesCount": 1,
+        "ActiveAutoscaleProfile": {
+            "Name": "Default scale condition",
+            "Capacity": {
+                "Minimum": "1",
+                "Maximum": "5",
+                "Default": "1"
+            },
+            "Rules": [
+                {
+                    "MetricTrigger": {
+                        "Name": "CpuPercentage",
+                        "Namespace": "microsoft.web/serverfarms",
+                        "Resource": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.    Web/serverFarms/ScaleableAppServicePlan",
+                        "ResourceLocation": "West Central US",
+                        "TimeGrain": "PT1M",
+                        "Statistic": "Average",
+                        "TimeWindow": "PT2M",
+                        "TimeAggregation": "Average",
+                        "Operator": "GreaterThan",
+                        "Threshold": 40.0,
+                        "Source": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.    Web/serverFarms/ScaleableAppServicePlan",
+                        "MetricType": "MDM",
+                        "Dimensions": [],
+                        "DividePerInstance": false
+                    },
+                    "ScaleAction": {
+                        "Direction": "Increase",
+                        "Type": "ChangeCount",
+                        "Value": "1",
+                        "Cooldown": "PT3M"
+                    }
+                },
+                {
+                    "MetricTrigger": {
+                        "Name": "CpuPercentage",
+                        "Namespace": "microsoft.web/serverfarms",
+                        "Resource": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.    Web/serverFarms/ScaleableAppServicePlan",
+                        "ResourceLocation": "West Central US",
+                        "TimeGrain": "PT1M",
+                        "Statistic": "Average",
+                        "TimeWindow": "PT5M",
+                        "TimeAggregation": "Average",
+                        "Operator": "LessThanOrEqual",
+                        "Threshold": 30.0,
+                        "Source": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.    Web/serverFarms/ScaleableAppServicePlan",
+                        "MetricType": "MDM",
+                        "Dimensions": [],
+                        "DividePerInstance": false
+                    },
+                    "ScaleAction": {
+                        "Direction": "Decrease",
+                        "Type": "ExactCount",
+                        "Value": "1",
+                        "Cooldown": "PT5M"
+                    }
+                }
+            ]
+                },
+    "LastScaleActionTime": "Thu, 26 Jan 2023 12:57:14 GMT"
+    }",
+    ...
+   "activityStatusValue": "Succeeded"
+}
+
+```
+
+### Get Operation Status Result
+
+Logged following an scale event.
+
+```json
+
+"Properties":{
+    "eventCategory": "Autoscale",
+    "eventName": "GetOperationStatusResult",
+    ...
+    "eventProperties": "{\"OldInstancesCount\":3,\"NewInstancesCount\":2}",
+    ...
+    "activityStatusValue": "Succeeded"
+}
+
+```
+
+### Metric failure
+
+Logged when autoscale cannot determine the value of the metric used in the scale rule.
+
+```JSON
+"Properties":{
+    "eventCategory": "Autoscale",
+    "eventName": "MetricFailure",
+    ...
+    "eventProperties": "{\"Notes\":\"To ensure service availability, Autoscale will scale out the resource to the default capacity if it is greater than the current capacity\"}",
+    ...
+    "activityStatusValue": "Failed"
+}
+```
+### Metric recovery
+
+Logged when autoscale can once again determine the value of the metric used in the scale rule after a `MetricFailure` event
+
+```json
+"Properties":{
+    "eventCategory": "Autoscale",
+    "eventName": "MetricRecovery",
+    ...
+    "eventProperties": "{}",
+    ...
+    "activityStatusValue": "Succeeded"
+}
+```
+### Predictive Metric Failure
+
+Logged when autoscale can not calculate a predicted scale events due to the metric being unavailable.
+
+```json
+"Properties":{
+    "eventCategory": "Autoscale",
+    "eventName": "PredictiveMetricFailure",
+    ...
+    "eventProperties": "{\"Notes\":\"To ensure service availability, Autoscale will scale out the resource to the default capacity if it is greater than the current capacity\"}",
+   ...
+    "activityStatusValue": "Failed"
+} 
+```
+### Flapping Occurred
+
+Logged when autoscale detects a flapping and scales differently to avoid it.
+
+```JSON
+"Properties":{
+    "eventCategory": "Autoscale",
+    "eventName": "FlappingOccurred",
+    ...
+    "eventProperties": 
+        "{"Description":"Scale down will occur with updated instance count to avoid flapping. 
+         Resource: '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/rg-001/providers/Microsoft.Web/serverFarms/      ScaleableAppServicePlan'.
+         Current instance count: '6', 
+         Intended new instance count: '1'.
+         Actual new instance count: '4'",
+        "ResourceName":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/rg-001/providers/Microsoft.Web/serverFarms/    ScaleableAppServicePlan",
+        "OldInstancesCount":6,
+        "NewInstancesCount":4,
+        "ActiveAutoscaleProfile":{"Name":"Auto created scale condition",
+        "Capacity":{"Minimum":"1","Maximum":"30","Default":"1"},
+        "Rules":[{"MetricTrigger":{"Name":"Requests","Namespace":"microsoft.web/sites","Resource":"/subscriptions/    d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1",    "ResourceLocation":"West Central US","TimeGrain":"PT1M","Statistic":"Average","TimeWindow":"PT1M","TimeAggregation":"Maximum",    "Operator":"GreaterThanOrEqual","Threshold":3.0,"Source":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/    rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","MetricType":"MDM","Dimensions":[],"DividePerInstance":true},    "ScaleAction":{"Direction":"Increase","Type":"ChangeCount","Value":"10","Cooldown":"PT1M"}},{"MetricTrigger":{"Name":"Requests",    "Namespace":"microsoft.web/sites","Resource":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/rg-001/    providers/Microsoft.Web/sites/ScaleableWebApp1","ResourceLocation":"West Central US","TimeGrain":"PT1M","Statistic":"Max",    "TimeWindow":"PT1M","TimeAggregation":"Maximum","Operator":"LessThan","Threshold":3.0,"Source":"/subscriptions/    d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/rg-001/providers/Microsoft.Web/sites/ScaleableWebApp1","MetricType":"MDM",    "Dimensions":[],"DividePerInstance":true},"ScaleAction":{"Direction":"Decrease","Type":"ChangeCount","Value":"5",    "Cooldown":"PT1M"}}]}}",
+    ...
+    "activityStatusValue": "Succeeded"
+}
+```
