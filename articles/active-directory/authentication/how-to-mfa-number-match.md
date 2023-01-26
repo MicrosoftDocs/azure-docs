@@ -293,7 +293,10 @@ No, the changes on February 27th won't affect the **Enable and Target** tab for 
 
 When Microsoft begins protecting all organizations by enabling number matching on February 27th, 2023, administrators will see the **Require number matching for push notifications** setting on the **Configure** tab of the Microsoft Authenticator policy is set to **Enabled** for **All users** and can't be disabled. In addition, the **Exclude** option for this setting will be removed.
 
-Users who are enabled for MFA push notifications in the legacy MFA policy will also see number match after February 27th, 2023. 
+Users who are enabled for MFA push notifications in the legacy MFA policy will also see number match after February 27th, 2023. If the legacy MFA policy has enabled **Notifications through mobile app**, users will see number matching regardless of whether or not it's enabled on the **Enable and Target** tab for Microsoft Authenticator in the Authentication Methods policy.
+
+:::image type="content" border="true" source="./media/how-to-mfa-number-match/notifications-through-mobile-app.png" alt-text="Screenshot of Notifications through mobile app setting.":::
+
 
 ### How should users be prepared for default number matching?
 
