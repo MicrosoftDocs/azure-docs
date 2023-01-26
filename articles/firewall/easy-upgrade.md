@@ -24,7 +24,7 @@ In the upgrade process, you can select the policy to be attached to the upgraded
 
 ## Availability
 
-This new capability is available through the Azure portal as shown here. It's also available via PowerShell and Terraform by simply changing the sku_tier attribute.
+This new capability is available through the Azure portal as shown here. It's also available via PowerShell and Terraform by changing the sku_tier attribute.
 
 :::image type="content" source="media/premium-features/upgrade.png" alt-text="Screenshot showing SKU upgrade" lightbox="media/premium-features/upgrade.png":::
 
