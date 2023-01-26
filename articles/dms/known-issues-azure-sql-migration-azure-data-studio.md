@@ -210,6 +210,43 @@ WHERE STEP in (3,4,6);
 
 - **Recommendation**: For more troubleshooting steps, see [Troubleshoot Azure Data Factory and Synapse pipelines](../data-factory/data-factory-troubleshoot-guide.md#error-code-2108). 
 
+## Error code: 2056 - SqlInfoValidationFailed
+
+- **Message**: CollationMismatch: `Source database collation <CollationOptionSource> is not the same as the target database <CollationOptionTarget>. Source database: <SourceDatabaseName> Target database: <TargetDatabaseName>.`
+
+- **Cause**: The source database collation is not the same as the target database's collation.
+
+- **Recommendation**: Make sure to change the target Azure SQL Database collation is the same as the source SQL Server database. Azure SQL Database uses `SQL_Latin1_General_CP1_CI_AS` collation by default, in case your source SQL Server database uses a different collation you might need to re-create the target database. For more information, see [Collation and Unicode support](/sql/relational-databases/collations/collation-and-unicode-support)
+
+
+- **Message**: DatabaseSizeMoreThanMax: No tables were found in the target Azure SQL Database. Please check if schema migration was completed beforehand.
+
+- **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
+
+- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension)
+
+
+- **Message**: NoTablesFound: `Some of the source tables don't exist in the target database. Missing tables: <TableList>`.
+
+- **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
+
+- **Recommendation**: Check if the selected tables exist in the target Azure SQL Database. If this migration is called from a Powershell script, check if the table list parameter includes the correct table names and is passed into the migration.
+
+  
+- **Message**: SqlVersionOutOfRange: `Source instance version is lower than 2008, which is not supported to migrate. Source instance: <InstanceName>`.
+
+- **Cause**: Azure Database Migration Service does not support migrating from SQL Server instances lower than 2008.
+
+- **Recommendation**: Upgrade your source SQL Server instance to a newer version of SQL Server. For more information, see [Upgrade SQL Server](/sql/database-engine/install-windows/upgrade-sql-server)
+
+
+- **Message**: TableMappingMismatch: `Some of the source tables don't exist in the target database. Missing tables: <TableList>`.
+
+- **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
+
+- **Recommendation**: Check if the selected tables exist in the target Azure SQL Database. If this migration is called from a Powershell script, check if the table list parameter includes the correct table names and is passed into the migration.
+
+
 ## Azure SQL Database limitations 
 
 Migrating to Azure SQL Database by using the Azure SQL extension for Azure Data Studio has the following limitations: 
