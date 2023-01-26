@@ -86,7 +86,8 @@ If the users need to be denied permission to certain pages based on group member
 
 6. Enter 'https://anj-grit-legacy-backend.azurewebsites.net/Home/Page' into the endpoint field and that would be the endpoint to your legacy application.
 
-   >[!NOTE] This demo is publicly available, values you enter will be visible to public. Don't configure a secure application with this demo.
+   >[!NOTE]
+   >This demo is publicly available, values you enter will be visible to public. Don't configure a secure application with this demo.
 
    ![Screenshot shows the proxy configuration UI.](./media/partner-grit-app-proxy/proxy-configuration.png)
 
