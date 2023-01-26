@@ -91,7 +91,7 @@ In the Oracle EBS Linux environment, generate a new DBC file for DAP. You need t
 
 1. To integrate JDE with Azure AD, sign in to [Datawiza Cloud Management Console (DCMC)](https://console.datawiza.com/).
 2. The Welcome page appears.
-3. Click the orange Getting started button
+3. Select the orange Getting started button
 
    ![Screenshot of the Getting Started button.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/getting-started.png)
 
