@@ -26,7 +26,9 @@ This article will get you started in building a metamodel for your Microsoft Pur
 - [Data Curator role](catalog-permissions.md#roles) on the collection where the data asset is housed and/or the root collection, depending on what you need. See the guide on [managing Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
     - Create and modify asset types, modify assets - Data Curator on the collection where the data asset is housed. An asset will need to be moved to your collection after creation for you to be able to modify it.
     - Create and modify assets - Data curator on the root collection.
-    >[!NOTE] - As this feature is in preview, the permission is not the final permission structure for metamodel. Updates will continue to be made to this structure.
+ 
+>[!NOTE] 
+> As this feature is in preview, these permissions are not the final permission structure for metamodel. Updates will continue to be made to this structure.
 
 ## Current limitations
 
