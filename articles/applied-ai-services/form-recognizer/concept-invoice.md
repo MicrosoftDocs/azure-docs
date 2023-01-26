@@ -23,7 +23,7 @@ recommendations: false
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-The Form Recognizer invoice model combines powerful Optical Character Recognition (OCR) capabilities with invoice understanding models to analyze and extract key fields and line items from sales invoices, Utility bills, and Purchase Orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
+The Form Recognizer invoice model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from sales invoices, utility bills, and purchase orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
 
 **Supported document types:
 
@@ -166,12 +166,12 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| <ul><li>English</li></ul>| United States (us), Australia (au), Canada (ca), Great Britain (gb), India (in)|
+| <ul><li>English</li></ul>| United States (us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
 | <ul><li>Spanish</li></ul>|Spain (es)|
 | <ul><li>German</li></ul>| Germany (de)|
 | <ul><li>French</li></ul>| France (fr) |
 | <ul><li>Italian</li></ul>| Italy (it)|
-| <ul><li>Portuguese</li></ul>| Portugal (pt), Brazil (br)|
+| <ul><li>Portuguese</li></ul>| Portugal (-pt), Brazil (-br)|
 | <ul><li>Dutch</li></ul>| Netherlands (de)|
 
 ## Field extraction
@@ -207,15 +207,14 @@ See how data, including customer information, vendor details, and line items, is
 | ServiceStartDate | Date | First date for the service period (for example, a utility bill service period) | yyyy-mm-dd |
 | ServiceEndDate | Date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
 | PreviousUnpaidBalance | Number | Explicit previously unpaid balance | Integer |
-
 | CurrencyCode | String | The Currency Code associated with an extracted amount |  |
 | PaymentOptions | Array | An array that holds Payment Option details such as `IBAN`and `SWIFT` |  |
 | TotalDiscount | Number | The total discount applied to an invoice | Integer |
-| TaxItems (en-IN only) | Array | AN array that holds additional tax information such as `CGST`, `IGST`, and `SGST`. This is currently only available for the en-in locale  |  |
+| TaxItems (en-IN only) | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the en-in locale  |  |
 
 ### Line items
 
-Following are the line items extracted from an invoice in the JSON output response (the output below uses this [sample invoice](media/sample-invoice.jpg))
+Following are the line items extracted from an invoice in the JSON output response (the following output uses this [sample invoice](media/sample-invoice.jpg))
 
 |Name| Type | Description | Text (line item #1) | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
@@ -248,7 +247,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 ## Fields extracted
 
-The Invoice service will extract the text, tables, and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the output below uses this [sample invoice](media/sample-invoice.jpg)).
+The Invoice service will extract the text, tables, and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the following output uses this [sample invoice](media/sample-invoice.jpg)).
 
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
@@ -279,7 +278,7 @@ The Invoice service will extract the text, tables, and 26 invoice fields. Follow
 | ServiceEndDate | date | End date for the service period (for example, a utility bill service period) | 11/14/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | number | Explicit previously unpaid balance | $500.00 | 500 |
 
-Following are the line items extracted from an invoice in the JSON output response (the output below uses this [sample invoice](./media/sample-invoice.jpg))
+Following are the line items extracted from an invoice in the JSON output response (the following output uses this [sample invoice](./media/sample-invoice.jpg))
 
 |Name| Type | Description | Text (line item #1) | Value (standardized output) |
 |:-----|:----|:----|:----| :----|

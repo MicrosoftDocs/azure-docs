@@ -511,7 +511,7 @@ Prebuilt Receipt and Business Cards support all English receipts and business ca
 
 |Supported Languages| Details |
 |:-----|:----:|
-|English (Australia)| United States (US), Australia (AU), Great Britain (GB), India (IN)|
+|English| United States (-us), Australia (-au), Great Britain (-gb), India (-in|
 |French | France (FR) |
 |Spanish | Spain (ES) |
 
@@ -522,12 +522,12 @@ Prebuilt Receipt and Business Cards support all English receipts and business ca
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| <ul><li>English</li></ul>| United States (US), Australia (AU), Canada (CA), Great Britain (GB), India (IN)|
+| <ul><li>English</li></ul>| United States (-us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
 | <ul><li>Spanish</li></ul>|Spain (ES)|
 | <ul><li>German</li></ul>| Germany (DE)|
 | <ul><li>French</li></ul>| France (FR) |
 | <ul><li>Italian</li></ul>| Italy (IT)|
-| <ul><li>Portuguese</li></ul>| Portugual (PT), Brazil (BR)|
+| <ul><li>Portuguese</li></ul>| Portugal (-pt), Brazil (-br)|
 | <ul><li>Dutch</li></ul>| Netherlands (DE)|
 
 ## Prebuilt identity documents

@@ -163,7 +163,7 @@ The receipt model supports all English receipts and the following locales:
 
 |Supported Languages| Details |
 |:-----|:----:|
-|English| United States (us), Australia (au), Great Britain (gb), India (in)|
+|English| United States (-us), Australia (-au), Great Britain (-gb), India (-in)|
 |French | France (fr) |
 |Spanish | Spain (es) |
 
