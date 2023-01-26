@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.date: 01/05/2023
-ms.author: davidmu
+ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.custom: aaddev, identityplatformtop40
 ---

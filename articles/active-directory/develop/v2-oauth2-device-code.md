@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2022
-ms.author: ludwignick
-ms.reviewer: marsma
+ms.author: owenrichards
+ms.reviewer: nickludwig
 ms.custom: aaddev, engagement-fy23
 ---
 
