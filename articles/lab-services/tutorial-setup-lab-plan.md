@@ -224,7 +224,9 @@ After adding users, they can register for the lab by using a registration link f
 
 ## Next steps
 
-In this tutorial, you created a lab plan and assigned lab creation permissions to another user. To learn about how to create a lab, advance to the next tutorial:
+You've successfully created a customized lab for a classroom training, created a recurring lab schedule, and invited users to register for the lab. Next, lab users can now connect to their lab virtual machine by using remote desktop.
+
+You've also leverage Azure AD roles to grant permissions to others for creating labs. Depending on your organization, you may delegate the permissions for managing lab plans or managing labs to different people or teams. Learn more about [built-in roles in Azure Lab Services](./administrator-guide.md#rbac-roles).
 
 > [!div class="nextstepaction"]
-> [Create a lab](./tutorial-setup-lab.md)
+> [Connect to a lab virtual machine](./tutorial-connect-lab-virtual-machine.md)
