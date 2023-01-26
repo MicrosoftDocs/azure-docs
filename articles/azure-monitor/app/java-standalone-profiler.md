@@ -63,7 +63,7 @@ The ApplicationInsights Java Agent monitors CPU and memory consumption and if it
 Within the profiler user interface (see [profiler settings](../profiler/profiler-settings.md)) there's a **Profile now** button. Selecting this button will immediately request a profile in all agents that are attached to the Application Insights instance.
 
 > [!WARNING]
-> Invoking Profile now will enable the profiler feature, as such the default trigger settings for CPU and Memory will apply and if breached profiles will be gathered. If you wish to subsequently disable profiling, this can be done withing the trigger menu as shown in [Installation](#installation).
+> Invoking Profile now will enable the profiler feature, and Application Insights will apply default CPU and memory SLA triggers. When your application breaches those SLAs, Application Insights will gather Java profiles. If you wish to disable profiling later on, you can do so within the trigger menu shown in [Installation](#installation).
 
 #### CPU
 
