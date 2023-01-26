@@ -1015,8 +1015,10 @@ For more information about this action in your underlying workflow definition, s
 
    ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/sample-start-parse-json-action-consumption.png)
 
-1.  In your workflow where you want to parse the JSON object, follow one of these steps:
+1. In your workflow where you want to parse the JSON object, follow one of these steps:
+
    * To add an action under the last step, select **New step**.
+   
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
 1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **parse json**.
@@ -1097,8 +1099,10 @@ For more information about this action in your underlying workflow definition, s
 
    ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/sample-start-parse-json-action-standard.png)
 
-1.  In your workflow where you want to parse the JSON object, follow one of these steps:
+1. In your workflow where you want to parse the JSON object, follow one of these steps:
+
    * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
+   
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
 1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **parse json**.
