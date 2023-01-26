@@ -17,8 +17,8 @@ ms.date: 06/22/2022
 - Create a library of common queries for your organization.
 
 ## Permissions
-- To save a query, you need **Contributor** permissions.
-- To view a saved query, you need **Reader** permissions.
+- To save a query, you need the **Log Analytics Contributor** role.
+- To view a saved query, you need the **Log Analytics Reader** role.
 
 ## Save options
 When you save a query, it's stored in a query pack, which has benefits over the previous method of storing the query in a workspace, including:
