@@ -337,9 +337,9 @@ Regardless of their default method, any user who is prompted to sign-in with Aut
 
 It depends on how the **Enable and Target** tab is configured. The scope for number match approvals will change under the **Configure** tab to include everyone, but it only applies for users and groups targeted on the **Enable and Target** tab for Push or Any. However, if Target on the **Enable and Target** tab is set to specific groups for Push or Any, and the user isn't a member of those groups, then they won't receive the number matching approvals once the change is implemented on February 27th, 2023 because they aren't a member of the groups defined on the **Enable and Target** tab for Push and/or Any.
 
-### Does number matching work with MFA server?
+### Is number matching enforced with MFA server?
 
-No, MFA server is [deprecated](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454) and doesn't support number matching.
+No, number matching isn't enforced with MFA server, which is [deprecated](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454).
 
 ### What happens if a user runs an older version of Microsoft Authenticator?
 
