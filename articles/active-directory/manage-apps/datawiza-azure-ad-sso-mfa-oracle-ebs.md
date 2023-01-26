@@ -112,7 +112,7 @@ In the Oracle EBS Linux environment, generate a new DBC file for DAP. You need t
 15. For **EBS DBC Content**, use the content you copied.
 16. Select **Next**.
 
-   [ ![Screenshot of Add Application entries and selections.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/add-application.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/add-application.png)
+    [ ![Screenshot of Add Application entries and selections.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/add-application.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/add-application.png)
 
 ### IdP configuration
 
@@ -155,7 +155,7 @@ To provide more security for sign-ins, you can enforce MFA for user sign-in by e
 2.	Select **Azure Active Directory** > **Manage** > **Properties**.
 3.	Under **Properties**, select **Manage security defaults**.
    
-   [ ![Screenshot of Manage Security Defaults.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/manage-security-defaults.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/manage-security-defaults.png)
+    [ ![Screenshot of Manage Security Defaults.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/manage-security-defaults.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/manage-security-defaults.png)
 
 4. Under **Enable security defaults**, select **Yes**.
 5. Select **Save**.
