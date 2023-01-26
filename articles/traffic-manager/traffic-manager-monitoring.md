@@ -13,7 +13,7 @@ ms.author: greglin
 
 # Traffic Manager endpoint monitoring
 
-Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures. Endpoint monitoring is enabled by default. To disable monitoring, see [Health Checks](#health-checks-preview).
+Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures. Endpoint monitoring is enabled by default. To disable monitoring, see [Enable or disable health checks](#enable-or-disable-health-checks-preview).
 
 ## Configure endpoint monitoring
 
@@ -161,7 +161,7 @@ For more information, see [Traffic Manager traffic-routing methods](traffic-mana
 
 For more information about troubleshooting failed health checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
-## Health Checks (Preview)
+## Enable or disable health checks (Preview)
 
 Azure Traffic Manager also enables you to configure endpoint **Health Checks**. This option is currently in public preview. There are two available settings:
 
@@ -176,9 +176,14 @@ To configure health checks:
 3. Under **Health Checks**, choose **Enable** or **Always serve traffic**.
 4. Select **Save**.
 
+See the following example:
+
+![Endpoint health checks](./media/traffic-manager-monitoring/health-checks.png)
+
 > [!NOTE]
-> - Health checks can't be disabled on nested endpoints.
-> - Enabling and disabling an endpoint doesn't reset the **Health Checks** configuration.
+> - Health checks can't be disabled on nested Traffic Manager profiles.
+> - Enabling and disabling an endpoint doesn't reset the **Health Checks** configuration. An endpoint must be enabled to configure health checks. 
+> - Endpoints that are configured to always serve traffic are billed for [basic health checks](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
 ## FAQs
 
