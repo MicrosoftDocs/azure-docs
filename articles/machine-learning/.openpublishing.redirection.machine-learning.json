@@ -1386,8 +1386,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/service/how-to-save-write-experiment-files.md",
-        "redirect_url": "/azure/machine-learning/how-to-save-write-experiment-files",
+        "source_path_from_root": "/articles/machine-learning/how-to-save-write-experiment-files.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-save-write-experiment-files",
         "redirect_document_id": true
     },
     {

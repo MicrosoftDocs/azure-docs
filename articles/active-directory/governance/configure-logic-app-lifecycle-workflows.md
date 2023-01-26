@@ -6,7 +6,7 @@ ms.author: owinfrey
 ms.service: active-directory
 ms.topic: reference
 ms.date: 08/28/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to 
 ---
 
 
