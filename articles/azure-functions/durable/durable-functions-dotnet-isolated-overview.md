@@ -9,17 +9,17 @@ ms.devlang: csharp
 #Customer intent: As a developer, I want to learn about Durable Functions for the Azure Functions .NET isolated worker process.
 ---
 
-# Guide for running Durable Functions in the Azure Functions .NET isolated worker process
+# Overview for running Durable Functions in the .NET isolated worker
 
-This article is an overview for Durable Functions in the Azure Functions .NET isolated worker process. If you are new to the .NET isolated worker process, [start here](../dotnet-isolated-process-guide.md). This allows you to run your durable functions on a version of .NET that is different than the version used by the Functions host process.
+This article is an overview for Durable Functions in the Azure Functions .NET isolated worker process. If you are new to the .NET isolated worker process, [start here](../dotnet-isolated-process-guide.md). This allows you to run your Durable Functions on a version of .NET that is different than the version used by the Functions host process.
 
-## Why Durable for .NET Functions isolated worker process?
+## Why Durable Functions for .NET isolated worker?
 
 Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated work process. See [here](../dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process) for more information.
 
 ### Feature parity with in-process Durable functions
 
-Not all features from in-process Durable functions have yet been migrated to the isolated worker. We will be continuing to add these features over time. Some known feature gaps that will be addressed at a later date are:
+Not all features from in-process Durable functions have yet been migrated to the isolated worker. Some known missing features that will be addressed at a later date are:
 
 - Durable Entities not supported
 - `CallHttpAsync` not available.

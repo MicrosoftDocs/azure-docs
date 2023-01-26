@@ -332,7 +332,7 @@ public static async Task Run(
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
-In Durable Functions dotnet-isolated, you can again create an `ILogger` that automatically filters out log statements during replay. The main difference with Durable Functions in-proc is that you do not need to provide an existing `ILogger`. This logger is created via the `TaskOrchestrationContext.CreateReplaySafeLogger` overloads.
+In Durable Functions dotnet-isolated, you can again create an `ILogger` that automatically filters out log statements during replay. The main difference with Durable Functions in-proc is that you do not provide an existing `ILogger`. This logger is created via the `TaskOrchestrationContext.CreateReplaySafeLogger` overloads.
 
 ```csharp
 [Function("FunctionChain")]
@@ -348,6 +348,9 @@ public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext con
     log.LogInformation("Done!");
 }
 ```
+
+> [!NOTE]
+> The ability to wrap an existing `ILogger` into a replay-safe logger has been removed in Durable Functions for .NET isolated worker.
 
 # [JavaScript](#tab/javascript)
 
@@ -455,9 +458,6 @@ public static async Task SetStatusTest([OrchestrationTrigger] TaskOrchestrationC
     // ...do more work...
 }
 ```
-
-> [!NOTE]
-> The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 

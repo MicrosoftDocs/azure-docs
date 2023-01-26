@@ -134,7 +134,7 @@ namespace MyApplication
 # [C# (Isolated)](#tab/csharp-isolated)
 ### .NET Isolated and System.Text.Json
 
-Durable Functions running in the [.NET Isolated worker process](../dotnet-isolated-process-guide.md) uses the same object-serializer configured in Azure Functions [WorkerOptions](/dotnet/api/microsoft.azure.functions.worker.workeroptions). This happens to be [System.Text.Json](/dotnet/api/system.text.json) by default rather than Newtonsoft.Json. Any changes to `WorkerOptions.Serializer` will apply to Durable Functions.
+Durable Functions running in the [.NET Isolated worker process](../dotnet-isolated-process-guide.md) uses the same object-serializer configured globally for you Azure Functions app (see [WorkerOptions](/dotnet/api/microsoft.azure.functions.worker.workeroptions)). This happens to be [System.Text.Json](/dotnet/api/system.text.json) by default rather than Newtonsoft.Json. Any changes to `WorkerOptions.Serializer` will transitively apply to Durable Functions.
 
 For more information on the built-in support for JSON serialization in .NET, see the [JSON serialization and deserialization in .NET overview documentation](/dotnet/standard/serialization/system-text-json-overview).
 

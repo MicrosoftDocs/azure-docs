@@ -82,7 +82,7 @@ public static string Run([OrchestrationTrigger] TaskOrchestrationContext context
 ```
 
 > [!NOTE]
-> Durable functions in-proc requires input to be extracted via `context.GetInput<T>()`. This can also be done in dotnet-isolated, but we also support input being supplied as a parameter (as shown above). Parameter input binding will bind to the first parameter which has no binding attribute on it and is not a well-known type already covered by other input bindings (ie: `FunctionContext`).
+> Durable functions in-proc requires input to be extracted via `context.GetInput<T>()`. This can also be done in dotnet-isolated, but input being supplied as a parameter (as shown above) is also supported. Parameter input binding will bind to the first parameter which has no binding attribute on it and is not a well-known type already covered by other input bindings (ie: `FunctionContext`).
 
 # [JavaScript](#tab/javascript)
 
@@ -276,11 +276,11 @@ public static string SayHello([ActivityTrigger] string name)
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
-In the dotnet-isolated worker, only serializable types representing your input are supported. However, you can also perform addition functions binding, such as `FunctionContext`.
+In the dotnet-isolated worker, only serializable types representing your input are supported for the `[ActivityTrigger]`.
 
 ```csharp
 [FunctionName("SayHello")]
-public static string SayHello([ActivityTrigger] string name, FunctionContext context)
+public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
 }
