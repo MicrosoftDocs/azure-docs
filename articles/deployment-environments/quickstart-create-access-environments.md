@@ -22,7 +22,7 @@ In this quickstart, you learn how to:
 > - Access an environment
 
 > [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, go to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -56,14 +56,14 @@ If your environment is configured to accept parameters, you'll be able to enter 
 1. Select **Create**. You'll see your environment in the developer portal immediately, with an indicator that shows creation in progress.
  
 ## Access an environment
-To verify that your environment has been created as expected, you can view it in the Azure portal.
+You can access and manage your environments in the Microsoft Developer portal.
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
 
-1. On the environment that you want to view, select the **Environment Resources** link.
+1. You'll be able to view all of your existing environments. To access the specific resources created as part of an Environment, select the **Environment Resources** link.
    :::image type="content" source="media/quickstart-create-access-environments/environment-resources.png" alt-text="Screenshot showing an environment card, with the environment resources link highlighted."::: 
 
-1. You'll see the resources in your environment listed in the Azure portal.
+1. You'll be able to view the resources in your environment listed in the Azure portal.
    :::image type="content" source="media/quickstart-create-access-environments/azure-portal-view-of-environment.png" alt-text="Screenshot showing Azure portal list of environment resources.":::
 
 ## Next steps
