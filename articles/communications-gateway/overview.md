@@ -64,11 +64,11 @@ Azure Communications Gateway includes optional API integration features. These f
 
 ### CallDuration upload
 
-The Operator Connect specifications require the Call Duration Records produced by Microsoft Teams to match billing information from your network. You must therefore push Call Duration data into the Microsoft Teams environment. Azure Communications Gateway can push this data for you and supports customizable rounding of call duration figures to match your billing systems.
+The Operator Connect specifications require the Call Duration Records (CDRs) produced by Microsoft Teams to match billing information from your network. You must therefore push call duration data into the Microsoft Teams environment. Azure Communications Gateway pushes this data for you and supports customizable rounding of call duration figures to match your billing systems.
 
 ### API Bridge Number Management Portal
 
-Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communication Gateway's Number Management Portal portal instead. This portal enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project
+Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communications Gateway's Number Management Portal instead. This portal enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project
 
 The Number Management Portal is available as part of the optional API Bridge feature.
 
@@ -84,5 +84,5 @@ The API mediation function is designed to map between CRM and BSS systems in you
 ## Next steps
 
 - [Learn how Azure Communications Gateway fits into your network](interoperability.md).
-- [Learn about onboarding to Microsoft Teams and Azure Communication Gateway's Basic Integration Included Benefit](onboarding.md).
+- [Learn about onboarding to Microsoft Teams and Azure Communications Gateway's Basic Integration Included Benefit](onboarding.md).
 - [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
