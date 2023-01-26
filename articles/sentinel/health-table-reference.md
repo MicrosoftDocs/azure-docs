@@ -1,5 +1,5 @@
 ---
-title: SentinelHealth tables reference 
+title: Microsoft Sentinel health tables reference
 description: Learn about the fields in the SentinelHealth tables, used for health monitoring and analysis.
 author: limwainstein
 ms.author: lwainstein
@@ -8,7 +8,7 @@ ms.date: 01/17/2023
 ms.service: microsoft-sentinel
 ---
 
-# SentinelHealth tables reference 
+# Microsoft Sentinel health tables reference 
 
 This article describes the fields in the *SentinelHealth* table used for monitoring the health of Microsoft Sentinel resources. With the Microsoft Sentinel [health monitoring feature](health-audit.md), you can keep tabs on the proper functioning of your SIEM and get information on any health drifts in your environment. 
 

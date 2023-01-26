@@ -42,10 +42,6 @@ For best results, you should build your queries on the **pre-built functions** o
 
 [Is the data connector receiving data](./monitor-data-connector-health.md)? For example, if you've instructed Microsoft Sentinel to run a query every 5 minutes, you want to check whether that query is being performed, how it's performing, and whether there are any risks or vulnerabilities related to the query.
 
-**Are my SAP systems running correctly?**
-
-[Are the SAP systems managed by your organization running correctly](monitor-sap-system-health.md)?. Are the systems up and running, or ar they unreachable? Does Microsoft Sentinel identify these systems as production systems?
-
 **Did an automation rule run as expected?**
 
 [Did your automation rule run when it was supposed to](./monitor-automation-health.md)&mdash;that is, when its conditions were met? Did all the actions in the automation rule run successfully? 
@@ -83,3 +79,6 @@ To start collecting health and audit data, you need to [enable health and audit 
 - [Monitor the health of your data connectors](monitor-data-connector-health.md).
 - [Monitor the health and integrity of your analytics rules](monitor-analytics-rule-integrity.md).
 - See more information about the [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas.
+
+See also:
+- Using the [Microsoft Sentinel Solution for SAP](sap/solution-overview.md)? [Monitor its health](monitor-sap-system-health.md) too.

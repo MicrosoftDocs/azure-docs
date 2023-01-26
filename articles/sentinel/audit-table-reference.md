@@ -1,5 +1,5 @@
 ---
-title: SentinelAudit tables reference 
+title: Microsoft Sentinel audit tables reference
 description: Learn about the fields in the SentinelAudit tables, used for audit monitoring and analysis.
 author: limwainstein
 ms.author: lwainstein
@@ -8,7 +8,7 @@ ms.date: 01/17/2023
 ms.service: microsoft-sentinel
 ---
 
-# SentinelAudit tables reference 
+# Microsoft Sentinel audit tables reference
 
 This article describes the fields in the SentinelAudit tables, which are used for auditing user activity in Microsoft Sentinel resources. With the Microsoft Sentinel audit feature, you can keep tabs on the actions taken in your SIEM and get information on any changes made to your environment and the users that made those changes. 
 
