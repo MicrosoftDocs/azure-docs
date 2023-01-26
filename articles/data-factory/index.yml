@@ -131,7 +131,7 @@ landingContent:
             url: concepts-change-data-capture.md
       - linkListType: concept
         links:
-          - text: Change data capture Resources
+          - text: Change data capture resources
             url: concepts-change-data-capture-resource.md
       - linkListType: tutorial
         links:
