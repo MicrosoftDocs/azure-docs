@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/06/2023
+ms.date: 01/26/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -78,7 +78,7 @@ You can even create multiple instances of the same type of relationship between 
 
 ### Create relationships in bulk
 
-You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to create many relationships at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to create many relationships at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) for bulk jobs and your Azure Digital Twins graph.
 
 >[!TIP]
 >The bulk import API also allows models and twins to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships with bulk import API](#upload-models-twins-and-relationships-with-bulk-import-api).
@@ -180,7 +180,7 @@ This section describes strategies for creating a graph with multiple elements at
 
 ### Upload models, twins, and relationships with bulk import API
 
-You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to upload multiple models, twins, and relationships to your instance in a single API call, effectively creating the graph all at once. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to upload multiple models, twins, and relationships to your instance in a single API call, effectively creating the graph all at once. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) for bulk jobs and your Azure Digital Twins graph.
 
 To import resources in bulk, start by creating an *NDJSON* file containing the details of your resources. The file starts with a `Header` section, followed by the optional sections `Models`, `Twins`, and `Relationships`. You don't have to include all three types of graph data in the file, but any sections that are present must follow that order. Twins defined in the file can reference models that are either defined in this file or already present in the instance, and they can optionally include initialization of the twin's properties. Relationships defined in the file can reference twins that are either defined in this file or already present in the instance, and they can optionally include initialization of relationship properties.
 

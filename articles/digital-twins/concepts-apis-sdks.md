@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins API and SDK options, including information about SDK helper classes and general usage notes.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/06/2023
+ms.date: 01/26/2023
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -87,9 +87,28 @@ Here are some details about functions and returned data:
 * You can iterate over paged results using an `await foreach` loop. For more about this process, see [Iterating with Async Enumerables in C# 8](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
 * Service methods return strongly typed objects wherever possible. However, because Azure Digital Twins is based on models custom-configured by the user at runtime (via DTDL models uploaded to the service), many service APIs take and return twin data in JSON format.
 
-### Bulk import API
+### Serialization helpers in the .NET (C#) SDK
 
-The [bulk import API]() allows you to import a set of models, twins, and/or relationships in a single API call. Bulk API operations are also included with the [CLI commands](concepts-cli.md) and [data plane SDKs](#data-plane-apis). Using the bulk API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+Serialization helpers are helper functions available within the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break down the twin data further.
+
+The available helper classes are:
+* `BasicDigitalTwin`: Generically represents the core data of a digital twin
+* `BasicDigitalTwinComponent`: Generically represents a component in the `Contents` properties of a `BasicDigitalTwin`
+* `BasicRelationship`: Generically represents the core data of a relationship
+* `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom digital twin types
+
+
+## Bulk import API
+
+The [bulk import API]() is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Bulk API operations are also included with the [CLI commands](concepts-cli.md) and [data plane SDKs](#data-plane-apis). Using the bulk API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+
+### Check permissions
+
+Use of the bulk import API requires the following permissions: 
+* Permission to perform data actions for bulk jobs.
+* Permission to write data to your Azure Digital Twins graph (including models, twins, and/or relationships). One role that provides this is *Azure Digital Twins Data Owner* on the Azure Digital Twins instance. For more information about roles in Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md).
+
+### Format data 
 
 The API accepts graph information from an *NDJSON* file, which must be uploaded to an [Azure blob storage](../storage/blobs/storage-blobs-introduction.md) container. The file starts with a `Header` section, followed by the optional sections `Models`, `Twins`, and `Relationships`. You don't have to include all three types of graph data in the file, but any sections that are present must follow that order. Twins and relationships created with this API can optionally include initialization of their properties. 
 
@@ -111,26 +130,31 @@ Here's a sample input data file for the import API:
 >[!TIP]
 >For a sample project that converts JSON into the NDJSON supported by the import API, see [ADT Bulk Import Converter on GitHub](https://github.com/abhinav-ghai/ADTBulkImport). The sample project is written for .NET and can be downloaded or adapted to help you create your own import files.
 
-Once the file has been created, upload it to a container in Azure Blob Storage using your preferred upload method (some options are the [AzCopy command](../storage/common/storage-use-azcopy-blobs-upload.md), the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md#upload-a-blob), or the [Azure portal](https://portal.azure.com)). You'll use the blob storage URL of the NDJSON file in the body of the bulk import API call.
+Once the file has been created, upload it to an append blob in Azure Blob Storage using your preferred upload method (some options are the [AzCopy command](../storage/common/storage-use-azcopy-blobs-upload.md), the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md#upload-a-blob), or the [Azure portal](https://portal.azure.com)). You'll use the blob storage URL of the NDJSON file in the body of the bulk import API call.
 
-For detailed instructions and SDK examples that use the bulk import API for each resource type, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets), [twins](how-to-manage-twin.md#create-twins-in-bulk), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk). You can also upload all of these resources at once to create a full graph in one API call. For more about that process, see [Upload models, twins, and relationships with bulk import API](how-to-manage-graph.md#upload-models-twins-and-relationships-with-bulk-import-api).
+>[!IMPORTANT]
+> The Azure Blob Storage container must have an **Append** blob type, so that the bulk import job can write to output logs.
 
+### Run the import job
 
-### Serialization helpers in the .NET (C#) SDK
+Now you can proceed with [bulk import API]() operations. For detailed instructions and SDK examples that use the bulk import API for each resource type, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets), [twins](how-to-manage-twin.md#create-twins-in-bulk), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk). You can also upload all of these resources at once to create a full graph in one API call. For more about that process, see [Upload models, twins, and relationships with bulk import API](how-to-manage-graph.md#upload-models-twins-and-relationships-with-bulk-import-api).
 
-Serialization helpers are helper functions available within the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break down the twin data further.
+As the import job executes, a structured output log is generated and stored in your blob container. When the job is complete, you can see the total number of ingested entities in the [Azure Digital Twins metrics](how-to-monitor.md).
 
-The available helper classes are:
-* `BasicDigitalTwin`: Generically represents the core data of a digital twin
-* `BasicDigitalTwinComponent`: Generically represents a component in the `Contents` properties of a `BasicDigitalTwin`
-* `BasicRelationship`: Generically represents the core data of a relationship
-* `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom digital twin types
+It's also possible to cancel a running import job and delete it. For more information about this, see [Cancel API](/jobs/imports/cancel?api-version=2023-02-27-preview).
+
+### Limits and considerations
+
+Keep the following considerations in mind while working with the bulk import API:
+* Currently, the bulk import API only supports "create" operations.
+* Bulk import is not an atomic operation. There is no rollback in the case of failure, partial job completion, or usage of the [cancel API](/jobs/imports/cancel?api-version=2023-02-27-preview).
+* Only one bulk import job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the bulk import API in [Azure Digital Twins limits](reference-service-limits.md).
 
 ## Monitor API metrics
 
 API metrics such as requests, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
 
-For information about viewing and managing metrics with Azure Monitor, see [Get started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md). For a full list of API metrics available for Azure Digital Twins, see [Azure Digital Twins API request metrics](how-to-monitor.md#api-request-metrics).
+For information about viewing and managing Azure Digital Twins metrics, see [Monitor your instance](how-to-monitor.md). For a full list of API metrics available for Azure Digital Twins, see [Azure Digital Twins API request metrics](how-to-monitor.md#api-request-metrics).
 
 ## Next steps
 
