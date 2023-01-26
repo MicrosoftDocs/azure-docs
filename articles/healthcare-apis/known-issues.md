@@ -2,7 +2,7 @@
 title: Azure Health Data Services known issues
 description: This article provides details about the known issues of Azure Health Data Services.
 services: healthcare-apis
-author: mikaelweave
+author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
