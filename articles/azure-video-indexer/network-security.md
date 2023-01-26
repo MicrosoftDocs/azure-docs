@@ -36,7 +36,7 @@ The easiest way to begin using service tags with your Azure Video Indexer accoun
 1. From the **Source** drop-down list, select **Service Tag**.
 1. From the **Source service tag** drop-down list, select **VideoIndexer**.
 
-:::image type="content" source="./media/network-security/nsg-service-tag.png" alt-text="Add a service tag from the Azure portal":::
+:::image type="content" source="./media/network-security/nsg-service-tag-videoindexer.png" alt-text="Add a service tag from the Azure portal":::
 
 This tag contains the IP addresses of Azure Video Indexer services for all regions where available. The tag will ensure that your resource can communicate with the Azure Video Indexer services no matter where it's created.
 
