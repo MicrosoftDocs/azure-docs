@@ -119,7 +119,7 @@ In the management project details section, you have the choice of:
 
 You need to decide what is your best option for your organization's architecture. We recommend creating a dedicated project for Defender for Cloud. 
 
-The GCloud script is generated based on the plans you selected to onboard, and will create all of the required resources on your GCP environment so that Defender for Cloud can operate and provide the following security benefits:
+The GCloud script is generated based on the plans you selected to onboard. The script will create all of the required resources on your GCP environment so that Defender for Cloud can operate and provide the following security benefits:
 
 - Workload identity pool
 - Workload identity provider for each plan
@@ -135,7 +135,7 @@ Some of the APIs won't be in direct use with the management project. Instead the
 
 The final step for onboarding is to review all of your selections and to create the connector.
 
-:::image type="content" source="media/concept-gcp-connector/review-and-generate-organization.png" alt-text="Screenshot of the review and generate screen with all of your selections listed for you organization." lightbox="media/concept-gcp-connector/review-and-generate-organization.png":::
+:::image type="content" source="media/concept-gcp-connector/review-and-generate-organization.png" alt-text="Screenshot of the review and generate screen with all of your selections listed for your organization." lightbox="media/concept-gcp-connector/review-and-generate-organization.png":::
 
 ## Next steps
 
