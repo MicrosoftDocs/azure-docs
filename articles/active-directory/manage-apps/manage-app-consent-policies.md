@@ -129,7 +129,7 @@ It's a good idea to start by getting familiar with the existing app consent poli
 1. List all app consent policies:
 
 ```http
-GET https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies
+GET /policies/permissionGrantPolicies?$select=id,displayName,description
 ```
 
 1. View the "include" condition sets of a policy:
