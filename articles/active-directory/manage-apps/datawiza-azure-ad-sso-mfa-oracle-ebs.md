@@ -1,6 +1,6 @@
 ---
-title: Configure Datawiza for Azure AD single sign-on and Multi-Factor Authentication to Oracle EBS
-description: Learn to enable Azure AD SSO and MFA for an Oracle E-Business Suite application via Datawiza
+title: Configure Datawiza for Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle EBS
+description: Learn to enable Azure AD MFA and SSO for an Oracle E-Business Suite application via Datawiza
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -13,11 +13,11 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Configure Datawiza for Azure AD single sign-on and Multi-Factor Authentication to Oracle EBS
+# Configure Datawiza for Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle EBS
 
-In this tutorial, learn how to enable Azure AD SSO and MFA for an Oracle E-Business Suite (EBS) application via Datawiza. 
+In this tutorial, learn how to enable Azure Active Directory Multi-Factor Authentication (MFA) and single sign-on (SSO) for an Oracle E-Business Suite (Oracle EBS) application via Datawiza. 
 
-The benefits of integrating applications with Azure AD via Datawiza:
+The benefits of integrating applications with Azure Active Directory (Azure AD) via Datawiza:
 
 * [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust) - a security model that adapts to modern environments and embraces hybrid workplace, while it protects people, devices, apps, and data
 * [Azure Active Directory single sign-on](https://azure.microsoft.com/solutions/active-directory-sso/#overview) - secure and seamless access for users and apps, from any location, using a device
@@ -28,7 +28,7 @@ The benefits of integrating applications with Azure AD via Datawiza:
 
 ## Scenario description
 
-This document focuses on modern identity providers (IdPs) integrating with the legacy Oracle EBS application. Oracle EBS requires a set of EBS service account credentials and an EBS database container (DBC) file. 
+This document focuses on modern identity providers (IdPs) integrating with the legacy Oracle EBS application. Oracle EBS requires a set of Oracle EBS service account credentials and an Oracle EBS database container (DBC) file. 
 
 ## Architecture
 
@@ -36,20 +36,8 @@ The solution contains the following components:
 
 * **Azure AD** Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
 * **Oracle EBS** the legacy application to be protected by Azure AD.
-* **Datawiza Access Broker (DAP)**: A super lightweight container-based reverse-proxy implements OIDC/OAuth or SAML for user sign-on flow and transparently passes identity to applications through HTTP headers.
+* **Datawiza Access Proxy (DAP)**: A super lightweight container-based reverse-proxy implements OIDC/OAuth or SAML for user sign-on flow and transparently passes identity to applications through HTTP headers.
 * **Datawiza Cloud Management Console (DCMC)**:  A centralized management console that manages DAP. DCMC provides UI and RESTful APIs for administrators to manage the configurations of DAP and its granular access control policies.
-
-SP-initiated and IdP-initiated flows are supported by the architecture. The following diagram illustrates the SP-initiated flow for demonstration purposes.
-
-   ![Diagram of the SP-initiated flow.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/sp-initiated-flow.png)
-
-### Flow description
-
-1.	The user accesses the application URL, which connects with the DAP.
-2.	The DAP checks user authentication state. If it doesn't receive a session token, or the token is invalid, then it redirects the user to Azure AD. OIDC IdP is used in this example.
-3.	Azure AD pre-authenticates the user and applies Conditional Access policies. The user is redirected to DAP and SSO occurs using the issued OIDC token.
-4.	The DAP evaluates its access policies and generates attribute values included in HTTP headers and forwarded to the application. The DAP might call out to the IdP to retrieve information to set the header values correctly. The DAP sets the header values and sends the request to the application.
-5.	The user is authenticated and has access to the application.
 
 ### Prerequisites
 
@@ -64,15 +52,13 @@ Ensure the following prerequisites are met.
   * See, [Get Docker](https://docs.docker.com/get-docker/) and [Overview, Docker Compose](https://docs.docker.com/compose/install/)
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
   * See, [zure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
-* (Optional) An SSL Web certificate to publish services over HTTPS, or use default Datawiza self-signed certs for testing
-  * See SSL profile in [Deploy F5 BIG-IP Virtual Edition VM in Azure](f5-bigip-deployment-guide.md)
 * An Oracle EBS environment
 
-## Configure the EBS environment for SSO and create the DBC file
+## Configure the Oracle EBS environment for SSO and create the DBC file
 
 To enable SSO in the Oracle EBS environment:
 
-1.	Sign in to the EBS Management console as an Administrator.
+1.	Sign in to the Oracle EBS Management console as an Administrator.
 2.	Scroll down the Navigator panel and expand **User Management**. 
 
    ![Screenshot of the User Management dialog.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/user-management.png)
@@ -93,15 +79,15 @@ To enable SSO in the Oracle EBS environment:
 
 In the Oracle EBS Linux environment, generate a new DBC file for DAP. You need the apps user credentials, and the default DBC file (under $FND_SECURE) used by the Apps Tier. 
 
-1.	Configure the environment for EBS using a command similar to: . /u01/install/APPS/EBSapps.env run
+1.	Configure the environment for Oracle EBS using a command similar to: `. /u01/install/APPS/EBSapps.env run`
 2.	Use the AdminDesktop utility to generate the new DBC file. Specify the name of a new Desktop Node for this DBC file: 
 
-java oracle.apps.fnd.security.AdminDesktop apps/apps CREATE NODE_NAME=\<ebs domain name> DBC=/u01/install/APPS/fs1/inst/apps/EBSDB_apps/appl/fnd/12.0.0/secure/EBSDB.dbc
+>`java oracle.apps.fnd.security.AdminDesktop apps/apps CREATE NODE_NAME=\<ebs domain name> DBC=/u01/install/APPS/fs1/inst/apps/EBSDB_apps/appl/fnd/12.0.0/secure/EBSDB.dbc`
 
-3.	This action generates a file called ebsdb_\<ebs domain name>.dbc in the location where you ran the previous command.
+3.	This action generates a file called `ebsdb_\<ebs domain name>.dbc` in the location where you ran the previous command.
 4.	Copy the DBC file content to a notebook. You will use the content later.
 
-## Enable EBS for SSO
+## Enable Oracle EBS for SSO
 
 1. To integrate JDE with Azure AD, sign in to [Datawiza Cloud Management Console (DCMC)](https://console.datawiza.com/).
 2. The Welcome page appears.
@@ -109,23 +95,22 @@ java oracle.apps.fnd.security.AdminDesktop apps/apps CREATE NODE_NAME=\<ebs doma
 
    ![Screenshot of the Getting Started button.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/getting-started.png)
 
-4. Follow the configuration steps.
-5. Enter a **Name**.
-6. Enter a **Description**.
-7. Select **Next**. 
+4. Enter a **Name**.
+5. Enter a **Description**.
+6. Select **Next**. 
 
    ![Screenshot of the name entry under Deployment Name.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/deployment-name.png)
 
-8. On **Add Application**, for **Platform** select **Oracle E-Business Suite**.
-9. For **App Name**, enter the app name. 
-10. For **Public Domain** enter the external-facing URL of the application, for example https://ebs-external.example.com. You can use localhost DNS for testing . 
-11. For **Listen Port**, select the port that DAP listens on. You can use the port in Public Domain if you aren't deploying the DAP behind a load balancer.
-12. For **Upstream Servers**, enter the URL and port combination of the Oracle EBS implementation being protected.
-13. For **EBS Service Account**, enter the username from Service Account (DWSSOUSER).
-14. For **EBS Account Password**, enter the password for the Service Account.
-15. For **EBS User Mapping**, the product decides the attribute to be mapped to EBS username for authentication.
-16. For **EBS DBC Content**, use the content you copied.
-17. Select **Next**.
+7. On **Add Application**, for **Platform** select **Oracle E-Business Suite**.
+8. For **App Name**, enter the app name.
+9. For **Public Domain** enter the external-facing URL of the application, for example `https://ebs-external.example.com`. You can use localhost DNS for testing.
+10. For **Listen Port**, select the port that DAP listens on. You can use the port in Public Domain if you aren't deploying the DAP behind a load balancer.
+11. For **Upstream Servers**, enter the URL and port combination of the Oracle EBS implementation being protected.
+12. For **EBS Service Account**, enter the username from Service Account (DWSSOUSER).
+13. For **EBS Account Password**, enter the password for the Service Account.
+14. For **EBS User Mapping**, the product decides the attribute to be mapped to Oracle EBS username for authentication.
+15. For **EBS DBC Content**, use the content you copied.
+16. Select **Next**.
 
    ![Screenshot of Add Application entries and selections.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/add-application.png)
 
