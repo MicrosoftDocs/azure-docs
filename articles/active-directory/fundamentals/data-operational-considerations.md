@@ -39,7 +39,7 @@ Microsoft personnel can execute operations only from a secure access workstation
 
 Physical access to servers that comprise the Azure AD service, and access to Azure AD back-end systems, is restricted by Azure facility, premises, and physical security. Azure AD customers have no access to physical assets or locations, therefore they can't bypass the logical role-based access control (RBAC) policy checks. Personnel with operator access are authorized to run approved workflows for maintenance.  
 
-Learn more: [Azure facilities, premises, and physical security](physical-security.md)
+Learn more: [Azure facilities, premises, and physical security](../../security/fundamentals/physical-security.md)
 
 ## Change control process
 
