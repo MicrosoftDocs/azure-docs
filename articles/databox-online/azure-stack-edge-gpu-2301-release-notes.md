@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/24/2023
+ms.date: 01/26/2023
 ms.author: alkohli
 ---
 
@@ -29,15 +29,8 @@ You can also upgrade to the latest version using the following upgrade paths:
 
 | Current version     | Upgrade to | Then apply |
 | --------------------| -----------| -----------|
-|2106 (2.2.1636.3457) |2207       |2301       |
-|2110                 |2207       |2301       |
-|2111                 |2207       |2301       |
-|2202                 |2207       |2301       |
-|2203                 |2207       |2301       |
-|2205                 |2207       |2301       |
-|2207                 |2301       |
-|2209                 |2301       |
-|2210                 |2301       |
+|2205 and earlier     |2207        |2301
+|2207 and later       |2301        |
 
 ## What's new
 
