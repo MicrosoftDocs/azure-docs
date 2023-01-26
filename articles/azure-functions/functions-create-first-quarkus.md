@@ -21,9 +21,9 @@ In this article, you'll develop, build, and deploy a serverless Java app to Azur
 * [Apache Maven 3.8.1+](https://maven.apache.org).
 
 
-## Create the app
+## Create the app project
 
-Use the following command to clone the sample code for this article. The sample is on [GitHub](https://github.com/Azure-Samples/quarkus-azure).
+Use the following command to clone the sample Java project for this article. The sample is on [GitHub](https://github.com/Azure-Samples/quarkus-azure).
 
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
