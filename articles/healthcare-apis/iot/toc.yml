@@ -6,8 +6,8 @@ items:
   items:
   - name: What is the MedTech service?
     href: overview.md
-  - name: The MedTech service data flow
-    href: data-flow.md
+  - name: Understand the device message data transformation
+    href: understand-service.md
 - name: Quickstarts
   expanded: true
   items:
