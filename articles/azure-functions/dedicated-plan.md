@@ -2,7 +2,7 @@
 title: Azure Functions Dedicated hosting 
 description: Learn about the benefits of running Azure Functions on a dedicated App Service hosting plan.
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 01/26/2023
 ---
 
 # Dedicated hosting plans for Azure Functions
@@ -33,6 +33,10 @@ Using an App Service plan, you can manually scale out by adding more VM instance
 > [!NOTE] 
 > When running JavaScript (Node.js) functions on an App Service plan, you should choose a plan that has fewer vCPUs. For more information, see [Choose single-core App Service plans](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
+
+## Multiple apps in a plan
+
+Since you pay for the computing resources your App Service plan allocates, you can potentially save money by putting multiple apps into one App Service plan. For detailed guidance on how many function apps you can optimally run in a single dedicated plan, see [Should I put an app in a new plan or an existing plan?](../app-service/overview-hosting-plans.md#should-i-put-an-app-in-a-new-plan-or-an-existing-plan). 
 
 ## App Service Environments
 
