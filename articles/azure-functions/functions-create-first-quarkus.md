@@ -40,7 +40,7 @@ public String funqyHello() {
 }
 ```
 
-Azure Functions Java has its own set of Azure-specific annotations, but these annotations are not necessary when you're using Quarkus on Azure Functions in a simple capacity as we're doing here. For more information about Azure Functions Java annotations, see the [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java).
+Azure Functions Java has its own set of Azure-specific annotations, but these annotations aren't necessary when you're using Quarkus on Azure Functions in a simple capacity as we're doing here. For more information about Azure Functions Java annotations, see the [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java).
 
 Unless you specify otherwise, the function's name is the same as the method name. You can also use the following command to define the function name with a parameter to the annotation:
 
