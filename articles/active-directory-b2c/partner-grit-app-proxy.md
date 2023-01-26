@@ -101,7 +101,7 @@ If the users need to be denied permission to certain pages based on group member
 
 11. Select **SAVE SETTINGS**.
 
-12. Select the link in the popup. It will take you to a sign-in page. Select the sign-up link and enter the required information. Once you complete the sign-up process, you'll be redirected to the legacy application. The application displays the name you provided in the **Given name** field of the sign-up.
+12. Select the link in the popup. It will take you to a sign-in page. Select the sign-up link and enter the required information. Once you complete the sign-up process, you'll be redirected to the legacy application. The application displays the name you provided in the **Given name** field during sign-up.
 
 ## Test the flow
 
