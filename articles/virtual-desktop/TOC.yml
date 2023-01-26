@@ -23,7 +23,7 @@
       - name: Windows Desktop client
         href: whats-new-client-windows.md
       - name: Web client
-        href: /windows-server/remote/remote-desktop-services/clients/web-client-whatsnew?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+        href: whats-new-client-web.md
       - name: macOS client
         href: whats-new-client-macos.md
       - name: iOS/iPadOS client
