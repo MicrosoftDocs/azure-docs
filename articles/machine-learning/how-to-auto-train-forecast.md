@@ -75,7 +75,7 @@ my_training_data_input = Input(
 )
 ```
 
-You can specify [validation data](concept-automated-ml.md#training-validation-and-test-data) in a similar way, by creating a MLTable and an input data object. Alternatively, if you do not supply validation data, AutoML automatically creates cross-validation splits from your training data to use for model selection. See our article on [forecasting model selection](./concept-automl-forecasting-sweeping.md#model-selection) for more details. 
+You can specify [validation data](concept-automated-ml.md#training-validation-and-test-data) in a similar way, by creating a MLTable and an input data object. Alternatively, if you do not supply validation data, AutoML automatically creates cross-validation splits from your training data to use for model selection. See our article on [forecasting model selection](./concept-automl-forecasting-sweeping.md#model-selection) for more details. Also see [training data length requirements](./concept-automl-forecasting-methods.md#data-length-requirements) for details on the how much training data you need to successfully train a forecasting model.
 
 Learn more about how AutoML applies cross validation to [prevent over fitting](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
@@ -88,7 +88,7 @@ AutoML leverages AzureML compute which is a fully managed compute resource that 
 
 There are several options that you can use to configure your AutoML forecasting experiment. These configuration parameters are set in the automl.forecasting() task method. You can also set job training settings and exit criteria with the set_training() and set_limits() functions, respectively.
 
-The following example shows the required parameters for a forecasting task with normalized root mean squared error as the primary metric and five cross-validation folds.
+The following example shows the required parameters for a forecasting task with normalized root mean squared error as the primary metric with the number of cross-validation folds to be automatically determined from the training data.
 
 ```python
 from azure.ai.ml import automl
@@ -100,7 +100,7 @@ forecasting_job = automl.forecasting(
     training_data=my_training_data_input,
     target_column_name=target_column_name,
     primary_metric="NormalizedRootMeanSquaredError",
-    n_cross_validations=5,
+    n_cross_validations="auto",
 )
 
 # Limits are all optional
@@ -112,59 +112,18 @@ forecasting_job.set_limits(
 ```
 
 ### Configuration settings
-
-Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. Forecasting tasks require the `time_column_name` and `forecast_horizon` parameters to configure your experiment. If the data includes multiple time series, such as sales data for multiple stores or energy data across different states, automated ML automatically detects this and sets the `time_series_id_column_names` parameter (preview) for you. You can also include additional parameters to better configure your run, see the [optional configurations](#optional-configurations) section for more detail on what can be included.
-
-> [!IMPORTANT]
-> Automatic time series identification is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-| Parameter&nbsp;name | Description |
-|-------|-------|
-|`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|
-|`forecast_horizon`|Defines how many periods forward you would like to forecast. The horizon is in units of the time series frequency. Units are based on the time interval of your training data, for example, monthly, weekly that the forecaster should predict out.|
-
-The following code, 
-* Leverages the [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) class to define the forecasting parameters for your experiment training
-* Sets the `time_column_name` to the `day_datetime` field in the data set. 
-* Sets the `forecast_horizon` to 50 in order to predict for the entire test set. 
+Forecasting tasks have many settings that are specific to forecasting. To set these, use the set_forecast_settings() method of a ForecastingJob. In the following example, we provide the name of the time column in the training data and set the forecast horizon: 
 
 ```python
-from azureml.automl.core.forecasting_parameters import ForecastingParameters
-
-forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
-                                               forecast_horizon=50,
-                                               freq='W')
-                                              
+# Forecasting specific configuration
+forecasting_job.set_forecast_settings(
+    time_column_name=time_column_name,
+    forecast_horizon=24
+)
 ```
 
-These `forecasting_parameters` are then passed into your standard `AutoMLConfig` object along with the `forecasting` task type, primary metric, exit criteria, and training data. 
+See the [forecast_settings API doc](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) for a full list of settings. The time column name is a required setting and you should generally set the forecast horizon according to your prediction scenario. Other settings are optional and reviewed in the [optional settings](#optional-configurations) section.
 
-```python
-from azureml.core.workspace import Workspace
-from azureml.core.experiment import Experiment
-from azureml.train.automl import AutoMLConfig
-import logging
-
-automl_config = AutoMLConfig(task='forecasting',
-                             primary_metric='normalized_root_mean_squared_error',
-                             experiment_timeout_minutes=15,
-                             enable_early_stopping=True,
-                             training_data=train_data,
-                             label_column_name=label,
-                             n_cross_validations="auto", # Could be customized as an integer
-                             cv_step_size = "auto", # Could be customized as an integer
-                             enable_ensembling=False,
-                             verbosity=logging.INFO,
-                             forecasting_parameters=forecasting_parameters)
-```
-
-The amount of data required to successfully train a forecasting model with automated ML is influenced by the `forecast_horizon`, `n_cross_validations`, and `target_lags` or `target_rolling_window_size` values specified when you configure your `AutoMLConfig`. 
-
-The following formula calculates the amount of historic data that what would be needed to construct time series features.
-
-Minimum historic data required: (2x `forecast_horizon`) + #`n_cross_validations` + max(max(`target_lags`), `target_rolling_window_size`)
-
-An `Error exception` is raised for any series in the dataset that does not meet the required amount of historic data for the relevant settings specified. 
 
 ### Featurization steps
 
