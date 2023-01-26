@@ -65,7 +65,7 @@ Ensure the following prerequisites are met.
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
   * See, [zure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
 * (Optional) An SSL Web certificate to publish services over HTTPS, or use default Datawiza self-signed certs for testing
-  * See, [SSL profile](f5-bigip-deployment-guide#ssl-profile.md)
+  * See SSL profile in [Deploy F5 BIG-IP Virtual Edition VM in Azure](f5-bigip-deployment-guide.md)
 * An Oracle EBS environment
 
 ## Configure the EBS environment for SSO and create the DBC file
@@ -96,9 +96,9 @@ In the Oracle EBS Linux environment, generate a new DBC file for DAP. You need t
 1.	Configure the environment for EBS using a command similar to: . /u01/install/APPS/EBSapps.env run
 2.	Use the AdminDesktop utility to generate the new DBC file. Specify the name of a new Desktop Node for this DBC file: 
 
-java oracle.apps.fnd.security.AdminDesktop apps/apps CREATE NODE_NAME=<your ebs domain name> DBC=/u01/install/APPS/fs1/inst/apps/EBSDB_apps/appl/fnd/12.0.0/secure/EBSDB.dbc
+java oracle.apps.fnd.security.AdminDesktop apps/apps CREATE NODE_NAME=<ebs domain name> DBC=/u01/install/APPS/fs1/inst/apps/EBSDB_apps/appl/fnd/12.0.0/secure/EBSDB.dbc
 
-3.	This action generates a file called ebsdb_<your ebs domain name>.dbc in the location where you ran the previous command.
+3.	This action generates a file called ebsdb_<ebs domain name>.dbc in the location where you ran the previous command.
 4.	Copy the DBC file content to a notebook. You will use the content later.
 
 ## Enable EBS for SSO
@@ -139,7 +139,7 @@ Use the DCMC one-click integration to help you complete Azure AD configuration. 
 
 Configuration on the management console is complete. You are prompted to deploy Datawiza Access Proxy (DAP) with your application. Make a note the deployment Docker Compose file. The file includes the image of the DAP, PROVISIONING_KEY, and PROVISIONING_SECRET. DAP uses this information to pull the latest configuration and policies from DCMC. 
 
-    ![Screenshot of Docker information.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/docker-information.png)
+   ![Screenshot of Docker information.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/docker-information.png)
 
 ### SSL configuration
 
