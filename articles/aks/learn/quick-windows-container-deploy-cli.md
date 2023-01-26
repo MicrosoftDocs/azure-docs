@@ -27,7 +27,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [az account](/cli/azure/account) command.
 
-- The Azure subscription you're using must be registered to use namespace `Microsoft.OperationsManagement`. To check this, follow the instructions in the "Solution" section of [Resolve errors for resource provider registration](/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-portal#solution).
+- The Azure subscription you're using must be registered to use namespace `Microsoft.OperationsManagement`. To check this, follow the instructions in the "Solution" section of [Resolve errors for resource provider registration](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-portal#solution).
 
 ### Limitations
 
