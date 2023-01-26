@@ -3,7 +3,7 @@ groups:
 # Owner: hhunter-ms
 - id: dapr-languages-set
   title: Programming languages
-  prompt: Choose your preferred language
+  prompt: Choose your preferred programming language
   pivots:
   - id: nodejs
     title: Node.js
