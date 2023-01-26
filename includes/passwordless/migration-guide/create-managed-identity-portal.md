@@ -56,7 +56,7 @@ The Service Connector will automatically create a system-assigned managed identi
 
    :::image type="content" source="../media/container-apps-identity.png" alt-text="Screenshot showing how to enable managed identity for Azure Container Apps.":::
 
-### [Azure virtual machines](#tab/virtual-machines)
+### [Azure Virtual Machines](#tab/virtual-machines)
 
 1. On the main overview page of your virtual machine, select **Identity** from the left navigation.
 
