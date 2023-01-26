@@ -32,10 +32,7 @@ A container using subPath volume mount won't receive secret updates when it's ro
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Check that your version of the Azure CLI is 2.30.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
 * If you're restricting Ingress to the cluster, make sure ports **9808** and **8095** are open.
-
-### Supported Kubernetes versions
-
-The minimum recommended Kubernetes version is based on the [rolling Kubernetes version support window][kubernetes-version-support]. Make sure you're running version N-2 or later.
+* The minimum recommended Kubernetes version is based on the [rolling Kubernetes version support window][kubernetes-version-support]. Make sure you're running version N-2 or later.
 
 ## Create an AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver support
 
@@ -335,7 +332,10 @@ For generic troubleshooting steps, see [Azure Key Vault Provider for Secrets Sto
 
 ## Next steps
 
-In this article, you learned how to use the Azure Key Vault Provider for Secrets Store CSI Driver with an AKS cluster. To learn more about CSI Drivers and AKS, see [Enable CSI drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers].
+In this article, you learned how to use the Azure Key Vault Provider for Secrets Store CSI Driver with an AKS cluster. To learn more about the Azure Key Vault Provider for Secrets Store CSI Driver, see:
+
+* [Using the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/usage/)
+* [Upgrading the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/upgrading/)
 
 <!-- LINKS INTERNAL -->
 [az-aks-create]: /cli/azure/aks#az-aks-create
