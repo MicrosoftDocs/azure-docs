@@ -13,14 +13,32 @@ ms.custom: template-how-to
 # Gather diagnostics using the Azure portal
 
 > [!IMPORTANT]
-> Diagnostics packages may contain *personally identifiable information (PII)*. During this procedure, when providing the diagnostics package's SAS URI to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any PII that it contains.
+> Diagnostics packages may contain *personally identifiable information (PII)*. During this procedure, when providing the diagnostics package's *shared access signature (SAS)* URL to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any PII that it contains.
 
-In this how-to guide, you'll learn how to gather a remote diagnostics package for an AP5GC site using the Azure portal. The diagnostics package can be provided, as a SAS URI, to AP5GC support to assist you with issues.
+In this how-to guide, you'll learn how to gather a remote diagnostics package for an AP5GC site using the Azure portal. The diagnostics package can be provided, as a shared access signature (SAS) URL, to AP5GC support to assist you with issues.
 
 ## Prerequisites
 
-- You must already have a storage account blob that is configured for diagnostics storage.
-- You must already have a user assigned managed identity with write access to the diagnostics storage account blob.
+You must already have an AP5GC site deployed to collect diagnostics.
+
+## Collect values for diagnostics package gathering
+
+1. Create a storage account for diagnostics.
+    1. [Create a storage account](../storage/common/storage-account-create.md) with the following additional configuration:
+        1. In the **Advanced** tab, select **Enable storage account key access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
+        1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. This will allow you to specify a time-based retention policy for the account in the next step.
+    1. If you would like the content of your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
+    1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your diagnostics.
+1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) and assign it to the storage account created above with the **Storage Blob Data Contributor** role.  
+    > [!TIP]
+    > Make sure same User-assigned identity is used during site creation.
+1. Navigate to the **Packet core control plane** resource for the site.
+1. Select **Identity** under **Settings** on the left side menu.
+1. Toggle **Modify user assigned managed identity?** to **Yes** and select **+ Add**.
+1. In the **Add user assigned managed identity** select the user-signed managed identity you created.
+1. Select **Add**.
+1. Select **Next**.
+1. Select **Create**.
 
 ## Gather diagnostics for a site
 

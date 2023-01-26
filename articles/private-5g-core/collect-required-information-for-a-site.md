@@ -75,21 +75,9 @@ For each data network that you want to configure, collect all the values in the 
 
 You can use a storage account and user assigned managed identity, with write access to the storage account, to gather diagnostics packages for the site.
 
-If you don't want to configure diagnostics package gathering at this stage, you do not need to collect anything. You can configure this later using the same process.
+If you don't want to configure diagnostics package gathering at this stage, you do not need to collect anything. You can configure this after site creation.
 
-If you want to configure diagnostics package gathering during site creation, follow the steps below.
-
-1. Create a storage account for diagnostics.
-    1. [Create a storage account](../storage/common/storage-account-create.md) with the following additional configuration:
-        1. In the **Advanced** tab, select **Enable storage account key access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
-        1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. This will allow you to specify a time-based retention policy for the account in the next step.
-    1. If you would like the content of your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
-    1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your diagnostics.
-1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) and assign it to the storage account created above with the **Storage Blob Data Contributor** role.  
-    > [!TIP]
-    > Make sure same User-assigned identity is used during site creation.
-1. Navigate to the **Packet core control plane** resource for the site.
-1. Assign the user-assigned managed identity you created to the **Packet core control plane** resource.
+If you want to configure diagnostics package gathering during site creation, see [Collect values for diagnostics package gathering](gather-diagnostics.md#collect-values-for-diagnostics-package-gathering).
 
 ## Collect local monitoring values
 

@@ -17,7 +17,6 @@ Access to the [distributed tracing](distributed-tracing.md) and [packet core das
 In this how-to guide, you'll learn how to use the Azure portal to change the certificate used for securing access to a site's local monitoring tools.
 
 > [!TIP]
-> If you have configured a user-assigned managed identity with access the HTTPS certificates for this site and do not want to replace this with local access configuration, do not follow this procedure.
 > Instead, if you want to modify the user-assigned identity configured for HTTPS certificates, [create a new or edit an existing user-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) using the information collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values).
 
 ## Prerequisites
