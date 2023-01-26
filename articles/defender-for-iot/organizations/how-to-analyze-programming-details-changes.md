@@ -32,7 +32,7 @@ You may need to review programming activity:
 
   - When a process or machine isn't working correctly (to see who carried out the last update and when)
 
-   :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Screenshot of a Programming Change Log":::
+   :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Screenshot of a Programming Change Log.":::
 
 Other options let you:
 
@@ -45,6 +45,8 @@ Other options let you:
 Unauthorized programming events are carried out by devices that haven't been learned or manually defined as programming devices. Authorized programming events are carried out by devices that were resolved or manually defined as programming devices.
 
 The **Programming Timeline** window displays both authorized and unauthorized programming events.
+
+:::image type="content" source="media/analyze-programming/programming-timeline-2.png" alt-text="Screenshot of the programming timeline window." lightbox="media/analyze-programming/programming-timeline-2.png":::
 
 ## Accessing programming details and changes
 
@@ -72,7 +74,7 @@ Alerts are triggered when unauthorized programming devices carry out programming
 
 1. Select **Programming** to open the **Programming timeline**.
 
-:::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Screenshot of unauthorized programming alerts":::
+:::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Screenshot of unauthorized programming alerts.":::
 
 ### Device map
 
@@ -80,10 +82,12 @@ Alerts are triggered when unauthorized programming devices carry out programming
 
 1. Under **OT Protocol**, select **DeltaV**.
 
-1. In the map, right click on the device you want to analyze, and select **Programming timeline**.
+1. In the map, right-click on the device you want to analyze, and select **Programming timeline**.
+
+    :::image type="content" source="media/analyze-programming/select-programming-timeline-from-device-map.png" alt-text="Screenshot of the programming timeline option from the device map.":::
 
 1. Select a file to view programming details. You can also download the file, or compare it to other recent files. For more information, see [Working in the programming timeline window](#working-in-the-programming-timeline-window).
-
+    
 ### Device inventory
 
 The device inventory indicates if a device is a programming device, and the device properties window provides information on the last programming event detected on the device.
@@ -99,6 +103,8 @@ The device inventory indicates if a device is a programming device, and the devi
 1. Select the device you want to analyze, and then select **View full details** to open the device properties page.
 
 1. On the device properties page, go to the **Programming timeline** tab to select a file and view programming details. You can also download the file, or compare it to other recent files. For more information, see [Working in the programming timeline window](#working-in-the-programming-timeline-window).
+
+    :::image type="content" source="media/analyze-programming/programming-timeline-window-device-inventory.png" alt-text="Screenshot of programming timeline tab on device properties page.":::
 
 ### Event timeline
 
@@ -122,18 +128,18 @@ This section describes how to view programming files and compare versions. Searc
 
   - File type
 
-   :::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="Screenshot of a programming timeline window.":::
+### Programming timeline reference
 
 |Programming timeline type | Description |
 |--|--|
 | Programmed Device | Provides details about the device that was programmed, including the hostname and file. |
 | Recent Events | Displays the 50 most recent events detected by the sensor. <br />To highlight an event, hover over it and select the star. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> The last 50 events can be viewed. |
 | Files | Displays the files detected for the chosen date and the file size on the programmed device. <br /> By default, the maximum number of files available for display per device is 300. <br /> By default, the maximum file size for each file is 15 MB. |
-| File status :::image type="icon" source="media/how-to-work-with-maps/status-v2.png" border="false"::: | File labels indicate the status of the file on the device, including: <br /> **Added**: the file was added to the endpoint on the date or time selected. <br /> **Updated**: The file was updated on the date or time selected. <br /> **Deleted**: This file was removed. <br /> **No label**: The file wasn't changed.   |
+| File status :::image type="icon" source="media/analyze-programming/file-status.png" border="false"::: | File labels indicate the status of the file on the device, including: <br /> **Added**: the file was added to the endpoint on the date or time selected. <br /> **Updated**: The file was updated on the date or time selected. <br /> **Deleted**: This file was removed. <br /> **No label**: The file wasn't changed.   |
 | Programming Device | The device that made the programming change. Multiple devices may have carried out programming changes on one programmed device. The hostname, date, or time of change and logged in user are displayed. |
-| :::image type="icon" source="media/how-to-work-with-maps/current.png" border="false"::: | Indicates the current file installed on the programmed device. |
-| :::image type="icon" source="media/how-to-work-with-maps/download-text.png" border="false"::: | Download a text file of the code displayed. |
-| :::image type="icon" source="media/how-to-work-with-maps/compare.png" border="false"::: | Compare the current file with another file detected on a selected date. |
+| :::image type="content" source="media/analyze-programming/current-file-indication.png" alt-text="Image of current file indication."::: | Indicates the current file installed on the programmed device. |
+| :::image type="icon" source="media/analyze-programming/download-icon.png" border="false"::: | Download a text file of the code displayed. |
+| :::image type="icon" source="media/analyze-programming/compare-icon.png" border="false"::: | Compare the current file with another file detected on a selected date. |
 
 ### Choose a file to review
 
@@ -145,7 +151,7 @@ This section describes how to choose a file to review.
 
 2. Select a file from the **File** pane. The file appears in the pane on the right.
 
-   :::image type="content" source="media/how-to-work-with-maps/choose-file.png" alt-text="Screenshot of selecting the file you want to work with.":::
+   :::image type="content" source="media/analyze-programming/programming-timeline-2.png" alt-text="Screenshot of the programming timeline window." lightbox="media/analyze-programming/programming-timeline-2.png":::
 
 ### Compare files
 
@@ -157,13 +163,16 @@ This section describes how to compare programming files.
 
 2. Select a file from the **File** pane. The file appears in the pane on the right. You can compare this file to other files.
 
-3. Select the compare indicator.
+3. Select the compare indicator. 
 
-   :::image type="content" source="media/how-to-work-with-maps/compare.png" alt-text="Screenshot of the compare indicator.":::
+    :::image type="content" source="media/analyze-programming/compare-icon.png" alt-text="Screenshot of the compare indicator.":::
 
 1. Select a file for comparison by clicking on the scale icon under **Action** next to the file. 
 
-    <!--Remove all of this? I don';'t see this option of differences or dates-->
+    :::image type="content" source="media/analyze-programming/compare-file-pane.png" alt-text="Screenshot of compare files pane.":::
+
+   <!--Remove all of this? I don';'t see this option of differences or dates-->
+
    The window displays all dates the selected file was detected on the programmed device. The file may have been updated on the programmed device by multiple programming devices.
 
    The number of differences detected appears in the upper right-hand corner of the window. You may need to scroll down to view differences.
@@ -176,9 +185,13 @@ This section describes how to compare programming files.
 
 <!--Remove all of this? I don''t see this option of differences or dates-->
 
-4. Select a date. The file detected on the selected date appears in the window. <!--Remove? I don't see this option-->
+1. Select a date. The file detected on the selected date appears in the window. <!--Remove? I don't see this option-->
 
-5. The file selected from the **Recent Events** or **Files** pane always appears on the right.
+1. The file selected from the **Recent Events** or **Files** pane always appears on the right.
+
+    :::image type="content" source="media/analyze-programming/compare-files-side-by-side.png" alt-text="Screenshot of programming file comparison side by side.":::
+
+    Compare and download files as needed. 
 
 ## Next steps
 
