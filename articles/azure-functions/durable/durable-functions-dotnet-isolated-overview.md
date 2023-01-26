@@ -11,11 +11,11 @@ ms.devlang: csharp
 
 # Overview for running Durable Functions in the .NET isolated worker
 
-This article is an overview for Durable Functions in the Azure Functions .NET isolated worker process. If you are new to the .NET isolated worker process, [start here](../dotnet-isolated-process-guide.md). This allows you to run your Durable Functions on a version of .NET that is different than the version used by the Functions host process.
+This article is an overview for Durable Functions in the Azure Functions .NET isolated worker process. If you're new to the .NET isolated worker process, [start here](../dotnet-isolated-process-guide.md). The isolated worker allows you to run your Durable Functions on a version of .NET that is different than the version used by the Functions host process.
 
 ## Why Durable Functions for .NET isolated worker?
 
-Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated work process. See [here](../dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process) for more information.
+Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated work process. For more information, see [here](../dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process).
 
 ### Feature parity with in-process Durable functions
 
@@ -27,17 +27,17 @@ Not all features from in-process Durable functions have yet been migrated to the
 ### Feature improvements over in-process Durable functions
 
 - Orchestration input can be injected directly: `MyOrchestration([OrchestrationTrigger] TaskOrchestrationContext context, T input)`
-- Support for strongly-typed calls and class-based activities and orchestrations (NOTE: in preview, see [here](#source-generator-and-class-based-activities-and-orchestrations) for more details.)
+- Support for strongly typed calls and class-based activities and orchestrations (NOTE: in preview. For more information, see [here](#source-generator-and-class-based-activities-and-orchestrations).)
 - Plus all the benefits of Azure Functions .NET isolated worker.
 
 ### Source Generator and class-based activities and orchestrations
 
 Requirement: add `<PackageReference Include="Microsoft.DurableTask.Generators" Version="1.0.0-preview.1" />` to your project.
 
-By adding the source generator package you get access to 2 new features:
+By adding the source generator package, you get access to two new features:
 
-1. Class-based activities and orchestrations, an alternative way to write Durable Functions. Instead of "function-based", you write strongly-typed classes which inherit types from the Durable SDK.
-2. Strongly-typed extension methods for invoking sub-orchestrations and activities. This can also be used from "function-based" activities and orchestrations.
+1. Class-based activities and orchestrations, an alternative way to write Durable Functions. Instead of "function-based", you write strongly-typed classes, which inherit types from the Durable SDK.
+2. Strongly typed extension methods for invoking sub orchestrations and activities. These extension methods can also be used from "function-based" activities and orchestrations.
 
 Example:
 
@@ -95,15 +95,15 @@ public class MyOrchestration : TaskOrchestrator<string, string>
 
 ## Migration Guide
 
-This guide assumes you are starting a .NET Durable Functions 2.x project.
+This guide assumes you're starting a .NET Durable Functions 2.x project.
 
 ### Update your project
 
-The first step is to update your project to [Azure Functions .NET isolated](../migrate-version-3-version-4.md). After that is done, the next step is to update your Durable nuget package references:
+The first step is to update your project to [Azure Functions .NET isolated](../migrate-version-3-version-4.md). After that is done, the next step is to update your Durable Functions NuGet package references:
 
 # [.NET csproj changes](#tab/csproj)
 
-The following changes are required in the .csproj XML project file:
+The following changes are required in the csproj XML project file:
 
 1. Replace the existing durable packages with the isolated worker packages:
 
@@ -125,15 +125,15 @@ New:
 
 ### Update your code
 
-Durable Functions for .NET isolated worker is an entirely new package with different types and namespaces. There are several required changes to your code as a result, but many of the APIs line up with no changes needed.
+Durable Functions for .NET isolated worker is an entirely new package with different types and namespaces. There are required changes to your code as a result, but many of the APIs line up with no changes needed.
 
 #### Host.json schema
 
-The schema for Durable Functions .NET isolated worker and Durable Functions 2.x has remained the same, no changes sbould be needed.
+The schema for Durable Functions .NET isolated worker and Durable Functions 2.x has remained the same, no changes should be needed.
 
 #### Public interface changes
 
-This is not an exhaustive list of change.
+This table isn't an exhaustive list of change.
 
 | 2.x | Isolated |
 | ---- | ---- |
@@ -150,4 +150,4 @@ This is not an exhaustive list of change.
 
 #### Behavioral Changes
 
-- Serialization default behavior has changed from `Newtonsoft.Json` to `System.Text.Json`. See [here](./durable-functions-serialization-and-persistence.md) for more details.
+- Serialization default behavior has changed from `Newtonsoft.Json` to `System.Text.Json`. For more information, see [here](./durable-functions-serialization-and-persistence.md).
