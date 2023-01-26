@@ -3,6 +3,7 @@ title: Protecting your GCP projects and organizations
 description: Learn how 
 titleSuffix: Microsoft Defender for Cloud
 ms.topic: conceptual
+ms.service: defender-for-cloud
 ms.date: 01/26/2023
 ---
 
