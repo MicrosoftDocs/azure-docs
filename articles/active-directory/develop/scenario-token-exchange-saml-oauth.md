@@ -11,7 +11,6 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: owenrichards
 ms.reviewer: jmprieur
-ms.reviewer: paulgarn
 ms.custom: has-adal-ref
 ---
 

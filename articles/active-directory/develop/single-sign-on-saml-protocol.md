@@ -14,7 +14,7 @@ ms.date: 08/31/2022
 ms.author: owenrichards
 ms.reviewer: kenwith
 ms.custom: aaddev
-ms.reviewer: paulgarn
+
 ---
 
 # Single sign-on SAML protocol
