@@ -565,7 +565,7 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
 1. In the dynamic content list, select **Expression**.
 
-1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want.
+1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
 
    Syntax: `item()?['<array-property-name>']`
 
@@ -592,7 +592,7 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
 1. In the dynamic content list, select **Expression**.
 
-1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want.
+1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
 
    Syntax: `item()?['<array-property-name>']`
 
@@ -759,7 +759,7 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
 1. For the condition, specify the array items to compare, select the comparison operator, and specify the comparison value.
 
-   This example uses the `item()` function to access each item in the array, while the **Filter array** action searches for array items where the value is greater than one. The following screenshot shows the finished example **Filter array** action:
+   This example uses the [**item()** function](workflow-definition-language-functions-reference.md#item) to access each item in the array, while the **Filter array** action searches for array items where the value is greater than one. The following screenshot shows the finished example **Filter array** action:
 
    ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Filter array" action.](./media/logic-apps-perform-data-operations/finished-filter-array-action-consumption.png)
 
@@ -798,7 +798,7 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
 1. For the condition, specify the array items to compare, select the comparison operator, and specify the comparison value.
 
-   This example uses the `item()` function to access each item in the array, while the **Filter array** action searches for array items where the value is greater than one. The following screenshot shows the finished example **Filter array** action:
+   This example uses the [**item()** function](workflow-definition-language-functions-reference.md#item) to access each item in the array, while the **Filter array** action searches for array items where the value is greater than one. The following screenshot shows the finished example **Filter array** action:
 
    ![Screenshot showing the designer for a Standard workflow and the finished example for the "Filter array" action.](./media/logic-apps-perform-data-operations/finished-filter-array-action-standard.png)
 
@@ -816,7 +816,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Filter array** action, enter the following expression, which includes the **Filter array** action name, and then select **OK**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Filter array** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and then select **OK**.
 
    `actionBody('Filter_array')`
 
@@ -832,9 +832,9 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 1. In your workflow, add an action that can send you the results from the **Filter array** action.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Filter array** action, enter the following expression, which includes the **Filter array** action name, and then select **OK**.
+1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Filter array** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and then select **OK**.
 
-   `@actionBody('Filter_array')`
+   `actionBody('Filter_array')`
 
    ![Screenshot showing a Standard workflow with the "Send an email" action and the action outputs from the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-standard.png)
 
@@ -1257,7 +1257,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
 1. In the right column, enter an expression that specifies the value in the source array for the property name in the left column.
 
-   This example uses the `item()` function to iterate through and access each item in the array.
+   This example uses the [**item()** function](workflow-definition-language-functions-reference.md#item) to iterate through and access each item in the array.
 
    1. Click inside the right column, and when the dynamic content list that opens, select **Expression**.
 
@@ -1267,7 +1267,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
    The **Select** action now appears similar to the following example:
 
-   ![Screenshot showing the "Create HTML table" action in a Consumption workflow and the finished example for the "Select" action.](./media/logic-apps-perform-data-operations/finished-select-action-consumption.png)
+   ![Screenshot showing the "Select" action in a Consumption workflow and the finished example for the "Select" action.](./media/logic-apps-perform-data-operations/finished-select-action-consumption.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -1303,7 +1303,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
 1. In the right column, enter an expression that specifies the value in the source array for the property name in the left column.
 
-   This example uses the `item()` function to iterate through and access each item in the array.
+   This example uses the [`item()` function](workflow-definition-language-functions-reference.md#item) to iterate through and access each item in the array.
 
    1. Click inside the right column, and when the dynamic content list that opens, select **Expression**.
 
@@ -1325,11 +1325,11 @@ To confirm whether the **Select** action creates the expected results, send your
 
 1. In your workflow, add an action that can send you the results from the **Select** action.
 
-1. In this action, click anywhere you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Select** action, enter this expression that includes the **Select** action's name:
+1. In this action, click anywhere you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Select** action, enter this expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and select **OK**:
 
-   `@actionBody('Select')`
+   `actionBody('Select')`
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the outputs from the `@actionBody('Select')` expression in the email's body:
+   This example uses the Office 365 Outlook **Send an email** action and includes the outputs from the `actionBody('Select')` expression in the email's body:
 
    ![Action outputs from "Select" action](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 
