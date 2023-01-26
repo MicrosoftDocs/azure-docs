@@ -9,27 +9,27 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
 ms.date: 11/18/2021
 show_latex: true
 ---
 
 # Set up AutoML to train a time-series forecasting model with Python
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
-In this article, you'll learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme).
+In this article, you learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
 To do so, you: 
 
 > [!div class="checklist"]
-> * Prepare data for training.
-> * Configure specific time-series parameters in a [Forecasting Job](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob).
-> * Get predictions from trained time-series models.
+> * Prepare data for time series modeling.
+> * Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object.
+> * Run predictions with time-series data.
 
 For a low code experience, see the [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md) for a time-series forecasting example using automated ML in the [Azure Machine Learning studio](https://ml.azure.com/).
 
-AutoML uses standard machine learning models along with well-known time series models to create forecasts. Our approach incorporates multiple contextual variables and their relationship to one another during training. Since multiple factors can influence a forecast, this method aligns itself well with real world forecasting scenarios. For example, when forecasting sales, interactions of historical trends, exchange rate, and price can all jointly drive the sales outcome. For more details, see our article on [forecasting methods](./concept-automl-forecasting-methods.md). 
+Unlike classical time series methods, in automated ML, past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach incorporates multiple contextual variables and their relationship to one another during training. Since multiple factors can influence a forecast, this method aligns itself well with real world forecasting scenarios. For example, when forecasting sales, interactions of historical trends, exchange rate, and price all jointly drive the sales outcome. 
 
 ## Prerequisites
 
@@ -37,47 +37,18 @@ For this article you need,
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* The ability to launch AutoML training jobs. Follow the [how-to guide for setting up AutoML](how-to-configure-auto-train.md) for details.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
 ## Training and validation data
 
-Input data for AutoML forecasting must contain valid time series in tabular format. Each variable must have its own corresponding column in the data table. AutoML requires at least two columns: a **time column** representing the time axis and the **target column** which is the quantity to forecast. Additional columns can serve as predictors. For more details, see [how AutoML uses your data](./concept-automl-forecasting-methods.md#how-automl-uses-your-data). 
+The most important difference between a forecasting regression task type and regression task type within automated ML is including a feature in your training data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. 
 
 > [!IMPORTANT]
 > When training a model for forecasting future values, ensure all the features used in training can be used when running predictions for your intended horizon. <br> <br>For example, when creating a demand forecast, including a feature for current stock price could massively increase training accuracy. However, if you intend to forecast with a long horizon, you may not be able to accurately predict future stock values corresponding to future time-series points, and model accuracy could suffer.
 
-AutoML forecasting jobs require that your training data is represented as an **MLTable** object. An MLTable specifies a data source and a set of instructions for loading the data. As a simple example, suppose your training data is contained in a CSV file in a local directory, `./train_data/timeseries_train.csv`. You can define a new MLTable by copying the following YAML code to a new file, `./train_data/MLTable`:
-
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/MLTable.schema.json
-
-type: mltable
-paths:
-    - file: ./timeseries_train.csv
-
-transformations:
-    - read_delimited:
-        delimiter: ','
-        encoding: ascii
-```
-
-You can now define an input data object from the MLTable:
-
-```python
-from azure.ai.ml.constants import AssetTypes
-from azure.ai.ml import Input
-
-# Training MLTable defined locally, with local data to be uploaded
-my_training_data_input = Input(
-    type=AssetTypes.MLTABLE, path="./train_data"
-)
-```
-
-This input data object is directly passed to a [ForecastingJob](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob) object to start a training job.  See the [MLTable how-to guide](./how-to-mltable.md) for more information about MLTables. Learn more in the [configuring an experiment](#configure-experiment) section.
-
-You can specify [validation data and testing data](concept-automated-ml.md#training-validation-and-test-data) in a similar way.
+You can specify separate [training data and validation data](concept-automated-ml.md#training-validation-and-test-data) directly in the `AutoMLConfig` object. Learn more about the [AutoMLConfig](#configure-experiment).
 
 For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is used for validation by default. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage.
 
@@ -85,21 +56,15 @@ For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is 
 
 Pass your training and validation data as one dataset to the parameter `training_data`. Set the number of cross validation folds with the parameter `n_cross_validations` and set the number of periods between two consecutive cross-validation folds with `cv_step_size`. You can also leave either or both parameters empty and AutoML will set them automatically. 
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
-from azure.ai.ml import automl
-
-# Create the AutoML forecasting job
-forecasting_job = automl.forecasting(
-    compute=compute_name,
-    experiment_name=exp_name,
-    training_data=my_training_data_input,
-    # validation_data = my_validation_data_input,
-    target_column_name=target_column_name,
-    primary_metric="NormalizedRootMeanSquaredError",
-    n_cross_validations=n_cross_validations,
-)
+automl_config = AutoMLConfig(task='forecasting',
+                             training_data= training_data,
+                             n_cross_validations="auto", # Could be customized as an integer
+                             cv_step_size = "auto", # Could be customized as an integer
+                             ...
+                             **time_series_settings)
 ```
 
 
