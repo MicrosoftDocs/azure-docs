@@ -25,11 +25,11 @@ An app consent policy consists of one or more "include" condition sets and zero 
 
 Each condition set consists of several conditions. For an event to match a condition set, *all* conditions in the condition set must be met.
 
-App consent policies where the ID begins with "microsoft-" are built-in policies. Some of these built-in policies are used in existing built-in directory roles. For example, the `microsoft-application-admin` app consent policy describes the conditions under which the Application Administrator and Cloud Application Administrator roles are allowed to grant tenant-wide admin consent. Built-in policies can be used in custom directory roles and to configure user consent settings, but cannot be edited or deleted.
+App consent policies where the ID begins with "microsoft-" are built-in policies. Some of these built-in policies are used in existing built-in directory roles. For example, the `microsoft-application-admin` app consent policy describes the conditions under which the Application Administrator and Cloud Application Administrator roles are allowed to grant tenant-wide admin consent. Built-in policies can be used in custom directory roles and to configure user consent settings, but can't be edited or deleted.
 
 ## Pre-requisites
 
-1. A user or service with one of the following:
+1. A user or service with one of the following roles:
    - Global Administrator directory role
    - Privileged Role Administrator directory role
    - A custom directory role with the necessary [permissions to manage app consent policies](../roles/custom-consent-permissions.md#managing-app-consent-policies)
@@ -201,7 +201,6 @@ Once the app consent policy has been created, you can [allow user consent](confi
 ```http
 DELETE https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies/ my-custom-policy
 ```
-
 
 :::zone-end
 
