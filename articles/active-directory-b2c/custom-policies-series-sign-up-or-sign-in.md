@@ -214,15 +214,10 @@ In the `ContosoCustomPolicy.XML` file, locate the *ContentDefinitions* section, 
             </ContentDefinition>
     <!--</ContentDefinitions>-->
 ``` 
-We've configured a content definition for our self-asserted technical profile, `SignupOrSigninContentDefinition`. We can specify it in the technical profile using the metadata element or specify it when we reference the technical profile in the orchestration steps. Previously, we learnt how to specify a content definition directly in the self-asserted technical profile, so in this article, we'll learn how to specify it when we reference the technical profile in the orchestration steps, [step 5](#step-5---update-the-user-journey-orchestration-steps).
-
-## Step 3 - Update the ClaimGenerator Technical Profile
+We've configured a content definition for our self-asserted technical profile, `SignupOrSigninContentDefinition`. We can specify it in the technical profile using the metadata element or specify it when we reference the technical profile in the orchestration steps. Previously, we learnt how to specify a content definition directly in the self-asserted technical profile, so in this article, we'll learn how to specify it when we reference the technical profile in the orchestration steps, [step 3](#step-3---update-the-user-journey-orchestration-steps).
 
 
-## Step 4 - Update AAD-UserRead Technical Profile 
-
-
-## Step 5 - Update the User Journey Orchestration Steps
+## Step 3 - Update the User Journey Orchestration Steps
 
 In the `ContosoCustomPolicy.XML` file, locate the *HelloWorldJourney* user journey and replace all its orchestration steps with the following code: 
 
@@ -314,11 +309,11 @@ When the custom policy runs:
 
 -  **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT token at the end of the policy’s execution
 
-## Step 6 - Upload policy
+## Step 4 - Upload policy
 
 Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file) to upload your policy file. If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
 
-## Step 7 - Test policy 
+## Step 5 - Test policy 
 
 Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-6---test-the-custom-policy) to test your custom policy. Once the policy runs, you'll see an interface similar to the screenshot below:
 
