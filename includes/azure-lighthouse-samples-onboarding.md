@@ -5,7 +5,7 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/21/2022
+ms.date: 01/26/2023
 ms.author: jenhayes
 ms.custom: include file
 ---
@@ -19,6 +19,9 @@ We provide different templates to address specific onboarding scenarios. Choose 
 | [marketplace-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/marketplace-delegated-resource-management) | If you've [published a managed services offer to Azure Marketplace](../articles/lighthouse/how-to/publish-managed-services-offers.md), you can optionally use this template to onboard resources for customers who have accepted the offer. The marketplace values in the parameters file must match the values that you used when publishing your offer. |
 
 To include [eligible authorizations](../articles/lighthouse/how-to/create-eligible-authorizations.md), select the corresponding template from the [delegated-resource-management-eligible-authorizations](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations) section of our samples repo.
+
+> [!TIP]
+> While you can't onboard an entire management group in one deployment, you can deploy a policy to [onboard each subscription in a management group])(../articles/lighthouse/how-to/onboard-management-group.md).
 
 Typically, a separate deployment is required for each subscription being onboarded, but you can also deploy templates across multiple subscriptions.
 
