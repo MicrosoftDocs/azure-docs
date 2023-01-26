@@ -382,7 +382,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
         command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
     ```
 
-   The value for **runtimeClassNameSpec** can be `kata-qemu` or `kata-mhsv-vm-isolation`.
+   The value for **runtimeClassNameSpec** is `kata-mhsv-vm-isolation`.
 
 2. Deploy the Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *untrusted-app.yaml* file:
 
