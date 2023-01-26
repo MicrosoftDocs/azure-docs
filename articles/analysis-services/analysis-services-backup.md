@@ -33,21 +33,21 @@ Before backing up, you need to configure storage settings for your server.
 ### To configure storage settings
 1.  In Azure portal > **Settings**, click **Backup**.
 
-    ![Screenshot that shows Backups in Settings](./media/analysis-services-backup/aas-backup-backups.png)
+    ![Screenshot that shows Backups in Settings.](./media/analysis-services-backup/aas-backup-backups.png)
 
 2.  Click **Enabled**, then click **Storage Settings**.
 
-    ![Screenshot that shows Enabled button](./media/analysis-services-backup/aas-backup-enable.png)
+    ![Screenshot that shows Enabled button.](./media/analysis-services-backup/aas-backup-enable.png)
 
 3. Select your storage account or create a new one.
 
 4. Select a container or create a new one.
 
-    ![Screenshot that shows selecting a container](./media/analysis-services-backup/aas-backup-container.png)
+    ![Screenshot that shows selecting a container.](./media/analysis-services-backup/aas-backup-container.png)
 
 5. Save your backup settings.
 
-    ![Screenshot that shows Save backup settings](./media/analysis-services-backup/aas-backup-save.png)
+    ![Screenshot that shows Save backup settings.](./media/analysis-services-backup/aas-backup-save.png)
 
 ## Backup
 

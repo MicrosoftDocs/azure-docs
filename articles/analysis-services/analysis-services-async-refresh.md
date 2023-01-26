@@ -40,7 +40,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 
 By using the base URL, resources and operations can be appended based on the following parameters: 
 
-![Diagram that shows asynchronous refresh logic](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
+![Diagram that shows asynchronous refresh logic.](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
 - Anything that ends in **s** is a collection.
 - Anything that ends with **()** is a function.

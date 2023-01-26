@@ -32,7 +32,7 @@ You can configure server administrators using SQL Server Management Studio (SSMS
 2. In **Server Properties** > **Security**, click **Add**.
 3. In **Select a User or Group**, search for your registered app by name, select, and then click **Add**.
 
-    ![Screenshot that shows Search for service principal account](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
+    ![Screenshot that shows Search for service principal account.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
 4. Verify the service principal account ID, and then click **OK**.
     

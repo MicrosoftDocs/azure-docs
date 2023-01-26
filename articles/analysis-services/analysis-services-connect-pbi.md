@@ -34,7 +34,7 @@ After you've created a server in Azure and deployed a tabular model to it, users
 
 5. When prompted to enter your credentials, select **Microsoft account**, and then click **Sign in**. 
 
-    :::image type="content" source="media/analysis-services-connect-pbi/aas-sign-in.png" alt-text="Screen showing Sign in to Azure Analysis Services":::
+    :::image type="content" source="media/analysis-services-connect-pbi/aas-sign-in.png" alt-text="Screenshot showing Sign in to Azure Analysis Services.":::
 
    > [!NOTE]
    > Windows and Basic authentication are not supported. 

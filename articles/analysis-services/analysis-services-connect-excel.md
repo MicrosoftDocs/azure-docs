@@ -28,11 +28,11 @@ Connecting to a server in Excel is supported by using Get Data in Excel 2016 and
     > [!IMPORTANT]
     > If you sign in with a Microsoft Account, Live ID, Yahoo, Gmail, etc., or you are required to sign in with multi-factor authentication, leave the password field blank. You are prompted for a password after clicking Next. 
 
-    ![Screenshot that shows Connect to Database Server screen in Data Connection Wizard](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
+    ![Screenshot that shows Connect to Database Server screen in Data Connection Wizard.](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
 3. In **Select Database and Table**, select the database and model or perspective, and then click **Finish**.
    
-    ![Screenshot that shows selecting a model in Data Connection Wizard](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
+    ![Screenshot that shows selecting a model in Data Connection Wizard.](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
 ## See also

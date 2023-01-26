@@ -36,15 +36,15 @@ Sign in to the [portal](https://portal.azure.com/).
 
 1. In server **Overview**, click **New model**.
 
-    ![Screen showing New model button](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
+    ![Screen showing New model button.](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
 2. In **New model** > **Choose a data source**,  verify **Sample data** is selected, and then click **Add**.
 
-    ![Screen showing New model dialog](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
+    ![Screen showing New model dialog.](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
 3. In **Overview**, verify the `adventureworks` sample model is added.
 
-    ![Screen showing new model on the server](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
+    ![Screen showing new model on the server.](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
 
 
 ## Clean up resources
