@@ -15,7 +15,7 @@ ms.author: jodowns
 In Azure Front Door, a *domain* represents a custom domain name that Front Door uses to receive your application's traffic. Azure Front Door supports adding three types of domain names:
 
 - **Subdomains** are the most common type of custom domain name. An example subdomain is `myapplication.contoso.com`.
-- **Apex domains** don't contain a subdomain. An example apex domain is `contoso.com`.
+- **Apex domains** don't contain a subdomain. An example apex domain is `contoso.com`. For more information about using apex domains with Azure Front Door, see [Apex domains](./apex-domain.md).
 - **Wildcard domains** allow traffic to be received for any subdomain. An example wildcard domain is `*.contoso.com`. For more information about using wildcard domains with Azure Front Door, see [Wildcard domains](./front-door-wildcard-domain.md).
 
 Domains are added to your Azure Front Door profile. You can use a domain in multiple endpoints, if you use different paths in each route.
@@ -79,52 +79,28 @@ The following table lists the validation states that a domain might show.
 > - If the **Regenerate** button doesn't work, delete and recreate the domain.
 > - If the domain state doesn't reflect as expected, select the **Refresh** button.
 
-## Apex domains
-
-Apex domains, also called *root domains* or *naked domains*, are at the root of a DNS zone and don't contain subdomains. For example, `contoso.com` is an apex domain.
-
-To add a root or apex domain to your Azure Front Door profile, see [Onboard a root or apex domain on your Azure Front Door profile](front-door-how-to-onboard-apex-domain.md).
-
-### CNAME flattening
-
-The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`, you can create a CNAME record for `myappliation.contoso.com`, but you can't create a CNAME record for `contoso.com` itself.
-
-Azure Front Door doesn't expose the frontend public IP address associated with your Azure Front Door endpoint. This means that you can't map an apex domain to an IP address if your intent is to onboard it to Azure Front Door. 
-
-> [!WARNING]
-> Don't create an A record with the public IP address of your Azure Front Door endpoint. Your Azure Front Door endpoint's public IP address might change and we don't provide any guarantees that it will remain the same.
-
-However, this problem can be resolved by using alias records in Azure DNS. Unlike CNAME records, alias records are created at the zone apex. You can point a zone apex record to an Azure Front Door profile that has public endpoints. Multiple application owners can point to the same Azure Front Door endpoint that's used for any other domain within their DNS zone. For example, `contoso.com` and `www.contoso.com` can point to the same Azure Front Door endpoint.
-
-Mapping your apex or root domain to your Azure Front Door profile uses *CNAME flattening*, sometimes called *DNS chasing*. CNAME flattening is where a DNS provider recursively resolves CNAME entries until it resolves an IP address. This functionality is supported by Azure DNS for Azure Front Door endpoints.
-
-> [!NOTE]
-> Other DNS providers support CNAME flattening or DNS chasing. However, Azure Front Door recommends using Azure DNS for hosting your apex domains.
-
-### TXT record validation
-
-To validate a domain, you need to create a DNS TXT record. The name of the TXT record be of the form `_dnsauth.{subdomain}`. Azure Front Door provides a unique value for your TXT record when you start to add the domain to Azure Front Door.
-
-For example, suppose you want to use the apex domain `contoso.com` with Azure Front Door. First, you should add the domain to your Azure Front Door profile, and note the TXT record value that you need to use. Then, you should configure a DNS record with the following properties:
-
-| Property | Value |
-|-|-|
-| Record name | `_dnsauth` |
-| Record value | *use the value provided by Azure Front Door* |
-| Time to live (TTL) | 1 hour |
-
 ## HTTPS for custom domains
 
-<!-- TODO -->
+Azure Front Door offloads TLS certificate management from your origin servers. When you use custom domains, you can either use Azure-managed TLS certificates (recommended), or you can purchase and use your own TLS certificates.
 
 For more information on how Azure Front Door works with TLS, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
-### Azure-managed TLS certificates
+### Azure Front Door-managed TLS certificates
 
 <!-- TODO -->
 
 - Issuance process
 - Extra verification
+
+#### Domain types
+
+<!-- TODO can this show checkmark glyphs? -->
+| Consideration | Subdomain | Apex domain | Wildcard domain |
+|-|-|-|-|
+| Managed TLS certificates available | Yes | Yes | No |
+| Managed TLS certificates are rotated automatically | Yes | See below | No |
+
+When you use Azure Front Door-managed TLS certificates with apex domains, the automated certificate rotation might require you to revalidate your domain ownership. For more information, see [Azure Front Door-managed TLS certificate rotation](apex-domain.md#azure-front-door-managed-tls-certificate-rotation).
 
 ### Customer-managed TLS certificates
 

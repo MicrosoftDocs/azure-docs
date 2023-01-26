@@ -151,6 +151,8 @@
         items:
         - name: Overview
           href: domain.md
+        - name: Apex domains
+          href: apex-domain.md
         - name: Wildcard domains
           href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
       - name: Health probes
