@@ -71,7 +71,7 @@ For example, you can construct a JSON message from multiple variables, such as s
 
 and creates the following output:
 
-`{"age":35,"fullName":"Owens,Sophie"}`
+`{"age":35,"fullName":"Owens,Sophia"}`
 
 To try the **Compose** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Compose** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example). For more information about the **Compose** action in the underlying JSON workflow definition, see the [Compose action](logic-apps-workflow-actions-triggers.md#compose-action).
 
@@ -816,15 +816,21 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Filter array** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and then select **OK**.
+1. In this action, complete the following steps:
 
-   `actionBody('Filter_array')`
+   1. Click inside the boxes where you want the results to appear.
 
-   ![Screenshot showing a Consumption workflow with the "Send an email" action and the action outputs from the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-consumption.png)
+   1. From the dynamic content list that opens, select **Expression**.
 
-   The resolved expression specifies to show the outputs from the **Filter_array** action in the email body when sent:
+   1. To get the array output from the **Filter array** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and then select **OK**.
 
-   ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-complete-consumption.png)
+      `actionBody('Filter_array')`
+
+      ![Screenshot showing a Consumption workflow with the "Send an email" action and the action outputs from the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-consumption.png)
+
+      The resolved expression specifies to show the outputs from the **Filter_array** action in the email body when sent:
+
+      ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-complete-consumption.png)
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
 
@@ -832,15 +838,21 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 1. In your workflow, add an action that can send you the results from the **Filter array** action.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Filter array** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and then select **OK**.
+1. In this action, complete the following steps:
 
-   `actionBody('Filter_array')`
+   1. Click inside the edit boxes where you want the results to appear.
 
-   ![Screenshot showing a Standard workflow with the "Send an email" action and the action outputs from the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-standard.png)
+   1. From the dynamic content list that opens, select **Expression**.
 
-   The resolved expression specifies to show the outputs from the **Filter_array** action in the email body when sent:
+   1. To get the array output from the **Filter array** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and then select **OK**.
 
-   ![Screenshot showing a Standard workflow with the finished "Send an email" action for the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-complete-standard.png)
+      `actionBody('Filter_array')`
+
+      ![Screenshot showing a Standard workflow with the "Send an email" action and the action outputs from the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-standard.png)
+
+      The resolved expression specifies to show the outputs from the **Filter_array** action in the email body when sent:
+
+      ![Screenshot showing a Standard workflow with the finished "Send an email" action for the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-complete-standard.png)
 
 1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
 
@@ -1219,7 +1231,7 @@ If you used the Office 365 Outlook action, you get a result similar to the follo
 
 ## Select action
 
-To create an array that has JSON objects built from the values in an existing array, use the **Select** action. For example, you can create a JSON object for each value in an integer array by specifying the properties that each JSON object must have and mapping the values from the source array to those properties.
+To create an array that contains JSON objects built from the values in an existing array, use the **Select** action. For example, you can create a JSON object for each value in an integer array by specifying the properties that each JSON object must have and mapping the values from the source array to those properties.
 
 Although you can change the component JSON objects, the output array always has the same number of items as the source array. To use the output array from the **Select** action, subsequent actions must either accept arrays as input, or you might have to transform the output array into another compatible format.
 
@@ -1313,7 +1325,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
    The **Select** action now appears similar to the following example:
 
-   ![Screenshot showing the "Create HTML table" action in a Standard workflow and the finished example for the "Select" action.](./media/logic-apps-perform-data-operations/finished-select-action-standard.png)
+   ![Screenshot showing the "Select" action in a Standard workflow and the finished example for the "Select" action.](./media/logic-apps-perform-data-operations/finished-select-action-standard.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -1323,21 +1335,59 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
 To confirm whether the **Select** action creates the expected results, send yourself a notification that includes output from the **Select** action.
 
+#### [Consumption](#tab/consumption)
+
 1. In your workflow, add an action that can send you the results from the **Select** action.
 
-1. In this action, click anywhere you want the results to appear. From the dynamic content list that opens, select **Expression**. To get the array output from the **Select** action, enter this expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and select **OK**:
+   This example continues by using the Office 365 Outlook action named **Send an email**.
 
-   `actionBody('Select')`
+1. In this action, complete the following steps:
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the outputs from the `actionBody('Select')` expression in the email's body:
+   1. Click inside the edit boxes where you want the results to appear.
 
-   ![Action outputs from "Select" action](./media/logic-apps-perform-data-operations/send-email-select-action.png)
+   1. From the dynamic content list that opens, select **Expression**.
 
-1. Now, manually run your logic app. On the designer toolbar, select **Run**.
+   1. To get the array output from the **Select** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Select** action name, and select **OK**:
 
-   Based on the email connector you used, here are the results you get:
+      `actionBody('Select')`
 
-   ![Email with "Select" action results](./media/logic-apps-perform-data-operations/select-email-results.png)
+      ![Screenshot showing a Consumption workflow with the "Send an email" action and the action outputs from the "Select" action.](./media/logic-apps-perform-data-operations/send-email-select-action-consumption.png)
+
+      The resolved expression specifies to show the outputs from the **Select** action in the email body when sent:
+
+      ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Select" action](./media/logic-apps-perform-data-operations/send-email-select-action-complete-consumption.png)
+
+   When you're done, the **Send an email** action looks similar to the following example:
+
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
+
+#### [Standard](#tab/standard)
+
+1. In your workflow, add an action that can send you the results from the **Select** action.
+
+1. In this action, complete the following steps:
+
+   1. Click inside the edit boxes where you want the results to appear.
+
+   1. From the dynamic content list that opens, select **Expression**.
+
+   1. To get the array output from the **Select** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Select** action name, and select **OK**:
+
+      `actionBody('Select')`
+
+      ![Screenshot showing a Standard workflow with the "Send an email" action and the action outputs from the "Select" action.](./media/logic-apps-perform-data-operations/send-email-select-action-standard.png)
+
+      The resolved expression specifies to show the outputs from the **Filter_array** action in the email body when sent:
+
+      ![Screenshot showing a Standard workflow with the finished "Send an email" action for the "Select" action.](./media/logic-apps-perform-data-operations/send-email-select-action-complete-standard.png)
+
+1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
+
+---
+
+If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+
+![Screenshot showing an email with the "Select" action results.](./media/logic-apps-perform-data-operations/select-email-results.png)
 
 ## Troubleshooting
 
@@ -1386,4 +1436,4 @@ For example:
 ```
 ## Next steps
 
-* Learn about [Logic Apps connectors](../connectors/apis-list.md)
+* [About connectors in Azure Logic Apps](../connectors/apis-list.md)
