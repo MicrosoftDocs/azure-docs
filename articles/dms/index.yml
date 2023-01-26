@@ -30,12 +30,6 @@ landingContent:
             url: migration-dms-powershell-cli.md
           - text: Database migration scenario status
             url: resource-scenario-status.md
-      - linkListType: quickstart
-        links:
-          - text: Create service – Portal
-            url: quickstart-create-data-migration-service-portal.md
-          - text: Create service in hybrid mode – Portal
-            url: quickstart-create-data-migration-service-hybrid-portal.md
       - linkListType: video
         links:            
           - text: Introduction to Azure Data Migration Service
