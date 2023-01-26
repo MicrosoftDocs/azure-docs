@@ -20,9 +20,9 @@ Azure Monitor Logs collects data from a wide variety of sources, including Windo
 This article explains how to migrate your Splunk Observability deployment to Azure Monitor Logs for logging and log data analysis. 
 
 For information on migrating your Security Information and Event Management (SIEM) deployment from Splunk Enterprise Security to Azure Sentinel, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
-## Why migrate to Azure Monitor Logs?
+## Why migrate to Azure Monitor?
 
-The benefits of migrating to Azure Monitor Logs include:
+The benefits of migrating to Azure Monitor include:
 
 - Fully managed, Software as a Service (SaaS) platform with:
     - Automatic upgrades and scaling. 
@@ -39,7 +39,7 @@ The benefits of migrating to Azure Monitor Logs include:
 |Splunk offering|Azure offering|
 |---|---|
 |Splunk Observability|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multicloud, and on-premises environments, built over a powerful data ingestion pipeline that's shared with Microsoft Sentinel. Azure Monitor offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights-and-curated-visualizations), and [alerts and response](../overview.md#respond-to-critical-situations) capabilities.|
-|Splunk Enterprise Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that runs over the Azure Monitor platform to provide intelligent security analytics and threat intelligence across the enterprise.|
+|Splunk Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that runs over the Azure Monitor platform to provide intelligent security analytics and threat intelligence across the enterprise.|
 ## Introduction to key concepts
 
 |Azure Monitor Logs |Similar Splunk concept|Description|
