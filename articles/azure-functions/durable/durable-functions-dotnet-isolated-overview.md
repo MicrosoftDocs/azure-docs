@@ -101,8 +101,6 @@ This guide assumes you're starting a .NET Durable Functions 2.x project.
 
 The first step is to update your project to [Azure Functions .NET isolated](../migrate-version-3-version-4.md). After that is done, the next step is to update your Durable Functions NuGet package references:
 
-# [.NET csproj changes](#tab/csproj)
-
 The following changes are required in the `.csproj` XML project file:
 
 1. Replace the existing in-process Durable Functions packages with their isolated worker alternative:
