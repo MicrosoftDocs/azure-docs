@@ -106,7 +106,7 @@ For each site in your deployment, follow [Modify the packet core instance in a s
 
 Configure your deployment in the new region using the information you gathered in [Back up deployment information](#back-up-deployment-information).
 
-1. Retrieve your backed up SIM information and recreate your SIMs by following one of:
+1. Retrieve your backed-up SIM information and recreate your SIMs by following one of:
 
     - [Provision new SIMs for Azure Private 5G Core Preview - Azure portal](provision-sims-azure-portal.md)
     - [Provision new SIMs for Azure Private 5G Core Preview - ARM template](provision-sims-arm-template.md)
