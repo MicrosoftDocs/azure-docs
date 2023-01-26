@@ -14,12 +14,13 @@ ms.custom: devx-track-azurepowershell
 
 # Configure HTTPS on an Azure Front Door custom domain using the Azure portal
 
+<!-- TODO zone pivot for managed TLS cert vs. BYO cert? -->
 
 Azure Front Door enables secure TLS delivery to your applications by default when a custom domain is added. By using the HTTPS protocol on your custom domain, you ensure your sensitive data get delivered securely with TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site's security certificate, and verifies it gets issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
 
 Azure Front Door supports Azure managed certificate and customer-managed certificates.
 
-* A non-Azure validated domain requires domain ownership validation. The managed certificate (AFD managed) is issued and managed by Azure Front Door. Azure Front Door by default automatically enables HTTPS to all your custom domains using Azure managed certificates. No extra steps are required for getting an AFD managed certificate. A certificate is created during the domain validation process.
+* A non-Azure validated domain requires domain ownership validation. Azure Front Door-managed certificates are issued and managed by Azure Front Door. Azure Front Door by default automatically enables HTTPS to all your custom domains using Azure-managed certificates. No extra steps are required for using a managed certificate. A certificate is created during the domain validation process.
 
 * An Azure pre-validated domain doesn't require domain validation because it's already validated by another Azure service. The managed certificate (Azure managed) is issued and managed by the Azure service. No extra steps are required for getting an Azure managed certificate. Azure Front Door doesn't issue a new managed certificate for this scenario and instead will reuse the managed certificate issued by the Azure service. For supported Azure service for pre-validated domain, refer to [custom domain](how-to-add-custom-domain.md).
 
@@ -33,7 +34,7 @@ Azure Front Door supports Azure managed certificate and customer-managed certifi
 
 * If you're using Azure to host your [DNS domains](../../dns/dns-overview.md), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). Otherwise, if you're using a domain provider to handle your DNS domain, you must manually validate the domain by entering prompted DNS TXT records.
 
-## AFD managed certificates for Non-Azure pre-validated domain
+## Azure Front Door-managed certificates for Non-Azure pre-validated domain
 
 1. Select **Domains** under settings for your Azure Front Door profile and then select **+ Add** to add a new domain.
 
@@ -49,11 +50,11 @@ Azure Front Door supports Azure managed certificate and customer-managed certifi
     | DNS management | Select **Azure managed DNS (Recommended)** |
     | DNS zone | Select the **Azure DNS zone** that host the custom domain. |
     | Custom domain | Select an existing domain or add a new domain. |
-    | HTTPS | Select **AFD managed (Recommended)** | 
+    | HTTPS | Select **AFD Managed (Recommended)** | 
 
 1. Validate and associate the custom domain to an endpoint by following the steps in enabling [custom domain](how-to-add-custom-domain.md).
 
-1. Once the custom domain gets associated to an endpoint successfully, an AFD managed certificate gets deployed to Front Door. This process may take from several minutes to an hour to complete.
+1. After the custom domain is associated with an endpoint successfully, Azure Front Door generates a certificate and deploys it. This process may take from several minutes to an hour to complete.
 
 ## Azure managed certificates for Azure pre-validated domain
 
@@ -77,43 +78,34 @@ Azure Front Door supports Azure managed certificate and customer-managed certifi
 
 ## Using your own certificate
 
-You can also choose to use your own TLS certificate.  When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected. This certificate must be imported into an Azure Key Vault before you can use it with Azure Front Door Standard/Premium. See how to [import a certificate](../../key-vault/certificates/tutorial-import-certificate.md) to Azure Key Vault.
+You can also choose to use your own TLS certificate. Your TLS certificate must meet certain requirements. For more information, see [TODO](TODO).
 
 #### Prepare your key vault and certificate
 
-- You must have a key vault in the same Azure subscription as your Azure Front Door Standard/Premium profile. Create a key vault if you don't have one.
-
-    > [!WARNING]
-    > Azure Front Door currently only supports key vaults in the same subscription as the Front Door profile. Choosing a key vault under a different subscription than your Azure Front Door Standard/Premium profile will result in a failure.
-
-- If your key vault has network access restrictions enabled, you must configure your key vault to allow trusted Microsoft services to bypass the firewall.
-
-- Your key vault must be configured to use the *Key Vault access policy* permission model.
-
-- If you already have a certificate, you can upload it to your key vault. Otherwise, create a new certificate directly through Azure Key Vault from one of the partner certificate authorities (CAs) that Azure Key Vault integrates with. Upload your certificate as a **certificate** object, rather than a **secret**.
+If you already have a certificate, you can upload it to your key vault. Otherwise, create a new certificate directly through Azure Key Vault from one of the partner certificate authorities (CAs) that Azure Key Vault integrates with.
 
 > [!NOTE]
-> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and the root certification authority (CA) must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### Register Azure Front Door
 
 Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> * This action requires you to have Global Administrator permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * This action requires you to have *Global Administrator* permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
 > * The Application Id of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is predefined by Azure for Front Door Standard and Premium tier across all Azure tenants and subscriptions. Azure Front Door (Classic) has a different Application Id.
 
-##### Azure PowerShell
+# [Azure PowerShell](#tab/powershell)
 
 1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell on your local machine.
 
-2. In PowerShell, run the following command:
+1. In PowerShell, run the following command:
 
      ```azurepowershell-interactive
      New-AzADServicePrincipal -ApplicationId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
      ```
 
-##### Azure CLI
+# [Azure CLI](#tab/cli)
 
 1. If need, install [Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 
@@ -175,6 +167,8 @@ Azure Front Door can now access this key vault and the certificates it contains.
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-custom-domain-https.png" alt-text="Screenshot of add a custom domain page with HTTPS.":::
 
 1. Follow the on-screen steps to validate the certificate. Then associate the newly created custom domain to an endpoint as outlined in [creating a custom domain](how-to-add-custom-domain.md) guide.
+
+<!-- TODO I think the stuff below needs to be moved into domain.md -->
 
 ## Certificate renewal and changing certificate types
 
