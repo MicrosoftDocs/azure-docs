@@ -57,7 +57,7 @@ The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-heal
 
  **Added Deploy to Azure button**
 
- Customers can now deploy the MedTech service fully, including Event Hub, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service with a QuickStart template - Azure Health Data Services | Microsoft Learn](https://learn.microsoft.com/azure/healthcare-apis/iot/deploy-new-arm#deploy-to-azure-button)
+ Customers can now deploy the MedTech service fully, including Event Hub, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service with a QuickStart template - Azure Health Data Services | Microsoft Learn](azure/healthcare-apis/iot/deploy-new-arm#deploy-to-azure-button)
 
 **Added the Dropped Event Metrics**
 
