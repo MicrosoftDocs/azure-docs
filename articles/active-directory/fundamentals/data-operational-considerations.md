@@ -48,7 +48,6 @@ To roll out changes to the service across data centers, the Azure AD team define
 ## Resources
 
 [Azure AD and data residency](azure-ad-data-residency.md)
-[Data protection considerations](data-protection-considerations.md)
 [Microsoft Service Trust Documents](https://servicetrust.microsoft.com/Documents/TrustDocuments)
 [Microsoft Azure Trusted Cloud](https://azure.microsoft.com/explore/trusted-cloud/)
 [Where is my data? Office 365 documentation](http://o365datacentermap.azurewebsites.net/)
