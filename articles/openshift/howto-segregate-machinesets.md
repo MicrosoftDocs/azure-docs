@@ -1,16 +1,22 @@
 ---
-title: Use GPU workloads with Azure Red Hat OpenShift (ARO)
-description: Discover how to utilize GPU workloads with Azure Red Hat OpenShift (ARO)
+title: Segregate worker nodes into different subnets
+description: Discover how to segregate worker nodes into different subnets in an Azure Red Hat OpenShift (ARO) deployment
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
-keywords: aro, gpu, openshift, red hat
+keywords: aro, machine set, openshift, red hat
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 01/26/2023
 ms.custom: template-how-to
 ---
 
-# Use GPU workloads with Azure Red Hat OpenShift
+# Segregate worker nodes into different subnets with Azure Red Hat OpenShift
+
+
+
+
+
+
 
 This article shows you how to use Nvidia GPU workloads with Azure Red Hat OpenShift (ARO).
 
