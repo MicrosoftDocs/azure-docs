@@ -33,6 +33,12 @@ Both the logs and metrics can be sent to various destinations including:
 
 For more information on diagnostics, see [Diagnostic settings in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 
+## Run history
+
+View the history of your autoscale activity in the run history tab. The run history tab includes a chart of resource instance counts over time and the resource activity log entries for autoscale.
+
+:::image type="content" source="./media/autoscale-diagnostics/autoscale-run-history.png" alt-text="A screenshot showing the run history tab on the autoscale setting page":::
+
 ## Resource log schemas 
 
 Following are the general formats for autoscale resource logs with example data included. Not all examples below are properly formed JSON because they may include multiple values that could be valid for a given field. 
@@ -246,7 +252,7 @@ Recorded at different intervals of an instance scale action.
 ```
 
 ## Activity Logs
-The follwoing events are logged to the Activity log with CategoryValue =="Autoscale".
+The following events are logged to the Activity log with a `CategoryValue` of `Autoscale`.
 
 * Autoscale scale up initiated
 * Autoscale scale up completed
@@ -395,7 +401,7 @@ Logged when autoscale can't calculate predicted scale events due to the metric b
     "eventCategory": "Autoscale",
     "eventName": "PredictiveMetricFailure",
     ...
-    "eventProperties": "{\"Notes\":\"To ensure service availability, Autoscale will scale out the resource to the default capacity if it is greater than the current capacity\"}",
+    "eventProperties": "{\"Notes\":\"To ensure service availability, \Autoscale will scale out the resource to the default capacity if it is greater than the current capacity\"}",
    ...
     "activityStatusValue": "Failed"
 } 
