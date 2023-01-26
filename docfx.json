@@ -965,7 +965,7 @@
         "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
+        "articles/iot-edge/**/*.md": ">=iotedge-1.4",
         "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0"
       },
       "recommendations": {
