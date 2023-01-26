@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to 
-ms.date: 01/25/2023
+ms.date: 01/26/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -75,7 +75,7 @@ A container using subPath volume mount won't receive secret updates when it's ro
 * Verify the installation is finished using the `kubectl get pods` command to list all pods that have the `secrets-store-csi-driver` and `secrets-store-provider-azure` labels in the kube-system namespace, and ensure that your output looks similar to the following output:
 
     ```bash
-    kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver, secrets-store-provider-azure)'
+    kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver,secrets-store-provider-azure)'
 
     NAME                                     READY   STATUS    RESTARTS   AGE
     aks-secrets-store-csi-driver-4vpkj       3/3     Running   2          4m25s
@@ -336,6 +336,7 @@ In this article, you learned how to use the Azure Key Vault Provider for Secrets
 
 * [Using the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/usage/)
 * [Upgrading the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/upgrading/)
+* [Using Secrets Store CSI with AKS and Azure Key Vault](https://github.com/Azure-Samples/secrets-store-csi-with-aks-akv)
 
 <!-- LINKS INTERNAL -->
 [az-aks-create]: /cli/azure/aks#az-aks-create
