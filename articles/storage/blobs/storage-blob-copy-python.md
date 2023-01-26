@@ -20,23 +20,26 @@ This article shows how to copy a blob in a storage account using the [Azure Stor
 
 ## About copying blobs
 
-When you copy a blob within a storage account, the copy operation is synchronous. When you copy across storage accounts, it's an asynchronous operation.
-
-The source blob for a copy operation may be a block blob, an append blob, a page blob, a snapshot, or a blob version. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
-
-The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
-
-The entire source blob or file is always copied. Copying a range of bytes or set of blocks isn't supported.
-
-When a blob is copied, its system properties are copied to the destination blob with the same values.
-
-A copy operation can take any of the following forms:
+A copy operation can perform any of the following actions:
 
 - Copy a source blob to a destination blob with a different name. The destination blob can be an existing blob of the same blob type (block, append, or page), or can be a new blob created by the copy operation.
 - Copy a source blob to a destination blob with the same name, effectively replacing the destination blob. Such a copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
 - Copy a source file in the Azure File service to a destination blob. The destination blob can be an existing block blob, or can be a new block blob created by the copy operation. Copying from files to page blobs or append blobs isn't supported.
 - Copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.
 - Copy a snapshot to a destination blob with a different name. The resulting destination blob is a writeable blob and not a snapshot.
+
+The source blob for a copy operation may be one of the following types:
+- Block blob
+- Append blob
+- Page blob
+- Blob snapshot
+- Blob version
+
+If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
+
+The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. One way to enforce this requirement is to use a blob lease, as shown in the earlier code example. For more information on blob leases, see [Create and manage blob leases with Python](storage-blob-lease-python.md).
+
+The entire source blob or file is always copied. Copying a range of bytes or set of blocks isn't supported. When a blob is copied, its system properties are copied to the destination blob with the same values.
 
 ## Copy a blob
 
@@ -46,7 +49,7 @@ To copy a blob, use the following method:
 
 This method returns a dictionary containing *copy_status* and *copy_id*, which can be used to check the status of the copy operation. The *copy_status* property will be 'success' if the copy completed synchronously or 'pending' if the copy has been started asynchronously. For asynchronous copies, the status can be checked by polling the `get_blob_properties` method and checking *copy_status*. To force the copy operation to be synchronous, set *requires_sync* to `True`. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
 
-The following code example gets a `BlobClient` object representing an existing blob and copies it to a new blob in a different container. This example also gets a lease on the source blob before copying so that no other client can modify the blob until the copy is complete and the lease is broken.
+The following code example gets a `BlobClient` object representing an existing blob and copies it to a new blob in a different container within the same storage account. This example also gets a lease on the source blob before copying so that no other client can modify the blob until the copy is complete and the lease is broken.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_copy_blob":::
 
