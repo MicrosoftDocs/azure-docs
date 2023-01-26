@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: article
-ms.date: 08/11/2022
+ms.date: 01/31/2023
 ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -14,45 +14,18 @@ ms.custom: references_regions, ignite-fall-2021
 
 ## General
 
-### What regions are available in public preview?
+> [!IMPORTANT]
+> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager, Hub and Spoke connectivity configurations, and security admin rules.
+>
+> Mesh connectivity configurations are in Public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-* North Central US
+### Which Azure regions support Azure Virtual Network Manager?
 
-* South Central US
-
-* West US
-
-* West US 2
-
-* East US
-
-* East US 2
-
-* Canada Central
-
-* North Europe
-
-* West Europe
-
-* UK South
-
-* Switzerland North
-
-* Southeast Asia
-
-* Japan East
-
-* Japan West
-
-* Australia East
-
-* Central India
-
-* All regions have [Availability Zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones), except France Central.
+For current region support, refer to [products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-network-manager).
 
 > [!NOTE]
-> Even if an Azure Virtual Network Manager instance isn't available because all zones are down, configurations applied to resources will still persist.
->
+> All regions have [Availability Zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones), except France Central.
 
 ### What are common use cases for using Azure Virtual Network Manager?
 
@@ -102,11 +75,15 @@ For more information, see [remove components checklist](concept-remove-component
 No. Azure Virtual Network Manager doesn't store any customer data.
 
 ### Can an Azure Virtual Network Manager instance be moved?
-No. Resource move is not supported currently. If you need to move it, you can consider deleting the existing AVNM instance and using the ARM template to create another one in another location.
+No. Resource move is not supported currently. If you need to move it, you can consider deleting the existing virtual network manager instance and using the ARM template to create another one in another location.
 
 ### How can I see what configurations are applied to help me troubleshoot?
 
 You can view Azure Virtual Network Manager settings under **Network Manager** for a virtual network. You can see both connectivity and security admin configuration that are applied. For more information, see [view applied configuration](how-to-view-applied-configurations.md).
+
+### What happens when all zones are down in a region with a virtual network manager instance?
+
+Should a regional outage occur, all configurations applied to current resources managed will persist. You will not be able to modify existing configurations, or create new configuration.
 
 ### Can a virtual network managed by Azure Virtual Network Manager be peered to a non-managed virtual network?
 
@@ -138,7 +115,7 @@ Azure SQL Managed Instance has some network requirements. If your security admin
 No, an Azure Virtual WAN hub can't be in a network group at this time.
 
 
-### Can an Azure Virtual WAN be used as the hub in AVNM's hub and spoke topology configuration?
+### Can an Azure Virtual WAN be used as the hub in virtual network manager's hub and spoke topology configuration?
 
 No, an Azure Virtual WAN hub isn't supported as the hub in a hub and spoke topology at this time.
 
