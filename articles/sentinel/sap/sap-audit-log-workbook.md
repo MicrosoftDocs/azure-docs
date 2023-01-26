@@ -52,29 +52,53 @@ If you select systems that aren't configured in the ["SAP systems" watchlist](sa
 
 ### Logon failures
 
+Shows different filters and views for failed logons.
 
+#### Anomaly detection- filtering out noisy failed logon attempts
 
-### SAP and Active Directory are better together
+Shows failure data for each SAP system and user. You can choose to see only events events flagged by [anomaly detection](configure-audit-log-rules.md#anomaly-detection). For anomalous events, select **Anomalous only** next to **Failed logons** on the right. 
 
-### Logon failure rate per system
+[TBD - screenshot]
 
-### Logon failure trends
+- **Logon failure anomalies**. Shows the amount of unique failed logons for each SAP system.
+- **SAP and Active Directory are better together**. Shows a combination of Microsoft Sentinel and Azure Active Directory data. The list is organized by risk, where the most suspicious or risky users are on top, and the users with less security risk are at the bottom.
+    - For each user, shows: 
+        - A timeline of failed login attempts
+        - A timeline showing at which point an anomalous failed attempt occurred  
+        - The type of anomaly
+        - The user's email address
+        - The Azure Active directory risk indicator
+        - The amount of incidents and alerts in Microsoft Sentinel
+    - When you select a row, you can see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. Below this list, you can also see of Azure Active Directory risk events under **Azure audit and signin risks for user**.
+    - If you your Azure Active Directory data is in a different Log Analytics workspace, make sure you select the relevant subscriptions and workspaces at the top of the workbook, under **Azure audit and activities**.
+- **Logon failure rate per system**. Visually represents each system in a cell shape that shows the amount of failures in the selected period. Systems are grouped by type. The color of the system indicates the amount of failed attempts: Green indicates a small amount of suspicious logon attempts, where red indicates a large amount of suspicious logon attempts. You can select a system to see a list of failed logons with details about the failures. 
+- **Logon failure trends**. Shows the trends and amount of failed logons, grouped by different categories:
+    - **Login failure by cause**. The failure reason, like incorrect logon data. 
+    - **Login failure by type**. The failure by type of logon, like whether the logon triggered a background job, or if it was an HTTP logon. 
+    - **Login failure by method**. The logon method, like SNC or a logon ticket. 
 
 ## Audit log alerts report
 
 ### Anomaly detection - filtering out noisy automation activities
 
-### Audit trend per user
+[TBD - screenshot]
 
-### Risk score per system
+Shows severity and audit trends for each SAP system and user. You can choose to see only events events flagged by [anomaly detection](configure-audit-log-rules.md#anomaly-detection). For anomalous events, select **Anomalous only** next to **Failed logons** on the right. 
 
-### Event by MITRE ATT&CK® tactics
-
-### Events by category
-
-### Events by authorization group
-
-### Events by user type
+- **Alert severity trends per System ID**. Shows a list of systems, with a graph of medium and high severity event trends per system. 
+- **Audit trend per user**. Shows a combination of Microsoft Sentinel and Azure Active Directory data. The list is organized by risk, where the most suspicious or risky users are on top, and the users with less security risk are at the bottom.
+    - For each user, shows: 
+        - A timeline of high and medium severity events
+        - The user's email address
+        - The Azure Active directory risk indicator
+        - The amount of incidents and alerts in Microsoft Sentinel
+    - When you select a row, you can see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. Below this list, you can also see of Azure Active Directory risk events under **Azure audit and signin risks for user**.
+- **Risk score per system**. Visually represents each system in a cell shape and shows the risk score for each system. Systems are grouped by type. The color of the system indicates the risk: Green indicates a system with a lower risk score, where red indicates a higher risk score. You can select a system to see a list of SAP events per user.
+- SAP events grouped according to different categories. You can hover over the graph to show the logon amount for different dates.
+    - **Events by MITRE ATT&CK® tactics**. Shows a list of SAP events grouped by MITRE ATT&CK® tactics, like Initial Access or Defense Evasion.
+    - **Events by category**. Shows a list of SAP events grouped by category, like RFC Start or Logon.
+    - **Events by authorization group**. Shows a list of SAP events grouped by the SAP authorization group, like USER or SUPER.
+    - **Events by user type**. Shows a list of SAP events grouped by the SAP user type, like Dialog or system.
 
 ## Next steps
 
