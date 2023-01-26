@@ -89,7 +89,7 @@ Follow these steps to create a custom app consent policy:
        -ClientApplicationsFromVerifiedPublisherOnly
    ```
 
-   Repeat this step to add additional "include" condition sets.
+   Repeat this step to add more "include" condition sets.
 
 1. Optionally, add "exclude" condition sets.
 
@@ -104,7 +104,7 @@ Follow these steps to create a custom app consent policy:
        -ResourceApplication $azureApi.AppId
    ```
 
-   Repeat this step to add additional "exclude" condition sets.
+   Repeat this step to add more "exclude" condition sets.
 
 Once the app consent policy has been created, you can [allow user consent](configure-user-consent.md?tabs=azure-powershell#allow-user-consent-subject-to-an-app-consent-policy) subject to this policy.
 
@@ -176,7 +176,7 @@ Content-Type: application/json
 }
 ```
 
-   Repeat this step to add additional "include" condition sets.
+   Repeat this step to add more "include" condition sets.
 
 1. Optionally, add "exclude" condition sets.
      Exclude delegated permissions for the Azure Management API (appId 46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b)
@@ -190,7 +190,7 @@ Content-Type: application/json
 }
 ```
 
-   Repeat this step to add additional "exclude" condition sets.
+   Repeat this step to add more "exclude" condition sets.
 
 Once the app consent policy has been created, you can [allow user consent](configure-user-consent.md?tabs=azure-powershell#allow-user-consent-subject-to-an-app-consent-policy) subject to this policy.
 
@@ -212,14 +212,14 @@ The following table provides the list of supported conditions for app consent po
 
 | Condition | Description|
 |:---------------|:----------|
-| PermissionClassification | The [permission classification](configure-permission-classifications.md) for the permission being granted, or "all" to match with any permission classification (including permissions which are not classified). Default is "all". |
-| PermissionType | The permission type of the permission being granted. Use "application" for application permissions (e.g. app roles) or "delegated" for delegated permissions. <br><br>**Note**: The value "delegatedUserConsentable" indicates delegated permissions which have not been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but cannot be used in custom permission grant policies. Required. |
-| ResourceApplication | The **AppId** of the resource application (e.g. the API) for which a permission is being granted, or "any" to match with any resource application or API. Default is "any". |
+| PermissionClassification | The [permission classification](configure-permission-classifications.md) for the permission being granted, or "all" to match with any permission classification (including permissions that aren't classified). Default is "all". |
+| PermissionType | The permission type of the permission being granted. Use "application" for application permissions (for example, app roles) or "delegated" for delegated permissions. <br><br>**Note**: The value "delegatedUserConsentable" indicates delegated permissions that haven't been configured by the API publisher to require admin consent. This value may be used in built-in permission grant policies, but can't be used in custom permission grant policies. Required. |
+| ResourceApplication | The **AppId** of the resource application (for example, the API) for which a permission is being granted, or "any" to match with any resource application or API. Default is "any". |
 | Permissions | The list of permission IDs for the specific permissions to match with, or a list with the single value "all" to match with any permission. Default is the single value "all". <ul><li>Delegated permission IDs can be found in the **OAuth2Permissions** property of the API's ServicePrincipal object.</li><li>Application permission IDs can be found in the **AppRoles** property of the API's ServicePrincipal object.</li></ol> |
 | ClientApplicationIds | A list of **AppId** values for the client applications to match with, or a list with the single value "all" to match any client application. Default is the single value "all". |
 | ClientApplicationTenantIds | A list of Azure Active Directory tenant IDs in which the client application is registered, or a list with the single value "all" to match with client apps registered in any tenant. Default is the single value "all". |
 | ClientApplicationPublisherIds | A list of Microsoft Partner Network (MPN) IDs for [verified publishers](../develop/publisher-verification-overview.md) of the client application, or a list with the single value "all" to match with client apps from any publisher. Default is the single value "all". |
-| ClientApplicationsFromVerifiedPublisherOnly | Set this switch to only match on client applications with a [verified publishers](../develop/publisher-verification-overview.md). Disable this switch (`-ClientApplicationsFromVerifiedPublisherOnly:$false`) to match on any client app, even if it does not have a verified publisher. Default is `$false`. |
+| ClientApplicationsFromVerifiedPublisherOnly | Set this switch to only match on client applications with a [verified publishers](../develop/publisher-verification-overview.md). Disable this switch (`-ClientApplicationsFromVerifiedPublisherOnly:$false`) to match on any client app, even if it doesn't have a verified publisher. Default is `$false`. |
 
 > [!WARNING]
 > Deleted app consent policies cannot be restored. If you accidentally delete a custom app consent policy, you will need to re-create the policy.
