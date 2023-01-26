@@ -11,7 +11,7 @@ ms.topic: reference
 author: Bozhong68
 ms.author: bozhlin
 ms.date: 03/31/2022
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 ---
 
 # CLI (v2) Attached Azure Arc-enabled Kubernetes cluster (KubernetesCompute) YAML schema

@@ -1,8 +1,8 @@
 ---
 title: Version support policy - Azure Database for MySQL - Single Server and Flexible Server
 description: Describes the policy around MySQL major and minor versions in Azure Database for MySQL
-author: sr-msft
-ms.author: srranga
+author: SudheeshGH
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
@@ -25,7 +25,7 @@ Azure Database for MySQL currently supports the following major and minor versio
 | Version | [Single Server](single-server/overview.md) <br/> Current minor version |[Flexible Server](flexible-server/overview.md) <br/> Current minor version  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL Version 5.6 | [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(Retired) | Not supported|
-|MySQL Version 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.37](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html)|
+|MySQL Version 5.7 | [5.7.32](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.37](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html)|
 |MySQL Version 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.28](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html)|
 
 > [!NOTE]

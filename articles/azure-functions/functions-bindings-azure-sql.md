@@ -12,6 +12,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure SQL bindings for Azure Functions overview (preview)
 
+> [!NOTE]
+> The Azure SQL trigger is only supported on **Premium and Dedicated** plans. Consumption is not supported. Azure SQL input/output bindings are supported for all plans.
+
 This set of articles explains how to work with [Azure SQL](/azure/azure-sql/index) bindings in Azure Functions. Azure Functions supports input bindings, output bindings, and a function trigger for the Azure SQL and SQL Server products.
 
 | Action | Type |
@@ -32,16 +35,19 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
 
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
+```
+
 # [Isolated process](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-> [!NOTE]
-> In the current preview, Azure SQL bindings aren't supported when your function app runs in an isolated worker process.
+Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Sql/).
 
-<!--
-Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/).
--->
+```bash
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
+```
 
 <!-- awaiting bundle support
 # [C# script](#tab/csharp-script)
@@ -174,7 +180,7 @@ Add the Java library for SQL bindings to your functions project with an update t
 <dependency>
     <groupId>com.microsoft.azure.functions</groupId>
     <artifactId>azure-functions-java-library-sql</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 

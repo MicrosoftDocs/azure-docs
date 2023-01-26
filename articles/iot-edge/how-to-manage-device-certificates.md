@@ -4,14 +4,14 @@ description: How to install and manage certificates on an Azure IoT Edge device 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/03/2022
+ms.date: 1/17/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 # Manage IoT Edge certificates
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
@@ -64,24 +64,91 @@ If your PKI provider provides a `.cer` file, it may contain the same certificate
 * If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
 * Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
 
+## Permission requirements
+
+The following table lists the file and directory permissions required for the IoT Edge certificates. The preferred directory for the certificates is `/var/aziot/certs/` and `/var/aziot/secrets/` for keys.
+
+| File or directory | Permissions | Owner |
+|-------------------|-------------|-------|
+| `/var/aziot/certs/` certificates directory | drwxr-xr-x (755) | aziotcs |
+| Certificate files in `/var/aziot/certs/` | -wr-r--r-- (644) | aziotcs |
+| `/var/aziot/secrets/` keys directory | drwx------ (700)| aziotks |
+| Key files in `/var/aziot/secrets/` | -wr------- (600) | aziotks |
+
+To create the directories, set the permissions, and set the owner, run the following commands:
+
+```bash
+# If the certificate and keys directories don't exist, create, set ownership, and set permissions
+sudo mkdir -p /var/aziot/certs
+sudo chown aziotcs:aziotcs /var/aziot/certs
+sudo chmod 755 /var/aziot/certs
+
+sudo mkdir -p /var/aziot/secrets
+sudo chown aziotks:aziotks /var/aziot/secrets
+sudo chmod 700 /var/aziot/secrets
+
+# Give aziotcs ownership to certificates
+# Read and write for aziotcs, read-only for others
+sudo chown -R aziotcs:aziotcs /var/aziot/certs
+sudo find /var/aziot/certs -type f -name "*.*" -exec chmod 644 {} \;
+
+# Give aziotks ownership to private keys
+# Read and write for aziotks, no permission for others
+sudo chown -R aziotks:aziotks /var/aziot/secrets
+sudo find /var/aziot/secrets -type f -name "*.*" -exec chmod 600 {} \;
+
+# Verify permissions of directories and files
+sudo ls -Rla /var/aziot
+```
+
+The output of list with correct ownership and permission is similar to the following:
+
+```Output
+azureUser@vm:/var/aziot$ sudo ls -Rla /var/aziot
+/var/aziot:
+total 16
+drwxr-xr-x  4 root    root    4096 Dec 14 00:16 .
+drwxr-xr-x 15 root    root    4096 Dec 14 00:15 ..
+drwxr-xr-x  2 aziotcs aziotcs 4096 Jan 14 00:31 certs
+drwx------  2 aziotks aziotks 4096 Jan 23 17:23 secrets
+
+/var/aziot/certs:
+total 20
+drwxr-xr-x 2 aziotcs aziotcs 4096 Jan 14 00:31 .
+drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
+-rw-r--r-- 1 aziotcs aziotcs 1984 Jan 14 00:24 azure-iot-test-only.root.ca.cert.pem
+-rw-r--r-- 1 aziotcs aziotcs 5887 Jan 14 00:27 iot-edge-device-ca-devicename-full-chain.cert.pem
+
+/var/aziot/secrets:
+total 16
+drwx------ 2 aziotks aziotks 4096 Jan 23 17:23 .
+drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
+-rw------- 1 aziotks aziotks 3326 Jan 14 00:29 azure-iot-test-only.root.ca.key.pem
+-rw------- 1 aziotks aziotks 3243 Jan 14 00:28 iot-edge-device-ca-devicename.key.pem
+```
+
 ## Manage trusted root CA (trust bundle)
 
 Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as *trust bundle*. The trust bundle is available for IoT Edge and modules to communicate with servers. To configure the trust bundle, specify its file path in the IoT Edge configuration file.
 
-1. Get a publicly-trusted root CA certificate from a PKI provider.
+1. Get a publicly trusted root CA certificate from a PKI provider.
 
-1. Check the certificate [meets format requirements](#format-requirements).
+1. Check the certificate meets [format requirements](#format-requirements).
 
-1. Copy the PEM file and give IoT Edge's certificate access. For example, with `/var/aziot/certs` directory:
+1. Copy the PEM file and give IoT Edge's certificate service access. For example, with `/var/aziot/certs` directory:
 
    ```bash
-   # Make the directory as root if doesn't exist
+   # Make the directory if doesn't exist
    sudo mkdir /var/aziot/certs -p
-   # Copy certificate over
+
+   # Change cert directory user and group ownership to aziotcs and set permissions
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chmod 755 /var/aziot/certs
+   
+   # Copy certificate into certs directory
    sudo cp root-ca.pem /var/aziot/certs
 
-   # Give aziotcs ownership to certificate
-   # Read and write for aziotcs, read-only for others
+   # Give aziotcs ownership to certificate and set read and write permission for aziotcs, read-only for others
    sudo chown aziotcs:aziotcs /var/aziot/certs/root-ca.pem
    sudo chmod 644 /var/aziot/certs/root-ca.pem
    ```
@@ -102,6 +169,7 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
    ```bash
    sudo iotege config apply
    ```
+### Install root CA to OS certificate store
 
 Installing the certificate to the trust bundle file makes it available to container modules but not to host modules like Azure Device Update or Defender. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
 
@@ -110,7 +178,7 @@ Installing the certificate to the trust bundle file makes it available to contai
   ```bash
   sudo cp /var/aziot/certs/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
 
-  sudo update-ca-certificates
+  sudo update-ca-trust
   ```
 
 # [IoT Edge for Linux on Windows (EFLOW)](#tab/windows)
@@ -132,11 +200,16 @@ IoT Edge can use existing certificate and private key files to authenticate or a
 1. Copy the PEM file to the IoT Edge device where IoT Edge modules can have access. For example, `/var/aziot/` directory.
 
    ```bash
-   # Make the directory if doesn't exist
-   sudo mkdir /var/aziot/certs -p
-   sudo mkdir /var/aziot/secrets -p
+   # If the certificate and keys directories don't exist, create, set ownership, and set permissions
+   sudo mkdir -p /var/aziot/certs
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chmod 755 /var/aziot/certs
 
-   # Copy certificate and private key over
+   sudo mkdir -p /var/aziot/secrets
+   sudo chown aziotks:aziotks /var/aziot/secrets
+   sudo chmod 700 /var/aziot/secrets
+
+   # Copy certificate and private key into the correct directory
    sudo cp my-cert.pem /var/aziot/certs
    sudo cp my-private-key.pem /var/aziot/secrets
    ```
@@ -150,7 +223,7 @@ IoT Edge can use existing certificate and private key files to authenticate or a
    sudo chmod 644 /var/aziot/certs/my-cert.pem
 
    # Give aziotks ownership to private key
-   # Read and write for aziotks, no permission for other
+   # Read and write for aziotks, no permission for others
    sudo chown aziotks:aziotks /var/aziot/secrets/my-private-key.pem
    sudo chmod 600 /var/aziot/secrets/my-private-key.pem
    ```
@@ -223,7 +296,7 @@ MIICdTCCAhugAwIBAgIBMDAKBggqhkjOPQQDAjAXMRUwEwYDVQQDDAxlc3RFeGFt
 ```
 
 > [!TIP]
-> To test without access to certificate files provided by a PKI, see [Create demo certificates to test device features](/azure/iot-edge/how-to-create-test-certificates) to generate a short-lived non-production device identity certificate and private key.
+> To test without access to certificate files provided by a PKI, see [Create demo certificates to test device features](./how-to-create-test-certificates.md) to generate a short-lived non-production device identity certificate and private key.
 
 Configuration example when provisioning with IoT Hub:
 
@@ -402,7 +475,7 @@ In this scenario, the bootstrap certificate and private key are expected to be l
 
    * Microsoft partners with GlobalSign to [provide a demo account](https://www.globalsign.com/lp/globalsign-and-microsoft-azure-iot-edge-enroll-demo).
 
-1. In the IoT Edge device configuration file `config.toml`, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. This step is optional if the EST server has a publicly-trusted root TLS certificate.
+1. In the IoT Edge device configuration file `config.toml`, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. This step is optional if the EST server has a publicly trusted root TLS certificate.
 
    ```toml
    [cert_issuance.est]
@@ -485,7 +558,7 @@ The following table lists what each option in `auto_renew` does:
 
 ### Example: renew device identity certificate automatically with EST
 
-To use EST and IoT Edge for automatic device identity certificate issuance and renewal, which is recommended for production, IoT Edge must provision as part of a [DPS CA-based enrollment group](/azure/iot-edge/how-to-provision-devices-at-scale-linux-x509?tabs=group-enrollment%2Cubuntu). For example:
+To use EST and IoT Edge for automatic device identity certificate issuance and renewal, which is recommended for production, IoT Edge must provision as part of a [DPS CA-based enrollment group](./how-to-provision-devices-at-scale-linux-x509.md?tabs=group-enrollment%2cubuntu). For example:
 
 ```toml
 ## DPS provisioning with X.509 certificate

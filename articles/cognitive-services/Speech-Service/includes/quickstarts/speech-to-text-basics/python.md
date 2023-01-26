@@ -14,9 +14,6 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
 ## Set up the environment
 
 The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). The Speech SDK for Python is compatible with Windows, Linux, and macOS. 
@@ -29,14 +26,11 @@ Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
-
 ## Recognize speech from a microphone
 
 Follow these steps to create a new console application.
 
-1. Open a command prompt where you want the new project, and create a new file named `speech-recognition.py`.
+1. Open a command prompt where you want the new project, and create a new file named `speech_recognition.py`.
 1. Run this command to install the Speech SDK:  
     ```console
     pip install azure-cognitiveservices-speech
@@ -89,9 +83,6 @@ Speak into your microphone when prompted. What you speak should be output as tex
 Speak into your microphone.
 RECOGNIZED: Text=I'm excited to try speech to text.
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:

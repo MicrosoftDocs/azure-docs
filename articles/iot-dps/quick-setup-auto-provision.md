@@ -92,7 +92,7 @@ To clean up resources in the Azure portal:
 
 ## Next steps
 
-Provision a simulated device with IoT hub and the Device Provisioning Service:
+In this quickstart, you deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Provision a simulated symmetric key device](./quick-create-simulated-device-symm-key.md)

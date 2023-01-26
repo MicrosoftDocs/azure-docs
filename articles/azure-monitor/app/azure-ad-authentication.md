@@ -2,7 +2,7 @@
 title: Azure AD authentication for Application Insights
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 08/02/2021
+ms.date: 01/10/2023
 ms.devlang: csharp, java, javascript, python
 ms.reviewer: rijolly
 ---
@@ -17,6 +17,7 @@ Using various authentication systems can be cumbersome and risky because it's di
 
 The following are prerequisites to enable Azure AD authenticated ingestion.
 
+- Must be in public cloud
 - Familiarity with:
     - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md). 
     - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
@@ -28,7 +29,7 @@ The following are prerequisites to enable Azure AD authenticated ingestion.
 
 The following SDK's and features are unsupported for use with Azure AD authenticated ingestion.
 
-- [Application Insights Java 2.x SDK](java-2x-agent.md)<br>
+- [Application Insights Java 2.x SDK](deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps)<br>
  Azure AD authentication is only available for Application Insights Java Agent >=3.2.0.
 - [ApplicationInsights JavaScript Web SDK](javascript.md).
 - [Application Insights OpenCensus Python SDK](opencensus-python.md) with Python version 3.4 and 3.5.
@@ -106,7 +107,7 @@ Application Insights Node.JS supports the credential classes provided by [Azure 
 #### DefaultAzureCredential
 
 ```javascript
-let appInsights = require("applicationinsights");
+import appInsights from "applicationinsights";
 import { DefaultAzureCredential } from "@azure/identity"; 
  
 const credential = new DefaultAzureCredential();
@@ -118,7 +119,7 @@ appInsights.defaultClient.config.aadTokenCredential = credential;
 #### ClientSecretCredential
 
 ```javascript
-let appInsights = require("applicationinsights");
+import appInsights from "applicationinsights";
 import { ClientSecretCredential } from "@azure/identity"; 
  
 const credential = new ClientSecretCredential(

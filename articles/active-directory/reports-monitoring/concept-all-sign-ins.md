@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2022
+ms.date: 01/12/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -40,6 +40,10 @@ To access the sign-ins log for a tenant, you must have one of the following role
 - Security Reader
 - Global Reader
 - Reports Reader
+
+>[!NOTE]
+>To see Conditional Access data in the sign-ins log, you need to be a user in one of the following roles:
+Company Administrator, Global Reader, Security Administrator, Security Reader, Conditional Access Administrator .
 
 The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you can access the sign-in activity report through the Microsoft Graph API. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in Graph after you upgrade to a premium license with no data activities before the upgrade.
 
@@ -258,6 +262,7 @@ When analyzing authentication details, take note of the following details:
 - The **Authentication details** tab can initially show incomplete or inaccurate data until log information is fully aggregated. Known examples include: 
     - A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
     - The **Primary authentication** row isn't initially logged. 
+- If you're unsure of a detail in the logs, gather the **Request ID** and **Correlation ID** to use for further analyzing or troubleshooting.
 
 ## Sign-in data used by other services
 

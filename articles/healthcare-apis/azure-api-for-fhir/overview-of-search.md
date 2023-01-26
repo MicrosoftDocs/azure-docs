@@ -158,6 +158,8 @@ Similarly, you can do a reverse chained search. This allows you to get resources
 
 As mentioned above, the results from a search will be a paged bundle. By default, the search will return 10 results per page, but this can be increased (or decreased) by specifying `_count`. Within the bundle, there will be a self link that contains the current result of the search. If there are additional matches, the bundle will contain a next link. You can continue to use the next link to get the subsequent pages of results. `_count` is limited to 1000 items or less. 
 
+The next link in the bundle has a continuation token size limit of 3KB. You have flexibility to tweak the continuation token size between 1 to 3KB, using header "x-ms-documentdb-responsecontinuationtokenlimitinkb".
+
 Currently, the Azure API for FHIR only supports the next link in bundles, and it doesn’t support first, last, or previous links.
 
 ## Next steps

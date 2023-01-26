@@ -39,6 +39,29 @@ It's the same experience as the public portal, except with new improvements and 
 We encourage you to try out the preview features available in Cost Management Labs and share your feedback. It's your chance to influence the future direction of Cost Management. To provide feedback, use the **Report a bug** link in the Try preview menu. It's a direct way to communicate with the Cost Management engineering team.
 
 
+<a name="rememberpreviews"></a>
+
+## Remember preview features across sessions
+
+Cost Management now remembers preview features across sessions in the preview portal. Select the preview features you're interested in from the Try preview menu and you'll see them enabled by default the next time you visit the portal. No need to enable this option – preview features will be remembered automatically.
+
+
+<a name="totalkpitooltip"></a>
+
+## Total KPI tooltip
+
+View additional details about what costs are included and not included in the Cost analysis preview. You can enable this option from the Try Preview menu.
+
+The Total KPI tooltip can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) menu in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
+
+
+<a name="customersview"></a>
+
+Cloud Solution Provider (CSP) partners can view a breakdown of costs by customer and subscription in the Cost analysis preview. Note this view is only available for Microsoft Partner Agreement (MPA) billing accounts and billing profiles.
+
+The Customers view can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) menu in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
+
+
 <a name="anomalyalerts"></a>
 
 ## Anomaly detection alerts
@@ -61,6 +84,17 @@ To configure anomaly alerts:
 For more information about anomaly detection and how to configure alerts, see [Identify anomalies and unexpected changes in cost](../understand/analyze-unexpected-charges.md).
 
 **Anomaly detection is now available by default in Azure global.**
+
+
+<a name="homev2"></a>
+
+## Recent and pinned views in the cost analysis preview
+
+Cost analysis is your tool for interactive analytics and insights. You've seen the addition of new views and capabilities, like anomaly detection, in the cost analysis preview, but classic cost analysis is still the best tool for quick data exploration with simple filtering and grouping. While these capabilities are coming to the preview, we're introducing a new experience that allows you to select which view you want to start with, whether that be a preview view, a built-in view, or a custom view you created.
+
+The first time you open the cost analysis preview, you'll see a list of all views. When you return, you'll see a list of the recently used views to help you get back to where you left off quicker than ever. You can pin any view or even rename or subscribe to alerts for your saved views.
+
+**Recent and pinned views are available by default in the cost analysis preview.** Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback.
 
 
 <a name="aksnestedtable"></a>

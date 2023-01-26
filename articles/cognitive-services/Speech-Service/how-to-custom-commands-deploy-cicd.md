@@ -84,7 +84,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
     | SourceAppId | ID of the DEV application |
     | TargetAppId | ID of the PROD application |
     | SubscriptionKey | The key used for both applications |
-    | Culture | Culture of the applications (i.e. en-us) |
+    | Culture | Culture of the applications (en-us) |
 
     > [!div class="mx-imgBorder"]
     > ![Send Activity payload](media/custom-commands/cicd-edit-pipeline-variables.png)
@@ -159,7 +159,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
     | ------- | --------------- | ----------- |
     | TargetAppId | ID of the PROD application |
     | SubscriptionKey | The key used for both applications |
-    | Culture | Culture of the applications (i.e. en-us) |
+    | Culture | Culture of the applications (en-us) |
 
 1. Click "Run" and then click in the "Job" running.
     You should see a list of tasks running that contains: "Import app" & "Train and Publish app"

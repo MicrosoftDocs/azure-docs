@@ -2,7 +2,7 @@
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
-ms.date: 11/02/2022
+ms.date: 12/06/2022
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -25,6 +25,7 @@ These commands include:
 
 - [Build ARM Template](#build-arm-template)
 - [Create Bicep Configuration File](#create-bicep-configuration-file)
+- [Decompile into Bicep](#decompile-into-bicep)
 - [Deploy Bicep File](#deploy-bicep-file)
 - [Generate Parameters File](#generate-parameters-file)
 - [Insert Resource](#insert-resource)
@@ -34,7 +35,11 @@ These commands include:
 
 These commands are also shown in the context menu when you right-click a Bicep file:
 
-:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu.":::
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu for Bicep files.":::
+
+When you right-click a JSON file:
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu-json.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu for ARM JSON templates.":::
 
 ### Build ARM template
 
@@ -47,13 +52,19 @@ The [Bicep configuration file (bicepconfig.json)](./bicep-config.md) can be used
 To create a Bicep configuration file:
 
 1. Open Visual Studio Code.
-1. From the **View** menu, select **Command Palette** (or press **[CTRL/CMD]**+**[SHIRT]**+**P**), and then select **Bicep: Create Bicep Configuration File**.
+1. From the **View** menu, select **Command Palette** (or press **[CTRL/CMD]**+**[SHIFT]**+**P**), and then select **Bicep: Create Bicep Configuration File**.
 1. Select the file directory where you want to place the file.
-1. Save the configuration file when you are done.
+1. Save the configuration file when you're done.
+
+### Decompile into Bicep
+
+This command decompiles an ARM JSON template into a Bicep file, and places it in the same directory as the ARM JSON template. The new file has the same file name with the *.bicep* extension. If a Bicep file with the same file name already exists in the same folder, Visual Studio Code prompts you to overwrite the existing file or create a copy.
 
 ### Deploy Bicep file
 
 You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bicep file** from the command palette or from the context menu. The extension prompts you to sign in Azure, select subscription, create/select resource group, and enter parameter values.
+
+[!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
 
 ### Generate parameters file
 

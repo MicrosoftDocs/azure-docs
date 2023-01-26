@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/08/2022
 ms.devlang: csharp
-ms.custom: contperf-fy22q2, mode-api
+ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet
 ---
 
 # Get started with Azure Service Bus topics and subscriptions (.NET)
@@ -48,10 +48,11 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 You can authorize access to the service bus namespace using the following steps:
 
+1. Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
 1. Select the **Sign in** button in the top right of Visual Studio.
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
-2. Sign-in using the Azure AD account you assigned a role to previously.
+1. Sign-in using the Azure AD account you assigned a role to previously.
 
     :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 
@@ -448,7 +449,7 @@ In this section, you'll add code to retrieve messages from the subscription.
     //
     // Create the clients that we'll use for sending and processing messages.
     // TODO: Replace the <NAMESPACE-CONNECTION-STRING> placeholder
-    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>">);
+    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>");
 
     // create a processor that we can use to process the messages
     // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
@@ -595,7 +596,7 @@ In this section, you'll add code to retrieve messages from the subscription.
     //
     // Create the clients that we'll use for sending and processing messages.
     // TODO: Replace the <NAMESPACE-CONNECTION-STRING> placeholder
-    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>">);
+    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>");
 
     // create a processor that we can use to process the messages
     // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders

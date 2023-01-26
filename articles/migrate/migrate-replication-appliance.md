@@ -5,13 +5,14 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
-ms.date: 05/17/2022
+ms.date: 10/28/2022
+ms.custom: engagement-fy23
 ---
 
 
 # Replication appliance
 
-This article describes the replication appliance used by [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using agent-based migration. 
+This article describes the replication appliance used by the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using agent-based migration. 
 
 
 ## Overview

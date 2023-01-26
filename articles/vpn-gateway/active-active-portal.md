@@ -3,12 +3,12 @@ title: 'Configure active-active VPN gateways: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure active-active virtual network gateways using the Azure portal.
 services: vpn-gateway
-author: JackStromberg
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 07/22/2021
-ms.author: jstrom
+ms.author: cherylmc
 
 ---
 
@@ -92,6 +92,10 @@ Use the following steps to convert active-standby mode gateway to active-active 
 
 1. At the top of the **Configuration** page, click **Save**. This update can take about 30-45 minutes to complete.
 
+> [!IMPORTANT]
+> If you have BGP sessions running, be aware that the Azure VPN Gateway BGP configuration will change and two newly assigned BGP IPs will be provisioned within the Gateway Subnet address range. The old Azure VPN Gateway BGP IP address will no longer exist. This will incur downtime and updating the BGP peers on the on-premises devices will be required. Once the gateway is finished provisioning, the new BGP IPs can be obtained and the on-premises device configuration will need to be updated accordingly. This applies to non APIPA BGP IPs. To understand how to configure BGP in Azure, see [How to configure BGP on Azure VPN Gateways](bgp-howto.md).
+> 
+
 ### Change active-active to active-standby
 
 Use the following steps to convert active-active mode gateway to active-standby mode.
@@ -103,6 +107,10 @@ Use the following steps to convert active-active mode gateway to active-standby 
 1. On the **Configuration** page, change the Active-active mode to **Disabled**.
 
 1. At the top of the **Configuration** page, click **Save**.
+
+> [!IMPORTANT]
+> If you have BGP sessions running, be aware that the Azure VPN Gateway BGP configuration will change from two BGP IP addresses to a single BGP address. The platform generally assigns the last usable IP of the Gateway Subnet. This will incur downtime and updating the BGP peers on the on-premises devices will be required. This applies to non APIPA BGP IPs. To understand how to configure BGP in Azure, see [How to configure BGP on Azure VPN Gateways](bgp-howto.md).
+> 
 
 ## Next steps
 

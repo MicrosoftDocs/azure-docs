@@ -22,7 +22,7 @@ For a video overview of the concepts discussed in this article, see:
 
 ## Connectivity modes
 
-Azure Cosmos DB SDKs can connect to the service in two [connectivity modes](sdk-connection-modes.md). The .NET and Java SDKs can connect to the service in both Gateway and Direct mode, while the others can only connect in Gateway mode. Gateway mode uses the HTTP protocol and Direct mode uses the TCP protocol.
+Azure Cosmos DB SDKs can connect to the service in two [connectivity modes](sdk-connection-modes.md). The .NET and Java SDKs can connect to the service in both Gateway and Direct mode, while the others can only connect in Gateway mode. Gateway mode uses the HTTP protocol and Direct mode typically uses the TCP protocol.
 
 Gateway mode is always used to fetch metadata such as the account, container, and routing information regardless of which mode SDK is configured to use. This information is cached in memory and is used to connect to the [service replicas](../partitioning-overview.md#replica-sets).
 

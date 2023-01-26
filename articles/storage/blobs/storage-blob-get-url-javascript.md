@@ -1,5 +1,6 @@
 ---
-title: Get container and blob urlJavaScript - Azure Storage
+title: Get container and blob urlJavaScript
+titleSuffix: Azure Storage
 description: Learn how to get a container or blob URL in Azure Storage by using the JavaScript client library.
 services: storage
 author: pauljewellmsft
@@ -9,7 +10,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: "devx-track-javascript"
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Get URL for container or blob in Azure Storage using the JavaScript client library

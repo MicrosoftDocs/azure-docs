@@ -5,10 +5,10 @@ description: This article helps you determine how to choose an Azure saving plan
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
+ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 12/19/2022
 ms.author: banders
 ---
 
@@ -21,6 +21,8 @@ You should purchase savings plans based on consistent base usage. Committing to 
 Savings plan purchase recommendations are calculated by analyzing your hourly usage data over the last 7, 30, and 60 days. Azure calculates what your costs would have been if you had a savings plan and compares it with your actual pay-as-you-go costs incurred over the time duration. The calculation is performed for every quantity that you used during the time frame. The commitment amount that maximizes your savings is recommended.
 
 For example, you might use 500 VMs most of the time, but sometimes usage spikes to 700 VMs. In this example, Azure calculates your savings for both the 500 and 700 VM quantities. Since the 700 VM usage is sporadic, the recommendation calculation determines that savings are maximized for a savings plan commitment that is sufficient to cover 500 VMs and the recommendation is provided for that commitment.
+
+:::image type="content" source="./media/choose-commitment-amount/savings-plan-usage-spikes.png" alt-text="Diagram showing usage spikes exceeding savings plan recommendations that would get payed for at PAYG pricing." lightbox="./media/choose-commitment-amount/savings-plan-usage-spikes.png" :::
 
 Note the following points:
 

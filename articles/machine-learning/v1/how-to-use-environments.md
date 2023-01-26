@@ -67,5 +67,5 @@ az ml environment download -n myenv -d downloaddir
 
 ## Next steps
 
-* After you have a trained model, learn [how and where to deploy models](../how-to-deploy-managed-online-endpoints.md).
+* After you have a trained model, learn [how and where to deploy models](../how-to-deploy-online-endpoints.md).
 * View the [`Environment` class SDK reference](/python/api/azureml-core/azureml.core.environment%28class%29).

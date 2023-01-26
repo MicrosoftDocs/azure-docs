@@ -2,7 +2,7 @@
 title: Monitor an Azure Kubernetes Service (AKS) cluster deployed
 description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Container insights already deployed in your subscription.
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 01/09/2023
 ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ms.reviewer: aul
 ---
@@ -13,7 +13,7 @@ This article describes how to set up Container insights to monitor a managed Kub
 
 ## Prerequisites
 
-If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the Microsoft.ContainerService resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 ## New AKS cluster
 
@@ -21,7 +21,7 @@ You can enable monitoring for an AKS cluster when it's created by using any of t
 
 - **Azure CLI**: Follow the steps in [Create AKS cluster](../../aks/learn/quick-kubernetes-deploy-cli.md).
 - **Azure Policy**: Follow the steps in [Enable AKS monitoring add-on by using Azure Policy](container-insights-enable-aks-policy.md).
-- **Terraform**: If you're [deploying a new AKS cluster by using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you don't choose to specify an existing one. To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution). Complete the profile by including the [addon_profile](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) and specifying **oms_agent**.
+- **Terraform**: If you're [deploying a new AKS cluster by using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you don't choose to specify an existing one. To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution). Complete the profile by including **oms_agent** profile.
 
 ## Existing AKS cluster
 
@@ -62,21 +62,30 @@ provisioningState       : Succeeded
 
 ## [Terraform](#tab/terraform)
 
-To enable monitoring by using Terraform:
+1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster) depending on the version of the [Terraform AzureRM provider version](/azure/developer/terraform/provider-version-history-azurerm).
 
-1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster).
+   * If the Terraform AzureRM provider version is 3.0 or higher, add the following:
 
-   ```
-   addon_profile {
+    ```
     oms_agent {
-      enabled                    = true
-      log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
-     }
-   }
-   ```
+       log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+      }
+    ```
 
-1. Add the [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) by following the steps in the Terraform documentation.
-1. Enable collection of custom metrics by using the guidance at [Enable custom metrics](container-insights-custom-metrics.md).
+   * If the Terraform AzureRM provider is less than version 3.0, add the following:
+
+    ```
+    addon_profile {
+     oms_agent {
+        enabled                    = true
+        log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+       }
+    }
+    ```
+
+2. Add the [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) by following the steps in the Terraform documentation.
+
+3. Enable collection of custom metrics by following the guidance at [Enable custom metrics](container-insights-custom-metrics.md).
 
 ## [Azure portal](#tab/portal-azure-monitor)
 
@@ -100,7 +109,7 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor:
       | Log Analytics workspace | Select a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) from the dropdown list or select **Create new** to create a default Log Analytics workspace. The Log Analytics workspace must be in the same subscription as the AKS container. |
       | Enable Prometheus metrics | Select this option to collect Prometheus metrics for the cluster in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). |
       | Azure Monitor workspace | If you select **Enable Prometheus metrics**, you must select an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md). The Azure Monitor workspace must be in the same subscription as the AKS container and the Log Analytics workspace. |
-      | Grafana workspace | To use the collected Prometheus metrics with dashboards in [Azure-managed Grafana](../../managed-grafana/overview.md), select a Grafana workspace. The Grafana workspace will be [linked](../essentials/azure-monitor-workspace-overview.md#link-a-grafana-workspace) to the Azure Monitor workspace if it isn't already. |
+      | Grafana workspace | To use the collected Prometheus metrics with dashboards in [Azure-managed Grafana](../../managed-grafana/overview.md), select a Grafana workspace. The Grafana workspace will be [linked](../essentials/prometheus-metrics-enable.md#enable-prometheus-metric-collection) to the Azure Monitor workspace if it isn't already. |
     
 1. Select **Use managed identity** if you want to use [managed identity authentication with Azure Monitor Agent](container-insights-onboard.md#authentication).
 
