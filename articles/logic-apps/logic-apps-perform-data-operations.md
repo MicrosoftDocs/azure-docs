@@ -454,7 +454,7 @@ If you used the Office 365 Outlook action, you get a result similar to the follo
 
 To create an HTML table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the **Create HTML table** action. You can then use the resulting table in actions that follow the **Create HTML table** action.
 
-To try the **Create HTML table** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create HTML table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create HTML table](logic-apps-data-operations-code-samples. md#create-html-table-action-example). For more information about the **Create HTML table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
+To try the **Create HTML table** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create HTML table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create HTML table](logic-apps-data-operations-code-samples.md#create-html-table-action-example). For more information about the **Create HTML table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
 
 ### [Consumption](#tab/consumption)
 
