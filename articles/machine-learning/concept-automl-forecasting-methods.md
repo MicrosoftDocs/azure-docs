@@ -129,12 +129,13 @@ AutoML generally adds new columns to user data in an effort to increase modeling
 Feature Group | Default/Optional
 ------------ | ----------------
 Calendar features derived from the time index (for example, day of week) | Default
+Categorical features derived from time series IDs | Default
 Encoding categorical types to numeric type | Default
 Indicator features for holidays associated with a given country or region | Optional
 Lags of target quantity | Optional
 Lags of feature columns | Optional
 Rolling window aggregations (for example, rolling average) of target quantity | Optional
-Seasonal decomposition (STL) | Optional
+Seasonal decomposition ([STL](https://otexts.com/fpp3/stl.html)) | Optional
 
 The user can configure featurization from the AutoML SDK via the [ForecastingJob](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) class or from the [AzureML Studio web interface](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
