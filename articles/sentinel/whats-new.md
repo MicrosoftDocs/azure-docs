@@ -129,24 +129,37 @@ A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-
 As of **February 2, 2023**, Microsoft is changing the way that incidents are created from analytics rules with certain event and alert grouping settings, and also the way that such incidents are updated by automation rules.
 
 The affected analytics rules are those with both of the following two settings:
-- **Event grouping** is set to **Trigger an alert for each event** (sometimes referred to as "alert per row").
-- **Alert grouping** is enabled, in any one of the three possible configurations.
+- **Event grouping** is set to **Trigger an alert for each event** (sometimes referred to as "alert per row" or "alert per result").
+- **Alert grouping** is enabled, in any one of the [three possible configurations](detect-threats-custom.md#alert-grouping).
+
+#### The problem
 
 Rules with these two settings generate unique alerts for each event (result) returned by the query. These alerts are then all grouped together into a single incidents or a small number of incidents (depending on the alert grouping configuration choice).
+
+The problem is that the incidents are created as soon as the first alert is generated, so at that point they contain only the first alert. The remaining alerts are joined to the incident one after the other as they are generated. So you end up with a single running of an analytics rule resulting in:
+- One incident creation event *and*
+- Up to 149 incident update events
+
+These circumstances result in unpredictable behavior when evaluating the conditions defined in automation rules or populating the incident schema in playbooks:
+
+- Automation rules on this incident will run immediately on its creation, even with just the one alert included. So the automation rule will only consider the incident's status as containing the first alert, even though alerts will continue being added while the automation rule is running. So you end up with a situation where the automation rule's evaluation of the incident is incomplete and likely incorrect.
+
+- Entities in later alerts being left out of the incident.
+
+    Automation rules' conditions might ignore entities that only later become part of the incident but weren't included in the first alert/creation of the incident.
+
+- Because of the previous behavior, Playbooks may only consider the details of the first alert in an incident, but not those from subsequent alerts. 
+
+#### The solution
 
 The following table describes the change in the incident creation and automation behaviors:
 
 | When incident created/updated with multiple alerts | Before the change | After the change |
 | -- | -- | -- |
-| **SecurityIncident** table in Log Analytics shows... | -&nbsp;One&nbsp;row&nbsp;for&nbsp;*incident&nbsp;created*&nbsp;with&nbsp;one&nbsp;alert.<br>- Multiple&nbsp;events&nbsp;of&nbsp;*alert&nbsp;added*. | One row for *incident created* only after all alerts triggered by this rule execution have been added and grouped to this incident. |
-| **Automation rule** conditions (trigger: when an incident is created/updated) will be evaluated based on... | The first alert of the incident only. This causes unexpected behavior ('race condition') when evaluating automation rules conditions. | after all alerts and entities, triggered by this rule execution and grouped to this incident, have been added, with the most recent incident properties (such severity and tactics). |
+| **Automation rule** conditions (trigger: when an incident is created/updated) will be evaluated based on... | The first alert of the incident only. This causes unexpected behavior ('race condition') when evaluating automation rules conditions. | after all alerts and entities, triggered by this rule execution and grouped to this incident, have been added, with the most recent incident properties (such as severity and tactics). |
 | **Playbook input** (Microsoft Sentinel incident trigger) | Alerts list contains only the first alert of the incident | Alerts list contains all the alerts triggered by this rule execution and grouped to this incident |
+| **SecurityIncident** table in Log Analytics shows... | -&nbsp;One&nbsp;row&nbsp;for&nbsp;*incident&nbsp;created*&nbsp;with&nbsp;one&nbsp;alert.<br>- Multiple&nbsp;events&nbsp;of&nbsp;*alert&nbsp;added*. | One row for *incident created* only after all alerts triggered by this rule execution have been added and grouped to this incident. |
 
-
-| Scenario | Old behavior | New behavior |
-| -- | -- | -- |
-| **Analytics rule runs**,<br>alert-per-row setting enabled,<br>query generates 100 records,<br>resulting in 100 alerts. | - Incident is created with one alert.<br>- Incident is updated 99 times<br>&nbsp;&nbsp;&nbsp;with the remaining alerts. | - A single incident is created<br>&nbsp;&nbsp;&nbsp;*after* all the alerts are generated.<br>- The incident contains all 100 alerts. |
-| **Automation rule/s** triggered<br>when
 
 #### How to prepare for this change?
 
@@ -157,16 +170,6 @@ The following table describes the change in the incident creation and automation
 - If these automation rules also trigger playbooks, and these playbooks work on the incident alerts or entities, they may now get more alerts and entities than they used to.
 
 - If you have any scripts  or pre-defined queries running based on the *SecurityIncident* table, please note that for these analytics rules, the way rows are added to the table will be different (One row for incident created after all alerts have been added).
-
-#### Before the change – in depth
-
-Incidents created by analytics rules with this configuration may contain, by design, up to one hundred and fifty alerts on creation or update. However, in our current public experience, they are created only after the first alert, and subsequent alerts join one after the other as incident updates. The downside of this of this behavior is: 
-1. Unexpected behavior ('race condition') when evaluating automation rules conditions. In this scenario, the incident may continue to change while alerts are added. However, each execution of the automation rule will only consider the incident status on the first alert. For example, the tenth alert may be higher in severity than the previous ones; however, the incident alert was already set by the first alert.
-1. Automation rules conditions may ignore entities that later become part of the incident but that were not included in the first alert/creation of the incident.
-1. Because of the previous behavior, Playbooks may only consider the details of the first alert in an incident, but not those from subsequent alerts. 
- 
-
-
 
 ### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
 
