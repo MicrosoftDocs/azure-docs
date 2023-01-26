@@ -57,7 +57,9 @@ The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-heal
 
  **Added Deploy to Azure button**
 
- Customers can now deploy the MedTech service fully, including Event Hub, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service with a QuickStart template - Azure Health Data Services | Microsoft Learn](azure/healthcare-apis/iot/deploy-new-arm#deploy-to-azure-button)
+ Customers can now deploy the MedTech service fully, including Event Hub, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service using an Azure Resource Manager template](./iot/deploy-new-arm.md)
+
+
 
 **Added the Dropped Event Metrics**
 
@@ -487,4 +489,4 @@ For information about the features and bug fixes in Azure API for FHIR, see
 >[!div class="nextstepaction"]
 >[Release notes: Azure API for FHIR](./azure-api-for-fhir/release-notes.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
