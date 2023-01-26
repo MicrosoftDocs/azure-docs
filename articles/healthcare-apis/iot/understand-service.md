@@ -60,7 +60,7 @@ Group is the next *optional* stage where the normalized messages available from 
 `Device identity` and `measurement type` grouping is optional and enabled by the use of the [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) measurement type. The SampledData measurement type provides a concise way to represent a time-based series of measurements from a device message into FHIR Observation resources. When you use the SampledData measurement type, measurements can be grouped into a single FHIR Observation resource that represents a 1-hour period or a 24-hour period.
 
 ## Transform
-Transform is the next stage where normalized device messages are processed using user-selected/user-created conforming and valid [FHIR destination mappings](how-to-configure-fhir-mappings.md). Normalized device messages get transformed into FHIR Observation resources if a matching FHIR destination mapping has been authored.
+Transform is the next stage where normalized messages are processed using user-selected/user-created conforming and valid [FHIR destination mappings](how-to-configure-fhir-mappings.md). Normalized messages get transformed into FHIR Observation resources if a matching FHIR destination mapping has been authored.
 
 At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, along with its associated [Patient](https://www.hl7.org/fhir/patient.html) resource, is also retrieved from the FHIR service using the device identifier present in the device message. These resources are added as a reference to the FHIR Observation resource being created.
 
