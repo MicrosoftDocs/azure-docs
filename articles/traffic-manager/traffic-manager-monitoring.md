@@ -7,7 +7,7 @@ ms.service: traffic-manager
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/25/2023
+ms.date: 01/26/2023
 ms.author: greglin
 ---
 
@@ -182,7 +182,8 @@ See the following example:
 
 > [!NOTE]
 > - Health checks can't be disabled on nested Traffic Manager profiles.
-> - Enabling and disabling an endpoint doesn't reset the **Health Checks** configuration. An endpoint must be enabled to configure health checks. 
+> - An endpoint must be enabled to configure health checks.
+> - Enabling and disabling an endpoint doesn't reset the **Health Checks** configuration. 
 > - Endpoints that are configured to always serve traffic are billed for [basic health checks](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
 ## FAQs
