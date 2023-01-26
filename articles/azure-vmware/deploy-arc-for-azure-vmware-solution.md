@@ -15,7 +15,7 @@ In this article, you'll learn how to deploy Arc for Azure VMware Solution. Once 
 Before you begin checking off the prerequisites, verify the following actions have been done:
  
 - You deployed an Azure VMware Solution private cluster. 
-- You have a connection to the Azure VMware Solution private cloud through your on-prem environment or your native Azure Virtual Network. 
+- You have a connection to the Azure VMware Solution private cloud through your on-premises environment or your native Azure Virtual Network. 
 - There should be an isolated NSX-T Data Center segment for deploying the Arc for Azure VMware Solution Open Virtualization Appliance (OVA). If an isolated NSX-T Data Center segment doesn't exist, one will be created.
 
 ## Prerequisites 
@@ -35,7 +35,7 @@ The following items are needed to ensure you're set up to begin the onboarding p
 > [!NOTE]
 > Only the default port of 443 is supported. If you use a different port, Appliance VM creation will fail. 
 
-At this point, you should have already deployed an Azure VMware Solution private cloud. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
+At this point, you should have already deployed an Azure VMware Solution private cloud. You need to have a connection from your on-premises environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
 
 For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](./tutorial-network-checklist.md)
 
@@ -93,7 +93,7 @@ Use the following steps to guide you through the process to onboard in Arc for A
     - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
     - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It shouldn't be part of the k8s node pool IP range.  
     - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
-    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You may choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields then you must use /28 address space for `networkCIDRForApplianceVM`
+    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You may choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM`
 
     **Json example**
     ```json
@@ -306,9 +306,9 @@ When the extension installation steps are completed, they trigger deployment and
 
 ## Change Arc appliance credential
 
-When **cloudadmin** credentials are updated, use the following steps to update the credentials in the appliance store.
+When **cloud admin** credentials are updated, use the following steps to update the credentials in the appliance store.
 
-1. Log into the jumpbox VM from where onboarding was performed. Change the directory to **onboarding directory**.
+1. Log in to the jumpbox VM from where onboarding was performed. Change the directory to **onboarding directory**.
 1. Run the following command for Windows-based jumpbox VM.
     
     `./.temp/.env/Scripts/activate`
@@ -344,7 +344,7 @@ Use the following steps to perform a manual upgrade for Arc appliance virtual ma
     1. Power off the VM.
     1. Delete the VM.
 1. Delete the download template corresponding to the VM.
-1. Delete the resource bridge ARM resource.
+1. Delete the resource bridge Azure Resource Manager resource.
 1. Get the previous script `Config_avs` file and add the following configuration item:
     1. `"register":false`
 1. Download the latest version of the Azure VMware Solution onboarding script.
@@ -361,7 +361,7 @@ Use the following steps to uninstall extensions from the portal.
 >[!NOTE]
 >**Steps 2-5** must be performed for all the VMs that have VM extensions installed.
 
-1. Log into your Azure VMware Solution private cloud. 
+1. Log in to your Azure VMware Solution private cloud. 
 1. Select **Virtual machines** in **Private cloud**, found in the left navigation under “Arc-enabled VMware resources”.
 1. Search and select the virtual machine where you have **Guest management** enabled.
 1. Select **Extensions**.
@@ -401,9 +401,9 @@ For the final step, you'll need to delete the resource bridge VM and the VM temp
 
 ## Preview FAQ
 
-**Is Arc supported in all the Azure VMware Solution regions?**
+**Region support for Azure VMware Solution**
  
-Arc is supported in EastUS, WestEU, UK South, Australia East, Canada Central and Southeast Asia regions however we are working to extend the regional support.
+Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview).
 
 **How does support work?**
 
@@ -419,7 +419,7 @@ Yes
 
 **Is DHCP support available?**
 
-DHCP support is not available to customers at this time, we only support static IP.
+DHCP support isn't available to customers at this time, we only support static IP.
 
 >[!NOTE]
 > This is Azure VMware Solution 2.0 only. It's not available for Azure VMware Solution by Cloudsimple.
