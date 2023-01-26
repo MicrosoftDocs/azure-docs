@@ -1021,7 +1021,7 @@ For more information about this action in your underlying workflow definition, s
 
    ![Screenshot showing the designer for a Consumption workflow, the "Parse JSON" action, and the selected JSON object variable to use in the "Parse JSON" action.](./media/logic-apps-perform-data-operations/configure-parse-json-action-consumption.png)
 
-1. Enter the JSON schema that describes the JSON object, or *payload*, that you want to parse.
+1. In the **Schema** box, enter the JSON schema that describes the JSON object, or *payload*, that you want to parse.
 
    For this example, use the following schema for the sample JSON object:
 
@@ -1105,7 +1105,7 @@ For more information about this action in your underlying workflow definition, s
 
    ![Screenshot showing the designer for a Standard workflow, the "Parse JSON" action, and the selected JSON object variable to use in the "Parse JSON" action.](./media/logic-apps-perform-data-operations/configure-parse-json-action-standard.png)
 
-1. Enter the JSON schema that describes the JSON object, or *payload*. that you want to parse.
+1. In the **Schema** box, enter the JSON schema that describes the JSON object, or *payload*. that you want to parse.
 
    For this example, use the following schema for the sample JSON object:
 
@@ -1215,54 +1215,109 @@ If you used the Office 365 Outlook action, you get a result similar to the follo
 
 ![Screenshot showing an email with the "Parse JSON" action results.](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
 
-
 <a name="select-action"></a>
 
 ## Select action
 
-To create an array that has JSON objects built from values in an existing array, use the **Select** action. For example, you can create a JSON object for each value in an integer array by specifying the properties that each JSON object must have and how to map the values in the source array to those properties. And although you can change the components in those JSON objects, the output array always has the same number of items as the source array.
+To create an array that has JSON objects built from the values in an existing array, use the **Select** action. For example, you can create a JSON object for each value in an integer array by specifying the properties that each JSON object must have and mapping the values from the source array to those properties.
 
-> [!NOTE]
-> For actions to use the array output from the **Select** action, either those actions must accept 
-> arrays as input, or you might have to transform the output array into another compatible format. 
+Although you can change the component JSON objects, the output array always has the same number of items as the source array. To use the output array from the **Select** action, subsequent actions must either accept arrays as input, or you might have to transform the output array into another compatible format.
 
-If you prefer working in the code view editor, you can copy the example **Select** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Select](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+To try the **Select** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Select** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Select](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example). For more information about this action in your underlying workflow definition, see [Select action](logic-apps-workflow-actions-triggers.md#select-action).
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app in Logic App Designer.
+### [Consumption](#tab/consumption)
 
-   This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is an array that has some sample integers. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
+1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
 
-   ![Starting sample logic app for "Select" action](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up for create a variable where the initial value is an array that has some sample integers.
 
-1. In your logic app where you want to create the array, follow one of these steps: 
+   ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the "Select" action.](./media/logic-apps-perform-data-operations/sample-start-select-action-consumption.png)
+
+1. In your workflow where you want to create the JSON object array, follow one of these steps: 
 
    * To add an action under the last step, select **New step**.
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. Under **Choose an action**, select **Built-in**. In the search box, enter `select` as your filter. From the actions list, select the **Select** action.
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **select**.
 
-   ![Select the "Select" action](./media/logic-apps-perform-data-operations/select-select-action.png)
+1. From the actions list, select the action named **Select**.
 
-1. In the **From** box, specify the source array you want.
+   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box, and the "Select" action selected.](./media/logic-apps-perform-data-operations/select-select-action-consumption.png)
+
+1. In the **From** box, enter the source array that you want to use.
 
    For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
 
-   ![Select source array for Select action](./media/logic-apps-perform-data-operations/configure-select-action.png)
+   ![Screenshot showing the designer for a Consumption workflow, the "Select" action, and the selected source array variable to use in the "Select" action.](./media/logic-apps-perform-data-operations/configure-select-action-consumption.png)
 
-1. In the **Map** box's left-hand column, provide the property name you want to assign each value in the source array. In the right-hand column, specify an expression that represents the value you want to assign the property.
+1. For the **Map** property, in the left column, enter a property name to describe all the values in the source array.
 
-   This example specifies "Product_ID" as the property name to assign each value in the integer array by using the `item()` function in an expression that accesses each array item. 
+   This example uses **Product_ID** as the property name for the integer values in the source array. So, each value, for example, **1**, **2**, **3**, and **4**, is a product ID.
 
-   ![Specify JSON object property and values to create array](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
+1. In the right column, enter an expression that specifies the value in the source array for the property name in the left column.
 
-   Here is the finished action:
+   This example uses the `item()` function to iterate through and access each item in the array.
 
-   ![Finished example for "Select" action](./media/logic-apps-perform-data-operations/finished-select-action.png)
+   1. Click inside the right column, and when the dynamic content list that opens, select **Expression**.
+
+   1. In the expression editor, enter the function named **item()**, and then select **OK**.
+
+   ![Screenshot showing the designer for a Consumption workflow, the "Select" action, and the JSON object property and values to create the JSON object array.](./media/logic-apps-perform-data-operations/configure-select-action-2-consumption.png)
+
+   The **Select** action now appears similar to the following example:
+
+   ![Screenshot showing the "Create HTML table" action in a Consumption workflow and the finished example for the "Select" action.](./media/logic-apps-perform-data-operations/finished-select-action-consumption.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-For more information about this action in your underlying workflow definition, see [Select action](../logic-apps/logic-apps-workflow-actions-triggers.md).
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
+
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up for create a variable where the initial value is an array that has some sample integers.
+
+   ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Select" action.](./media/logic-apps-perform-data-operations/sample-start-select-action-standard.png)
+
+1. In your workflow where you want to create the JSON object array, follow one of these steps: 
+
+   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
+
+   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **select**.
+
+1. From the actions list, select the action named **Select**.
+
+   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box, and the "Select" action selected.](./media/logic-apps-perform-data-operations/select-select-action-standard.png)
+
+1. In the **From** box, enter the source array that you want to use.
+
+   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+
+   ![Screenshot showing the designer for a Standard workflow, the "Select" action, and the selected source array variable to use in the "Select" action.](./media/logic-apps-perform-data-operations/configure-select-action-standard.png)
+
+1. For the **Map** property, in the left column, enter a property name to describe all the values in the source array.
+
+   This example uses **Product_ID** as the property name for the integer values in the source array. So, each value, for example, **1**, **2**, **3**, and **4**, is a product ID.
+
+1. In the right column, enter an expression that specifies the value in the source array for the property name in the left column.
+
+   This example uses the `item()` function to iterate through and access each item in the array.
+
+   1. Click inside the right column, and when the dynamic content list that opens, select **Expression**.
+
+   1. In the expression editor, enter the function named **item()**, and then select **OK**.
+
+   ![Screenshot showing the designer for a Standard workflow, the "Select" action, and the JSON object property and values to create the JSON object array.](./media/logic-apps-perform-data-operations/configure-select-action-2-standard.png)
+
+   The **Select** action now appears similar to the following example:
+
+   ![Screenshot showing the "Create HTML table" action in a Standard workflow and the finished example for the "Select" action.](./media/logic-apps-perform-data-operations/finished-select-action-standard.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+---
 
 ### Test your logic app
 
