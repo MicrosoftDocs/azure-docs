@@ -14,8 +14,6 @@ ms.date: 10/26/2022
 
 This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview project.
 
-Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
-
 In this quickstart, you learn how to:
 
 > [!div class="checklist"]
@@ -32,10 +30,16 @@ In this quickstart, you learn how to:
 - [Create and configure a project](quickstart-create-and-configure-projects.md).
 
 ## Create an environment
+You can create an environment from the developer portal. 
+
+> [!NOTE]
+> Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
 1. From the **New** menu at the top right, select **New environment**.
+ 
    :::image type="content" source="media/quickstart-create-access-environments/new-environment.png" alt-text="Screenshot showing the new menu with new environment highlighted.":::
+ 
 1. In the Add an environment pane, select the following information:
 
    |Field  |Value  |
@@ -45,44 +49,22 @@ In this quickstart, you learn how to:
    |Type     | Select the environment type you want to create. If you have access to more than one environment type, you'll see a list of the available types. |
    |Catalog item | Select the catalog item you want to use to create the environment. You'll see a list of the catalog items available from the catalogs associated with your dev center. |
 
-1. Select **Create**.
+   :::image type="content" source="media/quickstart-create-access-environments/add-environment.png" alt-text="Screenshot showing add environment pane.":::
 
-You'll see your environment in the developer portal when it's created.
+If your environment is configured to accept parameters, you'll be able to enter them on a separate pane. In this example, you don't need to specify any parameters.
 
-## Access an environment in Azure portal
+1. Select **Create**. You'll see your environment in the developer portal immediately, with an indicator that shows creation in progress.
+ 
+## Access an environment
 To verify that your environment has been created as expected, you can view it in the Azure portal.
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
-1. On the environment that you want to verify, select the **environment resources** link.
+
+1. On the environment that you want to view, select the **Environment Resources** link.
    :::image type="content" source="media/quickstart-create-access-environments/environment-resources.png" alt-text="Screenshot showing an environment card, with the environment resources link highlighted."::: 
-1. You'll see the resource in your environment listed.
+
+1. You'll see the resources in your environment listed in the Azure portal.
    :::image type="content" source="media/quickstart-create-access-environments/azure-portal-view-of-environment.png" alt-text="Screenshot showing Azure portal list of environment resources.":::
-### Troubleshoot permission error
-
-You must have the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
-
-If you don't have the correct permissions, creation of the environment will fail, and you may receive an error message like this:
-
-```
-(EnvironmentNotFound) The environment resource was not found.
-Code: EnvironmentNotFound
-Message: The environment resource was not found.
-```
-
-To resolve the issue, assign the correct permissions: [Give project access to the development team](quickstart-create-and-configure-projects.md#give-project-access-to-the-development-team).
-
-## Access an environment
-
-To access an environment:
-
-1. List existing environments that are available in a specific project:
-
-   ```azurecli
-    az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
-   ```  
-
-1. View the access endpoints to various resources as defined in the ARM template outputs.
-1. Access the specific resources by using the endpoints.
 
 ## Next steps
 

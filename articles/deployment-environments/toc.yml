@@ -41,7 +41,7 @@ items:
       href: how-to-configure-project-admin.md
     - name: Provide access to developers
       href: how-to-configure-deployment-environments-user.md
-    - name: Create an environment by using the Azure CLI
+    - name: Create environments with the CLI
       href: how-to-create-access-environments.md  
 - name: Reference
   items:
