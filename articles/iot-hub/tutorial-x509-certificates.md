@@ -5,11 +5,11 @@ author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 12/30/2022
 ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
-#Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to X.509 Public Key certificates.
+#Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. 
 ---
 
 # Understand X.509 public key certificates
