@@ -31,9 +31,9 @@ To configure the properties of an enterprise application, you need:
 
 Application properties control how the application is represented and how the application is accessed.
 
-To configure the application properties:
-
 :::zone pivot="portal"
+
+To configure the application properties:
 
 1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use.
@@ -123,7 +123,7 @@ Content-type: application/json
 
 ## Use Microsoft Graph to configure application properties
 
-You can also configure other advanced properties of both app registrations and enterprise applications (service principals) through Microsoft Graph. These includes properties such as permissions, and role assignments. For more information, see [Create and manage an Azure AD application using Microsoft Graph](/graph/tutorial-applications-basics#configure-other-basic-properties-for-your-app).
+You can also configure other advanced properties of both app registrations and enterprise applications (service principals) through Microsoft Graph. These include properties such as permissions, and role assignments. For more information, see [Create and manage an Azure AD application using Microsoft Graph](/graph/tutorial-applications-basics#configure-other-basic-properties-for-your-app).
 
 ## Next steps
 
