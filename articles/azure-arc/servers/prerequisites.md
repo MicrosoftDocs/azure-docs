@@ -19,6 +19,8 @@ Azure Arc-enabled servers support the installation of the Connected Machine agen
 
 Azure Arc-enabled servers do not support installing the agent on virtual machines running in Azure, or on virtual machines running on Azure Stack Hub or Azure Stack Edge, as they are already modeled as Azure VMs and able to be managed directly in Azure.
 
+If you use Azure Arc on a system that will be cloned, restored from backup as a second instance, or used to create a golden image from which other VMs are created, you must take extra care to ensure the Arc agent is not configured before a second copy of the VM or image is instantiated. If two agents use the same configuration, you will encounter inconsistent behaviors when both agents try to act as one Azure resource. The best practice for these situations is to use an automation tool or script to onboard the server to Azure Arc after it has been cloned, restored, or instantiated from a golden image.
+
 > [!NOTE]
 > For additional information on using Arc-enabled servers in VMware environments, see the [VMware FAQ](vmware-faq.md).
 
