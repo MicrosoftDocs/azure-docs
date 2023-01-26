@@ -6,7 +6,7 @@ ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/10/2022
+ms.date: 01/26/2022
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
@@ -27,7 +27,9 @@ This article will get you started in building a metamodel for your Microsoft Pur
 
 ## Current limitations
 
-- New relationships will always be association relationships.
+>[!NOTE]
+> Since this feature is in preview, available abilities are regularly updated.
+
 - When a new asset created, you have to refresh the asset to see relationships
 - You can't set relationships between two data assets in the Microsoft Purview governance portal
 - The related tab only shows a "business lineage" view for business assets, not data assets
