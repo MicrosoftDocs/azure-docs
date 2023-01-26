@@ -14,7 +14,12 @@ ms.custom: template-how-to, event-tier1-build-2022
 
 # Enable transparent data encryption on Azure Arc-enabled SQL Managed Instance (preview)
 
-This article describes how to enable transparent data encryption on a database created in an Azure Arc-enabled SQL Managed Instance. In this article, the term *managed instance* refers to a deployment of Azure Arc-enabled SQL Managed Instance.
+This article describes how to enable and disable transparent data encryption (TDE) at-rest on an Azure Arc-enabled SQL Managed Instance. In this article, the term *managed instance* refers to a deployment of Azure Arc-enabled SQL Managed Instance and enabling/disabling TDE will apply to all databases running on a managed instance.
+
+Turning on the TDE feature does following:
+
+- All existing databases will now be automatically encrypted
+- All newly created databases will get automatically encrypted
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -32,7 +37,7 @@ The following limitations must be considered when deploying Service-Managed TDE:
 - Only General Purpose Tier is supported.
 - Failover Groups are not supported.
 
-## Turn on transparent data encryption on a database in the managed instance
+## Turn on transparent data encryption on the managed instance
 
 ### [Service-managed mode](#tab/service-managed-mode)
 
@@ -43,7 +48,14 @@ kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{
 ```
 ---
 
-## Turn off transparent data encryption on a database in the managed instance
+## Turn off transparent data encryption on the managed instance
+
+Turning off TDE on the managed instance will result in the following operations taking place:
+
+1. Disabling encryption on all databases on the managed instance.
+2. Dropping the associated DEK's on all databases on the managed instance.
+3. Dropping the service-managed certificate protector.
+4. Dropping the service-managed database master key in the `master` database.
 
 ### [Service-managed mode](#tab/service-managed-mode)
 
