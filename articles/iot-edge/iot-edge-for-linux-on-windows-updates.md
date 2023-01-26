@@ -14,7 +14,7 @@ ms.author: fcabrera
 
 # Update IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 As the IoT Edge for Linux on Windows (EFLOW) application releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge for Linux on Windows devices when a new version is available.
 
@@ -109,7 +109,7 @@ To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
         Confirm-EflowMigration -updateMsiPath "<path-to-folder>\AzureIoTEdge_LTS_Update_1.4.2.12122_X64.msi" 
         ```
 
-If for any reason the migration fails, the EFLOW VM will be restored to it's original 1.1LTS version. 
+If for any reason the migration fails, the EFLOW VM will be restored to its original 1.1LTS version. 
 If you want to cancel the migration, you can use the following cmdlets `Start-EflowMigration` and then `Restore-EflowPriorToMigration` 
 
 For more information, check `Start-EflowMigration`, `Confirm-EflowMigration` and `Restore-EflowPriorToMigration` cmdlet documentation by using the `Get-Help <cmdlet> -full` command. 
