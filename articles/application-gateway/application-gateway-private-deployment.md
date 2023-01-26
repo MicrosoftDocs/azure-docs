@@ -6,59 +6,61 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 01/26/2023
 ms.author: greglin
 ---
 
-# Overview
+# Private Application Gateway deployment (preview)
+
 Historically, Application Gateway v2 SKUs, and to a certain extend v1, has required public IP addressing to enable management of the service.  This has required several limitations in using fine-grain controls in Network Security Groups and Route Tables.  Specifically, the following challenges have been observed:
 
-1) All Application Gateways v2 deployments must contain public facing frontend IP configuration to enable communication to the "Gateway Manager" service tag.
-1) Network Security Group associations require rules to allow inbound access from GatewayManager and Outbound access to Internet.
-1) When introducing a default route (0.0.0.0/0) to forward traffic anywhere other than the internet, metrics, monitoring, and updates of the gateway result in a failed status.
+1. All Application Gateways v2 deployments must contain public facing frontend IP configuration to enable communication to the **Gateway Manager** service tag.
+2. Network Security Group associations require rules to allow inbound access from GatewayManager and Outbound access to Internet.
+3. When introducing a default route (0.0.0.0/0) to forward traffic anywhere other than the Internet, metrics, monitoring, and updates of the gateway result in a failed status.
 
 Application Gateway v2 can now address each of these items to further eliminate risk of data exfiltration and control privacy of communication from within the virtual network. These changes include the following capabilities:
 
-1) Private IP only frontend IP configuration
-   1) No public IP resource required
-1) Elimination of inbound traffic from GatewayManager service tag via Network Security Group
-1) Ability to define a _Deny All_ outbound NSG rule to restrict egress traffic to the Internet
-1) Ability to multiple the default route out to the internet (0.0.0.0/0)
-1) DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers), including private link private DNS zones.
+1. Private IP address only frontend IP configuration
+   - No public IP address resource required
+2. Elimination of inbound traffic from GatewayManager service tag via Network Security Group
+3. Ability to define a _Deny All_ outbound NSG rule to restrict egress traffic to the Internet
+4. Ability to multiple the default route out to the internet (0.0.0.0/0)
+5. DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers), including private link private DNS zones.
 
 Each of these features can be enabled independently. For example, a public IP address can be used to allow traffic inbound from the Internet and you can define a **_Deny All_** outbound rule in the network security group configuration to prevent data exfiltration. This is a valid configuration.
 
-# Onboard to public preview
-The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, is currently in public preview.  To join the public preview, you can opt-in to the experience using Azure PowerShell, Azure CLI, or REST API.
+## Onboard to public preview
 
-When you join the preview, note that all new gateways will begin to provision with the ability to enable any combination of the NSG, Route Table, or private IP configuration features.  If you wish to offboard from the new functionality and return to the current generally available functionality of Application Gateway, you may do so by unregistering the feature.
+The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are currently in public preview.  To join the public preview, you can opt-in to the experience using Azure PowerShell, Azure CLI, or REST API.
+
+When you join the preview, all new gateways will begin to provision with the ability to enable any combination of the NSG, Route Table, or private IP configuration features.  If you wish to offboard from the new functionality and return to the current generally available functionality of Application Gateway, you may do so by [unregistering from the preview](#unregister-from-the-preview).
 
 ## Register to the preview
 
 # [Azure Portal](#tab/portal)
 
-To enroll into the public preview for the enhanced Application Gateway network controls via Portal, use the following steps:
+Use the following steps to enroll into the public preview for the enhanced Application Gateway network controls via the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. In the search box, enter _subscriptions_ and select **Subscriptions**.
+2. In the search box, enter _subscriptions_ and select **Subscriptions**.
 
-    :::image type="content" source="./media/preview-features/search.png" alt-text="Azure portal search.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Azure portal search.":::
 
-1. Select the link for your subscription's name.
+3. Select the link for your subscription's name.
 
-    :::image type="content" source="./media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
 
-1. From the left menu, under **Settings** select **Preview features**.
+4. From the left menu, under **Settings** select **Preview features**.
 
-    :::image type="content" source="./media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
 
-1. You see a list of available preview features and your current registration status.
+5. You see a list of available preview features and your current registration status.
 
-    :::image type="content" source="./media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
 
-1. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Register**.
+6. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Register**.
 
-    :::image type="content" source="./media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
 
 More details on registering preview features can be found [here](../azure-resource-manager/management/preview-features.md?tabs=azure-portal)
 
@@ -100,32 +102,33 @@ A list of all Azure CLI references for Private Link Configuration on Application
 More details on registering preview features can be found [here](../azure-resource-manager/management/preview-features.md?tabs=azure-cli)
 
 ## Unregister from the preview
+
 # [Azure Portal](#tab/portal)
 
 To opt-out of the public preview for the enhanced Application Gateway network controls via Portal, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. In the search box, enter _subscriptions_ and select **Subscriptions**.
+2. In the search box, enter _subscriptions_ and select **Subscriptions**.
 
-    :::image type="content" source="./media/preview-features/search.png" alt-text="Azure portal search.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Azure portal search.":::
 
-1. Select the link for your subscription's name.
+3. Select the link for your subscription's name.
 
-    :::image type="content" source="./media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
 
-1. From the left menu, under **Settings** select **Preview features**.
+4. From the left menu, under **Settings** select **Preview features**.
 
-    :::image type="content" source="./media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
 
-1. You see a list of available preview features and your current registration status.
+5. You see a list of available preview features and your current registration status.
 
-    :::image type="content" source="./media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
 
-1. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Unregister**.
+6. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Unregister**.
 
-    :::image type="content" source="./media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
 
-More details on registering preview features can be found [here](../azure-resource-manager/management/preview-features.md?tabs=azure-portal)
+For more information about registering preview features with the Azure portal, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal)
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -141,7 +144,7 @@ FeatureName                                ProviderName        RegistrationState
 -----------                                ------------        -----------------
 EnableApplicationGatewayNetworkIsolation   Microsoft.Network   Unregistered
 ```
-More details on registering preview features can be found [here](../azure-resource-manager/management/preview-features.md?tabs=azure-powershell)
+For more information about registering preview features with PowerShell, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-powershell)
 
 # [Azure CLI](#tab/cli)
 
@@ -162,7 +165,7 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ---
 
-More details on registering preview features can be found [here](../azure-resource-manager/management/preview-features.md?tabs=azure-cli)
+For more information about registering preview features with Azrue CLI, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-cli)
 
 ## Regions and availability
 The following regions are available for public preview.  Provisioning in regions outside of the list will result in error / failure:
