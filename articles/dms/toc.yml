@@ -167,7 +167,7 @@
   - name: Tools and guidance
     items:
     - name: Services and tools available for data migration scenarios
-      href: dms-tools-matrix
+      href: dms-tools-matrix.md
     - name: Azure Database Migration Guide
       href: /data-migration/
     - name: Azure SQL Migration extension for Azure Data Studio

@@ -123,7 +123,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Services and tools available for data migration scenarios
-            url: dms-tools-matrix
+            url: dms-tools-matrix.md
           - text: Azure Database Migration Guide
             url: /data-migration/
           - text: Azure SQL Migration extension for Azure Data Studio
