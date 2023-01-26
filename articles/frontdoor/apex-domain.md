@@ -1,3 +1,15 @@
+---
+title: 'Apex domains in Azure Front Door'
+description: Learn about apex domains when using Azure Front Door.
+services: frontdoor
+author: johndowns
+ms.service: frontdoor
+ms.topic: article
+ms.workload: infrastructure-services
+ms.date: 01/16/2023
+ms.author: jodowns
+---
+
 # Apex domains in Azure Front Door
 
 Apex domains, also called *root domains* or *naked domains*, are at the root of a DNS zone and don't contain subdomains. For example, `contoso.com` is an apex domain.
