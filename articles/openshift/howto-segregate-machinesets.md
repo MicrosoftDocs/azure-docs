@@ -12,13 +12,80 @@ ms.custom: template-how-to
 
 # Segregate worker nodes into different subnets with Azure Red Hat OpenShift
 
+This article shows you how to segregate worker nodes into different private subnets as part of an ARO deployment. Separating worker nodes into different private subnets allows you to meet specific access control requirements for various services and applications deployed on ARO.
+
+For example, you might want to run specific ingress controllers on dedicated worker nodes within a specific subnet, while the rest of the Kubernetes nodes for workloads (infra and other workers) sit within a completely different subnet, as shown below:
+
+:::image type="content" source="media/howto-segregate-machinesets/subnet-configuration.png" alt-text="Screen shot of an example subnet configuration.":::
+
+> [!NOTE]
+> As part of ARO, master and worker nodes cannot be deployed in the same private subnet.
+
+In order to segregate worker nodes into different subnets, two main steps need to be performed:
+
+1. Deploy an ARO cluster.
+    
+1. Create the appropriate subnets and machine sets associated with those subnets.
+
+
+
+## Deploy an ARO cluster
+
+See [Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md) for instructions on performing this step.
+
+
+
+## Create the subnets and their associated subnets
+
+Once you've deployed your ARO cluster, you'll need to create extra subnets as part of the same overall virtual network and create new machine sets for those subnets. Follow the sections below to complete this requirement.
+
+### Create the subnets
+
+Create the subnets as part of the current virtual network in which ARO is deployed. Make sure that all the subnets are updated to the Microsoft.ContainerRegistry for service-endpoints.
+
+
+:::image type="content" source="media/howto-segregate-machinesets/subnets-window.png" alt-text="Screen shot of the Subnets window with service endpoints highlighted.":::
 
 
 
 
 
 
-This article shows you how to use Nvidia GPU workloads with Azure Red Hat OpenShift (ARO).
+### Log into the jumphost
+
+Use the following command to log-in to the jumphost:
+
+`oc login https://api.fq5v3vye.useast.aroapp.io:6443/ -u kubeadmin -p`
+
+
+> [!NOTE]
+> This steps is optional of you have an alternative method for logging into the ARO cluster.
+> 
+
+
+
+
+### Retrieve the machine sets in the openshift-machine-api project/namespace
+
+
+
+### Create a new machineSet yaml file and apply it to the cluster
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Prerequisites
 
