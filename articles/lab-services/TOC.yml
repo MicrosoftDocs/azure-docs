@@ -14,10 +14,8 @@
       href: quick-create-lab-plan-portal.md
 - name: Tutorials
   items:
-  - name: Set up a lab plan (admin)
+  - name: Set up a lab for classroom training
     href: tutorial-setup-lab-plan.md
-  - name: Set up a lab (educator)
-    href: tutorial-setup-lab.md 
   - name: Set up lab to lab communication (admin, educator)
     href: tutorial-create-lab-with-advanced-networking.md
   - name: Access a lab (student)
