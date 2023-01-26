@@ -30,6 +30,10 @@ landingContent:
             url: migration-dms-powershell-cli.md
           - text: Database migration scenario status
             url: resource-scenario-status.md
+      - linkListType: quickstart
+        links:
+          - text: SQL Server migration one-click PoC
+            url: http://aka.ms/SQLMigrationPoC
       - linkListType: video
         links:            
           - text: Introduction to Azure Data Migration Service
