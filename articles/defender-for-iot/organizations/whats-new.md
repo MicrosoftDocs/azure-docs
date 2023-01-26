@@ -19,7 +19,15 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | **Version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)  |
+|**OT networks**     | - **Sensor version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)<br>- **Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal-public-preview)   |
+
+### Update sensor software from the Azure portal (Public preview)
+
+For cloud-connected sensor versions [22.2.3](release-notes.md#2223) and higher, now you can update your sensor software directly from the new **Sites and sensors** page on the Azure portal.
+
+:::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
+
+For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors).
 
 ### Azure connectivity status shown on OT sensors
 
@@ -35,7 +43,7 @@ For more information, see [Manage individual sensors](how-to-manage-individual-s
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans) |
+|**OT networks**     |  [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)    |
 |**Enterprise IoT networks**     | [Enterprise IoT sensor alerts and recommendations (Public Preview)](#enterprise-iot-sensor-alerts-and-recommendations-public-preview) |
 
 ### Enterprise IoT sensor alerts and recommendations (Public Preview)
@@ -268,7 +276,7 @@ For OT sensor versions 22.1.3 and higher, you can use the new sensor health widg
 
 We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied.
 
-For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
+For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health) and [Sensor health message reference](sensor-health-messages.md).
 
 ## July 2022
 
@@ -389,7 +397,7 @@ Now, for locally managed sensors, you can upload that diagnostic log directly on
 For more information, see:
 
 - [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
-- [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
+- [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 
 ### Improved security for uploading protocol plugins
 

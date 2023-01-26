@@ -5,6 +5,7 @@ description: Explains how to use MLflow for managing models in Azure Machine Lea
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/08/2022
@@ -20,6 +21,14 @@ Azure Machine Learning supports MLflow for model management. This represents a c
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
+* Some operations may be executed directly using the MLflow fluent API (`mlflow.<method>`). However, others may require to create an MLflow client, which allows to communicate with Azure Machine Learning in the MLflow protocol. You can create an `MlflowClient` object as follows. This tutorial will use the object `client` to refer to such MLflow client.
+
+    ```python
+    using mlflow
+
+    client = mlflow.tracking.MlflowClient()
+    ```
+
 ## Registering new models in the registry
 
 ### Creating models from an existing run 
@@ -32,6 +41,9 @@ mlflow.register_model(f"runs:/{run_id}/{artifact_path}", model_name)
 
 > [!NOTE]
 > Models can only be registered to the registry in the same workspace where the run was tracked. Cross-workspace operations are not supported by the moment in Azure Machine Learning.
+
+> [!TIP]
+> We recommend to register models from runs or using the method `mlflow.<flavor>.log_model` from inside the run as it keeps lineage from the job that generated the asset.
 
 ### Creating models from assets
 
@@ -58,22 +70,11 @@ model_local_path = os.path.abspath("./regressor")
 mlflow.register_model(f"file://{model_local_path}", "local-model-test")
 ```
 
-> [!NOTE]
-> Notice how the model URI schema `file:/` requires absolute paths.
-
 ## Querying model registries
 
 ### Querying all the models in the registry
 
-You can query all the registered models in the registry using the MLflow client with the method `list_registered_models`. The MLflow client is required to do all these operations.
-
-```python
-using mlflow
-
-client = mlflow.tracking.MlflowClient()
-```
-
-The following sample prints all the model's names:
+You can query all the registered models in the registry using the MLflow client. The following sample prints all the model's names:
 
 ```python
 for model in client.search_registered_models():

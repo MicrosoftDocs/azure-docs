@@ -72,6 +72,8 @@ landingContent:
             url: flexible-server/connect-workbench.md
           - text: Connect to Flexible server using PHP
             url: flexible-server/connect-php.md
+          - text: Connect to Flexible server using Azure Data Studio
+            url: /sql/azure-data-studio/quickstart-mysql
           - text: Connect to Flexible server using Python
             url: flexible-server/connect-python.md
 
@@ -143,7 +145,7 @@ landingContent:
           - text: Deploy Java Spring Boot app on AKS with Flexible Server
             url: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
           - text: Deploy WordPress on App Service with Flexible Server
-            url: flexible-server/tutorial-wordpress-app-service.md
+            url: ../app-service/quickstart-wordpress.md
 
 # Card 7
   - title: Single Server

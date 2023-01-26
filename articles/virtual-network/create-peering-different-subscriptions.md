@@ -38,7 +38,7 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
     - Each user must accept the guest user invitation from the opposite Azure Active Directory tenant.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -1008,7 +1008,7 @@ The peering is successfully established after you see **Connected** in the **Pee
 
 For more information about using your own DNS for name resolution, see, [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-For more information about Azure DNS, see [What is Azure DNS?](/azure/dns/dns-overview).
+For more information about Azure DNS, see [What is Azure DNS?](../dns/dns-overview.md).
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

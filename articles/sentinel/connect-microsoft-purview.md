@@ -31,11 +31,15 @@ With the connector, you can:
 
 ### Azure Information Protection connector vs. Microsoft Purview Information Protection connector
 
-This connector replaces the Azure Information Protection (AIP) data connector. The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 31, 2023**, the AIP analytics and audit logs public preview will be retired, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview).
+This connector replaces the Azure Information Protection (AIP) data connector. The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. 
 
-For more information: 
-- See [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
-- Learn how to [disconnect the AIP connector](#disconnect-the-azure-information-protection-connector).
+> [!IMPORTANT]
+>
+> As of **March 31, 2023**, the AIP analytics and audit logs public preview will be retired, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview).
+>
+> For more information: 
+> - See [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
+> - Learn how to [disconnect the AIP connector](#disconnect-the-azure-information-protection-connector).
 
 When you enable the Microsoft Purview Information Protection connector, audit logs stream into the standardized 
 `MicrosoftPurviewInformationProtection` table. Data is gathered through the [Office Management API](/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. The new standardized schema is adjusted to enhance the deprecated schema used by AIP, with more fields and easier access to parameters.
@@ -78,7 +82,7 @@ To disconnect the Azure Information Protection connector:
 1. Below the connector description, select **Open connector page**.
 1. Under **Configuration**, select **Disconnect**.
 
-## Known Issues And Limitations
+## Known issues and limitations
 
 - The Office Management API doesn't obtain a Downgrade Label with the names of the labels before and after the downgrade. To retrieve this information, extract the `labelId` of each label and enrich the results. 
 

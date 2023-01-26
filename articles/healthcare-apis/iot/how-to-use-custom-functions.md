@@ -5,13 +5,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 1/18/2023
 ms.author: jasteppe
 ---
 
 # How to use custom functions with device mappings
 
-Many functions are available when using **JMESPath** as the expression language. Besides the functions available as part of the JMESPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](how-to-configure-device-mappings.md) during the device message [normalization](data-flow.md#normalize) process.
+Many functions are available when using **JMESPath** as the expression language. Besides the functions available as part of the JMESPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](how-to-configure-device-mappings.md) during the device message [normalization](understand-service.md#normalize) process.
 
 > [!TIP]
 > For more information on JMESPath functions, see the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions).
@@ -182,13 +182,13 @@ Examples:
 | {"unix": 0}              | fromUnixTimestampMs(unix) | "1970-01-01T00:00:00+0" |
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings. 
+> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing MedTech service errors. 
 
 ## Next steps
 
-In this article, you learned how to use the MedTech service custom functions. 
+In this article, you learned how to use the MedTech service custom functions with the device mappings. 
 
-To learn how to configure the MedTech service device mapping, see
+To learn how to configure the MedTech service device mappings, see
 
 > [!div class="nextstepaction"]
 > [How to configure device mappings](how-to-configure-device-mappings.md)
