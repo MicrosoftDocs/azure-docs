@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/11/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -20,14 +20,30 @@ The Cloud sync workbook provide a flexible canvas for data analysis. The workboo
 
 This workbook is intended for Hybrid Identity Admins who use cloud sync to sync users from AD to Azure AD.  It allows admins to gain insights into sync status and details.
 
- [![Azure monitor workbook](media/how-to-cloud-sync-workbook/workbook-1.png)](media/how-to-cloud-sync-workbook/workbook-1.png#lightbox)
+The workbook can be accessed by select **Insights** on the left hand side of the cloud sync page.
 
+
+ :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-1.png" alt-text="Screenshot of the cloud sync workbook." lightbox="media/how-to-cloud-sync-workbook/workbook-1.png":::
+
+>[!NOTE]
+>The Insights node is available at both the all configurations level and the individual configuration level.  To view information on individual configurations select the JobId for the configuration.
 
 This workbook:
 
 - Provides a synchronization summary of users and groups synchronized from AD to Azure AD
 - Provides and agrigated and detailed view of information captured by the cloud sync provisioning logs.
 - Allows you to customize the data to tailor it to your specific needs
+
+
+
+|Field|Description|
+|-----|-----|
+|Date|The range that you want to view data on.|
+|Status|View the provisioning status such as Success or Skipped.|
+|Action|View the provisioning actions taken such as Create or Delete.|
+|JobId|Allows you to target specific Job Ids.  This can be used to see individual configuration data if you have multiple configurations.|
+|SyncType|Filter by type of synchronization such as object or password.|
+
 
 ## Enabling provisioning logs
 
@@ -53,6 +69,11 @@ The sync details tab allows you to drill into the synchronization data and get m
 You can further drill in to the sync log details for additional information.
 
  [![log details](media/how-to-cloud-sync-workbook/workbook-4.png)](media/how-to-cloud-sync-workbook/workbook-4.png#lightbox)
+
+## Job Id
+A Job Id will be created for each configuration when it runs and is populated with data.  You can look at individual configuration based on Job Id.   
+
+
 
 ## Custom queries
 
