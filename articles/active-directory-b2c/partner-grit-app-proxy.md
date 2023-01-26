@@ -14,7 +14,7 @@ ms.reviewer: kengaderdus
 ms.subservice: B2C 
 ---
 
-# Migrate applications using Header-based authentication to Azure Active Directory B2C with Grit's app proxy
+# Migrate applications using header-based authentication to Azure Active Directory B2C with Grit's app proxy
 
 In this sample tutorial, learn how to migrate a legacy application using header-based authentication to Azure Active Directory B2C (Azure AD B2C) with [Grit's app proxy](https://www.gritiam.com/appProxy.html).
 
