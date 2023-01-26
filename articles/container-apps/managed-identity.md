@@ -175,6 +175,9 @@ Container Apps provides an internally accessible [REST endpoint](managed-identit
 > [!NOTE]
 > When connecting to Azure SQL data sources with [Entity Framework Core](/ef/core/), consider [using Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication), which provides special connection strings for managed identity connectivity.
 
+> [!NOTE]
+> When using Azure Identity client library, the user-assigned managed identity client id must be specified.
+
 For .NET apps, the simplest way to work with a managed identity is through the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/dotnet/api/overview/azure/identity-readme#getting-started)
