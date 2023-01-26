@@ -114,6 +114,7 @@ You need to configure two [Azure AD Technical Profile](active-directory-technica
     - *Persisted claims*: The *PersistedClaims* element contains all of the values that should be stored into Azure AD storage.
     
     - *InputClaims*: The *InputClaims* element contains a claim, which is used to look up an account in the directory, or create a new one. There must be exactly one input claim element in the input claims collection for all Azure AD technical profiles. This technical profile uses the *email* claim, as the key identifier for the user account. Learn more about [other key identifiers you can use uniquely identify a user account](active-directory-technical-profile.md#inputclaims).
+    
 
 1. In the `ContosoCustomPolicy.XML` file, locate the `AAD-UserWrite` technical profile, and then add a new technical profile after it by using the following code:
 
@@ -248,7 +249,7 @@ Since we don't store the `message` claim, in orchestration step `5`, we execute 
 
 Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file) to upload your policy file. If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
 
-## Step 6 - Test policy 
+## Step 7 - Test policy 
 
 Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-6---test-the-custom-policy) to test your custom policy.
 
@@ -280,9 +281,138 @@ Test your custom policy again by using the same **Email Address**. Instead of th
 > [!NOTE]
 > The *password* claim value is a very important piece of information, so be very careful how you handle it in your custom policy. For a similar reason, Azure AD B2C treats the password claim value as a special value. When you collect the password claim value in the self-asserted technical profile, that value is only available within the same technical profile or within a validation technical profiles that are referenced by that same self-asserted technical profile. Once execution of that self-asserted technical profile completes, and moves to another technical profile, the value is lost.  
 
-## Validate user email
+## Verify user email
 
-## Handle custom attributes 
+We recommend that you verify a user's email before you use it to create a user account. When you verify email addresses, you make sure the accounts are created by real users. You also help users to be sure that they're using their correct email addresses to create an account. 
+
+Azure AD B2C's custom policy provides a way to verify email address using [verification display control](display-control-verification.md). You send a verification code to the email. After the code has been sent, the user reads the message, enters the verification code into the control provided by the display control, and selects **Verify Code** button.
+
+A display control is a user interface element that has special functionality and interacts with the Azure Active Directory B2C (Azure AD B2C) back-end service. It allows the user to perform actions on the page that invoke a validation technical profile at the back end. Display controls are displayed on the page and are referenced by a self-asserted technical profile.
+
+To add email verification by using a display control, use the following steps: 
+
+### Declare claim
+
+You need to declare a claim to be used to hold the verifications code.
+
+To declare the claim, in the `ContosoCustomPolicy.XML` file, locate the `ClaimsSchema` element and declare `verificationCode` claim by using the following code:   
+
+```xml
+    <!--<ClaimsSchema>-->
+        ...
+        <ClaimType Id="verificationCode">
+            <DisplayName>Verification Code</DisplayName>
+            <DataType>string</DataType>
+            <UserHelpText>Enter your verification code</UserHelpText>
+            <UserInputType>TextBox</UserInputType>
+        </ClaimType>
+    <!--</ClaimsSchema>-->
+```
+
+### Configure a send and verify code technical profile
+
+Azure AD B2C uses [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) to verify an email address. This technical profile can generate and send a code to an email address or verifies the code depending on how you configure it.
+
+In the `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` element and add the a claims provider by using the following code: 
+
+```xml
+    <ClaimsProvider>
+        <DisplayName>Azure AD self-service password reset (SSPR)</DisplayName>
+        <TechnicalProfiles>
+            <TechnicalProfile Id="AadSspr-SendCode">
+            <DisplayName>Send Code</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <Metadata>
+                <Item Key="Operation">SendCode</Item>
+            </Metadata>
+            <InputClaims>
+                <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="emailAddress" />
+            </InputClaims>
+            </TechnicalProfile>
+            <TechnicalProfile Id="AadSspr-VerifyCode">
+            <DisplayName>Verify Code</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <Metadata>
+                <Item Key="Operation">VerifyCode</Item>
+            </Metadata>
+            <InputClaims>
+                <InputClaim ClaimTypeReferenceId="verificationCode" />
+                <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="emailAddress" />
+            </InputClaims>
+            </TechnicalProfile>
+        </TechnicalProfiles>
+    </ClaimsProvider>
+```
+
+We've configured two technical profiles `AadSspr-SendCode` and `AadSspr-VerifyCode`. `AadSspr-SendCode` generates and sends a code to the email address address specified in the `InputClaims` section whereas `AadSspr-VerifyCode` verifies the code. You specify the action you want to perform in th  technical profile's metadata.
+
+### Configure a display control 
+
+You need to configure an email verification display control to be able to verify users email. The email verification display control you configure will replace the email display claim that you use to collect an email from the user. 
+
+To configure a display control, use the following steps: 
+
+1. In the `ContosoCustomPolicy.XML` file, locate the `BuildingBlocks` section, and then add a display control as a child element by using the following code: 
+
+    ```xml
+        <!--<BuildingBlocks>-->
+            ....
+            <DisplayControls>
+                <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+                  <DisplayClaims>
+                    <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+                    <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+                  </DisplayClaims>
+                  <OutputClaims></OutputClaims>
+                  <Actions>
+                    <Action Id="SendCode">
+                      <ValidationClaimsExchange>
+                        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-SendCode" />
+                      </ValidationClaimsExchange>
+                    </Action>
+                    <Action Id="VerifyCode">
+                      <ValidationClaimsExchange>
+                        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-VerifyCode" />
+                      </ValidationClaimsExchange>
+                    </Action>
+                  </Actions>
+                </DisplayControl>
+            </DisplayControls> 
+        <!--</BuildingBlocks>-->
+    ``` 
+
+    We've declared a display control, `emailVerificationControl`. Take note of the following important parts: 
+
+    - *DisplayClaims* - Just like in a self-asserted technical profile, this section specifies a collection of claims to be collected from the user within the display control.
+    
+    - *Actions* - Specifies the order of actions to be performed by the display control. Each action references a technical profile that responsible to perform the actions. For example, the *SendCode* references the `AadSspr-SendCode` technical profile, which generates and sends a code to an email address. 
+
+1. In the `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` self-asserted technical profile and replace the *email* display claim to `emailVerificationControl` display control: 
+    
+    From: 
+    
+    ```xml
+        <DisplayClaim ClaimTypeReferenceId="email" Required="true"/>
+    ```
+
+    To: 
+
+    ```xml
+        <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    ```
+
+1. Use the the procedure in [step 6](#step-6---upload-policy) and [step 7](#step-7---test-policy) to upload you policy file, and test it. This time, you must verify your email address before a user account is created.  
+
+## Update user account by using Azure AD technical profile
+
+You can configure a Azure AD technical profile to update a user account instead of attempting to create a new one. To do so, set the Azure AD technical profile to throw an error if the specified user account doesn't already exist in the `Metadata` collection by using the following code. The *Operation* needs to be set to *Write*:
+
+```xml
+    <!--<Item Key="Operation">Write</Item>-->
+    <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+``` 
+
+## Use custom attributes 
 
 In this article, you've learnt how to store user details using [built-in User profile attributes](user-profile-attributes.md). However, you often need to create your own custom attributes to manage your specific scenario. To do so, follow the instructions in  [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md) article.
 

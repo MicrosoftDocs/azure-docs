@@ -488,15 +488,12 @@
       - name: 7 - Make HTTP call from custom policy
         href: custom-policies-series-call-rest-api.md
         displayName: call rest api, http call, http request
-      - name: 8 - Create user record custom policy
+      - name: 8 - Create and read user record custom policy
         href: custom-policies-series-store-user.md
-        displayName: CRUD, store user, create user account
-      - name: 9 - Read or update user record custom policy
-        href: custom-policies-series-read-update-user.md
-        displayName: CRUD, read user, update user
-      - name: 10 - Sign up and sign in (local account)
+        displayName: CRUD, store user, create user account, read user, update user
+      - name: 9 - Sign up and sign in (local account)
         href: custom-policies-series-sign-up-or-sign-in.md
-      - name: 11 - Sign up and sign in (social account)
+      - name: 10 - Sign up and sign in (social account)
         href: custom-policies-series-sign-up-or-sign-in-federation.md
     # Secure
   - name: Secure
