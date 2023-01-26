@@ -135,9 +135,38 @@ To publish the lab and create the lab VMs:
 
     The lab VMs are currently stopped and unassigned, which means that they aren't assigned to specific lab users.
 
-    :::image type="content" source="./media/tutorial-setup-lab-plan/virtual-machines-stopped.png" alt-text="Screenshot that shows the list of virtual machines for the lab. The lab VM shows as unassigned and stopped.":::
+    :::image type="content" source="./media/tutorial-setup-lab-plan/virtual-machines-stopped.png" alt-text="Screenshot that shows the list of virtual machines for the lab. The lab VMs show as unassigned and stopped.":::
 
 ## Add a lab schedule
+
+Instead of each lab user starting their lab VM manually, you can create a lab schedule to automatically start and stop the lab VM according to your training calendar. Azure Lab Services supports one-time events or recurring schedules.
+
+Follow these steps to add a recurring schedule to your lab:
+
+1. On the **Schedule** page for the lab, select **Add scheduled event** on the toolbar.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/add-schedule-button.png" alt-text="Screenshot of the Add scheduled event button on the Schedule page, highlighting the Schedule menu and Add scheduled event button.":::
+
+1. On the **Add scheduled event** page, enter the following information:
+
+    | Field | Value |
+    | ----- | ----- |
+    | **Event type** | *Standard* |
+    | **Start date** | Enter a start date for the classroom training. |
+    | **Start time** | Enter a start time for the classroom training. |
+    | **Stop time** | Enter an end time for the classroom training. |
+    | **Time zone** | Select your time zone. |
+    | **Repeat** | Keep the default value, which is a weekly recurrence for 4 months. |
+    | **Notes** | Optionally enter a description for the schedule. |
+
+1. Select **Save** to confirm the lab schedule.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/add-schedule-page-weekly.png" alt-text="Screenshot of the Add scheduled event window.":::
+
+1. In the calendar view, confirm that the scheduled event is present.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/schedule-calendar.png" alt-text="Screenshot of the Schedule page for Azure Lab Services.  Repeating schedule, Monday through Friday shown in the calendar.":::
+
 
 ## Invite users
 
