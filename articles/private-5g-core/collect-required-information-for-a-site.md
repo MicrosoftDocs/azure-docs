@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Collect the required information for a site
 
-Azure Private 5G Core Preview private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. This how-to guide takes you through the process of collecting the information you'll need to create a new site. 
+Azure Private 5G Core Preview private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. This how-to guide takes you through the process of collecting the information you'll need to create a new site.
 
 You can use this information to create a site in an existing private mobile network using the [Azure portal](create-a-site.md). You can also use it as part of an ARM template to [deploy a new private mobile network and site](deploy-private-mobile-network-with-site-arm-template.md), or [add a new site to an existing private mobile network](create-site-arm-template.md).
 
@@ -85,7 +85,9 @@ If you want to configure diagnostics package gathering during site creation, fol
         1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. This will allow you to specify a time-based retention policy for the account in the next step.
     1. If you would like the content of your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
     1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your diagnostics.
-1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with the **Storage Blob Data Contributor** role and write access to the storage account created above.
+1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) and assign it to the storage account created above with the **Storage Blob Data Contributor** role.  
+    > [!TIP]
+    > Make sure same User-assigned identity is used during site creation.
 1. Navigate to the **Packet core control plane** resource for the site.
 1. Assign the user-assigned managed identity you created to the **Packet core control plane** resource.
 

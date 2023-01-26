@@ -26,8 +26,8 @@ In this how-to guide, you'll learn how to gather a remote diagnostics package fo
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to Packet Core Control Pane overview page of the site you want to gather diagnostics for.
-1. Select **Generate diagnostics package** under the **Support + Troubleshooting** section on the left side. This will open a **Generate diagnostics package** view.
-1. Enter the **Storage account blob URL** that was configured for diagnostics storage. Fore example:
+1. Select **Diagnostics Collection** under the **Support + Troubleshooting** section on the left side. This will open a **Diagnostics Collection** view.
+1. Enter the **Storage account blob URL** that was configured for diagnostics storage. For example:
     `https://storageaccount.blob.core.windows.net/diags/diagsPackage_1.zip`
 1. Select **Diagnostics collection**.
 1. AP5GC online service will generate a package and upload it to the provided storage account URL. Once AP5GC reports that the upload has succeeded, report the SAS URL to Azure support.
@@ -40,6 +40,7 @@ In this how-to guide, you'll learn how to gather a remote diagnostics package fo
 - If diagnostics file collection fails, an activity log will appear in the portal allowing you to troubleshoot via ARM:
   - If an invalid storage account blob URL was passed, the request will be rejected and report **400 Bad Request**. Repeat the process with the correct storage account blob URL.
   - If the asynchronous part of the operation fails, the asynchronous operation resource is set to **Failed** and reports a failure reason.
+- Additionally, check that the same user-assigned identity was added to both the site and storage account.
 - If this does not resolve the issue, share the correlation ID of the failed request with AP5GC support for investigation.
 
 ## Next steps
