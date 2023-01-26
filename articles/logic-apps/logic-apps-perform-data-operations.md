@@ -454,7 +454,7 @@ If you used the Office 365 Outlook action, you get a result similar to the follo
 
 To create an HTML table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the **Create HTML table** action. You can then use the resulting table in actions that follow the **Create HTML table** action.
 
-To try the **Create HTML table** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create HTML table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create HTML table](logic-apps-data-operations-code-samples. md#create-html-table-action-example). For more information about the **Create HTML table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
+To try the **Create HTML table** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create HTML table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create HTML table](logic-apps-data-operations-code-samples.md#create-html-table-action-example). For more information about the **Create HTML table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
 
 ### [Consumption](#tab/consumption)
 
@@ -900,7 +900,7 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
    This example uses a colon (**:**) as the separator.
 
-   ![Provide the separator character](./media/logic-apps-perform-data-operations/finished-join-action-consumption.png)
+   ![Screenshot showing where to provide the separator character.](./media/logic-apps-perform-data-operations/finished-join-action-consumption.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -1016,9 +1016,7 @@ For more information about this action in your underlying workflow definition, s
    ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/sample-start-parse-json-action-consumption.png)
 
 1.  In your workflow where you want to parse the JSON object, follow one of these steps:
-
    * To add an action under the last step, select **New step**.
-
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
 1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **parse json**.
@@ -1100,9 +1098,7 @@ For more information about this action in your underlying workflow definition, s
    ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/sample-start-parse-json-action-standard.png)
 
 1.  In your workflow where you want to parse the JSON object, follow one of these steps:
-
    * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
-
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
 1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **parse json**.
@@ -1355,7 +1351,7 @@ To confirm whether the **Select** action creates the expected results, send your
 
       The resolved expression specifies to show the outputs from the **Select** action in the email body when sent:
 
-      ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Select" action](./media/logic-apps-perform-data-operations/send-email-select-action-complete-consumption.png)
+      ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Select" action.](./media/logic-apps-perform-data-operations/send-email-select-action-complete-consumption.png)
 
    When you're done, the **Send an email** action looks similar to the following example:
 
