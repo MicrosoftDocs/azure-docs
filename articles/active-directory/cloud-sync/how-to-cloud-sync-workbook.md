@@ -58,7 +58,7 @@ The sync summary section provides a summary of your organizations synchronizatio
 
 
 
- :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-2.png" alt-text="Screenshot of the cloud sync summary." lightbox="media/how-to-cloud-sync-workbook/workbook-2.png.png":::
+ :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-2.png" alt-text="Screenshot of the cloud sync summary." lightbox="media/how-to-cloud-sync-workbook/workbook-2.png":::
 
 
 ## Sync details
@@ -66,11 +66,11 @@ The sync details tab allows you to drill into the synchronization data and get m
    - Objects sync by status
    - Sync log details
  
- :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-3.png" alt-text="Screenshot of the cloud sync details." lightbox="media/how-to-cloud-sync-workbook/workbook-3.png.png":::
+ :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-3.png" alt-text="Screenshot of the cloud sync details." lightbox="media/how-to-cloud-sync-workbook/workbook-3.png":::
 
 You can further drill in to the sync log details for additional information.
 
-  :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-4.png" alt-text="Screenshot of the log details." lightbox="media/how-to-cloud-sync-workbook/workbook-4.png.png":::
+  :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-4.png" alt-text="Screenshot of the log details." lightbox="media/how-to-cloud-sync-workbook/workbook-4.png":::
 
 ## Job Id
 A Job Id will be created for each configuration when it runs and is populated with data.  You can look at individual configuration based on Job Id.   
