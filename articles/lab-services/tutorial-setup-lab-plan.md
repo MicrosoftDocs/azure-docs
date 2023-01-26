@@ -167,8 +167,56 @@ Follow these steps to add a recurring schedule to your lab:
 
     :::image type="content" source="./media/tutorial-setup-lab-plan/schedule-calendar.png" alt-text="Screenshot of the Schedule page for Azure Lab Services.  Repeating schedule, Monday through Friday shown in the calendar.":::
 
-
 ## Invite users
+
+Bu default, Azure Lab Services restricts access to a lab. Only listed users can register for a lab and use a lab VM. Optionally, you can turn off restricted access.
+
+To allow access for users to a lab, perform the following steps:
+
+1. Add the users to the lab
+1. Invite the users to lab by providing them with a registration link
+
+### Add users to the lab
+
+Azure Lab Services supports multiple ways to add users to a lab:
+
+- Manually by entering an email address
+- Upload a CSV file with student information
+- Sync the lab with an Azure Active Directory group
+
+In this quickstart, you manually add the users by providing their email address. Follow these steps to add the users:
+
+1. Select the **Users** page for the lab, and select **Add users manually**.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/add-users-manually.png" alt-text="Screenshot that shows the Users page, highlighting Add users manually.":::
+
+1. On the **Add users** page, enter the lab user email addresses on separate lines or on a single line separated by semicolons.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/add-users-email-addresses.png" alt-text="Screenshot that shows the Add users page, enabling you to enter user email addresses.":::
+
+1. Select **Add** to add the users and grant them access to the lab.
+
+You've now added users to the lab. On the **Users** page, you can see that their status is **Not registered**. You can now invite these users to the lab by sending them a registration link.
+
+### Send invitation emails
+
+After adding users, they can register for the lab by using a registration link for the lab. You can either manually provide users with the link, or you can invite users by letting Azure Lab Services send invitation emails.
+
+1. On the **Users** page for the lab, select **Invite all** on the toolbar.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/invite-all-button.png" alt-text="Screenshot of the User page in Azure Lab Services, highlighting the Invite all button.":::
+
+1. On the **Send invitation by email** page, enter an optional message, and then select **Send**.
+
+    The email automatically includes the registration link. You can also get this registration link by selecting **... (ellipsis)** > **Registration link** on the toolbar.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/send-email.png" alt-text="Screenshot that shows the Send invitation by email page in the Azure Lab Services website.":::
+
+1. You can track the status of the invitation in the **Users** list.
+
+    The status should change to **Sending** and then to **Sent on &lt;date&gt;**.
+    
+    After a users registers for the lab, their name will also be shown on the **Users** page.
 
 ## Troubleshooting
 
