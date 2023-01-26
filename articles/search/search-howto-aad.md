@@ -145,7 +145,7 @@ Azure AD authentication is also supported in the preview SDKs for [Java](https:/
 
 ### [**.NET SDK**](#tab/aad-dotnet)
 
-The Azure SDKs make it easy to integrate with Azure AD. Version [11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2) and newer of the .NET SDK support Azure AD authentication.
+Use [Azure.Search.Documents version 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) for Azure AD authentication.
 
 The following instructions reference an existing C# sample to demonstrate the code changes.
 
@@ -153,7 +153,9 @@ The following instructions reference an existing C# sample to demonstrate the co
 
    The sample currently uses key-based authentication and the `AzureKeyCredential` to create the `SearchClient` and `SearchIndexClient` but you can make a small change to switch over to role-based authentication. 
 
-1. Next, import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) library to get access to other authentication techniques.
+1. Update the Azure.Search.Documents Nuget package to version 11.4 or later.
+
+1. Import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) library to get access to other authentication techniques.
 
 1. Instead of using `AzureKeyCredential` in the beginning of `Main()` in [Program.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v11/AzureSearchQuickstart-v11/Program.cs), use `DefaultAzureCredential` like in the code snippet below: 
 
