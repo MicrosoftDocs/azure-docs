@@ -1,14 +1,16 @@
 ---
-title: "Deploy a Dapr application to Azure Container Apps using Azure Developer CLI (preview)"
-description: Learn how to deploy a sample Dapr application to Azure Container Apps using the developer-friendly Azure Developer CLI (azd).
+title: "Event-driven work using Dapr bindings"
+description: Deploy a sample Dapr bindings application to Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 12/08/2022
+ms.date: 01/26/2023
+zone_pivot_group_filename: articles/container-apps/zone-pivots/dapr-zone-pivot-groups.yml
+zone_pivot_groups: dapr-languages-set
 ---
 
-# Deploy a Dapr application to Azure Container Apps using Azure Developer CLI (preview) 
+# Event-driven work using Dapr bindings 
 
 [Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps you build resilient stateless and stateful microservices. While you can deploy and manage the Dapr OSS project yourself, deploying your Dapr applications to the Container Apps platform:
 
@@ -16,21 +18,19 @@ ms.date: 12/08/2022
 - Seamlessly updates Dapr versions
 - Exposes a simplified Dapr interaction model to increase developer productivity
 
-To simplify this process even further, you can deploy a Dapr application using the developer-focused [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md).
-In this guide, you:
+In this tutorial, you'll create a microservice to demonstrate [Dapr's bindings API](https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/) to work with external systems as inputs and outputs. You'll:
 > [!div class="checklist"]
-> * Use the Dapr CLI to run a microservice application that leverages the Dapr bindings APIs. 
+> * Use the Dapr CLI to locally run a microservice application that leverages the Dapr bindings APIs. 
 > * Redeploy the same application using `azd up` to Azure Container Apps via the Azure Developer CLI. 
-> * Explore how `azd` works with the Dapr application template with just one command.
 
-The Dapr service you deploy:
+The sample Dapr bindings application:
 1. Listens to input binding events from a system CRON component (a standard UNIX utility used to schedule commands for automatic execution at specific intervals). 
 1. Outputs the contents of local data to a [PostgreSQL](https://www.postgresql.org/) component output binding.  
 
 :::image type="content" source="media/microservices-dapr-azd/bindings-application.png" alt-text="Diagram of the Dapr binding application.":::
 
 > [!NOTE]
-> The Azure Developer CLI (`azd`) is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
+> This tutorial uses [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
 
 ## Prerequisites
 
@@ -39,20 +39,22 @@ The Dapr service you deploy:
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - Install [Git](https://git-scm.com/downloads)
 
-## Run the Dapr application locally
+::: zone pivot="programming-language-nodejs"
+
+## Run the Dapr application locally with Node.js
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-) to your local machine.
+1. Clone the [sample Dapr application](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres) to your local machine.
 
    ```bash
-   git clone https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-.git
+   git clone https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres.git
    ```
 
 1. Navigate into the sample's root directory.
 
    ```bash
-   cd bindings-dapr-nodejs-cron-postgres-
+   cd bindings-dapr-nodejs-cron-postgres
    ```
 
 ### Run the Dapr application using the Dapr CLI
@@ -73,7 +75,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
 1. Open a new terminal window and navigate into `/batch` in the sample directory.
 
    ```bash
-   cd bindings-dapr-nodejs-cron-postgres-/batch
+   cd bindings-dapr-nodejs-cron-postgres/batch
    ```
 
 1. Install the dependencies:
@@ -121,10 +123,10 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
 ### Prepare the project
 
-1. Navigate into the [sample's](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-) root directory.
+1. Navigate into the [sample's](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres) root directory.
 
    ```bash
-   cd bindings-dapr-nodejs-cron-postgres-
+   cd bindings-dapr-nodejs-cron-postgres
    ```
 
 ### Run using Azure Developer CLI
@@ -136,13 +138,6 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    ```
 
 1. If you don't already have an `azd` environment already set up, you'll be prompted to supply and select the appropriate values for your environment. The environment name you create is used for an Azure resource group during deployment.
-
-   | Parameter | Description |
-   | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. For more information, refer to [What is an Environment Name in `azd`?](/developer/azure-developer-cli/faq.yml#what-is-an-environment-name) |
-   | `Azure Location`   | The Azure location where your resources are deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources are deployed. |
-
 
 1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
 
@@ -206,159 +201,177 @@ In the Azure portal, verify the batch Postgres container is logging each insert 
 
 Upon successful completion of the `azd up` command:
 
-- The Dapr bindings application was initialized.
 - The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
 - The app has been built and deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
-### How to make your Dapr container app `azd`-compatible
+::: zone-end
 
-While [Microsoft provides several templates to get started deploying with `azd`](/developer/azure-developer-cli/azd-templates.md), you can make your own Dapr application `azd`-compatible. Learn more about [how to `azd`-ify your application](/developer/azure-developer-cli/make-azd-compatible.md). 
+::: zone pivot="programming-language-python"
 
-To make [the above Dapr application](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-) `azd`-compatible, it required the following components:
+## Run the Dapr application locally with Python
 
-- Application code (JavaScript application and Dapr input and output binding components)
-- Infra-as-code (in this case, Bicep) needed to provision Azure resources, including monitoring and CI/CD
-- An `azure.yaml` file that describes your application
+### Prepare the project
 
-The following diagram gives a quick overview of the creation process of an `azd` template:
+1. Clone the [sample Dapr application](https://github.com/greenie-msft/bindings-dapr-python-cron-postgres) to your local machine.
 
-:::image type="content" source="media/microservices-dapr-azd/azd-workflow.png" alt-text="Diagram of the Azure Developer CLI template workflow.":::
+   ```bash
+   git clone https://github.com/greenie-msft/bindings-dapr-python-cron-postgres.git
+   ```
 
-The next section explains the key parts of the `azd` template that help deploy the Dapr application.
+1. Navigate into the sample's root directory.
 
-#### Infra-as-code
+   ```bash
+   cd bindings-dapr-python-cron-postgres
+   ```
 
-Locate the Bicep files for the Dapr application in the `./infra` directory:
+### Run the Dapr application using the Dapr CLI
 
-```bash
-cd bindings-dapr-nodejs-cron-postgres-/infra
-```
+Start by running the PostgreSQL container and Python service with [Docker Compose](https://docs.docker.com/compose/) and Dapr.
 
-The `./infra` directory contains the following files and directories:
+1. From the sample's root directory, change directories to `db`.
 
-- `main.parameters.json`
-- `main.bicep`
-- An `app` resources directory organized by functionality
-- A `core` reference library that contains the Bicep modules used by the `azd` template
+   ```bash
+   cd db
+   ```
+1. Run the container with Docker Compose.
 
-##### `main.parameters.json`
+   ```bash
+   docker compose up -d
+   ```
 
-The `main.parameters.json` file contains environment variables you provided as parameters in the CLI.  
+1. Open a new terminal window and navigate into `/batch` in the sample directory.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "name": {
-            "value": "${AZURE_ENV_NAME}"
-        },
-        "location": {
-            "value": "${AZURE_LOCATION}"
-        },
-        "postgresPassword": {
-            "value": "${POSTGRES_PASSWORD}"
-        }
-    }
-}
-```
+   ```bash
+   cd bindings-dapr-python-cron-postgres/batch
+   ```
 
-##### `main.bicep`
+1. Install the dependencies:
 
-The `main.bicep` file contains:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- The password, location, and name parameters included in `main.parameters.json`:
-- The Bicep files used, like:
-  - `app/batch-service.bicep`: the Dapr application listening to the Cron input binding
-  - `app/paas-application.bicep`: Azure resources like a Resource Group containing Log Analytics, App Insights, a Container Apps Environment, and the Container App
-  - `app/dapr-state-postgres.bicep`: the Dapr application's PostgreSQL output binding
+1. Run the JavaScript service application with Dapr.
 
-```bicep
-targetScope = 'subscription'
+   ```bash
+   dapr run --app-id batch-sdk --app-port 5001 --dapr-http-port 3500 --components-path ../components -- python3 app.py
+   ```
 
-@minLength(1)
-@maxLength(64)
-@description('Name of the the environment which is used to generate a short unqiue hash used in all resources.')
-param name string
+   The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
 
-param postgresLogin string = 'testdeveloper'
+   **Expected output:**
+   
+   A batch script runs every 10 seconds using an input CRON binding. The script processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
+   
+   ```
+   == APP == {"sql": "insert into orders (orderid, customer, price) values (1, 'John Smith', 100.32);"}
+   == APP == {"sql": "insert into orders (orderid, customer, price) values (2, 'Jane Bond', 15.4);"}
+   == APP == {"sql": "insert into orders (orderid, customer, price) values (3, 'Tony James', 35.56);"}
+   == APP == Finished processing batch
+   == APP == {"sql": "insert into orders (orderid, customer, price) values (1, 'John Smith', 100.32);"}
+   == APP == {"sql": "insert into orders (orderid, customer, price) values (2, 'Jane Bond', 15.4);"}
+   == APP == {"sql": "insert into orders (orderid, customer, price) values (3, 'Tony James', 35.56);"}
+   == APP == Finished processing batch
+   == APP == {"sql": "insert into orders (orderid, customer, price) values (1, 'John Smith', 100.32);"}
+   == APP == {"sql": "insert into orders (orderid, customer, price) values (2, 'Jane Bond', 15.4);"}
+   == APP == {"sql": "insert into orders (orderid, customer, price) values (3, 'Tony James', 35.56);"}
+   == APP == Finished processing batch
+   ```
 
-@secure()
-param postgresPassword string
+1. In the `./db` terminal, stop the PostgreSQL container:
 
-@minLength(1)
-@description('Primary location for all resources')
-param location string
+   ```bash
+   docker compose stop
+   ```
 
-resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: '${name}-rg'
-  location: location
-}
+## Deploy the Dapr application template using `azd`
 
-var resourceToken = toLower(uniqueString(subscription().id, name, location))
+Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres using [`azd`](/developer/azure-developer-cli/overview.md).
 
-module application 'app/paas-application.bicep' = {
-  name: 'bindings-dapr-aca-paas-${resourceToken}'
-  params: {
-    name: name
-    location: location
-    postgresUser: postgresLogin
-    postgresPassword: postgresPassword
-  }
-  scope: resourceGroup
-  dependsOn:[
-    binding
-  ]
-}
+### Prepare the project
 
-module batchContainerApp 'app/batch-service.bicep' = {
-  name: 'ca-batch-${resourceToken}'
-  params:{
-    name: name
-    location: location
-  }
-  scope: resourceGroup
-  dependsOn:[
-    application
-  ]
-}
+1. Navigate into the [sample's](https://github.com/greenie-msft/bindings-dapr-python-cron-postgres) root directory.
 
-module binding 'app/dapr-state-postgres.bicep' = {
-  name: 'bindings-pg-orders-${resourceToken}'
-  params: {
-    name: name
-    location: location
-    postgresUser: postgresLogin
-    postgresPassword: postgresPassword
-  }
-  scope: resourceGroup
-}
+   ```bash
+   cd bindings-dapr-python-cron-postgres
+   ```
 
-output APPINSIGHTS_INSTRUMENTATIONKEY string = application.outputs.APPINSIGHTS_INSTRUMENTATIONKEY
-output AZURE_CONTAINER_REGISTRY_ENDPOINT string = application.outputs.CONTAINER_REGISTRY_ENDPOINT
-output AZURE_CONTAINER_REGISTRY_NAME string = application.outputs.CONTAINER_REGISTRY_NAME
-output APP_CHECKOUT_BASE_URL string = batchContainerApp.outputs.CONTAINERAPP_URI
-output APP_APPINSIGHTS_INSTRUMENTATIONKEY string = application.outputs.APPINSIGHTS_INSTRUMENTATIONKEY
-output POSTGRES_USER string = binding.outputs.POSTGRES_USER
-```
+### Run using Azure Developer CLI
 
+1. Set the environment variable for Postgres password. Make sure the password is long enough with unique alphabetical and numeral characters.
 
+   ```azdeveloper
+   azd env set POSTGRES_PASSWORD <PASSWORD>
+   ```
 
-#### `azure.yaml`
+1. If you don't already have an `azd` environment already set up, you'll be prompted to supply and select the appropriate values for your environment. The environment name you create is used for an Azure resource group during deployment.
 
-The `azure.yaml` file included in the `azd` template lives in the root of the project directory and ties together all of the services.
+1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
 
-```yaml
-name: bindings-dapr-node-postgres-aca
-metadata:
-  template: bindings-dapr-node-postgres-aca@0.0.1-beta
-services:
-  batch:
-    project: batch
-    language: js
-    host: containerapp
-    module: app/batch-service
-```
+   ```azdeveloper
+   azd up
+   ```
+
+   This process may take some time to complete, as the `azd up` command:
+
+   - Initializes your project (azd init)
+   - Creates and configures all necessary Azure resources (azd provision)
+   - Deploys the code (azd deploy)
+   
+   As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
+
+   **Expected output:**
+   
+   ```azdeveloper
+   Infrastructure provisioning plan completed successfully
+   Provisioning Azure resources can take some time.
+   
+   You can view detailed progress in the Azure Portal:
+   https://portal.azure.com/
+   
+   Created Resource group: <resource-group>
+   Created Application Insights: <app-insights-resource>
+   Created Portal dashboard: <azure-portal-dashboard>
+   Created Log Analytics workspace: <log-analytics-workspace>
+   Created Container Apps Environment: <container-apps-environment>
+   Created Container App: <container-app-name>
+   
+   Azure resource provisioning completed successfully
+   
+   Deploying service batch...
+   
+   Infrastructure provisioning plan completed successfully
+   Provisioning Azure resources can take some time.
+   
+   You can view detailed progress in the Azure Portal:
+   https://portal.azure.com/
+   
+   Created Application Insights: <app-insights-resource>
+   Created Container App: <container-app-name>
+   ```
+
+### Confirm successful deployment 
+
+In the Azure portal, verify the batch Postgres container is logging each insert successfully every 10 seconds. 
+
+1. Copy the Container App name from the terminal output.
+
+1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+
+1. In the Container App dashboard, select **Monitoring** > **Log stream**.
+
+1. Confirm the container is logging the same output as in the terminal earlier.
+
+   :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view.png" alt-text="Screenshot of the container app's log stream in the Azure portal.":::
+
+## What happened?
+
+Upon successful completion of the `azd up` command:
+
+- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- The app has been built and deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+::: zone-end
+
 
 ## Clean up resources
 
@@ -367,8 +380,6 @@ If you're not going to continue to use this application, delete the Azure resour
 ```azdeveloper
 azd down
 ```
-
-`azd down` tears down the entire application, including the resource group and all the provisioned Azure resources.
 
 ## Next steps
 
