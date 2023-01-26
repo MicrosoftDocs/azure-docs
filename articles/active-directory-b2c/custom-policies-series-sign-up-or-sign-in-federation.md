@@ -62,56 +62,54 @@ To configure sign in with Facebook, you need to perform the following steps:
 In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and then declare additional claims by using the following code:
 
 ```xml
-    <ClaimType Id="issuerUserId">
-        <DisplayName>Username</DisplayName>
-        <DataType>string</DataType>
-        <UserHelpText/>
-        <UserInputType>TextBox</UserInputType>
-        <Restriction>
-            <Pattern RegularExpression="^[a-zA-Z0-9]+[a-zA-Z0-9_-]*$" HelpText="The username you provided is not valid. It must begin with an alphabet or number and can contain alphabets, numbers and the following symbols: _ -" />
-        </Restriction>
-    </ClaimType>
-    
-    <ClaimType Id="identityProvider">
-        <DisplayName>Identity Provider</DisplayName>
-        <DataType>string</DataType>
-        <DefaultPartnerClaimTypes>
-            <Protocol Name="OAuth2" PartnerClaimType="idp" />
-            <Protocol Name="OpenIdConnect" PartnerClaimType="idp" />
-            <Protocol Name="SAML2" PartnerClaimType="http://schemas.microsoft.com/identity/claims/identityprovider" />
-        </DefaultPartnerClaimTypes>
-        <UserHelpText/>
-    </ClaimType>
-    
-    <ClaimType Id="authenticationSource">
-        <DisplayName>AuthenticationSource</DisplayName>
-        <DataType>string</DataType>
-        <UserHelpText>Specifies whether the user was authenticated at Social IDP or local account.</UserHelpText>
-    </ClaimType>  
-    
-    <ClaimType Id="upnUserName">
-        <DisplayName>UPN User Name</DisplayName>
-        <DataType>string</DataType>
-        <UserHelpText>The user name for creating user principal name.</UserHelpText>
-    </ClaimType>
-    
-    <ClaimType Id="alternativeSecurityId">
-        <DisplayName>AlternativeSecurityId</DisplayName>
-        <DataType>string</DataType>
-        <UserHelpText/>
-    </ClaimType>
-    
-    <ClaimType Id="mailNickName">
-        <DisplayName>MailNickName</DisplayName>
-        <DataType>string</DataType>
-        <UserHelpText>Your mail nick name as stored in the Azure Active Directory.</UserHelpText>
-    </ClaimType>
-    
-    <ClaimType Id="newUser">
-        <DisplayName>User is new or not</DisplayName>
-        <DataType>boolean</DataType>
-        <UserHelpText/>
-    </ClaimType>
+    <!--<ClaimsSchema>-->
+        ...
+        <ClaimType Id="issuerUserId">
+            <DisplayName>Username</DisplayName>
+            <DataType>string</DataType>
+            <UserHelpText/>
+            <UserInputType>TextBox</UserInputType>
+            <Restriction>
+                <Pattern RegularExpression="^[a-zA-Z0-9]+[a-zA-Z0-9_-]*$" HelpText="The username you provided is not valid. It must begin with an alphabet or number and can contain alphabets, numbers and the following symbols: _ -" />
+            </Restriction>
+        </ClaimType>
+        
+        <ClaimType Id="identityProvider">
+            <DisplayName>Identity Provider</DisplayName>
+            <DataType>string</DataType>
+            <UserHelpText/>
+        </ClaimType>
+        
+        <ClaimType Id="authenticationSource">
+            <DisplayName>AuthenticationSource</DisplayName>
+            <DataType>string</DataType>
+            <UserHelpText>Specifies whether the user was authenticated at Social IDP or local account.</UserHelpText>
+        </ClaimType>  
+        
+        <ClaimType Id="upnUserName">
+            <DisplayName>UPN User Name</DisplayName>
+            <DataType>string</DataType>
+            <UserHelpText>The user name for creating user principal name.</UserHelpText>
+        </ClaimType>
+        
+        <ClaimType Id="alternativeSecurityId">
+            <DisplayName>AlternativeSecurityId</DisplayName>
+            <DataType>string</DataType>
+            <UserHelpText/>
+        </ClaimType>
+        
+        <ClaimType Id="mailNickName">
+            <DisplayName>MailNickName</DisplayName>
+            <DataType>string</DataType>
+            <UserHelpText>Your mail nick name as stored in the Azure Active Directory.</UserHelpText>
+        </ClaimType>
+        
+        <ClaimType Id="newUser">
+            <DisplayName>User is new or not</DisplayName>
+            <DataType>boolean</DataType>
+            <UserHelpText/>
+        </ClaimType>
+    <!--</ClaimsSchema>-->
 ```
 
 ### Step 3.2 - Define claims transformations 
@@ -119,36 +117,39 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and th
 In the `ContosoCustomPolicy.XML` file, locate the *ClaimsTransformations* element, and add claims transformations by using the following code: 
 
  ```xml
-    <ClaimsTransformation Id="CreateRandomUPNUserName" TransformationMethod="CreateRandomString">
-        <InputParameters>
-            <InputParameter Id="randomGeneratorType" DataType="string" Value="GUID" />
-        </InputParameters>
-        <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="upnUserName" TransformationClaimType="outputClaim" />
-        </OutputClaims>
-    </ClaimsTransformation>
-
-    <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
-        <InputClaims>
-            <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
-            <InputClaim ClaimTypeReferenceId="identityProvider" TransformationClaimType="identityProvider" />
-        </InputClaims>
-        <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="alternativeSecurityId" TransformationClaimType="alternativeSecurityId" />
-        </OutputClaims>
-    </ClaimsTransformation>
+    <!--<ClaimsTransformations>-->
+        ...
+        <ClaimsTransformation Id="CreateRandomUPNUserName" TransformationMethod="CreateRandomString">
+            <InputParameters>
+                <InputParameter Id="randomGeneratorType" DataType="string" Value="GUID" />
+            </InputParameters>
+            <OutputClaims>
+                <OutputClaim ClaimTypeReferenceId="upnUserName" TransformationClaimType="outputClaim" />
+            </OutputClaims>
+        </ClaimsTransformation>
     
-    <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
-        <InputClaims>
-            <InputClaim ClaimTypeReferenceId="upnUserName" TransformationClaimType="inputClaim" />
-        </InputClaims>
-        <InputParameters>
-            <InputParameter Id="stringFormat" DataType="string" Value="cpim_{0}@{RelyingPartyTenantId}" />
-        </InputParameters>
-        <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="userPrincipalName" TransformationClaimType="outputClaim" />
-        </OutputClaims>
-    </ClaimsTransformation>
+        <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
+            <InputClaims>
+                <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
+                <InputClaim ClaimTypeReferenceId="identityProvider" TransformationClaimType="identityProvider" />
+            </InputClaims>
+            <OutputClaims>
+                <OutputClaim ClaimTypeReferenceId="alternativeSecurityId" TransformationClaimType="alternativeSecurityId" />
+            </OutputClaims>
+        </ClaimsTransformation>
+        
+        <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
+            <InputClaims>
+                <InputClaim ClaimTypeReferenceId="upnUserName" TransformationClaimType="inputClaim" />
+            </InputClaims>
+            <InputParameters>
+                <InputParameter Id="stringFormat" DataType="string" Value="cpim_{0}@{RelyingPartyTenantId}" />
+            </InputParameters>
+            <OutputClaims>
+                <OutputClaim ClaimTypeReferenceId="userPrincipalName" TransformationClaimType="outputClaim" />
+            </OutputClaims>
+        </ClaimsTransformation>
+    <!--</ClaimsTransformations>-->
  ```
 
 We've defined three Claims Transformations, which we use to generate values for *alternativeSecurityId* and *userPrincipalName* claims. These ClaimsTransformations are invoked in the OAuth2 Technical Profile in [step 3.3](#step-33---configure-facebook-claims-provider).   
@@ -157,52 +158,55 @@ We've defined three Claims Transformations, which we use to generate values for 
 
 To enable users to sign in using a Facebook account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. You can define a Facebook account as a claims provider. 
 
-In the `ContosoCustomPolicy.XML` file, locate *ClaimsProviders* element, add a new ClaimsProvider by using the following code: 
+In the `ContosoCustomPolicy.XML` file, locate *ClaimsProviders* element, add a new claims provider by using the following code: 
 
 ```xml
-    <ClaimsProvider>
-        <!-- The following Domain element allows this profile to be used if the request comes with domain_hint 
-                query string parameter, e.g. domain_hint=facebook.com  -->
-        <Domain>facebook.com</Domain>
-        <DisplayName>Facebook</DisplayName>
-        <TechnicalProfiles>
-            <TechnicalProfile Id="Facebook-OAUTH">
-            <!-- The text in the following DisplayName element is shown to the user on the claims provider 
-                    selection screen. -->
+    <!--<ClaimsProviders>-->
+        ...
+        <ClaimsProvider>
+            <!-- The following Domain element allows this profile to be used if the request comes with domain_hint 
+                    query string parameter, e.g. domain_hint=facebook.com  -->
+            <Domain>facebook.com</Domain>
             <DisplayName>Facebook</DisplayName>
-            <Protocol Name="OAuth2" />
-            <Metadata>
-                <Item Key="ProviderName">facebook</Item>
-                <Item Key="authorization_endpoint">https://www.facebook.com/dialog/oauth</Item>
-                <Item Key="AccessTokenEndpoint">https://graph.facebook.com/oauth/access_token</Item>
-                <Item Key="HttpBinding">GET</Item>
-                <Item Key="UsePolicyInRedirectUri">0</Item>                
-                <Item Key="client_id">facebook-app-id</Item>
-                <Item Key="scope">email public_profile</Item>
-                <Item Key="ClaimsEndpoint">https://graph.facebook.com/me?fields=id,first_name,last_name,name,email</Item>
-                <Item Key="AccessTokenResponseFormat">json</Item>
-            </Metadata>
-            <CryptographicKeys>
-                <Key Id="client_secret" StorageReferenceId="facebook-policy-key" />
-            </CryptographicKeys>
-            <InputClaims />
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
-                <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
-                <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
-                <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
-                <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="facebook.com" AlwaysUseDefaultValue="true" />
-                <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            </OutputClaims>
-            <OutputClaimsTransformations>
-                <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
-                <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
-                <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
-            </OutputClaimsTransformations>
-            </TechnicalProfile>
-        </TechnicalProfiles>
-    </ClaimsProvider>
+            <TechnicalProfiles>
+                <TechnicalProfile Id="Facebook-OAUTH">
+                <!-- The text in the following DisplayName element is shown to the user on the claims provider 
+                        selection screen. -->
+                <DisplayName>Facebook</DisplayName>
+                <Protocol Name="OAuth2" />
+                <Metadata>
+                    <Item Key="ProviderName">facebook</Item>
+                    <Item Key="authorization_endpoint">https://www.facebook.com/dialog/oauth</Item>
+                    <Item Key="AccessTokenEndpoint">https://graph.facebook.com/oauth/access_token</Item>
+                    <Item Key="HttpBinding">GET</Item>
+                    <Item Key="UsePolicyInRedirectUri">0</Item>                
+                    <Item Key="client_id">facebook-app-id</Item>
+                    <Item Key="scope">email public_profile</Item>
+                    <Item Key="ClaimsEndpoint">https://graph.facebook.com/me?fields=id,first_name,last_name,name,email</Item>
+                    <Item Key="AccessTokenResponseFormat">json</Item>
+                </Metadata>
+                <CryptographicKeys>
+                    <Key Id="client_secret" StorageReferenceId="facebook-policy-key" />
+                </CryptographicKeys>
+                <InputClaims />
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
+                    <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
+                    <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
+                    <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+                    <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
+                    <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="facebook.com" AlwaysUseDefaultValue="true" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
+                </OutputClaims>
+                <OutputClaimsTransformations>
+                    <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
+                    <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
+                    <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
+                </OutputClaimsTransformations>
+                </TechnicalProfile>
+            </TechnicalProfiles>
+        </ClaimsProvider>
+    <!--</ClaimsProviders>-->
 ```
 
 Replace:
@@ -255,7 +259,7 @@ Just like in sign-in with a local account, you need to configure the [Azure AD T
 
 1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).  
  
-1. In the `ContosoCustomPolicy.XML` file add another Azure AD Technical Profile after the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
+1. In the `ContosoCustomPolicy.XML` file add another Azure AD technical profile after the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
 
      ```xml
         <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
@@ -290,9 +294,9 @@ Just like in sign-in with a local account, you need to configure the [Azure AD T
 
 ### Step 3.5 - Configure Content Definition 
 
-After a user signs in, you can collect some information from them by using a SelfAsserted Technical Profile. So, you need to configure content definition for the SelfAsserted Technical Profile.  
+After a user signs in, you can collect some information from them by using a self-asserted technical profile. So, you need to configure content definition for the self-asserted technical profile.  
 
-In the `ContosoCustomPolicy.XML` file, locate the *ContentDefinitions* element, and then add a new content definition by using the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the *ContentDefinitions* element, and then add a new content definition in the `ContentDefinitions` collection by using the following code: 
 
 ```xml
     <ContentDefinition Id="socialAccountsignupContentDefinition">
@@ -304,15 +308,17 @@ In the `ContosoCustomPolicy.XML` file, locate the *ContentDefinitions* element, 
         </Metadata>
     </ContentDefinition>
 ```
-We use this content definition as a metadata in a SelfAsserted Technical Profile on the next step ([step 3.6](#step-36---configure-a-selfasserted-technical-profile)). 
+We use this content definition as a metadata in a self-asserted technical profile on the next step ([step 3.6](#step-36---configure-a-self-asserted-technical-profile)). 
 
-### Step 3.6 - Configure a SelfAsserted Technical Profile
+### Step 3.6 - Configure a self-asserted technical profile
 
-The SelfAsserted Technical Profile you configure in this step is used to collect more information from the user or update similar information obtained from the social account. 
+The self-asserted technical profile you configure in this step is used to collect more information from the user or update similar information obtained from the social account. 
 
 In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and then add a new claims provider by using the following code: 
 
 ```xml
+    <!--<ClaimsProviders>-->
+        ...
         <ClaimsProvider>
             <DisplayName>Self Asserted for social sign in</DisplayName>
             <TechnicalProfiles>
@@ -363,66 +369,70 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and
                   </TechnicalProfile>
             </TechnicalProfiles>
         </ClaimsProvider>
+    <!--</ClaimsProviders>-->
 ```
 
-The claims provider we've added contains a SelfAsserted Technical Profile, *SelfAsserted-Social*. The SelfAsserted Technical Profile uses the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile as a validation technical profile. So, the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile executes when the user selects the **Continue** button (see screenshot in [step 7](#step-7---test-policy)).     
+The claims provider we've added contains a self-asserted technical profile, *SelfAsserted-Social*. The self-asserted technical profile uses the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile as a validation technical profile. So, the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile executes when the user selects the **Continue** button (see screenshot in [step 7](#step-7---test-policy)).     
 
 Also, notice that we've added the content definition, *socialAccountsignupContentDefinition*, that we configured in [step 3.5](#step-35---configure-content-definition) in the metadata section.  
 
 ## Step 4 - Update the User Journey Orchestration Steps
 
-In the `ContosoCustomPolicy.XML` file, locate the `HelloWorldJourney` *UserJourney* and replace all the Orchestration Steps with the steps shown in the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the `HelloWorldJourney` user journey and replace all the orchestration steps with the steps shown in the following code: 
 
 ```xml
-    <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp">
-        <ClaimsProviderSelections>
-            <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
-        </ClaimsProviderSelections>
-    </OrchestrationStep>
-
-    <OrchestrationStep Order="2" Type="ClaimsExchange">
-        <ClaimsExchanges>
-            <ClaimsExchange Id="FacebookExchange"
-                TechnicalProfileReferenceId="Facebook-OAUTH" />
-        </ClaimsExchanges>
-    </OrchestrationStep>
-
-    <!-- For social IDP authentication, attempt to find the user account in the
-    directory. -->
-    <OrchestrationStep Order="3" Type="ClaimsExchange">
-        <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserReadUsingAlternativeSecurityId" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
-        </ClaimsExchanges>
-    </OrchestrationStep>
-
-    <!-- Show self-asserted page only if the directory does not have the user account
-    already (i.e. we do not have an objectId).  -->
-    <OrchestrationStep Order="4" Type="ClaimsExchange">
-        <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-                <Value>objectId</Value>
-                <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-        </Preconditions>
-        <ClaimsExchanges>
-            <ClaimsExchange Id="SelfAsserted-Social" TechnicalProfileReferenceId="SelfAsserted-Social" />
-        </ClaimsExchanges>
-    </OrchestrationStep>
-
-    <OrchestrationStep Order="5" Type="ClaimsExchange">
-        <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-                <Value>objectId</Value>
-                <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-        </Preconditions>
-        <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserWrite" TechnicalProfileReferenceId="AAD-UserWriteUsingAlternativeSecurityId" />
-        </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="6" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+    <!--<OrchestrationSteps>-->
+        ...
+        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp">
+            <ClaimsProviderSelections>
+                <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
+            </ClaimsProviderSelections>
+        </OrchestrationStep>
+    
+        <OrchestrationStep Order="2" Type="ClaimsExchange">
+            <ClaimsExchanges>
+                <ClaimsExchange Id="FacebookExchange"
+                    TechnicalProfileReferenceId="Facebook-OAUTH" />
+            </ClaimsExchanges>
+        </OrchestrationStep>
+    
+        <!-- For social IDP authentication, attempt to find the user account in the
+        directory. -->
+        <OrchestrationStep Order="3" Type="ClaimsExchange">
+            <ClaimsExchanges>
+                <ClaimsExchange Id="AADUserReadUsingAlternativeSecurityId" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
+            </ClaimsExchanges>
+        </OrchestrationStep>
+    
+        <!-- Show self-asserted page only if the directory does not have the user account
+        already (i.e. we do not have an objectId).  -->
+        <OrchestrationStep Order="4" Type="ClaimsExchange">
+            <Preconditions>
+                <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                    <Value>objectId</Value>
+                    <Action>SkipThisOrchestrationStep</Action>
+                </Precondition>
+            </Preconditions>
+            <ClaimsExchanges>
+                <ClaimsExchange Id="SelfAsserted-Social" TechnicalProfileReferenceId="SelfAsserted-Social" />
+            </ClaimsExchanges>
+        </OrchestrationStep>
+    
+        <OrchestrationStep Order="5" Type="ClaimsExchange">
+            <Preconditions>
+                <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                    <Value>objectId</Value>
+                    <Action>SkipThisOrchestrationStep</Action>
+                </Precondition>
+            </Preconditions>
+            <ClaimsExchanges>
+                <ClaimsExchange Id="AADUserWrite" TechnicalProfileReferenceId="AAD-UserWriteUsingAlternativeSecurityId" />
+            </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="6" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+    <!--</OrchestrationSteps>-->
 ```
-In the orchestration we've used make reference to technical profiles that enable a user to sign in by using a social account.  
+In the orchestration, we've used make reference to technical profiles that enable a user to sign in by using a social account.  
 
 When the custom policy runs:
 
@@ -488,7 +498,45 @@ After the policy finishes execution, you're redirected to https://jwt.ms, and yo
 }.[Signature]
 ```
 
-Notice the identity provider, `"idp": "facebook.com"`, has been included in the JWT token.  
+Notice the identity provider, `"idp": "facebook.com"`, has been included in the JWT token. 
+
+## A combined local and social sign-in
+
+In this article, our user journey orchestration steps only references technical profiles that enable a user to sign in by using a social account. We can modify the orchestration steps to enable a user to sign in by using either a local account or  a social account. To do so, the first orchestration step's `ClaimsProviderSelections` element lists the sign in options available to the user. 
+
+Use the following steps to add a combined local and social account: 
+
+1. Declare a claim, `authenticationSource`, which specifies whether the user was authenticated at Social identity provider or a local account by using the following code:   
+
+    ```xml
+    <!--<ClaimsSchema>-->
+        ...  
+        <ClaimType Id="authenticationSource">
+        <DisplayName>AuthenticationSource</DisplayName>
+        <DataType>string</DataType>
+        <UserHelpText>Specifies whether the user was authenticated at Social IDP or local account.</UserHelpText>
+        </ClaimType>
+      <!--</ClaimsSchema>-->
+    ``` 
+1. In the `UserJourneys` section, add a new user journey, *CombinedSignInSignUp* by using the following code: 
+
+    ```xml
+        <!--<UserJourneys>-->
+            ...
+            <UserJourney Id="CombinedSignInSignUp">
+                <OrchestrationSteps>
+                    <!--Orchestration steps will be added here-->
+                </OrchestrationSteps>
+            </UserJourney>
+        <!--</UserJourneys>-->
+    ```
+1. Add the orchestration steps
+
+1. In the RelyingParty section, change *DefaultUserJourney's* `ReferenceId` to `CombinedSignInSignUp`  
+
+1. Upload policy file
+
+1. Run policy (include screenshot)
 
 ## Next steps 
 

@@ -37,7 +37,7 @@ Azure AD B2C custom policy provides a OpenID Connect technical profile, which yo
 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
-- Complete the steps in [Read or update a user account by using Azure Active Directory B2C custom policy](custom-policies-series-read-update-user.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md).  
+- Complete the steps in [Create and read a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md).  
 
 
 [!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
@@ -89,7 +89,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and th
             <AdminHelpText>Special parameter passed to EvoSTS.</AdminHelpText>
             <UserHelpText>Special parameter passed to EvoSTS.</UserHelpText>
         </ClaimType>
-    <!--<ClaimsSchema>-->
+    <!--</ClaimsSchema>-->
 ```
 
 ### Step 1.2 - Register Identity Experience Framework applications  
@@ -193,7 +193,7 @@ In the `ContosoCustomPolicy.XML` file, locate the `SignInUser` technical profile
 
 We've added a SelfAsserted Technical Profile, *UserSignInCollector*, which displays the sign-in form to the user. We've configured the technical profile to collect the user’s email address as their sign-in name as indicated in the `setting.operatingMode` metadata. The sign in form includes a sign-up link, which leads the user to a sign-up form as indicated by the `SignUpTarget` metadata. You'll see how we set up the *SignUpWithLogonEmailExchange* `ClaimsExchange` in the orchestration steps.
 
-Also, we've added the *SignInUser* OpenID Connect Technical Profile as a *ValidationTechnicalProfile*. So, the *SignInUser* Technical Profile executes when the user selects the **Sign in** button (see screenshot in [step 7](#step-7---test-policy)).    
+Also, we've added the *SignInUser* OpenID Connect Technical Profile as a *ValidationTechnicalProfile*. So, the *SignInUser* technical profile executes when the user selects the **Sign in** button (see screenshot in [step 5](#step-5---test-policy)).    
 
 In the next step ([step 2.2](#step-22---configure-sign-in-interface-content-definition)), we configure a content definition that we'll use in this SelfAsserted Technical Profile.    
 

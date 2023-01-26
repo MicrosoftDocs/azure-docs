@@ -344,7 +344,7 @@ In the `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` element and 
     </ClaimsProvider>
 ```
 
-We've configured two technical profiles `AadSspr-SendCode` and `AadSspr-VerifyCode`. `AadSspr-SendCode` generates and sends a code to the email address address specified in the `InputClaims` section whereas `AadSspr-VerifyCode` verifies the code. You specify the action you want to perform in th  technical profile's metadata.
+We've configured two technical profiles `AadSspr-SendCode` and `AadSspr-VerifyCode`. `AadSspr-SendCode` generates and sends a code to the email address address specified in the `InputClaims` section whereas `AadSspr-VerifyCode` verifies the code. You specify the action you want to perform in the  technical profile's metadata.
 
 ### Configure a display control 
 
