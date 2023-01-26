@@ -135,9 +135,6 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
       containers:
         - name: busybox
           image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
-          command:
-            - "/bin/sleep"
-            - "10000"
           volumeMounts:
           - name: secrets-store01-inline
             mountPath: "/mnt/secrets-store"
