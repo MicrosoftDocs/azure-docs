@@ -43,6 +43,7 @@ The following services are generally available for Customer Lockbox:
 - Azure Health Bot
 - Azure Intelligent Recommendations
 - Azure Kubernetes Service
+- Azure Logic Apps
 - Azure Monitor
 - Azure Spring Apps
 - Azure SQL Database
@@ -51,7 +52,9 @@ The following services are generally available for Customer Lockbox:
 - Azure subscription transfers
 - Azure Synapse Analytics
 - Azure Unified Vision Service
+- Microsoft Azure Attestation
 - Microsoft Energy Data Services 
+- OpenAI
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
 
 
