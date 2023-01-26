@@ -1,12 +1,12 @@
 ---
 title: Perform operations on data
-description: How to create strings, arrays, tables, or tokens from other arrays for workflows in Azure Logic Apps.
+description: How to create strings, arrays, tables, or tokens from various data types for workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/26/2023
-# As a developer using Azure Logic Apps, I want to perform various data operations on arrays for my workflow in Azure Logic Apps.
+# As a developer using Azure Logic Apps, I want to perform various data operations on various data types for my workflow in Azure Logic Apps.
 ---
 
 # Perform data operations in Azure Logic Apps
