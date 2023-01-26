@@ -38,6 +38,14 @@ The following limitations must be considered when deploying Service-Managed TDE:
 - Failover Groups are not supported.
 
 ## Turn on transparent data encryption on the managed instance
+### Prerequisites
+
+To turn on automatic transparent data encryption, the managed instance cannot have any manually encrypted credentials that are necessary for the service to create. Users must:
+
+1. Disable encryption on their existing databases: [`ALTER DATABASE <database_name> SET ENCRYPTION OFF;`](https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-ver16#db_encryption_option-)
+2. Drop all associated DEK's within those databases: [`DROP DATABASE ENCRYPTION KEY;`](https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-database-encryption-key-transact-sql?view=sql-server-ver16)
+3. Drop any existing master key in the `master` database: [`DROP MASTER KEY;`](https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-master-key-transact-sql?view=sql-server-ver16)
+
 
 ### [Service-managed mode](#tab/service-managed-mode)
 
