@@ -573,7 +573,9 @@ The following are accepted location types:
 *Applies to: Python SDK v1*
 
 For scenarios in which you're storing your Docker build context in a storage account
-* The path of the build context must be specified as `https://<storage-account>.blob.core.windows.net/<container>/<path>`
+* The path of the build context must be specified as 
+
+	`https://<storage-account>.blob.core.windows.net/<container>/<path>`
 * Ensure that the location you provided is a valid URL
 * Ensure that you've specified a container and a path
 	
@@ -692,7 +694,7 @@ conda_dep.add_conda_package("python==3.8")
 
 *Applies to: all scenarios*
 
-If you're using a yaml for your conda specification, include Python as a dependency
+If you're using a YAML for your conda specification, include Python as a dependency
 
 ```yaml
 name: project_environment
@@ -708,21 +710,92 @@ channels:
 * [Add conda package v1](https://aka.ms/azureml/environment/add-conda-package-v1)
 
 ### Multiple Python versions
-- Only one Python version can be specified in the environment definition
+<!--issueDescription-->
+**Potential causes:**
+* You've specified more than one Python version in your environment definition
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+Choose which Python version you want to use, and remove all other versions 
+
+```python
+myenv.python.conda_dependencies.remove_conda_package("python=3.6")
+```
+
+*Applies to: all scenarios*
+
+If you're using a YAML for your conda specification, include only one Python version as a dependency
+
+**Resources**
+* [CondaDependencies Class v1](python/api/azureml-core/azureml.core.conda_dependencies.condadependencies)
 
 ### Python version not supported
-- The Python version provided in the environment definition isn't supported
-- Consider using a newer version of Python
-- See [Python versions](https://aka.ms/azureml/environment/python-versions) and [Python end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
+<!--issueDescription-->
+**Potential causes:**
+* You've specified a Python version that has reached its end-of-life and is no longer supported
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Specify a [python version](https://aka.ms/azureml/environment/python-versions) that hasn't reached and isn't nearing its [end-of-life](https://aka.ms/azureml/environment/python-end-of-life)
 
 ### Python version not recommended
-- The Python version used in the environment definition is at or near its end of life, and should be avoided
-- Consider using a newer version of Python as the specified version will eventually be unsupported
-- See [Python versions](https://aka.ms/azureml/environment/python-versions) and [Python end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
+<!--issueDescription-->
+**Potential causes:**
+* You've specified a Python version that is at or near its end-of-life
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Specify a [python version](https://aka.ms/azureml/environment/python-versions) that hasn't reached and isn't nearing its [end-of-life](https://aka.ms/azureml/environment/python-end-of-life)
 
 ### Failed to validate Python version
-- The provided Python version may have been formatted improperly or specified with incorrect syntax
-- See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
+<!--issueDescription-->
+**Potential causes:**
+* The provided Python version was formatted improperly or specified with incorrect syntax
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+Use correct syntax to specify a Python version using the SDK
+
+```python
+myenv.python.conda_dependencies.add_conda_package("python=3.8")
+```
+
+*Applies to: all scenarios*
+
+Use correct syntax to specify a Python version in a conda YAML
+
+```yaml
+name: project_environment
+dependencies:
+  - python=3.8
+  - pip:
+      - azureml-defaults
+channels:
+  - anaconda
+```
+
+**Resources**
+* See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
 ### *Conda issues*
 ### Missing conda dependencies
