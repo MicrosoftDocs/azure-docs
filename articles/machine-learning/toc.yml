@@ -873,7 +873,7 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.machinelearningservices/
     - name: Service limits
       href: resource-limits-capacity.md

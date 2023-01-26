@@ -88,10 +88,10 @@ The pipeline requires the following parameters to be configured:
 | Parameter             | Description  | Sample value |
 | --------------------- | -------------|------------- |
 | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
-| `api_version`         | The API version to use with REST API calls. Defaults to `2020-09-01-preview`  | `2020-09-01-preview` |
+| `api_version`         | The API version to use with REST API calls. Defaults to `2022-10-01`  | `2022-10-01` |
 | `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
 | `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
-| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
+| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. You can use the default Azure Machine Learning data store, named `workspaceblobstore`. | `azureml://datastores/workspaceblobstore/paths/batch/predictions.csv` |
 
 # [Using a Service Principal](#tab/sp)
 
@@ -114,10 +114,10 @@ The pipeline requires the following parameters to be configured:
 | `client_id`           | The client ID of the service principal used to invoke the endpoint  | `00000000-0000-0000-00000000` |
 | `client_secret`       | The client secret of the service principal used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
 | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
-| `api_version`         | The API version to use with REST API calls. Defaults to `2020-09-01-preview`  | `2020-09-01-preview` |
+| `api_version`         | The API version to use with REST API calls. Defaults to `2022-10-01`  | `2022-10-01` |
 | `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
 | `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
-| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
+| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. You can use the default Azure Machine Learning data store, named `workspaceblobstore`. | `azureml://datastores/workspaceblobstore/paths/batch/predictions.csv` |
 
 ---
 

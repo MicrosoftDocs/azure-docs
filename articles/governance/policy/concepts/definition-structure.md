@@ -136,7 +136,7 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 
 The following Resource Provider modes are fully supported:
 
-- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure, and for Azure Policy components that target [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md) components such as pods, containers, and ingresses. Definitions
+- `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md). Definitions
   using this Resource Provider mode use effects _audit_, _deny_, and _disabled_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
@@ -146,6 +146,7 @@ The following Resource Provider modes are fully supported:
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
+- `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/overview.md) keys using Azure Policy.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
@@ -461,8 +462,6 @@ A condition evaluates whether a value meets certain criteria. The supported cond
 - `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` |
   `"greaterOrEquals": intValue`
 - `"exists": "bool"`
-
-When using **equals** or **notEquals** conditions, non-string values are converted into strings for evaluation. For example, `123` would be resolved into `"123"`, and `null` would be resolved into an empty string `""`. It is recommended that all values are entered as type string to begin with.
 
 For **less**, **lessOrEquals**, **greater**, and **greaterOrEquals**, if the property type doesn't
 match the condition type, an error is thrown. String comparisons are made using

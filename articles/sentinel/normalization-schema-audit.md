@@ -95,7 +95,7 @@ The following list mentions fields that have specific guidelines for Audit Event
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation audited by the event using a normalized value. Use [EventSubType](#eventsubtype) to provide further details, which the normalized value does not convey, and [Operation](#operation). to store the operation as reported by the reporting device.<br><br> For Audit Event records, the allowed values are:<br> - `Set`<br>- `Read`<br>- `Create`<br>- `Delete`<br>- `Execute`<br>- `Install`<br>- `Clear`<br>- `Enable`<br>- `Disable`<br>- `Other`. <br><br>Audit events represent a large variety of operations, and the `Other` value enables mapping operations that have no corresponding `EventType`. However, the use of `Other` limits the usability of the event and should be avoided if possible.   |
+| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation audited by the event using a normalized value. Use [EventSubType](#eventsubtype) to provide further details, which the normalized value does not convey, and [Operation](#operation). to store the operation as reported by the reporting device.<br><br> For Audit Event records, the allowed values are:<br> - `Set`<br>- `Read`<br>- `Create`<br>- `Delete`<br>- `Execute`<br>- `Install`<br>- `Clear`<br>- `Enable`<br>- `Disable`<br>- `Other` <br><br>Audit events represent a large variety of operations, and the `Other` value enables mapping operations that have no corresponding `EventType`. However, the use of `Other` limits the usability of the event and should be avoided if possible.   |
 | <a name="eventsubtype"></a> **EventSubType** | Optional | String | Provides further details, which the normalized value in [EventType](#eventtype) does not convey. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `AuditEvent`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`.  |
@@ -123,7 +123,7 @@ Fields that appear in the table are common to all ASIM schemas. Any of guideline
 | <a name="oldvalue"></a> **OldValue** | Optional | String |  The old value of [Object](#object) prior to the operation, if applicable. |
 | <a name="newvalue"></a>**NewValue** | Optional | String | The new value of [Object](#object) after the operation was performed, if applicable. |
 | <a name="value"></a>**Value** | Alias |  | Alias to [NewValue](#newvalue) |
-| **ValueType** | Optional | Enumerated | The type of the old and new values. Allowed values are<br>- Other. |
+| **ValueType** | Optional | Enumerated | The type of the old and new values. Allowed values are<br>- Other |
 
 ### Actor fields
 
