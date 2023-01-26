@@ -15,7 +15,7 @@ ms.custom: template-how-to
 > [!IMPORTANT]
 > Diagnostics packages may contain *personally identifiable information (PII)*. During this procedure, when providing the diagnostics package's SAS URI to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any PII that it contains.
 
-In this how-to guide, you'll learn how to gather a remote diagnostics package for an AP5GC site using the Azure portal. The diagnostics package can be provided, as a SAS URI, to AP5GC support to assist you with issues.
+In this how-to guide, you'll learn how to gather a remote diagnostics package for an Azure Private 5G Core (AP5GC) site using the Azure portal. The diagnostics package can be provided, as a SAS URI, to AP5GC support to assist you with issues.
 
 ## Prerequisites
 
