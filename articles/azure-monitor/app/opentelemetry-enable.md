@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications
+title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
 ms.date: 01/10/2023
@@ -7,95 +7,27 @@ ms.devlang: csharp, javascript, typescript, python
 ms.reviewer: mmcc
 ---
 
-# Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications (preview)
+# Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications
 
-The Azure Monitor OpenTelemetry Exporter is a component that sends traces, and metrics (and eventually all application telemetry) to Azure Monitor Application Insights. To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
+This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
 
-This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offerings. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces and metrics to Azure Monitor Application Insights.
+## OpenTelemetry Release Status
 
-> [!IMPORTANT]
-> The Azure Monitor OpenTelemetry-based Offerings for .NET, Node.js, and Python applications are currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+OpenTelemetry offerings are available for .NET, Node.js, Python and Java applications.
 
-## Limitations of the preview release
+|Language |Release Status                          |
+|---------|----------------------------------------|
+|Java     | :white_check_mark: <sup>[1](#GA)</sup> |
+|.NET     | :warning: <sup>[2](#PREVIEW)</sup>     |
+|Node.js  | :warning: <sup>[2](#PREVIEW)</sup>     |
+|Python   | :warning: <sup>[2](#PREVIEW)</sup>     |
 
-### [.NET](#tab/net)
+**Footnotes**
+- <a name="GA"> :white_check_mark: 1</a>: OpenTelemetry is available to all customers with formal support.
+- <a name="PREVIEW"> :warning: 2</a>: OpenTelemetry is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
-
- - [Live Metrics](live-stream.md)
- - Logging API (like console logs and logging libraries)
- - [Profiler](profiler-overview.md)
- - [Snapshot Debugger](snapshot-debugger.md)
- - [Azure Active Directory authentication](azure-ad-authentication.md)
- - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
- - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
- - Autopopulation of User IP (to determine location attributes)
- - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
- - Ability to manually set User ID or Authenticated User ID
- - Propagating Operation Name to Dependency Telemetry
- - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
- - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
-
-If you require a full-feature experience, use the existing Application Insights [ASP.NET](asp-net.md), or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
-
-### [Node.js (JavaScript)](#tab/nodejs-javascript)
-
-Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
-
-- [Live Metrics](live-stream.md)
- - Logging API (like console logs and logging libraries)
- - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
- - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
- - Autopopulation of User IP (to determine location attributes)
- - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
- - Ability to manually set User ID or Authenticated User ID
- - Propagating Operation Name to Dependency Telemetry
- - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
-
-If you require a full-feature experience, use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
-
-> [!WARNING]
-> At present, this exporter only works for Node.js environments. Use the [Application Insights JavaScript SDK](javascript.md) for web and browser scenarios.
-
-### [Node.js (TypeScript)](#tab/nodejs-typescript)
-
-Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
-
- - [Live Metrics](live-stream.md)
- - Logging API (like console logs and logging libraries)
- - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
- - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
- - Autopopulation of User IP (to determine location attributes)
- - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
- - Ability to manually set User ID or Authenticated User ID
- - Propagating Operation Name to Dependency Telemetry
- - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
-
-If you require a full-feature experience, use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
-
-> [!WARNING]
-> At present, this exporter only works for Node.js environments. Use the [Application Insights JavaScript SDK](javascript.md) for web and browser scenarios.
-
-### [Python](#tab/python)
-
-Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
-
- - [Live Metrics](live-stream.md)
- - Logging API (like console logs and logging libraries)
- - [Azure Active Directory authentication](azure-ad-authentication.md)
- - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
- - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
- - Autopopulation of User IP (to determine location attributes)
- - Ability to override [Operation Name](correlation.md#data-model-for-telemetry-correlation)
- - Ability to manually set User ID or Authenticated User ID
- - Propagating Operation Name to Dependency Telemetry
- - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
- - [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) only supports statuscode(unset,ok,error) and status-description. "Status Description" is ignored by Azure Monitor Exporters.
-
-If you require a full-feature experience, use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
-
----
+> [!NOTE] 
+> For a feature-by-feature release status, see the [FAQ](../faq.yml#what-is-the-current-release-state-of-features-within-each-opentelemetry-offering-).
 
 ## Get started
 
@@ -103,12 +35,16 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### Prerequisites
 
-- Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
-- Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
+- An Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+- An Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 
 ### [.NET](#tab/net)
 
 - Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
+
+### [Java](#tab/java)
+
+- A Java application using Java 8+
 
 ### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -144,6 +80,19 @@ If you get an error like "There are no versions available for the package Azure.
 # Install the latest package with the NuGet package source specified.
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
 ```
+
+#### [Java](#tab/java)
+
+Download the [applicationinsights-agent-3.4.8.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.8/applicationinsights-agent-3.4.8.jar) file.
+
+> [!WARNING]
+>
+> If you are upgrading from an earlier 3.x version, you may be impacted by changing defaults or slight differences in the data we collect. See the migration notes at the top of the release notes for
+> [3.4.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.4.0),
+> [3.3.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.3.0),
+> [3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0), and
+> [3.1.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
+> for more details.
 
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -219,7 +168,7 @@ pip install azure-monitor-opentelemetry-exporter --pre
 
 This section provides guidance that shows how to enable OpenTelemetry.
 
-#### Add OpenTelemetry instrumentation code
+#### Instrument with OpenTelemetry
 
 
 ##### [.NET](#tab/net)
@@ -261,6 +210,19 @@ public class Program
 
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+
+##### [Java](#tab/java)
+
+Java auto-instrumentation is enabled through configuration changes; no code changes are required.
+
+Point the JVM to the jar file.
+
+    Add `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
+
+    > [!TIP]
+    > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
+    
+    If you develop a Spring Boot application, you can replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 ##### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -422,9 +384,26 @@ with tracer.start_as_current_span("hello"):
 
 #### Set the Application Insights connection string
 
-Replace the placeholder `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
+Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
 
 :::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of the Application Insights connection string.":::
+
+> [!NOTE] 
+> For Java, use one of the following two ways to point the jar file to your Application Insights resource:
+>
+>       - Set an environment variable:
+>        
+>            ```console
+>            APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
+>            ```
+>    
+>       - Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
+>    
+>            ```json
+>            {
+>              "connectionString": "<Your Connection String>"
+>            }
+>            ```
 
 #### Confirm data is flowing
 
@@ -465,6 +444,12 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
     })
     .Build();
 ```
+
+### [Java](#tab/java)
+
+To set the cloud role name, see [cloud role name](java-standalone-config#cloud-role-name).
+
+To set the cloud role instance, see [cloud role instance](java-standalone-config#cloud-role-instance).
 
 ### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -583,6 +568,10 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .Build();
 ```
 
+#### [Java](#tab/java)
+
+See [sampling]( java-standalone-config#sampling).
+
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
 ```javascript
@@ -655,7 +644,7 @@ for i in range(100):
 ---
 
 > [!TIP]
-> If you're not sure where to set the sampling rate, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance panes. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](#metrics), which are unaffected by sampling.
+> If you're not sure where to set the sampling rate, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](#metrics), which are unaffected by sampling.
 
 ## Instrumentation libraries
 
@@ -682,6 +671,94 @@ Dependencies
 - [SQL
   client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) (1) version:
   [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.7)
+
+#### [Java](#tab/java)
+
+Java 3.x includes the following auto-instrumentation.
+
+Autocollected requests:
+
+* JMS consumers
+* Kafka consumers
+* Netty
+* Quartz
+* Servlets
+* Spring scheduling
+
+> [!NOTE]
+> Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
+
+Autocollected dependencies (plus downstream distributed trace propagation):
+
+* Apache HttpClient
+* Apache HttpAsyncClient
+* AsyncHttpClient
+* Google HttpClient
+* gRPC
+* java.net.HttpURLConnection
+* Java 11 HttpClient
+* JAX-RS client
+* Jetty HttpClient
+* JMS
+* Kafka
+* Netty client
+* OkHttp
+
+Autocollected dependencies (without downstream distributed trace propagation):
+
+* Cassandra
+* JDBC
+* MongoDB (async and sync)
+* Redis (Lettuce and Jedis)
+
+Telemetry emitted by these Azure SDKs is automatically collected by default:
+
+* [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
+* [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
+* [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Azure Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
+* [Azure Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.22.0+
+* [Azure Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0+
+* [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
+* [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
+* [Azure Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Azure Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Azure Identity](/java/api/overview/azure/identity-readme) 1.2.4+
+* [Azure Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
+* [Azure Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Azure Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Azure Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Azure Storage - Blobs](/java/api/overview/azure/storage-blob-readme) 12.11.0+
+* [Azure Storage - Blobs Batch](/java/api/overview/azure/storage-blob-batch-readme) 12.9.0+
+* [Azure Storage - Blobs Cryptography](/java/api/overview/azure/storage-blob-cryptography-readme) 12.11.0+
+* [Azure Storage - Common](/java/api/overview/azure/storage-common-readme) 12.11.0+
+* [Azure Storage - Files Data Lake](/java/api/overview/azure/storage-file-datalake-readme) 12.5.0+
+* [Azure Storage - Files Shares](/java/api/overview/azure/storage-file-share-readme) 12.9.0+
+* [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
+* [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
+
+[//]: # "Azure Cosmos DB 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
+
+[//]: # "the remaining above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
+[//]: # ""
+[//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
+[//]: # "var str = ''"
+[//]: # "for (var i = 1, row; row = table.rows[i]; i++) {"
+[//]: # "  var name = row.cells[0].getElementsByTagName('div')[0].textContent.trim()"
+[//]: # "  var stableRow = row.cells[1]"
+[//]: # "  var versionBadge = stableRow.querySelector('.badge')"
+[//]: # "  if (!versionBadge) {"
+[//]: # "    continue"
+[//]: # "  }"
+[//]: # "  var version = versionBadge.textContent.trim()"
+[//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version + '\n'"
+[//]: # "}"
+[//]: # "console.log(str)"
 
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -719,9 +796,6 @@ Dependencies
 
 ---
 
-(1) Supports automatic reporting (as SpanEvent) of unhandled exceptions
-
-
 ### Metrics
 
 #### [.NET](#tab/net)
@@ -735,6 +809,13 @@ Dependencies
   clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) version:
   [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
 - [Runtime](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.Runtime-1.0.0/src/OpenTelemetry.Instrumentation.Runtime/README.md) version: [1.0.0](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime/1.0.0)
+
+#### [Java](#tab/java)
+
+Autocollected metrics
+
+* Micrometer, including Spring Boot Actuator metrics
+* JMX Metrics
 
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -759,6 +840,40 @@ Dependencies
 
 > [!TIP]
 > The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#add-custom-metrics) in Metrics Explorer. Whatever you set as the meter name becomes the metrics namespace.
+
+### Logs
+
+#### [.NET](#tab/net)
+
+Coming soon.
+
+#### [Java](#tab/java)
+
+Autocollected logs
+
+* Log4j (1) (2) (including MDC/Thread Context properties)
+* Logback (1) (2) (including MDC properties)
+* JBoss Logging (1) (2) (including MDC properties)
+* java.util.logging (1) (2)
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Coming soon.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+Coming soon.
+
+#### [Python](#tab/python)
+
+Coming soon.
+
+---
+
+**Footnotes**
+- (1) Supports automatic reporting (as SpanEvent) of unhandled exceptions
+- (2) By default, logging is only collected when that logging is performed at the INFO level or higher.
+To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
 
 ## Modify telemetry
 
@@ -821,6 +936,35 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
     }
 }
 ```
+
+##### [Java](#tab/java)
+
+You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
+
+Adding one or more span attributes populates the `customDimensions` field in the `requests`, `dependencies`, `traces`, or `exceptions` table.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+1. Add custom dimensions in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.api.common.AttributeKey;
+
+    AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
+    Span.current().setAttribute(attributeKey, "myvalue1");
+   ```
 
 ##### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -939,6 +1083,10 @@ Use the add [custom property example](#add-a-custom-property-to-a-trace), but re
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
 
+##### [Java](#tab/java)
+
+See [Telemetry processors](java-standalone-telemetry-processors.md).
+
 ##### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
 Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
@@ -982,7 +1130,6 @@ span._attributes["http.client_ip"] = "<IP Address>"
 ```
 
 ---
-<!--
 
 #### Set the user ID or authenticated user ID
 
@@ -993,39 +1140,75 @@ You can populate the _user_Id_ or _user_Authenticatedid_ field for requests by s
 
 ##### [.NET](#tab/net)
 
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+Coming soon.
 
-```C#
-Placeholder
-```
+##### [Java](#tab/java)
 
-##### [Node.js](#tab/nodejs)
+Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` table.
 
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
+Consult applicable privacy laws before you set the Authenticated User ID.
 
-```typescript
-...
-import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
 
-class SpanEnrichingProcessor implements SpanProcessor{
-    ...
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
-    onEnd(span: ReadableSpan){
-        span.attributes[SemanticAttributes.ENDUSER_ID] = "<User ID>";
-    }
-}
-```
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+1. Set `user_Id` in your code:
+
+   ```java
+   import io.opentelemetry.api.trace.Span;
+
+   Span.current().setAttribute("enduser.id", "myuser");
+   ```
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Coming soon.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+Coming soon.
 
 ##### [Python](#tab/python)
 
-Use the add [custom property example](#add-a-custom-property-to-a-trace), but replace the following lines of code:
-
-```python
-span._attributes["enduser.id"] = "<User ID>"
-```
+Coming soon.
 
 ---
--->
+
+### Add Log Attributes
+  
+#### [.NET](#tab/net)
+  
+Coming soon.
+
+#### [Java](#tab/java)
+
+Logback, Log4j, and java.util.logging are [auto-instrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
+
+* [Logback MDC](http://logback.qos.ch/manual/mdc.html)
+* [Log4j 2 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` will be captured as the log message)
+* [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
+* [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+  
+Coming soon.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+  
+Coming soon.
+
+#### [Python](#tab/python)
+  
+Coming soon.
 
 ### Filter telemetry
 
@@ -1072,6 +1255,10 @@ You might use the following ways to filter out telemetry before it leaves your a
     ```
 
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
+
+#### [Java](#tab/java)
+
+See [Telemetry processors](java-standalone-telemetry-processors.md).
 
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -1242,27 +1429,99 @@ Use the add [custom property example](#add-a-custom-property-to-a-trace), but re
                 )
     
     ```
+
+  ---
     
     <!-- For more information, see [GitHub Repo](link). -->
-    <!---
-    ### Get the trace ID or span ID
-    You might use X or Y to get the trace ID or span ID. Adding a trace ID or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
+
+### Get the trace ID or span ID
     
-    > [!NOTE]
-    > If you manually create spans for log-based metrics and alerting, you need to update them to use the metrics API (after it's released) to ensure accuracy.
-    
-    ```python
-    Placeholder
-    ```
-    
-    For more information, see [GitHub Repo](link).
-    --->
+You might use X or Y to get the trace ID or span ID. Adding a trace ID or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
+
+> [!NOTE]
+> If you manually create spans for log-based metrics and alerting, you need to update them to use the metrics API (after it's released) to ensure accuracy.
+#### [.NET](#tab/net)
+
+Coming soon.
+
+#### [Java](#tab/java)
+
+You can use `opentelemetry-api` to get the trace ID or span ID. This action can be done to add these identifiers to existing logging telemetry to improve correlation when you debug and diagnose issues.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+1. Get the request trace ID and the span ID in your code:
+
+   ```java
+   import io.opentelemetry.api.trace.Span;
+
+   Span span = Span.current();
+   String traceId = span.getSpanContext().getTraceId();
+   String spanId = span.getSpanContext().getSpanId();
+   ```
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Coming soon.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+
+Coming soon.
+
+#### [Python](#tab/python)
+
+Coming soon.
 
 ---
 
-## Custom telemetry
+## Collect custom telemetry
 
 This section explains how to collect custom telemetry from your application.
+  
+Depending on your language and signal type, there are different ways to collect custom telemetry, including:
+  
+-	OpenTelemetry API
+-	Language-specific logging/metrics libraries
+-	Application Insights API
+ 
+The following table represents the currently supported custom telemetry types:
+
+|                                           | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
+|-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
+| **.NET**                                  |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;iLogger API             |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
+|                                           |               |                |              |            |            |          |        |
+| **Java**                                  |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
+| &nbsp;&nbsp;&nbsp;Logback, Log4j, JUL     |               |                |              | Yes        |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;Micrometer              |               | Yes            |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;AI Classic API          |  Yes          | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
+|                                           |               |                |              |            |            |          |        |
+| **Node.js**                               |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;Winston, Pino, Bunyan   |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
+|                                           |               |                |              |            |            |          |        |
+| **Python**                                |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;Python Logging Module   |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
+
+> [!NOTE]
+> Application Insights Java 3.x listens for telemetry that's sent to the Application Insights Java 2.x SDK. Similarly, Application Insights Node.js 3.x collects events created with the Application Insights API. This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
 
 ### Add Custom Metrics
 
@@ -1279,10 +1538,10 @@ The following table shows the recommended [aggregation types](../essentials/metr
 |------------------------------------------------------|------------------------------------------------------------|
 | Counter                                              | Sum                                                        |
 | Asynchronous Counter                                 | Sum                                                        |
-| Histogram                                            | Min, Max, Average, Sum and Count                           |
+| Histogram                                            | Average, Sum, Count (Max, Min for Python and Node.js only) |
 | Asynchronous Gauge                                   | Average                                                    |
-| UpDownCounter                                        | Sum                                                        |
-| Asynchronous UpDownCounter                           | Sum                                                        |
+| UpDownCounter (Python and Node.js only)              | Sum                                                        |
+| Asynchronous UpDownCounter (Python and Node.js only) | Sum                                                        |
 
 > [!CAUTION]
 > Aggregation types beyond what's shown in the table typically aren't meaningful.
@@ -1332,6 +1591,10 @@ public class Program
     }
 }
 ```
+
+#### [Java](#tab/java)
+
+Coming soon.
 
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -1456,6 +1719,10 @@ public class Program
 }
 ```
 
+#### [Java](#tab/java)
+
+Coming soon.
+
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
 ```javascript
@@ -1573,6 +1840,10 @@ public class Program
 }
 ```
 
+#### [Java](#tab/java)
+
+Coming soon.
+
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
 ```javascript
@@ -1686,6 +1957,34 @@ using (var activity = activitySource.StartActivity("ExceptionExample"))
 }
 ```
 
+#### [Java](#tab/java)
+
+You can use `opentelemetry-api` to update the status of a span and record exceptions.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+1. Set status to `error` and record an exception in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.api.trace.StatusCode;
+
+    Span span = Span.current();
+    span.setStatus(StatusCode.ERROR, "errorMessage");
+    span.recordException(e);
+   ```
+
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
 ```javascript
@@ -1734,7 +2033,7 @@ catch(error){
 
 #### [Python](#tab/python)
 
-The OpenTelemetry Python SDK is implemented such that exceptions thrown will automatically be captured and recorded. See below for an example of this.
+The OpenTelemetry Python SDK is implemented in such a way that exceptions thrown will automatically be captured and recorded. See below for an example of this behavior.
 
 ```python
 from opentelemetry import trace
@@ -1775,6 +2074,227 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 ```
 
 ---
+
+### Add Custom Spans
+  
+#### [.NET](#tab/net)
+  
+Coming soon.
+  
+#### [Java](#tab/java)
+  
+#### Use OpenTelemetry annotation
+
+The simplest way to add your own spans is using OpenTelemetry's `@WithSpan` annotation.
+
+Spans populate the `requests` and `dependencies` tables in Application Insights.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-instrumentation-annotations-1.21.0.jar` (or later) to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-instrumentation-annotations</artifactId>
+     <version>1.21.0</version>
+   </dependency>
+   ```
+
+1. Use the `@WithSpan` annotation to emit a span each time your method is executed:
+
+   ```java
+    import io.opentelemetry.instrumentation.annotations.WithSpan;
+
+    @WithSpan(value = "your span name")
+    public void yourMethod() {
+    }
+   ```
+
+By default the span will end up in the dependencies table with dependency type `InProc`.
+
+If your method represents a background job that isn't already captured by auto-instrumentation,
+it's recommended to apply the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation
+so that it will end up in the Application Insights `requests` table.
+
+#### Use the OpenTelemetry API
+
+If the OpenTelemetry `@WithSpan` annotation above doesn't meet your needs,
+then you can add your spans using the OpenTelemetry API.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+1. Use the `GlobalOpenTelemetry` class to create a `Tracer`
+
+   ```java
+    import io.opentelemetry.api.GlobalOpenTelemetry;
+    import io.opentelemetry.api.trace.Tracer;
+
+    static final Tracer tracer = GlobalOpenTelemetry.getTracer("com.example");
+   ```
+
+1. Create a span, make it current, and then end it:
+
+   ```java
+    Span span = tracer.spanBuilder("my first span").startSpan();
+    try (Scope ignored = span.makeCurrent()) {
+        // do stuff within the context of this 
+    } catch (Throwable t) {
+        span.recordException(t);
+    } finally {
+        span.end();
+    }
+   ```
+
+#### [Node.js](#tab/nodejs)
+
+Coming soon.
+  
+#### [Python](#tab/python)
+
+Coming soon.
+
+---
+
+### Add Custom Events
+
+#### Span Events
+
+#### [.NET](#tab/net)
+  
+Coming soon.
+  
+#### [Java](#tab/java)
+  
+You can use `opentelemetry-api` to create span events, which populate the traces table in Application Insights. The string passed in to `addEvent()` is saved to the _message_ field within the trace.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+1. Add span events in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+
+    Span.current().addEvent("eventName");
+   ```
+
+#### [Node.js](#tab/nodejs)
+
+Coming soon.
+  
+#### [Python](#tab/python)
+
+Coming soon.
+
+---
+  
+### Send custom telemetry using the Application Insights API
+  
+We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights APIs.
+  
+#### [.NET](#tab/net)
+  
+Coming soon.
+
+#### [Java](#tab/java)
+
+1. Add `applicationinsights-core` to your application:
+
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>applicationinsights-core</artifactId>
+      <version>3.4.7</version>
+    </dependency>
+    ```
+
+1. Create a `TelemetryClient` instance:
+    
+    ```java
+    static final TelemetryClient telemetryClient = new TelemetryClient();
+    ```
+
+1. Use the client to send custom telemetry:
+
+    ##### Events
+    
+    ```java
+    telemetryClient.trackEvent("WinGame");
+    ```
+    
+    ##### Metrics
+    
+    ```java
+    telemetryClient.trackMetric("queueLength", 42.0);
+    ```
+    
+    ##### Dependencies
+    
+    ```java
+    boolean success = false;
+    long startTime = System.currentTimeMillis();
+    try {
+        success = dependency.call();
+    } finally {
+        long endTime = System.currentTimeMillis();
+        RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+        telemetry.setSuccess(success);
+        telemetry.setTimestamp(new Date(startTime));
+        telemetry.setDuration(new Duration(endTime - startTime));
+        telemetryClient.trackDependency(telemetry);
+    }
+    ```
+    
+    ##### Logs
+    
+    ```java
+    telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
+    ```
+    
+    ##### Exceptions
+    
+    ```java
+    try {
+        ...
+    } catch (Exception e) {
+        telemetryClient.trackException(e);
+    }
+    ```
+
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+  
+Coming soon.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
+ 
+Coming soon.
+ 
+#### [Python](#tab/python)
+  
+Coming soon.
 
 ## Enable the OTLP Exporter
 
