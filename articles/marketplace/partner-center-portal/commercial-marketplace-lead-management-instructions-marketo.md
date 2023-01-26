@@ -60,12 +60,14 @@ This article describes how to set up your Marketo CRM system to process sales le
     - Form ID is the ID of the Embed Code form you created in step 7 to route leads from the marketplace.
 
 ## Obtain a API access from your Marketo Admin
-1. This article[https://aka.ms/marketo-api] shows how one can obtain API access, specifically a ClientID and Client Secret needed for the new Marketo configuration. Please follow the step-by-step guide listed in the above link to create an API-only user and a Launchpoint connection for the Partner center lead management service.
+1. This [article](https://aka.ms/marketo-api) shows how one can obtain API access, specifically a **ClientID** and **Client Secret** needed for the new Marketo configuration. Please follow the step-by-step guide listed in the above link to create an API-only user and a Launchpoint connection for the Partner center lead management service.
 2. Please make sure that the Custom service created indicates Partner center as shown below.
 
 ![API1-new](https://user-images.githubusercontent.com/98078741/214808153-a59183d7-12e3-432f-a792-211f4e17e9cc.png)
 
 3. Once you click the View details link for the new service created, you can copy the **Client ID** and **Client secret** for use in the Partner center connector configuration.
+
+![Marketo API2](https://user-images.githubusercontent.com/98078741/214813828-0898f11d-fef6-4de5-938d-d4b2beac4845.png)
 
 ![Marketo API3](https://user-images.githubusercontent.com/98078741/214808193-693a599a-9254-4f63-b500-937f634d3769.png)
 
