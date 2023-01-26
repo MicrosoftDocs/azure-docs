@@ -16,7 +16,7 @@ Monitoring of your Java web applications running on [Azure App Services](../../a
 
 The recommended way to enable application monitoring for Java applications running on Azure App Services is through Azure portal.
 Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
-You can apply additional configurations, and then based on your specific scenario you [add your own custom telemetry](./java-in-process-agent.md#modify-telemetry) if needed.
+You can apply additional configurations, and then based on your specific scenario you [add your own custom telemetry](./opentelemetry-enable.md#modify-telemetry) if needed.
 
 ### Auto-instrumentation through Azure portal
 

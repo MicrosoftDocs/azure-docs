@@ -449,38 +449,6 @@ The following table represents currently supported custom telemetry types that y
 | Requests              |            |                     | Yes               | Yes         |
 | Traces                |            | Yes                 |                   | Yes         |
 
-### Send custom metrics by using Micrometer
-
-1. Add Micrometer to your application:
-    
-    ```xml
-    <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-core</artifactId>
-      <version>1.6.1</version>
-    </dependency>
-    ```
-
-1. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
-
-    ```java
-    static final Counter counter = Metrics.counter("test.counter");
-    ```
-
-1. Use the counter to record metrics:
-
-    ```java
-    counter.increment();
-    ```
-
-1. The metrics will be ingested into the
-   [customMetrics](/azure/azure-monitor/reference/tables/custommetrics) table, with tags captured in the
-   `customDimensions` column. You can also view the metrics in the
-   [metrics explorer](../essentials/metrics-getting-started.md) under the `Log-based metrics` metric namespace.
-
-    > [!NOTE]
-    > Application Insights Java replaces all non-alphanumeric characters (except dashes) in the Micrometer metric name with underscores. As a result, the preceding `test.counter` metric will show up as `test_counter`.
-
 ### Send custom traces and exceptions by using your favorite logging framework
 
 Logback, Log4j, and java.util.logging are auto-instrumented. Logging performed via these logging frameworks is autocollected as trace and exception telemetry.

@@ -139,7 +139,7 @@ appInsights.defaultClient.config.aadTokenCredential = credential;
 > [!NOTE]
 > Support for Azure AD in the Application Insights Java agent is included starting with [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA). 
 
-1. [Configure your application with the Java agent.](java-in-process-agent.md#get-started)
+1. [Configure your application with the Java agent.](opentelemetry-enable.md#get-started)
 
     > [!IMPORTANT]
     > Use the full connection string which includes "IngestionEndpoint" while configuring your app with Java agent. For example `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.

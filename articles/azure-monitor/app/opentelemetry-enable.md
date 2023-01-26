@@ -851,8 +851,8 @@ Coming soon.
 
 Autocollected logs
 
-* Log4j (1) (2) (including MDC/Thread Context properties)
 * Logback (1) (2) (including MDC properties)
+* Log4j (1) (2) (including MDC/Thread Context properties)
 * JBoss Logging (1) (2) (including MDC properties)
 * java.util.logging (1) (2)
 
@@ -1500,8 +1500,8 @@ The following table represents the currently supported custom telemetry types:
 |                                           | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **.NET**                                  |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;iLogger API             |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                | Yes          | Yes        |            |          |        |
+| &nbsp;&nbsp;&nbsp;iLogger API             |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 |                                           |               |                |              |            |            |          |        |
 | **Java**                                  |               |                |              |            |            |          |        |
@@ -1511,9 +1511,9 @@ The following table represents the currently supported custom telemetry types:
 | &nbsp;&nbsp;&nbsp;AI Classic API          |  Yes          | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Node.js**                               |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;Winston, Pino, Bunyan   |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
+| &nbsp;&nbsp;&nbsp;Winston, Pino, Bunyan   |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;AI Classic API          | Yes           | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Python**                                |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                |              |            |            |          |        |
@@ -2085,7 +2085,7 @@ Coming soon.
   
 #### Use OpenTelemetry annotation
 
-The simplest way to add your own spans is using OpenTelemetry's `@WithSpan` annotation.
+The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` annotation.
 
 Spans populate the `requests` and `dependencies` tables in Application Insights.
 
@@ -2112,16 +2112,16 @@ Spans populate the `requests` and `dependencies` tables in Application Insights.
     }
    ```
 
-By default the span will end up in the dependencies table with dependency type `InProc`.
+By default, the span will end up in the `dependencies` table with dependency type `InProc`.
 
 If your method represents a background job that isn't already captured by auto-instrumentation,
-it's recommended to apply the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation
+we recommend that you apply the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation
 so that it will end up in the Application Insights `requests` table.
 
 #### Use the OpenTelemetry API
 
-If the OpenTelemetry `@WithSpan` annotation above doesn't meet your needs,
-then you can add your spans using the OpenTelemetry API.
+If the preceding OpenTelemetry `@WithSpan` annotation doesn't meet your needs,
+you can add your spans by using the OpenTelemetry API.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
@@ -2136,7 +2136,7 @@ then you can add your spans using the OpenTelemetry API.
    </dependency>
    ```
 
-1. Use the `GlobalOpenTelemetry` class to create a `Tracer`
+1. Use the `GlobalOpenTelemetry` class to create a `Tracer`:
 
    ```java
     import io.opentelemetry.api.GlobalOpenTelemetry;
@@ -2158,7 +2158,11 @@ then you can add your spans using the OpenTelemetry API.
     }
    ```
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Coming soon.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 Coming soon.
   
@@ -2177,8 +2181,8 @@ Coming soon.
 Coming soon.
   
 #### [Java](#tab/java)
-  
-You can use `opentelemetry-api` to create span events, which populate the traces table in Application Insights. The string passed in to `addEvent()` is saved to the _message_ field within the trace.
+
+You can use `opentelemetry-api` to create span events, which populate the `traces` table in Application Insights. The string passed in to `addEvent()` is saved to the `message` field within the trace.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
@@ -2201,7 +2205,11 @@ You can use `opentelemetry-api` to create span events, which populate the traces
     Span.current().addEvent("eventName");
    ```
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js (JavaScript)](#tab/nodejs-javascript)
+
+Coming soon.
+
+#### [Node.js (TypeScript)](#tab/nodejs-typescript)
 
 Coming soon.
   
@@ -2227,7 +2235,7 @@ Coming soon.
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.7</version>
+      <version>3.4.8</version>
     </dependency>
     ```
 
@@ -2320,6 +2328,10 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
             .AddOtlpExporter()
             .Build();
     ```
+
+#### [Java](#tab/java)
+
+Coming soon.
 
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -2434,6 +2446,24 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
 
 To disable this feature, you should set `AzureMonitorExporterOptions.DisableOfflineStorage = true`.
 
+#### [Java](#tab/java)
+
+In the *applicationinsights.json* file, you can configure these settings:
+
+* Cloud role name
+* Cloud role instance
+* Sampling
+* JMX metrics
+* Custom dimensions
+* Telemetry processors (preview)
+* Autocollected logging
+* Autocollected Micrometer metrics, including Spring Boot Actuator metrics
+* Heartbeat
+* HTTP proxy
+* Self-diagnostics
+
+For more information, see [Configuration options](./java-standalone-config.md).
+
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
 By default, the AzureMonitorExporter uses one of the following locations for offline storage.
@@ -2518,6 +2548,14 @@ This section provides help with troubleshooting.
 
 The Azure Monitor Exporter uses EventSource for its own internal logging. The exporter logs are available to any EventListener by opting into the source named OpenTelemetry-AzureMonitor-Exporter. For troubleshooting steps, see [OpenTelemetry Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting).
 
+#### [Java](#tab/java)
+
+* See the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
+
+    [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
+* See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
+
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
 Azure Monitor Exporter uses the OpenTelemetry API Logger for internal logs. To enable it, use the following code:
@@ -2585,6 +2623,12 @@ To get support:
 
 For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 
+### [Java](#tab/java)
+
+- For help with troubleshooting, review the [troubleshooting steps](java-standalone-troubleshoot.md).
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+- For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
+
 ### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
 For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
@@ -2617,6 +2661,13 @@ To provide feedback:
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry .NET GitHub repository](https://github.com/open-telemetry/opentelemetry-dotnet).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
+
+### [Java](#tab/java)
+
+- Review [Java auto-instrumentation configuration options](java-standalone-config.md).
+- To review the source code, see the [Azure Monitor Java auto-instrumentation GitHub repository](https://github.com/Microsoft/ApplicationInsights-Java).
+- To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
+- To enable usage experiences, see [Enable web or browser user monitoring](javascript.md).
 
 ### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
