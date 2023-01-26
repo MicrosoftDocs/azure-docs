@@ -171,7 +171,7 @@ The open-standard technology Jakarta EE Contexts and Dependency Injection (CDI) 
 
     Before you move forward to the next step, stop Quarkus dev mode by selecting Ctrl+C.
 
-## Deploy the serverless app to Azure Functions
+## Deploy the app to Azure
 
 1. If you haven't already, sign in to your Azure subscription by using the following [az login](/cli/azure/reference-index) command and follow the on-screen directions:
 
