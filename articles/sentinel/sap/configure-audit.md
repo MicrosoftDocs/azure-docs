@@ -41,6 +41,8 @@ Some installations of SAP systems may not have audit log enabled by default. For
 
 1. If you changed any settings in the **Security Audit Log Configuration - Parameter** section, select **Save** to save the changes. Auditing will be activated only after the server is rebooted.
 
+** Important note** - SAP applications running on Windows OS should consider recommendations in SAP Note 2360334 in case audit log is not read correctly after setup.
+
     ![Screenshot showing R S A U CONFIG parameters.](./media/configure-audit/rsau-config-parameter.png)
 
 1. Right-click **Static Configuration** and select **Create Profile**.
