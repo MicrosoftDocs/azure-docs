@@ -89,7 +89,7 @@ To create the virtual machine:
     Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive 
     ```
 
-## Deploy the operating system
+## Install the operating system
 
 To finish creating the virtual machine, install the operating system:
 

@@ -30,7 +30,6 @@ In this tutorial, you learn how to:
 > - Create a Windows Server Active Directory user.
 > - Create an Azure Active Directory tenant.
 > - Create a Hybrid Identity Administrator account in Azure.
-> - Add a custom domain to your directory.
 > - Set up Azure AD Connect.
 > - Test and verify that users are synced.
 

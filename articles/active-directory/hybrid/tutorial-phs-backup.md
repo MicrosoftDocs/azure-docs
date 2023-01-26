@@ -58,7 +58,7 @@ That's it!  You're done. Password hash sync will now occur, and it can be used a
 >
 > - It takes some time for the password hashes to sync to Azure AD.  It might be up to 3 hours before the sync finishes and you can start authenticating by using the password hashes.
 
-Next, learn how to switch over to password hash synchronization. Before you start, consider in which conditions you should make the switch. Don't make the switch for temporary reasons, like a network outage, a minor AD FS problem, or a problem that affects a subset of your users.
+Next, switch over to password hash synchronization. Before you start, consider in which conditions you should make the switch. Don't make the switch for temporary reasons, like a network outage, a minor AD FS problem, or a problem that affects a subset of your users.
 
 If you decide to make the switch because fixing the problem will take too long, complete these steps:
 
@@ -75,7 +75,7 @@ Users can now use their passwords to sign in to Azure and Azure services.
 
 ## Sign in with a user account to test sync
 
-1. In a web browser, go to [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. In a new web browser window, go to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. Sign in with a user account that was created in your new tenant.
 
    For the user name, use the format `user@domain.onmicrosoft.com`. Use the same password the user uses to sign in to on-premises Active Directory.

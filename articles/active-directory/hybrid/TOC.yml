@@ -16,7 +16,7 @@
     href: tutorial-passthrough-authentication.md
   - name: Use federation for hybrid identity in Active Directory
     href: tutorial-federation.md
-  - name: Set up password hash sync as backup for AD FS in Azure AD Connect 
+  - name: Set password hash sync as backup for AD FS 
     href: tutorial-phs-backup.md
 - name: Concepts
   items:
