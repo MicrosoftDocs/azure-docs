@@ -61,7 +61,7 @@ To enable SSO in the Oracle EBS environment:
 1.	Sign in to the Oracle EBS Management console as an Administrator.
 2.	Scroll down the Navigator panel and expand **User Management**. 
 
-   ![Screenshot of the User Management dialog.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/user-management.png)
+   ![Screenshot of the User Management dialog.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/navigator-user-management.png)
 
 3. Add a user account. 
 
