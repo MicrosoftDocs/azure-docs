@@ -77,7 +77,11 @@ Machine learning pipelines can use the previously mentioned training methods. Pi
 
 The Azure training lifecycle consists of:
 
-1. Zipping the files in your project folder and upload to the cloud. [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
+1. Zipping the files in your project folder and upload to the cloud.
+    
+    > [!TIP]
+    > [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
+
 1. Scaling up your compute cluster 
 1. Building or downloading the dockerfile to the compute node 
     1. The system calculates a hash of: 
