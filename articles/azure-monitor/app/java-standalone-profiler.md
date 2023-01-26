@@ -114,7 +114,7 @@ Application Insights instance within the Performance -> Profiler section. From t
 
 ### Configuration
 
-Configuration of the profiler triggering settings, such as thresholds and profiling periods, are set within the ApplicationInsights UI under the Performance, Profiler, Triggers UI as described in [Installation](#installation) .
+Configuration of the profiler triggering settings, such as thresholds and profiling periods, are set within the ApplicationInsights UI under the Performance, Profiler, Triggers UI as described in [Installation](#installation).
 
 Additionally, many parameters can be configured using environment variables and the `applicationinsights.json` configuration file.
 
