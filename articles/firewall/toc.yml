@@ -73,6 +73,8 @@ items:
       href: threat-intel.md
     - name: Policy rule sets
       href: policy-rule-sets.md
+    - name: Policy Analytics
+      href: policy-analytics.md
     - name: Rule processing logic
       href: rule-processing.md
     - name: Service tags
