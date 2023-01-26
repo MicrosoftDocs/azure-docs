@@ -27,6 +27,8 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [az account](/cli/azure/account) command.
 
+- Your Azure Subscription you're using must be registered to use namespace `Microsoft.OperationsManagement`. To check this, follow the instructions in the "Solution" section of [Resolve errors for resource provider registration](https://learn.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-portal#solution).
+
 ### Limitations
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
