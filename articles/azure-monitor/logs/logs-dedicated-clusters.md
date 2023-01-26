@@ -4,7 +4,7 @@ description: Customers meeting the minimum commitment tier could use dedicated c
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 05/01/2022
+ms.date: 01/01/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
