@@ -39,8 +39,8 @@ Enabling Policy Analytics on a Firewall Policy associated with a single firewall
 
 - An Azure Firewall Standard or Premium
 - An Azure Firewall Standard or Premium policy attached to the Firewall
-- The [network rule name logging preview feature](#network-rule-name-logging-preview) must be enabled to view network rules analysis
-- The [structured firewall logs feature](#structured-firewall-logs-preview) must be enabled on Firewall Standard or Premium
+- The [Azure Firewall network rule name logging (preview)](firewall-network-rule-logging.md) must be enabled to view network rules analysis.
+- The [Azure Structured Firewall Logs (preview)](firewall-structured-logs.md) must be enabled on Firewall Standard or Premium.
 
 
 ## Enable Policy Analytics
