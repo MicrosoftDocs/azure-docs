@@ -17,6 +17,9 @@ ms.subservice: data
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
 
+ >[!IMPORTANT]
+ > For Audio/Video/Telephony call data refer to [Call Summary and Call Diagnostic Logs](../concepts/analytics/call-logs-azure-monitor.md)
+
 ## Enable diagnostic logs in your resource
 
 Logging is turned off by default when a resource is created. To enable logging, navigate to the **Diagnostic settings** blade in the resource menu under the **Monitoring** section. Then click on **Add diagnostic setting**.
@@ -102,6 +105,7 @@ Communication Services offers the following types of logs that you can enable:
 | SdkType | The SDK type used in the request. |
 | PlatformType | The platform type used in the request. |
 | Method | The method used in the request. |
+|NumberType| The type of number, the SMS message is being sent from. It can be either **LongCodeNumber** or **ShortCodeNumber** |
 
 ### Authentication operational logs
 

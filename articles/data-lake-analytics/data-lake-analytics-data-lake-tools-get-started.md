@@ -2,14 +2,16 @@
 title: Query Azure Data Lake Analytics - Visual Studio
 description: Learn how to install Data Lake Tools for Visual Studio, and how to develop and test U-SQL scripts. 
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 08/30/2019
+ms.date: 11/15/2022
 ---
 
 # Develop U-SQL scripts by using Data Lake Tools for Visual Studio
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
+
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
 
 Azure Data Lake and Stream Analytics Tools include functionality related to two Azure services, Azure Data Lake Analytics and Azure Stream Analytics. For more information about the Azure Stream Analytics scenarios, see [Azure Stream Analytics tools for Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
 
@@ -94,7 +96,7 @@ After the job submission, the **Job view** tab opens to show the job progress.
 * **MetaData Operations** shows all the actions that were taken on the U-SQL catalog.
 * **Data** shows all the inputs and outputs.
 * **State History** shows the timeline and state details.
-* **AU Analysis** shows how many AUs were used in the job and explore simulations of different AU allocation strategies.
+* **AU Analysis** shows how many AUs (analytics units) were used in the job and explore simulations of different AU allocation strategies.
 * **Diagnostics** provides an advanced analysis for job execution and performance optimization.
 
 ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
@@ -103,7 +105,7 @@ To see the latest job status and refresh the screen, select **Refresh**.
 
 ## Check job status
 
-1. In **Server Explorer**, select **Azure** > **Data Lake Analytics**.
+1. In **Data Lake Analytics Explorer**, select **Data Lake Analytics**.
 
 1. Expand the Data Lake Analytics account name.
 
@@ -113,9 +115,9 @@ To see the latest job status and refresh the screen, select **Refresh**.
 
 ## See the job output
 
-1. In **Server Explorer**, browse to the job you submitted.
+1. In **Data Lake Analytics Explorer**, browse to the job you submitted.
 
-1. Click the **Data** tab.
+1. Select the **Data** tab in your job.
 
 1. In the **Job Outputs** tab, select the `"/data.csv"` file.
 

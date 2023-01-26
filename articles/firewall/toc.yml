@@ -36,6 +36,8 @@ items:
     href: tutorial-hybrid-portal-policy.md
   - name: Filter inbound traffic with DNAT
     href: tutorial-firewall-dnat-policy.md
+  - name: Deploy firewall with DDoS protection
+    href: tutorial-protect-firewall.md
 
 - name: Samples
   items:
@@ -63,6 +65,10 @@ items:
       href: infrastructure-fqdns.md
     - name: Logs and metrics
       href: logs-and-metrics.md
+    - name: Structured Firewall Logs
+      href: firewall-structured-logs.md
+    - name: Network rule name logging
+      href: firewall-network-rule-logging.md
     - name: Threat intelligence
       href: threat-intel.md
     - name: Policy rule sets
@@ -99,6 +105,8 @@ items:
       href: tutorial-firewall-deploy-portal.md
     - name: Deploy in hybrid network - classic
       href: tutorial-hybrid-portal.md
+    - name: Deploy Firewall Basic
+      href: deploy-firewall-basic-portal-policy.md
     - name: Filter inbound traffic with DNAT - classic
       href: tutorial-firewall-dnat.md
     - name: Deploy using Azure PowerShell

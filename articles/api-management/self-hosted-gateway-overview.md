@@ -19,6 +19,8 @@ This article explains how the self-hosted gateway feature of Azure API Managemen
 
 For an overview of the features across the various gateway offerings, see [API gateway in API Management](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways).
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 ## Hybrid and multi-cloud API management
 
 The self-hosted gateway feature expands API Management support for hybrid and multi-cloud environments and enables organizations to efficiently and securely manage APIs hosted on-premises and across clouds from a single API Management service in Azure.
@@ -38,7 +40,6 @@ By default, all these components are deployed in Azure, causing all API traffic 
 Deploying self-hosted gateways into the same environments where the backend API implementations are hosted allows API traffic to flow directly to the backend APIs, which reduces latency, optimizes data transfer costs, and enables compliance while retaining the benefits of having a single point of management, observability, and discovery of all APIs within the organization regardless of where their implementations are hosted.
 
 :::image type="content" source="media/self-hosted-gateway-overview/with-gateways.png" alt-text="API traffic flow with self-hosted gateways":::
-
 
 ## Packaging
 
@@ -87,6 +88,8 @@ Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. 
 -   Regularly checking for (every 10 seconds) and applying configuration updates whenever they're available
 -   Sending metrics to Azure Monitor, if configured to do so
 -   Sending events to Application Insights, if set to do so
+
+[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
 
 ### FQDN dependencies
 

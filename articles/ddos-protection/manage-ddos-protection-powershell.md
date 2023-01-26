@@ -1,5 +1,5 @@
 ---
-title: Create and configure an Azure DDoS Protection plan using Azure PowerShell
+title: Create and configure Azure DDoS Network Protection using Azure PowerShell
 description: Learn how to create a DDoS Protection Plan using Azure PowerShell
 services: ddos-protection
 documentationcenter: na
@@ -8,16 +8,15 @@ ms.service: ddos-protection
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2022
+ms.date: 10/12/2022
 ms.author: abell 
-ms.custom: devx-track-azurepowershell, mode-api
-
+ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
 ---
-# Quickstart: Create and configure Azure DDoS Protection Standard using Azure PowerShell
+# Quickstart: Create and configure Azure DDoS Network Protection using Azure PowerShell
 
-Get started with Azure DDoS Protection Standard by using Azure PowerShell.
+Get started with Azure DDoS Network Protection by using Azure PowerShell.
 
-A DDoS protection plan defines a set of virtual networks that have DDoS protection standard enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+A DDoS protection plan defines a set of virtual networks that have DDoS Network Protection enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
 In this quickstart, you'll create a DDoS protection plan and link it to a virtual network.
 

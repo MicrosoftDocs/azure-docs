@@ -1,11 +1,12 @@
 ---
 title: Restrict egress traffic in Azure Kubernetes Service (AKS)
 description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
-services: container-service
-ms.topic: article
-ms.author: jpalma
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+ms.topic: how-to
+ms.author: allensu
 ms.date: 07/26/2022
-author: palma21
+author: asudbring
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
@@ -247,6 +248,11 @@ The following FQDN / application rules are required for using cluster extensions
 |-----------------------------------------------|-----------|----------|
 | **`<region>.dp.kubernetesconfiguration.azure.us`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service. |
 | **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
+
+
+
+> [!NOTE]
+> If any addon does not explicitly stated here, that means the core requirements are covering it.
 
 ## Restrict egress traffic using Azure firewall
 

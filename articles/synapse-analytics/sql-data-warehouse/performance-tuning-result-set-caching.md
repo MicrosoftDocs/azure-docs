@@ -35,7 +35,7 @@ Once result set caching is turned ON for a database, results are cached for all 
 
 - Queries with built-in functions or runtime expressions that are non-deterministic even when there’s no change in base tables’ data or query. For example, DateTime.Now(), GetDate().
 - Queries using user defined functions
-- Queries using tables with row level security or column level security enabled
+- Queries using tables with row level security
 - Queries returning data with row size larger than 64KB
 - Queries returning large data in size (>10GB) 
 >[!NOTE]

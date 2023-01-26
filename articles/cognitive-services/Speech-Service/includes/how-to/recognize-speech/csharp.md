@@ -28,7 +28,7 @@ class Program
 {
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
     }
 }
 ```
@@ -67,7 +67,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromMic(speechConfig);
     }
 }
@@ -99,7 +99,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromFile(speechConfig);
     }
 }
@@ -142,7 +142,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromStream(speechConfig);
     }
 }
@@ -266,7 +266,7 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig.SpeechRecognitionLanguage = "it-IT";
 ```
 
-The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
+The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt).
 
 
 ## Use a custom endpoint

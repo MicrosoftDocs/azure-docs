@@ -109,7 +109,7 @@ In the [Azure portal](https://portal.azure.com/), go to the Batch account page. 
 
 ### Azure CLI
 
-After the Batch account is created with system-assigned managed identity and the access to Key Vault is granted, update the Batch account with the `{Key Identifier}` URL under `keyVaultProperties` parameter. Also set **encryption_key_source** as `Microsoft.KeyVault`.
+After the Batch account is created with system-assigned managed identity and the access to Key Vault is granted, update the Batch account with the `{Key Identifier}` URL under `keyVaultProperties` parameter. Also set `--encryption-key-source` as `Microsoft.KeyVault`.
 
 ```azurecli
 az batch account set \

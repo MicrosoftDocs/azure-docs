@@ -146,6 +146,8 @@
       href: ./afds/waf-front-door-custom-rules-powershell.md
     - name: Configure bot protection
       href: ./afds/waf-front-door-policy-configure-bot-protection.md
+    - name: Configure exclusion lists
+      href: ./afds/waf-front-door-exclusion-configure.md
     - name: Configure custom response code
       href: ./afds/waf-front-door-configure-custom-response-code.md
     - name: Configure IP restrictions

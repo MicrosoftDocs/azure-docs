@@ -1,17 +1,17 @@
 ---
-title: Integrate the Azure Cosmos DB SQL API with Service Connector
+title: Integrate the Azure Cosmos DB for NoSQL with Service Connector
 description: Integrate the Azure Cosmos DB SQL into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 09/19/2022
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
-# Integrate the Azure Cosmos DB API for SQL with Service Connector
+# Integrate the Azure Cosmos DB for NoSQL with Service Connector
 
-This page shows the supported authentication types and client types for the Azure Cosmos DB SQL API using Service Connector. You might still be able to connect to the Azure Cosmos DB API for SQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types and client types for the Azure Cosmos DB for NoSQL using Service Connector. You might still be able to connect to the Azure Cosmos DB for SQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ## Supported compute services
 
@@ -57,7 +57,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties
 
-Use the connection details below to connect your compute services to the Cosmos DB SQL API. For each example below, replace the placeholder texts `<database-server>`, `<database-name>`,`<account-key>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`, `<SQL-server>`, `<client-secret>`, `<tenant-id>`, and `<access-key>` with your own information.
+Use the connection details below to connect your compute services to the Azure Cosmos DB for NoSQL. For each example below, replace the placeholder texts `<database-server>`, `<database-name>`,`<account-key>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`, `<SQL-server>`, `<client-secret>`, `<tenant-id>`, and `<access-key>` with your own information.
 
 ### Azure App Service and Azure Container Apps
 
@@ -65,7 +65,7 @@ Use the connection details below to connect your compute services to the Cosmos 
 
 | Default environment variable name | Description                         | Example value                                                                                                                                                                                |
 |-----------------------------------|-------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_CONNECTIONSTRING     | Cosmos DB SQL API connection string | `AccountEndpoint=https://<database-server>.documents.azure.com:443/;AccountKey=<account-key>` |
+| AZURE_COSMOS_CONNECTIONSTRING     | Azure Cosmos DB for NoSQL connection string | `AccountEndpoint=https://<database-server>.documents.azure.com:443/;AccountKey=<account-key>` |
 
 #### System-assigned managed identity
 

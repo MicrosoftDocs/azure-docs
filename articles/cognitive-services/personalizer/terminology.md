@@ -7,7 +7,7 @@ ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 09/16/2022
 ---
 # Personalizer terminology
 
@@ -62,7 +62,7 @@ Personalizer is configured from the [Azure portal](https://portal.azure.com).
 
 * **Exploration**: The Personalizer service is exploring when, instead of returning the best action, it chooses a different action for the user. The Personalizer service avoids drift, stagnation, and can adapt to ongoing user behavior by exploring.
 
-* **Exploitation**: The Personalizer service uses the current model to decide the best action based on past data.
+* **Learned Best Action**: The Personalizer service uses the current model to decide the best action based on past data.
 
 * **Experiment Duration**: The amount of time the Personalizer service waits for a reward, starting from the moment the Rank call happened for that event.
 

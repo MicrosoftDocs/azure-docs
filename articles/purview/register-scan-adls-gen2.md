@@ -1,16 +1,16 @@
 ---
-title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
-description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
+title: 'Discover and govern Azure Data Lake Storage (ADLS) Gen2'
+description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source.
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 10/04/2022
 ms.custom: template-how-to, ignite-fall-2021, references_regions
 ---
 # Connect to Azure Data Lake Storage in Microsoft Purview
 
-This article outlines the process to register an Azure Data Lake Storage (ADLS Gen2) data source in Microsoft Purview including instructions to authenticate and interact with the ADLS Gen2 source.
+This article outlines the process to register and govern an Azure Data Lake Storage (ADLS Gen2) data source in Microsoft Purview including instructions to authenticate and interact with the ADLS Gen2 source.
 
 ## Supported capabilities
 
@@ -73,33 +73,30 @@ It's important to register the data source in Microsoft Purview prior to setting
 
 > [!TIP]
 > To troubleshoot any issues with scanning:
-> 1. Confirm you have followed all [**prerequisites for scanning**](#prerequisites-for-scan).
+> 1. Confirm you have properly set up [**authentication for scanning**](#authentication-for-a-scan)
 > 1. Review our [**scan troubleshooting documentation**](troubleshoot-connections.md).
 
-### Prerequisites for scan
-
-In order to have access to scan the data source, an authentication method in the ADLS Gen2 Storage account needs to be configured.
-The following options are supported:
-
-> [!Note]
-> If you have firewall enabled for the storage account, you must use managed identity authentication method when setting up a scan.
-
-* **System-assigned managed identity (Recommended)** - As soon as the Microsoft Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Microsoft Purview system-assigned managed identity (SAMI) to perform the scans.
-
-* **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Microsoft Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
-
-* **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Microsoft Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password, or a password.
-
-   > [!Note]
-   > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Microsoft Purview account’s_ SAMI with required access permission to secrets inside _Azure key vault_.
-
-* **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
-
 ### Authentication for a scan
+
+Your Azure network may allow for communications between your Azure resources, but if you've set up firewalls, private endpoints, or virtual networks within Azure, you'll need to follow one of these configurations below.
+
+|Networking constraints  |Integration runtime type  |Available credential types  |
+|---------|---------|---------|
+|No private endpoints or firewalls | Azure IR | Managed identity (Recommended), service principal, or account key|
+|Firewall enabled but no private endpoints| Azure IR | Managed identity |
+|Private endpoints enabled | *Self-Hosted IR | Service principal, account key|
+
+*To use a self-hosted integration runtime, you'll first need to [create one](manage-integration-runtimes.md) and confirm your [network settings for Microsoft Purview](catalog-private-link.md)
 
 # [System or user assigned managed identity](#tab/MI)
 
 #### Using a system or user assigned managed identity for scanning
+
+There are two types of managed identity you can use:
+
+* **System-assigned managed identity (Recommended)** - As soon as the Microsoft Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Microsoft Purview system-assigned managed identity (SAMI) to perform the scans.
+
+* **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Microsoft Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 It's important to give your Microsoft Purview account or user-assigned managed identity (UAMI) the permission to scan the ADLS Gen2 data source. You can add your Microsoft Purview account's system-assigned managed identity (which has the same name as your Microsoft Purview account) or UAMI at the Subscription, Resource Group, or Resource level, depending on what level scan permissions are needed.
 
@@ -140,6 +137,9 @@ It's important to give your Microsoft Purview account or user-assigned managed i
 # [Account Key](#tab/AK)
 
 #### Using Account Key for scanning
+
+> [!Note]
+> If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and [assign _Microsoft Purview account’s_ System Assigned Managed Identity (SAMI) required access permission to secrets inside _Azure key vault_.](manage-credentials.md#microsoft-purview-permissions-on-the-azure-key-vault)
 
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
@@ -225,15 +225,19 @@ It's important to give your service principal the permission to scan the ADLS Ge
 
 #### If using Account Key
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select **Authentication method** as _Account Key_
+1. Provide a **Name** for the scan, select the Azure IR or your Self-Hosted IR depending on your configuration, choose the appropriate collection for the scan, and select **+ New** under credential.
+
+1. Select **Account Key** as the authentication method, then select the appropriate **Key vault connection**, and provide the name of the secret you used to store the account key. Then select **Create**
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-acct-key.png" alt-text="Screenshot that shows the Account Key option for scanning":::
+
+1. Select **Test connection**. On a successful connection, select **Continue**
 
 # [Service Principal](#tab/SP)
 
 #### If using Service Principal
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
+1. Provide a **Name** for the scan, select the Azure IR or your Self-Hosted IR depending on your configuration, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-option.png" alt-text="Screenshot that shows the option for service principal to enable scanning":::
 
@@ -313,14 +317,36 @@ Source storage account can support up to 20 targets, and target storage account 
 
 ## Access policy
 
-To create an access policy for Azure Data Lake Storage Gen 2, follow these guides:
-* [Single storage account](./how-to-policies-data-owner-storage.md) - This guide will allow you to enable access policies on a single Azure Storage account in your subscription.
-* [All sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+- [Data owner policies](concept-policies-data-owner.md)
+- [Self-service access policies](concept-self-service-data-access-policy.md)
+
+### Access policy pre-requisites on Azure Storage accounts
+[!INCLUDE [Access policies Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
+
+### Configure the Microsoft Purview account for policies
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+
+### Register the data source in Microsoft Purview for Data Use Management
+The Azure Storage resource needs to be registered first with Microsoft Purview before you can create access policies.
+To register your resource, follow the **Prerequisites** and **Register** sections of this guide:
+-   [Register Azure Data Lake Storage (ADLS) Gen2 in Microsoft Purview](register-scan-adls-gen2.md#prerequisites)
+
+After you've registered the data source, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data source. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
+
+Once your data source has the  **Data Use Management** option set to **Enabled**, it will look like this screenshot:
+![Screenshot shows how to register a data source for policy with the option Data use management set to enable](./media/how-to-policies-data-owner-storage/register-data-source-for-policy-storage.png)
+
+### Create a policy
+To create an access policy for Azure Data Lake Storage Gen2, follow this guide:
+* [Data owner policy on a single storage account](./how-to-policies-data-owner-storage.md#create-and-publish-a-data-owner-policy)
+
+To create policies that cover all data sources inside a resource group or Azure subscription you can refer to [this section](register-scan-azure-multiple-sources.md#access-policy).
 
 ## Next steps
-
-Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
-
+Follow the below guides to learn more about Microsoft Purview and your data.
+- [Data owner policies in Microsoft Purview](concept-policies-data-owner.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Data share in Microsoft Purview](concept-data-share.md)

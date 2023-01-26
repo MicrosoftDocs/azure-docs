@@ -7,11 +7,12 @@ manager: billmath
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/20/2022
+ms.date: 01/25/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
 ---
+
 # How to synchronize attributes for Lifecycle workflows
 Workflows, contain specific tasks, which can run automatically against users based on the specified execution conditions. Automatic workflow scheduling is supported based on the employeeHireDate and employeeLeaveDateTime user attributes in Azure AD.
 
@@ -23,10 +24,10 @@ The following table shows the scheduling (trigger) relevant attributes and the m
 |Attribute|Type|Supported in HR Inbound Provisioning|Support in Azure AD Connect Cloud Sync|Support in Azure AD Connect Sync| 
 |-----|-----|-----|-----|-----|
 |employeeHireDate|DateTimeOffset|Yes|Yes|Yes|
-|employeeLeaveDateTime|DateTimeOffset|Yes|Not currently|Not currently|
+|employeeLeaveDateTime|DateTimeOffset|Yes|Yes|Yes|
 
 > [!NOTE]
-> To take advantaged of leaver scenarios, you can set the employeeLeaveDateTime manually for cloud-only users. For more information, see: [Set employeeLeaveDateTime](set-employee-leave-date-time.md)
+> Manually setting the employeeLeaveDateTime for cloud-only users requires special permissions. For more information, see: [Configure the employeeLeaveDateTime property for a user](/graph/tutorial-lifecycle-workflows-set-employeeleavedatetime)
 
 This document explains how to set up synchronization from on-premises Azure AD Connect cloud sync and Azure AD Connect for the required attributes.
 
@@ -35,6 +36,7 @@ This document explains how to set up synchronization from on-premises Azure AD C
 
 
 ## Understanding EmployeeHireDate and EmployeeLeaveDateTime formatting
+
 The EmployeeHireDate and EmployeeLeaveDateTime contain dates and times that must be formatted in a specific way.  This means that you may need to use an expression to convert the value of your source attribute to a format that will be accepted by the EmployeeHireDate or EmployeeLeaveDateTime.  The table below outlines the format that is expected and provides an example expression on how to convert the values.
 
 |Scenario|Expression/Format|Target|More Information|
@@ -79,12 +81,12 @@ For more attributes, see the [Workday attribute reference](../app-provisioning/w
 To ensure timing accuracy of scheduled workflows it’s curial to consider:
 
 - The time portion of the attribute must be set accordingly, for example the `employeeHireDate` should have a time at the beginning of the day like 1AM or 5AM and the `employeeLeaveDateTime` should have time at the end of the day like 9PM or 11PM
-    - Workflow won't run earlier than the time specified in the attribute, however the [tenant schedule (default 3h)](customize-workflow-schedule.md) may delay the workflow run.  For instance, if you set the `employeeHireDate` to 8AM but the tenant schedule doesn't run until 9AM, the workflow won't be processed until then.  If a new hire is starting at 8AM, you would want to set the time to something like (start time - tenant schedule) to ensure it had run before the employee arrives.
+- The Workflows won't run earlier than the time specified in the attribute, however the [tenant schedule (default 3h)](customize-workflow-schedule.md) may delay the workflow run.  For instance, if you set the `employeeHireDate` to 8AM but the tenant schedule doesn't run until 9AM, the workflow won't be processed until then.  If a new hire is starting at 8AM, you would want to set the time to something like (start time - tenant schedule) to ensure it had run before the employee arrives.
 - It's recommended, that if you're using temporary access pass (TAP), that you set the maximum lifetime to 24 hours.  Doing this will help ensure that the TAP hasn't expired after being sent to an employee who may be in a different timezone.  For more information, see [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods.](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
 - When importing the data, you should understand if and how the source provides time zone information for your users to potentially make adjustments to ensure timing accuracy.
 
 
-## Create a custom synch rule in Azure AD Connect cloud sync for EmployeeHireDate
+## Create a custom sync rule in Azure AD Connect cloud sync for EmployeeHireDate
  The following steps will guide you through creating a synchronization rule using cloud sync.
  1.  In the Azure portal, select **Azure Active Directory**.
  2.  Select **Azure AD Connect**.
@@ -94,7 +96,7 @@ To ensure timing accuracy of scheduled workflows it’s curial to consider:
  6. Select **Add attribute**.
  7. Fill in the following information: 
      - Mapping Type: Direct
-     - Source attribute: msDS-cloudExtensionAttribute1
+     - Source attribute: extensionAttribute1
      - Default value: Leave blank
      - Target attribute: employeeHireDate
      - Apply this mapping: Always
@@ -104,10 +106,10 @@ To ensure timing accuracy of scheduled workflows it’s curial to consider:
 
 For more information on attributes, see [Attribute mapping in Azure AD Connect cloud sync.](../cloud-sync/how-to-attribute-mapping.md)
 
-## How to create a custom synch rule in Azure AD Connect for EmployeeHireDate
+## How to create a custom sync rule in Azure AD Connect for EmployeeHireDate
 The following example will walk you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Azure AD.
 
-   1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+   1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false` to disable the scheduler.
    2. Go to Start\Azure AD Connect\ and open the Synchronization Rules Editor
    3. Ensure the direction at the top is set to **Inbound**.
    4. Select **Add Rule.**
@@ -143,11 +145,10 @@ The following example will walk you through setting up a custom synchronization 
      ![Screenshot of create outbound synchronization rule transformations.](media/how-to-lifecycle-workflow-sync-attributes/create-outbound-rule-transformations.png)
    16.  Select **Add**.
    17. Close the Synchronization Rules Editor
+   18. Enable the scheduler again by running `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
-
-
-
-
+> [!NOTE]
+> **msDS-cloudExtensionAttribute1** is an example source.
 
 For more information, see [How to customize a synchronization rule](../hybrid/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/how-to-connect-sync-change-the-configuration.md)
 

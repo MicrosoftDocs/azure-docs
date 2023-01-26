@@ -1,12 +1,12 @@
 ---
 title: How to manage a dev box pool
-titleSuffix: Microsoft Dev Box
-description: This article describes how to create, and delete Microsoft Dev Box dev box pools.
+titleSuffix: Microsoft Dev Box Preview
+description: This article describes how to create, and delete Microsoft Dev Box Preview dev box pools.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/16/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
@@ -29,7 +29,7 @@ The following steps show you how to create a dev box pool associated with a proj
 
 <!-- how many dev box pools can you create -->
 
-If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md) to create them.
+If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box Preview service](quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -53,7 +53,11 @@ If you don't have an available dev center with an existing dev box definition an
    |**Dev box definition**|Select an existing dev box definition. The definition determines the base image and size for the dev boxes created within this pool.|
    |**Network connection**|Select an existing network connection. The network connection determines the region of the dev boxes created within this pool.|
    |**Dev Box Creator Privileges**|Select Local Administrator or Standard User.|
-   |**Licensing**| Select this check box if your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
+   |**Enable Auto-stop**|Yes is the default. Select No to disable an Auto-stop schedule. You can configure an Auto-stop schedule after the pool has been created.|
+   |**Stop time**| Select a time to shutdown all the dev boxes in the pool.|
+   |**Time zone**| Select the time zone that the stop time is in.|
+   |**Licensing**| Select this check box to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
+
 
    :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-create.png" alt-text="Screenshot of the Create dev box pool dialog."::: 
 

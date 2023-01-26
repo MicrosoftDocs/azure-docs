@@ -1,5 +1,5 @@
 ---
-title: Automate Azure AD Identity Governance tasks with Azure Automation
+title: Automate Microsoft Entra Identity Governance tasks with Azure Automation
 description: Learn how to write PowerShell scripts in Azure Automation to interact with Azure Active Directory entitlement management and other features.
 services: active-directory
 documentationCenter: ''
@@ -20,13 +20,13 @@ ms.custom: devx-track-azurepowershell
 
 
 ---
-# Automate Azure AD Identity Governance tasks via Azure Automation and Microsoft Graph
+# Automate Microsoft Entra Identity Governance tasks via Azure Automation and Microsoft Graph
 
 [Azure Automation](../../automation/overview.md) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Azure AD features that manage users, groups, access packages, access reviews, and other resources in the directory.  You can manage Azure AD at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Azure AD tasks from a simple script.
 
 Azure Automation and the PowerShell Graph SDK supports certificate-based authentication and application permissions, so you can have Azure Automation runbooks authenticate to Azure AD without needing a user context.
 
-This article will show you how to get started using Azure Automation for Azure AD Identity Governance, by creating a simple runbook that queries entitlement management via Microsoft Graph PowerShell.
+This article will show you how to get started using Azure Automation for Microsoft Entra Identity Governance, by creating a simple runbook that queries entitlement management via Microsoft Graph PowerShell.
 
 ## Create an Azure Automation account
 
@@ -57,6 +57,7 @@ To generate a self-signed certificate,
 
    ```powershell
     $cert | ft Thumbprint
+   ```
 
 1. After you have exported the files, you can remove the certificate and key pair from your local user certificate store.  In subsequent steps you will remove the `.pfx` and `.crt` files as well, once the certificate and private key have been uploaded to the Azure Automation and Azure AD services.
 
@@ -110,12 +111,12 @@ Next, you will create an app registration in Azure AD, so that Azure AD will rec
 
 1. Select each of the permissions that your Azure Automation account will require, then select **Add permissions**.
 
- * If your runbook is only performing queries or updates within a single catalog, then you do not need to assign it tenant-wide application permissions; instead you can assign the service principal to the catalog's **Catalog owner** or **Catalog reader** role.
- * If your runbook is only performing queries for entitlement management, then it can use the **EntitlementManagement.Read.All** permission.
- * If your runbook is making changes to entitlement management, for example to create assignments across multiple catalogs, then use the **EntitlementManagement.ReadWrite.All** permission.
- * For other APIs, ensure that the necessary permission is added.  For example, for identity protection, the **IdentityRiskyUser.Read.All** permission should be added.
+   * If your runbook is only performing queries or updates within a single catalog, then you do not need to assign it tenant-wide application permissions; instead you can assign the service principal to the catalog's **Catalog owner** or **Catalog reader** role.
+   * If your runbook is only performing queries for entitlement management, then it can use the **EntitlementManagement.Read.All** permission.
+   * If your runbook is making changes to entitlement management, for example to create assignments across multiple catalogs, then use the **EntitlementManagement.ReadWrite.All** permission.
+   * For other APIs, ensure that the necessary permission is added.  For example, for identity protection, the **IdentityRiskyUser.Read.All** permission should be added.
 
-10. Select **Grant admin permissions** to give your app those permissions.
+1. Select **Grant admin permissions** to give your app those permissions.
 
 ## Create Azure Automation variables
 
@@ -148,7 +149,7 @@ Import-Module Microsoft.Graph.Authentication
 $ClientId = Get-AutomationVariable -Name 'ClientId'
 $TenantId = Get-AutomationVariable -Name 'TenantId'
 $Thumbprint = Get-AutomationVariable -Name 'Thumbprint'
-Connect-MgGraph -clientId $ClientId -tenantid $TenantId -certificatethumbprint $Thumbprint
+Connect-MgGraph -clientId $ClientId -tenantId $TenantId -certificatethumbprint $Thumbprint
 ```
 
 5. Select **Test pane**, and select **Start**.  Wait a few seconds for the Azure Automation processing of your runbook script to complete.
@@ -186,7 +187,7 @@ You can also add input parameters to your runbook, by adding a `Param` section a
 ```powershell
 Param
 (
-   [String]$AccessPackageAssignmentId
+    [String] $AccessPackageAssignmentId
 )
 ```
 
@@ -223,4 +224,4 @@ There are two places where you can see the expiration date in the Azure portal.
 
 ## Next steps
 
-- [Create an Automation account using the Azure portal](/azure/automation/quickstarts/create-azure-automation-account-portal)
+- [Create an Automation account using the Azure portal](../../automation/quickstarts/create-azure-automation-account-portal.md)

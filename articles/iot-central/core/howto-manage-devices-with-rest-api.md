@@ -1,9 +1,9 @@
 ---
 title: How to use the IoT Central REST API to manage devices
 description: How to use the IoT Central REST API to add devices in an application
-author: v-krishnag
-ms.author: v-krishnag
-ms.date: 06/22/2022
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/30/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -38,7 +38,7 @@ The IoT Central REST API lets you:
 Use the following request to create a new device.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
+PUT https://{your app subdomain}/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
 The following example shows a request body that adds a device for a device template. You can get the `template` details from the device templates page in IoT Central application UI.
@@ -55,9 +55,9 @@ The following example shows a request body that adds a device for a device templ
 The request body has some required fields:
 
 * `@displayName`: Display name of the device.
-* `@enabled`: declares that this object is an interface.
+* `@enabled`: Declares that this object is an interface.
 * `@etag`: ETag used to prevent conflict in device updates.
-* `simulated`: Whether the device is simulated.
+* `simulated`: Is the device simulated?
 * `template` : The device template definition for the device.
 
 The response to this request looks like the following example:
@@ -79,7 +79,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
+GET https://{your app subdomain}/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -104,7 +104,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve credentials of a device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}/credentials?api-version=2022-05-31
+GET https://{your app subdomain}/api/devices/{deviceId}/credentials?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
@@ -122,13 +122,13 @@ The response to this request looks like the following example:
 ### Update a device
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
+PATCH https://{your app subdomain}/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
 >`{deviceTemplateId}` should be the same as the `@id` in the payload.
 
-The sample request body looks like the following example which updates the `displayName` to the device:
+The sample request body looks like the following example that updates the `displayName` to the device:
 
 ```json
 {
@@ -159,7 +159,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
+DELETE https://{your app subdomain}/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
 ### List devices
@@ -167,10 +167,10 @@ DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-
 Use the following request to retrieve a list of devices from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-05-31
+GET https://{your app subdomain}/api/devices?api-version=2022-07-31
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -197,6 +197,10 @@ The response to this request looks like the following example:
 }
 ```
 
+### Assign a deployment manifest
+
+If you're adding an IoT Edge device, you can use the API to assign an IoT Edge deployment manifest to the device. To learn more, see [Assign a deployment manifest to a device](howto-manage-deployment-manifests-with-rest-api.md#assign-a-deployment-manifest-to-a-device).
+
 ### Use ODATA filters
 
 You can use ODATA filters to filter the results returned by the list devices API.
@@ -208,7 +212,7 @@ Use the **$top** to set the result size, the maximum returned result size is 100
 Use the following request to retrieve a top 10 device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-07-31&$top=10
+GET https://{your app subdomain}/api/devices?api-version=2022-07-31&$top=10
 ```
 
 The response to this request looks like the following example:
@@ -246,47 +250,46 @@ The response includes a **nextLink** value that you can use to retrieve the next
 
 Use **$filter** to create expressions that filter the list of devices. The following table shows the comparison operators you can use:
 
-
 | Comparison Operator | Symbol | Example                                 |
 | -------------------- | ------ | --------------------------------------- |
-| Equals               | eq     | id eq 'device1' and scopes eq 'redmond' |
-| Not Equals           | ne     | Enabled ne true                         |
-| Less than or equals       | le     | contains(displayName, 'device1') le -1   |
-| Less than            | lt     | contains(displayName, 'device1') lt 0    |
-| Greater than or equals      | ge     | contains(displayName, 'device1') ge 0    |
-| Greater than           | gt     | contains(displayName, 'device1') gt 0    |
+| Equals               | eq     | `id eq 'device1' and scopes eq 'redmond'` |
+| Not Equals           | ne     | `Enabled ne true`                         |
+| Less than or equals       | le     | `contains(displayName, 'device1') le -1`   |
+| Less than            | lt     | `contains(displayName, 'device1') lt 0`    |
+| Greater than or equals      | ge     | `contains(displayName, 'device1') ge 0`    |
+| Greater than           | gt     | `contains(displayName, 'device1') gt 0`    |
 
 The following table shows the logic operators you can use in *$filter* expressions:
 
 | Logic Operator | Symbol | Example                               |
 | -------------- | ------ | ------------------------------------- |
-| AND            | and    | id eq 'device1' and enabled eq true   |
-| OR             | or     | id eq 'device1' or simulated eq false |
+| AND            | and    | `id eq 'device1' and enabled eq true`   |
+| OR             | or     | `id eq 'device1' or simulated eq false` |
 
 Currently, *$filter* works with the following device fields:
 
 | FieldName   | Type    | Description               |
 | ----------- | ------- | ------------------------- |
-| id          | string  | Device ID                 |
-| displayName | string  | Device display name       |
-| enabled     | boolean | Device enabled status     |
-| provisioned | boolean | Device provisioned status |
-| simulated   | boolean | Device simulated status   |
-| template    | string  | Device template ID        |
-| scopes      | string  | organization ID           |
+| `id`          | string  | Device ID                 |
+| `displayName` | string  | Device display name       |
+| `enabled`     | boolean | Device enabled status     |
+| `provisioned` | boolean | Device provisioned status |
+| `simulated`   | boolean | Device simulated status   |
+| `template`    | string  | Device template ID        |
+| `scopes`      | string  | organization ID           |
 
 **$filter supported functions:**
 
 Currently, the only supported filter function for device lists is the `contains` function:
 
-```
+```http
 $filter=contains(displayName, 'device1') ge 0
 ```
 
 The following example shows how to retrieve all the devices where the display name contains the string `thermostat`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
@@ -320,7 +323,7 @@ The response to this request looks like the following example:
 
 Use **$orderby** to sort the results. Currently, **$orderby** only lets you sort on **displayName**. By default, **$orderby** sorts in ascending order. Use **desc** to sort in descending order, for example:
 
-```
+```http
 $orderby=displayName
 $orderby=displayName desc
 ```
@@ -328,7 +331,7 @@ $orderby=displayName desc
 The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-07-31&$orderby=displayName
+GET https://{your app subdomain}/api/devices?api-version=2022-07-31&$orderby=displayName
 ```
 
 The response to this request looks like the following example:
@@ -360,10 +363,10 @@ The response to this request looks like the following example:
 
 You can also combine two or more filters.
 
-The following example shows how to retrieve the top 2 device where the display name contains the string `thermostat`.
+The following example shows how to retrieve the top two devices where the display name contains the string `thermostat`.
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
 ```
 
 The response to this request looks like the following example:
@@ -400,7 +403,7 @@ The response to this request looks like the following example:
 Use the following request to create a new device group.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+PUT https://{your app subdomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
 When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true
@@ -425,7 +428,7 @@ The request body has some required fields:
 
 The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -444,7 +447,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device group from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+GET https://{your app subdomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
 * deviceGroupId - Unique ID for the device group.
@@ -466,10 +469,10 @@ The response to this request looks like the following example:
 ### Update a device group
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+PATCH https://{your app subdomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
-The sample request body looks like the following example which updates the `displayName` of the device group:
+The sample request body looks like the following example that updates the `displayName` of the device group:
 
 ```json
 {
@@ -497,7 +500,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device group:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+DELETE https://{your app subdomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
 ### List device groups
@@ -505,10 +508,10 @@ DELETE https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-ver
 Use the following request to retrieve a list of device groups from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceGroups?api-version=2022-05-31
+GET https://{your app subdomain}/api/deviceGroups?api-version=2022-07-31
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -860,7 +863,7 @@ Use the following request to update an enrollment group.
 PATCH https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg?api-version=2022-07-31
 ```
 
-The following example shows a request body that updates the display name of a  enrollment group:
+The following example shows a request body that updates the display name of an enrollment group:
 
 ```json
 {

@@ -90,7 +90,7 @@ Once you send the request, you will get the following response for the predictio
       "entities": [
         {
           "category": "entity1",
-          "text": 'text1",
+          "text": "text1",
           "offset": 29,
           "length": 12,
           "confidenceScore": 1

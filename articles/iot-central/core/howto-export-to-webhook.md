@@ -2,8 +2,8 @@
 title: Export data to Webhook IoT Central | Microsoft Docs
 description: How to use the new data export to export your IoT data to Webhook
 services: iot-central
-author: v-krishnag
-ms.author: v-krishnag
+author: dominicbetts
+ms.author: dobett
 ms.date: 04/28/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -21,10 +21,15 @@ For Webhook destinations, IoT Central exports data in near real time. The data i
 
 ## Create a Webhook destination
 
-You can export data to a publicly available HTTP Webhook endpoint. You can create a test Webhook endpoint using [RequestBin](https://requestbin.net/). RequestBin throttles request when the request limit is reached:
+You can export data to a publicly available HTTP Webhook endpoint. You can create a test Webhook endpoint using [RequestBin](https://requestbin.com/). RequestBin throttles request when the request limit is reached:
 
-1. Open [RequestBin](https://requestbin.net/).
-1. Create a new RequestBin and copy the **Bin URL**. You use this URL when you test your data export.
+1. Navigate to [RequestBin](https://requestbin.com/).
+
+1. Select **Create a RequestBin**.
+
+1. Sign in with one of the available methods.
+
+1. Copy the URL of your RequestBin  You use this URL when you test your data export.
 
 To create the Azure Data Explorer destination in IoT Central on the **Data export** page:
 
@@ -49,3 +54,5 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 [!INCLUDE [iot-central-data-export-device-lifecycle](../../../includes/iot-central-data-export-device-lifecycle.md)]
 
 [!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
+
+[!INCLUDE [iot-central-data-export-audit-logs](../../../includes/iot-central-data-export-audit-logs.md)]

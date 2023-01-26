@@ -4,14 +4,16 @@ description: This article describes some recommendations for troubleshooting you
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.date: 07/22/2022
 ---
 
 # Best practices for troubleshooting your Azure Database for MySQL server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Use the sections below to keep your MySQL databases running smoothly and use this information as guiding principles for ensuring that the schemas are designed optimally and provide the best performance for your applications.
 

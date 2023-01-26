@@ -5,7 +5,7 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
-ms.date: 04/27/2022
+ms.date: 10/31/2022
 ms.custom: references_regions
 ms.reviewer: harelbr
 ---
@@ -1317,6 +1317,11 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   }
 }
 ```
+
+> [!NOTE]
+>
+> Using "All" as a dimension value is equivalent to selecting "\*" (all current and future values).
+
 
 ## Multiple dimensions, dynamic thresholds
 

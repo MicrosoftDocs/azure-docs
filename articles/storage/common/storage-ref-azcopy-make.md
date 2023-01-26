@@ -1,5 +1,5 @@
 ---
-title: azcopy make | Microsoft Docs
+title: azcopy make
 description: This article provides reference information for the azcopy make command.
 author: normesta
 ms.service: storage

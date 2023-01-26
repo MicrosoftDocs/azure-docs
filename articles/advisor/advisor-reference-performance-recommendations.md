@@ -2,6 +2,7 @@
 title: Performance recommendations
 description: Full list of available performance recommendations in Advisor.
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 02/03/2022
 ---
 
@@ -245,6 +246,12 @@ Learn more about [Virtual machine - AccelNetDisengaged (Accelerated Networking m
 Ultra disk is available in the same region as your database workload. Ultra disk offers high throughput, high IOPS, and consistent low latency disk storage for your database workloads: For Oracle DBs, you can now use either 4k or 512E sector sizes with Ultra disk depending on your Oracle DB version. For SQL server, leveraging Ultra disk for your log disk might offer more performance for your database. See instructions here for migrating your log disk to Ultra disk.
 
 Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of Ultra Disk low latency for your log disks and improve your database workload performance.)](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal).
+
+### Upgrade the size of your virtual machines close to resource exhaustion
+
+We analyzed data for the past 7 days and identified virtual machines (VMs) with high utilization across different metrics (i.e., CPU, Memory, and VM IO). Those VMs may experience performance issues since they are nearing/at their SKU's limits. Consider upgrading their SKU to improve performance.
+
+Learn more about [Virtual machine - Improve the performance of highly used VMs using Azure Advisor](https://aka.ms/aa_resizehighusagevmrec_learnmore)
 
 ## Kubernetes
 
@@ -572,37 +579,37 @@ Depth first load balancing uses the max session limit to determine the maximum n
 
 Learn more about [Host Pool - ChangeMaxSessionLimitForDepthFirstHostPool (Change the max session limit for your depth first load balanced host pool to improve VM performance )](../virtual-desktop/configure-host-pool-load-balancing.md).
 
-## Cosmos DB
+## Azure Cosmos DB
 
 ### Configure your Azure Cosmos DB query page size (MaxItemCount) to -1
 
-You are using the query page size of 100 for queries for your Azure Cosmos container. We recommend using a page size of -1 for faster scans.
+You are using the query page size of 100 for queries for your Azure Cosmos DB container. We recommend using a page size of -1 for faster scans.
 
-Learn more about [Cosmos DB account - CosmosDBQueryPageSize (Configure your Azure Cosmos DB query page size (MaxItemCount) to -1)](/azure/cosmos-db/sql-api-query-metrics#max-item-count).
+Learn more about [Azure Cosmos DB account - CosmosDBQueryPageSize (Configure your Azure Cosmos DB query page size (MaxItemCount) to -1)](/azure/cosmos-db/sql-api-query-metrics#max-item-count).
 
 ### Add composite indexes to your Azure Cosmos DB container
 
 Your Azure Cosmos DB containers are running ORDER BY queries incurring high Request Unit (RU) charges. It is recommended to add composite indexes to your containers' indexing policy to improve the RU consumption and decrease the latency of these queries.
 
-Learn more about [Cosmos DB account - CosmosDBOrderByHighRUCharge (Add composite indexes to your Azure Cosmos DB container)](../cosmos-db/index-policy.md#composite-indexes).
+Learn more about [Azure Cosmos DB account - CosmosDBOrderByHighRUCharge (Add composite indexes to your Azure Cosmos DB container)](../cosmos-db/index-policy.md#composite-indexes).
 
 ### Optimize your Azure Cosmos DB indexing policy to only index what's needed
 
 Your Azure Cosmos DB containers are using the default indexing policy, which indexes every property in your documents. Because you're storing large documents, a high number of properties get indexed, resulting in high Request Unit consumption and poor write latency. To optimize write performance, we recommend overriding the default indexing policy to only index the properties used in your queries.
 
-Learn more about [Cosmos DB account - CosmosDBDefaultIndexingWithManyPaths (Optimize your Azure Cosmos DB indexing policy to only index what's needed)](../cosmos-db/index-policy.md).
+Learn more about [Azure Cosmos DB account - CosmosDBDefaultIndexingWithManyPaths (Optimize your Azure Cosmos DB indexing policy to only index what's needed)](../cosmos-db/index-policy.md).
 
 ### Use hierarchical partition keys for optimal data distribution
 
 This account has a custom setting that allows the logical partition size in a container to exceed the limit of 20 GB. This setting was applied by the Azure Cosmos DB team as a temporary measure to give you time to re-architect your application with a different partition key. It is not recommended as a long-term solution, as SLA guarantees are not honored when the limit is increased. You can now use hierarchical partition keys (preview) to re-architect your application. The feature allows you to exceed the 20 GB limit by setting up to three partition keys, ideal for multi-tenant scenarios or workloads that use synthetic keys.
 
-Learn more about [Cosmos DB account - CosmosDBHierarchicalPartitionKey (Use hierarchical partition keys for optimal data distribution)](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview/).
+Learn more about [Azure Cosmos DB account - CosmosDBHierarchicalPartitionKey (Use hierarchical partition keys for optimal data distribution)](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview/).
 
 ### Configure your Azure Cosmos DB applications to use Direct connectivity in the SDK
 
-We noticed that your Azure Cosmos DB applications are using Gateway mode via the Cosmos DB .NET or Java SDKs. We recommend switching to Direct connectivity for lower latency and higher scalability.
+We noticed that your Azure Cosmos DB applications are using Gateway mode via the Azure Cosmos DB .NET or Java SDKs. We recommend switching to Direct connectivity for lower latency and higher scalability.
 
-Learn more about [Cosmos DB account - CosmosDBGatewayMode (Configure your Azure Cosmos DB applications to use Direct connectivity in the SDK)](/azure/cosmos-db/performance-tips#networking).
+Learn more about [Azure Cosmos DB account - CosmosDBGatewayMode (Configure your Azure Cosmos DB applications to use Direct connectivity in the SDK)](/azure/cosmos-db/performance-tips#networking).
 
 ## HDInsight
 

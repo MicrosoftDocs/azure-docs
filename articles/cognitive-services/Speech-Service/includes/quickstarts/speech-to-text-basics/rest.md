@@ -20,9 +20,6 @@ You will also need a `.wav` audio file on your local machine. You can use your o
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
 ## Recognize speech from a file
 
 At a command prompt, run the following cURL command. Replace `YourAudioFile.wav` with the path and name of your audio file.  
@@ -37,6 +34,9 @@ curl --location --request POST \
 --data-binary $audio_file
 ```
 
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+
 You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file. Up to 30 seconds of audio will be recognized and converted to text.
 
 ```console
@@ -47,9 +47,6 @@ You should receive a response similar to what is shown here. The `DisplayText` s
     "Duration": 32100000
 }
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-file" target="_target">I ran into an issue</a>
 
 For more information, see [speech-to-text REST API for short audio](../../../rest-speech-to-text-short.md).
 

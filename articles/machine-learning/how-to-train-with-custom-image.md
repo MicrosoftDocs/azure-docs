@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
+ms.reviewer: ssalgado
 ms.date: 08/11/2021
 ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
@@ -27,7 +28,7 @@ Run the code on either of these environments:
 * Azure Machine Learning compute instance (no downloads or installation necessary):
   * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
 * Your own Jupyter Notebook server:
-  * Create a [workspace configuration file](how-to-configure-environment.md#workspace).
+  * Create a [workspace configuration file](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file).
   * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 
   * Create an [Azure container registry](../container-registry/index.yml) or other Docker registry that's available on the internet.
 
@@ -101,7 +102,7 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 > Azure Machine Learning only supports Docker images that provide the following software:
 > * Ubuntu 18.04 or greater.
 > * Conda 4.7.# or greater.
-> * Python 3.6+.
+> * Python 3.7+.
 > * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
 For more information about creating and managing Azure Machine Learning environments, see [Create and use software environments](how-to-use-environments.md). 
@@ -145,7 +146,7 @@ print(compute_target.get_status().serialize())
 
 ## Configure your training job
 
-For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
+For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
 
 Create a `ScriptRunConfig` resource to configure your job for running on the desired [compute target](v1/how-to-set-up-training-targets.md).
 

@@ -6,7 +6,7 @@ ms.author: sakhare
 ms.topic: quickstart
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
-ms.date: 07/21/2022
+ms.date: 10/19/2022
 # Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions in the Azure portal so that I can configure providers.
 ---
 
@@ -14,15 +14,15 @@ ms.date: 07/21/2022
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-Get started with Azure Monitor for SAP solutions (AMS) by using the [Azure portal](https://azure.microsoft.com/features/azure-portal) to deploy AMS resources and configure providers.
+Get started with Azure Monitor for SAP solutions by using the [Azure portal](https://azure.microsoft.com/features/azure-portal) to deploy Azure Monitor for SAP solutions resources and configure providers.
 
-This content applies to both versions of the service, AMS and AMS (classic).
+This content applies to both versions of the service, Azure Monitor for SAP solutions and Azure Monitor for SAP solutions (classic).
 
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Create AMS monitoring resource
+## Create Azure Monitor for SAP solutions monitoring resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ![Diagram that shows Azure Monitor for SAP solutions Quick Start 2.](./media/azure-monitor-sap/azure-monitor-quickstart-2-new.png)
 
 
-## Create AMS (classic) monitoring resource
+## Create Azure Monitor for SAP solutions (classic) monitoring resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -63,4 +63,4 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Learn more about Azure Monitor for SAP solutions.
 
 > [!div class="nextstepaction"]
-> [Configure AMS Providers](configure-netweaver-azure-monitor-sap-solutions.md)
+> [Configure Azure Monitor for SAP solutions Providers](configure-netweaver-azure-monitor-sap-solutions.md)

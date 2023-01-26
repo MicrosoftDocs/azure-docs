@@ -1,7 +1,9 @@
 ---
 title: 'Quickstart: Your first portal query'
 description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-ms.date: 08/17/2021
+author: timwarner-msft
+ms.author: timwarner
+ms.date: 10/12/2022
 ms.topic: quickstart
 ms.custom: mode-ui
 ---
@@ -68,6 +70,16 @@ one of the child properties adds `where <propertyName> == "INSERT_VALUE_HERE"` i
 The schema browser is a great way to discover properties for use in queries. Be sure to replace
 _INSERT\_VALUE\_HERE_ with your own value, adjust the query with conditions, operators, and
 functions to achieve your intended results.
+
+## Download query results as a CSV file
+
+To download CSV results from the Azure portal, browse to the Azure Resource Graph Explorer and run a
+query. On the toolbar, click **Download as CSV** as shown in the following screenshot:
+
+:::image type="content" source="./arg-export-csv.png" alt-text="Screenshot of Azure Resource Graph Explorer in Azure portal with Download as CSV button highlighted.":::
+
+> [!NOTE]
+> When using the comma-separated value (CSV) export functionality of Azure Resource Graph Explorer, the result set is limited to 55,000 records. This is a platform limit that cannot be overridden by filing an Azure support ticket.
 
 ## Create a chart from the Resource Graph query
 

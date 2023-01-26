@@ -1,15 +1,17 @@
 ---
 title: View your Azure Percept DK RTSP video stream
 description: Learn how to view the RTSP video stream from Azure Percept DK
-author: nkhuyent
+author: yvonne-dq
 ms.author: nbabar
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 10/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # View your Azure Percept DK RTSP video stream
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Follow this guide to view the RTSP video stream from the Azure Percept DK within Azure Percept Studio. Inferencing from vision AI models deployed to your device will be viewable in the web stream.
 
