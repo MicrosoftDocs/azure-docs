@@ -3,7 +3,7 @@ title: Protecting your GCP projects and organizations
 description: Learn how 
 titleSuffix: Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 01/26/2023
 ---
 
 # Microsoft Defender for Cloud's GCP connector
@@ -87,7 +87,7 @@ Similar to onboarding a single project, When onboarding a GCP organization, Defe
 
 In the first section, you'll need to add the basic properties of the connection between your GCP organization and Defender for Cloud.
 
-:::image type="content" source="media/concept-gcp-connector/organization-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process." lightbox="media/concept-gcp-connector/organization-details.png":::
+:::image type="content" source="media/concept-gcp-connector/organization-details.png" alt-text="Screenshot of the organization details page of the GCP organization onboarding process." lightbox="media/concept-gcp-connector/organization-details.png":::
 
 Here you'll name your connector, select a subscription and resource group that will be used to create an ARM template resource that is called security connector. The security connector represents a configuration resource that holds the projects settings.
 
@@ -107,7 +107,7 @@ From here, you can decide which resources you want to protect based on the secur
 
 Once you've selected the plans, you want to enable and the resources you want to protect you'll then have to configure access between Defender for Cloud and your GCP project.
 
-:::image type="content" source="media/concept-gcp-connector/configure-access-organization.png" alt-text="Screenshot of the configure access screen between Defender for Cloud and your GCP project." lightbox="media/concept-gcp-connector/configure-access-organization.png":::
+:::image type="content" source="media/concept-gcp-connector/configure-access-organization.png" alt-text="Screenshot of the configure access screen between Defender for Cloud and your GCP organization." lightbox="media/concept-gcp-connector/configure-access-organization.png":::
 
 When you onboard an organization, there's a section to include management project details. Similar to other GCP projects, the organization is also considered a project and will be utilized by Defender for Cloud to create all of the required resources needed to connect the organization to Defender for Cloud.
 
@@ -134,7 +134,7 @@ Some of the APIs won't be in direct use with the management project. Instead the
 
 The final step for onboarding is to review all of your selections and to create the connector.
 
-:::image type="content" source="media/concept-gcp-connector/review-and-generate-organization.png" alt-text="Screenshot of the review and generate screen with all of your selections listed." lightbox="media/concept-gcp-connector/review-and-generate-organization.png":::
+:::image type="content" source="media/concept-gcp-connector/review-and-generate-organization.png" alt-text="Screenshot of the review and generate screen with all of your selections listed for you organization." lightbox="media/concept-gcp-connector/review-and-generate-organization.png":::
 
 ## Next steps
 
