@@ -310,5 +310,11 @@
             "redirect_url": "/previous-versions/azure/iot-edge/how-to-provision-devices-at-scale-windows-symmetric",
             "redirect_document_id": false
         }
+        ,
+        {
+            "source_path_from_root": "/articles/iot-edge/reference-windows-scripts.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/reference-windows-scripts",
+            "redirect_document_id": false
+        }
     ]
 }
