@@ -32,7 +32,7 @@ The benefits of migrating to Azure Monitor Logs include:
     - [End-to-end, at-scale monitoring](../overview.md).
     - [Native monitoring of Azure resources](../essentials/platform-logs-overview.md).
     - [Privacy and compliance](../security-controls-policy.md).
-- Native integration with a range of complementary Azure services, such as [Microsoft Sentinel](../../sentinel/overview.md) for security information and event management, [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) for automation, [Azure Managed Grafana](../../managed-grafana/overview.md) for dashboarding, and [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md)  for advanced analysis.
+- Native integration with a range of complementary Azure services, such as [Microsoft Sentinel](../../sentinel/overview.md) for security information and event management, [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) for automation, [Azure Managed Grafana](../../managed-grafana/overview.md) for dashboarding, and [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md)  for advanced analysis and response capabilities.
 
 ## Compare offerings 
 
