@@ -1,5 +1,5 @@
 ---
-title: Overview of Durable Functions in the Azure Functions .NET isolated worker process
+title: Overview of Durable Functions in the .NET isolated worker
 description: Learn about Durable Functions in the Azure Functions .NET isolated worker process, which supports non-LTS versions of .NET and .NET Framework apps.
 author: jviau
 ms.topic: overview
@@ -9,28 +9,28 @@ ms.devlang: csharp
 #Customer intent: As a developer, I want to learn about Durable Functions for the Azure Functions .NET isolated worker process.
 ---
 
-# Overview for running Durable Functions in the .NET isolated worker
+# Overview of Durable Functions in the .NET isolated worker
 
-This article is an overview for Durable Functions in the Azure Functions .NET isolated worker process. If you're new to the .NET isolated worker process, [start here](../dotnet-isolated-process-guide.md). The isolated worker allows you to run your Durable Functions on a version of .NET that is different than the version used by the Functions host process.
+This article is an overview of Durable Functions in the [.NET isolated worker](../dotnet-isolated-process-guide.md). The isolated worker allows your Durable Functions app to run on a .NET version different than that of the Azure Functions host.
 
-## Why Durable Functions for .NET isolated worker?
+## Why use Durable Functions in the .NET isolated worker?
 
-Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated work process. For more information, see [here](../dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process).
+Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated work process. For more information, see [here](../dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process). Additionally, this new SDK includes some new [features](#feature-improvements-over-in-process-durable-functions).
 
-### Feature parity with in-process Durable functions
+### Feature parity with in-process Durable Functions
 
-Not all features from in-process Durable functions have yet been migrated to the isolated worker. Some known missing features that will be addressed at a later date are:
+Not all features from in-process Durable Functions have been migrated to the isolated worker yet. Some known missing features that will be addressed at a later date are:
 
 - Durable Entities not supported
 - `CallHttpAsync` not available.
 
-### Feature improvements over in-process Durable functions
+### Feature improvements over in-process Durable Functions
 
 - Orchestration input can be injected directly: `MyOrchestration([OrchestrationTrigger] TaskOrchestrationContext context, T input)`
 - Support for strongly typed calls and class-based activities and orchestrations (NOTE: in preview. For more information, see [here](#source-generator-and-class-based-activities-and-orchestrations).)
 - Plus all the benefits of Azure Functions .NET isolated worker.
 
-### Source Generator and class-based activities and orchestrations
+### Source generator and class-based activities and orchestrations
 
 Requirement: add `<PackageReference Include="Microsoft.DurableTask.Generators" Version="1.0.0-preview.1" />` to your project.
 
@@ -103,9 +103,9 @@ The first step is to update your project to [Azure Functions .NET isolated](../m
 
 # [.NET csproj changes](#tab/csproj)
 
-The following changes are required in the csproj XML project file:
+The following changes are required in the `.csproj` XML project file:
 
-1. Replace the existing durable packages with the isolated worker packages:
+1. Replace the existing in-process Durable Functions packages with their isolated worker alternative:
 
 Old:
 
@@ -133,7 +133,7 @@ The schema for Durable Functions .NET isolated worker and Durable Functions 2.x 
 
 #### Public interface changes
 
-This table isn't an exhaustive list of change.
+This table isn't an exhaustive list of changes.
 
 | 2.x | Isolated |
 | ---- | ---- |
