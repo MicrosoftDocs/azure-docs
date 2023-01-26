@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/09/2023
+ms.date: 01/26/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
@@ -22,9 +22,9 @@ This article covers the recommendation to remove unused applications.
 
 Applications registered with your tenant require an application credential, which are used to get a token that grants access to a resource or another service. Only applications actively used in your tenant should be registered.
 
-## Logic 
-
 This recommendation shows up if your tenant has applications that haven't been used in more than 30 days, so haven't been issued any tokens.
+
+![Screenshot of the Remove unused apps recommendation.](media/recommendation-remove-unused-apps/recommendation-remove-unused-apps.png)
 
 ## Value 
 

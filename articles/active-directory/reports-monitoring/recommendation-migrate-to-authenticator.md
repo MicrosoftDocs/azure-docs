@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/31/2022
+ms.date: 01/26/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 
@@ -21,17 +21,15 @@ ms.collection: M365-identity-device-management
 
 This article covers the recommendation to migrate users to authenticator. 
 
-
 ## Description
 
 Multi-factor authentication (MFA) is a key component to improve the security posture of your Azure AD tenant. However, while keeping your tenant safe is important, you should also keep an eye on keeping the security related overhead as little as possible on your users.
 
 One possibility to accomplish this goal is to migrate users using SMS or voice call for MFA to use the Microsoft authenticator app.
 
-
-## Logic 
-
 If Azure AD detects that your tenant has users authenticating using SMS or voice in the past week instead of the authenticator app, this recommendation shows up.
+
+![Screenshot of the Migrate from SMS to Microsoft Authenticator app recommendation.](media/recommendation-migrate-to-authenticator/recommendation-migrate-sms-to-authenticator.png)
 
 ## Value 
 
@@ -45,10 +43,6 @@ If Azure AD detects that your tenant has users authenticating using SMS or voice
 1.	Ensure that notification through mobile app and/or verification code from mobile app are available to users as authentication methods. How to Configure Verification Options
 
 2.	Educate users on how to add a work or school account. 
-
-
-
- 
 
 ## Next steps
 

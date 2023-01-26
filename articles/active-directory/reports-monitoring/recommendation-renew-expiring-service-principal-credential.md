@@ -23,9 +23,13 @@ This article covers the recommendation to renew expiring service principal crede
 
 An Azure Active Directory (Azure AD) service principal is the local representation of an application object in a single tenant or directory. The service principal defines who can access an application and what resources the application can access. Authentication of service principals is often completed using certificate credentials, which have a lifespan. If the credentials expire, the application will not be able to authenticate with your tenant. 
 
-## Logic 
+This recommendation shows up if your tenant has service principals with credentials that will expire soon.
 
-This recommendation shows up if your tenant has service principals with credentials that will expire soon. 
+> [!NOTE]
+> Service principals that expire before the recommendation is completed by a user will be marked complete by the system. This recommendation captures service principal credentials that are about to expire, so if they do expire, the recommendation doesn't distinguish between the credential expiring on its own or being addressed by the user.
+>
+
+![Screenshot of the Renew expiring service principal credential recommendation.](media/recommendation-renew-expriring-service-principal-credential/recommendation-renew-expiring-sp-credentials.png) 
 
 ## Value 
 
