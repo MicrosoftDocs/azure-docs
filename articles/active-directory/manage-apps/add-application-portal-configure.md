@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/22/2021
+ms.date: 01/26/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
@@ -41,8 +41,9 @@ To configure the application properties:
 1. On the **Properties** pane, you may want to configure the following properties for your application:
    - Logo
    - User sign in options
-   - App visibility
-   - Reply URL
+   - App visibility to users
+   - Set available URL options
+   - Choose whether app assignment is required
    
 :::zone-end
 
