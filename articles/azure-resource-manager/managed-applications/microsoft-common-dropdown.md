@@ -93,7 +93,7 @@ When filtering is enabled, the control includes a text box for adding the filter
 ## Example
 In the following example, the `defaultValue` is defined using the values of the `allowedValues` instead of the labels. The default value can contain multipule values when `multiselect` is enabled.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Screenshot that shows how multiuple default values can be included with multi-select enabled":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-6.png" alt-text="Screenshot that shows how multiuple default values can be included with multi-select enabled":::
 
 ```json
 {
