@@ -27,7 +27,7 @@ The benefits of migrating to Azure Monitor Logs include:
 - Fully managed, Software as a Service (SaaS) platform with:
     - Automatic upgrades and scaling. 
     - [Simple per-GB pay-as-you-go pricing](https://azure.microsoft.com/pricing/details/monitor/). 
-    - [Cost optimization and monitoring](../../azure-monitor/best-practices-cost.md) and low-cost [Basic logs](../logs/basic-logs-configure.md).  
+    - [Cost optimization and monitoring features](../../azure-monitor/best-practices-cost.md) and low-cost [Basic logs](../logs/basic-logs-configure.md).  
 - Cloud-native monitoring and observability, including:
     - [End-to-end, at-scale monitoring](../overview.md).
     - [Native monitoring of Azure resources](../essentials/platform-logs-overview.md).
