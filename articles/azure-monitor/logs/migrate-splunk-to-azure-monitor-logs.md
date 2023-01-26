@@ -38,7 +38,7 @@ The benefits of migrating to Azure Monitor Logs include:
 
 |Splunk offering|Azure offering|
 |---|---|
-|Splunk, Splunk Cloud|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multicloud, and on-premises environments.|
+|Splunk, Splunk Cloud|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multicloud, and on-premises environments, built over a powerful data ingestion pipeline that's shared with Microsoft Sentinel.|
 |Splunk Enterprise|[Azure Monitor](../overview.md) offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights-and-curated-visualizations), and [alerts and response](../overview.md#respond-to-critical-situations) capabilities.  |
 |Splunk Enterprise Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that provides intelligent security analytics and threat intelligence across the enterprise.|
 ## Introduction to key concepts
