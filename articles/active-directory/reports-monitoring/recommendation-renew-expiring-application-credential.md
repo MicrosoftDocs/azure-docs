@@ -38,6 +38,9 @@ Renewing the app credential(s) before its expiration ensures the application con
 1. Once the certificate or secret is successfully added, update the service code to ensure it works with the new credential and has no negative customer impact. You should use Azure AD’s sign-in logs to validate that the thumbprint of the certificate matches the one that was just uploaded.
 1. After validating the new credential, navigate back to the Certificates and Secrets blade for the app and remove the old credential.
  
+## Known 
+Only show the app name, don't have the ability to show the resource ID
+
 ## Next steps
 
 - [What is Azure Active Directory recommendations](overview-recommendations.md)

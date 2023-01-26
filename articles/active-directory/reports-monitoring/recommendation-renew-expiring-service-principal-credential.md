@@ -25,11 +25,7 @@ An Azure Active Directory (Azure AD) service principal is the local representati
 
 This recommendation shows up if your tenant has service principals with credentials that will expire soon.
 
-> [!NOTE]
-> Service principals that expire before the recommendation is completed by a user will be marked complete by the system. This recommendation captures service principal credentials that are about to expire, so if they do expire, the recommendation doesn't distinguish between the credential expiring on its own or being addressed by the user.
->
-
-![Screenshot of the Renew expiring service principal credential recommendation.](media/recommendation-renew-expriring-service-principal-credential/recommendation-renew-expiring-sp-credentials.png) 
+![Screenshot of the Renew expiring service principal credential recommendation.](media/recommendation-renew-expriring-service-principal-credential/recommendation-renew-expiring-sp-credentials.png)
 
 ## Value 
 
@@ -37,15 +33,27 @@ Renewing the service principal credential(s) before expiration ensures the appli
 
 ## Action plan
 
-1. Navigate to **Azure AD** > **Enterprise applications**. The status of the service principal appears in the **Certificate Expiry Status** column.
+1. Navigate to **Azure AD** > **Enterprise applications**.
+    - The status of the service principal appears in the **Certificate Expiry Status** column.
+    - Use the search box at the top of the list to find the service principal that was listed in the recommendation.
+    ![Screenshot of the Enterprise applications area with the search box highlighted.](media/recommendation-renew-expriring-service-principal-credential/recommendation-enterprise-apps-list.png)
+
 1. Select the service principal with the credential that needs to be rotated, then select **Single sign-on** from the side menu.
 1. Edit the **SAML signing certificate** section and follow the prompts to add a new certificate.
+    ![Screenshot of the edit single-sign-on process.](media/recommendation-renew-expriring-service-principal-credential/recommendation-edit-sso.png)
+
 1. After adding the certificate, change its properties to make the certificate active. This will make the other certificate inactive.
 1. Once the certificate is successfully added and activated, update the service code to ensure it works with the new credential and has no negative customer impact. You should use Azure AD’s sign-in logs to validate that the thumbprint of the certificate matches the one that was just uploaded.
 1. After validating the new credential, navigate back to the **Certificates and Secrets** area for the app and remove the old credential.
+
+## Known limitations
+
+Service principals that expire before the recommendation is completed by a user will be marked complete by the system. This recommendation identifies service principal credentials that are about to expire, so if they do expire, the recommendation doesn't distinguish between the credential expiring on its own or being addressed by the user.
+
+You can see the recommendation but won't be able to see the service principal credential when you click on the impacted resource. Credentials are not displayed on the Enterprise applications area. You can use Microsoft Graph to pull this information programmatically. 
  
 ## Next steps
 
 - [What is Azure Active Directory recommendations](overview-recommendations.md)
 - [Learn about securing service principals](../fundamentals/service-accounts-principal.md)
-- [Learn about app and service principal objects in Azure AD](../develop/app-objects-and-service-principals.md)
+- [Learn about app and service principal objects in Azure AD](../develop/app-objects-and-service-principals.md) 
