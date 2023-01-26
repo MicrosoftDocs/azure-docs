@@ -405,6 +405,9 @@
               href: iot-hub-java-java-device-management-getstarted.md
         - name: Schedule and broadcast jobs
           items:
+            - name: CLI
+              displayName: jobs
+              href: cli-cli-schedule-jobs.md
             - name: .NET
               displayName: jobs
               href: iot-hub-csharp-csharp-schedule-jobs.md
