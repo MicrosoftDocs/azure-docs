@@ -78,7 +78,7 @@ Azure Front Door supports Azure managed certificate and customer-managed certifi
 
 ## Using your own certificate
 
-You can also choose to use your own TLS certificate. Your TLS certificate must meet certain requirements. For more information, see [TODO](TODO).
+You can also choose to use your own TLS certificate. Your TLS certificate must meet certain requirements. For more information, see [Certificate requirements](../domain.md?pivot=front-door-standard-premium#certificate-requirements).
 
 #### Prepare your key vault and certificate
 
@@ -114,6 +114,8 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
      ```azurecli-interactive
      az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
      ```
+
+---
 
 #### Grant Azure Front Door access to your key vault
 
@@ -168,45 +170,19 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
 1. Follow the on-screen steps to validate the certificate. Then associate the newly created custom domain to an endpoint as outlined in [creating a custom domain](how-to-add-custom-domain.md) guide.
 
-<!-- TODO I think the stuff below needs to be moved into domain.md -->
+## Switch between certificate types
 
-## Certificate renewal and changing certificate types
+You can change a domain between using an Azure Front Door-managed certificate and a user-managed certificate. For more information, see [Domains in Azure Front Door](../domain.md#switch-between-certificate-types).
 
-### AFD managed certificate for Non-Azure pre-validated domain
-
-AFD managed certificates are automatically rotated when your custom domain uses a CNAME record that points to an Azure Front Door Standard or Premium endpoint.
-
-Front Door won't automatically rotate certificates in the following scenarios:
-
-* The custom domain CNAME record is pointing to other DNS resources.
-* The custom domain points to the Azure Front Door through a long chain. For example, if you put Azure Traffic Manager before Azure Front Door, the CNAME chain is `contoso.com` CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`.
-
-The domain validation state will become *Pending Revalidation* 45 days before the managed certificate expires, or *Rejected* if the managed certificate issuance is rejected by the certificate authority.  Refer to [Add a custom domain](../domain.md#domain-validation-states) for actions for each of the domain states.
-
-### Azure managed certificate for Azure pre-validated domain
-
-Azure managed certificates are automatically rotated by the Azure service that validates the domain.
-
-### <a name="rotate-own-certificate"></a>Use your own certificate
-
-In order for the certificate to automatically be rotated to the latest version when a newer version of the certificate is available in your key vault, set the secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be automatically deployed.
-
-If you want to change the secret version from ‘Latest’ to a specified version or vice versa, add a new certificate. 
-
-## How to switch between certificate types
-
-1. You can change an existing Azure managed certificate to a user-managed certificate by selecting the certificate state to open the **Certificate details** page.
+1. Select the certificate state to open the **Certificate details** page.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/domain-certificate.png" alt-text="Screenshot of certificate state on domains landing page.":::
 
-1. On the **Certificate details** page, you can change between *Azure managed* and
-*Bring Your Own Certificate (BYOC)*. Then follow the same steps as earlier to choose a certificate. Select **Update** to change the associated certificate with a domain.
+1. On the **Certificate details** page, you can change between *Azure managed* and *Bring Your Own Certificate (BYOC)*.
 
-    > [!NOTE]
-    > * It may take up to an hour for the new certificate to be deployed when you switch between certificate types.
-    > * If your domain state is Approved, switching the certificate type between BYOC and managed certificate won't have any downtime. When switching to managed certificate, unless the domain ownership is re-validated and the domain state becomes Approved, you will continue to be served by the previous certificate.
-    > * If you switch from BYOC to managed certificate, domain re-validation is required. If you switch from managed certificate to BYOC, you're not required to re-validate the domain.
-    >
+1. Follow the steps described above to select a certificate.
+
+   Select **Update** to change the associated certificate with a domain.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/certificate-details-page.png" alt-text="Screenshot of certificate details page.":::
 

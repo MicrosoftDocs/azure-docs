@@ -118,9 +118,11 @@ Sometimes, you might need to provide your own TLS certificates. Common scenarios
 
 When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
 
-Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
+The common name (CN) of the certificate must match the domain configured in Azure Front Door.
 
-### Import a certificate to Azure Key Vault
+Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
+
+#### Import a certificate to Azure Key Vault
 
 Custom TLS certificates must be imported into Azure Key Vault before you can use it with Azure Front Door. To learn how to import a certificate to a key vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
 
@@ -131,7 +133,7 @@ The key vault must be in the same Azure subscription as your Azure Front Door pr
 
 Certificates must be uploaded as a **certificate** object, rather than a **secret**.
 
-### Grant access to Azure Front Door
+#### Grant access to Azure Front Door
 
 Azure Front Door needs to access your key vault to read your certificate. You need to configure both the key vault's network firewall and the vault's access control.
 
@@ -142,15 +144,21 @@ There are two ways you can configure access control on your key vault:
 * Azure Front Door can use a managed identity to access your key vault. You can use this approach when your key vault uses Azure Active Directory (Azure AD) authentication. For more information, see [Use managed identities with Azure Front Door Standard/Premium](managed-identity.md).
 * Alternatively you can grant Azure Front Door's service principal access to your key vault. You can use this approach when you use vault access policies.
 
-
-
-### Add your custom certificate to Azure Front Door
+#### Add your custom certificate to Azure Front Door
 
 After you've imported your certificate to a key vault, create an Azure Front Door secret resource, which is a reference to the certificate you added to your key vault.
 
 Then, configure your domain to use the Azure Front Door secret for its TLS certificate.
 
 For a guided walkthrough of these steps, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md#using-your-own-certificate).
+
+### Switch between certificate types
+
+You can change a domain between using an Azure Front Door-managed certificate and a user-managed certificate.
+
+> * It might take up to an hour for the new certificate to be deployed when you switch between certificate types.
+> * If your domain state is *Approved*, switching the certificate type between a user-managed and a managed certificate won't cause any downtime. When switching to a managed certificate, unless the domain ownership is re-validated and the domain state becomes *Approved*, you will continue to be served by the previous certificate.
+> * If you switch from BYOC to managed certificate, domain re-validation is required. If you switch from managed certificate to BYOC, you're not required to re-validate the domain.
 
 ## Security policies
 
