@@ -1,13 +1,17 @@
 ---
-title: Configure Azure Virtual Desktop MSIX app attach PowerShell scripts - Azure
-description: Set up PowerShell scripts for testing and troubleshooting MSIX app attach disk images outside of Azure Virtual Desktop.
+title: Use PowerShell to mount MSIX app attach packages - Azure
+description: Learn how to mount MSIX app attach disk images for testing and troubleshooting outside of Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 01/18/2023
 ms.author: helohr
 manager: femila
 ---
-# PowerShell scripts for MSIX app attach
+# Use PowerShell to mount MSIX packages
+
+This article will show you how to mount MSIX packages outside of Azure Virtual Desktop using PowerShell, which can be useful for testing and troubleshooting.
+
+To use MSIX app attach with Azure Virtual Desktop, you can use [the Azure portal](app-attach-azure-portal.md) or [Azure PowerShell](app-attach-powershell.md) to add and publish applications.
 
 This topic will walk you through how to set up PowerShell scripts for testing and troubleshooting MSIX app attach disk images outside of Azure Virtual Desktop. If you want to use app attach with Azure Virtual Desktop, we recommend [using the Azure portal to manage app attach](app-attach-azure-portal.md).
 
