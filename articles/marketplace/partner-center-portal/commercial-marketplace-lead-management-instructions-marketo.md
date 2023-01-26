@@ -61,7 +61,7 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 ## Obtain a API access from your Marketo Admin
 1. This article[https://aka.ms/marketo-api] shows how one can obtain API access, specifically a ClientID and Client Secret needed for the new Marketo configuration. Please follow the step-by-step guide listed in the above link to create an API-only user and a Launchpoint connection for the Partner center lead management service.
-2. Please make sure that the Custom service created is indicates Partner center as shown below.
+2. Please make sure that the Custom service created indicates Partner center as shown below.
 
 ![API1-new](https://user-images.githubusercontent.com/98078741/214808153-a59183d7-12e3-432f-a792-211f4e17e9cc.png)
 
