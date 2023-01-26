@@ -40,7 +40,7 @@ Follow these steps to open the settings for an Azure resource role.
 
     :::image type="content" source="media/pim-resource-roles-configure-role-settings/resources-role-settings.png" alt-text="Screenshot of the list of PIM policies for a selected resource." lightbox="media/pim-resource-roles-configure-role-settings/resources-role-settings.png":::
 
-1. Select the role/policy that you want to configure.
+1. Select the role or policy that you want to configure.
 
 1.	Select Edit to update role settings.
 

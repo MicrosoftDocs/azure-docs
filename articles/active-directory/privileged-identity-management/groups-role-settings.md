@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 In Privileged Identity Management (PIM) for groups in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define membership or ownership assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, etc. Use the following steps to configure role settings and setup the approval workflow to specify who can approve or deny requests to elevate privilege.
 
-You need to have Global Administrator, Privileged Role Administrator, or group Owner permissions to manage settings for membership/ownership assignments of the group. Role settings are defined per role per group: all assignments for the same role (member or owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
+You need to have Global Administrator, Privileged Role Administrator, or group Owner permissions to manage settings for membership or ownership assignments of the group. Role settings are defined per role per group: all assignments for the same role (member or owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
 
 
 ## Update role settings
