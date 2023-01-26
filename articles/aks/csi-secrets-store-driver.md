@@ -72,7 +72,7 @@ A container using subPath volume mount won't receive secret updates when it's ro
 
 ## Verify the Azure Key Vault Provider for Secrets Store CSI Driver installation
 
-* Verify the installation is finished using the `kubectl get pods` command to list all pods that have the `secrets-store-csi-driver` and `secrets-store-provider-azure` labels in the kube-system namespace, and ensure that your output looks similar to the following output:
+1. Verify the installation is finished using the `kubectl get pods` command to list all pods that have the `secrets-store-csi-driver` and `secrets-store-provider-azure` labels in the kube-system namespace, and ensure that your output looks similar to the following output:
 
     ```bash
     kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver,secrets-store-provider-azure)'
@@ -86,7 +86,7 @@ A container using subPath volume mount won't receive secret updates when it's ro
     aks-secrets-store-provider-azure-f5qlm   1/1     Running   0          4m25s
     ```
 
-* Verify that each node in your cluster's node pool has a Secrets Store CSI Driver pod and a Secrets Store Provider Azure pod running.
+2. Verify that each node in your cluster's node pool has a Secrets Store CSI Driver pod and a Secrets Store Provider Azure pod running.
 
 ## Create or use an existing Azure key vault
 
