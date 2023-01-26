@@ -58,7 +58,7 @@ For more information, see [Azure Firewall Policy Analytics (preview)](policy-ana
 
 You can now easily upgrade your existing Firewall Standard SKU to Premium SKU and downgrade from Premium to Standard SKU. The process is fully automated and has no service impact (zero service downtime).
 
-For more information, see [Azure Firewall easy upgrade/downgrade (preview)](easy-upgrade.md)
+For more information, see [Azure Firewall easy upgrade/downgrade (preview)](easy-upgrade.md).
 
 
 ## Next steps
