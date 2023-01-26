@@ -281,7 +281,7 @@ Test your custom policy again by using the same **Email Address**. Instead of th
 > [!NOTE]
 > The *password* claim value is a very important piece of information, so be very careful how you handle it in your custom policy. For a similar reason, Azure AD B2C treats the password claim value as a special value. When you collect the password claim value in the self-asserted technical profile, that value is only available within the same technical profile or within a validation technical profiles that are referenced by that same self-asserted technical profile. Once execution of that self-asserted technical profile completes, and moves to another technical profile, the value is lost.  
 
-## Verify user email
+## Verify user email address
 
 We recommend that you verify a user's email before you use it to create a user account. When you verify email addresses, you make sure the accounts are created by real users. You also help users to be sure that they're using their correct email addresses to create an account. 
 
@@ -418,7 +418,7 @@ In this article, you've learnt how to store user details using [built-in User pr
 
 ## Next steps 
 
-- Learn how to [Read or update a user account by using Azure Active Directory B2C custom policy](custom-policies-series-read-update-user.md).
+- Learn how to [Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md).
 
 - Learn how to [define custom attributes in your custom policy](user-flow-custom-attributes.md?pivots=b2c-custom-policy).
  

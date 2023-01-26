@@ -19,9 +19,9 @@ ms.subservice: B2C
 
 # Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy
 
-In [Create a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, a user creates a new user account but doesn't sign in to it. 
+In [Create and read a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, a user creates a new user account but doesn't sign in to it. 
 
-In this article, you learn how  to write an Azure Active Directory B2C (Azure AD B2C) custom policy that allows a user to either sign in into or create an Azure AD B2C local account. A local account refers to an account that is created in your Azure AD B2C tenant when a user signs up for your application. 
+In this article, you learn how  to write an Azure Active Directory B2C (Azure AD B2C) custom policy that allows a user to either create an Azure AD B2C local account or sign in into one. A local account refers to an account that is created in your Azure AD B2C tenant when a user signs up into your application. 
 
 ## Overview
 
@@ -43,7 +43,7 @@ Azure AD B2C custom policy provides a OpenID Connect technical profile, which yo
 [!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
 
 
-## Step 1 - Configure OpenID Connect Technical Profile
+## Step 1 - Configure OpenID Connect technical profile
 
 To configure an OpenID Connect Technical Profile you need to perform three steps: 
 
@@ -93,11 +93,13 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and th
 
 Azure AD B2C requires you to register two applications that it uses to sign up and sign in users with local accounts: IdentityExperienceFramework, a web API, and ProxyIdentityExperienceFramework, a native app with delegated permission to the IdentityExperienceFramework app.
 
+If you haven't already done so, register the following applications. To automate the walk-through below, visit the [IEF Setup App](https://aka.ms/iefsetup) and follow the instructions:
+
 1. Follow the steps in [Register the IdentityExperienceFramework application](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-the-identityexperienceframework-application) to register the Identity Experience Framework application. Copy the **Application (client) ID**, *appID*, for the Identity Experience Framework application registration for use on the next step.  
 
 1. For low the steps in [Register the ProxyIdentityExperienceFramework application](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-the-proxyidentityexperienceframework-application) to register Proxy Identity Experience Framework application. Copy the **Application (client) ID**, *proxyAppID*, for the Proxy Identity Experience Framework application registration for use on the next step.
 
-### Step 1.3 - Configure OpenID Connect Technical Profile
+### Step 1.3 - Configure OpenID Connect technical profile
 
 In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and then add a  Claims Provider element that holds your OpenID Connect Technical Profile by using the following code: 
 
@@ -168,9 +170,13 @@ In the `ContosoCustomPolicy.XML` file, locate the *SignInUser* technical profile
             <Item Key="setting.operatingMode">Email</Item>
             <Item Key="SignUpTarget">SignUpWithLogonEmailExchange</Item>
         </Metadata>
-        <OutputClaims>
+        <DisplayClaims>
             <OutputClaim ClaimTypeReferenceId="email" Required="true" />
             <OutputClaim ClaimTypeReferenceId="password" Required="true" />
+        </DisplayClaims>
+        <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" />
+            <OutputClaim ClaimTypeReferenceId="password"  />
             <OutputClaim ClaimTypeReferenceId="objectId" />
         </OutputClaims>
         <ValidationTechnicalProfiles>
