@@ -25,7 +25,7 @@ For information on migrating your Security Information and Event Management (SIE
 The benefits of migrating to Azure Monitor Logs include:
 
 - Fully managed, Software as a Service (SaaS) platform with low maintenance overhead and [simple per-GB pay-as-you-go pricing](https://azure.microsoft.com/pricing/details/monitor/).   
-- Cloud-native monitoring and observability offering:
+- Cloud-native monitoring and observability service with:
     - [End-to-end, at-scale monitoring](../overview.md).
     - [Native monitoring of Azure resources](../essentials/platform-logs-overview.md).
     - [Privacy and compliance](../security-controls-policy.md).
