@@ -1,6 +1,6 @@
 # YamlMime:ZonePivotGroups
 groups:
-# Owner: hhunter-ms
+# Owner: hannahhunter
 - id: dapr-languages-set
   title: Programming languages
   prompt: Choose your preferred programming language
