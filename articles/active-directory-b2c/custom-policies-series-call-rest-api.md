@@ -150,7 +150,7 @@ Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.
 
 - Service endpoint looks similar to `https://custompolicyapi.azurewebsites.net/validate-accesscode`.
 
-You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` as the endpoint. 
+You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
 
 ## Step 2 - Call the REST API
 
@@ -310,4 +310,4 @@ Next, learn:
  
 - About [RESTful technical profile](restful-technical-profile.md).
 
--  How to [Create a user by using Azure AD B2C custom policy](custom-policies-series-store-user.md)
+-  How to [Create and read a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md)

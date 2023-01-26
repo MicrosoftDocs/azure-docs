@@ -424,9 +424,9 @@ Use the following steps to learn how to validate user input by using validation 
         </ClaimsTransformation>
     ``` 
     
-    The *GetDomainFromEmail* Claims Transformation extracts a domain from email by using [ParseDomain](string-transformations.md#parsedomain) method and stores it in the *domain* claim. The *LookupDomain* Claims Transformation uses the extracted domain to check if it's valid by looking it up in the predefined domains, and assigning *valid* to *domainStatus* claim. 
+    The *GetDomainFromEmail* claims transformation extracts a domain from email by using [ParseDomain](string-transformations.md#parsedomain) method and stores it in the *domain* claim. The *LookupDomain* Claims Transformation uses the extracted domain to check if it's valid by looking it up in the predefined domains, and assigning *valid* to *domainStatus* claim. 
 
-1. Use the following code to add a technical profile in the same Claims Provider as the technical profile with `Id=UserInformationCollector`: 
+1. Use the following code to add a technical profile in the same claims provider as the technical profile with `Id=UserInformationCollector`: 
 
     ```xml
         <TechnicalProfile Id="CheckCompanyDomain">
@@ -443,7 +443,7 @@ Use the following steps to learn how to validate user input by using validation 
             </OutputClaimsTransformations>
         </TechnicalProfile>
     ```   
-    We've declared Claims Transformation Technical Profile, which executes the *GetDomainFromEmail* and *LookupDomain* Claims Transformations. 
+    We've declared claims transformation technical profile, which executes the *GetDomainFromEmail* and *LookupDomain* claims transformations. 
 
 1. Locate the technical profile with `Id=UserInformationCollector`, and a `ValidationTechnicalProfile` just after the `OutputClaims` element by using the following code:
 
