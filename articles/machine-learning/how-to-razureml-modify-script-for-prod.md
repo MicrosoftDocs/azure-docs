@@ -249,7 +249,7 @@ mlflow_end_run()
 ## END OF R SCRIPT
 ```
 
-For complete example of an R script that has all of the steps described in this document, see [timeseries-train-single.R](https://github.com/Azure/azureml-examples/blob/mavaisma-r-azureml/tutorials/using-r-with-azureml/03-train-model-job/src/timeseries-train-single.R)
+For complete example of an R script that has all of the steps described in this article, see [timeseries-train-single.R](https://github.com/Azure/azureml-examples/blob/mavaisma-r-azureml/tutorials/using-r-with-azureml/03-train-model-job/src/timeseries-train-single.R)
 
 ## Create an environment
 

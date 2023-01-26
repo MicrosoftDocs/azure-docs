@@ -23,7 +23,7 @@ In this article, you'll learn how to deploy an R model to a managed endpoint (We
 - Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
 - At least one custom environment associated with your workspace. Create [an R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment), or any other custom environment if you don't have one.
 - An understanding of the [R `plumber` package](https://www.rplumber.io/index.html)
-- A model that you've trained and [packaged with `crate`](how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package).
+- A model that you've trained and [packaged with `crate`](how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package), and [registered into your workspace](how-to-razureml-train-model.md#register-model)
 
 ## Create a folder with this structure
 
@@ -168,25 +168,6 @@ if (packageVersion('plumber') >= '1.0.0') {
 do.call(pr$run, args)
 ```
 
-## Register model
-
-This article shows you how to register a model created in a training job run and packaged with `crate`. For more information about training, see [How to train R models](how-to-razureml-train-model.md).  For more information about packaging with `crate`, see [Adapt your R script to run in production](how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package).
-
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
-1. Select your workspace if it isn't already loaded.
-1. On the left navigation, select **Jobs**.
-1. Select the **Experiment name** that you used to train your model.
-1. Select the job that contains your model.
-1. Select **+ Register model**.
-1. Select **Next**.
-1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.
-1. Select **Next**.
-1. Review the information.
-1. Select **Register**.
-
-You'll see a confirmation that the model is registered. 
-
-
 ## Build container
 
 These steps assume you have an Azure Container Registry associated with your workspace, which is created when you create your first custom environment.  To see if you have a custom environment:
@@ -234,7 +215,9 @@ Once you have verified that you have at least one custom environment, use the fo
 
 1. To build the image in the cloud, execute the following bash commands in your terminal. Replace `<IMAGE-NAME>` with the name you want to give the image.
 
-    ```bash
+    If your workspace is in a virtual network, see [Enable Azure Container Registry (ACR)](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) for additional steps to add `--image-build-compute` to the `az acr build` command in the last line of this code.
+
+    ```azurecli
     WORKSPACE=$(az config get --query "defaults[?name == 'workspace'].value" -o tsv)
     ACR_NAME=$(az ml workspace show -n $WORKSPACE --query container_registry -o tsv | cut -d'/' -f9-)
     IMAGE_TAG=${ACR_NAME}.azurecr.io/<IMAGE-NAME>
@@ -246,6 +229,9 @@ Once you have verified that you have at least one custom environment, use the fo
 > It will take a few minutes for the image to be built. Wait until the build process is complete before proceeding to the next section.  Don't close this terminal, you'll use it next to create the deployment.
 
 The `az acr` command will automatically upload your docker-context folder - that contains the artifacts to build the image - to the cloud where the image will be built and hosted in an Azure Container Registry.
+
+> [!TIP]
+> 
 
 ## Deploy model
 

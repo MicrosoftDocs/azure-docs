@@ -48,15 +48,18 @@ A typical workflow for using R with Azure Machine Learning:
 
 ## Known limitations
  
-- There's no R _control-plane_ SDK. Instead you use the Azure CLI or Python control script to submit jobs.
-- RStudio running as a custom application (such as Posit or RStudio) within a container on the compute instance can't access workspace assets or MLflow.
-- Zero code deployment (that is, automatic deployment) of an R MLflow model is currently not supported.  Instead, you'll need to use a custom container with `plumber` for deployment.
-- Scoring an R model with batch endpoints isn't supported.
-- Programmatic model registering/recording from a running job with R isn't supported.
-- Interactive querying of workspace MLflow registry from R isn't supported.
-- Nested MLflow runs in R are not supported.
-- Parallel job step isn't supported.  As a workaround, you can run a script in parallel `n` times using different input parameters.  But you'd have to meta-program to generate `n` YAML or CLI calls to do it.
-- AzureML online deployment yml can only use image URIs directly from the registry for the environment specification; not pre-built environments from the same Dockerfile.  Follow the steps in [How to deploy a registered R model to an online (real time) endpoint](how-to-razureml-deploy-r-model.md) for the correct way to deploy.
+|Limitation  |Workaround  |
+|---------|---------|
+|There's no R _control-plane_ SDK.     |  Use the Azure CLI or Python control script to submit jobs.       |
+|RStudio running as a custom application (such as Posit or RStudio) within a container on the compute instance can't access workspace assets or MLflow.     | Use Jupyter Notebooks with the R kernel on the compute instance.        |
+|Interactive querying of workspace MLflow registry from R isn't supported.     |         |
+|Nested MLflow runs in R are not supported.     |         |
+|Parallel job step isn't supported.      |   Run a script in parallel `n` times using different input parameters.  But you'll have to meta-program to generate `n` YAML or CLI calls to do it.      |
+|Programmatic model registering/recording from a running job with R isn't supported. | |
+|Zero code deployment (that is, automatic deployment) of an R MLflow model is currently not supported.     |  You'll create a custom container with `plumber` for deployment.       |
+|Scoring an R model with batch endpoints isn't supported.     |         |
+|AzureML online deployment yml can only use image URIs directly from the registry for the environment specification; not pre-built environments from the same Dockerfile.     |  Follow the steps in [How to deploy a registered R model to an online (real time) endpoint](how-to-razureml-deploy-r-model.md) for the correct way to deploy.
+       |
 
 
 ## Next steps

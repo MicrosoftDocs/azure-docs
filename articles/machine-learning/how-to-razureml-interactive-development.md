@@ -40,7 +40,7 @@ You'll use a notebook in your Azure Machine Learning workspace, on a compute ins
     > [!TIP]
     > If you're not sure how to create and work with notebooks in studio, review [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md).
 
-1. Select the notebook
+1. Select the notebook.
 1. On the notebook toolbar, make sure your compute instance is running.  If not, start it now.
 1. On the notebook toolbar, switch the kernel to **R**.
 
@@ -50,7 +50,7 @@ Your notebook is now ready for you to run R commands.
 
 ## Access data
 
-You can upload files to your workspace file storage and access them in R.  But for larger files, stored in Azure [_data assets_ or data from _datastores_](concept-data.md), you first need to install a few packages.
+You can upload files to your workspace file storage and access them in R.  But for files stored in Azure [_data assets_ or data from _datastores_](concept-data.md), you first need to install a few packages.
 
 This section describes how to use Python and the `reticulate` package to load your data assets and datastores into R from an interactive session. You'll read tabular data as Pandas DataFrames using the [`azureml-fsspec`](/python/api/azureml-fsspec/?view=azure-ml-py&preserve-view=true) Python package and the `reticulate` R package. 
 
@@ -70,11 +70,11 @@ The install script performs the following steps:
 * Installs the R `reticulate` package if necessary (version must be 1.26 or greater)
 
 
-### Read tabular data from registered _data assets_ or _datastores_
+### Read tabular data from registered data assets or datastores
 
-Use these steps to read a tabular file data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-uri_file-data-asset) into an R `data.frame`:
+When your data is stored in a data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-uri_file-data-asset), use these steps to read that tabular file into an R `data.frame`:
 
-1. Ensure you have the correct version of `reticulate`.  If the version is less than 1.26, try to run on a newer compute instance.
+1. Ensure you have the correct version of `reticulate`.  If the version is less than 1.26, try to use a newer compute instance.
 
     ```r
     packageVersion("reticulate")

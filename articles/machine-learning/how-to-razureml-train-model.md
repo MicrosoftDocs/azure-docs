@@ -147,6 +147,22 @@ Once you've submitted the job, you can check the status and results in studio:
 1. Select the **Experiment name** that you used to train your model.
 1. Select the **Display name** of the job to view details and artifacts of the job, including metrics, images, child jobs, outputs, logs, and code used in the job.  
 
-## Next steps
 
-[How to deploy an R model to an online (real time) endpoint](how-to-razureml-deploy-r-model.md)
+## Register model
+
+Finally, once the training job is complete, register your model if you want to deploy it.  Start in the studio from the page showing your job details.
+
+1. On the toolbar at the top, select **+ Register model**.
+1. Select **MLflow** for the **Model type**.
+1. Select the folder which contains the model.
+1. Select **Next**.
+1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.
+1. Select **Next**.
+1. Review the information.
+1. Select **Register**.
+
+You'll see a confirmation that the model is registered. 
+
+## Next steps
+ 
+Now that you have a registered model, learn [How to deploy an R model to an online (real time) endpoint](how-to-razureml-deploy-r-model.md).
