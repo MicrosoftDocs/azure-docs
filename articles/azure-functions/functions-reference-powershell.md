@@ -398,7 +398,7 @@ To learn more about Azure Functions runtime support policy, please refer to this
 
 ### Running local on a specific version
 
-Support for PowerShell 7.0 in Azure Functions ended on 3 December 2022. To use PowerShell 7.2 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.2"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.2, your local.settings.json file looks like the following example: 
+Support for PowerShell 7.0 in Azure Functions has ended on 3 December 2022. To use PowerShell 7.2 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.2"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.2, your local.settings.json file looks like the following example: 
 
 ```json
 {
@@ -410,6 +410,9 @@ Support for PowerShell 7.0 in Azure Functions ended on 3 December 2022. To use P
   }
 }
 ```
+
+> [!NOTE]
+> In PowerShell Functions, "~7" refers to "7.0.x". We do not automatically upgrade PowerShell Function apps that have "~7" to "7.2". Going forward we will require that apps specify both the major and minor version they want to target. Hence, it is necessary to mention "7.2" if you want to target "7.2.x"
 
 ### Changing the PowerShell version
 
