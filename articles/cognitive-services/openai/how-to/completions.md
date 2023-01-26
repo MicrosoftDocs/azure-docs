@@ -352,7 +352,11 @@ A: Two, Phobos and Deimos.
 
 Q:
 ```
+## Working with code
 
+The Codex model series is a descendant of OpenAI's base GPT-3 series that's been trained on both natural language and billions of lines of code. It's most capable in Python and proficient in over a dozen languages including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell. 
+
+Learn more about generating code completions, with the [working with code guide]((./work-with-code.m)
 ## Next steps
 
 Learn [how to work with code (Codex)](./work-with-code.md).
