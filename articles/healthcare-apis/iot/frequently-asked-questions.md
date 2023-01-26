@@ -22,13 +22,21 @@ The MedTech service is available in these Azure regions: [Products available by 
 
 ### Can I use the MedTech service with a different FHIR service other than the Azure Health Data Services FHIR service?
 
-No. The Azure Health Data Services MedTech service currently only supports the Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service for the persistence of data. The open-source version of the MedTech service supports the use of different FHIR services. 
+No. The MedTech service currently only supports the Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service for the persistence of data. The open-source version of the MedTech service supports the use of different FHIR services. 
 
 To learn more about the MedTech service open-source projects, see [Open-source projects](git-projects.md). 
 
 ### What versions of FHIR does the MedTech service support?
 
-The MedTech service currently only supports the persistence of [HL7 FHIR&#174; R4](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491). 
+The MedTech service currently only supports the persistence of [HL7 FHIR&#174; R4](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491).
+
+### How long does it take for device message data to show up on the FHIR service?
+
+The MedTech service buffers the FHIR Observations resources created during the transformation stage and provides near real-time processing. However, it can potentially take up to five minutes for FHIR Observation resources to be persisted in the FHIR service. To learn how the MedTech service transforms device message data into FHIR Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md). 
+
+### Why do I have to provide device and FHIR destination mappings to my MedTech service?
+
+The MedTech service requires the device and FHIR destination mappings to perform normalization and transformation processes on the device message data. To learn how the MedTech service transforms device message data into FHIR Observations resources, see [Understand the MedTech service device message data transformation](understand-service.md).  
 
 ### Does the MedTech service perform backups of device messages?
 
