@@ -90,7 +90,32 @@ Follow these steps to add a lab to the lab plan you created earlier:
 
 ## Customize the lab template
 
+The lab template serves as the basis for the lab VMs. To make sure that lab users have the right configuration and software components, you can customize the lab template.
+
+To customize the lab template, you first starts the template virtual machine. You can then connect to it and configure it for the classroom training.
+
+Use the following steps to update a template VM.  
+
+1. On the **Template** page for the lab, select **Start template** on the toolbar.
+
+    It may take a few minutes for the VM to be running.
+
+1. When the template VM is running, select **Connect to template**, and open the downloaded remote desktop connection file.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/connect-template-vm.png" alt-text="Screenshot that shows the Template page for a lab, highlighting Connect to template.":::
+
+1. Sign in to the template VM with the credentials you specified for creating the lab.
+
+1. Install any software that's needed for the classroom training. For example, you might install [Visual Studio Code](https://code.visualstudio.com) for a general programming course.
+
+1. Disconnect (close your remote desktop session) from the template VM.
+
+1. On the **Template** page, select **Stop template**.
+
+You've now customized the lab template for the course. Every VM in the lab will now have the same configuration as the template VM.
+
 ## Publish lab
+
 
 ## Add a lab schedule
 
