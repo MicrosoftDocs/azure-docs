@@ -120,7 +120,7 @@ Recovery points on DPM or MABS disk | 64 for file servers, and 448 for app serve
 
 ## Support for file-level restore
 
-**Restore** | **Support**
+**Restore** | **Supported**
 --- | ---
 Restore files across operating systems | You can restore files on any machine that has the same OS as the backed-up VM, or a compatible OS. See the [compatible OS table](backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 Restore files from encrypted VMs | Not supported.
@@ -134,7 +134,7 @@ Restore files from a shared disk, temporary drive, deduplicated disk, ultra disk
 
 The following table summarizes support for backup during VM management tasks, such as adding or replacing VM disks.
 
-**Restore** | **Support**
+**Restore** | **Supported**
 --- | ---
 <a name="backup-azure-cross-subscription-restore">Restore across a subscription</a> | [Cross-subscription restore (preview)](backup-azure-arm-restore-vms.md#restore-options) is now supported in Azure VMs.
 [Restore across a region](backup-azure-arm-restore-vms.md#cross-region-restore) | Supported.
@@ -149,7 +149,7 @@ Restore a VM that has been deleted | Supported.<br/><br/> You can restore the VM
 Restore a domain controller VM  | Supported. For details, see [Restore domain controller VMs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 Restore a VM in a different virtual network |Supported.<br/><br/> The virtual network must be in the same subscription and region.
 
-## Support for VM compute
+## VM compute support
 
 **Compute** | **Support**
 --- | ---
@@ -172,7 +172,7 @@ Restore with managed identities | Supported for managed Azure VMs. <br><br> Not 
 <a name="tvm-backup">Back up trusted launch VMs</a>    |  Backup is supported. <br><br> Backup of trusted launch VMs is supported through [Enhanced policy](backup-azure-vms-enhanced-policy.md). You can enable backup through a [Recovery Services vault](./backup-azure-arm-vms-prepare.md), the [pane for managing a VM](./backup-during-vm-creation.md#start-a-backup-after-creating-the-vm), and the [pane for creating a VM](backup-during-vm-creation.md#create-a-vm-with-backup-configured).    <br><br>   **Feature details**   <br><br> - Backup is supported in all regions where trusted launch VMs are available. <br><br> - Configuration of backups, alerts, and monitoring for trusted launch VMs is currently not supported through the backup center. <br><br> - Migration of an existing [Gen2 VM](../virtual-machines/generation-2.md) (protected with Azure Backup) to a trusted launch VM is currently not supported. [Learn how to create a trusted launch VM](../virtual-machines/trusted-launch-portal.md?tabs=portal#deploy-a-trusted-launch-vm).  <br><br> - Item-level restore is not supported.    
 [Back up confidential VMs](../confidential-computing/confidential-vm-overview.md) | The backup support is in limited preview. <br><br> Backup is supported only for confidential VMs that have no confidential disk encryption and for confidential VMs that have confidential OS disk encryption through a platform-managed key (PMK). <br><br> Backup is currently not supported for confidential VMs that have confidential OS disk encryption through a customer-managed key (CMK). <br><br> **Feature details** <br><br> - Backup is supported in [all regions where confidential VMs are available](../confidential-computing/confidential-vm-overview.md#regions). <br><br> - Backup is supported only if you're using [Enhanced policy](backup-azure-vms-enhanced-policy.md). You can configure backup through the [pane for creating a VM](backup-azure-arm-vms-prepare.md), the [pane for managing a VM](backup-during-vm-creation.md#start-a-backup-after-creating-the-vm), and the [Recovery Services vault](backup-azure-arm-vms-prepare.md). <br><br> - [Cross-region restore](backup-azure-arm-restore-vms.md#cross-region-restore) and file recovery (item-level restore) for confidential VMs are currently not supported.
 
-## Support for VM storage
+## VM storage support
 
 **Component** | **Support**
 --- | ---
@@ -194,7 +194,7 @@ NVMe/[ephemeral disks](../virtual-machines/ephemeral-os-disks.md) | Not supporte
 [Resilient File System (ReFS)](/windows-server/storage/refs/refs-overview) restore | Supported. Volume Shadow Copy Service (VSS) supports app-consistent backups on ReFS.
 Dynamic disk with spanned or striped volumes | Supported, unless you enable the selective disk feature on an Azure VM.
 
-## Support for VM networks
+## VM network support
 
 **Component** | **Support**
 --- | ---
@@ -239,7 +239,7 @@ Azure VMs | ![Yes][green] | ![Yes][green]
 On-premises or Azure VMs with DPM | ![Yes][green] | ![Yes][green]
 On-premises or Azure VMs with MABS | ![Yes][green] | ![Yes][green]
 
-## Support for VM compression
+## VM compression support
 
 Azure Backup supports the compression of backup traffic. Note the following:
 
