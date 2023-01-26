@@ -658,7 +658,7 @@
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Azure IoT Tools
       displayName:  VS Code, Visual Studio Code, toolkit, azure-iot-toolkit, Azure loT Device Workbench
-      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool
       displayName: azure-iot-explorer, Plug and Play
       href: https://github.com/Azure/azure-iot-explorer
