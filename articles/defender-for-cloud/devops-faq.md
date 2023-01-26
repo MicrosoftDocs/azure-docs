@@ -2,7 +2,7 @@
 title: Defender for DevOps FAQ
 description: If you're having issues with Defender for DevOps perhaps, you can solve it with these frequently asked questions.
 ms.topic: reference
-ms.date: 01/02/2022
+ms.date: 01/26/2023
 ---
 
 # Defender for DevOps frequently asked questions (FAQ)
@@ -13,7 +13,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 
 - [I don’t see Recommendations for findings](#i-dont-see-recommendations-for-findings)
 - [Why can't I find my repository](#why-cant-i-find-my-repository)
-- [Secret scan didn't run on my code](#secret-scan-did-not-run-on-my-code)
+- [Secret scan didn't run on my code](#secret-scan-didnt-run-on-my-code)
 - [I don’t see generated SARIF file in the path I chose to drop it](#i-dont-see-generated-sarif-file-in-the-path-i-chose-to-drop-it)
 - [I don’t see the results for my ADO projects in Microsoft Defender for Cloud](#i-dont-see-the-results-for-my-ado-projects-in-microsoft-defender-for-cloud)
 - [What information does Defender for DevOps store about me and my enterprise, and where is the data stored?](#what-information-does-defender-for-devops-store-about-me-and-my-enterprise-and-where-is-the-data-stored)
