@@ -3,7 +3,7 @@ title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as VM Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 01/24/2023
+ms.date: 01/26/2023
 
 ---
 
@@ -318,7 +318,7 @@ You can also specify the Mariner `os_sku` in [`azurerm_kubernetes_cluster_node_p
 
 To update an existing AKS cluster, if the cluster is running version 1.24.6 and higher, you can use the following command to enable Pod Sandboxing (preview).
 
-1. Create an AKS cluster using the [az aks nodepool add][az-aks-nodepool-add] command and specifying the following parameters:
+1. Update the AKS cluster using the [az aks nodepool add][az-aks-nodepool-add] command and specifying the following parameters:
 
    * **--resource-group**: Enter the name of an existing resource group to create the AKS cluster in.
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
@@ -330,7 +330,7 @@ To update an existing AKS cluster, if the cluster is running version 1.24.6 and 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli
-    az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
+    az aks nodepool add --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
     ```
 
 ## Deploy a trusted application
