@@ -86,7 +86,7 @@ You can require users to enter a support ticket number when they activate the el
 
 You can require approval for activation of eligible assignment. Approver doesn’t have to have any roles. When using this option, you have to select at least one approver (we recommend to select at least two approvers), there are no default approvers.
 
-To learn more more about approvals, see [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md).
+To learn more about approvals, see [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md).
 
 ### Assignment duration
 
@@ -128,7 +128,7 @@ You can turn off emails sent to default recipients by clearing the default recip
 -	**Send emails to both default recipients and more recipients**</br>
 You can send emails to both default recipient and another recipient by selecting the default recipient checkbox and adding email addresses for other recipients.
 -	**Critical emails only**</br>
-For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an emails requiring admins to approve an extension request will be triggered.
+For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while emails requiring admins to approve an extension request will be triggered.
 
 ## Next steps
 

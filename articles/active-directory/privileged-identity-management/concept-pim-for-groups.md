@@ -71,7 +71,7 @@ In Azure AD, role-assignable groups can’t have other groups nested inside them
 
 One group can be an eligible member of another group, even if one of those groups is role-assignable.
 
-If an user is active member of Group A, and Group A is an eligible member of Group B, the user can activate their membership in Group B. This activation will be only for the user that requested the activation for, it does not mean that the entire Group A becomes an active member of Group B.
+If a user is active member of Group A, and Group A is an eligible member of Group B, the user can activate their membership in Group B. This activation will be only for the user that requested the activation for, it does not mean that the entire Group A becomes an active member of Group B.
 
 ## Next steps
 
