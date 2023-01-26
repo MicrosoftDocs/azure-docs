@@ -116,6 +116,26 @@ You've now customized the lab template for the course. Every VM in the lab will 
 
 ## Publish lab
 
+Before Azure Lab Services can create lab VMs for your lab, you first need to publish the lab. When you publish the lab, you need to specify the maximum number of lab VMs that Azure Lab Services creates. All VMs in the lab share the same configuration as the lab template.
+
+To publish the lab and create the lab VMs:
+
+1. On the **Template** page, select **Publish** on the toolbar.
+
+   :::image type="content" source="./media/tutorial-setup-lab-plan/template-page-publish-button.png" alt-text="Screenshot that shows the Template page for the lab, highlighting the Publish template menu button.":::
+
+   > [!WARNING]
+   > Publishing is an irreversible action, and can't be undone.
+
+1. On the **Publish template** page, enter *3* for the number of VMs, and then select **Publish**.
+
+    It can take up to 20 minutes for the process to complete. You can track the publishing status on the **Template** page.
+
+1. On the **Virtual machine pool** page, confirm that the labs VMs are created.
+
+    The lab VMs are currently stopped and unassigned, which means that they aren't assigned to specific lab users.
+
+    :::image type="content" source="./media/tutorial-setup-lab-plan/virtual-machines-stopped.png" alt-text="Screenshot that shows the list of virtual machines for the lab. The lab VM shows as unassigned and stopped.":::
 
 ## Add a lab schedule
 
