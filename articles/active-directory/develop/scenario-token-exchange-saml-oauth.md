@@ -2,14 +2,15 @@
 title: Microsoft identity platform token exchange scenario with SAML and OIDC/OAuth in Azure Active Directory
 description: Learn about common token exchange scenarios when working with SAML and OIDC/OAuth in Azure Active Directory.
 services: active-directory
-author: kenwith
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/08/2020
-ms.author: kenwith
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.reviewer: paulgarn
 ms.custom: has-adal-ref
 ---
