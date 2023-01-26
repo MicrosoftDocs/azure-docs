@@ -19,7 +19,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 **Fixed the Error generated when resource is updated using if-match header and PATCH**
 
-Bug is now fixed and Resource will updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)|
+Bug is now fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)|
 
 ## May 2022
 
