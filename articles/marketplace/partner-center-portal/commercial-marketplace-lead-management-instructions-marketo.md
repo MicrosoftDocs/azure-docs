@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: urimsft
 ms.author: uridor
-ms.date: 06/08/2022
+ms.date: 01/26/2023
 ---
 
 # Use Marketo to manage commercial marketplace leads
@@ -22,25 +22,25 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 1. Select **Design Studio**.
 
-   ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
+   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png" alt-text="Screenshot showing Marketo Design Studio.":::
 
 1. Select **New Form**.
 
-   ![Marketo New Form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
+   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png" alt-text="Screenshot showing a new Marketo form.":::
 
 1. Fill in the required fields in the **New Form** dialog box, and then select **Create**.
 
-    ![Marketo create new form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
+   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png" alt-text="Screenshot showing a new Marketo form filled in.":::
 
 1. On the **Field Details** page, select **Finish**.
 
-   ![Marketo finish form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
+   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png" alt-text="Screenshot showing a completed Marketo form.":::
 
 1. Approve and close.
 
 1. On the **MarketplaceLeadBackend** tab, select **Embed Code**. 
 
-   ![Marketo Embed Code](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
+   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png" alt-text="Screenshot showing the Marketo Embed Code screen.":::
 
 1. Marketo Embed Code displays code similar to the following example.
 
@@ -61,17 +61,13 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 ## Obtain API access from your Marketo admin
 
-1. This [article](https://aka.ms/marketo-api) shows how one can obtain API access, specifically a **ClientID** and **Client Secret** needed for the new Marketo configuration. Please follow the step-by-step guide listed in the above link to create an API-only user and a Launchpoint connection for the Partner center lead management service.
+1. This [Marketo guide to REST API](https://aka.ms/marketo-api) shows how to get API access, specifically a **ClientID** and **Client Secret** needed for the new Marketo configuration. Follow the step-by-step guide listed in the above link to create an API-only user and a Launchpoint connection for the Partner center lead management service.
 
-2. Make sure that the custom service created indicates Partner Center as shown below.
+1. Make sure that the custom service created indicates Partner Center as shown below.
 
-   ![API1-new](https://user-images.githubusercontent.com/98078741/214808153-a59183d7-12e3-432f-a792-211f4e17e9cc.png)
+   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png" alt-text="Screenshot showing the Marketo connection details page.":::
 
-3. Once you click the View details link for the new service created, you can copy the **Client ID** and **Client secret** for use in the Partner center connector configuration.
-
-   ![Marketo API2](https://user-images.githubusercontent.com/98078741/214813828-0898f11d-fef6-4de5-938d-d4b2beac4845.png)
-
-   ![Marketo API3](https://user-images.githubusercontent.com/98078741/214808193-693a599a-9254-4f63-b500-937f634d3769.png)
+1. Once you click **View details** for the new service created, you can copy the **Client ID** and **Client secret** for use in the Partner center connector configuration.
 
 ## Configure your offer to send leads to Marketo
 
@@ -87,7 +83,7 @@ When you're ready to configure the lead management information for your offer in
 
 1. On the **Connection details** pop-up window, select **Marketo** for the **Lead destination**.
 
-   ![Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
+   :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png" alt-text="Screenshot showing the lead destination page.":::
 
 1. Provide the **Munchkin ID**, **Form ID**, **Client ID** and **Client Secret** fields.
 
@@ -97,5 +93,3 @@ When you're ready to configure the lead management information for your offer in
 1. Select **OK**.
 
    To make sure you've successfully connected to a lead destination, select **Validate**. If successful, you'll have a test lead in the lead destination.
-
-   ![Connection details pop-up window](https://user-images.githubusercontent.com/98078741/214812295-b65db33a-39ed-4769-832e-5637bf9bcf7d.png)
