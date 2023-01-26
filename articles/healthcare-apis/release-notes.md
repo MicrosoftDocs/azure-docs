@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/09/2022
+ms.date: 01/25/2023
 ms.author: mikaelw
 ms.custom: references_regions
 ---
