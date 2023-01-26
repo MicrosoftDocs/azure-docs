@@ -1,6 +1,6 @@
 ---
-title: Autoscale in Azure using a custom metric
-description: Learn how to scale your web app by using custom metrics in the Azure portal.
+title: Autoscale diagnostics
+description: Configure diagnostics in autoscale.
 author: EdB-MSFT
 ms.author: edbaynash
 ms.service: azure-monitor
@@ -11,13 +11,9 @@ ms.reviewer: akkumari
 
 # Customer intent: As a devops admin, I want to collect and analyze autoscale metrics and logs.
 ---
-
->>> Where is the flapping logs ?
-
-
 # Diagnostic settings in Autoscale
 
-Autoscale has two log categories and a set of metrics which can be enabled via the **Diagnostics settings** tab on the autoscale setting page.
+Autoscale has two log categories and a set of metrics that can be enabled via the **Diagnostics settings** tab on the autoscale setting page.
 
 :::image type="content" source="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png" alt-text="A screenshot showing the menu in the autoscale setting page":::
 
@@ -27,15 +23,15 @@ The two categories are
 * [Autoscale Scale Actions](https://learn.microsoft.com/azure/azure-monitor/reference/tables/autoscalescaleactionslog) log data relating to each scale event. 
 
 
-Information about Autoscale Metrics cn be found in the [Supported metrics](../essentials/metrics-supported#microsoftinsightsautoscalesettings) reference.
+Information about Autoscale Metrics can be found in the [Supported metrics](../essentials/metrics-supported#microsoftinsightsautoscalesettings) reference.
 
-Both the logs and metrics can be sent to a variety of destinations including:
+Both the logs and metrics can be sent to various destinations including:
 * Log Analytics workspaces
 * Storage accounts
 * Event hubs
 * Partner solutions
 
-For mor information on diagnostics see [Diagnostic settings in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+For more information on diagnostics, see [Diagnostic settings in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 
 ## Resource log schemas 
 
@@ -50,7 +46,7 @@ The following schemas appear in the autoscale evaluations log.
 
 Recorded when autoscale first looks at an autoscale profile
 
-```json
+```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
   "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
@@ -67,9 +63,9 @@ Recorded when autoscale first looks at an autoscale profile
 
 ### Profile cooldown evaluation
 
-Recorded when autoscale evaluates if it should not do a scale because of a cool down period. 
+Recorded when autoscale evaluates if it shouldn't  scale because of a cool down period. 
 
-```json
+```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
   "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
@@ -92,7 +88,7 @@ Recorded when autoscale evaluates if it should not do a scale because of a cool 
 
 Recorded when autoscale first starts evaluating a particular scale rule. 
 
-```json
+```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
   "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
@@ -119,7 +115,7 @@ Recorded when autoscale first starts evaluating a particular scale rule.
 
 Recorded when autoscale evaluated the metric being used to trigger a scale action. 
 
-```json
+```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
   "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
@@ -143,7 +139,7 @@ Recorded when autoscale evaluated the metric being used to trigger a scale actio
 
 Recorded when autoscale evaluates the number of instances already running in preparation for deciding if it should start more, shut down some, or do nothing. 
 
-```json
+```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
   "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
@@ -164,7 +160,7 @@ Recorded when autoscale evaluates the number of instances already running in pre
 
 Recorded when autoscale starts evaluation if a scale action should take place. 
 
-```json
+```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
   "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
@@ -184,7 +180,7 @@ Recorded when autoscale starts evaluation if a scale action should take place.
 
 Recorded when autoscale updates the number of compute instances running, either up or down.
 
-```json
+```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
   "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
@@ -209,7 +205,7 @@ The following schemas appear in the autoscale evaluations log.
 ### Scale action
 
 Recorded when autoscale initiates a scale action, either up or down. 
-```json
+```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
   "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
@@ -233,7 +229,7 @@ Recorded when autoscale initiates a scale action, either up or down.
 
 Recorded at different intervals of an instance scale action.
 
-```json
+```JSON
 {
   "time": "2018-09-10 18:12:00.6132593",
   "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
@@ -263,13 +259,13 @@ The follwoing events are logged to the Activity log with CategoryValue =="Autosc
 * Predictive Metric Failure
 * Flapping
 
-An extract of each log event name, showing the relevant parts of the `Propertes` element are shown below:
+An extract of each log event name, showing the relevant parts of the `Properties` element are shown below:
 
 ### Autoscale action 
 
 Logged when autoscale attempts to scale in or out.
 
-```json
+```JSON
 {
    "eventCategory": "Autoscale",
     "eventName": "AutoscaleAction",
@@ -347,9 +343,9 @@ Logged when autoscale attempts to scale in or out.
 
 ### Get Operation Status Result
 
-Logged following an scale event.
+Logged following a scale event.
 
-```json
+```JSON
 
 "Properties":{
     "eventCategory": "Autoscale",
@@ -364,7 +360,7 @@ Logged following an scale event.
 
 ### Metric failure
 
-Logged when autoscale cannot determine the value of the metric used in the scale rule.
+Logged when autoscale can't determine the value of the metric used in the scale rule.
 
 ```JSON
 "Properties":{
@@ -380,7 +376,7 @@ Logged when autoscale cannot determine the value of the metric used in the scale
 
 Logged when autoscale can once again determine the value of the metric used in the scale rule after a `MetricFailure` event
 
-```json
+```JSON
 "Properties":{
     "eventCategory": "Autoscale",
     "eventName": "MetricRecovery",
@@ -392,9 +388,9 @@ Logged when autoscale can once again determine the value of the metric used in t
 ```
 ### Predictive Metric Failure
 
-Logged when autoscale can not calculate a predicted scale events due to the metric being unavailable.
+Logged when autoscale can't calculate predicted scale events due to the metric being unavailable.
 
-```json
+```JSON
 "Properties":{
     "eventCategory": "Autoscale",
     "eventName": "PredictiveMetricFailure",
