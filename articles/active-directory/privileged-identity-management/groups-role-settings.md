@@ -113,7 +113,8 @@ And, you can choose one of these **active** assignment duration options:
 ### Require multi-factor authentication on active assignment
 
 You can require that administrator or group owner provides multi-factor authentication when they create an active (as opposed to eligible) assignment. Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
-User may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
+
+Administrator or group owner may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
 
 ### Require justification on active assignment
 

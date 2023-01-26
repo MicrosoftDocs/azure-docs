@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 In Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define role assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, and more. Use the following steps to configure role settings and setup the approval workflow to specify who can approve or deny requests to elevate privilege.
 
-You need to have Global Administrator or Privileged Role Administrator role to manage PIM role settings for Azure AD Role. Role settings are defined per role: all assignments for the same role follow the same role settings. Role settings of one role are independent from role settings of another role.
+You need to have Owner or User Access Administrator role to manage PIM role settings for the resource. Role settings are defined per role and per resource: all assignments for the same role follow the same role settings. Role settings of one role are independent from role settings of another role. Role settings of one resource are independent from role settings of another resource, and role settings configured on a higher level, such as "Subscription" for example, are not inherited on a lower level, such as "Resource Group" for example.
 
 PIM role settings are also known as “PIM Policies”.
 
@@ -113,7 +113,7 @@ And, you can choose one of these **active** assignment duration options:
 
 You can require that administrator provides multi-factor authentication when they create an active (as opposed to eligible) assignment. Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
 
-User may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
+Administrator may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
 
 ### Require justification on active assignment
 
