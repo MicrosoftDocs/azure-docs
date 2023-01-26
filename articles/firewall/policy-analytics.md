@@ -79,4 +79,4 @@ Policy analytics starts monitoring the flows in the DNAT, Network, and Applicati
 ## Next steps
 
 
-- To learn more about Azure Firewall logs and metrics, see [Azure Firewall logs and metrics](logs-and-metrics.md)
+- To learn more about Azure Firewall logs and metrics, see [Azure Firewall logs and metrics](logs-and-metrics.md).
