@@ -47,7 +47,7 @@ Enabling Policy Analytics on a Firewall Policy associated with a single firewall
 
 Policy analytics starts monitoring the flows in the DNAT, Network, and Application rule analysis only after you enable the feature. It can't analyze rules hit before the feature is enabled.  
 
-### Firewall with no Diagnostics settings configured
+### Firewall with no diagnostics settings configured
 
 
 1.	Once all prerequisites are met, select **Policy analytics (preview)** in the table of contents. 
