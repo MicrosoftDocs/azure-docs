@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 01/25/2023
 ms.author: eur
 ---
 
@@ -62,6 +62,7 @@ For an example, see the [Speech translation quickstart](get-started-speech-trans
 
 ## Next steps
 
+* [Azure gaming documentation](/gaming/azure/)
 * [Text-to-speech quickstart](get-started-text-to-speech.md)
 * [Speech-to-text quickstart](get-started-speech-to-text.md)
 * [Speech translation quickstart](get-started-speech-translation.md)
