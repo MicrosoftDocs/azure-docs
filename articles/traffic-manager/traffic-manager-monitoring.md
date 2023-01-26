@@ -13,7 +13,7 @@ ms.author: greglin
 
 # Traffic Manager endpoint monitoring
 
-Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures. Endpoint monitoring is enabled by default. To disable monitoring, see [Health Checks: Always serve](#health-checks-always-serve-preview).
+Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures. Endpoint monitoring is enabled by default. To disable monitoring, see [Health Checks](#health-checks-preview).
 
 ## Configure endpoint monitoring
 
@@ -161,20 +161,24 @@ For more information, see [Traffic Manager traffic-routing methods](traffic-mana
 
 For more information about troubleshooting failed health checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
-## Health Checks: Always serve (Preview)
+## Health Checks (Preview)
 
-An option is available in Azure Traffic Manager to configure endpoint **Health Checks** to **Always serve** traffic. This setting will disable all health checks for that endpoint. When **Always serve** is selected, monitoring is bypassed and traffic is always sent to an endpoint. The [endpoint monitor status](#endpoint-monitor-status) displayed will be **Unmonitored**. This option is currently in public preview.
+Azure Traffic Manager also enables you to configure endpoint **Health Checks**. This option is currently in public preview. There are two available settings:
 
-To configure this setting:
+1. **Enable** health checks. Traffic is served to the endpoint based on health. This is the default setting.
+2. **Always serve traffic**. This setting disables health checks.
+
+When **Always serve traffic** is selected, monitoring is bypassed and traffic is always sent to an endpoint. The [endpoint monitor status](#endpoint-monitor-status) displayed will be **Unmonitored**. 
+
+To configure health checks:
 1. Select **Endpoints** in the **Settings** section of your Traffic Manager profile blade. 
 2. Select the endpoint that you want to configure.
-3. Choose **Always serve traffic** under **Health Checks**.
+3. Under **Health Checks**, choose **Enable** or **Always serve traffic**.
 4. Select **Save**.
 
 > [!NOTE]
-> - The **Always serve** setting for **Health Checks** is not available on nested endpoints.
-> - Enabling and disabling an endpoint does not reset the **Health Checks** configuration.
-> - Selecting **Enable** under **Health Checks** will enable health probes as described in this article. This is the default setting.
+> - Health checks can't be disabled on nested endpoints.
+> - Enabling and disabling an endpoint doesn't reset the **Health Checks** configuration.
 
 ## FAQs
 
