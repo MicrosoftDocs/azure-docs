@@ -20,16 +20,19 @@ Azure Monitor Logs collects data from a wide variety of sources, including Windo
 This article explains how to migrate your Splunk, Splunk Cloud, or Splunk Enterprise deployment to Azure Monitor Logs for logging and log data analysis. 
 
 For information on migrating your Security Information and Event Management (SIEM) deployment from Splunk Enterprise Security to Azure Sentinel, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
-## Why migrate to Azure Monitor Logs?
+## Why migrate from Splunk to Azure Monitor Logs?
 
 The benefits of migrating to Azure Monitor Logs include:
 
-- [End-to-end, at-scale monitoring](../overview.md) and [native monitoring of Azure resources](../essentials/platform-logs-overview.md).
+- Fully managed, Software as a Service (SaaS) platform with low maintenance overhead and [simple per-GB pay-as-you-go pricing](https://azure.microsoft.com/pricing/details/monitor/).   
+- Cloud-native monitoring and observability offering:
+    - [End-to-end, at-scale monitoring](../overview.md).
+    - [Native monitoring of Azure resources](../essentials/platform-logs-overview.md).
+    - [Privacy and compliance](../security-controls-policy.md).
 - [Cost optimization features](../../azure-monitor/best-practices-cost.md), such as [Basic logs](../logs/basic-logs-configure.md).
-- [Privacy and compliance](../security-controls-policy.md).
-- Native integration with [Microsoft Sentinel](../../sentinel/overview.md) for security information and event management.
+- Native integration with a range of complementary Azure services, such as [Microsoft Sentinel](../../sentinel/overview.md) for security information and event management, [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) for automation, [Azure Managed Grafana](../../managed-grafana/overview.md) for dashboarding, and [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md)  for advanced analysis.
 
-## Compare offerings
+## Compare offerings 
 
 |Splunk offering|Azure offering|
 |---|---|
