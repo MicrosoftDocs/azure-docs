@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/7/2022
+ms.date: 01/26/2023
 ms.author: owinfrey
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -123,8 +123,8 @@ This experience will also help administrators walk through the different steps i
 
 For more information:, see:
 
-- [Blah](../cloud-sync/how-to-configure.md)
-- [Blah](../cloud-sync/how-to-attribute-mapping.md)
+- [Create a new configuration for Azure AD Connect cloud sync](../cloud-sync/how-to-configure.md)
+- [Attribute mapping in Azure AD Connect cloud sync](../cloud-sync/how-to-attribute-mapping.md)
 
 ---
 
@@ -138,7 +138,7 @@ For more information:, see:
 
 Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to simply map the needed attributes using Cloud Sync's attribute mapping experience. 
 
-For more details on how to enable this feature, see:
+For more details on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](/azure/active-directory/cloud-sync/custom-attribute-mapping)
 
 
 ---
