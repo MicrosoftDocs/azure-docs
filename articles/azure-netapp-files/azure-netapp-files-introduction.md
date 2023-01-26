@@ -64,7 +64,7 @@ Azure NetApp Files provides built-in data protection to help ensure the safe sto
 * Backup and restore:  
   Azure NetApp Files provides integrated backup, which allows you to create backups of your volume snapshots to lower-cost Azure storage and restore them if data loss happens.
 * Data replication:  
-  Azure NetApp Files supports data replication between different Azure regions and Availability Zones, which helps to ensure high availability and disaster recovery. Replication can be done asynchronously, and the service can failover to a secondary region or zone in an outage. 
+  Azure NetApp Files supports data replication between different Azure regions and Availability Zones, which helps to ensure high availability and disaster recovery. Replication can be done asynchronously, and the service can fail over to a secondary region or zone in an outage. 
 * Security:  
   Azure NetApp Files provides built-in security features such as RBAC/IAM, Active Directory Domain Services (AD DS), Azure Active Directory Domain Services (AADDS) and LDAP integration, and Azure Policy.  This functionality helps to protect data from unauthorized access, breaches, and misconfigurations.
   
