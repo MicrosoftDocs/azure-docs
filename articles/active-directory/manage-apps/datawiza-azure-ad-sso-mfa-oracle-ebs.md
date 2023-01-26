@@ -96,9 +96,9 @@ In the Oracle EBS Linux environment, generate a new DBC file for DAP. You need t
 1.	Configure the environment for EBS using a command similar to: . /u01/install/APPS/EBSapps.env run
 2.	Use the AdminDesktop utility to generate the new DBC file. Specify the name of a new Desktop Node for this DBC file: 
 
-java oracle.apps.fnd.security.AdminDesktop apps/apps CREATE NODE_NAME=<ebs domain name> DBC=/u01/install/APPS/fs1/inst/apps/EBSDB_apps/appl/fnd/12.0.0/secure/EBSDB.dbc
+java oracle.apps.fnd.security.AdminDesktop apps/apps CREATE NODE_NAME=\<ebs domain name> DBC=/u01/install/APPS/fs1/inst/apps/EBSDB_apps/appl/fnd/12.0.0/secure/EBSDB.dbc
 
-3.	This action generates a file called ebsdb_<ebs domain name>.dbc in the location where you ran the previous command.
+3.	This action generates a file called ebsdb_\<ebs domain name>.dbc in the location where you ran the previous command.
 4.	Copy the DBC file content to a notebook. You will use the content later.
 
 ## Enable EBS for SSO
