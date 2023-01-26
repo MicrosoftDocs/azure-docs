@@ -60,9 +60,9 @@ When using the `az arcappliance createConfig` or `az arcappliance run` command, 
 
 When the appliance is deployed to a host resource pool, there is no high availability if the host hardware fails. Because of this, we recommend that you don't try to deploy the appliance in a host resource pool.
 
-### Resource bridge status "Offline" and `provisioningState` "Failed" due to unregistered providers
+### Resource bridge status "Offline" and `provisioningState` "Failed"
 
-When deploying Arc resource bridge, the bridge appears to be successfully deployed, because no errors were encountered when running `az arcappliance deploy` or `az arcappliance create`. However, when viewing the bridge in Azure portal, the status shows as **Offline**, and when running `az arcappliance show`, the `provisioningState` shows as **Failed**. This happens when required providers are not registered before the bridge is deployed.
+When deploying Arc resource bridge, the bridge may appear to be successfully deployed, because no errors were encountered when running `az arcappliance deploy` or `az arcappliance create`. However, when viewing the bridge in Azure portal, you may see status shows as **Offline**, and `az arcappliance show` may show the `provisioningState` as **Failed**. This happens when required providers are not registered before the bridge is deployed.
 
 To resolve this problem, delete the resource bridge, register the providers, then redeploy the resource bridge.
 
