@@ -100,6 +100,9 @@ After saving, you should see a message telling you what you still need to do to 
 
 For more information, see [attribute mapping](how-to-attribute-mapping.md).
 
+## Directory extensions and custom attribute mapping.
+Azure AD Connect cloud sync allows you to extend the directory with extensions and provides for custom attribute mapping.  For more information see [Directory extensions and custom attribute mapping](custom-attribute-mapping.md).
+
 ## On-demand provisioning
 Azure AD Connect cloud sync allows you to test configuration changes, by applying these changes to a single user or group.  
 
