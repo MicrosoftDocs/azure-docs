@@ -11,7 +11,6 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 01/19/2023
 ms.author: davidmu
-ms.reviewer: paulgarn
 ms.custom: aaddev
 ms.reviewer: alamaral
 ---
