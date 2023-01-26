@@ -15,7 +15,6 @@ ms.reviewer: saibandaru
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
 
 #Customer intent: As an Azure AD administrator, I want to assign owners to enterprise applications.
-
 ---
 
 # Assign enterprise application owners
@@ -44,15 +43,15 @@ You'll need to consent to the `Application.ReadWrite.All` permission.
 
 In the following example, the user's object ID is 8afc02cb-4d62-4dba-b536-9f6d73e9be26 and the applicationId is 46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b.
 
-```powershell
-Import-Module Microsoft.Graph.Applications
+    ```powershell
+    Import-Module Microsoft.Graph.Applications
 
-$params = @{
-	"@odata.id" = "https://graph.microsoft.com/v1.0/directoryObjects/8afc02cb-4d62-4dba-b536-9f6d73e9be26"
-}
+    $params = @{
+        "@odata.id" = "https://graph.microsoft.com/v1.0/directoryObjects/8afc02cb-4d62-4dba-b536-9f6d73e9be26"
+    }
 
-New-MgServicePrincipalOwnerByRef -ServicePrincipalId '46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b' -BodyParameter $params
-```
+    New-MgServicePrincipalOwnerByRef -ServicePrincipalId '46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b' -BodyParameter $params
+    ```
 :::zone-end
 
 :::zone pivot="ms-graph"
@@ -63,21 +62,19 @@ You'll need to consent to the `Application.ReadWrite.All` permission.
 
 Run the following Microsoft Graph query to assign an owner to an application. You need the object ID of the user you want to assign the application to. In the following example, the user's object ID is 8afc02cb-4d62-4dba-b536-9f6d73e9be26 and the appId is 46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b.
 
-```http
-POST https://graph.microsoft.com/v1.0/servicePrincipals(appId='46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b')/owners/$ref
-Content-Type: application/json
+    ```http
+    POST https://graph.microsoft.com/v1.0/servicePrincipals(appId='46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b')/owners/$ref
+    Content-Type: application/json
 
-{
-    "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/8afc02cb-4d62-4dba-b536-9f6d73e9be26"
-}
-```
+    {
+        "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/8afc02cb-4d62-4dba-b536-9f6d73e9be26"
+    }
+    ```
 
 :::zone-end
 
-
 > [!NOTE]
 > If the user setting **Restrict access to Azure AD administration portal** is set to `Yes`, non-admin users will not be able to use the Azure portal to manage the applications they own. For more information about the actions that can be performed on owned enterprise applications, see [Owned enterprise applications](../fundamentals/users-default-permissions.md#owned-enterprise-applications). 
-
 
 ## Next steps
 
