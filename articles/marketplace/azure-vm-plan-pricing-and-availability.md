@@ -85,6 +85,9 @@ You can design each plan to be visible to everyone or only to a preselected priv
 > [!IMPORTANT]
 > Private plans are still visible to everyone in the CLI, but only deployable to customers configured in the private audience.
 
+> [!NOTE]
+> Private plans can only be deployed by the customers configured in the private audience. It is recommended to create a Private Offer instead of using private plans. However, if you decide to make a private plan instead, keep in mind that the Plan ID, URN and Offer Name is publicly visible via Azure CLI. When creating your private plans, be sure to name them appropriately with this in mind.
+
 Private offers aren't supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 
 ## Hide plan
