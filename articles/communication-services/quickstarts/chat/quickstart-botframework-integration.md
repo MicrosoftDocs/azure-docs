@@ -49,7 +49,7 @@ This quickstart uses a multi-tenant bot. To use a single-tenant bot or a managed
 
 ### Get the bot's app ID and app password
 
-Next, [get the Microsoft App ID and password](/azure/bot-service/abs-quickstart?tabs=userassigned#to-get-your-app-or-tenant-id) that are assigned to your bot when it's deployed. You use these values for later configurations.
+Next, [get the Microsoft app ID and password](/azure/bot-service/abs-quickstart?tabs=userassigned#to-get-your-app-or-tenant-id) that are assigned to your bot when it's deployed. You use these values for later configurations.
 
 ### Create a web app to hold the bot logic
 
@@ -555,7 +555,7 @@ In the [Microsoft Bot Framework developer portal](https://dev.botframework.com/b
 
 ### Bot gets a forbidden exception while replying to a message
 
-Verify that the bot's Microsoft App ID and password are saved correctly in the bot configuration file you upload to the web app.
+Verify that the bot's Microsoft app ID and password are saved correctly in the bot configuration file you upload to the web app.
 
 ### Bot can't be added as a participant
 
