@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Create a hybrid identity Active Directory tenant by using password hash sync'
-description: Learn how to set up a hybrid identity environment by using password hash sync to integrate a Windows Server Active Directory tenant with Azure Active Directory.
+title: 'Tutorial: Use password hash sync for hybrid identity in a single Active Directory forest'
+description: Learn how to set up a hybrid identity environment by using password hash sync to integrate a Windows Server Active Directory forest with Azure Active Directory.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Create a hybrid identity Active Directory tenant by using password hash sync
+# Tutorial: Use password hash sync for hybrid identity in a single Active Directory forest
 
 This tutorial shows you how to create a hybrid identity environment in Azure by using password hash sync and Windows Server Active Directory (Windows Server AD). You can use the hybrid identity environment you create for testing or to get more familiar with how hybrid identity works.
 
@@ -29,9 +29,9 @@ In this tutorial, you learn how to:
 > - Create a Windows Server Active Directory environment.
 > - Create a Windows Server Active Directory user.
 > - Create an Azure Active Directory tenant.
-> - Create a Hybrid Identity Administrator in Azure.
+> - Create a Hybrid Identity Administrator account in Azure.
 > - Add a custom domain to your directory.
-> - Set up Azure Active Directory Connect.
+> - Set up Azure AD Connect.
 > - Test and verify that users are synced.
 
 ## Prerequisites
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > This tutorial uses PowerShell scripts to quickly create the tutorial environment. Each script uses variables that are declared at the beginning of the script. Be sure to change the variables to reflect your environment.
 >
-> The scripts in the tutorial create a general Windows Server Active Directory (Windows Server AD) environment before they install Azure Active Directory Connect. The scripts are used in related tutorials.
+> The scripts in the tutorial create a general Windows Server Active Directory (Windows Server AD) environment before they install Azure AD Connect. The scripts are also used in related tutorials.
 >
 > The PowerShell scripts that are used in this tutorial are available on [GitHub](https://github.com/billmath/tutorial-phs).
 
@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
 To create a hybrid identity environment, the first task is to create a virtual machine to use as an on-premises Windows Server AD server.
 
 > [!NOTE]
-> If you've never run a script in PowerShell on your host machine, before you run any scripts, open Windows PowerShell ISE as an administrator and run `Set-ExecutionPolicy remotesigned`. In the **Execution Policy Change** dialog, select **Yes**.
+> If you've never run a script in PowerShell on your host machine, before you run any scripts, open Windows PowerShell ISE as administrator and run `Set-ExecutionPolicy remotesigned`. In the **Execution Policy Change** dialog, select **Yes**.
 
 To create the virtual machine:
 
@@ -85,9 +85,9 @@ To create the virtual machine:
     Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive 
     ```
 
-## Deploy the operating system
+## Install the operating system
 
-To finish creating the virtual machine, finish installing the operating system:
+To finish creating the virtual machine, install the operating system:
 
 1. In Hyper-V Manager, double-click the virtual machine.
 1. Select **Start**.
@@ -98,7 +98,7 @@ To finish creating the virtual machine, finish installing the operating system:
 1. Select the **I accept the license terms** checkbox and select **Next**.
 1. Select **Custom: Install Windows Only (Advanced)**.
 1. Select **Next**.
-1. When the installation is finished, restart the virtual machine. Sign in, and then check Windows Update. Install any updates to ensure that the VM is fully updated.
+1. When the installation is finished, restart the virtual machine. Sign in, and then check Windows Update. Install any updates to ensure that the VM is fully up-to-date.
 
 ## Install Windows Server AD prerequisites
 
@@ -172,7 +172,7 @@ Now, install and configure Active Directory Domain Services to create the enviro
 
 ## Create a Windows Server AD user
 
-Next, create a test account. You create this account in your on-premises Active Directory environment. The account is then synced to Azure Active Directory (Azure AD).
+Next, create a test user account. Create this account in your on-premises Active Directory environment. The account is then synced to Azure Active Directory (Azure AD).
 
 1. Open Windows PowerShell ISE as administrator.
 1. Run the following script:
@@ -194,65 +194,55 @@ Next, create a test account. You create this account in your on-premises Active 
     Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Enabled $true
     ```
 
-## Create an Azure Active Directory tenant
+## Create an Azure AD tenant
 
-Now, create an Azure AD tenant, so you can sync your users in Azure.
-
-To create an Azure AD tenant:
+Now, create an Azure AD tenant, so you can sync your users in Azure:
 
 1. In the [Azure portal](https://portal.azure.com), sign in with the account that's associated with your Azure subscription.
 1. Search for and then select **Azure Active Directory**.
 1. Select **Create**.
 
    :::image type="content" source="media/tutorial-password-hash-sync/create1.png" alt-text="Screenshot that shows how to create an Azure AD tenant.":::
-
 1. Enter a name for the organization and an initial domain name. Then select **Create** to create your directory.
 1. To manage the directory, select the **here** link.
 
 ## Create a Hybrid Identity Administrator in Azure AD
 
-The next task is to create a Hybrid Identity Administrator account. This account is used to create the Azure AD Connector account during Azure Active Directory Connect installation. The Azure AD Connector account is used to write information to Azure AD.
+The next task is to create a Hybrid Identity Administrator account. This account is used to create the Azure AD Connector account during Azure AD Connect installation. The Azure AD Connector account is used to write information to Azure AD.
 
 To create the Hybrid Identity Administrator account:
 
 1. In the left menu under **Manage**, select **Users**.
 
    :::image type="content" source="media/tutorial-password-hash-sync/gadmin1.png" alt-text="Screenshot that shows Users selected under Manage in the resource menu to create a Hybrid Identity Administrator in Azure AD.":::
-
 1. Select **All users**, and then select **New user**.
-
-1. In **User**, enter a name and a user name for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
+1. In the **User** pane, enter a name and a user name for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
 
    In the **Directory role** pane, select **Hybrid Identity Administrator**. Then select **Create**.
 
    :::image type="content" source="media/tutorial-password-hash-sync/gadmin2.png" alt-text="Screenshot that shows the Create button you select when you create a Hybrid Identity Administrator account in Azure AD.":::
-
-1. In a new web browser window, sign in to myapps.microsoft.com by using the new Hybrid Identity Administrator account and the temporary password.
-
+1. In a new web browser window, sign in to `myapps.microsoft.com` by using the new Hybrid Identity Administrator account and the temporary password.
 1. Choose a new password for the Hybrid Identity Administrator account and change the password.
 
-## Download and install Azure Active Directory Connect
+## Download and install Azure AD Connect
 
-Now it's time to download and install Azure Active Directory Connect. After it's installed, you'll go through the express installation.
+Now it's time to download and install Azure AD Connect. After it's installed, you'll use the express installation.
 
-To download and install Azure Active Directory Connect:
-
-1. Download [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+1. Download [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 1. Go to *AzureADConnect.msi* and double-click to open the installation file.
-1. In **Welcome**, select the checkbox to agree to the licensing terms, and then select **Continue**.
+1. In **Welcome**, select the checkbox to agree to the licensing terms and select **Continue**.
 1. In **Express settings**, select **Use express settings**.
 
-   :::image type="content" source="media/tutorial-password-hash-sync/express1.png" alt-text="Screenshot that shows the Express settings screen and the Use express settings button.":::   
-
+   :::image type="content" source="media/tutorial-password-hash-sync/express1.png" alt-text="Screenshot that shows the Express settings screen and the Use express settings button.":::
 1. In **Connect to Azure AD**, enter the user name and password for the Hybrid Identity Administrator account for Azure AD. Select **Next**.  
 1. In **Connect to AD DS**, enter the user name and password for an enterprise admin account. Select **Next**.  
 1. In **Ready to configure**, select **Install**.
 1. When the installation is finished, select **Exit**.
-1. Before you use the Synchronization Service Manager or Synchronization Rule Editor, sign out, and then sign in again.
+1. Before you use Synchronization Service Manager or Synchronization Rule Editor, sign out, and then sign in again.
 
 ## Check for users in the portal
 
-Now you'll verify that the users that you had in your on-premises Active Directory tenant have synced and are now in your Azure AD tenant. This section might take a few hours to complete.
+Now you'll verify that the users in your on-premises Active Directory tenant have synced and are now in your Azure AD tenant. This section might take a few hours to complete.
 
 To verify that the users are synced:
 
@@ -263,7 +253,7 @@ To verify that the users are synced:
 
    :::image type="content" source="media/tutorial-password-hash-sync/sync1.png" alt-text="Screenshot that shows verifying that users were synced in Azure Active Directory.":::
   
-## Test user sync
+## Sign in with a user account to test sync
 
 To test that users from your Windows Server AD tenant are synced with your Azure AD tenant, sign in as one of the users:
 
@@ -276,6 +266,6 @@ You've successfully set up a hybrid identity environment that you can use to tes
 
 ## Next steps
 
-- [Hardware and prerequisites](how-to-connect-install-prerequisites.md)
-- [Express settings](how-to-connect-install-express.md)
-- [Password hash synchronization](how-to-connect-password-hash-synchronization.md)|
+- Review [Azure AD Connect hardware and prerequisites](how-to-connect-install-prerequisites.md).
+- Learn how to use [Express settings](how-to-connect-install-express.md) in Azure AD Connect.
+- Learn more about [password hash sync](how-to-connect-password-hash-synchronization.md) with Azure AD Connect.

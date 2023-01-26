@@ -10,13 +10,13 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Integrate a single AD forest AD environment to the cloud with PHS
+  - name: Use password hash sync for hybrid identity in Active Directory
     href: tutorial-password-hash-sync.md
-  - name: Integrate a single AD forest AD environment to the cloud with PTA
+  - name: Use pass-through authentication for hybrid identity in Active Directory
     href: tutorial-passthrough-authentication.md
-  - name: Federate a single AD forest environment to the cloud
+  - name: Use federation for hybrid identity in Active Directory
     href: tutorial-federation.md
-  - name: Set up PHS as backup for AD FS in Azure AD Connect 
+  - name: Set up password hash sync as backup for AD FS in Azure AD Connect 
     href: tutorial-phs-backup.md
 - name: Concepts
   items:
