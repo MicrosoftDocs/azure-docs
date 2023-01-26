@@ -13,7 +13,7 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Configure Datawiza for Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle EBS
+# Configure Datawiza for Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle EBS 
 
 In this tutorial, learn how to enable Azure Active Directory Multi-Factor Authentication (MFA) and single sign-on (SSO) for an Oracle E-Business Suite (Oracle EBS) application via Datawiza. 
 
