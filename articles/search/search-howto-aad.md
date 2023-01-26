@@ -45,7 +45,7 @@ In this step, configure your search service to recognize an **authorization** he
    | Option | Status | Description |
    |--------|--------|-------------|
    | API Key | Generally available (default) | Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
-   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the [2021-04-30-preview REST API](https://learn.microsoft.com/en-us/rest/api/searchservice/index-preview). |
+   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the [2021-04-30-preview REST API](/rest/api/searchservice/index-preview). |
    | Both | Preview | Requests are valid using either an API key or role-based access control. |
 
 All network calls for search service operations and content will respect the option you select: API keys, bearer token, or either one if you select **Both**.
