@@ -27,7 +27,7 @@ We recommend sharing at the Gallery level for the best experience. We don't reco
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-| Share with\: | Option |
+| Share with: | Option |
 |----|----|
 | Specific people, groups, or service principals (described in this article) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
 | [Subscriptions or tenants](./share-gallery-direct.md) | A direct shared gallery lets you share to everyone in a subscription or tenant. |

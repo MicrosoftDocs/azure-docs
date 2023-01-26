@@ -30,7 +30,7 @@ This article shows how to create a VM from a specialized image:
 
 ## Create a VM from your gallery
 
-
+Create a VM from an internal gallery.
 
 ### [CLI](#tab/cli)
 
