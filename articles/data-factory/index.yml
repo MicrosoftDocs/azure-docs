@@ -123,6 +123,20 @@ landingContent:
             url: industry-sap-templates.md
           - text: SAP change data capture (CDC) capabilities
             url: sap-change-data-capture-introduction-architecture.md
+  - title: Change data capture (CDC)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Change data capture
+            url: concepts-change-data-capture.md
+      - linkListType: concept
+        links:
+          - text: Change data capture resources
+            url: concepts-change-data-capture-resource.md
+      - linkListType: tutorial
+        links:
+          - text: Capture changed data with a CDC resource
+            url: how-to-change-data-capture-resource.md
   - title: Lift and shift SSIS packages
     linkLists:
       - linkListType: overview
