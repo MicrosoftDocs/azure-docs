@@ -39,7 +39,7 @@ The sample Dapr bindings application:
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - Install [Git](https://git-scm.com/downloads)
 
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="nodejs"
 
 ## Run the Dapr application locally with Node.js
 
@@ -206,7 +206,7 @@ Upon successful completion of the `azd up` command:
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
+::: zone pivot="python"
 
 ## Run the Dapr application locally with Python
 
