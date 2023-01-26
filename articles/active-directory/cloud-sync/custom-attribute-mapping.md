@@ -30,7 +30,7 @@ For additional information on directory extensions see [Using directory extensio
  
 ## Syncing directory extensions for Azure Active Directory Connect cloud sync 
 
-You can use [directory extensions](https://learn.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0&preserve-view=true) to extend the synchronization schema directory definition in Azure Active Directory (Azure AD) with your own attributes. 
+You can use [directory extensions](/graph/api/resources/extensionproperty?view=graph-rest-1.0&preserve-view=true) to extend the synchronization schema directory definition in Azure Active Directory (Azure AD) with your own attributes. 
 
 >[!Important]
 > Directory extension for Azure Active Directory Connect cloud sync is only supported for applications with the identifier URI “api://&LT;tenantId&GT;/CloudSyncCustomExtensionsApp” and the [Tenant Schema Extension App](../hybrid/how-to-connect-sync-feature-directory-extensions.md#configuration-changes-in-azure-ad-made-by-the-wizard) created by Azure AD Connect 
