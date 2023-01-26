@@ -41,7 +41,7 @@ Azure NetApp Files is designed to provide high-performance file storage for ente
 
 All these features work together to provide a high-performance file storage solution that can handle the demands of enterprise workloads. They help to ensure that your workloads experience optimal (low) storage latency.
 
-Azure NetApp Files is designed to provide high availability for your file storage needs. Some of the key features that contribute to this high availability include:
+Azure NetApp Files is designed to provide high availability for your file storage needs. Key features that contribute to the high availability include:
 
 * Automatic failover:  
   Azure NetApp Files supports automatic failover within the bare-metal fleet if there's disruption or maintenance event. This functionality helps to ensure that your data is always available, even in a failure.
@@ -56,6 +56,20 @@ Azure NetApp Files is designed to provide high availability for your file storag
 * Azure NetApp Files provides a 99.99% availability service level agreement (SLA).
 
 All these features work together to provide a high-availability file storage solution to ensure that your data is always available, recoverable, and accessible to your applications, even in an outage.
+
+Azure NetApp Files provides built-in data protection to help ensure the safe storage, availability, and recoverability of your data. Key features include:   
+
+* Snapshot copies:  
+  Azure NetApp Files allows you to create point-in-time snapshots of your volumes, which can be restored or reverted to a previous state. The snapshots are incremental. That is, they only capture the changes made since the last snapshot, at the block level, which helps to drastically reduce storage consumption.
+* Backup and restore:  
+  Azure NetApp Files provides integrated backup, which allows you to create backups of your volume snapshots to lower-cost Azure storage and restore them if data loss happens.
+* Data replication:  
+  Azure NetApp Files supports data replication between different Azure regions and Availability Zones, which helps to ensure high availability and disaster recovery. Replication can be done asynchronously, and the service can failover to a secondary region or zone in an outage. 
+* Security:  
+  Azure NetApp Files provides built-in security features such as RBAC/IAM, Active Directory Domain Services (AD DS), Azure Active Directory Domain Services (AADDS) and LDAP integration, and Azure Policy.  This functionality helps to protect data from unauthorized access, breaches, and misconfigurations.
+  
+All these features work together to provide a comprehensive data protection solution that helps to ensure that your data is always available, recoverable, and secure.
+The Azure NetApp Files documentation provides instructions on creating and managing volumes by using Azure NetApp Files.
 
 ## Next steps
 
