@@ -54,13 +54,21 @@ If you don't yet have a workspace, create one now:
 
 You'll use the *compute instance* to run Jupyter notebooks and Python scripts in the rest of the tutorials.
 
-Create a compute instance now.  
+If you'd like your compute instance to shut down when it's not in use, turn on this preview feature:
+
+1. On the top toolbar, select **Manage preview features**
+1. Scroll down to select **Configure auto-shutdown for idle compute instances** 
+1. Select **Manage preview features** again to close the section.
+
+:::image type="content" source="media/quickstart-create-resources/enable-shutdown.png" alt-text="Screenshot shows how to enable the preview feature for compute instance auto-shutdown.":::
+
+Now create a compute instance.  
 
 1. On the left navigation, select **Notebooks**.
 1. Select **Create compute** in the middle of the page.  (You'll only see this option if you don't yet have a compute instance in your workspace.)
 1. Supply a name. Keep all the defaults on the first page.
 1. Select **Next** to see **Advanced Settings**.
-1. Select **Enable idle shutdown** so that the machine will shut down after a period of inactivity.  
+1. Select **Enable idle shutdown** so that the machine will shut down after a period of inactivity.  (First enable this feature as previously shown.)
 1. Keep the default values for the rest of the page.
 1. Select **Create**.
 
