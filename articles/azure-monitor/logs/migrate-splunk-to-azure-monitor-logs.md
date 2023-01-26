@@ -20,6 +20,14 @@ Azure Monitor Logs collects data from a wide variety of sources, including Windo
 This article explains how to migrate your Splunk, Splunk Cloud, or Splunk Enterprise deployment to Azure Monitor Logs for logging and log data analysis. 
 
 For information on migrating your Security Information and Event Management (SIEM) deployment from Splunk Enterprise Security to Azure Sentinel, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
+## Why migrate to Azure Monitor Logs?
+
+The benefits of migrating to Azure Monitor Logs include:
+
+- [Privacy and compliance](../security-controls-policy.md).
+- [Native monitoring of Azure resources](../essentials/platform-logs-overview.md) and [end-to-end, at-scale monitoring](../overview.md).
+- [Cost optimization features](../../azure-monitor/best-practices-cost.md), such as [Basic logs](../logs/basic-logs-configure.md).
+- Native integration with [Microsoft Sentinel](../../sentinel/migration.md) for security information and event management.
 
 ## Compare offerings
 
