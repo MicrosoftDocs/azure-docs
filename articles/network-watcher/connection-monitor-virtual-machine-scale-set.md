@@ -169,8 +169,6 @@ To create a monitor in Connection monitor by using the Azure portal:
 
 1. When you're ready to create the connection monitor, at the bottom of the **Review + create** pane, select **Create**.
 
-Connection monitor creates the connection monitor resource in the background.
-
 ## Create test groups in a connection monitor
 
  > [!NOTE]
