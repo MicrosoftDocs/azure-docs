@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/5/2023
+ms.date: 1/20/2023
 ms.author: jasteppe
 ---
 
@@ -82,7 +82,7 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
    :::image type="content" source="media\deploy-new-arm\iot-deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
 
    > [!IMPORTANT]
-   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   > If you're going to allow access from multiple services to the device message event hub, it's required that each service has its own event hub consumer group.
    >
    > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
    >
