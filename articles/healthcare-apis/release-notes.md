@@ -41,7 +41,7 @@ Azure Health Data Services [Events](events/events-overview.md) now include a pub
 
 **Fixed the Error generated when resource is updated using if-match header and PATCH**
 
-Bug is now fixed and Resource will updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
+Bug is now fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
 
 
 ### Toolkit and Samples Open Source
@@ -57,7 +57,7 @@ The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-heal
 
  **Added Deploy to Azure button**
 
- Customers can now deploy the MedTech service fully, including Event Hub, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service using an Azure Resource Manager template](./iot/deploy-new-arm.md)
+ Customers can now deploy the MedTech service fully, including Event Hubs, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service using an Azure Resource Manager template](./iot/deploy-new-arm.md)
 
 
 
