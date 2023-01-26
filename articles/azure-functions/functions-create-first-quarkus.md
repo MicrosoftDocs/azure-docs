@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-functio
 
 # Deploy serverless Java apps with Quarkus on Azure Functions
 
-In this article, you'll develop, build, and deploy a serverless Java app by using [Quarkus](https://quarkus.io) on Azure Functions. This article uses Quarkus Funqy and its built-in support for the Azure Functions HTTP trigger for Java. Using Quarkus with Azure Functions gives you the power of the Quarkus programming model with the scale and flexibility of Azure Functions. When you finish, you'll run serverless Quarkus applications on Azure Functions and continue to monitor your app on Azure.
+In this article, you'll develop, build, and deploy a serverless Java app to Azure Functions by using [Quarkus](https://quarkus.io). This article uses Quarkus Funqy and its built-in support for the Azure Functions HTTP trigger for Java. Using Quarkus with Azure Functions gives you the power of the Quarkus programming model with the scale and flexibility of Azure Functions. When you finish, you'll run serverless Quarkus applications on Azure Functions and continue to monitor your app on Azure.
 
 ## Prerequisites
 
