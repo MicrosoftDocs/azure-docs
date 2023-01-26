@@ -95,11 +95,6 @@ There are two basic cache types: "standard" and "premium".
 **Premium** caches are designed for the fastest possible file service. They use high-throughput disks, which means that premium caches have a different pricing structure and slightly different capabilities.
 
 Cache options include:
-<!-- type options shown in TIP1 portal Dec 28 2022 (aos 2022.12.0) - 
-read-write standard caching
-read-only caching
-read-write premium caching (preview)
-read-only scalable caching (preview) -->
 
 * **Read-write standard caching**
 
