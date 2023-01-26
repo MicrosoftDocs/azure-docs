@@ -61,11 +61,11 @@ To enable SSO in the Oracle EBS environment:
 1.	Sign in to the Oracle EBS Management console as an Administrator.
 2.	Scroll down the Navigator panel and expand **User Management**. 
 
-   ![Screenshot of the User Management dialog.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/navigator-user-management.png)
+   [ ![Screenshot of the User Management dialog.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/navigator-user-management.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/navigator-user-management.png)
 
 3. Add a user account. 
 
-   ![Screenshot of the User Account option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/user-account.png)
+   [ ![Screenshot of the User Account option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/user-account.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/user-account.png)
 
 4. For **User Name**, enter **DWSSOUSER**.
 5. For **Password**, enter a password.
@@ -73,7 +73,7 @@ To enable SSO in the Oracle EBS environment:
 7. For **Password Expiration**, select **None**.
 8. Assign the **Apps Schema Connect** role to the user.
 
-   ![Screenshot of the assigned Apps Schema Connect role under Results.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/assign-role.png)
+   [ ![Screenshot of the assigned Apps Schema Connect role under Results.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/assign-role.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/assign-role.png)
 
 ## Register DAP with Oracle EBS
 
