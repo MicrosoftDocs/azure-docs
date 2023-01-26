@@ -80,8 +80,8 @@ _SentinelHealth()
 
 ## Next steps
 
-- Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
-- [Monitor the health of your Microsoft Sentinel data connectors](monitor-data-connector-health.md).
-- [Monitor the health of your Microsoft Sentinel automation rules](monitor-automation-health.md).
-- Monitor the health and integrity of your [analytics rules](monitor-analytics-rule-integrity.md).
+- Learn about [auditing and health monitoring in Microsoft Sentinel](health-audit.md).
+- [Monitor the health of your automation rules and playbooks](monitor-automation-health.md).
+- [Monitor the health of your data connectors](monitor-data-connector-health.md).
+- [Monitor the health and integrity of your analytics rules](monitor-analytics-rule-integrity.md).
 - See more information about the [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas.

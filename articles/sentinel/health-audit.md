@@ -78,8 +78,8 @@ To start collecting health and audit data, you need to [enable health and audit 
 
 ## Next steps
 
-- [Turn on health and audit monitoring](enable-monitoring.md) in Microsoft Sentinel.
-- Monitor the health of your [automation rules and playbooks](monitor-automation-health.md).
-- Monitor the health of your [data connectors](monitor-data-connector-health.md).
-- Monitor the health and integrity of your [analytics rules](monitor-analytics-rule-integrity.md).
+- [Turn on auditing and health monitoring](enable-monitoring.md) in Microsoft Sentinel.
+- [Monitor the health of your automation rules and playbooks](monitor-automation-health.md).
+- [Monitor the health of your data connectors](monitor-data-connector-health.md).
+- [Monitor the health and integrity of your analytics rules](monitor-analytics-rule-integrity.md).
 - See more information about the [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas.
