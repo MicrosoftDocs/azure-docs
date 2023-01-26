@@ -1,6 +1,6 @@
 ---
 title: What is Azure NetApp Files | Microsoft Docs
-description: Learn about Azure NetApp Files, an enterprise-class, high-performance, metered file storage service that supports any workload type and is highly available.
+description: Learn about Azure NetApp Files, an Azure native, first-party, enterprise-class, high-performance file storage service.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-hchen
@@ -12,15 +12,50 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 01/24/2023
+ms.date: 01/26/2023
 ms.author: anfdocs
 ---
 
 # What is Azure NetApp Files
 
-Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. You can select service and performance levels, create NetApp accounts, capacity pools, volumes, and manage data protection. 
+This afticle provides an overview about Azure NetApp Files.
 
-The Azure NetApp Files documentation provides instructions on creating and managing volumes by using Azure NetApp Files. 
+## What Azure NetAppp Files does
+
+Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides NAS volumes as a service for which you can create NetApp accounts, capacity pools, select service and performance levels, create volumes, and manage data protection. It allows you to create and manage high-performance, highly available, and scalable file shares, using the same protocols and tools that you are familiar with and enterprise applications rely on on-premises. Azure NetApp Files supports SMB and NFS protocols and can be used for a variety of use cases such as file sharing, home directories, databases, high-performance computing and more. Additionally, it also provides built-in availability, data protection and disaster recovery capabilities.
+
+Azure NetApp Files is designed to provide high-performance file storage for enterprise workloads. Some of the key features that contribute to this high-performance include:
+
+* High throughput:  
+  Azure NetApp Files supports high throughput for large file transfers and can handle many random read and write operations with high concurrency, over the Azure high-speed network. This helps to ensure that your workloads are not bottlenecked by VM disk storage performance. Azure NetApp Files supports multiple service levels, such that you can choose the optimal mix of capacity, performance and cost.
+* Low latency:  
+  Azure NetApp Files is built on top of an all-flash bare-metal fleet, which is optimized for low latency, high throughput, and random IO. This functionality helps to ensure that your workloads experience optimal (low) storage latency.
+* Protocols:  
+  Azure NetApp Files supports both SMB, NFSv3/NFSv4.1, and dual-protocol volumes, which are the most common protocols used in enterprise environments. This functionality allows you to use the same protocols and tools that you use on-premises, which helps to ensure compatibility and ease of use. It supports NFS `nconnect` and SMB multichannel for increased network performance.
+* Scale:  
+  Azure NetApp Files can scale up or down to meet the performance and capacity needs of your workloads. You can increase or decrease the size of your volumes as needed, and the service automatically provisions the necessary throughput.
+* Changing of service levels:   
+  With Azure NetApp Files, you can dynamically and online change your volumes’ service levels to tune your capacity and performance needs whenever you need to. This functionality can even be fully automated through APIs.
+* Optimized for workloads:  
+  Azure NetApp Files is optimized for workloads like HPC, IO-intensive, and database scenarios. It provides high performance, high availability, and scalability for demanding workloads.
+
+All these features work together to provide a high-performance file storage solution that can handle the demands of enterprise workloads. They help to ensure that your workloads experience optimal (low) storage latency.
+
+Azure NetApp Files is designed to provide high availability for your file storage needs. Some of the key features that contribute to this high availability include:
+
+* Automatic failover:  
+  Azure NetApp Files supports automatic failover within the bare-metal fleet in case of disruption or maintenance event. This helps to ensure that your data is always available, even in the event of a failure.
+* Multi-protocol access:  
+  Azure NetApp Files supports both SMB and NFS protocols, which helps to ensure that your applications can access your data, regardless of the protocol they use.
+* Self-healing:  
+  Azure NetApp Files is built on top of a self-healing storage infrastructure, which helps to ensure that your data is always available and recoverable.
+* Support for Availability Zones:  
+  Volumes can be deployed in an Availability Zones of choice, enabling you to build HA application architectures for increased application availability.
+* Data replication:  
+  Azure NetApp Files supports data replication between different Azure regions and Availability Zones, which helps to ensure that your data is always available, even in the event of an outage.
+* Azure NetApp Files provides a 99.99% availability service level agreement (SLA).
+
+All these features work together to provide a high-availability file storage solution that can ensure that your data is always available, recoverable, and accessible to your applications, even in the event of an outage.
 
 ## Next steps
 
