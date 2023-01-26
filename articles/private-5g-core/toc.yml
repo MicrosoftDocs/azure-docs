@@ -116,6 +116,10 @@ items:
       href: modify-local-access-configuration.md
     - name: Export, upload and share traces
       href: distributed-tracing-share-traces.md
+  - name: Move between regions
+    items:
+    - name: Move private mobile network resources
+      href: region-move-private-mobile-network-resources.md
 - name: Reference
   items:
    - name: REST API

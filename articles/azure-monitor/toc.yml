@@ -70,8 +70,10 @@ items:
         href: vm/monitor-virtual-machine-alerts.md
       - name: Migrate management pack logic
         href: vm/monitor-virtual-machine-management-packs.md
-  - name: Self-monitoring
+  - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md 
+  - name: Migrate from Splunk to Azure Monitor Logs
+    href: logs/migrate-splunk-to-azure-monitor-logs.md 
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -171,6 +173,9 @@ items:
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
+    - name: Migrate retention to Azure Storage lifecycle
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/migrate-to-azure-storage-lifecycle-policy.md
   - name: Transformations
     items:
       - name: Overview
@@ -179,8 +184,19 @@ items:
       - name: Structure
         displayName: Transformations
         href: essentials/data-collection-transformations-structure.md
-      - name: Migrate retention to Azure Storage lifecycle
-        href: essentials/migrate-to-azure-storage-lifecycle-policy.md
+      - name: Transformation tutorials
+        items:
+        - name: Workspace transformation
+          items:
+          - name: Azure portal
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-portal.md
+          - name: Resource Manager templates
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-api.md
+        - name: Text log transformation
+          displayName: Custom text logs
+          href: agents/azure-monitor-agent-transformation.md
   - name: Azure Monitor Agent
     items:
     - name: Overview
@@ -381,6 +397,8 @@ items:
         href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
         href: essentials/azure-monitor-workspace-overview.md
+      - name: Manage Azure Monitor workspaces
+        href: essentials/azure-monitor-workspace-manage.md
       - name: Enable on AKS cluster
         displayName: Prometheus
         href: essentials/prometheus-metrics-enable.md      
@@ -498,14 +516,6 @@ items:
             href: logs/move-workspace-region.md
           - name: Delete and recover a workspace
             href: logs/delete-workspace.md  
-        - name: Workspace transformations
-          items:
-          - name: Azure portal
-            displayName: Workspace transformations
-            href: logs/tutorial-workspace-transformations-portal.md
-          - name: Resource Manager templates
-            displayName: Workspace transformations
-            href: logs/tutorial-workspace-transformations-api.md
     - name: Data security
       items:
         - name: Roles permissions and security
@@ -570,8 +580,6 @@ items:
           href: app/tutorial-users.md
         - name: Dashboard with application data
           href: app/tutorial-app-dashboards.md
-        - name: Monitor mobile or UWP application
-          href: app/mobile-center-quickstart.md
     - name: Auto-instrumentation
       items:
       - name: Overview
@@ -938,9 +946,6 @@ items:
       items:
       - name: SharePoint sites
         href: app/sharepoint.md
-      - name: Windows desktop
-        href: app/windows-desktop.md
- 
   - name: Container insights
     items:
     - name: Overview
@@ -1064,13 +1069,13 @@ items:
   - name: Network insights
     items:
     - name: Overview
-      displayname: Network Insights, Network
+      displayName: Network Insights, Network
       href: ../network-watcher/network-insights-overview.md
     - name: Topology
-      displayname: Network Insights, Network
+      displayName: Network Insights, Network
       href: ../network-watcher/network-insights-topology.md
     - name: Troubleshooting
-      displayname: Network Insights, Network
+      displayName: Network Insights, Network
       href: ../network-watcher/network-insights-troubleshooting.md    
   - name: Activity log insights
     href: essentials/activity-log-insights.md
@@ -1256,8 +1261,6 @@ items:
           href: logs/resource-expression.md
         - name: Unify application data resources
           href: logs/unify-app-resource-data.md
-        - name: Cross service query between Azure Monitor and Azure Data Explorer overview
-          href: logs/azure-data-explorer-monitor-cross-service-query.md
         - name: Query Azure Data Explorer from Azure Monitor
           href: logs/azure-monitor-data-explorer-proxy.md
       - name: API
@@ -1296,10 +1299,6 @@ items:
       href: change/change-analysis-enable.md
     - name: Visualizations
       href: change/change-analysis-visualizations.md
-    - name: Custom filters
-      href: change/change-analysis-custom-filters.md
-    - name: Pin and share changes via Azure dashboard
-      href: change/change-analysis-query.md
     - name: Track a web outage with Change Analysis
       href: change/change-analysis-track-outages.md
     - name: Troubleshoot
