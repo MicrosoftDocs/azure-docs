@@ -5,10 +5,10 @@ author: OWinfreyATL
 ms.author: owinfrey
 manager: amycolannino
 ms.service: active-directory
+ms.subservice: compliance
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/26/2023
-ms.subservice: compliance
 ---
 # Lifecycle Workflow built-in tasks (preview)
 
