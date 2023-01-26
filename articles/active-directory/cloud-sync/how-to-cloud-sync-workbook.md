@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 
 # Azure AD cloud sync insights workbook
-The Cloud sync workbook provide a flexible canvas for data analysis. The workbook allows you to create rich visual reports within the Azure portal. To learn more, see Azure Monitor Workbooks overview.
+The Cloud sync workbook provides a flexible canvas for data analysis. The workbook allows you to create rich visual reports within the Azure portal. To learn more, see Azure Monitor Workbooks overview.
 
 This workbook is intended for Hybrid Identity Admins who use cloud sync to sync users from AD to Azure AD.  It allows admins to gain insights into sync status and details.
 
@@ -31,7 +31,7 @@ The workbook can be accessed by select **Insights** on the left hand side of the
 This workbook:
 
 - Provides a synchronization summary of users and groups synchronized from AD to Azure AD
-- Provides and agrigated and detailed view of information captured by the cloud sync provisioning logs.
+- Provides a detailed view of information captured by the cloud sync provisioning logs.
 - Allows you to customize the data to tailor it to your specific needs
 
 
@@ -47,14 +47,14 @@ This workbook:
 
 ## Enabling provisioning logs
 
-You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md) and [Provisioning Logs for troubleshooting cloud sync](how-to-troubleshoot.md#provisioning-logs).
+You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md) and [Provisioning Logs for troubleshooting cloud sync](how-to-troubleshoot.md).
 
 ## Sync Summary  
-The sync summary section provides a summary of your organizations synchronization activies.  These activies include:
+The sync summary section provides a summary of your organizations synchronization activities.  These activities include:
    - Sync actions per day by action
    - Sync actions per day by status
    - Unique sync count by status
-   - Recent sync errrors
+   - Recent sync errors
 
 
  [![workbook sync summary](media/how-to-cloud-sync-workbook/workbook-2.png)](media/how-to-cloud-sync-workbook/workbook-2.png#lightbox)
