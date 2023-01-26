@@ -29,6 +29,8 @@ The following capabilities make up External Identities:
 
 - **Azure AD B2C** - Publish modern SaaS apps or custom-developed apps (excluding Microsoft apps) to consumers and customers, while using Azure AD B2C for identity and access management.
 
+- **Azure AD multi-tenant organization** - Collaborate with multiple tenants in a single Azure AD organization, via cross-tenant synchronization.  
+
 Depending on how you want to interact with external organizations and the types of resources you need to share, you can use a combination of these capabilities.
 
 ![External Identities overview diagram.](media/external-identities-overview/external-identities-b2b-overview.png)
@@ -87,7 +89,7 @@ The following table gives a detailed comparison of the scenarios you can enable 
 | **Branding**  | Host/inviting organization's brand is used.  | For sign-in screens, the user’s home organization brand is used. In the shared channel, the resource organization's brand is used. | Fully customizable branding per application or organization.   |
 | **More information** | [Blog post](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentation](what-is-b2b.md)            |   [Documentation](b2b-direct-connect-overview.md)     | [Product page](https://azure.microsoft.com/services/active-directory-b2c/), [Documentation](../../active-directory-b2c/index.yml)       |
 
-Based on your organization’s requirements you might use cross-tenant synchronization (preview) in multi-tenant organizations. For more information about this new feature, see the [multi-tenant organization documentation](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/?branch=pr-en-us-209054) and the [feature comparison](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/overview?branch=pr-en-us-209054#compare-multi-tenant-capabilities). 
+Based on your organization’s requirements you might use cross-tenant synchronization (preview) in multi-tenant organizations. For more information about this new feature, see the [multi-tenant organization documentation](/azure/active-directory/multi-tenant-organizations) and the [feature comparison](../multi-tenant-organizations/overview.md#compare-multi-tenant-capabilities). 
 
 ## Managing External Identities features
 
@@ -103,7 +105,7 @@ Cross-tenant access settings let you manage B2B collaboration and B2B direct con
 
 For more information, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
 
-Azure AD has a new feature called multi-tenant organizations. Multi-tenant organizations are using cross-tenant synchronization (preview) for seamless collaboration experience across Azure AD tenants. Cross-tenant synchronization settings are also configured under the **Organization-specific access settings**. To learn more about multi-tenant organizations and cross-tenant synchronization see the [Multi-tenant organizations documentation](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/?branch=pr-en-us-209054).
+Azure AD has a new feature called multi-tenant organizations. Multi-tenant organizations are using cross-tenant synchronization (preview) for seamless collaboration experience across Azure AD tenants. Cross-tenant synchronization settings are also configured under the **Organization-specific access settings**. To learn more about multi-tenant organizations and cross-tenant synchronization see the [Multi-tenant organizations documentation](/azure/active-directory/multi-tenant-organizations).
 
 ### Microsoft cloud settings for B2B collaboration (preview)
 
@@ -168,12 +170,11 @@ If you offer a Software as a Service (SaaS) application to many organizations, y
 
 ### Multi-tenant organizations
 
-A multi-tenant organization is an organization that has more than one instance of Azure AD. There are various reasons for [multi-tenancy](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/overview?branch=pr-en-us-209054#what-is-a-multi-tenant-organization), like using multiple clouds or having multiple geographical boundaries. Multi-tenant organizations use a one-way synchronization service in Azure AD, called [cross-tenant synchronization](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/cross-tenant-synchronization-overview?branch=pr-en-us-209054). Cross-tenant synchronization enables seamless collaboration for a multi-tenant organization, improves user experience and ensures that users can access resources, without receiving an invitation email and having to accept a consent prompt in each tenant. Cross-tenant synchronization is currently in PREVIEW.
-Learn more about multi-tenant organizations [here](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/?branch=pr-en-us-209054).
-
+A multi-tenant organization is an organization that has more than one instance of Azure AD. There are various reasons for [multi-tenancy](../../multi-tenant-organizations/overview.md#what-is-a-multi-tenant-organization), like using multiple clouds or having multiple geographical boundaries. Multi-tenant organizations use a one-way synchronization service in Azure AD, called [cross-tenant synchronization](../../multi-tenant-organizations/overview.md#cross-tenant-synchronization-preview). Cross-tenant synchronization enables seamless collaboration for a multi-tenant organization. It improves user experience and ensures that users can access resources, without receiving an invitation email and having to accept a consent prompt in each tenant. Cross-tenant synchronization is currently in preview.
 
 ## Next steps
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [What is Azure AD B2B direct connect?](b2b-direct-connect-overview.md)
 - [About Azure AD B2C](../../active-directory-b2c/overview.md)
+- [About Azure AD multi-tenant organizations](../../multi-tenant-organizations/overview.md)
