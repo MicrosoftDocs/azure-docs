@@ -164,9 +164,9 @@ You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to chec
 
 ### CLI
 
-You have two options for getting the status of snapshots. You can either get a [list of all incremental snapshots associated with a specific disk](#cli-list-incremental-snapshots), and their respective status, or you can get the [status of an individual snapshot](#cli-individual-snapshot).
+You have two options for getting the status of snapshots. You can either get a [list of all incremental snapshots associated with a specific disk](#cli---list-incremental-snapshots), and their respective status, or you can get the [status of an individual snapshot](#cli---individual-snapshot).
 
-#### CLI-List incremental snapshots
+#### CLI - List incremental snapshots
 
 The following script returns a list of all snapshots associated with a particular disk. The value of the `CompletionPercent` property of any snapshot must be 100 before it can be used. Replace `yourResourceGroupNameHere`, `yourSubscriptionId`, and `yourDiskNameHere` with your values then run the script:
 
