@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Migrate from preview API versions of the control plane to the stable GA version
 author: baanders
 ms.author: baanders
-ms.date: 01/23/2023
+ms.date: 01/26/2023
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
@@ -16,7 +16,7 @@ As of May 2nd, 2023, the following Azure Digital Twins preview control plane API
 * [2020-03-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview)
 * [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2021-06-30-preview) 
 
-This article explains how to migrate from these versions to the stable GA version of the APIs, [2022-10-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2022-10-31). The GA version provides more capabilities, including time-series database connections and managed identity. 
+This article explains how to migrate from these versions to the latest stable GA version of the APIs, [2022-10-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2022-10-31). The GA version provides more capabilities, including time-series database connections and managed identity. 
 
 ## Migrate from 2020-03-01-preview control plane API 
 
@@ -32,10 +32,10 @@ The changes from the 2020-03-01-preview API version to the 2022-10-31 (GA) API v
 * Azure Digital Twins instances no longer return `SKU` as a property in the JSON body response. 
     * In the 2020-03-01-preview API, `DigitalTwinsResource` has a [SKU property](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json#L723) that is no longer in the 2020-10-31 (GA) API version. Therefore, any reference to `SKU` of an Azure Digital Twins instance should be removed.
 
-If you're using an associated SDK of the 2020-03-01-preview API, it's recommended to update to the latest version of the management SDK.
-* .NET: Migrate from the [2020-03-01-preview .NET SDK package](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) to the [2022-10-31 .NET SDK package](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins/1.1.0), according to the [.NET SDK migration guidance](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/MigrationGuide.md).
-* Java: Migrate from the [2020-03-01-preview Java SDK package](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins/1.0.0-beta/jar) to the [2022-10-31 Java SDK package](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.1.0/jar), according to the [Java SDK migration guidance](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md).
-* Go: Migrate from the [2020-03-01-preview Go SDK package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/digitaltwins/2020-05-31-preview/digitaltwins) to the [2022 Go SDK package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins), according to the [Go SDK migration guidance](https://github.com/Azure/azure-sdk-for-go/blob/main/documentation/MIGRATION_GUIDE.md).
+If you're using an associated SDK of the 2020-03-01-preview API, it's recommended to update to the latest version of the management SDK. Use the links below to know what additional changes are required to migrate to the new management SDK.
+* .NET: Migrate from the [Microsoft.Azure.Management.DigitalTwins 1.0.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) package to the [Azure.ResourceManager.DigitalTwins 1.1.0](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins/1.1.0) package, by following the [.NET SDK migration guidance](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/MigrationGuide.md).
+* Java: Migrate from the [azure-mgmt-digitaltwins:1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins/1.0.0-beta/jar) package to the [azure-resourcemanager-digitaltwins:1.1.0](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.1.0/jar) package, by following the [Java SDK migration guidance](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md).
+* Go: Migrate from the [digitaltwins 2020-03-01-preview](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v68.0.0+incompatible/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins) package to the [armsdigitaltwins v1.0.0](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins) package, by following the [Go SDK migration guidance](https://github.com/Azure/azure-sdk-for-go/blob/main/documentation/MIGRATION_GUIDE.md).
 
 
 ## Migrate from 2021-10-31-preview control plane API 
@@ -44,10 +44,10 @@ The target replacement API version ([2022-10-31 (GA) API version](https://github
 
 There are no breaking changes for migrating to the target replacement API version ([2022-10-31 (GA) API version](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2022-10-31)). There is one minor change: Endpoints and TSDB connections now have an explicit *Updating* state defined in the API contract. 
 
-If you're using an associated SDK of the 2021-10-31-preview API, it's recommended to update to the latest version of the management SDK.
-* .NET: Migrate from the [2021-06-30-preview .NET SDK package](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.2.0-beta.1) to the [2022-10-31 .NET SDK package](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins/1.1.0), according to the [.NET SDK migration guidance](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/MigrationGuide.md). 
-* Java: Migrate from the [2021-06-30-preview Java SDK package](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.0.0-beta.2/jar) to the [2022-10-31 Java SDK package](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.1.0/jar), and set the service version in the SDK client to call the 2022-10-31 (GA) API.
+If you're using an associated SDK of the 2021-10-31-preview API, it's recommended to update to the latest version of the management SDK. Use the links below to know what additional changes are required to migrate to the new management SDK.
+* .NET: Migrate from the [Microsoft.Azure.Management.DigitalTwins 1.2.0-beta.1](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.2.0-beta.1) package to the [Azure.ResourceManager.DigitalTwins 1.1.0](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins/1.1.0) package, by following the [.NET SDK migration guidance](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/resourcemanager/Azure.ResourceManager/docs/MigrationGuide.md). 
+* Java: Migrate from the [azure-resourcemanager-digitaltwins:1.0.0-beta.2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.0.0-beta.2/jar) package to the [Azure.ResourceManager.DigitalTwins 1.1.0](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-digitaltwins/1.1.0/jar) package, or set the service version in the SDK client to call the 2022-10-31 (GA) API.
 
 ## Next steps
 
-View the stable [2022-10-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2022-10-31) (GA) API in GitHub.
+View the latest stable GA API, [2022-10-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2022-10-31), in GitHub.
