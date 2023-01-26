@@ -48,7 +48,7 @@ Input data for AutoML forecasting must contain valid time series in tabular form
 > [!IMPORTANT]
 > When training a model for forecasting future values, ensure all the features used in training can be used when running predictions for your intended horizon. <br> <br>For example, when creating a demand forecast, including a feature for current stock price could massively increase training accuracy. However, if you intend to forecast with a long horizon, you may not be able to accurately predict future stock values corresponding to future time-series points, and model accuracy could suffer.
 
-AutoML forecasting jobs require that your training data is represented as an **MLTable** object. An MLTable specifies a data source and a set of instructions for loading the data. As a simple example, suppose your training data is contained in a CSV file in a local directory, `./train_data/timeseries_train.csv`. You can define a new MLTable by copying the following YAML code to a new file, `./train_data/MLTable`:
+AutoML forecasting jobs require that your training data is represented as an **MLTable** object. An MLTable specifies a data source and steps for loading the data. For more information and use cases, see the [MLTable how-to guide](./how-to-mltable.md). As a simple example, suppose your training data is contained in a CSV file in a local directory, `./train_data/timeseries_train.csv`. You can define a new MLTable by copying the following YAML code to a new file, `./train_data/MLTable`:
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/MLTable.schema.json
@@ -63,7 +63,7 @@ transformations:
         encoding: ascii
 ```
 
-You can now define an input data object from the MLTable:
+You can now define an input data object, which is required to start a training job, using the AzureML Python SDK as follows: 
 
 ```python
 from azure.ai.ml.constants import AssetTypes
@@ -75,49 +75,41 @@ my_training_data_input = Input(
 )
 ```
 
-This input data object is directly passed to a [ForecastingJob](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob) object to start a training job.  See the [MLTable how-to guide](./how-to-mltable.md) for more information about MLTables. Learn more in the [configuring an experiment](#configure-experiment) section.
+You can specify [validation data](concept-automated-ml.md#training-validation-and-test-data) in a similar way, by creating a MLTable and an input data object. Alternatively, if you do not supply validation data, AutoML automatically creates cross-validation splits from your training data to use for model selection. See our article on [forecasting model selection](./concept-automl-forecasting-sweeping.md#model-selection) for more details. 
 
-You can specify [validation data and testing data](concept-automated-ml.md#training-validation-and-test-data) in a similar way.
+Learn more about how AutoML applies cross validation to [prevent over fitting](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
-For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is used for validation by default. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage.
+## Compute to run experiment
+AutoML leverages AzureML compute which is a fully managed compute resource that can be used to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
 
-:::image type="content" source="media/how-to-auto-train-forecast/rolling-origin-cross-validation.png" alt-text="Diagram showing cross validation folds separates the training and validation sets based on the cross validation step size.":::
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
 
-Pass your training and validation data as one dataset to the parameter `training_data`. Set the number of cross validation folds with the parameter `n_cross_validations` and set the number of periods between two consecutive cross-validation folds with `cv_step_size`. You can also leave either or both parameters empty and AutoML will set them automatically. 
+## Configure experiment
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+There are several options that you can use to configure your AutoML forecasting experiment. These configuration parameters are set in the automl.forecasting() task method. You can also set job training settings and exit criteria with the set_training() and set_limits() functions, respectively.
+
+The following example shows the required parameters for a forecasting task with normalized root mean squared error as the primary metric and five cross-validation folds.
 
 ```python
 from azure.ai.ml import automl
 
-# Create the AutoML forecasting job
+# note that the below is a code snippet -- you might have to modify the variable values to run it successfully
 forecasting_job = automl.forecasting(
     compute=compute_name,
     experiment_name=exp_name,
     training_data=my_training_data_input,
-    # validation_data = my_validation_data_input,
     target_column_name=target_column_name,
     primary_metric="NormalizedRootMeanSquaredError",
-    n_cross_validations=n_cross_validations,
+    n_cross_validations=5,
+)
+
+# Limits are all optional
+forecasting_job.set_limits(
+    timeout_minutes=120,
+    trial_timeout_minutes=30,
+    max_concurrent_trials=4,
 )
 ```
-
-
-You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
-
-Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-overfitting).
-
-## Configure experiment
-
-The [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object defines the settings and data necessary for an automated machine learning task. Configuration for a forecasting model is similar to the setup of a standard regression model, but certain models, configuration options, and featurization steps exist specifically for time-series data. 
-
-### Supported models
-
-Automated machine learning automatically tries different models and algorithms as part of the model creation and tuning process. As a user, there is no need for you to specify the algorithm. For forecasting experiments, both native time-series and deep learning models are part of the recommendation system. 
-
->[!Tip]
-> Traditional regression models are also tested as part of the recommendation system for forecasting experiments. See a complete list of the [supported models](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) in the SDK reference documentation.
-
 
 ### Configuration settings
 

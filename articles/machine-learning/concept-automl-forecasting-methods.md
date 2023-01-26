@@ -24,7 +24,7 @@ AutoML uses several methods to forecast time series values. These methods can be
 
 As an example, consider the problem of forecasting daily demand for a particular brand of orange juice from a grocery store. Let $y_t$ represent the demand for this brand on day $t$. A **time series model** predicts demand at $t+1$ using some function of historical demand,
 
-$y_{t+1} = f(y_t, y_{t-1}, \cdots, y_{t-s})$. 
+$y_{t+1} = f(y_t, y_{t-1}, \ldots, y_{t-s})$. 
 
 The function $f$ often has parameters that we tune using observed demand from the past. The amount of history that $f$ uses to make predictions, $s$, can also be considered a parameter of the model.
 
@@ -84,7 +84,7 @@ timestamp | SKU | price | advertised | quantity
 In this example, there's a SKU, a retail price, and a flag indicating whether an item was advertised in addition to the timestamp and target quantity. There are evidently two series in this dataset - one for the JUICE1 SKU and one for the BREAD3 SKU; the `SKU` column is a **time series ID column** since grouping by it gives two groups containing a single series each. Before sweeping over models, AutoML does basic validation of the input configuration and data and adds engineered features.
 
 ### Missing data handling
-AutoML's time series models generally require data with regularly spaced observations in time. Regularly spaced, here, includes cases like monthly or yearly observations where the number of days between observations may vary. Prior to modeling, AutoML must ensure that series are values are not missing _and_ that the observations are regular. Hence, there are two missing data cases:
+AutoML's time series models require regularly spaced observations in time. Regularly spaced, here, includes cases like monthly or yearly observations where the number of days between observations may vary. Prior to modeling, AutoML must ensure that series values are not missing _and_ that the observations are regular. Hence, there are two missing data cases:
 
 * A value is missing for some cell in the tabular data
 * A _row_ is missing which corresponds with an expected observation given the time series frequency

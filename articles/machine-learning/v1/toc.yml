@@ -266,7 +266,7 @@
         items:
         - name: Auto-train a forecast model
           displayName: time series
-          href: ../how-to-auto-train-forecast.md
+          href: how-to-auto-train-forecast-v1.md
         - name: Frequently asked questions
           displayName: auto ML, time series, forecasting, FAQ
           href: ../how-to-automl-forecasting-faq.md
