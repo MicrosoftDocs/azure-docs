@@ -74,7 +74,7 @@ You can use the UX to configure each page of the backend application for securit
 
 If the users need to be denied permission to certain pages based on group membership or some other criteria, it's handled by the auth user journey.
 
-1. Navigate to https://proxyeditor.z13.web.core.windows.net/
+1. Navigate to https://proxyeditor.z13.web.core.windows.net/.
 
 2. Once the dropdown appears, select the dropdown, and select **Create New**.
 
@@ -93,7 +93,7 @@ If the users need to be denied permission to certain pages based on group member
 
 7. Select **ADD HEADER**.
 
-8. Type **x-iss** in the destination header field to configure the valid HTTP header that must be sent to the application.
+8. Enter **x-iss** in the destination header field to configure the valid HTTP header that must be sent to the application.
 
 9. Enter **given_name** into the Value field that is the name of a claim in the B2C policy. The value of the claim will be passed into the header.
 
