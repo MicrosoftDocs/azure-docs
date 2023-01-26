@@ -49,7 +49,7 @@ The following Azure File Sync agent versions have expired and are no longer supp
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Agent version 16.0.0.0
-The following release notes are for version 16.0.0.0 of the Azure File Sync agent (released March 30, 2022).
+The following release notes are for version 16.0.0.0 of the Azure File Sync agent (released January 27, 2023).
 
 ### Improvements and issues that are fixed
 - Improved Azure File Sync service availability
