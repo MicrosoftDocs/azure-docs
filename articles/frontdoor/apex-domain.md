@@ -48,9 +48,9 @@ For example, suppose you want to use the apex domain `contoso.com` with Azure Fr
 
 ## Azure Front Door-managed TLS certificate rotation
 
-Azure Front Door-managed certificates are automatically rotated only when the domain's CNAME record is pointed to the Azure Front Door endpoint. Apex domains don't have a CNAME record pointing to an Azure Front Door endpoint, so the auto-rotation for managed certificate will fail until domain ownership is re-validated. If you delete the domain validation TXT record, then the domain's validation status becomes `Pending revalidation` 45 days before the managed certificate expires.
+When you use an Azure Front Door-managed certificate, Azure Front Door attempts to automatically rotate (renew) the certificate. Before it does so, Azure Front Door checks whether the DNS CNAME record is still pointed to the Azure Front Door endpoint. Apex domains don't have a CNAME record pointing to an Azure Front Door endpoint, so the auto-rotation for managed certificate will fail until domain ownership is revalidated. If you delete the domain validation TXT record, then the domain's validation status becomes `Pending revalidation` 45 days before the managed certificate expires.
 
-Select the **Pending-revalidation** link and then select the **Regenerate** button to regenerate the TXT token. After that, add the TXT token to the DNS provider settings.
+Select the **Pending revalidation** link and then select the **Regenerate** button to regenerate the TXT token. After that, add the TXT token to the DNS provider settings.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: johndowns
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/16/2023
+ms.date: 01/26/2023
 ms.author: jodowns
 ---
 
@@ -81,41 +81,55 @@ The following table lists the validation states that a domain might show.
 
 ## HTTPS for custom domains
 
-Azure Front Door offloads TLS certificate management from your origin servers. When you use custom domains, you can either use Azure-managed TLS certificates (recommended), or you can purchase and use your own TLS certificates.
+Azure Front Door supports using HTTPS with your own domains, and offloads transport layer security (TLS) certificate management from your origin servers. When you use custom domains, you can either use Azure-managed TLS certificates (recommended), or you can purchase and use your own TLS certificates.
 
 For more information on how Azure Front Door works with TLS, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
 ### Azure Front Door-managed TLS certificates
 
-<!-- TODO -->
+Azure Front Door can automatically manage TLS certificates for subdomains and apex domains. When you use managed certificates, you don't need to create keys or certificate signing requests, and you don't need to upload, store, or install the certificates. Additionally, Azure Front Door can automatically rotate (renew) managed certificates without any human intervention. This process avoids downtime caused by a failure to renew your TLS certificates in time.
 
-- Issuance process
-- Extra verification
+Azure Front Door's certificates are issued by our partner certification authority, DigiCert. <!-- TODO is there ever any extra verification needed from Digicert? -->
 
 #### Domain types
 
-<!-- TODO can this show checkmark glyphs? -->
+The following table summarizes the features available with managed TLS certificates when you use different types of domains:
+
 | Consideration | Subdomain | Apex domain | Wildcard domain |
 |-|-|-|-|
 | Managed TLS certificates available | Yes | Yes | No |
 | Managed TLS certificates are rotated automatically | Yes | See below | No |
 
-When you use Azure Front Door-managed TLS certificates with apex domains, the automated certificate rotation might require you to revalidate your domain ownership. For more information, see [Azure Front Door-managed TLS certificate rotation](apex-domain.md#azure-front-door-managed-tls-certificate-rotation).
+When you use Azure Front Door-managed TLS certificates with apex domains, the automated certificate rotation might require you to revalidate your domain ownership. For more information, see [Apex domains in Azure Front Door](apex-domain.md#azure-front-door-managed-tls-certificate-rotation).
 
 ### Customer-managed TLS certificates
 
-<!-- TODO -->
+Sometimes, you might need to provide your own TLS certificates. Common scenarios for providing your own certificates include:
 
-- Need to create a secret as a reference to a KV cert
-- Auth - managed identity vs. service principal
-- To try it, see TODO how to
+* Your organization requires you to use certificates issued by a specific certification authority.
+* You need to use the same TLS certificate on multiple systems.
+* You use [wildcard domains](front-door-wildcard-domain.md). Azure Front Door doesn't provide managed certificates for wildcard domains.
+
+To use your own TLS certificate, you need to follow these steps:
+
+1. Create a key vault.
+1. Upload the certificate to your key vault.
+1. Grant access so that Azure Front Door can read your certificate. You can grant access by using either of these approaches:
+   * Azure Front Door can use a managed identity to access your key vault. You can use this approach when your key vault uses Azure Active Directory (Azure AD) authentication. For more information, see [Use managed identities with Azure Front Door Standard/Premium](managed-identity.md).
+   * Alternatively you can grant Azure Front Door's service principal access to your key vault. You can use this approach when you use vault access policies.
+1. Create an Azure Front Door secret resource, which is a reference to the certificate you added to your key vault.
+1. Configure your domain to use the Azure Front Door secret for its TLS certificate.
+
+For a guided walkthrough of these steps, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md#using-your-own-certificate).
+
+<!-- TODO pull out reference info from the how-to into this page? -->
 
 ## Security policies
 
-<!-- TODO -->
+You can use Azure Front Door's web application firewall (WAF) to scan requests to your application for threats, and to enforce other security requirements.
 
-TODO link a domain to WAF policy
+To use the WAF with a custom domain, use an Azure Front Door security policy resource. A security policy associates a domain with a WAF policy. You can optionally create multiple security policies so that you can use different WAF policies with different domains.
 
 ## Next steps
 
-TODO
+To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).TODO

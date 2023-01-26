@@ -7,38 +7,37 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2022
+ms.date: 01/26/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
 # Wildcard domains
 
-Besides apex domains and subdomains, you can also map a wildcard domain to your front-end hosts or custom domains for your Azure Front Door profile. Having wildcard domains in your Azure Front Door configuration simplifies traffic routing behavior for multiple subdomains for an API, application, or website from the same routing rule. You don't need to modify the configuration to add or specify each subdomain separately. As an example, you can define the routing for `customer1.contoso.com`, `customer2.contoso.com`, and `customerN.contoso.com` by using the same routing rule and adding the wildcard domain `*.contoso.com`.
+Wildcard domains allow Azure Front Door to receive traffic for any subdomain of a top-level domain. An example wildcard domain is `*.contoso.com`.
 
-Key scenarios that are improved with support for wildcard domains include:
+By using wildcard domains, you can simplify the configuration of your Azure Front Door profile. You don't need to modify the configuration to add or specify each subdomain separately. For example, you can define the routing for `customer1.contoso.com`, `customer2.contoso.com`, and `customerN.contoso.com` by using the same route and adding the wildcard domain `*.contoso.com`.
 
-- You don't need to onboard each subdomain in your Azure Front Door profile and then enable HTTPS to bind a certificate for each subdomain.
-- You're no longer required to change your production Azure Front Door configuration if an application adds a new subdomain. Previously, you had to add the subdomain, bind a certificate to it, attach a web application firewall (WAF) policy, and then add the domain to different routing rules.
+Wildcard domains give you several advantages, including:
+
+- You don't need to onboard each subdomain in your Azure Front Door profile. For example, suppose you create new subdomains every customer, and route all customers' requests to a single origin group. Whenever you add a new customer, Azure Front Door understands how to route traffic to your origin group even though the subdomain hasn't been explicitly configured.
+- You don't need to generate a new TLS certificate, or manage any subdomain-specific HTTPS settings, to bind a certificate for each subdomain.
+- You can use a single web application firewall (WAF) policy for all of your subdomains.
+
+Commonly, wildcard domains are used to support software as a service (SaaS) solutions, and other multitenant applications. When you build these application types, you need to give special consideration to how you route traffic to your origin servers. For more information, see [Use Azure Front Door in a multitenant solution](/azure/architecture/guide/multitenant/service/front-door).
 
 > [!NOTE]
-> Currently, adding wildcard domains through Azure DNS is only supported via API, PowerShell, and the Azure CLI. Support for adding and managing wildcard domains in the Azure portal isn't available.
+> When you use Azure DNS to manage your domain's DNS records, you need to wildcard domains through the Azure Resource Manager API, Bicep, PowerShell, and the Azure CLI. Support for adding and managing Azure DNS wildcard domains in the Azure portal isn't available.
 
 ::: zone pivot="front-door-standard-premium"
 
 ## Add a wildcard domain and certificate binding
 
-You can add a wildcard domain following guidance in [add a custom domain](standard-premium/how-to-add-custom-domain.md) for subdomains.  
+You can add a wildcard domain following similar steps to those for subdomains. For more information about adding a subdomain to Azure Front Door, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
 
 > [!NOTE]
 > * Azure DNS supports wildcard records.
-> * Cache purge for wildcard domain is not supported, you have to specify a subdomain for cache purge. 
-
-You can add as many single-level subdomains of the wildcard as you would like. For example, for the wildcard domain *.contoso.com, you can add subdomains in the form of image.contosto.com, cart.contoso.com, etc. Subdomains like www.image.contoso.com aren't a single-level subdomain of *.contoso.com. This functionality might be required for: 
-
-* Defining a different route for a subdomain than the rest of the domains (from the wildcard domain).  
-
-* Set up a different WAF policy for a specific subdomain.  
+> * You can't [purge the Azure Front Door cache](front-door-caching.md#cache-purge) for a wildcard domain. You must specify a subdomain when purging the cache.
 
 For accepting HTTPS traffic on your wildcard domain, you must enable HTTPS on the wildcard domain. The certificate binding for a wildcard domain requires a wildcard certificate. That is, the subject name of the certificate should also have the wildcard domain. 
 
@@ -47,6 +46,17 @@ For accepting HTTPS traffic on your wildcard domain, you must enable HTTPS on th
 > * You can choose to use the same wildcard certificate from Azure Key Vault or from Azure Front Door managed certificates for subdomains. 
 > * If you want to add a subdomain of the wildcard domain that’s already validated in the Azure Front Door Standard or Premium profile, the domain validation is automatically approved if it uses the same use your own custom SSL certificate.  
 > * If a wildcard domain is validated and already added to one profile, a single-level subdomain can still be added to another profile as long as it is also validated. 
+
+## Define a subdomain explicitly
+
+You can add as many single-level subdomains of the wildcard as you would like. For example, for the wildcard domain `*.contoso.com`, you can also add subdomains to your Azure Front Door profile for `image.contosto.com`, `cart.contoso.com`, and so forth. The configuration that you explicitly specify for the subdomain takes precedence over the configuration of the wildcard domain.
+
+You might need to explicitly add subdomains in these situations:
+
+* You need to define a different route for a subdomain than the rest of the domains (from the wildcard domain). For example, your customers might use subdomains like `customer1.contoso.com`, `customer2.contoso.com`, and so forth, and these subdomains should all be routed to your main application servers. However, you might also want to route `images.contoso.com` to an Azure Storage blob container.
+* You need to use a different WAF policy for a specific subdomain.
+
+Subdomains like `www.image.contoso.com` aren't a single-level subdomain of `*.contoso.com`.
 
 ::: zone-end
 
