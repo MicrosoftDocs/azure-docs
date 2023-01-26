@@ -15,7 +15,7 @@ ms.custom: template-how-to
 > [!IMPORTANT]
 > Diagnostics packages may contain *personally identifiable information (PII)*. During this procedure, when providing the diagnostics package's *shared access signature (SAS)* URL to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any PII that it contains.
 
-In this how-to guide, you'll learn how to gather a remote diagnostics package for an AP5GC site using the Azure portal. The diagnostics package can be provided, as a shared access signature (SAS) URL, to AP5GC support to assist you with issues.
+In this how-to guide, you'll learn how to gather a remote diagnostics package for an Azure Private 5G Core (AP5GC) site using the Azure portal. The diagnostics package can be provided, as a shared access signature (SAS) URL, to AP5GC support to assist you with issues.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ You must already have an AP5GC site deployed to collect diagnostics.
 ## Gather diagnostics for a site
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Navigate to Packet Core Control Pane overview page of the site you want to gather diagnostics for.
+1. Navigate to the **Packet Core Control Pane** overview page of the site you want to gather diagnostics for.
 1. Select **Diagnostics Collection** under the **Support + Troubleshooting** section on the left side. This will open a **Diagnostics Collection** view.
 1. Enter the **Storage account blob URL** that was configured for diagnostics storage. For example:
     `https://storageaccount.blob.core.windows.net/diags/diagsPackage_1.zip`
