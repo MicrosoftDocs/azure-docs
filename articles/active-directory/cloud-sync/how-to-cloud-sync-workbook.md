@@ -26,7 +26,7 @@ The workbook can be accessed by select **Insights** on the left hand side of the
  :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-1.png" alt-text="Screenshot of the cloud sync workbook." lightbox="media/how-to-cloud-sync-workbook/workbook-1.png":::
 
 >[!NOTE]
->The Insights node is available at both the all configurations level and the individual configuration level.  To view information on individual configurations select the JobId for the configuration.
+>The Insights node is available at both the all configurations level and the individual configuration level.  To view information on individual configurations select the Job Id for the configuration.
 
 This workbook:
 
@@ -41,7 +41,7 @@ This workbook:
 |Date|The range that you want to view data on.|
 |Status|View the provisioning status such as Success or Skipped.|
 |Action|View the provisioning actions taken such as Create or Delete.|
-|JobId|Allows you to target specific Job Ids.  This can be used to see individual configuration data if you have multiple configurations.|
+|Job Id|Allows you to target specific Job Ids.  This can be used to see individual configuration data if you have multiple configurations.|
 |SyncType|Filter by type of synchronization such as object or password.|
 
 
@@ -49,7 +49,7 @@ This workbook:
 
 You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md) and [Provisioning Logs for troubleshooting cloud sync](how-to-troubleshoot.md).
 
-## Sync Summary  
+## Sync summary  
 The sync summary section provides a summary of your organizations synchronization activities.  These activities include:
    - Sync actions per day by action
    - Sync actions per day by status
@@ -57,18 +57,20 @@ The sync summary section provides a summary of your organizations synchronizatio
    - Recent sync errors
 
 
- [![workbook sync summary](media/how-to-cloud-sync-workbook/workbook-2.png)](media/how-to-cloud-sync-workbook/workbook-2.png#lightbox)
+
+ :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-2.png" alt-text="Screenshot of the cloud sync summary." lightbox="media/how-to-cloud-sync-workbook/workbook-2.png.png":::
+
 
 ## Sync details
 The sync details tab allows you to drill into the synchronization data and get more information.  This information includes:
    - Objects sync by status
    - Sync log details
  
- [![workbook sync details](media/how-to-cloud-sync-workbook/workbook-3.png)](media/how-to-cloud-sync-workbook/workbook-3.png#lightbox)
+ :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-3.png" alt-text="Screenshot of the cloud sync details." lightbox="media/how-to-cloud-sync-workbook/workbook-3.png.png":::
 
 You can further drill in to the sync log details for additional information.
 
- [![log details](media/how-to-cloud-sync-workbook/workbook-4.png)](media/how-to-cloud-sync-workbook/workbook-4.png#lightbox)
+  :::image type="content" source="media/how-to-cloud-sync-workbook/workbook-4.png" alt-text="Screenshot of the log details." lightbox="media/how-to-cloud-sync-workbook/workbook-4.png.png":::
 
 ## Job Id
 A Job Id will be created for each configuration when it runs and is populated with data.  You can look at individual configuration based on Job Id.   
