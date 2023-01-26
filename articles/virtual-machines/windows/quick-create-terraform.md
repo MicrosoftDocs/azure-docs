@@ -87,7 +87,7 @@ In this article, you learn how to:
 
 2. With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained from the previous command. The following example shows the default IIS web site:
 
-    ![IIS default site](./media/quick-create-powershell/default-iis-website.png)
+    ![Screenshot showing the IIS default site.](./media/quick-create-powershell/default-iis-website.png)
 
 ## Clean up resources
 
