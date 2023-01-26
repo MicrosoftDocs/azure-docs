@@ -40,9 +40,10 @@ The following FQDNs are proxied through the service, and will not need additiona
 
 ## List of optional FQDNs
 
-### INSTALLING AND DOWNLOADING PACKAGES AND TOOLS
+### ADDITIONAL CONTAINER IMAGES
 
 - **`registry.redhat.io`**: Used to provide images for things such as Operator Hub. 
+- **`*.quay.io`**: May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images. If your firewall cannot use wildcards, you can find the [full list of subdomains in the Red Hat documentation.](https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html)
 
 ---
 
@@ -59,7 +60,6 @@ In OpenShift Container Platform, customers can opt out of reporting health and u
 
 ### OTHER POSSIBLE OPENSHIFT REQUIREMENTS
 
-- **`*.quay.io`**: May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images. If your firewall cannot use wildcards, you can find the [full list of subdomains in the Red Hat documentation.](https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html)
 - **`mirror.openshift.com`**: Required to access mirrored installation content and images. This site is also a source of release image signatures.
 - **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is used in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
 - **`api.openshift.com`**: Used by the cluster for release graph parsing. https://access.redhat.com/labs/ocpupgradegraph/ can be used as an alternative.
