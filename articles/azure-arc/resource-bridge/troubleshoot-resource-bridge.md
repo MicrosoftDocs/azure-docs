@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 12/06/2022
+ms.date: 01/26/2023
 ms.topic: conceptual
 ---
 
@@ -36,19 +36,19 @@ For example, if you specified the wrong location, or subscription during deploym
 
 To resolve this issue, delete the appliance and update the appliance YAML file. Then redeploy and create the resource bridge.
 
-### Failure due to previous failed deployments
+### Failure due to previous deployments
 
-If an Arc resource bridge deployment fails, subsequent deployments may fail due to residual cached folders remaining on the machine.
+If Arc resource bridge is deployed multiple times, an old token or expired credentials left on the management machine may cause future deployments to fail.
 
-To prevent this from happening, be sure to run the `az arcappliance delete` command after any failed deployment. This command must be run with the latest `arcappliance` Azure CLI extension. To ensure that you have the latest version installed on your machine, run the following command:
+To prevent this from happening, be sure to run the `az arcappliance delete` command after any failed deployment, or to delete the current bridge before attempting another deployment. The delete command must be run with the latest `arcappliance` Azure CLI extension. To ensure that you have the latest version installed on your machine, run the following command:
 
 ```azurecli
 az extension update --name arcappliance
 ```
 
-If the failed deployment is not successfully removed, residual cached folders may cause future Arc resource bridge deployments to fail. This may cause the error message `Unavailable desc = connection closed before server preface received` to surface when various `az arcappliance` commands are run, including `prepare` and `delete`.
+If all components of Arc resource bridge are not completely deleted, the residual token or expired credentials may cause future deployments to fail. When this is the case, the error will contain the message `Unavailable desc = connection closed before server preface received` to surface when various `az arcappliance` commands are run, including `prepare` and `delete`.
 
-To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be deleted on the machine where the Arc resource bridge CLI commands are being run. You can delete these manually by navigating to the user profile directory (typically C:\Users\<username>), then deleting the .wssd\python and/or .wssd\kva folders. After they are deleted, try the command again.
+To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be deleted from the management machine. You can delete these manually by navigating to the user profile directory (typically `C:\Users\<username>`), then deleting the `.wssd\python` and/or `.wssd\kva` folders. After they are deleted, retry the command that failed.
 
 ### Token refresh error
 
@@ -59,6 +59,30 @@ When you run the Azure CLI commands, the following error may be returned: *The r
 When using the `az arcappliance createConfig` or `az arcappliance run` command, there will be an interactive experience which shows the list of the VMware entities where user can select to deploy the virtual appliance. This list will show all user-created resource pools along with default cluster resource pools, but the default host resource pools aren't listed.
 
 When the appliance is deployed to a host resource pool, there is no high availability if the host hardware fails. Because of this, we recommend that you don't try to deploy the appliance in a host resource pool.
+
+### Resource bridge status "Offline" and `provisioningState` "Failed"
+
+When deploying Arc resource bridge, the bridge may appear to be successfully deployed, because no errors were encountered when running `az arcappliance deploy` or `az arcappliance create`. However, when viewing the bridge in Azure portal, you may see status shows as **Offline**, and `az arcappliance show` may show the `provisioningState` as **Failed**. This happens when required providers are not registered before the bridge is deployed.
+
+To resolve this problem, delete the resource bridge, register the providers, then redeploy the resource bridge.
+
+1. Delete the resource bridge:
+
+   ```azurecli
+   az arcappliance delete <fabric> --config-file <path to appliance.yaml>
+   ```
+
+1. Register the providers:
+
+   ```azurecli
+   az provider register --namespace Microsoft.ExtendedLocation –wait
+   az provider register --namespace Microsoft.ResourceConnector –wait
+   ```
+
+1. Redeploy the resource bridge.
+
+> [!NOTE]
+> Partner products (such as Arc-enabled VMware vSphere) may have their own required providers to register. To see additional providers that must be registered, see the product's documentation.
 
 ## Networking issues
 
