@@ -27,7 +27,7 @@ When you upload your root certificate authority (CA) certificate or subordinate 
 
 1. To automatically verify the certificate, check the box next to **Set certificate status to verified on upload**.
 
-  :::image type="content" source="media/tutorial-x509-prove-possession/skip-pop.png" alt-text="Screenshot showing how to automatically verify the certificate status on upload.":::
+   :::image type="content" source="media/tutorial-x509-prove-possession/skip-pop.png" alt-text="Screenshot showing how to automatically verify the certificate status on upload.":::
 
 1. Select **Save**.  
 
@@ -41,7 +41,7 @@ If you didn't choose to automatically verify your certificate during upload, you
 
 1. Select **Generate Verification Code** in the dialog.
 
-  :::image type="content" source="media/tutorial-x509-prove-possession/certificate-details.png" alt-text="Screenshot showing the certificate details dialog.":::
+   :::image type="content" source="media/tutorial-x509-prove-possession/certificate-details.png" alt-text="Screenshot showing the certificate details dialog.":::
 
 1. Copy the verification code to the clipboard. You must use this verification code as the certificate subject in subsequent steps. For example, if the verification code is 75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3, add that as the subject of your certificate as shown in the next step.
 
