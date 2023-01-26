@@ -53,7 +53,7 @@ public String funqyHello() {
 
 The name is important. It becomes a part of the REST URI to invoke the function, as shown later in the article.
 
-## Test the serverless function locally
+## Test the function locally
 
 Use `mvn` to run Quarkus dev mode on your local terminal. Running Quarkus in this way enables live reload with background compilation. When you modify your Java files and/or your resource files and refresh your browser, these changes will automatically take effect.
 
