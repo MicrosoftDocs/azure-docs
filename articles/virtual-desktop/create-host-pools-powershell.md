@@ -86,7 +86,7 @@ $token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostP
 
 If you haven't already done so, prepare your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 After you sign in, use the [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az-desktopvirtualization-hostpool-create) command to create the new host pool, optionally creating a registration token for session hosts to join the host pool:
 

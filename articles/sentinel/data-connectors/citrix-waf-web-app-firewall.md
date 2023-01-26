@@ -3,7 +3,7 @@ title: "Citrix WAF (Web App Firewall) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Citrix WAF (Web App Firewall) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -12,7 +12,7 @@ ms.author: cwatson
 
  Citrix WAF (Web App Firewall) is an industry leading enterprise-grade WAF solution. Citrix WAF mitigates threats against your public-facing assets, including websites, apps, and APIs. From layer 3 to layer 7, Citrix WAF includes protections such as IP reputation, bot mitigation, defense against the OWASP Top 10 application threats, built-in signatures to protect against application stack vulnerabilities, and more. 
 
-Citrix WAF supports Common Event Format (CEF) which is an industry standard format on top of Syslog messages . By connecting Citrix WAF CEF logs to Azure Sentinel, you can take advantage of search & correlation, alerting, and threat intelligence enrichment for each log.
+Citrix WAF supports Common Event Format (CEF) which is an industry standard format on top of Syslog messages . By connecting Citrix WAF CEF logs to Microsoft Sentinel, you can take advantage of search & correlation, alerting, and threat intelligence enrichment for each log.
 
 ## Connector attributes
 
@@ -80,17 +80,17 @@ CommonSecurityLog
 
 1. Linux Syslog agent configuration
 
-Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Azure Sentinel.
+Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.
 
 > Notice that the data from all regions will be stored in the selected workspace
 
 1.1 Select or create a Linux machine
 
-Select or create a Linux machine that Azure Sentinel will use as the proxy between your security solution and Azure Sentinel this machine can be on your on-prem environment, Azure or other clouds.
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
 
 1.2 Install the CEF collector on the Linux machine
 
-Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Azure Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.
+Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.
 
 > 1. Make sure that you have Python on your machine using the following command: python -version.
 

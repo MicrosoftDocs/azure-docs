@@ -8,7 +8,7 @@ ms.reviewer: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 12/02/2022
+ms.date: 01/26/2023
 ms.custom: engagement-fy23
 ---
 
@@ -43,7 +43,7 @@ To check your version of Linux, run the following command:
 lsb_release -a
 ```
 
-If no binaries are available for your distribution, you can [build the binaries from source code](https://github.com/MicrosoftDocs/azure-docs-pr/pull/203174#option-2-build-from-source).
+If no binaries are available for your distribution, you can [Option 2: Build the binaries from source code](#option-2-build-the-binaries-from-source-code).
 
 To install BlobFuse2 from the repositories:
 

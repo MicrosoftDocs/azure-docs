@@ -3,14 +3,14 @@ title: "Perimeter 81 Activity Logs connector for Microsoft Sentinel"
 description: "Learn how to install the connector Perimeter 81 Activity Logs to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Perimeter 81 Activity Logs connector for Microsoft Sentinel
 
-The Perimeter 81 Activity Logs connector allows you to easily connect your Perimeter 81 activity logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation.
+The Perimeter 81 Activity Logs connector allows you to easily connect your Perimeter 81 activity logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation.
 
 ## Connector attributes
 
@@ -69,7 +69,7 @@ Perimeter81_CL
 ## Vendor installation instructions
 
 
-Please note the values below and follow the instructions <a href='https://support.perimeter81.com/hc/en-us/articles/360012680780'>here</a> to connect your Perimeter 81 activity logs with Azure Sentinel.
+Please note the values below and follow the instructions <a href='https://support.perimeter81.com/hc/en-us/articles/360012680780'>here</a> to connect your Perimeter 81 activity logs with Microsoft Sentinel.
 
 
 

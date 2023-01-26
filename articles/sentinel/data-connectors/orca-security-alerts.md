@@ -3,14 +3,14 @@ title: "Orca Security Alerts connector for Microsoft Sentinel"
 description: "Learn how to install the connector Orca Security Alerts to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Orca Security Alerts connector for Microsoft Sentinel
 
-The Orca Security Alerts connector allows you to easily export Alerts logs to Azure Sentinel.
+The Orca Security Alerts connector allows you to easily export Alerts logs to Microsoft Sentinel.
 
 ## Connector attributes
 
@@ -42,7 +42,7 @@ OrcaAlerts_CL
 ## Vendor installation instructions
 
 
-Follow [guidance](https://orcasecurity.zendesk.com/hc/en-us/articles/360043941992-Azure-Sentinel-configuration) for integrating Orca Security Alerts logs with Azure Sentinel.
+Follow [guidance](https://orcasecurity.zendesk.com/hc/en-us/articles/360043941992-Azure-Sentinel-configuration) for integrating Orca Security Alerts logs with Microsoft Sentinel.
 
 
 

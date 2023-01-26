@@ -3,14 +3,14 @@ title: "BETTER Mobile Threat Defense (MTD) connector for Microsoft Sentinel"
 description: "Learn how to install the connector BETTER Mobile Threat Defense (MTD) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # BETTER Mobile Threat Defense (MTD) connector for Microsoft Sentinel
 
-The BETTER MTD Connector allows Enterprises to connect their Better MTD instances with Azure Sentinel, to view their data in Dashboards, create custom alerts, use it to trigger playbooks and expands threat hunting capabilities. This gives users more insight into their organization's mobile devices and ability to quickly analyze current mobile security posture which improves their overall SecOps capabilities.
+The BETTER MTD Connector allows Enterprises to connect their Better MTD instances with Microsoft Sentinel, to view their data in Dashboards, create custom alerts, use it to trigger playbooks and expands threat hunting capabilities. This gives users more insight into their organization's mobile devices and ability to quickly analyze current mobile security posture which improves their overall SecOps capabilities.
 
 ## Connector attributes
 
@@ -73,12 +73,12 @@ BetterMTDNetflowLog_CL
 
 1. In **Better MTD Console**, click on **Integration** on the side bar.
 2. Select  **Others** tab.
-3. Click the **ADD ACCOUNT** button and Select **Azure Sentinel** from the available integrations.
+3. Click the **ADD ACCOUNT** button and Select **Microsoft Sentinel** from the available integrations.
 4. Create the Integration:
   - set `ACCOUNT NAME` to a descriptive name that identifies the integration then click **Next**
   - Enter your `WORKSPACE ID` and `PRIMARY KEY` from the fields below, click **Save**
   - Click **Done**
-5.  Threat Policy setup (Which Incidents should be reported to `Azure Sentinel`):
+5.  Threat Policy setup (Which Incidents should be reported to `Microsoft Sentinel`):
   - In **Better MTD Console**, click on **Policies** on the side bar
   - Click on the **Edit** button of the Policy that you are using.
   - For each Incident types that you want to be logged go to **Send to Integrations** field and select **Sentinel**

@@ -3,7 +3,7 @@ title: "Microsoft Purview connector for Microsoft Sentinel"
 description: "Learn how to install the connector Microsoft Purview to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -19,6 +19,35 @@ Connect to Microsoft Purview to enable data sensitivity enrichment of Microsoft 
 | **Log Analytics table(s)** | AzureDiagnostics (PurviewDataSensitivityLogs)<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
+
+## Query samples
+
+**View files that contain a specific classification (example shows Social Security Number)**
+   ```kusto
+PurviewDataSensitivityLogs
+ 
+   | where Classification has "Social Security Number"
+   ```
+
+
+
+## Vendor installation instructions
+
+Connect Microsoft Purview to Microsoft Sentinel
+
+Within the Azure Portal, navigate to your Purview resource:
+ 1. In the search bar, search for **Purview accounts.**
+ 2. Select the specific account that you would like to be set up with Sentinel.
+
+Inside your Microsoft Purview resource:
+ 3. Select **Diagnostic Settings.**
+ 4. Select **+ Add diagnostic setting.**
+ 5. In the **Diagnostic setting** blade:
+   - Select the Log Category as **DataSensitivityLogEvent**.
+   - Select **Send to Log Analytics**.
+   - Chose the log destination workspace. This should be the same workspace that is used by **Microsoft Sentinel.**
+  - Click **Save**.
+
 
 
 ## Next steps

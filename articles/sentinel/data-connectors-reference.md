@@ -141,10 +141,6 @@ Data connectors are available as part of the following offerings:
 
 - [Claroty](data-connectors/claroty.md)
 
-## Cloudflare
-
-- [Cloudflare (Preview) (using Azure Function)](data-connectors/cloudflare-preview-using-azure-function.md)
-
 ## Cognni
 
 - [Cognni](data-connectors/cognni.md)
@@ -230,6 +226,10 @@ Data connectors are available as part of the following offerings:
 - [Forescout](data-connectors/forescout.md)
 - [Forescout Host Property Monitor](data-connectors/forescout-host-property-monitor.md)
 
+## Fortinet
+
+- [Fortinet](data-connectors/fortinet.md)
+
 ## GitLab
 
 - [GitLab](data-connectors/gitlab.md)
@@ -245,6 +245,10 @@ Data connectors are available as part of the following offerings:
 ## H.O.L.M. Security Sweden AB
 
 - [Holm Security Asset Data (using Azure Function)](data-connectors/holm-security-asset-data-using-azure-function.md)
+
+## iboss inc
+
+- [iboss](data-connectors/iboss.md)
 
 ## Illumio
 

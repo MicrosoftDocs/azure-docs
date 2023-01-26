@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 1/5/2023
+ms.date: 1/24/2023
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -82,10 +82,16 @@ In addition to the generally available data collection listed above, Azure Monit
 | [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Generally available](../../sentinel/data-connectors/windows-forwarded-events.md)</li><li>Windows DNS logs: [Public preview](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: Preview</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | <ul><li>[Sign-up link for Linux Syslog CEF](https://aka.ms/amadcr-privatepreviews)</li><li>No sign-up needed for Windows Forwarding Event (WEF), Windows Security Events and Windows DNS events</li></ul> |
 =======
 | [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows DNS logs: [Public preview](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: [Public preview](../../sentinel/connect-cef-ama.md#set-up-the-common-event-format-cef-via-ama-connector)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | - |
+<<<<<<< HEAD
 >>>>>>> 4f03f390ff63f3ab8c8d192d843e9bf9d7a250ff
 |	 [Change Tracking](../../automation/change-tracking/overview.md) |	 Change Tracking: Preview. 	|	Change Tracking extension	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
+=======
+|	 [Change Tracking](../../automation/change-tracking/overview.md) |	 Public preview 	|	Change Tracking extension	|	[Change Tracking and Inventory using Azure Monitor Agent](../../automation/change-tracking/overview-monitoring-agent.md)	|
+>>>>>>> f11e68bc4e5fecf64f5074168834a4c72e388a39
 |	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
 |	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Public preview	|	Azure NetworkWatcher extension	|	[Monitor network connectivity by using Azure Monitor Agent](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
+| [SQL Best Practices Assessment](/sql/sql-server/azure-arc/assess/) | Generally available |  | [Configure best practices assessment using Azure Monitor Agent](/sql/sql-server/azure-arc/assess#enable-best-practices-assessment) |
+
 
 ## Supported regions
 
@@ -127,7 +133,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	VM Insights	|	X (Public preview)	|	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
-|		|	Change Tracking	|	|	X	|		|
+|		|	Change Tracking	| X (Public preview) |	X	|		|
+|       |   SQL Best Practices Assessment | X |     |       |
 
 ### Linux agents
 
@@ -151,7 +158,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	VM Insights	|	X (Public preview)	|	X 	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
-|		|	Change Tracking	|	|	X	|		|
+|		|	Change Tracking	| X (Public preview) |	X	|		|
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
@@ -207,10 +214,10 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Oracle Linux 6                                              |   | X |   |
 | Oracle Linux 6.4+                                           |   | X | X |
 | Red Hat Enterprise Linux Server 8.6                         | X<sup>3</sup> | X |   |
-| Red Hat Enterprise Linux Server 8                           | X | X |   |
+| Red Hat Enterprise Linux Server 8+                           | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
-| Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
+| Red Hat Enterprise Linux Server 6                           |   | X |   |
 | Rocky Linux 8                                               | X | X |   |
 | SUSE Linux Enterprise Server 15 SP4                         | X<sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15 SP3                         | X |   |   |

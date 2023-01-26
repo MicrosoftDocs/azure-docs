@@ -3,7 +3,7 @@ title: "AbnormalSecurity (using Azure Function) connector for Microsoft Sentinel
 description: "Learn how to install the connector AbnormalSecurity (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -106,7 +106,7 @@ If you're already signed in, go to the next step.
 
 	e. **Select a runtime:** Choose Python 3.8.
 
-	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Azure Sentinel is located.
+	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.
 
 6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.
 7. Go to Azure Portal for the Function App configuration.

@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 01/09/2023
+ms.date: 01/25/2023
 ms.custom: references_regions
 ---
 
@@ -25,7 +25,7 @@ The following diagram demonstrates a typical architecture of Azure NetApp Files 
 
 Before you begin the prerequisites, review the [Performance best practices](#performance-best-practices) section to learn about optimal performance of NFS datastores on Azure NetApp Files volumes.
 
-1. [Deploy Azure VMware Solution](./deploy-azure-vmware-solution.md) private cloud and a dedicated virtual network connected via ExpressRoute gateway. The virtual network gateway should be configured with the Ultra performance SKU and have FastPath enabled. For more information, see [Configure networking for your VMware private cloud](tutorial-configure-networking.md) and [Network planning checklist](tutorial-network-checklist.md).
+1. [Deploy Azure VMware Solution](./deploy-azure-vmware-solution.md) private cloud and a dedicated virtual network connected via ExpressRoute gateway. The virtual network gateway should be configured with the Ultra performance or ErGw3Az SKU and have FastPath enabled. For more information, see [Configure networking for your VMware private cloud](tutorial-configure-networking.md) and [Network planning checklist](tutorial-network-checklist.md).
 1. Create an [NFSv3 volume for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-create-volumes.md) in the same virtual network created in the previous step.
     1. Verify connectivity from the private cloud to Azure NetApp Files volume by pinging the attached target IP.
         2. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace. If the subscription isn't registered, register it now.
@@ -90,7 +90,7 @@ Under **Manage**, select **Storage**.
     :::image type="content" source="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience-1.png" alt-text="Image shows the navigation to Connect Azure NetApp Files volume pop-up window." lightbox="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience-1.png":::
 
 1. Verify the protocol is NFS. You'll need to verify the virtual network and subnet to ensure connectivity to the Azure VMware Solution private cloud.
-1. Under **Associated cluster**, select the **Client cluster** to associate the NFS volume as a datastore
+1. Under **Associated cluster**, in the **Client cluster** field, select one or more clusters to associate the volume as a datastore.
 1. Under **Data store**, create a personalized name for your **Datastore name**.
     1. When the datastore is created, you should see all of your datastores in the **Storage**.
     2. You'll also notice that the NFS datastores are added in vCenter.
@@ -208,3 +208,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 - **How are the datastores charged, is there an additional charge?**
 
     Azure NetApp Files NFS volumes that are used as datastores will be billed following the [capacity pool based billing model](../azure-netapp-files/azure-netapp-files-cost-model.md). Billing will depend on the service level. There's no extra charge for using Azure NetApp Files NFS volumes as datastores.
+
+- **Can a single Azure NetApp Files datastore be added to multiple clusters within the same Azure VMware Solution SDDC?**
+
+    Yes, you can select multiple datastores at the time of datastore creation. Additional clusters may be added or removed after the initial creation as well.

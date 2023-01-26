@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 01/25/2023
 ms.author: normesta
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -121,6 +121,8 @@ Disabling blob versioning does not delete existing blobs, versions, or snapshots
 After versioning is disabled, modifying the current version creates a blob that is not a version. All subsequent updates to the blob will overwrite its data without saving the previous state. All existing versions persist as previous versions.
 
 You can read or delete versions using the version ID after versioning is disabled. You can also list a blob's versions after versioning is disabled.
+
+Object replication relies on blob versioning. Before you can disable blob versioning, you must delete any object replication policies on the account. For more information about object replication, see [Object replication for block blobs](object-replication-overview.md).
 
 The following diagram shows how modifying a blob after versioning is disabled creates a blob that is not versioned. Any existing versions associated with the blob persist.
 

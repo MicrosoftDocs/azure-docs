@@ -3,14 +3,14 @@ title: "Netskope (using Azure Function) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Netskope (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Netskope (using Azure Function) connector for Microsoft Sentinel
 
-The [Netskope Cloud Security Platform](https://www.netskope.com/platform) connector provides the capability to ingest Netskope logs and events into Azure Sentinel. The connector provides visibility into Netskope Platform Events and Alerts in Azure Sentinel to improve monitoring and investigation capabilities.
+The [Netskope Cloud Security Platform](https://www.netskope.com/platform) connector provides the capability to ingest Netskope logs and events into Microsoft Sentinel. The connector provides visibility into Netskope Platform Events and Alerts in Microsoft Sentinel to improve monitoring and investigation capabilities.
 
 ## Connector attributes
 
@@ -60,7 +60,7 @@ To integrate with Netskope (using Azure Function) make sure you have:
 
 
 > [!NOTE]
-   >  This connector uses Azure Functions to connect to Netskope to pull logs into Azure Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+   >  This connector uses Azure Functions to connect to Netskope to pull logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
 >This data connector depends on a parser based on a Kusto Function to work as expected. [Follow the steps](https://aka.ms/sentinel-netskope-parser) to use the Kusto function alias, **Netskope**

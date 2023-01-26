@@ -70,7 +70,7 @@ ASIM currently defines the following schemas:
 - [Process Event](process-events-normalization-schema.md)
 - [Registry Event](registry-event-normalization-schema.md)
 - [User Management](user-management-normalization-schema.md)
-- [Web Session](web-normalization-schema.md)
+- [Web Session](normalization-schema-web.md)
 
 For more information, see [ASIM schemas](normalization-about-schemas.md).
 
