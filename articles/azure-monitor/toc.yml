@@ -1472,10 +1472,11 @@ items:
         href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Use webhooks and email notifications
         href: autoscale/autoscale-webhook-email.md
+      - name: Autoscale diagnostics
+        href: autoscale/autoscale-diagnostics.md  
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
-      - name: Resource Log schemas
-        href: autoscale/autoscale-resource-log-schema.md  
+
 - name: Reference
   items:
   - name: Service limits
