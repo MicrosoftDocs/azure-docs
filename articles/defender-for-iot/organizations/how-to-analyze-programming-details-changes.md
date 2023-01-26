@@ -74,7 +74,7 @@ Alerts are triggered when unauthorized programming devices carry out programming
 
 1. Select **Programming** to open the **Programming timeline**.
 
-:::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Screenshot of unauthorized programming alerts.":::
+    :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Screenshot of unauthorized programming alerts.":::
 
 ### Device map
 
@@ -118,15 +118,11 @@ Use the event timeline to display a timeline of events in which programming chan
 
 1. Select **View programming** to open the programming timeline. You can also download the file, or compare it to other recent files. For more information, see [Working in the programming timeline window](#working-in-the-programming-timeline-window).
 
-:::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="Screenshot of the event timeline.":::
+    :::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="Screenshot of the event timeline.":::
 
 ## Working in the programming timeline window
 
-This section describes how to view programming files and compare versions. Search for specific files sent to a programmed device. Search for files based on:
-
-  - Date
-
-  - File type
+This section describes how to view programming files and compare versions. Search for specific files sent to a programmed device, based on date or file type. 
 
 ### Programming timeline reference
 
@@ -171,7 +167,7 @@ This section describes how to compare programming files.
 
     :::image type="content" source="media/analyze-programming/compare-file-pane.png" alt-text="Screenshot of compare files pane.":::
 
-   <!--Remove all of this? I don';'t see this option of differences or dates-->
+   <!--Remove all of this? I don't see this option of differences or dates-->
 
    The window displays all dates the selected file was detected on the programmed device. The file may have been updated on the programmed device by multiple programming devices.
 
@@ -183,15 +179,15 @@ This section describes how to compare programming files.
 
    :::image type="content" source="media/how-to-work-with-maps/program-timeline.png" alt-text="Screenshot of the programming timeline view." lightbox="media/how-to-work-with-maps/program-timeline.png":::
 
-<!--Remove all of this? I don''t see this option of differences or dates-->
+1. Select a date. The file detected on the selected date appears in the window. 
 
-1. Select a date. The file detected on the selected date appears in the window. <!--Remove? I don't see this option-->
+<!--Remove all of this? I don''t see this option of differences or dates-->
 
 1. The file selected from the **Recent Events** or **Files** pane always appears on the right.
 
     :::image type="content" source="media/analyze-programming/compare-files-side-by-side.png" alt-text="Screenshot of programming file comparison side by side.":::
 
-    Compare and download files as needed. 
+    Compare and download files as needed.
 
 ## Next steps
 
