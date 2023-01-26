@@ -303,7 +303,7 @@ Select **Next: Routes** to continue to the next step of the wizard.
 
 A route named *SimulatedTemperatureSensorToIoTHub* was created automatically when you added the module from Azure Marketplace. This route sends all messages from the simulated temperature module to IoT Hub.
 
-   ![Screenshot that shows removing the default route then moving to the next step.](./media/quickstart/delete-route-next-review-create.png)
+   ![Screenshot that shows removing the default route then moving to the next step.](./media/quickstart/route-next-review-create.png)
 
 Select **Next: Review + create**.
 
