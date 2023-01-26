@@ -51,13 +51,11 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 1. Copy the values for the following fields shown in the Embed Code form. You'll use these values to configure your offer to receive leads in the next step. Use the next example as a guide for getting the IDs you need from the Marketo Embed Code example.
 
-    - Server ID = **ys12**
     - Munchkin ID = **123-PQR-789**
     - Form ID = **1179**
 
     Another way to figure out these values:
 
-    - Server ID is found in the URL of your Marketo instance, for example, `serverID.marketo.com`.
     - Get your subscription's Munchkin ID by going to your **Admin** > **Munchkin** menu in the **Munchkin Account ID** field, or from the first part of your Marketo REST API host subdomain: `https://{Munchkin ID}.mktorest.com`.
     - Form ID is the ID of the Embed Code form you created in step 7 to route leads from the marketplace.
 
@@ -67,7 +65,7 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 ![API1-new](https://user-images.githubusercontent.com/98078741/214808153-a59183d7-12e3-432f-a792-211f4e17e9cc.png)
 
-3. Once you click the View details link for the new service created, you can copy the Client ID and Client secret for use in the Partner center connector configuration.
+3. Once you click the View details link for the new service created, you can copy the **Client ID** and **Client secret** for use in the Partner center connector configuration.
 
 ![Marketo API3](https://user-images.githubusercontent.com/98078741/214808193-693a599a-9254-4f63-b500-937f634d3769.png)
 
@@ -87,7 +85,7 @@ When you're ready to configure the lead management information for your offer in
 
     ![Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-1. Provide the **Server ID**, **Form ID**, **Client ID** and **Client Secret** fields.
+1. Provide the **Munchkin ID**, **Form ID**, **Client ID** and **Client Secret** fields.
 
     > [!NOTE]
     > You must finish configuring the rest of the offer and publish it before you can receive leads for the offer. 
@@ -96,4 +94,4 @@ When you're ready to configure the lead management information for your offer in
 
    To make sure you've successfully connected to a lead destination, select **Validate**. If successful, you'll have a test lead in the lead destination.
 
-   ![Connection details pop-up window](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
+   ![Connection details pop-up window](https://user-images.githubusercontent.com/98078741/214812295-b65db33a-39ed-4769-832e-5637bf9bcf7d.png)
