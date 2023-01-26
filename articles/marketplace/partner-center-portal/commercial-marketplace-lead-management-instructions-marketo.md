@@ -59,7 +59,8 @@ This article describes how to set up your Marketo CRM system to process sales le
     - Get your subscription's Munchkin ID by going to your **Admin** > **Munchkin** menu in the **Munchkin Account ID** field, or from the first part of your Marketo REST API host subdomain: `https://{Munchkin ID}.mktorest.com`.
     - Form ID is the ID of the Embed Code form you created in step 7 to route leads from the marketplace.
 
-## Obtain a API access from your Marketo Admin
+## Obtain API access from your Marketo admin
+
 1. This [article](https://aka.ms/marketo-api) shows how one can obtain API access, specifically a **ClientID** and **Client Secret** needed for the new Marketo configuration. Please follow the step-by-step guide listed in the above link to create an API-only user and a Launchpoint connection for the Partner center lead management service.
 2. Please make sure that the Custom service created indicates Partner center as shown below.
 
@@ -75,7 +76,7 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 When you're ready to configure the lead management information for your offer in the publishing portal, follow these steps. 
 
-1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290).
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) and select **Marketplace offers**.
 
 1. Select your offer, and go to the **Offer setup** tab.
 
@@ -89,12 +90,11 @@ When you're ready to configure the lead management information for your offer in
 
 1. Provide the **Munchkin ID**, **Form ID**, **Client ID** and **Client Secret** fields.
 
-    > [!NOTE]
-    > You must finish configuring the rest of the offer and publish it before you can receive leads for the offer. 
+   > [!NOTE]
+   > You must finish configuring the rest of the offer and publish it before you can receive leads for the offer. 
 
 1. Select **OK**.
 
    To make sure you've successfully connected to a lead destination, select **Validate**. If successful, you'll have a test lead in the lead destination.
 
    ![Connection details pop-up window](https://user-images.githubusercontent.com/98078741/214812295-b65db33a-39ed-4769-832e-5637bf9bcf7d.png)
-   
