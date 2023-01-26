@@ -26,40 +26,61 @@ This article shows you how to configure your client for Azure AD:
 
 + Update your client code to call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential)
 
-## Prepare your search service
+## Configure role-based access for data plane
 
-As a first step, sign up for the preview and enable role-based access control (RBAC) on your [search service](search-create-service-portal.md).
+**Applies to:** Search Index Data Contributor, Search Index Data Reader, Search Service Contributor
 
-### Sign up for the preview
+In this step, configure your search service to recognize an **authorization** header on data requests that provide an OAuth2 access token.
 
-RBAC for data plane operations is in preview. In this step, add the preview feature to your Azure subscription.
+### [**Azure portal**](#tab/config-svc-portal)
 
-1. Open [Azure portal](https://portal.azure.com/) and find your search service
+1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
 
-1. On the left-nav pane, select **Keys**.
+1. Select **Keys** in the left navigation pane.
 
-1. In the blue banner that mentions the preview, select **Register** to add the feature to your subscription.
+   :::image type="content" source="media/search-create-service-portal/set-authentication-options.png" lightbox="media/search-create-service-portal/set-authentication-options.png" alt-text="Screenshot of the keys page with authentication options." border="true":::
 
-   :::image type="content" source="media/search-howto-aad/rbac-signup-portal.png" alt-text="Screenshot of how to sign up for the rbac preview in the portal" border="true" :::
+1. Choose an **API access control** option. 
 
-You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
+   | Option | Status | Description |
+   |--------|--------|-------------|
+   | API Key | Generally available (default) | Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
+   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the [2021-04-30-preview REST API](https://learn.microsoft.com/en-us/rest/api/searchservice/index-preview). |
+   | Both | Preview | Requests are valid using either an API key or role-based access control. |
 
-> [!NOTE]
-> Once you add the preview to your subscription, all search services in the subscription are permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as shown in a later step.
+All network calls for search service operations and content will respect the option you select: API keys, bearer token, or either one if you select **Both**.
 
-### Enable RBAC for data plane operations
+When you enable role-based access control in the portal, the failure mode will be "http401WithBearerChallenge" if authorization fails. Use the Management REST API to update the service if you want to use "http403" instead.
 
-Once your subscription is added to the preview, you'll still need to enable RBAC for data plane operations so that you can use Azure AD authentication. By default, Azure Cognitive Search uses key-based authentication for data plane operations but you can change the setting to allow role-based access control. 
+### [**REST API**](#tab/config-svc-rest)
 
-1. Navigate to your search service in the [Azure portal](https://portal.azure.com/).
+Use the Management REST API version 2021-04-01-Preview, [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), to configure your service.
 
-1. On the left navigation pane, select **Keys**.
+If you're using Postman or another REST client, see [Manage Azure Cognitive Search using REST](search-manage-rest.md) for help with setting up the client.
 
-1. Choose whether to allow both key-based and role-based access control, or only role-based access control.
+1. Under "properties", set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey".
 
-   :::image type="content" source="media/search-howto-aad/portal-api-access-control.png" alt-text="Screenshot of authentication options for azure cognitive search in the portal" border="true" :::
+   Optionally, set ["AadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. The default of "disableLocalAuth" is false so you don't need to set it, but it's included in the properties list to emphasize that it must be false whenever "authOptions" are set.
 
-You can also change these settings programatically as described in the [Azure Cognitive Search RBAC Documentation](./search-security-rbac.md?tabs=config-svc-rest%2croles-powershell%2ctest-rest#step-2-preview-configuration).
+    ```http
+    PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "location": "{{region}}",
+      "sku": {
+        "name": "standard"
+      },
+      "properties": {
+        "disableLocalAuth": false,
+        "authOptions": {
+          "aadOrApiKey": {
+            "aadAuthFailureMode": "http401WithBearerChallenge"
+          }
+        }
+      }
+   }
+    ```
+
+---
 
 ## Create a managed identity
 
@@ -111,7 +132,7 @@ It's a best practice to grant minimum permissions. If your application only need
 
 You can assign multiple roles, such as Search Service Contributor and Search Index Data Contributor, if your application needs comprehensive access to the search services, objects, and content.
 
-You can also [assign roles using PowerShell](./search-security-rbac.md?tabs=config-svc-rest%2croles-powershell%2ctest-rest#step-3-assign-roles).
+You can also [assign roles using PowerShell](search-security-rbac.md#assign-roles).
 
 ## Set up Azure AD authentication in your client
 

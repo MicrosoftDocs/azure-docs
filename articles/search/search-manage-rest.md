@@ -190,11 +190,15 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 
 <a name="enable-rbac"></a>
 
-## (preview) Enable Azure role-based authentication for data plane
+## (preview) Configure role-based access for data plane
 
-To use Azure role-based access control (Azure RBAC), set "authOptions" to "aadOrApiKey" and then send the request.
+**Applies to:** Search Index Data Contributor, Search Index Data Reader, Search Service Contributor
 
-If you want to use Azure RBAC exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up a second request, this time setting "disableLocalAuth" to "false".
+In this step, configure your search service to recognize an **authorization** header on data requests that provide an OAuth2 access token.
+
+To use Azure role-based access control (Azure RBAC) for data plane operations, set "authOptions" to "aadOrApiKey" and then send the request.
+
+If you want to use Azure RBAC exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up with a second request, this time setting "disableLocalAuth" to "true".
 
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
@@ -211,7 +215,10 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
     "partitionCount": 1,
     "hostingMode": "default",
     "disableLocalAuth": false,
-    "authOptions": "aadOrApiKey"
+    "authOptions": {
+      "aadOrApiKey": {
+        "aadAuthFailureMode": "http401WithBearerChallenge"
+      }
     }
   }
 }

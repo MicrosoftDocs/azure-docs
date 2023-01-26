@@ -52,30 +52,7 @@ Built-in roles include generally available and preview roles. If these roles are
 
 + In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
 
-<a name="step-1-preview-sign-up"></a>
-
-## Sign up for the preview
-
-**Applies to:** Search Index Data Contributor, Search Index Data Reader, Search Service Contributor
-
-New built-in preview roles grant permissions over content on the search service. Although built-in roles are always visible in the Azure portal, preview registration is required to make them operational.
-
-1. Open [Azure portal](https://portal.azure.com/) and find your search service.
-
-1. On the left-nav pane, select **Keys**.
-
-1. In the blue banner that mentions the preview, select **Register** to add the feature to your subscription.
-
-   :::image type="content" source="media/search-howto-aad/rbac-signup-portal.png" alt-text="screenshot of how to sign up for the preview in the portal" border="true" :::
-
-You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
-
-> [!NOTE]
-> Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want role-based access control on a given service, you can disable it for data plane operations as described in a later section.
-
-<a name="step-2-preview-configuration"></a>
-
-## Enable role-based access control preview for data plane operations
+## Configure role-based access for data plane
 
 **Applies to:** Search Index Data Contributor, Search Index Data Reader, Search Service Contributor
 
@@ -87,15 +64,19 @@ In this step, configure your search service to recognize an **authorization** he
 
 1. Select **Keys** in the left navigation pane.
 
-1. Choose an **API access control** mechanism. 
+   :::image type="content" source="media/search-create-service-portal/set-authentication-options.png" lightbox="media/search-create-service-portal/set-authentication-options.png" alt-text="Screenshot of the keys page with authentication options." border="true":::
+
+1. Choose an **API access control** option. 
 
    | Option | Status | Description |
    |--------|--------|-------------|
    | API Key | Generally available (default) | Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
-   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the 2021-04-30-preview REST API. |
-   | Both | Preview | Requests are valid using either an API key or an authorization token. |
+   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the [2021-04-30-preview REST API](https://learn.microsoft.com/en-us/rest/api/searchservice/index-preview). |
+   | Both | Preview | Requests are valid using either an API key or role-based access control. |
 
-All network calls for search service operations and content will respect the option you select: API keys for **API Keys**, an Azure RBAC token for **Role-based access control**, or API keys and Azure RBAC tokens equally for **Both**. This applies to both portal features and clients that access a search service programmatically.
+All network calls for search service operations and content will respect the option you select: API keys, bearer token, or either one if you select **Both**.
+
+When you enable role-based access control in the portal, the failure mode will be "http401WithBearerChallenge" if authorization fails. Use the Management REST API to update the service if you want to use "http403" instead.
 
 ### [**REST API**](#tab/config-svc-rest)
 
@@ -125,11 +106,9 @@ If you're using Postman or another REST client, see [Manage Azure Cognitive Sear
    }
     ```
 
-1. [Assign roles](#step-3-assign-roles) on the service and verify they're working correctly against the data plane.
+1. Follow the instructions in the next step to assign roles for data plane operations.
 
 ---
-
-<a name="step-3-assign-roles"></a>
 
 ## Assign roles
 
