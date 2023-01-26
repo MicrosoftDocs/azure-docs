@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/12/2023
+ms.date: 01/26/2023
 ms.custom: subject-rbac-steps, references_regions
 ---
 
@@ -52,11 +52,19 @@ Built-in roles include generally available and preview roles. If these roles are
 
 + In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
 
++ Role-based access control is supported in Azure portal and in the following search clients: 
+
+  + [Search REST APIs](/rest/api/searchservice/) (all supported versions)
+  + [azure.search.documents (Azure SDK for .NET) version 11.4](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/CHANGELOG.md)
+  + [azure.search.documents (Azure SDK for Python) version 11.3](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/CHANGELOG.md)
+  + [azure-search-documents (Azure SDK for Java) beta versions of 11.5 and 11.6](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/CHANGELOG.md),
+  + [@azure/search-documents (Azure SDK for JavaScript), version 11.3 (see change log)](https://www.npmjs.com/package/@azure/search-documents?activeTab=explore).
+
 ## Configure role-based access for data plane
 
 **Applies to:** Search Index Data Contributor, Search Index Data Reader, Search Service Contributor
 
-In this step, configure your search service to recognize an **authorization** header on data requests that provide an OAuth2 access token.
+In this step, configure your search service to recognize an **authorization** header on data requests that provide an OAuth2 access token. 
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
@@ -71,8 +79,10 @@ In this step, configure your search service to recognize an **authorization** he
    | Option | Status | Description |
    |--------|--------|-------------|
    | API Key | Generally available (default) | Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
-   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the [2021-04-30-preview REST API](/rest/api/searchservice/index-preview). |
+   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. |
    | Both | Preview | Requests are valid using either an API key or role-based access control. |
+
+Once you make a request, it can take a few minutes for the change to take effect. 
 
 All network calls for search service operations and content will respect the option you select: API keys, bearer token, or either one if you select **Both**.
 
@@ -82,7 +92,7 @@ When you enable role-based access control in the portal, the failure mode will b
 
 Use the Management REST API version 2021-04-01-Preview, [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), to configure your service.
 
-If you're using Postman or another REST client, see [Manage Azure Cognitive Search using REST](search-manage-rest.md) for help with setting up the client.
+All calls to the Management REST API are authenticated through Azure Active Directory, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
 
 1. Under "properties", set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey".
 
@@ -278,10 +288,10 @@ This approach assumes Postman as the REST client and uses a Postman collection a
 
 1. Save the collection.
 
-1. Send a request that uses the variables you've specified. For the "Search Index Data Reader" role, you can query an index (remember to provide a valid search service name on the URI):
+1. Send a request that uses the variables you've specified. For the "Search Index Data Reader" role, you can query an index (remember to provide a valid search service name on the URI). You can use any [supported API version](/rest/api/searchservice/search-service-api-versions).
 
    ```http
-   POST https://<service-name>.search.windows.net/indexes/hotels-quickstart/docs/search?api-version=2020-06-20
+   POST https://<service-name>.search.windows.net/indexes/hotels-quickstart/docs/search?api-version=2020-06-30
    {
     "queryType": "simple",
     "search": "motel",
@@ -297,7 +307,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 See [Authorize access to a search app using Azure Active Directory](/search-howto-aad.md) for instructions that create an identity for your client app, assign a role, and call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential).
 
-The Azure SDK for .NET supports an authorization header in the [NuGet Gallery | Azure.Search.Documents 11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2) package. Configuration is required to register an application with Azure Active Directory, and to obtain and pass authorization tokens:
+The Azure SDK for .NET supports an authorization header in the [NuGet Gallery | Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package. Configuration is required to register an application with Azure Active Directory, and to obtain and pass authorization tokens:
 
 + When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is an Azure AD convention.
 
