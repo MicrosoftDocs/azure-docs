@@ -66,7 +66,7 @@ To ingest data into Microsoft Sentinel:
   |Data connector  |Licensing, costs, and other information  |
   |---------|---------|
   |Azure DDoS Protection|<ul><li>Configured [Azure DDoS Standard protection plan](../ddos-protection/manage-ddos-protection.md#create-a-ddos-protection-plan).<li>Configured [virtual network with Azure DDoS Standard enabled](../ddos-protection/manage-ddos-protection.md#enable-ddos-protection-for-a-new-virtual-network)<li>Other charges may apply<li>The **Status** for Azure DDoS Protection Data Connector changes to **Connected** only when the protected resources are under a DDoS attack.</ul>|
-  |Azure Storage Account|The storage account (parent) resource has within it other (child) resources for each type of storage: files, tables, queues, and blobs.</br>When configuring diagnostics for a storage account, you must select and configure, in turn: <ul><li>The parent account resource, exporting the **Transaction** metric.<li>Each of the child storage-type resources, exporting all the logs and metrics.</ul>.You will only see the storage types that you actually have defined resources for.|
+  |Azure Storage Account|The storage account (parent) resource has within it other (child) resources for each type of storage: files, tables, queues, and blobs.</br>When configuring diagnostics for a storage account, you must select and configure, in turn: <ul><li>The parent account resource, exporting the **Transaction** metric.<li>Each of the child storage-type resources, exporting all the logs and metrics.</ul>You will only see the storage types that you actually have defined resources for.|
 
 ### Instructions
 

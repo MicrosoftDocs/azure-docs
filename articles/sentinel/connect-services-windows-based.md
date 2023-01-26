@@ -1,5 +1,5 @@
 ---
-title: Connect Microsoft Sentinel to Microsoft services with a Windows agent-based data connector
+title: Connect Microsoft Sentinel to other Microsoft services with a Windows agent-based data connector
 description: Learn how to connect Microsoft Sentinel to Microsoft services with Windows agent-based connections.
 author: yelevin
 ms.topic: how-to
@@ -7,7 +7,7 @@ ms.date: 01/26/2023
 ms.author: yelevin
 ---
 
-# Connect Microsoft Sentinel to Microsoft services with a Windows agent-based data connector
+# Connect Microsoft Sentinel to other Microsoft services with a Windows agent-based data connector
 
 This article describes how to connect Microsoft Sentinel to other Microsoft services by using a Windows agent-based connections. Microsoft Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made.
 
@@ -43,7 +43,8 @@ See below how to create data collection rules.
   - Windows servers installed on on-premises virtual machines
   - Windows servers installed on virtual machines in non-Azure clouds
 
--   Data connector specific requirements:
+- Data connector specific requirements:
+
     |Data connector  |Licensing, costs, and other information  |
     |---------|---------|
     |Windows Forwarded Events|<ul><li>You must have Windows Event Collection (WEC) enabled and running.<br>Install the Azure Monitor Agent on the WEC machine. <li>We recommend installing the [Advanced Security Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [`Azure-Sentinel` GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.|

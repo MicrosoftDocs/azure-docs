@@ -1,5 +1,5 @@
 ---
-title: Connect Microsoft Sentinel to Microsoft services with an API-based data connector
+title: Connect Microsoft Sentinel to other Microsoft services with an API-based data connector
 description: Learn how to connect Microsoft Sentinel to Microsoft services with API-based connections.
 author: yelevin
 ms.topic: how-to
@@ -7,7 +7,7 @@ ms.date: 01/26/2023
 ms.author: yelevin
 ---
 
-# Connect Microsoft Sentinel to Microsoft services with an API-based data connector
+# Connect Microsoft Sentinel to other Microsoft services with an API-based data connector
 
 This article describes how to make API-based connections to Microsoft Sentinel. Microsoft Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made.
 
