@@ -122,7 +122,7 @@ You need to create an [application](/graph/api/resources/application?view=graph-
 |-----|-----|-----|
 |MS Graph|Create extensions using GRAPH|[Create extensionProperty](/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true)|
 |PowerShell|Create extensions using PowerShell|[New-AzureADApplicationExtensionProperty](/powershell/module/azuread/new-azureadapplicationextensionproperty?view=azureadps-2.0&preserve-view=true)| 
-Using Cloud Sync and Azure AD Connect|Create extensions using Azure AD Connect|[Create an extension attribute using Azure AD Connect](../app-provisioning/user-provisioning-sync-attributes-for-mapping.mdmd#create-an-extension-attribute-using-azure-ad-connect)|
+Using Cloud Sync and Azure AD Connect|Create extensions using Azure AD Connect|[Create an extension attribute using Azure AD Connect](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md#create-an-extension-attribute-using-azure-ad-connect)|
 |Customizing attributes to sync|Information on customizing which attributes to synch|[Customize which attributes to synchronize with Azure AD](../hybrid/how-to-connect-sync-feature-directory-extensions.md#customize-which-attributes-to-synchronize-with-azure-ad)
 
 ## Use attribute mapping to map Directory Extensions
