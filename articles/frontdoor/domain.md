@@ -18,16 +18,21 @@ In Azure Front Door, a *domain* represents a custom domain name that Front Door 
 - **Apex domains** don't contain a subdomain. An example apex domain is `contoso.com`.
 - **Wildcard domains** allow traffic to be received for any subdomain. An example wildcard domain is `*.contoso.com`. For more information about using wildcard domains with Azure Front Door, see [Wildcard domains](./front-door-wildcard-domain.md).
 
+Domains are added to your Azure Front Door profile. You can use a domain in multiple endpoints, if you use different paths in each route.
+
 To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
 
-## DNS records
+## DNS configuration
 
-<!-- TODO -->
-- Each domain typically needs two DNS records:
-  - TXT record, to validate ownership
-  - CNAME record, to control traffic flow
-- Can be created ahead of any DNS changes, to avoid downtime
-- Azure DNS vs. third-party
+When you add a domain to your Azure Front Door profile, you typically need to configure two records in your DNS server:
+
+* A DNS TXT record, which is usually required to validate ownership of your domain name. For more information on the DNS TXT records, see [Domain validation](#domain-validation).
+* A DNS CNAME record, which controls the flow of internet traffic to Azure Front Door.
+
+> [!TIP]
+> You can add a domain name to your Azure Front Door profile before making any DNS changes. This approach can be helpful if you need to set your Azure Front Door configuration together, or if you have a separate team that changes your DNS records.
+>
+> You can also add your DNS TXT record to validate your domain ownership before you add the CNAME record to control traffic flow. This approach can be useful to avoid experiencing migration downtime if you have an application already in production.
 
 ## Domain validation
 
@@ -64,7 +69,7 @@ The following table lists the validation states that a domain might show.
 | Pending | The DNS TXT record value has been generated, and Azure Front Door is ready for you to add the DNS TXT record. <br /> Add the DNS TXT record to your DNS provider and wait for the validation to complete. If the status remains **Pending** even after the TXT record has been updated with the DNS provider, select **Regenerate** to refresh the TXT record then add the TXT record to your DNS provider again. |
 | Pending re-validation | The managed certificate is less than 45 days from expiring. <br /> If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain is pointed to another CNAME record, select the **Pending re-validation** status, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
 | Refreshing validation token | A domain goes into a *Refreshing Validation Token* state for a brief period after the **Regenerate** button is selected. Once a new TXT record value is issued, the state will change to **Pending**. <br /> No action is required. |
-| Approved | The domain has been successfully validated. <br /> No action is required. |
+| Approved | The domain has been successfully validated, and Azure Front Door can accept traffic that uses this domain. <br /> No action is required. |
 | Rejected | The certificate provider/authority has rejected the issuance for the managed certificate. For example, the domain name might be invalid. <br /> Select the **Rejected** link and then select **Regenerate** on the *Validate the custom domain* page, as shown in the screenshots below this table. Then, select **Add** to add the TXT record in the DNS provider. |
 | Timeout | The TXT record wasn't added to your DNS provider within seven days, or an invalid DNS TXT record was added. <br /> Select the **Timeout** link and then select **Regenerate** on the *Validate the custom domain* page. Then select **Add** to add a new TXT record to the DNS provider. Ensure that you use the updated value. |
 | Internal error | An unknown error occurred. <br /> Retry validation by selecting the **Refresh** or **Regenerate** button. If you're still experiencing issues, submit a support request to Azure support. |
