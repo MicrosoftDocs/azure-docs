@@ -73,6 +73,8 @@ The install script performs the following steps:
 ### Read tabular data from registered data assets or datastores
 
 When your data is stored in a data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-uri_file-data-asset), use these steps to read that tabular file into an R `data.frame`:
+> [!NOTE]
+> Reading a file with `reticulate` only works with tabular data.
 
 1. Ensure you have the correct version of `reticulate`.  If the version is less than 1.26, try to use a newer compute instance.
 
@@ -148,13 +150,10 @@ library('tsibble')
 
 Other than the above issues, use R as you would in any other environment, such as your local workstation.  In your notebook or script, you can read and write to the path where the notebook/script is stored.
 
-## Known limitations
-
-- Reading a file with `reticulate` only works with tabular data.
-- From an interactive R session, you can only write to the workspace file system.
-- From an interactive R session, you can't interact with MLflow (such as, log model or query registry).
-
+> [!NOTE]
+> - From an interactive R session, you can only write to the workspace file system.
+> - From an interactive R session, you can't interact with MLflow (such as, log model or query registry).
 
 ## Next steps
 
-* [How to train R models in Azure Machine Learning](how-to-razureml-train-model.md)
+* [Adapt your R script to run in production](how-to-razureml-modify-script-for-prod.md)
