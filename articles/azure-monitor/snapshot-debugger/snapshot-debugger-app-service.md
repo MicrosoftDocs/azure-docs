@@ -6,7 +6,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
-ms.date: 08/18/2022
+ms.date: 01/24/2023
 ms.custom: devdivchpfy22
 ---
 
@@ -14,9 +14,8 @@ ms.custom: devdivchpfy22
 
 Snapshot Debugger currently supports ASP.NET and ASP.NET Core apps that are running on Azure App Service on Windows service plans.
 
-We recommend that you run your application on the Basic service tier, or higher, when using Snapshot Debugger.
-
-For most applications, the Free and Shared service tiers don't have enough memory or disk space to save snapshots.
+> [!NOTE]
+> We recommend that you run your application on the Basic service tier, or higher, when using Snapshot Debugger. For most applications, the Free and Shared service tiers don't have enough memory or disk space to save snapshots. The Consumption tier is not currently available for Snapshot Debugger.
 
 ## <a id="installation"></a> Enable Snapshot Debugger
 
