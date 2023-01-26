@@ -75,7 +75,7 @@ The following table compares features available in the managed gateway versus th
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
 
-<sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
+<sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer. Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the default endpoint hostname; custom domain name is currently not supported.<br/>
 <sup>2</sup> Requires configuration of local CA certificates.<br/>
 
 ### Backend APIs
