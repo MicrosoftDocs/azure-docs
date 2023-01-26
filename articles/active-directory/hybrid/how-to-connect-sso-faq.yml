@@ -36,7 +36,7 @@ sections:
       - question: |
           Is Seamless SSO available in the Microsoft Azure Germany cloud and the Microsoft Azure Government cloud?
         answer: |
-          Seamless SSO is available for the [Azure Government cloud](https://www.microsoft.de/cloud-deutschland). For details, view [Hybrid Identity Considerations for Azure Government](./reference-connect-government-cloud.md).
+          Seamless SSO is available for the [Azure Government cloud](https://www.microsoft.com/de-de/microsoft-cloud). For details, view [Hybrid Identity Considerations for Azure Government](./reference-connect-government-cloud.md).
           
       - question: |
           What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?

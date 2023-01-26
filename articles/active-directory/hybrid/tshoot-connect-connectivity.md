@@ -76,7 +76,7 @@ If you use a **Microsoft account** rather than a **school or organization** acco
 ![A Microsoft Account is used](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### The MFA endpoint cannot be reached
-This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com** cannot be reached and your Hybrid Identity Administrator has MFA enabled.
+This error appears if the endpoint `https://secure.aadcdn.microsoftonline-p.com` cannot be reached and your Hybrid Identity Administrator has MFA enabled.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * If you see this error, verify that the endpoint **secure.aadcdn.microsoftonline-p.com** has been added to the proxy.

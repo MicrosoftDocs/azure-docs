@@ -239,7 +239,7 @@ To view the schema and verify it, follow these steps.
     ```
 1. Now run the query `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`.
  
-    Example: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
+
 
    Replace `{Service Principal Id}` and `{AD2ADD Provisioning Id}` with your values.
 
