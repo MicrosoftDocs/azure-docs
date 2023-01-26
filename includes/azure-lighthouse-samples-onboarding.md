@@ -20,11 +20,11 @@ We provide different templates to address specific onboarding scenarios. Choose 
 
 To include [eligible authorizations](../articles/lighthouse/how-to/create-eligible-authorizations.md), select the corresponding template from the [delegated-resource-management-eligible-authorizations](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations) section of our samples repo.
 
-> [!TIP]
-> While you can't onboard an entire management group in one deployment, you can deploy a policy to [onboard each subscription in a management group])(../articles/lighthouse/how-to/onboard-management-group.md).
-
 Typically, a separate deployment is required for each subscription being onboarded, but you can also deploy templates across multiple subscriptions.
 
 | **Template** | **Description** |
 |---------|---------|
 | [cross-subscription-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/cross-subscription-deployment) | Deploy Azure Resource Manager templates across multiple subscriptions. |
+
+> [!TIP]
+> While you can't onboard an entire management group in one deployment, you can deploy a policy to [onboard each subscription in a management group](../articles/lighthouse/how-to/onboard-management-group.md).
