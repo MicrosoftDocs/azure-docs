@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 09/21/2022
+ms.date: 01/27/2023
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
 #Customer intent: As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
@@ -33,7 +33,7 @@ Containerization is an approach to software distribution in which an application
 
 ## Containers in Azure Cognitive Services
 
-Azure Cognitive Services containers provide the following set of Docker containers, each of which contains a subset of functionality from services in Azure Cognitive Services. You can find instructions and image locations in the tables below. A list of [container images](containers/container-image-tags.md) is also available.
+Azure Cognitive Services containers provide the following set of Docker containers, each of which contains a subset of functionality from services in Azure Cognitive Services. You can find instructions and image locations in the tables below.
 
 > [!NOTE]
 > See [Install and run Form Recognizer containers](../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md) for **Applied AI Services Form Recognizer** container instructions and image locations.
