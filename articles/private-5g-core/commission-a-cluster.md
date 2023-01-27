@@ -39,7 +39,7 @@ WinRM may already be enabled on your machine, as you only need to do it once. En
 
 1. From a PowerShell window, enter the ASE IP address (including quotation marks, for example `"10.10.5.90"`): <!-- Which IP address? Does it really only have one? -->
     ```powershell
-   $ip = "<ASE IP address>"
+   $ip = "*ASE IP address*"
    
    $sessopt = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
 
@@ -67,7 +67,7 @@ You now have a minishell session set up ready to enable your Azure Kubernetes Se
 Run the following commands at the PowerShell prompt, specifying the object ID you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
 ```powershell
-Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId <oid_from_prereqs>}
+Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId *object ID*}
 
 Invoke-Command -Session $minishellSession -ScriptBlock {Enable-HcsAzureKubernetesService -f}
 ```
@@ -216,7 +216,7 @@ You can now view information about what’s running on the cluster – the follo
 
 ## Verify the cluster configuration
 
-You should verify that the Azure Stack Edge cluster is set up correctly by running the following *kubectl* commands using the *kubeconfig* downloaded from the UI in [Set up kubectl access](#set-up-kubectl-access):
+You should verify that the AKS cluster is set up correctly by running the following *kubectl* commands using the *kubeconfig* downloaded from the UI in [Set up kubectl access](#set-up-kubectl-access):
 
 `kubectl get nodes`
 
@@ -226,22 +226,34 @@ To view all the running pods, run:
 
 `kubectl get pods -A`
 
-Additionally, your Azure Stack Edge Arc cluster should now be visible in the Azure portal. <!-- can we provide some details on where/how to view it/how it should look if all is well? -->
+Additionally, your AKS cluster cluster should now be visible in the Azure portal. <!-- can we provide some details on where/how to view it/how it should look if all is well? -->
 
 ## Install Kubernetes extensions
 
-The Azure Private 5G Core private mobile network requires a custom location and specific Kubernetes extensions that you need to set up using the Azure CLI.
+The Azure Private 5G Core private mobile network requires a custom location and specific Kubernetes extensions that you need to set up using the Azure CLI in Azure Cloud Shell.
 
-You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Name\>*) by using the **Manage** link in the **Azure Kubernetes Service** pane in the Azure portal.
+You can obtain the *\<resource name\>* (the name of the AKS cluster) by using the **Manage** link in the **Azure Kubernetes Service** pane in the Azure portal.
 
-<!-- Should all the $ strings just be placeholder text for the user to replace (and we should have a table to collect this info)? Or all set as environment variables as the first step? -->
+1. Log in to the Azure CLI using Azure Cloud Shell.
 
-1. Log in to the Azure CLI and prepare your environment:
+1. Set the following environment variables:
+
+    ```azurecli-interactive
+    export SUBSCRIPTION_ID=*subscription ID*
+    export RESOURCE_GROUP_NAME=*resource group name*
+    export LOCATION=*deployment region, for example eastus*
+    export CUSTOM_LOCATION=*custom location for the AKS cluster*
+    export RESOURCE_NAME=*resource name*
+    export TEMP_FILE=./tmpfile
+    ```
+
+1. Prepare your shell environment:
 
     ```azurecli-interactive
     az cloud set --name AzureCloud
     az account set --subscription "$ARG_SUBSCRIPTION_ID"
     ```
+
 1. Create the Network Function Operator Kubernetes extension:
 
     ```azurecli-interactive
