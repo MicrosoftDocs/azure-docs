@@ -58,6 +58,10 @@
     href: monitor-ddos-protection-reference.md
 - name: How-to guides
   items:
+    - name: Configure DDoS alerts
+      items:
+      - name: Configure Log Analytics workspace 
+        href: ddos-configure-log-analytics-workspace.md
     - name: Test with simulation partners
       href: test-through-simulations.md
     - name: Manage permissions and restrictions
