@@ -142,6 +142,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.Commerce](#microsoftcommerce) |
 | [Microsoft.Consumption](#microsoftconsumption) |
 | [Microsoft.CostManagement](#microsoftcostmanagement) |
+| [Microsoft.Dashboard](#microsoftdashboard) |
 | [Microsoft.DataProtection](#microsoftdataprotection) |
 | [Microsoft.Features](#microsoftfeatures) |
 | [Microsoft.GuestConfiguration](#microsoftguestconfiguration) |
@@ -12638,6 +12639,17 @@ Azure service: [Cost Management](../cost-management-billing/index.yml)
 > | Microsoft.CostManagement/views/read | List all saved views. |
 > | Microsoft.CostManagement/views/delete | Delete saved views. |
 > | Microsoft.CostManagement/views/write | Update view. |
+
+### Microsoft.Dashboard
+
+Azure service: [Azure Managed Grafana](../managed-grafana/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Dashboard/grafana/ActAsGrafanaAdmin/action | Built-in Grafana Admin role. |
+> | Microsoft.Dashboard/grafana/ActAsGrafanaEditor/action | Built-in Grafana Editor role. |
+> | Microsoft.Dashboard/grafana/ActAsGrafanaViewer/action | Built-in Grafana Viewer role. |
 
 ### Microsoft.DataProtection
 
