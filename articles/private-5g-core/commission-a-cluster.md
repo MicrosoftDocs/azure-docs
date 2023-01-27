@@ -236,7 +236,7 @@ You can obtain the *\<resource name\>* (the name of the AKS cluster) by using th
 
 1. Log in to the Azure CLI using Azure Cloud Shell.
 
-1. Set the following environment variables:
+1. Set the following environment variables using the required values for your deployment:
 
     ```azurecli-interactive
     export SUBSCRIPTION_ID=*subscription ID*
