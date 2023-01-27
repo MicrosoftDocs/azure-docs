@@ -47,7 +47,7 @@ To copy a blob, use the following method:
 
 - [BlobClient.start_copy_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-start-copy-from-url)
 
-This method returns a dictionary containing *copy_status* and *copy_id*, which can be used to check the status of the copy operation. The *copy_status* property will be 'success' if the copy completed synchronously or 'pending' if the copy has been started asynchronously. For asynchronous copies, the status can be checked by polling the `get_blob_properties` method and checking *copy_status*. To force the copy operation to be synchronous, set *requires_sync* to `True`. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
+This method returns a dictionary containing *copy_status* and *copy_id*, which can be used to check the status of the copy operation. The *copy_status* property will be 'success' if the copy completed synchronously or 'pending' if the copy has been started asynchronously. For asynchronous copies, the status can be checked by polling the [get_blob_properties](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-get-blob-properties) method and checking *copy_status*. To force the copy operation to be synchronous, set *requires_sync* to `True`. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
 
 The following code example gets a `BlobClient` object representing an existing blob and copies it to a new blob in a different container within the same storage account. This example also gets a lease on the source blob before copying so that no other client can modify the blob until the copy is complete and the lease is broken.
 
