@@ -179,12 +179,12 @@ The multi-factor authentication (MFA) challenge was canceled.
 
 <div id="connect-msolservice-failed">
 <!--
-  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  Empty div just to act as an alias for the "Connect To MSOnline Failed" header
   because we used the mentioned id in the code to jump to this section.
 -->
 </div>
 
-### Connect To MS Online Failed
+### Connect To MSOnline Failed
 Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
 <div id="get-msoluserrole-failed">
