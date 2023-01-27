@@ -1225,7 +1225,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/center-sap-solutions/deploy-s4hana.md.md",
+      "source_path_from_root": "/articles/center-sap-solutions/deploy-s4hana.md",
       "redirect_url": "/azure/sap/deploy-s4hana",
       "redirect_document_id": true
     },
