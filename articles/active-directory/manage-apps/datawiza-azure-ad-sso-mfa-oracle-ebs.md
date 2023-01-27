@@ -51,7 +51,8 @@ Ensure the following prerequisites are met.
 * Docker and Docker Compose are required to run DAP
   * See, [Get Docker](https://docs.docker.com/get-docker/) and [Overview, Docker Compose](https://docs.docker.com/compose/install/)
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
-  * See, [zure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+
 * An Oracle EBS environment
 
 ## Configure the Oracle EBS environment for SSO and create the DBC file
