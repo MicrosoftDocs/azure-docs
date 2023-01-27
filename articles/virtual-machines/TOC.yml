@@ -31,6 +31,9 @@
       href: ./windows/quick-create-portal.md
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
+    - name: Terraform
+      displayName: Terraform
+      href: ./windows/quick-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./windows/quick-create-bicep.md
@@ -429,6 +432,8 @@
     items:
     - name: Overview
       href: azure-compute-gallery.md
+    - name: What's new 
+      href: compute-gallery-whats-new.md
     - name: Create a gallery
       displayName: Shared Image Gallery, SIG, sig, gallery, image
       href: create-gallery.md
