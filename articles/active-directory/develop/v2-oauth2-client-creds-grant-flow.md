@@ -2,7 +2,7 @@
 title: OAuth 2.0 client credentials flow on the Microsoft identity platform
 description: Build web applications by using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
-author: nickludwig
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/09/2022
-ms.author: ludwignick
-ms.reviewer: marsma
+ms.author: owenrichards
+ms.reviewer: ludwignick
 ms.custom: aaddev, identityplatformtop40
 ---
 
