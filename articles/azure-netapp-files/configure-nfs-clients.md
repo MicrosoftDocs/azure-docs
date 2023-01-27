@@ -155,7 +155,7 @@ The following steps are optional. You need to perform the steps only if you use 
     In the `[domain/contoso-ldap]` configuration above:
     * `id_provider` is set to `ldap` and not `ad`.
     * The configuration has specified search bases and user and group classes for searches.
-    * `ldap_sasl_authid` is the machine account name from `klist -kte`.
+    * `ldap_sasl_authid` is the computer account name from `klist -kte`.
     * `use_fully_qualified_names` is set to `false`.  This setting means this configuration is used when a short name is used.
     * `ldap_id_mapping` is NOT specified, which defaults to `false`.
 
