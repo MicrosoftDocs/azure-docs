@@ -49,7 +49,7 @@ items:
     - name: Packet core dashboards
       href: packet-core-dashboards.md
   - name: Reliability
-    href: ../reliability/reliability-private-5g-core.md?toc=/azure/private-5g-core/toc.json&bc=/azure/private-5g-core/breadcrumb/toc.json
+    href: reliability-private-5g-core.md
   - name: Security
     href: security.md
   - name: Disconnected mode
