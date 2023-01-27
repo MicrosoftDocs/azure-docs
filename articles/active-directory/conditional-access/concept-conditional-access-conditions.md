@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -46,6 +46,8 @@ Azure AD Conditional Access supports the following device platforms:
 - Linux
 
 If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
+
+We don't support selecting macOS or Linux device platforms when selecting **Require approved client app** or **Require app protection policy** as the only grant controls or when you choose **Require all the selected controls**.
 
 > [!IMPORTANT]
 > Microsoft recommends that you have a Conditional Access policy for unsupported device platforms. As an example, if you want to block access to your corporate resources from **Chrome OS** or any other unsupported clients, you should configure a policy with a Device platforms condition that includes any device and excludes supported device platforms and Grant control set to Block access.
