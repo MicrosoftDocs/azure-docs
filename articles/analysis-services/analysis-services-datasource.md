@@ -92,15 +92,15 @@ When using the Table Import Wizard in Visual Studio, connections to any data sou
 
 To enable provider data sources, in Visual Studio, click **Tools** > **Options** > **Analysis Services Tabular** > **Data Import**, select **Enable legacy data sources**.
 
-![Screenshot of Enable legacy data sources](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
+![Screenshot of Enable legacy data sources.](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
 
 With legacy data sources enabled, in **Tabular Model Explorer**, right-click **Data Sources** > **Import From Data Source (Legacy)**.
 
-![Screenshot of Legacy data sources in Tabular Model Explorer](media/analysis-services-datasource/aas-import-legacy-datasources.png)
+![Screenshot of Legacy data sources in Tabular Model Explorer.](media/analysis-services-datasource/aas-import-legacy-datasources.png)
 
 Just like with tabular 1200 model projects, use **Table Import Wizard** to connect to a data source. On the connect page, click **Advanced**. Specify data provider and other connection settings in **Set Advanced Properties**.
 
-![Screenshot of Legacy data sources Advanced properties](media/analysis-services-datasource/aas-import-legacy-advanced.png)
+![Screenshot of Legacy data sources Advanced properties.](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
 ## Impersonation
 In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in Visual Studio or SQL Server Management Studio (SSMS).

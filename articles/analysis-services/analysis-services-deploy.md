@@ -30,20 +30,20 @@ To get started, you need:
 
 In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
    
-![Screenshot showing how to get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+![Screenshot showing how to get server name in Azure.](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 ## To deploy from Visual Studio
 
 1. In Visual Studio > **Solution Explorer**, right-click the project > **Properties**. Then in **Deployment** > **Server** paste the server name.   
    
-    ![PScreenshot showing how to paste server name into deployment server property](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
+    ![Screenshot showing how to paste server name into deployment server property.](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
 2. In **Solution Explorer**, right-click **Properties**, then click **Deploy**. You may be prompted to sign in to Azure.
    
-    ![Screenshot showing Deploy to server](./media/analysis-services-deploy/aas-deploy-deploy.png)
+    ![Screenshot showing Deploy to server.](./media/analysis-services-deploy/aas-deploy-deploy.png)
    
     Deployment status appears in both the Output window and in Deploy.
    
-    ![Screenshot showing deployment status](./media/analysis-services-deploy/aas-deploy-status.png)
+    ![Screenshot showing deployment status.](./media/analysis-services-deploy/aas-deploy-status.png)
 
 That's all there is to it!
 

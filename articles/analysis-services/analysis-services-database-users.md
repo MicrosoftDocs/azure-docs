@@ -53,7 +53,7 @@ When adding a **service principal** use `app:appid@tenantid`.
   
 8.  In **Add External Member**, enter users or groups in your tenant Azure AD by email address. After you click OK and close Role Manager, roles and role members appear in Tabular Model Explorer. 
  
-     ![Screen showing roles and users in Tabular Model Explorer](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
+     ![Screen showing roles and users in Tabular Model Explorer.](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
 
 9. Deploy to your Azure Analysis Services server.
 
@@ -76,7 +76,7 @@ To add roles and users to a deployed model database, you must be connected to th
   
 4. Click **Membership**, then enter a user or group in your tenant Azure AD by email address.
 
-     ![Screen showing Add user](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Screen showing Add user.](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. If the role you are creating has Read permission, you can add row filters by using a DAX formula. Click **Row Filters**, select a table, and then type a DAX formula in the **DAX Filter** field. 
 

@@ -70,7 +70,7 @@ The Metrics category logs the same [Server metrics](analysis-services-monitor.md
 
 1. In [Azure portal](https://portal.azure.com) > server, click **Diagnostic settings** in the left navigation, and then click **Turn on diagnostics**.
 
-    ![Screenshot showing Turn on diagnostics in the Azure portal](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
+    ![Screenshot showing Turn on diagnostics in the Azure portal.](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
 2. In **Diagnostic settings**, specify the following options: 
 
@@ -152,7 +152,7 @@ Metrics and server events are integrated with xEvents in your Log Analytics work
 
 To view your diagnostic data, in Log Analytics workspace, open **Logs**  from the left menu.
 
-![Screenshot showing log Search options in the Azure portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
+![Screenshot showing log Search options in the Azure portal.](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
 In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes Engine and Service events. Notice a query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging. Click **EventClass\_s** or one of the event names and Log Analytics workspace continues constructing a query. Be sure to save your queries to reuse later.
 
