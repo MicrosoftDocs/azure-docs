@@ -18,7 +18,7 @@ The API for video media access provides support for real-time access to audio an
 
 For example, you can inspect audio and video streams to run custom AI models for analysis. Such models might include natural language processing to analyze conversations or to provide real-time insights and suggestions to boost agent productivity.
 
-In virtual appointments, organizations can use media streams to analyze sentiment when providing virtual care for patients or to provide remote assistance during video calls that use mixed reality. This capability  opens a path for developers to apply innovations to enhance interaction experiences.
+Organizations can use audio and video media streams to analyze sentiment when providing virtual care for patients or to provide remote assistance during video calls that use mixed reality. This capability  opens a path for developers to apply innovations to enhance interaction experiences.
 
 ## Prerequisites
 
