@@ -122,7 +122,7 @@ For Microsoft Graph the parameters for the **Send onboarding reminder email** ta
 When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Pass (TAP), and have it sent to the new user's manager.
 
 > [!NOTE]
-> The user's employee hire date is used as the start time for the Temporary Access Pass. Please make sure that the TAP lifetime task setting and the [time portion of your user's hire date](how-to-lifecycle-workflow-sync-attributes.md#importance-of-time) are set appropriately so that the TAP is still valid when the user starts their first day.
+> The user's employee hire date is used as the start time for the Temporary Access Pass. Please make sure that the TAP lifetime task setting and the [time portion of your user's hire date](how-to-lifecycle-workflow-sync-attributes.md#importance-of-time) are set appropriately so that the TAP is still valid when the user starts their first day. If the hire date at the time of workflow execution is already in the past, the current time is used as the start time.
 
 With this task in the Azure portal, you're able to give the task a name and description. You must also set:
 
