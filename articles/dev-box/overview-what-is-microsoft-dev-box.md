@@ -70,5 +70,4 @@ Microsoft Dev Box bridges the gap between development teams and IT, bringing con
 
 Start using Microsoft Dev Box:
 - [Quickstart: Configure the Microsoft Dev Box Preview service](./quickstart-configure-dev-box-service.md)
-- [Quickstart: Configure a Microsoft Dev Box Preview project](./quickstart-configure-dev-box-project.md)
 - [Quickstart: Create a Dev Box](./quickstart-create-dev-box.md)
