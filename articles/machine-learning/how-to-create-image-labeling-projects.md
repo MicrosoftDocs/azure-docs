@@ -237,6 +237,10 @@ View and change details of your project.  In this tab you can:
 
 [!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
 
+## Start an ML assisted labeling task
+
+[!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
+
 ## Export the labels
 
 Use the **Export** button on the **Project details** page of your labeling project. You can export the label data for Machine Learning experimentation at any time.

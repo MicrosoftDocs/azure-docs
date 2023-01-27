@@ -114,6 +114,7 @@ To directly upload your data:
 > [!NOTE]
 > Incremental refresh is available for projects that use tabular (.csv or .tsv) dataset input. However, only new tabular files are added.  Changes to existing tabular files will not be recognized from the refresh.
 
+
 ## Specify label categories
 
 [!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
@@ -212,6 +213,7 @@ View and change details of your project.  In this tab you can:
 * View details of the storage container used to store labeled outputs in your project
 * Add labels to your project
 * Edit instructions you give to your labels
+* Change settings for ML assisted labeling, and kick off a labeling task
 
 ### Access for labelers
 
@@ -220,6 +222,10 @@ View and change details of your project.  In this tab you can:
 ## Add new labels to a project
 
 [!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
+
+## Start an ML assisted labeling task
+
+[!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
 
 ## Export the labels
  
