@@ -161,7 +161,7 @@
     "groups": {
       "grp-iot-edge": {
         "dest": "destiotedge",
-        "moniker_range": ">=iotedge-2018-06"
+        "moniker_range": ">=iotedge-1.4"
       },
       "grp-form-recognizer": {
         "dest": "destformrecognizer",
@@ -263,6 +263,9 @@
         "articles/azure-monitor/*": true,
         "articles/key-vault/*": true
       },
+      "archive_url": {
+        "articles/iot-edge/*": "/previous-versions/azure/iot-edge/"
+      },
       "author": {
         "articles/advisor/*.md": "ikhapova",
         "articles/aks/**/*.md": "MGoedtel",
@@ -308,8 +311,8 @@
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "davidsmatlak",
         "articles/azure-vmware/**/*.md": "jjaygbay1",
-        "articles/backup/**/*.md": "v-amallick",
-        "articles/backup/**/*.yml": "v-amallick",
+        "articles/backup/**/*.md": "jyothisuri",
+        "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
         "articles/batch/**/*.md": "harperche",
         "articles/blockchain/**/*.md": "PatAltimore",
@@ -688,8 +691,8 @@
         "articles/azure-resource-manager/bicep/**/*.md": "jgao",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "davidsmatlak",
         "articles/azure-vmware/**/*.md": "jacobjaygbay",
-        "articles/backup/**/*.md": "v-amallick",
-        "articles/backup/**/*.yml": "v-amallick",
+        "articles/backup/**/*.md": "jsuri",
+        "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "kalyank",
         "articles/batch/**/*.md": "prkannap",
         "articles/blockchain/**/*.md": "patricka",
@@ -962,7 +965,7 @@
         "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
+        "articles/iot-edge/**/*.md": ">=iotedge-1.4",
         "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0"
       },
       "recommendations": {
