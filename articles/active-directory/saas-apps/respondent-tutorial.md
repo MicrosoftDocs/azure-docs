@@ -59,13 +59,13 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type type a URL using the following pattern:
+    a. In the **Identifier** textbox, type a URL using the following pattern:
     `https://app.respondent.io/auth/saml/sp/<ID>`
 
-    b. In the **Reply URL** textbox, type type a URL using the following pattern:
+    b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://app.respondent.io/auth/saml/sp/<ID>`
 
-1. If you wish to configure the application in **SP** initiated mode then perform the following step:
+1. If you wish to configure the application in **SP** initiated mode, then perform the following step:
 
     In the **Sign on URL** textbox, type the URL:
     `https://app.respondent.io/auth/saml/login`
@@ -108,9 +108,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Respondent Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Respondent Sign on URL where you can initiate the login flow.  
 
-* Go to Respondent Sign-on URL directly and initiate the login flow from there.
+* Go to Respondent Sign on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
