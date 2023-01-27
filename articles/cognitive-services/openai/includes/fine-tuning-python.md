@@ -204,7 +204,7 @@ status = resp["status"]
 print(f'Fine-tuning model with job ID: {job_id}.')
 ```
 
-You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. For the previous Python example, we've set the `n_epochs` hyperparameter to 1, indicating that we want just one full cycle through the training data. For more information about these hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaipreview/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenaipreview/fine-tunes) documentation.
+You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. For the previous Python example, we've set the `n_epochs` hyperparameter to 1, indicating that we want just one full cycle through the training data. For more information about these hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenaistable/fine-tunes) documentation.
 
 ## Check the status of your customized model
 
@@ -234,7 +234,7 @@ print(f'Found {len(result)} fine-tune jobs.')
 
 ## Deploy a customized model
 
-When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the FineTune.retrieve() method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaipreview/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
+When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the FineTune.retrieve() method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaistable/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
 
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
@@ -347,7 +347,7 @@ You can use various methods to delete the deployment for your customized model:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-model-deployment)</a>
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?preserve-view=true#az-cognitiveservices-account-deployment-delete)
-- [REST APIs](/rest/api/cognitiveservices/azureopenaipreview/deployments/delete)
+- [REST APIs](/rest/api/cognitiveservices/azureopenaistable/deployments/delete)
 - Python SDK
 
 The following Python example uses the Python SDK to delete the deployment for your customized model.
@@ -363,7 +363,7 @@ result = openai.Deployment.delete(sid=deployment_id)
 Similarly, you can use various methods to delete your customized model:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-customized-model)
-- [REST APIs](/rest/api/cognitiveservices/azureopenaipreview/fine-tunes/delete) 
+- [REST APIs](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/delete) 
 - Python SDK
 
 > [!NOTE]
@@ -382,7 +382,7 @@ result = openai.FineTune.delete(sid=job_id)
 You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
-- [REST APIs](/rest/api/cognitiveservices/azureopenaipreview/files/delete)
+- [REST APIs](/rest/api/cognitiveservices/azureopenaistable/files/delete)
 - Python SDK
 
 The following Python example uses the Python SDK to delete the training, validation, and result files for your customized model.
@@ -411,5 +411,5 @@ for id in results:
 
 ## Next steps
 
-- Explore the control plane REST API Reference documentation to learn more about all the fine-tuning capabilities. You can find the [control plane REST documentation here](/rest/api/cognitiveservices/azureopenaipreview/deployments).
+- Explore the control plane REST API Reference documentation to learn more about all the fine-tuning capabilities. You can find the [control plane REST documentation here](/rest/api/cognitiveservices/azureopenaistable/deployments).
 - Explore more of the [Python SDK operations here](https://github.com/openai/openai-python/blob/main/examples/azure/finetuning.ipynb).
