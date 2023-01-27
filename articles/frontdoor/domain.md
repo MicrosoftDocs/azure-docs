@@ -81,6 +81,8 @@ The following table lists the validation states that a domain might show.
 
 ## HTTPS for custom domains
 
+By using the HTTPS protocol on your custom domain, you ensure your sensitive data is delivered securely with TLS/SSL encryption when it's sent across the internet. When a client, like a web browser, is connected to a website by using HTTPS, the client validates the website's security certificate, and ensures it was issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
+
 Azure Front Door supports using HTTPS with your own domains, and offloads transport layer security (TLS) certificate management from your origin servers. When you use custom domains, you can either use Azure-managed TLS certificates (recommended), or you can purchase and use your own TLS certificates.
 
 For more information on how Azure Front Door works with TLS, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
@@ -159,6 +161,29 @@ You can change a domain between using an Azure Front Door-managed certificate an
 > * It might take up to an hour for the new certificate to be deployed when you switch between certificate types.
 > * If your domain state is *Approved*, switching the certificate type between a user-managed and a managed certificate won't cause any downtime. When switching to a managed certificate, unless the domain ownership is re-validated and the domain state becomes *Approved*, you will continue to be served by the previous certificate.
 > * If you switch from BYOC to managed certificate, domain re-validation is required. If you switch from managed certificate to BYOC, you're not required to re-validate the domain.
+
+## Certificate renewal
+
+### Renewing Azure Front Door-managed certificates
+
+Azure Front Door-managed certificates are automatically renewed (rotated), if your custom domain uses a CNAME record that points to an Azure Front Door Standard or Premium endpoint.
+
+Azure Front Door won't automatically rotate certificates in the following scenarios:
+
+* The custom domain CNAME record is pointing to other DNS records.
+* The custom domain points to the Azure Front Door endpoint through a chain. For example, if your DNS record points to Azure Traffic Manager, which in turn resolves to Azure Front Door, the CNAME chain is `contoso.com` CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`.
+
+The domain validation state becomes *Pending Revalidation* 45 days before the managed certificate expires, or *Rejected* if the managed certificate issuance is rejected by the certificate authority. Refer to [Domain validation states](#domain-validation-states) for the actions you should take if you see these domain states.
+
+### Renewing Azure-managed certificates for domains pre-validated by other Azure services
+
+Azure-managed certificates are automatically rotated by the Azure service that validates the domain.
+
+### <a name="rotate-own-certificate"></a>Renewing customer-managed TLS certificates
+
+In order for the certificate to automatically be rotated to the latest version when a newer version of the certificate is available in your key vault, set the secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be automatically deployed.
+
+If you want to change the secret version from ‘Latest’ to a specified version or vice versa, add a new certificate. 
 
 ## Security policies
 

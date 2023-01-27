@@ -14,17 +14,9 @@ ms.custom: devx-track-azurepowershell
 
 # Configure HTTPS on an Azure Front Door custom domain using the Azure portal
 
-<!-- TODO zone pivot for managed TLS cert vs. BYO cert? -->
+Azure Front Door enables secure TLS delivery to your applications by default when you use your own custom domains. To learn more about custom domains, including how custom domains work with HTTPS, see [Domains in Azure Front Door](../domain.md).
 
-Azure Front Door enables secure TLS delivery to your applications by default when a custom domain is added. By using the HTTPS protocol on your custom domain, you ensure your sensitive data get delivered securely with TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site's security certificate, and verifies it gets issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
-
-Azure Front Door supports Azure managed certificate and customer-managed certificates.
-
-* A non-Azure validated domain requires domain ownership validation. Azure Front Door-managed certificates are issued and managed by Azure Front Door. Azure Front Door by default automatically enables HTTPS to all your custom domains using Azure-managed certificates. No extra steps are required for using a managed certificate. A certificate is created during the domain validation process.
-
-* An Azure pre-validated domain doesn't require domain validation because it's already validated by another Azure service. The managed certificate (Azure managed) is issued and managed by the Azure service. No extra steps are required for getting an Azure managed certificate. Azure Front Door doesn't issue a new managed certificate for this scenario and instead will reuse the managed certificate issued by the Azure service. For supported Azure service for pre-validated domain, refer to [custom domain](how-to-add-custom-domain.md).
-
-* For both scenarios, you can bring your own certificate. 
+Azure Front Door supports Azure-managed certificates and customer-managed certificates. In this article, you'll learn how to configure both types of certificates for your Azure Front Door custom domains.
 
 ## Prerequisites
 
@@ -34,7 +26,9 @@ Azure Front Door supports Azure managed certificate and customer-managed certifi
 
 * If you're using Azure to host your [DNS domains](../../dns/dns-overview.md), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). Otherwise, if you're using a domain provider to handle your DNS domain, you must manually validate the domain by entering prompted DNS TXT records.
 
-## Azure Front Door-managed certificates for Non-Azure pre-validated domain
+## Azure Front Door-managed certificates for non-Azure pre-validated domains
+
+Follow the steps below if you have your own domain, and the domain is not already associated with [another Azure service that pre-validates domains for Azure Front Door](../domain.md#domain-validation).
 
 1. Select **Domains** under settings for your Azure Front Door profile and then select **+ Add** to add a new domain.
 
@@ -56,7 +50,9 @@ Azure Front Door supports Azure managed certificate and customer-managed certifi
 
 1. After the custom domain is associated with an endpoint successfully, Azure Front Door generates a certificate and deploys it. This process may take from several minutes to an hour to complete.
 
-## Azure managed certificates for Azure pre-validated domain
+## Azure-managed certificates for Azure pre-validated domains
+
+Follow the steps below if you have your own domain, and the domain is associated with [another Azure service that pre-validates domains for Azure Front Door](../domain.md#domain-validation).
 
 1. Select **Domains** under settings for your Azure Front Door profile and then select **+ Add** to add a new domain.
 
