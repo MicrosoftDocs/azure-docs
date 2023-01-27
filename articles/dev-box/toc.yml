@@ -11,8 +11,6 @@
   items: 
     - name: Set up Microsoft Dev Box service
       href: quickstart-configure-dev-box-service.md
-    - name: Configure projects
-      href: quickstart-configure-dev-box-project.md
     - name: Create a dev box
       href: quickstart-create-dev-box.md
     - name: Connect with Remote Desktop App
