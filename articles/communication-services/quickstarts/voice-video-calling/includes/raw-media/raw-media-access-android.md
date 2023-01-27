@@ -12,8 +12,6 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-## Raw video
-
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 In this quickstart, you'll learn how to implement raw media access by using the Azure Communication Services Calling SDK for Android.

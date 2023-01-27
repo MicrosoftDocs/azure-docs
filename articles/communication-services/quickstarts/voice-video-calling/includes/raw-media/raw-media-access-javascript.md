@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Add raw media access to your app (JavaScript)
+title: Quickstart - Add raw media access to your app (web)
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
 author: sloanster
@@ -14,7 +14,7 @@ ms.custom: mode-other
 
 As a developer, you can access the raw media for incoming and outgoing audio and video content during a call. Access to Azure Communication Services client-side raw audio and video gives developers an almost unlimited ability to view and edit audio and video content that happens within the Azure Communication Services Calling SDK. In this quickstart, you'll learn how to implement raw media access by using the Azure Communication Services Calling SDK for JavaScript.
 
-The API for video media access provides support for real-time access to audio and video streams so that you can capture, analyze, and process video content during active calls. You can access the incoming call video stream directly on the call object and send custom outgoing video streams during the call.
+The API for video media access provides support for real-time access to audio and video streams so that you can capture, analyze, and process video content during active calls. You can access the incoming call's video stream directly on the call object and send custom outgoing video streams during the call.
 
 For example, you can inspect audio and video streams to run custom AI models for analysis. Such models might include natural language processing to analyze conversations or to provide real-time insights and suggestions to boost agent productivity.
 
@@ -29,7 +29,7 @@ Organizations can use audio and video media streams to analyze sentiment when pr
 
 ## Access raw audio
 
-Accessing raw audio media gives you access to the incoming call audio stream, along with the ability to view and send custom outgoing audio streams during a call.
+Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
 
 ### Access an incoming raw audio stream
 
@@ -41,7 +41,7 @@ const callStateChangedHandler = () => {
     if (call.state === "Connected") {
         const remoteAudioStream = call.remoteAudioStreams[0];
         const mediaStream = remoteAudioStream.getMediaStream();
-	// process the incoming call audio media stream track
+	// process the incoming call's audio media stream track
     }
 };
 
@@ -219,7 +219,7 @@ call.stopVideo();
 
 ### Receive a call with an incoming video stream
 
-You can access the raw video stream for an incoming call. You use `MediaStream` for the incoming raw video stream to process frames by using machine learning and to apply filters. The processed incoming video can then be rendered on receiver side.
+You can access the raw video stream for an incoming call. You use `MediaStream` for the incoming raw video stream to process frames by using machine learning and to apply filters. The processed incoming video can then be rendered on the receiver side.
 
 ```js
 const userId = 'acs_user_id';
@@ -228,7 +228,7 @@ const callStateChangedHandler = () => {
     if (call.state === "Connected") {
         const remoteVideoStream = remoteParticipants[0].videoStreams[0];
         const mediaStream = remoteVideoStream.getMediaStream();
-	// process the incoming call video media stream
+	// process the incoming call's video media stream
     }
 };
 

@@ -35,7 +35,7 @@ ms.custom: mode-other
 
 For more information, see the following articles:
 
-- Check out our [calling hero sample](../../samples/calling-hero-sample.md).
+- Check out the [calling hero sample](../../samples/calling-hero-sample.md).
 - Get started with the [UI Library](https://aka.ms/acsstorybook).
 - Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web).
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md).
