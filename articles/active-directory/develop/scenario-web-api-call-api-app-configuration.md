@@ -2,14 +2,15 @@
 title: Configure a web API that calls web APIs
 description: Learn how to build a web API that calls web APIs (app's code configuration)
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/12/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform.
 ---
