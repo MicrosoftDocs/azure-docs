@@ -1961,6 +1961,8 @@
         href: rescana-tutorial.md
       - name: Resource Central – SAML SSO for Meeting Room Booking System
         href: resource-central-tutorial.md
+      - name: Respondent
+        href: respondent-tutorial.md
       - name: Retail Zipline
         href: retail-zipline-tutorial.md
       - name: RetrieverMediaDatabase
