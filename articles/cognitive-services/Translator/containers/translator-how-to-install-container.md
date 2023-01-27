@@ -94,7 +94,7 @@ Application for Gated Services**](https://aka.ms/csgate-translator) to request a
 
 The Translator container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/translator` repository and is named `text-translation`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64-preview`.
 
-To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/translator/text-translation/tags/list).
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/translator/text-translation/tags).
 
 ## Get container images with **docker commands**
 

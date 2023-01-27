@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 01/27/2023
 ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container, streaming, algorithms
@@ -54,7 +54,7 @@ You must meet the following prerequisites before using Anomaly Detector containe
 
 The Anomaly Detector container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/decision` repository and is named `anomaly-detector`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector`.
 
-To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [image tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/decision/anomaly-detector/tags/list).
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [image tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/decision/anomaly-detector/tags).
 
 ### Container requirements and recommendations
 
