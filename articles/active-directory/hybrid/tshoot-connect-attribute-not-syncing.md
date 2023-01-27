@@ -29,19 +29,19 @@ Before investigating attribute syncing issues, let’s understand the **Azure AD
 * **CS:** Connector Space, a table in database.
 * **MV:** Metaverse, a table in database.
 * **AD:** Active Directory
-* **AAD:** Azure Active Directory
+* **Azure AD:** Azure Active Directory
 
 ### **Synchronization Steps**
 
 * Import from AD: Active Directory objects are brought into AD CS.
 
-* Import from AAD: Azure Active Directory objects are brought into AAD CS.
+* Import from Azure AD: Azure Active Directory objects are brought into Azure AD CS.
 
 * Synchronization: **Inbound Synchronization Rules** and **Outbound Synchronization Rules** are run in the order of precedence number from lower to higher. To view the Synchronization Rules, you can go to **Synchronization Rules Editor** from the desktop applications. The **Inbound Synchronization Rules** brings in data from CS to MV. The **Outbound Synchronization Rules** moves data from MV to CS.
 
 * Export to AD: After running Synchronization, objects are exported from AD CS to **Active Directory**.
 
-* Export to AAD: After running Synchronization, objects are exported from AAD CS to **Azure Active Directory**.
+* Export to Azure AD: After running Synchronization, objects are exported from Azure AD CS to **Azure Active Directory**.
 
 ### **Step by Step Investigation**
 

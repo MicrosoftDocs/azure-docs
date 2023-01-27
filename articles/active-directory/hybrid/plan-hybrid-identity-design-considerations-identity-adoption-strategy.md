@@ -103,7 +103,7 @@ Over the years, several synchronization tools have existed and used for various 
 
 ### Supported topologies
 When defining a synchronization strategy, the topology that is used must be determined. Depending on the information that was determined in step 2 you can determine which topology is the proper one to use. 
-The single forest, single Azure AD topology is the most common and consists of a single Active Directory forest and a single instance of Azure AD.  This topology is going to be used in a most scenarios and is the expected topology when using Azure AD Connect Express installation as shown in the figure below.
+The single forest, single Azure AD topology is the most common and consists of a single Active Directory forest and a single instance of Azure AD.  This topology is going to be used in most scenarios and is the expected topology when using Azure AD Connect Express installation as shown in the figure below.
 
 ![Supported topologies](./media/plan-hybrid-identity-design-considerations/single-forest.png)
 Single Forest Scenario

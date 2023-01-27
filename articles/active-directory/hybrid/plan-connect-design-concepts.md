@@ -175,7 +175,7 @@ While integrating your on-premises directory with Azure AD, it's important to un
 ### Choosing the attribute for userPrincipalName
 When you're selecting the attribute for providing the value of UPN to be used in Azure one should ensure
 
-* The attribute values conform to the UPN syntax (RFC 822), that is it should be of the format username\@domain
+* The attribute values conform to the UPN syntax (RFC 822), it should be in the format of username\@domain
 * The suffix in the values matches to one of the verified custom domains in Azure AD
 
 In express settings, the assumed choice for the attribute is userPrincipalName. If the userPrincipalName attribute doesn't contain the value you want your users to sign in to Azure, then you must choose **Custom Installation**.

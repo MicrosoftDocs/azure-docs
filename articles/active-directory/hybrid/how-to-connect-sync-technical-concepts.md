@@ -55,7 +55,7 @@ Attribute flow occurs between the connector space and the metaverse bi-direction
 Attribute flow only occurs when these synchronizations are run. Attribute flows are defined in Synchronization Rules. These can be inbound (ISR in the picture above) or outbound (OSR in the picture above).
 
 ## Connected system
-Connected system (aka connected directory) is referring to the remote system Azure AD Connect sync has connected to and reading and writing identity data to and from.
+Connected system is referring to the remote system Azure AD Connect sync has connected to and reading and writing identity data to and from.
 
 ## Connector space
 Each connected data source is represented as a filtered subset of the objects and attributes in the connector space.

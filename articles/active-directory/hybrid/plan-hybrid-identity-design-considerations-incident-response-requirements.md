@@ -1,6 +1,6 @@
 ---
 title: Hybrid identity design - incident response requirements Azure | Microsoft Docs
-description: Determine monitoring and reporting capabilities for the hybrid identity solution that can be leveraged by IT to take actions to identify and mitigate a potential threats
+description: Determine monitoring and reporting capabilities for the hybrid identity solution that can be leveraged by IT to take actions to identify and mitigate a potential threat.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -39,7 +39,7 @@ Many times the identity system can also help in initial assessment phase mainly 
 
 The identity management system should assist IT admins to identify and report those suspicious activities. Usually these technical requirements can be fulfilled by monitoring all systems and having a reporting capability that can highlight potential threats. Use the questions below to help you design your hybrid identity solution while taking into consideration incident response requirements:
 
-* Does your company has a security incident response in place?
+* Does your company have a security incident response in place?
   * If yes, is the current identity management system used as part of the process?
 * Does your company need to identify suspicious sign-on attempts from users across different devices?
 * Does your company need to detect potential compromised user’s credentials?

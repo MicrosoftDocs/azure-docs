@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Seamless Single Sign-On | Microsoft Docs'
-description: This topic describes Azure Active Directory (Azure AD) Seamless Single Sign-On and how it allows you to provide true single sign-on for corporate desktop users inside your corporate network.
+title: 'Azure AD Connect: Seamless single sign-on | Microsoft Docs'
+description: This topic describes Azure Active Directory (Azure AD) Seamless single sign-on and how it allows you to provide true single sign-on for corporate desktop users inside your corporate network.
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Seamless Single Sign-On
+# Azure Active Directory Seamless single sign-on
 
-## What is Azure Active Directory Seamless Single Sign-On?
+## What is Azure Active Directory Seamless single sign-on?
 
-Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components.
+Azure Active Directory Seamless single sign-on (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Seamless SSO can be combined with either the [Password Hash Synchronization](how-to-connect-password-hash-synchronization.md) or [Pass-through Authentication](how-to-connect-pta.md) sign-in methods. Seamless SSO is _not_ applicable to Active Directory Federation Services (ADFS).
 
-![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
+![Seamless single sign-on](./media/how-to-connect-sso/sso1.png)
 
 ## SSO via primary refresh token vs. Seamless SSO
 
