@@ -71,7 +71,7 @@ There are two ways to deploy [WebJob](webjobs-create.md) files when you [enable 
 - Deploy in the same ZIP package as your app: include them as you normally would in `<project-root>\app_data\jobs\...` (which maps to the deployment path `\site\wwwroot\app_data\jobs\...` as specified in the [WebJobs quickstart](webjobs-create.md#webjob-types)).
 - Deploy separately from the ZIP package of your app: Since the usual deployment path `\site\wwwroot\app_data\jobs\...` is now read-only, you can't deploy WebJob files there. Instead, deploy WebJob files to `\site\jobs\...`, which is not read only. WebJobs deployed to `\site\wwwroot\app_data\jobs\...` and `\site\jobs\...` both run.
 
-> [Note]
+> [!NOTE]
 > When `\site\wwwroot` becomes read-only, operations like the creation of the *disable.job* will fail.
 
 ## Troubleshooting
