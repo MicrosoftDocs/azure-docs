@@ -18,8 +18,6 @@ In this how-to guide, you'll carry out each of the tasks you need to complete be
 
 Contact your trials engineer and ask them to register your Azure subscription for access to Azure Private 5G Core. If you don't already have a trials engineer and are interested in trialing Azure Private 5G Core, contact your Microsoft account team, or express your interest through the [partner registration form](https://aka.ms/privateMECMSP).
 
-Once your trials engineer has confirmed your access, register the Mobile Network resource provider (Microsoft.MobileNetwork) for your subscription, as described in [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
-
 ## Choose the core technology type (5G or 4G)
 
 Choose whether each site in the private mobile network should provide coverage for 5G or 4G user equipment (UEs). A single site can't support 5G and 4G UEs simultaneously. If you're deploying multiple sites, you can choose to have some sites support 5G UEs and others support 4G UEs.
@@ -96,11 +94,11 @@ For each site you're deploying, do the following.
 - Ensure you have at least one network switch with at least three ports available. You'll connect each Azure Stack Edge Pro device to the switch(es) in the same site as part of the instructions in [Order and set up your Azure Stack Edge Pro device(s)](#order-and-set-up-your-azure-stack-edge-pro-devices).
 - For every network where you decided not to enable NAPT (as described in [Allocate user equipment (UE) IP address pools](#allocate-user-equipment-ue-ip-address-pools)), configure the data network to route traffic destined for the UE IP address pools via the IP address you allocated to the packet core instance's user plane interface on the data network.
 
-### Ports required for local access
+### Configure ports for local access
 
 The following table contains the ports you need to open for Azure Private 5G Core local access. This includes local management access and control plane signaling.
 
-You should set these up in addition to the [ports required for Azure Stack Edge (ASE)](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements).
+You must set these up in addition to the [ports required for Azure Stack Edge (ASE)](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements).
 
 | Port | ASE interface | Description|
 |--|--|--|
@@ -110,39 +108,57 @@ You should set these up in addition to the [ports required for Azure Stack Edge 
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
 | All IP traffic       | Port 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
 
-## Obtain the object ID (OID)
 
-You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant.  You will need to provide this OID when you configure your ASE to use AKS-HCI.  You can obtain the OID using the Azure CLI. You will need to be an owner of your Azure subscription.
+## Register resource providers and features
+
+To use Azure Private 5G Core, you need to register some additional resource providers and features with your Azure subscription.
 
 > [!TIP]
 > If you do not have the Azure CLI installed, see installation instructions at [How to install the Azure CLI](/cli/azure/install-azure-cli). Alternatively, you can use the Azure Cloud Shell on the portal.
     
-- Log into the Azure CLI with a user account that is associated with the Azure tenant that you are deploying Azure Private 5G Core into:
+1. Sign into the Azure CLI with a user account that is associated with the Azure tenant that you are deploying Azure Private 5G Core into:
     ```azurecli-interactive
     az login
     ```
     > [!TIP]
-    > See [Sign in interactively](/cli/azure/authenticate-azure-cli) for full instructions.
-    
-- If your account has multiple subscriptions, make sure you are in the correct one:
+    > See [Sign in interactively](/cli/azure/authenticate-azure-cli) for full instructions.    
+1. If your account has multiple subscriptions, make sure you are in the correct one:
     ```azurecli-interactive
     az account set –-subscription <subscription_id>
     ```
-
-- Check the Azure CLI version:
+1. Check the Azure CLI version:
     ```azurecli-interactive
     az version
     ```
     If the CLI version is below 2.37.0, you will need to upgrade your Azure CLI to a newer version. See [How to update the Azure CLI](/cli/azure/update-azure-cli).
-- Register with the required namespace:
+1. Register the following resource providers:
     ```azurecli-interactive
-    az provider register --namespace Microsoft.ExtendedLocation  
+    az provider register --namespace Microsoft.MobileNetwork
+    az provider register --namespace Microsoft.HybridNetwork
+    az provider register --namespace Microsoft.ExtendedLocation
+    az provider register --namespace Microsoft.Kubernetes
+    az provider register --namespace Microsoft.KubernetesConfiguration
     ```
-- Retrieve the OID:
+1. Register the following features:
     ```azurecli-interactive
-    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
+    az feature register --name allowVnfCustomer --namespace Microsoft.HybridNetwork
+    az feature register --name previewAccess --namespace  Microsoft.Kubernetes
+    az feature register --name sourceControlConfiguration --namespace  Microsoft.KubernetesConfiguration
+    az feature register --name extensions --namespace  Microsoft.KubernetesConfiguration
+    az feature register --name CustomLocations-ppauto --namespace  Microsoft.ExtendedLocation
     ```
-    This command queries the custom location and will output an OID string.  Save this string for use later when you're commissioning the Azure Stack Edge device.
+
+## Retrieve the Object ID (OID)
+
+You need to obtain the object ID (OID) of the custom location resource provider in your Azure tenant.  You will need to provide this OID when you configure your ASE to use AKS-HCI.  You can obtain the OID using the Azure CLI. You will need to be an owner of your Azure subscription.
+
+You can retrieve the OID using the Azure CLI:
+
+```azurecli-interactive
+az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
+```
+
+This command queries the custom location and will output an OID string.  Save this string for use later when you're commissioning the Azure Stack Edge device.
 
 ## Order and set up your Azure Stack Edge Pro device(s)
 

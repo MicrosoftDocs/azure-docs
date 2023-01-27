@@ -182,21 +182,19 @@ The downloaded file is called *config.json*. By default, *kubectl* expects its c
 
 This file has permission to describe pods and view logs, but not to access pods with kubectl exec.
 
-The Azure Private 5G Core deployment uses the *core* namespace. If you need to collect diagnostics, you can download a *kubeconfig* file with full access to the *core* namespace by following the instructions to [Configure cluster access via Kubernetes RBAC](/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster#configure-cluster-access-via-kubernetes-rbac). Alternatively, you can use minishell commands.
+The Azure Private 5G Core deployment uses the *core* namespace. If you need to collect diagnostics, you can download a *kubeconfig* file with full access to the *core* namespace using the following minishell commands.
 
-- To download the *kubeconfig* file:
-
-    `Invoke-Command -Session $minishellSession -ScriptBlock {New-HcsKubernetesNamespace -Namespace "core"}`
-    
-    `Invoke-Command -Session $minishellSession -ScriptBlock {New-HcsKubernetesUser -UserName "core"}`
-    
-- To save the *kubeconfig* file:
-
-    `Invoke-Command -Session $minishellSession -ScriptBlock {Grant-HcsKubernetesNamespaceAccess -Namespace "core" -UserName "core"}`
-
-- To retrieve the saved *kubeconfig* later:
-    
-    `Invoke-Command -Session $miniShellSession -ScriptBlock { Get-HcsKubernetesUserConfig -UserName "core" }`
+- Create the namespace, download the *kubeconfig* file and use it to grant access to the namespace:
+    ```powershell
+    Invoke-Command -Session $minishellSession -ScriptBlock {New-HcsKubernetesNamespace -Namespace "core"}
+    Invoke-Command -Session $minishellSession -ScriptBlock {New-HcsKubernetesUser -UserName "core"} | Out-File -FilePath .\kubeconfig-core.yaml
+    Invoke-Command -Session $minishellSession -ScriptBlock {Grant-HcsKubernetesNamespaceAccess -Namespace "core" -UserName "core"}
+    ```
+- If you need to retrieve the saved *kubeconfig* later:
+    ```powershell
+    Invoke-Command -Session $miniShellSession -ScriptBlock { Get-HcsKubernetesUserConfig -UserName "core" }
+    ```
+For more information, see [Configure cluster access via Kubernetes RBAC](/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster#configure-cluster-access-via-kubernetes-rbac).
 
 ## Set up portal access
 
@@ -241,20 +239,9 @@ You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Nam
 1. Log in to the Azure CLI and prepare your environment:
 
     ```azurecli-interactive
-    az cloud set --name AzureCloud --only-show-errors --output none
+    az cloud set --name AzureCloud
     az account set --subscription "$ARG_SUBSCRIPTION_ID"
     ```
-
-1. Register preview features in your Azure subscription:
-
-    ```azurecli-interactive
-    az feature register --name allowVnfCustomer --namespace Microsoft.HybridNetwork
-    az feature register --name previewAccess --namespace  Microsoft.Kubernetes
-    az feature register --name sourceControlConfiguration --namespace  Microsoft.KubernetesConfiguration
-    az feature register --name extensions --namespace  Microsoft.KubernetesConfiguration
-    az feature register --name CustomLocations-ppauto --namespace  Microsoft.ExtendedLocation
-    ```
-
 1. Create the Network Function Operator Kubernetes extension:
 
     ```azurecli-interactive
@@ -282,9 +269,7 @@ You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Nam
     --scope cluster \
     --release-namespace azurehybridnetwork \
     --release-train preview \
-    --configuration-settings-file $TEMP_FILE \
-    --only-show-errors \
-    --output none
+    --configuration-settings-file $TEMP_FILE 
     ```
 
 1. Create the Packet Core Monitor Kubernetes extension:
@@ -298,9 +283,7 @@ You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Nam
     --cluster-type connectedClusters \
     --extension-type "Microsoft.Azure.MobileNetwork.PacketCoreMonitor" \
     --release-train preview \
-    --auto-upgrade true \
-    --only-show-errors \
-    --output none
+    --auto-upgrade true 
     ```
 
 1. Create the custom location:
@@ -311,8 +294,6 @@ You can obtain the name of the Azure Stack Edge Arc cluster (the *\<Resource Nam
     -g "$RESOURCE_GROUP_NAME" \
     --location "$LOCATION" \
     --namespace azurehybridnetwork \
-    --output none \
-    --only-show-errors \
     --host-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$RESOURCE_NAME" \
     --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
     ```
