@@ -738,7 +738,7 @@ If you're using a YAML for your conda specification, include only one Python ver
 ### Python version not supported
 <!--issueDescription-->
 **Potential causes:**
-* You've specified a Python version that has reached its end-of-life and is no longer supported
+* You've specified a Python version that is at or near its end-of-life and is no longer supported
 
 **Affected areas (symptoms):**
 * Failure in registering your environment
