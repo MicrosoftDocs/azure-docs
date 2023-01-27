@@ -99,7 +99,7 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ---
 
-For more information about registering preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
+For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
 ## Unregister from the preview
 
@@ -162,38 +162,39 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ---
 
-For more information about registering preview features with Azrue CLI, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
+For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
 ## Regions and availability
 
 The following regions are available for public preview.  Provisioning in regions outside of the list will result in error / failure:
--	Australia East
--	Australia Southeast
--	Brazil South
--	Canada Central
--	Canada East
--	Central India
--	Central US
--	East Asia
--	East US
--	East US 2
--	Japan East
--	North Central US
--	North Europe
--	Southeast Asia
--	South Central US
--	Switzerland North
--	UK South
--	West Central US
--	West Europe
--	West US
--	West US 2
+- Australia East
+- Australia Southeast
+- Brazil South
+- Canada Central
+- Canada East
+- Central India
+- Central US
+- East Asia
+- East US
+- East US 2
+- Japan East
+- North Central US
+- North Europe
+- Southeast Asia
+- South Central US
+- Switzerland North
+- UK South
+- West Central US
+- West Europe
+- West US
+- West US 2
 
 ## Configuration of network controls
 
 After registration in to the public preview, configuration of NSG / Route Table / and private IP frontend configuration can be conducted via all experiences (REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal).  No API or command changes are introduced with this public preview.
 
 ## Resource Changes
+
 Upon provisioning of your gateway, you will notice a resource tag is automatically provisioned with the name of **EnhancedNetworkControl** and value of **True**.
 //Add Image Reference
 The resource tag is cosmetic to confirm the gateway has been provisioned with the capabilities to configure any combination of the private only gateway features. Modification or deletion of the tag or value does not change any functional workings of the gateway. The tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
