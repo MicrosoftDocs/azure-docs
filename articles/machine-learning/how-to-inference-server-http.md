@@ -19,7 +19,7 @@ The Azure Machine Learning inference HTTP server [(preview)](https://azure.micro
 
 The server can also be used to create validation gates in a continuous integration and deployment pipeline. For example, you can start the server with the candidate script and run the test suite against the local endpoint.
 
-This article mainly targets users who want to use the inference server to debug locally, but it will also help you understand to use the inference server with online endpoints.
+This article mainly targets users who want to use the inference server to debug locally, but it will also help you understand how to use the inference server with online endpoints.
 
 ## Online endpoint local debugging
 
