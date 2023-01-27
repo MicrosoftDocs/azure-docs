@@ -16,6 +16,9 @@ Consider an App Service plan in the following situations:
 * You have existing, underutilized VMs that are already running other App Service instances.
 * You want to provide a custom image on which to run your functions.
 
+> [!IMPORTANT]
+> Free and Shared tier App Service plans aren't supported by Azure Functions. For a lower-cost option hosting your function execution, you should instead consider the [Consumption plan](consumption-plan.md), where you are billed based on function executions.  
+
 ## Billing
 
 You pay for function apps in an App Service Plan as you would for other App Service resources. This differs from Azure Functions [Consumption plan](consumption-plan.md) or [Premium plan](functions-premium-plan.md) hosting, which have consumption-based cost components. You are billed only for the plan, regardless of how many function apps or web apps run in the plan. To learn more, see the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/). 
@@ -33,10 +36,6 @@ Using an App Service plan, you can manually scale out by adding more VM instance
 > [!NOTE] 
 > When running JavaScript (Node.js) functions on an App Service plan, you should choose a plan that has fewer vCPUs. For more information, see [Choose single-core App Service plans](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-
-## Multiple apps in a plan
-
-Since you pay for the computing resources your App Service plan allocates, you can potentially save money by putting multiple apps into one App Service plan. For detailed guidance on how many function apps you can optimally run in a single dedicated plan, see [Should I put an app in a new plan or an existing plan?](../app-service/overview-hosting-plans.md#should-i-put-an-app-in-a-new-plan-or-an-existing-plan). 
 
 ## App Service Environments
 
