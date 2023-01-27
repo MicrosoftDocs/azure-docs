@@ -29,7 +29,7 @@ When using app settings, you should be aware of the following considerations:
     
     In this article, only double-underscores are used, since they're supported on both operating systems.
 
-+ When running locally, app settings are specified in the `Values` collection in the [local.settings.json](functions-develop-local.md#local-settings-file).
++ When Functions runs locally, app settings are specified in the `Values` collection in the [local.settings.json](functions-develop-local.md#local-settings-file).
 
 + There are other function app configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
@@ -595,7 +595,7 @@ Sets the version of Node.js to use when running your function app on Windows. Yo
 
 ## WEBSITE\_OVERRIDE\_STICKY\_DIAGNOSTICS\_SETTINGS
 
-When performing [a slot swap](functions-deployment-slots.md#swap-slots) on Premium Functions it can fail to swap if the storage account associated with the Function App is network restricted. This is due to a legacy [application logging feature](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows) that Functions and App Service share. This setting overrides that legacy logging feature and allows the swap to occur. Set to `0` in the production slot and mark it as a Deployment Slot setting (aka sticky), or add to all slots to make sure that all version settings are also swapped.
+When performing [a slot swap](functions-deployment-slots.md#swap-slots) on Premium Functions it can fail to swap if the storage account associated with the Function App is network restricted. This is due to a legacy [application logging feature](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows) that Functions and App Service share. This setting overrides that legacy logging feature and allows the swap to occur. Set to `0` in the production slot and mark it as a Deployment Slot setting (also known as sticky), or add to all slots to make sure that all version settings are also swapped.
 
 |Key|Sample value|
 |---|------------|
@@ -669,7 +669,7 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 ## App Service site settings
 
-Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are usually set in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
+Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are managed in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
 
 ### linuxFxVersion 
 
