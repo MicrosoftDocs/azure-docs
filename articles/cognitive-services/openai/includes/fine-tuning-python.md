@@ -100,14 +100,14 @@ The first step in creating a customized model is to choose a base model. The cho
 - `davinci`\*
     \* available by request
 
-You can use the [Models API](/rest/api/cognitiveservices/azureopenaipreview/models/list) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
+You can use the [Models API](/rest/api/cognitiveservices/azureopenaistable/models/list) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
 
 ## Upload your training data
 
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. Once you've prepared your training data, you can upload your files to the service. We offer two ways to upload training data:
 
-- [From a local file](/rest/api/cognitiveservices/azureopenaipreview/files/upload)
-- [Import from an Azure Blob store or other web location](/rest/api/cognitiveservices/azureopenaipreview/files/import)
+- [From a local file](/rest/api/cognitiveservices/azureopenaistable/files/upload)
+- [Import from an Azure Blob store or other web location](/rest/api/cognitiveservices/azureopenaistable/files/import)
 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
 
