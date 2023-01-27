@@ -522,7 +522,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-security-deployment.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
+      "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
       "redirect_document_id": false
     },
     {

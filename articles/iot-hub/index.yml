@@ -76,8 +76,8 @@ landingContent:
        url: tutorial-x509-introduction.md
    - linkListType: concept
      links:
-     - text: Secure your IoT deployment
-       url: ../iot-fundamentals/iot-security-deployment.md?context=/azure/iot-hub/rc/rc
+     - text: Security best practices
+       url: ../iot-fundamentals/iot-security-best-practices.md?context=/azure/iot-hub/rc/rc
      - text: Control access to IoT Hub
        url: iot-hub-devguide-security.md
 

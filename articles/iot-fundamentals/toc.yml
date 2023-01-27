@@ -20,14 +20,10 @@
       href: howto-use-iot-explorer.md
 - name: Security
   items:
-  - name: Recommendations
-    href: security-recommendations.md
   - name: Security best practices
     href: iot-security-best-practices.md    
   - name: Security architecture
     href: iot-security-architecture.md
-  - name: Secure deployment
-    href: iot-security-deployment.md
 - name: Resources
   items:
   - name: Azure IoT services
