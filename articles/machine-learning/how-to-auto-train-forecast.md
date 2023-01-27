@@ -3,8 +3,8 @@ title: Set up AutoML for time-series forecasting
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train time-series forecasting models with the Azure Machine Learning Python SDK.
 services: machine-learning
-author: manashgoswami 
-ms.author: magoswam
+author: EricWrightAtWork 
+ms.author: erwright
 ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
@@ -130,11 +130,11 @@ Additional optional configurations are available for forecasting tasks, such as 
 
 #### Enable deep learning
 
-AutoML ships with a custom deep neural network (DNN) model called `ForecastTCN`. This model is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, that applies common image task methods to time series modeling. Namely, one-dimensional "causal" convolutions form the backbone of the network and enable the model to learn complex patterns over long durations in the training history.  
+AutoML ships with a custom deep neural network (DNN) model called `ForecastTCN`. This model is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, that applies common imaging task methods to time series modeling. Namely, one-dimensional "causal" convolutions form the backbone of the network and enable the model to learn complex patterns over long durations in the training history.  
 
 :::image type="content" source="media/how-to-auto-train-forecast/TCN-basic.png" alt-text="Diagram showing major components of AutoML's ForecastTCN.":::
 
-The ForecastTCN often attains higher accuracy than other models when there is ample training history and/or a large number (>100) of time series in the data. However, it also takes longer to train and sweep over ForecastTCN models due to their higher capacity.
+The ForecastTCN often achieves higher accuracy than standard time series models when there is ample training history and/or a large number (>100) of time series in the data. However, it also takes longer to train and sweep over ForecastTCN models due to their higher capacity.
 
 You can enable the ForecastTCN in AutoML by setting the `enable_dnn_training` flag in the set_training() method as follows:
 
