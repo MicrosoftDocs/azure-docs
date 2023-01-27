@@ -10,7 +10,7 @@ ms.date: 01/27/2023
 
 # Azure Stack Edge virtual machine sizing
 
-The following table contains information about the VMs that Azure Azure Private 5G Core (AP5GC) uses when running on an Azure Stack Edge (ASE) device. You can use this information, for example, to check how much space you have left in your ASE.
+The following table contains information about the VMs that Azure Azure Private 5G Core (AP5GC) uses when running on an Azure Stack Edge (ASE) device. You can use this information, for example, to check how much space you will have remaining on your ASE device after installing Azure Private 5G Core.
 
 | VM detail | Flavor name | vCPUs | Memory (GB) | Disk size | VM function |
 |---|---|---|---|---|---|
