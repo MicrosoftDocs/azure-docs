@@ -50,6 +50,8 @@
             href: flexible-server/connect-azure-cli.md
           - name: PHP
             href: flexible-server/connect-php.md
+          - name: Azure Data Studio
+            href: /sql/azure-data-studio/quickstart-mysql
           - name: MySQL Workbench
             href: flexible-server/connect-workbench.md
           - name: Python
@@ -136,11 +138,17 @@
         href: flexible-server/concepts-customer-managed-key.md        
   - name: Integrations
     items:
-    - name: Azure Redis
-      href: flexible-server/tutorial-add-redis-to-mysql.md
+    - name: Power Automate
+      href: flexible-server/tutorial-power-automate-with-mysql.md
     - name: Power BI
       href: flexible-server/connect-with-powerbi-desktop.md
-    - name: Azure advisor
+    - name: Azure Redis
+      href: flexible-server/tutorial-add-redis-to-mysql.md
+    - name: Azure Logic Apps
+      href: flexible-server/tutorial-logic-apps-with-mysql.md
+    - name: Azure Cognitive Search
+      href: ../search/search-howto-index-mysql.md
+    - name: Azure Advisor
       href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
       href: ../data-factory/connector-azure-database-for-mysql.md
@@ -149,7 +157,7 @@
     - name: Application Development
       items:
       - name: WordPress on App Service
-        href: flexible-server/tutorial-wordpress-app-service.md
+        href: ../app-service/quickstart-wordpress.md
       - name: WordPress on Azure Kubernetes
         href: flexible-server/tutorial-deploy-wordpress-on-aks.md
       - name: PHP (Laravel) app on App Service in VNet
@@ -759,6 +767,8 @@
     href: single-server/concept-monitoring-best-practices.md
   - name: Performance best practices
     href: single-server/concept-performance-best-practices.md
+  - name: Performance benchmark best practices
+    href: single-server/concept-perf-benchmark-best-practices.md
   - name: Application Development best practices
     href: single-server/app-development-best-practices.md
     displayName: application

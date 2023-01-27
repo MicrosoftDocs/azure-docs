@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 12/21/2022
+ms.date: 01/25/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -138,7 +138,7 @@ Filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier isn't supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/blob1/`. To match the name pattern, omit the trailing forward slash, *e.g.*, `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
 | blobIndexMatch | An array of dictionary values consisting of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
@@ -174,6 +174,49 @@ The run conditions are based on age. Current versions use the last modified time
 | daysAfterLastTierChangeGreaterThan | Integer value indicating the age in days after last blob tier change time | This condition applies only to `tierToArchive` actions and can be used only with the `daysAfterModificationGreaterThan` condition. |
 
 <sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled for a blob, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob.
+
+## Lifecycle policy completed event
+
+The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. The following json shows an example `LifecyclePolicyCompleted` event.
+
+```json
+{
+    "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosoresourcegroup/providers/Microsoft.Storage/storageAccounts/contosostorageaccount",
+    "subject": "BlobDataManagement/LifeCycleManagement/SummaryReport",
+    "eventType": "Microsoft.Storage.LifecyclePolicyCompleted",
+    "eventTime": "2022-05-26T00:00:40.1880331",    
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "data": {
+        "scheduleTime": "2022/05/24 22:57:29.3260160",
+        "deleteSummary": {
+            "totalObjectsCount": 16,
+            "successCount": 14,
+            "errorList": ""
+        },
+        "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToArchiveSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        }
+    },
+    "dataVersion": "1",
+    "metadataVersion": "1"
+}
+```
+
+The following table describes the schema of the `LifecyclePolicyCompleted` event.
+
+|Field|Type|Description|
+|---|---|---|
+|scheduleTime|string|The time that the lifecycle policy was scheduled|
+|deleteSummary|vector\<byte\>|The results summary of blobs scheduled for delete operation|
+|tierToCoolSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cool operation|
+|tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
 
 ## Examples of lifecycle policies
 

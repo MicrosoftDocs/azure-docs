@@ -33,10 +33,7 @@ ms.custom: template-how-to
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the SIM policies option in the resource menu of a Mobile Network resource.":::
 
 1. In the **Command** bar, select **Create**.
-1. Under **Create a SIM policy**:
-    
-    - Set the **Default slice** field to **(Default) slice-1**.
-    - Fill out all the other fields using the information you collected from [Collect top-level setting values](collect-required-information-for-sim-policy.md#collect-top-level-setting-values).
+1. Fill out the fields under **Create a SIM policy** using the information you collected from [Collect top-level setting values](collect-required-information-for-sim-policy.md#collect-top-level-setting-values).
 
 1. Select **Add a network scope**.
 

@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 01/23/2023
 ---
 
 # Move operation support for resources
@@ -1249,6 +1249,24 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | remoterenderingaccounts | **Yes** | **Yes** | No |
 > | spatialanchorsaccounts | **Yes** | **Yes** | No |
 
+## Microsoft.MobileNetwork
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ---------- |
+> | mobileNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / dataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / simPolicies | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / sites | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks / slices | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes / packetCoreDataPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | simGroups | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | simGroups / sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | packetCoreControlPlaneVersions | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+
 ## Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
@@ -1293,7 +1311,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | networkinterfaces | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. |
 > | networkprofiles | No | No | No |
 > | networksecuritygroups | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NSGs). |
-> | networkwatchers | No | No | No |
+> | networkwatchers | **Yes** | No | No |
 > | networkwatchers / connectionmonitors | **Yes** | No | No |
 > | networkwatchers / flowlogs | **Yes** | No | No |
 > | networkwatchers / pingmeshes | **Yes** | No | No |

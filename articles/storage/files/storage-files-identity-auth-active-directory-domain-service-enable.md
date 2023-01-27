@@ -8,6 +8,7 @@ ms.date: 01/03/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+recommendations: false
 ---
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files

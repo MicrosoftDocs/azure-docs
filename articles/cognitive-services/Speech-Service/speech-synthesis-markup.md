@@ -17,7 +17,7 @@ ms.author: eur
 Speech Synthesis Markup Language (SSML) is an XML-based markup language that can be used to fine-tune the text-to-speech output attributes such as pitch, pronunciation, speaking rate, volume, and more. You have more control and flexibility compared to plain text input. 
 
 > [!TIP]
-> You can hear voices in different styles and pitches reading example text by using this [text-to-speech website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+> You can hear voices in different styles and pitches reading example text via the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 ## Scenarios
 
@@ -44,4 +44,4 @@ You can use SSML in the following ways:
 - [SSML document structure and events](speech-synthesis-markup-structure.md)
 - [Voice and sound with SSML](speech-synthesis-markup-voice.md)
 - [Pronunciation with SSML](speech-synthesis-markup-pronunciation.md)
-- [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
+- [Language support: Voices, locales, languages](language-support.md?tabs=tts)

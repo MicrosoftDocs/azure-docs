@@ -19,8 +19,10 @@
   items:
   - name: Get started with OT security monitoring
     href: getting-started.md
+    displayName: onboard
   - name: Enable Enterprise IoT security
     href: eiot-defender-for-endpoint.md
+    displayName: onboard
 - name: Tutorials
   expanded: false
   items:
@@ -40,12 +42,16 @@
       items:
       - name: Overview
         href: manage-users-overview.md
+        displayName: users, user
       - name: Azure roles for OT and Enterprise IoT monitoring
         href: roles-azure.md
+        displayName: users, user
       - name: On-premises roles for OT monitoring
         href: roles-on-premises.md
+        displayName: users, user
     - name: OT system architecture
       href: architecture.md
+      displayName: committed devices
     - name: OT sensor cloud connection methods
       href: architecture-connections.md
     - name: OT network monitoring best practices
@@ -83,10 +89,13 @@
       items:
       - name: Azure portal
         href: how-to-manage-device-inventory-for-organizations.md
+        displayName: devices, assets, inventory
       - name: OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+        displayName: devices, assets, inventory
       - name: On-premises management console
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+        displayName: devices, assets, inventory
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
     - name: View OT devices per zone
@@ -95,18 +104,24 @@
     items:
     - name: Azure portal
       href: how-to-manage-cloud-alerts.md
+      displayName: alert, alerts
     - name: Sensor console
       href: how-to-view-alerts.md
+      displayName: alert, alerts
     - name: On-premises management console
+      displayName: alert, alerts
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Accelerate on-premises alert workflows
+      displayName: alerts
       href: how-to-accelerate-alert-incident-response.md
     - name: Forward on-premises alert data
       href: how-to-forward-alert-information-to-partners.md
+      displayName: alerts
   - name: Visualize and monitor data
     items:
     - name: Visualize data with workbooks
       href: workbooks.md
+      displayName: graphs, vulnerabilities
     - name: Create OT sensor reports
       items:
       - name: Create data mining reports
@@ -130,6 +145,7 @@
       href: integrate-overview.md
     - name: Stream cloud alerts to a partner SIEM
       href: integrations/send-cloud-data-to-partners.md
+      displayName: Splunk
     - name: Aruba ClearPass
       href: tutorial-clearpass.md
     - name: CyberArk
@@ -166,6 +182,7 @@
       items:
       - name: Overview
         href: best-practices/traffic-mirroring-methods.md
+        displayName: traffic mirroring, SPAN port
       - name: Configure a switch SPAN port
         href: traffic-mirroring/configure-mirror-span.md
       - name: Configure a remote SPAN (RSPAN)
@@ -180,6 +197,7 @@
         href: traffic-mirroring/configure-mirror-hyper-v.md
     - name: Manage OT plans on Azure subscriptions
       href: how-to-manage-subscriptions.md
+      displayName: onboard
     - name: Onboard OT sensors
       href: onboard-sensors.md
     - name: Install OT monitoring software
@@ -194,34 +212,40 @@
       href: how-to-activate-and-set-up-your-sensor.md
     - name: Deploy OT certificates
       href: how-to-deploy-certificates.md
+      displayName: SSL, TLS
     - name: Connect OT sensors to the cloud
       items:
       - name: Connect OT sensors to Defender for IoT
         href: connect-sensors.md
-      - name: Connect OT sensors with a proxy (legacy)
-        href: how-to-connect-sensor-by-proxy.md
     - name: Activate and set up your on-premises management console
       href: how-to-activate-and-set-up-your-on-premises-management-console.md
+      displayName: sites, zones
     - name: Add support for proprietary protocols
       href: resources-manage-proprietary-protocols.md
   - name: Set up Enterprise IoT network monitoring
     items:
     - name: Manage Enterprise IoT plans on Azure subscriptions
       href: manage-subscriptions-enterprise.md
+      displayName: onboard
     - name: Discover Enterprise IoT devices
       href: eiot-sensor.md
+      displayName: Enterprise IoT sensor
     - name: Extra deployment steps and samples
       href: extra-deploy-enterprise-iot.md
+      displayName: Enterprise IoT sensor
   - name: Manage sensors from the Azure portal
     href: how-to-manage-sensors-on-the-cloud.md
   - name: Create and manage users
     items:
     - name: Azure portal
       href: manage-users-portal.md
+      displayName: users, user
     - name: OT sensor console
       href: manage-users-sensor.md
+      displayName: users, user
     - name: On-premises management console
       href: manage-users-on-premises-management-console.md
+      displayName: users, user
     - name: Audit user activity
       href: track-user-activity.md
   - name: OT system maintenance
@@ -277,6 +301,7 @@
     items:
     - name: Overview
       href: appliance-catalog/index.yml
+      displayName: appliance catalog
     - name: Corporate environments
       items:
       - name: HPE ProLiant DL360
@@ -319,6 +344,7 @@
         href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: Alert reference
     href: alert-engine-messages.md
+    displayName: alerts
   - name: API reference
     items:
     - name: Working with Defender for IoT APIs
@@ -331,6 +357,7 @@
         href: api/sensor-inventory-apis.md
       - name: Alert management
         href: api/sensor-alert-apis.md
+        displayName: alerts
       - name: Vulnerability management
         href: api/sensor-vulnerability-apis.md
     - name: General management API reference
@@ -341,6 +368,7 @@
         href: api/management-appliances-apis.md
       - name: Alert management
         href: api/management-alert-apis.md
+        displayName: alerts
       - name: Inventory management
         href: api/management-inventory-apis.md
       - name: Partner integration
@@ -363,8 +391,6 @@
       href: faqs-ot.md
     - name: Enterprise IoT networks FAQ
       href: faqs-eiot.md
-  - name: Defender for IoT glossary
-    href: references-defender-for-iot-glossary.md
 - name: Resources
   items:
   - name: OT network pre-deployment checklist

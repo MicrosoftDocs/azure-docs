@@ -5,6 +5,7 @@ description: Explains how to use MLflow for managing models in Azure Machine Lea
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/08/2022
@@ -20,6 +21,14 @@ Azure Machine Learning supports MLflow for model management. This represents a c
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
+* Some operations may be executed directly using the MLflow fluent API (`mlflow.<method>`). However, others may require to create an MLflow client, which allows to communicate with Azure Machine Learning in the MLflow protocol. You can create an `MlflowClient` object as follows. This tutorial will use the object `client` to refer to such MLflow client.
+
+    ```python
+    using mlflow
+
+    client = mlflow.tracking.MlflowClient()
+    ```
+
 ## Registering new models in the registry
 
 ### Creating models from an existing run 
@@ -32,6 +41,9 @@ mlflow.register_model(f"runs:/{run_id}/{artifact_path}", model_name)
 
 > [!NOTE]
 > Models can only be registered to the registry in the same workspace where the run was tracked. Cross-workspace operations are not supported by the moment in Azure Machine Learning.
+
+> [!TIP]
+> We recommend to register models from runs or using the method `mlflow.<flavor>.log_model` from inside the run as it keeps lineage from the job that generated the asset.
 
 ### Creating models from assets
 
@@ -58,27 +70,19 @@ model_local_path = os.path.abspath("./regressor")
 mlflow.register_model(f"file://{model_local_path}", "local-model-test")
 ```
 
-> [!NOTE]
-> Notice how the model URI schema `file:/` requires absolute paths.
-
 ## Querying model registries
 
 ### Querying all the models in the registry
 
-You can query all the registered models in the registry using the MLflow client with the method `list_registered_models`. The MLflow client is required to do all these operations.
+You can query all the registered models in the registry using the MLflow client. The following sample prints all the model's names:
 
 ```python
-using mlflow
-
-client = mlflow.tracking.MlflowClient()
-```
-
-The following sample prints all the model's names:
-
-```python
-for model in client.list_registered_models():
+for model in client.search_registered_models():
     print(f"{model.name}")
 ```
+
+> [!NOTE]
+> __MLflow 2.0 advisory:__ In older versions of Mlflow (<2.0), use method `MlflowClient.list_registered_models()` instead.
 
 ### Getting specific versions of the model
 
@@ -158,7 +162,7 @@ model = mlflow.pyfunc.load_model(f"models:/{model_name}/Staging")
 
 ## Editing and deleting models
 
-Editing registered models is supported in both Mlflow and Azure ML, however, there are some differences between them that are important to notice:
+Editing registered models is supported in both Mlflow and Azure ML. However, there are some differences important to be noticed:
 
 > [!WARNING]
 > Renaming models is not supported in Azure Machine Learning as model objects are immmutable.
@@ -203,7 +207,7 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 | Registering models in MLflow format | **&check;** | **&check;** | **&check;** | **&check;** |
 | Registering models not in MLflow format |  |  | **&check;** | **&check;** |
 | Registering models from runs outputs/artifacts | **&check;** | **&check;**<sup>1</sup> | **&check;**<sup>2</sup> | **&check;** |
-| Registering models from runs outputs/artifacts in a different tracking server/workspace | **&check;** |  |  |  |
+| Registering models from runs outputs/artifacts in a different tracking server/workspace | **&check;** |  | **&check;**<sup>5</sup> | **&check;**<sup>5</sup> |
 | Listing registered models | **&check;** | **&check;** | **&check;** | **&check;** |
 | Retrieving details of registered model's versions | **&check;** | **&check;** | **&check;** | **&check;** |
 | Editing registered model's versions description | **&check;** | **&check;** | **&check;** | **&check;** |
@@ -221,6 +225,7 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 > - <sup>2</sup> Use URIs with format `azureml://jobs/<job-id>/outputs/artifacts/<path>`.
 > - <sup>3</sup> Registered models are immutable objects in Azure ML.
 > - <sup>4</sup> Use search box in Azure ML Studio. Partial match supported.
+> - <sup>5</sup> Use [registries](how-to-manage-registries.md).
 
 ## Next steps
 

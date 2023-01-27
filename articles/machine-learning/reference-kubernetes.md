@@ -53,7 +53,7 @@ When you deploy the AzureML extension, some related services will be deployed to
 |volcano-schedular |1  |N/A |**&check;**|50|500|128|512|
 
 
-Excluding the user deployments/pods, the **total minimum system resources requirements** are as follows:
+Excluding your own deployments/pods, the **total minimum system resources requirements** are as follows:
 
 |Scenario | Enabled Inference | Enabled Training | CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) | Node count | Recommended minimum VM size | Corresponding AKS VM SKU |
 |-- |-- |--|--|--|--|--|--|--|--|
@@ -103,38 +103,22 @@ For AzureML extension deployment on ARO or OCP cluster, grant privileged access 
 > * `{EXTENSION-NAME}`: is the extension name specified with the `az k8s-extension create --name` CLI command. 
 >* `{KUBERNETES-COMPUTE-NAMESPACE}`: is the namespace of the Kubernetes compute specified when attaching the compute to the Azure Machine Learning workspace. Skip configuring `system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default` if `KUBERNETES-COMPUTE-NAMESPACE` is `default`.
 
-## AzureML extension components
+## Collected log details
 
-For Arc-connected cluster, AzureML extension deployment will create [Azure Relay](../azure-relay/relay-what-is-it.md) in Azure cloud, used to route traffic between Azure services and the Kubernetes cluster. For AKS cluster without Arc connected, Azure Relay resource won't be created.
+Some logs about AzureML workloads in the cluster will be collected through extension components, such as status, metrics, life cycle, etc. The following list shows all the log details collected, including the type of logs collected and where they were sent to or stored.
 
-Upon AzureML extension deployment completes, it will create following resources in Kubernetes cluster, depending on each AzureML extension deployment scenario:
-
-   |Resource name  |Resource type |Training |Inference |Training and Inference| Description | Communication with cloud|
-   |--|--|--|--|--|--|--|
-   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|relay server is only needed in arc-connected cluster, and won't be installed in AKS cluster. Relay server works with Azure Relay to communicate with the cloud services.|Receive the request of job creation, model deployment from cloud service; sync the job status with cloud service.|
-   |gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|The gateway is used to communicate and send data back and forth.|Send nodes and cluster resource information to cloud services.|
-   |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Manage the lifecycle of training jobs.| Token exchange with the cloud token service for authentication and authorization of Azure Container Registry.|
-   |metrics-controller-manager|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Manage the configuration for Prometheus|N/A|
-   |{EXTENSION-NAME}-kube-state-metrics|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Export the cluster-related metrics to Prometheus.|N/A|
-   |{EXTENSION-NAME}-prometheus-operator|Kubernetes deployment|Optional|Optional|Optional| Provide Kubernetes native deployment and management of Prometheus and related monitoring components.|N/A|
-   |amlarc-identity-controller|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Azure Blob/Azure Container Registry token through managed identity.|Token exchange with the cloud token service for authentication and authorization of Azure Container  Registry and Azure Blob used by inference/model deployment.|
-   |amlarc-identity-proxy|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Azure Blob/Azure Container Registry token  through managed identity.|Token exchange with the cloud token service for authentication and authorization of Azure Container  Registry and Azure Blob used by inference/model deployment.|
-   |azureml-fe-v2|Kubernetes deployment|N/A|**&check;**|**&check;**|The front-end component that routes incoming inference requests to deployed services.|Send service logs to Azure Blob.|
-   |inference-operator-controller-manager|Kubernetes deployment|N/A|**&check;**|**&check;**|Manage the lifecycle of inference endpoints. |N/A|
-   |volcano-admission|Kubernetes deployment|Optional|N/A|Optional|Volcano admission webhook.|N/A|
-   |volcano-controllers|Kubernetes deployment|Optional|N/A|Optional|Manage the lifecycle of Azure Machine Learning training job pods.|N/A|
-   |volcano-scheduler |Kubernetes deployment|Optional|N/A|Optional|Used to perform in-cluster job scheduling.|N/A|
-   |fluent-bit|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|Gather the components' system log.| Upload the components' system log to cloud.|
-   |{EXTENSION-NAME}-dcgm-exporter|Kubernetes daemonset|Optional|Optional|Optional|dcgm-exporter exposes GPU metrics for Prometheus.|N/A|
-   |nvidia-device-plugin-daemonset|Kubernetes daemonset|Optional|Optional|Optional|nvidia-device-plugin-daemonset exposes GPUs on each node of your cluster| N/A|
-   |prometheus-prom-prometheus|Kubernetes statefulset|**&check;**|**&check;**|**&check;**|Gather and send job metrics to cloud.|Send job metrics like cpu/gpu/memory utilization to cloud.|
-
-> [!IMPORTANT]
-   > * Azure Relay resource  is under the same resource group as the Arc cluster resource. It is used to communicate with the Kubernetes cluster and modifying them will break attached compute targets.
-   > * By default, the kubernetes deployment resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes, use `nodeSelector` configuration setting described as below.
-
-> [!NOTE]
-   > * **{EXTENSION-NAME}:** is the extension name specified with ```az k8s-extension create --name``` CLI command. 
+|Pod  |Resource description |Detail logging info |
+|--|--|--|
+|amlarc-identity-controller	|Request and renew Azure Blob/Azure Container Registry token through managed identity.	|Only used when `enableInference=true` is set when installing the extension. It has trace logs for status on getting identity for endpoints to authenticate with AzureML service.|
+|amlarc-identity-proxy	|Request and renew Azure Blob/Azure Container Registry token through managed identity.	|Only used when `enableInference=true` is set when installing the extension. It has trace logs for status on getting identity for the cluster to authenticate with AzureML service.|
+|aml-operator	| Manage the lifecycle of training jobs.	|The logs contain AzureML training job pod status in the cluster.|
+|azureml-fe-v2|	The front-end component that routes incoming inference requests to deployed services.	|Access logs at request level, including request ID, start time, response code, error details and durations for request latency. Trace logs for service metadata changes, service running healthy status, etc. for debugging purpose.|
+| gateway	| The gateway is used to communicate and send data back and forth.	| Trace logs on requests from AzureML services to the clusters.|
+|healthcheck	|--| 	The logs contain azureml namespace resource (AzureML extension) status to diagnose what make the extension not functional. |
+|inference-operator-controller-manager|	Manage the lifecycle of inference endpoints.	|The logs contain AzureML inference endpoint and deployment pod status in the cluster.|
+| metrics-controller-manager	| Manage the configuration for Prometheus.|Trace logs for status of uploading training job and inference  deployment metrics on CPU utilization and memory utilization.|
+| relay server	| relay server is only needed in arc-connected cluster and will not be installed in AKS cluster.| Relay server works with Azure Relay to communicate with the cloud services.	The logs contain request level info from Azure relay.  |
+ 	
 
 ## AzureML jobs connect with custom data storage
 
@@ -225,18 +209,200 @@ According to your scheduling requirements of the Azureml-dedicated nodes, you ca
   - `amlarc workspace (has this <compute X>)` taint
   - `amlarc <compute X>` taint
 
+  
+## Integrate other load balancers with AzureML extension over HTTP or HTTPS
+
+In addition to the default AzureML inference load balancer [azureml-fe](../machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md), you can also integrate other load balancers with AzureML extension over HTTP or HTTPS. 
+
+This tutorial helps illustrate how to integrate the [Nginx Ingress Controller](https://github.com/kubernetes/ingress-nginx) or the [Azure Application Gateway](../application-gateway/overview.md).
+
+### Prerequisites
+
+- [Deploy the AzureML extension](../machine-learning/how-to-deploy-kubernetes-extension.md) with `inferenceRouterServiceType=ClusterIP` and `allowInsecureConnections=True`, so that the Nginx Ingress Controller can handle TLS termination by itself instead of handing it over to [azureml-fe](../machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) when service is exposed over HTTPS.
+- For integrating with **Nginx Ingress Controller**, you will need a Kubernetes cluster setup with Nginx Ingress Controller.
+  - [**Create a basic controller**](../aks/ingress-basic.md): If you are starting from scratch, refer to these instructions.
+- For integrating with **Azure Application Gateway**, you will need a Kubernetes cluster setup with Azure Application Gateway Ingress Controller.
+  - [**Greenfield Deployment**](../application-gateway/tutorial-ingress-controller-add-on-new.md): If you are starting from scratch, refer to these instructions.
+  - [**Brownfield Deployment**](../application-gateway/tutorial-ingress-controller-add-on-existing.md): If you have an existing AKS cluster and Application Gateway, refer to these instructions.
+- If you want to use HTTPS on this application, you will need a x509 certificate and its private key.
+
+### Expose services over HTTP
+
+In order to expose the azureml-fe, we will use the following ingress resource:
+
+```yaml
+# Nginx Ingress Controller example
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: azureml-fe
+  namespace: azureml
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: azureml-fe
+            port:
+              number: 80
+        pathType: Prefix
+```
+This ingress will expose the `azureml-fe` service and the selected deployment as a default backend of the Nginx Ingress Controller.
+
+
+
+```yaml
+# Azure Application Gateway example
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: azureml-fe
+  namespace: azureml
+spec:
+  ingressClassName: azure-application-gateway
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: azureml-fe
+            port:
+              number: 80
+        pathType: Prefix
+```
+This ingress will expose the `azureml-fe` service and the selected deployment as a default backend of the Application Gateway.
+
+Save the above ingress resource as `ing-azureml-fe.yaml`.
+
+1. Deploy `ing-azureml-fe.yaml` by running:
+
+    ```bash
+    kubectl apply -f ing-azureml-fe.yaml
+    ```
+
+2. Check the log of the ingress controller for deployment status.
+
+3. Now the `azureml-fe` application should be available. You can check this by visiting:
+    - **Nginx Ingress Controller**: the public LoadBalancer address of Nginx Ingress Controller 
+    - **Azure Application Gateway**: the public address of the Application Gateway.
+4. [Create an inference job and invoke](https://github.com/Azure/AML-Kubernetes/blob/master/docs/simple-flow.md).
+
+    >[!NOTE]
+    >
+    > Replace the ip in scoring_uri with public LoadBalancer address of the Nginx Ingress Controller before invoking.
+
+### Expose services over HTTPS
+
+1. Before deploying ingress, you need to create a kubernetes secret to host the certificate and private key. You can create a kubernetes secret by running
+
+    ```bash
+    kubectl create secret tls <ingress-secret-name> -n azureml --key <path-to-key> --cert <path-to-cert>
+    ```
+
+2. Define the following ingress. In the ingress, specify the name of the secret in the `secretName` section.
+
+    ```yaml
+    # Nginx Ingress Controller example
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: azureml-fe
+      namespace: azureml
+    spec:
+      ingressClassName: nginx
+      tls:
+      - hosts:
+        - <domain>
+        secretName: <ingress-secret-name>
+      rules:
+      - host: <domain>
+        http:
+          paths:
+          - path: /
+            backend:
+              service:
+                name: azureml-fe
+                port:
+                  number: 80
+            pathType: Prefix
+    ```
+
+    ```yaml
+    # Azure Application Gateway example
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: azureml-fe
+      namespace: azureml
+    spec:
+      ingressClassName: azure-application-gateway
+      tls:
+      - hosts:
+        - <domain>
+        secretName: <ingress-secret-name>
+      rules:
+      - host: <domain>
+        http:
+          paths:
+          - path: /
+            backend:
+              service:
+                name: azureml-fe
+                port:
+                  number: 80
+            pathType: Prefix
+    ```
+
+    >[!NOTE] 
+    >
+    > Replace `<domain>` and `<ingress-secret-name>` in the above Ingress Resource with the domain pointing to LoadBalancer of the **Nginx ingress controller/Application Gateway** and name of your secret. Store the above Ingress Resource in a file name `ing-azureml-fe-tls.yaml`.
+
+1. Deploy ing-azureml-fe-tls.yaml by running
+
+    ```bash
+    kubectl apply -f ing-azureml-fe-tls.yaml
+    ```
+
+2. Check the log of the ingress controller for deployment status.
+
+3. Now the `azureml-fe` application will be available on HTTPS. You can check this by visiting the public LoadBalancer address of the Nginx Ingress Controller.
+
+4. [Create an inference job and invoke](../machine-learning/how-to-deploy-online-endpoints.md).
+
+    >[!NOTE]
+    >
+    > Replace the protocol and IP in scoring_uri with https and domain pointing to LoadBalancer of the Nginx Ingress Controller  or the Application Gateway before invoking.
+
+## Use ARM Template to Deploy Extension
+Extension on managed cluster can be deployed with ARM template. A sample template can be found from [deployextension.json](https://github.com/Azure/AML-Kubernetes/blob/master/files/deployextension.json), with a demo parameter file [deployextension.parameters.json](https://github.com/Azure/AML-Kubernetes/blob/master/files/deployextension.parameters.json) 
+
+To leverage the sample deployment template, edit the parameter file with correct value, then run the following command:
+
+```azurecli
+az deployment group create --name <ARM deployment name> --resource-group <resource group name> --template-file deployextension.json --parameters deployextension.parameters.json
+```
+More information about how to use ARM template can be found from [ARM template doc](../azure-resource-manager/templates/overview.md)
+
+
 ## Azureml extension release note
 > [!NOTE]
  >
- > New features are released at a biweekly cadance.
+ > New features are released at a biweekly calendar.
 
 | Date | Version |Version description |
 |---|---|---|
-| Aug 29, 2022 | 1.1.9 | Improved health check logic. Bugs fixed.|
-| Jun 23, 2022 | 1.1.6 | Bugs fixed. |
-| Jun 15, 2022 | 1.1.5 | Updated training to use new common runtime to run jobs. Removed Azure Relay usage for AKS extension. Removed service bus usage from the extension. Updated security context usage. Updated inference scorefe to v2. Updated to use Volcano as training job scheduler. Bugs fixed. |
+| Dec 27, 2022 | 1.1.17 | Move the Fluent-bit from DaemonSet to sidecars. Add MDC support. Refine error messages. Support cluster mode (windows, linux) jobs. Bug fixes|
+| Nov 29, 2022 | 1.1.16 |Add instance type validation by new CRD. Support Tolerance. Shorten SVC Name. Workload Core hour. Multiple Bug fixes and improvements. |
+| Sep 13, 2022 | 1.1.10 | Bug fixes.|
+| Aug 29, 2022 | 1.1.9 | Improved health check logic. Bug fixes.|
+| Jun 23, 2022 | 1.1.6 | Bug fixes. |
+| Jun 15, 2022 | 1.1.5 | Updated training to use new common runtime to run jobs. Removed Azure Relay usage for AKS extension. Removed service bus usage from the extension. Updated security context usage. Updated inference azureml-fe to v2. Updated to use Volcano as training job scheduler. Bug fixes. |
 | Oct 14, 2021 | 1.0.37 | PV/PVC volume mount support in AMLArc training job. |
-| Sept 16, 2021 | 1.0.29 | New regions available, WestUS, CentralUS, NorthCentralUS, KoreaCentral. Job queue explainability. See job queue details in AML Workspace Studio. Auto-killing policy. Support max_run_duration_seconds in ScriptRunConfig. The system will attempt to automatically cancel the run if it took longer than the setting value. Performance improvement on cluster autoscale support. Arc agent and ML extension deployment from on premises container registry.|
+| Sept 16, 2021 | 1.0.29 | New regions available, WestUS, CentralUS, NorthCentralUS, KoreaCentral. Job queue explainability. See job queue details in AML Workspace Studio. Auto-killing policy. Support max_run_duration_seconds in ScriptRunConfig. The system will attempt to automatically cancel the run if it took longer than the setting value. Performance improvement on cluster auto scaling support. Arc agent and ML extension deployment from on premises container registry.|
 | August 24, 2021 | 1.0.28 | Compute instance type is supported in job YAML. Assign Managed Identity to AMLArc compute.|
 | August 10, 2021 | 1.0.20 |New Kubernetes distribution support, K3S - Lightweight Kubernetes. Deploy AzureML extension to your AKS cluster without connecting via Azure Arc. Automated Machine Learning (AutoML) via Python SDK. Use 2.0 CLI to attach the Kubernetes cluster to AML Workspace. Optimize AzureML extension components CPU/memory resources utilization.|
 | July 2, 2021 | 1.0.13 | New Kubernetes distributions support, OpenShift Kubernetes and GKE (Google Kubernetes Engine). Autoscale support. If the user-managed Kubernetes cluster enables the autoscale, the cluster will be automatically scaled out or scaled in according to the volume of active runs and deployments. Performance improvement on job launcher, which shortens the job execution time to a great deal.|

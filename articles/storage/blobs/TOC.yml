@@ -48,10 +48,6 @@ items:
         href: quickstart-blobs-c-plus-plus.md
       - name: Go
         href: storage-quickstart-blobs-go.md
-      - name: PHP
-        href: storage-quickstart-blobs-php.md
-      - name: Ruby
-        href: storage-quickstart-blobs-ruby.md
   - name: Tutorials
     items:
     - name: Upload and process image files
@@ -206,14 +202,16 @@ items:
         href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Customer-managed failover for disaster recovery
         href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Blob access tiers and lifecycle management
+    - name: Access tiers and lifecycle management
       items:
-      - name: Overview
+      - name: Access tiers overview
         href: access-tiers-overview.md
-      - name: Blob rehydration from Archive tier
-        href: archive-rehydrate-overview.md
+      - name: Access tiers best practices
+        href: access-tiers-best-practices.md
       - name: Lifecycle management policies
         href: lifecycle-management-overview.md
+      - name: Blob rehydration from archive tier
+        href: archive-rehydrate-overview.md
     - name: Object replication
       href: object-replication-overview.md
     - name: Performance and scalability
@@ -326,6 +324,8 @@ items:
           href: ../common/storage-account-move.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Upgrade to Data Lake Storage Gen2
           href: upgrade-to-data-lake-storage-gen2-how-to.md
+        - name: Migrate a classic account to Azure Resource Manager
+          href: ../common/storage-account-migrate-classic.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Create and manage containers
         items:
         - name: Manage containers (Azure portal)
@@ -346,6 +346,8 @@ items:
           href: blob-inventory-how-to.md
         - name: Calculate blob count and total size
           href: calculate-blob-count-size.md
+        - name: Convert append and page blobs to block blobs
+          href: convert-append-and-page-blobs-to-block-blobs.md
       - name: Authorize access to blob data
         items:
         - name: Authorization options for users
@@ -422,8 +424,6 @@ items:
                   href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
             - name: Configure customer-managed keys in a managed HSM
               href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Provide an encryption key on a request
-            href: storage-blob-customer-provided-key.md
           - name: Manage encryption scopes
             href: encryption-scope-manage.md
           - name: Enable infrastructure encryption for the account
@@ -464,8 +464,6 @@ items:
             href: soft-delete-blob-manage.md
         - name: Enable point-in-time restore
           href: point-in-time-restore-manage.md
-        - name: Create snapshots (.NET)
-          href: snapshots-manage-dotnet.md
         - name: Process change feed logs
           href: storage-blob-change-feed-how-to.md
         - name: Configure an immutability policy
@@ -508,8 +506,6 @@ items:
           href: object-replication-configure.md
         - name: Prevent object replication across tenants
           href: object-replication-prevent-cross-tenant-policies.md
-      - name: Manage concurrency
-        href: concurrency-manage.md
       - name: Host a static website
         items:
         - name: Host a static website
@@ -614,14 +610,24 @@ items:
               href: storage-blob-properties-metadata.md
             - name: Create and manage leases
               href: storage-blob-container-lease.md
+            - name: Create and manage snapshots
+              href: snapshots-manage-dotnet.md
           - name: Append blob actions
             items:
             - name: Append data to an append blob
               href: storage-blob-append.md
-          - name: Implement a retry policy
-            href: storage-retry-policy.md
-          - name: Performance tuning for uploads and downloads
-            href: storage-blobs-tune-upload-download.md
+          - name: Client library configuration options
+            items:
+            - name: Performance tuning for uploads and downloads
+              href: storage-blobs-tune-upload-download.md
+            - name: Implement a retry policy
+              href: storage-retry-policy.md
+            - name: Logging
+              href: /dotnet/azure/sdk/logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            - name: Manage concurrency
+              href: concurrency-manage.md
+            - name: Provide an encryption key on a write request
+              href: storage-blob-customer-provided-key.md
         - name: Java
           items:
           - name: Get started
@@ -696,6 +702,22 @@ items:
               href: storage-blob-tags-javascript.md
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata-javascript.md
+        - name: Python
+          items:
+          - name: Get started
+            href: storage-blob-python-get-started.md
+          - name: Container actions
+            items:
+            - name: Create a container
+              href: storage-blob-container-create-python.md
+            - name: Delete and restore containers
+              href: storage-blob-container-delete-python.md
+            - name: List containers
+              href: storage-blob-containers-list-python.md
+            - name: Manage container leases
+              href: storage-blob-container-lease-python.md
+            - name: Manage properties and metadata
+              href: storage-blob-container-properties-metadata-python.md
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
