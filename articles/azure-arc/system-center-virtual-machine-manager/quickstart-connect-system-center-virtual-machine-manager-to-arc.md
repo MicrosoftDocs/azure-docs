@@ -4,7 +4,9 @@ description: In this QuickStart, you will learn how to use the helper script to 
 author: jyothisuri
 ms.author: jsuri
 ms.topic: quickstart
-ms.date: 12/07/2022
+ms.services: azure-arc
+ms.subservice: azure-arc-scvmm
+ms.date: 01/27/2023
 ms.custom: references_regions
 ---
 
