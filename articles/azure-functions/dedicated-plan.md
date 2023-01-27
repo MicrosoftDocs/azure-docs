@@ -17,7 +17,7 @@ Consider an App Service plan in the following situations:
 * You want to provide a custom image on which to run your functions.
 
 > [!IMPORTANT]
-> Free and Shared tier App Service plans aren't supported by Azure Functions. For a lower-cost option hosting your function execution, you should instead consider the [Consumption plan](consumption-plan.md), where you are billed based on function executions.  
+> Free and Shared tier App Service plans aren't supported by Azure Functions. For a lower-cost option hosting your function executions, you should instead consider the [Consumption plan](consumption-plan.md), where you are billed based on function executions.  
 
 ## Billing
 
