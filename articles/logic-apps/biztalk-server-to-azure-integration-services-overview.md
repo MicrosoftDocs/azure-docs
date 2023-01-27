@@ -218,7 +218,7 @@ Integration platforms offer ways to solve problems in a consistent and unified m
 
   For Standard logic app workflows, you can create your own built-in custom connectors that are based on a service provider.
 
-  By implementing a custom connector, you simplify the development experience by creating a common interface for sending request messages and receiving typed responses. For more information, see [Custom connectors and APIs](/azure/connectors/custom-connector-overview).
+  By implementing a custom connector, you simplify the development experience by creating a common interface for sending request messages and receiving typed responses. For more information, see [Custom connectors and APIs](/connectors/custom-connectors/).
 
 ### Adapters and connectors
 
@@ -814,7 +814,7 @@ You can install and run BizTalk Server on your own hardware, on-premises virtual
 
 - Availability and redundancy
 
-  In Azure, [availability zones](../reliability/availability-zones-overview.md#availability-zones) provide resiliency, distributed availability, and active-active-active zone scalability. To increase availability for your logic app workloads, you can [enable availability zone support](/azure/logic-apps/set-up-zone-redundancy-availability-zone), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
+  In Azure, [availability zones](../reliability/availability-zones-overview.md#availability-zones) provide resiliency, distributed availability, and active-active-active zone scalability. To increase availability for your logic app workloads, you can [enable availability zone support](/azure/logic-apps/set-up-zone-redundancy-availability-zones), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 - Isolated and dedicated environment
 
