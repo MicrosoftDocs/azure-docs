@@ -833,7 +833,7 @@ SUSE SLES 15 SP1 or higher is required for operation of both HANA HA hooks. Foll
 
 |SAP  HANA HA hook     | HANA version required   | SAPHanaSR-ScaleOut required |
 |----------------------| ----------------------- | --------------------------- | 
-| SAPHanaSrMultiTarget | HANA 2.0 SPS4 or higher | 0.181 or higher             |
+| SAPHanaSrMultiTarget | HANA 2.0 SPS4 or higher | 0.180 or higher             |
 | susChkSrv            | HANA 2.0 SPS5 or higher | 0.184.1 or higher           |
 
 Steps to implement both hooks:
