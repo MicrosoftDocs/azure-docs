@@ -166,7 +166,9 @@ If you need to collaborate with an Azure AD organization that's outside of the A
 
 ## Invitation is blocked due to cross-tenant access policies
 
-When you try to invite a B2B collaboration user in another Microsoft Azure cloud, you might see this error message: "This invitation is blocked by cross-tenant access settings. Admins in both your organization and the invited user's organization must configure cross-tenant access settings to allow the invitation." This error message will appear, if B2B collaboration is supported between the two clouds, but is blocked by cross-tenant access settings. The settings that are blocking collaboration could be either in the B2B collaboration user’s home tenant or in your tenant. Check your cross-tenant access settings to make sure you’ve added the B2B collaboration user’s home tenant to your Organizational settings and that your settings allow B2B collaboration with the user. Then make sure an admin in the user’s tenant does the same.
+When you try to invite a B2B collaboration user, you might see this error message: "This invitation is blocked by cross-tenant access settings. Admins in both your organization and the invited user's organization must configure cross-tenant access settings to allow the invitation." This error message will appear, if B2B collaboration is supported, but is blocked by cross-tenant access settings. The settings that are blocking collaboration could be either in the B2B collaboration user’s home tenant, or in your tenant. Check your cross-tenant access settings, to make sure you’ve added the B2B collaboration user’s home tenant to your Organizational settings, and that your settings allow B2B collaboration with the user. Then make sure an admin in the user’s tenant does the same. 
+When you try to collaborate with another Azure AD organization in a separate Microsoft Azure cloud, you can use [Microsoft cloud settings](cross-cloud-settings.md) to enable Azure AD B2B collaboration. 
+
 
 ## Invitation is blocked due to disabled Microsoft B2B Cross Cloud Worker application
 
