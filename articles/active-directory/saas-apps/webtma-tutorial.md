@@ -62,13 +62,13 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Identifier** textbox, type type the URL:
+	a. In the **Identifier** textbox, type the URL:
     `http://www.webtma.net`
 
-    b. In the **Reply URL** textbox, type type a URL using the following pattern:
+    b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://<hostName>/<loginApplicationPath>/SAMLService.aspx?c=<clientName>`
 
-1. If you wish to configure the application in **SP** initiated mode then perform the following step:
+1. If you wish to configure the application in **SP** initiated mode, then perform the following step:
 
     In the **Sign on URL** textbox, type a URL using the following pattern:
     `https://<hostName>/<loginApplicationPath>/SAMLLogin.aspx?c=<clientName>`
