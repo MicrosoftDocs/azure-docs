@@ -6,7 +6,7 @@ author: ananyagarg
 ms.topic: article
 ms.date: 10/04/2022
 ms.author: ananyagarg
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.custom: inspire-fall-2022, ignite-2022
 ---
 

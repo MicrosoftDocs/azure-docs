@@ -3,7 +3,7 @@ title: What's new in the Remote Desktop WebRTC Redirector Service?
 description: New features and product updates the Remote Desktop WebRTC Redirector Service for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 01/19/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -16,6 +16,15 @@ This article provides information about the latest updates to the Remote Desktop
 ## Latest versions of the Remote Desktop WebRTC Redirector Service
 
 The following sections describe what changed in each version of the Remote Desktop WebRTC Redirector Service.
+
+### Updates for version 1.31.2211.15001 
+
+Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5c8Kk)
+
+- Support for application window sharing for Windows users.
+- Support for Give and Take Control functionality for macOS users.
+- Latency and performance improvements for Give and Take Control on Windows.
+- Improved screen share performance.
 
 ### Updates for version 1.17.2205.23001
 

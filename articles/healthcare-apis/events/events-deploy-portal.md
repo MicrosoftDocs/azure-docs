@@ -10,9 +10,9 @@ ms.date: 10/21/2022
 ms.author: jasteppe
 ---
 
-# Deploy Events using the Azure portal
+# Quickstart: Deploy Events using the Azure portal
 
-In this Quickstart, you’ll learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send Fast Healthcare Interoperability Resources (FHIR&#174;) event messages.
+In this quickstart, you’ll learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send Fast Healthcare Interoperability Resources (FHIR&#174;) and DICOM event messages.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ It's important that you have the following prerequisites completed before you be
 * [An active Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Microsoft Azure Event Hubs namespace and an event hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
 * [Workspace deployed in the Azure Health Data Services](../healthcare-apis-quickstart.md)  
-* [FHIR service deployed in the workspace](../fhir/fhir-portal-quickstart.md)
+* [FHIR service deployed in the workspace](../fhir/fhir-portal-quickstart.md) or [DICOM service deployed in the workspace](../dicom/deploy-dicom-services-in-azure.md)
 
 > [!IMPORTANT]
 > You will also need to make sure that the Microsoft.EventGrid resource provider has been successfully registered with your Azure subscription to deploy the Events feature. For more information, see [Azure resource providers and types - Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
@@ -31,7 +31,7 @@ It's important that you have the following prerequisites completed before you be
 
 ## Deploy Events 
 
-1. Browse to the workspace that contains the FHIR service you want to send Events messages from and select the **Events** button on the left hand side of the portal.
+1. Browse to the workspace that contains the FHIR or DICOM service you want to send Events messages from and select the **Events** button on the left hand side of the portal.
  
    :::image type="content" source="media/events-deploy-in-portal/events-workspace-select.png" alt-text="Screenshot of workspace and select Events button." lightbox="media/events-deploy-in-portal/events-workspace-select.png":::
 
@@ -47,7 +47,7 @@ It's important that you have the following prerequisites completed before you be
    > [!NOTE]
    > The first time you set up the Events feature, you will be required to enter a new **System Topic Name**. Once the system topic for the workspace is created, the **System Topic Name** will be used for any additional Events subscriptions that you create within the workspace.
 
-    * **Event types**: Type of FHIR events to send messages for (for example: create, updated, and deleted).
+    * **Event types**: Type of FHIR or DICOM events to send messages for (for example: create, updated, and deleted).
     * **Endpoint Details**: Endpoint to send Events messages to (for example: an Azure Event Hubs namespace + an event hub).
 
    >[!NOTE]
@@ -76,7 +76,7 @@ It's important that you have the following prerequisites completed before you be
 
 ## Next steps
 
-In this article, you've learned how to deploy Events in the Azure portal. 
+In this article, you've learned how to deploy events in the Azure portal. For details about supported events, see [Azure Health Data Services as an Event Grid source](../../event-grid/event-schema-azure-health-data-services.md).
 
 To learn how to enable the Events metrics, see
 

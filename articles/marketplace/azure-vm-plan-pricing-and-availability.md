@@ -29,6 +29,9 @@ When you remove a market, customers from that market who are using active deploy
 
 Select **Save** to continue.
 
+> [!NOTE]
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](./marketplace-geo-availability-currencies.md).
+
 ## Pricing
 
 For the **License model**, select **Usage-based monthly billed plan** to configure pricing for this plan, or **Bring your own license** to let customers use this plan with their existing license.
@@ -81,6 +84,9 @@ You can design each plan to be visible to everyone or only to a preselected priv
 
 > [!IMPORTANT]
 > Private plans are still visible to everyone in the CLI, but only deployable to customers configured in the private audience.
+
+> [!NOTE]
+> Private plans can only be deployed by the customers configured in the private audience. It is recommended to create a Private Offer instead of using private plans. However, if you decide to make a private plan instead, keep in mind that the Plan ID, URN and Offer Name is publicly visible via Azure CLI. When creating your private plans, be sure to name them appropriately with this in mind.
 
 Private offers aren't supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 

@@ -6,8 +6,9 @@ ms.author: owinfrey
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.subservice: compliance
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 01/26/2023
 ms.custom: template-howto 
 ---
 
@@ -36,11 +37,11 @@ To use a custom task extension in your workflow, first a custom task extension m
 
 1. In the left menu, select **Workflows (Preview)**.
 
-1. On the workflows screen, select **custom task extension**. 
+1. On the workflows screen, select **Custom task extension**. 
     :::image type="content" source="media/trigger-custom-task/custom-task-extension-select.png" alt-text="Screenshot of selecting a custom task extension from a workflow overview page.":::
-1. On the custom task extensions page, select **create custom task extension**.
+1. On the custom task extensions page, select **Create custom task extension**.
     :::image type="content" source="media/trigger-custom-task/create-custom-task-extension.png" alt-text="Screenshot for creating a custom task extension selection.":::
-1. On the basics page you, give a display name and description for the custom task extension and select **Next**.
+1. On the basics page you, enter a unique display name and description for the custom task extension and select **Next**.
     :::image type="content" source="media/trigger-custom-task/custom-task-extension-basics.png" alt-text="Screenshot of the basics section for creating a custom task extension.":::
 1. On the **Task behavior** page, you specify how the custom task extension will behave after executing the Azure Logic App and select **Next**.
     :::image type="content" source="media/trigger-custom-task/custom-task-extension-behavior.png" alt-text="Screenshot for choose task behavior for custom task extension.":::

@@ -8,7 +8,7 @@ ms.author: glenga
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0), and optionally [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet/7.0) when targeting .NET 7.0.
 
 + [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
 

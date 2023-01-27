@@ -150,7 +150,7 @@ In the context of private mobile networks, a single RAN can connect to both a pr
 
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
-Each packet core instance is standards-compliant and compatible with several radio access network (RAN) partners in the Azure private MEC ecosystem.
+Each packet core instance is standards-compliant and compatible with several RAN partners in the Azure private MEC ecosystem.
 
 Azure Private 5G Core exposes an N2 and N3 interface for the 5G control plane and user plane respectively. It complies with the following 3GPP Technical Specifications, allowing you to integrate with a wide range of RAN models:
 

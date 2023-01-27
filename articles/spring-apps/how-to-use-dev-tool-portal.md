@@ -1,6 +1,6 @@
 ---
-title: Use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier
-description: Learn how to use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier.
+title: Configure Tanzu Dev Tools in Azure Spring Apps Enterprise tier
+description: Learn how to use Tanzu Dev Tools in Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: zlhe
 ms.service: spring-apps
@@ -9,16 +9,16 @@ ms.date: 11/28/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier
+# Configure Tanzu Dev Tools in Azure Spring Apps Enterprise tier
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes how to configure Tanzu Application Platform GUI tools. VMware Tanzu Application Platform GUI provides a set of developer tools you can use to view your organization's running applications and services, including Application Live View and Application Accelerator plug-ins.
+This article describes how to configure VMware Tanzu Dev Tools. Dev Tools includes a set of developer tools to help make the development experience easier for both the inner and outer loop. Currently, Dev Tools includes Application Live View and Application Accelerator for use with Azure Spring Apps Enterprise tier.
 
-For more information, see [Overview of Tanzu Application Platform GUI](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-tap-gui-about.html).
+[Dev Tools Portal](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-tap-gui-about.html) is a centralized portal that you can use to access any Dev Tools. You can use Dev Tools Portal to view the applications and services running for your organization. In this article, you learn how to use Dev Tools Portal to configure single sign-on (SSO) and endpoint exposure so that you can get access to any Dev Tools.
 
 ## Prerequisites
 

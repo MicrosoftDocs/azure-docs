@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.date: 04/27/2022
+ms.date: 01/26/2023
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management 
@@ -319,7 +319,7 @@ To configure the Azure AD Connect Health agent to use an HTTP proxy, you can:
 > [!NOTE]
 > To update the proxy settings, you must restart all Azure AD Connect Health agent services. Run the following command:
 >
-> `Restart-Service AzureADConnectHealth*`
+> `Restart-Service AdHealthAdfs*`
 
 #### Import existing proxy settings
 

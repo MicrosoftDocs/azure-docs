@@ -16,7 +16,6 @@ ms.author: kpunjabi
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- [Apache Maven](https://maven.apache.org/download.cgi).
 - Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
 ## Technical specifications
@@ -27,11 +26,11 @@ The following parameters are available to customize the Recognize function:
 | ------- |--| ------------------------ | --------- | ------------------ |
 | Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-action.md))* | FileSource | Not set |This will be the message you wish to play before recognizing input. | Optional |
 | InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS will wait for the caller to press another digit (inter-digit timeout). | Optional |
-| InitialSilenceTimeout | TimeSpan | 5seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | How long recognize action will wait for input before considering it a timeout. | Optional |
+| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds | How long recognize action will wait for input before considering it a timeout. | Optional |
 | MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1|Number of digits a developer expects as input from the participant.| Required |
 | StopTones |IEnumeration\<DtmfTone\> | Not set | The digit participants can press to escape out of a batch DTMF event. | Optional |
 | InterruptPrompt | Bool | True | If the participant has the ability to interrupt the playMessage by pressing a digit. | Optional |
-| InterruptCallMediaOperation | Bool | True | If this flag is set it will interrupt the current call media operation if any (for example if play is going on) and initiate recognize. | Optional |
+| InterruptCallMediaOperation | Bool | True | If this flag is set it will interrupt the current call media operation. For example if any audio is being played it will interrupt that operation and initiate recognize. | Optional |
 | OperationContext | String | Not set | String that developers can pass mid action, useful for allowing developers to store context about the events they receive. | Optional |
 
 ## Create a new C# application
@@ -73,7 +72,7 @@ var targetParticipant = new PhoneNumberIdentifier("+1XXXXXXXXXXX");
 
 ## Receiving recognize event updates
 
-Developers can subscribe to the *RecognizeCompleted* and *RecognizeFailed* events on the webhook callback they registered for the call to create business logic in their application for determining next steps when one of the aforementioned events occurs. 
+Developers can subscribe to the *RecognizeCompleted* and *RecognizeFailed* events on the webhook callback they registered for the call to create business logic in their application for determining next steps when one of the previously mentioned events occurs. 
 
 Example of *RecognizeCompleted* event:
 ``` json

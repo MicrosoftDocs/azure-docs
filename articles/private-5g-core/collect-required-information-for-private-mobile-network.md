@@ -30,9 +30,19 @@ Collect all of the following values for the mobile network resource that will re
    |The Azure subscription to use to deploy the mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. You identified this subscription in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
    |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*).                |**Project details: Resource group**|
    |The name for the private mobile network.           |**Instance details: Mobile network name**|
-   |The region in which you're deploying the private mobile network. We recommend you use the East US region.                         |**Instance details: Region**|
+   |The region in which you're deploying the private mobile network. This can be the East US or the West Europe region.                           |**Instance details: Region**|
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
    |The mobile network code for the private mobile network.     |**Network configuration: Mobile network code (MNC)**|
+
+### Collect the required information for a network slice
+
+Collect all of the following values to provision a network slice in the private mobile network. You'll be able to create additional slices after you deploy the mobile network resource.
+
+   |Value  |Field name in Azure portal  |
+   |---------|---------|
+   | The name for the slice. | **Slice configuration: Slice name** |
+   | The slice/service type (SST) value. This is an integer and indicates the expected services and features for the network slice. </br></br>You can use the standard values specified in section 5.15.2.2 of [3GPP TS 23.501](https://www.etsi.org/deliver/etsi_ts/123500_123599/123501/17.05.00_60/ts_123501v170500p.pdf). For example: </br></br>1 - eMBB. This is a slice suitable for the handling of 5G enhanced mobile broadband. </br>2 - URLLC. This is a slice suitable for the handling of ultra-reliable low latency communications. </br>3 - MIoT. This is a slice suitable for the handling of massive IoT. </br></br>You can also use a non-standard value. | **Slice configuration: Slice Service Type (SST)** |
+   | The slice differentiator (SD) value. This optional setting is a string of six hexadecimal digits, and can be used to differentiate between multiple network slices that have the same SST value. | **Slice configuration: Slice Differentiator (SD)** |
 
 ## Collect SIM and SIM group values
 

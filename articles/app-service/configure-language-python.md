@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 11/16/2022
 ms.reviewer: astay; kraigb
 ms.devlang: python
-ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli, mode-other
+ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli, mode-other, py-fresh-zinc
 adobe-target: true
 ---
 

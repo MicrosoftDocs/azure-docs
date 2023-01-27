@@ -5,6 +5,7 @@ description: Learn how to register and work with different model types in Azure 
 services: machine-learning
 author: abeomor
 ms.author: osomorog
+ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 04/15/2022
@@ -48,7 +49,7 @@ When you run a job with model inputs/outputs, you can specify the *mode* - for e
 
 Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` 
 ------ | ------ | :---: | :---: | :---: | :---: | :---: 
-`custom` file  | Input  |   | ✓  |  ✓ |  | ✓   
+`custom` file  | Input  |   |  |   |  |    
 `custom` folder    | Input |   | ✓ | ✓  | |✓  
 `mlflow`    | Input |   | ✓ |  ✓ |   |   
 `custom` file | Output  | ✓  |   |    | ✓  | ✓   
@@ -114,10 +115,10 @@ Format:
 `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
 
 Example:
-`runs:/$RUN_ID/model/`
+`runs:/<run-id>/model/`
 
 ```cli
-az ml model create --name my-model --version 1 --path runs:/$RUN_ID/model/ --type mlflow_model
+az ml model create --name my-model --version 1 --path runs:/<run-id>/model/ --type mlflow_model
 ```
 
 ### azureml job
@@ -128,18 +129,18 @@ Format:
 `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
 
 Examples:
-- Default artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
-  * This is equivalent to `runs:/$RUN_ID/model/`.
+- Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/model/`
+  * This is equivalent to `runs:/<run-id>/model/`.
   * *artifacts* is the reserved keyword to refer to the output that represents the default artifact location.
-- From a named output directory: `azureml://jobs/$RUN_ID/outputs/trained-model`
+- From a named output directory: `azureml://jobs/<run-id>/outputs/trained-model`
 - From a specific file or folder path within the named output directory:
-  * `azureml://jobs/$RUN_ID/outputs/trained-model/paths/cifar.pt`
-  * `azureml://jobs/$RUN_ID/outputs/checkpoints/paths/model/`
+  * `azureml://jobs/<run-id>/outputs/trained-model/paths/cifar.pt`
+  * `azureml://jobs/<run-id>/outputs/checkpoints/paths/model/`
 
 Saving model from a named output:
 
 ```cli
-az ml model create --name my-model --version 1 --path azureml://jobs/$RUN_ID/outputs/trained-model
+az ml model create --name my-model --version 1 --path azureml://jobs/<run-id>/outputs/trained-model
 ```
 
 For a complete example, see the [CLI reference](/cli/azure/ml/model).
@@ -175,14 +176,14 @@ Format:
 `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
 
 Example:
-`runs:/$RUN_ID/model/`
+`runs:/<run-id>/model/`
 
 ```python
 from azure.ai.ml.entities import Model
 from azure.ai.ml.constants import ModelType
 
 run_model = Model(
-    path="runs:/$RUN_ID/model/"
+    path="runs:/<run-id>/model/"
     name="run-model-example",
     description="Model created from run.",
     type=ModelType.MLFLOW
@@ -199,13 +200,13 @@ Format:
 `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
 
 Examples:
-- Default artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
-  * This is equivalent to `runs:/$RUN_ID/model/`.
+- Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/model/`
+  * This is equivalent to `runs:/<run-id>/model/`.
   * *artifacts* is the reserved keyword to refer to the output that represents the default artifact location.
-- From a named output directory: `azureml://jobs/$RUN_ID/outputs/trained-model`
+- From a named output directory: `azureml://jobs/<run-id>/outputs/trained-model`
 - From a specific file or folder path within the named output directory:
-  * `azureml://jobs/$RUN_ID/outputs/trained-model/paths/cifar.pt`
-  * `azureml://jobs/$RUN_ID/outputs/checkpoints/paths/model/`
+  * `azureml://jobs/<run-id>/outputs/trained-model/paths/cifar.pt`
+  * `azureml://jobs/<run-id>/outputs/checkpoints/paths/model/`
 
 Saving model from a named output:
 
@@ -357,7 +358,7 @@ Create a job specification YAML file (`<file-name>.yml`). Specify in the `inputs
 1. The `type`; whether the model is a `mlflow_model`,`custom_model` or `triton_model`. 
 1. The `path` of where your data is located; can be any of the paths outlined in the [Supported Paths](#supported-paths) section. 
 
-:::code language="yaml" source="~/azureml-examples-main/CLI/assets/model/job-model-as-input.yml":::
+:::code language="yaml" source="~/azureml-examples-main/CLI/jobs/basics/hello-model-as-input.yml":::
 
 Next, run in the CLI
 
@@ -421,7 +422,7 @@ In your job you can write model to your cloud-based storage using *outputs*.
 
 Create a job specification YAML file (`<file-name>.yml`), with the `outputs` section populated with the type and path of where you would like to write your data to:
 
-:::code language="yaml" source="~/azureml-examples-main/CLI/assets/model/job-model-as-output.yml":::
+:::code language="yaml" source="~/azureml-examples-main/CLI/jobs/basics/hello-model-as-output.yml":::
 
 Next create a job using the CLI:
 

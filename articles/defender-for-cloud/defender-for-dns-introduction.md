@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for DNS - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for DNS
-ms.date: 11/09/2021
+ms.date: 01/10/2023
 ms.topic: overview
 ms.author: benmansheim
 author: bmansheim
@@ -37,11 +37,12 @@ A full list of the alerts provided by Microsoft Defender for DNS is on the [aler
 
 Microsoft Defender for DNS doesn't use any agents. 
 
-To protect your DNS layer, enable Microsoft Defender for DNS for each of your subscriptions as described in [Enable enhanced protections](enable-enhanced-security.md).
 
 ## Next steps
 
 In this article, you learned about Microsoft Defender for DNS. 
+
+To protect your DNS layer, enable Microsoft Defender for DNS for each of your subscriptions as described in [Enable enhanced protections](enable-enhanced-security.md).
 
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)

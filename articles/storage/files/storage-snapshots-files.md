@@ -1,16 +1,16 @@
 ---
 title: Overview of share snapshots for Azure Files
-description: A share snapshot is a read-only version of an Azure Files share that's taken at a point in time, as a way to back up the share.
+description: A share snapshot is a read-only version of an Azure file share that's taken at a point in time, as a way to back up the share.
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 12/06/2022
 ms.author: kendownie
 ms.subservice: files
 ---
 
 # Overview of share snapshots for Azure Files
-Azure Files provides the capability to take share snapshots of file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your custom use case.
+Azure Files provides the capability to take share snapshots of SMB file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your custom use case.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -53,7 +53,7 @@ Share snapshots persist until they are explicitly deleted. A share snapshot cann
 
 When you create a share snapshot of a file share, the files in the share's system properties are copied to the share snapshot with the same values. The base files and the file share's metadata are also copied to the share snapshot, unless you specify separate metadata for the share snapshot when you create it.
 
-You cannot delete a share that has share snapshots unless you delete all the share snapshots first.
+You can't delete a share that has share snapshots unless you delete all the share snapshots first.
 
 ## Space usage
 
@@ -71,7 +71,7 @@ The maximum number of share snapshots that Azure Files allows today is 200. Afte
 
 There is no limit to the simultaneous calls for creating share snapshots. There is no limit to amount of space that share snapshots of a particular file share can consume. 
 
-Today, it is not possible to mount share snapshots on Linux. This is because the Linux SMB client does not support mounting snapshots like Windows does.
+Taking snapshots of NFS Azure file shares isn't currently supported.
 
 ## Copying data back to a share from share snapshot
 

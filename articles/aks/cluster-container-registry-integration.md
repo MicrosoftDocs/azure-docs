@@ -247,7 +247,8 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 * Learn more about [ACR health](../container-registry/container-registry-check-health.md).
 
 <!-- LINKS - external -->
-
+[AKS AKS CLI]: /cli/azure/aks#az_aks_create
+[byo-kubelet-identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [image-pull-secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 [summary-msi]: use-managed-identity.md#summary-of-managed-identities
 [acr-pull]: ../role-based-access-control/built-in-roles.md#acrpull

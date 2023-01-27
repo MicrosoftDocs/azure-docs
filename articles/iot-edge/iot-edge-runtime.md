@@ -13,7 +13,7 @@ ms.custom:  "amqp, mqtt, devx-track-csharp"
 
 # Understand the Azure IoT Edge runtime and its architecture
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 The IoT Edge runtime is a collection of programs that turn a device into an IoT Edge device. Collectively, the IoT Edge runtime components enable IoT Edge devices to receive code to run at the edge and communicate the results.
 
@@ -27,15 +27,11 @@ The IoT Edge runtime is responsible for the following functions on IoT Edge devi
 
 * Report module health to the cloud for remote monitoring.
 
-* Manage communication between downstream devices and IoT Edge devices.
-
-* Manage communication between modules on an IoT Edge device.
-
-* Manage communication between an IoT Edge device and the cloud.
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
-* Manage communication between IoT Edge devices.
-::: moniker-end
+* Manage communication between:
+  - Downstream devices and IoT Edge devices
+  - Modules on an IoT Edge device
+  - An IoT Edge device and the cloud
+  - IoT Edge devices
 
 ![Runtime communicates insights and module health to IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 

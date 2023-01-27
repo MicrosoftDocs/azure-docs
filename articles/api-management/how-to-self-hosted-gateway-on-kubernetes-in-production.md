@@ -7,7 +7,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.topic: article
 ms.author: tomkerkhove
-ms.date: 12/17/2021
+ms.date: 01/17/2023
 ---
 
 # Guidance for running self-hosted gateway on Kubernetes in production
@@ -17,6 +17,8 @@ In order to run the self-hosted gateway in production, there are various aspects
 This article provides guidance on how to run [self-hosted gateway](./self-hosted-gateway-overview.md) on Kubernetes for production workloads to ensure that it will run smoothly and reliably.
 
 [!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Access token
 Without a valid access token, a self-hosted gateway can't access and download configuration data from the endpoint of the associated API Management service. The access token can be valid for a maximum of 30 days. It must be regenerated, and the cluster configured with a fresh token, either manually or via automation before it expires.
@@ -171,6 +173,16 @@ By default, a self-hosted gateway is deployed with a **RollingUpdate** deploymen
 
 We recommend reducing container logs to warnings (`warn`) to improve for performance. Learn more in our [self-hosted gateway configuration reference](self-hosted-gateway-settings-reference.md).
 
+## Request throttling
+
+Request throttling in a self-hosted gateway can be enabled by using the API Management [rate-limit](rate-limit-policy.md) or [rate-limit-by-key](rate-limit-by-key-policy.md) policy. Configure rate limit counts to synchronize among gateway instances across cluster nodes by exposing the following ports in the Kubernetes deployment for instance discovery:
+
+* Port 4290 (UDP), for the rate limiting synchronization
+* Port 4291 (UDP), for sending heartbeats to other instances
+
+> [!NOTE]
+> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)]
+
 ## Security
 The self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
 
@@ -192,6 +204,7 @@ securityContext:
 
 > [!WARNING]
 > When using local CA certificates, the self-hosted gateway must run with user ID (UID) `1001` in order to manage the CA certificates otherwise the gateway will not start up.
+
 
 ## Next steps
 

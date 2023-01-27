@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 09/29/2022
+ms.date: 01/25/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -138,7 +138,7 @@ Filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier isn't supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/blob1/`. To match the name pattern, omit the trailing forward slash, *e.g.*, `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
 | blobIndexMatch | An array of dictionary values consisting of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
@@ -169,9 +169,54 @@ The run conditions are based on age. Current versions use the last modified time
 | Action run condition | Condition value | Description |
 |--|--|--|
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for actions on a current version of a blob |
-| daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for actions on a previous version of a blob or a blob snapshot |
-| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for a current version of a blob when access tracking is enabled |
+| daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for actions on the current version or previous version of a blob or a blob snapshot |
+| daysAfterLastAccessTimeGreaterThan<sup>1</sup> | Integer value indicating the age in days | The condition for a current version of a blob when access tracking is enabled |
 | daysAfterLastTierChangeGreaterThan | Integer value indicating the age in days after last blob tier change time | This condition applies only to `tierToArchive` actions and can be used only with the `daysAfterModificationGreaterThan` condition. |
+
+<sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled for a blob, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob.
+
+## Lifecycle policy completed event
+
+The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. The following json shows an example `LifecyclePolicyCompleted` event.
+
+```json
+{
+    "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosoresourcegroup/providers/Microsoft.Storage/storageAccounts/contosostorageaccount",
+    "subject": "BlobDataManagement/LifeCycleManagement/SummaryReport",
+    "eventType": "Microsoft.Storage.LifecyclePolicyCompleted",
+    "eventTime": "2022-05-26T00:00:40.1880331",    
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "data": {
+        "scheduleTime": "2022/05/24 22:57:29.3260160",
+        "deleteSummary": {
+            "totalObjectsCount": 16,
+            "successCount": 14,
+            "errorList": ""
+        },
+        "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToArchiveSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        }
+    },
+    "dataVersion": "1",
+    "metadataVersion": "1"
+}
+```
+
+The following table describes the schema of the `LifecyclePolicyCompleted` event.
+
+|Field|Type|Description|
+|---|---|---|
+|scheduleTime|string|The time that the lifecycle policy was scheduled|
+|deleteSummary|vector\<byte\>|The results summary of blobs scheduled for delete operation|
+|tierToCoolSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cool operation|
+|tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
 
 ## Examples of lifecycle policies
 
@@ -212,6 +257,8 @@ You can enable last access time tracking to keep a record of when your blob is l
 When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. A [Get Blob](/rest/api/storageservices/get-blob) operation is considered an access operation. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time.
 
 To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
+
+If last access time tracking is enabled for a blob, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. If last access time tracking is not enabled, it uses the date the lifecycle policy was enabled instead of `LastAccessTime`.
 
 In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
 
@@ -399,7 +446,7 @@ The updated policy takes up to 24 hours to go into effect. Once the policy is in
 
 ### I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?
 
-If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob by changing its tier can result in a scenario where the lifecycle policy moves the blob back to the archive tier. This can happen if the last modified time, creation time, or last access time is beyond the threshold set for the policy. There's three ways to prevent this from happening:
+If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob by changing its tier can result in a scenario where the lifecycle policy moves the blob back to the archive tier. This can happen if the last modified time, creation time, or last access time is beyond the threshold set for the policy. There are three ways to prevent this from happening:
 
 - Add the `daysAfterLastTierChangeGreaterThan` condition to the tierToArchive action of the policy. This condition applies only to the last modified time. See [Use lifecycle management policies to archive blobs](archive-blob.md#use-lifecycle-management-policies-to-archive-blobs).
 

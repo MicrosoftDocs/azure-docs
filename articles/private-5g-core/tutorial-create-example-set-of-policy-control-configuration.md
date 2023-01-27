@@ -29,6 +29,9 @@ In this tutorial, you'll learn how to:
 * Read the information in [Policy control](policy-control.md) and familiarize yourself with Azure Private 5G Core policy control configuration.
 * Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 * Identify the name of the Mobile Network resource corresponding to your private mobile network.
+* Identify the name of the Slice resource corresponding to your network slice.
+  * If you want to assign a policy to a 5G SIM, you can choose any slice.
+  * If you want to assign a policy to a 4G SIM, you must choose the slice configured with slice/service type (SST) value of 1 and an empty slice differentiator (SD).
 
 ## Create a service for protocol filtering
 
@@ -138,7 +141,7 @@ To create the service:
 
     Note that the `rule_block_icmp_and_udp_uplink_traffic` rule has a lower value for the **Policy rule** precedence field than the `rule_allow_other_icmp_and_udp_traffic` rule (10 and 15 respectively). Rules with lower values are given higher priority. This ensures that the `rule_block_icmp_and_udp_uplink_traffic` rule to block packets is applied first, before the wider `rule_allow_other_icmp_and_udp_traffic` is applied to all remaining packets.
 
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-protocol-filtering-service.png" alt-text="Screenshot of the Azure portal. It shows the create a service screen with all fields correctly filled out and two data flow policy rules.":::
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-protocol-filtering-service.png" alt-text="Screenshot of the Azure portal. It shows the Create a service screen with all fields correctly filled out and two data flow policy rules.":::
 
 1. On the **Basics** configuration tab, select **Review + create**.
 1. Select **Create** to create the service.
@@ -340,7 +343,7 @@ Let's create the SIM policies.
     |**Policy name**     |`sim-policy-1`         |
     |**Total bandwidth allowed - Uplink**     | `10 Gbps`        |
     |**Total bandwidth allowed - Downlink**     | `10 Gbps` |
-    |**Default slice**     | Select **(Default) slice-1**.        |
+    |**Default slice**     | Select the name of your network slice.        |
     |**Registration timer**     | `3240`        |
     |**RFSP index**     | `2`        |  
 
@@ -352,8 +355,8 @@ Let's create the SIM policies.
 
     |Field  |Value  |
     |---------|---------|
-    |**Slice**     | Select **(Default) slice-1**         |
-    |**Data network**     | Select the data network to which your private mobile network connects.        |
+    |**Slice**     | Select the **Default** slice.         |
+    |**Data network**     | Select any data network to which your private mobile network connects.        |
     |**Service configuration**     | Select **service_restricted_udp_and_icmp** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |
@@ -404,7 +407,7 @@ Let's create the SIM policies.
     |**Policy name**     |`sim-policy-2`         |
     |**Total bandwidth allowed - Uplink**     | `10 Gbps`        |
     |**Total bandwidth allowed - Downlink**     | `10 Gbps` |
-    |**Default slice**     | `slice-1`        |
+    |**Default slice**     | Select the name of your network slice.         |
     |**Registration timer**     | `3240`        |
     |**RFSP index**     | `2`        |
 
@@ -413,8 +416,8 @@ Let's create the SIM policies.
 
     |Field  |Value  |
     |---------|---------|
-    |**Slice**     | Select **slice-1 (Default)**         |
-    |**Data network**     | Select the data network to which your private mobile network connects.        |
+    |**Slice**     | Select the **Default** slice.         |
+    |**Data network**     | Select any data network to which your private mobile network connects.        |
     |**Service configuration**     | Select **service_blocking_udp_from_specific_sources** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |
@@ -475,7 +478,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
 
-1. Select **View SIMs**.
+1. Select **Manage SIMs**.
 
     :::image type="content" source="media/provision-sims-azure-portal/view-sims.png" alt-text="Screenshot of the Azure portal showing the View SIMs button on a Mobile Network resource.":::
 

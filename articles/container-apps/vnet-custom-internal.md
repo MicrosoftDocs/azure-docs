@@ -92,7 +92,7 @@ az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
   --name infrastructure-subnet \
-  --address-prefixes 10.0.0.0/23
+  --address-prefixes 10.0.0.0/21
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -100,7 +100,7 @@ az network vnet subnet create \
 ```azurepowershell
 $SubnetArgs = @{
     Name = 'infrastructure-subnet'
-    AddressPrefix = '10.0.0.0/23'
+    AddressPrefix = '10.0.0.0/21'
 }
 $subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
@@ -119,7 +119,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 ---
 
 > [!NOTE]
-> Network subnet address prefix requires a CIDR range of `/23`.
+> Network subnet address prefix requires a minimum CIDR range of `/23`.
 
 With the VNET established, you can now query for the infrastructure subnet ID.
 

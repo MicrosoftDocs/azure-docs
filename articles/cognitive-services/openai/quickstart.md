@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: ChrisHMSFT
 ms.author: chrhoder
-ms.date: 06/30/2022
+ms.date: 12/14/2022
 zone_pivot_groups: openai-quickstart
 recommendations: false
 ---

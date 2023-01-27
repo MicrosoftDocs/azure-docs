@@ -5,7 +5,6 @@
   items:
   - name: Identity standards overview
     href: standards-overview.md
- 
 - name: Achieving NIST AALs
   expanded: true
   items:
@@ -34,7 +33,20 @@
     href: fedramp-identification-and-authentication-controls.md
   - name: Configure additional controls
     href: fedramp-other-controls.md
-- Name: Meeting Memorandum 22-09 identity requirements
+- name: Achieving CMMC compliance
+  expanded: true
+  items:
+  - name: Configure Azure Active Directory for CMMC compliance 
+    href: configure-azure-active-directory-for-cmmc-compliance.md
+  - name: Configure CMMC Level 1 controls
+    href: configure-cmmc-level-1-controls.md
+  - name: Configure CMMC Level 2 Access Control (AC)
+    href: configure-cmmc-level-2-access-control.md
+  - name: Configure CMMC Level 2 Identification and Authentication (IA)
+    href: configure-cmmc-level-2-identification-and-authentication.md
+  - name: Configure CMMC Level 2 additional controls
+    href: configure-cmmc-level-2-additional-controls.md
+- name: Meeting Memorandum 22-09 identity requirements
   expanded: true
   items:
   - name: Overview

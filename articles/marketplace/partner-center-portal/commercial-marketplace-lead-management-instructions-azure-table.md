@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: urimsft
 ms.author: uridor
-ms.date: 12/02/2021
+ms.date: 12/07/2022
 ---
 
 # Use Azure Table storage to manage commercial marketplace leads
