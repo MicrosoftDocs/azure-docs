@@ -27,7 +27,22 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [az account](/cli/azure/account) command.
 
-- The Azure subscription you're using must be registered to use namespace `Microsoft.OperationsManagement`. To check this, follow the instructions in the "Solution" section of [Resolve errors for resource provider registration](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-portal#solution).
+- Verify _Microsoft.OperationsManagement_ and _Microsoft.OperationalInsights_ providers are registered on your subscription. These are Azure resource providers required to support Container insights. To check the registration status, run the following commands:
+
+  ```sh
+  az provider show -n Microsoft.OperationsManagement -o table
+  az provider show -n Microsoft.OperationalInsights -o table
+  ```
+
+  If they are not registered, register _Microsoft.OperationsManagement_ and _Microsoft.OperationalInsights_ using the following commands:
+  
+  ```sh
+  az provider register --namespace Microsoft.OperationsManagement
+  az provider register --namespace Microsoft.OperationalInsights
+  ```
+  
+  > [!NOTE]
+  > Run the commands with administrative privileges if you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell.
 
 ### Limitations
 
@@ -410,5 +425,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
 [win-faq-change-admin-creds]: ../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster
