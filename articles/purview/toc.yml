@@ -274,7 +274,7 @@ items:
     - name: Azure Data Factory lineage
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
-      href: how-to-link-azure-data-share.md
+      href: how-to-lineage-purview-data-sharing.md
     - name: Azure Synapse Analytics lineage
       href: how-to-lineage-azure-synapse-analytics.md
     - name: Power BI lineage
@@ -313,6 +313,8 @@ items:
       href: sensitivity-labels-frequently-asked-questions.yml
   - name: Data sharing
     items:
+    - name: Migrate to new share experience
+      href: how-to-migrate-data-share.md
     - name: Share data
       href: how-to-share-data.md
     - name: Receive share
