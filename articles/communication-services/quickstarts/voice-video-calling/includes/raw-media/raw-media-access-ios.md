@@ -297,7 +297,7 @@ The app must register a delegate to get notified about when it should start or s
 
        func rawOutgoingVideoStreamOptions(_ rawOutgoingVideoStreamOptions: RawOutgoingVideoStreamOptions,
                                           didChangeVideoFrameSender args: VideoFrameSenderChangedEventArgs) {
-           // Sender can change to start sending a more efficient format(given network conditions) of the ones specified 
+           // Sender can change to start sending a more efficient format (given network conditions) of the ones specified 
            // in the list on the initial step. In that case, you should restart the sender.
            if running {
                stopRunning()

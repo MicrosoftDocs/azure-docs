@@ -248,7 +248,7 @@ Because the Android system generates the frames, you must implement your own for
     screenShareRawOutgoingVideoStream = new ScreenShareRawOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
 
-3. Request needed permissions for screen capture on Android. After this method is called, Android will automatically call `onActivityResult,` which contains the request code that you sent and the result of the operation.
+3. Request needed permissions for screen capture on Android. After this method is called, Android will automatically call `onActivityResult`, which contains the request code that you sent and the result of the operation.
 
    Expect `Activity.RESULT_OK` if the user has provided the permission. If so, attach `screenShareRawOutgoingVideoStream` to the call and start your own foreground service to capture the frames.
 

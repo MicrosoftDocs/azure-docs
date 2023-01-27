@@ -235,7 +235,7 @@ Because the Windows system generates the frames, you must implement your own for
 2. Capture the frames from the screen by using Windows APIs.
 
     ```csharp
-    MemoryBuffer memoryBuffer = // Fill it with the content you got from the Windows API's
+    MemoryBuffer memoryBuffer = // Fill it with the content you got from the Windows APIs
     ```
 
 3. Send the video frames in the following way.
