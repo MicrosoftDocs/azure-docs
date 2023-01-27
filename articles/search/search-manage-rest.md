@@ -36,11 +36,11 @@ All of the Management REST APIs have examples. If a task isn't covered in this a
 
 ## Prerequisites
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-search/)
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-search/).
 
-* [Postman](https://www.postman.com/downloads/) or another REST client that sends HTTP requests
+* [Postman](https://www.postman.com/downloads/) or another REST client that sends HTTP requests.
 
-* [Azure CLI](/cli/azure/install-azure-cli) used to set up a security principle for the client
+* [Azure CLI](/cli/azure/install-azure-cli) used to set up a security principle for the client. You must have owner or administrator permissions to create  a security principle.
 
 ## Create a security principal
 
@@ -201,19 +201,9 @@ To use Azure role-based access control (Azure RBAC) for data plane operations, s
 If you want to use Azure RBAC exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up with a second request, this time setting "disableLocalAuth" to "true".
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
 {
-  "location": "{{region}}",
-  "tags": {
-    "app-name": "My e-commerce app"
-  },
-  "sku": {
-    "name": "standard"
-  },
   "properties": {
-    "replicaCount": 1,
-    "partitionCount": 1,
-    "hostingMode": "default",
     "disableLocalAuth": false,
     "authOptions": {
       "aadOrApiKey": {
@@ -233,16 +223,9 @@ If you're using [customer-managed encryption](search-security-manage-encryption-
 When you enable this policy, any REST calls that create objects containing sensitive data, such as the connection string within a data source, will fail if an encryption key isn't provided: `"Error creating Data Source: "CannotCreateNonEncryptedResource: The creation of non-encrypted DataSources is not allowed when encryption policy is enforced."`
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
 {
-  "location": "westus",
-  "sku": {
-    "name": "standard"
-  },
   "properties": {
-    "replicaCount": 1,
-    "partitionCount": 1,
-    "hostingMode": "default",
     "encryptionWithCmk": {
       "enforcement": "Enabled",
       "encryptionComplianceStatus": "Compliant"
@@ -258,16 +241,12 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 Although [semantic search isn't enabled](semantic-search-overview.md#enable-semantic-search) by default, you could lock down the feature at the service level.
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
-    {
-      "location": "{{region}}",
-      "sku": {
-        "name": "standard"
-      },
-      "properties": {
-        "semanticSearch": "disabled"
-      }
-    }
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+{
+  "properties": {
+    "semanticSearch": "disabled"
+  }
+}
 ```
 
 <a name="disable-external-access"></a>
@@ -277,16 +256,9 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 Azure Cognitive Search [writes to external data sources](search-indexer-securing-resources.md) when updating a knowledge store, saving debug session state, or caching enrichments. The following example disables these workloads at the service level.
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
 {
-  "location": "{{region}}",
-  "sku": {
-    "name": "standard"
-  },
   "properties": {
-    "replicaCount": 1,
-    "partitionCount": 1,
-    "hostingMode": "default",
     "disabledDataExfiltrationOptions": [
       "All"
     ]
