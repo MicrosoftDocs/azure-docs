@@ -5,7 +5,7 @@ keywords: azure app service, web app, multiregion, multi-region, multiple region
 author: seligj95
 
 ms.topic: tutorial
-ms.date: 1/23/2023
+ms.date: 1/27/2023
 ms.author: jordanselig
 ---
 
@@ -298,9 +298,16 @@ To configure continuous deployment with GitHub Actions and a service principal, 
     az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/<web-app-east-us> /subscriptions/<subscription-id>/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/<web-app-west-us> --sdk-auth
     ```
 
-1. You need to provide your service principal's credentials to the Azure Login action as part of the GitHub Action workflow you'll be using. These values can either be provided directly in the workflow or can be stored in a GitHub secret and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
-    1. Open your GitHub repository and go to **Settings** > **Security** > **Secrets and variables** > **Actions** > **New repository secret**.
-    1. Paste the entire JSON output from the Azure CLI command from the initial step into the secret's value field. Use `AZURE_CREDENTIALS` for the name of the secret. When you configure the workflow file in the next step, you use the secret for the input `creds` of the Azure Login action.
+1. You need to provide your service principal's credentials to the Azure Login action as part of the GitHub Action workflow you'll be using. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+    1. Open your GitHub repository and go to **Settings** > **Security** > **Secrets and variables** > **Actions** 
+    1. Select **New repository secret** and create a secret for each of the following values. The values can be found in the json output you copied earlier.
+
+        |Name                     |Value                      |
+        |-------------------------|---------------------------|
+        |AZURE_APP_ID             |`<application/client-id>`  |
+        |AZURE_PASSWORD           |`<client-secret>`          |
+        |AZURE_TENANT_ID          |`<tenant-id>`              |
+        |AZURE_SUBSCRIPTION_ID    |`<subscription-id>`        |
 
 ### Create the GitHub Actions workflow
 
@@ -363,7 +370,13 @@ Now that you have a service principal that can access your App Service apps, you
 
           - uses: azure/login@v1
             with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
+              creds: |
+                {
+                  "clientId": "${{ secrets.AZURE_APP_ID }}",
+                  "clientSecret":  "${{ secrets.AZURE_PASSWORD }}",
+                  "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}",
+                  "tenantId": "${{ secrets.AZURE_TENANT_ID }}"
+                }
     
           - name: 'Deploy to Azure Web App'
             id: deploy-to-webapp
