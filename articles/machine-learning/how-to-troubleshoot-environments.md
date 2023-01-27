@@ -23,7 +23,7 @@ Azure Machine Learning environments are an encapsulation of the environment wher
 They specify the base docker image, Python packages, and software settings around your training and scoring scripts.
 Environments are managed and versioned assets within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across various compute targets.
 
-## Types of environments
+### Types of environments
 
 Environments can broadly be divided into three categories: curated, user-managed, and system-managed.
 
@@ -40,7 +40,7 @@ System-managed environments are used when you want conda to manage the Python en
 A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
 Note that environment isolation implies that Python dependencies installed in the base image won't be available in the derived image.
 
-## Create and manage environments
+### Create and manage environments
 
 You can create and manage environments from clients like AzureML Python SDK, AzureML CLI, AzureML Studio UI, VS code extension. 
 
@@ -52,9 +52,9 @@ It also caches the environments in the Azure Container Registry associated with 
 Multiple environments with the same definition may result the same image, so the cached image will be reused.
 Running a training script remotely requires the creation of a Docker image.
 
-## Reproducibility and vulnerabilities
+### Reproducibility and vulnerabilities
 
-### Vulnerabilities
+#### *Vulnerabilities*
 
 Vulnerabilities can be addressed by upgrading to a newer version of a dependency or migrating to a different dependency that satisfies security
 requirements. Mitigating vulnerabilities is time consuming and costly since it can require refactoring of code and infrastructure. With the prevalence
@@ -66,7 +66,7 @@ There are some ways to decrease the impact of vulnerabilities:
 - Compartmentalize your environment so issues can be scoped and fixed in one place.
 - Understand flagged vulnerabilities and their relevance to your scenario.
 
-### Vulnerabilities vs Reproducibility
+#### *Vulnerabilities vs Reproducibility*
 
 Reproducibility is one of the foundations of software development. While developing production code, a repeated operation must guarantee the same
 result. Mitigating vulnerabilities can disrupt reproducibility by changing dependencies.
@@ -102,7 +102,7 @@ automate this process based on triggers from Microsoft Defender, see [Automate r
 
 ## **Environment definition problems**
 
-### *Environment name issues*
+## *Environment name issues*
 ### Curated prefix not allowed
 <!--issueDescription-->
 This issue can happen when the name of your custom environment uses terms reserved only for curated environments. *Curated* environments are environments that Microsoft maintains. *Custom* environments are environments that you create and maintain.
@@ -135,7 +135,7 @@ This issue can happen when the name of your custom environment uses terms reserv
 
  Update your environment name to be 255 characters or less
 
-### *Docker issues*
+## *Docker issues*
 
 *Applies to: Azure CLI & Python SDK v1*
 
@@ -456,7 +456,7 @@ Shorten your Dockerfile to get it under this limit
 **Resources**
 * See [best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
-### *Docker build context issues*
+## *Docker build context issues*
 ### Missing Docker build context location
 <!--issueDescription-->
 **Potential causes:**
@@ -584,7 +584,7 @@ For scenarios in which you're storing your Docker build context in a storage acc
 * [Python SDK/Azure CLI v2 sample](https://aka.ms/azureml/environment/create-env-build-context-v2)
 * [Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)
 
-### *Base image issues*
+## *Base image issues*
 ### Base image is deprecated
 <!--issueDescription-->
 **Potential causes:**
@@ -636,7 +636,7 @@ Include at least one of the following on your specified base image
 * Digest
 * See [image with immutable identifier](https://aka.ms/azureml/environment/pull-image-by-digest)
 
-### *Environment variable issues*
+## *Environment variable issues*
 ### Misplaced runtime variables
 <!--issueDescription-->
 **Potential causes:**
@@ -652,7 +652,7 @@ Include at least one of the following on your specified base image
 
 Use the `environment_variables` attribute on the [RunConfiguration object](https://aka.ms/azureml/environment/environment-variables-on-run-config) instead
 
-### *Python issues*
+## *Python issues*
 ### Python section missing
 <!--issueDescription-->
 **Potential causes:**
@@ -797,7 +797,7 @@ channels:
 **Resources**
 * See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
-### *Conda issues*
+## *Conda issues*
 ### Missing conda dependencies
 <!--issueDescription-->
 **Potential causes:**
@@ -916,7 +916,7 @@ environment definition
 version of a package on subsequent builds of an environment. This behavior can lead to unexpected errors
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
-### *Pip issues*
+## *Pip issues*
 ### Pip not specified
 - For reproducibility, pip should be specified as a dependency in your conda specification, and it should be pinned
 - See [how to set a conda dependency](https://aka.ms/azureml/environment/add-conda-package-v1)
@@ -930,7 +930,7 @@ image builds on the environment
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 - See [how to set pip as a dependency](https://aka.ms/azureml/environment/add-conda-package-v1)
 
-### *Deprecated environment property issues*
+## *Deprecated environment property issues*
 ### R section is deprecated
 - The Azure Machine Learning SDK for R will be deprecated by the end of 2021 to make way for an improved R training and deployment
 experience using Azure Machine Learning CLI 2.0
@@ -938,10 +938,11 @@ experience using Azure Machine Learning CLI 2.0
 
 ## **Image build problems**
 
-### *Miscellaneous issues*
+## *Miscellaneous issues*
 ### Build log unavailable
 - Build logs are optional and not available for all environments since the image might already exist
 
+## *ACR issues*
 ### ACR unreachable
 <!--issueDescription-->
 This issue can happen by failing to access a workspace's associated Azure Container Registry (ACR) resource.
@@ -986,7 +987,7 @@ az ml workspace update --name myworkspace --resource-group myresourcegroup --ima
 * [Enable Azure Container Registry (ACR)](https://aka.ms/azureml/environment/acr-private-endpoint)
 * [How To Use Environments](https://aka.ms/azureml/environment/how-to-use-environments)
 
-### *Docker pull issues*
+## *Docker pull issues*
 ### Failed to pull Docker image
 <!--issueDescription-->
 This issue can happen when a Docker image pull fails during an image build.
@@ -1044,7 +1045,7 @@ Assess your workspace set-up. Are you using a virtual network, or are any of the
 If you aren't using a virtual network, or if you've configured it correctly
 * Try rebuilding your image. If the timeout was due to a network issue, the problem might be transient, and a rebuild could fix the problem
 
-### *Conda issues during build*
+## *Conda issues during build*
 ### Bad spec
 <!--issueDescription-->
 This issue can happen when a package listed in your conda specification is invalid or when a conda command is executed incorrectly.
@@ -1456,7 +1457,7 @@ This issue can happen when there's a failure decoding a character in your conda 
 * Failure in running jobs because it will implicitly build the environment in the first step.
 <!--/issueDescription-->
 
-### *Pip issues during build*
+## *Pip issues during build*
 ### Failed to install packages
 <!--issueDescription-->
 This issue can happen when your image build fails during Python package installation.
@@ -1505,7 +1506,7 @@ pip install --ignore-installed [package]
 
 Try creating a separate environment using conda
 
-### *Docker push issues*
+## *Docker push issues*
 ### Failed to store Docker image
 <!--issueDescription-->
 This issue can happen when a Docker image fails to be stored (pushed) to a container registry.  
