@@ -55,7 +55,7 @@ You have **Flask 2** installed in your python environment but are running a vers
    `azureml-inference-server-http` or `azureml-defaults`.
 
 2. If you're using this package with an AzureML docker image, make sure you're using an image built in or after July,
-   2022. The image version is available in the container logs. You should be able to find a log similar to below:
+   2022. The image version is available in the container logs. You should be able to find a log similar to the following:
 
     ```
     2022-08-22T17:05:02,147738763+00:00 | gunicorn/run | AzureML Container Runtime Information
