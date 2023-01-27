@@ -168,7 +168,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
 ## Switch between certificate types
 
-You can change a domain between using an Azure Front Door-managed certificate and a user-managed certificate. For more information, see [Domains in Azure Front Door](../domain.md#switch-between-certificate-types).
+You can change a domain between using an Azure Front Door-managed certificate and a customer-managed certificate. For more information, see [Domains in Azure Front Door](../domain.md#switch-between-certificate-types).
 
 1. Select the certificate state to open the **Certificate details** page.
 

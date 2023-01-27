@@ -14,7 +14,7 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-classic"
 
-Azure Front Door uses CNAME records to validate domain ownership for onboarding of custom domains. Front Door doesn't expose the frontend IP address associated with your Front Door profile. So you can't map your apex domain to an IP address if your intent is to onboard it to Azure Front Door.
+Azure Front Door uses CNAME records to validate domain ownership for the onboarding of custom domains. Azure Front Door doesn't expose the frontend IP address associated with your Front Door profile. So you can't map your apex domain to an IP address if your intent is to onboard it to Azure Front Door.
 
 The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`; you can create CNAME records for `somelabel.contoso.com`; but you can't create CNAME for `contoso.com` itself. This restriction presents a problem for application owners who have load-balanced applications behind Azure Front Door. Since using a Front Door profile requires creation of a CNAME record, it isn't possible to point at the Front Door profile from the zone apex.
 
@@ -25,7 +25,7 @@ Mapping your apex or root domain to your Front Door profile requires *CNAME flat
 > [!NOTE]
 > There are other DNS providers as well that support CNAME flattening or DNS chasing. However, Azure Front Door recommends using Azure DNS for its customers for hosting their domains.
 
-You can use the Azure portal to onboard an apex domain on your Front Door and enable HTTPS on it by associating it with a TLS certificate. Apex domains are also referred as *root* or *naked* domains.
+You can use the Azure portal to onboard an apex domain on your Azure Front Door and enable HTTPS on it by associating it with a TLS certificate. Apex domains are also referred as *root* or *naked* domains.
 
 ::: zone-end
 
@@ -41,7 +41,7 @@ You can use the Azure portal to onboard an apex domain on your Azure Front Door 
 
 ## Onboard the custom domain to your Azure Front Door profile
 
-1. Select **Domains** from under *Settings* on the left side pane for your Front Door profile and then select **+ Add** to add a new custom domain.
+1. Select **Domains** from under *Settings* on the left side pane for your Azure Front Door profile and then select **+ Add** to add a new custom domain.
 
     :::image type="content" source="./media/front-door-apex-domain/add-domain.png" alt-text="Screenshot of adding a new domain to Front Door profile.":::
 

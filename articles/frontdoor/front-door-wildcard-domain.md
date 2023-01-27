@@ -27,7 +27,7 @@ Wildcard domains give you several advantages, including:
 Commonly, wildcard domains are used to support software as a service (SaaS) solutions, and other multitenant applications. When you build these application types, you need to give special consideration to how you route traffic to your origin servers. For more information, see [Use Azure Front Door in a multitenant solution](/azure/architecture/guide/multitenant/service/front-door).
 
 > [!NOTE]
-> When you use Azure DNS to manage your domain's DNS records, you need to wildcard domains through the Azure Resource Manager API, Bicep, PowerShell, and the Azure CLI. Support for adding and managing Azure DNS wildcard domains in the Azure portal isn't available.
+> When you use Azure DNS to manage your domain's DNS records, you need to configure wildcard domains by using the Azure Resource Manager API, Bicep, PowerShell, and the Azure CLI. Support for adding and managing Azure DNS wildcard domains in the Azure portal isn't available.
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -44,7 +44,7 @@ For accepting HTTPS traffic on your wildcard domain, you must enable HTTPS on th
 > [!NOTE]
 > * Currently, only using your own custom SSL certificate option is available for enabling HTTPS for wildcard domains. Azure Front Door managed certificates can't be used for wildcard domains. 
 > * You can choose to use the same wildcard certificate from Azure Key Vault or from Azure Front Door managed certificates for subdomains. 
-> * If you want to add a subdomain of the wildcard domain that’s already validated in the Azure Front Door Standard or Premium profile, the domain validation is automatically approved if it uses the same use your own custom SSL certificate.  
+> * If you want to add a subdomain of the wildcard domain that’s already validated in the Azure Front Door Standard or Premium profile, the domain validation is automatically approved. 
 > * If a wildcard domain is validated and already added to one profile, a single-level subdomain can still be added to another profile as long as it is also validated. 
 
 ## Define a subdomain explicitly
