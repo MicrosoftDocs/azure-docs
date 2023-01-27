@@ -45,7 +45,7 @@ In the picture above, the connector is synonymous with the connector space but e
 
 The connector is responsible for all import and export functionality to the system and frees developers from needing to understand how to connect to each system natively when using declarative provisioning to customize data transformations.
 
-Imports and exports only occur when scheduled, allowing for further insulation from changes occurring within the system, since changes do not automatically propagate to the connected data source. In addition, developers may also create their own connectors for connecting to virtually any data source.
+Imports and exports only occur when scheduled, allowing for further insulation from changes occurring within the system, since changes don't automatically propagate to the connected data source. In addition, developers may also create their own connectors for connecting to virtually any data source.
 
 ## Attribute flow
 The metaverse is the consolidated view of all joined identities from neighboring connector spaces. In the figure above, attribute flow is depicted by lines with arrowheads for both inbound and outbound flow. Attribute flow is the process of copying or transforming data from one system to another and all attribute flows (inbound or outbound).
@@ -70,17 +70,17 @@ As identities are linked together and authority is assigned for various attribut
 
 Objects are created when an authoritative system projects them into the metaverse. As soon as all connections are removed, the metaverse object is deleted.
 
-Objects in the metaverse cannot be edited directly. All data in the object must be contributed through attribute flow. The metaverse maintains persistent connectors with each connector space. These connectors do not require reevaluation for each synchronization run. This means that Azure AD Connect sync does not have to locate the matching remote object each time. This avoids the need for costly agents to prevent changes to attributes that would normally be responsible for correlating the objects.
+Objects in the metaverse can't be edited directly. All data in the object must be contributed through attribute flow. The metaverse maintains persistent connectors with each connector space. These connectors don't require reevaluation for each synchronization run. This means that Azure AD Connect sync doesn't have to locate the matching remote object each time. This avoids the need for costly agents to prevent changes to attributes that would normally be responsible for correlating the objects.
 
 When discovering new data sources that may have preexisting objects that need to be managed, Azure AD Connect sync uses a process called a join rule to evaluate potential candidates with which to establish a link.
-Once the link is established, this evaluation does not reoccur and normal attribute flow can occur between the remote connected data source and the metaverse.
+Once the link is established, this evaluation doesn't reoccur and normal attribute flow can occur between the remote connected data source and the metaverse.
 
 ## Provisioning
 When an authoritative source projects a new object into the metaverse a new connector space object can be created in another Connector representing a downstream connected data source.
 
 This inherently establishes a link, and attribute flow can proceed bi-directionally.
 
-Whenever a rule determines that a new connector space object needs to be created, it is called provisioning. However, because this operation only takes place within the connector space, it does not carry over into the connected data source until an export is performed.
+Whenever a rule determines that a new connector space object needs to be created, it's called provisioning. However, because this operation only takes place within the connector space, it doesn't carry over into the connected data source until an export is performed.
 
 ## Additional Resources
 * [Azure AD Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
