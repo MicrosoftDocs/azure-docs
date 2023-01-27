@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Compliance Genie
 
-In this article, you'll learn how to integrate Compliance Genie with Azure Active Directory (Azure AD). Compliance Genie is and all-in-One Health & Safety App, allowing to manage and keep track of health & safety across your company for risk assessments, incident management, audits and documentation. When you integrate Compliance Genie with Azure AD, you can:
+In this article, you'll learn how to integrate Compliance Genie with Azure Active Directory (Azure AD). Compliance Genie is an all-in-One Health & Safety App, allowing to manage and keep track of health & safety across your company for risk assessments, incident management, audits and documentation. When you integrate Compliance Genie with Azure AD, you can:
 
 * Control in Azure AD who has access to Compliance Genie.
 * Enable your users to be automatically signed-in to Compliance Genie with their Azure AD accounts.
@@ -65,7 +65,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://login.be-safetech.com/Login/AzureAssertionConsumerService/<COMPANYID>`
 
-    c. In the **Sign on URL textbox, type the URL:
+    c. In the **Sign on URL** textbox, type the URL:
     `https://login.be-safetech.com/Login/Azure`
 
     > [!NOTE]
