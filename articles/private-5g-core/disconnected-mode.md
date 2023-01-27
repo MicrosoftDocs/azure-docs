@@ -1,6 +1,6 @@
 ---
 title: Disconnected mode
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: An overview of Azure Private 5G Core's disconnected mode.
 author: James-Green-Microsoft
 ms.author: jamesgreen
@@ -10,7 +10,7 @@ ms.date: 11/30/2022
 ms.custom: template-concept 
 ---
 
-# Disconnected mode for Azure Private 5G Core Preview
+# Disconnected mode for Azure Private 5G Core
 
 *Azure Private 5G Core (AP5GC)* allows for *Azure Stack Edge (ASE)* disconnects of up to two days. Disconnected mode allows AP5GC core functionality to persist through ASE disconnects due to: network issues, network equipment resets and temporary network equipment separation.
 

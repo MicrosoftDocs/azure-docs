@@ -1,6 +1,6 @@
 ---
 title: Move Azure Private 5G Core private mobile network resources between regions
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to move your private mobile network resources to a different region.
 author: b-branco
 ms.author: biancabranco
@@ -108,8 +108,8 @@ Configure your deployment in the new region using the information you gathered i
 
 1. Retrieve your backed-up SIM information and recreate your SIMs by following one of:
 
-    - [Provision new SIMs for Azure Private 5G Core Preview - Azure portal](provision-sims-azure-portal.md)
-    - [Provision new SIMs for Azure Private 5G Core Preview - ARM template](provision-sims-arm-template.md)
+    - [Provision new SIMs for Azure Private 5G Core - Azure portal](provision-sims-azure-portal.md)
+    - [Provision new SIMs for Azure Private 5G Core - ARM template](provision-sims-arm-template.md)
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
 

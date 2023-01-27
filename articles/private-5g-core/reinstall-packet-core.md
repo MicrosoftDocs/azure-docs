@@ -1,6 +1,6 @@
 ---
 title: Reinstall a packet core instance
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to reinstall a packet core instance using the Azure portal. 
 author: b-branco
 ms.author: biancabranco
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Reinstall the packet core instance in a site - Azure portal
 
-Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
+Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
 
 If you're experiencing issues with your deployment, reinstalling the packet core may help return it to a good state. In this how-to guide, you'll learn how to reinstall a packet core instance using the Azure portal.
 
