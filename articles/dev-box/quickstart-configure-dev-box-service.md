@@ -21,7 +21,7 @@ This quickstart describes how to configure the Microsoft Dev Box service by usin
 
 This quickstart will take you through the process of setting up your Dev Box environment. You'll create a dev center to organize your dev box resources, configure network components to enable dev boxes to connect to your organizational resources, and create a dev box definition that will form the basis of your dev boxes. You’ll then create a project and a dev box pool, which work together to help you give access to users who will manage or use the dev boxes.
 
-After you've completed this quickstart, you'll have a Dev Box configuration ready for user to create and connect to dev boxes.
+After you've completed this quickstart, you'll have a Dev Box configuration ready for users to create and connect to dev boxes.
 
 ## Prerequisites
 
