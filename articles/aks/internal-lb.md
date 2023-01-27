@@ -71,28 +71,50 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## Specify an IP address
 
-If you want to use a specific IP address with the internal load balancer, add the *loadBalancerIP* property to the load balancer YAML manifest. In this scenario, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
-
-> [!NOTE]
-> If you initially deploy the service without specifying an IP address and later you update its configuration to use a dynamically assigned IP address using the *loadBalancerIP* property, the IP address still shows as dynamically assigned.
+When you specify an IP address for the load balancer, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
 
 For more information on subnets, see [Add a node pool with a unique subnet][unique-subnet].
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: internal-app
-  annotations:
-    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-spec:
-  type: LoadBalancer
-  loadBalancerIP: 10.240.0.25
-  ports:
-  - port: 80
-  selector:
-    app: internal-app
-```
+If you want to use a specific IP address with the load balancer, there are two ways:
+
+> [!IMPORTANT]
+> Adding the *LoadBalancerIP* property to the load balancer YAML manifest is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235). While current usage remains the same and existing services are expected to work without modification, we **highly recommend setting service annotations** instead.
+
+* **Set service annotations (*Recommended*)**: Use `service.beta.kubernetes.io/azure-load-balancer-ipv4` for an IPv4 address and `service.beta.kubernetes.io/azure-load-balancer-ipv6` for an IPv6 address. Dual-stack support will be implemented soon.
+  
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: internal-app
+      annotations:
+        service.beta.kubernetes.io/azure-load-balancer-ipv4: 10.240.0.25
+        service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    spec:
+      type: LoadBalancer
+      ports:
+      - port: 80
+      selector:
+        app: internal-app
+    ```
+
+* **Add the *LoadBalancerIP* property to the load balancer YAML manifest**: Add the *Service.Spec.LoadBalancerIP* property to the load balancer YAML manifest. This field is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235), and it can't support dual-stack. Current usage remains the same and existing services are expected to work without modification.
+
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: internal-app
+      annotations:
+        service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    spec:
+      type: LoadBalancer
+      loadBalancerIP: 10.240.0.25
+      ports:
+      - port: 80
+      selector:
+        app: internal-app
+    ```
 
 When you view the service details, the IP address in the *EXTERNAL-IP* column should reflect your specified IP address.
 
