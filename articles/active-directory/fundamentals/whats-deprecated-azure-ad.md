@@ -47,14 +47,15 @@ Use the definitions in this section help clarify the state, availability, and su
 
 |Category|Definition|Communication schedule|
 |---|---|---|
-|Deprecation|The state of a feature, functionality, or service no longer in active development. A deprecated feature may be retired and removed from future releases. Deprecated services might be retired in the future|?|
-|Retirement|Signals the retirement of a feature, capability, or product in a specified period. Customers can’t adopt the service or feature, and engineering investments are reduced. Later, the feature reaches end-of-life and is unavailable to any customer.|2 times per year: March and September|
-|Breaking change|The change might break the customer or partner experience if action isn’t taken, or a change made, for continued operation.|4 times per year: March, June, September, and December|
-|Feature change|Change to an IDNA feature that requires no customer action, but is noticeable to them. Typically, these changes are UI/UX.|4 times per year: March, June, September, and December|
+|Deprecation|The state of a feature, functionality, or service no longer in active development. A deprecated feature might be retired and removed from future releases.|?|
+|Retirement|Signals retirement in a specified period. Customers can’t adopt the service or feature, and engineering investments are reduced. Later, the feature reaches end-of-life and is unavailable to any customer.|2 times per year: March and September|
+|Breaking change|A change that might break the customer or partner experience if action isn’t taken, or a change made, for continued operation.|4 times per year: March, June, September, and December|
+|Feature change|Change to an IDNA feature that requires no customer action, but is noticeable to them. Typically, these changes are in the user interface/user experperience (UI/UX).|4 times per year: March, June, September, and December|
 |Rebranding|A new name, term, symbol, design, concept or combination thereof for an established brand to develop a differentiated experience.|As scheduled or announced|
 
 #### Terminology
- 
+
+* **End-of-life** - 
 * **Tenant, current** - 
 * **Tenant, new** - 
 
