@@ -90,6 +90,44 @@ When filtering is enabled, the control includes a text box for adding the filter
 - The `defaultDescription` property is used for items that don't have a description.
 - The `placeholder` property is help text that disappears when the user begins editing. If the `placeholder` and `defaultValue` are both defined, the `defaultValue` takes precedence and is shown.
 
+## Example
+In the following example, the `defaultValue` is defined using the values of the `allowedValues` instead of the labels. The default value can contain multipule values when `multiselect` is enabled.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-6.png" alt-text="Screenshot that shows how multiuple default values can be included with multi-select enabled":::
+
+```json
+{
+    "name": "element1",
+    "type": "Microsoft.Common.DropDown",
+    "label": "Example drop down",
+    "placeholder": "",
+    "defaultValue": [{"value": "one"}, {"value": "two"}],
+    "toolTip": "Multipule values can be selected",
+    "multiselect": true,
+    "selectAll": true,
+    "filter": true,
+    "filterPlaceholder": "Filter items ...",
+    "multiLine": true,
+    "defaultDescription": "A value for selection",
+    "constraints": {
+        "allowedValues": [
+            {
+                "label": "Value one",
+                "description": "The value to select for option 1.",
+                "value": "one"
+            },
+            {
+                "label": "Value two",
+                "description": "The value to select for option 2.",
+                "value": "two"
+            }
+        ],
+        "required": true
+    },
+    "visible": true
+}
+```
+
 ## Next steps
 
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
