@@ -94,9 +94,9 @@ Use the Management REST API version 2021-04-01-Preview, [Create or Update Servic
 
 All calls to the Management REST API are authenticated through Azure Active Directory, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
 
-1. Under "properties", set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey".
+1. Under "properties", set ["authOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey".
 
-   Optionally, set ["AadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. The default of "disableLocalAuth" is false so you don't need to set it, but it's included in the properties list to emphasize that it must be false whenever "authOptions" are set.
+   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. The default of "disableLocalAuth" is false so you don't need to set it, but it's included in the properties list to emphasize that it must be false whenever "authOptions" are set.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -495,7 +495,7 @@ The change is effective immediately. Assuming you have permission to assign role
 
 Use Postman or another REST client to send two consecutive requests for [Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update). See [Manage a search service using REST APIs](search-manage-rest.md) for instructions on setting up the client.
 
-1. On the first request, set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey" to enable Azure AD authentication. Activating Azure AD authentication is a prerequisite to setting "disableLocalAuth".
+1. On the first request, set ["authOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey" to enable Azure AD authentication. Activating Azure AD authentication is a prerequisite to setting "disableLocalAuth".
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -529,7 +529,7 @@ Use Postman or another REST client to send two consecutive requests for [Update 
     }
     ```
 
-You can't combine steps one and two. In step one, "disableLocalAuth" must be false to meet the requirements for setting "AuthOptions", whereas step two changes that value to true.
+You can't combine steps one and two. In step one, "disableLocalAuth" must be false to meet the requirements for setting "authOptions", whereas step two changes that value to true.
 
 To re-enable key authentication, rerun the last request, setting "disableLocalAuth" to false. The search service will resume acceptance of API keys on the request automatically (assuming they're specified).
 
