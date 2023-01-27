@@ -5,7 +5,7 @@
  author: PatAltimore
  ms.service: iot-edge
  ms.topic: include
- ms.date: 06/02/2022
+ ms.date: 01/05/2023
  ms.author: patricka
  ms.custom: include file
 ---
@@ -14,3 +14,4 @@
 
 > [!IMPORTANT]
 > IoT Edge 1.1 [end of support date was December 13, 2022](../support.md#releases). Check the [Microsoft Product Lifecycle](/lifecycle/policies/modern) for information about how this product, service, technology, or API is supported.
+

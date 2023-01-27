@@ -50,7 +50,7 @@ curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'client_id=<your apps client ID>' \
 --data-urlencode 'client_secret=<your apps client secret' \
---data-urlencode 'resource=https://management.azure.com'
+--data-urlencode 'resource=https://monitor.azure.com'
 ```
 
 The response body appears as follows:  

@@ -2,15 +2,18 @@
 title: "Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph"
 description: Learn how an ASP.NET Core web app leverages Microsoft.Identity.Web to implement Microsoft sign-in using OpenID Connect and call Microsoft Graph
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
+
 ms.date: 12/19/2022
-ms.author: jmprieur
+ms.author: cwerner
+
+ms.reviewer: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal Microsoft accounts and work/school accounts from any Azure Active Directory instance,  then access their data in Microsoft Graph on their behalf.
 ---

@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/04/2023
 ---
 
-# JavaScript code samples for Azure Cognitive Search
+# JavaScript samples for Azure Cognitive Search
 
 Learn about the JavaScript code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/javascript/api/overview/azure/search-documents-readme) for the [**Azure SDK for JavaScript**](/azure/developer/javascript/), which you can explore through the following links.
 

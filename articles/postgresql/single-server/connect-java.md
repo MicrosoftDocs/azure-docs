@@ -295,7 +295,7 @@ Using your favorite IDE, create a new Java project using Java 8 or above, and ad
       </dependency>
       <dependency>
         <groupId>com.azure</groupId>
-        <artifactId>azure-identity-providers-jdbc-postgresql</artifactId>
+        <artifactId>azure-identity-extensions</artifactId>
         <version>1.0.0</version>
       </dependency>
     </dependencies>

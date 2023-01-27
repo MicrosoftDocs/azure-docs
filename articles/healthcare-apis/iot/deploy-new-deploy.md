@@ -28,7 +28,7 @@ When you're satisfied with your configuration and it has been successfully valid
 
 Your screen should look something like this:
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\iot-deploy-manual-in-portal\created-medtech-service.png":::
+   :::image type="content" source="media\deploy-new-deploy\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\deploy-new-deploy\created-medtech-service.png":::
 
 ## Manual post-deployment requirements
 
@@ -76,7 +76,7 @@ Follow these steps to grant access to the device message event hub:
 
 13. After the role assignment has been successfully added to the event hub, a notification will display on your screen with a green check mark. This notification indicates that your MedTech service can now read from your device message event hub. It should look like this:
 
-    :::image type="content" source="media\iot-deploy-manual-in-portal\validate-medtech-service-managed-identity-added-to-event-hub.png" alt-text="Screenshot of the MedTech service system-assigned managed identity being successfully granted access to the event hub with a red box around the message." lightbox="media\iot-deploy-manual-in-portal\validate-medtech-service-managed-identity-added-to-event-hub.png":::
+    :::image type="content" source="media\deploy-new-deploy\validate-medtech-service-managed-identity-added-to-event-hub.png" alt-text="Screenshot of the MedTech service system-assigned managed identity being successfully granted access to the event hub with a red box around the message." lightbox="media\deploy-new-deploy\validate-medtech-service-managed-identity-added-to-event-hub.png":::
 
 For more information about authorizing access to Event Hubs resources, see [Authorize access with Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).  
 

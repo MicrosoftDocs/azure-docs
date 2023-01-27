@@ -258,7 +258,7 @@ The fields used in the manifest are as follows:
 |applicationName|String|Name of the application| 
 |publisher|String|Name of the Publisher|
 |description|String|Short description of the package|
-|version|SemVer string|SemVer string that describes the application package version, may or may not match the version of the binaries inside. Mapped to Porter’s version field|
+|version|String in `#.#.#` format|Version string that describes the application package version, may or may not match the version of the binaries inside. Mapped to Porter’s version field|
 |helmChart|String|Local directory where the Helm chart can be found relative to this `manifest.yaml`|
 |clusterARMTemplate|String|Local path where an ARM template that describes an AKS cluster that meets the requirements in restrictions field can be found|
 |uiDefinition|String|Local path where a JSON file that describes an Azure portal Create experience can be found|
@@ -274,6 +274,9 @@ For a sample configured for the voting app, see the following [manifest file exa
 It's important to understand how user parameters flow throughout the artifacts you're creating and packaging. Parameters are initially defined when creating the UI through a *createUiDefinition.json* file:
 
 :::image type="content" source="./media/azure-container/user-param-ui.png" alt-text="A screenshot of the createUiDefinition example linked in this article. Definitions for 'value1' and 'value2' are shown.":::
+
+> [!NOTE]
+> In this example, `extensionResourceName` is also parameterized and passed to the cluster extension resource. Similarly, other extension properties can be parameterized, such as enabling auto upgrade for minor versions. For more on cluster extension properties, see [optional parameters][extension-parameters].
 
 and are exported via the `outputs` section:
 
@@ -378,3 +381,4 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 [pipeline-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples/.pipelines/AzurePipelines/azure-pipelines.yml
 [arm-template-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/mainTemplate.json
 [manifest-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/manifest.yaml
+[extension-parameters]: ../aks/cluster-extensions.md#optional-parameters

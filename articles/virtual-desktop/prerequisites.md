@@ -62,13 +62,15 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 
 | Identity scenario | Session hosts | User accounts |
 |--|--|--|
-| Azure AD + AD DS | Joined to AD DS | In AD DS and Azure AD, synchronized |
+| Azure AD + AD DS | Joined to AD DS | In Azure AD and AD DS, synchronized |
+| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized|
 | Azure AD + Azure AD DS | Joined to Azure AD DS | In Azure AD and Azure AD DS, synchronized |
 | Azure AD + Azure AD DS + AD DS | Joined to Azure AD DS | In Azure AD and AD DS, synchronized |
+| Azure AD + Azure AD DS | Joined to Azure AD | In Azure AD and Azure AD DS, synchronized|
 | Azure AD only | Joined to Azure AD | In Azure AD |
 
 > [!NOTE]
-> If you're planning on using Azure AD only with [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial), you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md), which is currently in public preview. In this scenario, user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You must create these accounts in AD DS and synchronize them to Azure AD. The service doesn't currently support environments where users are managed with Azure AD and synchronized to Azure AD DS. 
+> If you're planning on using Azure AD only with [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial), you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md). In this scenario, user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You must create these accounts in AD DS and synchronize them to Azure AD. The service doesn't currently support environments where users are managed with Azure AD and synchronized to Azure AD DS. 
 
 > [!IMPORTANT]
 > The user account must exist in the Azure AD tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
@@ -94,14 +96,14 @@ You have a choice of operating systems that you can use for session hosts to pro
 
 |Operating system |User access rights|
 |---|---|
-|<ul><li>[Windows 11 Enterprise multi-session](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 11 Enterprise](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 10 Enterprise multi-session](/lifecycle/products/windows-10-enterprise-and-education)</li><li>[Windows 10 Enterprise](/lifecycle/products/windows-10-enterprise-and-education)</li><li>[Windows 7 Enterprise](/lifecycle/products/windows-7) (with Extended Security Updates)</li></ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.</li></ul>|
+|<ul><li>[Windows 11 Enterprise multi-session](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 11 Enterprise](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 10 Enterprise multi-session](/lifecycle/products/windows-10-enterprise-and-education)</li><li>[Windows 10 Enterprise](/lifecycle/products/windows-10-enterprise-and-education)</li><ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.</li></ul>|
 |<ul><li>[Windows Server 2022](/lifecycle/products/windows-server-2022)</li><li>[Windows Server 2019](/lifecycle/products/windows-server-2019)</li><li>[Windows Server 2016](/lifecycle/products/windows-server-2016)</li><li>[Windows Server 2012 R2](/lifecycle/products/windows-server-2012-r2)</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing is not available for Windows Server operating systems.|
 
 > [!IMPORTANT]
-> - Azure Virtual Desktop doesn't support 32-bit operating systems or SKUs not listed in the previous table. In addition, Windows 7 doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
-> 
-> - Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
-> 
+> - Azure Virtual Desktop doesn't support 32-bit operating systems or SKUs not listed in the previous table.
+>
+> - Support for Windows 7 ended on January 10, 2023.
+>
 > - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) are not supported.
 
 You can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or your own custom images stored in an Azure Compute Gallery, as a managed image, or storage blob. To learn more about how to create custom images, see:
@@ -124,7 +126,6 @@ There are different automation and deployment options available depending on whi
 |Windows 11 Enterprise|Yes|Yes|No|No|
 |Windows 10 Enterprise multi-session|Yes|Yes|Yes|Yes|
 |Windows 10 Enterprise|Yes|Yes|No|No|
-|Windows 7 Enterprise|Yes|Yes|No|No|
 |Windows Server 2022|Yes|Yes|No|No|
 |Windows Server 2019|Yes|Yes|Yes|Yes|
 |Windows Server 2016|Yes|Yes|No|No|
