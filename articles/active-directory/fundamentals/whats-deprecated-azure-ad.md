@@ -51,8 +51,7 @@ Use the definitions in this section help clarify the state, availability, and su
 |Retirement|Signals the retirement of a feature, capability, or product in a specified period. Customers can’t adopt the service or feature, and engineering investments are reduced. Later, the feature reaches end-of-life and is unavailable to any customer.|2 times per year: March and September|
 |Breaking change|The change might break the customer or partner experience if action isn’t taken, or a change made, for continued operation.|4 times per year: March, June, September, and December|
 |Feature change|Change to an IDNA feature that requires no customer action, but is noticeable to them. Typically, these changes are UI/UX.|4 times per year: March, June, September, and December|
-|Rebranding|A new name, term, symbol, design, concept or combination thereof for an established brand to develop a differentiated experience.
-Use these definitions in the following section.|As scheduled or announced|
+|Rebranding|A new name, term, symbol, design, concept or combination thereof for an established brand to develop a differentiated experience.|As scheduled or announced|
 
 #### Terminology
  
