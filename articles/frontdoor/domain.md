@@ -12,7 +12,7 @@ ms.author: jodowns
 
 # Domains in Azure Front Door
 
-In Azure Front Door, a *domain* represents a custom domain name that Front Door uses to receive your application's traffic. Azure Front Door supports adding three types of domain names:
+A *domain* represents a custom domain name that Azure Front Door uses to receive your application's traffic. Azure Front Door supports adding three types of domain names:
 
 - **Subdomains** are the most common type of custom domain name. An example subdomain is `myapplication.contoso.com`.
 - **Apex domains** don't contain a subdomain. An example apex domain is `contoso.com`. For more information about using apex domains with Azure Front Door, see [Apex domains](./apex-domain.md).

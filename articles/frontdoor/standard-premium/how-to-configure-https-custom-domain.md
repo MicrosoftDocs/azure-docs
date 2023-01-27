@@ -81,7 +81,7 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 If you already have a certificate, you can upload it to your key vault. Otherwise, create a new certificate directly through Azure Key Vault from one of the partner certificate authorities (CAs) that Azure Key Vault integrates with.
 
 > [!NOTE]
-> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and the root certification authority (CA) must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates, and the root certification authority (CA) must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### Register Azure Front Door
 
@@ -95,7 +95,7 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell on your local machine.
 
-1. In PowerShell, run the following command:
+1. Use PowerShell, run the following command:
 
      ```azurepowershell-interactive
      New-AzADServicePrincipal -ApplicationId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
@@ -103,9 +103,9 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 
 # [Azure CLI](#tab/cli)
 
-1. If need, install [Azure CLI](/cli/azure/install-azure-cli) on your local machine.
+1. If needed, install [Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 
-2. In CLI, run the following command:
+1. Use the Azure CLI to run the following command:
 
      ```azurecli-interactive
      az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
@@ -176,9 +176,9 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 1. On the **Certificate details** page, you can change between *Azure managed* and *Bring Your Own Certificate (BYOC)*.
 
-1. Follow the steps described above to select a certificate.
+   If you select *Bring Your Own Certificate (BYOC)*, follow the steps described above to select a certificate.
 
-   Select **Update** to change the associated certificate with a domain.
+1. Select **Update** to change the associated certificate with a domain.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/certificate-details-page.png" alt-text="Screenshot of certificate details page.":::
 
