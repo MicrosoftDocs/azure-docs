@@ -5,22 +5,20 @@ titleSuffix: An Azure Communication Services document
 description: In this quickstart, you'll learn how to integrate Azure Communication Calling WebJS SDK in an Android WebView environment
 author: sloanster
 services: azure-communication-services
-ms.date: 12/9/2022
+ms.date: 12/09/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Android WebView quickstart
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 Webview technology is an embeddable browser that can be integrated directly into a native mobile application. If you want to develop an ACS calling application directly a native Android application, besides using the Azure Communication Calling Android SDK, you can also use Azure Communication Calling Web SDK on Android WebView. In this quickstart, you'll learn how to run webapps developed with the Azure Communication Calling Web SDK in an Android WebView environment.
 
 ## Prerequisites
+[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
-- A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../samples/web-calling-sample.md).
+- A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../../../samples/web-calling-sample.md).
 
  This quickstart guide assumes that you already have an Android WebView application.
  If you don't have one, you can [download the WebViewQuickstart sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart).
@@ -121,15 +119,8 @@ async function getDeviceLabels() {
 }
 ```
 
-:::image type="content" source="./media/android-webview/get-device-label.png" alt-text="Screenshot of getDeviceLabels() result.":::
+:::image type="content" source="../../media/android-webview/get-device-label.png" alt-text="Screenshot of getDeviceLabels() result.":::
 
 After you get the mapping between deviceId and label, you can use it to relate the label with the `id` from `DeviceManager.getCameras()` or `DeviceManager.getMicrophones()`
 
-:::image type="content" source="./media/android-webview/device-name-workaround.png" alt-text="Screenshot showing the device name workaround.":::
-
-## Next steps
-
-For more information, see the following articles:
-
-- Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
-- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
+:::image type="content" source="../../media/android-webview/device-name-workaround.png" alt-text="Screenshot showing the device name workaround.":::
