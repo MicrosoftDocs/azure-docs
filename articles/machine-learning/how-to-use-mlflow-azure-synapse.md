@@ -7,7 +7,7 @@ author: santiagxf
 ms.author: fasantia
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: nibaccam
+ms.reviewer: mopeakande
 ms.date: 07/06/2022
 ms.topic: how-to
 ms.custom: devx-track-python, sdkv1, event-tier1-build-2022

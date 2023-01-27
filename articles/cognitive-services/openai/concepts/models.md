@@ -187,7 +187,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 |  --- | --- | --- | --- | --- |
 | text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A |
-| text-similarit-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
+| text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |
 | text-similarity-davinci-001 | No | Yes | South Central US, West Europe | N/A |
 | text-search-ada-doc-001 | No | Yes | South Central US, West Europe | N/A |
 | text-search-ada-query-001 | No | Yes | South Central US, West Europe | N/A |
