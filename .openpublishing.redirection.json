@@ -18385,6 +18385,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/web-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-web",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/sentinel/dns-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-dns",
             "redirect_document_id": true
@@ -27966,14 +27971,24 @@
           "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/uptime-sla.md",
+            "redirect_url": "/azure/aks/free-standard-pricing-tiers",
+            "redirect_document_id": "false"
+        },
+        {
           "source_path": "articles/dotnet-develop-multitenant-applications.md",
           "redirect_URL": "/azure/architecture/guide/multitenant/overview",
           "redirect_document_id": false
         },
         {
-            "source_path": "articles/load-balancer/protect-load-balancer-with-ddos-standard.md",
-            "redirect_URL": "/azure/load-balancer/tutorial-protect-load-balancer",
-            "redirect_document_id": false
-          }
+          "source_path": "articles/communication-services/quickstarts/voice-video-calling/get-started-android-webview.md",
+          "redirect_URL": "/azure/communication-services/quickstarts/voice-video-calling/get-started-webview?pivots=platform-android",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/load-balancer/protect-load-balancer-with-ddos-standard.md",
+          "redirect_URL": "/azure/load-balancer/tutorial-protect-load-balancer",
+          "redirect_document_id": false
+        }
     ]
 }
