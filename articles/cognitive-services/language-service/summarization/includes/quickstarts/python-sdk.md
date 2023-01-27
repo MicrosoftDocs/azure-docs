@@ -202,15 +202,21 @@ with client:
             },
             "tasks": [
                 {
-                    "taskName": "analyze 1",
-                    "kind": "ConversationalSummarizationTask",
-                    "parameters": {
-                        "summaryAspects": ["Issue, Resolution"]
-                    }
+                  "taskName": "Conversation Task 1",
+                  "kind": "ConversationalSummarizationTask",
+                  "parameters": {
+                    "summaryAspects": ["issue"]
+                  }
+                },
+                {
+                  "taskName": "Conversation Task 2",
+                  "kind": "ConversationalSummarizationTask",
+                  "parameters": {
+                    "summaryAspects": ["resolution"],
+                    "sentenceCount": 1
+                  }
                 }
             ]
-        }
-    )
 
     # view result
     result = poller.result()
