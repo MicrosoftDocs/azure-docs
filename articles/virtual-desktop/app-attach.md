@@ -13,18 +13,20 @@ This article will show you how to mount MSIX packages outside of Azure Virtual D
 
 To use MSIX app attach with Azure Virtual Desktop, you can use [the Azure portal](app-attach-azure-portal.md) or [Azure PowerShell](app-attach-powershell.md) to add and publish applications.
 
-This topic will walk you through how to set up PowerShell scripts for testing and troubleshooting MSIX app attach disk images outside of Azure Virtual Desktop. If you want to use app attach with Azure Virtual Desktop, we recommend [using the Azure portal to manage app attach](app-attach-azure-portal.md).
+## Prerequisites
+
+<!--Ask Jim what to put here-->
 
 ## Prepare PowerShell scripts for MSIX app attach
 
-The MSIX app attach setup process has four distinct phases that you must perform in the following order, otherwise it won't work:
+To use MSIX packages outside of Azure Virtual Desktop, there are four distinct phases that you must perform in the following order, otherwise it won't work:
 
 1. Stage
 2. Register
 3. Deregister
 4. Destage
 
-Staging and Destaging are machine-level operations, while registering and deregistering are user-level operations. The commands you'll need to use will vary based on which version of PowerShell you're using and whether your disk images are in VHD(X) or cim format.
+Staging and destaging are machine-level operations, while registering and deregistering are user-level operations. The commands you'll need to use will vary based on which version of PowerShell you're using and whether your disk images are in *VHD(X)* or *cim* format.
 
 >[!NOTE]
 >All MSIX application packages include a certificate. You're responsible for making sure the certificates for MSIX applications are trusted in your environment.
@@ -35,7 +37,7 @@ The first part of setting up app attach with PowerShell involves staging the scr
 
 However, if you're using an image in cim format or a version of PowerShell greater than 5.1, the instructions will look a bit different. Later versions of PowerShell are multi-platform, which means the Windows application parts are split off into their own package called [Windows Runtime](/windows/uwp/winrt-components/). You'll need to use a slightly different version of the commands to install a package with a multi-platform version of PowerShell.
 
-You'll need elevated privileges to run the commands in the following sections.
+You'll need to run PowerShell as an Administrator to run the commands in the following sections.
 
 Next, you'll need to decide which instructions you need to follow to stage your package based on the following criteria:
 
@@ -43,7 +45,7 @@ Next, you'll need to decide which instructions you need to follow to stage your 
 - Are you running [PowerShell version 5.1 or earlier](#install-a-package-using-powershell-51-and-earlier)?
 - Are you [using a cim disk image](#install-a-package-on-a-cimfs-disk-image)?
 
-### Install a package using a PowerShell version later than 5.1
+### [PowerShell 5.2 and later](#tab/powershell-later)
 
 To stage packages at boot using a PowerShell version greater than 5.1 you will need the following commands before the staging operations to bring the capabilities of the Windows Runtime package you previously installed into the PowerShell session.
 
@@ -70,7 +72,7 @@ To stage packages at boot using a PowerShell version greater than 5.1 you will n
 
 1. If your disk image is in cim format, go to [Install a package on a CimFS disk image](#install-a-package-on-a-cimfs-disk-image). If not, proceed to [Mount your disk image](#mount-your-disk-image).
 
-### Install a package using Powershell 5.1 and earlier
+### [PowerShell 5.1 and earlier](#tab/powershell-earlier)
 
 To stage packages at boot with PowerShell version 5.1 or earlier:
 
@@ -84,7 +86,7 @@ To stage packages at boot with PowerShell version 5.1 or earlier:
 
 1. If your disk image is in cim format, go to [Install a package on a CimFS disk image](#install-a-package-on-a-cimfs-disk-image). If not, proceed to [Mount your disk image](#mount-your-disk-image).
 
-### Install a package on a CimFS disk image
+### [CimFS](#tab/cimfs)
 
 If your disk image is in the [CimFS](/windows/win32/api/_cimfs/) format, you'll need run the following cmdlets to install a PowerShell module from the PowerShell image gallery in order to use the commands in this article.
 
@@ -92,9 +94,12 @@ If your disk image is in the [CimFS](/windows/win32/api/_cimfs/) format, you'll 
 Install-Module CimDiskImage
 Import-Module CimDiskImage
 ```
+---
 
 >[!NOTE]
->Microsoft Support doesn't currently support this module, so if you run into any problems, you'll need to submit a request on [the module's Github repository](https://github.com/JimMoyle/CimDiskImage-PowerShell/).
+>Microsoft Support doesn't currently support this module, so if you run into any problems, you'll need to submit a request on [the module's Github repository]().
+
+<!--Add link once Jim gets the Azure link ready.-->
 
 ## Mount your disk image
 
@@ -103,26 +108,7 @@ Now that you've prepared your machine to stage MSIX app attach packages, you'll 
 >[!NOTE]
 >Make sure to record the full name of the MSIX package for each application the commands output. You'll need those names to follow directions later in this article.
 
-### Mount a VHD(X) disk image
-
-To mount a VHD(X) disk image:
-
-1. Run this command:
-
-   ```powershell
-   $diskImage = "<UNC path to the Disk Image>"
-
-   $mount = Mount-Diskimage -ImagePath $diskImage -PassThru -NoDriveLetter -Access ReadOnly
-
-   #We can now get the Device Id for the mounted volume, this will be useful for the destage step. This 
-   $partition = Get-Partition -DiskNumber $mount.Number
-   $DeviceId = $partition.AccessPaths
-   Write-OutPut $DeviceId
-   ```
-
-1. When you're done, proceed to [Finish mounting your disk image](#finish-mounting-your-image).
-
-### Mount a CimFS disk image
+### [CimFS](#tab/cimfs)
 
 To mount a CimFS disk image:
 
@@ -139,9 +125,29 @@ To mount a CimFS disk image:
 
 1. When you're done, proceed to [Finish mounting your disk image](#finish-mounting-your-image).
 
+### [VHD(X)](#tab/vhdx)
+
+To mount a VHD(X) disk image:
+
+1. Run this command:
+
+   ```powershell
+   $diskImage = "<UNC path to the Disk Image>"
+
+   $mount = Mount-Diskimage -ImagePath $diskImage -PassThru -NoDriveLetter -Access ReadOnly
+
+   #We can now get the Device Id for the mounted volume, this will be useful for the destage step. 
+   $partition = Get-Partition -DiskNumber $mount.Number
+   $DeviceId = $partition.AccessPaths
+   Write-Output $DeviceId
+   ```
+
+1. When you're done, proceed to [Finish mounting your disk image](#finish-mounting-your-image).
+---
+
 ### Finish mounting your image
 
-Finally, you'll need to run the following command for all image formats. This command will use the $mount variable you created when you mounted your disk image in the previous section.
+Finally, you'll need to run the following command for all image formats. This command will use the `$mount` variable you created when you mounted your disk image in the previous section.
 
 ```powershell
 #Once the volume is mounted we can retrieve the application information
@@ -182,7 +188,7 @@ $manifestPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') (Join-Path
 Add-AppxPackage -Path $manifestPath -DisableDevelopmentMode -Register
 ```
 
-The *$msixPackageFullName* parameter should be the full name of the package from the previous section, but you should format it similar to the following example:
+The `$msixPackageFullName` parameter should be the full name of the package from the previous section, but you should format it similar to the following example:
 
 ```powershell
 Publisher.Application_version_Platform__HashCode
@@ -192,7 +198,7 @@ If you didn't retrieve the parameter after staging your app, you can also find i
 
 ## Deregister PowerShell script
 
-Now it's time to Deregister your package. For this, you'll need the *$msixPackageFullName* parameter again.
+Now it's time to Deregister your package. For this, you'll need the `$msixPackageFullName` parameter again.
 
 To deregister, run the following command after replacing the placeholder text with the relevant values:
 
@@ -204,7 +210,7 @@ Remove-AppxPackage $msixPackageFullName -PreserveRoamableApplicationData
 
 ## Destage PowerShell script
 
-To destage your PowerShell script, make sure you're running an elevated PowerShell prompt. You'll need to run the following PowerShell command to get the disk's DeviceId parameter. Replace the placeholder for **$packageFullName** with the name of the package you're testing. In a production deployment, we recommend only running this command when shutting down your deployment.
+To destage your PowerShell script, make sure you're running an elevated PowerShell prompt. You'll need to run the following PowerShell command to get the disk's `DeviceId` parameter. Replace the placeholder for **$packageFullName** with the name of the package you're testing. In a production deployment, we recommend only running this command when shutting down your deployment.
 
 ```powershell
 $msixPackageFullName = "<package full name>"
