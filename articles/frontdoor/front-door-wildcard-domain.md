@@ -12,7 +12,7 @@ ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
-# Wildcard domains
+# Wildcard domains in Azure Front Door
 
 Wildcard domains allow Azure Front Door to receive traffic for any subdomain of a top-level domain. An example wildcard domain is `*.contoso.com`.
 

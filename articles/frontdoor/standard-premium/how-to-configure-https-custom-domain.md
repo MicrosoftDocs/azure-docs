@@ -146,7 +146,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
 1. On the **Add certificate** page, select the checkbox for the certificate you want to add to Azure Front Door Standard/Premium.
 
-1. When you select a certificate, you must [select the certificate version](#rotate-own-certificate). If you select **Latest**, Azure Front Door will automatically update whenever the certificate is rotated (renewed). Alternatively, you can select a specific certificate version if you prefer to manage certificate rotation yourself.
+1. When you select a certificate, you must [select the certificate version](../domain.md#rotate-own-certificate). If you select **Latest**, Azure Front Door will automatically update whenever the certificate is rotated (renewed). Alternatively, you can select a specific certificate version if you prefer to manage certificate rotation yourself.
 
    Leave the version selection as "Latest" and select **Add**.
 
