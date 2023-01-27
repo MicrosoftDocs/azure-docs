@@ -2,6 +2,9 @@ items:
 - name: SAP on Azure documentation
   href: index.yml
 
+- name: Overview
+  href: sap-on-azure-overview.md
+
 - name: SAP on Azure VM workloads
   items:
   - name: Overview
