@@ -37,7 +37,7 @@ To install the node exporter on Linux:
 
 ## Prerequisites to enable secure communication
 
-To [enable TLS 1.2 or higher](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/sap/enable-tls-azure-monitor-sap-solutions), follow the steps [mentioned here](https://prometheus.io/docs/guides/tls-encryption/)
+To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps [mentioned here](https://prometheus.io/docs/guides/tls-encryption/)
 
 ## Create Linux OS provider
 
