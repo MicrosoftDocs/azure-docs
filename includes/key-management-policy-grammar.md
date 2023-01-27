@@ -18,7 +18,13 @@ value =
 
 (* The operators supported for claim value comparison *)
 operator =
-  "equals:";
+  "equals:" |
+  "notEquals:" |
+  "less:" |
+  "lessOrEquals:" |
+  "greater:" |
+  "greaterOrEquals:" |
+  "exists:";
 
 (* A JSON condition that evaluates the value of a claim *)
 claim_condition =
