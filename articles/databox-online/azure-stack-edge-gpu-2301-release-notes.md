@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/26/2023
+ms.date: 01/27/2023
 ms.author: alkohli
 ---
 
@@ -38,15 +38,9 @@ The 2301 release has the following new features and enhancements:
 
 - Starting March 2023, Azure Stack Edge devices will be required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended to update to the latest version as soon as possible.
 
-
-
 ## Issues fixed in this release
 
-
-
 ## Known issues in this release
-
-
 
 ## Known issues from previous releases
 
@@ -79,7 +73,7 @@ The following table provides a summary of known issues carried over from the pre
 |**23.**|Custom script VM extension |There's a known issue in the Windows VMs that were created in an earlier release and the device was updated to 2103. <br> If you add a custom script extension on these VMs, the Windows VM Guest Agent (Version 2.7.41491.901 only) gets stuck in the update causing the extension deployment to time out. | To work around this issue: <br> 1. Connect to the Windows VM using remote desktop protocol (RDP). <br> 2. Make sure that the `waappagent.exe` is running on the machine: `Get-Process WaAppAgent`. <br> 3. If the `waappagent.exe` isn't running, restart the `rdagent` service: `Get-Service RdAgent` \| `Restart-Service`. Wait for 5 minutes.<br> 4. While the `waappagent.exe` is running, kill the `WindowsAzureGuest.exe` process. <br> 5. After you kill the process, the process starts running again with the newer version. <br> 6. Verify that the Windows VM Guest Agent version is 2.7.41491.971 using this command: `Get-Process WindowsAzureGuestAgent` \| `fl ProductVersion`.<br> 7. [Set up custom script extension on Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md).  |
 |**24.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting isn't retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
 |**25.**|Wi-Fi |Wi-Fi doesn't work on Azure Stack Edge Pro 2 in this release. |
-|**26**|Azure IoT Edge |The managed Azure IoT Edge solution on Azure Stack Edge is running on an older, obsolete IoT Edge runtime that is end of life (learn more [here](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137)). Although the solution does not stop working past EOL, there are no plans to update it.  |To run the latest version of Azure IoT Edge [LTSs](../iot-edge/version-history.md?view=iotedge-1.4#version-history) with the latest updates and features on their Azure Stack Edge, it is **recommended** to deploy a [customer self-managed IoT Edge solution](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md) that runs on a Linux VM. Please refer to this doc [Move workloads from Azure Stack Edge's managed IoT Edge to an IoT Edge solution on a Linux VM | Microsoft Learn](azure-stack-edge-move-to-self-service-iot-edge.md) on how to move from the managed IoT Edge solution to a customer managed IoT Edge solution on Azure Stack Edge. |
+|**26.**|Azure IoT Edge |The managed Azure IoT Edge solution on Azure Stack Edge is running on an older, obsolete IoT Edge runtime that is end of life (learn more [here](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137)). Although the solution does not stop working past EOL, there are no plans to update it.  |To run the latest version of Azure IoT Edge [LTSs](../iot-edge/version-history.md?view=iotedge-1.4#version-history&preserve-view=true) with the latest updates and features on their Azure Stack Edge, it is **recommended** to deploy a [customer self-managed IoT Edge solution](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md) that runs on a Linux VM. Please refer to this doc [Move workloads from Azure Stack Edge's managed IoT Edge to an IoT Edge solution on a Linux VM | Microsoft Learn](azure-stack-edge-move-to-self-service-iot-edge.md) on how to move from the managed IoT Edge solution to a customer managed IoT Edge solution on Azure Stack Edge. |
 
 ## Next steps
 
