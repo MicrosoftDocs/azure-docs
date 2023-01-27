@@ -40,44 +40,50 @@ In this step, configure your search service to recognize an **authorization** he
 
    :::image type="content" source="media/search-create-service-portal/set-authentication-options.png" lightbox="media/search-create-service-portal/set-authentication-options.png" alt-text="Screenshot of the keys page with authentication options." border="true":::
 
-1. Choose an **API access control** option. 
+1. Choose an **API access control** option. We recommend **Both** if you want flexibility or need to migrate apps. 
 
    | Option | Status | Description |
    |--------|--------|-------------|
    | API Key | Generally available (default) | Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
-   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the [2021-04-30-preview REST API](/rest/api/searchservice/index-preview). |
+   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. |
    | Both | Preview | Requests are valid using either an API key or role-based access control. |
+
+The change is effective immediately, but wait a few seconds before testing. 
 
 All network calls for search service operations and content will respect the option you select: API keys, bearer token, or either one if you select **Both**.
 
-When you enable role-based access control in the portal, the failure mode will be "http401WithBearerChallenge" if authorization fails. Use the Management REST API to update the service if you want to use "http403" instead.
+When you enable role-based access control in the portal, the failure mode will be "http401WithBearerChallenge" if authorization fails.
 
 ### [**REST API**](#tab/config-svc-rest)
 
 Use the Management REST API version 2021-04-01-Preview, [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), to configure your service.
 
-If you're using Postman or another REST client, see [Manage Azure Cognitive Search using REST](search-manage-rest.md) for help with setting up the client.
+All calls to the Management REST API are authenticated through Azure Active Directory, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
 
-1. Under "properties", set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey".
+1. Get service settings so that you can review the current configuration.
 
-   Optionally, set ["AadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. The default of "disableLocalAuth" is false so you don't need to set it, but it's included in the properties list to emphasize that it must be false whenever "authOptions" are set.
+   ```http
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-preview
+   ```
+
+1. Use PATCH to update service configuration. The following modifications enable both keys and role-based access. If you want a roles-only configuration, see [Disable API keys](search-security-rbac.md#disable-api-key-authentication).
+
+   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
+
+   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
 
     ```http
-    PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
     {
-      "location": "{{region}}",
-      "sku": {
-        "name": "standard"
-      },
-      "properties": {
-        "disableLocalAuth": false,
-        "authOptions": {
-          "aadOrApiKey": {
-            "aadAuthFailureMode": "http401WithBearerChallenge"
-          }
+        "properties": {
+            "disableLocalAuth": false,
+            "authOptions": {
+                "aadOrApiKey": {
+                    "aadAuthFailureMode": "http401WithBearerChallenge"
+                }
+            }
         }
-      }
-   }
+    }
     ```
 
 ---

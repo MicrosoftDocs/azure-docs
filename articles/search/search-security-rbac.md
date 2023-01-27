@@ -74,7 +74,7 @@ In this step, configure your search service to recognize an **authorization** he
 
    :::image type="content" source="media/search-create-service-portal/set-authentication-options.png" lightbox="media/search-create-service-portal/set-authentication-options.png" alt-text="Screenshot of the keys page with authentication options." border="true":::
 
-1. Choose an **API access control** option. 
+1. Choose an **API access control** option. We recommend **Both** if you want flexibility or need to migrate apps. 
 
    | Option | Status | Description |
    |--------|--------|-------------|
@@ -82,11 +82,11 @@ In this step, configure your search service to recognize an **authorization** he
    | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. |
    | Both | Preview | Requests are valid using either an API key or role-based access control. |
 
-Once you make a request, it can take a few minutes for the change to take effect. 
+The change is effective immediately, but wait a few seconds before testing. 
 
 All network calls for search service operations and content will respect the option you select: API keys, bearer token, or either one if you select **Both**.
 
-When you enable role-based access control in the portal, the failure mode will be "http401WithBearerChallenge" if authorization fails. Use the Management REST API to update the service if you want to use "http403" instead.
+When you enable role-based access control in the portal, the failure mode will be "http401WithBearerChallenge" if authorization fails.
 
 ### [**REST API**](#tab/config-svc-rest)
 
@@ -94,26 +94,30 @@ Use the Management REST API version 2021-04-01-Preview, [Create or Update Servic
 
 All calls to the Management REST API are authenticated through Azure Active Directory, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
 
-1. Under "properties", set ["authOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey".
+1. Get service settings so that you can review the current configuration.
 
-   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. The default of "disableLocalAuth" is false so you don't need to set it, but it's included in the properties list to emphasize that it must be false whenever "authOptions" are set.
+   ```http
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-preview
+   ```
+
+1. Use PATCH to update service configuration. The following modifications enable both keys and role-based access. If you want a roles-only configuration, see [Disable API keys](#disable-api-key-authentication).
+
+   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
+
+   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
 
     ```http
-    PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
     {
-      "location": "{{region}}",
-      "sku": {
-        "name": "standard"
-      },
-      "properties": {
-        "disableLocalAuth": false,
-        "authOptions": {
-          "aadOrApiKey": {
-            "aadAuthFailureMode": "http401WithBearerChallenge"
-          }
+        "properties": {
+            "disableLocalAuth": false,
+            "authOptions": {
+                "aadOrApiKey": {
+                    "aadAuthFailureMode": "http401WithBearerChallenge"
+                }
+            }
         }
-      }
-   }
+    }
     ```
 
 1. Follow the instructions in the next step to assign roles for data plane operations.
@@ -489,47 +493,30 @@ To disable [key-based authentication](search-security-api-keys.md), use Azure po
 
 1. Select **Role-based access control**.
 
-The change is effective immediately. Assuming you have permission to assign roles as a member of Owner, service administrator, or co-administrator, you can use portal features to test role-based access.
+The change is effective immediately, but wait a few seconds before testing. Assuming you have permission to assign roles as a member of Owner, service administrator, or co-administrator, you can use portal features to test role-based access.
 
 ### [**REST API**](#tab/disable-keys-rest)
 
-Use Postman or another REST client to send two consecutive requests for [Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update). See [Manage a search service using REST APIs](search-manage-rest.md) for instructions on setting up the client.
+To disable key-based authentication, set "disableLocalAuth" to true.
 
-1. On the first request, set ["authOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey" to enable Azure AD authentication. Activating Azure AD authentication is a prerequisite to setting "disableLocalAuth".
+1. Get service settings so that you can review the current configuration.
+
+   ```http
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-preview
+   ```
+
+1. Use PATCH to update service configuration. The following modification will set "authOptions" to null.
 
     ```http
-    PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
     {
-      "location": "{{region}}",
-      "sku": {
-        "name": "standard"
-      },
-      "properties": {
-        "authOptions": {
-          "aadOrApiKey": {
-            "aadAuthFailureMode": "http401WithBearerChallenge"
-          }
+        "properties": {
+            "disableLocalAuth": true
         }
-      }
-   }
-    ```
-
-1. On the second request, set ["disableLocalAuth"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#request-body) to true. This step turns off the API key portion of the "aadOrApiKey" option, leaving you with just Azure AD authentication.
-
-    ```http
-    PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
-    {
-      "location": "{{region}}",
-      "sku": {
-        "name": "standard"
-      },
-      "properties": {
-        "disableLocalAuth": true
-      }
     }
     ```
 
-You can't combine steps one and two. In step one, "disableLocalAuth" must be false to meet the requirements for setting "authOptions", whereas step two changes that value to true.
+Requests that include an API key only, with no bearer token, will fail with an HTTP 401.
 
 To re-enable key authentication, rerun the last request, setting "disableLocalAuth" to false. The search service will resume acceptance of API keys on the request automatically (assuming they're specified).
 
