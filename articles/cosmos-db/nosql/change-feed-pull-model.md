@@ -255,7 +255,7 @@ Below is an example for obtaining a `responseIterator` in latest version mode:
 
 Below is an example for obtaining a `responseIterator` in all versions and deletes mode:
 
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModelForAllVersionsAndDeletesMode.java?name=FeedResponseIterator)
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModelForAllVersionsAndDeletesMode.java?name=FeedResponseIterator)]
 
 We can then iterate over the results. Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `responseIterator.hasNext()` is always true. Below is an example in latest version mode, which reads all changes starting from the beginning. Each iteration persists a continuation token after processing all events, and will pick up from the last processed point in the change feed. This is handled using `createForProcessingFromContinuation`:
 
