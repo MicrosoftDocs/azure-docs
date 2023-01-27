@@ -841,8 +841,60 @@ You must specify a base Docker image for the environment, and the conda environm
 * See [how to set a conda specification on the environment definition](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
 
 ### Invalid conda dependencies
-- Make sure the conda dependencies specified in your conda specification are formatted correctly
-- See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
+<!--issueDescription-->
+**Potential causes:**
+* The conda dependencies specified in your environment definition aren't formatted correctly
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+Ensure that `conda_dependencies` is a JSONified version of the conda dependencies YAML structure
+
+```json
+"condaDependencies": {
+    "channels": [
+	"anaconda",
+        "conda-forge"
+    ],
+    "dependencies": [
+        "python=3.8",
+        {
+            "pip": [
+                "azureml-defaults"
+            ]
+        }
+    ],
+    "name": "project_environment"
+}
+```
+
+Conda dependencies can also be specified using the `add_conda_package` method
+
+```python
+from azureml.core.environment import CondaDependencies
+
+env = Environment(name="env")
+conda_dep = CondaDependencies()
+conda_dep.add_conda_package("python==3.8")
+env.python.conda_dependencies=conda_dep
+```
+
+*Applies to: Azure CLI & Python SDK v2*
+
+You must specify a base Docker image for the environment, and the conda environment will be built on top of that image
+* Provide the relative path to the conda file
+* See how to [create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
+
+**Resources**
+* See [more extensive examples](https://github.com/Azure/MachineLearningNotebooks/blob/9b1e130d18d3c61d41dc225488a4575904897c85/how-to-use-azureml/training/using-environments/using-environments.ipynb)
+* See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
+* See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
+* See [how to set a conda specification on the environment definition](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
 
 ### Missing conda channels
 - If no conda channels are specified, conda will use defaults that might change
