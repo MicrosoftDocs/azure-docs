@@ -1,6 +1,6 @@
 ---
 title: About dual-homed network with Azure Route Server
-description: Learn about how Azure Route Server works in a dual-homed network.
+description: Learn how Azure Route Server works in a dual-homed network.
 services: route-server
 author: halkazwini
 ms.service: route-server
@@ -26,7 +26,7 @@ As can be seen in the following diagram, you need to:
 
 ### How does it work?
 
-In the control plane, the NVA and the route server will exchange routes as if they’re deployed in the same VNet. The NVA will learn about spoke VNet addresses from the route server. The route server will learn routes from each of the NVAs. The route server will then program all the virtual machines in the spoke VNet with the routes it learned. 
+In the control plane, the NVA and the route server will exchange routes as if they’re deployed in the same virtual network. The NVA will learn about spoke VNet addresses from the route server. The route server will learn routes from each of the NVAs. The route server will then program all the virtual machines in the spoke VNet with the routes it learned. 
 
 In the data plane, virtual machines in the spoke VNet will see the security NVA or the VPN NVA in the hub as the next hop. Traffic destined for the Internet-bound traffic or the hybrid cross-premises traffic will now route through the NVAs in the hub VNet. You can configure both hubs to be either active/active or active/passive. In the case when the active hub fails, the traffic to and from the virtual machines will fail over to the other hub. These failures include but not limited to: NVA failures or service connectivity failures. This set up ensures your network is configured for high availability.
 
@@ -43,10 +43,10 @@ You can build a dual-homed network that involves two or more ExpressRoute connec
 
 ### How does it work?
 
-In the control plane, the NVA in the hub VNet will learn about on-premises routes from the ExpressRoute gateway through [route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange) with the route server in the hub. In return, the NVA will send the spoke VNet addresses to the ExpressRoute gateway using the same route server. The route server in both the spoke and hub VNets will then program the on-premises network addresses to the virtual machines in their respective VNet.
+In the control plane, the NVA in the hub VNet will learn about on-premises routes from the ExpressRoute gateway through [route exchange](quickstart-configure-route-server-portal.md#configure-route-exchange) with the route server in the hub. In return, the NVA will send the spoke VNet addresses to the ExpressRoute gateway using the same route server. The route server in both the spoke and hub VNets will then program the on-premises network addresses to the virtual machines in their respective virtual network.
 
 > [!IMPORTANT]
-> BGP prevents a loop by verifying the AS number in the AS Path. If the receiving router sees its own AS number in the AS Path of a received BGP packet, it will drop the packet. In this example, both route servers have the same AS number, 65515. To prevent each route server from dropping the routes from the other route server, the NVA must apply **as-override** BGP policy when peering with each route server. 
+> BGP prevents a loop by verifying the AS number in the AS Path. If the receiving route server sees its own AS number in the AS Path of a received BGP packet, it will drop the packet. In this example, both route servers have the same AS number, 65515. To prevent each route server from dropping the routes from the other route server, the NVA must apply **as-override** BGP policy when peering with each route server. 
 >
 
 In the data plane, the virtual machines in the spoke VNet will send all traffic destined for the on-premises network to the NVA in the hub VNet first. Then the NVA will forward the traffic to the on-premises network through ExpressRoute. Traffic from on-premises will traverse the same data path in the reverse direction. You'll notice none of the route servers are in the data path.
