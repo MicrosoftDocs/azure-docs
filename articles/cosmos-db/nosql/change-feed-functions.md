@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 01/27/2023
 ---
 
 # Serverless event-based architectures with Azure Cosmos DB and Azure Functions
@@ -28,7 +28,7 @@ With the [Azure Functions trigger for Azure Cosmos DB](../../azure-functions/fun
 To implement a serverless event-based flow, you need:
 
 * **The monitored container**: The monitored container is the Azure Cosmos DB container being monitored, and it stores the data from which the change feed is generated. Any inserts, updates to the monitored container are reflected in the change feed of the container.
-* **The lease container**: The lease container maintains state across multiple and dynamic serverless Azure Function instances and enables dynamic scaling. You can create the lease container automatically with the Azure Functions trigger for Azure Cosmos DB. You can also create the lease container manually. To automatically create the lease container, set the *CreateLeaseContainerIfNotExists* flag in the [configuration](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=extensionv4#attributes). Partitioned lease containers are required to have a `/id` partition key definition.
+* **The lease container**: The lease container maintains state across multiple and dynamic serverless Azure Function instances and enables dynamic scaling. You can create the lease container automatically with the Azure Functions trigger for Azure Cosmos DB. You can also create the lease container manually. To automatically create the lease container, set the *CreateLeaseContainerIfNotExists* flag in the [configuration](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=extensionv4&pivots=programming-language-csharp#attributes). Partitioned lease containers are required to have a `/id` partition key definition.
 
 ## Create your Azure Functions trigger for Azure Cosmos DB
 

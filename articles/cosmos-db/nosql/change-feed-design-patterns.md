@@ -7,7 +7,7 @@ ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
-ms.date: 03/24/2022
+ms.date: 01/27/2023
 ms.custom: cosmos-db-video
 ---
 # Change feed design patterns in Azure Cosmos DB
@@ -18,10 +18,9 @@ The Azure Cosmos DB change feed enables efficient processing of large datasets w
 >
 > [!VIDEO https://aka.ms/docs.change-feed-azure-functions]
 
+Azure Cosmos DB is well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to use changes to the data to trigger additional actions. Examples of these actions include:
 
-Azure Cosmos DB is well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to use changes to the data to trigger additional actions. Examples of additional actions include:
-
-* Triggering a notification or a call to an API, when an item is inserted, updated or deleted.
+* Triggering a notification or a call to an API when an item is inserted, updated or deleted.
 * Real-time stream processing for IoT or real-time analytics processing on operational data.
 * Data movement such as synchronizing with a cache, a search engine, a data warehouse, or cold storage.
 
@@ -31,14 +30,14 @@ The change feed in Azure Cosmos DB enables you to build efficient and scalable s
 
 ## Event computing and notifications
 
-The Azure Cosmos DB change feed can simplify scenarios that need to trigger a notification or send a call to an API based on a certain event. You can use the [Change Feed Process Library](change-feed-processor.md) to automatically poll your container for changes and call an external API each time there is a write or update.
+The Azure Cosmos DB change feed can simplify scenarios that need to trigger a notification or send a call to an API based on a certain event. You can use the [Change Feed Processor](change-feed-processor.md) to automatically poll your container for changes and call an external API each time there's a write, update or delete.
 
-You can also selectively trigger a notification or send a call to an API based on specific criteria. For example, if you are reading from the change feed using [Azure Functions](change-feed-functions.md), you can put logic into the function to only send a notification if a specific criteria has been met. While the Azure Function code would execute during each write and update, the notification would only be sent if specific criteria had been met.
+You can also selectively trigger a notification or send a call to an API based on specific criteria. For example, if you're reading from the change feed using [Azure Functions](change-feed-functions.md), you can put logic into the function to only send a notification if a specific criteria has been met. While the Azure Function code would execute for each change, the notification would only be sent if specific criteria had been met.
 
 ## Real-time stream processing
 
 The Azure Cosmos DB change feed can be used for real-time stream processing for IoT or real-time analytics processing on operational data.
-For example, you might receive and store event data from devices, sensors, infrastructure and applications, and process these events in real time, using [Spark](../../hdinsight/spark/apache-spark-overview.md). The following image shows how you can implement a lambda architecture using the Azure Cosmos DB via change feed:
+For example, you might receive and store event data from devices, sensors, infrastructure and applications, and process these events in real time, using [Spark](../../hdinsight/spark/apache-spark-overview.md). The following image shows how you can implement a lambda architecture using the Azure Cosmos DB change feed:
 
 :::image type="content" source="../media/change-feed/lambda.png" alt-text="Azure Cosmos DB-based lambda pipeline for ingestion and query" border="false":::
 
@@ -75,27 +74,25 @@ When you have to [denormalize data across partitions and containers](how-to-mode
 
 ## Event sourcing
 
-The [event sourcing pattern](/azure/architecture/patterns/event-sourcing) involves using an append-only store to record the full series of actions on that data. Azure Cosmos DB's change feed is a great choice as a central data store in event sourcing architectures where all data ingestion is modeled as writes (no updates or deletes). In this case, each write to Azure Cosmos DB is an "event" and you'll have a full record of past events in the change feed. Typical uses of the events published by the central event store are for maintaining materialized views or for integration with external systems. Because there is no time limit for retention in the [change feed latest version mode](change-feed-latest-version.md), you can replay all past events by reading from the beginning of your Azure Cosmos DB container's change feed.
-
-You can have [multiple change feed consumers subscribe to the same container's change feed](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). Aside from the [lease container's](change-feed-processor.md#components-of-the-change-feed-processor) provisioned throughput, there is no cost to utilize the change feed. The change feed is available in every container regardless of whether it is utilized.
+The [event sourcing pattern](/azure/architecture/patterns/event-sourcing) involves using an append-only store to record the full series of actions on that data. Azure Cosmos DB's change feed is a great choice as a central data store in event sourcing architectures where all data ingestion is modeled as writes (no updates or deletes). In this case, each write to Azure Cosmos DB is an "event" and you'll have a full record of past events in the change feed. Typical uses of the events published by the central event store are for maintaining materialized views or for integration with external systems. Because there's no time limit for retention in the [change feed latest version mode](change-feed-latest-version.md), you can replay all past events by reading from the beginning of your Azure Cosmos DB container's change feed. You can even have [multiple change feed consumers subscribe to the same container's change feed](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). 
 
 Azure Cosmos DB is a great central append-only persistent data store in the event sourcing pattern because of its strengths in horizontal scalability and high availability. In addition, the change Feed Processor library offers an ["at least once"](change-feed-processor.md#error-handling) guarantee, ensuring that you won't miss processing any events.
 
 ## Current limitations
 
-The change feed has multiple modes and each with important limitations that you should understand. There are several areas to consider when designing an application that utilizes the change feed.
+The change feed has multiple modes that each have important limitations that you should understand. There are several areas to consider when designing an application that uses the change feed.
 
 ### Intermediate updates
 
-In latest version mode, only the most recent change for a given item is included in the change feed. When processing changes, you will read the latest available item version. If there are multiple updates to the same item in a short period of time, it is possible to miss processing intermediate updates. If you would like to track updates and be able to replay past updates to an item using this mode, we recommend modeling these updates as a series of writes instead.
+In [latest version mode](change-feed-latest-version.md), only the most recent change for a given item is included in the change feed. When processing changes, you'll read the latest available item version. If there are multiple updates to the same item in a short period of time, it's possible to miss processing intermediate updates. If you would like to replay past individual updates to an item using this mode, we recommend modeling these updates as a series of writes instead.
 
-All versions and deletes mode provides a full operation log of every change that occurred to items. This means no intermediate updates will be missed. However, this mode only allows you to read changes that occurred within the continuous backup retention period configured on the account. If your application needs to track all updates from the beginning of the container latest version mode might be a better fit.
+[All versions and deletes mode](change-feed-all-versions-and-deletes.md) provides a full operation log of every change that occurred to items. This means no intermediate updates will be missed. However, this mode only allows you to read changes that occurred within the continuous backup retention period configured on the account. If your application needs to track all updates from the beginning of the container, latest version mode might be a better fit.
 
 ### Deletes
 
-The change feed latest version mode does not capture deletes. If you delete an item from your container, it is also removed from the change feed. The most common method of handling this is adding a soft marker on the items that are being deleted. You can add a property called "deleted" and set it to "true" at the time of deletion. This document update will show up in the change feed. You can set a TTL on this item so that it can be automatically deleted later.
+The [change feed latest version mode](change-feed-latest-version.md) doesn't capture deletes. If you delete an item from your container, it's also removed from the change feed. The most common method of handling deletes is adding a soft marker on the items that are being deleted. You can add a property called "deleted" and set it to "true" at the time of deletion. This document update will show up in the change feed. You can set a TTL on this item so that it can be automatically deleted later.
 
-Deletes are captured in all versions and deletes mode without needing to set a soft delete marker. You will also get metadata indicating if the delete was from a TTL expiration or not.
+Deletes are captured in [all versions and deletes mode](change-feed-all-versions-and-deletes.md) without needing to set a soft delete marker. You'll also get metadata indicating if the delete was from a TTL expiration or not.
 
 ### Guaranteed order
 
@@ -108,7 +105,7 @@ For example, consider a retail application using the event sourcing design patte
 3. Customer removes Item A from their shopping cart
 4. Customer checks out and shopping cart contents are shipped
 
-A materialized view of current shopping cart contents is maintained for each customer. This application must ensure that these events are processed in the order in which they occur. If, for example, the cart checkout were to be processed before Item A's removal, it is likely that the customer would have had Item A shipped, as opposed to the desired Item B. In order to guarantee that these four events are processed in order of their occurrence, they should fall within the same partition key value. If you select **username** (each customer has a unique username) as the partition key, you can guarantee that these events show up in the change feed in the same order in which they are written to Azure Cosmos DB.
+A materialized view of current shopping cart contents is maintained for each customer. This application must ensure that these events are processed in the order in which they occur. If for example, the cart checkout were to be processed before Item A's removal, it's likely that the customer would have had Item A shipped, as opposed to the desired Item B. In order to guarantee that these four events are processed in order of their occurrence, they should fall within the same partition key value. If you select **username** (each customer has a unique username) as the partition key, you can guarantee that these events show up in the change feed in the same order in which they're written to Azure Cosmos DB.
 
 ## Examples
 

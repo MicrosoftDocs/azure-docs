@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 01/22/2023
+ms.date: 01/27/2023
 ms.custom: devx-track-java
 ---
 
@@ -50,9 +50,9 @@ Here's some key differences between the change feed processor and pull model:
 
 ### [.NET](#tab/dotnet)
 
-To process the change feed using the pull model create a `FeedIterator`. When you initially create a `FeedIterator`, you must specify a required `ChangeFeedStartFrom` value, which consists of both the starting position for reading changes and the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed using that specific `FeedIterator`. You must also specify a required `ChangeFeedMode` value for the mode in which you want to process changes: [latest version](change-feed-latest-version.md) or [all versions and deletes](change-feed-all-versions-and-deletes.md). If you are reading the change feed in all versions and deletes mode, you must select a change feed start from value of either `Now()` or from a specific continuation token.
+To process the change feed using the pull model, create a `FeedIterator`. When you initially create a `FeedIterator`, you must specify a required `ChangeFeedStartFrom` value, which consists of both the starting position for reading changes and the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed using that specific `FeedIterator`. You must also specify a required `ChangeFeedMode` value for the mode in which you want to process changes: [latest version](change-feed-latest-version.md) or [all versions and deletes](change-feed-all-versions-and-deletes.md). If you're reading the change feed in all versions and deletes mode, you must select a change feed start from value of either `Now()` or from a specific continuation token.
 
-You can optionally specify `ChangeFeedRequestOptions` to set a `PageSizeHint`. When set, this property sets the maximum number of items received per page. If operations in the monitored collection are performed through stored procedures, transaction scope is preserved when reading items from the Change Feed. As a result, the number of items received could be higher than the specified value so that the items changed by the same transaction are returned as part of one atomic batch.
+You can optionally specify `ChangeFeedRequestOptions` to set a `PageSizeHint`. When set, this property sets the maximum number of items received per page. If operations in the monitored collection are performed through stored procedures, transaction scope is preserved when reading items from the change feed. As a result, the number of items received could be higher than the specified value so that the items changed by the same transaction are returned as part of one atomic batch.
 
 Here's an example for obtaining a `FeedIterator` in latest version mode that returns entity objects, in this case a `User` object:
 
@@ -105,7 +105,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 }
 ```
 
-Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `HasMoreResults` is always true. When you try to read the change feed and there are no new changes available, you'll receive a response with `NotModified` status. In the above example, it is handled by waiting 5 seconds before rechecking for changes.
+Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `HasMoreResults` is always true. When you try to read the change feed and there are no new changes available, you'll receive a response with `NotModified` status. In the above example, it's handled by waiting 5 seconds before rechecking for changes.
 
 ### Consuming a partition key's changes
 
@@ -238,9 +238,9 @@ As long as the Azure Cosmos DB container still exists, a FeedIterator's continua
 
 ### [Java](#tab/java)
 
-To process the change feed using the pull model create a `Iterator<FeedResponse<JsonNode>> responseIterator`. When creating `CosmosChangeFeedRequestOptions` you must specify where to start reading the change feed from and pass the desired `FeedRange`. The `FeedRange` is a range of partition key values that specifies the items that will be read from the change feed. 
+To process the change feed using the pull model, create a `Iterator<FeedResponse<JsonNode>> responseIterator`. When creating `CosmosChangeFeedRequestOptions`, you must specify where to start reading the change feed from and pass the desired `FeedRange`. The `FeedRange` is a range of partition key values that specifies the items that will be read from the change feed. 
 
-If you want to read the change feed in [all versions and deletes mode](change-feed-all-versions-and-deletes.md), you must also specify `allVersionsAndDeletes()` when creating the `CosmosChangeFeedRequestOptions`. All versions and deletes mode doesn't support processing the change feed from the beginning or from a point in time. You must either process changes from now or from a continuation.
+If you want to read the change feed in [all versions and deletes mode](change-feed-all-versions-and-deletes.md), you must also specify `allVersionsAndDeletes()` when creating the `CosmosChangeFeedRequestOptions`. All versions and deletes mode doesn't support processing the change feed from the beginning or from a point in time. You must either process changes from now or from a continuation token.
 
 ### Consuming an entire container's changes
 
@@ -255,16 +255,16 @@ Below is an example for obtaining a `responseIterator` in latest version mode:
 
 Below is an example for obtaining a `responseIterator` in all versions and deletes mode:
 
-   [!code-java[]](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModelForAllVersionsAndDeletesMode.java?name=FeedResponseIterator)
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModelForAllVersionsAndDeletesMode.java?name=FeedResponseIterator)
 
-We can then iterate over the results. Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `responseIterator.hasNext()` is always true. Below is an example in latest version mode, which reads all changes starting from the beginning. Each iteration persists a continuation token after processing all events, and will pick up from the last processed point in the change feed. This is handled using `createForProcessingFromContinuation`:.
+We can then iterate over the results. Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `responseIterator.hasNext()` is always true. Below is an example in latest version mode, which reads all changes starting from the beginning. Each iteration persists a continuation token after processing all events, and will pick up from the last processed point in the change feed. This is handled using `createForProcessingFromContinuation`:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=AllFeedRanges)]
 
 
 ### Consuming a partition key's changes
 
-In some cases, you may only want to process a specific partition key's changes. You can can process the changes for a specific partition key in the same way that you can for an entire container. Here's an example using latest version mode:
+In some cases, you may only want to process a specific partition key's changes. You can process the changes for a specific partition key in the same way that you can for an entire container. Here's an example using latest version mode:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=PartitionKeyProcessing)]
 
