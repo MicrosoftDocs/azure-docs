@@ -5,8 +5,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: tutorial
-ms.date: 08/01/2022
-ms.custom: template-tutorial
+ms.date: 01/27/2023
+ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Configure peering between Azure Route Server and Network Virtual Appliance
