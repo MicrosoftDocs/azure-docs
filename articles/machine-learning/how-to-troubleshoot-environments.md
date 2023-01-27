@@ -733,7 +733,7 @@ myenv.python.conda_dependencies.remove_conda_package("python=3.6")
 If you're using a YAML for your conda specification, include only one Python version as a dependency
 
 **Resources**
-* [CondaDependencies Class v1](python/api/azureml-core/azureml.core.conda_dependencies.condadependencies)
+* [CondaDependencies Class v1](https://aka.ms/azureml/environment/conda-dependencies-class)
 
 ### Python version not supported
 <!--issueDescription-->
