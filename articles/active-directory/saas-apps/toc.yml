@@ -2607,6 +2607,8 @@
         href: webce-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
+      - name: WebTMA
+        href: webtma-tutorial.md
       - name: Wedo
         href: wedo-tutorial.md
       - name: Weekdone
