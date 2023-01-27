@@ -21,7 +21,7 @@ On this pane, you configure:
 
 Every plan must be available in at least one market. Most markets are selected by default. To edit the list, select **Edit markets** and select or clear check boxes for each market location where this plan should (or shouldn't) be available for purchase. Users in selected markets can still deploy the offer to all Azure regions selected in the ["Plan setup"](azure-vm-plan-setup.md) section.
 
-Select ***"*****Select only Microsoft Tax Remitted*"*** to select only countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either *Free* or *Bring-your-own-license* (BYOL).
+Select **Select only Microsoft Tax** Remitted to select only countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either *Free* or *Bring-your-own-license* (BYOL).
 
 If you've already set prices for your plan in US dollar (USD) currency and add another market location, the price for the new market is calculated according to current exchange rates. Always review the price for each market before you publish. Review your pricing by selecting **Export prices (xlsx)** after you save your modifications.
 
@@ -61,10 +61,8 @@ These steps assume you have already selected either the _Flat rate_, _Per vCPU_,
 1. To offer a 1-year discount, select the **1-year saving %** check box and then enter the percentage discount you want to offer.
 1. To offer a 3-year discount, select the **3-year saving %** check box and then enter the percentage discount you want to offer.
 1. To see the discounted prices, select **Price per vCPU size**. A table with the 1-year and 3-year prices for each vCPU size is shown. These prices are calculated based on the number of hours in the term with the percentage discount subtracted.
-undefinedundefinedundefined
-1. > [!TIP]
-   >    For Per vCPU size plans, you can optionally change the price for a particular vCPU size in the **Price/hour** column of the table.
-   
+> [!TIP]
+> For Per vCPU size plans, you can optionally change the price for a particular vCPU size in the **Price/hour** column of the table.
 1. Make sure to select **Save draft** before you leave the page. The changes will be applied once you publish the offer.
    
 ## Free trial
