@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: reference
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 author: swatig007
 ms.author: swatig
 ms.date: 01/18/2022

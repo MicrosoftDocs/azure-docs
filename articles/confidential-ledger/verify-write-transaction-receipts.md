@@ -21,13 +21,13 @@ A write transaction receipt can be verified following a specific set of steps ou
 
 ### Leaf node computation
 
-The first step is to compute the SHA-256 hash of the leaf node in the Merkle Tree corresponding to the committed transaction. A leaf node is composed of the ordered concatenation of the following fields that can be found in an Azure Confidential Ledger receipt, under `leaf_components`:
+The first step is to compute the SHA-256 hash of the leaf node in the Merkle Tree corresponding to the committed transaction. A leaf node is composed of the ordered concatenation of the following fields that can be found in an Azure Confidential Ledger receipt, under `leafComponents`:
 
-1. `write_set_digest`
-2. SHA-256 digest of `commit_evidence`
-3. `claims_digest` fields
+1. `writeSetDigest`
+2. SHA-256 digest of `commitEvidence`
+3. `claimsDigest` fields
 
-These values need to be concatenated as arrays of bytes: both `write_set_digest` and `claims_digest` would need to be converted from strings of hexadecimal digits to arrays of bytes; on the other hand, the hash of `commit_evidence` (as an array of bytes) can be obtained by applying the SHA-256 hash function over the UTF-8 encoded `commit_evidence` string.
+These values need to be concatenated as arrays of bytes: both `writeSetDigest` and `claimsDigest` would need to be converted from strings of hexadecimal digits to arrays of bytes; on the other hand, the hash of `commitEvidence` (as an array of bytes) can be obtained by applying the SHA-256 hash function over the UTF-8 encoded `commitEvidence` string.
 
 Similarly, the leaf node hash digest can be computed by applying the SHA-256 hash function over the result concatenation of the resulting bytes.
 
@@ -54,7 +54,7 @@ The third step is to verify that the cryptographic signature produced over the r
 
 In addition to the above, it's also required to verify that the signing node certificate is endorsed (that is, signed) by the current ledger certificate. This step doesn't depend on the other three previous steps and can be carried out independently from the others.
 
-It's possible that the current service identity that issued the receipt is different from the one that endorsed the signing node (for example, due to a certificate renewal). In this case, it's required to verify the chain of certificates trust from the signing node certificate (that is, the `cert` field in the receipt) up to the trusted root Certificate Authority (CA) (that is, the current service identity certificate) through other previous service identities (that is, the `service_endorsements` list field in the receipt). The `service_endorsements` list is provided as an ordered list from the oldest to the latest service identity.
+It's possible that the current service identity that issued the receipt is different from the one that endorsed the signing node (for example, due to a certificate renewal). In this case, it's required to verify the chain of certificates trust from the signing node certificate (that is, the `cert` field in the receipt) up to the trusted root Certificate Authority (CA) (that is, the current service identity certificate) through other previous service identities (that is, the `serviceEndorsements` list field in the receipt). The `serviceEndorsements` list is provided as an ordered list from the oldest to the latest service identity.
 
 Certificate endorsement need to be verified for the entire chain and follows the exact same digital signature verification process outlined in the previous subsection. There are popular open-source cryptographic libraries (for example, [OpenSSL](https://www.openssl.org/)) that can be typically used to carry out a certificate endorsement step.
 
@@ -127,13 +127,11 @@ Inside the `verify_receipt` function, we check that the given receipt is valid a
 ```python
 # Check that all the fields are present in the receipt 
 assert "cert" in receipt 
-assert "is_signature_transaction" in receipt 
-assert "leaf_components" in receipt 
-assert "claims_digest" in receipt["leaf_components"] 
-assert "commit_evidence" in receipt["leaf_components"] 
-assert "write_set_digest" in receipt["leaf_components"] 
+assert "leafComponents" in receipt 
+assert "claimsDigest" in receipt["leafComponents"] 
+assert "commitEvidence" in receipt["leafComponents"] 
+assert "writeSetDigest" in receipt["leafComponents"] 
 assert "proof" in receipt 
-assert "service_endorsements" in receipt 
 assert "signature" in receipt 
 ```
 
@@ -142,20 +140,12 @@ We initialize the variables that are going to be used in the rest of the program
 ```python
 # Set the variables 
 node_cert_pem = receipt["cert"] 
-is_signature_transaction = receipt["is_signature_transaction"] 
-claims_digest_hex = receipt["leaf_components"]["claims_digest"] 
-commit_evidence_str = receipt["leaf_components"]["commit_evidence"] 
-write_set_digest_hex = receipt["leaf_components"]["write_set_digest"] 
+claims_digest_hex = receipt["leafComponents"]["claimsDigest"] 
+commit_evidence_str = receipt["leafComponents"]["commitEvidence"] 
+write_set_digest_hex = receipt["leafComponents"]["writeSetDigest"] 
 proof_list = receipt["proof"] 
-service_endorsements_certs_pem = receipt["service_endorsements"] 
+service_endorsements_certs_pem = receipt.get("serviceEndorsements", [])
 root_node_signature = receipt["signature"] 
-```
-
-In the following snipper, we check that the receipt isn't related to a signature transaction. Receipts for signature transactions aren't allowed for Confidential Ledger.
-
-```python
-# Check that this receipt is not for a signature transaction 
-assert not is_signature_transaction 
 ```
 
 We can load the PEM certificates for the service identity, the signing node, and the endorsements certificates from previous service identities using the cryptography library.
@@ -181,9 +171,9 @@ leaf_node_hex = compute_leaf_node(
 )
 ```
 
-The `compute_leaf_node` function accepts as parameters the leaf components of the receipt (the `claims_digest`, the `commit_evidence`, and the `write_set_digest`) and returns the leaf node hash in hexadecimal form.
+The `compute_leaf_node` function accepts as parameters the leaf components of the receipt (the `claimsDigest`, the `commitEvidence`, and the `writeSetDigest`) and returns the leaf node hash in hexadecimal form.
 
-As detailed above, we compute the digest of `commit_evidence` (using the SHA256 `hashlib` function). Then, we convert both `write_set_digest` and `claims_digest` into arrays of bytes. Finally, we concatenate the three arrays, and we digest the result using the SHA256 function.
+As detailed above, we compute the digest of `commitEvidence` (using the SHA256 `hashlib` function). Then, we convert both `writeSetDigest` and `claimsDigest` into arrays of bytes. Finally, we concatenate the three arrays, and we digest the result using the SHA256 function.
 
 ```python
 def compute_leaf_node( 
@@ -272,7 +262,7 @@ The last step of receipt verification is validating the certificate that was use
 check_endorsements(node_cert, service_cert, service_endorsements_certs) 
 ```
 
-Likewise, we can use the CCF utility `check_endorsements` to validate that the certificate of the signing node is endorsed by the service identity. The certificate chain could be composed of previous service certificates, so we should validate that the endorsement is applied transitively if `service_endorsements` isn't an empty list.
+Likewise, we can use the CCF utility `check_endorsements` to validate that the certificate of the signing node is endorsed by the service identity. The certificate chain could be composed of previous service certificates, so we should validate that the endorsement is applied transitively if `serviceEndorsements` isn't an empty list.
 
 ```python
 def check_endorsement(endorsee: Certificate, endorser: Certificate): 
@@ -395,28 +385,22 @@ def verify_receipt(receipt: Dict[str, Any], service_cert_pem: str) -> None:
 
     # Check that all the fields are present in the receipt 
     assert "cert" in receipt 
-    assert "is_signature_transaction" in receipt 
-    assert "leaf_components" in receipt 
-    assert "claims_digest" in receipt["leaf_components"] 
-    assert "commit_evidence" in receipt["leaf_components"] 
-    assert "write_set_digest" in receipt["leaf_components"] 
+    assert "leafComponents" in receipt 
+    assert "claimsDigest" in receipt["leafComponents"] 
+    assert "commitEvidence" in receipt["leafComponents"] 
+    assert "writeSetDigest" in receipt["leafComponents"] 
     assert "proof" in receipt 
-    assert "service_endorsements" in receipt 
     assert "signature" in receipt 
 
     # Set the variables 
     node_cert_pem = receipt["cert"] 
-    is_signature_transaction = receipt["is_signature_transaction"] 
-    claims_digest_hex = receipt["leaf_components"]["claims_digest"] 
-    commit_evidence_str = receipt["leaf_components"]["commit_evidence"] 
+    claims_digest_hex = receipt["leafComponents"]["claimsDigest"] 
+    commit_evidence_str = receipt["leafComponents"]["commitEvidence"] 
 
-    write_set_digest_hex = receipt["leaf_components"]["write_set_digest"] 
+    write_set_digest_hex = receipt["leafComponents"]["writeSetDigest"] 
     proof_list = receipt["proof"] 
-    service_endorsements_certs_pem = receipt["service_endorsements"] 
+    service_endorsements_certs_pem = receipt.get("serviceEndorsements", [])
     root_node_signature = receipt["signature"] 
-
-    # Check that this receipt is not for a signature transaction 
-    assert not is_signature_transaction 
 
     # Load service and node PEM certificates
     service_cert = load_pem_x509_certificate(service_cert_pem.encode()) 

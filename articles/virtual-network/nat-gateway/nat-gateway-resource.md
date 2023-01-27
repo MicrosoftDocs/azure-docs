@@ -50,7 +50,9 @@ Private Link uses the private IP addresses of your virtual machines or other com
 
 ### Connect to the internet with NAT gateway
 
-NAT gateway is recommended for all production workloads where you need to connect to a public endpoint over the internet. When NAT gateway is configured to subnets, all previous outbound configurations, such as Load balancer or instance-level public IPs (IL PIPs) are superseded by NAT gateway. Outbound initiated and return traffic go through NAT gateway. There's no down time on outbound connectivity after adding NAT gateway to a subnet with existing outbound configurations.
+NAT gateway is recommended for all production workloads where you need to connect to a public endpoint over the internet. Outbound connectivity takes place right away upon deployment of a NAT gateway with a subnet and at least one public IP address. No additional routing configurations are required to start connecting outbound with NAT gateway. NAT gateway becomes the default route to the internet after association to a subnet. 
+
+In the presence of other outbound configurations within a virtual network, such as Load balancer or instance-level public IPs (IL PIPs), NAT gateway takes precedence for outbound connectivity. All new outbound initiated and return traffic starts using NAT gateway. There's no down time on outbound connectivity after adding NAT gateway to a subnet with existing outbound configurations.
 
 ### Coexistence of outbound and inbound connectivity 
 
@@ -142,23 +144,15 @@ NAT gateway uses SNAT to translate the private IP address and port of a virtual 
 
 ### Example SNAT flows for NAT gateway
 
-The following example flows explain the basic concept of SNAT and how it works with NAT gateway. 
+NAT gateway provides a many to one configuration in which multiple virtual machine instances within a NAT gatway configured subnet can use the same public IP address to connect outbound.
 
-In the following table, the VM makes connections to destination IP 65.52.0.1 from the following source tuples (IPs and ports):
-
-| Flow | Source tuple | Destination tuple |
-|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-
-When NAT gateway is configured with public IP address 65.52.1.1, the source IPs are translated into NAT gateway's public IP address and a SNAT port:
+In the following table, two different virtual machines (10.0.0.1 and 10.2.0.1) makes connections to https://microsoft.com destination IP 23.53.254.142. When NAT gateway is configured with public IP address 65.52.1.1, each virtual machine's source IPs are translated into NAT gateway's public IP address and a SNAT port:
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | **65.52.1.1:1234** | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
+| 1 | 10.0.0.1: 4283 | **65.52.1.1: 1234** | 23.53.254.142: 80 |
+| 2 | 10.0.0.1: 4284 | **65.52.1.1: 1235** | 23.53.254.142: 80 |
+| 3 | 10.2.0.1: 5768 | **65.52.1.1: 1236** | 23.53.254.142: 80 |
 
 "IP masquerading" or "port masquerading" is the act of replacing the private IP and port with the public IP and port before connecting to the internet. Multiple private resources can be masqueraded behind the same public IP of NAT gateway.
 
@@ -170,7 +164,7 @@ NAT gateway dynamically allocates SNAT ports across a subnet's private resources
 
 *Figure: Virtual Network NAT on-demand outbound SNAT*
 
-Pre-allocation of SNAT ports to each virtual machine isn't required, which means SNAT ports aren't left unused by VMs not actively needing them.
+Pre-allocation of SNAT ports to each virtual machine is required for other SNAT methods. This pre-allocation of SNAT ports can cause SNAT port exhaustion on some virtual machines while others still have available SNAT ports for connecting outbound. With NAT gateway, pre-allocation of SNAT ports isn't required, which means SNAT ports aren't left unused by VMs not actively needing them.
 
 :::image type="content" source="./media/nat-overview/exhaustion-threshold.png" alt-text="Diagram of all available SNAT ports used by virtual machines on subnets configured with NAT and an exhaustion threshold.":::
 
@@ -182,15 +176,11 @@ After a SNAT port is released, it's available for use by any VM on subnets confi
 
 NAT gateway selects a port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it will reuse a SNAT port. A SNAT port can be reused when connecting to a different destination IP and port as shown in the following table with this extra flow.
 
-| Flow | Source tuple | Destination tuple |
-|:---:|:---:|:---:|
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
-
-A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from previous table). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
-
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
-| 4 | 192.168.0.16:4285 | 65.52.1.1:**1234** | 65.52.0.2:80 |
+| 4 | 10.0.0.1: 4285 | 65.52.1.1: **1234** | 23.53.254.143: 80 |
+
+A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from previous table). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
 
 Don't take a dependency on the specific way source ports are assigned in the above example. The preceding is an illustration of the fundamental concept only.
 
@@ -205,7 +195,7 @@ The following table provides information about when a TCP port becomes available
 | Timer | Description | Value |
 |---|---|---|
 | TCP FIN | After a connection is closed by a TCP FIN packet, a 65-second timer is activated that holds down the SNAT port. The SNAT port will be available for reuse after the timer ends. | 65 seconds |
-| TCP RST | After a connection is closed by a TCP RST packet (reset), a 20-second timer is activated that holds down the SNAT port. When the timer ends, the port is available for reuse. | 20 seconds |
+| TCP RST | After a connection is closed by a TCP RST packet (reset), a 20-second timer is activated that holds down the SNAT port. When the timer ends, the port is available for reuse. | 16 seconds |
 | TCP half open | During connection establishment where one connection endpoint is waiting for acknowledgment from the other endpoint, a 25-second timer is activated. If no traffic is detected, the connection will close. Once the connection has closed, the source port is available for reuse to the same destination endpoint. | 25 seconds |
 
 For UDP traffic, after a connection has closed, the port will be in hold down for 65 seconds before it's available for reuse.

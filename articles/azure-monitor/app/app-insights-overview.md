@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 01/24/2023
 ---
 
 # Application Insights overview
@@ -96,30 +96,10 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=python) offering is also
 
 ---
 
-## Next steps
-
-- [Create a resource](create-workspace-resource.md)
-- [Application Map](app-map.md)
-- [Transaction search](diagnostic-search.md)
-
-## Troubleshooting
-
-### FAQ
-
-Review [frequently asked questions](../faq.yml).
-### Microsoft Q&A questions forum
-
-Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
-
-### Stack Overflow
-
-Post coding questions to [Stack Overflow]() using an Application Insights tag.
-
-### User Voice
-
-Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
-
+---------------------------
 ## Supported languages
+
+This section outlines supported scenarios.
 
 * [C#|VB (.NET)](./asp-net.md)
 * [Java](./java-in-process-agent.md)
@@ -135,6 +115,7 @@ Supported platforms and frameworks are listed here.
 * [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
+* [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
 #### Auto-instrumentation (enable without code changes)
@@ -151,10 +132,10 @@ Supported platforms and frameworks are listed here.
   * [React](./javascript-react-plugin.md)
   * [React Native](./javascript-react-native-plugin.md)
   * [Angular](./javascript-angular-plugin.md)
-* [Windows desktop applications, services, and worker roles](./windows-desktop.md)
-* [Universal Windows app](../app/mobile-center-quickstart.md) (App Center)
-* [Android](../app/mobile-center-quickstart.md) (App Center)
-* [iOS](../app/mobile-center-quickstart.md) (App Center)
+* [Windows desktop applications, services, and worker roles](https://github.com/Microsoft/appcenter)
+* [Universal Windows app](https://github.com/Microsoft/appcenter) (App Center)
+* [Android](https://github.com/Microsoft/appcenter) (App Center)
+* [iOS](https://github.com/Microsoft/appcenter) (App Center)
 
 > [!NOTE]
 > OpenTelemetry-based instrumentation is available in preview for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
@@ -172,3 +153,28 @@ Supported platforms and frameworks are listed here.
 
 ### Unsupported SDKs
 Several other community-supported Application Insights SDKs exist. However, Azure Monitor only provides support when you use the supported instrumentation options listed on this page. We're constantly assessing opportunities to expand our support for other languages. Follow [Azure Updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights) for the latest SDK news.
+
+---------------------------
+
+## Troubleshooting
+
+### Frequently asked questions
+
+Review [frequently asked questions](../faq.yml).
+### Microsoft Q&A questions forum
+
+Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
+
+### Stack Overflow
+
+Post coding questions to [Stack Overflow]() using an Application Insights tag.
+
+### User Voice
+
+Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
+
+## Next steps
+
+- [Create a resource](create-workspace-resource.md)
+- [Application Map](app-map.md)
+- [Transaction search](diagnostic-search.md)

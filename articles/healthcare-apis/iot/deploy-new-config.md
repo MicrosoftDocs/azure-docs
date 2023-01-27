@@ -1,11 +1,11 @@
 ---
-title: Configuring the MedTech service for deployment using the Azure portal - Azure Health Data Services
+title: Configure the MedTech service for deployment using the Azure portal - Azure Health Data Services
 description: In this article, you'll learn how to configure the MedTech service for manual deployment using the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/21/2022
+ms.date: 1/5/2023
 ms.author: jasteppe
 ---
 
@@ -74,7 +74,7 @@ Follow these six steps to fill in the Basics tab configuration:
 
 The Basics tab should now look like this after you've filled it out:
 
-  :::image type="content" source="media\iot-deploy-manual-in-portal\select-device-mapping-button.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\iot-deploy-manual-in-portal\select-device-mapping-button.png":::
+  :::image type="content" source="media\deploy-new-config\select-device-mapping-button.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\deploy-new-config\select-device-mapping-button.png":::
 
 You're now ready to select the Device mapping tab and begin setting up the device mappings for your MedTech service.
 
@@ -94,7 +94,7 @@ To begin configuring the device mapping tab, go to the Create MedTech service pa
 
 For more information regarding device mappings, see the relevant GitHub open source documentation at [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
 
-For Azure docs information about device mapping, see [How to use Device mappings](how-to-use-device-mappings.md).
+For Azure docs information about device mapping, see [How to configure device mappings](how-to-configure-device-mappings.md).
 
 ## Configure the Destination tab
 
@@ -138,7 +138,7 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 For more information regarding destination mapping, see the FHIR service GitHub documentation at [FHIR mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
 
-For Azure docs information about destination mapping, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
+For Azure docs information about destination mapping, see [How to use FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 ### JSON template request
 
@@ -183,7 +183,7 @@ To begin the validation process of your MedTech service deployment, select the *
 
 Your validation screen should look something like this:
 
-   :::image type="content" source="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png":::
+   :::image type="content" source="media\deploy-new-config\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\deploy-new-config\validate-and-review-medtech-service.png":::
 
 If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. Check all properties under each MedTech service tab that you've configured. Go back and try again.
 

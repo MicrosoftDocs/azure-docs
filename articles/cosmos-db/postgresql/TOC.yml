@@ -4,6 +4,8 @@
   items:
     - name: What is Azure Cosmos DB for PostgreSQL?
       href: introduction.md
+    - name: Product updates
+      href: product-updates.md
 - name: Quickstart
   items:
     - name: Create cluster
@@ -101,6 +103,8 @@
       items:
         - name: Scheduled maintenance
           href: concepts-maintenance.md
+        - name: Burstable compute
+          href: concepts-burstable-compute.md
         - name: Upgrade
           href: concepts-upgrade.md
     - name: Business continuity
@@ -120,8 +124,6 @@
           href: concepts-monitoring.md
         - name: Performance tuning
           href: concepts-performance-tuning.md
-        - name: Audit logs
-          href: concepts-audit.md
     - name: Columnar storage
       href: concepts-columnar.md
 - name: How-to guides
@@ -207,8 +209,6 @@
           href: howto-useful-diagnostic-queries.md
 - name: Reference
   items:
-    - name: Product updates
-      href: product-updates.md
     - name: PostgreSQL versions
       href: reference-versions.md
     - name: PostgreSQL extensions

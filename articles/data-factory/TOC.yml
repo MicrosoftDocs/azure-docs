@@ -207,7 +207,11 @@ items:
     href: concepts-pipeline-execution-triggers.md
     displayName: retry
   - name: Integration runtime
-    href: concepts-integration-runtime.md
+    items:
+    - name: Integration runtime overview
+      href: concepts-integration-runtime.md
+    - name: Choose the right integration runtime configuration for your scenario
+      href: choose-the-right-integration-runtime-configuration.md
   - name: Data flows
     items:
     - name: Transform data with mapping data flows
@@ -292,8 +296,12 @@ items:
       - name: Supported functions
         href: wrangling-functions.md
         displayName: power
-  - name: Change Data Capture
-    href: concepts-change-data-capture.md
+  - name: Change data capture
+    items:
+    - name: Change data capture
+      href: concepts-change-data-capture.md    
+    - name: Change data capture resource
+      href: concepts-change-data-capture-resource.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Naming rules
@@ -350,6 +358,8 @@ items:
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
+    - name: Author a change data capture resource
+      href: how-to-change-data-capture-resource.md
     - name: Connect to Azure DevOps in another tenant
       href: cross-tenant-connections-to-azure-devops.md
     - name: Continuous integration and delivery
@@ -431,6 +441,9 @@ items:
       displayName: upsert
     - name: Azure Synapse Analytics
       href: connector-azure-sql-data-warehouse.md
+      displayName: polybase
+    - name: Azure Synapse Analytics (Artifacts)
+      href: connector-azure-synapse-analytics-artifacts.md
       displayName: polybase
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
@@ -676,7 +689,7 @@ items:
       href: control-flow-azure-function-activity.md
       displayName: timeout, control flow
     - name: Custom activity
-      href: transform-data-using-dotnet-custom-activity.md
+      href: transform-data-using-custom-activity.md
     - name: Databricks Jar activity
       href: transform-data-databricks-jar.md
       displayName: data bricks
@@ -715,6 +728,10 @@ items:
       href: transform-data-using-script.md
     - name: Compute linked services
       href: compute-linked-services.md
+    - name: Synapse Notebook activity
+      href: transform-data-synapse-notebook.md
+    - name: Synapse Spark job definition activity
+      href: transform-data-synapse-spark-job-definition.md     
   - name: Control flow
     items:
     - name: Append Variable activity
@@ -1163,6 +1180,11 @@ items:
     - name: Activities
       href: data-factory-troubleshoot-guide.md
       displayName: timeout, troubleshooting
+    - name: Change data capture
+      items:
+      - name: Change data capture troubleshooting
+        href: change-data-capture-troubleshoot.md
+        displayName: change data capture, troubleshooting
     - name: Connectors
       items:
       - name: Overview and general copy activity errors

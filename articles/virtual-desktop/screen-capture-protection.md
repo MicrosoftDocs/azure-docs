@@ -4,25 +4,26 @@ titleSuffix: Azure
 description: How to set up screen capture protection for Azure Virtual Desktop.
 author: femila
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 01/24/2023
 ms.author: femila
 ms.service: virtual-desktop
 ---
 
 # Screen capture protection
 
-The screen capture protection feature prevents sensitive information from being captured on the client endpoints. When you enable this feature, remote content will be automatically blocked or hidden in screenshots and screen shares. Also, the Remote Desktop client will hide content from malicious software that may be capturing the screen.
+Screen capture protection prevents sensitive information from being captured on the client endpoints. When you enable this feature, remote content will be automatically blocked or hidden in screenshots and screen shares. Also, the Remote Desktop client will hide content from malicious software that may be capturing the screen.
+
+In Windows 11, version 22H2 or later, you can enable screen capture protection on session host VMs as well as remote clients. Protection on session host VMs works just like protection for remote clients.
 
 ## Prerequisites
 
-The screen capture protection feature is configured on the session host level and enforced on the client. Only clients that support this feature can connect to the remote session.
+Screen capture protection is configured on the session host level and enforced on the client. Only clients that support this feature can connect to the remote session.
 
-The following clients currently support screen capture protection:
+You must connect to Azure Virtual Desktop with one of the following clients to use support screen capture protection:
 
-- The Windows Desktop client supports screen capture protection for full desktops only.
+- The Windows Desktop client supports screen capture protection for full desktops.
 - The macOS client (version 10.7.0 or later) supports screen capture protection for both RemoteApps and full desktops.
-
-If a user tries to connect to a capture-protected session host with an unsupported client, the connection won't work and will instead show an error message labeled "0x1151."
+- The Windows Desktop client supports screen capture protection for RemoteApps in VMs running Windows 11, Version 22H2 or later.
 
 ## Configure screen capture protection
 
@@ -39,10 +40,15 @@ To configure screen capture protection:
    > You can also install administrative templates to the group policy Central Store in your Active Directory domain.
    > For more information, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
-5. Finally, open the **"Enable screen capture protection"** policy and set it to **"Enabled"**.
+5. Open the **"Enable screen capture protection"** policy and set it to **"Enabled"**. 
+6. To configure screen capture for client and server, set the **"Enable screen capture protection"** policy to **"Block Screen capture on client and server"**. By default, the policy will be set to **"Block Screen capture on client"**. 
+
+   >[!NOTE]
+   >You can only use screen capture protection on session host VMs that use Windows 11, version 22H2 or later.
 
 ## Limitations and known issues
 
+- If a user tries to connect to a capture-protected session host with an unsupported client, the connection won't work and will instead show an error message with the code `0x1151`.
 - This feature protects the Remote Desktop window from being captured through a specific set of public operating system features and Application Programming Interfaces (APIs). However, there's no guarantee that this feature will strictly protect content in scenarios where a user were to take a photo of their screen with a physical camera.
 - For maximum security, customers should use this feature while also disabling clipboard, drive, and printer redirection. Disabling redirection prevents users from copying any captured screen content from the remote session.
 - Users can't share their Remote Desktop window using local collaboration software, such as Microsoft Teams, while this feature is enabled. When they use Microsoft Teams, neither the local Teams app nor Teams with media optimization can share protected content.

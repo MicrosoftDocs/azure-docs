@@ -497,12 +497,16 @@
       href: manage/billing-troubleshoot-azure-payment-issues.md
     - name: Declined card
       href: manage/troubleshoot-declined-card.md
+    - name: Troubleshoot threshold billing
+      href: manage/troubleshoot-threshold-billing.md
     - name: Azure account sign-up issues
       href: manage/troubleshoot-azure-sign-up.md
     - name: Subscription sign-in issues
       href: manage/troubleshoot-sign-in-issue.md
     - name: Can't create multiple subscriptions
       href: manage/create-multiple-subscriptions-error.md
+    - name: Not available due to conflict error
+      href: manage/troubleshoot-not-available-conflict.md
     - name: Enterprise cost view disabled
       href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Troubleshoot Azure EA portal access

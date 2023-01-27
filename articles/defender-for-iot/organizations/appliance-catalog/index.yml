@@ -31,6 +31,8 @@ landingContent:
             url: hpe-proliant-dl20-plus-enterprise.md
           - text: Dell Edge 5200 (Rugged MIL-STD-810G)
             url: dell-edge-5200.md
+          - text: Dell PowerEdge R350 
+            url: dell-poweredge-r350-e1800.md
 
   # Card
   - title: Production line
@@ -39,7 +41,7 @@ landingContent:
         links:
           - text: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-plus-smb.md
-          - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-8106)
+          - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
             url: ys-techsystems-ys-fit2.md
 
   # Card
@@ -61,15 +63,15 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: HPE ProLiant DL20 Gen10 (E1800)
+          - text: HPE ProLiant DL20 Gen10 
             url: hpe-proliant-dl20-legacy.md              
-          - text: Dell PowerEdge R340 XL (E1800)
+          - text: Dell PowerEdge R340 XL 
             url: dell-poweredge-r340-xl-legacy.md            
-          - text: HPE ProLiant DL20 Gen10 (NHP 2LFF) (L500)
+          - text: HPE ProLiant DL20 Gen10 (NHP 2LFF) 
             url: hpe-proliant-dl20-smb-legacy.md                  
-          - text: HPE Edgeline El300 (L500 Rugged)
+          - text: HPE Edgeline EL300 
             url: hpe-edgeline-el300.md
-          - text: Neousys Nuvo-500LP (L100 Rugged)
+          - text: Neousys Nuvo-500LP
             url: neousys-nuvo-5006lp.md
     
       # - linkListType: reference

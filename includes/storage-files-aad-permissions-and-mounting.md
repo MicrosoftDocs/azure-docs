@@ -5,7 +5,7 @@
  author: khdownie
  ms.service: storage
  ms.topic: include
- ms.date: 12/07/2022
+ ms.date: 01/24/2023
  ms.author: kendownie
  ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -84,6 +84,8 @@ The following sets of permissions are supported on the root directory of a file 
 - NT AUTHORITY\SYSTEM:(F)
 - CREATOR OWNER:(OI)(CI)(IO)(F)
 
+For more information, see [Configure directory and file-level permissions over SMB](../articles/storage/files/storage-files-identity-ad-ds-configure-permissions.md).
+
 ### Mount the file share using your storage account key
 
 Before you configure Windows ACLs, you must first mount the file share to your domain-joined VM by using your storage account key. To do this, log into the domain-joined VM as an Azure AD user, open a Windows command prompt, and run the following command. Remember to replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
@@ -142,8 +144,32 @@ if ($connectTestResult.TcpTestSucceeded) {
 }
 ```
 
+You can also use the `net-use` command from a Windows prompt to mount the file share. Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values.
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
+```
+
 ## Mount the file share from a non-domain-joined VM
 
 Non-domain-joined VMs can access Azure file shares using Azure AD DS authentication only if the VM has line-of-sight to the domain controllers for Azure AD DS, which are located in Azure. This usually requires setting up a site-to-site or point-to-site VPN to allow this connectivity. The user accessing the file share must have an identity and credentials (an Azure AD identity synced from Azure AD to Azure AD DS) in the Azure AD DS managed domain.
 
-When mounting the file share, the user must provide explicit credentials such as **DOMAINNAME\username** where DOMAINNAME is the Azure AD DS domain and username is the identity’s user name in Azure AD DS. This will help route Kerberos ticket requests from the client to the correct domain controller in the Azure AD DS domain.
+To mount a file share from a non-domain-joined VM, the user must either:
+
+- Provide explicit credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Azure AD DS domain and **username** is the identity’s user name in Azure AD DS, or
+- Use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name.
+
+Using one of these approaches will allow the client to contact the domain controller in the Azure AD DS domain to request and receive Kerberos tickets.
+
+For example:
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<DOMAINNAME\username>
+```
+
+or
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<username@domainFQDN>
+```
+

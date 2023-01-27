@@ -4,17 +4,16 @@ description: Learn how to customize the API proxy module for IoT Edge gateway hi
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/10/2020
+ms.date: 01/05/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Configure the API proxy module for your gateway hierarchy scenario (Preview)
 
-[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article walks through the configuration options for the API proxy module, so you can customize the module to support your gateway hierarchy requirements.
 

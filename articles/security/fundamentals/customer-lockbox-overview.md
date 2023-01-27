@@ -2,8 +2,8 @@
 title: Customer Lockbox for Microsoft Azure
 description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
 author: msmbaldwin
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.author: mbaldwin
 manager: rkarlin
@@ -34,6 +34,7 @@ The following services are generally available for Customer Lockbox:
 - Azure Data Explorer
 - Azure Data Factory
 - Azure Database for MySQL
+- Azure Database for MySQL Flexible Server
 - Azure Database for PostgreSQL
 - Azure Databricks
 - Azure Edge Zone Platform Storage
@@ -42,6 +43,7 @@ The following services are generally available for Customer Lockbox:
 - Azure Health Bot
 - Azure Intelligent Recommendations
 - Azure Kubernetes Service
+- Azure Logic Apps
 - Azure Monitor
 - Azure Spring Apps
 - Azure SQL Database
@@ -50,7 +52,9 @@ The following services are generally available for Customer Lockbox:
 - Azure subscription transfers
 - Azure Synapse Analytics
 - Azure Unified Vision Service
+- Microsoft Azure Attestation
 - Microsoft Energy Data Services 
+- OpenAI
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
 
 

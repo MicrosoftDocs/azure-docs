@@ -53,7 +53,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | ------------------- | :-----: | :------: | :---: | :---: | :---: |
 | [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|✔|✔|✔|
 | Data encryption in transit |✔|✔|✔|✔|✔|
-| [Network isolation](cache-how-to-premium-vnet.md) |✔|✔|✔|✔|✔|
+| [Network isolation](cache-private-link.md) |✔|✔|✔|✔|✔|
 | [Scaling](cache-how-to-scale.md) |✔|✔|✔|-|-|
 | [OSS clustering](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
 | [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|Preview|Preview|

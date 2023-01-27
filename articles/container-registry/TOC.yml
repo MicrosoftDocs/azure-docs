@@ -99,8 +99,6 @@
         href: container-registry-helm-repos.md
       - name: Push and pull supply chain artifacts (preview)
         href: container-registry-oras-artifacts.md
-      - name: Sign and verify containers with notation (preview)
-        href: container-registry-tutorial-sign-build-push.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images
@@ -141,6 +139,8 @@
         href: container-registry-private-link.md
       - name: Configure public registry access
         href: container-registry-access-selected-networks.md
+      - name: Mitigate data exfiltration with dedicated data endpoints
+        href: container-registry-dedicated-data-endpoints.md
       - name: Restrict access using service endpoint (preview)
         href: container-registry-vnet.md
       - name: Allow access by trusted services
@@ -178,6 +178,8 @@
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
+      - name: Sign and verify containers with notation (preview)
+        href: container-registry-tutorial-sign-build-push.md
     - name: Registries and other Azure services
       expanded: false
       items:
@@ -304,7 +306,7 @@
   - name: PowerShell
     href: /powershell/module/az.containerregistry
   - name: .NET
-    href: /dotnet/api/overview/azure/containerregistry
+    href: /dotnet/api/overview/azure/container-registry
   - name: Python
     href: /python/api/overview/azure/container-registry
   - name: Java

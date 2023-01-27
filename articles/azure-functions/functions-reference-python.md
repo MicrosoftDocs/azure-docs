@@ -397,7 +397,11 @@ def main(req: func.HttpRequest,
 ```
 
 When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the AzureWebJobsStorage app setting, which is the same storage account that's used by the function app.
+::: zone-end
 
+For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
+
+::: zone pivot="python-mode-decorators" 
 At this time, only specific triggers and bindings are supported by the Python v2 programming model. Supported triggers and bindings are as follows:
 
 | Type | Trigger | Input binding | Output binding |
@@ -940,9 +944,9 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.9<br/> 3.8<br/>3.7 |
-| 3.x | 3.9<br/> 3.8<br/>3.7<br/>3.6 |
-| 2.x | 3.7<br/>3.6 |
+| 4.x | 3.10 (Preview)<br/>3.9<br/> 3.8<br/>3.7 |
+| 3.x | 3.9<br/> 3.8<br/>3.7 |
+| 2.x | 3.7 |
 
 \* Official Python distributions
 
@@ -1247,10 +1251,11 @@ The Python standard library contains a list of built-in Python modules that are 
 
 To view the library for your Python version, go to:
 
-* [Python 3.6 standard library](https://docs.python.org/3.6/library/)
+
 * [Python 3.7 standard library](https://docs.python.org/3.7/library/)
 * [Python 3.8 standard library](https://docs.python.org/3.8/library/)
 * [Python 3.9 standard library](https://docs.python.org/3.9/library/)
+* [Python 3.10 standard library](https://docs.python.org/3.10/library/)
 
 ### Azure Functions Python worker dependencies
 
@@ -1260,7 +1265,7 @@ The Azure Functions Python worker requires a specific set of libraries. You can 
 > If your function app's *requirements.txt* file contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by the Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in the *requirements.txt* file might cause unexpected issues.
 
 > [!NOTE]
->  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies-preview) to `1` in app settings to prevent your application from referring to worker's dependencies. This feature is in preview.
+>  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies. This feature is in preview.
 
 ### The Azure Functions Python library
 
