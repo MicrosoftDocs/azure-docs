@@ -62,7 +62,7 @@ python -m pip install azureml-inference-server-http
 
 ## Debug your scoring script locally
 
-To debug your scoring script locally, you can test how the server behaves with a dummy scoring script, use VS Code to debug with the [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package, or test the server with an actual scoring script, model file, and environment file in our examples.
+To debug your scoring script locally, you can test how the server behaves with a dummy scoring script, use VS Code to debug with the [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package, or test the server with an actual scoring script, model file, and environment file in our [examples](https://github.com/Azure/azureml-examples).
 
 ### Test the server behavior with a dummy scoring script
 1. Create a directory to hold your files:
