@@ -164,6 +164,10 @@ These VMs provide the necessary level of isolation required to support IL5 workl
 
 Current Dedicated Host SKUs (VM series and Host Type) that offer the required compute isolation include SKUs in the VM families listed on the [Dedicated Host pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
 
+### [Azure Virtual Desktop](https://aka.ms/avddocs)
+
+Azure Virtual Desktop(AVD) supports Impact Level 5 workloads hosted in Azure Government. Virtual Machines deployed with AVD should follow the [Virtual Machine](#virtual-machines-and-virtual-machine-scale-sets) compute isolation and storage encryption guidance. FSLogix user profile shares should follow the [Storage](#storage) encryption guidance.
+
 #### [Isolated virtual machines](../virtual-machines/isolation.md)
 
 Virtual machine scale sets aren't currently supported on Azure Dedicated Host. But specific VM types, when deployed, consume the entire physical host for the VM. Isolated VM types can be deployed via virtual machine scale sets to provide proper compute isolation with all the benefits of virtual machine scale sets in place. When you configure your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
