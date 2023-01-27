@@ -7,9 +7,8 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: how-to
 ms.tgt_pltfrm: na
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 01/13/2023
+ms.date: 01/27/2023
 ms.author: abell
 ---
 
@@ -22,54 +21,14 @@ In this article, you'll learn how to configure diagnostic logging alerts through
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Protection plan](manage-ddos-protection.md). DDoS Network Protection must be enabled on a virtual network or DDoS IP Protection must be enabled on a public IP address.  
-- DDoS Protection monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. You can monitor the public IP address of all resources deployed through Resource Manager (not classic) listed in [Virtual network for Azure services](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (including Azure Load Balancers where the backend virtual machines are in the virtual network), except for Azure App Service Environments. To continue with this tutorial, you can quickly create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. 
+- Before you can complete the steps in this guide, you must first create a [Azure DDoS Protection plan](manage-ddos-protection.md). DDoS Network Protection must be enabled on a virtual network or DDoS IP Protection must be enabled on a public IP address.  
+- In order to use diagnostic logging, you must first create a [Log Analytics workspace with diagnostic settings enabled](ddos-configure-log-analytics-workspace.md). 
+- DDoS Protection monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. You can monitor the public IP address of all resources deployed through Resource Manager (not classic) listed in [Virtual network for Azure services](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (including Azure Load Balancers where the backend virtual machines are in the virtual network), except for Azure App Service Environments. To continue with this guide, you can quickly create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. 
 
 ## Configure diagnostic logging alerts through Azure Monitor
 
 With these templates, you'll be able to configure alerts for all public IP addresses that you have enabled diagnostic logging on. 
 
-### Create Log Analytics workspace
-
-In order to use these alert templates, you'll first need a Log Analytics Workspace with diagnostic settings enabled.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. In the search box at the top of the portal, enter **Log Analytics workspace**. Select **Log Analytics workspace** in the search results.
-1. Select **+ Create** on the navigation bar.
-
-    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-log-analytics-workspace-create.png" alt-text="Screenshot of creating a log analytics workspace.":::
-
-1. On the *Create Log Analytics workspace* page, enter the following information.
-    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-log-analytics-workspace.png" alt-text="Screenshot of configuring a log analytics workspace.":::
-
-    | Setting | Value |
-    |--|--|
-    | Subscription | Select your Azure subscription. |   
-    | Resource Group | Select your resource group.	 | 
-    | Name | Enter **myLogAnalyticsWorkspace**. |
-    | Region | Select **East US**. |
-    
-1. Select **Review + create** and then select **Create** after validation passes.
-1. In the search box at the top of the portal, enter **myLogAnalyticsWorkspace**. Select **myLogAnalyticsWorkspace** in the search results.
-1. Under *Monitoring* in the side tab, select **Diagnostic settings**, then select **+ Add diagnostic setting**.
-
-    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-log-analytics-workspace-settings.png" alt-text="Screenshot of locating log analytics workspace diagnostic setting.":::
-
-1. On the *Diagnostic setting* page, under *Destination details*, select **Send to Log Analytics workspace**, then enter the following information.
-:::image type="content" source="./media/manage-ddos-protection/ddos-protection-diagnostic-settings.png" alt-text="Screenshot of log analytics workspace diagnostic setting.":::
-
-    | Setting | Value |
-    |--|--|
-    | Diagnostic setting name | Enter **myDiagnosticSettings**. |
-    |**Logs**| Select **allLogs** and **audit**.|
-    |**Metrics**| Select **AllMetrics**. |
-    |**Destination details**| Select **Send to Log Analytics workspace**.|
-    | Subscription | Select your Azure subscription. |   
-    | Log Analytics Workspace | Select **myLogAnalyticsWorkspace**. | 
-    
-1. Select **Save**.
-
-For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md).
 ### Create Azure Monitor alert rule
 
 The Azure Monitor alert rule template will run a query against the diagnostic logs to detect when an active DDoS mitigation is occurring. The alert indicates a potential attack. Action groups can be used to invoke actions as a result of the alert.
@@ -123,7 +82,7 @@ This DDoS Mitigation Alert Enrichment template deploys the necessary components 
 1. Select **Review + create** and then select **Create** after validation passes. 
 
 ## Clean up resources
-You can keep your resources for the next tutorial. If no longer needed, delete the alerts.
+You can keep your resources for the next guide. If no longer needed, delete the alerts.
 
 1. In the search box at the top of the portal, enter **Alerts**. Select **Alerts** in the search results.
 
@@ -133,7 +92,7 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 
      :::image type="content" source="./media/manage-ddos-protection/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page.":::
 
-1. Select the alerts created in this tutorial, then select **Delete**. 
+1. Select the alerts created in this guide, then select **Delete**. 
 
 ## Next steps
 
