@@ -28,23 +28,20 @@ Use the Azure Container offer type when your solution is either:
 
 ## Licensing options
 
-If you're publishing container images, these are the available licensing options for Azure Container offers:
-
-| Licensing option | Transaction process |
-| --- | --- |
-| Free | List your offer to customers for free. |
-| BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
-
 If you're publishing Kubernetes apps, these are the available licensing options for Azure Container offers:
 
-| Licensing option | Transaction process |
-| --- | --- |
-| Free | List your offer to customers for free. |
-| BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
-| Per core | List your Azure Container offer with pricing based on the critical CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application for the critical cores you’ve tagged in your application as the ones that should generate usage. |
-| Per every core in cluster | List your Azure Container offer with pricing based on the total number of CPU cores in the cluster. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware in the cluster.|
+| Licensing option                | Transaction process                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Free                            | List your offer to customers for free.                                                                                                                                                                                                                                                                                                               |
+| Bring your own licensing (BYOL) | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.*                                                                                                                                                                                                                                                  |
+| Per every core in cluster       | List your Azure Container offer with pricing charged based on the total number of CPU cores in the cluster (reported at hourly frequency). You provide the price for one CPU core and we’ll increment the pricing based on the total number of CPU cores in the cluster.                                                                             |
+| Per core                        | List your Azure Container offer with pricing charged for every core used by the Kubernetes application’s extension instance (reported at hourly frequency). You provide the price for one CPU core and we’ll increment the pricing based on the cores used by the Kubernetes application instance in the cluster.                                    |
+| Per cluster                     | List your Azure Container offer with pricing charged for each instance of the Kubernetes application extension on the cluster (reported at hourly frequency). You provide the price for one instance of the Kubernetes application and we’ll increment the pricing based on the number of instances of the Kubernetes application on the cluster.    |
+| Per every node in cluster       | List your Azure Container offer with pricing charged based on total number of nodes in the cluster (reported at hourly frequency). You provide the price for one node in the cluster and we’ll increment the pricing based on the size of hardware in the cluster.                                                                                   |
+| Per node                        | List your Azure Container offer with pricing charged for each node on which the Kubernetes application’s extension instance runs on (reported at hourly frequency). You provide the price for one node in the cluster and we’ll increment the pricing based on the number of nodes on which the Kubernetes application instance runs in the cluster. |
+| Per pod                         | List your Azure Container offer with pricing charged for each pod on which the Kubernetes application’s extension instance runs (reported at hourly frequency). You provide the price for one node in the cluster and we’ll increment the pricing based on the number of pods used on which the Kubernetes application instance runs in the cluster. |
 
-\* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
+* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
 > [!NOTE]
 > To ensure the prices are right before you publish them, first select Save draft to save pricing changes, then export the pricing spreadsheet and review the prices in each market.
