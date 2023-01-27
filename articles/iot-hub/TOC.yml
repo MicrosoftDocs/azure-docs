@@ -223,27 +223,6 @@
         - name: TLS support
           displayName: security, Transport Layer Security
           href: iot-hub-tls-support.md
-        - name: Virtual networks support
-          displayName: Security, Private Link, network isolation, private endpoint
-          href: virtual-network-support.md
-        - name: Security baseline
-          displayName: security benchmark
-          href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
-        - name: Recommendations
-          displayName: security
-          href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
-        - name: Security from the ground up
-          displayName: Security Development Lifecycle, SDL, Operational Security Assurance, OSA, compliance, secure infrastructure
-          href: ../iot-fundamentals/iot-security-ground-up.md?context=%2fazure%2fiot-hub%2frc%2frc
-        - name: Security best practices
-          href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
-        - name: Security architecture
-          href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
-        - name: Secure your IoT deployment
-          href: ../iot-fundamentals/iot-security-deployment.md?context=%2fazure%2fiot-hub%2frc%2frc
-        - name: Security controls by Azure Policy
-          displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA
-          href: ./security-controls-policy.md
         - name: Secure using X.509 CA certificates
           items:
             - name: X.509 CA certificate security concepts
@@ -251,6 +230,24 @@
               href: iot-hub-x509ca-concept.md
             - name: X.509 CA certificates for IoT Hub
               href: iot-hub-x509ca-overview.md
+        - name: Virtual networks support
+          displayName: Security, Private Link, network isolation, private endpoint
+          href: virtual-network-support.md
+        - name: Security baseline
+          displayName: security benchmark
+          href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
+        - name: Security controls by Azure Policy
+          displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA
+          href: ./security-controls-policy.md
+        - name: IoT security recommendations
+          displayName: security
+          href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
+        - name: IoT security best practices
+          href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
+        - name: IoT security architecture
+          href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
+        - name: Secure your IoT deployment
+          href: ../iot-fundamentals/iot-security-deployment.md?context=%2fazure%2fiot-hub%2frc%2frc
 
 - name: How-to guides
   items:

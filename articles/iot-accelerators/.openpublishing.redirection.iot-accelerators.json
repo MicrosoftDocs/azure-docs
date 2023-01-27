@@ -526,13 +526,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-accelerators/securing-iot-groud-up.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+      "source_path_from_root": "/articles/iot-accelerators/securing-iot-ground-up.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-suite/securing-iot-ground-up.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+      "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
       "redirect_document_id": false
     },
     {
