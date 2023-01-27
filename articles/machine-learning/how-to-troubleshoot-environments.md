@@ -799,17 +799,46 @@ channels:
 
 ### *Conda issues*
 ### Missing conda dependencies
-- The [environment definition](https://aka.ms/azureml/environment/environment-class-v1)
-has a [PythonSection](https://aka.ms/azureml/environment/environment-python-section)
-that contains a `user_managed_dependencies` bool and a `conda_dependencies` object
-- If `user_managed_dependencies` is set to `True`, you're responsible for ensuring that all the necessary packages are available in the
-Python environment in which you choose to run the script
-- If `user_managed_dependencies` is set to `False` (the default), Azure ML will create a Python environment for you based on `conda_dependencies`.
-The environment is built once and is reused as long as the conda dependencies remain unchanged
-- You'll receive a *"missing conda dependencies"* error when `user_managed_dependencies` is set to `False` and you haven't provided a conda specification.
-- See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
-- See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
-- See [how to set a conda specification on the environment definition](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
+<!--issueDescription-->
+**Potential causes:**
+* You haven't provided a conda specification in your environment definition, and `user_managed_dependencies` is set to `False` (the default)
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+*Applies to: Python SDK v1*
+
+If you don't want AzureML to create a Python environment for you based on `conda_dependencies,` set `user_managed_dependencies` to `True`
+
+```python
+env.python.user_managed_dependencies = True
+```
+* You're responsible for ensuring that all necessary packages are available in the Python environment in which you choose to run the script
+
+If you want AzureML to create a Python environment for you based on a conda specification, `conda_dependencies` needs to be populated in your environment definition 
+
+```python
+from azureml.core.environment import CondaDependencies
+
+env = Environment(name="env")
+conda_dep = CondaDependencies()
+conda_dep.add_conda_package("python==3.8")
+env.python.conda_dependencies=conda_dep
+```
+
+*Applies to: Azure CLI & Python SDK v2*
+
+You must specify a base Docker image for the environment, and the conda environment will be built on top of that image
+* Provide the relative path to the conda file
+* See how to [create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
+
+**Resources**
+* See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
+* See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
+* See [how to set a conda specification on the environment definition](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
 
 ### Invalid conda dependencies
 - Make sure the conda dependencies specified in your conda specification are formatted correctly
