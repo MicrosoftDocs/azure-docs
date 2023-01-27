@@ -65,13 +65,13 @@ In this step, you'll create the mobile network site resource representing the ph
 
     Once you've finished filling out the fields, select **Attach**.
 
-1. Repeat the previous step for each additional data network you want to configure.
-1. If you decided you want to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate at this stage, you can skip this step.
-    
-    1. Under **Provide custom HTTPS certificate?**, select **Yes**.
-    1. Use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
+1. Repeat the previous step for each additional data network you want to configure, and then select **Next : Local access >**.
+1. In the **Local access** section, set the fields as follows:
 
     :::image type="content" source="media/create-a-site/create-site-local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab for a site resource.":::
+  
+    - Under **Authentication type**, select the authentication method you decided to use in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools).
+    - under **Provide custom HTTPS certificate?**, select **Yes** or **No** based on whether you decided to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values). If you selected **Yes**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
 
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
@@ -96,6 +96,6 @@ In this step, you'll create the mobile network site resource representing the ph
 
 ## Next steps
 
-If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
+If you decided to set up Azure AD for local monitoring access, follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
 
-- [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
+If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows. See [Policy control](policy-control.md) to learn more about designing the policy control configuration for your private mobile network.

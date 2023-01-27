@@ -131,6 +131,8 @@ landingContent:
             url: enable-log-analytics-for-private-5g-core.md
           - text: Create an overview Log Analytics dashboard
             url: create-overview-dashboard.md 
+          - text: Enable Azure Active Directory
+            url: enable-azure-active-directory.md
           - text: Modify a site's local access configuration
             url: modify-local-access-configuration.md      
           - text: Export, upload and share traces for diagnostics
