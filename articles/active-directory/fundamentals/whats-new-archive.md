@@ -9677,21 +9677,6 @@ The underlying real-time detection works each time the user signs in. If you hav
 
 ## October 2017
 
-### Deprecate Azure AD reports
-
-**Type:** Plan for change
-**Service category:** Reporting
-**Product capability:** Identity Lifecycle Management
-
-The Azure portal provides you with:
-
-- A new Azure AD administration console.
-- New APIs for activity and security reports.
-
-Due to these new capabilities, the report APIs under the /reports endpoint were retired on December 10, 2017.
-
----
-
 ### Automatic sign-in field detection
 
 **Type:** Fixed
