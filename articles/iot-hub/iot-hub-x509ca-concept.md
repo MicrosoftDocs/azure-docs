@@ -48,7 +48,7 @@ Company-X can either purchase an X.509 CA certificate from a public root certifi
 
 Details on how to accomplish these steps differ with various service providers.
 
-![Flow for generating an X509CA certificates](./media/iot-hub-x509ca-concept/csr-flow.png)
+:::image type="content" source="./media/iot-hub-x509ca-concept/csr-flow.png" alt-text="Diagram showing the flow for generating an X.509 CA certificate." lightbox="./media/iot-hub-x509ca-concept/csr-flow.png":::
 
 ### Purchasing a certificate
 
@@ -68,7 +68,7 @@ Company-X needs to register the X.509 CA to IoT Hub where it will serve to authe
 
 Registering the X.509 CA certificate is a two-step process: upload the certificate then provide proof-of-possession.
 
-![Registering an X.509 CA certificate](./media/iot-hub-x509ca-concept/pop-flow.png)
+:::image type="content" source="./media/iot-hub-x509ca-concept/pop-flow.png" alt-text="Diagram showing the process flow for registering an X.509 CA certificate." lightbox="./media/iot-hub-x509ca-concept/pop-flow.png":::
 
 ### Certificate upload
 
@@ -96,7 +96,7 @@ One way to provide unique certificates on each device is to pre-generate certifi
 
 X.509 CA certificate authentication offers elegant solutions to these challenges by using certificate chains. A certificate chain results from a CA signing an intermediate CA that in turn signs another intermediate CA, and so on, until a final intermediate CA signs a device. In our example, Company-X signs Factory-Y, which in turn signs Technician-Z that finally signs Smart-X-Widget.
 
-![Certificate chain hierarchy](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
+:::image type="content" source="./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png" alt-text="Diagram showing an example of a certificate chain hierarchy." lightbox="./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png":::
 
 This cascade of certificates in the chain represents the logical hand-off of authority. Many supply chains follow this logical hand-off whereby each intermediate CA gets signed into the chain while receiving all upstream CA certificates, and the last intermediate CA finally signs each device and injects all the authority certificates from the chain into the device. This is common when the contracted manufacturing company with a hierarchy of factories commissions a particular factory to do the manufacturing. While the hierarchy may be several levels deep (for example, by geography/product type/manufacturing line), only the factory at the end gets to interact with the device but the chain is maintained from the top of the hierarchy.
 
@@ -104,7 +104,7 @@ Alternate chains may have different intermediate CAs interact with the device in
 
 The following diagram shows how the certificate chain of trust comes together in our Smart-X-Widget example.
 
-![Chain of trust from the certs of one company to the certs of another company](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
+:::image type="content" source="./media/iot-hub-x509ca-concept/cert-mfr-chain.png" alt-text="Diagram showing the certificate chain of trust from the certificates of one company to the certificates of another company." lightbox="./media/iot-hub-x509ca-concept/cert-mfr-chain.png":::
 
 1. Company-X never physically interacts with any of the Smart-X-Widgets. It initiates the certificate chain of trust by signing Factory-Y's intermediate CA certificate.
 1. Factory-Y now has its own intermediate CA certificate and a signature from Company-X. It passes copies of these items to the device. It also uses its intermediate CA certificate to sign Technician-Z's intermediate CA certificate and the Smart-X-Widget device certificate.
@@ -125,7 +125,7 @@ During the certificate chain upload, the device uploads its unique certificate a
 
 In our example, each Smart-X-Widget would upload its device unique certificate together with Factory-Y and Technician-Z X.509 CA certificates and then respond to the proof-of-possession challenge from IoT Hub.
 
-![Flow from one cert to another, pop challenge from hub](./media/iot-hub-x509ca-concept/device-pop-flow.png)
+:::image type="content" source="./media/iot-hub-x509ca-concept/device-pop-flow.png" alt-text="Diagram showing the flow for validating a device certificate." lightbox="./media/iot-hub-x509ca-concept/device-pop-flow.png":::
 
 The foundation of trust rests in protecting private keys, including device private keys. We therefore can't stress enough the importance of secure silicon chips in the form of Hardware Secure Modules (HSM) for protecting device private keys, and the overall best practice of never sharing any private keys, like one factory entrusting another with its private key.
 

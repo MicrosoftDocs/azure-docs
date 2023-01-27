@@ -120,3 +120,6 @@ namespace SimulateX509Device
     }
 }
 ```
+## Next steps
+
+Use the Device Provisioning Service to [Provision multiple X.509 devices using enrollment groups](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
