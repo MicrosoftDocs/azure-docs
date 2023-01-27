@@ -91,10 +91,10 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
          :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-3.png" alt-text="Screenshot showing the process to assign a role to a managed identity":::
 
    1. Select the **Subscription**. In **Managed identity**, select **Dynatrace** and the Dynatrace resource created by the contributor. After you select the resource, use **Select** to continue.
-          :::image type="content" source="media/dynatrace-create/dynatrace-contributor-select.png" alt-text="Screenshot showing the Dynatrace resource with a new contributor selected.":::
+         :::image type="content" source="media/dynatrace-create/dynatrace-contributor-select.png" alt-text="Screenshot showing the Dynatrace resource with a new contributor selected.":::
 
    1. When you have completed the selection, select **Review + assign**
-           :::image type="content" source="media/dynatrace-create/dynatrace-review-and-assign.png" alt-text="Screenshot showing Add role assignment working pane with Review and assign with a red box around it.":::
+         :::image type="content" source="media/dynatrace-create/dynatrace-review-and-assign.png" alt-text="Screenshot showing Add role assignment working pane with Review and assign with a red box around it.":::
 
 1. When creating the Dynatrace resource, you can set up automatic log forwarding for three types of logs:
 

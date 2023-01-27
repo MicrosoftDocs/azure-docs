@@ -1,12 +1,9 @@
 ---
 title: Troubleshooting Azure Native Dynatrace Service
 description: This article provides information about troubleshooting Dynatrace for Azure 
-author: flang-msft
 
-ms.author: franlanglois
 ms.topic: conceptual
-ms.collection: na
-ms.date: 01/06/2023
+ms.date: 02/04/2023
 
 ---
 
@@ -60,7 +57,7 @@ This document contains information about troubleshooting your solutions that use
 
 ### Metrics checkbox disabled
 
-- To collect metrics you should have owner permission on the subscription. If you are a contributor then please refer to the contributor guide mentioned in [Configure metrics and logs](dynatrace-create.md#configure-metrics-and-logs).
+- To collect metrics you must have owner permission on the subscription. If you are a contributor, refer to the contributor guide mentioned in [Configure metrics and logs](dynatrace-create.md#configure-metrics-and-logs).
 
 ## Next steps
 
