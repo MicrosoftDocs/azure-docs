@@ -103,7 +103,7 @@ GRANT EXECUTE ON SPECIFIC PROCEDURE SYSPROC.WLM_SET_CONN_ENV TO ROLE SAPMON;
 ```
 ## Prerequisites to enable secure communication
 
-To [enable TLS 1.2 or higher](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/sap/enable-tls-azure-monitor-sap-solutions), follow the steps [mentioned here](https://assets.cdn.sap.com/sapcom/docs/2018/12/d2922a3b-307d-0010-87a3-c30de2ffd8ff.pdf)
+To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps [mentioned here](https://assets.cdn.sap.com/sapcom/docs/2018/12/d2922a3b-307d-0010-87a3-c30de2ffd8ff.pdf)
 
 ## Create IBM Db2 provider
 
