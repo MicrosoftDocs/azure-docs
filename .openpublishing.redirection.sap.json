@@ -1224,5 +1224,70 @@
       "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance",
       "redirect_document_id": true
     },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/deploy-s4hana.md.md",
+      "redirect_url": "/azure/sap/deploy-s4hana",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/faq.yml",
+      "redirect_url": "/azure/sap/faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/get-quality-checks-insights.md",
+      "redirect_url": "/azure/sap/get-quality-checks-insights",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/index.yml",
+      "redirect_url": "/azure/sap/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/.md",
+      "redirect_url": "/azure/sap/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/install-software.md",
+      "redirect_url": "/azure/sap/install-software",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/manage-virtual-instance.md",
+      "redirect_url": "/azure/sap/manage-virtual-instance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/monitor-portal.md",
+      "redirect_url": "/azure/sap/monitor-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/overview.md",
+      "redirect_url": "/azure/sap/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/prepare-network.md",
+      "redirect_url": "/azure/sap/prepare-network",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/register-existing-system.md",
+      "redirect_url": "/azure/sap/register-existing-system",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/start-stop-sap-systems.md",
+      "redirect_url": "/azure/sap/start-stop-sap-systems",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/view-cost-analysis.md",
+      "redirect_url": "/azure/sap/view-cost-analysis",
+      "redirect_document_id": true
+    },
   ]
 }
