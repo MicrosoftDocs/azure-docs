@@ -695,7 +695,7 @@ items:
       - name: Java
         items:
         - name: Overview
-          href: app/java-in-process-agent.md
+          href: app/opentelemetry-enable.md?tabs=java
         - name: Spring Boot
           href: app/java-spring-boot.md
         - name: Java Profiler

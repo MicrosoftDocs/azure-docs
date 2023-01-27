@@ -15,7 +15,7 @@ ms.reviewer: mmcc
 
 Find out about the performance and usage of your webpage or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures. You also get user and session counts. All this telemetry can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. By inserting trace calls in your JavaScript code, you can track how the different features of your webpage application are used.
 
-Application Insights can be used with any webpages by adding a short piece of JavaScript. Node.js has a [standalone SDK](nodejs.md). If your web service is [Java](java-in-process-agent.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
+Application Insights can be used with any webpages by adding a short piece of JavaScript. Node.js has a [standalone SDK](nodejs.md). If your web service is [Java](opentelemetry-enable.md?tabs=java) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
 
 ## Add the JavaScript SDK
 

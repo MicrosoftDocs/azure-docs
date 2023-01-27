@@ -177,7 +177,7 @@ Application Insights provides complete monitoring of applications running on AKS
 - [ASP.NET Applications](../azure-monitor/app/asp-net.md)
 - [ASP.NET Core Applications](../azure-monitor/app/asp-net-core.md)
 - [.NET Console Applications](../azure-monitor/app/console.md)
-- [Java](../azure-monitor/app/java-in-process-agent.md)
+- [Java](../azure-monitor/app/opentelemetry-enable.md?tabs=java)
 - [Node.js](../azure-monitor/app/nodejs.md)
 - [Python](../azure-monitor/app/opencensus-python.md)
 - [Other platforms](../azure-monitor/app/app-insights-overview.md#supported-languages)

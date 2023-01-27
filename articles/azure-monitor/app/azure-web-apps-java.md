@@ -16,11 +16,11 @@ Monitoring of your Java web applications running on [Azure App Services](../../a
 
 The recommended way to enable application monitoring for Java applications running on Azure App Services is through Azure portal.
 Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
-You can apply additional configurations, and then based on your specific scenario you [add your own custom telemetry](./opentelemetry-enable.md#modify-telemetry) if needed.
+You can apply additional configurations, and then based on your specific scenario you [add your own custom telemetry](./opentelemetry-enable.md#modify-telemetry?tabs=java) if needed.
 
 ### Auto-instrumentation through Azure portal
 
-You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get the telemetry auto-collected.
+You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. The integration adds [Application Insights Java 3.x](./opentelemetry-enable.md?tabs=java) and you will get the telemetry auto-collected.
 
 For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
@@ -80,7 +80,7 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
 1. Sometimes the latest version of the Application Insights Java agent is not available in App Service - it takes a couple of months for the latest versions to roll out to all regions. In case you need the latest version of Java agent to monitor your app in App Service, you can upload the agent manually: 
     * Upload the Java agent jar file to App Service
         * Get the latest version of [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli)
-        * Get the latest version of [Application Insights Java agent](./java-in-process-agent.md)
+        * Get the latest version of [Application Insights Java agent](./opentelemetry-enable.md?tabs=java)
         * Deploy Java agent to App Service - a sample command to deploy the Java agent jar: `az webapp deploy --src-path applicationinsights-agent-{VERSION_NUMBER}.jar --target-path java/applicationinsights-agent-{VERSION_NUMBER}.jar --type static --resource-group {YOUR_RESOURCE_GROUP} --name {YOUR_APP_SVC_NAME}` or use [this guide](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux#3---configure-the-maven-plugin) to deploy through Maven plugin
     * Once the agent jar file is uploaded, go to App Service configurations and add a new environment variable, JAVA_OPTS, and set its value to `-javaagent:D:/home/{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`
     * Disable Application Insights via Application Insights tab

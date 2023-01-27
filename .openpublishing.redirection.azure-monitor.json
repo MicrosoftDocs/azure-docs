@@ -5681,6 +5681,11 @@
             "source_path_from_root": "/articles/azure-monitor/app/windows-desktop.md",
             "redirect_url": "https://github.com/Microsoft/appcenter",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-in-process-agent.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
+            "redirect_document_id": false
         }
     ]
 }

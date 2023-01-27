@@ -74,7 +74,7 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=net) offering is also av
 
 Integrated Auto-Instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md).
 
-Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
+Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](opentelemetry-enable.md?tabs=java).
 
 ### [Node.js](#tab/nodejs)
 
@@ -102,7 +102,7 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=python) offering is also
 This section outlines supported scenarios.
 
 * [C#|VB (.NET)](./asp-net.md)
-* [Java](./java-in-process-agent.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
 * [JavaScript](./javascript.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
@@ -121,7 +121,7 @@ Supported platforms and frameworks are listed here.
 #### Auto-instrumentation (enable without code changes)
 * [ASP.NET - for web apps hosted with IIS](./status-monitor-v2-overview.md)
 * [ASP.NET Core - for web apps hosted with IIS](./status-monitor-v2-overview.md)
-* [Java](./java-in-process-agent.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
 
 #### Manual instrumentation / SDK (some code changes required)
 * [ASP.NET](./asp-net.md)
@@ -143,7 +143,7 @@ Supported platforms and frameworks are listed here.
 ### Logging frameworks
 * [ILogger](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [Log4J, Logback, or java.util.logging](./opentelemetry-enable.md#logs)
+* [Log4J, Logback, or java.util.logging](./opentelemetry-enable.md#logs?tabs=java)
 * [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
