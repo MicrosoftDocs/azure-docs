@@ -49,6 +49,7 @@ To begin the configuration, you'll create a dev center to enable you to manage y
    :::image type="content" source="./media/quickstart-configure-dev-box-service/discover-dev-centers.png" alt-text="Screenshot showing the Azure portal with the search box and dev centers result highlighted.":::
 
 1. On the dev centers page, select **+Create**. 
+
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center.png" alt-text="Screenshot showing the Azure portal Dev center with create highlighted.":::
 
 1. On the **Create a dev center** page, on the **Basics** tab, enter the following values:
@@ -72,6 +73,7 @@ To begin the configuration, you'll create a dev center to enable you to manage y
 1. On the **Review** tab, select **Create**.
 
 1. You can check on the progress of the dev center creation from any page in the Azure portal by opening the notifications pane. 
+
    :::image type="content" source="./media/quickstart-configure-dev-box-service/notifications-pane.png" alt-text="Screenshot showing Azure portal notifications pane.":::
 
 1. When the deployment is complete, select **Go to resource**. You'll see the dev center page.
@@ -303,19 +305,20 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal). 
  
-|Setting  |Value  |
-|---------|---------|
-|Role     |    DevCenter Dev Box User    |
-|Assign access to     |    User     |
-|Members     |    Your account     |
+   |Setting  |Value  |
+   |---------|---------|
+   |Role     |    DevCenter Dev Box User    |
+   |Assign access to     |    User     |
+   |Members     |    Your account     |
  
-The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
+   The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 
 ## Project admins
 
 The Microsoft Dev Box service makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their team, like creating and managing dev box pools. To provide users permissions to manage projects, add them to the DevCenter Project Admin role. 
+
 You can assign the DevCenter Project Admin role by using the [Provide access to a dev box project](#provide-access-to-a-dev-box-project) steps, but selecting the Project Admin role instead of the Dev Box User role. For more information, go to [Provide access to projects for project admins](how-to-project-admin.md).
 
 [!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
