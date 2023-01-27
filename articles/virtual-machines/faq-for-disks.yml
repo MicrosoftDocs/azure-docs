@@ -537,7 +537,7 @@ sections:
         answer: |
           Credit-based bursting is currently supported in all regions in Azure Public Cloud, sovereign clouds are not currently supported.
           
-          On-demand bursting is only available in West Central US.
+          On-demand bursting is available in all public Azure regions.
           
       - question: |
           Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?

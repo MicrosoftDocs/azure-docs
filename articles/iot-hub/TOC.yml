@@ -42,27 +42,24 @@
     - name: Data visualization in Power BI
       displayName: Stream Analytics
       href: iot-hub-live-data-visualization-in-power-bi.md
-    - name: Using X.509 certificates
+    - name: Use X.509 certificates
       items:
         - name: Introduction
           displayName: X.509 certificates
           href: tutorial-x509-introduction.md
-        - name: Certificate fields
-          displayName: X.509 certificates, PKCS
-          href: tutorial-x509-certificates.md
-        - name: Using the supplied scripts
-          displayName: X.509 certificates, CA certificate
-          href: tutorial-x509-scripts.md
-        - name: Using OpenSSL
+        - name: Use OpenSSL to create test certificates
           displayName: X.509 certificates, root CA
           href: tutorial-x509-openssl.md
-        - name: Creating self-signed certificates
+        - name: Use Microsoft-supplied scripts to create test certificates
+          displayName: PowerShell scripts, Windows Certificate Store, CA certificate
+          href: tutorial-x509-scripts.md
+        - name: Create self-signed certificates
           displayName: X.509 certificates, OpenSSL, CSR, thumbprint
           href: tutorial-x509-self-sign.md
-        - name: Proving possession
-          displayName: X.509 certificates, certification authority, CA
+        - name: Upload and verify CA certificates
+          displayName: root certification authority (CA), verify certificate, manual verification, verification code, certificate signing request (CSR)
           href: tutorial-x509-prove-possession.md
-        - name: Testing authentication
+        - name: Test certificate authentication
           displayName: X.509 certificates
           href: tutorial-x509-test-certificate.md
 - name: Concepts
@@ -246,6 +243,12 @@
           href: ./security-controls-policy.md
         - name: Secure using X.509 CA certificates
           items:
+            - name: X.509 certificate concepts
+              displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
+              href: iot-hub-x509-certificate-concepts.md
+            - name: Certificate fields
+              displayName: certification authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS
+              href: tutorial-x509-certificates.md
             - name: X.509 CA certificate security concepts
               displayName: Device Provisioning Service, DPS, Hardware Secure Modules, HSM, self-signed certificate, Public Key Infrastructure, PKI
               href: iot-hub-x509ca-concept.md
@@ -658,7 +661,7 @@
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Azure IoT Tools
       displayName:  VS Code, Visual Studio Code, toolkit, azure-iot-toolkit, Azure loT Device Workbench
-      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool
       displayName: azure-iot-explorer, Plug and Play
       href: https://github.com/Azure/azure-iot-explorer
