@@ -139,18 +139,18 @@ The ForecastTCN often achieves higher accuracy than standard time series models 
 You can enable the ForecastTCN in AutoML by setting the `enable_dnn_training` flag in the set_training() method as follows:
 
 ```python
+# Include ForecastTCN models in the model search
 forecasting_job.set_training(
     enable_dnn_training=True
 )
 ```
-> [!IMPORTANT]
-> When you enable DNN for experiments created with the SDK, [best model explanations](how-to-machine-learning-interpretability-automl.md) are disabled.
-
-> [!NOTE]
-> DNN support for forecasting in Automated Machine Learning is not supported for runs initiated in Databricks.
 
 To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio UI how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
+> [!NOTE]
+> * When you enable DNN for experiments created with the SDK, [best model explanations](how-to-machine-learning-interpretability-automl.md) are disabled.
+> * DNN support for forecasting in Automated Machine Learning is not supported for runs initiated in Databricks.
+> * GPU compute types are recommended when DNN training is enabled 
 
 #### Target rolling window aggregation
 
@@ -224,75 +224,56 @@ forecasting_job.set_forecast_settings(
 )
 ```
 
-### Featurization steps
+### Custom featurization
 
-In every automated machine learning experiment, automatic scaling and normalization techniques are applied to your data by default. These techniques are types of **featurization** that help *certain* algorithms that are sensitive to features on different scales. Learn more about default featurization steps in [Featurization in AutoML](how-to-configure-auto-features.md#automatic-featurization)
+By default, AutoML augments training data with engineered features to increase the accuracy of the models. See [automated feature engineering](./concept-automl-forecasting-methods.md#automated-feature-engineering) for information. Some of the preprocessing steps can be customized using the `set_featurization()` method of the forecasting job.
 
-However, the following steps are performed only for `forecasting` task types:
-
-* Detect time-series sample frequency (for example, hourly, daily, weekly) and create new records for absent time points to make the series continuous.
-* Impute missing values in the target (via forward-fill) and feature columns (using median column values)
-* Create features based on time series identifiers to enable fixed effects across different series
-* Create time-based features to assist in learning seasonal patterns
-* Encode categorical variables to numeric quantities
-* Detect the non-stationary time series and automatically differencing them to mitigate the impact of unit roots.
-
-To view the full list of possible engineered features generated from time series data, see [TimeIndexFeaturizer Class](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.time_index_featurizer).
-
-> [!NOTE]
-> Automated machine learning featurization steps (feature normalization, handling missing data,
-> converting text to numeric, etc.) become part of the underlying model. When using the model for
-> predictions, the same featurization steps applied during training are applied to
-> your input data automatically.
-
-#### Customize featurization
-
-You also have the option to customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions. 
-
-Supported customizations for `forecasting` tasks include:
+Supported customizations for forecasting include:
 
 |Customization|Definition|
 |--|--|
 |**Column purpose update**|Override the auto-detected feature type for the specified column.|
-|**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (fill_value and median).|
-|**Drop columns** |Specifies columns to drop from being featurized.|
+|**Transformer parameter update**|Update the parameters for the specified *Imputer* (fill_value and median).|
 
-To customize featurizations with the SDK, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. Learn more about [custom featurizations](how-to-configure-auto-features.md#customize-featurization).
-
->[!NOTE]
-> The **drop columns** functionality is deprecated as of SDK version 1.19. Drop columns from your dataset as part of data cleansing, prior to consuming it in your automated ML experiment. 
+For example, suppose you have a retail demand scenario where the data includes features like price, an "on sale" flag, and a product type. The following sample shows how you can set customized types and imputers for these features:
 
 ```python
-featurization_config = FeaturizationConfig()
+from azure.ai.ml.automl import ColumnTransformer
 
-# `logQuantity` is a leaky feature, so we remove it.
-featurization_config.drop_columns = ['logQuantitity']
+# Customize imputation methods for price and is_on_sale features
+# Median value imputation for price, constant value of zero for is_on_sale
+transformer_params = {
+    "imputer": [
+        ColumnTransformer(fields=["price"], parameters={"strategy": "median"}),
+        ColumnTransformer(fields=["is_on_sale"], parameters={"strategy": "constant", "fill_value": 0}),
+    ],
+}
 
-# Force the CPWVOL5 feature to be of numeric type.
-featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
-
-# Fill missing values in the target column, Quantity, with zeroes.
-featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
-
-# Fill mising values in the `INCOME` column with median value.
-featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+# Set the featurization
+# Ensure that product_type feature is interpreted as categorical
+forecasting_job.set_featurization(
+    mode="custom",
+    transformer_params=transformer_params,
+    column_name_and_types={"product_type": "Categorical"},
+)
 ```
 
 If you're using the Azure Machine Learning studio for your experiment, see [how to customize featurization in the studio](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 ## Run the experiment 
 
-When you have your `AutoMLConfig` object ready, you can submit the experiment. After the model finishes, retrieve the best run iteration.
-
+After all settings are configured, you can launch the forecasting job via the `mlcient` as follows:
 
 ```python
-ws = Workspace.from_config()
-experiment = Experiment(ws, "Tutorial-automl-forecasting")
-local_run = experiment.submit(automl_config, show_output=True)
-best_run, fitted_model = local_run.get_output()
+# Submit the AutoML job
+returned_job = ml_client.jobs.create_or_update(
+    forecasting_job
+)
+
+print(f"Created job: {returned_job}")
 ``` 
  
-## Forecasting with best model
+## Forecasting with a trained model
 
 Use the best model iteration to forecast values for data that wasn't used to train the model.
   
@@ -355,7 +336,12 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 > [!NOTE]
 > In-sample predictions are not supported for forecasting with automated ML when `target_lags` and/or `target_rolling_window_size` are enabled.
 
-## Forecasting at scale 
+## Forecasting at scale
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+> [!IMPORTANT]
+> Many models and hierarchical time series are currently only supported in AzureML v1. Support for AzureML v2 is in progress.
 
 There are scenarios where a single machine learning model is insufficient and multiple machine learning models are needed. For instance, predicting sales for each individual store for a brand, or tailoring an experience to individual users. Building a model for each instance can lead to improved results on many machine learning problems. 
 
