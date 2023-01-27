@@ -3,7 +3,7 @@ author: MikeRayMSFT
 ms.author: mikeray
 ms.service: azure-arc
 ms.topic: include
-ms.date: 12/13/2022
+ms.date: 01/27/2023
 ---
 
 ### Outbound connectivity
