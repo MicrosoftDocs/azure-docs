@@ -23,21 +23,21 @@ This article mainly targets users who want to use the inference server to debug 
 
 ## Online endpoint local debugging
 
-Debugging endpoints locally before deploying them to the cloud can help you catch errors in your code and configuration earlier. You have different options for debugging endpoints locally.
+Debugging endpoints locally before deploying them to the cloud can help you catch errors in your code and configuration earlier. To debug endpoints locally, you could use:
 
-- Azure Machine Learning inference HTTP server
-- [Local endpoint](how-to-debug-managed-online-endpoints-visual-studio-code.md)
+- the Azure Machine Learning inference HTTP server
+- a [local endpoint](how-to-debug-managed-online-endpoints-visual-studio-code.md)
 
-This guide focuses on Azure Machine Learning inference HTTP server.
+This article focuses on the Azure Machine Learning inference HTTP server.
 
 The following table provides an overview of scenarios to help you choose what works best for you.
 
 | Scenario                                                                | Inference HTTP Server | Local endpoint |
 | ----------------------------------------------------------------------- | --------------------- | -------------- |
-| Update local Python environment, **without** Docker image rebuild       | Yes                   | No             |
+| Update local Python environment **without** Docker image rebuild       | Yes                   | No             |
 | Update scoring script                                                   | Yes                   | Yes            |
 | Update deployment configurations (deployment, environment, code, model) | No                    | Yes            |
-| VS Code Debugger integration                                            | Yes                   | Yes            |
+| Integrate VS Code Debugger                                            | Yes                   | Yes            |
 
 By running the inference HTTP server locally, you can focus on debugging your scoring script without being affected by the deployment container configurations.
 
@@ -47,7 +47,7 @@ By running the inference HTTP server locally, you can focus on debugging your sc
 - Anaconda
 
 > [!TIP]
-> The Azure Machine Learning inference HTTP server runs on Windows & Linux based operating systems.
+> The Azure Machine Learning inference HTTP server runs on Windows and Linux based operating systems.
 
 ## Installation
 
@@ -129,7 +129,7 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
 
 -  **Launch mode**: set up the `launch.json` in VS Code and start the AzureML Inference HTTP Server within VS Code.
    1. Start VS Code and open the folder containing the script (`score.py`).
-   1. Add below configuration to `launch.json` for that workspace in VS Code:
+   1. Add the following configuration to `launch.json` for that workspace in VS Code:
 
         **launch.json**
         ```json
@@ -153,7 +153,7 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
     1. Start debugging session in VS Code. Select "Run" -> "Start Debugging" (or `F5`).
 
 -  **Attach mode**: start the AzureML Inference HTTP Server in a command line and use VS Code + Python Extension to attach to the process.
-   1. Add below configuration to `launch.json` for that workspace in VS Code:
+   1. Add the following configuration to `launch.json` for that workspace in VS Code:
         
         **launch.json**
         ```json
@@ -189,7 +189,7 @@ In this section, we'll run the server locally with [sample files](https://github
     ```
 
 1. Create and activate a virtual environment with [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
-    In this example, the `azureml-inference-server-http` package is automatically installed because it's included as a dependent library of the `azureml-defaults` package in `conda.yml` below.
+    In this example, the `azureml-inference-server-http` package is automatically installed because it's included as a dependent library of the `azureml-defaults` package in `conda.yml` as follows.
 
     ```bash
     # Create the environment from the YAML file
@@ -275,7 +275,7 @@ Here we describe logs of the AzureML Inference HTTP Server. You can get the log 
 
 ### Startup logs
 
-When the server is started, the server settings are first displayed like as shown below followed by the logs:
+When the server is started, the server settings are first displayed by the logs as follows:
 
 ```
 Azure ML Inferencing HTTP server <version>
