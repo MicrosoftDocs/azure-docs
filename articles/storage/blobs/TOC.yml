@@ -718,6 +718,24 @@ items:
               href: storage-blob-container-lease-python.md
             - name: Manage properties and metadata
               href: storage-blob-container-properties-metadata-python.md
+          - name: Blob actions
+            items:
+            - name: Upload blobs
+              href: storage-blob-upload-python.md
+            - name: Download blobs
+              href: storage-blob-download-python.md
+            - name: Copy blobs
+              href: storage-blob-copy-python.md
+            - name: List blobs
+              href: storage-blobs-list-python.md
+            - name: Delete and restore blobs
+              href: storage-blob-delete-python.md
+            - name: Find blobs using tags
+              href: storage-blob-tags-python.md
+            - name: Manage blob leases
+              href: storage-blob-lease-python.md
+            - name: Manage blob properties and metadata
+              href: storage-blob-properties-metadata-python.md
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
