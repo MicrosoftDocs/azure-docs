@@ -31,6 +31,9 @@ items:
       tocHref: /azure/search/
       topicHref: /azure/reliability/index
     - name: Reliability
+      tocHref: /azure/communications-gateway/
+      topicHref: /azure/reliability/index
+    - name: Reliability
       tocHref: /azure/container-instances/
       topicHref: /azure/reliability/index
     - name: Reliability

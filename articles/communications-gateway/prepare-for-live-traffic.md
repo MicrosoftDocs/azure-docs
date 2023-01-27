@@ -37,7 +37,7 @@ In some parts of this article, the steps you must take depend on whether your de
 
 ## 1. Connect Azure Communications Gateway to your networks
 
-1. Configure your infrastructure to meet the call routing requirements described in [Reliability in Azure Communications Gateway](../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json).
+1. Configure your infrastructure to meet the call routing requirements described in [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
 1. Configure your network devices to send and receive traffic from Azure Communications Gateway. You might need to configure SBCs, softswitches and access control lists (ACLs).
 1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through Azure Internet Peering for Communications Services (also known as MAPS for Voice).
 1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection.
