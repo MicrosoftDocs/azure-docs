@@ -48,27 +48,27 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Center for SAP solutions?
-            url: overview.md
+            url: center-sap-solutions/overview.md
           - text: FAQ about Azure Center for SAP solutions
-            url: faq.yml
+            url: center-sap-solutions/faq.yml
       - linkListType: how-to-guide
         links:
           - text: Prepare for deployment
-            url: prepare-network.md
+            url: center-sap-solutions/prepare-network.md
           - text: Deploy SAP infrastructure
-            url: deploy-s4hana.md
+            url: center-sap-solutions/deploy-s4hana.md
           - text: Install SAP software
-            url: install-software.md
+            url: center-sap-solutions/install-software.md
           - text: Register an existing SAP system
-            url: register-existing-system.md
+            url: center-sap-solutions/register-existing-system.md
           - text: Start and stop SAP systems
-            url: start-stop-sap-systems.md
+            url: center-sap-solutions/start-stop-sap-systems.md
           - text: Manage a Virtual Instance for SAP solutions
-            url: manage-virtual-instance.md
+            url: center-sap-solutions/manage-virtual-instance.md
           - text: Get quality checks and insights
-            url: get-quality-checks-insights.md
+            url: center-sap-solutions/get-quality-checks-insights.md
           - text: View cost analysis for SAP system
-            url: view-cost-analysis.md
+            url: center-sap-solutions/view-cost-analysis.md
 
   - title: Azure Monitor for SAP solutions
     linkLists:
