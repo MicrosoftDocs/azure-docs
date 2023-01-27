@@ -61,9 +61,9 @@ you need to select this version Interactive Query 3.1 (HDI 5.0).
 
 ## Kafka 
 
-Current ARM template supports 5.0 for 2.4.1
+Current ARM template supports HDI 5.0 for Kafka 2.4.1
 
-`HDI Version'5.0" is supported for clusterType "Kafka" and component Version '2.4'.`
+`HDI Version '5.0' is supported for clusterType "Kafka" and component Version '2.4'.`
 
 We have fixed the arm templated issue.
 

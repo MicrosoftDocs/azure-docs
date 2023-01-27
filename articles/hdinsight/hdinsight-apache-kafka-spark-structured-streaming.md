@@ -82,11 +82,11 @@ kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
 
 In both snippets, data is read from Kafka and written to file. The differences between the examples are:
 
-| Batch | Streaming |
-| --- | --- |
-| `read` | `readStream` |
+| Batch   | Streaming     |
+|---------|---------------|
+| `read`  | `readStream`  |
 | `write` | `writeStream` |
-| `save` | `start` |
+| `save`  | `start`       |
 
 The streaming operation also uses `awaitTermination(30000)`, which stops the stream after 30,000 ms.
 
@@ -134,17 +134,17 @@ To create an Azure Virtual Network, and then create the Kafka and Spark clusters
 
 2. Use the following information to populate the entries on the **Customized template** section:
 
-    | Setting | Value |
-    | --- | --- |
-    | Subscription | Your Azure subscription |
-    | Resource group | The resource group that contains the resources. |
-    | Location | The Azure region that the resources are created in. |
-    | Spark Cluster Name | The name of the Spark cluster. The first six characters must be different than the Kafka cluster name. |
-    | Kafka Cluster Name | The name of the Kafka cluster. The first six characters must be different than the Spark cluster name. |
-    | Cluster Login User Name | The admin user name for the clusters. |
-    | Cluster Login Password | The admin user password for the clusters. |
-    | SSH User Name | The SSH user to create for the clusters. |
-    | SSH Password | The password for the SSH user. |
+    | Setting                 | Value                                                                                                  |
+    |-------------------------| ------------------------------------------------------------------------------------------------------ |
+    | Subscription            | Your Azure subscription                                                                                |
+    | Resource group          | The resource group that contains the resources.                                                        |
+    | Location                | The Azure region that the resources are created in.                                                    |
+    | Spark Cluster Name      | The name of the Spark cluster. The first six characters must be different than the Kafka cluster name. |
+    | Kafka Cluster Name      | The name of the Kafka cluster. The first six characters must be different than the Spark cluster name. |
+    | Cluster Login User Name | The admin user name for the clusters.                                                                  |
+    | Cluster Login Password  | The admin user password for the clusters.                                                              |
+    | SSH User Name           | The SSH user to create for the clusters.                                                               |
+    | SSH Password            | The password for the SSH user.                                                                         |
 
     :::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png" alt-text="Screenshot of the customized template":::
 
