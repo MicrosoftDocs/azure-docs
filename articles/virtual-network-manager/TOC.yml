@@ -61,18 +61,18 @@
       href: how-to-block-high-risk-ports.md
   - name: Create a network topology
     items:
-    - name: Mesh
-      items: 
-      - name: Azure portal
-        href: how-to-create-mesh-network.md
-      - name: Azure PowerShell
-        href: how-to-create-mesh-network-powershell.md
     - name: Hub-and-spoke
       items:
       - name: Azure portal
         href: how-to-create-hub-and-spoke.md
       - name: Azure PowerShell
         href: how-to-create-hub-and-spoke-powershell.md
+    - name: Mesh
+      items: 
+      - name: Azure portal
+        href: how-to-create-mesh-network.md
+      - name: Azure PowerShell
+        href: how-to-create-mesh-network-powershell.md
   - name: Cross-tenant connection support
     items:
     - name: Configure cross-tenant connection - Portal
