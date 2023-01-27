@@ -94,7 +94,7 @@ You must also be aware of what capabilities won't be available:
 This task defines the tools that will be used to synchronize the organization’s on-premises data to the cloud and what topology you should use.  Because, most organizations use Active Directory, information on using Azure AD Connect to address the questions above is provided in some detail.  For environments that don't have Active Directory, there's information about using FIM 2010 R2 or MIM 2016 to help plan this strategy.  However, future releases of Azure AD Connect will support LDAP directories, so depending on your timeline, this information may be able to assist.
 
 ### Synchronization tools
-Over the years, several synchronization tools have existed and used for various scenarios.  Currently Azure AD Connect is the go to tool of choice for all supported scenarios.  AAD Sync and DirSync are also still around and may even be present in your environment now. 
+Over the years, several synchronization tools have existed and used for various scenarios.  Currently Azure AD Connect is the go to tool of choice for all supported scenarios.  Azure AD Sync and DirSync are also still around and may even be present in your environment now. 
 
 > [!NOTE]
 > For the latest information regarding the supported capabilities of each tool, read [Directory integration tools comparison](plan-hybrid-identity-design-considerations-tools-comparison.md) article.  
@@ -122,7 +122,7 @@ The multi-forest single Azure AD topology should be considered if the following 
 
 * Users have only 1 identity across all forests – the uniquely identifying users section below describes this scenario in more detail.
 * The user authenticates to the forest in which their identity is located
-* UPN and Source Anchor (immutable id) will come from this forest
+* UPN and Source Anchor (immutable ID) will come from this forest
 * All forests are accessible by Azure AD Connect – meaning it does not need to be domain joined and can be placed in a DMZ.
 * Users have only one mailbox
 * The forest that hosts a user’s mailbox has the best data quality for attributes visible in the Exchange Global Address List (GAL)

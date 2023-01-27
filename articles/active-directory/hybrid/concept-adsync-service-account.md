@@ -48,7 +48,7 @@ Legend:
 - Local account - Local user account on the server 
 - Domain account - Domain user account 
 - sMSA - [standalone Managed Service account](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
-- gMSA - [group Managed Service account](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
+- gMSA - [group managed service account](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
 |Machine type |**LocalDB</br> Express**|**LocalDB/LocalSQL</br> Custom**|**Remote SQL</br> Custom**|
 |-----|-----|-----|-----|
@@ -67,7 +67,7 @@ The Virtual Service Account can't be used on a Domain Controller due to [Windows
 
 ## Managed Service Account 
 
-If you use a remote SQL Server, then we recommend to using a group managed service account. For more information on how to prepare your Active Directory for group Managed Service account, see [Group Managed Service Accounts Overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
+If you use a remote SQL Server, then we recommend to using a group managed service account. For more information on how to prepare your Active Directory for group managed service account, see [Group Managed Service Accounts Overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
 
 To use this option, on the [Install required components](how-to-connect-install-custom.md#install-required-components) page, select **Use an existing service account**, and select **Managed Service Account**. 
 
