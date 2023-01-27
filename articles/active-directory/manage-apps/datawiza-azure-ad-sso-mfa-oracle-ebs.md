@@ -135,7 +135,7 @@ Configuration on the management console is complete. You are prompted to deploy 
 2. Enable SSL. 
 3. Select a **Cert Type**.
 
-   [ ![Screenshot of Enable SSL and Cert Type options.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/cert-type.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/cert-type.png)
+   [ ![Screenshot of Enable SSL and Cert Type options.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/cert-type.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/cert-type.png#lightbox)
 
 4. There's a self-signed certificate for localhost, which you can use for testing.
 
