@@ -222,7 +222,8 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Select the device ID of the target device from the list of devices.
 
-   When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+   >[!NOTE]
+   >When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 
 1. On the upper bar, select **Set Modules**.
@@ -256,7 +257,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
    You should see three modules: **$edgeAgent**, **$edgeHub**, and **SimulatedTemperatureSensor**. If one or more of the modules has **Yes** under **Specified in Deployment** but not under **Reported by Device**, your IoT Edge device is still starting them. Wait a few minutes, and then refresh the page.
 
-   :::image type="content" source="./media/quickstart/view-deployed-modules.png" alt-text="Screenshot that shows Simulated Temperature Sensor in the list of deployed modules.":::
+   :::image type="content" source="./media/quickstart/view-deployed-modules.png" alt-text="Screenshot that shows Simulated Temperature Sensor in the list of deployed modules." lightbox="./media/quickstart/view-deployed-modules.png":::
 
 ## View the generated data
 
