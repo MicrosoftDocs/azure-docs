@@ -172,11 +172,11 @@ If you offer a Software as a Service (SaaS) application to many organizations, y
 
 ### Multi-tenant organizations
 
-A multi-tenant organization is an organization that has more than one instance of Azure AD. There are various reasons for [multi-tenancy](../../multi-tenant-organizations/overview.md#what-is-a-multi-tenant-organization), like using multiple clouds or having multiple geographical boundaries. Multi-tenant organizations use a one-way synchronization service in Azure AD, called [cross-tenant synchronization](../../multi-tenant-organizations/overview.md#cross-tenant-synchronization-preview). Cross-tenant synchronization enables seamless collaboration for a multi-tenant organization. It improves user experience and ensures that users can access resources, without receiving an invitation email and having to accept a consent prompt in each tenant. Cross-tenant synchronization is currently in preview.
+A multi-tenant organization is an organization that has more than one instance of Azure AD. There are various reasons for [multi-tenancy](../../active-directory/multi-tenant-organizations/overview.md#what-is-a-multi-tenant-organization), like using multiple clouds or having multiple geographical boundaries. Multi-tenant organizations use a one-way synchronization service in Azure AD, called [cross-tenant synchronization](../../active-directory/multi-tenant-organizations/overview.md#cross-tenant-synchronization-preview). Cross-tenant synchronization enables seamless collaboration for a multi-tenant organization. It improves user experience and ensures that users can access resources, without receiving an invitation email and having to accept a consent prompt in each tenant. Cross-tenant synchronization is currently in preview.
 
 ## Next steps
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [What is Azure AD B2B direct connect?](b2b-direct-connect-overview.md)
 - [About Azure AD B2C](../../active-directory-b2c/overview.md)
-- [About Azure AD multi-tenant organizations](../../multi-tenant-organizations/overview.md)
+- [About Azure AD multi-tenant organizations](../../active-directory/multi-tenant-organizations/overview.md)
