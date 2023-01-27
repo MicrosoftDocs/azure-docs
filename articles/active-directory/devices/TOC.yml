@@ -95,7 +95,7 @@
       href: howto-hybrid-join-downlevel.md
   - name: Enforce TLS 1.2
     href: reference-device-registration-tls-1-2.md
-  - name: Graph APIs
+  - name: Microsoft Graph APIs
     href: /graph/api/resources/device
 - name: Resources
   items:
