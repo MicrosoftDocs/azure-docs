@@ -70,7 +70,7 @@ You need to specify the `TenantId` only if you want to accept access tokens from
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    "ClientId": "Enter_the_Application_(client)_ID_here"
+    "ClientId": "Enter_the_Application_(client)_ID_here",
     "TenantId": "common"
   },
   "Logging": {
