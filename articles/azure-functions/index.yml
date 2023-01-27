@@ -38,7 +38,7 @@ landingContent:
         links:
           - text: C# 
             url: functions-create-your-first-function-visual-studio.md
-          - text: Java/Maven
+          - text: Java
             url: create-first-function-cli-java.md
           - text: JavaScript
             url: create-first-function-vs-code-node.md
