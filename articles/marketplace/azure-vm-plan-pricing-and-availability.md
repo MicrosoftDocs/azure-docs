@@ -61,8 +61,8 @@ These steps assume you have already selected either the _Flat rate_, _Per vCPU_,
 1. To offer a 1-year discount, select the **1-year saving %** check box and then enter the percentage discount you want to offer.
 1. To offer a 3-year discount, select the **3-year saving %** check box and then enter the percentage discount you want to offer.
 1. To see the discounted prices, select **Price per vCPU size**. A table with the 1-year and 3-year prices for each vCPU size is shown. These prices are calculated based on the number of hours in the term with the percentage discount subtracted.
-> [!TIP]
-> For Per vCPU size plans, you can optionally change the price for a particular vCPU size in the **Price/hour** column of the table.
+   > [!TIP]
+   > For Per vCPU size plans, you can optionally change the price for a particular vCPU size in the **Price/hour** column of the table.
 1. Make sure to select **Save draft** before you leave the page. The changes will be applied once you publish the offer.
    
 ## Free trial
