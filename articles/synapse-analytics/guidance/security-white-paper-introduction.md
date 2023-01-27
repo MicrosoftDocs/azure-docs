@@ -1,8 +1,8 @@
 ---
 title: Azure Synapse Analytics security white paper
 description: Overview of the Azure Synapse Analytics security white paper series of articles.
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: overview
