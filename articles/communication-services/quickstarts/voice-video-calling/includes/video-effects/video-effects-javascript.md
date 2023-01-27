@@ -64,7 +64,7 @@ videoEffectsFeatureApi.on(‘effectsError’, (error) => {
 });
 ```
 
-### Background blur:
+### Background blur
 ```js
 // Create the effect instance 
 const backgroundBlurEffect = new BackgroundBlurEffect(); 
@@ -78,7 +78,7 @@ if (backgroundBlurSupported) {
 }
 ```
 
-### Background replacement with an image:
+### Background replacement with an image
 You need to provide the URL of the image you want as the background to this effect.
 > [!IMPORTANT]
 > The `startEffects` method will fail if the URL is not of an image or is unreachable/unreadable.
