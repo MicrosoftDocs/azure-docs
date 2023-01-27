@@ -163,7 +163,7 @@ az ml compute create --name myci --resource-group rg --workspace-name ws --vnet-
 > The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
 
 ```python
-from azure.ai.ml.entities import AmlCompute
+from azure.ai.ml.entities import AmlCompute, NetworkSettings
 
 # specify aml compute name.
 cpu_compute_target = "cpu-cluster"
@@ -172,9 +172,10 @@ try:
     ml_client.compute.get(cpu_compute_target)
 except Exception:
     print("Creating a new cpu compute target...")
+    network_settings = NetworkSettings(vnet_name='yourvnet', subnet='yoursubnet')
     compute = AmlCompute(
         name=cpu_compute_target, size="STANDARD_D2_V2", min_instances=0, max_instances=4,
-        vnet_name="yourvnet", subnet_name="yoursubnet", enable_node_public_ip=False
+        network_settings=network_settings, enable_node_public_ip=False
     )
     ml_client.compute.begin_create_or_update(compute).result()
 ```
