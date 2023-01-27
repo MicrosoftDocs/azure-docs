@@ -79,7 +79,6 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
-    | id | user.id |
     | email | user.mail |
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
