@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 01/27/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL compute and storage
@@ -90,7 +90,7 @@ compute](concepts-burstable-compute.md) and regular compute.
 |----------|----------------|
 | Burstable compute, vCores | 1, 2 |
 | Burstable compute memory per vCore, GiB | 4 |
-| Storage size, GiB | 128 |
+| Storage size, GiB | 32, 64, 128 |
 | Storage IOPS | Up to 500 |
 | Storage type | General purpose (SSD) |
 
