@@ -54,31 +54,44 @@ An Azure Machine Learning workspace depends on the following Azure resources:
 * Azure Key Vault
 * Azure Storage Account
 
-Use the following commands to create these resources and retrieve the Azure Resource Manager ID of each:
+Use the following commands to create these resources and retrieve the Azure Resource Manager ID for each of them:
 
-```azurepowershell-interactive
-$AppInsights = 'MyAppInsights'
-New-AzApplicationInsights -Name $AppInsights -ResourceGroupName $ResourceGroup -Location $Location
-$appid = (Get-AzResource -Name $AppInsights -ResourceGroupName $ResourceGroup).ResourceId
-```
+1. Create the Application Insights instance:
 
-```azurepowershell-interactive
-$KeyVault = 'MyKeyVault'
-New-AzKeyVault -Name $KeyVault -ResourceGroupName $ResourceGroup -Location $Location
-$kvid = (Get-AzResource -Name $KeyVault -ResourceGroupName $ResourceGroup).ResourceId
-```
+    ```azurepowershell-interactive
+    $AppInsights = 'MyAppInsights'
+    New-AzApplicationInsights -Name $AppInsights -ResourceGroupName $ResourceGroup -Location $Location
+    $appid = (Get-AzResource -Name $AppInsights -ResourceGroupName $ResourceGroup).ResourceId
+    ```
 
-```azurepowershell-interactive
-$Storage = 'MyStorage'
-New-AzStorageAccount -Name $Storage -ResourceGroupName $ResourceGroup -Location $Location `
-                     -SkuName Standard_LRS -Kind StorageV2
-$storeid = (Get-AzResource -Name $Storage -ResourceGroupName $ResourceGroup).ResourceId
-```
+1. Create the Azure Key Vault:
+
+    ```azurepowershell-interactive
+    $KeyVault = 'MyKeyVault'
+    New-AzKeyVault -Name $KeyVault -ResourceGroupName $ResourceGroup -Location $Location
+    $kvid = (Get-AzResource -Name $KeyVault -ResourceGroupName $ResourceGroup).ResourceId
+    ```
+
+1. Create the Azure Storage Account:
+
+    ```azurepowershell-interactive
+    $Storage = 'MyStorage'
+    New-AzStorageAccount -Name $Storage -ResourceGroupName $ResourceGroup -Location $Location `
+                        -SkuName Standard_LRS -Kind StorageV2
+    $storeid = (Get-AzResource -Name $Storage -ResourceGroupName $ResourceGroup).ResourceId
+    ```
+
 ## Create a workspace
 
+The following command creates the workspace and configures it to use the services created previously. It also configures the workspace to use a system-assigned managed identity, which is used to access these services. For more information on using managed identities with Azure Machine Learning, see the [Set up authentication to other services](how-to-identity-based-service-authentication.md) article.
+
 ```azurepowershell-interactive
-New-AzMLWorkspace -Name larryml -ResourceGroupName $ResourceGroup -Location $Location `
-                  -
+$Workspace = 'MyWorkspace'
+New-AzMLWorkspace -Name $Workspace -ResourceGroupName $ResourceGroup -Location $Location `
+                  -ApplicationInsightID $appid `
+                  -KeyVaultId $kvid `
+                  -StorageAccountId $storeid `
+                  -IdentityType 'SystemAssigned'
 ```
 
 > [!TIP]
@@ -87,3 +100,46 @@ New-AzMLWorkspace -Name larryml -ResourceGroupName $ResourceGroup -Location $Loc
 > ```azurepowershell-interactive
 > Install-Module Az.MachineLearningServices
 > ```
+
+## Get workspace information
+
+To retrieve a list of workspaces, use the following command:
+
+```azurepowershell-interactive
+Get-AzMLWorkspace
+```
+
+To retrieve information on a specific workspace, provide the name and resource group information:
+
+```azurepowershell-interactive
+Get-AzMLWorkspace -Name $Workspace -ResourceGroupName $ResourceGroup
+```
+
+## Delete a workspace
+
+[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+
+To delete a workspace after it's no longer needed, use the following command:
+
+```azurepowershell-interactive
+Remove-AzMLWorkspace -Name $Workspace -ResourceGroupName $ResourceGroup
+```
+
+> [!IMPORTANT]
+> Deleting a workspace does not delete the application insight, storage account, key vault, or container registry used by the workspace.
+
+You can also delete the resource group, which deletes the workspace and all other Azure resources in the resource group. To delete the resource group, use the following command:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name $ResourceGroup
+```
+
+## Next steps
+
+To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
+
+To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
+
+For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).
+
+To learn how to train an ML model with your workspace, see the [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md) tutorial.
