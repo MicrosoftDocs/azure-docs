@@ -405,7 +405,7 @@ In the `ContosoCustomPolicy.XML` file, locate the `HelloWorldJourney` user journ
         </OrchestrationStep>
     
         <!-- Show self-asserted page only if the directory does not have the user account
-        already (i.e. we do not have an objectId).  -->
+        already (i.e. we don't have an objectId).  -->
         <OrchestrationStep Order="4" Type="ClaimsExchange">
             <Preconditions>
                 <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -436,11 +436,11 @@ In the orchestration, we've used make reference to technical profiles that enabl
 
 When the custom policy runs:
 
-- **Orchestration Step 1** - This step includes a *ClaimsProviderSelections* element, which lists the available sign-in options a user can choose from. In this case, we've one option only, *FacebookExchange*.
+- **Orchestration Step 1** - This step includes a *ClaimsProviderSelections* element, which lists the available sign-in options a user can choose from. In this case, we've only have one option, *FacebookExchange*, so when the policy runs, users are taken directly to Facebook.com in step 2 as shown by the `TargetClaimsExchangeId` attribute. 
 
--  **Orchestration Step 2** - The *Facebook-OAUTH* Technical Profile executes, so the user is redirected to Facebook to sign in. 
+-  **Orchestration Step 2** - The *Facebook-OAUTH* technical profile executes, so the user is redirected to Facebook to sign in. 
 
-- **Orchestration Step 3** - In step 3, the *AAD-UserReadUsingAlternativeSecurityId* Technical Profile executes to try to read the user social account from Azure AD. If the social account is found, `objectId` is returned as an output claim.    
+- **Orchestration Step 3** - In step 3, the *AAD-UserReadUsingAlternativeSecurityId* technical profile executes to try to read the user social account from Azure AD storage. If the social account is found, `objectId` is returned as an output claim.    
 
 - **Orchestration Step 4** - This step runs if the user doesn't already exist (`objectId` doesn't exist). It shows the form that collects more information from the user or updates similar information obtained from the social account.
 
@@ -448,9 +448,9 @@ When the custom policy runs:
 
 - **Orchestration Step 6** - Finally, step 6 assembles and returns the JWT token at the end of the policy’s execution.
 
-## Step 5 - Update Relying Party Output Claims 
+## Step 5 - Update relying party output claims 
 
-In the `ContosoCustomPolicy.XML` file, locate the *RelyingParty* element, and then replace all the output claims with the following code:
+In the `ContosoCustomPolicy.XML` file, locate the *RelyingParty* element, and then replace all the output claims collection with the following code:
 
 ```xml
     <OutputClaim ClaimTypeReferenceId="displayName" />
@@ -460,7 +460,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *RelyingParty* element, and th
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
     <OutputClaim ClaimTypeReferenceId="identityProvider" />
 ```
-We've included the identity provider (*identityProvider*) as an output claim, so it will be available in the JWT token returned to the relying party application. 
+We've added the identity provider (*identityProvider*) as an output claim, so it will be included in the JWT token returned to the relying party application. 
  
 ## Step 6 - Upload policy
 
@@ -473,7 +473,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 You're redirected to a Facebook sign-in page. Enter your Facebook credentials, and then select **Log In**. 
 You're directly redirected to Facebook as we set it so in our orchestration steps since we don't have multiple sign-in options to choose from. Typically, in an app, you'd add a button like **Sign in with Facebook**, which when selected, runs the policy. 
 
-If it's the first time running this policy (social account doesn't already exist), you see a screen such as the one shown below. You won't see this screen in subsequent policy execution (social account already exist).  
+If it's the first time running this policy (social account doesn't already exist in Azure AD storage), you see a screenshot such as the one shown below. You won't see this screen in subsequent policy executions as the social account already exist in Azure AD storage.  
 
 :::image type="content" source="media/custom-policies-series-sign-up-or-sign-in-federation/screenshot-of-sign-in-social-account.png" alt-text="Screenshot of sign-in flow with social account."::: 
 
@@ -518,12 +518,12 @@ Use the following steps to add a combined local and social account:
         </ClaimType>
       <!--</ClaimsSchema>-->
     ``` 
-1. In the `UserJourneys` section, add a new user journey, *CombinedSignInSignUp* by using the following code: 
+1. In the `UserJourneys` section, add a new user journey, *LocalAndSocialSignInAndSignUp* by using the following code: 
 
     ```xml
         <!--<UserJourneys>-->
             ...
-            <UserJourney Id="CombinedSignInSignUp">
+            <UserJourney Id="LocalAndSocialSignInAndSignUp">
                 <OrchestrationSteps>
                     <!--Orchestration steps will be added here-->
                 </OrchestrationSteps>
@@ -532,7 +532,7 @@ Use the following steps to add a combined local and social account:
     ```
 1. Add the orchestration steps
 
-1. In the RelyingParty section, change *DefaultUserJourney's* `ReferenceId` to `CombinedSignInSignUp`  
+1. In the RelyingParty section, change *DefaultUserJourney's* `ReferenceId` to `LocalAndSocialSignInAndSignUp`  
 
 1. Upload policy file
 

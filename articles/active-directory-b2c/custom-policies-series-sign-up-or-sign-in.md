@@ -219,7 +219,7 @@ We've configured a content definition for our self-asserted technical profile, `
 
 ## Step 3 - Update the User Journey Orchestration Steps
 
-In the `ContosoCustomPolicy.XML` file, locate the *HelloWorldJourney* user journey and replace all its orchestration steps with the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the *HelloWorldJourney* user journey and replace all its orchestration steps collection with the following code: 
 
 ```xml
     <!--<OrchestrationSteps>-->
@@ -303,11 +303,11 @@ When the custom policy runs:
 - **Orchestration Step 4** - This step runs if the user signs up (objectId doesn't exist), so we display the sign-up form by invoking the
 *UserInformationCollector* self-asserted technical profile. This step runs whether a user signs up or signs in. 
 
-- **Orchestration Steps 5** - This step reads account information from Azure AD (we invoke *AAD-UserRead* Azure AD technical profile), so it runs whether a user signs up or signs in.   
+- **Orchestration Step 5** - This step reads account information from Azure AD (we invoke *AAD-UserRead* Azure AD technical profile), so it runs whether a user signs up or signs in.   
 
 - **Orchestration Step 6** -  This step invokes the *UserInputMessageClaimGenerator* technical profile to assemble the user’s greeting message.
 
--  **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT token at the end of the policy’s execution
+- **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT token at the end of the policy’s execution.
 
 ## Step 4 - Upload policy
 
