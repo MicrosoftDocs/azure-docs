@@ -9789,21 +9789,3 @@ For more information, see [Hide a third-party application from a user's experien
 
  As part of the transition to the new admin console, two new APIs for retrieving Azure AD activity logs are available. The new set of APIs provides richer filtering and sorting functionality in addition to providing richer audit and sign-in activities. The data previously available through the security reports now can be accessed through the Identity Protection Risk Detections API in Microsoft Graph.
 
-
-## September 2017
-
-### Hotfix for Identity Manager
-
-**Type:** Changed feature
-**Service category:** Identity Manager
-**Product capability:** Identity lifecycle management
-
-A hotfix roll-up package (build 4.4.1642.0) is available as of September 25, 2017, for Identity Manager 2016 Service Pack 1. This roll-up package:
-
-- Resolves issues and adds improvements.
-- Is a cumulative update that replaces all Identity Manager 2016 Service Pack 1 updates up to build 4.4.1459.0 for Identity Manager 2016.
-- Requires you to have Identity Manager 2016 build 4.4.1302.0.
-
-For more information, see [Hotfix rollup package (build 4.4.1642.0) is available for Identity Manager 2016 Service Pack 1](https://support.microsoft.com/help/4021562).
-
----
