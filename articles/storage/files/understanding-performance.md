@@ -4,7 +4,7 @@ description: Learn about the factors that can impact Azure file share performanc
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/17/2023
+ms.date: 01/26/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -27,6 +27,10 @@ Before reading this article, it's helpful to understand some key terms relating 
 
     IOPS measures the number of read and write operations per second.
 
+-   **IO size**
+
+    IO size can range from very small sizes such as 4 KiB to much larger sizes. 
+
 -  **Throughput**
 
     Throughput measures the number of bits read or written per second, and is measured in megabytes per second (MB/s) or mebibytes per second (MiB/s). 
@@ -35,22 +39,26 @@ Before reading this article, it's helpful to understand some key terms relating 
 
     Latency is a synonym for delay and is usually measured in milliseconds (ms). There are two types of latency: end-to-end latency and service latency. For more information, see [Latency](#latency).
 
+-  **Bandwidth**
+
+    Bandwidth represents the volume of data being transferred per second. To calculate data transfer speed, multiply IOPS by IO size. For example, 10,000 IOPS * 1 MiB IO size = 10 GiB/s, while 10,000 IOPS * 4 KiB IO size = 38 MiB/s. As you can see, IO size plays a major role in achievable bandwidth.
+
 -  **Queue depth**
 
     Queue depth is the number of pending input/output (IO) requests that a storage resource can handle at any one time.
 
 ## Choosing a performance tier based on usage patterns
 
-Azure Files offers two performance tiers: standard and premium. Standard file shares are hosted on a storage system backed by hard disk drives (HDD), while premium file shares are backed by solid-state drives (SSD) for better performance. Standard file shares have several storage tiers (transaction optimized, hot, and cool) that you can seamlessly move between to maximize the data at-rest storage and transaction prices. However, you can't move between standard and premium tiers without physically migrating your data between different [storage accounts](../common/storage-account-overview.md#types-of-storage-accounts).
+Azure Files provides a range of storage tiers that help reduce costs by allowing you to store data at the appropriate level of performance and price. At the highest level, Azure Files offers two performance tiers: standard and premium. Standard file shares are hosted on a storage system backed by hard disk drives (HDD), while premium file shares are backed by solid-state drives (SSD) for better performance. Standard file shares have several storage tiers (transaction optimized, hot, and cool) that you can seamlessly move between to maximize the data at-rest storage and transaction prices. However, you can't move between standard and premium tiers without physically migrating your data between different [storage accounts](../common/storage-account-overview.md#types-of-storage-accounts).
 
-When choosing between standard and premium file shares, it's important to understand the requirements of the expected usage pattern you're planning to run on Azure Files.  
+When choosing between standard and premium file shares, it's important to understand the requirements of the expected usage pattern you're planning to run on Azure Files. If you require large amounts of IOPS, extremely fast data transfer speeds, or very low latency, then you should choose premium Azure file shares.
 
 The following table summarizes the expected performance targets between standard and premium. For details, see [Azure Files scalability and performance targets](storage-files-scale-targets.md). 
 
 | **Usage pattern requirements**                | **Standard** | **Premium** |
 |-----------------------------------------------|--------------|-------------|
 | Write latency (single-digit milliseconds)     | Yes          | Yes         |
-| Read latency (single-digit milliseconds)      | Yes          | Yes         |
+| Read latency (single-digit milliseconds)      | No           | Yes         |
 | Bandwidth > 300 MiB/s                         | No           | Yes         |
 | IOPS > 20,000                                 | No           | Yes         |
 
@@ -79,7 +87,7 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads will be less likely to achieve the upper performance limits of standard file shares compared to long-running, frequently occurring workloads. On premium file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioning size. Depending on how long the workload needs to [burst](understanding-billing.md#bursting) for and how long it spends below the baseline IOPS, you can determine if you're accumulating enough bursting credits to consistently satisfy your workload at peak times. Finding the right balance will reduce costs compared to over-provisioning the file share.
 
-- **Workload parallelization:** For parallel supported workloads, it's easier to achieve the scale limits with fewer client machines by using [SMB multichannel](storage-files-smb-multichannel-performance.md) with SMB 3.1.1 on premium files.
+- **Workload parallelization:** For parallel supported workloads that use multiple threads and clients, it's easier to achieve the scale limits with fewer client machines by using [SMB multichannel](storage-files-smb-multichannel-performance.md) with SMB 3.1.1 on premium files.
 
 - **API operation distribution**: Is the workload metadata heavy with file open/close operations? This is common for workloads that are performing read operations against a large volume of files. See Monitoring metadata operations.
 
@@ -155,5 +163,5 @@ By using eight threads instead of one, the above workload can be reduced from 14
 - [Troubleshoot Azure file shares performance issues](storage-troubleshooting-files-performance.md)
 - [Monitoring Azure Files](storage-files-monitoring.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)
-- [Understanding billing](understanding-billing.md)
+- [Understanding Azure Files billing](understanding-billing.md)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
