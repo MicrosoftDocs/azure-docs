@@ -49,7 +49,7 @@ The app must register a delegate to get notified about when it should start or s
 
 1. Create an array of `VideoFormat` with the video formats that the app supports. It's fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type. 
 
-   When multiple formats are provided, the order of the format in the list doesn't influence or prioritize which one will be used. The selected format is based on external factors like network bandwidth.
+   When multiple formats are provided, the order of the format in the list doesn't influence or prioritize which one will be used. The criteria for format selection are based on external factors like network bandwidth.
 
     ```java
     ArrayList<VideoFormat> videoFormats = new ArrayList<VideoFormat>();
@@ -85,7 +85,7 @@ The app must register a delegate to get notified about when it should start or s
 
 4. Make sure the `RawOutgoingVideoStreamOptions::addOnVideoFrameSenderChangedListener` delegate is defined. This delegate will inform its listener about events that require the app to start or stop producing video frames. 
 
-   In this quickstart, `mediaFrameSender` is used as trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
+   This quickstart uses `mediaFrameSender` as a trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
 
     ```java
     private VideoFrameSender mediaFrameSender;

@@ -49,7 +49,7 @@ The app must register a delegate to get notified about when it should start or s
 
 1. Create an array of `VideoFormat` with the video formats that the app supports. It's fine to have only one supported video format, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type.
 
-   When multiple formats are available, the order of the formats in the list doesn't influence or prioritize which one will be used. The selected format is based on external factors like network bandwidth.
+   When multiple formats are available, the order of the formats in the list doesn't influence or prioritize which one will be used. The criteria for format selection are based on external factors like network bandwidth.
 
     ```csharp
     var videoFormat = new VideoFormat
@@ -83,9 +83,9 @@ The app must register a delegate to get notified about when it should start or s
     };
     ```
 
-4. Make sure the `RawOutgoingVideoStreamOptions::addOnVideoFrameSenderChangedListener` delegate is defined. This delegate will inform its listener about events that require the app to start or stop producing video frames. 
+4. Make sure the `RawOutgoingVideoStreamOptions::addOnVideoFrameSenderChangedListener` delegate is defined. This delegate will inform its listener about events that require the app to start or stop producing video frames.
 
-   In this quickstart, `videoFrameSender` is used as a trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
+   This quickstart uses `videoFrameSender` as a trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
 
     ```csharp
     private VideoFrameSender videoFrameSender;

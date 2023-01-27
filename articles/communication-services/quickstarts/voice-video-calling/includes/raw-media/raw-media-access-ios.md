@@ -24,9 +24,9 @@ This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../
 
 ## Overview of virtual video streams
 
-Since the app will be generating the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats the app is capable of generating. This step is required to allow the Azure Communication Services Calling SDK to pick the best video format configuration given the network conditions at any given time.
+Because the app will generate the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 
-The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app, which video format is more appropriate for the current network conditions.
+The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is most appropriate for the current network conditions.
 
 ### Supported video resolutions
 
@@ -47,7 +47,9 @@ The app must register a delegate to get notified about when it should start or s
 
 ### Steps to create a virtual video stream
 
-1. Create an array of `VideoFormat` with the video formats supported by the app. It's fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type. When multiple formats are provided, the format's order in the list doesn't influence or prioritize which one will be selected. The criteria for format selection are based on external factors like network bandwidth.
+1. Create an array of `VideoFormat` with the video formats that the app supports. It's fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type.
+
+   When multiple formats are provided, the order of the formats in the list doesn't influence or prioritize which one will be selected. The criteria for format selection are based on external factors like network bandwidth.
 
     ```swift
     let videoFormats: [VideoFormat] = []
@@ -64,14 +66,16 @@ The app must register a delegate to get notified about when it should start or s
     videoFormats.append(videoFormat)
     ```
 
-2. Create `RawOutgoingVideoStreamOptions` and set `VideoFormats` with the previously created object.
+2. Create `RawOutgoingVideoStreamOptions`, and set `VideoFormats` with the previously created object.
 
     ```swift
     var options = RawOutgoingVideoStreamOptions()
     options.videoFormats = videoFormats
     ```
 
-3. Implement `RawOutgoingVideoStreamOptionsDelegate` delegate. This delegate will observe current stream state changes and frame sender changes, it's important that you don't send frames if the state is no equal to `OutgoingVideoStreamState.started`. Remember to set the `options.delegate` to the class, which implements it, in this example we'll use `self`.
+3. Implement the `RawOutgoingVideoStreamOptionsDelegate` delegate. This delegate will observe changes to the current stream state and the frame sender. Don't send frames if the state is not equal to `OutgoingVideoStreamState.started`.
+
+   Remember to set `options.delegate` for the class, which implements it. This example uses `self`.
 
     ```swift
     options.delegate = self
@@ -86,7 +90,9 @@ The app must register a delegate to get notified about when it should start or s
     }
     ```
 
-4. Make sure the `didChangeOutgoingVideoStreamState` delegate is also implemented. This delegate will inform the listener about events requiring the app to start or stop producing video frames. In this quick start, `mediaFrameSender` is used as trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
+4. Make sure the `didChangeOutgoingVideoStreamState` delegate is also implemented. This delegate will inform the listener about events that require the app to start or stop producing video frames.
+
+   This quickstart uses `mediaFrameSender` as a trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
 
     ```swift
     var frameSender: VideoFrameSender?
@@ -97,15 +103,17 @@ The app must register a delegate to get notified about when it should start or s
     }
     ```
 
-5. Create an instance of `VirtualRawOutgoingVideoStream` using the `RawOutgoingVideoStreamOptions` we created previously
+5. Create an instance of `VirtualRawOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
 
     ```swift
     let virtualRawOutgoingVideoStream = VirtualRawOutgoingVideoStream(videoStreamOptions: options)
     ```
 
-6. Once outgoingVideoStreamState is equal to `OutgoingVideoStreamState.started` and you receive a `VideoFrameSender` on the previous delegate, cast the `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`. For example, for `.videoSoftware`, cast it to `SoftwareBasedVideoFrameSender` and then we're going to be able to use the `send` method passing the frame you want to send in a format defined by the `VideoFormat` we specified in the first step.
+6. After `outgoingVideoStreamState` is equal to `OutgoingVideoStreamState.started` and you receive a `VideoFrameSender` instance on the previous delegate, cast `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`.
 
-   So let's first produce the frame:
+   For example, for `.videoSoftware`, cast `VideoFrameSender` to `SoftwareBasedVideoFrameSender`. Then, you'll be able to use the `send` method to pass the frame that you want to send in a format defined by the `VideoFormat` instance that you specified in the first step.
+
+   First, produce the frame.
 
    ```swift
    protocol FrameProducerProtocol {
@@ -172,7 +180,7 @@ The app must register a delegate to get notified about when it should start or s
    }
    ```
 
-7. So now we can start sending the frames a the rate we specified in format.
+7. Now you can start sending the frames at the rate that you specified in the format.
 
    ```swift
    final class RawOutgoingVideoSender: NSObject {
@@ -230,7 +238,7 @@ The app must register a delegate to get notified about when it should start or s
                return
            }
 
-           // How many times per second based on sender format FPS.
+           // How many times per second, based on sender format FPS.
            let interval = TimeInterval((1 as Float) / sender.videoFormat.framesPerSecond)
            frameQueue.async { [weak self] in
                self?.timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
@@ -292,7 +300,7 @@ The app must register a delegate to get notified about when it should start or s
        func rawOutgoingVideoStreamOptions(_ rawOutgoingVideoStreamOptions: RawOutgoingVideoStreamOptions,
                                           didChangeVideoFrameSender args: VideoFrameSenderChangedEventArgs) {
            // Sender can change to start sending a more efficient format(given network conditions) of the ones specified 
-           // in the list on the initial step. In that case we should restart the sender.
+           // in the list on the initial step. In that case, you should restart the sender.
            if running {
                stopRunning()
                self.frameSender = args.videoFrameSender
@@ -304,7 +312,7 @@ The app must register a delegate to get notified about when it should start or s
    }
    ```
 
-8. Create a sender with a `FrameProducer` and we can start sending frames to a given call.
+8. Create a sender with a `FrameProducer` instance, and you can start sending frames to a call.
 
     ```swift
     var call: Call?
@@ -329,11 +337,11 @@ The app must register a delegate to get notified about when it should start or s
 
 ## Overview of screen share video streams
 
-Repeat steps 1 to 5 from the previous VirtualRawOutgoingVideoStream tutorial.
+Repeat steps 1 to 5 from the previous [Steps to create a virtual video stream](#steps-to-create-a-virtual-video-stream) procedure.
 
-For Screen share we still going to use the same sender, but we'll be using a different `VideoStream` and `FrameProducer`.
+For screen sharing, you're still going to use the same sender, but you'll use a different `VideoStream` and `FrameProducer` instance.
 
-We're going to use Apple's `ReplayKit` framework to capture the frames to send to the call.
+You'll use Apple's `ReplayKit` framework to capture the frames to send to the call.
 
 ### Supported video resolutions
 
@@ -343,7 +351,7 @@ We're going to use Apple's `ReplayKit` framework to capture the frames to send t
 
 ### Steps to create a screen share video stream
 
-1. The format now will be the screen bounds:
+1. The format now will be the screen bounds.
 
     ```swift
     let videoFormats: [VideoFormat] = []
@@ -360,13 +368,13 @@ We're going to use Apple's `ReplayKit` framework to capture the frames to send t
     videoFormats.append(videoFormat)
     ```
 
-2. Instead of a `VirtualRawOutgoingVideoStream`, create an instance of `ScreenShareRawOutgoingVideoStream` using the `RawOutgoingVideoStreamOptions` we created previously
+2. Instead of `VirtualRawOutgoingVideoStream`, create an instance of `ScreenShareRawOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
 
     ```swift
     screenShareRawOutgoingVideoStream = ScreenShareRawOutgoingVideoStream(videoStreamOptions: options)
     ```
 
-3. Import module and start a screen recording:
+3. Import a module and start a screen recording.
 
    ```swift
    import ReplayKit
@@ -378,7 +386,7 @@ We're going to use Apple's `ReplayKit` framework to capture the frames to send t
        // Invoked when producer receives the first frame from ReplayKit.
        var onReadyCallback: (() -> Void)?
     
-       // From CMSSampleBuffer we get from ReplayKit produces Y and UV 4:2:0 planes data.
+       // CMSSampleBuffer we get from ReplayKit produces Y and UV 4:2:0 planes data.
        func nextFrame(for format: VideoFormat) -> CVImageBuffer {
            lock.lock(); defer { lock.unlock() }
            guard let sampleBuffer = sampleBuffer, let frameBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
@@ -388,7 +396,7 @@ We're going to use Apple's `ReplayKit` framework to capture the frames to send t
        }
 
        func startRecording() {
-           // Start a Recording of the screen with ReplayKit.
+           // Start a recording of the screen with ReplayKit.
            RPScreenRecorder.shared().startCapture { [weak self] sampleBuffer, type, error in
                guard type == .video, error == nil else { return }
                guard let self = self else { return }
@@ -417,7 +425,7 @@ We're going to use Apple's `ReplayKit` framework to capture the frames to send t
    }
    ```
 
-4. To start screen recording, we just need to create a `ScreenSharingProducer` and when the recorder starts to produce frames we can send them:
+4. Create a `ScreenSharingProducer` instance so that when the recorder starts to produce frames, you can send them.
 
     ```swift
     var call: Call?
