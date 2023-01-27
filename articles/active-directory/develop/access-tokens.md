@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 12/28/2022
 ms.author: davidmu
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
+ms.reviewer: ludwignick
 ---
 
 # Microsoft identity platform access tokens
