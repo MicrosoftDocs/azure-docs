@@ -217,12 +217,12 @@ Java auto-instrumentation is enabled through configuration changes; no code chan
 
 Point the JVM to the jar file.
 
-    Add `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
 
-    > [!TIP]
-    > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
+> [!TIP]
+> For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
     
-    If you develop a Spring Boot application, you can replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
+If you develop a Spring Boot application, you can replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 ##### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -391,13 +391,13 @@ Replace the `<Your Connection String>` in the preceding code with the connection
 > [!NOTE] 
 > For Java, use one of the following two ways to point the jar file to your Application Insights resource:
 >
->       - Set an environment variable:
+>   - Set an environment variable:
 >        
 >            ```console
 >            APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
 >            ```
 >    
->       - Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
+>   - Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
 >    
 >            ```json
 >            {
@@ -447,9 +447,9 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
 
 ### [Java](#tab/java)
 
-To set the cloud role name, see [cloud role name](java-standalone-config#cloud-role-name).
+To set the cloud role name, see [cloud role name](java-standalone-config.md#cloud-role-name).
 
-To set the cloud role instance, see [cloud role instance](java-standalone-config#cloud-role-instance).
+To set the cloud role instance, see [cloud role instance](java-standalone-config.md#cloud-role-instance).
 
 ### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -570,7 +570,7 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
 
 #### [Java](#tab/java)
 
-See [sampling]( java-standalone-config#sampling).
+See [sampling]( java-standalone-config.md#sampling).
 
 #### [Node.js (JavaScript)](#tab/nodejs-javascript)
 
@@ -1209,6 +1209,8 @@ Coming soon.
 #### [Python](#tab/python)
   
 Coming soon.
+
+---
 
 ### Filter telemetry
 
@@ -2303,6 +2305,8 @@ Coming soon.
 #### [Python](#tab/python)
   
 Coming soon.
+
+---
 
 ## Enable the OTLP Exporter
 
