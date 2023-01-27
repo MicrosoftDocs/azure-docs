@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 07/27/2022
+ms.date: 01/10/2023
 ms.author: jboback
 ms.custom: language-service-key-phrase, ignite-fall-2021
 ---
@@ -22,8 +22,9 @@ This feature is useful if you need to quickly identify the main points in a coll
 > [!TIP]
 > If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
 
-> [!Note]
-> You can use this feature in an [power automate flow](../../tutorials/power-automate.md)
+## Development options
+
+[!INCLUDE [development options](../includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 

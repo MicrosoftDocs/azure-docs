@@ -3,7 +3,7 @@ title: Defender for Servers integration with Microsoft Defender for Endpoint
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the integration between Defender for Servers and Microsoft Defender for Endpoint
 ms.topic: reference
-ms.date: 08/04/2022
+ms.date: 01/24/2023
 ---
 
 # Defender for Servers integration with Microsoft Defender for Endpoint

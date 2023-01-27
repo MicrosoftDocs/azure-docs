@@ -195,7 +195,7 @@ This section will guide you through manually adding Application Insights to a te
             <Add Type="Microsoft.ApplicationInsights.Extensibility.AutocollectedMetricsExtractor, Microsoft.ApplicationInsights" />
             <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
               <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-              <ExcludedTypes>Trace</ExcludedTypes>
+              <ExcludedTypes>Event</ExcludedTypes>
             </Add>
             <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
               <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>

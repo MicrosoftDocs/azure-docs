@@ -164,6 +164,18 @@ Repeat steps 1 through 13 to add as many configurations as containers you wish t
 
 The Docker container engine must be installed and configured on the virtual machine you created previously.
 
+Sign-in to the virtual machine you created previously with the Azure Bastion host you deployed with the virtual network.
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. Select **myVM**.
+
+3. In the **Overview** of **myVM**, select **Connect** then **Bastion**.
+
+4. Enter the username and password you created when you deployed the virtual machine in the previous steps.
+
+5. Select **Connect**.
+
 For install instructions for Docker on an Ubuntu container host, see [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
 
 After Docker is installed on the virtual machine, follow the instructions for the Linux post install. For instructions on the Linux post install, see [Docker Engine post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/).
@@ -201,8 +213,7 @@ For more information about the Azure CNI plugin, see [Microsoft Azure Container 
 8. Configure permissions and install the CNI plugin. The install script command requires a version number for the CNI plugin. At the time of the writing of this article, the newest version is **`v1.4.39`**. To obtain the latest version number of the plugin or previous versions, see [Releases](https://github.com/Azure/azure-container-networking/releases).
 
     ```bash
-    cd azure-container-networking
-    cd scripts
+    cd ./azure-container-networking/scripts
     chmod u+x install-cni-plugin.sh
     sudo ./install-cni-plugin.sh v1.4.39
     chmod u+x docker-run.sh
@@ -247,6 +258,10 @@ In this article, you learned how to install the Azure CNI plugin and create a te
 
 For more information about Azure container networking and Azure Kubernetes service, see:
 
-- [Deploy the Azure Virtual Network container network interface plug-in](deploy-container-networking.md)
+- [What is Azure Kubernetes Service?](../aks/intro-kubernetes.md)
 
-- [What is Azure Kubernetes Service?](/azure/aks/intro-kubernetes)
+- [Microsoft Azure Container Networking](https://github.com/Azure/azure-container-networking)
+
+- [Azure CNI plugin releases](https://github.com/Azure/azure-container-networking/releases)
+
+- [Deploy the Azure Virtual Network container network interface plug-in](deploy-container-networking.md)

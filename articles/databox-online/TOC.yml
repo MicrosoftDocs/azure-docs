@@ -486,7 +486,9 @@
       - name: Prepare for device failure
         href: azure-stack-edge-gpu-prepare-device-failure.md
       - name: Recover from device failure
-        href: azure-stack-edge-gpu-recover-device-failure.md   
+        href: azure-stack-edge-gpu-recover-device-failure.md
+      - name: Erase device data
+        href: azure-stack-edge-gpu-secure-erase-certificate.md
     - name: Monitor
       items: 
       - name: Review alerts
@@ -550,7 +552,7 @@
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/databoxedge/databoxgateway
+      href: /dotnet/api/overview/azure/databoxedge
     - name: Azure CLI
       href: /cli/azure/databoxedge
     - name: Azure Policy built-ins

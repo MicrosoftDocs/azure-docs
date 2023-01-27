@@ -4,6 +4,8 @@
   items:
   - name: About Azure Arc-enabled servers
     href: overview.md
+  - name: VMware FAQ
+    href: vmware-faq.md
   - name: What's new with Connected Machine agent?
     href: agent-release-notes.md
   - name: Archive for Connected Machine agent release notes
@@ -130,7 +132,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.connectedmachine/
   - name: .NET
-    href: /dotnet/api/overview/azure/hybridcompute/management
+    href: /dotnet/api/overview/azure/hybridcompute/management/management-hybridcompute
   - name: Azure Stack HCI REST
     href: /rest/api/stackhci/
   - name: REST

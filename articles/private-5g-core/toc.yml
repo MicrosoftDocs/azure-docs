@@ -18,6 +18,8 @@ items:
       href: azure-private-5g-core-release-notes-2209.md
     - name: 2208 
       href: azure-private-5g-core-release-notes-2208.md
+  - name: Packet core and Azure Stack Edge compatibility
+    href: azure-stack-edge-packet-core-compatibility.md
 - name: Quickstarts
   items:
   - name: Deploy a private mobile network and site - ARM template
@@ -114,10 +116,16 @@ items:
       href: modify-local-access-configuration.md
     - name: Export, upload and share traces
       href: distributed-tracing-share-traces.md
+  - name: Move between regions
+    items:
+    - name: Move private mobile network resources
+      href: region-move-private-mobile-network-resources.md
 - name: Reference
   items:
    - name: REST API
      href: /rest/api/mobilenetwork
+   - name: Region code names
+     href: region-code-names.md
 - name: Resources
   items:
   - name: Azure Private 5G Core product page

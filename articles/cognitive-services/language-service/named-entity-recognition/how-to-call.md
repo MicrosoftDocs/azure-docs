@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 01/10/2023
 ms.author: jboback
 ms.custom: language-service-ner, ignite-fall-2021
 ---
@@ -18,9 +18,9 @@ ms.custom: language-service-ner, ignite-fall-2021
 
 The NER feature can evaluate unstructured text, and extract named entities from text in several pre-defined categories, for example: person, location, event, product, and organization.  
 
+## Development options
 
-> [!Note]
-> You can use this feature in an [power automate flow](../tutorials/power-automate.md)
+[!INCLUDE [development options](./includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 

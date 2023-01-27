@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Virtual Desktop with the Remote Desktop client for Android and Chrome OS- Azure Virtual Desktop
+title: Connect to Azure Virtual Desktop with the Remote Desktop client for Android and Chrome OS - Azure Virtual Desktop
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client for Android and Chrome OS.
 author: dknappettmsft
 ms.topic: how-to
@@ -47,7 +47,7 @@ A workspace combines all the desktops and applications that have been made avail
    |--|--|
    | Azure cloud *(most common)* | `https://rdweb.wvd.microsoft.com` |
    | Azure US Gov | `https://rdweb.wvd.azure.us/api/arm/feeddiscovery` |
-   | Azure China 21Vianet 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
+   | Azure China 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
 
 1. Tap **Next**.
 

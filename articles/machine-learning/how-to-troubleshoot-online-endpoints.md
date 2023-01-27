@@ -5,8 +5,8 @@ description: Learn how to troubleshoot some common deployment and scoring errors
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: shohei1029
-ms.author:  shnagata
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
 ms.date: 11/04/2022
 ms.topic: troubleshooting
@@ -63,6 +63,10 @@ ml_client.begin_create_or_update(online_deployment, local=True)
 
 * `ml_client` is the instance for `MLCLient` class, and `online_deployment` is the instance for either `ManagedOnlineDeployment` class or `KubernetesOnlineDeployment` class.
 
+## [Studio](#tab/studio)
+
+The studio doesn't support local endpoints/deployments. See the Azure CLI or Python tabs for steps to perform deployment locally.
+
 ---
 
 As a part of local deployment the following steps take place:
@@ -91,11 +95,15 @@ To debug conda installation problems, try the following:
 
 ## Get container logs
 
-You can't get direct access to the VM where the model is deployed. However, you can get logs from some of the containers that are running on the VM. The amount of information depends on the provisioning status of the deployment. If the specified container is up and running you'll see its console output, otherwise you'll get a message to try again later.
+You can't get direct access to the VM where the model is deployed. However, you can get logs from some of the containers that are running on the VM. The amount of information you get depends on the provisioning status of the deployment. If the specified container is up and running, you'll see its console output; otherwise, you'll get a message to try again later.
+
+There are two types of containers that you can get the logs from:
+- Inference server: Logs include the console log (from [the inference server](how-to-inference-server-http.md)) which contains the output of print/logging functions from your scoring script (`score.py` code). 
+- Storage initializer: Logs contain information on whether code and model data were successfully downloaded to the container. The container will run before the inference server container starts to run.
 
 # [Azure CLI](#tab/cli)
 
-To see log output from container, use the following CLI command:
+To see log output from a container, use the following CLI command:
 
 ```azurecli
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
@@ -115,13 +123,12 @@ To see information about how to set these parameters, and if current values are 
 az ml online-deployment get-logs -h
 ```
 
-By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
+By default the logs are pulled from the inference server. 
 
 > [!NOTE]
 > If you use Python logging, ensure you use the correct logging level order for the messages to be published to logs. For example, INFO.
 
-
-You can also get logs from the storage initializer container by passing `–-container storage-initializer`. These logs contain information on whether code and model data were successfully downloaded to the container.
+You can also get logs from the storage initializer container by passing `–-container storage-initializer`. 
 
 Add `--help` and/or `--debug` to commands to see more information. 
 
@@ -138,18 +145,34 @@ ml_client.online_deployments.get_logs(
 To see information about how to set these parameters, see
 [reference for get-logs](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs)
 
-By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
+By default the logs are pulled from the inference server.
 
 > [!NOTE]
 > If you use Python logging, ensure you use the correct logging level order for the messages to be published to logs. For example, INFO.
 
-You can also get logs from the storage initializer container by adding `container_type="storage-initializer"` option. These logs contain information on whether code and model data were successfully downloaded to the container.
+You can also get logs from the storage initializer container by adding `container_type="storage-initializer"` option. 
 
 ```python
 ml_client.online_deployments.get_logs(
     name="<deployment-name>", endpoint_name="<endpoint-name>", lines=100, container_type="storage-initializer"
 )
 ```
+
+# [Studio](#tab/studio)
+
+To see log output from a container, use the **Endpoints** in the studio:
+
+1. In the left navigation bar, select Endpoints.
+1. (Optional) Create a filter on compute type to show only managed compute types.
+1. Select an endpoint's name to view the endpoint's details page.
+1. Select the **Deployment logs** tab in the endpoint's details page.
+1. Use the dropdown to select the deployment whose log you want to see.
+
+:::image type="content" source="media/how-to-troubleshoot-online-endpoints/deployment-logs.png" lightbox="media/how-to-troubleshoot-online-endpoints/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
+
+The logs are pulled from the inference server. 
+
+To get logs from the storage initializer container, use the Azure CLI or Python SDK (see each tab for details). 
 
 ---
 
@@ -247,7 +270,7 @@ Try to delete some unused endpoints in this subscription.
 
 #### Role assignment quota
 
-When you are creating a managed online endpoint, role assignment is required for the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to access workspace resources. If you've reached the [role assignment limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by going to the Access Control menu.
+When you are creating a managed online endpoint, role assignment is required for the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to access workspace resources. If you've reached the [role assignment limit](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by going to the Access Control menu.
 
 #### Kubernetes quota
 
@@ -284,6 +307,16 @@ ml_client.online_deployments.get_logs(
     name="<deployment-name>", endpoint_name="<endpoint-name>", lines=100
 )
 ```
+
+#### [Studio](#tab/studio)
+
+Use the **Endpoints** in the studio:
+
+1. In the left navigation bar, select **Endpoints**.
+1. (Optional) Create a filter on compute type to show only managed compute types.
+1. Select an endpoint name to view the endpoint's details page.
+1. Select the **Deployment logs** tab in the endpoint's details page.
+1. Use the dropdown to select the deployment whose log you want to see.
 
 ---
 
@@ -337,27 +370,33 @@ For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed0
 
 #### Unable to download user model
 
-It is possible that the user model can't be found. Check [container logs](#get-container-logs) to get more details.
+It is possible that the user's model can't be found. Check [container logs](#get-container-logs) to get more details.
 
-Make sure the model is registered to the same workspace as the deployment. Use the `show` command or equivalent Python method to show details for a model in a workspace. 
-
-- For example: 
+Make sure the model is registered to the same workspace as the deployment. To show details for a model in a workspace: 
   
-  #### [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
-  ```azurecli
-  az ml model show --name <model-name> --version <version>
-  ```
- 
-  #### [Python SDK](#tab/python)
+```azurecli
+az ml model show --name <model-name> --version <version>
+```
 
-  ```python
-  ml_client.models.get(name="<model-name>", version=<version>)
-  ```
-  ---
+#### [Python SDK](#tab/python)
 
-  > [!WARNING]
-  > You must specify either version or label to get the model information.
+```python
+ml_client.models.get(name="<model-name>", version=<version>)
+```
+
+#### [Studio](#tab/studio)
+
+See the **Models** page in the studio:
+
+1. In the left navigation bar, select Models.
+1. Select a model's name to view the model's details page.
+
+---
+
+> [!WARNING]
+> You must specify either version or label to get the model's information.
 
 You can also check if the blobs are present in the workspace storage account.
 
@@ -383,7 +422,11 @@ You can also check if the blobs are present in the workspace storage account.
   )
   ```
 
+  #### [Studio](#tab/studio)
 
+  You can't see logs from the storage initializer in the studio. Use the Azure CLI or Python SDK (see each tab for details). 
+
+  ---
 
 #### Resource requests greater than limits
 
@@ -407,7 +450,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
     - A failure in the `init()` method.
 - If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](#deploy-locally) instead.
 - Readiness or liveness probes aren't set up correctly.
-- There's an error in the environment setup of the container, such as a missing dependency.
+- There's an error in the environment set up of the container, such as a missing dependency.
 - When you face `TypeError: register() takes 3 positional arguments but 4 were given` error, the error may be caused by the dependency between flask v2 and `azureml-inference-server-http`. See [FAQs for inference HTTP server](how-to-inference-server-http.md#1-i-encountered-the-following-error-during-server-startup) for more details.
 
 ### ERROR: ResourceNotFound
@@ -458,27 +501,78 @@ Retrying the operation after waiting several seconds up to a minute may allow it
 
 ### ERROR: NamespaceNotFound
 
-The reason you might run into this error when using Kubernetes online endpoint is because the namespace your Kubernetes compute used is unavailable in your cluster. 
+The reason you might run into this error when creating/updating the Kubernetes online endpoints is because the namespace your Kubernetes compute used is unavailable in your cluster. 
 
 You can check the Kubernetes compute in your workspace portal and check the namespace in your Kubernetes cluster. If the namespace is not available, you can detach the legacy compute and re-attach to create a new one, specifying a namespace that already exists in your cluster.    
 
-### ERROR: KubernetesCrashLoopBackOff
+### ERROR: EndpointAlreadyExists
 
-Below is a list of reasons you might run into this error when using Kubernetes online endpoint:
-* There is an error in `score.py` and the container crashed when init your score code, please following [ERROR: ResourceNotReady](#error-resourcenotfound) part. 
-* Your scoring process needs more memory that your deployment config limit is insufficient, you can try to update the deployment with a larger memory limit. 
+The reason you might run into this error when creating a Kubernetes online endpoint is because the creating endpoint already exists in your cluster.
+
+The endpoint name should be unique per workspace and per cluster, so in this case, you should create endpoint with another name. 
+
+### ERROR: ScoringFeUnhealthy
+
+The reason you might run into this error when creating/updating a Kubernetes online endpoint/deployment is because the [Azureml-fe](how-to-kubernetes-inference-routing-azureml-fe.md) that is the system service running in the cluster is not found or unhealthy.
+
+To trouble shoot this issue, you can re-install or update the Azure Machine Learning extension in your cluster.
 
 ### ERROR: ACRSecretError 
 
-Below is a list of reasons you might run into this error when using Kubernetes online endpoint:
+Below is a list of reasons you might run into this error when creating/updating the Kubernetes online deployments:
 
 * Role assignment has not yet been completed. In this case, please wait for a few seconds and try again later. 
-* The Azure ARC (For Azure Arc Kubernetes cluster) or AMLArc extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or AMLArc extension configuration and status. 
-* The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate. 
+* The Azure ARC (For Azure Arc Kubernetes cluster) or Azure Machine Learning extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or Azure Machine Learning extension configuration and status. 
+* The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate.
+  * If you are using a private AKS cluster, it is necessary to set up private endpoints for ACR, storage account, workspace in the AKS vnet. 
+
+### ERROR: EndpointNotFound
+
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the system can't find the endpoint resource for the deployment in the cluster. You should create the deployment in an exist endpoint or create this endpoint first in your cluster.
+
+### ERROR: ValidateScoringFailed
+
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the scoring request URL validation failed when processing the model deploying. 
+
+In this case, you can first check the endpoint URL and then try to re-deploy the deployment.
+
+### ERROR: InvalidDeploymentSpec
+
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the deployment spec is invalid.
+
+In this case, you can check the error message.
+* Make sure the `instance count` is valid.
+* If you have enabled auto scaling, make sure the `minimum instance count` and `maximum instance count` are both valid.
+
+### ERROR: ImagePullLoopBackOff
+
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the images can't be downloaded from the container registry, resulting in the images pull failure. 
+
+In this case, you can check the cluster network policy and the workspace container registry if cluster can pull image from the container registry.
+
+### ERROR: KubernetesCrashLoopBackOff
+
+Below is a list of reasons you might run into this error when creating/updating the Kubernetes online endpoints/deployments:
+* One or more pod(s) stuck in CrashLoopBackoff status, you can check if the deployment log exists, and check if there are error messages in the log.
+* There is an error in `score.py` and the container crashed when init your score code, please following [ERROR: ResourceNotReady](#error-resourcenotready) part. 
+* Your scoring process needs more memory that your deployment config limit is insufficient, you can try to update the deployment with a larger memory limit. 
+
+### ERROR: PodUnschedulable
+
+Below is a list of reasons you might run into this error when creating/updating the Kubernetes online endpoints/deployments:
+* Unable to schedule pod to nodes, due to insufficient resources in your cluster.
+* No node match node affinity/selector.
+
+To mitigate this error, refer to the following steps: 
+* Check the `node selector` definition of the `instance type` you used, and `node label` configuration of your cluster nodes. 
+* Check `instance type` and the node SKU size for AKS cluster or the node resource for Arc-Kubernetes cluster.
+  * If the cluster is under-resourced, you can reduce the instance type resource requirement or use another instance type with smaller resource required. 
+* If the cluster has no more resource to meet the requirement of the deployment, delete some deployment to release resources.
+
 
 ### ERROR: InferencingClientCallFailed 
 
-The reason you might run into this error when using Kubernetes online endpoint is because the k8s-extension of the Kubernetes cluster is not connectable.
+The reason you might run into this error when creating/updating Kubernetes online endpoints/deployments is because the k8s-extension of the Kubernetes cluster is not connectable.
 
 In this case, you can detach and then **re-attach** your compute. 
 
@@ -520,28 +614,31 @@ Managed online endpoints have bandwidth limits for each endpoint. You find the l
 
 When you access online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how endpoint invocation and prediction errors map to HTTP status codes.
 
+#### Common error codes for managed online endpoints
 Below are common error codes when consuming managed online endpoints with REST requests:
 
-| Status code| Reason phrase |	Why this code might get returned |
-| --- | --- | --- |
-| 200 | OK | Your model executed successfully, within your latency bound. |
-| 401 | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
-| 404 | Not found | The endpoint doesn't have any valid deployment with positive weight. |
-| 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
-| 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
-| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum 2 * `max_concurrent_requests_per_instance` * `instance_count` requests in parallel at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`, respectively. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-prevent-503-status-codes). |
-| 429 | Rate-limiting | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.|
-| 500 | Internal server error | AzureML-provisioned infrastructure is failing. |
+| Status code | Reason phrase             | Why this code might get returned                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 200         | OK                        | Your model executed successfully, within your latency bound.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 401         | Unauthorized              | You don't have permission to do the requested action, such as score, or your token is expired.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 404         | Not found                 | The endpoint doesn't have any valid deployment with positive weight.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 408         | Request timeout           | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 424         | Model Error               | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information.                                                                                                                                                                                                                                                                                                                                                          |
+| 429         | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum 2 * `max_concurrent_requests_per_instance` * `instance_count` requests in parallel at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`, respectively. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-prevent-503-status-codes). |
+| 429         | Rate-limiting             | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| 500         | Internal server error     | AzureML-provisioned infrastructure is failing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+
+#### Common error codes for kubernetes online endpoints
 
 Below are common error codes when consuming Kubernetes online endpoints with REST requests:
 
-| Status code| Reason phrase |	Why this code might get returned |
-| --- | --- | --- |
-| 409 | Conflict error | When an operation is already in progress, any new operation on that same online endpoint will respond with 409 conflict error. For example, If create or update online endpoint operation is in progress and if you trigger a new Delete operation it will throw an error. |
-| 502 | Has thrown an exception or crashed in the `run()` method of the score.py file | When there's an error in `score.py`, for example an imported package does not exist in the conda environment, a syntax error, or a failure in the `init()` method. You can follow [here](#error-resourcenotready) to debug the file. |
-| 503 | Receive large spikes in requests per second | The autoscaler is designed to handle gradual changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers. You can follow [here](#how-to-prevent-503-status-codes) to prevent 503 status codes.|
-| 504 | Request has timed out | A 504 status code indicates that the request has timed out. The default timeout is 1 minute. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code may be in a non-responsive state or an infinite loop. |
-| 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
+| Status code | Reason phrase                                                                 | Why this code might get returned                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 409         | Conflict error                                                                | When an operation is already in progress, any new operation on that same online endpoint will respond with 409 conflict error. For example, If create or update online endpoint operation is in progress and if you trigger a new Delete operation it will throw an error.                                                                                                                             |
+| 502         | Has thrown an exception or crashed in the `run()` method of the score.py file | When there's an error in `score.py`, for example an imported package does not exist in the conda environment, a syntax error, or a failure in the `init()` method. You can follow [here](#error-resourcenotready) to debug the file.                                                                                                                                                                   |
+| 503         | Receive large spikes in requests per second                                   | The autoscaler is designed to handle gradual changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers. You can follow [here](#how-to-prevent-503-status-codes) to prevent 503 status codes.                                    |
+| 504         | Request has timed out                                                         | A 504 status code indicates that the request has timed out. The default timeout setting is 5 seconds. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code may be in a non-responsive state or an infinite loop. |
+| 500         | Internal server error                                                         | Azure ML-provisioned infrastructure is failing.                                                                                                                                                                                                                                                                                                                                                        |
 
 
 ### How to prevent 503 status codes
@@ -580,7 +677,7 @@ There are two things that can help prevent 503 status codes:
     ```
 
     > [!NOTE]
-    > If you receive request spikes larger than the new minimum replicas can handle, you may receive 503s again. For example, as traffic to your endpoint increases, you may need to increase the minimum replicas.
+    > If you receive request spikes larger than the new minimum replicas can handle, you may receive 503 again. For example, as traffic to your endpoint increases, you may need to increase the minimum replicas.
 
 #### How to calculate instance count
 To increase the number of instances, you can calculate the required replicas by using the following code:
@@ -606,9 +703,10 @@ instance_count = ceil(concurrent_requests / max_concurrent_requests_per_instance
 Online endpoints (v2) currently do not support [Cross-Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS) (CORS) natively. If your web application tries to invoke the endpoint without proper handling of the CORS preflight requests, you'll see the following error message: 
 
 ```
-Access to fetch at 'https://{your-endpoinnt-name}.{your-region}.inference.ml.azure.com/score' from origin http://{your-url} has been blocked by CORS policy: Response to preflight request doesn't pass access control check. No 'Access-control-allow-origin' header is present on the request resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with the CORS disabled.
+Access to fetch at 'https://{your-endpoint-name}.{your-region}.inference.ml.azure.com/score' from origin http://{your-url} has been blocked by CORS policy: Response to preflight request doesn't pass access control check. No 'Access-control-allow-origin' header is present on the request resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with the CORS disabled.
 ```
 We recommend that you use Azure Functions, Azure Application Gateway, or any service as an interim layer to handle CORS preflight requests.
+
 ## Common network isolation issues
 
 [!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
@@ -618,3 +716,4 @@ We recommend that you use Azure Functions, Azure Application Gateway, or any ser
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Online endpoint YAML reference](reference-yaml-endpoint-online.md)
+- [Troubleshoot kubernetes compute ](how-to-troubleshoot-kubernetes-compute.md)
