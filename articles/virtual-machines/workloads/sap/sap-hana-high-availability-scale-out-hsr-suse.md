@@ -1009,7 +1009,9 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
 <details>
   <summary>Expand section</summary>
 
-With new SAP HANA HA provider SAPHanaSrMultiTarget, a third system replication site as disaster recovery (DR) can be used with a HANA scale-out system. The cluster environment is aware of a multi-target DR setup. Failure of the third site will not trigger any cluster action. Cluster is detects the replication status of connected sites and the monitored attributed can change between SOK and SFAIL. Maximum of one system replicatiion to an HANA database outside the linux cluster is supported.
+With new SAP HANA HA provider SAPHanaSrMultiTarget, a third system replication site as disaster recovery (DR) can be used with a HANA scale-out system. The cluster environment is aware of a multi-target DR setup. Maximum of one system replicatiion to an HANA database outside the linux cluster is supported.
+
+Failure of the third site won't trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attributed for third site can change between SOK and SFAIL. Any takeover tests to third/DR site or executing your DR process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
 
 Example of a multi-target system replication system. For further information, see [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/2e6c71ab55f147e19b832565311a8e4e.html).  
 ![Example of a multi-target system replication system](./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-suse-multi-target.png)
@@ -1031,7 +1033,7 @@ Example of a multi-target system replication system. For further information, se
     # Make sure HANA is not running on the third site. If it is started, stop HANA
     sapcontrol -nr 03 -function StopSystem
     sapcontrol -nr 03 -function WaitforStopped 600 10
-    # Register the HANA third site
+    # Register the HANA third site to the primary
     hdbnsutil -sr_register --name=SITE-DR --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=async
     ```
 
@@ -1043,7 +1045,7 @@ Example of a multi-target system replication system. For further information, se
 
 4. Check the SAPHanaSR attribute for third site. SITE-DR should show up with status SOK in the sites section.
     ```bash
-    # Check SAPHanaSR attribute
+    # Check SAPHanaSR attribute on any cluster node (first/second site)
     sudo SAPHanaSR-showAttr
     # Expected result
     # Global cib-time                 maintenance prim  sec sync_state upd
@@ -1057,7 +1059,7 @@ Example of a multi-target system replication system. For further information, se
     # HANA_S2   30         4   hana-s2-db1 SWAIT  S
     ```
    
-   Failure of the third site won't trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attributed can change between SOK and SFAIL. Any tests of the takover to third/DR site or execution DR process should place the cluster resources into maintenance mode to prevent any undesired cluster actions.
+   Cluster detects the replication status of connected sites and the monitored attributed can change between SOK and SFAIL. No cluster action if the replication to DR site is impacted.
 
 If cluster parameter AUTOMATED_REGISTER="true" is set in the cluster after conclusion of testing, HANA parameter `register_secondaries_on_takeover = true` can be configured in `[system_replication]` block of global.ini on the two SAP HANA sites in the Linux cluster. Such configuration would re-register the third site after a takeover between the first two sites to keep a multi-target setup.
 
