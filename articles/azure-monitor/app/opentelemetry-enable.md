@@ -391,19 +391,19 @@ Replace the `<Your Connection String>` in the preceding code with the connection
 > [!NOTE] 
 > For Java, use one of the following two ways to point the jar file to your Application Insights resource:
 >
->   - Set an environment variable:
+>- Set an environment variable:
 >        
->            ```console
->            APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
->            ```
+>   ```console
+>   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
+>   ```
 >    
->   - Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
+>- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
 >    
->            ```json
->            {
->              "connectionString": "<Your Connection String>"
->            }
->            ```
+>   ```json
+>   {
+>     "connectionString": "<Your Connection String>"
+>   }
+>   ```
 
 #### Confirm data is flowing
 
@@ -1432,9 +1432,9 @@ Use the add [custom property example](#add-a-custom-property-to-a-trace), but re
     
     ```
 
-  ---
+---
     
-    <!-- For more information, see [GitHub Repo](link). -->
+<!-- For more information, see [GitHub Repo](link). -->
 
 ### Get the trace ID or span ID
     
@@ -1514,7 +1514,7 @@ The following table represents the currently supported custom telemetry types:
 |                                           |               |                |              |            |            |          |        |
 | **Node.js**                               |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;Winston, Pino, Bunyan   |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;Winston, Pino, Bunyan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          | Yes           | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Python**                                |               |                |              |            |            |          |        |
