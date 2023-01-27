@@ -1514,7 +1514,7 @@ The following table represents the currently supported custom telemetry types:
 |                                           |               |                |              |            |            |          |        |
 | **Node.js**                               |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;Winston, Pino, Bunyan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;Winston, Pino, Bunyan   |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          | Yes           | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Python**                                |               |                |              |            |            |          |        |
