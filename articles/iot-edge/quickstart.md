@@ -254,7 +254,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. After you create the module deployment details, the wizard returns you to the device details page. View the deployment status on the **Modules** tab.
 
-   You should see three modules: **$edgeAgent**, **$edgeHub**, and **SimulatedTemperatureSensor**. If one or more of the modules has **YES** under **SPECIFIED IN DEPLOYMENT** but not under **REPORTED BY DEVICE**, your IoT Edge device is still starting them. Wait a few minutes, and then refresh the page.
+   You should see three modules: **$edgeAgent**, **$edgeHub**, and **SimulatedTemperatureSensor**. If one or more of the modules has **Yes** under **Specified in Deployment** but not under **Reported by Device**, your IoT Edge device is still starting them. Wait a few minutes, and then refresh the page.
 
    :::image type="content" source="./media/quickstart/view-deployed-modules.png" alt-text="Screenshot that shows Simulated Temperature Sensor in the list of deployed modules.":::
 
@@ -279,7 +279,7 @@ The module that you pushed generates sample environment data that you can use fo
    sudo iotedge list
    ```
 
-   :::image type="content" source="./media/quickstart/iotedge-list-screen.png" alt-text="Verify your temperature sensor, agent, and hub are running.":::
+   :::image type="content" source="./media/quickstart/iotedge-list-screen.png" alt-text="Verify your temperature sensor, agent, and hub are running." lightbox="./media/quickstart/iotedge-list-screen.png":::
 
 1. View the messages being sent from the temperature sensor module to the cloud using the following Linux command:
 
@@ -290,7 +290,7 @@ The module that you pushed generates sample environment data that you can use fo
    >[!IMPORTANT]
    >IoT Edge commands are case-sensitive when they refer to module names.
 
-   :::image type="content" source="./media/quickstart/temperature-sensor-screen.png" alt-text="Screenshot of the output logs of the Simulated Temperature Sensor module.":::
+   :::image type="content" source="./media/quickstart/temperature-sensor-screen.png" alt-text="Screenshot of the output logs of the Simulated Temperature Sensor module." lightbox="./media/quickstart/temperature-sensor-screen.png":::
 
 You can also use the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to watch messages arrive at your IoT hub.
 
