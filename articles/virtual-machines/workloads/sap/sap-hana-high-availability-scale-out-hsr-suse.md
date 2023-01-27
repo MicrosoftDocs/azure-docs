@@ -819,21 +819,24 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
 ## Implement HANA HA hooks SAPHanaSrMultiTarget and susChkSrv
 
-This important step is to optimize the integration with the cluster and detection when a cluster failover is possible. It is highly recommended to configure SAPHanaSrMultiTarget Python hook. For HANA 2.0 SP5 and above, implementing both SAPHanaSrMultiTarget and susChkSrv hooks is recommended.
+This important step is to optimize the integration with the cluster and detection when a cluster failover is possible. It is highly recommended to configure SAPHanaSrMultiTarget Python hook. For HANA 2.0 SP5 and higher, implementing both SAPHanaSrMultiTarget and susChkSrv hooks is recommended.
 
 > [!NOTE] 
 > SAPHanaSrMultiTarget HA provider replaces SAPHanaSR for HANA scale-out. SAPHanaSR was described in earlier version of this document.  
 > See [SUSE blog post](https://www.suse.com/c/sap-hana-scale-out-multi-target-upgrade/) about changes with the new HANA HA hook.  
-> This document provides steps for a new installation with the new provider. Upgrading an existing environment from SAPHanaSR to SAPHanaSrMultiTarget provider requires several changes and are _NOT_ described in this document. If the existing environment uses no third site for disaster recovery and [HANA multi-target system replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/ba457510958241889a459e606bbcf3d3.html) is not used, SAPHanaSR HA provider can remain in use.
 
-SusChkSrv extends the functionality of the main SAPHanaSrMultiTarget HA provider. It acts in the situation when HANA process hdbindexserver crashes. If a single process crashes typically HANA tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database is not responsive. With susChkSrv implemented, an immediate and configurable action is executed, instead of waiting on hdbindexserver process to restart on the same node. In HANA scale-out susChkSrv acts for every HANA VM independently. The configured action will kill HANA or fence the affected VM, which triggers a failover by SAPHanaSR in the configured timeout period.
+Provided steps for SAPHanaSrMultiTarget hook are for a new installation. Upgrading an existing environment from SAPHanaSR to SAPHanaSrMultiTarget provider requires several changes and are _NOT_ described in this document. If the existing environment uses no third site for disaster recovery and [HANA multi-target system replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/ba457510958241889a459e606bbcf3d3.html) is not used, SAPHanaSR HA provider can remain in use.
 
-SUSE SLES 15 SP1 or higher is required for operation of both HANA HA hooks. Below table shows other dependencies.  
+SusChkSrv extends the functionality of the main SAPHanaSrMultiTarget HA provider. It acts in the situation when HANA process hdbindexserver crashes. If a single process crashes typically HANA tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database isn't responsive. With susChkSrv implemented, an immediate and configurable action is executed, instead of waiting on hdbindexserver process to restart on the same node. In HANA scale-out susChkSrv acts for every HANA VM independently. The configured action will kill HANA or fence the affected VM, which triggers a failover in the configured timeout period.
+
+SUSE SLES 15 SP1 or higher is required for operation of both HANA HA hooks. Following table shows other dependencies.  
 
 |SAP  HANA HA hook     | HANA version required   | SAPHanaSR-ScaleOut required |
 |----------------------| ----------------------- | --------------------------- | 
 | SAPHanaSrMultiTarget | HANA 2.0 SPS4 or higher | 0.181 or higher             |
 | susChkSrv            | HANA 2.0 SPS5 or higher | 0.184.1 or higher           |
+
+Steps to implement both hooks:
 
 1. **[1,2]** Stop HANA on both system replication sites. Execute as <sid\>adm:
 
@@ -841,14 +844,14 @@ SUSE SLES 15 SP1 or higher is required for operation of both HANA HA hooks. Belo
 sapcontrol -nr 03 -function StopSystem
 ```
 
-2. **[1,2]** Adjust `global.ini` on each cluster site. If the prerequisites for susChkSrv hook are not met, remove the entire block `[ha_dr_provider_suschksrv]` from below section.  
-You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid values are [ ignore | stop | kill | fence ].
+2. **[1,2]** Adjust `global.ini` on each cluster site. If the prerequisites for susChkSrv hook aren't met, remove the entire block `[ha_dr_provider_suschksrv]`.  
+You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid values are `[ ignore | stop | kill | fence ]`.
 
     ```bash
-    # add to global.ini
+    # add to global.ini on both sites. Do not copy global.ini between sites.
     [ha_dr_provider_saphanasrmultitarget]
     provider = SAPHanaSrMultiTarget
-    path = /usr/share/SAPHanaSR-ScaleOut/
+    path = /usr/share/SAPHanaSR-ScaleOut
     execution_order = 1
     
     [ha_dr_provider_suschksrv]
@@ -861,7 +864,7 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
     ha_dr_saphanasrmultitarget = info
     ```
 
-Configuration pointing to the standard location /usr/share/SAPHanaSR-ScaleOut brings a benefit, that the python hook code is automatically updated through OS or package updates and it gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
+   Default location of the HA hooks as deliveredy SUSE is /usr/share/SAPHanaSR-ScaleOut. Using the standard location brings a benefit, that the python hook code is automatically updated through OS or package updates and gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
 
 3. **[AH]** The cluster requires sudoers configuration on the cluster nodes for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root` adapt the values of hn1 with correct lowercase SID.  
 
@@ -872,7 +875,6 @@ Configuration pointing to the standard location /usr/share/SAPHanaSR-ScaleOut br
     so1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_gsh *
     so1adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=hn1 *
     EOF
-
     ```
 
 4. **[1,2]** Start SAP HANA on both replication sites. Execute as <sid\>adm.  
@@ -1005,25 +1007,24 @@ Configuration pointing to the standard location /usr/share/SAPHanaSR-ScaleOut br
 ## (Optional) Enabling HANA multi-target system replication for DR purposes
 
 <details>
-  <summary>Expand</summary>
+  <summary>Expand section</summary>
 
-With new SAP HANA HA provider SAPHanaSrMultiTarget, a third system replication site as disaster recovery (DR) can be used with a HANA scale-out system. The cluster environment is aware of a multi-target DR setup. Failure of the third site will not trigger any cluster action. Cluster is detects the replication status of connected sites and the monitored attributed can change between SOK and SFAIL. Maximum of one system replication to an HANA database outside the linux cluster is supported.
+With new SAP HANA HA provider SAPHanaSrMultiTarget, a third system replication site as disaster recovery (DR) can be used with a HANA scale-out system. The cluster environment is aware of a multi-target DR setup. Failure of the third site will not trigger any cluster action. Cluster is detects the replication status of connected sites and the monitored attributed can change between SOK and SFAIL. Maximum of one system replicatiion to an HANA database outside the linux cluster is supported.
 
-> [!NOTE]
-Example of a multi-target system replication system. See [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/2e6c71ab55f147e19b832565311a8e4e.html) for further details.  
-[./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-suse-multi-target.png]
+Example of a multi-target system replication system. For further information, see [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/2e6c71ab55f147e19b832565311a8e4e.html).  
+![Example of a multi-target system replication system](./media/sap-hana-high-availability/sap-hana-high-availability-scale-out-hsr-suse-multi-target.png)
 
-1. Deploy Azure resources for the third site. Depending on your requirements, a different Azure region is used for disaster recovery purposes. 
+1. Deploy Azure resources for the third site. Depending on your requirements, a different Azure region is often used for disaster recovery purposes. 
    Steps required for the HANA scale-out on third site are same as described in this document for SITE1 and SITE2, with the following exceptions:
-   - No load balancer for third site and no integration with cluster load balancer for VMs of third site.
-   - OS packages SAPHanaSR-ScaleOut, SAPHanaSR-ScaleOut-doc and OS package pattern ha_sles are _NOT_ installed on third site VMs.
-   - No majority maker VM for third site, since there is no cluster integration.
-   - NFS volume /hana/shared for third site exclusive use must be created.
-   - No integration into the cluster for VMs or HANA resources of the third site.
-   - No SAP HANA HA hooks setup for third site.
+   - No load balancer for third site and no integration with cluster load balancer for VMs of third site
+   - OS packages SAPHanaSR-ScaleOut, SAPHanaSR-ScaleOut-doc and OS package pattern ha_sles aren't installed on third site VMs
+   - No majority maker VM for third site, as there's no cluster integration
+   - NFS volume /hana/shared for third site exclusive use must be created
+   - No integration into the cluster for VMs or HANA resources of the third site
+   - No HANA HA hook setup for third site
  
 2. With SAP HANA scale-out on third site operational, register the third site with the primary site.  
-   In the example name SITE-DR is used for third site.
+   The example uses SITE-DR as the name for third site.
     ```bash
     # Execute on the third site 
     su - hn1adm
@@ -1031,7 +1032,7 @@ Example of a multi-target system replication system. See [SAP documentation](htt
     sapcontrol -nr 03 -function StopSystem
     sapcontrol -nr 03 -function WaitforStopped 600 10
     # Register the HANA third site
-    hdbnsutil -sr_register --name=HANA_DR --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=async
+    hdbnsutil -sr_register --name=SITE-DR --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=async
     ```
 
 3. Verify HANA system replication shows both secondary and third site.
@@ -1056,7 +1057,7 @@ Example of a multi-target system replication system. See [SAP documentation](htt
     # HANA_S2   30         4   hana-s2-db1 SWAIT  S
     ```
    
-   Failure of the third site will not trigger any cluster action. Cluster is detects the replication status of connected sites and the monitored attributed can change between SOK and SFAIL.
+   Failure of the third site won't trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attributed can change between SOK and SFAIL. Any tests of the takover to third/DR site or execution DR process should place the cluster resources into maintenance mode to prevent any undesired cluster actions.
 
 If cluster parameter AUTOMATED_REGISTER="true" is set in the cluster after conclusion of testing, HANA parameter `register_secondaries_on_takeover = true` can be configured in `[system_replication]` block of global.ini on the two SAP HANA sites in the Linux cluster. Such configuration would re-register the third site after a takeover between the first two sites to keep a multi-target setup.
 
