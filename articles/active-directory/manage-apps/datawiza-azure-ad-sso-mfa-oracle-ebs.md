@@ -61,11 +61,11 @@ To enable SSO in the Oracle EBS environment:
 1.	Sign in to the Oracle EBS Management console as an Administrator.
 2.	Scroll down the Navigator panel and expand **User Management**. 
 
-   [ ![Screenshot of the User Management dialog.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/navigator-user-management.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/navigator-user-management.png)
+   [ ![Screenshot of the User Management dialog.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/navigator-user-management.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/navigator-user-management.png#lightbox)
 
 3. Add a user account. 
 
-   [ ![Screenshot of the User Account option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/user-account.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/user-account.png)
+   [ ![Screenshot of the User Account option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/user-account.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/user-account.png#lightbox)
 
 4. For **User Name**, enter **DWSSOUSER**.
 5. For **Password**, enter a password.
@@ -73,7 +73,7 @@ To enable SSO in the Oracle EBS environment:
 7. For **Password Expiration**, select **None**.
 8. Assign the **Apps Schema Connect** role to the user.
 
-   [ ![Screenshot of the assigned Apps Schema Connect role under Results.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/assign-role.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/assign-role.png)
+   [ ![Screenshot of the assigned Apps Schema Connect role under Results.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/assign-role.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/assign-role.png#lightbox)
 
 ## Register DAP with Oracle EBS
 
@@ -93,13 +93,13 @@ In the Oracle EBS Linux environment, generate a new DBC file for DAP. You need t
 2. The Welcome page appears.
 3. Select the orange Getting started button.
 
-   ![Screenshot of the Getting Started button.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/getting-started.png)
+   ![Screenshot of the Getting Started button.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/getting-started.png#lightbox)
 
 4. Enter a **Name**.
 5. Enter a **Description**.
 6. Select **Next**. 
 
-   [ ![Screenshot of the name entry under Deployment Name.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/deployment-name.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/deployment-name.png)
+   [ ![Screenshot of the name entry under Deployment Name.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/deployment-name.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/deployment-name.png#lightbox)
 
 7. On **Add Application**, for **Platform** select **Oracle E-Business Suite**.
 8. For **App Name**, enter the app name.
@@ -112,13 +112,13 @@ In the Oracle EBS Linux environment, generate a new DBC file for DAP. You need t
 15. For **EBS DBC Content**, use the content you copied.
 16. Select **Next**.
 
-    [ ![Screenshot of Add Application entries and selections.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/add-application.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/add-application.png)
+    [ ![Screenshot of Add Application entries and selections.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/add-application.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/add-application.png#lightbox)
 
 ### IdP configuration
 
 Use the DCMC one-click integration to help you complete Azure AD configuration. With this feature, you can reduce management costs and configuration errors are less likely.
 
-   [ ![Screenshot of the Configure IDP dialog with entries, selections, and the Create button.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/configure-idp.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/configure-idp.png)
+   [ ![Screenshot of the Configure IDP dialog with entries, selections, and the Create button.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/configure-idp.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/configure-idp.png#lightbox)
 
 ### Docker Compose file
 
@@ -130,7 +130,7 @@ Configuration on the management console is complete. You are prompted to deploy 
 
 1. For certificate configuration, select the **Advanced** tab on your application page.
 
-   [ ![Screenshot of the Advanced tab.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/advanced-tab.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/advanced-tab.png)
+   [ ![Screenshot of the Advanced tab.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/advanced-tab.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/advanced-tab.png#lightbox)
 
 2. Enable SSL. 
 3. Select a **Cert Type**.
@@ -139,11 +139,11 @@ Configuration on the management console is complete. You are prompted to deploy 
 
 4. There's a self-signed certificate for localhost, which you can use for testing.
 
-   [ ![Screenshot of the Self Signed option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/self-signed-cert-type.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/self-signed-cert-type.png)
+   [ ![Screenshot of the Self Signed option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/self-signed-cert-type.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/self-signed-cert-type.png#lightbox)
 
 5. (Optional) You can upload a certificate from a file.
 
-   [ ![Screenshot of the File Based option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/file-based-cert-option.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/file-based-cert-option.png)
+   [ ![Screenshot of the File Based option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/file-based-cert-option.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/file-based-cert-option.png#lightbox)
 
 6. Select **Save**.
 
@@ -155,12 +155,12 @@ To provide more security for sign-ins, you can enforce MFA for user sign-in by e
 2.	Select **Azure Active Directory** > **Manage** > **Properties**.
 3.	Under **Properties**, select **Manage security defaults**.
    
-    [ ![Screenshot of Manage Properties function and the Manage Security Defaults option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/manage-security-defaults.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/manage-security-defaults.png)
+    [ ![Screenshot of Manage Properties function and the Manage Security Defaults option.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/manage-security-defaults.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/manage-security-defaults.png#lightbox)
 
 4. Under **Enable security defaults**, select **Yes**.
 5. Select **Save**.
 
-   [ ![Screenshot of the Manage security defaults and Enable security defaults options.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/enable-security-defaults.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/enable-security-defaults.png)
+   [ ![Screenshot of the Manage security defaults and Enable security defaults options.](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/enable-security-defaults.png) ](./media/datawiza-azure-ad-sso-mfa-oracle-ebs/enable-security-defaults.png#lightbox)
 
 ## Next steps 
 
