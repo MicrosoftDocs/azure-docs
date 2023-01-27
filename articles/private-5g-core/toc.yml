@@ -124,7 +124,7 @@ items:
       href: enable-azure-active-directory.md
     - name: Export, upload and share traces
       href: distributed-tracing-share-traces.md
-      - name: Modify a packet core instance's local access configuration
+    - name: Modify a packet core instance's local access configuration
       href: modify-local-access-configuration.md
   - name: Gather diagnostics
     href: gather-diagnostics.md
