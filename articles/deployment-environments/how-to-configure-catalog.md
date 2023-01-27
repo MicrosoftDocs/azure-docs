@@ -93,6 +93,8 @@ To store the personal access token you generated as a [key vault secret](../key-
 1. Add the personal access token as a [secret to the key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 1. Open the secret and [copy the secret identifier](../key-vault/secrets/quick-create-portal.md#retrieve-a-secret-from-key-vault).
 
+[!IMPORTANT] Currently the only support authorization to Key Vault is leveraging a User Assigned Identity tied to an Access Policy in the Key Vault. RBAC is currently not supported.
+
 ### Add your repository as a catalog
 
 1. In the [Azure portal](https://portal.azure.com/), go to your dev center.
