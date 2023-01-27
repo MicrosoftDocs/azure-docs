@@ -36,7 +36,7 @@ The following example downloads a blob to a stream. In this example, [StorageStr
 
 ## Download a blob in chunks
 
-The following example downloads a blob and iterates over chunks in the download stream. In this example, using [StorageStreamDownloader.chunks](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader#azure-storage-blob-storagestreamdownloader-chunks) returns an iterator which allows you to iterate over the blob content in chunks:
+The following example downloads a blob and iterates over chunks in the download stream. In this example, [StorageStreamDownloader.chunks](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader#azure-storage-blob-storagestreamdownloader-chunks) returns an iterator, which allows you to read the blob content in chunks:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_download_blob_chunks":::
 
