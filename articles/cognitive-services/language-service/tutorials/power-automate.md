@@ -1,104 +1,82 @@
 ---
 title: Use Language services in power automate
 titleSuffix: Azure Cognitive Services
-description: Use Language services in power automate.
+description: Learn how to use Azure Cognitive Service for Language in power automate, without writing code.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 05/27/2022
+ms.date: 01/26/2023
 ms.author: aahi
-ms.custom: ignite-fall-2021, cogserv-non-critical-language
+ms.custom: cogserv-non-critical-language
 ---
 
 
-#  Use Language services in power automate
-To automate repetative tasks and bring efficiencies to any organization, you can use [power automate](). To make this more taliored for your business, you can use lanague services capabilites and automate tasks like:
-* Triaging incoming emails to different departments 
-* Analyze the sentiment of new tweets
-* Extract entities from incoming documents 
-* Summarize meetings 
-* Remove personal data before saving the files
+#  Use the Language service in Power Automate
+
+You can use [Power Automate](/power-automate/getting-started) flows to automate repetitive tasks and bring efficiency to your organization. Using Azure Cognitive Service for Language, you can automate tasks like:
+* Send incoming emails to different departments based on their contents. 
+* Analyze the sentiment of new tweets.
+* Extract entities from incoming documents. 
+* Summarize meetings.
+* Remove personal data from files before saving them.
 
 ## Prerequisites
-* Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * Trained model (if using custom capabilites)
-    * You will need the key and endpoint from the resource you created in your flow
-
-## Available connectors
-
-|Connector name|
-|--|
-|Entity Linking (V3.0)|
-|Named Entity Recognition (V3.0)|
-|Sentiment(V3.0)|
-|Async AbstractiveSummarization (2022-10-01-preview)|
-|Async conversation PII(Text) (2022-05-15-preview)|
-|Async conversation PII(Transcript) (2022-05-15-preview)|
-|Async conversation summarization (2022-05-15-preview)|
-|Async customEntityRecognition (2022-05-01)|
-|Async customMultiLabelClassification (2022-05-01)|
-|Async customSingleLabelClassification (2022-05-01)|
-|Async EntityLinking (2022-05-01)|
-|Async EntityRecognition (2022-05-01)|
-|Async ExtractiveSummarization  (2022-10-01-preview)|
-|Async Healthcare (2022-05-01)|
-|Async keyPhrases (2022-05-01)|
-|Async piiEntityRecognition (2022-05-01)|
-|Async SentimentAnalysis (2022-05-01)|
-|Conversations CLU (2022-05-01)|
-|Conversations orchestraion (2022-05-01)|
-|Detect langauge (v3.0)|
-|Detect langauge (v4 preview)|
-|Detect personal information (v3.1)|
-|Detect personal information (v4 preview)|
-|Entity linking (v4 preview)|
-|Key phrases (v3.0)|
-|Key phrases (v4 preview)|
-|Named entity Recognition (v4 preview)|
-|Sentiment (v4 preview)|
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">A Language resource </a>
+    * (optional) A trained model if you're using a custom capability such as [custom NER](../custom-named-entity-recognition/overview.md), [custom text classification](../custom-text-classification/), or [conversational language understanding](../conversational-language-understanding/overview.md).
+    * You will need the key and endpoint from your Language resource to authenticate your Power Automate flow.
 
 ## Create a power automate flow
 
-1- [Signin to power automate](https://make.powerautomate.com/)
+1. [Sign in to power automate](https://make.powerautomate.com/)
 
-2- From the left side menu, choose *My flows* and create a *Automated cloud flow*
-:::image type="content" source="../media/create-flow.png" alt-text="A screenshot of the flow creation." lightbox="../media/create-flow.png":::
+2. From the left side menu, select **My flows** and create a **Automated cloud flow**
 
-3- Name your flow as *Languageflow*
-:::image type="content" source="../media/language-flow.png" alt-text="A screenshot of the language flow." lightbox="../media/language-flow.png":::
+    :::image type="content" source="../media/create-flow.png" alt-text="A screenshot of the menu for creating an automated cloud flow." lightbox="../media/create-flow.png":::
 
-4- Start by adding a *Manually trigger flow*
-:::image type="content" source="../media/trigger-flow.png" alt-text="A screenshot of how to manually trigger a flow." lightbox="../media/trigger-flow.png":::
+3. Enter a name your flow. For example *Languageflow*.
 
-5- To add a Language connector, search for *Azure Language* 
-:::image type="content" source="../media/language-connector.png" alt-text="A screenshot of azure language connectors." lightbox="../media/language-connector.png":::
+    :::image type="content" source="../media/language-flow.png" alt-text="A screenshot of automated cloud flow screen." lightbox="../media/language-flow.png":::
 
-6- For this tutorial, we will work on extracting named entities from text. To do so, search for *Named entity recognition*
-:::image type="content" source="../media/entity-connector.png" alt-text="A screenshot of NER connector." lightbox="../media/entity-connector.png":::
+4. Start by selecting **Manually trigger flow**.
 
-7- Add your language endpoint and key to be used for authentication 
-:::image type="content" source="../media/language-auth.png" alt-text="A screenshot of language key and endpoint." lightbox="../media/language-auth.png":::
+    :::image type="content" source="../media/trigger-flow.png" alt-text="A screenshot of how to manually trigger a flow." lightbox="../media/trigger-flow.png":::
 
-8- Add the data in the connector
+5. To add a Language service connector, search for **Azure Language**.
+
+    :::image type="content" source="../media/language-connector.png" alt-text="A screenshot of An Azure language connector." lightbox="../media/language-connector.png":::
+
+6. For this tutorial, you will create a flow that extracts named entities from text. Search for **Named entity recognition**, and select the connector.
+
+    :::image type="content" source="../media/entity-connector.png" alt-text="A screenshot of a named entity recognition connector." lightbox="../media/entity-connector.png":::
+
+7. Add endpoint and key for your Language resource, which will be used for authentication. You can find your key and endpoint by navigating to your resource in the [Azure portal](https://portal.azure.com), and selecting **Keys and endpoint** from the left navigation menu.
+
+    :::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot of language key and endpoint." lightbox="../media/azure-portal-resource-credentials.png":::
+
+8. Once you have your key and endpoint, add it to the connector in Power Automate.
+ 
+    :::image type="content" source="../media/language-auth.png" alt-text="A screenshot of language key and endpoint." lightbox="../media/language-auth.png":::
+
+9. Add the data in the connector
 :::image type="content" source="../media/ner-connector.png" alt-text="A screenshot of the NER connector." lightbox="../media/ner-connector.png":::
-
-> [!NOTE]
-> You will need deployment name and project name if you are using custom language capabilites
-
-9- From the top bar, save and test the flow
+    
+    > [!NOTE]
+    > You will need deployment name and project name if you are using custom language capability.
+    
+9. From the top navigation menu, save the flow and select **Test the flow**. In the window that appears, select **Test**. 
 :::image type="content" source="../media/test-connector.png" alt-text="A screenshot of how to run the flow." lightbox="../media/test-connector.png":::
 
-10- After the flow runs, you should see the response in the outputs field
-:::image type="content" source="../media/response-connector.png" alt-text="A screenshot of flow response." lightbox="../media/response-connector.png":::
+10. After the flow runs, you will see the response in the **outputs** field.
 
-
+    :::image type="content" source="../media/response-connector.png" alt-text="A screenshot of flow response." lightbox="../media/response-connector.png":::
 
 ## Next steps 
 
-[Triage incoming emails with custom text classification](../custom-text-classification/tutorials/triage-email.md)
-
+* [Triage incoming emails with custom text classification](../custom-text-classification/tutorials/triage-email.md)
+* [Available Language service connectors](/connectors/cognitiveservicestextanalytics)
 
 
