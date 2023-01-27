@@ -42,7 +42,7 @@ This how-to guide series consists of multiple articles. We recommend that you st
 |[Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md)| Learn how to write a custom policy that integrates with your own RESTful service.|
 |[Create and read a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md)| Learn how to store into and read user details from Azure AD storage by using Azure AD B2C custom policy. You use the Azure Active Directory technical profile.|
 |[Set up a sign-up and sign-in flow by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md). | Learn how to configure a sign-up and sign-in flow for a local account(using email and password) by using Azure Active Directory B2C custom policy. You show a user a sign-in interface for them to sign in by using their existing account, but they can create a new account if they don't already have one.|
-| [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md) | Learn how to configure a sign-up and sign-in flow for a social account, Facebook.|
+| [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md) | Learn how to configure a sign-up and sign-in flow for a social account, Facebook. You also learn to combine local and social sign-up and sign-in flow.|
 
 ## Next steps 
 
