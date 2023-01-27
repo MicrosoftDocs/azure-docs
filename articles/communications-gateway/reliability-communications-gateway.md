@@ -19,7 +19,7 @@ Azure Communications Gateway ensures your service is reliable by using Azure red
 
 Each Azure Communications Gateway deployment consists of three separate regions: a Management Region and two Service Regions. This article describes the two different region types and their distinct redundancy models. It covers both regional reliability with availability zones and cross-region reliability with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-:::image type="complex" source="media/communications-gateway/communications-gateway-management-and-service-regions.png" alt-text="Diagram of two service regions, a management region and two operator sites.":::
+:::image type="complex" source="media/reliability/azure-communications-gateway-management-and-service-regions.png" alt-text="Diagram of two service regions, a management region and two operator sites.":::
     Diagram showing two operator sites and the Azure regions for Azure Communications Gateway. Azure Communications Gateway has two service regions and one management region. The service regions connect to the management region and to the operator sites. The management region can be co-located with a service region.
 :::image-end:::
 
@@ -38,7 +38,7 @@ Azure Communications Gateway offers a 'successful redial' redundancy model: call
 
 We expect your network to have two geographically redundant sites. Each site should be paired with an Azure Communications Gateway region. The redundancy model relies on cross-connectivity between your network and Azure Communications Gateway service regions.
 
-:::image type="complex" source="media/communications-gateway/communications-gateway-service-region-redundancy.png" alt-text="Diagram of two operator sites and two service regions. Both service regions connect to both sites, with primary and secondary routes.":::
+:::image type="complex" source="media/reliability/azure-communications-gateway-service-region-redundancy.png" alt-text="Diagram of two operator sites and two service regions. Both service regions connect to both sites, with primary and secondary routes.":::
     Diagram of two operator sites (operator site A and operator site B) and two service regions (service region A and service region B). Operator site A has a primary route to service region A and a secondary route to service region B. Operator site B has a primary route to service region B and a secondary route to service region A.
 :::image-end:::
 
@@ -117,4 +117,4 @@ The reliability design described in this document is implemented by Microsoft an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare to deploy an Azure Communications Gateway resource](../communications-gateway/prepare-to-deploy.md)
+> [Prepare to deploy an Azure Communications Gateway resource](prepare-to-deploy.md)

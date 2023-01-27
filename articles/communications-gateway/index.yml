@@ -30,7 +30,7 @@ landingContent:
           - text: Emergency calling
             url: emergency-calling.md
           - text: Reliability
-            url: ../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
+            url: reliability-communications-gateway.md
           - text: Security
             url: security.md
 
