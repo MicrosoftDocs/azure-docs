@@ -154,7 +154,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsTransformations* elemen
 
 We've defined three Claims Transformations, which we use to generate values for *alternativeSecurityId* and *userPrincipalName* claims. These ClaimsTransformations are invoked in the OAuth2 Technical Profile in [step 3.3](#step-33---configure-facebook-claims-provider).   
 
-### Step 3.3 - Configure Facebook Claims Provider
+### Step 3.3 - Configure Facebook claims provider
 
 To enable users to sign in using a Facebook account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. You can define a Facebook account as a claims provider. 
 
@@ -506,18 +506,12 @@ In this article, our user journey orchestration steps only references technical 
 
 Use the following steps to add a combined local and social account: 
 
-1. Declare a claim, `authenticationSource`, which specifies whether the user was authenticated at Social identity provider or a local account by using the following code:   
+1. In the `ContosoCustomPolicy.XML` file, locate the `AccountTypeInputCollector` self-asserted technical profile, and then add `authenticationSource` claim in its output claims collection by using the following code: 
 
     ```xml
-    <!--<ClaimsSchema>-->
-        ...  
-        <ClaimType Id="authenticationSource">
-        <DisplayName>AuthenticationSource</DisplayName>
-        <DataType>string</DataType>
-        <UserHelpText>Specifies whether the user was authenticated at Social IDP or local account.</UserHelpText>
-        </ClaimType>
-      <!--</ClaimsSchema>-->
-    ``` 
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localIdpAuthentication" AlwaysUseDefaultValue="true" />
+    ```
+
 1. In the `UserJourneys` section, add a new user journey, *LocalAndSocialSignInAndSignUp* by using the following code: 
 
     ```xml
@@ -530,13 +524,165 @@ Use the following steps to add a combined local and social account:
             </UserJourney>
         <!--</UserJourneys>-->
     ```
-1. Add the orchestration steps
 
-1. In the RelyingParty section, change *DefaultUserJourney's* `ReferenceId` to `LocalAndSocialSignInAndSignUp`  
+1. In the user journey you just created, *LocalAndSocialSignInAndSignUp*, add orchestration steps by using the following code:
+ 
+    ```xml
+        <!--<UserJourneys>
+            ...
+            <UserJourney Id="LocalAndSocialSignInAndSignUp">
+                <OrchestrationSteps>-->
+                <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="SignupOrSigninContentDefinition">
+                    <ClaimsProviderSelections>
+                      <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
+                      <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
+                    </ClaimsProviderSelections>
+                    <ClaimsExchanges>
+                      <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="UserSignInCollector" />
+                    </ClaimsExchanges>
+                </OrchestrationStep>
+                <!-- Check if the user has selected to sign in using one of the social providers -->
+                <OrchestrationStep Order="2" Type="ClaimsExchange">
+                    <Preconditions>
+                        <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                            <Value>objectId</Value>
+                            <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                    </Preconditions>
+                    <ClaimsExchanges>
+                        <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+                        <ClaimsExchange Id="AccountTypeInputCollectorClaimsExchange" TechnicalProfileReferenceId="AccountTypeInputCollector"/>
+                    </ClaimsExchanges>
+                </OrchestrationStep>
 
-1. Upload policy file
+                <!--For Local sign in option start-->
 
-1. Run policy (include screenshot)
+                <OrchestrationStep Order="3" Type="ClaimsExchange">
+                    <Preconditions>
+                        <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                            <Value>objectId</Value>
+                            <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+                          <Value>accountType</Value>
+                          <Value>work</Value>
+                          <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+                            <Value>authenticationSource</Value>
+                            <Value>socialIdpAuthentication</Value>
+                            <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                    </Preconditions>
+                    <ClaimsExchanges>
+                        <ClaimsExchange Id="GetAccessCodeClaimsExchange" TechnicalProfileReferenceId="AccessCodeInputCollector" />
+                    </ClaimsExchanges>
+                </OrchestrationStep>
+                
+                <OrchestrationStep Order="4" Type="ClaimsExchange">
+                    <Preconditions>
+                        <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                            <Value>objectId</Value>
+                            <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+                            <Value>authenticationSource</Value>
+                            <Value>socialIdpAuthentication</Value>
+                            <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                    </Preconditions>
+                    <ClaimsExchanges>
+                        <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="UserInformationCollector" />
+                    </ClaimsExchanges>
+                </OrchestrationStep>  
+              
+                <OrchestrationStep Order="5" Type="ClaimsExchange">
+                    <Preconditions>
+                        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+                            <Value>authenticationSource</Value>
+                            <Value>socialIdpAuthentication</Value>
+                            <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                    </Preconditions>
+                    <ClaimsExchanges>
+                        <ClaimsExchange Id="AADUserReaderExchange" TechnicalProfileReferenceId="AAD-UserRead"/>
+                    </ClaimsExchanges>
+                </OrchestrationStep>                
+                <!--For Local sign in option end-->
+
+                <!--For social sign in option start-->
+                <!-- For social IDP authentication, attempt to find the user account in the
+                directory. -->
+                <OrchestrationStep Order="6" Type="ClaimsExchange">
+                   <Preconditions>
+                    <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+                        <Value>authenticationSource</Value>
+                        <Value>localIdpAuthentication</Value>
+                        <Action>SkipThisOrchestrationStep</Action>
+                    </Precondition>
+                   </Preconditions>
+                    <ClaimsExchanges>
+                        <ClaimsExchange Id="AADUserReadUsingAlternativeSecurityId" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
+                    </ClaimsExchanges>
+                </OrchestrationStep>
+            
+                <!-- Show self-asserted page only if the directory does not have the user account
+                already (i.e. we do not have an objectId).  -->
+                <OrchestrationStep Order="7" Type="ClaimsExchange">
+                    <Preconditions>
+                        <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                            <Value>objectId</Value>
+                            <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+                            <Value>authenticationSource</Value>
+                            <Value>localIdpAuthentication</Value>
+                            <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                    </Preconditions>
+                    <ClaimsExchanges>
+                        <ClaimsExchange Id="SelfAsserted-Social" TechnicalProfileReferenceId="SelfAsserted-Social" />
+                    </ClaimsExchanges>
+                </OrchestrationStep>
+            
+                <OrchestrationStep Order="8" Type="ClaimsExchange">
+                    <Preconditions>
+                        <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                            <Value>objectId</Value>
+                            <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+                            <Value>authenticationSource</Value>
+                            <Value>localIdpAuthentication</Value>
+                            <Action>SkipThisOrchestrationStep</Action>
+                        </Precondition>
+                    </Preconditions>
+                    <ClaimsExchanges>
+                        <ClaimsExchange Id="AADUserWrite" TechnicalProfileReferenceId="AAD-UserWriteUsingAlternativeSecurityId" />
+                    </ClaimsExchanges>
+                </OrchestrationStep>
+                <!--For social sign in option end-->
+                <OrchestrationStep Order="9" Type="ClaimsExchange">
+                    <ClaimsExchanges>
+                    <ClaimsExchange Id="GetMessageClaimsExchange" TechnicalProfileReferenceId="UserInputMessageClaimGenerator"/>
+                    </ClaimsExchanges>          
+                </OrchestrationStep>
+
+                <OrchestrationStep Order="10" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+               <!-- </OrchestrationSteps>
+            </UserJourney>
+        </UserJourneys>-->
+    ```
+    
+    In the fist step, we specify the options a user needs to choose from in their journey, local or social authentication. In the steps that follow, we use preconditions to track the option the user picked or the stage of the journey at which the user is. For example, we use the `authenticationSource` claim to differentiate between a local authentication journey and a social authentication journey.  
+    
+1. In the `RelyingParty` section, change *DefaultUserJourney's* `ReferenceId` to `LocalAndSocialSignInAndSignUp`  
+
+1. Use the procedure in [step 6](#step-6---upload-policy) and [step 7](#step-7---test-policy) to upload and run your policy. After you run the policy, you'll see a screen similar to the following screenshot.
+
+    :::image type="content" source="media/custom-policies-series-sign-up-or-sign-in-federation/screenshot-combined-local-and-social-sign-up-or-sign-in.png" alt-text="A screenshot combined local and social sign up or sign in interface.":::
+
+    You can observe that a user can sign up or sign in by using either a local account or a social account. 
 
 ## Next steps 
 

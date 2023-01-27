@@ -174,7 +174,7 @@ In the `ContosoCustomPolicy.XML` file, locate the `SignInUser` technical profile
             Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         <Metadata>
             <Item Key="setting.operatingMode">Email</Item>
-            <Item Key="SignUpTarget">SignUpWithLogonEmailExchange</Item>
+            <Item Key="SignUpTarget">AccountTypeInputCollectorClaimsExchange</Item>
         </Metadata>
         <DisplayClaims>
             <OutputClaim ClaimTypeReferenceId="email" Required="true" />
