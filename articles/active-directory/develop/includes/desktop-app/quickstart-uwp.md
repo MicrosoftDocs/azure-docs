@@ -2,14 +2,15 @@
 title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app"
 description: In this quickstart, learn how a Universal Windows Platform (UWP) application can get an access token and call an API protected by Microsoft identity platform.
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
 ms.date: 05/19/2022
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:UWP", mode-api
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (UWP) application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---
@@ -33,7 +34,7 @@ You have two options to start your quickstart application:
 
 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) quickstart experience.
 1. Enter a name for your application and select **Register**.
-1. Follow the instructions to download and automatically configure your new application for you in one click.
+1. Follow the instructions to download and automatically configure your new application.
 
 ### Option 2: Register and manually configure your application and code sample
 
@@ -94,7 +95,7 @@ When the app's window appears, you can select the **Call Microsoft Graph API** b
 
 ### MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by the Microsoft Identity platform. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
+MSAL ([Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by the Microsoft Identity platform. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -121,7 +122,7 @@ The value of `ClientId` is the **Application (client) ID** of the app you regist
 
 ### Requesting tokens
 
-MSAL has two methods for acquiring tokens in a UWP app: `AcquireTokenInteractive` and `AcquireTokenSilent`.
+MSAL has two methods for acquiring tokens in a UWP app: [`AcquireTokenInteractive`](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?) and [`AcquireTokenSilent`](/dotnet/api/microsoft.identity.client.acquiretokensilentparameterbuilder).
 
 #### Get a user token interactively
 
