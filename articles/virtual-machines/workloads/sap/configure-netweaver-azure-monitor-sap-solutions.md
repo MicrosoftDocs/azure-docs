@@ -311,7 +311,7 @@ You can use an access control list (ACL) to filter the access to a server port. 
 
 ### To enable secure communication
 
-To [enable TLS 1.2 or higher](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/sap/enable-tls-azure-monitor-sap-solutions) with SAP NetWeaver provider please execute steps mentioned on this [SAP document](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/4923501ebf5a1902e10000000a42189c.html?version=201909.002)
+To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md) with SAP NetWeaver provider please execute steps mentioned on this [SAP document](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/4923501ebf5a1902e10000000a42189c.html?version=201909.002)
 
 ### Install NetWeaver provider
 
