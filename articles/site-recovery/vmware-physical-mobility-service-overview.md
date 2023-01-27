@@ -424,7 +424,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
 When providing both the machine credentials and the vCenter server or vSphere ESXi host credentials is not possible, then you should opt for credential-less discovery. When performing credential-less discovery, mobility service is installed manually on the source machine and during the installation, the check box for credential-less discovery should be set to true, so that when replication is enabled, no credentials will be required. 
 
-![Image showing credential-less-discovery-check-box](./media/vmware-physical-mobility-service-overview-modernized/credential-less-discovery.png)
+![Screenshot showing credential-less-discovery-check-box.](./media/vmware-physical-mobility-service-overview-modernized/credential-less-discovery.png)
 
 ## Generate Mobility Service configuration file
 
