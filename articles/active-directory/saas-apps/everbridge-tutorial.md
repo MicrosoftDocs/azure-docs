@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Everbridge
@@ -45,6 +45,8 @@ To configure the integration of Everbridge into Azure AD, you need to add Everbr
 1. In the **Add from the gallery** section, type **Everbridge** in the search box.
 1. Select **Everbridge** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Everbridge
 
 Configure and test Azure AD SSO with Everbridge using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Everbridge.
@@ -73,8 +75,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. To configure the **Everbridge** application as the **Everbridge manager portal**, in the **Basic SAML Configuration** section, follow these steps:
 
-    ![Everbridge domain and URLs single sign-on information](common/idp-intiated.png)
-
     a. In the **Identifier** box, enter a URL that follows the pattern.
     `https://sso.everbridge.net/<API_Name>`
 
@@ -88,15 +88,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
   * If you want to configure the application in IDP-initiated mode, follow these steps:
 
-	 ![Everbridge domain and URLs single sign-on information for IDP-initiated mode](common/idp-intiated.png)
-
     a. In the **Identifier** box, enter a URL that follows the pattern `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
     b. In the **Reply URL** box, enter a URL that follows the pattern `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
    * If you want to configure the application in SP-initiated mode, select **Set additional URLs** and follow this step:
-
-     ![Everbridge domain and URLs single sign-on information for SP-initiated mode](common/both-signonurl.png)
 
      a. In the **Sign on URL** box, enter a URL that follows the pattern `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
@@ -135,15 +131,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Everbridge SSO
+## Configure Everbridge SSO
 
 To configure SSO on **Everbridge** as an **Everbridge manager portal** application, follow these steps.
  
 1. In a different web browser window, sign in to Everbridge as an administrator.
 
-1. In the menu on the top, select the **Settings** tab. Under **Security**, select **Single Sign-On**.
+1. In the menu on the top, select the **Settings** tab. Under **Security**, select **Single Sign-On for Manager Portal**.
    
-     ![Configure single sign-on](./media/everbridge-tutorial/sso.png)
+     ![Configure single sign-on](./media/everbridge-tutorial/settings.png)
    
      a. In the **Name** box, enter the name of the identifier provider. An example is your company name.
    
@@ -159,7 +155,7 @@ To configure SSO on **Everbridge** as an **Everbridge manager portal** applicati
 
      g. Select **Save**.
 
-### Configure Everbridge as Everbridge member portal SSO
+## Configure Everbridge as Everbridge member portal SSO
 
 To configure single sign-on on **Everbridge** as an **Everbridge member portal**, send the downloaded **Federation Metadata XML** to the [Everbridge support team](mailto:support@everbridge.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -167,14 +163,14 @@ To configure single sign-on on **Everbridge** as an **Everbridge member portal**
 
 In this section, you create the test user Britta Simon in Everbridge. To add users in the Everbridge platform, work with the [Everbridge support team](mailto:support@everbridge.com). Users must be created and activated in Everbridge before you use single sign-on. 
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Everbridge for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Everbridge tile in the My Apps, you should be automatically signed in to the Everbridge for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Everbridge tile in the My Apps, you should be automatically signed in to the Everbridge for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Everbridge you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Everbridge you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

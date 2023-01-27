@@ -2,14 +2,14 @@
 title: Governing Azure Active Directory service accounts
 description: Principles and procedures for managing the lifecycle of service accounts in Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: janicericketts
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 3/1/2021
-ms.author: baselden
+ms.date: 08/19/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 There are three types of service accounts in Azure Active Directory (Azure AD): [managed identities](service-accounts-managed-identities.md), [service principals](service-accounts-principal.md), and user accounts employed as service accounts. As you create these service accounts for automated use, they're granted permissions to access resources in Azure and Azure AD. Resources can include Microsoft 365 services, software as a service (SaaS) applications, custom applications, databases, HR systems, and so on. Governing Azure AD service accounts means that you manage their creation, permissions, and lifecycle to ensure security and continuity.
 
 > [!IMPORTANT] 
-> We do not recommend using user accounts as service accounts as they are inherently less secure. This includes on-premises service accounts that are synced to Azure AD, as they are  not converted to service principals. Instead, we recommend the use of managed identities or service principals. Note that at this time the use of conditional access policies is not possible with service principals, but the functionality is coming.
+> We do not recommend using user accounts as service accounts as they are inherently less secure. This includes on-premises service accounts that are synced to Azure AD, as they are  not converted to service principals. Instead, we recommend the use of managed identities or service principals. Note that at this time the use of conditional access policies with service principals is called Conditional Access for workload identities and it's in public preview.
 
 
 ## Plan your service account
@@ -61,7 +61,7 @@ We recommend the following practices for service account privileges.
 * [Use OAuth 2.0 scopes](../develop/v2-permissions-and-consent.md) to limit the functionality a service account can access on a resource.
 * Service principals and managed identities can use OAuth 2.0 scopes in either a delegated context that is impersonating a signed-on user, or as service account in the application context. In the application context no is signed-on.
 
-* Check the scopes service accounts request for resources to ensure they're appropriate. For example, if an account is requesting Files.ReadWrite.All, evaluate if it actually needs only File.Read.All. For more information on permissions, see to [Microsoft Graph permission reference](/graph/permissions-reference).
+* Check the scopes service accounts request for resources to ensure they're appropriate. For example, if an account is requesting Files.ReadWrite.All, evaluate if it actually needs only File.Read.All. For more information on permissions, see the [Overview of Microsoft Graph permissions](/graph/permissions-overview).
 
 * Ensure you trust the developer of the application or API with the access requested to your resources.
 
@@ -106,7 +106,7 @@ Proactively monitor your service accounts to ensure the service account’s usag
 
 * Are sign-in patterns of service accounts changing?
 
-We recommend you export Azure AD sign-In logs and import them into your existing Security Information and Event Management (SIEM) tools such as Azure Sentinel. Use your SIEM to build alerting and dashboards.
+We recommend you export Azure AD sign-In logs and import them into your existing Security Information and Event Management (SIEM) tools such as Microsoft Sentinel. Use your SIEM to build alerting and dashboards.
 
 ### Review service account permissions
 
@@ -167,7 +167,7 @@ Establish a review process to ensure that service accounts are regularly reviewe
 
 **The processes for deprovisioning should include the following tasks.**
 
-1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-sign-ins.md#sign-ins-report) and resource access by the service account.
+1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-sign-ins.md) and resource access by the service account.
 
    * If the account still is active, determine how it's being used before taking subsequent steps.
  
@@ -190,4 +190,3 @@ For more information on securing Azure service accounts, see:
 
 
  
-

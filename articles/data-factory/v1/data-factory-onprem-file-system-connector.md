@@ -1,11 +1,12 @@
 ---
 title: Copy data to/from a file system using Azure Data Factory 
 description: Learn how to copy data to and from an on-premises file system by using Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 04/13/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Copy data to and from an on-premises file system by using Azure Data Factory
@@ -24,11 +25,11 @@ This article explains how to use the Copy Activity in Azure Data Factory to copy
 ## Supported scenarios
 You can copy data **from an on-premises file system** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to an on-premises file system**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
 > Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline.

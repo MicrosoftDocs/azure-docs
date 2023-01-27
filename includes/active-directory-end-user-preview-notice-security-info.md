@@ -10,4 +10,4 @@ ms.author: lizross
 ms.custom: include file
 ---
 
-> If what you're seeing on your screen doesn't match what's being covered in this article, it means that your administrator hasn't turned on this experience yet. Until this experience is turned on, you must follow the instructions and information in the [Set up my account for two-step verification](../articles/active-directory/user-help/multi-factor-authentication-end-user-first-time.md) section.
+> If what you're seeing on your screen doesn't match what's being covered in this article, it means that your administrator hasn't turned on this experience yet. Until this experience is turned on, you must follow the instructions and information in the [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) section.

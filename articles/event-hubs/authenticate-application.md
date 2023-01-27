@@ -2,7 +2,8 @@
 title: Authenticate an application to access Azure Event Hubs resources
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Event Hubs resources
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 11/08/2022
+ms.custom: subject-rbac-steps
 ---
 
 # Authenticate an application with Azure Active Directory to access Event Hubs resources
@@ -17,7 +18,7 @@ When a role is assigned to an Azure AD security principal, Azure grants access t
 Azure provides the following Azure built-in roles for authorizing access to Event Hubs data using Azure AD and OAuth:
 
 - [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Use this role to give complete access to Event Hubs resources.
-- [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use this role to give send access to Event Hubs resources.
+- [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use this role to give access to Event Hubs resources.
 - [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use this role to give receiving access to Event Hubs resources.   
 
 For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-overview.md#azure-role-based-access-control).
@@ -29,75 +30,47 @@ For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-
 ## Authenticate from an application
 A key advantage of using Azure AD with Event Hubs is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from Microsoft identity platform. Azure AD authenticates the security principal (a user, a group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Event Hubs.
 
-Following sections shows you how to configure your native application or web application for authentication with Microsoft identity platform 2.0. For more information about Microsoft identity platform 2.0, see [Microsoft identity platform (v2.0) overview](../active-directory/develop/v2-overview.md).
+The following sections show you how to configure your native application or web application for authentication with Microsoft identity platform 2.0. For more information about Microsoft identity platform 2.0, see [Microsoft identity platform (v2.0) overview](../active-directory/develop/v2-overview.md).
 
 For an overview of the OAuth 2.0 code grant flow, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 ### Register your application with an Azure AD tenant
-The first step in using Azure AD to authorize Event Hubs resources is registering your client application with an Azure AD tenant from the [Azure portal](https://portal.azure.com/). When you register your client application, you supply information about the application to AD. Azure AD then provides a client ID (also called an application ID) that you can use to associate your application with Azure AD runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
+The first step in using Azure AD to authorize Event Hubs resources is registering your client application with an Azure AD tenant from the [Azure portal](https://portal.azure.com/). Follow steps in the [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) to register an application in Azure AD that represents your application trying to access Event Hubs resources. 
 
-The following images show steps for registering a web application:
+When you register your client application, you supply information about the application to AD. Azure AD then provides a client ID (also called an application ID) that you can use to associate your application with Azure AD runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
 
-![Register an application](./media/authenticate-application/app-registrations-register.png)
 
 > [!Note]
 > If you register your application as a native application, you can specify any valid URI for the Redirect URI. For native applications, this value does not have to be a real URL. For web applications, the redirect URI must be a valid URI, because it specifies the URL to which tokens are provided.
 
 After you've registered your application, you'll see the **Application (client) ID** under **Settings**:
 
-![Application ID of the registered application](./media/authenticate-application/application-id.png)
-
-For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
+:::image type="content" source="./media/authenticate-application/application-id.png" alt-text="Screenshot showing the app registration page with application ID highlighted.":::
 
 
 ### Create a client secret   
-The application needs a client secret to prove its identity when requesting a token. To add the client secret, follow these steps.
-
-1. Navigate to your app registration in the Azure portal.
-1. Select the **Certificates & secrets** setting.
-1. Under **Client secrets**, select **New client secret** to create a new secret.
-1. Provide a description for the secret, and choose the wanted expiration interval.
-1. Immediately copy the value of the new secret to a secure location. The fill value is displayed to you only once.
-
-    ![Client secret](./media/authenticate-application/client-secret.png)
+The application needs a client secret to prove its identity when requesting a token. Follow steps from [Add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) to create a client secret for your app in Azure AD. 
 
 
 ## Assign Azure roles using the Azure portal  
-After you register the application, you assign the application's service principal to an Event Hubs Azure AD role described in the [Build-in roles for Azure Event Hubs](#built-in-roles-for-azure-event-hubs) section. 
+Assign one of the [Event Hubs roles](#built-in-roles-for-azure-event-hubs) to the application's service principal at the desired scope (Event Hubs namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your Event Hubs namespace.
-2. On the **Overview** page, select the event hub for which you want to assign a role.
-
-    ![Select your event hub](./media/authenticate-application/select-event-hub.png)
-1. Select **Access Control (IAM)** to display access control settings for the event hub. 
-1. Select the **Role assignments** tab to see the list of role assignments. Select the **Add** button on the toolbar and then select **Add role assignment**. 
-
-    ![Add button on the toolbar](./media/authenticate-application/role-assignments-add-button.png)
-1. On the **Add role assignment** page, do the following steps:
-    1. Select the **Event Hubs role** that you want to assign. 
-    1. Search to locate the **security principal** (user, group, service principal) to which you want to assign the role. Select the **registered application** from the list. 
-    1. Select **Save** to save the role assignment. 
-
-        ![Assign role to a user](./media/authenticate-application/assign-role-to-user.png)
-    4. Switch to the **Role assignments** tab and confirm the role assignment. For example, the following image shows that **mywebapp** is in the **Azure Event Hubs Data Sender** role. 
-        
-        ![User in the list](./media/authenticate-application/user-in-list.png)
-
-You can follow similar steps to assign a role scoped to Event Hubs namespace, resource group, or subscription. Once you define the role and its scope, you can test this behavior with samples [in this GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). To learn more on managing access to Azure resources using Azure RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
+Once you define the role and its scope, you can test this behavior with samples [in this GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). To learn more on managing access to Azure resources using Azure RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
 
 
 ### Client libraries for token acquisition  
 Once you've registered your application and granted it permissions to send/receive data in Azure Event Hubs, you can add code to your application to authenticate a security principal and acquire OAuth 2.0 token. To authenticate and acquire the token, you can use either one of the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md) or another open-source library that supports OpenID or Connect 1.0. Your application can then use the access token to authorize a request against Azure Event Hubs.
 
-For a list of scenarios for which acquiring tokens is supported, see the [Scenarios](https://aka.ms/msal-net-scenarios) section of the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub repository.
+For scenarios where acquiring tokens is supported, see the [Scenarios](https://aka.ms/msal-net-scenarios) section of the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub repository.
 
 ## Samples
-- [Microsoft.Azure.EventHubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
-    
-    These samples use the old **Microsoft.Azure.EventHubs** library, but you can easily update it to using the latest **Azure.Messaging.EventHubs** library. To move the sample from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.EventHubs to Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [Azure.Messaging.EventHubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     This sample has been updated to use the latest **Azure.Messaging.EventHubs** library.
+- [Microsoft.Azure.EventHubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+    
+    These samples use the old **Microsoft.Azure.EventHubs** library, but you can easily update it to using the latest **Azure.Messaging.EventHubs** library. To move the sample from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.EventHubs to Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+
 
 ## Next steps
 - To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?

@@ -1,13 +1,10 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 12/03/2018
+ ms.date: 04/22/2022
  ms.author: cherylmc
- ms.custom: include file
+
 ---
 The VNet-to-VNet FAQ applies to VPN gateway connections. For information about VNet peering, see [Virtual network peering](../articles/virtual-network/virtual-network-peering-overview.md).
 
@@ -19,9 +16,9 @@ VNet-to-VNet traffic within the same region is free for both directions when you
 
 No. VNet-to-VNet traffic travels across the Microsoft Azure backbone, not the internet.
 
-### Can I establish a VNet-to-VNet connection across Azure Active Directory (AAD) tenants?
+### Can I establish a VNet-to-VNet connection across Azure Active Directory tenants?
 
-Yes, VNet-to-VNet connections that use Azure VPN gateways work across AAD tenants.
+Yes, VNet-to-VNet connections that use Azure VPN gateways work across Azure AD tenants.
 
 ### Is VNet-to-VNet traffic secure?
 
@@ -39,7 +36,7 @@ No. The virtual networks can be in the same or different Azure regions (location
 
 No.
 
-### Can I use VNet-to-VNet to connect virtual networks in separate Azure instances? 
+### Can I use VNet-to-VNet to connect virtual networks in separate Azure instances?
 
 No. VNet-to-VNet supports connecting virtual networks within the same Azure instance. For example, you can’t create  a connection between global Azure and Chinese/German/US government Azure instances. Consider using a Site-to-Site VPN connection for these scenarios.
 
@@ -49,7 +46,7 @@ Yes. Virtual network connectivity can be used simultaneously with multi-site VPN
 
 ### How many on-premises sites and virtual networks can one virtual network connect to?
 
-See the [Gateway requirements](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements) table.
+See the [Gateway requirements](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#benchmark) table.
 
 ### Can I use VNet-to-VNet to connect VMs or cloud services outside of a VNet?
 
@@ -82,6 +79,3 @@ No. You can't have overlapping IP address ranges.
 ### Can there be overlapping address spaces among connected virtual networks and on-premises local sites?
 
 No. You can't have overlapping IP address ranges.
-
-
-

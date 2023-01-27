@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 editor: ''
 
@@ -13,13 +13,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: include file
 ---
 
 ## Enable logging
 
-To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging is each library is covered in the following articles:
+To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging in each library is covered in the following articles:
 
 :::row:::
     :::column:::
@@ -44,3 +45,7 @@ Here are some suggestions for data collection:
 ## Validate your integration
 
 Test your integration by following the [Microsoft identity platform integration checklist](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+
+## Build for resilience
+
+Learn how to increase resiliency in your app. For details, see [Increase resilience of authentication and authorization applications you develop](../articles/active-directory/fundamentals/resilience-app-development-overview.md)

@@ -1,6 +1,5 @@
 ---
-title: App branding guidelines | Azure
-titleSuffix: Microsoft identity platform
+title: Sign in with Microsoft branding guidelines | Azure AD
 description: Learn about application branding guidelines for Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -8,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: ryanwi
@@ -16,7 +15,7 @@ ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
 ---
 
-# Branding guidelines for applications
+# Sign in with Microsoft: Branding guidelines for applications
 
 When developing applications with the Microsoft identity platform, you'll need to direct your customers when they want to use their work or school account (managed in Azure AD), or their personal account for sign-up and sign-in to your application.
 

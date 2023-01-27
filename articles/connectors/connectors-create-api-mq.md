@@ -1,193 +1,223 @@
 ---
-title: Connect to IBM MQ server
-description: Send and retrieve messages with an Azure or on-premises IBM MQ server and Azure Logic Apps
+title: Connect to IBM MQ
+description: Connect to an MQ server on premises or in Azure from a workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: ChristopherHouser
-ms.author: chrishou
-ms.reviewer: valthom, estfan, logicappspm
-ms.topic: article
-ms.date: 03/10/2021
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 01/10/2023
+ms.custom: engagement-fy23
 tags: connectors
 ---
 
-# Connect to an IBM MQ server from Azure Logic Apps
+# Connect to an IBM MQ server from a workflow in Azure Logic Apps
 
-The MQ connector sends and retrieves messages stored in an MQ server on premises or in Azure. This connector includes a Microsoft MQ client that communicates with a remote IBM MQ server across a TCP/IP network. This article provides a starter guide to use the MQ connector. You can start by browsing a single message on a queue and then try other actions.
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-The MQ connector includes these actions but provides no triggers:
+This article shows how to access an MQ server that's either on premises or in Azure from a workflow in Azure Logic Apps with the MQ connector. You can then create automated workflows that receive and send messages stored in your MQ server. For example, your workflow can browse for a single message in a queue and then run other actions. The MQ connector includes a Microsoft MQ client that communicates with a remote MQ server across a TCP/IP network.
 
-- Browse a single message without deleting the message from the MQ server.
-- Browse a batch of messages without deleting the messages from the MQ server.
-- Receive a single message and delete the message from the MQ server.
-- Receive a batch of messages and delete the messages from the MQ server.
-- Send a single message to the MQ server.
+## Supported IBM WebSphere MQ versions
 
-Here are the officially supported IBM WebSphere MQ versions:
+* MQ 7.5
+* MQ 8.0
+* MQ 9.0, 9.1, and 9.2
 
-  * MQ 7.5
-  * MQ 8.0
-  * MQ 9.0
-  * MQ 9.1
+## Connector technical reference
 
-## Prerequisites
+The MQ connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
-* If you use an on-premises MQ server, you need to [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network.
-
-  > [!NOTE]
-  > If your MQ server is publicly available or available within Azure, you don't have to use the data gateway.
-
-  * For the MQ connector to work, the server where you install the on-premises data gateway also needs to have .NET Framework 4.6 installed.
-  
-  * After you install the on-premises data gateway, you also need to [create an Azure gateway resource for the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md) that the MQ connector uses to access your on-premises MQ server.
-
-* The logic app where you want to use the MQ connector. The MQ connector doesn't have any triggers, so you must add a trigger to your logic app first. For example, you can use the [Recurrence trigger](../connectors/connectors-native-recurrence.md). If you're new to logic apps, try this [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+| Logic app | Environment | Connection version |
+|-----------|-------------|--------------------|
+| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. This connector provides only actions, not triggers. For more information, review the following documentation: <br><br>- [MQ managed connector reference](/connectors/mq) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Enterprise** label. For more information, review the following documentation: <br><br>- [MQ managed connector reference](/connectors/mq) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | 	Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the designer under the **Azure** label, and built-in connector, which appears in the designer under the **Built-in** label and is service provider based. The built-in version differs in the following ways: <br><br>- The built-in version includes actions *and* triggers. <br><br>- The built-in version can connect directly to an MQ server and access Azure virtual networks. You don't need an on-premises data gateway. <br><br>- The built-in version supports Transport Layer Security (TLS) encryption for data in transit, message encoding for both the send and receive operations, and Azure virtual network integration when your logic app uses the Azure Functions Premium plan <br><br>For more information, review the following documentation: <br><br>- [MQ managed connector reference](/connectors/mq) <br>- [MQ built-in connector reference](/azure/logic-apps/connectors/built-in/reference/mq/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Limitations
 
-The MQ connector doesn't support or use the message's **Format** field and doesn't perform any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
+* The MQ connector doesn't support segmented messages.
 
-<a name="create-connection"></a>
+* The MQ connector doesn't use the message's **Format** field and doesn't make any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
 
-## Create MQ connection
+For more information, review the [MQ managed connector reference](/connectors/mq) or the [MQ built-in connector reference](/azure/logic-apps/connectors/built-in/reference/mq/).
 
-If you don't already have an MQ connection when you add an MQ action, you're prompted to create the connection, for example:
+## Prerequisites
 
-![Provide connection information](media/connectors-create-api-mq/connection-properties.png)
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-1. If you're connecting to an on-premises MQ server, select **Connect via on-premises data gateway**.
+* If you're using an on-premises MQ server, [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. For the MQ connector to work, the server with the on-premises data gateway also must have .NET Framework 4.6 installed.
 
-1. Provide the connection information for your MQ server.
+  After you install the gateway, you must also create a data gateway resource in Azure. The MQ connector uses this resource to access your MQ server. For more information, review [Set up the data gateway connection](../logic-apps/logic-apps-gateway-connection.md). 
 
-   * For **Server**, you can enter the MQ server name, or enter the IP address followed by a colon and the port number.
+  > [!NOTE]
+  >
+  > You don't need the gateway in the following scenarios:
+  > 
+  > * Your MQ server is publicly available or available in Azure.
+  > * You're going to use the MQ built-in connector, not the managed connector.
 
-   * To use Transport Layer Security (TLS) or Secure Sockets Layer (SSL), select **Enable SSL?**.
+* The logic app workflow where you want to access your MQ server.
 
-     The MQ connector currently supports only server authentication, not client authentication. For more information, see [Connection and authentication problems](#connection-problems).
+  * If you're using the MQ managed connector, which doesn't provide any triggers, make sure that your workflow already starts with a trigger or that you first add a trigger to your workflow. For example, you can use the [Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
-1. In the **gateway** section, follow these steps:
+  * If you're using a trigger from the MQ built-in connector, make sure that you start with a blank workflow.
 
-   1. From the **Subscription** list, select the Azure subscription that's associated with your Azure gateway resource.
+  * If you're using the on-premises data gateway, your logic app resource must use the same location as your gateway resource in Azure.
 
-   1. From the **Connection Gateway** list, select the Azure gateway resource that you want to use.
+<a name="add-trigger"></a>
 
-1. When you're done, select **Create**.
+## Add an MQ trigger (Standard logic app only)
+
+The following steps apply only to Standard logic app workflows, which can use triggers provided by the MQ built-in connector. The MQ managed connector doesn't include any triggers.
+
+These steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md) to create a Standard logic app workflow.
+
+1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
+
+1. On the designer, select **Choose an operation**, if not already selected.
+
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **mq**.
+
+1. From the triggers list, select the [MQ trigger](/azure/logic-apps/connectors/built-in/reference/mq/#triggers) that you want to use.
+
+1. Provide the [information to authenticate your connection](/azure/logic-apps/connectors/built-in/reference/mq/#authentication). When you're done, select **Create**.
+
+1. When the trigger information box appears, provide the required [information for your trigger](/azure/logic-apps/connectors/built-in/reference/mq/#triggers).
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+<a name="add-action"></a>
+
+## Add an MQ action
+
+A Consumption logic app workflow can use only the MQ managed connector. However, a Standard logic app workflow can use the MQ managed connector and the MQ built-in connector. Each version has multiple actions. For example, both managed and built-in connector versions have their own actions to browse a message.
+
+* Managed connector actions: These actions run in a Consumption or Standard logic app workflow.
+
+* Built-in connector actions: These actions run only in a Standard logic app workflow.
+
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
+
+* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
+
+* Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
+
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com/), open your logic app workflow in the designer.
+
+1. In your workflow where you want to add an MQ action, follow one of these steps:
+
+   * To add an action under the last step, select **New step**.
+
+   * To add an action between steps, move your mouse over the connecting arrow so that the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Enterprise**. In the search box, enter **mq**.
+
+1. From the actions list, select the [MQ action](/connectors/mq/#actions) that you want to use.
+
+1. Provide the [information to authenticate your connection](/connectors/mq/#creating-a-connection). When you're done, select **Create**.
+
+1. When the action information box appears, provide the required [information for your action](/connectors/mq/#actions).
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+### [Standard](#tab/standard)
+
+The steps to add and use an MQ action differ based on whether your workflow uses the built-in connector or the managed, Azure-hosted connector.
+
+* [Built-in connector](#add-built-in-action): Describes the steps to add an action for the MQ built-in connector.
+
+* [Managed connector](#add-managed-action): Describes the steps to add an action for the MQ managed connector.
+
+<a name="add-built-in-action"></a>
+
+#### Add an MQ built-in connector action
+
+1. In the [Azure portal](https://portal.azure.com/), open your logic app workflow in the designer.
+
+1. In your workflow where you want to add an MQ action, follow one of these steps:
+
+   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
+
+   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
+
+1. On the **Add an action** pane, under the **Choose an operation** search box, select **Built-in**. In the search box, enter **mq**.
+
+1. From the actions list, select the [MQ action](/azure/logic-apps/connectors/built-in/reference/mq/#actions) that you want to use.
+
+1. Provide the [information to authenticate your connection](/azure/logic-apps/connectors/built-in/reference/mq/#authentication). When you're done, select **Create**.
+
+1. When the action information box appears, provide the required [information for your action](/azure/logic-apps/connectors/built-in/reference/mq/#actions).
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+<a name="add-managed-action"></a>
+
+#### Add an MQ managed connector action
+
+1. In the [Azure portal](https://portal.azure.com/), open your logic app workflow in the designer.
+
+1. In your workflow where you want to add an MQ action, follow one of these steps:
+
+   * To add an action under the last step, select **New step**.
+
+   * To add an action between steps, move your mouse over the connecting arrow between those steps, select the plus sign (**+**) that appears between those steps, and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **mq**.
+
+1. From the actions list, select the [MQ action](/connectors/mq/#actions) that you want to use.
+
+1. Provide the [information to authenticate your connection](/connectors/mq/#creating-a-connection). When you're done, select **Create**.
+
+1. When the action information box appears, provide the required [information for your action](/connectors/mq/#actions).
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+---
+
+## Test your workflow
+
+To check that your workflow returns the results that you expect, run your workflow and then review the outputs from your workflow's run history.
+
+1. Run your workflow.
+
+   * Consumption logic app: On the workflow designer toolbar, select **Run Trigger** > **Run**.
+
+   * Standard logic app: On workflow resource menu, select **Overview**. On the **Overview** pane toolbar, select **Run Trigger** > **Run**.
+
+   After the run finishes, the designer shows the workflow's run history along with the status for each step.
+
+1. To review the inputs and outputs for each step that ran (not skipped), expand or select the step.
+
+   * To review more input details, select **Show raw inputs**.
+
+   * To review more output details, select **Show raw outputs**. If you set **IncludeInfo** to **true**, more output is included.
+
+## Troubleshoot problems
+
+### Failures with browse or receive actions
+
+If you run a browse or receive action on an empty queue, the action fails with the following header outputs:
+
+![Screenshot showing the MQ "no message" error.](media/connectors-create-api-mq/mq-no-message-error.png)
 
 <a name="connection-problems"></a>
 
 ### Connection and authentication problems
 
-When your logic app tries connecting to your on-premises MQ server, you might get this error:
+When your workflow tries connecting to your on-premises MQ server, you might get the following error:
 
 `"MQ: Could not Connect the Queue Manager '<queue-manager-name>': The Server was expecting an SSL connection."`
 
 * If you're using the MQ connector directly in Azure, the MQ server needs to use a certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
 
-* If you're using the on-premises data gateway, try to use a certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) when possible. However, if this option isn't possible, you could use a self-signed certificate, which is isn't issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) and is considered less secure.
+* The MQ server requires that you define the cipher specification to use with TLS connections. However, for security purposes and to include the best security suites, the Windows operating system sends a set of supported cipher specifications.
 
-  To install the server's self-signed certificate, you can use the **Windows Certification Manager** (certmgr.msc) tool. For this scenario, on your local computer where the on-premises data gateway service is running, you need to install the certificate in your **Local Computer** certificates store at the **Trusted Root Certification Authorities** level.
+  The operating system where the MQ server runs chooses the suites to use. To make the configuration match, you have to change your MQ server setup so that the cipher specification matches the option chosen in the TLS negotiation.
 
-  1. On the computer where the on-premises-data gateway service is running, open the start menu, find and select **Manage user certificates**.
-
-  1. After the Windows Certification Manager tool opens, go to the **Certificates - Local Computer** >  **Trusted Root Certification Authorities** folder, and install the certificate.
-
-     > [!IMPORTANT]
-     > Make sure that you install certificate in the **Certificates - Local Computer** > **Trusted Root Certification Authorities** store.
-
-* The MQ server requires that you define the cipher specification that you want to use for TLS/SSL connections. However, SslStream in .NET doesn't permit you to specify the order for cipher specifications. To work around this limitation, you can change your MQ server configuration to match the first cipher specification in the suite that the connector sends in the TLS/SSL negotiation.
-
-  When you try the connection, the MQ server logs an event message that indicates the connection failed because the other end used the incorrect cipher specification. The event message contains the cipher specification that appears first in the list. Update the cipher specification in the channel configuration to match the cipher specification in the event message.
-
-## Browse single message
-
-1. In your logic app, under the trigger or another action, select **New step**.
-
-1. In the search box, enter `mq`, and select the **Browse message** action.
-
-   ![Select "Browse message" action](media/connectors-create-api-mq/browse-message.png)
-
-1. If you haven't already created an MQ connection, you're prompted to [create that connection](#create-connection).
-
-1. After you create the connection, set up the **Browse message** action's properties:
-
-   | Property | Description |
-   |----------|-------------|
-   | **Queue** | If different from the queue specified in the connection, specify that queue. |
-   | **MessageId**, **CorrelationId**, **GroupId**, and other properties | Browse for a message that's based on the different MQ message properties |
-   | **IncludeInfo** | To include additional message information in the output, select **true**. To omit additional message information in the output, select **false**. |
-   | **Timeout** | Enter a value to determine how long to wait for a message to arrive in an empty queue. If nothing is entered, the first message in the queue is retrieved, and there is no time spent waiting for a message to appear. |
-   |||
-
-   For example:
-
-   ![Properties for "Browse message" action](media/connectors-create-api-mq/browse-message-properties.png)
-
-1. When you're done, on the designer toolbar, select **Save**. To test your app, select **Run**.
-
-   After the run finishes, the designer shows the workflow steps and their status so that you can review the output.
-
-1. To view the details about each step, click the step's title bar. To review more information about a step's output, select **Show raw outputs**.
-
-   ![Browse message output](media/connectors-create-api-mq/browse-message-output.png)
-
-   Here is some sample raw output:
-
-   ![Browse message raw output](media/connectors-create-api-mq/browse-message-raw-output.png)
-
-1. If you set **IncludeInfo** to **true**, additional output is shown:
-
-   ![Browse message include info](media/connectors-create-api-mq/browse-message-include-info.png)
-
-## Browse multiple messages
-
-The **Browse messages** action includes a **BatchSize** option to indicate how many messages to return from the queue. If **BatchSize** has no value, all messages are returned. The returned output is an array of messages.
-
-1. Follow the previous steps, but add the **Browse messages** action instead.
-
-1. If you haven't already created an MQ connection, you're prompted to [create that connection](#create-connection). Otherwise, by default, the first previously configured connection is used. To create a new connection, select **Change connection**. Or, select a different connection.
-
-1. Provide the information for the action.
-
-1. Save and run the logic app.
-
-   After the logic app finishes running, here is some sample output from the **Browse messages** action:
-
-   ![Sample "Browse messages" output](media/connectors-create-api-mq/browse-messages-output.png)
-
-## Receive single message
-
-The **Receive message** action has the same inputs and outputs as the **Browse message** action. When you use **Receive message**, the message is deleted from the queue.
-
-## Receive multiple messages
-
-The **Receive messages** action has the same inputs and outputs as the **Browse messages** action. When you use **Receive messages**, the messages are deleted from the queue.
-
-> [!NOTE]
-> When running a browse or a receive action on a queue that doesn't have any messages, 
-> the action fails with this output:
->
-> ![MQ "no message" error](media/connectors-create-api-mq/mq-no-message-error.png)
-
-## Send message
-
-1. Follow the previous steps, but add the **Send message** action instead.
-
-1. If you haven't already created an MQ connection, you're prompted to [create that connection](#create-connection). Otherwise, by default, the first previously configured connection is used. To create a new connection, select **Change connection**. Or, select a different connection.
-
-1. Provide the information for the action. For **MessageType**, select a valid message type: **Datagram**, **Reply**, or **Request**
-
-   ![Properties for "Send message action"](media/connectors-create-api-mq/send-message-properties.png)
-
-1. Save and run the logic app.
-
-   After the logic app finishes running, here is some sample output from the **Send message** action:
-
-   ![Sample "Send message" output](media/connectors-create-api-mq/send-message-output.png)
-
-## Connector reference
-
-For technical details, such as actions and limits, which are described in the connector's Swagger file, review the [connector's reference page](/connectors/mq/).
+  When you try to connect, the MQ server logs an event message that the connection attempt failed because the MQ server chose the incorrect cipher specification. The event message contains the cipher specification that the MQ server chose from the list. In the channel configuration, update the cipher specification to match the cipher specification in the event message.
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors in Azure Logic Apps](built-in.md)

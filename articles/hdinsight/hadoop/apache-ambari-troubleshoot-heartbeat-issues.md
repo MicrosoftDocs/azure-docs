@@ -3,7 +3,7 @@ title: Apache Ambari heartbeat issues in Azure HDInsight
 description: Review of various reasons for Apache Ambari heartbeat issues in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/06/2020
+ms.date: 04/06/2022
 ---
 
 # Apache Ambari heartbeat issues in Azure HDInsight
@@ -94,4 +94,4 @@ OMS logs are causing high CPU utilization.
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

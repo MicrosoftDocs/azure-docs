@@ -1,7 +1,9 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-ms.date: 02/04/2021
+author: timwarner-msft
+ms.author: timwarner
+ms.date: 07/19/2022
 ms.topic: sample
 ---
 # Starter Resource Graph query samples
@@ -9,26 +11,25 @@ ms.topic: sample
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
 [Query Language](../concepts/query-language.md). If you aren't already familiar with
 [Kusto Query Language (KQL)](/azure/kusto/query/index), it's recommended to review the
-[tutorial for KQL](/azure/kusto/query/tutorial) to understand how to compose requests for the
+[KQL tutorial](/azure/kusto/query/tutorial) to understand how to compose requests for the
 resources you're looking for.
 
 We'll walk through the following starter queries:
 
 - [Count Azure resources](#count-resources)
-- [Count key vault resources](#count-keyvaults)
+- [Count Key Vault resources](#count-keyvaults)
 - [List resources sorted by name](#list-resources)
 - [Show all virtual machines ordered by name in descending order](#show-vms)
 - [Show first five virtual machines by name and their OS type](#show-sorted)
 - [Count virtual machines by OS type](#count-os)
 - [Show resources that contain storage](#show-storage)
+- [List all virtual network subnets](#list-subnets)
 - [List all public IP addresses](#list-publicip)
 - [Count resources that have IP addresses configured by subscription](#count-resources-by-ip)
 - [List resources with a specific tag value](#list-tag)
 - [List all storage accounts with specific tag value](#list-specific-tag)
 - [List all tags and their values](#list-all-tag-values)
 - [Show unassociated network security groups](#unassociated-nsgs)
-- [Get cost savings summary from Azure Advisor](#advisor-savings)
-- [Count machines in scope of Guest Configuration policies](#count-gcmachines)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -54,7 +55,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | summarize count()"
 ```
 
@@ -74,7 +75,7 @@ Search-AzGraph -Query "Resources | summarize count()"
 
 ---
 
-## <a name="count-keyvaults"></a>Count key vault resources
+## <a name="count-keyvaults"></a>Count Key Vault resources
 
 This query uses `count` instead of `summarize` to count the number of records returned. Only key
 vaults are included in the count.
@@ -87,7 +88,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.keyvault/vaults' | count"
 ```
 
@@ -121,7 +122,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project name, type, location | order by name asc"
 ```
 
@@ -156,7 +157,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
@@ -191,7 +192,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
@@ -228,7 +229,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
@@ -261,7 +262,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
@@ -299,7 +300,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type contains 'storage' | distinct type"
 ```
 
@@ -319,6 +320,40 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 ---
 
+## <a name="list-subnets"></a>List all Azure virtual network subnets
+
+This query returns a list of Azure virtual networks (VNets) including subnet names and address prefixes. Thanks to [Saul Dolgin](https://github.com/sdolgin) for the contribution.
+
+```kusto
+Resources
+| where type == 'microsoft.network/virtualnetworks'
+| extend subnets = properties.subnets
+| mv-expand subnets
+| project name, subnets.name, subnets.properties.addressPrefix, location, resourceGroup, subscriptionId
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az graph query -q "Resources | where type == 'microsoft.network/virtualnetworks' | extend subnets = properties.subnets | mv-expand subnets | project name, subnets.name, subnets.properties.addressPrefix, location, resourceGroup, subscriptionId"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type == 'microsoft.network/virtualnetworks' | extend subnets = properties.subnets | mv-expand subnets | project name, subnets.name, subnets.properties.addressPrefix, location, resourceGroup, subscriptionId
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.network%2Fvirtualnetworks%27%0A%7C%20extend%20subnets%20%3D%20properties.subnets%0A%7C%20mv-expand%20subnets%0A%7C%20project%20name%2C%20subnets.name%2C%20subnets.properties.addressPrefix%2C%20location%2C%20resourceGroup%2C%20subscriptionId" target="_blank">portal.Azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.network%2Fvirtualnetworks%27%0A%7C%20extend%20subnets%20%3D%20properties.subnets%0A%7C%20mv-expand%20subnets%0A%7C%20project%20name%2C%20subnets.name%2C%20subnets.properties.addressPrefix%2C%20location%2C%20resourceGroup%2C%20subscriptionId" target="_blank">portal.Azure.us</a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.network%2Fvirtualnetworks%27%0A%7C%20extend%20subnets%20%3D%20properties.subnets%0A%7C%20mv-expand%20subnets%0A%7C%20project%20name%2C%20subnets.name%2C%20subnets.properties.addressPrefix%2C%20location%2C%20resourceGroup%2C%20subscriptionId" target="_blank">portal.Azure.cn</a>
+
+---
+
 ## <a name="list-publicip"></a>List all public IP addresses
 
 Similar to the previous query, find everything that is a type with the word **publicIPAddresses**.
@@ -335,7 +370,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
@@ -367,7 +402,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
@@ -401,7 +436,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where tags.environment=~'internal' | project name"
 ```
 
@@ -432,7 +467,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where tags.environment=~'internal' | project name, tags"
 ```
 
@@ -466,7 +501,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
@@ -499,7 +534,7 @@ results from _Resources_, giving broad coverage to which tags are fetched. Last,
 results to `distinct` paired data and excludes system-hidden tags.
 
 ```kusto
-ResourceContainers 
+ResourceContainers
 | where isnotempty(tags)
 | project tags
 | mvexpand tags
@@ -519,7 +554,7 @@ ResourceContainers
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "ResourceContainers | where isnotempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) | union (resources | where notempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) ) | distinct tagKey, tagValue | where tagKey !startswith "hidden-""
 ```
 
@@ -553,7 +588,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 
@@ -570,85 +605,6 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%22microsoft.network%2Fnetworksecuritygroups%22%20and%20isnull%28properties.networkInterfaces%29%20and%20isnull%28properties.subnets%29%0D%0A%7C%20project%20name%2C%20resourceGroup%0D%0A%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%22microsoft.network%2Fnetworksecuritygroups%22%20and%20isnull%28properties.networkInterfaces%29%20and%20isnull%28properties.subnets%29%0D%0A%7C%20project%20name%2C%20resourceGroup%0D%0A%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.us</a>
 - Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%22microsoft.network%2Fnetworksecuritygroups%22%20and%20isnull%28properties.networkInterfaces%29%20and%20isnull%28properties.subnets%29%0D%0A%7C%20project%20name%2C%20resourceGroup%0D%0A%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.cn</a>
-
----
-
-## <a name="advisor-savings"></a>Get cost savings summary from Azure Advisor
-
-This query summarizes the cost savings of each
-[Azure Advisor](../../../advisor/advisor-overview.md) recommendation.
-
-```kusto
-advisorresources
-| where type == 'microsoft.advisor/recommendations'
-| where properties.category == 'Cost'
-| extend
-    resources = tostring(properties.resourceMetadata.resourceId),
-    savings = todouble(properties.extendedProperties.savingsAmount),
-    solution = tostring(properties.shortDescription.solution),
-    currency = tostring(properties.extendedProperties.savingsCurrency)
-| summarize
-    dcount(resources), 
-    bin(sum(savings), 0.01)
-    by solution, currency
-| project solution, dcount_resources, sum_savings, currency
-| order by sum_savings desc
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az graph query -q "advisorresources | where type == 'microsoft.advisor/recommendations' | where properties.category == 'Cost' | extend resources = tostring(properties.resourceMetadata.resourceId), savings = todouble(properties.extendedProperties.savingsAmount), solution = tostring(properties.shortDescription.solution), currency = tostring(properties.extendedProperties.savingsCurrency) | summarize dcount(resources), bin(sum(savings), 0.01) by solution, currency | project solution, dcount_resources, sum_savings, currency | order by sum_savings desc"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Search-AzGraph -Query "advisorresources | where type == 'microsoft.advisor/recommendations' | where properties.category == 'Cost' | extend resources = tostring(properties.resourceMetadata.resourceId), savings = todouble(properties.extendedProperties.savingsAmount), solution = tostring(properties.shortDescription.solution), currency = tostring(properties.extendedProperties.savingsCurrency) | summarize dcount(resources), bin(sum(savings), 0.01) by solution, currency | project solution, dcount_resources, sum_savings, currency | order by sum_savings desc"
-```
-
-# [Portal](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
-
-- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%0D%0A%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%0D%0A%7C%20extend%0D%0A%20%20%20%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%0D%0A%20%20%20%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%0D%0A%20%20%20%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%0D%0A%20%20%20%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%0D%0A%7C%20summarize%0D%0A%20%20%20%20dcount%28resources%29%2C%20%0D%0A%20%20%20%20bin%28sum%28savings%29%2C%200.01%29%0D%0A%20%20%20%20by%20solution%2C%20currency%0D%0A%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%0D%0A%7C%20order%20by%20sum_savings%20desc" target="_blank">portal.azure.com</a>
-- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%0D%0A%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%0D%0A%7C%20extend%0D%0A%20%20%20%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%0D%0A%20%20%20%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%0D%0A%20%20%20%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%0D%0A%20%20%20%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%0D%0A%7C%20summarize%0D%0A%20%20%20%20dcount%28resources%29%2C%20%0D%0A%20%20%20%20bin%28sum%28savings%29%2C%200.01%29%0D%0A%20%20%20%20by%20solution%2C%20currency%0D%0A%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%0D%0A%7C%20order%20by%20sum_savings%20desc" target="_blank">portal.azure.us</a>
-- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%0D%0A%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%0D%0A%7C%20extend%0D%0A%20%20%20%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%0D%0A%20%20%20%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%0D%0A%20%20%20%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%0D%0A%20%20%20%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%0D%0A%7C%20summarize%0D%0A%20%20%20%20dcount%28resources%29%2C%20%0D%0A%20%20%20%20bin%28sum%28savings%29%2C%200.01%29%0D%0A%20%20%20%20by%20solution%2C%20currency%0D%0A%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%0D%0A%7C%20order%20by%20sum_savings%20desc" target="_blank">portal.azure.cn</a>
-
----
-
-## <a name="count-gcmachines"></a>Count machines in scope of Guest Configuration policies
-
-Displays the count of Azure virtual machines and Arc connected servers in scope for [Azure Policy Guest Configuration](../../policy/concepts/guest-configuration.md) assignments.
-
-```kusto
-GuestConfigurationResources
-| extend vmid = split(properties.targetResourceId,'/')
-| mvexpand properties.latestAssignmentReport.resources
-| where properties_latestAssignmentReport_resources.resourceId != 'Invalid assignment package.'
-| project machine = tostring(vmid[(-1)]),
-    type = tostring(vmid[(-3)])
-| distinct machine, type
-| summarize count() by type
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az graph query -q "GuestConfigurationResources | extend vmid = split(properties.targetResourceId,'/') | mvexpand properties.latestAssignmentReport.resources | where properties_latestAssignmentReport_resources.resourceId != 'Invalid assignment package.' | project machine = tostring(vmid[(-1)]), type = tostring(vmid[(-3)]) | distinct machine, type | summarize count() by type"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(properties.targetResourceId,'/') | mvexpand properties.latestAssignmentReport.resources | where properties_latestAssignmentReport_resources.resourceId != 'Invalid assignment package.' | project machine = tostring(vmid[(-1)]), type = tostring(vmid[(-3)]) | distinct machine, type | summarize count() by type"
-```
-
-# [Portal](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
-
-- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/GuestConfigurationResources%20%7C%20extend%20vmid%20%3D%20split(properties.targetResourceId%2C%22%2F%22)%20%7C%20mvexpand%20properties.latestAssignmentReport.resources%20%7C%20where%20properties_latestAssignmentReport_resources.resourceId%20!%3D%20'Invalid%20assignment%20package.'%20%7C%20project%20machine%20%3D%20tostring(vmid%5B(-1)%5D)%2C%20type%20%3D%20tostring(vmid%5B(-3)%5D)%20%7C%20distinct%20machine%2C%20type%20%7C%20summarize%20count()%20by%20type" target="_blank">portal.azure.com</a>
 
 ---
 

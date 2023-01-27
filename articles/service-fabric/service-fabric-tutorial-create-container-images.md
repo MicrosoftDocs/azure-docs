@@ -1,11 +1,14 @@
 ---
 title: Create container images on Service Fabric in Azure 
 description: In this tutorial, you learn how to create container images for a multi-container Service Fabric application.
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurecli
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Create container images on a Linux Service Fabric cluster
 
 This tutorial is part one of a tutorial series that demonstrates how to use containers in a Linux Service Fabric cluster. In this tutorial, a multi-container application is prepared for use with Service Fabric. In subsequent tutorials, these images are used as part of a Service Fabric application. In this tutorial you learn how to:
@@ -54,19 +57,10 @@ docker build -t azure-vote-front .
 > [!Note]
 > If you are getting permission denied then follow [this](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) documentation on how to work with docker without sudo.
 
-This command can take some time since all the necessary dependencies need to be pulled from Docker Hub. When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images.
+This command can take some time since all the necessary dependencies need to be pulled from Docker Hub. When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the *azure-vote-front* image you just created.
 
 ```bash
 docker images
-```
-
-Notice that two images have been downloaded or created. The *azure-vote-front* image contains the application. It was derived from a *python* image from Docker Hub.
-
-```bash
-REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
-
 ```
 
 ## Deploy Azure Container Registry
@@ -123,8 +117,7 @@ Output:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
+azure-vote-front             latest              052c549a75bf        About a minute ago   913MB
 ```
 
 To get the loginServer name, run the following command:
@@ -153,15 +146,14 @@ Output:
 
 ```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
-tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
+azure-vote-front                       latest              052c549a75bf        23 minutes ago      913MB
+<acrName>.azurecr.io/azure-vote-front  v1                  052c549a75bf        23 minutes ago      913MB
 
 ```
 
 ## Push images to registry
 
-Push the *azure-vote-front* image to the registry. 
+Push the *azure-vote-front* image to the registry.
 
 Using the following example, replace the ACR loginServer name with the loginServer from your environment.
 

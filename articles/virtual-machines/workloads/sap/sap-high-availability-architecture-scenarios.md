@@ -1,22 +1,18 @@
 ---
 title: Azure VMs HA architecture and scenarios for SAP NetWeaver | Microsoft Docs
 description: High-availability architecture and scenarios for SAP NetWeaver on Azure Virtual Machines
-services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # High-availability architecture and scenarios for SAP NetWeaver
@@ -44,7 +40,6 @@ ms.custom: H1Hack27Feb2017
 
 [getting-started]:get-started.md
 
-[ha-guide]:sap-high-availability-guide.md
 [sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
 [sap-high-availability-guide-wsfc-shared-disk]:sap-high-availability-guide-wsfc-shared-disk.md
 [sap-high-availability-guide-wsfc-file-share]:sap-high-availability-guide-wsfc-file-share.md
@@ -85,15 +80,13 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3
 [planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92
 
-[virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
-[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+[virtual-machines-windows-portal-sql-alwayson-int-listener]:/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure
 
-[sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:https://scn.sap.com/docs/DOC-44415
 [sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541
 [azure-sla]:https://azure.microsoft.com/support/legal/sla/
 [azure-virtual-machines-manage-availability]:../../windows/manage-availability.md
-[azure-storage-redundancy]:https://azure.microsoft.com/documentation/articles/storage-redundancy/
-[azure-storage-managed-disks-overview]:https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
+[azure-storage-redundancy]:/azure/storage/common/storage-redundancy
+[azure-storage-managed-disks-overview]:../../../virtual-machines/managed-disks-overview.md
 
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -126,7 +119,6 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[sap-ha-guide]:sap-high-availability-guide.md
 [sap-ha-guide-2]:#42b8f600-7ba3-4606-b8a5-53c4f026da08
 [sap-ha-guide-4]:#8ecf3ba0-67c0-4495-9c14-feec1a2255b7
 [sap-ha-guide-8]:#78092dbe-165b-454c-92f5-4972bdbef9bf
@@ -143,7 +135,7 @@ ms.custom: H1Hack27Feb2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -214,11 +206,11 @@ ms.custom: H1Hack27Feb2017
 [sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
@@ -249,7 +241,7 @@ SAP high availability in Azure can be separated into three types:
     * Redundant SAP application servers.
     * Unique components. An example might be a single point of failure (SPOF) component, such as an SAP ASCS/SCS instance or a database management system (DBMS).
 
-SAP high availability in Azure differs from SAP high availability in an on-premises physical or virtual environment. The following paper [SAP NetWeaver high availability and business continuity in virtual environments with VMware and Hyper-V on Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] describes standard SAP high-availability configurations in virtualized environments on Windows.
+SAP high availability in Azure differs from SAP high availability in an on-premises physical or virtual environment.
 
 There is no sapinst-integrated SAP high-availability configuration for Linux as there is for Windows. For information about SAP high availability on-premises for Linux, see [High availability partner information][sap-ha-partner-information].
 
@@ -289,7 +281,7 @@ Azure is in process of rolling out a concepts of [Azure Availability Zones](../.
 
 Using Availability Zones, there are some things to consider. The considerations list like:
 
-- You can't deploy Azure Availability Sets within an Availability Zone. You need to choose either an Availability Zone or an Availability Set as deployment frame for a VM.
+- You can't deploy Azure Availability Sets within an Availability Zone. Only possibility to combine Availability sets and Availability Zones is with [proximity placement groups](../../co-location.md). For more information see , [combine availability sets and availability zones with proximity placement groups](./sap-proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups)
 - You can't use the [Basic Load Balancer](../../../load-balancer/load-balancer-overview.md) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](../../../load-balancer/load-balancer-standard-availability-zones.md)
 - Azure Availability Zones are not giving any guarantees of certain distance between the different zones within one region
 - The network latency between different Azure Availability Zones within the different Azure regions might be different from Azure region to region. There will be cases, where you as a customer can reasonably run the SAP application layer deployed across different zones since the network latency from one zone to the active DBMS VM is still acceptable from a business process impact. Whereas there will be customer scenarios where the latency between the active DBMS VM in one zone and an SAP application instance in a VM in another zone can be too intrusive and not acceptable for the SAP business processes. As a result, the deployment architectures need to be different with an active/active architecture for the application or active/passive architecture if latency is too high.
@@ -324,7 +316,7 @@ We recommend that you use managed disks because they simplify the deployment and
 
 ## Utilizing Azure infrastructure high availability to achieve *higher availability* of SAP applications
 
-If you decide not to use functionalities such as WSFC or Pacemaker on Linux (currently supported only for SUSE Linux Enterprise Server [SLES] 12 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
+If you decide not to use functionalities such as WSFC or Pacemaker on Linux (supported for SUSE Linux Enterprise Server [SLES] 12 and later and Red Hat Enterprise Linux [RHEL] 7 and later ), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
 For more information about this approach, see [Utilize Azure infrastructure VM restart to achieve higher availability of the SAP system][sap-higher-availability].
 
@@ -420,16 +412,16 @@ For more information about clustering the SAP ASCS/SCS instance by using the Red
 
 ### High-availability DBMS instance
 
-The DBMS also is a single point of contact in an SAP system. You need to protect it by using a high-availability solution. The following figure shows a SQL Server AlwaysOn high-availability solution in Azure, with Windows Server Failover Clustering and the Azure internal load balancer. SQL Server AlwaysOn replicates DBMS data and log files by using its own DBMS replication. In this case, you don't need cluster shared disk, which simplifies the entire setup.
+The DBMS also is a single point of contact in an SAP system. You need to protect it by using a high-availability solution. The following figure shows a SQL Server Always On high-availability solution in Azure, with Windows Server Failover Clustering and the Azure internal load balancer. SQL Server Always On replicates DBMS data and log files by using its own DBMS replication. In this case, you don't need cluster shared disk, which simplifies the entire setup.
 
-![Figure 3: Example of a high-availability SAP DBMS, with SQL Server AlwaysOn][sap-ha-guide-figure-2003]
+![Figure 3: Example of a high-availability SAP DBMS, with SQL Server Always On][sap-ha-guide-figure-2003]
 
-_**Figure 3:** Example of a high-availability SAP DBMS, with SQL Server AlwaysOn_
+_**Figure 3:** Example of a high-availability SAP DBMS, with SQL Server Always On_
 
 For more information about clustering SQL Server DBMS in Azure by using the Azure Resource Manager deployment model, see these articles:
 
-* [Configure an AlwaysOn availability group in Azure virtual machines manually by using Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Configure an Always On availability group in Azure virtual machines manually by using Resource Manager](/azure/azure-sql/virtual-machines/windows/availability-group-overview)
 
-* [Configure an Azure internal load balancer for an AlwaysOn availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
+* [Configure an Azure internal load balancer for an Always On availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
 For more information about clustering SAP HANA DBMS in Azure by using the Azure Resource Manager deployment model, see [High availability of SAP HANA on Azure virtual machines (VMs)][sap-hana-ha].

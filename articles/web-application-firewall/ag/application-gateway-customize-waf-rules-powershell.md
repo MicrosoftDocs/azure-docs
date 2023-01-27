@@ -7,7 +7,8 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
-ms.topic: article
+ms.topic: article 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Customize Web Application Firewall rules using PowerShell

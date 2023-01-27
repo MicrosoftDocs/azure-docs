@@ -6,12 +6,13 @@ metadata:
   title: Voice assistants documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: trevorbye
+  author: eric-urban
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: trbye
+  ms.author: eur
+  ms.custom: cogserv-non-critical-speech
 
 landingContent:
 - title: About voice assistants
@@ -27,7 +28,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Voice assistants FAQ
-          url: faq-voice-assistants.md
+          url: faq-voice-assistants.yml
         - text: Voice assistants pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
     - linkListType: get-started
@@ -74,8 +75,8 @@ landingContent:
           url: ./custom-keyword-basics.md
     - linkListType: reference
       links:
-        - text: Custom Keyword naming guidelines
-          url: ./custom-keyword-overview.md
+        - text: Choosing an effective keyword
+          url: ./keyword-recognition-guidelines.md
 - title: Help and feedback
   linkLists:
   - linkListType: reference

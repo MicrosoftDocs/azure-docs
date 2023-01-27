@@ -1,10 +1,12 @@
 ---
 title: Create a container for Apache Tomcat on Linux 
 description: Create Linux container to expose an application running on Apache Tomcat server on Azure Service Fabric. Build a Docker image with your application and Apache Tomcat server, push the image to a container registry, build and deploy a Service Fabric container application.
-
-ms.topic: conceptual
-ms.date: 6/08/2018
-ms.author: pepogors
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Create Service Fabric container running Apache Tomcat server on Linux
@@ -228,7 +230,7 @@ docker rmi myregistry.azurecr.io/samples/tomcattest
 
 ## Next steps
 * For quick steps on additional Linux container features, read [Create your first Service Fabric container application on Linux](service-fabric-get-started-containers-linux.md).
-* For more detailed steps on Linux containers, read the [Create a Linux container app tutorial](service-fabric-tutorial-create-container-images.md) tutorial.
+* For more detailed steps on Linux containers, read the [Create a Linux container application tutorial](service-fabric-tutorial-create-container-images.md) tutorial.
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 
 

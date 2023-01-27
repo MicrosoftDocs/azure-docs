@@ -1,18 +1,15 @@
 ---
 title: Set up IBM Db2 HADR on Azure virtual machines (VMs) on RHEL | Microsoft Docs
 description: Establish high availability of IBM Db2 LUW on Azure virtual machines (VMs) RHEL.
-services: virtual-machines-linux
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: 'SAP'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2020
+ms.date: 12/06/2022
 ms.author: juergent
 
 ---
@@ -111,10 +108,15 @@ Complete the planning process before you execute the deployment. Planning builds
 | Virtual machines hosting IBM Db2 LUW | VM size, storage, networking, IP address. |
 | Virtual host name and virtual IP for IBM Db2 database| The virtual IP or host name that's used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip**. |
 | Azure fencing | Method to avoid split brain situations is prevented. |
-| Azure Load Balancer | Usage of Basic or Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port**. |
+| Azure Load Balancer | Usage of Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port**. |
 | Name resolution| How name resolution works in the environment. DNS service is highly recommended. Local hosts file can be used. |
 	
 For more information about Linux Pacemaker in Azure, see [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr].
+
+>[!IMPORTANT]
+>For Db2 versions 11.5.6 and higher we highly recommend Integrated solution using Pacemaker from IBM. 
+>* [Integrated solution using Pacemaker](https://www.ibm.com/docs/en/db2/11.5?topic=feature-integrated-solution-using-pacemaker)
+>* [Alternate or additional configurations available on Microsoft Azure](https://www.ibm.com/support/pages/alternate-or-additional-configurations-available-microsoft-azure)
 
 ## Deployment on Red Hat Enterprise Linux
 
@@ -337,19 +339,22 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
 
    e. After the new front-end IP pool is created, note the pool IP address.
 
-1. Create a back-end pool:
+1. Create a single back-end pool: 
 
-   a. In the Azure portal, open the Azure Load Balancer, select **backend pools**, and then select **Add**.
+   1. Open the load balancer, select **Backend pools**, and then select **Add**.
+   
+   1. Enter the name of the new back-end pool (for example, **Db2-backend**).
+   
+   2. Select **NIC** for Backend Pool Configuration.
+    
+   1. Select **Add a virtual machine**.
+   
+   1. Select the virtual machines of the cluster.
+   
+   1. Select **Add**.
+        
+   2. Select **Save**.   
 
-   b. Enter the name of the new back-end pool (for example, **Db2-backend**).
-
-   c. Select **Add a virtual machine**.
-
-   d. Select the availability set or the virtual machines hosting IBM Db2 database created in the preceding step.
-
-   e. Select the virtual machines of the IBM Db2 cluster.
-
-   f. Select **OK**.
 
 1. Create a health probe:
 
@@ -357,7 +362,7 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
 
    b. Enter the name of the new health probe (for example, **Db2-hp**).
 
-   c. Select **TCP** as the protocol and port **62500**. Keep the **Interval** value set to **5**, and keep the **Unhealthy threshold** value set to **2**.
+   c. Select **TCP** as the protocol and port **62500**. Keep the **Interval** value set to **5**.
 
    d. Select **OK**.
 
@@ -379,12 +384,12 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
 
 **[A]** Add firewall rule for probe port:
 
-<pre><code>sudo firewall-cmd --add-port=<b><probe-port></b>/tcp --permanent
+<pre><code>sudo firewall-cmd --add-port=<b>&lt;probe-port&gt;</b>/tcp --permanent
 sudo firewall-cmd --reload</code></pre>
 
 ## Create the Pacemaker cluster
 	
-To create a basic Pacemaker cluster for this IBM Db2 server, see [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr]. 
+To create a basic Pacemaker cluster for this IBM Db2 server, see [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr]. 
 
 ## Db2 Pacemaker configuration
 
@@ -413,7 +418,7 @@ sudo pcs property set maintenance-mode=true
 
 **[1]** Create IBM Db2 resources:
 
-If building a cluster on **RHEL 7.x**, use the following commands:
+If building a cluster on **RHEL 7.x**, make sure to update package **resource-agents** to version `resource-agents-4.1.1-61.el7_9.15` or higher. Use the following commands to create the cluster resources:
 
 <pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
 sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' master meta notify=true resource-stickiness=5000
@@ -437,7 +442,9 @@ sudo pcs constraint colocation add g_ipnc_<b>db2id2</b>_<b>ID2</b> with master D
 sudo pcs constraint order promote Db2_HADR_<b>ID2</b>-master then g_ipnc_<b>db2id2</b>_<b>ID2</b>
 </code></pre>
 
-If building a cluster on **RHEL 8.x**, use the following commands:
+
+
+If building a cluster on **RHEL 8.x**, make sure to update package **resource-agents** to version `resource-agents-4.1.1-93.el8` or higher. For details see Red Hat KB [A `db2` resource with HADR fails promote with state `PRIMARY/REMOTE_CATCHUP_PENDING/CONNECTED`](https://access.redhat.com/solutions/6516791). Use the following commands to create the cluster resources:
 
 <pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
 sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' promotable meta notify=true resource-stickiness=5000
@@ -650,10 +657,10 @@ sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 sudo pcs resource move Db2_HADR_<b>ID2</b>-clone --master
 sudo pcs resource clear Db2_HADR_<b>ID2</b>-clone</code></pre>
 
-- **On RHEL 7.x - pcs resource move \<res_name> <host>:** Creates location constraints and can cause issues with takeover
-- **On RHEL 8.x - pcs resource move \<res_name> --master:** Creates location constraints and can cause issues with takeover
-- **pcs resource clear \<res_name>**: Clears location constraints
-- **pcs resource cleanup \<res_name>**: Clears all errors of the resource
+- **On RHEL 7.x - pcs resource move \<res_name\> \<host\>:** Creates location constraints and can cause issues with takeover
+- **On RHEL 8.x - pcs resource move \<res_name\> --master:** Creates location constraints and can cause issues with takeover
+- **pcs resource clear \<res_name\>**: Clears location constraints
+- **pcs resource cleanup \<res_name\>**: Clears all errors of the resource
 
 ### Test a manual takeover
 
@@ -871,7 +878,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
 
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
 [db2-hadr-10.5]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
-[dbms-db2]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm
+[dbms-db2]:dbms_guide_ibm.md
 
 [sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
 [rhel-ha-addon]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index
@@ -880,12 +887,12 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
 [rhel-azr-supp]:https://access.redhat.com/articles/3131341
 [rhel-azr-inst]:https://access.redhat.com/articles/3252491
 [rhel-db2-supp]:https://access.redhat.com/articles/3144221
-[ascs-ha-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
-[glusterfs]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
-[rhel-pcs-azr]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
-[anf-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files
+[ascs-ha-rhel]:high-availability-guide-rhel.md
+[glusterfs]:high-availability-guide-rhel-glusterfs.md
+[rhel-pcs-azr]:high-availability-guide-rhel-pacemaker.md
+[anf-rhel]:high-availability-guide-rhel-netapp-files.md
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
-[azr-sap-plancheck]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist
+[azr-sap-plancheck]:sap-deployment-checklist.md

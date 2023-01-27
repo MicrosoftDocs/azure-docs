@@ -4,9 +4,10 @@ description: Describes how to setup up logging to monitoring your Azure Analysis
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 04/27/2021
 ms.author: owend
-ms.reviewer: minewiskan
+ms.reviewer: minewiskan 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Setup diagnostic logging
@@ -159,7 +160,7 @@ In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiag
 
 #### Example 1
 
-The following query returns durations for each query end/refresh end event for a model database and server. If scaled out, the results are broken out by replica because the replica number is included in ServerName_s. Grouping by RootActivityId_g reduces the row count retrieved from the Azure Diagnostics REST API and helps stay within the limits as described in [Log Analytics Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
+The following query returns durations for each query end/refresh end event for a model database and server. If scaled out, the results are broken out by replica because the replica number is included in ServerName_s. Grouping by RootActivityId_g reduces the row count retrieved from the Azure Diagnostics REST API and helps stay within the limits as described in Log Analytics Rate limits.
 
 ```Kusto
 let window = AzureDiagnostics

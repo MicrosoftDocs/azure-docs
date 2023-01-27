@@ -26,7 +26,7 @@ There are two datasets provided. If you wish to train the model yourself, the ho
 > * Ingest output from deployed model as a custom skill
 
 > [!IMPORTANT] 
-> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no .NET SDK support.
+> This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this skill.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ There are two datasets provided. If you wish to train the model yourself, the ho
 * If you are unfamiliar with Azure Machine Learning and its requirements, you will want to review these documents before getting started:
  * [Configure a development environment for Azure Machine Learning](../machine-learning/how-to-configure-environment.md)
  * [Create and manage Azure Machine Learning workspaces in the Azure portal](../machine-learning/how-to-manage-workspace.md)
- * When configuring the development environment for Azure Machine Learning, consider using the [cloud-based compute instance](../machine-learning/how-to-configure-environment.md#compute-instance) for speed and ease in getting started.
+ * When configuring the development environment for Azure Machine Learning, consider using the [cloud-based compute instance](../machine-learning/v1/how-to-configure-environment-v1.md) for speed and ease in getting started.
 * Upload the dataset file to a container in the storage account. The larger file is necessary if you wish to perform the training step in the notebook. If you prefer to skip the training step, the smaller file is recommended.
 
 ## Open notebook and connect to Azure services
@@ -72,8 +72,6 @@ Creating and deploying the inference cluster can take up to 30 minutes. Testing 
 ## Update the skillset
 
 Section 4 in the notebook has four cells that update the skillset and indexer. Alternatively, you can use the portal to select and apply the new skill to the skillset and then run the indexer to update the search service.
-
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Active-Learning-with-Azure-Cognitive-Search/player#time=19m35s:paused/03/player]
 
 In the portal, go to Skillset and select the Skillset Definition (JSON) link. The portal will display the JSON of your skillset that was created in the first cells of the notebook. To the right of the display there is a dropdown menu where you can select the skill definition template. Select the Azure Machine Learning (AML) template. provide the name of the Azure ML workspace and the endpoint for the model deployed to the inference cluster. The template will be updated with the endpoint uri and key.
 

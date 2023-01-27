@@ -3,12 +3,12 @@ title: 'Quickstart: Create an Azure private link service using Azure PowerShell'
 description: In this quickstart, learn how to create an Azure private link service using Azure PowerShell
 services: private-link
 author: asudbring
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/24/2021
 ms.author: allensu
-
+ms.custom: devx-track-azurepowershell, mode-api
+#Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
 ---
 # Quickstart: Create a Private Link service using Azure PowerShell
 
@@ -47,7 +47,6 @@ In this section, you create a virtual network and subnet to host the load balanc
 $subnet = @{
     Name = 'mySubnet'
     AddressPrefix = '10.1.0.0/24'
-    PrivateLinkServiceNetworkPolicies = 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -185,7 +184,6 @@ In this section, you'll map the private link service to a private endpoint. A vi
 $subnet = @{
     Name = 'mySubnetPE'
     AddressPrefix = '11.1.0.0/24'
-    PrivateEndpointNetworkPolicies = 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -263,6 +261,7 @@ $par2 = @{
     ServiceName = 'myPrivateLinkService'
     ResourceGroupName = 'CreatePrivLinkService-rg'
     Description = 'Approved'
+    PrivateLinkResourceType = 'Microsoft.Network/privateLinkServices'
 }
 Approve-AzPrivateEndpointConnection @par2
 
@@ -287,7 +286,7 @@ $pe = Get-AzPrivateEndpoint @par1
 $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 ```
 
-```bash
+```powershell
 ❯ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 11.1.0.4
 ```
@@ -305,9 +304,9 @@ Remove-AzResourceGroup -Name 'CreatePrivLinkService-rg'
 In this quickstart, you:
 
 * Created a virtual network and internal Azure Load Balancer.
+
 * Created a private link service
 
 To learn more about Azure Private endpoint, continue to:
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Private Endpoint using Azure Powershell](create-private-endpoint-powershell.md)
-
+> [Quickstart: Create a Private Endpoint using Azure PowerShell](create-private-endpoint-powershell.md)

@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 01/12/2023
 
 ms.author: justinha
 author: sopand
-manager: daveba
+manager: amycolannino
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
@@ -33,11 +33,13 @@ The following roles have the required permissions:
 - Reports Reader
 - Security Reader
 - Global Reader
+- Application Administrator
+- Cloud Application Administrator
 - Security Operator
 - Security Administrator
 - Global Administrator
 
- An Azure AD Premium P1 or P2 license is required to access usage and insights. Azure AD Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+ An Azure AD Premium P1 or P2 license is required to access usage and insights. Azure AD Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## How it works
 
@@ -110,7 +112,7 @@ The registration details report shows the following information for each user:
 - SSPR Registered (Registered, Not Registered)
 - SSPR Enabled (Enabled, Not Enabled)
 - SSPR Capable (Capable, Not Capable) 
-- Methods registered (Email, Mobile Phone, Alternative Mobile Phone, Office Phone, Microsoft Authenticator Push, Software One Time Passcode, FIDO2, Security Key, Security questions)
+- Methods registered (Email, Mobile Phone, Alternative Mobile Phone, Office Phone, Microsoft Authenticator Push, Software One Time Passcode, FIDO2, Security Key, Security questions, Hardware OATH token)
 
   ![Screenshot of user registration details](media/how-to-authentication-methods-usage-insights/registration-details.png)
 
@@ -131,11 +133,10 @@ The registration details report shows the following information for each user:
 ## Limitations
 
 - The data in the report is not updated in real-time and may reflect a latency of up to a few hours.
-- Temporary Access Pass registrations are not reflected in the registration tab of the report because they are only valid for short period of time.
-- The **PhoneAppNotification** or **PhoneAppOTP** methods that a user might have configured are not displayed in the dashboard. 
+- The **PhoneAppNotification** or **PhoneAppOTP** methods that a user might have configured are not displayed in the dashboard on **Azure AD Authentication methods - Policies**. 
 
 ## Next steps
 
-- [Working with the authentication methods usage report API](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Working with the authentication methods usage report API](/graph/api/resources/authenticationmethods-usage-insights-overview)
 - [Choosing authentication methods for your organization](concept-authentication-methods.md)
 - [Combined registration experience](concept-registration-mfa-sspr-combined.md)

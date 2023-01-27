@@ -1,7 +1,9 @@
 ---
-title: Enable managed identities on your lab VMs in Azure DevTest Labs
+title: Enable managed identities on your lab VMs
 description: This article shows how a lab owner can enable user-assigned managed identities on your lab virtual machines. 
-ms.topic: article
+ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 
@@ -35,32 +37,24 @@ To add a user assigned managed identity for lab VMs, follow these steps:
 
 1.	After creating an identity, note the resource ID of the identity. It should look like the following sample: 
 
-    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-2. Run a PUT HTTPS method to add a new **ServiceRunner** resource to the lab as shown in the following example. 
+    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
+    
+2. Perform a PUT HTTPS method on the lab resource to add one or multiple user assigned identities to the **managementIdentities** field.
 
-    Service runner resource is a proxy resource to manage and control managed identities in DevTest Labs. The service runner name can be any valid name, but we recommend you use the name of the managed identity resource.
 
     ```json
     {
-        "identity": {
-            "type": "userAssigned",
-            "userAssignedIdentities": { 
-                "[userAssignedIdentityResourceId]": {}
-            }
-			},
         "location": "southeastasia",
         "properties": {
-            "identityUsageType": "VirtualMachine"
-        }
+	    ...
+            "managementIdentities": {
+               "/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}": {}
+	    },
+	    ...
+        },
+	...
     }
     ```
 
 ## Next steps
 To learn more about managed identities, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
-
-
-
-
-
-
-

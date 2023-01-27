@@ -4,16 +4,13 @@ description: This document details how to enable device writeback using Azure AD
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
-editor: curtand
-
+manager: amycolannino
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/08/2018
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 

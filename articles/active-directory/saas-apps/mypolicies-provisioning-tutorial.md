@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure myPolicies for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to myPolicies.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2019
-ms.author: zhchia
+ms.date: 11/21/2022
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure myPolicies for automatic user provisioning
@@ -20,14 +20,13 @@ The objective of this tutorial is to demonstrate the steps to be performed in my
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A myPolicies tenant](https://mypolicies.com/index.html#section10).
+* [A myPolicies tenant](https://mypolicies.com/).
 * A user account in myPolicies with Admin permissions.
 
 ## Assigning users to myPolicies

@@ -9,8 +9,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2019
-ms.author: zhchia
+ms.date: 11/21/2022
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure MerchLogix for automatic user provisioning

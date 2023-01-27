@@ -4,7 +4,7 @@ description: Learn how to create and delete Azure HDInsight clusters with script
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 12/27/2019
+ms.date: 11/17/2022
 ---
 
 # Tutorial: Create Azure HDInsight clusters with Azure Automation
@@ -22,7 +22,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* An existing [Azure Automation account](../automation/automation-quickstart-create-account.md).
+* An existing [Azure Automation account](../automation/quickstarts/create-azure-automation-account-portal.md).
 * An existing [Azure Storage account](../storage/common/storage-account-create.md), which will be used as cluster storage.
 
 ## Install HDInsight modules
@@ -66,7 +66,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. Select **Runbooks** under **Process Automation**.
 1. Select **Create a runbook**.
-1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-create`. Select **Powershell** from the **Runbook type** dropdown.
+1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-create`. Select **PowerShell** from the **Runbook type** dropdown.
 1. Select **Create**.
 
     :::image type="content" source="./media/manage-clusters-runbooks/create-runbook.png" alt-text="create runbook" border="true":::
@@ -108,7 +108,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
     #Automation credential for user to SSH into cluster
     $sshCreds = Get-AutomationPSCredential –Name 'ssh-password' 
     
-    $clusterType = "Hadoop" #Use any supported cluster type (Hadoop, HBase, Storm, etc.)
+    $clusterType = "Hadoop" #Use any supported cluster type (Hadoop, HBase, etc.)
     $clusterOS = "Linux"
     $clusterWorkerNodes = 3
     $clusterNodeSize = "Standard_D3_v2"
@@ -122,7 +122,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. Select **Runbooks** under **Process Automation**.
 1. Select **Create a runbook**.
-1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-delete`. Select **Powershell** from the **Runbook type** dropdown.
+1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-delete`. Select **PowerShell** from the **Runbook type** dropdown.
 1. Select **Create**.
 1. Enter the following code on the **Edit PowerShell Runbook** screen and select **Publish**:
 

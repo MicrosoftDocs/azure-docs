@@ -4,7 +4,7 @@ description: Learn how to add additional Azure Storage accounts to an existing H
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/27/2020
+ms.date: 09/29/2022
 ---
 
 # Add additional storage accounts to HDInsight
@@ -111,7 +111,7 @@ After removing these keys and saving the configuration, you need to restart Oozi
 
 ### Storage firewall
 
-If you choose to secure your storage account with the **Firewalls and virtual networks** restrictions on **Selected networks**, be sure to enable the exception **Allow trusted Microsoft services...** so that HDInsight can access your storage account`.`
+If you choose to secure your storage account with the **Firewalls and virtual networks** restrictions on **Selected networks**, be sure to enable the exception **Allow trusted Microsoft services** so that HDInsight can access your storage account.
 
 ### Unable to access storage after changing key
 
@@ -119,12 +119,11 @@ If you change the key for a storage account, HDInsight can no longer access the 
 
 Running the script action again **doesn't** update the key, as the script checks to see if an entry for the storage account already exists. If an entry already exists, it doesn't make any changes.
 
-To work around this problem:  
-1. Remove the storage account.
-1. Add the storage account.
+To work around this problem:
 
-> [!IMPORTANT]  
-> Rotating the storage key for the primary storage account attached to a cluster is not supported.
+* See [Update storage account access keys](hdinsight-rotate-storage-keys.md) on how to rotate the access keys.
+
+* You can also remove the storage account and then add back the storage account.
 
 ## Next steps
 

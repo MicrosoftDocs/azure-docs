@@ -2,15 +2,15 @@
 title: Remote Desktop Gateway Services with Azure Active Directory
 description: Architectural guidance on achieving Remote Desktop Gateway Services with Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
-manager: daveba
+author: janicericketts
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 10/10/2020
-ms.author: baselden
+ms.date: 08/19/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -40,7 +40,6 @@ You need to provide remote access and protect your Remote Desktop Services deplo
 
 ## Implement Remote Desktop Gateway services with Azure AD
 
-* [Publish remote desktop with Azure AD Application Proxy](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) 
+* [Publish remote desktop with Azure AD Application Proxy](../app-proxy/application-proxy-integrate-with-remote-desktop-services.md) 
 
-* [Add an on-premises application for remote access through Application Proxy in Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)
-
+* [Add an on-premises application for remote access through Application Proxy in Azure AD](../app-proxy/application-proxy-add-on-premises-application.md)

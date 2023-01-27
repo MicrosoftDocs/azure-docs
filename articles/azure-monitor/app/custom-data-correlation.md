@@ -2,11 +2,8 @@
 title: Azure Application Insights | Microsoft Docs
 description: Correlate data from Application Insights to other datasets, such as data enrichment or lookup tables, non-Application Insights data sources, and custom data.
 ms.topic: conceptual
-author: eternovsky
-ms.author: evternov
 ms.date: 08/08/2018
-
-ms.reviewer: mbullwin
+ms.reviewer: evternov
 ---
 
 # Correlating Application Insights data with custom data sources
@@ -27,7 +24,7 @@ Since Application Insights is backed by the powerful Azure Monitor log platform,
 
 In this section, we will review how to get your data into Azure Monitor logs.
 
-If you don't already have one, provision a new Log Analytics workspace by following [these instructions](../vm/quick-collect-azurevm.md) through and including the "create a workspace" step.
+If you don't already have one, provision a new Log Analytics workspace by following [these instructions](../vm/monitor-virtual-machine.md) through and including the "create a workspace" step.
 
 To start sending log data into Azure Monitor. Several options exist:
 

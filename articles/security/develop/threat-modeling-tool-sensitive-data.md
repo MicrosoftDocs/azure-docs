@@ -8,15 +8,14 @@ manager: jegeib
 editor: jegeib
 
 ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-js, devx-track-csharp, ignite-2022
 ---
 
 # Security Frame: Sensitive Data | Mitigations 
@@ -79,7 +78,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Steps** | Browsers can store information for purposes of caching and history. These cached files are stored in a folder, like the Temporary Internet Files folder in the case of Internet Explorer. When these pages are referred again, the browser displays them from its cache. If sensitive information is displayed to the user (such as their address, credit card details, Social Security Number, or username), then this information could be stored in browser's cache, and therefore retrievable through examining the browser's cache or by simply pressing the browser's "Back" button. Set cache-control response header value to "no-store" for all pages. |
 
 ### Example
-```XML
+```xml
 <configuration>
   <system.webServer>
    <httpProtocol>
@@ -240,7 +239,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 };
 ```
 
-## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in Cosmos DB
+## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in Azure Cosmos DB
 
 | Title                   | Details      |
 | ----------------------- | ------------ |

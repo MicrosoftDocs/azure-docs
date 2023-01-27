@@ -5,8 +5,9 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ---
 
 # Invoke Spark programs from Azure Data Factory pipelines
@@ -17,8 +18,8 @@ ms.date: 01/10/2018
 > * [MapReduce activity](data-factory-map-reduce.md)
 > * [Hadoop Streaming activity](data-factory-hadoop-streaming-activity.md)
 > * [Spark activity](data-factory-spark.md)
-> * [Azure Machine Learning Studio (classic) Batch Execution activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (classic) Update Resource activity](data-factory-azure-ml-update-resource-activity.md)
+> * [ML Studio (classic) Batch Execution activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [ML Studio (classic) Update Resource activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored procedure activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL activity](data-factory-usql-activity.md)
 > * [.NET custom activity](data-factory-use-custom-activities.md)
@@ -78,7 +79,7 @@ To create a data factory, follow these steps:
 
 1. After the data factory is created, you see the **Data factory** page, which shows you the contents of the data factory. If you don't see the **Data factory** page, select the tile for your data factory on the dashboard.
 
-    ![Data Factory blade](./media/data-factory-spark/data-factory-blade.png)
+    :::image type="content" source="./media/data-factory-spark/data-factory-blade.png" alt-text="Data Factory blade":::
 
 ### Create linked services
 In this step, you create two linked services. One service links your Spark cluster to your data factory, and the other service links your storage to your data factory.
@@ -90,11 +91,11 @@ In this step, you link your storage account to your data factory. A dataset you 
 
 1. Select **New data store**, and choose **Azure Storage**.
 
-   ![New data store](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
+   :::image type="content" source="./media/data-factory-spark/new-data-store-azure-storage-menu.png" alt-text="New data store":::
 
 1. The JSON script you use to create a Storage linked service appears in the editor.
 
-   ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png" alt-text="AzureStorageLinkedService":::
 
 1. Replace **account name** and **account key** with the name and access key of your storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
@@ -105,7 +106,7 @@ In this step, you create an HDInsight linked service to link your HDInsight Spar
 
 1. In the Data Factory Editor, select **More** > **New compute** > **HDInsight cluster**.
 
-    ![Create HDInsight linked service](media/data-factory-spark/new-hdinsight-linked-service.png)
+    :::image type="content" source="media/data-factory-spark/new-hdinsight-linked-service.png" alt-text="Create HDInsight linked service":::
 
 1. Copy and paste the following snippet to the Draft-1 window. In the JSON editor, take the following steps:
 
@@ -227,13 +228,13 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
 ### Monitor a pipeline
 1. On the **Data factory** blade, select **Monitor & Manage** to start the monitoring application in another tab.
 
-    ![Monitor & Manage tile](media/data-factory-spark/monitor-and-manage-tile.png)
+    :::image type="content" source="media/data-factory-spark/monitor-and-manage-tile.png" alt-text="Monitor & Manage tile":::
 
 1. Change the **Start time** filter at the top to **2/1/2017**, and select **Apply**.
 
 1. Only one activity window appears because there is only one day between the start (2017-02-01) and end times (2017-02-02) of the pipeline. Confirm that the data slice is in the **Ready** state.
 
-    ![Monitor the pipeline](media/data-factory-spark/monitor-and-manage-app.png)
+    :::image type="content" source="media/data-factory-spark/monitor-and-manage-app.png" alt-text="Monitor the pipeline":::
 
 1. In the **Activity windows** list, select an activity run to see details about it. If there is an error, you see details about it in the right pane.
 
@@ -243,7 +244,7 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
 
 1. Select **New** > **PySpark** to start a new notebook.
 
-    ![Jupyter new notebook](media/data-factory-spark/jupyter-new-book.png)
+    :::image type="content" source="media/data-factory-spark/jupyter-new-book.png" alt-text="Jupyter new notebook":::
 
 1. Run the following command by copying and pasting the text and pressing Shift+Enter at the end of the second statement:
 
@@ -254,7 +255,7 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
     ```
 1. Confirm that you see the data from the hvac table.
 
-    ![Jupyter query results](media/data-factory-spark/jupyter-notebook-results.png)
+    :::image type="content" source="media/data-factory-spark/jupyter-notebook-results.png" alt-text="Jupyter query results":::
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
 For detailed instructions, see the section [Run a Spark SQL query](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
@@ -267,15 +268,15 @@ For further troubleshooting, take the following steps:
 
 1. Go to `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
-    ![YARN UI application](media/data-factory-spark/yarnui-application.png)
+    :::image type="content" source="media/data-factory-spark/yarnui-application.png" alt-text="YARN UI application":::
 
 1. Select **Logs** for one of the run attempts.
 
-    ![Application page](media/data-factory-spark/yarn-applications.png)
+    :::image type="content" source="media/data-factory-spark/yarn-applications.png" alt-text="Application page":::
 
 1. You see the following additional error information in the log page:
 
-    ![Log error](media/data-factory-spark/yarnui-application-error.png)
+    :::image type="content" source="media/data-factory-spark/yarnui-application-error.png" alt-text="Log error":::
 
 The following sections provide information about the data factory entities to use Spark cluster and Spark activity in your data factory.
 
@@ -332,7 +333,7 @@ The following table describes the JSON properties used in the JSON definition.
 | sparkJobLinkedService | The Storage linked service that holds the Spark job file, dependencies, and logs. If you don't specify a value for this property, the storage associated with the HDInsight cluster is used. | No |
 
 ## Folder structure
-The Spark activity doesn't support an inline script as Pig and Hive activities do. Spark jobs are also more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the java CLASSPATH), Python files (placed on the PYTHONPATH), and any other files.
+The Spark activity doesn't support an inline script as Pig and Hive activities do. Spark jobs are also more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the Java CLASSPATH), Python files (placed on the PYTHONPATH), and any other files.
 
 Create the following folder structure in the blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate subfolders in the root folder represented by **entryFilePath**. For example, upload Python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, the Data Factory service expects the following folder structure in the blob storage:
 

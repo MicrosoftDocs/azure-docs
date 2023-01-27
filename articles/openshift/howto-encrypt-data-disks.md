@@ -3,8 +3,8 @@ title: Encrypt persistent volume claims with a customer-managed key (CMK) on Azu
 description: Bring your own key (BYOK) / Customer-managed key (CMK) deploy instructions for Azure Red Hat OpenShift
 ms.topic: article
 ms.date: 02/24/2021
-author: stuartatmicrosoft
-ms.author: stkirk
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: encryption, byok, aro, cmk, openshift, red hat
 # Customer intent: My security policies dictate that data at rest must be encrypted. Beyond this, the key used to encrypt data must be able to be changed at-will by a person authorized to do so.
@@ -98,7 +98,7 @@ We need to allow the ARO cluster to use the disk encryption set to encrypt the p
 
 ```azurecli-interactive
 # First, get the Azure Application ID of the service principal used in the ARO cluster.
-aroSPAppId="$(oc get secret azure-credentials -n kube-system -o jsonpath='{.data.azure_client_id}' | base64 --decode)"
+aroSPAppId="$(az aro show -n $aroCluster -g $buildRG -o tsv --query servicePrincipalProfile.clientId)"
 
 # Next, get the object ID of the service principal used in the ARO cluster.
 aroSPObjId="$(az ad sp show --id $aroSPAppId -o tsv --query [objectId])"
@@ -204,7 +204,7 @@ metadata:
 spec:
   containers:
   - name: mypod-with-cmk-encryption
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -246,8 +246,8 @@ az disk show -n $pvName -g $buildRG -o json --query [encryption]
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [best-practices-security]: ../aks/operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
 [customer-managed-keys]: ../virtual-machines/disk-encryption.md#customer-managed-keys

@@ -1,8 +1,12 @@
 ---
 title: Introduction to container groups
 description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as CPUs, storage, and network
-ms.topic: article
-ms.date: 11/01/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.topic: conceptual
+ms.date: 06/17/2022
 ms.custom: mvc
 
 ---
@@ -118,4 +122,4 @@ Learn how to deploy a multi-container container group with an Azure Resource Man
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
 [empty-directory]: container-instances-volume-emptydir.md
-[az-container-export]: /cli/azure/container#az-container-export
+[az-container-export]: /cli/azure/container#az_container_export

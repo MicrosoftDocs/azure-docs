@@ -5,7 +5,7 @@ ms.service: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
-ms.date: 3/10/2020
+ms.date: 05/30/2021
 ---
 
 # Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI
@@ -143,7 +143,7 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
     }
     ```
 
-    If you plan to use Power BI's REST API to add the Stream Analytics job to your Power BI workspace, make note of the returned "principalId".
+    If you plan to use the Power BI REST API to add the Stream Analytics job to your Power BI workspace, make note of the returned "principalId".
 
 3. Now that the job is created, continue to the [Give the Stream Analytics job access to your Power BI workspace](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) section of this article.
 
@@ -205,6 +205,15 @@ Request Body
 }
 ```
 
+### Use a Service Principal to grant permission for an ASA job's Managed Identity
+
+For automated deployments, using an interactive login to give an ASA job access to a Power BI workspace is not possible. This can be done be using service principal to grant permission for an ASA job's managed identity. This is possible using PowerShell:
+
+```powershell
+Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>"
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
+
 ## Remove Managed Identity
 
 The Managed Identity created for a Stream Analytics job is deleted only when the job is deleted. There is no way to delete the Managed Identity without deleting the job. If you no longer want to use the Managed Identity, you can change the authentication method for the output. The Managed Identity will continue to exist until the job is deleted, and will be used if you decide to used Managed Identity authentication again.
@@ -222,5 +231,5 @@ Below are the limitations of this feature:
 
 ## Next steps
 
-* [Power BI dashboard integration with Azure Stream Analytics](./stream-analytics-power-bi-dashboard.md)
+- [Tutorial: Analyze fraudulent call data with Stream Analytics and visualize results in Power BI dashboard](stream-analytics-real-time-fraud-detection.md) 
 * [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md)

@@ -12,7 +12,10 @@ ms.custom: devx-track-csharp
 
 Selected objects can be highlighted visually by adding outline rendering via the [Hierarchical state override component](../../overview/features/override-hierarchical-state.md). This chapter explains how global parameters for outline rendering are changed through the client API.
 
-Outline properties are a global setting. All objects that use outline rendering will use the same setting - it is not possible to use a per-object outline color.
+Outline properties are a global setting. All objects that use outline rendering will use the same setting - it isn't possible to use a per-object outline color.
+
+> [!NOTE]
+> The outline rendering effect can't be applied to point clouds.
 
 ## Parameters for `OutlineSettings`
 

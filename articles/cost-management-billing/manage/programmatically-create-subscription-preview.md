@@ -1,19 +1,19 @@
 ---
-title: Programmatically create Azure subscriptions with preview APIs
-description: Learn how to create additional Azure subscriptions programmatically using preview versions of REST API, Azure CLI, and Azure PowerShell.
+title: Programmatically create Azure subscriptions with legacy APIs
+description: Learn how to create additional Azure subscriptions programmatically using legacy versions of REST API, Azure CLI, and Azure PowerShell.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 03/22/2022
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Programmatically create Azure subscriptions with preview APIs
+# Programmatically create Azure subscriptions with legacy APIs
 
-This article helps you programmatically create Azure subscriptions using our older preview API. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
+This article helps you programmatically create Azure subscriptions using our legacy preview API. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
 We have new articles for the latest API version for use with different Azure agreement subscription types:
 
@@ -164,7 +164,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | No      | String | The display name of the subscription. If not specified, it's set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
 | `offerType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `owners`      | No       | String | The Object ID of any user that want to add as an Azure RBAC Owner on the subscription when it's created.  |
+| `owners`      | No       | String | The Object ID of any user to be added as an Azure RBAC Owner on the subscription when it's created.  |
 
 In the response, as part of the header `Location`, you get back a url that you can query for status on the subscription creation operation. When the subscription creation is finished, a GET on `Location` url will return a `subscriptionLink` object, which has the subscription ID. For more details, refer [Subscription API documentation](/rest/api/subscription/)
 
@@ -187,13 +187,12 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `OwnerSignInName`    | No       | String | The email address of any user to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `OwnerObjectId`.|
 | `OwnerApplicationId` | No       | String | The application ID of any service principal to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `OwnerObjectId`. When using the parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
 
 ### [Azure CLI](#tab/azure-cli)
 
 First, install the preview extension by running `az extension add --name subscription`.
 
-Run the [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create) command below, replacing `<enrollmentAccountObjectId>` with the `name` you copied in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). To specify owners, see [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
+Run the [az account create](/cli/azure/account#-ext-subscription-az-account-create) command below, replacing `<enrollmentAccountObjectId>` with the `name` you copied in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). To specify owners, see [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
@@ -208,14 +207,14 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `owner-upn`    | No       | String | The email address of any user to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `owner-object-id`.|
 | `owner-spn` | No       | String | The application ID of any service principal to add as an Azure RBAC Owner on the subscription when it's created. You can use the parameter instead of `owner-object-id`. When using the parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-To see a full list of all parameters, see [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create).
+To see a full list of all parameters, see [az account create](/cli/azure/account#-ext-subscription-az-account-create).
 
 ---
 
 ### Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions can be created using the API.
-- There's a limit of 2000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 2000 limit.
+- There's a limit of 5000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 5000 limit.
 - Users who aren't Account Owners, but were added to an enrollment account with Azure RBAC, can't create subscriptions in the Azure portal.
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -526,7 +525,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Yes      | String | The display name of the subscription.|
 | `skuId` | Yes      | String | The sku ID of the Azure plan. Use *0001* for subscriptions of type Microsoft Azure Plan |
-| `resellerId`      | No       | String | The MPN ID of the reseller who will be associated with the subscription.  |
+| `resellerId`      | No       | String | The ID of the reseller who will be associated with the subscription.  |
 
 In the response, you get back a `subscriptionCreationResult` object for monitoring. When the subscription creation is finished, the `subscriptionCreationResult` object returns a `subscriptionLink` object. It has the subscription ID.
 
@@ -534,4 +533,4 @@ In the response, you get back a `subscriptionCreationResult` object for monitori
 
 - To view and example of creating an Enterprise Agreement (EA) subscription using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Now that you've created a subscription, you can grant that ability to other users and service principals. For more information, see [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md).
-* For more information about about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md).
+* For more information about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md).

@@ -4,7 +4,7 @@ description: Learn how to query data from Azure storage and Azure Data Lake Stor
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
+ms.date: 03/31/2022
 ---
 
 # Use Azure storage with Azure HDInsight clusters
@@ -32,7 +32,7 @@ We don't recommend that you use the default blob container for storing business 
 Sharing one blob container as the default file system for multiple clusters isn't supported.
 
 > [!NOTE]  
-> The Archive access tier is an offline tier that has a several hour retrieval latency and isn't recommended for use with HDInsight. For more information, see [Archive access tier](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+> The Archive access tier is an offline tier that has a several hour retrieval latency and isn't recommended for use with HDInsight. For more information, see [Archive access tier](../storage/blobs/access-tiers-overview.md#archive-access-tier).
 
 ## Access files from within cluster
 
@@ -149,7 +149,7 @@ Wherever it lives, each blob you create belongs to a container in your Azure Sto
 
 The default Blob container stores cluster-specific information such as job history and logs. Don't share a default Blob container with multiple HDInsight clusters. This action  might corrupt job history. It's recommended to use a different container for each cluster. Put shared data on a linked storage account specified for all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually keep the HBase table schema and data by creating a new HBase cluster using the default blob container that is used by a deleted HBase cluster
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 ## Use additional storage accounts
 

@@ -1,62 +1,190 @@
 ---
-title: 'Disable network policies for private endpoints in Azure'
-description: Learn how to disable network policies for private endpoints.
+title: Manage network policies for private endpoints
+titleSuffix: Azure Private Link
+description: Learn how to manage network policies for private endpoints.
 services: private-link
-author: malopMSFT
+author: asudbring
 ms.service: private-link
 ms.topic: how-to
-ms.date: 09/16/2019
-ms.author: allensu
+ms.date: 07/26/2022
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
-# Disable network policies for private endpoints
+# Manage network policies for private endpoints
 
-Network policies like network security groups (NSG) are not supported for private endpoints. In order to deploy a Private Endpoint on a given subnet, an explicit disable setting is required on that subnet. This setting is only applicable for the Private Endpoint. For other resources in the subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 
- 
-When using the portal to create a private endpoint, this setting is automatically disabled as part of the create process. Deployment using other clients requires an additional step to change this setting. You can disable the setting using cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
- 
-The following examples describe how to disable `PrivateEndpointNetworkPolicies` for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*.
+By default, network policies are disabled for a subnet in a virtual network. To utilize network policies like UDR and NSG support, network policy support must be enabled for the subnet. This setting is only applicable to private endpoints within the subnet. This setting affects all private endpoints within the subnet. For other resources in the subnet, access is controlled based on security rules in the network security group.
 
-## Using Azure PowerShell
-This section describes how to disable subnet private endpoint policies using Azure PowerShell.
+You can use the following to enable or disable the setting:
+
+* Azure portal
+
+* Azure PowerShell
+
+* Azure CLI
+
+* Azure Resource Manager templates
+ 
+The following examples describe how to enable and disable `PrivateEndpointNetworkPolicies` for a virtual network named **myVNet** with a **default** subnet of **10.1.0.0/24** hosted in a resource group named **myResourceGroup**.
+
+## Enable network policy
+
+# [**Portal**](#tab/network-policy-portal)
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks**.
+
+3. Select **myVNet**.
+
+4. In settings of **myVNet**, select **Subnets**.
+
+5. Select the **default** subnet.
+
+6. In the properties for the **default** subnet, select **Enabled** in **NETWORK POLICY FOR PRIVATE ENDPOINTS**.
+
+7. Select **Save**.
+
+# [**PowerShell**](#tab/network-policy-powershell)
+
+Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig), and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to enable the policy.
 
 ```azurepowershell
-$virtualNetwork= Get-AzVirtualNetwork `
-  -Name "myVirtualNetwork" ` 
-  -ResourceGroupName "myResourceGroup"  
-   
-($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq 'default'} ).PrivateEndpointNetworkPolicies = "Disabled" 
- 
-$virtualNetwork | Set-AzVirtualNetwork 
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+$sub = @{
+    Name = 'default'
+    VirtualNetwork = $vnet
+    AddressPrefix = '10.1.0.0/24'
+    PrivateEndpointNetworkPoliciesFlag = 'Enabled'
+}
+Set-AzVirtualNetworkSubnetConfig @sub
+
+$vnet | Set-AzVirtualNetwork
 ```
-## Using Azure CLI
-This section describes how to disable subnet private endpoint policies using Azure CLI.
+
+# [**CLI**](#tab/network-policy-cli)
+
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to enable the policy.
+
 ```azurecli
-az network vnet subnet update \ 
-  --name default \ 
-  --resource-group myResourceGroup \ 
-  --vnet-name myVirtualNetwork \ 
-  --disable-private-endpoint-network-policies true
+az network vnet subnet update \
+  --disable-private-endpoint-network-policies false \
+  --name default \
+  --resource-group myResourceGroup \
+  --vnet-name myVNet
 ```
-## Using a template
-This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
+
+# [**JSON**](#tab/network-policy-json)
+
+This section describes how to enable subnet private endpoint policies using an Azure Resource Manager template.
+
 ```json
 { 
-          "name": "myVirtualNetwork", 
+          "name": "myVNet", 
           "type": "Microsoft.Network/virtualNetworks", 
           "apiVersion": "2019-04-01", 
           "location": "WestUS", 
           "properties": { 
                 "addressSpace": { 
                      "addressPrefixes": [ 
-                          "10.0.0.0/16" 
+                          "10.1.0.0/16" 
                         ] 
                   }, 
                   "subnets": [ 
                          { 
                                 "name": "default", 
                                 "properties": { 
-                                    "addressPrefix": "10.0.0.0/24", 
+                                    "addressPrefix": "10.1.0.0/24", 
+                                    "privateEndpointNetworkPolicies": "Enabled" 
+                                 } 
+                         } 
+                  ] 
+          } 
+} 
+```
+
+---
+
+## Disable network policy
+
+# [**Portal**](#tab/network-policy-portal)
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks**.
+
+3. Select **myVNet**.
+
+4. In settings of **myVNet**, select **Subnets**.
+
+5. Select the **default** subnet.
+
+6. In the properties for the **default** subnet, select **Disabled** in **NETWORK POLICY FOR PRIVATE ENDPOINTS**.
+
+7. Select **Save**.
+
+# [**PowerShell**](#tab/network-policy-powershell)
+
+Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork), and [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to disable the policy.
+
+```azurepowershell
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+$sub = @{
+    Name = 'default'
+    VirtualNetwork = $vnet
+    AddressPrefix = '10.1.0.0/24'
+    PrivateEndpointNetworkPoliciesFlag = 'Disabled'
+}
+Set-AzVirtualNetworkSubnetConfig @sub
+
+$vnet | Set-AzVirtualNetwork
+```
+
+# [**CLI**](#tab/network-policy-cli)
+
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to disable the policy.
+
+```azurecli
+az network vnet subnet update \
+  --disable-private-endpoint-network-policies true \
+  --name default \
+  --resource-group myResourceGroup \
+  --vnet-name myVNet
+  
+```
+
+# [**JSON**](#tab/network-policy-json)
+
+This section describes how to disable subnet private endpoint policies using an Azure Resource Manager template.
+
+```json
+{ 
+          "name": "myVNet", 
+          "type": "Microsoft.Network/virtualNetworks", 
+          "apiVersion": "2019-04-01", 
+          "location": "WestUS", 
+          "properties": { 
+                "addressSpace": { 
+                     "addressPrefixes": [ 
+                          "10.1.0.0/16" 
+                        ] 
+                  }, 
+                  "subnets": [ 
+                         { 
+                                "name": "default", 
+                                "properties": { 
+                                    "addressPrefix": "10.1.0.0/24", 
                                     "privateEndpointNetworkPolicies": "Disabled" 
                                  } 
                          } 
@@ -64,6 +192,9 @@ This section describes how to disable subnet private endpoint policies using Azu
           } 
 } 
 ```
+
+---
+
 ## Next steps
 - Learn more about [Azure private endpoint](private-endpoint-overview.md)
  

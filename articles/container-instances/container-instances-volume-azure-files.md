@@ -1,8 +1,12 @@
 ---
 title: Mount Azure Files volume to container group
 description: Learn how to mount an Azure Files volume to persist state with Azure Container Instances
-ms.topic: article
-ms.date: 03/24/2021
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -285,6 +289,6 @@ Learn how to mount other volume types in Azure Container Instances:
 [storage-explorer]: https://storageexplorer.com
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

@@ -1,16 +1,19 @@
 ---
-title: "Quickstart: Your first portal query"
+title: 'Quickstart: Your first portal query'
 description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-ms.date: 01/27/2021
+author: timwarner-msft
+ms.author: timwarner
+ms.date: 10/12/2022
 ms.topic: quickstart
+ms.custom: mode-ui
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
 
-The power of Azure Resource Graph is available directly in Azure portal through Azure Resource Graph
-Explorer. Resource Graph Explorer provides browsable information about the Azure Resource Manager
-resource types and properties that you can query. Resource Graph Explorer also provides a clean
-interface for working with multiple queries, evaluating the results, and even converting the results
-of some queries into a chart that can be pinned to an Azure dashboard.
+The power of Azure Resource Graph is available directly in the Azure portal through Azure Resource
+Graph Explorer. Resource Graph Explorer provides browsable information about the Azure Resource
+Manager resource types and properties that you can query. Resource Graph Explorer also provides a
+clean interface for working with multiple queries, evaluating the results, and even converting the
+results of some queries into a chart that can be pinned to an Azure dashboard.
 
 At the end of this quickstart, you'll have used Azure portal and Resource Graph Explorer to run your
 first Resource Graph query and pinned the results to a dashboard.
@@ -67,6 +70,16 @@ one of the child properties adds `where <propertyName> == "INSERT_VALUE_HERE"` i
 The schema browser is a great way to discover properties for use in queries. Be sure to replace
 _INSERT\_VALUE\_HERE_ with your own value, adjust the query with conditions, operators, and
 functions to achieve your intended results.
+
+## Download query results as a CSV file
+
+To download CSV results from the Azure portal, browse to the Azure Resource Graph Explorer and run a
+query. On the toolbar, click **Download as CSV** as shown in the following screenshot:
+
+:::image type="content" source="./arg-export-csv.png" alt-text="Screenshot of Azure Resource Graph Explorer in Azure portal with Download as CSV button highlighted.":::
+
+> [!NOTE]
+> When using the comma-separated value (CSV) export functionality of Azure Resource Graph Explorer, the result set is limited to 55,000 records. This is a platform limit that cannot be overridden by filing an Azure support ticket.
 
 ## Create a chart from the Resource Graph query
 
@@ -133,7 +146,7 @@ your Azure portal workflow, try out these example dashboards.
 
 1. Select and download the sample dashboard you want to evaluate.
 
-1. In Azure portal, select **Dashboard** from the left pane.
+1. In the Azure portal, select **Dashboard** from the left pane.
 
 1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select
    **Open**.
@@ -150,7 +163,7 @@ can do so with the following steps:
 
 1. Select **Dashboard** from the left pane.
 
-1. From the dashboard drop-down, select the sample Resource Graph dashboard you wish to delete.
+1. From the dashboard dropdown list, select the sample Resource Graph dashboard you wish to delete.
 
 1. Select **Delete** from the dashboard menu at the top of the dashboard and select **Ok** to
    confirm.

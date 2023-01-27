@@ -1,16 +1,16 @@
 ---
 title: Support for physical server migration in Azure Migrate
 description: Learn about support for physical server migration in Azure Migrate.
-author: rahulg1190
-ms.author: rahugup
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
+ms.manager: kmadnani
 ms.topic: conceptual
-ms.date: 06/14/2020
+ms.date: 07/22/2022
 ---
 
-# Support matrix for physical server migration
+# Support matrix for migration of physical servers, AWS VMs, and GCP VMs
 
-This article summarizes support settings and limitations for migrating physical servers to Azure with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-physical.md).
+This article summarizes support settings and limitations for migrating physical servers, AWS VMs, and GCP VMs to Azure with [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-physical.md).
 
 ## Migrating machines as physical
 
@@ -30,7 +30,7 @@ You can select up to 10 machines at once for replication. If you want to migrate
 
 ## Physical server requirements
 
-The table summarizes support for physical servers you want to migrate using agent-based migration.
+The table summarizes support for physical servers, AWS VMs, and GCP VMs that you want to migrate using agent-based migration.
 
 **Support** | **Details**
 --- | ---
@@ -43,7 +43,7 @@ The table summarizes support for physical servers you want to migrate using agen
 **UEFI boot** | Supported. UEFI-based machines will be migrated to Azure generation 2 VMs.  <br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 **UEFI - Secure boot**         | Not supported for migration.
 **Target disk** | Machines can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-**Disk size** | 2 TB OS disk; 32 TB for data disks.
+**Disk size** | up to 2 TB OS disk for gen 1 VM; up to 4 TB OS disk for gen 2 VM;; 32 TB for data disks.
 **Disk limits** |  Up to 63 disks per machine.
 **Encrypted disks/volumes** |  Machines with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
@@ -54,12 +54,13 @@ The table summarizes support for physical servers you want to migrate using agen
 **Multipath IO** | Not supported.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
+**PV drivers / XenServer tools** | Not supported.
 
 
 
 ## Replication appliance requirements
 
-If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as an VMware VM using the OVA template provided in the Azure Migrate hub, the appliance is set up with Windows Server 2016, and complies with the support requirements. 
+If you set up the replication appliance manually, then make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as an VMware VM using the OVA template provided in the Azure Migrate hub, the appliance is set up with Windows Server 2016, and complies with the support requirements. 
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements).
 - MySQL must be installed on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).

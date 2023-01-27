@@ -3,8 +3,8 @@ title: 'Quickstart: Create Apache Hadoop cluster in Azure HDInsight using Resour
 description: In this quickstart, you create Apache Hadoop cluster in Azure HDInsight using Resource Manager template
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 03/13/2020
+ms.custom: subject-armqs, mode-arm
+ms.date: 08/21/2022
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Resource Manager template
 ---
 
@@ -18,7 +18,7 @@ Currently HDInsight comes with [seven different cluster types](../hdinsight-over
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json)
+[:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-linux-ssh-password%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/hdinsight-linux-ssh-password/).
 
-:::code language="json" source="~/quickstart-templates/101-hdinsight-linux-ssh-password/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -39,7 +39,7 @@ Two Azure resources are defined in the template:
 
 1. Select the **Deploy to Azure** button below to sign in to Azure and open the ARM template.
 
-    [:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json)
+    [:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-linux-ssh-password%2Fazuredeploy.json)
 
 1. Enter or select the following values:
 
@@ -50,15 +50,15 @@ Two Azure resources are defined in the template:
     |Location|The value will autopopulate with the location used for the resource group.|
     |Cluster Name|Enter a globally unique name. For this template, use only lowercase letters, and numbers.|
     |Cluster Type | Select **hadoop**. |
-    |Cluster Login User Name|Provide the username, default is **admin**.|
-    |Cluster Login Password|Provide a password. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` ). |
-    |Ssh User Name|Provide the username, default is **sshuser**|
+    |Cluster Login User Name|Provide the username, default is `admin`.|
+    |Cluster Login Password|Provide a password. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ```' ` "```). |
+    |Ssh User Name|Provide the username, default is `sshuser`.|
     |Ssh Password|Provide the password.|
 
     Some properties have been hardcoded in the template.  You can configure these values from the template. For more explanation of these properties, see [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-    > [!NOTE]  
-    > The values you provide must be unique and should follow the naming guidelines. The template does not perform validation checks. If the values you provide are already in use, or do not follow the guidelines, you get an error after you have submitted the template.  
+    > [!NOTE]
+    > The values you provide must be unique and should follow the naming guidelines. The template does not perform validation checks. If the values you provide are already in use, or do not follow the guidelines, you get an error after you have submitted the template.
 
     :::image type="content" source="./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png " alt-text="HDInsight Linux gets started Resource Manager template on portal" border="true":::
 

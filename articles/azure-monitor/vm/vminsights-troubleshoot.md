@@ -4,7 +4,7 @@ description: Troubleshoot VM insights installation.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/15/2021
+ms.date: 06/08/2022
 ms.custom: references_regions
 
 ---
@@ -29,18 +29,21 @@ If you receive a message that the virtual machine needs to be onboarded after yo
 ### Is the operating system supported?
 If the operating system is not in the list of [supported operating systems](vminsights-enable-overview.md#supported-operating-systems) then the extension will fail to install and you will see this message that we are waiting for data to arrive.
 
+> [!IMPORTANT]
+> Post April 11th 2022, if you are not seeing your Virtual Machine in the VM insights solution, this might due to running an older version of the Dependency Agent. See more details in the blog post: https://techcommunity.microsoft.com/t5/azure-monitor-status/potential-breaking-changes-for-vm-insights-linux-customers/ba-p/3271989 . Not applicable for Windows machines and before April 11th 2022.
+
 ### Did the extension install properly?
 If you still see a message  that the virtual machine needs to be onboarded, it may mean that one or both of the extensions failed to install correctly. Check the **Extensions** page for your virtual machine in the Azure portal to verify that the following extensions are listed.
 
 | Operating system | Agents | 
 |:---|:---|
 | Windows | MicrosoftMonitoringAgent<br>Microsoft.Azure.Monitoring.DependencyAgent |
-| Linux | OMSAgentForLinux<br>DependencyAgentForLinux |
+| Linux | OMSAgentForLinux<br>DependencyAgentLinux |
 
 If you do not see the both extensions for your operating system in the list of installed extensions, then they need to be installed. If the extensions are listed but their status does not appear as *Provisioning succeeded*, then the extension should be removed and reinstalled.
 
 ### Do you have connectivity issues?
-For Windows machines, you can use the  *TestCloudConnectivity* tool to identify connectivity issue. This tool is installed by default with the agent in the folder *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. Run the tool from an elevated command prompt. It will return results and highlight where the test fails. 
+For Windows machines, you can use the  *TestCloudConnectivity* tool to identify connectivity issue. This tool is installed by default with the agent in the folder *%SystemDrive%\Program Files\Microsoft Monitoring Agent\Agent*. Run the tool from an elevated command prompt. It will return results and highlight where the test fails. 
 
 ![TestCloudConnectivity tool](media/vminsights-troubleshoot/test-cloud-connectivity.png)
 
@@ -57,17 +60,17 @@ If the agents appear to be installed correctly but you don't see any data in the
 ### Has your Log Analytics workspace reached its data limit?
 Check the [capacity reservations and the pricing for data ingestion](https://azure.microsoft.com/pricing/details/monitor/).
 
-### Is your virtual machine sending log and performance data to Azure Monitor Logs?
+### Is your virtual machine agent connected to Azure Monitor Logs?
 
 Open Log Analytics from **Logs** in the Azure Monitor menu in the Azure portal. Run the following query for your computer:
 
-```kuso
-Usage 
-| where Computer == "my-computer" 
-| summarize sum(Quantity), any(QuantityUnit) by DataType
+```kusto
+Heartbeat
+| where Computer == "my-computer"
+| sort by TimeGenerated desc 
 ```
 
-If you don't see any data, then you may have problems with your agent. See the section above for agent troubleshooting information.
+If you don't see any data or if the computer hasn't sent a heartbeat recently, then you may have problems with your agent. See the section above for agent troubleshooting information.
 
 ## Virtual machine doesn't appear in map view
 

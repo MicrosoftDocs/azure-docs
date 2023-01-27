@@ -8,18 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 01/05/2022
 ms.author: aahi
 ---
 
 # Frequently asked questions (FAQ) about the Bing Image Search API
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
-Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Microsoft Cognitive Services on Azure.
+Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Azure Cognitive Services on Azure.
 
 ## Response headers in JavaScript
 
@@ -64,7 +61,7 @@ This approach also protects your API key from exposure to the public, since only
 
 ## Next steps
 
-Is your question about a missing feature or functionality? Consider requesting or voting for it on our [User Voice web site](https://cognitive.uservoice.com/forums/555907-bing-search).
+Is your question about a missing feature or functionality? Consider requesting or voting for it using the [feedback tool](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858).
 
 ## See also
 

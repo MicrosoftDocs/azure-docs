@@ -3,11 +3,11 @@ title: Set up peering with Microsoft
 titleSuffix: Azure
 description: Overview of peering
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: overview
 ms.date: 12/15/2020
-ms.author: prmitiki
+ms.author: halkazwini
 ---
 
 # Internet peering overview
@@ -48,4 +48,4 @@ For frequently asked questions about peering, see [Internet peering - FAQs](faqs
 
 * To learn about steps to set up Direct peering with Microsoft, follow [Direct peering walkthrough](walkthrough-direct-all.md)
 * To learn about steps to set up Exchange peering with Microsoft, follow [Exchange peering walkthrough](walkthrough-exchange-all.md)
-* Learn about some of the other Azure key [networking capabilities](../networking/networking-overview.md).
+* Learn about some of the other Azure key [networking capabilities](../networking/fundamentals/networking-overview.md).

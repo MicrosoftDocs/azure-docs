@@ -2,11 +2,11 @@
 title: Tutorial - Check device connectivity to Azure IoT Hub
 description: Tutorial - Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
 services: iot-hub
-author: wesmc7777
-manager: philmea
-ms.author: wesmc
+author: kgremban
+
+ms.author: kgremban
 ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
-ms.date: 02/22/2019
+ms.date: 10/26/2021
 ms.topic: tutorial
 ms.service: iot-hub
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Check cloud-to-device connectivity
 > * Check device twin synchronization
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -184,7 +184,7 @@ The terminal window displays information as it sends telemetry to your hub:
 
 You can use **Metrics** in the portal to verify that the telemetry messages are reaching your IoT hub. Select your IoT hub in the **Resource** drop-down, select **Telemetry messages sent** as the metric, and set the time range to **Past hour**. The chart shows the aggregate count of messages sent by the simulated device:
 
-![Show IoT Hub metrics](media/tutorial-connectivity/metrics-portal.png)
+:::image type="content" source="media/tutorial-connectivity/metrics-portal.png" alt-text="Screenshot showing left pane metrics." border="true":::
 
 It takes a few minutes for the metrics to become available after you start the simulated device.
 

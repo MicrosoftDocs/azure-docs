@@ -1,18 +1,21 @@
 ---
 title: Enable replication for on-premises machines with private endpoints 
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
-author: Harsha-CS
-ms.author: harshacs
+author: ankitaduttaMSFT
+ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 12/13/2022
+ms.custom: subject-rbac-steps, engagement-fy23
 ---
 # Replicate on-premises machines by using private endpoints
 
-Azure Site Recovery allows you to use
-[Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
+Azure Site Recovery allows you to use [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
 your on-premises machines to a virtual network in Azure. Private endpoint access to
 a recovery vault is supported in all Azure Commercial & Government regions.
+
+>[!Note]
+>Automatic upgrades are not supported for Private Endpoints. [Learn more](upgrade-mobility-service-modernized.md).
 
 This article describes how to complete the following steps:
 
@@ -55,6 +58,28 @@ then create private endpoints in the bypass network. You can choose any form of 
   to a cache storage account. You can use any connectivity method between on-premises and your storage account endpoint. For example, you can use the internet or
   Azure [ExpressRoute](../expressroute/index.yml). Establishing a private link is optional. You can create private endpoints for storage only on General Purpose v2 accounts. See
   [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) for information about pricing for data transfer on General Purpose v2 accounts.
+
+> [!NOTE]
+> While setting up private endpoints to protect VMware and physical machines, you will need to install MySQL on the configuration server manually. Follow the steps [here](vmware-azure-deploy-configuration-server.md#configure-settings) to perform the manual installation. 
+
+### URLs to be allowed
+
+When using the private link with modernized experience for VMware VMs, public access is needed for a few resources. Below are all URLs to be included in the allow list. If proxy-based configuration is used then make sure that the proxy resolves any CNAME records received while looking up the URLs.
+
+  | **URL**                  | **Details**                             |
+  | ------------------------- | -------------------------------------------|
+  | portal.azure.com          | Navigate to the Azure portal.              |
+  | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
+  |`*.microsoftonline.com `<br>`*.microsoftonline-p.com `| Create Azure Active Directory applications for the appliance to communicate with Azure Site Recovery. |
+  | `management.azure.com` | Used for Azure Resource Manager deployments and operations. |
+
+Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity, when enabling replication to a government cloud:
+
+  | **URL for Fairfax**                  | **URL for Mooncake**                             | **Details**                             |
+  | ------------------------- | -------------------------------------------| -------------------------------------------|
+  | `login.microsoftonline.us/*` <br> `graph.windows.net ` | `login.microsoftonline.cn` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
+  | `*.portal.azure.us`          |    `*.portal.azure.cn`           | Navigate to the Azure portal. | 
+  | `management.usgovcloudapi.net` | `management.chinacloudapi.cn` | Create Azure Active Directory applications for the appliance to communicate with the Azure Site Recovery service. |
 
  ## Create and use private endpoints for site recovery
 
@@ -206,22 +231,31 @@ following role permissions, depending on the type of storage account.
   - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-These steps describe how to add a role assignment to your storage account:
+The following steps describe how to add a role assignment to your storage account. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. Go to the storage account. Select **Access control (IAM)** in the left pane.
+1. Go to the storage account.
 
-1. In the **Add a role assignment** section, select **Add**:
+1. Select **Access control (IAM)**.
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Screenshot that shows the Access control (IAM) page for a storage account.":::
+1. Select **Add > Add role assignment**.
 
-1. On the **Add a role assignment** page, in the **Role**
-   list, select the role from the list at the start of this section. Enter the name of the vault and then select **Save**.
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Screenshot that shows the Add role assignment page.":::
+1. On the **Role** tab, select one of the roles listed in the beginning of this section.
 
-After you add these permissions, you need to allow access to Microsoft trusted services. Go to
-**Firewalls and virtual networks** and select **Allow trusted Microsoft services to access this storage
-account** in **Exceptions**.
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
+
+1. Select **System-assigned managed identity**, search for a vault, and then select it.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+In addition to these permissions, you need to allow access to Microsoft trusted services. To do so, follow these steps:
+
+1. Go to **Firewalls and virtual networks**.
+
+1. In **Exceptions**, select **Allow trusted Microsoft services to access this storage account**.
 
 ### Protect your virtual machines
 
@@ -229,7 +263,7 @@ After you finish the preceding tasks, continue with the setup of your on-premise
 infrastructure. Continue by completing one of the following tasks: 
 
 - [Deploy a configuration server for VMware and physical machines](./vmware-azure-deploy-configuration-server.md)
-- [Set up the Hyper-V environment for replication](./hyper-v-azure-tutorial.md#set-up-the-source-environment)
+- [Set up the Hyper-V environment for replication](./hyper-v-azure-tutorial.md#source-settings)
 
 After the setup is complete, enable replication for your source machines. Don't set up
 the infrastructure until after the private endpoints for the vault are created in the
@@ -261,6 +295,8 @@ to private IPs.
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Screenshot that shows the Basics tab of the Create Private DNS zone page.":::
 
    1. Continue to the **Review \+ create** tab to review and create the DNS zone.
+
+   1. If you're using modernized architecture for protection VMware or Physical machines, then create another private DNS zone for **privatelink.prod.migration.windowsazure.com** also. This endpoint will be used by Site Recovery to perform the discovery of on-premises environment.
 
 1. Link the private DNS zone to your virtual network.
 
@@ -302,5 +338,8 @@ to private IPs.
 Now that you've enabled private endpoints for your virtual machine replication, see these other
 articles for additional and related information:
 
-- [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md)
-- [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md)
+> [!div class="nextstepaction"]
+> [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md)
+
+> [!div class="nextstepaction"]
+> [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md)

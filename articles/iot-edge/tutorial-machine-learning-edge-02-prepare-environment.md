@@ -1,17 +1,18 @@
 ---
 title: 'Tutorial: Set up environment - Machine Learning on Azure IoT Edge'
 description: 'Tutorial: Prepare your environment for development and deployment of modules for machine learning at the edge.'
-author: kgremban
-manager: philmea
-ms.author: kgremban
+author: PatAltimore
+
+ms.author: patricka
 ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "=iotedge-2018-06"
 ---
 # Tutorial: Set up an environment for machine learning on IoT Edge
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 This article helps you prepare your environment for development and deployment. First, set up a development machine with all the tools you need. Then, create the necessary cloud resources in Azure.
 
@@ -30,7 +31,7 @@ This article is part of a series for a tutorial about using Azure Machine Learni
 
 This step is typically performed by a cloud developer. Some of the software may also be helpful for a data scientist.
 
-We created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](../virtual-machines/windows/nested-virtualization.md), which is why we chose a [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) machine size.
+We created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization), which is why we chose a [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) machine size.
 
 The development VM will be set up with:
 
@@ -39,12 +40,13 @@ The development VM will be set up with:
 * [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop)
 * [Git for Windows](https://gitforwindows.org/)
 * [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
-* [.NET Core SDK](https://dotnet.microsoft.com/)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](/powershell/azure/)
 * [VS Code Extensions](https://marketplace.visualstudio.com/search?target=VSCode)
-  * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+  * [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+  * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
@@ -78,7 +80,7 @@ It takes about 30 minutes to create and configure the virtual machine.
 
     When prompted, provide the following information:
 
-    * **Azure Subscription ID**: Your subscription ID, which can be found in [Azure Subscriptions](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in portal.
+    * **Azure Subscription ID**: Your subscription ID, which can be found in [Azure Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in portal.
     * **Resource Group Name**: The name of a new or existing resource group in Azure.
     * **Location**: Choose an Azure location where the virtual machine will be created. For example, 'West US 2' or 'North Europe'. For more information, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
     * **Username**: Provide a memorable name for the administrator account for the VM.
@@ -144,7 +146,8 @@ Now that you have connected to the development machine, add some useful extensio
 
 1. The script will run for a few minutes installing VS code extensions:
 
-    * Azure IoT Tools
+    * Azure IoT Edge
+    * Azure IoT Hub
     * Python
     * C#
     * Docker
@@ -187,18 +190,18 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. In the list of resources, select the IoT Hub that the script created. It will have a name ending with random characters such as `IotEdgeAndMlHub-jrujej6de6i7w`.
 
-1. From the left pane menu, under **Messaging**, select **Message routing**.
+1. From the left pane menu, under **Hub settings**, select **Message routing**.
 
 1. On the **Message routing** page, select the **Custom endpoints** tab.
 
 1. Expand the **Storage** section:
 
-   ![Verify turbofanDeviceStorage is in the custom endpoints list](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   :::image type="content" source="./media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png" alt-text="Screenshot of the storage called turbofanDeviceStorage in the custom endpoints list in the I o T Hub portal." lightbox="media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png":::
 
    We see **turbofanDeviceStorage** is in the custom endpoints list. Note the following characteristics about this endpoint:
 
    * It points to the blob storage container you created named `devicedata` as indicated by **Container name**.
-   * Its **Filename format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
+   * Its **Filename format** has the word "partition" in the name. We find this format is more convenient for the file operations we'll do with Azure Notebooks later in this tutorial.
    * Its **Status** should be healthy.
 
 1. Select the **Routes** tab.
@@ -207,7 +210,7 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. On the **Routes details** page, note that the route's endpoint is the **turbofanDeviceStorage** endpoint.
 
-   ![Review details about the turbofanDeviceDataToStorage route](media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png)
+   :::image type="content" source="./media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png" alt-text="Screenshot that shows detail about the turbofanDeviceDataToStorage route.":::
 
 1. Look at the **Routing query**, which is set to **true**. This setting means that all device telemetry messages will match this route; and therefore all messages will be sent to the **turbofanDeviceStorage** endpoint.
 

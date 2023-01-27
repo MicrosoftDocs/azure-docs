@@ -4,15 +4,14 @@ description: Provides insight into how to determine the content management requi
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/29/2019
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

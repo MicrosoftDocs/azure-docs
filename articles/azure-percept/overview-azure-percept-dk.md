@@ -1,20 +1,19 @@
 ---
-title: Azure Percept DK overview
-description: Learn more about the Azure Percept DK
-author: mimcco
-ms.author: mimcco
+title: Azure Percept DK and Vision device overview
+description: Learn more about the Azure Percept DK and Azure Percept Vision
+author: yvonne-dq
+ms.author: davej
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 03/23/2021
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.date: 10/06/2022
+ms.custom: template-concept, ignite-fall-2021
 ---
 
-# Azure Percept DK overview
+# Azure Percept DK and Vision device overview
 
-Azure Percept DK is an edge AI development kit designed for developing vision and audio AI solutions with [Azure Percept Studio](./overview-azure-percept-studio.md). Azure Percept DK is available for purchase at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
-> [!div class="nextstepaction"]
-> [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
+Azure Percept DK is an edge AI development kit designed for developing vision and audio AI solutions with [Azure Percept Studio](./overview-azure-percept-studio.md). 
 
 </br>
 
@@ -26,7 +25,7 @@ Azure Percept DK is an edge AI development kit designed for developing vision an
 
 - Hardware root of trust security built in. Learn more about [Azure Percept security](./overview-percept-security.md).
 
-- Seamless integration with [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) and other Azure services, such as Azure IoT Hub, Azure Cognitive Services, and [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
+- Seamless integration with [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) and other Azure services, such as Azure IoT Hub, Azure Cognitive Services, and [Live Video Analytics](../azure-video-analyzer/video-analyzer-docs/overview.md).
 
 - Compatible with [Azure Percept Audio](./overview-azure-percept-audio.md), an optional accessory for building AI audio solutions.
 
@@ -57,7 +56,3 @@ Azure Percept DK is an edge AI development kit designed for developing vision an
 	- [Create a no-code vision solution in Azure Percept Studio](./tutorial-nocode-vision.md)
 	- [Create a no-code speech solution in Azure Percept Studio](./tutorial-no-code-speech.md) (Azure Percept Audio accessory required)
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Buy an Azure Percept DK from the Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

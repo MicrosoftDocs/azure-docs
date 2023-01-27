@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory REST API - authentication
 description: Use Azure Active Directory to authenticate to Azure App Configuration by using the REST API
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
@@ -35,13 +35,9 @@ Before acquiring an Azure AD token, you must identify what user you want to auth
 
 ### Audience
 
-Request the Azure AD token with a proper audience. For Azure App Configuration, use one of the following audiences. The audience can also be referred to as the *resource* that the token is being requested for.
+Request the Azure AD token with a proper audience. For Azure App Configuration use the following audience. The audience can also be referred to as the *resource* that the token is being requested for.
 
-- {configurationStoreName}.azconfig.io
-- *.azconfig.io
-
-> [!IMPORTANT]
-> When the audience requested is `{configurationStoreName}.azconfig.io`, it must exactly match the `Host` request header (case sensitive) used to send the request.
+`https://azconfig.io`
 
 ### Azure AD authority
 
@@ -49,7 +45,7 @@ The Azure AD authority is the endpoint you use for acquiring an Azure AD token. 
 
 ### Authentication libraries
 
-Azure provides a set of libraries, called Azure Active Directory Authentication Libraries, to simplify the process of acquiring an Azure AD token. Azure builds these libraries for multiple languages. For more information, see the [documentation](../active-directory/azuread-dev/active-directory-authentication-libraries.md).
+Microsoft Authentication Library (MSAL) helps to simplify the process of acquiring an Azure AD token. Azure builds these libraries for multiple languages. For more information, see the [documentation](../active-directory/develop/msal-overview.md).
 
 ## Errors
 

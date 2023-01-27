@@ -1,17 +1,17 @@
 ---
 title: Manage Azure HDInsight clusters using Azure CLI
-description: Learn how to use the Azure CLI to manage Azure HDInsight clusters. Cluster types include Apache Hadoop, Spark, HBase, Storm, Kafka, Interactive Query, and ML Services.
+description: Learn how to use the Azure CLI to manage Azure HDInsight clusters. Cluster types include Apache Hadoop, Spark, HBase, Kafka, Interactive Query.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-azurecli
-ms.date: 02/26/2020
+ms.date: 11/17/2022
 ---
 
 # Manage Azure HDInsight clusters using Azure CLI
 
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
-Learn how to use [Azure CLI](/cli/azure/) to manage Azure HDInsight clusters. The Azure command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources.
+Learn how to use [Azure CLI](/cli/azure/) to manage Azure HDInsight clusters. The Azure CLI is Microsoft's cross-platform command-line experience for managing Azure resources.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

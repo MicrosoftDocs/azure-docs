@@ -6,7 +6,7 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs, mode-arm
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
 ---
@@ -18,11 +18,11 @@ Get started with [Azure App Service](overview.md) by deploying a app to the clou
  If your environment meets the prerequisites and you're familiar with using [ARM templates](../azure-resource-manager/templates/overview.md), select the **Deploy to Azure** button. The template will open in the Azure portal.
 
 ::: zone pivot="platform-windows"
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json)
 ::: zone-end
 
 ::: zone pivot="platform-linux"
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json)
 ::: zone-end
 
 <hr/>
@@ -36,9 +36,9 @@ Get started with [Azure App Service](overview.md) by deploying a app to the clou
 ## 2. Review the template
 
 ::: zone pivot="platform-windows"
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows.
 
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
 
 <details>
 <summary>What resources and parameters are defined in the template?</summary>
@@ -64,9 +64,9 @@ The following table details defaults parameters and their descriptions:
 </details>
 ::: zone-end
 ::: zone pivot="platform-linux"
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). It deploys an App Service plan and an App Service app on Windows.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-service-docs-linux). It deploys an App Service plan and an App Service app on Windows.
 
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json":::
 
 This template includes Azure resources and parameters that are defined for your convenience.
 
@@ -101,24 +101,24 @@ The following table details defaults parameters and their descriptions:
 ::: zone pivot="platform-windows"
 Run the code below to deploy a .NET framework app on Windows using Azure CLI. 
 
-Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
+Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`."> \<app-name> </abbr> with a globally unique app name. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".net" helloWorld="true" webAppName="<app-name>" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json"
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"
 Run the code below to create a Python app on Linux. 
 
-Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
+Replace \<app-name\> with a globally unique app name. Valid characters characters are `a-z`, `0-9`, and `-`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup --parameters webAppName="<app-name>" linuxFxVersion="PYTHON|3.7" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-linux/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json"
 ```
 ::: zone-end
 
@@ -148,6 +148,7 @@ To deploy a different language stack, update <abbr title="This template is compa
 ::: zone pivot="platform-linux"
 <details>
 <summary>How do I deploy a different language stack?</summary>
+ 
 To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
 
 | Language    | Example                                              |
@@ -184,6 +185,4 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 - [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 - [Python with Postgres](tutorial-python-postgresql-app.md)
 - [PHP with MySQL](tutorial-php-mysql-app.md)
-- [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-- [Map custom domain](app-service-web-tutorial-custom-domain-uiex.md)
-
+- [Connect to Azure SQL database with Java](/azure/azure-sql/database/connect-query-java?toc=%2fazure%2fjava%2ftoc.json)

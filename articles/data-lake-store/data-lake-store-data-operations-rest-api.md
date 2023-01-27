@@ -1,17 +1,12 @@
 ---
 title: 'REST API: Filesystem operations on Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Use WebHDFS REST APIs to perform filesystem operations on Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
 
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Filesystem operations on Azure Data Lake Storage Gen1 using REST API

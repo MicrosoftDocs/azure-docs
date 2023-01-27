@@ -4,7 +4,7 @@ description: This article describes how to stop monitoring your virtual machines
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
+ms.date: 06/08/2022
 
 ---
 
@@ -19,7 +19,7 @@ VM insights relies on the following components to deliver its experience:
 * A Log Analytics workspace, which stores monitoring data from VMs and other sources.
 * A collection of performance counters configured in the workspace. The collection updates the monitoring configuration on all VMs connected to the workspace.
 * `VMInsights`, which is a monitoring solution configured in the workspace. This solution updates the monitoring configuration on all VMs connected to the workspace.
-* `MicrosoftMonitoringAgent` and `DependencyAgent`, which are Azure VM extensions. These extensions collect and send data to the workspace.
+* `MicrosoftMonitoringAgent` (for Windows) or `OmsAgentForLinux` (for Linux), and `DependencyAgent`, which are Azure VM extensions. These extensions collect and send data to the workspace.
 
 As you prepare to disable monitoring of your VMs, keep these considerations in mind:
 
@@ -47,7 +47,7 @@ If your Log Analytics workspace still needs to support monitoring from other sou
 >Don't remove the Log Analytics agent if: 
 >
 > * Azure Automation manages the VM to orchestrate processes or to manage configuration or updates. 
-> * Azure Security Center manages the VM for security and threat detection. 
+> * Microsoft Defender for Cloud manages the VM for security and threat detection. 
 >
 > If you do remove the Log Analytics agent, you will prevent those services and solutions from proactively managing your VM. 
 

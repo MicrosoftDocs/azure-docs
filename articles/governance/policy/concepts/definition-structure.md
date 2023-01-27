@@ -1,8 +1,10 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 02/17/2021
+ms.date: 08/29/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Azure Policy definition structure
 
@@ -19,7 +21,8 @@ resources have a particular tag. Policy assignments are inherited by child resou
 assignment is applied to a resource group, it's applicable to all the resources in that resource
 group.
 
-The policy definition _policyRule_ schema is found here: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+The policy definition _policyRule_ schema is found here:
+[https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -118,7 +121,7 @@ We recommend that you set **mode** to `all` in most cases. All policy definition
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
 parameter manually. If the policy definition doesn't include a **mode** value, it defaults to `all`
 in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to
-support backwards compatibility.
+support backward compatibility.
 
 `indexed` should be used when creating policies that enforce tags or locations. While not required,
 it prevents resources that don't support tags and locations from showing up as non-compliant in the
@@ -131,26 +134,22 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 
 ### Resource Provider modes
 
-The following Resource Provider mode is fully supported:
+The following Resource Provider modes are fully supported:
 
-- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use of the
-  [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
-
-The following Resource Provider modes are currently supported as a **preview**:
-
-- `Microsoft.ContainerService.Data` for managing admission controller rules on
-  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Definitions using this Resource
-  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
-  mode is _deprecated_.
+- `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md). Definitions
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 
+The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
+
+- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
+- `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/overview.md) keys using Azure Policy.
+
 > [!NOTE]
-> Resource Provider modes only support built-in policy definitions and don't support
-> [exemptions](./exemption-structure.md).
+>Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
 
 ## Metadata
 
@@ -162,11 +161,12 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 ### Common metadata properties
 
 - `version` (string): Tracks details about the version of the contents of a policy definition.
-- `category` (string): Determines under which category in Azure portal the policy definition is
+- `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition has been marked as
   _deprecated_.
+- `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input.
 
 > [!NOTE]
 > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
@@ -175,11 +175,12 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 > `version` property or in another property as a **boolean**. For more information about the way
 > Azure Policy versions built-ins, see
 > [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
 
 ## Parameters
 
 Parameters help simplify your policy management by reducing the number of policy definitions. Think
-of parameters like the fields on a form – `name`, `address`, `city`, `state`. These parameters
+of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
@@ -209,10 +210,14 @@ A parameter has the following properties that are used in the policy definition:
     the assignment scope. There's one role assignment per role definition in the policy (or per role
     definition in all of the policies in the initiative). The parameter value must be a valid
     resource or scope.
-- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given.
-  Required when updating an existing policy definition that is assigned.
+- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For oject-type parameters, the value must match the appropriate schema.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
-  assignment. Allowed value comparisons are case-sensitive. 
+  assignment. Allowed value comparisons are case-sensitive. For oject-type parameters, the values must match the appropriate schema.
+- `schema`: (Optional) Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the [Json.NET Schema](https://www.newtonsoft.com/jsonschema) 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
+
+### Sample Parameters
+
+#### Example 1
 
 As an example, you could define a policy definition to limit the locations where resources can be
 deployed. A parameter for that policy definition could be **allowedLocations**. This parameter would
@@ -238,6 +243,100 @@ be used by each assignment of the policy definition to limit the accepted values
 }
 ```
 
+A sample input for this array-type parameter (without strongType) at assignment time might be ["westus", "eastus2"].
+
+#### Example 2
+
+In a more advanced scenario, you could define a policy that requires Kubernetes cluster pods to use specified labels. A parameter for that policy definition could be **labelSelector**, which would be used by each assignment of the policy definition to specify Kubernetes resources in question based on label keys and values:
+
+```json
+"parameters": {
+    "labelSelector": {
+        "type": "Object",
+        "metadata": {
+            "displayName": "Kubernetes label selector",
+            "description": "Label query to select Kubernetes resources for policy evaluation. An empty label selector matches all Kubernetes resources."
+        },
+        "defaultValue": {},
+        "schema": {
+            "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all resources.",
+            "type": "object",
+            "properties": {
+                "matchLabels": {
+                    "description": "matchLabels is a map of {key,value} pairs.",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "minProperties": 1
+                },
+                "matchExpressions": {
+                    "description": "matchExpressions is a list of values, a key, and an operator.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "key": {
+                                "description": "key is the label key that the selector applies to.",
+                                "type": "string"
+                            },
+                            "operator": {
+                                "description": "operator represents a key's relationship to a set of values.",
+                                "type": "string",
+                                "enum": [
+                                    "In",
+                                    "NotIn",
+                                    "Exists",
+                                    "DoesNotExist"
+                                ]
+                            },
+                            "values": {
+                                "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty.",
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "key",
+                            "operator"
+                        ],
+                        "additionalProperties": false
+                    },
+                    "minItems": 1
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+}
+```
+
+A sample input for this object-type parameter at assignment time would be in JSON format, validated by the specified schema, and might be:
+
+```json
+{
+    "matchLabels": {
+        "poolID": "abc123",
+        "nodeGroup": "Group1",
+        "region": "southcentralus"
+    },
+    "matchExpressions": [
+        {
+            "key": "name",
+            "operator": "In",
+            "values": ["payroll", "web"]
+        },
+        {
+            "key": "environment",
+            "operator": "NotIn",
+            "values": ["dev"]
+        }
+    ]
+}
+```
+
 ### Using a parameter value
 
 In the policy rule, you reference parameters with the following `parameters` function syntax:
@@ -254,9 +353,9 @@ properties](#parameter-properties).
 
 ### strongType
 
-Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
+Within the `metadata` property, you can use **strongType** to provide a multiselect list of options
 within the Azure portal. **strongType** can be a supported _resource type_ or an allowed value. To
-determine if a _resource type_ is valid for **strongType**, use
+determine whether a _resource type_ is valid for **strongType**, use
 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). The format for a
 _resource type_ **strongType** is `<Resource Provider>/<Resource Type>`. For example,
 `Microsoft.Network/virtualNetworks/subnets`.
@@ -597,9 +696,6 @@ The following properties are used with **field count**:
   **count.where** condition expression. A numeric
   [condition](../concepts/definition-structure.md#conditions) should be used.
 
-**Field count** expressions can enumerate the same field array up to three times in a single
-**policyRule** definition.
-
 For more details on how to work with array properties in Azure Policy, including detailed
 explanation on how the **field count** expression is evaluated, see
 [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
@@ -640,11 +736,6 @@ The following properties are used with **value count**:
 - **\<condition\>** (required): The value is compared to the number of items that met the
   `count.where` condition expression. A numeric
   [condition](../concepts/definition-structure.md#conditions) should be used.
-
-The following limits are enforced:
-- Up to 10 **value count** expressions can be used in a single **policyRule** definition.
-- Each **value count** expression can perform up to 100 iterations. This number includes the number
-  of iterations performed by any parent **value count** expressions.
 
 #### The current function
 
@@ -886,6 +977,7 @@ Parameter value:
 ```
 
 Policy:
+
 ```json
 {
     "count": {
@@ -933,7 +1025,7 @@ Azure Policy supports the following types of effect:
 - **Deny**: generates an event in the activity log and fails the request
 - **DeployIfNotExists**: deploys a related resource if it doesn't already exist
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
-- **Modify**: adds, updates, or removes the defined tags from a resource or subscription
+- **Modify**: adds, updates, or removes the defined set of fields in the request
 - **EnforceOPAConstraint** (deprecated): configures the Open Policy Agent admissions controller with
   Gatekeeper v3 for self-managed Kubernetes clusters on Azure
 - **EnforceRegoPolicy** (deprecated): configures the Open Policy Agent admissions controller with
@@ -944,18 +1036,31 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 ### Policy functions
 
+Functions can be used to introduce additional logic into a policy rule. They are resolved within the [policy rule](#policy-rule) of a policy definition and within [parameter values assigned to policy definitions in an initiative](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
+
 All [Resource Manager template
 functions](../../../azure-resource-manager/templates/template-functions.md) are available to use
 within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
+- dateTimeAdd()
 - deployment()
+- environment()
+- extensionResourceId()
+- listAccountSas()
+- listKeys()
+- listSecrets()
 - list*
+- managementGroup()
 - newGuid()
 - pickZones()
 - providers()
 - reference()
 - resourceId()
+- subscriptionResourceId()
+- tenantResourceId()
+- tenant()
+- utcNow(format)
 - variables()
 
 > [!NOTE]
@@ -975,36 +1080,41 @@ The following functions are only available in policy rules:
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.FFFFFFFZ'
   - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
   - Returns the value of that field from the resource that is being evaluated by the If condition.
   - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
     fields on the resource that are being evaluated. An example of this use can be seen in the
     [DeployIfNotExists example](effects.md#deployifnotexists-example).
+
 - `requestContext().apiVersion`
-  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`).
+  - Returns the API version of the request that triggered policy evaluation (example: `2021-09-01`).
     This value is the API version that was used in the PUT/PATCH request for evaluations on resource
     creation/update. The latest API version is always used during compliance evaluation on existing
     resources.
+
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be
     accessed from the returned object (example: `[policy().assignmentId]`).
-  
-  ```json
-  {
-    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
-    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
-    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
-    "definitionReferenceId": "StorageAccountNetworkACLs"
-  }
-  ```
+
+    ```json
+    {
+      "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+      "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+      "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+      "definitionReferenceId": "StorageAccountNetworkACLs"
+    }
+    ```
 
 - `ipRangeContains(range, targetRange)`
-  - **range**: [Required] string - String specifying a range of IP addresses.
-  - **targetRange**: [Required] string - String specifying a range of IP addresses.
-
-  Returns whether the given IP address range contains the target IP address range. Empty ranges, or
-  mixing between IP families isn't allowed and results in evaluation failure.
+  - **range**: [Required] string - String specifying a range of IP addresses to check if the
+    _targetRange_ is within.
+  - **targetRange**: [Required] string - String specifying a range of IP addresses to validate as
+    included within the _range_.
+  - Returns a _boolean_ for whether the _range_ IP address range contains the _targetRange_ IP
+    address range. Empty ranges, or mixing between IP families isn't allowed and results in
+    evaluation failure.
 
   Supported formats:
   - Single IP address (examples: `10.0.0.0`, `2001:0DB8::3:FFFE`)
@@ -1033,6 +1143,48 @@ resource name to start with the resource group name.
     }
 }
 ```
+
+### Policy rule limits
+
+#### Limits enforced during authoring
+
+Limits to the structure of policy rules are enforced during the authoring or assignment of a policy.
+Attempts to create or assign policy definitions that exceed these limits will fail.
+
+| Limit | Value | Additional details |
+|:---|:---|:---|
+| Condition expressions in the **if** condition | 4096 | |
+| Condition expressions in the **then** block | 128 | Applies to the **existenceCondition** of **AuditIfNotExists** and **DeployIfNotExists** policies |
+| Policy functions per policy rule | 2048 | |
+| Policy function number of parameters | 128 | Example: `[function('parameter1', 'parameter2', ...)]` |
+| Nested policy functions depth | 64 | Example: `[function(nested1(nested2(...)))]` |
+| Policy functions expression string length | 81920 | Example: the length of `"[function(....)]"` |
+| **Field count** expressions per array | 5 | |
+| **Value count** expressions per policy rule | 10 | |
+| **Value count** expression iteration count | 100 | For nested **Value count** expressions, this also includes the iteration count of the parent expression |
+
+#### Limits enforced during evaluation
+
+Limits to the size of objects that are processed by policy functions during policy evaluation. These limits can't always be enforced during authoring since they depend on the evaluated content. For example:
+
+```json
+{
+    "field": "name",
+    "equals": "[concat(field('stringPropertyA'), field('stringPropertyB'))]"
+}
+```
+
+The length of the string created by the `concat()` function depends of the value of properties in the evaluated resource.
+
+| Limit | Value | Example |
+|:---|:---|:---|
+| Length of string returned by a function | 131072 | `[concat(field('longString1'), field('longString2'))]`|
+| Depth of complex objects provided as a parameter to, or returned by a function | 128 | `[union(field('largeObject1'), field('largeObject2'))]` |
+| Number of nodes of complex objects provided as a parameter to, or returned by a function | 32768 | `[concat(field('largeArray1'), field('largeArray2'))]` |
+
+> [!WARNING]
+> Policy that exceed the above limits during evaluation will effectively become a **deny** policy and can block incoming requests.
+> When writing policies with complex functions, be mindful of these limits and test your policies against resources that have the potential to exceed them.
 
 ## Aliases
 
@@ -1115,7 +1267,8 @@ array element to a target value. When used with [count](#count) expression, it's
 - Check if all\any\none of the array elements meet a complex condition
 - Check if exactly ***n*** array elements meet a complex condition
 
-For more information and examples, see [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+For more information and examples, see
+[Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 ## Next steps
 

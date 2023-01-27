@@ -3,14 +3,16 @@ title: Enforce a minimum required version of Transport Layer Security (TLS) for 
 titleSuffix: Azure Storage
 description: Configure a storage account to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Storage.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
-ms.author: tamram
+ms.date: 12/30/2022
+ms.author: jammart
 ms.reviewer: fryu
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.devlang: azurecli
 ---
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account
@@ -19,25 +21,28 @@ Communication between a client application and an Azure Storage account is encry
 
 Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. Azure Storage uses TLS 1.2 on public HTTPS endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
-By default, Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. If a storage account requires a minimum version of TLS, then any requests made with an older version will fail.
+Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. If a storage account requires a minimum version of TLS, then any requests made with an older version will fail.
 
 This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage secure TLS for your storage accounts.
 
 For information about how to specify a particular version of TLS when sending a request from a client application, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
+> [!NOTE]
+> The cipher suite used when clients send data to and receive data from a storage account is dependent on the TLS version used. It is not possible to configure a storage account to block the use of specific ciphers, other than by requiring a minimum TLS version. If you require the ability to allow only specific cipher suites when connecting to your storage account, consider using Azure Application Gateway. For more information about using Application Gateway for this purpose, see [Configure TLS policy versions and cipher suites on Azure Application Gateway](../../application-gateway/application-gateway-configure-ssl-policy-powershell.md).
+
 ## Detect the TLS version used by client applications
 
 When you enforce a minimum TLS version for your storage account, you risk rejecting requests from clients that are sending data with an older version of TLS. To understand how configuring the minimum TLS version may affect client applications, Microsoft recommends that you enable logging for your Azure Storage account and analyze the logs after an interval of time to detect what versions of TLS client applications are using.
 
-To log requests to your Azure Storage account and determine the TLS version used by the client, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
+To log requests to your Azure Storage account and determine the TLS version used by the client, you can use Azure Storage logging in Azure Monitor. For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
 Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
 
-To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, and tables. To create a diagnostic setting in the Azure portal, follow these steps:
+To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
 
 1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navigate to your storage account in the Azure portal.
-1. In the Monitoring section, select **Diagnostic settings (preview)**.
+1. In the Monitoring section, select **Diagnostic settings**.
 1. Select the Azure Storage service for which you want to log requests. For example, choose **Blob** to log requests to Blob storage.
 1. Select **Add diagnostic setting**.
 1. Provide a name for the diagnostic setting.
@@ -48,7 +53,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 
 After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs (preview)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
 
 ### Query logged requests by TLS version
 
@@ -89,7 +94,9 @@ When you are confident that traffic from clients using older versions of TLS is 
 
 To configure the minimum TLS version for a storage account, set the **MinimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information about the Azure Resource Manager deployment model, see [Storage account overview](storage-account-overview.md).
 
-The **MinimumTlsVersion** property is not set by default and does not return a value until you explicitly set it.  If the property value is **null**, then the storage account will permit requests sent with TLS version 1.0 or greater.
+The default value of the **MinimumTlsVersion** property is different depending on how you set it. When you create a storage account with the Azure portal, the minimum TLS version is set to 1.2 by default. When you create a storage account with PowerShell, Azure CLI, or an Azure Resource Manager template, the **MinimumTlsVersion** property is not set by default and does not return a value until you explicitly set it.
+
+When the **MinimumTlsVersion** property is not set, its value may be displayed as either **null** or an empty string, depending on the context. The storage account will permit requests sent with TLS version 1.0 or greater if the property is not set.
 
 # [Portal](#tab/portal)
 
@@ -98,10 +105,10 @@ When you create a storage account with the Azure portal, the minimum TLS version
 To configure the minimum TLS version for an existing storage account with the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
-1. Select the **Configuration** setting.
-1. Under **Minimum TLS version**, use the drop-down to select the minimum version of TLS required to access data in this storage account, as shown in the following image.
+1. Under **Settings**, select **Configuration**.
+1. Under **Minimum TLS version**, use the drop-down to select the minimum version of TLS required to access data in this storage account.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot showing how to configure minimum version of TLS in the Azure portal":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot showing how to configure minimum version of TLS in the Azure portal." lightbox="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png":::
 
 # [PowerShell](#tab/powershell)
 
@@ -116,7 +123,7 @@ $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
 New-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
@@ -126,7 +133,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
 Set-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.
@@ -171,7 +178,7 @@ To configure the minimum TLS version for a storage account with a template, crea
 
 1. In the Azure portal, choose **Create a resource**.
 1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
-1. Choose **Template deployment (deploy using custom templates) (preview)**, choose **Create**, and then choose **Build your own template in the editor**.
+1. Choose **Template deployment (deploy using custom templates)**, choose **Create**, and then choose **Build your own template in the editor**.
 1. In the template editor, paste in the following JSON to create a new account and set the minimum TLS version to TLS 1.2. Remember to replace the placeholders in angle brackets with your own values.
 
     ```json
@@ -231,6 +238,9 @@ To test that the minimum required TLS version for a storage account forbids call
 
 When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Bad Request) and a message indicating that the TLS version that was used is not permitted for making requests against this storage account.
 
+> [!NOTE]
+> When you configure a minimum TLS version for a storage account, that minimum version is enforced at the application layer. Tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the storage account endpoint.
+
 ## Use Azure Policy to audit for compliance
 
 If you have a large number of storage accounts, you may want to perform an audit to make sure that all accounts are configured for the minimum version of TLS that your organization requires. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
@@ -258,10 +268,16 @@ To create a policy with an Audit effect for the minimum TLS version with the Azu
               "equals": "Microsoft.Storage/storageAccounts"
             },
             {
-              "not": {
-                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
-                "equals": "TLS1_2"
-              }
+                "anyOf": [
+                  {
+                    "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                    "notEquals": "TLS1_2"
+                  },
+                  {
+                    "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                    "exists": "false"
+                  }
+                ]
             }
           ]
         },
@@ -322,10 +338,16 @@ To create a policy with a Deny effect for a minimum TLS version that is less tha
           "equals": "Microsoft.Storage/storageAccounts"
         },
         {
-          "not": {
-            "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
-            "equals": "TLS1_2"
-          }
+            "anyOf": [
+              {
+                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                "notEquals": "TLS1_2"
+              },
+              {
+                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                "exists": "false"
+              }
+            ]
         }
       ]
     },
@@ -338,7 +360,7 @@ To create a policy with a Deny effect for a minimum TLS version that is less tha
 
 After you create the policy with the Deny effect and assign it to a scope, a user cannot create a storage account with a minimum TLS version that is older than 1.2. Nor can a user make any configuration changes to an existing storage account that currently requires a minimum TLS version that is older than 1.2. Attempting to do so results in an error. The required minimum TLS version for the storage account must be set to 1.2 to proceed with account creation or configuration.
 
-The following image shows the error that occurs if you try to create a storage account with the minimum TLS version set to TLS 1.0 (the default for a new account) when a policy with a Deny effect requires that the minimum TLS version be set to TLS 1.2.
+The following image shows the error that occurs if you try to create a storage account with the minimum TLS version set to TLS 1.0 (the default for a new account) when a policy with a Deny effect requires that the minimum TLS version is set to TLS 1.2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
 

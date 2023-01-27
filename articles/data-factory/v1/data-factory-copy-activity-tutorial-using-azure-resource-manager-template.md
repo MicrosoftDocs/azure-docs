@@ -1,11 +1,13 @@
-﻿---
+---
 title: 'Tutorial: Create a pipeline using Resource Manager Template '
 description: In this tutorial, you create an Azure Data Factory pipeline by using an Azure Resource Manager template. This pipeline copies data from an Azure blob storage to Azure SQL Database. 
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
-ms.date: 01/22/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Tutorial: Use Azure Resource Manager template to create a Data Factory pipeline to copy data 
@@ -37,7 +39,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 
 * Go through [Tutorial Overview and Prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 * Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/) article to install latest version of Azure PowerShell on your computer. In this tutorial, you use PowerShell to deploy Data Factory entities. 
-* (optional) See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/template-syntax.md) to learn about Azure Resource Manager templates.
+* (optional) See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/syntax.md) to learn about Azure Resource Manager templates.
 
 ## In this tutorial
 In this tutorial, you create a data factory with the following Data Factory entities:
@@ -52,7 +54,7 @@ In this tutorial, you create a data factory with the following Data Factory enti
 
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. There are two types of activities: [data movement activities](data-factory-data-movement-activities.md) and [data transformation activities](data-factory-data-transformation-activities.md). In this tutorial, you create a pipeline with one activity (copy activity).
 
-![Copy Azure Blob to Azure SQL Database](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png) 
+:::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png" alt-text="Copy Azure Blob to Azure SQL Database"::: 
 
 The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section.
 
@@ -305,24 +307,28 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 
 ## Create data factory
 1. Start **Azure PowerShell** and run the following command:
+
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
    
-    ```PowerShell
-    Connect-AzAccount       
-    ```  
+     ```powershell
+     Connect-AzAccount
+     ```
+
    * Run the following command to view all the subscriptions for this account.
    
-    ```PowerShell
-    Get-AzSubscription
-    ```   
+     ```powershell
+     Get-AzSubscription
+     ```
+
    * Run the following command to select the subscription that you want to work with.
     
-    ```PowerShell
-    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-    ```    
+     ```powershell
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```
+
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1.
 
-    ```PowerShell   
+    ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
     ```
 
@@ -332,15 +338,15 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 
 1. Click **Data factories** on the left menu (or) click **All services** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category.
    
-    ![Data factories menu](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png" alt-text="Data factories menu":::
 
 1. In the **Data factories** page, search for and find your data factory (AzureBlobToAzureSQLDatabaseDF). 
    
-    ![Search for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png" alt-text="Search for data factory":::  
 
 1. Click your Azure data factory. You see the home page for the data factory.
    
-    ![Home page for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png" alt-text="Home page for data factory":::  
 
 1. Follow instructions from [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines.
 
@@ -574,17 +580,19 @@ You define a pipeline that copies data from the Azure blob dataset to the Azure 
 ```
 
 ## Reuse the template
-In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. The pipeline copies data from an Azure Storage account to Azure SQL Database specified via parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it when deploying to that environment.     
+In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. The pipeline copies data from an Azure Storage account to Azure SQL Database specified via parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it when deploying to that environment.
 
-Example:  
+Example:
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
 ```
-```PowerShell
+
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
 ```
-```PowerShell
+
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
 ```
 
@@ -595,6 +603,6 @@ You can also reuse the template to perform repeated tasks. For example, you need
 ## Next steps
 In this tutorial, you used Azure blob storage as a source data store and Azure SQL Database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 To learn about how to copy data to/from a data store, click the link for the data store in the table.

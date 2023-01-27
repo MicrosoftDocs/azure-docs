@@ -1,11 +1,12 @@
 ---
 title: Copy data to/from Azure SQL Database 
 description: Learn how to copy data to/from Azure SQL Database using Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Copy data to and from Azure SQL Database using Azure Data Factory
@@ -21,11 +22,11 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 ## Supported scenarios
 You can copy data **from Azure SQL Database** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to Azure SQL Database**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## Supported authentication type
 Azure SQL Database connector supports basic authentication.

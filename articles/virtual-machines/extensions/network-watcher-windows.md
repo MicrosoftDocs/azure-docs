@@ -4,10 +4,11 @@ description: Deploy the Network Watcher Agent on Windows virtual machine using a
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
-ms.date: 02/14/2017
+ms.date: 02/14/2017 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Network Watcher Agent virtual machine extension for Windows

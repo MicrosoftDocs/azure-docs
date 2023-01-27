@@ -2,7 +2,7 @@
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 01/23/2023
 ---
 
 # Resource types and health checks in Azure resource health
@@ -41,7 +41,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.classiccompute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
+|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Is there ongoing planned maintenance?</li><li>Is there heartbeats between Guest and host agent *(if Guest extension is installed)*?</li></ul>|
 
 ## Microsoft.classiccompute/domainnames
 |Executed Checks|
@@ -61,7 +61,13 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.compute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
+|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Is there ongoing planned maintenance?</li><li>Is there heartbeats between Guest and host agent *(if Guest extension is installed)*?</li></ul>|
+
+## Microsoft.compute/virtualmachinescalesets
+|Executed Checks|
+|---|
+|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Is there ongoing planned maintenance?</li><li>Is there heartbeats between Guest and host agent *(if Guest extension is installed)*?</li></ul>|
+
 
 ## Microsoft.ContainerService/managedClusters
 |Executed Checks|
@@ -134,6 +140,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are core services available on the HDInsight cluster?</li><li>Can the HDInsight cluster access the key for BYOK encryption at rest?</li></ul>|
 
+## Microsoft.HybridCompute/machines
+|Executed Checks|
+|---|
+|<ul><li>Is the agent on your server connected to Azure and sending heartbeats?</li></ul>|
+
 ## Microsoft.IoTCentral/IoTApps
 |Executed Checks|
 |---|
@@ -189,6 +200,12 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are the load balancing endpoints available?</li></ul>|
 
+
+## Microsoft.network/natGateways
+|Executed Checks|
+|---|
+|<ul><li>Are the NAT gateway endpoints available?</li></ul>|
+
 ## Microsoft.network/trafficmanagerprofiles
 |Executed Checks|
 |---|
@@ -237,7 +254,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.SQL/servers/databases
 |Executed Checks|
 |---|
-|<ul><li>Have there been logins to the database?</li></ul>|
+|<ul><li>Have login attempts to the database failed because the database was unavailable?</li></ul>|
 
 ## Microsoft.Storage/storageAccounts
 |Executed Checks|
@@ -259,7 +276,13 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the host server up and running?</li><li>Is Internet Information server running?</li><li>Is the Load balancer running?</li><li>Can the Web App be reached from within the datacenter?</li><li>Is the storage account hosting the site content available?</li></ul>|
 
+## Microsoft.RecoveryServices/vaults
+
+| Executed Checks |
+| --- |
+|<ul><li>Are any Backup operations on Backup Items configured in this vault failing due to causes beyond user control?</li><li>Are any Restore operations on Backup Items configured in this vault failing due to causes beyond user control?</li></ul> |
+
 ## Next Steps
--  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
--  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
+-  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them.
+-  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)
 - Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](./alerts-activity-log-service-notifications-portal.md).

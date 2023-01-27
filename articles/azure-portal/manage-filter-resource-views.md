@@ -73,7 +73,7 @@ To save and use a summary view:
 
     :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Type summary showing a bar chart":::
 
-1. Select **Manage view** then **Save** to save this view like you did with the list view.
+1. Select **Manage view** then **Save view** to save this view like you did with the list view.
 
 1. In the summary view, under **Type summary**, select a bar in the chart. Selecting the bar provides a list filtered down to one type of resource.
 

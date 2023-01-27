@@ -11,13 +11,12 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 01/18/2023
 ms.author: phjensen
 ---
 
-# Delete using Azure Application Consistent Snapshot tool (preview)
+# Delete using Azure Application Consistent Snapshot tool
 
 This article provides a guide for running the delete command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
@@ -38,7 +37,7 @@ The `-c delete` command has the following options:
 
 - `--delete sync` when used with options `--dbsid <SID>` and `--hanabackupid <HANA backup id>` gets the storage snapshot name from the backup catalog for the `<HANA backup id>`, and then deletes the entry in the backup catalog _and_ the snapshot from any of the volumes containing the named snapshot.
 
-- `--delete sync` when used with `--snapshot <snapshot name>` will check for any entries in the backup catalog for the `<snapshot name>`, gets the SAP HANA backup ID and deletes both the entry in the backup catalog _and_ the snapshot from any of the volumes containing the named snapshot.
+- `--delete sync` when used with options `--dbsid <SID>` and `--snapshot <snapshot name>` will check for any entries in the backup catalog for the `<snapshot name>`, gets the SAP HANA backup ID and deletes both the entry in the backup catalog _and_ the snapshot from any of the volumes containing the named snapshot.
 
 - `[--force]` (optional) *Use with caution*.  This operation will force deletion without prompting for confirmation.
 

@@ -16,7 +16,7 @@ A stable, low-latency network connection to an Azure data center is critical for
 The exact network requirements depend on your specific use case, such as the number and frequency of modifications to the remote scene graph as well as the complexity of the rendered view, but there are a number of guidelines to ensure that your experience is as good as possible:
 
 * Your internet connectivity needs to support at least **40 Mbps downstream** and **5 Mbps upstream** consistently for a single user session of Azure Remote Rendering, assuming there is no competing traffic on the network. We recommend higher rates for better experiences. 
-* **Wi-Fi** is the recommended network type since it supports a low latency, high-bandwith, and stable connection. Some mobile networks introduce jitter that can lead to a poor experience. 
+* **Wi-Fi** is the recommended network type since it supports a low latency, high-bandwidth, and stable connection. Some mobile networks introduce jitter that can lead to a poor experience. 
 * Using the **5-GHz Wi-Fi band** will usually produce better results than the 2.4-GHz Wi-Fi band, though both should work.
 * If there are other Wi-Fi networks nearby, avoid using Wi-Fi channels in use by these other networks. You can use network scanning tools like [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) to verify whether the channels your Wi-Fi network uses, are free of competing traffic.
 * Strictly **avoid using Wi-Fi repeaters** or LAN-over-powerline forwarding.
@@ -46,6 +46,26 @@ We recommend running the test multiple times and taking the worst results.
 While low latency is not a guarantee that Azure Remote Rendering will work well on your network, we have usually seen it perform fine in situations where these tests passed successfully.
 If you are encountering artifacts such as unstable, jittery, or jumping holograms when running Azure Remote Rendering, refer to the [troubleshooting guide](../resources/troubleshoot.md).
 
+### How to 'ping' a rendering session
+
+It might be useful to measure latencies against a specific session VM, as this value may differ from values reported by www.azurespeed.com. The hostname of a session is logged by the [powershell script to create a new session](../samples/powershell-example-scripts.md#create-a-rendering-session). Similarly, there is a hostname property in the REST call response and also in the C++/C# runtime API (`RenderingSessionProperties.Hostname`). Furthermore, the handshake port is needed, which can be retrieved similarly.
+
+Here is some sample output from running the ```RenderingSession.ps1``` script:
+
+![Retrieve hostname from powershell output](./media/session-hostname-powershell.png)
+
+ARR session VMs do not work with the built-in command line 'ping' tool. Instead, a ping tool that works with TCP/UDP must be used. A simple tool called PsPing [(download link)](/sysinternals/downloads/psping) can be used for this purpose.
+The calling syntax is:
+
+```PowerShell
+psping.exe <hostname>:<handshakeport>
+```
+
+Example output from running PsPing:
+
+![PsPing an ARR session](./media/psping-arr-session.png)
+
+ 
 ## Next steps
 
 * [Quickstart: Render a model with Unity](../quickstarts/render-model.md)

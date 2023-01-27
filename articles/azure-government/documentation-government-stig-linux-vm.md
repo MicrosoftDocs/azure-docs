@@ -1,11 +1,13 @@
 ---
 title: Deploy STIG-compliant Linux Virtual Machines (Preview)
-description: This quickstart shows you how to deploy a STIG-compliant Linux VM (Preview) from Azure Marketplace
+description: This quickstart shows you how to deploy a STIG-compliant Linux VM (Preview) from the Azure portal or Azure Government portal.
 author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
-ms.date: 04/02/2021
+ms.custom: mode-other, kr2b-contr-experiment
+recommendations: false
+ms.date: 01/20/2023
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -24,7 +26,7 @@ This quickstart shows how to deploy a STIG-compliant Linux virtual machine (Prev
 
 ## Sign in to Azure
 
-Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
+Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
 
 ## Create a STIG-compliant virtual machine
 
@@ -48,17 +50,19 @@ Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government
 
     a. Enter the *VM name*.
 
-    b. Select the *Linux OS version*.
+    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](../virtual-machines/availability-set-overview.md).
 
-    c. Select the instance *Size*.
+    c. Select the *Linux OS version*.
 
-    d. Enter the administrator account *Username*.
+    d. Select the instance *Size*.
 
-    e. Select the Authentication type by choosing either *Password* or *Public key*.
+    e. Enter the administrator account *Username*.
 
-    f. Enter a *Password* or *Public key*.
+    f. Select the Authentication type by choosing either *Password* or *Public key*.
 
-    g. Confirm *Password* (*Public key* only needs to be input once).
+    g. Enter a *Password* or *Public key*.
+
+    h. Confirm *Password* (*Public key* only needs to be input once).
 
     > [!NOTE]
     > For instructions on creating an SSH RSA public-private key pair for SSH client connections, see **[Create and manage SSH keys for authentication to a Linux VM in Azure](../virtual-machines/linux/create-ssh-keys-detailed.md).**
@@ -135,6 +139,22 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
+## Support
+
+Contact Azure support to get assistance with issues related to STIG solution templates. You can create and manage support requests in the Azure portal. For more information see, [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). Use the following support paths when creating a ticket:
+
+Azure -> Virtual Machine running Linux -> Cannot create a VM -> Troubleshoot my ARM template error
+
+:::image type="content" source="./media/stig-linux-support.png" alt-text="New support request for Linux STIG solution template":::
+
+## Frequently asked questions
+
+**When will STIG-compliant VMs reach general availability (GA)?** </br>
+The Azure STIG-compliant VM offering is expected to remain in Preview instead of reaching GA because of the release cadence for DISA STIGs. Every quarter, the offering is upgraded with latest guidance, and this process is expected to continue in the future. See previous section for support options that most customers require for production workloads, including creating support tickets.
+
+**Can Azure Update Management be used with STIG images?** </br>
+Yes, [Update Management](../automation/update-management/overview.md) in Azure Automation supports STIG images.
+
 ## Next steps
 
 This quickstart showed you how to deploy a STIG-compliant Linux virtual machine (Preview) on Azure or Azure Government. For more information about creating virtual machines in:
@@ -146,3 +166,16 @@ To learn more about Azure services, continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
 > [Azure documentation](../index.yml)
+
+For more information about Azure Government, see the following resources:
+
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)
+- [Azure Government security](./documentation-government-plan-security.md)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
+- [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope)
+- [Azure Government DoD overview](./documentation-government-overview-dod.md)
+- [FedRAMP – Azure compliance](/azure/compliance/offerings/offering-fedramp)
+- [DoD Impact Level 5 – Azure compliance](/azure/compliance/offerings/offering-dod-il5)
+- [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
+- [Secure Azure Computing Architecture](./compliance/secure-azure-computing-architecture.md)

@@ -1,17 +1,20 @@
 ---
 title: Output batching in Azure Event Grid IoT Edge | Microsoft Docs 
 description: Output batching in Event Grid on IoT Edge.
-author: HiteshMadan
 manager: rajarv
-ms.author: himad
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
 # Output batching
 
 Event Grid has support to deliver more than one event in a single delivery request. This feature makes it possible to increase the overall delivery throughput without paying the HTTP per-request overheads. Batching is turned off by default and can be turned on per-subscription.
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
 
 > [!WARNING]
 > The maximum allowed duration to process each delivery request does not change, even though the subscriber code potentially has to do more work per batched request. Delivery timeout defaults to 60 seconds.

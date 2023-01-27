@@ -1,9 +1,8 @@
 ---
-title: How to integrate with the Microsoft identity platform | Azure
-titleSuffix: Microsoft identity platform
+title: How to integrate with the Microsoft identity platform
 description: Learn the benefits of integrating your application with the Microsoft identity platform, and get resources for features like simplified sign-in, identity management, multi-factor authentication, and access control.
 services: active-directory
-author: rwike77
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/01/2020
-ms.author: ryanwi
+ms.author: cwerner
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
@@ -51,7 +50,7 @@ There are several ways for your application to integrate with the Microsoft iden
 
 **Promote your application to the millions of organizations who are already using Azure AD.**  Users who search and browse these marketplaces are already using one or more cloud services, making them qualified cloud service customers. Learn more about promoting your application in [the Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**When users sign up for your application, it will appear in their Azure AD access panel and Microsoft 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement. Learn more about the [Azure AD access panel](../user-help/my-apps-portal-end-user-access.md).
+**When users sign up for your application, it will appear in their Azure AD access panel and Microsoft 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement. Learn more about the [Azure AD access panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ### Secure device-to-service and service-to-service communication
 
@@ -69,7 +68,7 @@ Integration with the Microsoft identity platform comes with benefits that do not
 
 ### Advanced security features
 
-**Multi-factor authentication.**  The Microsoft identity platform provides native multi-factor authentication. IT administrators can require multi-factor authentication to access your application, so that you do not have to code this support yourself. Learn more about [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Multi-factor authentication.**  The Microsoft identity platform provides native multi-factor authentication. IT administrators can require multi-factor authentication to access your application, so that you do not have to code this support yourself. Learn more about [Multi-Factor Authentication](/azure/multi-factor-authentication/).
 
 **Anomalous sign in detection.**  The Microsoft identity platform processes more than a billion sign-ins a day, while using machine learning algorithms to detect suspicious activity and notify IT administrators of possible problems. By supporting the Microsoft identity platform sign-in, your application gets the benefit of this protection. Learn more about [viewing Azure Active Directory access report](../reports-monitoring/overview-reports.md).
 

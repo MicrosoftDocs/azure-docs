@@ -2,7 +2,9 @@
 title: Tutorial - Schedule an ACR task
 description: In this tutorial, learn how to run an Azure Container Registry Task on a defined schedule by setting one or more timer triggers
 ms.topic: article
-ms.date: 11/24/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 # Tutorial: Run an ACR task on a defined schedule
 
@@ -19,7 +21,7 @@ Scheduling a task is useful for scenarios like the following:
 * Run a container workload for scheduled maintenance operations. For example, run a containerized app to remove unneeded images from your registry.
 * Run a set of tests on a production image during the workday as part of your live-site monitoring.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## About scheduling a task
 
@@ -67,6 +69,34 @@ az acr task show --name timertask --registry $ACR_NAME --output table
 NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 --------  ----------  --------  -------------------     -----------------
 timertask linux       Enabled                           BASE_IMAGE, TIMER
+```
+
+
+Also, a simple example, of the task running with source code context. The following task triggers running the `hello-world` image from Microsoft Container Registry every day at 21:00 UTC. 
+
+Follow the [Prerequisites](/azure/container-registry/container-registry-tutorial-quick-task#prerequisites) to build the source code context and then create a scheduled task with context.
+ 
+```azurecli
+az acr task create \
+  --name timertask \
+  --registry $ACR_NAME \
+  --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#master \
+  --file Dockerfile \
+  --image timertask:{{.Run.ID}} \
+  --git-access-token $GIT_PAT \
+  --schedule "0 21 * * *"
+```
+
+Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured. By default, the base image update trigger is also enabled.
+
+```azurecli
+az acr task show --name timertask --registry $ACR_NAME --output table
+```
+
+Run the [az acr task run][az-acr-task-run ] command to trigger the task manually.
+
+```azurecli
+az acr task run --name timertask --registry $ACR_NAME
 ```
 
 ## Trigger the task
@@ -228,14 +258,14 @@ For examples of tasks triggered by source code commits or base image updates, se
 
 
 <!-- LINKS - Internal -->
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show
-[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-show]: /cli/azure/acr/task#az_acr_task_show
+[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
 [az-acr-task-timer]: /cli/azure/acr/task/timer
-[az-acr-task-timer-add]: /cli/azure/acr/task/timer#az-acr-task-timer-add
-[az-acr-task-timer-remove]: /cli/azure/acr/task/timer#az-acr-task-timer-remove
-[az-acr-task-timer-list]: /cli/azure/acr/task/timer#az-acr-task-timer-list
-[az-acr-task-timer-update]: /cli/azure/acr/task/timer#az-acr-task-timer-update
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-timer-add]: /cli/azure/acr/task/timer#az_acr_task_timer_add
+[az-acr-task-timer-remove]: /cli/azure/acr/task/timer#az_acr_task_timer_remove
+[az-acr-task-timer-list]: /cli/azure/acr/task/timer#az_acr_task_timer_list
+[az-acr-task-timer-update]: /cli/azure/acr/task/timer#az_acr_task_timer_update
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
 [az-acr-task]: /cli/azure/acr/task
 [azure-cli-install]: /cli/azure/install-azure-cli

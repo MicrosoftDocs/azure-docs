@@ -4,28 +4,25 @@ titleSuffix: Azure Load Balancer
 description: Overview of cross region load balancer tier for Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2020
-ms.author: allensu
+ms.date: 10/31/2022
+ms.author: mbender
 ms.custom: references_regions
 
 ---
 # Cross-region load balancer (Preview)
 
-Azure Load Balancer distributes inbound traffic that arrives at the load balancer frontend to backend pool instances.
-
-Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant HA scenarios such as:
+Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant High Availability scenarios such as:
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
 * Load distribution across regions to the closest Azure region with [ultra-low latency](#ultra-low-latency).
 * Ability to [scale up/down](#ability-to-scale-updown-behind-a-single-endpoint) behind a single endpoint.
-* [Static IP](#static-ip)
+* Static anycast global IP address
 * [Client IP preservation](#client-ip-preservation)
 * [Build on existing load balancer](#build-cross-region-solution-on-existing-azure-load-balancer) solution with no learning curve
 
@@ -33,8 +30,6 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 > Cross-region load balancer is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Cross-region load balancing offers the same benefits of high performance and low latency as regional standard load balancer. 
 
 The frontend IP configuration of your cross-region load balancer is static and advertised across [most Azure regions](#participating-regions).
 
@@ -49,7 +44,7 @@ Configure regional redundancy by adding a global frontend public IP address to y
 
 If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
 
-The health probe of the cross-region load balancer gathers information about availability every 20 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer will detect the failure. The regional load balancer is then taken out of rotation. 
+The health probe of the cross-region load balancer gathers information about availability of each regional load balancer every 20 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer will detect the failure. The regional load balancer is then taken out of rotation. 
 
 :::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram of global region traffic view." border="true":::
 
@@ -68,10 +63,11 @@ If a flow is started from Seattle, traffic enters West US. This region is the cl
 
 Azure cross-region load balancer uses geo-proximity load-balancing algorithm for the routing decision. 
 
-The configured load distribution mode of the regional load balancers is used for making the final routing decision when multiple regional load balancers are used for geo-proximity.
+The configured load distribution mode of the regional load balancers is used for making the final routing decision when multiple regional load balancers are used for geo-proximity.  
 
 For more information, see [Configure the distribution mode for Azure Load Balancer](./load-balancer-distribution-mode.md).
 
+Egress traffic will follow the routing preference set on the regional load balancers.
 
 ### Ability to scale up/down behind a single endpoint
 
@@ -79,11 +75,15 @@ When you expose the global endpoint of a cross-region load balancer to customers
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
-### Static IP
-Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/public-ip-addresses.md#allocation-method)
+### Static anycast global IP address
+Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/ip-services/public-ip-addresses.md#ip-address-assignment)
+
 
 ### Client IP Preservation
 Cross-region load balancer is a Layer-4 pass-through network load balancer. This pass-through preserves the original IP of the packet.  The original IP is available to the code running on the virtual machine. This preservation allows you to apply logic that is specific to an IP address.
+
+### Floating IP
+Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer](./load-balancer-multivip-overview.md)
 
 ## Build cross region solution on existing Azure Load Balancer
 The backend pool of cross-region load balancer contains one or more regional load balancers. 
@@ -96,16 +96,18 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 ### Home regions
 * East US 2
 * West US
-* West Europe
 * Southeast Asia
 * Central US
 * North Europe
 * East Asia
+* US Gov Virginia
+* UK South
+* West Europe
 
 > [!NOTE]
-> You can only deploy your cross-region load balancer or Public IP in Global tier in one of the 7 regions above.
+> You can only deploy your cross-region load balancer or Public IP in Global tier in one of the regions above.
 
-A **participating region** is where the Global public IP of the load balancer is available. 
+A **participating region** is where the Global public IP of the load balancer is being advertised.
 
 Traffic started by the user will travel to the closest participating region through the Microsoft core network. 
 
@@ -129,6 +131,11 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * Australia Southeast 
 * Australia East 
 * Central India 
+* US DoD Central
+* US DoD East
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
 
 ## Limitations
 
@@ -136,11 +143,14 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * Private or internal load balancer can't be added to the backend pool of a cross-region load balancer 
 
-* Cross-region IPv6 frontend IP configurations aren't supported. 
+* NAT64 translation isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
+
+* UDP traffic isn't supported on Cross-region Load Balancer. 
 
 * A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
 
-* Integration with Azure Kubernetes Service (AKS) is currently unavailable. Loss of connectivity will occur when deploying a cross-region load balancer with the Standard load balancer with AKS cluster deployed in the backend.
+
+
 
 ## Pricing and SLA
 Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) of standard load balancer.
@@ -149,5 +159,5 @@ Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support
 ## Next steps
 
 - See [Tutorial: Create a cross-region load balancer using the Azure portal](tutorial-cross-region-portal.md) to create a cross-region load balancer.
-- See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to create a standard regional load balancer.
+- Learn more about [cross-region load balancer](https://www.youtube.com/watch?v=3awUwUIv950).
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).

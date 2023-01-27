@@ -3,12 +3,12 @@ title: Tutorial - Create and manage Azure budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/09/2021
+ms.date: 10/07/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Tutorial: Create and manage Azure budgets
@@ -54,20 +54,19 @@ Budgets are supported for the following types of Azure account types and scopes:
     - External account
     - External subscription
 
-
 To view budgets, you need at least read access for your Azure account.
 
 If you have a new subscription, you can't immediately create a budget or use other Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
 For Azure EA subscriptions, you must have read access to view budgets. To create and manage budgets, you must have contributor permission.
 
-The following Azure permissions, or scopes, are supported per subscription for budgets by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+The following Azure permissions, or scopes, are supported per subscription for budgets by user and group.
 
 - Owner – Can create, modify, or delete budgets for a subscription.
 - Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
 - Reader and Cost Management reader – Can view budgets that they have permission to.
 
-For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](./assign-access-acm-data.md).
+**For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md)**. For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](./assign-access-acm-data.md).
 
 ## Sign in to Azure
 
@@ -111,7 +110,7 @@ To toggle between configuring an Actual vs Forecasted cost alert, use the `Type`
 
 If you want to receive emails, add azure-noreply@microsoft.com to your approved senders list so that emails don't go to your junk email folder. For more information about notifications, see [Use cost alerts](./cost-mgt-alerts-monitor-usage-spending.md).
 
-In the following example, an email alert gets generated when 90% of the budget is reached. If you create a budget with the Budgets API, you can also assign roles to people to receive alerts. Assigning roles to people isn't supported in the Azure portal. For more about the Azure budgets API, see [Budgets API](/rest/api/consumption/budgets). If you want to have an email alert sent in a different language, see [Supported locales for budget alert emails](manage-automation.md#supported-locales-for-budget-alert-emails).
+In the following example, an email alert gets generated when 90% of the budget is reached. If you create a budget with the Budgets API, you can also assign roles to people to receive alerts. Assigning roles to people isn't supported in the Azure portal. For more about the Azure budgets API, see [Budgets API](/rest/api/consumption/budgets). If you want to have an email alert sent in a different language, see [Supported locales for budget alert emails](../automate/automate-budget-creation.md#supported-locales-for-budget-alert-emails).
 
 Alert limits support a range of 0.01% to 1000% of the budget threshold that you've provided.
 
@@ -157,11 +156,29 @@ To create or update action groups, select **Manage action group** while you're c
 
 Next, select **Add action group** and create the action group.
 
-Budget integration with action groups only works for action groups that have the common alert schema disabled. For more information about disabling the schema, see [How do I enable the common alert schema?](../../azure-monitor/alerts/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+Budget integration with action groups works for action groups that have enabled or disabled common alert schema. For more information on how to enable common alert schema, see [How do I enable the common alert schema?](../../azure-monitor/alerts/alerts-common-schema.md#enable-the-common-alert-schema)
+
+## View budgets in the Azure mobile app
+
+You can view budgets for your subscriptions and resource groups from the **Cost Management** card in the [Azure app](https://azure.microsoft.com/get-started/azure-portal/mobile-app/).
+
+1. Navigate to any subscription or resource group.
+1. Find the **Cost Management** card and tap **More**.
+1. Budgets load below the **Current cost** card. They're sorted by descending order of usage.
+
+> [!NOTE]
+> Currently, the Azure mobile app only supports the subscription and resource group scopes for budgets.
+
+:::image type="content" source="./media/tutorial-acm-create-budgets/azure-app-budgets.png" alt-text="Screenshot showing budgets in the Azure app." lightbox="./media/tutorial-acm-create-budgets/azure-app-budgets.png" :::
 
 ## Create and edit budgets with PowerShell
 
-If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. To download the latest version of Azure PowerShell, run the following command:
+If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. However, we recommend that you use REST APIs to create and edit budgets because CLI commands might not support the latest version of the APIs.
+
+> [!NOTE]
+> Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically.
+
+To download the latest version of Azure PowerShell, run the following command:
 
 ```azurepowershell-interactive
 install-module -name Az
@@ -170,7 +187,7 @@ install-module -name Az
 The following example commands create a budget.
 
 ```azurepowershell-interactive
-#Sign into Azure Powershell with your account
+#Sign into Azure PowerShell with your account
 
 Connect-AzAccount
 
@@ -185,6 +202,7 @@ $ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name T
 
 #Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
 
+Get-AzContext
 New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
 
@@ -194,7 +212,7 @@ You can create a budget using an Azure Resource Manager template. To use the tem
 
 ## Clean up resources
 
-If you created a budget and you no longer it, view its details and delete it.
+If you created a budget and you no longer need it, view its details and delete it.
 
 ## Next steps
 

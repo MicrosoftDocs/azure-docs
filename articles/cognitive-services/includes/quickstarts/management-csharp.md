@@ -6,16 +6,18 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
-[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/management) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
+[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/management/management-cognitiveservices) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/8.0.0-preview/) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
 ## C# prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* [!INCLUDE [contributor-requirement](./contributor-requirement.md)]
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
@@ -107,6 +109,8 @@ The following method deletes the specified resource from the given resource grou
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_delete)]
 
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](../../manage-resources.md).
+
 ## Run the application
 
 Run the application from your application directory with the `dotnet run` command.
@@ -122,4 +126,4 @@ dotnet run
 * See **[Natural language support](../../language-support.md)** to see the list of natural languages that Cognitive Services supports.
 * See **[Use Cognitive Services as containers](../../cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
 * See **[Plan and manage costs for Cognitive Services](../../plan-manage-costs.md)** to estimate cost of using Cognitive Services.
-* See **[Cognitive Services Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management)** for more details on the management SDK.
+* See **[Cognitive Services Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management/management-cognitiveservices)** for more details on the management SDK.

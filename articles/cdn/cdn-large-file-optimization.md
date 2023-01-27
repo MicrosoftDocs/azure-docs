@@ -3,7 +3,7 @@ title: Large file download optimization with Azure CDN
 description: Learn how large file downloads can be optimized in Azure Content Delivery Network. This article includes several scenarios.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
-ms.author: allensu
+ms.author: duau
 ---
 # Large file download optimization with Azure CDN
 
@@ -44,6 +43,8 @@ The CDN caches any chunks as they're received. The entire file doesn't need to b
 ### Conditions for large file optimization
 There are no limits on maximum file size.
 
+### Chunked Transfer Encoding Support
+Microsoft CDN supports transfer encoding response but only up to a maximum of 8MB content size. For chunked tranfer encoded response that greater then 8MB, Microsoft CDN will only cache and serve the first 8MB of content.
 
 ## Optimize for delivery of large files with Azure CDN from Verizon
 

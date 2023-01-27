@@ -1,9 +1,9 @@
 ---
-title: "Quickstart: Your first Python query"
+title: 'Quickstart: Your first Python query'
 description: In this quickstart, you follow the steps to enable the Resource Graph library for Python and run your first query.
-ms.date: 01/27/2021
+ms.date: 10/01/2021
 ms.topic: quickstart
-ms.custom: devx-track-python
+ms.custom: devx-track-python, mode-api
 ---
 # Quickstart: Run your first Resource Graph query using Python
 
@@ -36,7 +36,7 @@ installed.
    > [!NOTE]
    > Azure CLI is required to enable Python to use the **CLI-based authentication** in the following
    > examples. For information about other options, see
-   > [Authenticate using the Azure management libraries for Python](/azure/developer/python/azure-sdk-authenticate).
+   > [Authenticate using the Azure management libraries for Python](/azure/developer/python/sdk/authentication-overview).
 
 1. Authenticate through Azure CLI.
 
@@ -55,6 +55,9 @@ installed.
 
    # Add the CLI Core library for Python for authentication (development only!)
    pip install azure-cli-core
+
+   # Add the Azure identity library for Python
+   pip install azure.identity
    ```
 
    > [!NOTE]
@@ -66,14 +69,16 @@ installed.
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
+   pip show azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core azure.identity
    ```
 
 ## Run your first Resource Graph query
 
 With the Python libraries added to your environment of choice, it's time to try out a simple
-Resource Graph query. The query returns the first five Azure resources with the **Name** and
-**Resource Type** of each resource.
+subscription-based Resource Graph query. The query returns the first five Azure resources with the
+**Name** and **Resource Type** of each resource. To query by
+[management group](../management-groups/overview.md), use the `management_groups` parameter with
+`QueryRequest`.
 
 1. Run your first Azure Resource Graph query using the installed libraries and the `resources`
    method:
@@ -81,36 +86,36 @@ Resource Graph query. The query returns the first five Azure resources with the 
    ```python
    # Import Azure Resource Graph library
    import azure.mgmt.resourcegraph as arg
-   
+
    # Import specific methods and models from other libraries
-   from azure.common.credentials import get_azure_cli_credentials
-   from azure.common.client_factory import get_client_from_cli_profile
    from azure.mgmt.resource import SubscriptionClient
-   
+   from azure.identity import AzureCliCredential
+
    # Wrap all the work in a function
    def getresources( strQuery ):
        # Get your credentials from Azure CLI (development only!) and get your subscription list
-       subsClient = get_client_from_cli_profile(SubscriptionClient)
+       credential = AzureCliCredential()
+       subsClient = SubscriptionClient(credential)
        subsRaw = []
        for sub in subsClient.subscriptions.list():
            subsRaw.append(sub.as_dict())
        subsList = []
        for sub in subsRaw:
            subsList.append(sub.get('subscription_id'))
-       
+
        # Create Azure Resource Graph client and set options
-       argClient = get_client_from_cli_profile(arg.ResourceGraphClient)
+       argClient = arg.ResourceGraphClient(credential)
        argQueryOptions = arg.models.QueryRequestOptions(result_format="objectArray")
-       
+
        # Create query
        argQuery = arg.models.QueryRequest(subscriptions=subsList, query=strQuery, options=argQueryOptions)
-       
+
        # Run query
        argResults = argClient.resources(argQuery)
-   
+
        # Show Python object
        print(argResults)
-   
+
    getresources("Resources | project name, type | limit 5")
    ```
 
@@ -148,7 +153,7 @@ the following command:
 
 ```bash
 # Remove the installed libraries from the Python environment
-pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
+pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core azure.identity
 ```
 
 ## Next steps

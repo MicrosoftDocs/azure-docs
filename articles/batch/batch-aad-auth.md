@@ -2,8 +2,8 @@
 title: Authenticate Azure Batch services with Azure Active Directory
 description: Batch supports Azure AD for authentication from the Batch service. Learn how to authenticate in one of two ways.
 ms.topic: how-to
-ms.date: 10/20/2020
-ms.custom: has-adal-ref
+ms.date: 05/13/2021
+ms.custom: has-adal-ref, subject-rbac-steps
 ---
 
 # Authenticate Batch service solutions with Active Directory
@@ -46,7 +46,7 @@ Use the **Azure Batch resource endpoint** to acquire a token for authenticating 
 
 ## Register your application with a tenant
 
-The first step in using Azure AD to authenticate is registering your application in an Azure AD tenant. Registering your application enables you to call the Azure [Active Directory Authentication Library](../active-directory/azuread-dev/active-directory-authentication-libraries.md) (ADAL) from your code. The ADAL provides an API for authenticating with Azure AD from your application. Registering your application is required whether you plan to use integrated authentication or a service principal.
+The first step in using Azure AD to authenticate is registering your application in an Azure AD tenant. Registering your application enables you to call the Azure [Microsoft Authentication Library](../active-directory/develop/msal-overview.md) (MSAL) from your code. The ADAL provides an API for authenticating with Azure AD from your application. Registering your application is required whether you plan to use integrated authentication or a service principal.
 
 When you register your application, you supply information about your application to Azure AD. Azure AD then provides an application ID (also called a *client ID*) that you use to associate your application with Azure AD at runtime. To learn more about the application ID, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
@@ -76,10 +76,8 @@ Once you've registered your application, follow these steps in the Azure portal 
 1. Search for the name of your application in the list of app registrations.
 1. Select the application and select **API permissions**.
 1. In the **API permissions** section, select **Add a permission**.
-1. In **Select an API**, search for the Batch API. Search for each of these strings until you find the API:
-    1. **Microsoft Azure Batch**
-    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API.
-1. Once you find the Batch API, select it and then choose **Select**.
+1. In **Select an API**, search for "Microsoft Azure Batch" to find the Batch API. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the Application ID for the Batch API.
+1. Select the Batch API, then choose **Select**.
 1. In **Select permissions**, select the check box next to **Access Azure Batch Service** and then select **Add permissions**.
 
 The **API permissions** section now shows that your Azure AD application has access to both Microsoft Graph and the Batch service API. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.
@@ -109,14 +107,9 @@ To authenticate with a service principal, you need to assign Azure RBAC to your 
 
 1. In the Azure portal, navigate to the Batch account used by your application.
 1. In the **Settings** section of the Batch account, select **Access Control (IAM)**.
-1. Select the **Role assignments** tab.
-1. Select **Add role assignment**.
-1. From the **Role** drop-down, choose either the *Contributor* or *Reader* role for your application. For more information on these roles, see [Get started with Azure role-based access control in the Azure portal](../role-based-access-control/overview.md).
-1. In the **Select** field, enter the name of your application. Select your application from the list, and then select **Save**.
+1. Assign either the [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Reader](../role-based-access-control/built-in-roles.md#reader) role to the application. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 Your application should now appear in your access control settings with an Azure role assigned.
-
-![Assign an Azure role to your application](./media/batch-aad-auth/app-rbac-role.png)
 
 ### Assign a custom role
 
@@ -203,14 +196,14 @@ The code examples in this section show how to authenticate with Azure AD using i
 
 ### Code example: Using Azure AD integrated authentication with Batch .NET
 
-To authenticate with integrated authentication from Batch .NET, reference the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) package and the [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) package.
+To authenticate with integrated authentication from Batch .NET, reference the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) package and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) package.
 
 Include the following `using` statements in your code:
 
 ```csharp
 using Microsoft.Azure.Batch;
 using Microsoft.Azure.Batch.Auth;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Identity.Client;
 ```
 
 Reference the Azure AD endpoint in your code, including the tenant ID. To retrieve the tenant ID, follow the steps outlined in [Get the tenant ID for your Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
@@ -243,7 +236,7 @@ Also copy the redirect URI that you specified, if you registered your applicatio
 private const string RedirectUri = "http://mybatchdatasample";
 ```
 
-Write a callback method to acquire the authentication token from Azure AD. The **GetAuthenticationTokenAsync** callback method shown here calls ADAL to authenticate a user who is interacting with the application. The **AcquireTokenAsync** method provided by ADAL prompts the user for their credentials, and the application proceeds once the user provides them (unless it has already cached credentials):
+Write a callback method to acquire the authentication token from Azure AD. The **GetAuthenticationTokenAsync** callback method shown here calls MSAL to authenticate a user who is interacting with the application. The **AcquireTokenAsync** method provided by MSAL prompts the user for their credentials, and the application proceeds once the user provides them (unless it has already cached credentials):
 
 ```csharp
 public static async Task<string> GetAuthenticationTokenAsync()
@@ -276,14 +269,14 @@ public static void PerformBatchOperations()
 
 ### Code example: Using an Azure AD service principal with Batch .NET
 
-To authenticate with a service principal from Batch .NET, reference the [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) package and the [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) package.
+To authenticate with a service principal from Batch .NET, reference the [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) package and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) package.
 
 Include the following `using` statements in your code:
 
 ```csharp
 using Microsoft.Azure.Batch;
 using Microsoft.Azure.Batch.Auth;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Identity.Client;
 ```
 
 Reference the Azure AD endpoint in your code, including the tenant ID. When using a service principal, you must provide a tenant-specific endpoint. To retrieve the tenant ID, follow the steps outlined in [Get the tenant ID for your Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
@@ -316,7 +309,7 @@ Specify the secret key that you copied from the Azure portal:
 private const string ClientKey = "<secret-key>";
 ```
 
-Write a callback method to acquire the authentication token from Azure AD. The **GetAuthenticationTokenAsync** callback method shown here calls ADAL for unattended authentication:
+Write a callback method to acquire the authentication token from Azure AD. The **GetAuthenticationTokenAsync** callback method shown here calls MSAL for unattended authentication:
 
 ```csharp
 public static async Task<string> GetAuthenticationTokenAsync()
@@ -407,4 +400,3 @@ Use the service principal credentials to open a **BatchServiceClient** object. T
 - Learn about [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) and [how to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 - Learn about [authenticating Batch Management solutions with Active Directory](batch-aad-auth-management.md).
 - For a Python example of how to create a Batch client authenticated using an Azure AD token, see the [Deploying Azure Batch Custom Image with a Python Script](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) sample.
-

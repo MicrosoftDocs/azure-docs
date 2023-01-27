@@ -2,16 +2,15 @@
 title: Assign or remove licenses - Azure Active Directory | Microsoft Docs
 description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
 services: active-directory
-author: ajburnle
-manager: daveba
-
+author: barclayn
+manager: amycolannino
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
-ms.author: ajburnle
+ms.date: 01/23/2023
+ms.author: barclayn
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -19,11 +18,11 @@ ms.collection: M365-identity-device-management
 
 # Assign or remove licenses in the Azure Active Directory portal
 
-Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and do not transfer to other tenants. 
+Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and don't transfer to other tenants. 
 
 ## Available license plans
 
-There are several license plans available for the Azure AD service, including:
+There are several Azure AD license plans:
 
 - Azure AD Free
 
@@ -31,9 +30,9 @@ There are several license plans available for the Azure AD service, including:
 
 - Azure AD Premium P2
 
-For specific information about each license plan and the associated licensing details, see [What license do I need?](https://azure.microsoft.com/pricing/details/active-directory/). To sign up for Azure AD premium license plans see [here](./active-directory-get-started-premium.md).
+For specific information about each license plan and the associated licensing details, see [What license do I need?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). To sign up for Azure AD premium license plans see [here](./active-directory-get-started-premium.md).
 
-Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.
+Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt;** select a user **&gt; Properties &gt; Settings** area in Azure AD. When assigning licenses to a group or bulk updates such as disabling the synchronization status for the organization, any user whose usage location isn't specified inherits the location of the Azure AD organization.
 
 ## View license plans and plan details
 
@@ -44,8 +43,6 @@ You can view your available service plans, including the individual licenses, ch
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
 
 1. Select **Azure Active Directory**, and then select **Licenses**.
-
-    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="Licenses page, with number of purchased services and assigned licenses":::
 
 1. Select **All products** to view the All Products page and to see the **Total**, **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
 
@@ -62,17 +59,15 @@ You can view your available service plans, including the individual licenses, ch
 
 ## Assign licenses to users or groups
 
-Make sure that anyone needing to use a licensed Azure AD service has the appropriate license. You can add the licensing rights to users or to an entire group.
+Anyone who has a business need to use a licensed Azure AD service must have the required licenses. You can add licensing rights to users or to an entire group.
 
 ### To assign a license to a user
 
 1. On the **Products** page, select the name of the license plan you want to assign to the user.
 
-    ![services page, with highlighted service license plan](media/license-users-groups/license-products-blade-with-product-highlight.png)
+1. After you select the license plan, select **Assign**.
 
-1. On the license plan overview page, select **Assign**.
-
-    ![services page, with highlighted Assign option](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+    ![services page, with highlighted license plan selection and Assign options](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
 1. On the **Assign** page, select **Users and groups**, and then search for and select the user you're assigning the license.
 
@@ -85,7 +80,7 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
     The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
     > [!NOTE]
-    > Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.
+    > Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. When assigning licenses to a group or bulk updates such as disabling the synchronization status for the organization, any user whose usage location isn't specified inherits the location of the Azure AD organization.
 
 1. Select **Assign**.
 

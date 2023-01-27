@@ -1,5 +1,5 @@
 ---
-title: Best practices when using the Anomaly Detector API
+title: Best practices when using the Anomaly Detector univariate API
 titleSuffix: Azure Cognitive Services
 description: Learn about best practices when detecting anomalies with the Anomaly Detector API.
 services: cognitive-services
@@ -8,11 +8,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
+ms.custom: cogserv-non-critical-anomaly-detector
 ms.date: 01/22/2021
 ms.author: mbullwin
 ---
 
-# Best practices for using the Anomaly Detector API
+# Best practices for using the Anomaly Detector univariate API
 
 The Anomaly Detector API is a stateless anomaly detection service. The accuracy and performance of its results can be impacted by:
 

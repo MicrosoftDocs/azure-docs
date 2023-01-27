@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Connect Azure Data Explorer to an Azure Synapse Analytics workspace'
 description: Connect an Azure Data Explorer cluster to an Azure Synapse Analytics workspace by using Apache Spark for Azure Synapse Analytics.
-services: synapse-analytics 
-author: manojraheja
-ms.service: synapse-analytics 
+author: SnehaGunda
+ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
-ms.date: 10/07/2020
-ms.author: maraheja
-ms.reviewer: jrasnick
+ms.date: 02/15/2022
+ms.author: sngun
+ms.reviewer: sngun
+ms.custom: mode-other
 ---
 
 # Connect to Azure Data Explorer using Apache Spark for Azure Synapse Analytics
@@ -52,6 +52,8 @@ From the Data Object Explorer, follow these steps to directly connect an Azure D
 1. Azure Data Explorer clusters and databases appear on the **Linked** tab under the **Azure Data Explorer** section.
 
     ![Screenshot that shows browsing for clusters.](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
+
+1. Before you can interact with the linked service from a notebook, it must be published to the Workspace. Click **Publish** in the toolbar, review the pending changes and click **OK**.
 
     > [!NOTE]
     > In the current release, the database objects are populated based on your Azure AD account permissions on the Azure Data Explorer databases. When you run the Apache Spark notebooks or integration jobs, the credential in the link service will be used (for example, service principal).

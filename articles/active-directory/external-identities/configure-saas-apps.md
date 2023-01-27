@@ -8,10 +8,9 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 05/23/2017
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
-ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---

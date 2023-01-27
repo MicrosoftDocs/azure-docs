@@ -21,7 +21,7 @@ Use the Bing Custom Search client library for C# to:
 ## Prerequisites
 
 - A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](../../quick-start.md) for more information.
-- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
+- Microsoft [.NET Core](https://dotnet.microsoft.com/download)
 - Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
 - If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 - The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)  NuGet package. 

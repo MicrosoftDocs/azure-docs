@@ -1,12 +1,12 @@
 ---
 title: Support for using Azure Site Recovery with Azure Backup 
 description: Provides an overview of how Azure Site Recovery and Azure Backup can be used together.
-author: sideeksh
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: sideeksh
+ms.author: ankitadutta
 
 ---
 # Support for using Site Recovery with Azure Backup
@@ -20,4 +20,4 @@ This article summarizes support for using the [Site Recovery service](site-recov
 **Disk restore** | No current support | If you restore a backed up disk, you need to disable and re-enable replication for the VM again.
 **VM restore** | No current support | If you restore a VM or group of VMs, you need to disable and re-enable replication for the VM.  
 
-
+Please note that the above table is applicable across all supported Azure Site Recovery scenarios.

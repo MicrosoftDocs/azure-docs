@@ -2,11 +2,11 @@
 title: "include file"
 description: "include file"
 services: signalr
-author: wesmc7777
+author: kgremban
 ms.service: signalr
 ms.topic: "include"
 ms.date: 04/17/2018
-ms.author: wesmc
+ms.author: kgremban
 ms.custom: "include file"
 ---
 

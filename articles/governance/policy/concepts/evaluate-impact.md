@@ -1,19 +1,18 @@
 ---
 title: Evaluate the impact of a new Azure Policy definition
 description: Understand the process to follow when introducing a new policy definition into your Azure environment.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Evaluate the impact of a new Azure Policy definition
 
-Azure Policy is a powerful tool for managing your Azure resources to business standards and to meet
+Azure Policy is a powerful tool for managing your Azure resources to meet business standards
 compliance needs. When people, processes, or pipelines create or update resources, Azure Policy
 reviews the request. When the policy definition effect is [Modify](./effects.md#modify),
 [Append](./effects.md#deny), or [DeployIfNotExists](./effects.md#deployifnotexists), Policy alters
 the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit) or
 [AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be created
-for new and updated resources. And when the policy definition effect is [Deny](./effects.md#deny),
-Policy stops the creation or alteration of the request.
+for new and updated resources. And when the policy definition effect is [Deny](./effects.md#deny) or [DenyAction](./effects.md#denyaction-preview), Policy stops the creation or alteration of the request.
 
 These outcomes are exactly as desired when you know the policy is defined correctly. However, it's
 important to validate a new policy works as intended before allowing it to change or block work. The
@@ -67,14 +66,14 @@ _DeployIfNotExists_.
 Once you've validated your new policy definition is reporting correctly on existing resources, it's
 time to look at the impact of the policy when resources get created or updated. If the policy
 definition supports effect parameterization, use [Audit](./effects.md#audit). This configuration
-allows you to monitor the creation and updating of resources to see if the new policy definition
-triggers an entry in Azure Activity log for a resource that is non-compliant without impacting
-existing work or requests.
+allows you to monitor the creation and updating of resources to see whether the new policy
+definition triggers an entry in Azure Activity log for a resource that is non-compliant without
+impacting existing work or requests.
 
 It's recommended to both update and create new resources that match your policy definition to see
 that the _Audit_ effect is correctly being triggered when expected. Be on the lookout for resource
-requests that shouldn't be impacted by the new policy definition that trigger the _Audit_ effect.
-These impacted resources are another example of _false positives_ and must be fixed in the policy
+requests that shouldn't be affected by the new policy definition that trigger the _Audit_ effect.
+These affected resources are another example of _false positives_ and must be fixed in the policy
 definition before full implementation.
 
 In the event the policy definition is changed at this stage of testing, it's recommended to begin
@@ -110,8 +109,7 @@ setup appropriate
 [Azure Monitor alerts and notifications](../../../azure-monitor/alerts/alerts-overview.md) for
 when non-compliant devices are identified. It's also recommended to evaluate the policy definition
 and related assignments on a scheduled basis to validate the policy definition is meeting business
-policy and compliance needs. Policies should be removed if no longer needed. Policies also need
-updating from time to time as the underlying Azure resources evolve and add new properties and
+policy and compliance needs. Policies should be removed if no longer needed. Policies also need to update from time to time as the underlying Azure resources evolve and add new properties and
 capabilities.
 
 ## Next steps

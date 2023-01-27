@@ -2,10 +2,10 @@
 title: Tutorial - Develop C modules for Windows by using Azure IoT Edge 
 description: This tutorial shows you how to create IoT Edge modules with C code and deploy them to Windows devices that are running IoT Edge.
 services: iot-edge
-author: kgremban
-manager: philmea
+author: PatAltimore
 
-ms.author: kgremban
+
+ms.author: patricka
 ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
@@ -15,7 +15,7 @@ monikerRange: "=iotedge-2018-06"
 
 # Tutorial: Develop C IoT Edge modules using Windows containers
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 This article shows you how to use Visual Studio to develop C code and deploy it to a Windows device that's running Azure IoT Edge.
 
@@ -50,7 +50,7 @@ To understand your options for developing and deploying C modules using Windows 
 Before you begin this tutorial, set up your development environment by following the instructions in the [Develop IoT Edge modules using Windows containers](tutorial-develop-for-windows.md) tutorial. After you complete it, your environment will contain the following prerequisites:
 
 * A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* A [Windows device that's running Azure IoT Edge](how-to-install-iot-edge-windows-on-windows.md).
+* A [Windows device that's running Azure IoT Edge](how-to-provision-single-device-windows-symmetric.md).
 * A container registry, such as [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio 2019](/visualstudio/install/install-visual-studio), configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension.
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/), configured to run Windows containers.
@@ -407,7 +407,7 @@ If you plan to continue to the next recommended article, you can keep and reuse 
 
 Otherwise, to avoid incurring charges, you can delete the local configurations and the Azure resources that you used here.
 
-[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
+[!INCLUDE [iot-edge-clean-up-cloud-resources](includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## Next steps
 

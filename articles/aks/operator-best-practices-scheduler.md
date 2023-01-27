@@ -16,7 +16,6 @@ This best practices article focuses on basic Kubernetes scheduling features for 
 > [!div class="checklist"]
 > * Use resource quotas to provide a fixed amount of resources to teams or workloads
 > * Limit the impact of scheduled maintenance using pod disruption budgets
-> * Check for missing pod resource requests and limits using the `kube-advisor` tool
 
 ## Enforce resource quotas
 
@@ -24,7 +23,7 @@ This best practices article focuses on basic Kubernetes scheduling features for 
 > 
 > Plan and apply resource quotas at the namespace level. If pods don't define resource requests and limits, reject the deployment. Monitor resource usage and adjust quotas as needed.
 
-Resource requests and limits are placed in the pod specification. Limits are used by the Kubernetes scheduler at deployment time to find an available node in the cluster. Limits and requests work at the individual pod level. For more information about how to define these values, see [Define pod resource requests and limits][resource-limits]
+Resource requests and limits are placed in the pod specification. Limits are used by the Kubernetes scheduler at deployment time to find an available node in the cluster. Limits and requests work at the individual pod level. For more information about how to define these values, see [Define pod resource requests and limits][resource-limits].
 
 To provide a way to reserve and limit resources across a development team or project, you should use *resource quotas*. These quotas are defined on a namespace, and can be used to set quotas on the following basis:
 
@@ -86,14 +85,14 @@ Involuntary disruptions can be mitigated by:
 * Updated deployment template
 * Accidentally deleting a pod
 
-Kubernetes provides *pod disruption budgets* for voluntary disruptions,letting you plan for how deployments or replica sets respond when a voluntary disruption event occurs. Using pod disruption budgets, cluster operators can define a minimum available or maximum unavailable resource count. 
+Kubernetes provides *pod disruption budgets* for voluntary disruptions, letting you plan for how deployments or replica sets respond when a voluntary disruption event occurs. Using pod disruption budgets, cluster operators can define a minimum available or maximum unavailable resource count. 
 
 If you upgrade a cluster or update a deployment template, the Kubernetes scheduler will schedule extra pods on other nodes before allowing voluntary disruption events to continue. The scheduler waits to reboot a node until the defined number of pods are successfully scheduled on other nodes in the cluster.
 
 Let's look at an example of a replica set with five pods that run NGINX. The pods in the replica set are assigned the label `app: nginx-frontend`. During a voluntary disruption event, such as a cluster upgrade, you want to make sure at least three pods continue to run. The following YAML manifest for a *PodDisruptionBudget* object defines these requirements:
 
 ```yaml
-apiVersion: policy/v1beta1
+apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
    name: nginx-pdb
@@ -109,7 +108,7 @@ You can also define a percentage, such as *60%*, which allows you to automatical
 You can define a maximum number of unavailable instances in a replica set. Again, a percentage for the maximum unavailable pods can also be defined. The following pod disruption budget YAML manifest defines that no more than two pods in the replica set be unavailable:
 
 ```yaml
-apiVersion: policy/v1beta1
+apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
    name: nginx-pdb
@@ -130,18 +129,6 @@ Work with your application developers and owners to understand their needs and a
 
 For more information about using pod disruption budgets, see [Specify a disruption budget for your application][k8s-pdbs].
 
-## Regularly check for cluster issues with kube-advisor
-
-> **Best practice guidance** 
->
-> Regularly run the latest version of `kube-advisor` open source tool to detect issues in your cluster. If you apply resource quotas on an existing AKS cluster, run `kube-advisor` first to find pods that don't have resource requests and limits defined.
-
-The [kube-advisor][kube-advisor] tool is an associated AKS open source project that scans a Kubernetes cluster and reports identified issues. `kube-advisor` proves useful in identifying pods without resource requests and limits in place.
-
-While the `kube-advisor` tool can report on resource request and limits missing in PodSpecs for Windows and Linux applications, the tool itself must be scheduled on a Linux pod. Schedule a pod to run on a node pool with a specific OS using a [node selector][k8s-node-selector] in the pod's configuration.
-
-Tracking pods without set resource requests and limits in an AKS cluster hosting multiple development teams and applications can be difficult. As a best practice, regularly run `kube-advisor` on your AKS clusters, especially if you don't assign resource quotas to namespaces.
-
 ## Next steps
 
 This article focused on basic Kubernetes scheduler features. For more information about cluster operations in AKS, see the following best practices:
@@ -153,7 +140,6 @@ This article focused on basic Kubernetes scheduler features. For more informatio
 <!-- EXTERNAL LINKS -->
 [k8s-resource-quotas]: https://kubernetes.io/docs/concepts/policy/resource-quotas/
 [configure-default-quotas]: https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
-[kube-advisor]: https://github.com/Azure/kube-advisor
 [k8s-pdbs]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 
 <!-- INTERNAL LINKS -->

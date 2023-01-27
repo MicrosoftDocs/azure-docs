@@ -4,7 +4,8 @@ description: This article tells how to configure machines to a desired state usi
 services: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 04/15/2021
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure machines to a desired state
@@ -18,7 +19,7 @@ Azure Automation State Configuration allows you to specify configurations for yo
 > - Assign a node configuration to a managed node
 > - Check the compliance status of a managed node
 
-For this tutorial, we use a simple [DSC configuration](/powershell/scripting/dsc/configurations/configurations) that ensures that IIS is installed on the VM.
+For this tutorial, we use a simple [DSC configuration](/powershell/dsc/configurations/configurations) that ensures that IIS is installed on the VM.
 
 ## Prerequisites
 
@@ -26,17 +27,17 @@ For this tutorial, we use a simple [DSC configuration](/powershell/scripting/dsc
 - An Azure Resource Manager VM (not classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see
   [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 - Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
-- Familiarity with Desired State Configuration (DSC). For information about DSC, see [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview).
+- Familiarity with Desired State Configuration (DSC). For information about DSC, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview).
 
 ## Support for partial configurations
 
 Azure Automation State Configuration supports the use of
-[partial configurations](/powershell/scripting/dsc/pull-server/partialconfigs). In this scenario, DSC is configured to manage multiple configurations independently, and each configuration is retrieved from Azure Automation. However, only one configuration can be assigned to a node per automation account. This means if you are using two configurations for a node you will require two Automation accounts.
+[partial configurations](/powershell/dsc/pull-server/partialconfigs). In this scenario, DSC is configured to manage multiple configurations independently, and each configuration is retrieved from Azure Automation. However, only one configuration can be assigned to a node per automation account. This means if you are using two configurations for a node you will require two Automation accounts.
 
-For details about how to register a partial configuration from a pull service, see the documentation for [partial configurations](/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+For details about how to register a partial configuration from a pull service, see the documentation for [partial configurations](/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
 
 For more information about how teams can work together to collaboratively manage servers using configuration as code, see
-[Understanding DSC's role in a CI/CD Pipeline](/powershell/scripting/dsc/overview/authoringadvanced).
+[Understanding DSC's role in a CI/CD Pipeline](/powershell/dsc/overview/authoringadvanced).
 
 ## Log in to Azure
 
@@ -63,6 +64,8 @@ configuration TestConfig {
 ```
 
 > [!NOTE]
+> Configuration names in Azure Automation must be limited to no more than 100 characters.
+> 
 > In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources,
 > make sure each module has a unique `Import-DscResource` line in your configuration.
 
@@ -74,7 +77,7 @@ Call the [Import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/
 
 ## Compile a configuration into a node configuration
 
-A DSC configuration must be compiled into a node configuration before it can be assigned to a node. See [DSC configurations](/powershell/scripting/dsc/configurations/configurations).
+A DSC configuration must be compiled into a node configuration before it can be assigned to a node. See [DSC configurations](/powershell/dsc/configurations/configurations).
 
 Call the [Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob) cmdlet to compile the `TestConfig` configuration into a node configuration named `TestConfig.WebServer` in your Automation account.
 
@@ -90,7 +93,7 @@ topic, we cover how to register only Azure Resource Manager VMs. For information
 other types of machines, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 
 Call the [Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode) cmdlet to register your VM with Azure Automation State
-Configuration as a managed node. 
+Configuration as a managed node.
 
 ```powershell
 Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
@@ -105,7 +108,7 @@ example, you can specify that the state of the machine is to be applied only onc
 Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationMode 'ApplyOnly'
 ```
 
-You can also specify how often DSC checks the configuration state by using the `ConfigurationModeFrequencyMins` property. For more information about DSC configuration settings, see [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
+You can also specify how often DSC checks the configuration state by using the `ConfigurationModeFrequencyMins` property. For more information about DSC configuration settings, see [Configuring the Local Configuration Manager](/powershell/dsc/managing-nodes/metaConfig).
 
 ```powershell
 # Run a DSC check every 60 minutes
@@ -125,7 +128,7 @@ Set-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountN
 ```
 
 This assigns the node configuration named `TestConfig.WebServer` to the registered DSC node `DscVm`. By default, the DSC node is checked for compliance with the node configuration every 30 minutes. For information about how to change the compliance check interval, see
-[Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
+[Configuring the Local Configuration Manager](/powershell/dsc/managing-nodes/metaConfig).
 
 ## Check the compliance status of a managed node
 
@@ -141,37 +144,6 @@ $reports = Get-AzAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -A
 # Display the most recent report
 $reports[0]
 ```
-
-## Remove nodes from service
-
-When you add a node to Azure Automation State Configuration,
-the settings in Local Configuration Manager are set to register with the service
-and pull configurations and required modules to configure the machine.
-If you choose to remove the node from the service,
-you can do so using either the Azure portal
-or the Az cmdlets.
-
-> [!NOTE]
-> Unregistering a node from the service only sets the Local Configuration Manager settings
-> so the node is no longer connecting to the service.
-> This does not effect the configuration that is currently applied to the node.
-> To remove the current configuration, use the
-> [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument)
-> or delete the local configuration file
-> (this is the only option for Linux nodes).
-
-### Azure portal
-
-From Azure Automation, click on **State configuration (DSC)** in the table of contents.
-Next click **Nodes** to view the list of nodes that are registered with the service.
-Click on the name of the node you wish to remove.
-In the Node view that opens, click **Unregister**.
-
-### PowerShell
-
-To unregister a node from Azure Automation State Configuration service using PowerShell,
-follow the documentation for the cmdlet
-[Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode).
 
 ## Next steps
 

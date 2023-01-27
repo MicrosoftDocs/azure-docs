@@ -4,16 +4,14 @@ description: Azure AD Connect user sign-in for custom settings.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
-editor: curtand
+manager: amycolannino
 
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/31/2018
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

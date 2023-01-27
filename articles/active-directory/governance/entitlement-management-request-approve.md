@@ -1,19 +1,18 @@
 ---
-title: Approve or deny access requests - Azure AD entitlement management
+title: Approve or deny access requests - entitlement management
 description: Learn how to use the My Access portal to approve or deny requests to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: daveba
+author: owinfreyatl
+manager: amycolannino
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
-ms.author: ajburnle
+ms.date: 01/26/2023
+ms.author: owinfrey
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 
@@ -21,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a approver, I want steps for how to approve requests for access packages so that I can unlock requestors who need to use the resources.
 
 ---
-# Approve or deny access requests in Azure AD entitlement management
+# Approve or deny access requests in entitlement management
 
-With Azure AD entitlement management, you can configure policies to require approval for access packages, and choose one or more approvers. This article describes how designated approvers can approve or deny requests for access packages.
+With  entitlement management, you can configure policies to require approval for access packages, and choose one or more approvers. This article describes how designated approvers can approve or deny requests for access packages.
 
 ## Open request
 
@@ -47,7 +46,7 @@ If you don't have the email, you can find the access requests pending your appro
 
 1. On the **Pending** tab, find the request.
 
-## View requestor's answers to questions (Preview)
+## View requestor's answers to questions
 
 1. Navigate to the **Approvals** tab in My Access.
 
@@ -83,9 +82,9 @@ After you open an access request pending approval, you can see details that will
 
 1. Click **Submit** to submit your decision.
 
-    If a policy is configured with multiple approvers, only one approver needs to make a decision about the pending approval. After an approver has submitted their decision to the access request, the request is completed and is no longer available for the other approvers to approve or deny the request. The other approvers can see the request decision and the decision maker in their My Access portal. At this time, only single-stage approval is supported.
+    If a policy is configured with multiple approvers in a stage, only one approver needs to make a decision about the pending approval. After an approver has submitted their decision to the access request, the request is completed and is no longer available for the other approvers to approve or deny the request. The other approvers can see the request decision and the decision maker in their My Access portal.
 
-    If none of the configured approvers are able to approve or deny the access request, the request expires after the configured request duration. The user gets notified that their access request has expired and that they need to resubmit the access request.
+    If none of the configured approvers in a stage are able to approve or deny the access request, the request expires after the configured request duration. The user gets notified that their access request has expired and that they need to resubmit the access request.
 
 ## Next steps
 

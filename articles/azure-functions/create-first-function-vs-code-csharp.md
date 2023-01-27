@@ -1,71 +1,64 @@
 ---
-title: Create a C# function using Visual Studio Code - Azure Functions
-description: Learn how to create a C# function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code. 
+title: "Create a C# function using Visual Studio Code - Azure Functions"
+description: "Learn how to create a C# function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code. "
 ms.topic: quickstart
-ms.date: 11/03/2020
-ms.custom: devx-track-csharp
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./create-first-function-vs-code-csharp-ieux
+ms.date: 01/05/2023
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-ui, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a C# function in Azure using Visual Studio Code
 
-[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
-
-In this article, you use Visual Studio Code to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
-
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+This article creates an HTTP triggered function that runs on .NET. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
 
 There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
+
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Configure your environment
 
 Before you get started, make sure you have the following requirements in place:
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.x.
-
-+ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-
-+ The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
-
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
+[!INCLUDE [functions-requirements-visual-studio-code-csharp](../../includes/functions-requirements-visual-studio-code-csharp.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
 In this section, you use Visual Studio Code to create a local Azure Functions project in C#. Later in this article, you'll publish your function code to Azure.
 
-1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
+1. Choose the Azure icon in the Activity bar, then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
-    ![Choose Create a new project](./media/functions-create-first-function-vs-code/create-new-project.png)
+    :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
-1. Choose a directory location for your project workspace and choose **Select**.
+1. Select the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
+ 
+1. For **Select a language**, choose `C#`.
+ 
+1. For **Select a .NET runtime**, choose from one of the following options: 
 
-    > [!NOTE]
-    > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
+    | .NET runtime | Process model | Description |
+    | --- | --- |  --- |
+    | **.NET 6.0 (LTS)** | [In-process](functions-dotnet-class-library.md) | _In-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions. Function code runs in the same process as the Functions host.  |
+    | **.NET 6.0 Isolated (LTS)** |  [Isolated worker process](dotnet-isolated-process-guide.md) | Functions run on .NET 6, but in a separate process from the Functions host. |
+    | **.NET 7.0 Isolated** | [Isolated worker process](dotnet-isolated-process-guide.md) | Because .NET 7 isn't an LTS version of .NET, your functions must run in an isolated process on .NET 7. |
+    | **.NET Framework Isolated** | [Isolated worker process](dotnet-isolated-process-guide.md) | Choose this option when your functions need to use libraries only supported on the .NET Framework. |
 
-1. Provide the following information at the prompts:
+    The two process models use different APIs, and each process model uses a different template when generating the function project code. If you don't see these options, press F1 and type `Preferences: Open user settings`, then search for `Azure Functions: Project Runtime` and make sure that the default runtime version is set to `~4`.
 
-    + **Select a language for your function project**: Choose `C#`.
+1. Provide the remaining information at the prompts:
 
-    + **Select a template for your project's first function**: Choose `HTTP trigger`.
+    |Prompt|Selection|
+    |--|--|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
+    |**Provide a function name**|Type `HttpExample`.|
+    |**Provide a namespace** | Type `My.Functions`. |
+    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+    |**Select how you would like to open your project**|Select `Add to workspace`.|
 
-    + **Provide a function name**: Type `HttpExample`.
+1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=csharp#generated-project-files).
 
-    + **Provide a namespace**: Type `My.Functions`.
+[!INCLUDE [functions-run-function-test-local-vs-code-csharp](../../includes/functions-run-function-test-local-vs-code-csharp.md)]
 
-    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
-
-    + **Select how you would like to open your project**: Choose `Add to workspace`.
-
-1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files).
-
-[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
-
-After you've verified that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
+After checking that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -77,12 +70,23 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Next steps
 
-You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to either Azure Cosmos DB or Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=csharp). 
+You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to either Azure Cosmos DB or Azure Queue Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=csharp). 
+
+The next article depends on your chosen process model.
+
+# [In-process](#tab/in-process) 
 
 > [!div class="nextstepaction"]
-> [Connect to a database](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp)
+> [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=in-process)
+> [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=in-process)
+
+# [Isolated process](#tab/isolated-process)
+
 > [!div class="nextstepaction"]
-> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp)
+> [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
+> [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
+
+---
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

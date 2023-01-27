@@ -7,8 +7,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 06/25/2021
 ms.author: pafarley
+ms.custom: cogserv-non-critical-vision
 ---
 
 # Integrate Azure storage for notifications and backup
@@ -23,19 +24,18 @@ This guide shows you how to use these REST APIs with cURL. You can also use an H
 ## Prerequisites
 
 - A Custom Vision resource in Azure. If you don't have one, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). This feature doesn't currently support the Cognitive Service resource (all in one key).
-- An Azure Storage account with a blob container. Follow [Exercises 1 of the Azure Storage Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) if you need help with this step.
-* [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
+- An Azure Storage account with a blob container. Follow the [Storage quickstart](../../storage/blobs/storage-quickstart-blobs-portal.md) if you need help with this step.
+- [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
 ## Set up Azure storage integration
 
 Go to your Custom Vision training resource on the Azure portal, select the **Identity** page, and enable system assigned managed identity.
 
-Next, go to your storage resource in the Azure portal. Go to the **Access control (IAM)** page and add a role assignment for each integration feature:
-* Select your Custom Vision training resource and assign the **Storage Blob Data Contributor** role if you plan to use the model backup feature. 
-* Then select your Custom Vision training resource and assign the **Storage Queue Data Contributor** if you plan to use the notification queue feature.
+Next, go to your storage resource in the Azure portal. Go to the **Access control (IAM)** page and select **Add role assignment (Preview)**. Then add a role assignment for either integration feature, or both:
+* If you plan to use the model backup feature, select the **Storage Blob Data Contributor** role, and add your Custom Vision training resource as a member. Select **Review + assign** to complete.
+* If you plan to use the notification queue feature, then select the **Storage Queue Data Contributor** role, and add your Custom Vision training resource as a member. Select **Review + assign** to complete.
 
-> [!div class="mx-imgBorder"]
-> ![Storage account add role assignment page](./media/storage-integration/storage-access.png)
+For help with role assignments, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### Get integration URLs
 
@@ -58,7 +58,7 @@ Now that you have the integration URLs, you can create a new Custom Vision proje
 
 ### Create new project
 
-When you call the [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) API, add the optional parameters _exportModelContainerUri_ and _notificationQueueUri_. Assign the URL values you got in the previous section. 
+When you call the [CreateProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) API, add the optional parameters _exportModelContainerUri_ and _notificationQueueUri_. Assign the URL values you got in the previous section. 
 
 ```curl
 curl -v -X POST "{endpoint}/customvision/v3.3/Training/projects?exportModelContainerUri={inputUri}&notificationQueueUri={inputUri}&name={inputName}"
@@ -96,7 +96,7 @@ If you receive a `200/OK` response, that means the URLs have been set up success
 
 ### Update existing project
 
-To update an existing project with Azure storage feature integration, call the [UpdateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb1) API, using the ID of the project you want to update. 
+To update an existing project with Azure storage feature integration, call the [UpdateProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb1) API, using the ID of the project you want to update. 
 
 ```curl
 curl -v -X PATCH "{endpoint}/customvision/v3.3/Training/projects/{projectId}"
@@ -152,7 +152,7 @@ In your notification queue, you should see a test notification in the following 
 
 ## Get event notifications
 
-When you're ready, call the [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee1) API on your project to do an ordinary training operation.
+When you're ready, call the [TrainProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee1) API on your project to do an ordinary training operation.
 
 In your Storage notification queue, you'll receive a notification once training finishes:
 
@@ -173,7 +173,7 @@ The `"trainingStatus"` field may be either `"TrainingCompleted"` or `"TrainingFa
 
 ## Get model export backups
 
-When you're ready, call the [ExportIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddece) API to export a trained model into a specified platform.
+When you're ready, call the [ExportIteration](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddece) API to export a trained model into a specified platform.
 
 In your designated storage container, a backup copy of the exported model will appear. The blob name will have the format:
 
@@ -201,6 +201,6 @@ The `"exportStatus"` field may be either `"ExportCompleted"` or `"ExportFailed"`
 
 ## Next steps
 
-In this guide, you learned how to copy and move a project between Custom Vision resources. Next, explore the API reference docs to see what else you can do with Custom Vision.
-* [REST API reference documentation (training)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
-* [REST API reference documentation (prediction)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3)
+In this guide, you learned how to copy and back up a project between Custom Vision resources. Next, explore the API reference docs to see what else you can do with Custom Vision.
+* [REST API reference documentation (training)](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
+* [REST API reference documentation (prediction)](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3)

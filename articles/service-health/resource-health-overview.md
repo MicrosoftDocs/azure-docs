@@ -2,14 +2,14 @@
 title: Azure Resource Health overview
 description: Learn how Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources.
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 05/10/2022
 
 ---
 # Resource Health overview
  
 Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources. It reports on the current and past health of your resources.
 
-[Azure status](https://status.azure.com) reports on service problems that affect a broad set of Azure customers. Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows all the times that your resources have been unavailable because of Azure service problems. This data makes it easy for you to see if an SLA was violated.
+[Azure status](https://azure.status.microsoft) reports on service problems that affect a broad set of Azure customers. Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows all the times that your resources have been unavailable because of Azure service problems. This data makes it easy for you to see if an SLA was violated.
 
 ## Resource definition and health assessment
 
@@ -47,7 +47,7 @@ Non-platform events are triggered by user actions. Examples include stopping a v
 
 ### Unknown
 
-*Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it's an important data point for troubleshooting.
+*Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. This commonly occurs when virtual machines have been deallocated. Although this status isn't a definitive indication of the state of the resource, it can be an important data point for troubleshooting.
 
 If the resource is running as expected, the status of the resource will change to *Available* after a few minutes.
 
@@ -63,17 +63,20 @@ Different resources have their own criteria for when they report that they are d
 
 ![Status of *Degraded* for a virtual machine](./media/resource-health-overview/degraded.png)
 
-## Reporting an incorrect status
-
-If you think that the current health status is incorrect, you can tell us by selecting **Report incorrect health status**. In cases where an Azure problem is affecting you, we encourage you to contact Support from Resource Health.
-
-![Form to submit information about an incorrect status](./media/resource-health-overview/incorrect-status.png)
+For Virtual Machine Scale Sets, visit [Resource health state is "Degraded" in Azure Virtual Machine Scale Set](/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state) page for more information.
 
 ## History information
 
-You can access up to 30 days of history in the **Health history** section of Resource Health.
+> [!NOTE]
+> You can list current service health events in subscription and query data up to 1 year using the QueryStartTime parameter of [Events - List By Subscription Id](/rest/api/resourcehealth/events/list-by-subscription-id) REST API but currently there is no QueryStartTime parameter under [Events - List By Single Resource](/rest/api/resourcehealth/events/list-by-single-resource) REST API so you cannot query data up to 1 year while listing current service health events for given resource.
+ 
+You can access up to 30 days of history in the **Health history** section of Resource Health from Azure portal.
 
 ![List of Resource Health events over the last two weeks](./media/resource-health-overview/history-blade.png)
+
+## Root cause information
+
+If Azure has further information about the root cause of a platform-initiated unavailability, that information may be posted in resource health up to 72 hours after the initial unavailability. This information is only available for virtual machines at this time. 
 
 ## Get started
 
@@ -82,10 +85,13 @@ To open Resource Health for one resource:
 1. Sign in to the Azure portal.
 2. Browse to your resource.
 3. On the resource menu in the left pane, select **Resource health**.
+4. From the health history grid, you can either download a PDF or click the "Share/Manage" RCA button.
 
 ![Opening Resource Health from the resource view](./media/resource-health-overview/from-resource-blade.png)
 
-You can also access Resource Health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+:::image type="content" source="./media/resource-health-overview/resource-health-history-grid.png" lightbox="./media/resource-health-overview/resource-health-history-grid.png" alt-text="Screenshot of the Resource Health pane in the Azure portal. The Unavailable message and Download as PDF and Share/Manage RCA buttons are highlighted.":::
+
+You can also access Resource Health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
 ![Opening Resource Health from "All services"](./media/resource-health-overview/FromOtherServices.png)
 
@@ -93,4 +99,5 @@ You can also access Resource Health by selecting **All services** and typing **r
 
 Check out these references to learn more about Resource Health:
 -  [Resource types and health checks in Azure Resource Health](resource-health-checks-resource-types.md)
--  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
+-  [Resource Health virtual machine Health Annotations](resource-health-vm-annotation.md)
+-  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)

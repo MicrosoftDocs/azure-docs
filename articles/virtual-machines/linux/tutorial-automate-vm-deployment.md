@@ -1,14 +1,11 @@
 ---
 title: Tutorial - Customize a Linux VM with cloud-init in Azure 
 description: In this tutorial, you learn how to use cloud-init and Key Vault to customize Linux VMs the first time they boot in Azure 
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.workload: infrastructure
-ms.date: 09/12/2019
+ms.date: 05/13/2022
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 
@@ -16,6 +13,8 @@ ms.custom: mvc, devx-track-js, devx-track-azurecli
 ---
 
 # Tutorial - How to use cloud-init to customize a Linux virtual machine in Azure on first boot
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 In a previous tutorial, you learned how to SSH to a virtual machine (VM) and manually install NGINX. To create VMs in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). In this tutorial you learn how to:
 
@@ -153,7 +152,7 @@ az keyvault certificate create \
 
 
 ### Prepare certificate for use with VM
-To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm secret format](/cli/azure/vm). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \

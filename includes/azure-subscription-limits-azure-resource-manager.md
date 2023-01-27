@@ -5,7 +5,7 @@
  author: tfitzmac
  ms.service: cost-management-billing
  ms.topic: include
- ms.date: 03/15/2021
+ ms.date: 03/17/2022
  ms.author: tomfitz
  ms.custom: include file
 ---
@@ -17,9 +17,12 @@
 | [Resource groups](../articles/azure-resource-manager/management/overview.md) per subscription |980 |
 | Azure Resource Manager API request size |4,194,304 bytes |
 | Tags per subscription<sup>1</sup> |50 |
-| Unique tag calculations per subscription<sup>1</sup> | 80,000 |
-| [Subscription-level deployments](../articles/azure-resource-manager/templates/deploy-to-subscription.md) per location | 800<sup>2</sup> |
+| Unique tag calculations per subscription<sup>2</sup> | 80,000 |
+| [Subscription-level deployments](../articles/azure-resource-manager/templates/deploy-to-subscription.md) per location | 800<sup>3</sup> |
+| Locations of [Subscription-level deployments](../articles/azure-resource-manager/templates/deploy-to-subscription.md) | 10 |
 
-<sup>1</sup>You can apply up to 50 tags directly to a subscription. However, the subscription can contain an unlimited number of tags that are applied to resource groups and resources within the subscription. The number of tags per resource or resource group is limited to 50. Resource Manager returns a [list of unique tag name and values](/rest/api/resources/tags) in the subscription only when the number of tags is 80,000 or less. You still can find a resource by tag when the number exceeds 80,000.
+<sup>1</sup>You can apply up to 50 tags directly to a subscription. However, the subscription can contain an unlimited number of tags that are applied to resource groups and resources within the subscription. The number of tags per resource or resource group is limited to 50. 
 
-<sup>2</sup>If you reach the limit of 800 deployments, delete deployments that are no longer needed from the history. To delete subscription-level deployments, use [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) or [az deployment sub delete](/cli/azure/deployment/sub#az-deployment-sub-delete).
+<sup>2</sup>Resource Manager returns a [list of tag name and values](/rest/api/resources/tags) in the subscription only when the number of unique tags is 80,000 or less. A unique tag is defined by the combination of resource ID, tag name, and tag value. For example, two resources with the same tag name and value would be calculated as two unique tags. You still can find a resource by tag when the number exceeds 80,000.
+
+<sup>3</sup>Deployments are automatically deleted from the history as you near the limit. For more information, see [Automatic deletions from deployment history](../articles/azure-resource-manager/templates/deployment-history-deletions.md).

@@ -3,7 +3,7 @@ title: Performance considerations for Azure NetApp Files | Microsoft Docs
 description: Learn about performance for Azure NetApp Files, including the relationship of quota and throughput limit and how to dynamically increase/decrease volume quota.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.author: b-juche
+ms.date: 08/02/2022
+ms.author: anfdocs
 ---
 # Performance considerations for Azure NetApp Files
 
@@ -22,11 +21,13 @@ The [throughput limit](azure-netapp-files-service-levels.md) for a volume with a
 
 ## Quota and throughput  
 
-The throughput limit is only one determinant of the actual performance that will be realized.  
+Throughput limits are a combination of read and write speed. The throughput limit is only one determinant of the actual performance that will be realized.  
 
-Typical storage performance considerations, including read and write mix, the transfer size, random or sequential patterns, and many other factors will contribute to the total performance delivered.  
+Typical storage performance considerations, including read and write mix, the transfer size, random or sequential patterns, and many other factors will contribute to the total performance delivered. 
 
-The maximum empirical throughput that has been observed in testing is 4,500 MiB/s.  At the Premium storage tier, an automatic QoS volume quota of 70.31 TiB will provision a throughput limit that is high enough to achieve this level of performance.  
+Metrics are reported as aggregates of multiple data points collected during a five-minute interval. For more information about metrics aggregation, see [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md). 
+
+The maximum empirical throughput that has been observed in testing is 4,500 MiB/s. At the Premium storage tier, an automatic QoS volume quota of 70.31 TiB will provision a throughput limit that is high enough to achieve this level of performance.  
 
 In the case of automatic QoS volumes, if you are considering assigning volume quota amounts beyond 70.31 TiB, additional quota may be assigned to a volume for storing additional data. However, the added quota will not result in a further increase in actual throughput.  
 

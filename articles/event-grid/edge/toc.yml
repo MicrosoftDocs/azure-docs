@@ -6,6 +6,8 @@
   items:
   - name: What is Event Grid on IoT Edge?
     href: overview.md  
+  - name: Transition from Event Grid on Azure IoT Edge to Azure IoT Edge 
+    href: transition.md
 - name: Tutorials
   items:
   - name: Publish and subscribe to events locally

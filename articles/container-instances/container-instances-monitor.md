@@ -1,8 +1,12 @@
 ---
 title: Monitor container instances
 description: How to monitor the consumption of compute resources like CPU and memory by your containers in Azure Container Instances.
-ms.topic: article
-ms.date: 12/17/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 # Monitor container resources in Azure Container Instances
 
@@ -45,7 +49,7 @@ In a container group that contains multiple containers, use a [dimension][monito
 Metrics for container instances can also be gathered using the Azure CLI. First, get the ID of the container group using the following command. Replace `<resource-group>` with your resource group name and `<container-group>` with the name of your container group.
 
 
-```console
+```azurecli
 CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <container-group> --query id --output tsv)
 ```
 

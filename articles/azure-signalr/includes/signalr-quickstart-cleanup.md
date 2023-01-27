@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-author: anthonychu
+author: vicancy
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
-ms.author: antchu
+ms.author: lianwei
 ms.custom: include file
 ---
 ## Clean up resources

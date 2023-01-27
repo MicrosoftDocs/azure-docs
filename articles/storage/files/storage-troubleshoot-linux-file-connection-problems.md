@@ -1,21 +1,28 @@
 ---
-title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
-description: Troubleshooting Azure Files problems in Linux. See common issues related to Azure Files when you connect from Linux clients, and see possible resolutions.
-author: jeffpatt24
+title: Troubleshoot Azure Files problems in Linux (SMB)
+description: Troubleshooting Azure Files problems in Linux. See common issues related to SMB Azure file shares when you connect from Linux clients, and see possible resolutions.
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 10/16/2018
-ms.author: jeffpatt
+ms.date: 01/10/2023
+ms.author: kendownie
 ms.subservice: files
 ---
 # Troubleshoot Azure Files problems in Linux (SMB)
 
-This article lists common problems that are related to Azure Files when you connect from Linux clients. It also provides possible causes and resolutions for these problems. 
+This article lists common problems that are related to SMB Azure file shares when you connect from Linux clients. It also provides possible causes and resolutions for these problems. 
 
-In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to ensure that the Linux client has correct prerequisites. AzFileDiagnostics automates the detection of most of the symptoms mentioned in this article. It helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure Files shares.
+In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to ensure that the Linux client has correct prerequisites. AzFileDiagnostics automates the detection of most of the symptoms mentioned in this article. It helps set up your environment to get optimal performance. You can also find this information in the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure file shares.
 
 > [!IMPORTANT]
-> The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
+> The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot NFS Azure file shares](storage-troubleshooting-files-nfs.md).
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Cannot connect to or mount an Azure file share
 
@@ -23,23 +30,12 @@ In addition to the troubleshooting steps in this article, you can use [AzFileDia
 
 Common causes for this problem are:
 
-- You're using an incompatible Linux distribution client. We recommend that you use the following Linux distributions to connect to an Azure file share:
-
-|   | SMB 2.1 <br>(Mounts on VMs within the same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
-| --- | :---: | :---: |
-| **Ubuntu Server** | 14.04+ | 16.04+ |
-| **RHEL** | 7+ | 7.5+ |
-| **CentOS** | 7+ |  7.5+ |
-| **Debian** | 8+ |   |
-| **openSUSE** | 13.2+ | 42.3+ |
-| **SUSE Linux Enterprise Server** | 12 | 12 SP3+ |
-
-- CIFS utilities (cifs-utils) are not installed on the client.
-- The minimum SMB/CIFS version, 2.1, is not installed on the client.
-- SMB 3.0 encryption is not supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
-- You're trying to connect to a storage account over TCP port 445, which is not supported.
-- You're trying to connect to an Azure file share from an Azure VM, and the VM is not in the same region as the storage account.
-- If the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account, Azure Files will allow only connections that use SMB 3.0 with encryption.
+- You're using a Linux distribution with an outdated SMB client. See [Use Azure Files with Linux](storage-how-to-use-files-linux.md) for more information on common Linux distributions available in Azure that have compatible clients.
+- SMB utilities (cifs-utils) aren't installed on the client.
+- The minimum SMB version, 2.1, isn't available on the client.
+- SMB 3.x encryption isn't supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
+- You're trying to connect to an Azure file share from an Azure VM, and the VM isn't in the same region as the storage account.
+- If the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is enabled on the storage account, Azure Files will allow only connections that use SMB 3.x with encryption.
 
 ### Solution
 
@@ -72,6 +68,44 @@ If virtual network (VNET) and firewall rules are configured on the storage accou
 
 Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
+<a id="mounterror22"></a>
+## "Mount error(22): Invalid argument" when trying to mount an Azure file share snapshot
+
+### Cause
+
+If the `snapshot` option for the `mount` command isn't passed in a recognized format, the `mount` command can fail with this error. To confirm, check kernel log messages (dmesg), and dmesg will show a log entry such as **cifs: Bad value for 'snapshot'**.
+
+### Solution
+
+Make sure you're passing the `snapshot` option for the `mount` command in the correct format. Refer to the mount.cifs manual page (e.g. `man mount.cifs`). A common error is passing the GMT timestamp in the wrong format, such as using hyphens or colons in place of periods. For more information, see [Mount a file share snapshot](storage-how-to-use-files-linux.md#mount-a-file-share-snapshot).
+
+<a id="badsnapshottoken"></a>
+## "Bad snapshot token" when trying to mount an Azure file share snapshot
+
+### Cause
+
+If the snapshot `mount` option is passed starting with @GMT, but the format is still wrong (such as using hyphens and colons instead of periods), the `mount` command can fail with this error.
+
+### Solution
+
+Make sure you're passing the GMT timestamp in the correct format, which is **@GMT-year.month.day-hour.minutes.seconds**. For more information, see [Mount a file share snapshot](storage-how-to-use-files-linux.md#mount-a-file-share-snapshot).
+
+<a id="mounterror2"></a>
+## "Mount error(2): No such file or directory" when trying to mount an Azure file share snapshot
+
+### Cause
+
+If the snapshot that you're attempting to mount doesn't exist, the `mount` command can fail with this error. To confirm, check kernel log messages (dmesg), and dmesg will show a log entry such as:
+
+```bash
+[Mon Dec 12 10:34:09 2022] CIFS: Attempting to mount \\snapshottestlinux.file.core.windows.net\snapshot-test-share1
+[Mon Dec 12 10:34:09 2022] CIFS: VFS: cifs_mount failed w/return code = -2
+```
+
+### Solution
+
+Make sure the snapshot you're attempting to mount exists. For more information on how to list the available snapshots for a given Azure file share, see [Mount a file share snapshot](storage-how-to-use-files-linux.md#mount-a-file-share-snapshot).
+
 <a id="permissiondenied"></a>
 ## "[permission denied] Disk quota exceeded" when you try to open a file
 
@@ -101,7 +135,7 @@ To close open handles for a file share, directory or file, use the [Close-AzStor
 
 - If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
 - Use the right copy method:
-    - Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
+    - Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json) for any transfer between two file shares.
     - Using cp or dd with parallel could improve copy speed, the number of threads depends on your use case and workload. The following examples use six: 
     - cp example (cp will use the default block size of the file system as the chunk size): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - dd example (this command explicitly sets chunk size to 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
@@ -110,22 +144,22 @@ To close open handles for a file share, directory or file, use the [Close-AzStor
         - [Fpart](https://github.com/martymac/fpart) - Sorts files and packs them into partitions.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Uses Fpart and a copy tool to spawn multiple instances to migrate data from src_dir to dst_url.
         - [Multi](https://github.com/pkolano/mutil) - Multi-threaded cp and md5sum based on GNU coreutils.
-- Setting the file size in advance, instead of making every write an extending write, helps improve copy speed in scenarios where the file size is known. If extending writes need to be avoided, you can set a destination file size with `truncate - size <size><file>` command. After that, `dd if=<source> of=<target> bs=1M conv=notrunc`command will copy a source file without having to repeatedly update the size of the target file. For example, you can set the destination file size for every file you want to copy (assume a share is mounted under /mnt/share):
-    - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - and then - copy files without extending writes in parallel: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+- Setting the file size in advance, instead of making every write an extending write, helps improve copy speed in scenarios where the file size is known. If extending writes need to be avoided, you can set a destination file size with `truncate --size <size> <file>` command. After that, `dd if=<source> of=<target> bs=1M conv=notrunc`command will copy a source file without having to repeatedly update the size of the target file. For example, you can set the destination file size for every file you want to copy (assume a share is mounted under /mnt/share):
+    - `for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
+    - and then copy files without extending writes in parallel: `find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
-## "Mount error(115): Operation now in progress" when you mount Azure Files by using SMB 3.0
+## "Mount error(115): Operation now in progress" when you mount Azure Files by using SMB 3.x
 
 ### Cause
 
-Some Linux distributions don't yet support encryption features in SMB 3.0. Users might receive a "115" error message if they try to mount Azure Files by using SMB 3.0 because of a missing feature. SMB 3.0 with full encryption is supported only when you're using Ubuntu 16.04 or later.
+Some Linux distributions don't yet support encryption features in SMB 3.x. Users might receive a "115" error message if they try to mount Azure Files by using SMB 3.x because of a missing feature. SMB 3.x with full encryption is supported only when you're using Ubuntu 16.04 or later.
 
 ### Solution
 
-The encryption feature for SMB 3.0 for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. Some Linux distributions may have backported changes from the 4.11 kernel to older versions of the Linux kernel which they maintain. To assist in determining if your version of Linux supports SMB 3.0 with encryption, consult with [Use Azure Files with Linux](storage-how-to-use-files-linux.md). 
+The encryption feature for SMB 3.x for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. Some Linux distributions may have backported changes from the 4.11 kernel to older versions of the Linux kernel which they maintain. To assist in determining if your version of Linux supports SMB 3.x with encryption, consult with [Use Azure Files with Linux](storage-how-to-use-files-linux.md). 
 
-If your Linux SMB client doesn't support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share. Verify that the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account. 
+If your Linux SMB client doesn't support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share. Verify that the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is disabled on the storage account. 
 
 <a id="noaaccessfailureportal"></a>
 ## Error "No access" when you try to access or delete an Azure File Share  
@@ -209,10 +243,11 @@ The force flag **f** in COPYFILE results in executing **cp -p -f** on Unix. This
 
 Use the storage account user for copying the files:
 
-- `Useadd : [storage account name]`
-- `Passwd [storage account name]`
-- `Su [storage account name]`
-- `Cp -p filename.txt /share`
+- `str_acc_name=[storage account name]`
+- `sudo useradd $str_acc_name`
+- `sudo passwd $str_acc_name`
+- `su $str_acc_name`
+- `cp -p filename.txt /share`
 
 ## ls: cannot access '&lt;path&gt;': Input/output error
 
@@ -232,13 +267,13 @@ Upgrade the Linux kernel to the following versions that have a fix for this prob
 ## Cannot create symbolic links - ln: failed to create symbolic link 't': Operation not supported
 
 ### Cause
-By default, mounting Azure file shares on Linux by using CIFS doesn’t enable support for symbolic links (symlinks). You see an error like this:
+By default, mounting Azure file shares on Linux by using CIFS doesn't enable support for symbolic links (symlinks). You see an error like this:
 ```
 ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### Solution
-The Linux CIFS client doesn’t support creation of Windows-style symbolic links over the SMB 2 or 3 protocol. Currently, the Linux client supports another style of symbolic links called [Minshall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use the "mfsymlinks" mount option. We recommend "mfsymlinks" because it's also the format that Macs use.
+The Linux CIFS client doesn't support creation of Windows-style symbolic links over the SMB 2 or 3 protocol. Currently, the Linux client supports another style of symbolic links called [Minshall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use the "mfsymlinks" mount option. We recommend "mfsymlinks" because it's also the format that Macs use.
 
 To use symlinks, add the following to the end of your CIFS mount command:
 
@@ -285,10 +320,10 @@ You can work around this problem by specifying a hard mount. A hard mount forces
 
 If you can't upgrade to the latest kernel versions, you can work around this problem by keeping a file in the Azure file share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
 
-## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.0
+## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.x
 
 ### Cause
-This error is logged because Azure Files [does not currently support SMB multichannel](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+This error is logged because Azure Files [doesn't currently support SMB multichannel](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ### Solution
 This error can be ignored.
@@ -318,6 +353,40 @@ use:
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
 ```
 
+<a id="dns-account-migration"></a>
+## DNS issues with live migration of Azure storage accounts
+
+File I/Os on the mounted filesystem start giving "Host is down" or "Permission denied" errors. Linux dmesg logs on the client will have repeated errors like:
+
+Status code returned 0xc000006d STATUS_LOGON_FAILURE
+cifs_setup_session: 2 callbacks suppressed
+CIFS VFS: \\contoso.file.core.windows.net Send error in SessSetup = -13
+ 
+You'll also see that the server FQDN now resolves to a different IP address than what it’s currently connected to.
+
+### Cause
+
+For capacity load balancing purposes, storage accounts are sometimes live-migrated from one storage cluster to another. Account migration triggers Azure Files traffic to be redirected from the source cluster to the destination cluster by updating the DNS mappings to point to the destination cluster. This causes all traffic to the source cluster from that account to be blocked. It’s expected that the SMB client picks up the DNS updates and redirects further traffic to the destination cluster. However, due to a bug in the Linux SMB kernel client, this redirection didn't take effect. As a result, the data traffic kept going to the source cluster, which had stopped serving this account post migration.
+
+### Workaround
+
+This issue can be mitigated by simply rebooting the client OS, but you might run into the issue again if you don't upgrade your client OS to a Linux distro version with account migration support. Note that umount and remount of the share may appear to fix the issue temporarily.
+
+### Solution
+
+For a permanent fix, upgrade your client OS to a Linux distro version with account migration support. Several fixes for the Linux SMB kernel client were recently submitted to the mainline Linux kernel. Kernel version 5.15+ and Keyutils-1.6.2+ have the fixes. However, these fixes are yet to be backported by popular Linux distros into their stable kernels. Some distros have backported these fixes, and you can check if the following fixes exist in the distro version you're using:
+
+[cifs: On cifs_reconnect, resolve the hostname again](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e456b30f78c429b183db420e23b26cde7e03a78)
+
+[cifs: use the expiry output of dns_query to schedule next resolution](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=506c1da44fee32ba1d3a70413289ad58c772bba6)
+
+[cifs: set a minimum of 120s for next dns resolution](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4ac0536f8874a903a72bddc57eb88db774261e3a)
+
+[cifs: To match file servers, make sure the server hostname matches](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7be3248f313930ff3d3436d4e9ddbe9fccc1f541)
+
+[cifs: fix memory leak of smb3_fs_context_dup::server_hostname](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=869da64d071142d4ed562a3e909deb18e4e72c4e)
+
+[dns: Apply a default TTL to records obtained from getaddrinfo()](https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/commit/?id=75e7568dc516db698093b33ea273e1b4a30b70be)
 
 ## Need help? Contact support.
 

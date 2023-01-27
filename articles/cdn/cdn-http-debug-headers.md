@@ -3,7 +3,7 @@ title:  X-EC-Debug HTTP headers for Azure CDN rules engine | Microsoft Docs
 description: The X-EC-Debug debug cache request header provides additional information about the cache policy that is applied to the requested asset. These headers are specific to Verizon.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: allensu
+ms.author: duau
 
 ---
 # X-EC-Debug HTTP headers for Azure CDN rules engine
@@ -165,5 +164,4 @@ The terms used in the above response header syntax are defined as follows:
 
 The following sample response header indicates the cache state of the requested content at the time that it was requested:
 
-```X-EC-Debug: x-ec-cache-state: max-age=604800 (7d); cache-ts=1341802519 (Mon, 09 Jul 2012 02:55:19 GMT); cache-age=0 (0s); remaining-ttl=604800 (7d); expires-delta=none```
-
+`X-EC-Debug: x-ec-cache-state: max-age=604800 (7d); cache-ts=1341802519 (Mon, 09 Jul 2012 02:55:19 GMT); cache-age=0 (0s); remaining-ttl=604800 (7d); expires-delta=none`

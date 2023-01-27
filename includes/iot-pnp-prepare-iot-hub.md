@@ -1,9 +1,9 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 11/17/2022
 ms.custom: references_regions, devx-track-azurecli
 ---
 

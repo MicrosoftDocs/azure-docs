@@ -2,16 +2,15 @@
 title: Customize Microsoft Security Code Analysis tasks
 titleSuffix: Azure
 description: This article describes customizing the tasks in the Microsoft Security Code Analysis extension
-author: sukhans
+author: TerryLanfear
 manager: sukhans
 ms.author: terrylan
-ms.date: 03/22/2021
+ms.date: 01/09/2023
 ms.topic: article
 ms.service: security
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
@@ -19,7 +18,7 @@ ms.workload: na
 # Configure and customize the build tasks
 
 > [!Note]
-> Effective March 1, 2022, the Microsoft Security Code Analysis (MSCA) extension will be retired. Existing MSCA customers will retain their access to MSCA through March 1, 2022. Please refer to the [OWASP Source Code Analysis Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) for alternative options in Azure DevOps. For customers planning to migrate to GitHub, you can check out [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
+> Effective December 31, 2022, the Microsoft Security Code Analysis (MSCA) extension is retired. MSCA is replaced by the [Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension). Follow the instructions in [Configure](/azure/defender-for-cloud/azure-devops-extension) to install and configure the extension.
 
 This article describes in detail the configuration options available in each of the build tasks. The article starts with the tasks for security code analysis tools. It ends with the post-processing tasks.
 
@@ -142,7 +141,7 @@ Available options include:
 >
 >   If the new task runs on the same agent as the original task, the new task's output overwrites the original task's output in the *s* sources folder. Although the build output is the same, we advise that you run MSBuild, copy output to the the artifacts staging directory, and then run Roslyn Analyzers.
 
-For additional resources for the Roslyn Analyzers task, check out [The Roslyn-based Analyzers](/dotnet/standard/analyzers/api-analyzer) on Microsoft Docs.
+For additional resources for the Roslyn Analyzers task, review the [Roslyn-based analyzers](/dotnet/standard/analyzers/api-analyzer).
 
 You can find the analyzer package installed and used by this build task on the NuGet page [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
@@ -198,4 +197,4 @@ For information about YAML configuration for this task, check our [Post Analysis
 
 For information about YAML based configuration, refer to our [YAML Configuration guide](yaml-configuration.md).
 
-If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.md).
+If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.yml).

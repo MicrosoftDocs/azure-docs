@@ -1,14 +1,11 @@
 ---
-title: Tutorial to verify data upload from Azure Data Box Disk to storage account| Microsoft Docs
+title: Tutorial to verify data upload from Azure Data Box Disk to storage account
 description: Use this tutorial to learn how to verify the data uploaded from your Azure Data Box Disk to Azure storage account.
-services: databox
 author: alkohli
-
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.localizationpriority: high 
-ms.date: 09/17/2019
+ms.date: 05/05/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -33,17 +30,23 @@ Before you begin, make sure that you have completed the [Tutorial: Return Azure 
 
 Once the disks are picked up by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
-![Disks picked up](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
+![Screenshot of the Overview pane for a Data Box Disk import order in Picked Up state. The Overview option and Picked Up order status are highlighted.](media/data-box-disk-deploy-picked-up/data-box-portal-picked-up.png)
 
 When Microsoft receives and scans the disk, job status is updated to **Received**. 
 
-![Disks received](media/data-box-disk-deploy-picked-up/data-box-portal-received.png)
+![Screenshot of the Overview pane for a Data Box Disk import order in Received state. The Overview menu option and Received order status are highlighted.](media/data-box-disk-deploy-picked-up/data-box-portal-received.png)
 
 The data automatically gets copied once the disks are connected to a server in the Azure datacenter. Depending upon the data size, the copy operation may take a few hours to days to complete. You can monitor the copy job progress in the portal.
 
-Once the copy is complete, order status updates to **Completed**.
+Once the copy is complete, order status updates to **Completed**. The **DATA COPY DETAILS** show the path to the copy log, which reports any errors during the data copy. 
 
-![Data copy completed](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
+As of March 2022, you can choose **View by Storage Account(s)** or **View by Managed Disk(s)** to display the data copy details.
+
+[![Screenshot of the Data Copy Details.](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)](media/data-box-disk-deploy-picked-up/data-box-portal-completed-inline.png#lightbox)
+
+If you have an order from before March 2022, the data copy details will be shown as below:
+
+:::image type="content" source="media/data-box-disk-deploy-picked-up/data-box-portal-completed-old.png" alt-text="Screenshot of the Data Copy Details prior to March 2022.":::
 
 If the copy completes with errors, see [troubleshoot upload errors](data-box-disk-troubleshoot-upload.md).
 
@@ -60,11 +63,11 @@ Verify that your data is in the storage account(s) before you delete it from the
 
   - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource group specified for managed disks.
 
-      ![View order details](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+      ![Screenshot of the Order Details pane for a Data Box Disk import order. The Order Details menu item and Managed Disk Resource Groups setting are highlighted.](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
-    Go to the noted resource group and locate your managed disks.
+    Go to the noted resource group, and locate your managed disks.
 
-      ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+      ![Screenshot of a Resource Group resource for a Data Box Disk order. The resource group name and disks in the resource group are highlighted.](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
     > [!NOTE]
     > If a page blob isn't successfully converted to a managed disk during a data copy, it stays in the storage account and you're charged for storage.
@@ -83,9 +86,9 @@ After the data is uploaded to Azure, verify that your data is in the storage acc
 
 - Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
 
-    - **For block blobs and page blobs**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
+    - **For block blobs and page blobs**: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
 
-    - **For Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
+    - **For Azure Files**: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
 - Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
 
@@ -99,11 +102,11 @@ To verify that the data has uploaded into Azure, take the following steps:
 
 3. To verify that the entire dataset has loaded, use Microsoft Azure Storage Explorer. Attach the storage account corresponding to the Data Box Disk order and then look at the list of blob containers. Select a container, click **…More** and then click **Folder statistics**. In the **Activities** pane, the statistics for that folder including the number of blobs and the total blob size is displayed. The total blob size in bytes should match the size of the dataset.
 
-    ![Folder statistics in Storage Explorer](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
+    ![Screenshot showing Folder Statistics for a Blob in Azure Storage Explorer. A Blob Container, Blob, and Folder are selected. The Folder Statistics option and a statistics set are highlighted.](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
 
 ## Erasure of data from Data Box Disk
 
-Once the upload to Azure is complete, the Data Box Disk erases the data on its disks as per the [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi) standard.
+Once the upload to Azure is complete, the Data Box Disk service erases the data on its disks as per the [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi) standard.
 
 ::: zone target="docs"
 

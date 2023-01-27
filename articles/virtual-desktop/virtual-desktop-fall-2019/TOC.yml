@@ -1,10 +1,10 @@
-- name: Windows Virtual Desktop (classic)
+- name: Azure Virtual Desktop (classic)
   href: ../index.yml
 - name: Overview
   items:
-  - name: What is Windows Virtual Desktop?
+  - name: What is Azure Virtual Desktop?
     href: ../overview.md
-  - name: Windows Virtual Desktop documentation
+  - name: Azure Virtual Desktop documentation
     href: ../create-host-pools-azure-marketplace.md
 - name: Tutorials
   items:
@@ -24,10 +24,10 @@
   items:
   - name: Migrate manually
     href: ../manual-migration.md
-  - name: Connect to Windows Virtual Desktop resources
+  - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: connect-windows-7-10-2019.md
+        href: connect-windows-2019.md
       - name: Connect with the web client
         href: connect-web-2019.md
       - name: Connect with the Android client
@@ -42,8 +42,6 @@
         href: create-host-pools-arm-template.md
       - name: PowerShell
         href: create-host-pools-powershell-2019.md
-      - name: Deploy a Windows 7 virtual machine
-        href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu-2019.md
       - name: Expand an existing host pool
@@ -74,11 +72,13 @@
     href: publish-apps-2019.md
   - name: Set up Azure AD Multi-Factor Authentication
     href: ../set-up-mfa.md
+  - name: Delete Azure Virtual Desktop classic
+    href: manual-delete.md
 - name: Concepts
   items:
-  - name: Windows Virtual Desktop environment
+  - name: Azure Virtual Desktop environment
     href: environment-setup-2019.md
-  - name: Delegated access in Windows Virtual Desktop
+  - name: Delegated access in Azure Virtual Desktop
     href: delegated-access-virtual-desktop-2019.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing-2019.md
@@ -94,13 +94,11 @@
     href: troubleshoot-set-up-issues-2019.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration-2019.md
-  - name: Troubleshoot Windows 7 virtual machines
-    href: troubleshoot-windows-7-vm.md
   - name: Troubleshoot the management tool
     href: troubleshoot-management-tool.md
   - name: Remote Desktop service connections
     href: troubleshoot-service-connection-2019.md
-  - name: Windows Virtual Desktop PowerShell
+  - name: Azure Virtual Desktop PowerShell
     href: troubleshoot-powershell-2019.md
 - name: Reference
   items:

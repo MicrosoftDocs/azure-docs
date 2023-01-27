@@ -1,10 +1,12 @@
 ---
 title: Create an Azure Service Fabric container application 
 description: Create your first Windows container application on Azure Service Fabric. Build a Docker image with a Python application, push the image to a container registry, then build and deploy the container to Azure Service Fabric.
-
-ms.topic: conceptual
-ms.date: 01/25/2019
-ms.custom: devx-track-python
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Create your first Service Fabric container application on Windows
@@ -356,7 +358,7 @@ To learn more, see [Windows Container Version Compatibility](/virtualization/win
 Consider the compatibility of the host OS and your container OS when building and deploying containers to your Service Fabric cluster. For example:
 
 - Make sure you deploy containers with an OS compatible with the OS on your cluster nodes.
-- Make sure that the isolation mode specified for your container app is consistent with support for the container OS on the node where it is being deployed.
+- Make sure that the isolation mode specified for your container application is consistent with support for the container OS on the node where it is being deployed.
 - Consider how OS upgrades to your cluster nodes or containers may affect their compatibility. 
 
 We recommend the following practices to make sure that containers are deployed correctly on your Service Fabric cluster:
@@ -382,7 +384,7 @@ Windows Server containers may not be compatible across different versions of the
          </ImageOverrides> 
       </ContainerHostPolicies> 
 ```
-The build version for WIndows Server 2016 is 14393, and the build version for Windows Server version 1709 is 16299. The service manifest continues to specify only one image per container service as the following shows:
+The build version for Windows Server 2016 is 14393, and the build version for Windows Server version 1709 is 16299. The service manifest continues to specify only one image per container service as the following shows:
 
 ```xml
 <ContainerHost>
@@ -597,6 +599,97 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 	} 
 ]
 ```
+
+## EntryPoint Override
+With 8.2 version of ServiceFabric Runtime, entrypoint for **container** and **exe host** code package can be overridden. This can be used in cases where all the manifest elements remains the same but the container image needs to be changed, then provisioning a different app type version is not required anymore, or different arguments needs to be passed based on test or prod scenario and the entry point remains the same.
+
+Following is an example on how to override container entry point:
+
+### ApplicationManifest.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest ApplicationTypeName="MyFirstContainerType"
+                     ApplicationTypeVersion="1.0.0"
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+  <Parameters>
+    <Parameter Name="ImageName" DefaultValue="myregistry.azurecr.io/samples/helloworldapp" />
+    <Parameter Name="Commands" DefaultValue="commandsOverride" />
+    <Parameter Name="FromSource" DefaultValue="sourceOverride" />
+    <Parameter Name="EntryPoint" DefaultValue="entryPointOverride" />
+  </Parameters>
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
+       should match the Name and Version attributes of the ServiceManifest element defined in the
+       ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <CodePackagePolicy CodePackageRef="Code">
+        <EntryPointOverride>
+         <ContainerHostOverride>
+            <ImageOverrides>
+              <Image Name="[ImageName]" />
+            </ImageOverrides>
+            <Commands>[Commands]</Commands>
+            <FromSource>[Source]</FromSource>
+            <EntryPoint>[EntryPoint]</EntryPoint>
+          </ContainerHostOverride>
+        </EntryPointOverride>
+      </CodePackagePolicy>
+    </Policies>
+  </ServiceManifestImport>
+</ApplicationManifest>
+```
+### ServiceManifest.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="Guest1Pkg"
+                 Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <!-- This is the name of your ServiceType.
+         The UseImplicitHost attribute indicates this is a guest service. -->
+    <StatelessServiceType ServiceTypeName="Guest1Type" UseImplicitHost="true" />
+  </ServiceTypes>
+
+  <!-- Code package is your service executable. -->
+  <CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
+      <ContainerHost>
+        <ImageName>default imagename</ImageName>
+        <Commands>default cmd</Commands>
+        <EntryPoint>default entrypoint</EntryPoint>
+        <FromSource>default source</FromSource>
+      </ContainerHost>
+    </EntryPoint>
+  </CodePackage>
+
+  <ConfigPackage Name="Config" Version="1.0.0" />
+</ServiceManifest>
+```
+After the overrides in application manifest are specified, container with image name myregistry.azurecr.io/samples/helloworldapp, command commandsOverride, source sourceOverride, and entryPoint entryPointOverride will be started.
+
+Similarly, below is an example on how to override the **ExeHost**:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Policies>
+  <CodePackagePolicy CodePackageRef="Code">
+    <EntryPointOverride>
+      <ExeHostOverride>
+        <Program>[Program]</Program>
+        <Arguments>[Entry]</Arguments>
+      </ExeHostOverride>
+    </EntryPointOverride>
+  </CodePackagePolicy>
+</Policies>
+```
+> [!NOTE]
+> Entry point override is not supported for SetupEntryPoint.
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).

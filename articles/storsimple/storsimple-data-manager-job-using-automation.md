@@ -4,11 +4,13 @@ description: Learn how to use Azure Automation for triggering StorSimple Data Ma
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 01/16/2018
+ms.date: 08/22/2022
 ms.author: alkohli
 ---
 
 # Use Azure Automation to trigger a job
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 This article explains how you can use the data transformation feature within the StorSimple Data Manager service to transform StorSimple device data. You can launch a data transformation job in two ways: 
 
@@ -93,7 +95,7 @@ Perform the following steps to import, publish, and run the runbook to trigger j
 
     ![Add runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. Provide the parameters such as the name of your StorSimple Data Manager service, the associated resource group and the job definition name. **Start** the test. The report is generated when the run is complete. For more information, go to how to [test a runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
+6. Provide the parameters such as the name of your StorSimple Data Manager service, the associated resource group and the job definition name. **Start** the test. The report is generated when the run is complete. For more information, go to how to [test a runbook](../automation/learn/powershell-runbook-managed-identity.md).
 
     ![Add runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 

@@ -10,18 +10,23 @@ ms.date: 11/27/2019
 
 This article explains the levels of support offered for languages that you can use with Azure Functions. It also describes strategies for creating functions using languages not natively supported.
 
-## Levels of support
-
-There are two levels of support:
-
-* **Generally available (GA)** - Fully supported and approved for production use.
-* **Preview** - Not yet supported but is expected to reach GA status in the future.
+[!INCLUDE [functions-support-levels](../../includes/functions-support-levels.md)]
 
 ## Languages by runtime version 
 
-[Three versions of the Azure Functions runtime](functions-versions.md) are available. The following table shows which languages are supported in each runtime version.
+[Several versions of the Azure Functions runtime](functions-versions.md) are available. The following table shows which languages are supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
+
+[!INCLUDE [functions-portal-language-support](../../includes/functions-portal-language-support.md)]
+
+### Language major version support
+
+Azure Functions provides a guarantee of support for the major versions of supported programming languages. For most languages, there are minor or patch versions released to update a supported major version. Examples of minor or patch versions include such as Python 3.9.1 and Node 14.17. After new minor versions of supported languages become available, the minor versions used by your functions apps are automatically upgraded to these newer minor or patch versions. 
+
+> [!NOTE]
+>Because Azure Functions can remove the support of older minor versions at any time after a new minor version is available, you shouldn't pin your function apps to a specific minor/patch version of a programming language.  
+>
 
 ## Custom handlers
 

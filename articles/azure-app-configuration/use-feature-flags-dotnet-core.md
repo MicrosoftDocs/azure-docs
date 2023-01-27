@@ -3,7 +3,7 @@ title: Tutorial for using feature flags in a .NET Core app | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in .NET Core apps.
 services: azure-app-configuration
 documentationcenter: ''
-author: AlexandraKemperMS
+author: maud-lv
 editor: ''
 
 ms.assetid: 
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/17/2020
-ms.author: alkemper
+ms.author: malev
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to control feature availability in my app by using the .NET Core Feature Manager library.
@@ -189,18 +189,19 @@ When a feature flag has multiple filters, the filter list is traversed in order 
 The feature manager supports *appsettings.json* as a configuration source for feature flags. The following example shows how to set up feature flags in a JSON file:
 
 ```JSON
-"FeatureManagement": {
-    "FeatureA": true, // Feature flag set to on
-    "FeatureB": false, // Feature flag set to off
-    "FeatureC": {
-        "EnabledFor": [
-            {
-                "Name": "Percentage",
-                "Parameters": {
-                    "Value": 50
+{"FeatureManagement": {
+        "FeatureA": true, // Feature flag set to on
+        "FeatureB": false, // Feature flag set to off
+        "FeatureC": {
+            "EnabledFor": [
+                {
+                    "Name": "Percentage",
+                    "Parameters": {
+                        "Value": 50
+                    }
                 }
-            }
-        ]
+            ]
+        }
     }
 }
 ```

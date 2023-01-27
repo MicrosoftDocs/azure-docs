@@ -3,14 +3,15 @@ title: Enable Azure DS Domain Services using a template | Microsoft Docs
 description: Learn how to configure and enable Azure Active Directory Domain Services using an Azure Resource Manager template
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 07/09/2020
-ms.author: justinha
+ms.date: 08/17/2022
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create an Azure Active Directory Domain Services managed domain using an Azure Resource Manager template
@@ -29,8 +30,8 @@ To complete this article, you need the following resources:
 * Install and configure Azure AD PowerShell.
     * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Azure AD](/powershell/azure/active-directory/install-adv2).
     * Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
-* You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
-* You need *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
+* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
+* You need Domain Services Contributor Azure role to create the required Azure AD DS resources.
 
 ## DNS naming requirements
 
@@ -337,7 +338,7 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [windows-join]: join-windows-vm.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-phs]: tutorial-configure-password-hash-sync.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/availability-zones-overview.md
 [portal-deploy]: ../azure-resource-manager/templates/deploy-portal.md
 [powershell-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [scoped-sync]: scoped-synchronization.md

@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Create an Azure IoT Hub Device Provisioning Service (DPS) using Azure Resource Manager template (ARM template)
 description: Azure quickstart - Learn how to create an Azure IoT Hub Device Provisioning Service (DPS) using Azure Resource Manager template (ARM template).
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc, subject-armqs, devx-track-azurecli
+ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with an ARM template
@@ -20,27 +20,25 @@ This quickstart uses [Azure portal](../azure-resource-manager/templates/deploy-p
 
 If your environment meets the prerequisites, and you're already familiar with using ARM templates, selecting the **Deploy to Azure** button below will open the template for deployment in the Azure portal.
 
-[![Deploy to Azure in overview](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+[![Deploy to Azure in overview](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iothub-device-provisioning/).
 
 > [!NOTE]
 > Currently there is no ARM template support for creating enrollments with new DPS resources. This is a common and understood request that is being considered for implementation.
 
-:::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-device-provisioning/azuredeploy.json":::
 
 Two Azure resources are defined in the template above:
 
 * [**Microsoft.Devices/iothubs**](/azure/templates/microsoft.devices/iothubs): Creates a new Azure IoT Hub.
 * [**Microsoft.Devices/provisioningservices**](/azure/templates/microsoft.devices/provisioningservices): Creates a new Azure IoT Hub Device Provisioning Service with the new IoT Hub already linked to it.
-
 
 ## Deploy the template
 
@@ -48,9 +46,9 @@ Two Azure resources are defined in the template above:
 
 1. Select the following image to sign in to Azure and open the template for deployment. The template creates a new Iot Hub and DPS resource. The hub will be linked in the DPS resource.
 
-    [![Deploy to Azure in Portal Steps](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+    [![Deploy to Azure in Portal Steps](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
-2. Select or enter the following values and click **Review + Create**.
+2. Select or enter the following values and select **Review + Create**.
 
     ![ARM template deployment parameters on the portal](./media/quick-setup-auto-provision-rm/arm-template-deployment-parameters-portal.png)    
 
@@ -59,12 +57,12 @@ Two Azure resources are defined in the template above:
     | Field | Description |
     | :---- | :---------- |
     | **Subscription** | Select your Azure subscription. |
-    | **Resource group** | Click **Create new**, and enter a unique name for the resource group, and then click **OK**. |
-    | **Region** | Select a region for your resources. For example, **East US**. |
+    | **Resource group** | Select **Create new**, and enter a unique name for the resource group, and then select **OK**. |
+    | **Region** | Select a region for your resources. For example, **East US**.  For resiliency and reliability, we recommend deploying to one of the regions that support [Availability Zones](iot-dps-ha-dr.md). |
     | **Iot Hub Name** | Enter a name for the IoT Hub that must be globally unique within the *.azure-devices.net* namespace. You need the hub name in the next section when you validate the deployment. |
     | **Provisioning Service Name** | Enter a name for the new Device Provisioning Service (DPS) resource. The name must be globally unique within the *.azure-devices-provisioning.net* namespace. You need the DPS name in the next section when you validate the deployment. |
-    
-3. On the next screen, read the terms. If you agree to all terms, click **Create**. 
+
+3. On the next screen, read the terms. If you agree to all terms, select **Create**. 
 
     The deployment will take a few moments to complete. 
 
@@ -73,11 +71,11 @@ Two Azure resources are defined in the template above:
 
 #### Deploy with the Azure CLI
 
-Using the Azure CLI requires version 2.6 or later. If you are running the Azure CLI locally, verify your version by running: `az --version`
+Using the Azure CLI requires version 2.6 or later. If you're running the Azure CLI locally, verify your version by running: `az --version`
 
 Sign in to your Azure account and select your subscription.
 
-1. If you are running the Azure CLI locally instead of running it in the portal, you will need to log in. To log in at the command prompt, run the [login command](/cli/azure/get-started-with-az-cli2):
+1. If you're running the Azure CLI locally instead of running it in the portal, you need to sign in. To sign in at the command prompt, run the [login command](/cli/azure/get-started-with-az-cli2):
     
     ```azurecli
     az login
@@ -110,7 +108,7 @@ Sign in to your Azure account and select your subscription.
     ```azurecli-interactive
     read -p "Enter a project name that is used for generating resource names:" projectName &&
     read -p "Enter the location (i.e. centralus):" location &&
-    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-iothub-device-provisioning/azuredeploy.json" &&
+    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devices/iothub-device-provisioning/azuredeploy.json" &&
     resourceGroupName="${projectName}rg" &&
     az group create --name $resourceGroupName --location "$location" &&
     az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
@@ -138,7 +136,7 @@ Sign in to your Azure account and select your subscription.
      az resource list -g "${projectName}rg"
     ```
 
-2. To verify that the hub is already linked to the DPS resource, run the following [DPS extension show command](/cli/azure/iot/dps#az_iot_dps_show).
+2. To verify that the hub is already linked to the DPS resource, run the following [DPS extension show command](/cli/azure/iot/dps#az-iot-dps-show).
 
     ```azurecli
      az iot dps show --name <Your provisioningServiceName>
@@ -149,9 +147,9 @@ Sign in to your Azure account and select your subscription.
 
 ## Clean up resources
 
-Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, you can use the Azure portal or Azure CLI to delete the resource group and all of its resources.
+Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, you can use the Azure portal or Azure CLI to delete the resource group and all of its resources.
 
-To delete a resource group and all its resources from the Azure portal, just open the resource group and click **Delete resource group** and the top.
+To delete a resource group and all its resources from the Azure portal, just open the resource group and select **Delete resource group** and the top.
 
 To delete the resource group deployed using the Azure CLI:
 
@@ -163,8 +161,7 @@ You can also delete resource groups and individual resources using the Azure por
 
 ## Next steps
 
-In this quickstart, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
+In this quickstart, you deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
 
 > [!div class="nextstepaction"]
-> [Quickstart to provision a device](./quick-create-simulated-device-symm-key.md)
-
+> [Quickstart: Provision a simulated symmetric key device](./quick-create-simulated-device-symm-key.md)

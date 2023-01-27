@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 05/18/2021
 ms.author: duau
 ---
 
@@ -58,17 +58,20 @@ Azure Front Door supports HTTP, HTTPS and HTTP/2.
 
 HTTP/2 protocol support is available to clients connecting to Azure Front Door only. The communication to backends in the backend pool is over HTTP/1.1. HTTP/2 support is enabled by default.
 
-### What resources are supported today as part of origin group?
+### What resources are supported today as part of an origin group?
 
-Origin group can be composed of Storage, Web App, Kubernetes instances, or any other custom hostname that has public connectivity. Azure Front Door requires that the origins are defined either via a public IP or a publicly resolvable DNS hostname. Members of origin group can be across zones, regions, or even outside of Azure as long as they have public connectivity.
+Origin groups can be composed of two types of origins:
+
+- Public origins include storage accounts, App Service apps, Kubernetes instances, or any other custom hostname that has public connectivity. These origins must be defined either via a public IP address or a publicly resolvable DNS hostname. Members of origin groups can be deployed across availability zones, regions, or even outside of Azure as long as they have public connectivity. Public origins are supported for Azure Front Door Standard and Premium tiers.
+- [Private Link origins](../private-link.md) are available when you use Azure Front Door (Premium).
 
 ### What regions is the service available in?
 
-Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is for the resource group. That location is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all the POPs (Point of Presence). 
+Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is for the resource group. That location is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all edge locations. 
 
-### What are the POP locations for Azure Front Door?
+### Where are the edge locations for Azure Front Door?
 
-Azure Front Door has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. For the complete list of our POPs, kindly refer [Azure CDN POP locations from Microsoft](../../cdn/cdn-pop-locations.md).
+For the complete list of Azure Front Door edge locations, see [Azure Front Door edge locations](edge-locations.md).
 
 ### Is Azure Front Door a dedicated deployment for my application or is it shared across customers?
 
@@ -76,19 +79,19 @@ Azure Front Door is a globally distributed multi-tenant service. The infrastruct
 
 ### Is HTTP->HTTPS redirection supported?
 
-Yes. In fact, Azure Front Door supports host, path, query string redirection, and part of URL redirection. Learn more about [URL redirection](concept-rule-set-url-redirect-and-rewrite.md). 
+Yes. In fact, Azure Front Door supports host, path, query string redirection, and part of URL redirection. Learn more about [URL redirection](../front-door-url-redirect.md). 
 
 ### How do I lock down the access to my backend to only Azure Front Door?
 
 The best way to lock down your application to accept traffic only from your specific Front Door instance is to publish your application via Private Endpoint. Network traffic between Front Door and the application traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public internet.
 
-Learn more about the [securing origin for Front Door with Private Link](concept-private-link.md).  
+Learn more about the [securing origin for Front Door with Private Link](../private-link.md).  
 
 Alternative way to lock down your application to accept traffic only from your specific Front Door, you'll need to set up IP ACLs for your backend. Then restrict the traffic of your backend to the specific value of the header 'X-Azure-FDID' sent by Front Door. These steps are detailed out as below:
 
 * Configure IP ACLing for your backends to accept traffic from Azure Front Door's backend IP address space and Azure's infrastructure services only. Refer to the IP details below for ACLing your backend:
  
-    * Refer *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for Front Door's IPv4 backend IP address range. You can also use the service tag *AzureFrontDoor.Backend* in your [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules).
+    * Refer *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for Front Door's backend IP address range. You can also use the service tag *AzureFrontDoor.Backend* in your [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules).
     * Azure's [basic infrastructure services](../../virtual-network/network-security-groups-overview.md#azure-platform-considerations) through virtualized host IP addresses: `168.63.129.16` and `169.254.169.254`.
 
     > [!WARNING]
@@ -119,6 +122,8 @@ Alternative way to lock down your application to accept traffic only from your s
     </configuration>
     ```
 
+* Azure Front Door also supports the *AzureFrontDoor.Frontend* service tag, which provides the list of IP addresses that clients use when connecting to Front Door. You can use the *AzureFrontDoor.Frontend* service tag when you’re controlling the outbound traffic that should be allowed to connect to services deployed behind Azure Front Door. Azure Front Door also supports an additional service tag, *AzureFrontDoor.FirstParty*, to integrate internally with other Azure services. See [available service tags](../../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
+
 ### Can the anycast IP change over the lifetime of my Front Door?
 
 The frontend anycast IP for your Front Door should typically not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly don't take any direct dependencies on the IP.
@@ -133,9 +138,10 @@ Yes, Azure Front Door supports the X-Forwarded-For, X-Forwarded-Host, and X-Forw
 
 ### How long does it take to deploy an Azure Front Door? Does my Front Door still work when being updated?
 
-A new Front Door creation or any updates to an existing Front Door takes about 3 to 5 minutes for global deployment. That means in about 3 to 5 minutes, your Front Door configuration will be deployed across all of our POPs globally.
+Most Rules Engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
 
-Note - Custom TLS/SSL certificate updates take about 30 minutes to be deployed globally.
+ > [!Note]  
+  > Most custom TLS/SSL certificate updates take from several minutes to an hour to be deployed globally.
 
 Any updates to routes or backend pools are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates won't cause any outage, unless you're switching from 'Azure Front Door Managed' to 'Use your own cert' or the other way around.
 
@@ -144,15 +150,17 @@ Any updates to routes or backend pools are seamless and will cause zero downtime
 
 ### Can Azure Front Door load balance or route traffic within a virtual network?
 
-Azure Front Door (AFD) requires a public IP or a publicly resolvable DNS name to route traffic. Azure Front Door can't route directly to resources in a virtual network. You can use an Application Gateway or an Azure Load Balancer with a public IP to solve this problem.
+Azure Front Door (Standard) requires a public IP or a publicly resolvable DNS name to route traffic. Azure Front Door can't route directly to resources in a virtual network. You can use an Application Gateway or an Azure Load Balancer with a public IP to solve this problem.
+
+Azure Front Door (Premium) supports routing traffic to [Private Link origins](../private-link.md).
 
 ### What are the various timeouts and limits for Azure Front Door?
 
-Learn about all the documented [timeouts and limits for Azure Front Door](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits).
+Learn about all the documented [timeouts and limits for Azure Front Door](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-classic-limits).
 
 ### How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
 
-The Rules Engine configuration takes about 10 to 15 minutes to complete an update. You can expect the rule to take effect as soon as the update is completed. 
+Most rules engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
 
 ### Can I configure Azure CDN behind my Front Door profile or Front Door behind my Azure CDN?
 
@@ -170,73 +178,7 @@ Azure Front Door is a globally distributed multi-tenant platform with huge amoun
 
 All Front Door profiles created after September 2019 use TLS 1.2 as the default minimum.
 
-Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 isn't yet supported.
-
-### What certificates are supported on Azure Front Door?
-
-To enable the HTTPS protocol on a Front Door custom domain, you can choose a certificate that gets managed by Azure Front Door or use your own certificate.
-The Front Door managed option provisions a standard TLS/SSL certificate via Digicert and  stored in Front Door's Key Vault. If you choose to use your own certificate, then you can onboard a certificate from a supported CA and can be a standard TLS, extended validation certificate, or even a wildcard certificate. Self-signed certificates aren't supported.
-
-### Does Front Door support autorotation of certificates?
-
-For the Front Door managed certificate option, the certificates are autorotated by Front Door. If you're using a Front Door managed certificate and see that the certificate expiry date is less than 60 days away, file a support ticket.
-
-For your own custom TLS/SSL certificate, autorotation isn't supported. Similar to how you set up the first time for a given custom domain, you'll need to point Front Door to the right certificate version in your Key Vault. Ensure that the service principal for Front Door still has access to the Key Vault. This updated certificate rollout operation by Front Door doesn't cause any production down time provided the subject name or SAN for the certificate doesn't change.
-
-### What are the current cipher suites supported by Azure Front Door?
-
-For TLS1.2 the following cipher suites are supported: 
-
-- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-
-Using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
-
-- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
-- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
-- TLS_RSA_WITH_AES_256_GCM_SHA384
-- TLS_RSA_WITH_AES_128_GCM_SHA256
-- TLS_RSA_WITH_AES_256_CBC_SHA256
-- TLS_RSA_WITH_AES_128_CBC_SHA256
-- TLS_RSA_WITH_AES_256_CBC_SHA
-- TLS_RSA_WITH_AES_128_CBC_SHA
-- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
-
-### Can I configure TLS policy to control TLS Protocol versions?
-
-You can configure a minimum TLS version in Azure Front Door in the custom domain HTTPS settings using the Azure portal or the [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Currently, you can choose between 1.0 and 1.2.
-
-### Can I configure Front Door to only support specific cipher suites?
-
-No, configuring Front Door for specific cipher suites isn't supported. You can get your own custom TLS/SSL certificate from your Certificate Authority (say Verisign, Entrust, or Digicert). Then have specific cipher suites marked on the certificate when you generate it. 
-
-### Does Front Door support OCSP stapling?
-
-Yes, OCSP stapling is supported by default by Front Door and no configuration is required.
-
-### Does Azure Front Door also support re-encryption of traffic to the backend?
-
-Yes, Azure Front Door supports TLS/SSL offload and end to end TLS, which re-encrypts the traffic to the backend. Since the connections to the backend happen over the public IP, it's recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
-
-### Does Front Door support self-signed certificates on the backend for HTTPS connection?
-
-No, self-signed certificates aren't supported on Front Door and the restriction applies to both:
-
-* **Backends**: You can't use self-signed certificates when you're forwarding the traffic as HTTPS or HTTPS health probes or filling the cache for from origin for routing rules with caching enabled.
-* **Frontend**: You can't use self-signed certificates when using your own custom TLS/SSL certificate for enabling HTTPS on your custom domain.
+Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 isn't yet supported. Refer to [Azure Front Door end-to-end TLS](../concept-end-to-end-tls.md) for more details.
 
 ### Why is HTTPS traffic to my backend failing?
 
@@ -244,7 +186,7 @@ For having successful HTTPS connections to your backend whether for health probe
 
 * **Certificate subject name mismatch**: For HTTPS connections, Front Door expects that your backend presents certificate from a valid CA with subject name(s) matching the backend hostname. As an example, if your backend hostname is set to `myapp-centralus.contosonews.net` and the certificate that your backend presents during the TLS handshake doesn't have `myapp-centralus.contosonews.net` or `*myapp-centralus*.contosonews.net` in the subject name. Then Front Door will refuse the connection and result in an error. 
     * **Solution**: It isn't recommended from a compliance standpoint but you can work around this error by disabling the certificate subject name check for your Front Door. You can find this option under Settings in Azure portal and under BackendPoolsSettings in the API.
-* **Backend hosting certificate from invalid CA**: Only certificates from [valid Certificate Authorities](troubleshoot-allowed-certificate-authority.md) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
+* **Backend hosting certificate from invalid CA**: Only certificates from [valid Certificate Authorities](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
 
 ### Can I use client/mutual authentication with Azure Front Door?
 
@@ -267,6 +209,12 @@ Audit logs are available for Azure Front Door. In the portal, select **Activity 
 ### Can I set alerts with Azure Front Door?
 
 Yes, Azure Front Door does support alerts. Alerts are configured on metrics. 
+
+## Billing
+
+### Will I be billed for the Azure Front Door resources that are disabled?
+
+Azure Front Door resources, like Front Door profiles, are not billed if disabled.
 
 ## Next steps
 

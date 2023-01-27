@@ -3,14 +3,14 @@ title: Common alerts and resolutions in Azure AD Domain Services | Microsoft Doc
 description: Learn how to resolve common alerts generated as part of the health status for Azure Active Directory Domain Services
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: amycolannino
 
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/09/2020
+ms.date: 09/20/2022
 ms.author: justinha
 
 ---
@@ -134,7 +134,8 @@ This alert is generated when one of these required resources is deleted. If the 
 1. In the health page, select the alert with the ID *AADDS109*.
 1. The alert has a timestamp for when it was first found. If that timestamp is less than 4 hours ago, the Azure platform may be able to automatically recreate the resource and resolve the alert by itself.
 
-    If the alert is more than 4 hours old, the managed domain is in an unrecoverable state. [Delete the managed domain](delete-aadds.md) and then [create a replacement managed domain](tutorial-create-instance.md).
+    For different reasons, the alert may be older than 4 hours. In that case, you can [delete the managed domain](delete-aadds.md) and then [create a replacement managed domain](tutorial-create-instance.md) for an immediate fix, or you can open a support request to fix the instance. Depending on the nature of the problem, support may require a restore from backup.
+
 
 ## AADDS110: The subnet associated with your managed domain is full
 
@@ -192,7 +193,9 @@ The managed domain's health automatically updates itself within two hours and re
 
 ### Resolution
 
-This error is unrecoverable. To resolve the alert, [delete your existing managed domain](delete-aadds.md) and recreate it. If you have trouble deleting the managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+Azure AD DS creates additional resources to function properly, such as public IP addresses, virtual network interfaces, and a load balancer. If any of these resources are modified, the managed domain is in an unsupported state and can't be managed. For more information about these resources, see [Network resources used by Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
+
+This alert is generated when one of these required resources is modified and can't automatically be recovered by Azure AD DS. To resolve the alert, [open an Azure support request][azure-support] to fix the instance.
 
 ## AADDS114: Subnet invalid
 

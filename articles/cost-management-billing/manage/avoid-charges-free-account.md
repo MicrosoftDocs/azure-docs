@@ -6,13 +6,13 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 03/22/2022
 ms.author: banders
 ---
 
 # Avoid charges with your Azure free account
 
-Eligible new users get USD200 Azure credit in your billing currency for the first 30 days and a limited quantity of free services for 12 months with your [Azure free account](https://azure.microsoft.com/free/). To learn about limits of free services, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). As long as you have unexpired credit or you use only free services within the limits, you're not charged.
+Eligible new users get $200 Azure credit in your billing currency for the first 30 days and a limited quantity of free services for 12 months with your [Azure free account](https://azure.microsoft.com/free/). To learn about limits of free services, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). As long as you have unexpired credit or you use only free services within the limits, you're not charged.
 
 Let's look at some of the reasons you can incur charges on your Azure free account.
 
@@ -26,7 +26,7 @@ You get a limited quantity of free services each month with your Azure free acco
 
 ## You used some services that aren't free
 
-Once you've upgraded your account, you get charged pay-as-you-go rates for using services that aren't included for free with your Azure free account. Only certain tiers within a service are included for free. To learn about services included with your free account, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). You can check your service usage in the Azure portal. To learn more, see [Plan and control expenses](../cost-management-billing-overview.md#plan-and-control-expenses).
+Once you've upgraded your account, you get charged pay-as-you-go rates for using services that aren't included for free with your Azure free account. Only certain tiers within a service are included for free. To learn about services included with your free account, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). You can check your service usage in the Azure portal. To learn more, see [Report on and analyze costs](../cost-management-billing-overview.md#report-on-and-analyze-costs).
 
 ## You reached the end of your free 12 months
 

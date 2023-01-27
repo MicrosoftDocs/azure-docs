@@ -3,8 +3,9 @@ title: Manage QnA Maker App - QnA Maker
 description: QnA Maker allows multiple people to collaborate on a knowledge base. QnA Maker offers a capability to improve the quality of your knowledge base with active learning. One can review, accept or reject, and add without removing or changing existing questions.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2020
+ms.custom: ignite-fall-2021
 ---
 
 # Manage QnA Maker app
@@ -12,21 +13,25 @@ ms.date: 11/09/2020
 QnA Maker allows you to collaborate with different authors and content editors by offering a capability to restrict collaborator access based on the collaborator's role.
 Learn more about [QnA Maker collaborator authentication concepts](../Concepts/role-based-access-control.md).
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Add Azure role-based access control (Azure RBAC)
 
 QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/role-assignments-portal.md).
 
-## Access at the QnA Maker resource level
+## Access at the cognitive resource level
 
 You cannot share a particular knowledge base in a QnA Maker service. If you want more granular access control, consider distributing your knowledge bases across different QnA Maker resources, then add roles to each resource.
 
 ## Add a role to a resource
 
-### Add a user account to the QnA Maker resource
+### Add a user account to the cognitive resource
+
+You should apply RBAC controls to the QnA Maker resource.
 
 The following steps use the collaborator role but any of the roles can be added using these steps
 
-1. Sign in to the [Azure](https://portal.azure.com/) portal, and go to your QnA Maker resource.
+1. Sign in to the [Azure](https://portal.azure.com/) portal, and go to your cognitive resource.
 
     ![QnA Maker resource list](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.png)
 

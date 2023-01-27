@@ -1,16 +1,15 @@
 ---
 title: Microsoft Security Code Analysis releases
 description: This article describes upcoming releases for the Microsoft Security Code Analysis extension
-author: sukhans
+author: TerryLanfear
 manager: sukhans
 ms.author: terrylan
-ms.date: 03/22/2021
+ms.date: 01/09/2023
 ms.topic: article
 ms.service: security
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
@@ -18,7 +17,7 @@ ms.workload: na
 # Microsoft Security Code Analysis releases and roadmap
 
 > [!Note]
-> Effective March 1, 2022, the Microsoft Security Code Analysis (MSCA) extension will be retired. Existing MSCA customers will retain their access to MSCA through March 1, 2022. Please refer to the [OWASP Source Code Analysis Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) for alternative options in Azure DevOps. For customers planning to migrate to GitHub, you can check out [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
+> Effective December 31, 2022, the Microsoft Security Code Analysis (MSCA) extension is retired. MSCA is replaced by the [Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension). Follow the instructions in [Configure](/azure/defender-for-cloud/azure-devops-extension) to install and configure the extension.
 
 Microsoft Security Code Analysis team in partnership with Developer Support is proud to announce recent and upcoming enhancements to our MSCA extension.
 
@@ -76,4 +75,4 @@ The deprecated MSRD fuzzing service will be replaced with an open source self-ho
 
 For instructions on how to onboard and install Microsoft Security Code Analysis, refer to our [Onboarding and installation guide](security-code-analysis-onboard.md).
 
-If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).
+If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.yml).

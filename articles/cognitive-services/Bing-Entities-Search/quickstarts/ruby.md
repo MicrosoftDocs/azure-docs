@@ -5,20 +5,18 @@ description: Use this quickstart to send a request to the Bing Entity Search RES
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
+ms.devlang: ruby
+ms.custom: mode-api
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using Ruby
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Ruby application sends a news search query to the API, and displays the response. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 
@@ -43,8 +41,8 @@ Although this application is written in Ruby, the API is a RESTful Web service c
 2. Create variables for your API endpoint, News search URL, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     
     ```ruby
-    host = 'https://api.cognitive.microsoft.com'
-    path = '/bing/v7.0/entities'
+    host = 'https://api.bing.microsoft.com'
+    path = '/v7.0/search'
     
     mkt = 'en-US'
     query = 'italian restaurants near me'

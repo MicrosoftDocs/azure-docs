@@ -4,16 +4,16 @@ description: Step-by-step instructions for assigning a managed identity on one r
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: amycolannino
 editor: 
 
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -31,15 +31,22 @@ After you've configured an Azure resource with a managed identity, you can give 
 
 ## Use Azure RBAC to assign a managed identity access to another resource
 
+>[!IMPORTANT]
+> The steps outlined below show is how you grant access to a service using Azure RBAC. Check specific service documentation on how to grant access - for example check Azure Data Explorer for instructions. Some Azure services are in the process of adopting Azure RBAC on the data plane
+
 After you've enabled managed identity on an Azure resource, such as an [Azure VM](qs-configure-portal-windows-vm.md) or [Azure virtual machine scale set](qs-configure-portal-windows-vmss.md):
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription under which you have configured the managed identity.
 
 2. Navigate to the desired resource on which you want to modify access control. In this example, we are giving an Azure virtual machine access to a storage account, so we navigate to the storage account.
 
-3. Select the **Access control (IAM)** page of the resource, and select **+ Add role assignment**. Then specify the **Role**, **Assign access to**, and specify the corresponding **Subscription**. Under the search criteria area, you should see the resource. Select the resource, and select **Save**. 
+1. Select **Access control (IAM)**.
 
-   ![Access control (IAM) screenshot](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+1. Select the role and managed identity. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
      
 ## Next steps
 

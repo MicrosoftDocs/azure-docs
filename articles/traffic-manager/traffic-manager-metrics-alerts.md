@@ -2,14 +2,13 @@
 title: Metrics and Alerts in Azure Traffic Manager
 description: In this article, learn the metrics and alerts available for Traffic Manager in Azure.
 services: traffic-manager
-author: duongau
+author: greg-lindsay
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
-ms.author: duau
+ms.author: greglin
 ---
 
 # Traffic Manager metrics and alerts
@@ -57,6 +56,17 @@ You can consume these metrics through [Azure Monitor service](../azure-monitor/e
 
 ## Alerts on Traffic Manager metrics
 In addition to processing and displaying metrics from Traffic Manager, Azure Monitor enables customers to configure and receive alerts associated with these metrics. You can choose what conditions need to be met in these metrics for an alert to occur, how often those conditions need to be monitored, and how the alerts should be sent to you. For more information, see [Azure Monitor alerts documentation](../azure-monitor/alerts/alerts-metric.md).
+
+Alert monitoring is important to ensure the system notifies when probes are down. Overly sensitive monitoring can be a distraction. Traffic Manager deploys multiple probes to increase resiliency. The threshold for probe statuses should be less than 0.5. If the average for **up** status falls below 0.5 (meaning less than 50% of probes are up) there should be an alert for an endpoint failure.
+
+> [!NOTE]
+> Multiple probes are deployed to increase resiliency. If one probe is down out of the many that are being sent, it doesn't necessarily reflect that the endpoint is down. The endpoint is only classified as down if the majority of probes returned are down.
+
+The following configuration is an example of an alert setup.
+
+:::image type="content" source="./media/traffic-manager-metrics-alerts/alert-example.png" alt-text="Screenshot of probe threshold alert example.":::
+
+For more information about probes and monitoring, see [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md).
 
 ## Next steps
 - Learn more about [Azure Monitor service](../azure-monitor/essentials/metrics-supported.md)

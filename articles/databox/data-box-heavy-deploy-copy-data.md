@@ -9,7 +9,6 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.localizationpriority: high 
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 ::: zone target = "docs"

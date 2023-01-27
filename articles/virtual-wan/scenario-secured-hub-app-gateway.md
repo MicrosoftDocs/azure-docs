@@ -1,13 +1,13 @@
 ---
 title: 'Secure traffic between Application Gateway and backend pools'
 titleSuffix: Azure Virtual WAN
-description: Scenarios for routing - secure traffic traveling through an application gateway deployed in a spoke VNet connected to a secured Virtual WAN hub.
+description: Learn about Virtual WAN routing scenarios for secure traffic traveling through an application gateway. The application gateway is deployed in a spoke VNet that is connected to a secured Virtual WAN hub.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 
 ---

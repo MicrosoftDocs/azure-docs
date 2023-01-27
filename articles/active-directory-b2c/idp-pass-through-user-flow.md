@@ -3,15 +3,15 @@ title: Pass an identity provider access token to your app
 titleSuffix: Azure AD B2C
 description: Learn how to pass an access token for OAuth 2.0 identity providers as a claim in a user flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 03/10/2022
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -30,7 +30,7 @@ Azure AD B2C supports passing the access token of [OAuth 2.0](add-identity-provi
 
 ::: zone pivot="b2c-custom-policy"
 
-Azure AD B2C supports passing the access token of [OAuth 2.0](authorization-code-flow.md) and [OpenID Connect](openid-connect.md) identity providers. For all other identity providers, the claim is returned blank.
+Azure AD B2C supports passing the access token of [OAuth 2.0](authorization-code-flow.md) and [OpenID Connect](openid-connect.md) identity providers. For all other identity providers, the claim is returned blank. For more details, check out the identity providers federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers).
 
 ::: zone-end
 
@@ -47,23 +47,24 @@ The following diagram shows how an identity provider token returns to your app:
 ## Enable the claim
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-4. Select **User flows (policies)**, and then select your user flow. For example, **B2C_1_signupsignin1**.
-5. Select **Application claims**.
-6. Enable the **Identity Provider Access Token** claim.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+1. Select **User flows (policies)**, and then select your user flow. For example, **B2C_1_signupsignin1**.
+1. Select **Application claims**.
+1. Enable the **Identity Provider Access Token** claim.
 
     ![Enable the Identity Provider Access Token claim](./media/idp-pass-through-user-flow/identity-provider-pass-through-app-claim.png)
 
-7. Click **Save** to save the user flow.
+1. Click **Save** to save the user flow.
 
 ## Test the user flow
 
 When testing your applications in Azure AD B2C, it can be useful to have the Azure AD B2C token returned to `https://jwt.ms` to review the claims in it.
 
 1. On the Overview page of the user flow, select **Run user flow**.
-2. For **Application**, select your application that you previously registered. To see the token in the example below, the **Reply URL** should show `https://jwt.ms`.
-3. Click **Run user flow**, and then sign in with your account credentials. You should see the access token of the identity provider in the **idp_access_token** claim.
+1. For **Application**, select your application that you previously registered. To see the token in the example below, the **Reply URL** should show `https://jwt.ms`.
+1. Click **Run user flow**, and then sign in with your account credentials. You should see the access token of the identity provider in the **idp_access_token** claim.
 
     You should see something similar to the following example:
 
@@ -90,7 +91,7 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
     </BuildingBlocks>
     ```
 
-2. Add the **OutputClaim** element to the **TechnicalProfile** element for each OAuth 2.0 identity provider that you would like the access token for. The following example shows the element added to the Facebook technical profile:
+1. Add the **OutputClaim** element to the **TechnicalProfile** element for each OAuth 2.0 identity provider that you would like the access token for. The following example shows the element added to the Facebook technical profile:
 
     ```xml
     <ClaimsProvider>
@@ -106,8 +107,8 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
     </ClaimsProvider>
     ```
 
-3. Save the *TrustframeworkExtensions.xml* file.
-4. Open your relying party policy file, such as *SignUpOrSignIn.xml*, and add the **OutputClaim** element to the **TechnicalProfile**:
+1. Save the *TrustframeworkExtensions.xml* file.
+1. Open your relying party policy file, such as *SignUpOrSignIn.xml*, and add the **OutputClaim** element to the **TechnicalProfile**:
 
     ```xml
     <RelyingParty>
@@ -121,7 +122,7 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
     </RelyingParty>
     ```
 
-5. Save the policy file.
+1. Save the policy file.
 
 ## Test your policy
 
@@ -130,19 +131,20 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 ### Upload the files
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Identity Experience Framework**.
-5. On the Custom Policies page, click **Upload Policy**.
-6. Select **Overwrite the policy if it exists**, and then search for and select the *TrustframeworkExtensions.xml* file.
-7. Select **Upload**.
-8. Repeat steps 5 through 7 for the relying party file, such as *SignUpOrSignIn.xml*.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Identity Experience Framework**.
+1. On the Custom Policies page, click **Upload Policy**.
+1. Select **Overwrite the policy if it exists**, and then search for and select the *TrustframeworkExtensions.xml* file.
+1. Select **Upload**.
+1. Repeat steps 5 through 7 for the relying party file, such as *SignUpOrSignIn.xml*.
 
 ### Run the policy
 
 1. Open the policy that you changed. For example, *B2C_1A_signup_signin*.
-2. For **Application**, select your application that you previously registered. To see the token in the example below, the **Reply URL** should show `https://jwt.ms`.
-3. Select **Run now**.
+1. For **Application**, select your application that you previously registered. To see the token in the example below, the **Reply URL** should show `https://jwt.ms`.
+1. Select **Run now**.
 
     You should see something similar to the following example:
 

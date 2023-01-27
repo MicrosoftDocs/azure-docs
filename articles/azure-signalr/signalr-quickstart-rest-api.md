@@ -1,11 +1,12 @@
 ---
 title: Quickstart - Azure SignalR Service REST API
-description: Learn how to use REST API with Azure SignalR Service following samples. Find details of REST API specification. 
-author: sffamily
+description: Learn how to use REST API with Azure SignalR Service following samples. Find details of REST API specification.
+author: vicancy
 ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
-ms.author: zhshang
+ms.author: lianwei
+ms.custom: mode-api
 ---
 # Quickstart: Broadcast real-time messages from console app
 
@@ -17,7 +18,7 @@ In this quickstart, you will learn how to send messages from a command-line app 
 
 This quickstart can be run on macOS, Windows, or Linux.
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/core)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * A text editor or code editor of your choice.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -26,7 +27,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
+Sign in to the [Azure portal](https://portal.azure.com) using your Azure account.
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
 

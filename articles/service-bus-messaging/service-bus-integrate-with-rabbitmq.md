@@ -1,16 +1,16 @@
 ---
-title: How to integrate RabbitMQ with Azure Service Bus
-description: Step-by-step guide on how to integrate RabbitMQ with Azure Service Bus
-services: Azure Service Bus
+title: How to integrate Service Bus with RabbitMQ
+description: Step-by-step guide on how to integrate Service Bus with RabbitMQ
 author: videlalvaro
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 11/17/2021
 ms.author: alvidela
+ms.custom: contperf-fy22q2
 ---
 
-# How to integrate RabbitMQ with Azure Service Bus
+# How to integrate Service Bus with RabbitMQ
 
-In this guide, we're going to learn how to send messages from RabbitMQ to Azure Service Bus.
+In this guide, we're going to learn how to send messages from RabbitMQ to Service Bus.
 
 Here's a few scenarios in which we can make use of these capabilities:
 
@@ -102,7 +102,7 @@ In the `Address` field we'll enter the name of your **Azure Service Bus Queue**,
 
 ## Publishing Messages from RabbitMQ to Azure Service Bus
 
-In the RabbitMQ Management interface we can go to `Queues`, select the `azure` queue, and search for the `Publish message` panel. There a form will appear that will let you publish messages directly to your queue. For our example we're just going to add `fist message` as the `Payload` and hit `Publish Message`:
+In the RabbitMQ Management interface we can go to `Queues`, select the `azure` queue, and search for the `Publish message` panel. There a form will appear that will let you publish messages directly to your queue. For our example we're just going to add `first message` as the `Payload` and hit `Publish Message`:
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Publish first message":::
 

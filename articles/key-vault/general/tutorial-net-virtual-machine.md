@@ -9,7 +9,8 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: mbaldwin
-ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell"
+ms.devlang: csharp
+ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli"
 
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
@@ -127,7 +128,7 @@ Set-AzKeyVaultAccessPolicy -ResourceGroupName <YourResourceGroupName> -VaultName
 
 ## Sign in to the virtual machine
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure Linux virtual machine](../../virtual-machines/linux/login-using-aad.md).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure Linux virtual machine](../../virtual-machines/linux-vm-connect.md).
 
 ## Set up the console app
 
@@ -135,7 +136,7 @@ Create a console app and install the required packages using the `dotnet` comman
 
 ### Install .NET Core
 
-To install .NET Core, go to the [.NET downloads](https://www.microsoft.com/net/download) page.
+To install .NET Core, go to the [.NET downloads](https://dotnet.microsoft.com/download) page.
 
 ### Create and run a sample .NET app
 
@@ -200,7 +201,7 @@ Add these lines, updating the URI to reflect the `vaultUri` of your key vault. B
             Console.Write("Input the value of your secret > ");
             string secretValue = Console.ReadLine();
 
-            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "' ...");
 
             client.SetSecret(secretName, secretValue);
 

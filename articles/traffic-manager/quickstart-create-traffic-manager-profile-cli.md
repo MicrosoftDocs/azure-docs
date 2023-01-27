@@ -2,17 +2,16 @@
 title: 'Quickstart: Create a profile for HA of applications - Azure CLI - Azure Traffic Manager'
 description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application by using Azure CLI.
 services: traffic-manager
-author: duongau
-mnager: kumud
-# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+author: greg-lindsay
+manager: kumud
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/09/2020
-ms.author: duau
-ms.custom: devx-track-azurecli
+ms.date: 04/19/2021
+ms.author: greglin
+ms.custom: devx-track-azurecli, mode-api
+#Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Traffic Manager profile for a highly available web application using Azure CLI
@@ -21,9 +20,11 @@ This quickstart describes how to create a Traffic Manager profile that delivers 
 
 In this quickstart, you'll create two instances of a web application. Each of them is running in a different Azure region. You'll create a Traffic Manager profile based on [endpoint priority](traffic-manager-routing-methods.md#priority-traffic-routing-method). The profile directs user traffic to the primary site running the web application. Traffic Manager continuously monitors the web application. If the primary site is unavailable, it provides automatic failover to the backup site.
 
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagram of Traffic Manager deployment environment using CLI." border="false":::
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -155,7 +156,7 @@ Make note of ID displayed in output and use in the following command to add the 
 ```azurecli-interactive
 
 az network traffic-manager endpoint create \
-    --name <app1name_westeurope> \
+    --name <app2name_westeurope> \
     --resource-group myResourceGroup \
     --profile-name <profile_name> \
     --type azureEndpoints \

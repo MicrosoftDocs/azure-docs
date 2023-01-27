@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Mobility Service push installation with Azure Site Recovery
 description: Troubleshoot Mobility Services installation errors when enabling replication for disaster recovery with Azure Site Recovery.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: ankitaduttaMSFT
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: ramamill
-ms.date: 04/03/2020
+ms.author: ankitadutta
+ms.date: 05/27/2021
 ---
 
 # Troubleshoot Mobility service push installation
@@ -118,9 +118,9 @@ To resolve the error:
 
 * Ensure that the network shared folders on your virtual machine, are accessible from the process server. Check the steps [here](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523).
 
-* From the source server machine command line, use `Telnet` to ping the configuration server or scale-out process server on HTTPS port 135 as shown in the following command. This command checks if there are any network connectivity issues or firewall port blocking issues.
+* From the configuration server or scale-out process server command line, use `Telnet` to ping the source VM on port 135 as shown in the following command. This command checks if there are any network connectivity issues or firewall port blocking issues.
 
-  `telnet <CS/ scale-out PS IP address> <135>`
+  `telnet <Source IP address> <135>`
 
 * Additionally, for a Linux VM:
   * Check if latest OpenSSH, OpenSSH Server, and OpenSSL packages are installed.

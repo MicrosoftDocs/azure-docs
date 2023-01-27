@@ -3,20 +3,14 @@
 title: What is the sign-in diagnostic for Azure Active Directory?
 description: Provides a general overview of the sign-in diagnostic in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: daveba
-editor: ''
-
-ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/15/2020
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: tspring  
 
 # Customer intent: As an Azure AD administrator, I want a tool that gives me the right level of insights into the sign-in activities in my system so that I can easily diagnose and solve problems when they occur.
@@ -25,152 +19,128 @@ ms.collection: M365-identity-device-management
 
 # What is the sign-in diagnostic in Azure AD?
 
-Azure Active Directory (Azure AD) provides you with a flexible security model to control what users can do with  managed resources. Access to these resources is controlled not only by *who* they are, but also by *how* they access them. Typically, a flexible model comes with a certain degree of complexity because of the number of configuration options you have. Complexity has the potential to increase the risk for errors.
+Determining the reason for a failed sign-in can quickly become a challenging task. You need to analyze what happened during the sign-in attempt, and research the available recommendations to resolve the issue. Ideally, you want to resolve the issue without involving others such as Microsoft support. If you are in a situation like this, you can use the sign-in diagnostic in Azure AD, a tool that helps you investigating sign-ins in Azure AD. 
 
-As an IT admin, you need a solution that gives you insight into the activities in your system. This visibility can let you diagnose and solve problems when they occur. The sign-in diagnostic for Azure AD is an example of such a solution. You can use the diagnostic to analyze what happened during a sign-in attempt and get recommendations for resolving problems without needing to involve Microsoft support.
+This article gives you an overview of what the diagnostic is and how you can use it to troubleshoot sign-in related errors. 
 
-This article gives you an overview of what the solution does and how you can use it.
 
-## Requirements
+## How it works  
 
-The sign-in diagnostic is available in all editions of Azure AD.
+In Azure AD, sign-in attempts are controlled by:
 
-You must be a global administrator in Azure AD to use it.
+- **Who** - The user performing a sign-in attempt.
+- **How** - How a sign-in attempt was performed.
 
-## How it works
+For example, you can configure conditional access policies that enable administrators to configure all aspects of the tenant when they sign in from the corporate network. But the same user might be blocked when they sign into the same account from an untrusted network. 
 
-In Azure AD, the response to a sign-in attempt is tied to *who* signs in and *how* they access the tenant. For example, an administrator can typically configure all aspects of the tenant when they sign in from the corporate network. But the same user might be blocked when they sign in with the same account from an untrusted network.
+Due to the greater flexibility of the system to respond to a sign-in attempt, you might end-up in scenarios where you need to troubleshoot sign-ins. The sign-in diagnostic is a tool that is designed to enable self-diagnosis of sign-in issues by:  
 
-Due to the greater flexibility of the system to respond to a sign-in attempt, you might end-up in scenarios where you need to troubleshoot sign-ins. The sign-in diagnostic is a feature that:
+- Analyzing data from sign-in events.  
 
-- Analyzes data from sign-in events.
+- Displaying information about what happened.  
 
-- Displays what happened.
+- Providing recommendations to resolve problems.  
 
-- Provides recommendations for how to resolve problems.
+To start and complete the diagnostic process, you need to:   
 
-The sign-in diagnostic for Azure AD is designed to enable self-diagnosis of sign-in errors. To complete the diagnostic process, you need to:
+1. **Identify event** - Start the diagnostic and review the flagged events users are asking assistance for, or enter information about the sign-in event to be investigated. 
 
-![Diagram showing the sign-in diagnostic.](./media/overview-sign-in-diagnostics/process.png)
+2. **Select event** - Select an event based on the information shared. 
 
-1. Define the scope of the sign-in events you care about.
+3. **Take action** - Review diagnostic results and perform steps. 
 
-2. Select the sign-in you want to review.
 
-3. Review the diagnostic results.
 
-4. Take action.
+### Identify event 
 
-### Define scope
+The diagnostic allows two methods to find events to investigate:  
 
-The goal of this step is to define the scope of the sign-in events to investigate. Your scope is either based on a user or on an identifier (correlationId, requestId) and a time range. To narrow down the scope further, you can specify an app name. Azure AD uses the scope information to locate the right events for you.  
+- Sign-in failures users have [flagged for assistance](overview-flagged-sign-ins.md). 
+- Search for specific events by the user and other criteria. 
 
-### Select sign-in  
+Flagged sign-ins are automatically presented in a list of up to 100. You can run diagnostics on an event immediately by clicking it.  
 
-Based on your search criteria, Azure AD retrieves all matching sign-in events and presents them in an authentication summary list view.
+You can search a specific event by selecting the search tab even when flagged sign-ins are present. 
+When searching for specific events, you can filter based on the following options: 
 
-![Partial screenshot showing the authentication summary section.](./media/overview-sign-in-diagnostics/authentication-summary.png)
+- Name of the user 
 
-You can customize the columns displayed in this view.
+- Application 
 
-### Review diagnostic
+- Correlation ID or request ID 
 
-For the selected sign-in event, Azure AD provides you with diagnostic results.
+- Date and time 
 
-![Partial screenshot showing the diagnostic results section.](./media/overview-sign-in-diagnostics/diagnostics-results.png)
 
-These results start with an assessment, which explains what happened in a few sentences. The explanation helps you to understand the behavior of the system.
 
-Next, you get a summary of the related conditional access policies that were applied to the selected sign-in event. The diagnostic results also include  recommended remediation steps to resolve your issue. Because it's not always possible to resolve issues without more help, a recommended step might be to open a support ticket.
+### Select event  
+
+For flagged sign-ins, or when a search has been done, Azure AD retrieves all matching sign-in events and presents them in an authentication summary list view. 
+
+
+![Screenshot showing the authentication summary list.](./media/overview-sign-in-diagnostics/review-sign-ins.png)
+
+You can change the content displayed in the columns based on your preference. Examples are:
+
+- Risk details
+- Conditional access status
+- Location
+- Resource ID
+- User type
+- Authentication details
 
 ### Take action
 
-At this point, you should have the information you need to fix your issue.
+For the selected sign-in event, you get a diagnostic result. Read through the results to identify action that you can take to fix the problem. These results add recommended steps and shed light on relevant information such as the related policies, sign-in details, and supportive documentation. Because it's not always possible to resolve issues without more help, a recommended step might be to open a support ticket. 
 
-## Scenarios
 
-The following scenarios are covered by the sign-in diagnostic:
+![Screenshot showing the diagnostic results.](./media/overview-sign-in-diagnostics/diagnostic-results.png)
 
-- Blocked by conditional access
 
-- Failed conditional access
 
-- Multifactor authentication (MFA) from conditional access
+## How to access it
 
-- MFA from other requirements
+To use the diagnostic, you must be signed into the tenant as a Global Administrator or a Global Reader.
 
-- MFA proof up required
+With the correct access level, you can find the diagnostic in various places: 
 
-- MFA proof up required (risky sign-in location)
+**Option A**: Diagnose and Solve Problems 
 
-- Successful sign-in
+![Screenshot showing how to launch sign-in diagnostics from conditional access.](./media/overview-sign-in-diagnostics/troubleshoot-link.png)
 
-### Blocked by conditional access
 
-In this scenario, a sign-in attempt has been blocked by a conditional access policy.
+1. Open **Azure Active Directory AAD or Azure AD Conditional Access**. 
 
-![Screenshot showing access configuration with Block access selected.](./media/overview-sign-in-diagnostics/block-access.png)
+1. From the main menu, select **Diagnose & Solve Problems**.  
 
-The diagnostic section for this scenario shows details about the user sign-in event and the applied policies.
+1. From the **Troubleshooters** section, select the **Troubleshoot** button from the sign-in diagnostic tile. 
+ 
 
-### Failed conditional access
+**Option B**: Sign-in Events 
 
-This scenario is typically a result of a sign-in attempt that failed because the requirements of a conditional access policy weren't satisfied. Common examples are:
+![Screenshot showing how to launch sign-in diagnostics from Azure AD.](./media/overview-sign-in-diagnostics/sign-in-logs-link.png)
 
-![Screenshot showing access configuration with common policy examples and Grant access selected.](./media/overview-sign-in-diagnostics/require-controls.png)
 
-- Require hybrid Azure AD joined device
 
-- Require approved client app
 
-- Require app protection policy
+1. Open Azure Active Directory. 
 
-The diagnostic section for this scenario shows details about the user sign-in attempt and the applied policies.
+2. On the main menu, in the **Monitoring** section, select **Sign-ins**. 
 
-### MFA from conditional access
+3. From the list of sign-ins, select a sign-in with a **Failure** status. You can filter your list by Status to make it easier to find failed sign-ins. 
 
-In this scenario, a conditional access policy has the requirement to sign in using multifactor authentication set.
+4. The **Activity Details: Sign-ins** tab will open for the selected sign-in. Select the dotted icon to view more menu icons. Select the **Troubleshooting and support** tab. 
 
-![Screenshot showing access configuration with Require multifactor authentication selected.](./media/overview-sign-in-diagnostics/require-mfa.png)
+5. Select the link to **Launch the Sign-in Diagnostic**. 
 
-The diagnostic section for this scenario shows details about the user sign-in attempt and the applied policies.
+ 
 
-### MFA from other requirements
+**Option C**: Support Case 
 
-In this scenario, a multifactor authentication requirement wasn't enforced by a conditional access policy. For example, multifactor authentication on a per-user basis.
+The diagnostic can also be found when creating a support case to give you the opportunity to self-diagnose before resorting to submitting a case. 
 
-![Screenshot showing multifactor authentication per user configuration.](./media/overview-sign-in-diagnostics/mfa-per-user.png)
 
-The intent of this diagnostic scenario is to provide more details about:
-
-- The source of the multifactor authentication interrupt
-- The result of the client interaction
-
-You can also view all details of the user sign-in attempt.
-
-### MFA proof up required
-
-In this scenario, sign-in attempts were interrupted by requests to set up multifactor authentication. This setup is also known as proof up.
-
-Multifactor authentication proof up occurs when a user is required to use multifactor authentication but hasn't configured it yet, or an administrator has required the user to configure it.
-
-The intent of this diagnostic scenario is to reveal that the multifactor authentication interruption was due to lack of user configuration. The recommended solution is for the user to complete the proof up.
-
-### MFA proof up required (risky sign-in location)
-
-In this scenario, sign-in attempts were interrupted by a request to set up multifactor authentication from a risky sign-in location.
-
-The intent of this diagnostic scenario is to reveal that the multifactor authentication interruption was due to lack of user configuration. The recommended solution is for the user to complete the proof up, specifically from a network location that doesn't appear risky.
-
-For example, if a corporate network is defined as a named location, the user should attempt to do the proof up from the corporate network instead.
-
-### Successful sign-in
-
-In this scenario, sign-in events weren't interrupted by conditional access or multifactor authentication.
-
-This diagnostic scenario provides details about user sign-in events that were expected to be interrupted due to conditional access policies or multifactor authentication.
 
 ## Next steps
 
-- [What are Azure Active Directory reports?](overview-reports.md)
-- [What is Azure Active Directory monitoring?](overview-monitoring.md)
+- [Sign in diagnostics for Azure AD scenarios](concept-sign-in-diagnostics-scenarios.md)

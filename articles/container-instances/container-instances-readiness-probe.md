@@ -1,13 +1,17 @@
 ---
 title: Set up readiness probe on container instance
 description: Learn how to configure a probe to ensure containers in Azure Container Instances receive requests only when they are ready
-ms.topic: article
-ms.date: 07/02/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Configure readiness probes
 
-For containerized applications that serve traffic, you might want to verify that your container is ready to handle incoming requests. Azure Container Instances supports readiness probes to include configurations so that your container can't be accessed under certain conditions. The readiness probe behaves like a [Kubernetes readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). For example, a container app might need to load a large data set during startup, and you don't want it to receive requests during this time.
+For containerized applications that serve traffic, you might want to verify that your container is ready to handle incoming requests. Azure Container Instances supports readiness probes to include configurations so that your container can't be accessed under certain conditions. The readiness probe behaves like a [Kubernetes readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). For example, a container application might need to load a large data set during startup, and you don't want it to receive requests during this time.
 
 This article explains how to deploy a container group that includes a readiness probe, so that a container only receives traffic when the probe succeeds.
 

@@ -6,7 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
@@ -16,6 +16,8 @@ ms.author: pafarley
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [Node.js](https://nodejs.org/)
+* [!INCLUDE [contributor-requirement](./contributor-requirement.md)]
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
@@ -43,8 +45,7 @@ Install the following NPM packages:
 
 ```console
 npm install @azure/arm-cognitiveservices
-npm install @azure/ms-rest-js
-npm install @azure/ms-rest-nodeauth
+npm install @azure/identity
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
@@ -96,6 +97,8 @@ To view all of the resources under your Azure account (across all resource group
 The following function deletes the specified resource from the given resource group.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_delete)]
+
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](../../manage-resources.md).
 
 ## Run the application
 

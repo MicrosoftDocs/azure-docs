@@ -4,7 +4,8 @@ description: This article tells how to implement error handling logic in graphic
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Handle errors in graphical runbooks

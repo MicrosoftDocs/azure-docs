@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Chaos Studio
+      tocHref: /azure/chaos-studio/
+      topicHref: /azure/chaos-studio/index
+      items:
+    - name: Chaos Studio
+      tocHref: /azure/architecture/
+      topicHref: /azure/chaos-studio/index

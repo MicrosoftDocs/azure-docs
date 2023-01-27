@@ -1,0 +1,135 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure API Management FAQs | Microsoft Docs
+  description: Learn the answers to frequently asked questions (FAQs) about Azure API Management.
+  services: api-management
+  documentationcenter: ''
+  author: dlepow
+  
+  ms.service: api-management
+  ms.topic: faq
+  ms.date: 10/24/2022
+  ms.author: danlep 
+  ms.custom: engagement-fy23,fasttrack-edit
+title: Azure API Management FAQs
+summary: |
+  Get the answers to common questions about Azure API Management.
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What does it mean when a feature is in preview?
+        answer: |
+          When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment.
+
+      - question: |
+          How do I find out about updates and changes to API Management?
+        answer: |
+          Subscribe to update announcements published in these locations:
+          
+          * [Azure API Management release notes](https://github.com/Azure/API-Management/releases).
+          * [Azure updates](https://azure.microsoft.com/updates/?query=%22API%20Management%22)
+          
+      - question: |
+          How can I secure the connection between the API Management gateway and my backend services?
+        answer: |
+          You have several options to secure the connection between the API Management gateway and your backend services, including:
+          
+          * Use subscription key authentication. On its own, a subscription key isn't a strong form of authentication, but is often used along with another method. For more information, see [Authentication and authorization in API Management](authentication-authorization-overview.md). 
+          * Use TLS mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
+          * Use IP filtering on your back-end service. In all tiers of API Management except the Consumption tier, the IP address of the gateway remains constant. For more information, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md).
+          * Connect your API Management instance to an [Azure virtual network](virtual-network-concepts.md).
+          * Configure OAuth 2.0 authorization. For more information, see [Authentication and authorization in API Management](authentication-authorization-overview.md).        
+
+      - question: |
+          How do I copy my API Management service instance to a new instance?
+        answer: |
+          You have several options, including:
+          
+          * Use the [backup and restore](api-management-howto-disaster-recovery-backup-restore.md) functionality in API Management.
+          * Create your own backup and restore feature by using the [API Management REST API](/rest/api/apimanagement/) to save and restore the entities from the service instance that you want.
+          * Download the service configuration by using [Git](api-management-configuration-repository-git.md), and then upload it to a new instance.
+      
+      - question: |
+          Can I move an API Management instance from one subscription to another?
+        answer: |
+          Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
+      - question: |
+          Can I manage my API Management instance programmatically?
+        answer: |
+          Yes, you can manage API Management programmatically by using a variety of tools, including:
+          
+          * The [API Management REST API](/rest/api/apimanagement/)
+          * Azure client SDKs for [.NET](/dotnet/api/overview/azure/api-management), [JavaScript](/javascript/api/overview/azure/api-management), [Java](/java/api/overview/azure/api-management), and other languages
+          * [Azure PowerShell](/powershell/module/az.apimanagement/) and [Azure CLI](/cli/azure/apim)
+          * [Azure Resource Manager](/azure/templates/microsoft.apimanagement/allversions) and Bicep templates. See example [quickstart templates](https://azure.microsoft.com/resources/templates/?Page=2&term=api+management).
+          * [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management)
+
+      - question: |
+          How do I add a user to the Administrators group?
+        answer: |
+          Administrators group is an immutable system group that includes Azure subscription administrators. You can't add a user to this group. For more information, see [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md). 
+          
+      - question: |
+          Why is the policy that I want to add unavailable in the policy editor?
+        answer: |
+          If the policy that you want to add appears greyed or shaded in the policy editor, be sure that you are in the correct scope for the policy. Each policy statement is designed for use in specific [scopes and policy sections](api-management-howto-policies.md). To review the policy sections and scopes for a policy, see the policy's Usage section in the [policy reference](./api-management-policies.md).
+
+      - question: |
+          How do I set up multiple environments in a single API?
+        answer: |
+          To set up multiple environments, for example, a test environment and a production environment, in a single API, you have two options. You can:
+          
+          * Host different APIs on the same API Management instance.
+          * Host the same APIs on different instances.
+          
+      - question: |
+          Does API Management only support REST API backends?
+        answer: |
+          API Management supports REST APIs as well as passthrough to [SOAP](import-soap-api.md), [WebSocket](websocket-api.md), and [GraphQL](graphql-api.md) APIs. API Management also supports [synthetic GraphQL](graphql-schema-resolve-api.md) APIs.
+
+          API Management also integrates with Azure compute offerings commonly used for building and hosting APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Container Apps](import-container-app-with-oas.md), and [Web Apps](import-app-service-as-api.md).
+
+      - question: |
+          Are there restrictions on importing my API?
+        answer: |
+          See [API import restrictions and known issues](api-management-api-import-restrictions.md) for OpenAPI (Swagger), WSDL, and WADL formats.
+                    
+      - question: |
+          Can I use CI/CD for API development?
+        answer: |
+          Yes. For more information, see [Use DevOps and CI/CD to publish APIs](devops-api-development-templates.md).
+
+          For architectural guidance, see [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator).     
+      
+      - question: |
+          What routing method does API Management use in deployments to multiple geographic locations?
+        answer: |
+          API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance) (lowest latency) in deployments to multiple geographic locations. For more information, see [Deploy an Azure API Management instance to multiple Azure regions](api-management-howto-deploy-multi-region.md).
+           
+      - question: |
+          Does API Management work with Azure ExpressRoute?
+        answer: |
+          Yes. 
+
+      - question: |
+          What is the minimum subnet size needed when deploying API Management into a VNet?
+        answer: |
+          The minimum subnet size needed to deploy API Management is /29. Learn more about using API Management in [virtual networks](virtual-network-concepts.md).
+
+      - question: |
+          Does API Management provide a web application firewall (WAF)?
+        answer: |
+          While API Management doesn't include a WAF component, deploying a WAF upstream (in front) of the API Management instance is recommended. For example, use [Azure Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) or [Azure Front Door](front-door-api-management.md).
+      - question: |
+          What are the differences between the managed gateway and the self-hosted gateway?
+        answer: |
+          For information, see [API gateway in API Management](api-management-gateways-overview.md) and the [Self-hosted gateway overview](self-hosted-gateway-overview.md).
+
+      - question: |
+          How does API Management handle trailing slashes when calling backend services?
+        answer: |
+          Historically and by convention a URL ending with a trailing slash is treated as a directory, for example `https://contoso.com/sample/` whereas the same URL without the trailing slash `https://contoso.com/sample` would indicate a file. This isn't mandated; some systems consider those two URLs unique, others consider them the same. API Management doesn’t make a distinction, thus a single operation `resource` will accept either `resource` or `resource/`. However, the distinction may matter to the backend host. Some web servers will automatically redirect a URL not ending with a trailing slash, to the same URL ending in a trailing slash. As API Management is the client to the backend (server), an automatic redirect isn't always desirable. If needed, create a [Rewrite URL policy](rewrite-uri-policy.md) to ensure a trailing slash is always added to the outbound backend call.
+ 

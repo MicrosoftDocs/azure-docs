@@ -1,19 +1,18 @@
 ---
-title: View reports & logs in entitlement management - Azure AD
-description: Learn how to view the user assignments report and audit logs in Azure Active Directory entitlement management.
+title: View reports & logs in entitlement management
+description: Learn how to view the user assignments report and audit logs in entitlement management.
 services: active-directory
 documentationCenter: ''
-author: barclayn
-manager: daveba
+author: owinfreyatl
+manager: amycolannino
 editor: jocastel-MSFT
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
-ms.author: barclayn
+ms.date: 01/25/2023
+ms.author: owinfrey
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 
@@ -22,9 +21,9 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# View reports and logs in Azure AD entitlement management
+# View reports and logs in entitlement management
 
-The Azure AD entitlement management reports and Azure AD audit log provide additional details about what resources users have access to. As an administrator, you can view the access packages and resource assignments for a user and view request logs for auditing purposes or to determine the status of a user's request. This article describes how to use the entitlement management reports and Azure AD audit logs.
+The entitlement management reports and Azure AD audit log provide additional details about what resources users have access to. As an administrator, you can view the access packages and resource assignments for a user and view request logs for auditing purposes or to determine the status of a user's request. This article describes how to use the entitlement management reports and Azure AD audit logs.
 
 Watch the following video to learn how to view what resources users have access to in entitlement management:
 
@@ -34,7 +33,7 @@ Watch the following video to learn how to view what resources users have access 
 
 This report enables you to list all of the access packages a user can request and the access packages that are currently assigned to the user.
 
-**Prerequisite role:** Global administrator or User administrator
+**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
 1. Click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -58,7 +57,7 @@ This report enables you to list all of the access packages a user can request an
 
 This report enables you to list the resources currently assigned to a user in entitlement management. Note that this report is for resources managed with entitlement management. The user might have access to other resources in your directory outside of entitlement management.
 
-**Prerequisite role:** Global administrator or User administrator
+**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
 1. Click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -109,5 +108,5 @@ When the user's access package assignment expires, is canceled by the user, or r
 ## Next steps
 
 - [Archive reports and Logs](entitlement-management-logs-and-reporting.md)
-- [Troubleshoot Azure AD entitlement management](entitlement-management-troubleshoot.md)
+- [Troubleshoot entitlement management](entitlement-management-troubleshoot.md)
 - [Common scenarios](entitlement-management-scenarios.md)

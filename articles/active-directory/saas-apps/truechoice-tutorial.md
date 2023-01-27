@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/11/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -47,6 +47,8 @@ To configure the integration of TrueChoice into Azure AD, you need to add TrueCh
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **TrueChoice** in the search box.
 1. Select **TrueChoice** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
 ## Configure and test Azure AD SSO for TrueChoice
@@ -89,19 +91,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. TrueChoice application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
-
-1. In addition to above, TrueChoice application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
-	| Name |  Source Attribute|
-	| ----------------- | --------- |
-	| country | user.country |
-	| name | user.displayname |
-    |
+	![image](./media/truechoice-tutorial/default-attributes.png)
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -142,9 +137,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to TrueChoice Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the TrueChoice tile in the My Apps, this will redirect to TrueChoice Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the TrueChoice tile in the My Apps, this will redirect to TrueChoice Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## Next steps
 
-Once you configure TrueChoice you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure TrueChoice you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

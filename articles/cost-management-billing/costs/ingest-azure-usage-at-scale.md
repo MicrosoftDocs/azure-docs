@@ -1,9 +1,10 @@
 ---
-title: Retrieve large cost datasets recurringly with exports
-description: This article helps you regularly export large amounts of data with exports from Azure Cost Management.
+title: Retrieve large cost datasets recurringly with exports from Cost Management
+titleSuffix: Microsoft Cost Management
+description: This article helps you regularly export large amounts of data with exports from Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/08/2021
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -11,7 +12,7 @@ ms.reviewer: adwise
 ---
 # Retrieve large cost datasets recurringly with exports
 
-This article helps you regularly export large amounts of data with exports from Azure Cost Management. Exporting is the recommended way to retrieve unaggregated cost data. Especially when usage files are too large to reliably call and download using the Usage Details API. Exported data is placed in the Azure Storage account that you choose. From there, you can load it into your own systems and analyze it as needed. To configure exports in the Azure portal, see [Export data](tutorial-export-acm-data.md).
+This article helps you regularly export large amounts of data with exports from Cost Management. Exporting is the recommended way to retrieve unaggregated cost data. Especially when usage files are too large to reliably call and download using the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. Exported data is placed in the Azure Storage account that you choose. From there, you can load it into your own systems and analyze it as needed. To configure exports in the Azure portal, see [Export data](tutorial-export-acm-data.md).
 
 If you want to automate exports at various scopes, the sample API request in the next section is a good starting point. You can use the Exports API to create automatic exports as a part of your general environment configuration. Automatic exports help ensure that you have the data that you need. You can use in your own organization's systems as you expand your Azure use.
 
@@ -27,7 +28,8 @@ Before you create your first export, consider your scenario and the configuratio
   - ActualCost - Shows the total usage and costs for the period specified, as they're accrued and shows on your bill.
   - AmortizedCost - Shows the total usage and costs for the period specified, with amortization applied to the reservation purchase costs that are applicable.
   - Usage - All exports created before July 20 2020 are of type Usage. Update all your scheduled exports as either ActualCost or AmortizedCost.
-- **Columns** – Defines the data fields you want included in your export file. They correspond with the fields available in the Usage Details API. For more information, see [Usage Details API](/rest/api/consumption/usagedetails/list).
+- **Columns** – Defines the data fields you want included in your export file. They correspond with the fields available in the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API.
+- **Partitioning** - Set the option to true if you have a large dataset and would like it to be broken up into multiple files. This makes data ingestion much faster and easier. For more information about partitioning, see [File partitioning for large datasets](../costs/tutorial-export-acm-data.md#file-partitioning-for-large-datasets).
 
 ## Create a daily month-to-date export for a subscription
 
@@ -73,13 +75,13 @@ Request URL: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostM
 
 ## Copy large Azure storage blobs
 
-You can use Cost Management to schedule exports of your Azure usage details into your Azure Storage accounts as blobs. The resulting blob sizes could be over gigabytes in size. The Azure Cost Management team worked with the Azure Storage team to test copying large Azure storage blobs. The results are documented in the following sections. You can expect to have similar results as you copy storage blobs from one Azure region to another.
+You can use Cost Management to schedule exports of your Azure usage details into your Azure Storage accounts as blobs. The resulting blob sizes could be over gigabytes in size. The Cost Management team worked with the Azure Storage team to test copying large Azure storage blobs. The results are documented in the following sections. You can expect to have similar results as you copy storage blobs from one Azure region to another.
 
 To test its performance, the team transferred blobs from storage accounts in the US West region to the same and other regions. The team measured speeds that ranged from 2 GB per second in the same region to 150 MB per second to storage accounts in the South East Asia region.
 
 ### Test configuration
 
-To measure blob transfer speeds, the team created a simple .NET console application referencing the latest version (v2.0.1) of the Azure Data Movement Library (DLM) via NuGet. DLM is an SDK provided by the Azure Storage team that facilitates programmatic access to their transfer services. Then they created Standard V2 storage accounts in multiple regions and use the West US as the source region. They populated the storage accounts there with containers, where each held ten 2-GB block blobs. They copied the containers to other storage accounts using DLM's _TransferManager.CopyDirectoryAsync()_ method with the _CopyMethod.ServiceSideSyncCopy_ option. Tests were conducted on a computer running Windows 10 with 12 cores and 1-GbE network.
+To measure blob transfer speeds, the team created a simple .NET console application referencing the latest version (v2.0.1) of the Azure Data Movement Library (DLM) via NuGet. DLM is an SDK provided by the Azure Storage team that enables programmatic access to their transfer services. Then they created Standard V2 storage accounts in multiple regions and use the West US as the source region. They populated the storage accounts there with containers, where each held ten 2-GB block blobs. They copied the containers to other storage accounts using DLM's _TransferManager.CopyDirectoryAsync()_ method with the _CopyMethod.ServiceSideSyncCopy_ option. Tests were conducted on a computer running Windows 10 with 12 cores and 1-GbE network.
 
 Application settings used:
 

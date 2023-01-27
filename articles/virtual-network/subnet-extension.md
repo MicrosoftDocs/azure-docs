@@ -3,19 +3,18 @@ title: Subnet extension in Azure | Microsoft Docs
 description: Learn about subnet extension in Azure.
 services: virtual-network
 documentationcenter: na
-author: anupam-p
+author: asudbring
 manager: narayan
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2019
-ms.author: anupand
+ms.author: allensu
 
 ---
 # Subnet extension
@@ -49,4 +48,4 @@ In the above example, the Azure NVA and the on-premises NVA communicate and lear
 In the next section, you'll find details on subnet extension solutions we've tested on Azure.
 
 ## Next steps 
-[Extend your subnet to Azure using vendor solutions.](https://github.com/microsoft/Azure-LISP)
+[Extend your on-premises subnets into Azure using Azure Extended Network](/windows-server/manage/windows-admin-center/azure/azure-extended-network).

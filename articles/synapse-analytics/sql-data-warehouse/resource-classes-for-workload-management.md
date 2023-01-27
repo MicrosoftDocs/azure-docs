@@ -1,15 +1,14 @@
 ---
 title: Resource classes for workload management 
 description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure Synapse Analytics.
-services: synapse-analytics
-author: ronortloff
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 02/04/2020
-ms.author: rortloff
-ms.reviewer: jrasnick
+ms.author: wiassaf
+ms.reviewer: sngun
 ms.custom: azure-synapse
 ---
 
@@ -79,8 +78,6 @@ The resource class of the service administrator is fixed at smallrc and cannot b
 
 > [!NOTE]
 > Users or groups defined as Active Directory admin are also service administrators.
->
->
 
 ## Resource class operations
 
@@ -102,8 +99,6 @@ These operations are governed by resource classes:
 
 > [!NOTE]  
 > SELECT statements on dynamic management views (DMVs) or other system views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
->
->
 
 ### Operations not governed by resource classes
 
@@ -180,8 +175,6 @@ Users can be members of multiple resource classes. When a user belongs to more t
 
 >[!NOTE]
 >Consider leveraging workload management capabilities ([workload isolation](sql-data-warehouse-workload-isolation.md), [classification](sql-data-warehouse-workload-classification.md) and [importance](sql-data-warehouse-workload-importance.md)) for more control over your workload and predictable performance.  
->
->
 
 We recommend creating a user that is dedicated to running a specific type of query or load operation. Give that user a permanent resource class instead of changing the resource class on a frequent basis. Static resource classes afford greater overall control on the workload, so we suggest using static resource classes before considering dynamic resource classes.
 

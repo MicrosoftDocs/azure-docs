@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 03/09/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Mini R is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -28,15 +28,16 @@ Azure Stack Edge Mini R has the following capabilities:
 |Rugged hardware| Rugged hardware designed for harsh environments.|
 |Ultra portable| Ultra portable, battery-operated form factor.|
 |Cloud-managed|Device and service are managed via the Azure portal.|
-|Edge compute workloads|Allows analysis, processing, filtering of data.<br>Supports VMs and containerized workloads. |
-|Accelerated AI inferencing| Enabled by the Intel Movidius Myriad X VPU.|
+|Edge compute workloads|Allows analysis, processing, filtering of data.<br>Supports VMs and containerized workloads. <ul><li>For information on VM workloads, see [VM overview on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-overview.md).</li> <li>For containerized workloads, see [Kubernetes overview on Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md)</li></ul>  |
+|Accelerated AI inferencing| Enabled by the Intel Movidius Myriad X VPU. |
 |Wired and wireless | Allows wired and wireless data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
-|Disconnected mode|  Device and service can be optionally managed via Azure Stack Hub. Deploy, run, manage applications in offline mode. <br> Disconnected mode supports offline upload scenarios.|
+|Disconnected mode|  Deploy, run, manage applications in offline mode. <br> Disconnected mode supports offline upload scenarios.|
 |Supported file transfer protocols      |Supports standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge Mini R system requirements](azure-stack-edge-gpu-system-requirements.md).|
-|Data refresh     | Ability to refresh local files with the latest from cloud.|
-|Double encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
-|Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
+|Data refresh     | Ability to refresh local files with the latest from cloud. <br> For more information, see [Refresh a share on your Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md#refresh-shares).|
+|Double encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* . <br> For more information, see [Configure VPN on your Azure Stack Edge Pro R device](azure-stack-edge-mini-r-configure-vpn-powershell.md).|
+|Bandwidth throttling| Throttle to limit bandwidth usage during peak hours. <br> For more information, see [Manage bandwidth schedules on your Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
+|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center. <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).|
 
 ## Use cases
 
@@ -62,10 +63,15 @@ The Azure Stack Edge Mini R solution comprises of an Azure Stack Edge resource, 
 
     ![Azure Stack Edge Mini R device](media/azure-stack-edge-mini-r-overview/perspective-view-1.png)
 
+    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
+
+    For more information, go to [Create an order for your Azure Stack Edge Mini R device](azure-stack-edge-mini-r-deploy-prep.md#create-a-new-resource).
+
 * **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage a rugged, Azure Stack Edge Mini R device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
 * **Azure Stack Edge Mini R local web UI** - A browser-based local user interface on your Azure Stack Edge Mini R device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
 
+    [!INCLUDE [azure-stack-edge-gateway-local-web-ui-languages](../../includes/azure-stack-edge-gateway-local-web-ui-languages.md)]
 
 ## Region availability
 
@@ -77,7 +83,9 @@ Azure Stack Edge Mini R physical device, Azure resource, and target storage acco
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Mini R data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 
-Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Azure Stack Edge service does not have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
+Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service does not have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
+
+For a discussion of considerations for choosing a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
 
 ## Next steps
 

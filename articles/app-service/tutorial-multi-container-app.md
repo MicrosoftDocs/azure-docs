@@ -5,10 +5,9 @@ keywords: azure app service, web app, linux, docker, compose, multicontainer, mu
 author: msangapu-msft
 
 ms.topic: tutorial
-ms.date: 10/31/2020
+ms.date: 11/18/2022
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-#Customer intent: As an Azure customer, I want to learn how to deploy multiple containers using WordPress into Web App for Containers.
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
 
@@ -35,7 +34,7 @@ To complete this tutorial, you need experience with [Docker Compose](https://doc
 
 ## Download the sample
 
-For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
+For this tutorial, you use the compose file from [Docker](https://docs.docker.com/samples/wordpress/), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
 
 [!code-yml[Main](../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -199,12 +198,12 @@ When the database has been created, Cloud Shell shows information similar to the
 
 ### Configure database variables in WordPress
 
-To connect the WordPress app to this new MySQL server, you'll configure a few WordPress-specific environment variables, including the SSL CA path defined by `MYSQL_SSL_CA`. The [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) from [DigiCert](https://www.digicert.com/) is provided in the [custom image](#use-a-custom-image-for-mysql-ssl-and-other-configurations) below.
+To connect the WordPress app to this new MySQL server, you'll configure a few WordPress-specific environment variables, including the SSL CA path defined by `MYSQL_SSL_CA`. The [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) from [DigiCert](https://www.digicert.com/) is provided in the [custom image](#use-a-custom-image-for-mysql-tlsssl-and-other-configurations) below.
 
 To make these changes, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in Cloud Shell. App settings are case-sensitive and space-separated.
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql-server-name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
+az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
 When the app setting has been created, Cloud Shell shows information similar to the following example:
@@ -219,7 +218,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@&lt;mysql-server-name&gt;"
+    "value": "adminuser"
   },
   {
     "name": "WORDPRESS_DB_NAME",
@@ -241,9 +240,9 @@ When the app setting has been created, Cloud Shell shows information similar to 
 
 For more information on environment variables, see [Configure environment variables](configure-custom-container.md#configure-environment-variables).
 
-### Use a custom image for MySQL SSL and other configurations
+### Use a custom image for MySQL TLS/SSL and other configurations
 
-By default, SSL is used by Azure Database for MySQL. WordPress requires additional configuration to use SSL with MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://github.com/Azure-Samples/multicontainerwordpress) has been prepared for your convenience. In practice, you would add desired changes to your own image.
+By default, TLS/SSL is used by Azure Database for MySQL. WordPress requires additional configuration to use TLS/SSL with MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://github.com/Azure-Samples/multicontainerwordpress) has been prepared for your convenience. In practice, you would add desired changes to your own image.
 
 The custom image is based on the 'official image' of [WordPress from Docker Hub](https://hub.docker.com/_/wordpress/). The following changes have been made in this custom image for Azure Database for MySQL:
 
@@ -425,7 +424,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@&lt;mysql-server-name&gt;"
+    "value": "adminuser"
   },
   {
     "name": "WP_REDIS_HOST",
@@ -526,8 +525,8 @@ Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 Or, check out other resources:
 
-> [!div class="nextstepaction"]
-> [Configure custom container](configure-custom-container.md)
+- [Configure custom container](configure-custom-container.md)
+- [Environment variables and app settings reference](reference-app-settings.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

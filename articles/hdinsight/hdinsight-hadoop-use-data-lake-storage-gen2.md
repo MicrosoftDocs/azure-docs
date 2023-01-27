@@ -4,7 +4,7 @@ description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/24/2020
+ms.date: 03/31/2022
 ---
 
 # Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
@@ -13,7 +13,7 @@ ms.date: 04/24/2020
 
 For a full comparison of cluster creation options using Data Lake Storage Gen2, see [Compare storage options for use with Azure HDInsight clusters](hdinsight-hadoop-compare-storage-options.md).
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 ## Data Lake Storage Gen2 availability
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/15/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Overdrive
@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to integrate Overdrive with Azure Active Dire
 To get started, you need the following items:
  
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* A Overdrive single sign-on (SSO)-enabled subscription.
+* An Overdrive single sign-on (SSO)-enabled subscription.
 
 ## Scenario description
 
@@ -45,6 +45,8 @@ To configure the integration of Overdrive into Azure AD, add Overdrive from the 
 1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, type **Overdrive** in the search box.
 1. In the results pane, select **Overdrive**, and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Overdrive
 
@@ -77,9 +79,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Overdrive Client support team](https://help.overdrive.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **App Federation Metadata URL** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
 6. On the **Set up Overdrive** section, copy the appropriate URL(s) as per your requirement.
 
@@ -118,7 +120,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ## Configure Overdrive SSO
 
-To configure single sign-on on **Overdrive** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Overdrive support team](https://help.overdrive.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Overdrive** side,  you need to send the **App Federation Metadata URL** to [Overdrive support team](https://help.overdrive.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Overdrive test user
 
@@ -136,8 +138,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Overdrive Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Overdrive tile in the My Apps, this will redirect to Overdrive Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Overdrive tile in the My Apps, this will redirect to Overdrive Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Overdrive you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Overdrive you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

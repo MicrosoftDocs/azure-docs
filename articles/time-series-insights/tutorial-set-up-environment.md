@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Set up a Gen2 environment - Azure Time Series Insights Gen2| Microsoft Docs'
 description: 'Tutorial: Learn how to set up an environment in Azure Time Series Insights Gen2.'
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: riserrad
+ms.author: riserrad
 ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: tutorial
-ms.date: 02/25/2021
+ms.date: 04/23/2021
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create an Azure Time Series Insights Gen2 environment so that I can use Azure Time Series Insights Gen2 queries to understand device behavior.
 ---
 
 # Tutorial: Set up an Azure Time Series Insights Gen2 environment
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 This tutorial guides you through the process of creating an Azure Time Series Insights Gen2 *pay-as-you-go* (PAYG) environment.
 
@@ -109,19 +109,18 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
    | **IoT Hub name** | Select the IoT hub name you created for the device simulator. |
    | **IoT Hub access policy** | Select **iothubowner**. |
    | **IoT Hub consumer group** | Select **New**, enter a unique name, and then select **+ Add**. The consumer group must be a unique value in Azure Time Series Insights Gen2. |
+   | **Start options** | Select **Beginning now**. |
    | **Timestamp property** | This value is used to identify the **Timestamp** property in your incoming telemetry data. For this tutorial, leave this box empty. This simulator uses the incoming timestamp from IoT Hub, which Azure Time Series Insights Gen2 defaults to. |
 
-1. Select **Review + Create**.
-
-   [![Configure the created IoT hub as an event source.](media/tutorial-set-up-environment/configure-event-source.png)](media/tutorial-set-up-environment/configure-event-source.png#lightbox)
+   :::image type="content" source="media/tutorial-set-up-environment/configure-event-source.png" alt-text="Configure the created IoT hub as an event source" lightbox="media/tutorial-set-up-environment/configure-event-source.png":::
 
 1. Select **Review + Create**.
 
-    [![Review + Create page, with Create button.](media/tutorial-set-up-environment/environment-confirmation.png)](media/tutorial-set-up-environment/environment-confirmation.png#lightbox)
+   :::image type="content" source="media/tutorial-set-up-environment/environment-confirmation.png" alt-text="Review + Create page, with Create button" lightbox="media/tutorial-set-up-environment/environment-confirmation.png":::
 
-    You can review the status of your deployment:
+   You can review the status of your deployment:
 
-    [![Notification that deployment is complete.](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
+   [![Notification that deployment is complete.](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
 
 1. Expand deployment details.
 
@@ -225,7 +224,7 @@ In this section, you apply a model to structure your data. To complete the model
         | **Name** | Enter **Floor**. |
         | **Kind** | Select **Categorical** |
         | **Value** | Select from preset: Select **Floor (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
-        | **Categories** | <span style="text-decoration: underline">Label </span>  - <span style="text-decoration: underline">Values</span> <br /> Lower: 1,2,3,4 <br /> Middle: 5,6,7,8,9 <br /> Upper: 10,11,12,13,14,15 |
+        | **Categories** | **Label**: **Values** <br /> Lower: 1,2,3,4 <br /> Middle: 5,6,7,8,9 <br /> Upper: 10,11,12,13,14,15 |
         | **Default Category** | Enter **Unknown** |
 
         [![Add type variables.](media/tutorial-set-up-environment/add-type-variables.png)](media/tutorial-set-up-environment/add-type-variables.png#lightbox)

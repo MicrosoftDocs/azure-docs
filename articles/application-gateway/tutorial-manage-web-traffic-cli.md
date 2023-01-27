@@ -2,11 +2,11 @@
 title: Manage web traffic - Azure CLI
 description: Learn how to create an application gateway with a virtual machine scale set to manage web traffic using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/20/2019
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurecli
 ---
 
@@ -24,7 +24,7 @@ If you prefer, you can complete this procedure using [Azure PowerShell](tutorial
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -2,8 +2,13 @@
 title: Upgrading Azure Service Fabric clusters
 description: Learn about options for updating your Azure Service Fabric cluster
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Upgrading and updating Azure Service Fabric clusters
 
 An Azure Service Fabric cluster is a resource you own, but it's partly managed by Microsoft. This article describes the options for when and how to update your Azure Service Fabric cluster.
@@ -21,6 +26,9 @@ You can set your cluster to receive automatic Service Fabric upgrades as they ar
 You can also set your cluster upgrade mode and select a runtime version [using a Resource Manager template](service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Automatic upgrades are the recommended upgrade mode, as this option ensures your cluster stays in a supported state and benefits from the latest fixes and features while also allowing you to schedule updates in a manner that is least disruptive to your workloads using a [wave deployment](#wave-deployment-for-automatic-upgrades) strategy.
+
+> [!NOTE]
+> If you change an existing cluster to automatic mode, the cluster will be enrolled for the next upgrade period starting with a new release. New releases are announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). Per upgrade period the highest possible upgrade path is chosen, see [supported versions](service-fabric-versions.md). The manual upgrade mode triggers an immediate upgrade. 
 
 ## Wave deployment for automatic upgrades
 
@@ -110,7 +118,7 @@ Many different configuration settings can be customized on a cluster, such as th
 
 ### Upgrading OS images for cluster nodes
 
-Enabling automatic OS image upgrades for your Service Fabric cluster nodes is a best practice. In order to do so, there are several cluster requirements and steps to take. Another option is using Patch Orchestration Application (POA, a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. To learn more about these options, see [Patch the Windows operating system in your Service Fabric cluster](service-fabric-patch-orchestration-application.md).
+Enabling automatic OS image upgrades for your Service Fabric cluster nodes is a best practice. In order to do so, there are several cluster requirements and steps to take. Another option is using Patch Orchestration Application (POA), a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. To learn more about these options, see [Patch the Windows operating system in your Service Fabric cluster](how-to-patch-cluster-nodes-windows.md).
 
 ## Next steps
 

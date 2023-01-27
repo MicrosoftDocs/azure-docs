@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Deploy Azure Functions as modules - Azure IoT Edge'
 description: In this tutorial, you develop an Azure Function as an IoT Edge module, then deploy it to an edge device.
-author: kgremban
-manager: philmea
-ms.author: kgremban
-ms.date: 07/29/2020
+author: PatAltimore
+
+ms.author: patricka
+ms.date: 05/11/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ ms.custom: "mvc, devx-track-csharp"
 
 # Tutorial: Deploy Azure Functions as IoT Edge modules
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 You can use Azure Functions to deploy code that implements your business logic directly to your Azure IoT Edge devices. This tutorial walks you through creating and deploying an Azure Function that filters sensor data on the simulated IoT Edge device. You use the simulated IoT Edge device that you created in the quickstarts. In this tutorial, you learn how to:
 
@@ -26,7 +26,6 @@ You can use Azure Functions to deploy code that implements your business logic d
 > * View filtered data.
 
 <center>
-
 ![Diagram - Tutorial architecture: stage and deploy function module](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
@@ -39,19 +38,20 @@ The Azure Function that you create in this tutorial filters the temperature data
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules using Linux containers](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* A device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
+* An AMD64 device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
-* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
+* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and
+[Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions.
+* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 
 To develop an IoT Edge module in with Azure Functions, install the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [The .NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [The .NET Core SDK](https://dotnet.microsoft.com/download).
 
 ## Create a function project
 
-The Azure IoT Tools for Visual Studio Code that you installed in the prerequisites provides management capabilities as well as some code templates. In this section, you use Visual Studio Code to create an IoT Edge solution that contains an Azure Function.
+The Azure IoT Edge for Visual Studio Code that you installed in the prerequisites provides management capabilities as well as some code templates. In this section, you use Visual Studio Code to create an IoT Edge solution that contains an Azure Function.
 
 ### Create a new project
 
@@ -83,13 +83,16 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
 
-### Select your target architecture
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
-Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64.
+### Set target architecture to AMD64
+
+Running Azure Functions modules on IoT Edge is supported only on Linux AMD64 based containers. The default target architecture for Visual Studio Code is Linux AMD64, but we will set it explicitly to Linux AMD64 here.
 
 1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window.
 
-2. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so will keep the default **amd64**.
+2. In the command palette, select the AMD64 target architecture from the list of options.
 
 ### Update the module with custom code
 
@@ -203,7 +206,7 @@ Visual Studio Code outputs a success message when your container image is pushed
 
 ## Deploy and run the solution
 
-You can use the Azure portal to deploy your Function module to an IoT Edge device like you did in the quickstarts. You can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Tools for VS Code that was listed in the prerequisites. Install the extension now, if you didn't already.
+You can use the Azure portal to deploy your Function module to an IoT Edge device like you did in the quickstarts. You can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Edge and IoT Hub for VS Code that was listed in the prerequisites. Install the extension now, if you didn't already.
 
 1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
@@ -231,7 +234,7 @@ If you plan to continue to the next recommended article, you can keep the resour
 
 Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges.
 
-[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
+[!INCLUDE [iot-edge-clean-up-cloud-resources](includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## Next steps
 

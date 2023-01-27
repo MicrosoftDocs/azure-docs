@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ---
 
-# Durable Functions unit testing
+# Durable Functions unit testing (C#)
 
 Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in the future. Durable Functions can easily grow in complexity so introducing unit tests will help to avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and activity functions.
 
 > [!NOTE]
-> This article provides guidance for unit testing for Durable Functions apps targeting Durable Functions 2.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> This article provides guidance for unit testing for Durable Functions apps written in C# for the .NET in-process worker and targeting Durable Functions 2.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Mocking is supported via the following interface:
 * [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext)
 
 * [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext)
-  
+
 * [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext)
 
 These interfaces can be used with the various trigger and bindings supported by Durable Functions. When executing your Azure Functions, the functions runtime will run your function code with a concrete implementation of these interfaces. For unit testing, you can pass in a mocked version of these interfaces to test your business logic.
@@ -73,7 +73,7 @@ durableClientMock
     // Notice that even though the HttpStart function does not call IDurableClient.CreateCheckStatusResponse() 
     // with the optional parameter returnInternalServerErrorOnFailure, moq requires the method to be set up
     // with each of the optional parameters provided. Simply use It.IsAny<> for each optional parameter
-    .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, returnInternalServerErrorOnFailure: It.IsAny<bool>())
+    .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, returnInternalServerErrorOnFailure: It.IsAny<bool>()))
     .Returns(new HttpResponseMessage
     {
         StatusCode = HttpStatusCode.OK,
@@ -90,7 +90,7 @@ durableClientMock
 ```csharp
 // Mock ILogger
 var loggerMock = new Mock<ILogger>();
-```  
+```
 
 Now the `Run` method is called from the unit test:
 
@@ -105,7 +105,7 @@ var result = await HttpStart.Run(
     durableClientMock.Object,
     functionName,
     loggerMock.Object);
- ```
+```
 
  The last step is to compare the output with the expected value:
 
@@ -178,5 +178,5 @@ And the unit tests will verify the format of the output. The unit tests can use 
 
 > [!div class="nextstepaction"]
 > [Learn more about xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
-> 
+>
 > [Learn more about moq](https://github.com/Moq/moq4/wiki/Quickstart)

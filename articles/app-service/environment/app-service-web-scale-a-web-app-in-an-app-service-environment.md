@@ -1,16 +1,21 @@
 ---
 title: Scale an app in ASE v1
 description: Scaling an app in an App Service Environment. This doc is provided only for customers who use the legacy v1 ASE.
-author: ccompy
+author: madsd
 
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
-ms.date: 10/17/2016
-ms.author: ccompy
+ms.date: 03/29/2022
+ms.author: madsd
 ms.custom: seodec18
 
 ---
 # Scaling apps in an App Service Environment v1
+
+> [!IMPORTANT]
+> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
+
 In the Azure App Service there are normally three things you can scale:
 
 * pricing plan
@@ -54,7 +59,7 @@ Before moving your ASP from one worker pool to another it is important to make s
 > 
 
 ## Getting started
-To get started with App Service Environments, see [How To Create An App Service Environment][HowtoCreateASE]
+To get started with App Service Environments, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png
@@ -64,9 +69,8 @@ To get started with App Service Environments, see [How To Create An App Service 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ScaleWebapp]: ../manage-scale-up.md
-[HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
-[CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
+[CreateWebappinASE]: ./using.md
 [Appserviceplans]: ../overview-hosting-plans.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md

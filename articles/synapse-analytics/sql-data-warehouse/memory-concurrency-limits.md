@@ -1,15 +1,14 @@
 ---
 title: Memory and concurrency limits
 description: View the memory and concurrency limits allocated to the various performance levels and resource classes for dedicated SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
-author: ronortloff
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 02/04/2020
-ms.author: rortloff
-ms.reviewer: jrasnick
+ms.date: 04/04/2021
+ms.author: wiassaf
+ms.reviewer: sngun
 ms.custom: azure-synapse
 ---
 
@@ -17,6 +16,9 @@ ms.custom: azure-synapse
 # Memory and concurrency limits for dedicated SQL pool in Azure Synapse Analytics
 
 View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.  
+
+> [!NOTE]
+> Workload management workload groups provide more flexibility for configuring resources per request and concurrency than dynamic or static resource classes.  See [Workload Groups](sql-data-warehouse-workload-isolation.md) and the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql) syntax for further details.
 
 ## Data warehouse capacity settings
 
@@ -46,6 +48,9 @@ The service levels range from DW100c to DW30000c.
 | DW30000c          | 60            | 1                              | 18000                          |
 
 The maximum service level is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
+
+> [!NOTE]
+> Synapse Dedicated SQL pool is an evergreen platform service. Under [shared responsibility model in the cloud](../../security/fundamentals/shared-responsibility.md#division-of-responsibility), Microsoft continues to invest in advancements to underlying software and hardware which host dedicated SQL pool. As a result, the number of nodes or the type of computer hardware which underpins a given performance level (SLO) may change. The number of compute nodes listed here are provided as a reference, and shouldn't be used for sizing or performance purposes. Irrespective of number of nodes or underlying infrastructure, Microsoft's goal is to deliver performance in accordance with SLO; hence, we recommend that all sizing exercises must use cDWU as a guide. For more information on SLO and compute Data Warehouse Units, see [Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW)](what-is-a-data-warehouse-unit-dwu-cdwu.md#service-level-objective).
 
 ## Concurrency maximums for workload groups
 
@@ -127,5 +132,7 @@ When there are not enough concurrency slots free to start query execution, queri
 
 To learn more about how to leverage resource classes to optimize your workload further please review the following articles:
 
+* [Workload management workload groups](sql-data-warehouse-workload-isolation.md)
+* [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql)
 * [Resource classes for workload management](resource-classes-for-workload-management.md)
 * [Analyzing your workload](analyze-your-workload.md)

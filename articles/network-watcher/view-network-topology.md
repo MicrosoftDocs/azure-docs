@@ -2,18 +2,20 @@
 title: View Azure virtual network topology | Microsoft Docs
 description: Learn how to view the resources in a virtual network, and the relationships between the resources.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 05/09/2018
-ms.author: damendo
+ms.custom: ignite-2022, engagement-fy23
+ms.workload: infrastructure-services
+ms.date: 11/11/2022
 ---
 
 # View the topology of an Azure virtual network
+
+> [!IMPORTANT]
+> Try the new [Topology (Preview)](network-insights-topology.md) experience which offers visualization of Azure resources for ease of inventory management and monitoring network at scale. Leverage it to visualize resources and their dependencies across subscriptions, regions and locations. [Click](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/overview) to navigate to the experience.
 
 In this article, you learn how to view resources in a Microsoft Azure virtual network, and the relationships between the resources. For example, a virtual network contains subnets. Subnets contain resources, such as Azure Virtual Machines (VM). VMs have one or more network interfaces. Each subnet can have a network security group and a route table associated to it. The topology capability of Azure Network Watcher enables you to view all of the resources in a virtual network, the resources associated to resources in a virtual network, and the relationships between the resources.
 
@@ -139,6 +141,10 @@ All resources returned in a topology have the following properties:
     - **AssociationType**: References the relationship between the child object and the parent. Valid values are *Contains* or *Associated*.
     - **Name**: The name of the referenced resource.
     - **ResourceId**:  - The URI of the resource referenced in the association.
+
+## Supported resources
+
+The Network Watcher Topology supports a limited set of resources. There are Virtual Network, Subnet, Network Interface, Network Security Group, Load Balancer, Load Balancer Health probe, Public IP, Virtual Network Peering, Virtual network gateway, VPN Gateway Connection, Virtual Machine, and Virtual Machine Scale Set.
 
 ## Next steps
 

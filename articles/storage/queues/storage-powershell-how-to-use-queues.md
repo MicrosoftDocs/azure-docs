@@ -1,8 +1,9 @@
 ---
-title: How to use Azure Queue Storage from PowerShell - Azure Storage
+title: How to use Azure Queue Storage from PowerShell
+titleSuffix: Azure Storage
 description: Perform operations on Azure Queue Storage via PowerShell. With Azure Queue Storage, you can store large numbers of messages that are accessible by HTTP/HTTPS.
-author: twooley
-ms.author: twooley
+author: stevenmatthew
+ms.author: shaas
 ms.reviewer: dineshm 
 ms.date: 05/15/2019
 ms.topic: how-to
@@ -108,14 +109,14 @@ The following example demonstrates how to add a message to your queue.
 $queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("This is message 1")
 
 # Add a new message to the queue
-$queue.CloudQueue.AddMessageAsync($QueueMessage)
+$queue.CloudQueue.AddMessageAsync($queueMessage)
 
 # Add two more messages to the queue
 $queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("This is message 2")
-$queue.CloudQueue.AddMessageAsync($QueueMessage)
+$queue.CloudQueue.AddMessageAsync($queueMessage)
 
 $queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("This is message 3")
-$queue.CloudQueue.AddMessageAsync($QueueMessage)
+$queue.CloudQueue.AddMessageAsync($queueMessage)
 ```
 
 If you use the [Azure Storage Explorer](https://storageexplorer.com), you can connect to your Azure account and view the queues in the storage account, and drill down into a queue to view the messages on the queue.
@@ -193,4 +194,4 @@ In this how-to article, you learned about basic Queue Storage management with Po
 
 ### Microsoft Azure Storage Explorer
 
-- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/queues/toc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.

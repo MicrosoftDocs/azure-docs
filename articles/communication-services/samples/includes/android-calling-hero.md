@@ -6,36 +6,39 @@ author: ddematheu2
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
 ---
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
-
-
 The Azure Communication Services **Group Calling Hero Sample for Android** demonstrates how the Communication Services Calling Android SDK can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
 
 ## Download code
 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-android-calling-hero/tree/feature/teams_interop).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero).
 
 ## Overview
 
-The sample is a native Android application that uses the Azure Communication Services Android SDKs to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services SDK. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
+The sample is a native Android application that uses the [Azure Communication Services Android UI client library](https://learn.microsoft.com/azure/communication-services/quickstarts/ui-library/get-started-composites?tabs=kotlin&pivots=platform-android) to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services SDK. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
 
 Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page-android.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start new call" button, the Android application creates a new call and joins it. The application also allows you to join an existing Azure Communication Services call by specifying the existing call's ID.
-
-After joining a call, you'll be prompted to give the application permission to access your camera and microphone. You'll also be asked to provide a display name.
+When you press the "Start new call" button, the Android application prompts you to enter your display name to use for the call.
 
 :::image type="content" source="../media/calling/pre-call-android.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
-Once you configure your display name and devices, you can join the call. You'll see the main call canvas where the core calling experience lives.
+After tapping "Next" on the "Start A call" page, you have the opportunity to share the "Group Call ID". 
+
+:::image type="content" source="../media/calling/share-call-android.png" alt-text="Screenshot showing the share Group Call ID screen of the sample application.":::
+
+The application allows you to join an existing Azure Communication Services call by specifying the existing call's ID or teams meeting ID link and display name.
+
+:::image type="content" source="../media/calling/join-call-android.png" alt-text="Screenshot showing the join call screen of the sample application.":::
+
+After joining a call, you'll be prompted to give the application permission to access your camera and microphone, if not already authorized. You'll see the main call canvas where the core calling experience lives.
 
 :::image type="content" source="../media/calling/main-app-android.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
@@ -50,7 +53,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio) running on your computer
-- An Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).
+- An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
 - An Azure Function running the [Authentication Endpoint](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
 
 ## Running sample locally
@@ -96,7 +99,7 @@ With additional configuration, this sample supports connecting to an **Azure Act
             </intent-filter>
         </activity>
    ```
-5. Copy MSAL Android configuration from Azure portal and paste to `AzureCalling/app/src/main/res/raw/auth_config_single_account.json`. Include "account_mode" : "SINGLE"
+5. Copy MSAL Android configuration from Azure portal and paste to `AzureCalling/app/src/main/res/raw/auth_config_single_account.json`. Include "account_mode": "SINGLE"
    ```
       {
          "client_id": "",
@@ -117,6 +120,8 @@ With additional configuration, this sample supports connecting to an **Azure Act
 
 6. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `communicationTokenFetchUrl` to be the URL for your secure Authentication Endpoint.
 7. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `aadScopes` from `Azure Active Directory` `Expose an API` scopes
+8. Set value for `graphURL` in `AzureCalling/app/assets/appSettings.properties` as the Graph API endpoint to fetch user information. 
+9. Edit `AzureCalling/app/src/main/assets/appSettings.properties` and set the value for the key `tenant` to enable silent login so that the user does not have to be authenticated again and again while restarting the application.
 
 ## Clean up resources
 
@@ -129,12 +134,12 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Familiarize yourself with [using the Calling SDK](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize yourself with [using the Calling SDK](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
 
 ### Additional reading
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
 - [Samples](./../overview.md) - Find more samples and examples on our samples overview page.
-- [Azure Communication Calling Features](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) - To learn more about the calling Android sdk
+- [Azure Communication Calling Features](../../concepts/voice-video-calling/calling-sdk-features.md) - To learn more about the calling Android sdk
 -[Azure Communication Android Calling SDK](https://search.maven.org/artifact/com.azure.android/azure-communication-calling)

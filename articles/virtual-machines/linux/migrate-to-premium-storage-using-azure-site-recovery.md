@@ -1,15 +1,17 @@
 ---
 title: Migrate your Linux VMs to Azure Premium Storage with Azure Site Recovery 
 description: Migrate your existing virtual machines to Azure Premium Storage by using Site Recovery. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
-author: luywang
-ms.service: virtual-machines
+author: roygara
+ms.service: storage
 ms.collection: linux
 ms.topic: how-to
 ms.date: 08/15/2017
-ms.author: luywang
+ms.author: rogarana
 ms.subservice: disks
 ---
 # Use Site Recovery to migrate to Premium Storage
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 [Azure premium SSDs](../disks-types.md) delivers high-performance, low-latency disk support for virtual machines (VMs) that are running I/O-intensive workloads. This guide helps you migrate your VM disks from a standard storage account to a premium storage account by using [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
@@ -206,12 +208,12 @@ For specific scenarios for migrating virtual machines, see the following resourc
 
 * [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Upload a Linux virtual hard disk](upload-vhd.md)
-* [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](/shows/it-ops-talk/migrate-your-aws-vms-to-azure-with-azure-migrate)
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:
 
-* [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Azure Storage](../../storage/index.yml)
+* [Azure Virtual Machines](../index.yml)
 * [Select a disk type for IaaS VMs](../disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png

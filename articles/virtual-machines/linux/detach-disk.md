@@ -2,16 +2,18 @@
 title: Detach a data disk from a Linux VM - Azure
 description: Learn to detach a data disk from a virtual machine in Azure using Azure CLI or the Azure portal.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 07/18/2018
+ms.date: 01/09/2023
 ms.author: rogarana
 ms.subservice: disks 
 ms.custom: devx-track-azurecli
 
 ---
 # How to detach a data disk from a Linux virtual machine
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. In this article, we are working with an Ubuntu LTS 16.04 distribution. If you are using a different distribution, the instructions for unmounting the disk might be different.
 
@@ -67,19 +69,15 @@ Edit the */etc/fstab* file to remove references to the disk.
 > [!NOTE]
 > Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
-Open the */etc/fstab* file in a text editor as follows:
-
-```bash
-sudo vi /etc/fstab
-```
-
-In this example, the following line needs to be deleted from the */etc/fstab* file:
+Open the **/etc/fstab** file in a text editor and remove the line containing the UUID of your disk. Using the example values in this article, the line would look like the following:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
-Use `umount` to unmount the disk. The following example unmounts the */dev/sdc1* partition from the */datadrive* mount point:
+Save and close the file when you're done.
+
+Next, use `umount` to unmount the disk. The following example unmounts the */dev/sdc1* partition from the */datadrive* mount point:
 
 ```bash
 sudo umount /dev/sdc1 /datadrive
@@ -98,6 +96,12 @@ az vm disk detach \
 ```
 
 The disk stays in storage but is no longer attached to a virtual machine.
+
+### Lower latency
+
+In select regions, the disk detach latency has been reduced, so you'll see an improvement of up to 15%. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk detach command, `az vm disk detach`. You won't see the performance improvement if you call a command that may implicitly perform a detach, like `az vm update`.  You don't need to take any action other than calling the explicit detach command to see this improvement.
+
+[!INCLUDE [virtual-machines-disks-fast-attach-detach-regions](../../../includes/virtual-machines-disks-fast-attach-detach-regions.md)]
 
 
 ## Detach a data disk using the portal

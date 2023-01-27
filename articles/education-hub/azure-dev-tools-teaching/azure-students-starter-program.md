@@ -6,7 +6,6 @@ ms.author: rymend
 ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
-ms.subservice: education-hub
 ---
 
 # Azure for Students Starter
@@ -19,7 +18,7 @@ There is no cost to you. This benefit provides you access to a free tier of the 
 - Azure Notification Hubs
 - Azure Database for MySQL
 - Application Insights
-- Azure DevOps Server (formerly Visual Studio Team Services)
+- Azure DevOps Server (formerly Visual Studio Team Foundation Server)
 
 Azure for Students Starter is available to verified students at no cost and without commitment or 
 time limit. See the [Azure for Students Starter Offer](https://azure.microsoft.com/offers/ms-azr-0144p/) 
@@ -32,11 +31,10 @@ This offer is limited to one Azure for Students Starter subscription per eligibl
 non-transferable and can't be combined with any other offer, unless otherwise permitted by Microsoft.
 
 A credit card isn't required for the Azure for Students Starter offer. However, you can upgrade at 
-any time to a pay-as-you-go subscription to get access to all Azure services, using the [Azure 
-Account portal](https://account.azure.com/).
+any time to a pay-as-you-go subscription to get access to all Azure services, using the [Azure portal](https://portal.azure.com/).
 
 ## Next steps
 - [Get help with login errors](troubleshoot-login.md)
 - [Download software (Azure for Students Starter)](download-software.md)
 - [Azure for Students program](azure-students-program.md)
-- [Microsoft Learn: a free online learning platform](/learn/)
+- [Microsoft Learn training](/training/)

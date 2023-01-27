@@ -1,7 +1,7 @@
 ---
 title: 'Connect a computer to a virtual network using P2S: certificate authentication: Azure portal classic'
 titleSuffix: Azure VPN Gateway
-description: Create a classic a Point-to-Site VPN Gateway connection using the Azure portal.
+description: Learn how to create a classic a Point-to-Site VPN Gateway connection using the Azure portal.
 services: vpn-gateway
 author: cherylmc
 
@@ -96,7 +96,7 @@ If you already have a VNet, verify that the settings are compatible with your VP
 
 Azure uses certificates to authenticate VPN clients for Point-to-Site VPNs. You upload the public key information of the root certificate to Azure. The public key is then considered *trusted*. Client certificates must be generated from the trusted root certificate, and then installed on each client computer in the Certificates-Current User\Personal\Certificates certificate store. The certificate is used to authenticate the client when it connects to the VNet. 
 
-If you use self-signed certificates, they must be created by using specific parameters. You can create a self-signed certificate by using the instructions for [PowerShell and Windows 10](vpn-gateway-certificates-point-to-site.md), or [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). It's important to follow the steps in these instructions when you use self-signed root certificates and generate client certificates from the self-signed root certificate. Otherwise, the certificates you create won't be compatible with P2S connections and you'll receive a connection error.
+If you use self-signed certificates, they must be created by using specific parameters. You can create a self-signed certificate by using the instructions for [PowerShell and Windows 10 or later](vpn-gateway-certificates-point-to-site.md), or [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). It's important to follow the steps in these instructions when you use self-signed root certificates and generate client certificates from the self-signed root certificate. Otherwise, the certificates you create won't be compatible with P2S connections and you'll receive a connection error.
 
 ### Acquire the public key (.cer) for the root certificate
 
@@ -216,6 +216,6 @@ After updating has completed, the certificate can no longer be used to connect. 
 
 * After your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml).
 
-* To understand more about networking and Linux virtual machines, see [Azure and Linux VM network overview](../virtual-machines/network-overview.md).
+* To understand more about networking and Linux virtual machines, see [Azure and Linux VM network overview](../virtual-network/network-overview.md).
 
 * For P2S troubleshooting information, [Troubleshoot Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

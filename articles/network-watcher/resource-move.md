@@ -3,18 +3,14 @@ title: Move Azure Network Watcher resources | Microsoft Docs
 description: Move Azure Network Watcher resources across regions
 services: network-watcher
 documentationcenter: na
-author: damendo
-manager:
-editor:
+author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: damendo
-
-
+ms.date: 06/10/2021
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
 # Moving Azure Network Watcher resources across regions
@@ -27,4 +23,4 @@ Moving resources across regions is currently not supported for any child resourc
 
 ## Next Steps
 * Read the [Network Watcher overview](./network-watcher-monitoring-overview.md)
-* See the [Network Watcher FAQ](./frequently-asked-questions.md)
+* See the [Network Watcher FAQ](./frequently-asked-questions.yml)

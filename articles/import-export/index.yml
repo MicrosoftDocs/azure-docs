@@ -44,7 +44,7 @@ landingContent:
           - text: Requirements
             url: storage-import-export-requirements.md
           - text: FAQ
-            url: storage-import-export-service-faq.md
+            url: storage-import-export-service-faq.yml
 
 
   # Card
@@ -63,7 +63,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Export data offline with Import/Export
-            url: /learn/modules/export-data-with-azure-import-export/
+            url: /training/modules/export-data-with-azure-import-export/
 
 
   # Card

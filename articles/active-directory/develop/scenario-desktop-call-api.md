@@ -1,9 +1,8 @@
 ---
-title: Call web APIs from a desktop app | Azure
-titleSuffix: Microsoft identity platform 
+title: Call web APIs from a desktop app
 description: Learn how to build a desktop app that calls web APIs
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -31,8 +31,16 @@ Now that you have a token, you can call a protected web API.
 ```Java
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
+PublicClientApplication pca = PublicClientApplication.builder(clientId)
+        .authority(authority)
+        .build();
+
+// Acquire a token, acquireTokenHelper would call publicClientApplication's acquireTokenSilently then acquireToken
+// see https://github.com/Azure-Samples/ms-identity-java-desktop for a full example
+IAuthenticationResult authenticationResult = acquireTokenHelper(pca);
+
 // Set the appropriate header fields in the request header.
-conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+conn.setRequestProperty("Authorization", "Bearer " + authenticationResult.accessToken);
 conn.setRequestProperty("Accept", "application/json");
 
 String response = HttpClientHelper.getResponseStringFromConn(conn);

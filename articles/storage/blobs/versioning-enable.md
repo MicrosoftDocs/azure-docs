@@ -3,14 +3,14 @@ title: Enable and manage blob versioning
 titleSuffix: Azure Storage
 description: Learn how to enable blob versioning in the Azure portal or by using an Azure Resource Manager template.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/09/2021
-ms.author: tamram
+ms.date: 01/25/2023
+ms.author: normesta
 ms.subservice: blobs
-ms.custom: devx-track-csharp
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
 # Enable and manage blob versioning
@@ -19,9 +19,9 @@ You can enable Blob storage versioning to automatically maintain previous versio
 
 This article shows how to enable or disable blob versioning for the storage account by using the Azure portal or an Azure Resource Manager template. To learn more about blob versioning, see [Blob versioning](versioning-overview.md).
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
 ## Enable blob versioning
+
+You can enable blob versioning with the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
 
 # [Azure portal](#tab/portal)
 
@@ -31,7 +31,7 @@ To enable blob versioning for a storage account in the Azure portal:
 1. Under **Blob service**, choose **Data protection**.
 1. In the **Versioning** section, select **Enabled**.
 
-:::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
+    :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
 
 # [PowerShell](#tab/powershell)
 
@@ -50,7 +50,7 @@ Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable blob versioning for a storage account with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) command to enable versioning, as shown in the following example. Remember to replace the values in angle brackets with your own values:
+To enable blob versioning for a storage account with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command to enable versioning, as shown in the following example. Remember to replace the values in angle brackets with your own values:
 
 ```azurecli
 az storage account blob-service-properties update \
@@ -93,6 +93,63 @@ For more information about deploying resources with templates in the Azure porta
 
 ---
 
+## List blob versions
+
+To display a blob's versions, use the Azure portal, PowerShell, or Azure CLI. You can also list a blob's versions using one of the Blob Storage SDKs.
+
+# [Azure portal](#tab/portal)
+
+To list a blob's versions in the Azure portal:
+
+1. Navigate to your storage account in the portal, then navigate to the container that contains your blob.
+1. Select the blob for which you want to list versions.
+1. Select the **Versions** tab to display the blob's versions.
+
+    :::image type="content" source="media/versioning-enable/portal-list-blob-versions.png" alt-text="Screenshot showing how to list blob versions in the Azure portal":::
+
+# [PowerShell](#tab/powershell)
+
+To list a blob's versions with PowerShell, call the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) command with the `-IncludeVersion` parameter:
+
+```azurepowershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>
+$ctx = $account.Context
+$container = "<container-name>"
+
+$blobs = Get-AzStorageBlob -Container $container -Prefix "ab" -IncludeVersion -Context $ctx
+
+foreach($blob in $blobs)
+{
+    Write-Host $blob.Name
+    Write-Host $blob.VersionId
+    Write-Host $blob.IsLatestVersion
+}
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To list a blob's versions with Azure CLI, call the [az storage blob directory list](/cli/azure/storage/blob/directory#az-storage-blob-directory-list) command with the `--include v` parameter:
+
+```azurecli
+storageAccount="<storage-account>"
+containerName="<container-name>"
+
+az storage blob list \
+    --container-name $containerName \
+    --prefix "ab" \
+    --query "[[].name, [].versionId]" \
+    --account-name $storageAccount \
+    --include v \
+    --auth-mode login \
+    --output tsv 
+```
+
+# [Template](#tab/template)
+
+N/A
+
+---
+
 ## Modify a blob to trigger a new version
 
 The following code example shows how to trigger the creation of a new version with the Azure Storage client library for .NET, version [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) or later. Before running this example, make sure you have enabled versioning for your storage account.
@@ -101,7 +158,7 @@ The example creates a block blob, and then updates the blob's metadata. Updating
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_UpdateVersionedBlobMetadata":::
 
-## List blob versions
+## List blob versions with .NET
 
 To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** field.
 

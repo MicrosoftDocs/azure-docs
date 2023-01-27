@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="726.9903"
+   height="392.0918"
+   overflow="hidden"
+   version="1.1"
+   id="svg151"
+   sodipodi:docname="hdinsight-spark-overview-inline.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview153"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="1.5736111"
+     inkscape:cx="445.15446"
+     inkscape:cy="286.2842"
+     inkscape:window-width="2560"
+     inkscape:window-height="1351"
+     inkscape:window-x="1431"
+     inkscape:window-y="507"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg151" />
+  <defs
+     id="defs85">
+    <clipPath
+       id="clip0">
+      <rect
+         x="0"
+         y="0"
+         width="1280"
+         height="720"
+         id="rect82" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath281">
+      <rect
+         style="fill:#0000ff;fill-rule:evenodd"
+         id="rect283"
+         width="754.95148"
+         height="441.02383"
+         x="236.39894"
+         y="122.64784" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath432">
+      <rect
+         style="fill:#0000ff;fill-rule:evenodd;stroke-width:0.7679"
+         id="rect434"
+         width="753.02924"
+         height="440.52832"
+         x="235.43784"
+         y="124.13444" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#clipPath432)"
+     id="g149"
+     transform="matrix(0.96542109,0,0,0.89004901,-227.29665,-110.48573)">
+    <rect
+       x="0"
+       y="0"
+       width="1280"
+       height="720"
+       fill="#ffffff"
+       id="rect87" />
+    <path
+       d="M 244,349.167 C 244,343 249,338 255.167,338 H 969.833 C 976,338 981,343 981,349.167 v 44.666 C 981,400 976,405 969.833,405 H 255.167 C 249,405 244,400 244,393.833 Z"
+       fill="#4472c4"
+       fill-rule="evenodd"
+       id="path89" />
+    <text
+       fill="#ffffff"
+       font-family="'Segoe UI Light', 'Segoe UI Light_MSFontService', sans-serif"
+       font-weight="700"
+       font-size="27px"
+       transform="translate(509.556,380)"
+       id="text91">Spark Core Engine</text>
+    <path
+       d="M 434,134 V 245.039 L 339,338 244,245.039 V 134 Z"
+       fill="#4472c4"
+       fill-rule="evenodd"
+       id="path93" />
+    <path
+       d="M 616,134 V 245.329 L 524,338 432,245.329 V 134 Z"
+       fill="#4472c4"
+       fill-rule="evenodd"
+       id="path95" />
+    <path
+       d="M 798,134 V 244.175 L 705.5,338 613,244.175 V 134 Z"
+       fill="#4472c4"
+       fill-rule="evenodd"
+       id="path97" />
+    <path
+       d="M 979,134 V 243.686 L 888,338 797,243.686 V 134 Z"
+       fill="#4472c4"
+       fill-rule="evenodd"
+       id="path99" />
+    <text
+       fill="#ffffff"
+       font-family="'Segoe UI', 'Segoe UI_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="24px"
+       transform="translate(287.24,171)"
+       id="text123">Spark SQL<tspan
+   font-style="italic"
+   font-size="19px"
+   x="11.84"
+   y="30"
+   id="tspan101">Interactive</tspan><tspan
+   font-style="italic"
+   font-size="19px"
+   x="23.1667"
+   y="50"
+   id="tspan103">Queries</tspan><tspan
+   font-size="24px"
+   x="206.702"
+   y="0"
+   id="tspan105">Spark</tspan><tspan
+   font-size="24px"
+   x="182.756"
+   y="26"
+   id="tspan107">Streaming</tspan><tspan
+   font-style="italic"
+   font-size="19px"
+   x="162.96899"
+   y="56"
+   id="tspan109">Stream processing</tspan><tspan
+   font-size="24px"
+   x="356.48801"
+   y="1"
+   id="tspan111">Spark MLlib</tspan><tspan
+   font-style="italic"
+   font-size="19px"
+   x="384.41501"
+   y="31"
+   id="tspan113">Machine</tspan><tspan
+   font-style="italic"
+   font-size="19px"
+   x="383.508"
+   y="51"
+   id="tspan115">Learning</tspan><tspan
+   font-size="24px"
+   x="560.65601"
+   y="-2"
+   id="tspan117">GraphX</tspan><tspan
+   font-style="italic"
+   font-size="19px"
+   x="575.04999"
+   y="28"
+   id="tspan119">Graph</tspan><tspan
+   font-style="italic"
+   font-size="19px"
+   x="547.12299"
+   y="48"
+   id="tspan121">Computation</tspan></text>
+    <rect
+       x="244"
+       y="421"
+       width="239"
+       height="69"
+       fill="#4472c4"
+       id="rect125" />
+    <text
+       fill="#ffffff"
+       font-family="'Segoe UI', 'Segoe UI_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="27px"
+       transform="translate(338.952,464)"
+       id="text127">Yarn</text>
+    <rect
+       x="493"
+       y="421"
+       width="239"
+       height="69"
+       fill="#4472c4"
+       id="rect129" />
+    <text
+       fill="#ffffff"
+       font-family="'Segoe UI', 'Segoe UI_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="27px"
+       transform="translate(574.456,464)"
+       id="text131">Mesos</text>
+    <rect
+       x="742"
+       y="421"
+       width="239"
+       height="70"
+       fill="#4472c4"
+       id="rect133" />
+    <text
+       fill="#ffffff"
+       font-family="'Segoe UI', 'Segoe UI_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="27px"
+       transform="translate(795.546,450)"
+       id="text137">Standalone <tspan
+   font-size="27px"
+   x="7.56671"
+   y="29"
+   id="tspan135">Scheduler</tspan></text>
+    <rect
+       x="246"
+       y="502"
+       width="360"
+       height="53"
+       fill="#4472c4"
+       id="rect139" />
+    <text
+       fill="#ffffff"
+       font-family="'Segoe UI', 'Segoe UI_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="27px"
+       transform="translate(393.677,537)"
+       id="text141">HDFS</text>
+    <rect
+       x="619"
+       y="502"
+       width="360"
+       height="53"
+       fill="#4472c4"
+       id="rect143" />
+    <text
+       fill="#ffffff"
+       font-family="'Segoe UI', 'Segoe UI_MSFontService', sans-serif"
+       font-weight="400"
+       font-size="19px"
+       transform="translate(652.393,535)"
+       id="text145">Azure Blob Storage/Data Lake Store</text>
+    <path
+       d="m 587.5,531.5 6,-6 v 3 h 39 v -3 l 6,6 -6,6 v -3 h -39 v 3 z"
+       stroke="#4472c4"
+       stroke-width="0.666667"
+       stroke-miterlimit="8"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path147" />
+  </g>
+</svg>

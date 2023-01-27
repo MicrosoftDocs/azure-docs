@@ -1,17 +1,19 @@
 ---
 title: How to use device commands in an Azure IoT Central solution
-description: How to use device commands in Azure IoT Central solution. This tutorial shows you how, as a device developer, to use device commands in client app to your Azure IoT Central application. 
+description: How to use device commands in Azure IoT Central solution. This tutorial shows you how to use device commands in client app to your Azure IoT Central application. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/07/2021 
+ms.date: 10/31/2022 
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+
+# Device developer
 ---
 
 # How to use commands in an Azure IoT Central solution
 
-This how-to guide shows you how, as a device developer, to use commands that are defined in a device template.
+This how-to guide shows you how to use commands that are defined in a device template.
 
 An operator can use the IoT Central UI to call a command on a device. Commands control the behavior of a device. For example, an operator might call a command to reboot a device or collect diagnostics data.
 
@@ -22,19 +24,21 @@ A device can:
 
 By default, commands expect a device to be connected and fail if the device can't be reached. If you select the **Queue if offline** option in the device template UI a command can be queued until a device comes online. These *offline commands* are described in a separate section later in this article.
 
+To learn how to manage commands by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md)
+
 ## Define your commands
 
 Standard commands are sent to a device to instruct the device to do something. A command can include parameters with additional information. For example, a command to open a valve on a device could have a parameter that specifies how much to open the valve. Commands can also receive a return value when the device completes the command. For example, a command that asks a device to run some diagnostics could receive a diagnostics report as a return value.
 
 Commands are defined as part of a device template. The following screenshot shows the **Get Max-Min report** command definition in the **Thermostat** device template. This command has both request and response parameters: 
 
-:::image type="content" source="media/howto-use-commands/command-definition.png" alt-text="Screenshot showing Get Max Min Report command in Thermostat device template":::
+:::image type="content" source="media/howto-use-commands/command-definition.png" alt-text="Screenshot showing Get Max Min Report command in Thermostat device template." lightbox="media/howto-use-commands/command-definition.png":::
 
 The following table shows the configuration settings for a command capability:
 
 | Field             |Description|
 |-------------------|-----------|
-|Display Name       |The command value used on dashboards and forms.|
+|Display Name       |The command value used on dashboard tiles and device forms.|
 | Name            | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. The device code uses this **Name** value.|
 | Capability Type | Command.|
 | Queue if offline | Whether to make this command an *offline* command. |
@@ -95,7 +99,7 @@ The following snippet shows the JSON representation of the command in the device
 ```
 
 > [!TIP]
-> You can export a device model from the device template page.
+> You can export a device model or interface from the device template page.
 
 You can relate this command definition to the screenshot of the UI using the following fields:
 
@@ -151,11 +155,11 @@ The call to `onDeviceMethod` sets up the `commandHandler` method. This command h
 
 The following screenshot shows how the successful command response displays in the IoT Central UI:
 
-:::image type="content" source="media/howto-use-commands/simple-command-ui.png" alt-text="Screenshot showing how to view command payload for a standard command":::
+:::image type="content" source="media/howto-use-commands/simple-command-ui.png" alt-text="Screenshot showing how to view command payload for a standard command." lightbox="media/howto-use-commands/simple-command-ui.png":::
 
 ## Long-running commands
 
-This section shows you how a device can delay sending a confirmation that the command competed.
+This section shows you how a device can delay sending a confirmation that the command completed.
 
 The following code snippet shows how a device can implement a long-running command:
 
@@ -202,13 +206,9 @@ The call to `onDeviceMethod` sets up the `commandHandler` method. This command h
 1. Completes the long-running operation.
 1. Uses a reported property with the same name as the command to tell IoT Central that the command completed.
 
-The following screenshot shows how the command response displays in the IoT Central UI when it receives the 202 response code:
-
-:::image type="content" source="media/howto-use-commands/long-running-start.png" alt-text="Screenshot that shows immediate response from device":::
-
 The following screenshot shows the IoT Central UI when it receives the property update that indicates the command is complete:
 
-:::image type="content" source="media/howto-use-commands/long-running-finish.png" alt-text="Screenshot that shows long-running command finished":::
+:::image type="content" source="media/howto-use-commands/long-running-finish.png" alt-text="Screenshot that shows long-running command finished." lightbox="media/howto-use-commands/long-running-finish.png":::
 
 ## Offline commands
 
@@ -219,7 +219,7 @@ This section shows you how a device handles an offline command. If a device is o
 
 The following screenshot shows an offline command called **GenerateDiagnostics**. The request parameter is an object with datetime property called **StartTime** and an integer enumeration property called **Bank**:
 
-:::image type="content" source="media/howto-use-commands/offline-command.png" alt-text="Screenshot that shows the UI for an offline command":::
+:::image type="content" source="media/howto-use-commands/offline-command.png" alt-text="Screenshot that shows the UI for an offline command." lightbox="media/howto-use-commands/offline-command.png":::
 
 The following code snippet shows how a client can listen for offline commands and display the message contents:
 
@@ -246,6 +246,12 @@ Properties: {"propertyList":[{"key":"iothub-ack","value":"none"},{"key":"method-
 
 > [!NOTE]
 > The default time-to-live for offline commands is 24 hours, after which the message expires.
+
+## Commands on unassigned devices
+
+You can call commands on a device that isn't assigned to a device template. To call a command on an unassigned device navigate to the device in the **Devices** section, select **Manage device** and then **Command**. Enter the method name, payload, and any other required values. The following screenshot shows the UI you use to call a command:
+
+:::image type="content" source="media/howto-use-commands/unassigned-commands.png" alt-text="Screenshot that shows an example of calling a command on an unassigned device." lightbox="media/howto-use-commands/unassigned-commands.png":::
 
 ## Next steps
 

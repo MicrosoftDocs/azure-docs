@@ -1,15 +1,13 @@
 ---
 title: 'Tutorial: Get started analyze data in Storage accounts' 
 description: In this tutorial, you'll learn how to analyze data located in a storage account.
-services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 12/31/2020
+ms.date: 11/18/2022
 ---
 
 # Analyze data in a storage account
@@ -30,7 +28,7 @@ Run the following code in a notebook in a new code cell. It creates a CSV file a
 ```py
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df = df.repartition(1) # This ensure we'll get a single file during write()
+df = df.repartition(1) # This ensures we'll get a single file during write()
 df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
 df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
@@ -47,19 +45,19 @@ You can analyze the data in your workspace default ADLS Gen2 account or you can 
 
     ```py
     %%pyspark
-    abspath = 'abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet'
+    abspath = 'abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats_parquetformat/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet'
     df = spark.read.load(abspath, format='parquet')
     display(df.limit(10))
     ```
 
-1. Attach to the Spark pool named **Spark1**. Run the cell.
+1. Attach to the Spark pool named **Spark1**. Run the cell. If you run into an error related to lack of cores, this spark pool may be used by another session. Cancel all the existing sessions and retry.
 1. Select back to the **users** folder. Right-click the **.parquet** file again, and then select **New SQL script** > **SELECT TOP 100 rows**. It creates a SQL script like this:
 
     ```sql
     SELECT 
         TOP 100 *
     FROM OPENROWSET(
-        BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
+        BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats_parquetformat/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
         FORMAT='PARQUET'
     ) AS [result]
     ```

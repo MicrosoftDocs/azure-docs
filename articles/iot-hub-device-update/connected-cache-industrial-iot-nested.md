@@ -4,11 +4,14 @@ description: Microsoft Connected Cache within an Azure IoT Edge for Industrial I
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
 # Microsoft Connected Cache preview deployment scenario sample: Microsoft Connected Cache within an Azure IoT Edge for Industrial IoT configuration
+
+> [!NOTE]
+> This information relates to a preview feature that's available for early testing and use in a production environment. This feature is fully supported but it's still in active development and may receive substantial changes until it becomes generally available.
 
 Manufacturing networks are often organized in hierarchical layers following the [Purdue network model](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture) (included in the [ISA 95](https://en.wikipedia.org/wiki/ANSI/ISA-95) and [ISA 99](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa99) standards). In these networks, only the top layer has connectivity to the cloud and the lower layers in the hierarchy can only communicate with adjacent north and south layers.
 
@@ -28,10 +31,10 @@ The key to configuring Microsoft Connected Cache deployments within an ISA 95 co
    * UPSTREAM_HOST - The IP/FQDN of the L4 IoT Edge gateway, which the L3 Microsoft Connected Cache will request content.
    * UPSTREAM_PROXY - The IP/FQDN:PORT of the OT proxy server.
 
-3. The OT proxy must add the L4 MCC FQDN/IP address to the allow list.
+3. The OT proxy must add the L4 MCC FQDN/IP address to the allowlist.
 
-To validate that Microsoft Connected Cache is functioning properly, execute the following command in the terminal of the IoT Edge device, hosting the module, or any device on the network.
+To validate that Microsoft Connected Cache is functioning properly, execute the following command in the terminal of the IoT Edge device, hosting the module, or any device on the network. Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).
 
 ```bash
-    wget "http://<L3 IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
+    wget http://<L3 IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
 ```

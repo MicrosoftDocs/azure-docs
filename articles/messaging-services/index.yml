@@ -8,11 +8,11 @@ metadata:
   title: Azure messaging services documentation
   description: Learn how to use Azure Event Grid, Azure Event Hubs, Azure Service Bus, and Azure Relay to deliver event messages.
   services: multiple
-  ms.service: multiple
+  ms.service: event-grid 
   ms.topic: hub-page
   author: spelluru
   ms.author: spelluru
-  ms.date: 03/15/2020
+  ms.date: 11/17/2022
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -151,6 +151,20 @@ conceptualContent:
       footerLink:
         url: ../service-bus-messaging/index.yml
         text: See more
+    # Card
+    - title: Event Grid on Kubernetes with Azure Arc (Preview)
+      links:
+        - url: ../event-grid/kubernetes/overview.md
+          itemType: overview
+          text: What is Event Grid on Kubernetes?
+        - url: ../event-grid/kubernetes/create-topic-subscription.md
+          itemType: quickstart
+          text: Create a topic and a subscription
+      # footerLink
+      footerLink:
+        url: ../event-grid/kubernetes/index.yml
+        text: See more
+
     # Card
     - title: Send and receive messages - queues
       links:

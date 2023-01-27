@@ -3,13 +3,11 @@ title: 'Quickstart: Create and modify an ExpressRoute circuit: Azure CLI'
 description: This quickstart shows how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit using Azure CLI.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
-ms.author: duau 
-ms.custom: devx-track-azurecli
-
+ms.author: duau
+ms.custom: devx-track-azurecli, mode-api
 ---
 # Quickstart: Create and modify an ExpressRoute circuit using Azure CLI
 
@@ -263,7 +261,7 @@ For step-by-step instructions, see the [ExpressRoute circuit routing configurati
 
 ### Link a virtual network to an ExpressRoute circuit
 
-Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virtual networks to ExpressRoute circuits](howto-linkvnet-cli.md) article.
+Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-cli.md) article.
 
 ## <a name="modify"></a>Modifying an ExpressRoute circuit
 

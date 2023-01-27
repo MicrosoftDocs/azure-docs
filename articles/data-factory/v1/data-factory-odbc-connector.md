@@ -1,11 +1,13 @@
 ---
 title: Move data from ODBC data stores 
 description: Learn about how to move data from ODBC data stores using Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Move data From ODBC data stores using Azure Data Factory
@@ -349,10 +351,10 @@ To troubleshoot connection issues, use the **Diagnostics** tab of **Data Managem
 
 1. Launch **Data Management Gateway Configuration Manager**. You can either run "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" directly (or) search for **Gateway** to find a link to **Microsoft Data Management Gateway** application as shown in the following image.
 
-    ![Search gateway](./media/data-factory-odbc-connector/search-gateway.png)
+    :::image type="content" source="./media/data-factory-odbc-connector/search-gateway.png" alt-text="Search gateway":::
 2. Switch to the **Diagnostics** tab.
 
-    ![Gateway diagnostics](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+    :::image type="content" source="./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png" alt-text="Gateway diagnostics":::
 3. Select the **type** of data store (linked service).
 4. Specify **authentication** and enter **credentials** (or) enter **connection string** that is used to connect to the data store.
 5. Click **Test connection** to test the connection to the data store.

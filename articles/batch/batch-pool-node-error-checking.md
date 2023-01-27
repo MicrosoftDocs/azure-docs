@@ -1,8 +1,6 @@
 ---
 title: Check for pool and node errors
 description: This article covers the background operations that can occur, along with errors to check for and how to avoid them when creating pools and nodes.
-author: mscurrell
-ms.author: markscu
 ms.date: 03/15/2021
 ms.topic: how-to
 ---
@@ -35,7 +33,7 @@ Common causes for resize errors include:
 - Insufficient resources when a [pool is in a virtual network](./batch-virtual-network.md)
   - You might create resources such as load-balancers, public IPs, and network security groups in the same subscription as the Batch account. Check that the subscription quotas are sufficient for these resources.
 - Large pools with custom VM images
-  - Large pools that use custom VM images can take longer to allocate and resize timeouts can occur.  See [Create a pool with the Shared Image Gallery](batch-sig-images.md) for recommendations on limits and configuration.
+  - Large pools that use custom VM images can take longer to allocate and resize timeouts can occur.  See [Create a pool with the Azure Compute Gallery](batch-sig-images.md) for recommendations on limits and configuration.
 
 ### Automatic scaling failures
 

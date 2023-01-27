@@ -1,20 +1,18 @@
 ---
 title: "Quickstart: Create an Azure Active Directory tenant"
-titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how to create an Azure Active Directory tenant for use in developing applications that use the Microsoft identity platform for authentication and authorization.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 02/15/2021
+ms.date: 09/08/2022
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-#Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit, mode-other
+#Customer intent: As an application developer, I need to create a Microsoft identity environment so I can use it to register applications.
 ---
 
 # Quickstart: Set up a tenant
@@ -40,7 +38,7 @@ This quickstart addresses two scenarios for the type of app you want to build:
 
 ## Work and school accounts, or personal Microsoft accounts
 
-To build an environment for either work and school accounts or personal Microsoft accounts, you can use an existing Azure AD tenant or create a new one.
+To build an environment for either work and school accounts or personal Microsoft accounts (MSA), you can use an existing Azure AD tenant or create a new one.
 ### Use an existing Azure AD tenant
 
 Many developers already have tenants through services or subscriptions that are tied to Azure AD tenants, such as Microsoft 365 or Azure subscriptions.
@@ -65,8 +63,9 @@ If you don't already have an Azure AD tenant or if you want to create a new one 
 
 You'll provide the following information to create your new tenant:
 
+- **Tenant type** - Choose between an Azure AD and Azure AD B2C tenant
 - **Organization name**
-- **Initial domain** - This domain is part of *.onmicrosoft.com. You can customize the domain later.
+- **Initial domain** - Initial domain `<domainname>.onmicrosoft.com` can't be edited or deleted. You can add a customized domain name later.
 - **Country or region**
 
 > [!NOTE]
@@ -74,7 +73,7 @@ You'll provide the following information to create your new tenant:
 
 ## Social and local accounts
 
-To begin building apps that sign in social and local accounts, create an Azure AD B2C tenant. To begin, see [Create an Azure AD B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md).
+To begin building external facing applications that sign in social and local accounts, create an Azure AD B2C tenant. To begin, see [Create an Azure AD B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md).
 
 ## Next steps
 

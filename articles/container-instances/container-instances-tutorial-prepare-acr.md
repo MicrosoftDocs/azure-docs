@@ -2,7 +2,11 @@
 title: Tutorial - Prepare container registry to deploy image
 description: Azure Container Instances tutorial part 2 of 3 - Prepare an Azure container registry and push an image
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: "seodec18, mvc, devx-track-azurecli"
 ---
 
@@ -127,7 +131,6 @@ az acr repository show-tags --name <acrName> --repository aci-tutorial-app --out
 You should see output similar to the following:
 
 ```console
-az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
 Result
 --------
 v1
@@ -161,10 +164,10 @@ Advance to the next tutorial to learn how to deploy the container to Azure using
 [nodejs]: https://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-repository-list]: /cli/azure/acr/repository
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli

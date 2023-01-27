@@ -1,8 +1,8 @@
 ---
 title: Introduction to Azure Advisor
 description: Use Azure Advisor to optimize your Azure deployments.
-ms.topic: article
-ms.date: 09/27/2020
+ms.topic: overview
+ms.date: 04/07/2022
 ---
 
 # Introduction to Azure Advisor
@@ -25,7 +25,7 @@ The Advisor dashboard displays personalized recommendations for all your subscri
 * **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
 * **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-performance-recommendations.md).
 * **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
-* **Operational Excellence**: To help you achieve process and workflow efficiency, resource manageability and deployment best practices. . For more information, see [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md).
+* **Operational Excellence**: To help you achieve process and workflow efficiency, resource manageability and deployment best practices. For more information, see [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md).
 
   ![Advisor recommendation types](./media/advisor-overview/advisor-dashboard.png)
 
@@ -52,7 +52,7 @@ You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of
 
 Advisor provides recommendations for Application Gateway, App Services, availability sets, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure public IP addresses, Azure Synapse Analytics, SQL servers, storage accounts, Traffic Manager profiles, and virtual machines.
 
-Azure Advisor also includes your recommendations from [Azure Security Center](../security-center/security-center-recommendations.md) which may include recommendations for additional resource types.
+Azure Advisor also includes your recommendations from [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) which may include recommendations for additional resource types.
 
 ### Can I postpone or dismiss a recommendation?
 
