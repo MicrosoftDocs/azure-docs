@@ -227,7 +227,8 @@ View and change details of your project.  In this tab you can:
 * View details of the storage container used to store labeled outputs in your project
 * Add labels to your project
 * Edit instructions you give to your labels
-* Edit details of ML assisted labeling, including enable/disable
+* Change settings for ML assisted labeling, and kick off a labeling task
+
 
 ### Access for labelers
 
