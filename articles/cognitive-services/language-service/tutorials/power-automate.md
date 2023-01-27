@@ -29,7 +29,7 @@ You can use [Power Automate](/power-automate/getting-started) flows to automate 
     * (optional) A trained model if you're using a custom capability such as [custom NER](../custom-named-entity-recognition/overview.md), [custom text classification](../custom-text-classification/), or [conversational language understanding](../conversational-language-understanding/overview.md).
     * You will need the key and endpoint from your Language resource to authenticate your Power Automate flow.
 
-## Create a power automate flow
+## Create a Power Automate flow
 
 1. [Sign in to power automate](https://make.powerautomate.com/)
 
@@ -37,7 +37,7 @@ You can use [Power Automate](/power-automate/getting-started) flows to automate 
 
     :::image type="content" source="../media/create-flow.png" alt-text="A screenshot of the menu for creating an automated cloud flow." lightbox="../media/create-flow.png":::
 
-3. Enter a name your flow. For example *Languageflow*.
+3. Enter a name your flow. For example `Languageflow`.
 
     :::image type="content" source="../media/language-flow.png" alt-text="A screenshot of automated cloud flow screen." lightbox="../media/language-flow.png":::
 
