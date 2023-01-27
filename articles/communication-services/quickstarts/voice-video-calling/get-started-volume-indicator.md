@@ -28,7 +28,7 @@ As a developer it can be nice to have the ability to check and display to end us
 Sample code to get volume of selected microphone. This example shows how to generate the volume level by accessing `getVolume`.
 
 ```javascript
-//Get the vaolume of the local audio source
+//Get the volume of the local audio source
 const volumeIndicator = await new SDK.LocalAudioStream(deviceManager.selectedMicrophone).getVolume();
 volumeIndicator.on('levelChanged', ()=>{
     console.log(`Volume is ${volumeIndicator.level}`)
