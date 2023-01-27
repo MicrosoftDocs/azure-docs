@@ -33,7 +33,7 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
 In this step, you'll export the trace from the distributed tracing web GUI and save it locally.
 
-1. Sign in to the distributed tracing web GUI at https://*\<LocalMonitoringIP\>*/sas, where *\<LocalMonitoringIP\>* is the IP address you set up for accessing local monitoring tools.
+1. Sign in to the distributed tracing web GUI as described in [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui).
 1. In the **Search** tab, specify the SUPI and time for the event you're interested in and select **Search**.
     
     :::image type="content" source="media\distributed-tracing-share-traces\distributed-tracing-search.png" alt-text="Screenshot of the Search display in the distributed tracing web G U I, showing the S U P I search field and date and time range options.":::

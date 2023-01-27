@@ -49,7 +49,7 @@ The data flow for joining Teams meetings is available at the [client and server 
 
 High-level coding articles:
 - [Authenticate as Teams external user](../../../quickstarts/identity/access-token-teams-external-users.md) 
-- [Stateful Client (Meeting)](https://azure.github.io/communication-ui-library/?path=/story/composites-meeting-basicexample--basic-example)
+- [Call with Chat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example)
 
 Low-level coding articles:
 - [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)

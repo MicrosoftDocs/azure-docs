@@ -39,6 +39,8 @@ The following diagram shows the key resources you'll use to manage your private 
 
     A SIM policy will also reference one or more *services*. Each service is a representation of a set of QoS characteristics that you want to offer to UEs on SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
 
+    The physical private mobile network can be segmented into multiple virtual *network slices*, providing isolated end-to-end networks that can be customized for different bandwidth and latency requirements. You can choose the network slice you want particular UEs to use by assigning it to their SIM policy.
+
     For detailed information on policy control, see [Policy control](policy-control.md).
 
 - The *mobile network site* and *packet core* resources allow you to manage the sites in your private mobile network and the packet core instances that run in them.

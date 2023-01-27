@@ -1895,7 +1895,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |AddRegion |Yes |Region Added |Count |Count |Region Added |Region |
 |AutoscaleMaxThroughput |No |Autoscale Max Throughput |Count |Maximum |Autoscale Max Throughput |DatabaseName, CollectionName |
-|AvailableStorage |No |(deprecated) Available Storage |Bytes |Total |"Available Storage"will be removed from Azure Monitor at the end of September 2023. Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more info about Cosmos DB storage quota, please check this doc https://docs.microsoft.com/azure/cosmos-db/concepts-limits. After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date. |CollectionName, DatabaseName, Region |
+|AvailableStorage |No |(deprecated) Available Storage |Bytes |Total |"Available Storage"will be removed from Azure Monitor at the end of September 2023. Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more info about Cosmos DB storage quota, refer to [Azure Cosmos DB service limits]( ../../cosmos-db/concepts-limits.md). After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date. |CollectionName, DatabaseName, Region |
 |CassandraConnectionClosures |No |Cassandra Connection Closures |Count |Total |Number of Cassandra connections that were closed, reported at a 1 minute granularity |APIType, Region, ClosureReason |
 |CassandraConnectorAvgReplicationLatency |No |Cassandra Connector Average ReplicationLatency |MilliSeconds |Average |Cassandra Connector Average ReplicationLatency |No Dimensions |
 |CassandraConnectorReplicationHealthStatus |No |Cassandra Connector Replication Health Status |Count |Count |Cassandra Connector Replication Health Status |NotStarted, ReplicationInProgress, Error |
@@ -4088,16 +4088,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IngressStoredEvents |Yes |Ingress Stored Events |Count |Total |Count of flattened events successfully processed and available for query |No Dimensions |
 |WarmStorageMaxProperties |Yes |Warm Storage Max Properties |Count |Maximum |Maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU |No Dimensions |
 |WarmStorageUsedProperties |Yes |Warm Storage Used Properties  |Count |Maximum |Number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU |No Dimensions |
-
-
-## Microsoft.VoiceServices/CommunicationsGateways  
-<!-- Data source : naam-->
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|ActiveCallFailures |No |Active Call Failures |Percent |Average |Percentage of active call failures |PerimetaRegion |
-|ActiveCalls |No |Active Calls |Count |Average |Count of the total number of active calls (signaling sessions) |PerimetaRegion |
-|ActiveEmergencyCalls |No |Active Emergency Calls |Count |Average |Count of the total number of active emergency calls |PerimetaRegion |
 
 
 ## Microsoft.Web/containerapps  
