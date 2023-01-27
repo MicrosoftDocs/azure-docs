@@ -12,7 +12,6 @@ ms.date: 11/25/2022
 ms.author: owenrichards
 ms.reviewer: kenwith
 ms.custom: aaddev, engagement-fy23
-ms.reviewer: paulgarn
 ---
 
 # Single Sign-Out SAML Protocol

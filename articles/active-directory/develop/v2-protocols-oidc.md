@@ -3,7 +3,6 @@ title: OpenID Connect (OIDC) on the Microsoft identity platform
 description: Sign in Azure AD users by using the Microsoft identity platform's implementation of the OpenID Connect extension to OAuth 2.0.
 author: OwenRichards1
 manager: CelesteDG
-ms.author: ludwignick
 ms.custom: aaddev, identityplatformtop40
 ms.date: 08/26/2022
 ms.author: owenrichards
