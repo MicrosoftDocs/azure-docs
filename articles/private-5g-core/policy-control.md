@@ -26,6 +26,8 @@ A *QoS profile* has two main components.
 
 - A *5G QoS identifier (5QI)*. The 5QI value corresponds to a set of QoS characteristics that should be used for the QoS flow. These characteristics include guaranteed and maximum bitrates, priority levels, and limits on latency, jitter, and error rate. The 5QI is given as a scalar number.
 
+  Azure Private 5G Core will attempt to configure differentiated services codepoint (DSCP) markings on outbound packets based on the configured 5QI value for standardized GBR and non-GBR values. For more information on the mapping of 5QI to DSCP values, see [5G QoS identifier (5QI) to differentiated services codepoint (DSCP) mapping](dscp-5qi-mapping.md).
+
   You can find more information on 5QI values and each of the QoS characteristics in 3GPP TS 23.501. You can also find definitions for standardized (or non-dynamic) 5QI values. 
 
   The required parameters for each 5QI value are pre-configured in the Next Generation Node B (gNB).
@@ -36,52 +38,6 @@ A *QoS profile* has two main components.
 - An *allocation and retention priority (ARP) value*. The ARP value defines a QoS flow's importance. It controls whether a particular QoS flow should be retained or preempted when there's resource constraint in the network, based on its priority compared to other QoS flows. The QoS profile may also define whether the QoS flow can preempt or be preempted by another QoS flow.
 
 Each unique QoS flow is assigned a unique *QoS flow ID (QFI)*, which is used by network elements to map SDFs to QoS flows.
-
-### Differentiated services codepoint (DSCP)  mapping
-
-Azure Private 5G Core will attempt to configure DSCP markings on outbound packets based on the configured 5QI value for standardized GBR and non-GBR values. The following table contains the mapping of 5QI to DSCP values.
-
-
-Guaranteed bitrate 5QIs
-
-| 5QI value | DSCP value | DSCP value meaning |
-|--|--|--|
-| 1 | 46 | Expedited Forwarding |
-| 2 | 36 | Assured Forwarding 42 |
-| 3 | 10 | Assured Forwarding 11 |
-| 4 | 28 | Assured Forwarding 32 |
-| 65 | 46 | Expedited Forwarding |
-| 66 | 46 | Expedited Forwarding |
-| 67 | 34 | Assured Forwarding 41 |
-| 71 | 28 | Assured Forwarding 32 |
-| 72 | 28 | Assured Forwarding 32 |
-| 73 | 28 | Assured Forwarding 32 |
-| 74 | 28 | Assured Forwarding 32 |
-| 76 | 28 | Assured Forwarding 32 |
-
-Delay-critical guaranteed bitrate 5QIs
-
-| 5QI value | DSCP value | DSCP value meaning |
-|--|--|--|
-| 82 | 18 | Assured Forwarding 21 |
-| 83 | 18 | Assured Forwarding 21 |
-| 84 | 18 | Assured Forwarding 21 |
-| 85 | 18 | Assured Forwarding 21 |
-| 86 | 18 | Assured Forwarding 21 |
-
-Non-guaranteed bitrate 5QIs
-
-| 5QI value | DSCP value | DSCP value meaning |
-|--|--|--|
-| 5 | 46 | Expedited Forwarding |
-| 6 | 10 | Assured Forwarding 11 |
-| 7 | 18 | Assured Forwarding 21 |
-| 8 | 18 | Assured Forwarding 21 |
-| 9 | 0 | Best Effort | 
-| 69 | 34 | Assured Forwarding 41 |
-| 70 | 18 | Assured Forwarding 21 |
-| 79 | 18 | Assured Forwarding 21 |
-| 80 | 68 | Assured Forwarding 41 |
 
 ## 4G QoS and EPS bearers
 

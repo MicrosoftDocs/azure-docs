@@ -134,6 +134,8 @@ items:
      href: /rest/api/mobilenetwork
    - name: Region code names
      href: region-code-names.md
+   - name: 5QI to DSCP mapping
+     href: dscp-5qi-mapping.md
 - name: Resources
   items:
   - name: Azure Private 5G Core product page
