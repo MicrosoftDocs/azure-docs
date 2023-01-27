@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 01/27/2023
 ms.subservice: hybrid
 ms.author: billmath
 

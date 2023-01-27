@@ -13,7 +13,7 @@ ms.custom: azure-ad-connect
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 08/10/2018
+ms.date: 01/27/2023
 ms.subservice: hybrid
 ms.author: billmath
 
