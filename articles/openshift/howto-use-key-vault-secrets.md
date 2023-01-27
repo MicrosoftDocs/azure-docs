@@ -180,7 +180,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
 
     ```
     cat <<EOF | kubectl apply -f -
-     apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
+     apiVersion: secrets-store.csi.x-k8s.io/v1
      kind: SecretProviderClass
      metadata:
        name: azure-kvname
