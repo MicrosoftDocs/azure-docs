@@ -690,6 +690,7 @@ from azureml.core.environment import CondaDependencies
 myenv = Environment(name="myenv")
 conda_dep = CondaDependencies()
 conda_dep.add_conda_package("python==3.8")
+env.python.conda_dependencies = conda_dep
 ```
 
 *Applies to: all scenarios*
@@ -826,7 +827,7 @@ from azureml.core.environment import CondaDependencies
 env = Environment(name="env")
 conda_dep = CondaDependencies()
 conda_dep.add_conda_package("python==3.8")
-env.python.conda_dependencies=conda_dep
+env.python.conda_dependencies = conda_dep
 ```
 
 *Applies to: Azure CLI & Python SDK v2*
@@ -881,7 +882,7 @@ from azureml.core.environment import CondaDependencies
 env = Environment(name="env")
 conda_dep = CondaDependencies()
 conda_dep.add_conda_package("python==3.8")
-env.python.conda_dependencies=conda_dep
+env.python.conda_dependencies = conda_dep
 ```
 
 *Applies to: Azure CLI & Python SDK v2*
@@ -897,50 +898,257 @@ You must specify a base Docker image for the environment, and the conda environm
 * See [how to set a conda specification on the environment definition](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
 
 ### Missing conda channels
-- If no conda channels are specified, conda will use defaults that might change
-- For reproducibility of your environment, specify channels from which to pull dependencies
-- For more information, see [how to manage conda channels](https://aka.ms/azureml/environment/managing-conda-channels)
+<!--issueDescription-->
+**Potential causes:**
+* You haven't specified conda channels in your environment definition
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+For reproducibility of your environment, specify channels from which to pull dependencies. If no conda channel is specified, conda will use defaults that might change.
+
+*Applies to: Python SDK v1*
+
+Add a conda channel using the Python SDK
+
+```python
+from azureml.core.environment import CondaDependencies
+
+env = Environment(name="env")
+conda_dep = CondaDependencies()
+conda_dep.add_channel("conda-forge")
+env.python.conda_dependencies = conda_dep
+```
+
+*Applies to: all scenarios*
+
+If you're using a YAML for your conda specification, include the conda channel(s) you'd like to use
+
+```yaml
+name: project_environment
+dependencies:
+  - python=3.8
+  - pip:
+      - azureml-defaults
+channels:
+  - anaconda
+  - conda-forge
+```
+
+**Resources**
+* See [how to set a conda specification on the environment definition v1](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
+* See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
+* See how to [create an environment from a conda specification v2](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
+* See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
 
 ### Base conda environment not recommended
-- Partial environment updates can lead to dependency conflicts and/or unexpected runtime errors,
-so the use of base conda environments isn't recommended
-- Instead, specify all packages needed for your environment in the `conda_dependencies` section of your
-environment definition
-    - See [from_conda_specification](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
-    - See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
-- If you're using V2, add a conda specification to your [build context](https://aka.ms/azureml/environment/environment-build-context)
+<!--issueDescription-->
+**Potential causes:**
+* You specified a base conda environment in your environment definition
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Partial environment updates can lead to dependency conflicts and/or unexpected runtime errors, so the use of base conda environments isn't recommended. 
+
+*Applies to: Python SDK v1*
+
+Remove your base conda environment, and specify all packages needed for your environment in the `conda_dependencies` section of your environment definition
+
+```python
+from azureml.core.environment import CondaDependencies
+
+env = Environment(name="env")
+env.python.base_conda_environment = None
+conda_dep = CondaDependencies()
+conda_dep.add_conda_package("python==3.8")
+env.python.conda_dependencies = conda_dep
+```
+
+*Applies to: Azure CLI & Python SDK v2*
+
+Define an environment using a standard conda YAML configuration file
+* See [how to create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
+
+**Resources**
+* See [how to set a conda specification on the environment definition v1](https://aka.ms/azureml/environment/set-conda-spec-on-environment-definition)
+* See [CondaDependencies class](https://aka.ms/azureml/environment/conda-dependencies-class)
+* See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
 
 ### Unpinned dependencies
-- For reproducibility, specify dependency versions for the packages in your conda specification
-- If versions aren't specified, there's a chance that the conda or pip package resolver will choose a different
-version of a package on subsequent builds of an environment. This behavior can lead to unexpected errors
-- See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
+<!--issueDescription-->
+**Potential causes:**
+* You didn't specify versions for certain packages in your conda specification
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+If a dependency version isn't specified, the conda package resolver may choose a different version of the package on subsequent builds of the same environment. This breaks reproducibility of the environment and can lead to unexpected errors.
+
+*Applies to: Python SDK v1*
+
+Include version numbers when adding packages to your conda specification
+
+```python
+from azureml.core.environment import CondaDependencies
+
+conda_dep = CondaDependencies()
+conda_dep.add_conda_package("numpy==1.24.1")
+```
+
+*Applies to: all scenarios*
+
+If you're using a YAML for your conda specification, specify versions for your dependencies
+
+```yaml
+name: project_environment
+dependencies:
+  - python=3.8
+  - pip:
+      - numpy=1.24.1
+channels:
+  - anaconda
+  - conda-forge
+```
+
+**Resources**
+* See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
 ## *Pip issues*
 ### Pip not specified
-- For reproducibility, pip should be specified as a dependency in your conda specification, and it should be pinned
-- See [how to set a conda dependency](https://aka.ms/azureml/environment/add-conda-package-v1)
+<!--issueDescription-->
+**Potential causes:**
+* You didn't specify pip as a dependency in your conda specification
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+For reproducibility, pip should be specified as a dependency in your conda specification, and it should be pinned.
+
+*Applies to: Python SDK v1*
+
+Specify pip as a dependency, along with its version
+
+```python
+env.python.conda_dependencies.add_conda_package("pip==22.3.1")
+```
+
+*Applies to: all scenarios*
+
+If you're using a YAML for your conda specification, specify pip as a dependency
+
+```yaml
+name: project_environment
+dependencies:
+  - python=3.8
+  - pip=22.3.1
+  - pip:
+      - numpy=1.24.1
+channels:
+  - anaconda
+  - conda-forge
+```
+
+**Resources**
+* See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
 ### Pip not pinned
-- For reproducibility, specify the pip resolver version in your conda dependencies
-- If the pip version isn't specified, there's a chance different versions of pip will be used on subsequent
-image builds on the environment
-    - This behavior could cause the build to fail if the different pip versions resolve your packages differently
-    - To avoid this issue and to achieve reproducibility of your environment, specify the pip version
-- See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
-- See [how to set pip as a dependency](https://aka.ms/azureml/environment/add-conda-package-v1)
+<!--issueDescription-->
+**Potential causes:**
+* You didn't specify a version for pip in your conda specification
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+If a pip version isn't specified, a different version may be used on subsequent builds of the same environment. This can cause reproducibility issues and other unexpected errors if different versions of pip resolve your packages differently.
+
+*Applies to: Python SDK v1*
+
+Specify a pip version in your conda dependencies
+
+```python
+env.python.conda_dependencies.add_conda_package("pip==22.3.1")
+```
+
+*Applies to: all scenarios*
+
+If you're using a YAML for your conda specification, specify a version for pip
+
+```yaml
+name: project_environment
+dependencies:
+  - python=3.8
+  - pip=22.3.1
+  - pip:
+      - numpy=1.24.1
+channels:
+  - anaconda
+  - conda-forge
+```
+
+**Resources**
+* See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
 ## *Deprecated environment property issues*
 ### R section is deprecated
-- The Azure Machine Learning SDK for R will be deprecated by the end of 2021 to make way for an improved R training and deployment
-experience using Azure Machine Learning CLI 2.0
-- See the [samples repository](https://aka.ms/azureml/environment/train-r-models-cli-v2) to get started with the edition CLI 2.0.
+<!--issueDescription-->
+**Potential causes:**
+* You specified an R section in your environment definition
+
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+The AzureML SDK for R was deprecated at the end of 2021 to make way for an improved R training and deployment experience using the Azure CLI v2
+
+*Applies to: Python SDK v1*
+
+Remove the R section from your environment definition
+
+```python
+env.r = None
+```
+
+*Applies to: all scenarios*
+
+See the [samples repository](https://aka.ms/azureml/environment/train-r-models-cli-v2) to get started training R models using the Azure CLI v2
 
 ## **Image build problems**
 
 ## *Miscellaneous issues*
 ### Build log unavailable
-- Build logs are optional and not available for all environments since the image might already exist
+<!--issueDescription-->
+**Potential causes:**
+* AzureML isn't authorized to store your build logs in your storage account
+* A transient error occurred while saving your build logs
+* Your image build didn't occur due to a system error before the build had a chance to start
+
+**Affected areas (symptoms):**
+* A successful build, but no available logs.
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+A rebuild may fix the issue if it's transient
 
 ## *ACR issues*
 ### ACR unreachable
@@ -954,8 +1162,8 @@ This issue can happen by failing to access a workspace's associated Azure Contai
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
 * Failure in running jobs because it will implicitly build the environment in the first step.
-* Pipeline job failures
-* Model deployment failures
+* Pipeline job failures.
+* Model deployment failures.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
