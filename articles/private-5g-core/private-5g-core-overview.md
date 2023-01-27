@@ -177,12 +177,6 @@ Azure Private 5G Core is available as a native Azure service, offering the same 
 - Access the large ecosystem of Microsoft independent software vendor (ISV) partners for applications and network functions.
 - Utilize Azure Lighthouse and the Azure Expert Managed Services Provider (MSP) program to simplify the end-to-end deployment of a private mobile network through Azure.
 
-## Azure centralized monitoring
-
-Azure Private 5G Core is integrated with Log Analytics in Azure Monitor, as described in [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md). You can write queries to retrieve records or visualize data in charts. This lets you monitor and analyze activity in your private mobile network directly from the Azure portal.
-
-:::image type="content" source="media/azure-private-5g-core/log-analytics-tool.png" alt-text="Screenshot of Log Analytics showing a query made on devices registered with the private mobile network." lightbox="media/azure-private-5g-core/log-analytics-tool.png":::
-
 ## Next steps
 
 - [Learn more about the key components of a private mobile network](key-components-of-a-private-mobile-network.md)
