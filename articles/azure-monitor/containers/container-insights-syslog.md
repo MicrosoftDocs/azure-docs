@@ -35,7 +35,7 @@ az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring --enable-sys
 
 ## How to access Syslog data
  
-Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in your Log Analytics workspace. You can create your own [log queries](../../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md) to analyze this data or use any of the [prebuilt queries](../logs/loq-queries-overview.md).
+Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in your Log Analytics workspace. You can create your own [log queries](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md) to analyze this data or use any of the [prebuilt queries](../logs/log-query-overview.md).
 
 :::image type="content" source="media/container-insights-syslog/AzMon3.png" lightbox="media/container-insights-syslog/AzMon3.png" alt-text="Syslog query loaded in the query editor in the Azure Monitor Portal UI" border="false":::    
 
