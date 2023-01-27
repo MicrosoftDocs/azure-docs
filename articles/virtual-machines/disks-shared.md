@@ -102,7 +102,7 @@ The flow is as follows:
 
 ### Ultra Disk and Premium SSD v2 reservation flow
 
-Ultra disks and Premium SSD v2 managed disks offer two extra throttles, for a total of four throttles. Due to this, the reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
+Both Ultra disks and Premium SSD v2 managed disks offer two extra throttles, giving each of them a total of four throttles. Due to this, the reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="An image of a table that depicts the `ReadOnly` or `Read/Write` access for Reservation Holder, Registered, and Others.":::
 
@@ -114,7 +114,7 @@ With premium SSD, the disk IOPS and throughput is fixed, for example, IOPS of a 
 
 ### Ultra Disk and Premium SSD v2 performance throttles
 
-Ultra Disks and Premium SSD v2 managed disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared Ultra Disks and shared Premium SSD v2 managed disks have two more attributes.
+Both Ultra Disks and Premium SSD v2 managed disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared Ultra Disks and shared Premium SSD v2 managed disks have two more attributes.
 
 
 |Attribute  |Description  |
