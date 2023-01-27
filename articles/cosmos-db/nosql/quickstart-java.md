@@ -150,7 +150,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 ## [Passwordless Sync API](#tab/passwordlesssync)
 
-[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
+[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/java-default-azure-credential-overview.md)]
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
@@ -188,7 +188,7 @@ You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by ad
 
 ## [Passwordless Aync API](#tab/passwordlessasync)
 
-[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
+[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/java-default-azure-credential-overview.md)]
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
