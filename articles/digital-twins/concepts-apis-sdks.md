@@ -104,9 +104,14 @@ The [bulk import API]() is a data plane API that allows you to import a set of m
 
 ### Check permissions
 
-Use of the bulk import API requires the following permissions: 
-* Permission to perform data actions for bulk jobs.
-* Permission to write data to your Azure Digital Twins graph (including models, twins, and/or relationships). One role that provides this is *Azure Digital Twins Data Owner* on the Azure Digital Twins instance. For more information about roles in Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md).
+To use the bulk import API, you'll need to have write permission in your Azure Digital Twins instance for the following data action categories: 
+* Bulk import jobs
+* Any graph elements that you want to include in the bulk import call. This might include models, twins, and/or relationships.
+
+The built-in role that provides all of these permissions is *Azure Digital Twins Data Owner*. You can also use a custom role to grant granular access to only the data types that you need. For more information about roles in Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
+
+>[!NOTE]
+> If you attempt a bulk import API call and you're missing write permissions to one of the graph element types you're trying to import, the job will skip that type and import the others. For example, if you have write access to models and twins, but not relationships, an attempt to bulk import all three types of element will only succeed in importing the models and twins. The job status will reflect a failure and the message will indicate which permissions are missing.
 
 ### Format data 
 
