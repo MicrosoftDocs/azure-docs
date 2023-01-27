@@ -23,10 +23,11 @@ Historically, Application Gateway v2 SKUs, and to a certain extend v1, has requi
 
 Application Gateway v2 can now address each of these items to further eliminate risk of data exfiltration and control privacy of communication from within the virtual network. These changes include the following capabilities:
 
-1. Private IP address only frontend IP configuration: No public IP address resource is required.
-2. Elimination of inbound traffic from GatewayManager service tag via Network Security Groupl.
-3. Ability to define a _Deny All_ outbound NSG rule to restrict egress traffic to the Internet.
-4. Ability to multiple the default route out to the internet (0.0.0.0/0).
+1. Private IP address only frontend IP configuration
+   - No public IP address resource required
+2. Elimination of inbound traffic from GatewayManager service tag via Network Security Group
+3. Ability to define a _Deny All_ outbound NSG rule to restrict egress traffic to the Internet
+4. Ability to override the default route to the internet (0.0.0.0/0)
 5. DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers), including private link private DNS zones.
 
 Each of these features can be enabled independently. For example, a public IP address can be used to allow traffic inbound from the Internet and you can define a **_Deny All_** outbound rule in the network security group configuration to prevent data exfiltration. This is a valid configuration.
