@@ -544,6 +544,8 @@
         href: competencyiq-tutorial.md
       - name: Compliance ELF
         href: complianceelf-tutorial.md
+      - name: Compliance Genie
+        href: compliance-genie-tutorial.md
       - name: Concur
         href: concur-tutorial.md
       - name: SAP Concur Travel and Expense
