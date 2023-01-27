@@ -16,7 +16,9 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
 
 ## Prerequisites
 
-[Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+* [Complete the prerequisite tasks for deploying a private mobile network]* (complete-private-mobile-network-prerequisites.md).
+
+* You will need Owner permission on the resource group for your Azure Stack Edge resource.
 
 ## Enter a minishell session
 
@@ -74,7 +76,6 @@ Once you've run these commands, you should see an updated option in the local UI
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted":::
 
-You'll set up the configuration in [Add Compute and IP addresses](#add-compute-and-ip-addresses).
 Additionally, if you go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-ASE-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
@@ -98,10 +99,10 @@ You can input all the settings on this page before selecting **Apply** at the bo
 
 1. Configure three virtual switches. There must be a virtual switch associated with each port before the next step. The virtual switches may already be present if you have other virtual network functions (VNFs) set up.
 
-    - Select **Add virtual switch** and fill in the side panel appropriately for each switch before selecting **Modify** to save that configuration.
-      - Create a virtual switch on the port that should have compute enabled (the management port). We recommend using the format **vswitch-portX**, where **X** is the number of the port. For example, create **vswitch-port*3* on port 3.  
-      - Create a virtual switch on port 5 with the name **vswitch-port5**.
-      - Create a virtual switch on port 6 with the name **vswitch-port6**.
+    Select **Add virtual switch** and fill in the side panel appropriately for each switch before selecting **Modify** to save that configuration.
+    - Create a virtual switch on the port that should have compute enabled (the management port). We recommend using the format **vswitch-portX**, where **X** is the number of the port. For example, create **vswitch-port*3* on port 3.  
+    - Create a virtual switch on port 5 with the name **vswitch-port5**.
+    - Create a virtual switch on port 6 with the name **vswitch-port6**.
 
     You should now see something similar to the following image:
     :::image type="content" source="media/commission-a-cluster/commission-a-cluster-virtual-switch.png" alt-text="Screenshot showing three virtual switches, where the names correspond to the network interface the switch is on. ":::
@@ -115,15 +116,15 @@ You can input all the settings on this page before selecting **Apply** at the bo
 
 1. Carry out the following procedure three times plus once for each of the supplementary data networks (so five times in total if you have three data networks): 
 
-    - Select **Add virtual network** and fill in the side panel.
-      - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
-      - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
-      - **VLAN**: 0
-      - **Subnet mask** and **Gateway** must match the external values for the port.
-        - For example, *255.255.255.0* and *10.232.44.1*
-        - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
-      - Select **Modify** to save the configuration for this virtual network.
-    - Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
+    1. Select **Add virtual network** and fill in the side panel:
+          - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
+          - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
+          - **VLAN**: 0
+          - **Subnet mask** and **Gateway** must match the external values for the port.
+            - For example, *255.255.255.0* and *10.232.44.1*
+            - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
+    1. Select **Modify** to save the configuration for this virtual network.
+    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
     
   The page should now look like the following image:
 
@@ -134,16 +135,16 @@ You can input all the settings on this page before selecting **Apply** at the bo
 In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'll set up all of the configuration and then apply it once, as you did in [Set up Advanced Networking](#set-up-advanced-networking).
 
 1. Under **Compute virtual switch**, select **Modify**.
-      - Select the management vswitch (for example, *vswitch-port3*)
-      - Enter six IP addresses in a range for the node IP addresses on the management network.
-      - Enter one IP address in a range for the service IP address, also on the management network.
-      - Select **Modify** at the bottom of the panel to save the configuration.
+      1. Select the management vswitch (for example, *vswitch-port3*)
+      1.- Enter six IP addresses in a range for the node IP addresses on the management network.
+      1. Enter one IP address in a range for the service IP address, also on the management network.
+      1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Under **Virtual network**, select a virtual network (from **N2**, **N3**, **N6-DN1**, **N6-DN2**, and **N6-DN3**). In the side panel:
-      - Enable the virtual network for Kubernetes and add a pool of IP addresses.
+      1. Enable the virtual network for Kubernetes and add a pool of IP addresses.
         - Add a range of one IP address for the appropriate address (N2, N3, N6-DN1, N6-DN2 or N6-DN3 as collected earlier.
         - For example, *10.10.10.20-10.10.10.20*.
-      - Repeat for each of the N2, N3, N6-DN1, N6-DN2, and N6-DN3 virtual networks.
-      - Select **Modify** at the bottom of the panel to save the configuration.
+      1. Repeat for each of the N2, N3, N6-DN1, N6-DN2, and N6-DN3 virtual networks.
+      1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 15 minutes.
 
 The page should now look like the following image:
@@ -156,8 +157,6 @@ Access the Azure portal and go to the **Azure Stack Edge** resource created in t
 
 If you're running other VMs on your Azure Stack Edge, we recommend that you stop them now, and start them again once the cluster is deployed. The cluster requires access to specific CPU resources that running VMs may already be using.
 
-You will need Owner permission on the resource group.
-
 1. To deploy the cluster, select the **Kubernetes** option and then select the **Add** button to configure the cluster.
 
    :::image type="content" source="media/commission-a-cluster/commission-a-cluster-add-kubernetes.png" alt-text="Screenshot of Kubernetes Overview pane, showing the Add button to configure Kubernetes service.":::
@@ -167,13 +166,9 @@ You will need Owner permission on the resource group.
 1. The Arc enabled Kubernetes service is automatically created in the same resource group as your **Azure Stack Edge** resource. If your Azure Stack Edge resource group is not in a region that supports Azure Private 5G Core, you must change the region using the **Change** link.
 1. Work through the prompts to set up the service.
 
-:::image type="content" source="media/commission-a-cluster/commission-a-cluster-create-kubernetes-service.png" alt-text="Screenshot of Create Kubernetes service, showing the basic cluster configuration described in steps 1 to 4.":::
-
 The creation of the Kubernetes cluster takes about 20 minutes. During creation, there may be a critical alarm displayed on the **Azure Stack Edge** resource. This alarm is expected and should disappear after a few minutes.
 
-Once deployed, the portal should show that the Kubernetes service is healthy, as in the following image:
-
-:::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-overview-healthy.png" alt-text="Screenshot of Azure Kubernetes Service (Preview) Overview pane with message that Kubernetes service is healthy.":::
+Once deployed, the portal should show  **Kubernetes service is healthy** on the overview page.
 
 ## Set up kubectl access
 
