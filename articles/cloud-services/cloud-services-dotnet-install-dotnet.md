@@ -25,6 +25,7 @@ To install .NET on your web and worker roles, include the .NET web installer as 
 ## Add the .NET installer to your project
 To download the web installer for the .NET Framework, choose the version that you want to install:
 
+* [.NET Framework 4.8.1 web installer](https://go.microsoft.com/fwlink/?linkid=2215256)
 * [.NET Framework 4.8 Web installer](https://go.microsoft.com/fwlink/?LinkId=2150985)
 * [.NET Framework 4.7.2 web installer](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET Framework 4.6.2 web installer](https://dotnet.microsoft.com/download/dotnet-framework/net462)
@@ -94,6 +95,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262
    REM ***** To install .NET 4.8 set the variable netfx to "NDP48" ***** https://dotnet.microsoft.com/download/thank-you/net48
+   REM ***** To install .NET 4.8.1 set the variable netfx to "NDP481" ***** https://go.microsoft.com/fwlink/?linkid=2215256 
    set netfx="NDP48"
          
    REM ***** Set script start timestamp *****
@@ -109,6 +111,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    set TEMP=%PathToNETFXInstall%
    
    REM ***** Setup .NET filenames and registry keys *****
+   if %netfx%=="NDP481" goto NDP481
    if %netfx%=="NDP48" goto NDP48
    if %netfx%=="NDP472" goto NDP472
    if %netfx%=="NDP471" goto NDP471
@@ -154,6 +157,11 @@ You can use startup tasks to perform operations before a role starts. Installing
    :NDP48
    set "netfxinstallfile=NDP48-Web.exe"
    set netfxregkey="0x80EA8"
+   goto logtimestamp
+   
+   :NDP481
+   set "netfxinstallfile=NDP481-Web.exe"
+   set netfxregkey="0x82348"
    goto logtimestamp
    
    :logtimestamp

@@ -12,6 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 11/11/2021
 ms.author: davidmu
+ms.reviewer: jeedes
 ---
 
 # Configure the role claim issued in the SAML token for enterprise applications
