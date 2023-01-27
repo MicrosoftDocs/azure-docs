@@ -12,7 +12,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-You can use the Video effects feature to add effects to your video in video calls.
+You can use the Video effects feature to add effects to your video in video calls. This feature enables developers to build background visual effects and background video replacement into the calling experience. Background blur provides users with the mechanism to remove distractions behind a participant no matter the location, so that participants can engage in free exchange of confidential information without disruptive activity or confidential information appearing in the background. This is especially useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or PII (personally identifiable information) for example. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy. In addition to enhanced confidentiality, background blur allows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
 
 >[!IMPORTANT]
 > The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
