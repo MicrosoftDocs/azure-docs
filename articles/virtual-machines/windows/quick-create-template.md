@@ -84,7 +84,7 @@ When no longer needed, delete the resource group, which deletes the VM and all o
 
 ## Next steps
 
-In this quickstart, you deployed a simple virtual machine using an ARM template. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this quickstart, you deployed a simple virtual machine using a resource manager template. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 
 > [!div class="nextstepaction"]
