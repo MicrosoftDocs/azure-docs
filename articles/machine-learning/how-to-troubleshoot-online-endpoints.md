@@ -5,8 +5,8 @@ description: Learn how to troubleshoot some common deployment and scoring errors
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: shohei1029
-ms.author:  shnagata
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
 ms.date: 11/04/2022
 ms.topic: troubleshooting

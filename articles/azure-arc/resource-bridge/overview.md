@@ -8,9 +8,9 @@ ms.custom: references_regions
 
 # What is Azure Arc resource bridge (preview)?
 
-Azure Arc resource bridge (preview) is part of the core Azure Arc platform, and is designed to host other Azure Arc services. In this release, the resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), VMware ([Arc-enabled VMware vSphere](../vmware-vsphere/index.yml) preview), and System Center Virtual Machine Manager (SCVMM) ([Arc-enabled SCVMM](../system-center-virtual-machine-manager/index.yml) preview).
+Azure Arc resource bridge (preview) is a Microsoft managed product that is part of the core Azure Arc platform. It is designed to host other Azure Arc services. In this release, the resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), VMware ([Arc-enabled VMware vSphere](../vmware-vsphere/index.yml) preview), and System Center Virtual Machine Manager (SCVMM) ([Arc-enabled SCVMM](../system-center-virtual-machine-manager/index.yml) preview).
 
-Arc resource bridge is a packaged virtual machine that hosts a *management* Kubernetes cluster and requires no user management. The virtual machine is deployed on the on-premises infrastructure, and an ARM resource of Arc resource bridge is created in Azure. The two resources are then connected, allowing VM self-service and management from Azure. The on-premises resource bridge uses guest management to tag local resources, making them available in Azure.
+Arc resource bridge is a packaged virtual machine that hosts a *management* Kubernetes cluster and requires minimal user management. The virtual machine is deployed on the on-premises infrastructure, and an ARM resource of Arc resource bridge is created in Azure. The two resources are then connected, allowing VM self-service and management from Azure. The on-premises resource bridge uses guest management to tag local resources, making them available in Azure.
 
 Arc resource bridge delivers the following benefits:
 
@@ -19,7 +19,6 @@ Arc resource bridge delivers the following benefits:
 * Designed to recover from software failures.
 * Supports deployment to any private cloud hosted on Hyper-V or VMware from the Azure portal or using the Azure Command-Line Interface (CLI).
 
-All management operations are performed from Azure, so no local configuration is required on the appliance.
 
 ## Overview
 
