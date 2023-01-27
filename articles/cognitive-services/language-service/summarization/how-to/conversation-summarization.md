@@ -50,9 +50,6 @@ When you submit data to conversation summarization, we recommend sending one cha
 
 You can use conversation issue and resolution summarization to get summaries as you need. To see an example using text chats, see the [quickstart article](../quickstart.md).
 
-> [!Note]
-> You can use this feature in an [power automate flow](../../tutorials/power-automate.md)
-
 ### Get summaries from speech transcriptions 
 
 Conversation issue and resolution summarization also enables you to get summaries from speech transcripts by using the [Speech service's speech-to-text feature](../../../Speech-Service/call-center-overview.md). The following example shows a short conversation that you might include in your API requests.

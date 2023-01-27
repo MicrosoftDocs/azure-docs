@@ -1,62 +1,70 @@
 ---
-title: Traige incoming emails with power automate
+title: Triage incoming emails with Power Automate
 titleSuffix: Azure Cognitive Services
-description: Traige incoming emails with power automate
+description: Learn how to use custom text classification to categorize and triage incoming emails with Power Automate
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 06/03/2022
+ms.date: 01/27/2023
 ms.author: aahi
-ms.custom: 
 ---
 
-# Tutorial: Traige incoming emails with power automate
+# Tutorial: Triage incoming emails with power automate
 
-In this tutorial we will triage incoming email using custom single text classification project type. When a new email is received, the content of the body gets classified and depending on the classificaiton result, a message is sent to the specialized team on Microsoft Teams.
+In this tutorial you will categorize and triage incoming email using custom text classification. Using this [Power Automate](https://learn.microsoft.com/power-automate/getting-started) flow, when a new email is received, its contents will have a classification applied, and depending on the result, a message will be sent to a designated channel on [Microsoft Teams](https://www.microsoft.com/microsoft-teams).
 
 
 ## Prerequisites
-* Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you created in your power automate flow.
-    * Successfully created and deployed a [single text classification custom model](../quickstart.md).
+
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">A Language resource </a>
+    * (optional) A trained model if you're using a custom capability such as [custom NER](../custom-named-entity-recognition/overview.md), [custom text classification](../custom-text-classification/overview.md), or [conversational language understanding](../conversational-language-understanding/overview.md).
+    * You will need the key and endpoint from your Language resource to authenticate your Power Automate flow.
+* A successfully created and deployed [single text classification custom model](../quickstart.md)
 
 
-## Create a power automate flow
+## Create a Power Automate flow
 
-1- [Signin to power automate](https://make.powerautomate.com/)
+1. [Sign in to power automate](https://make.powerautomate.com/)
 
-2- From the left side menu, choose *My flows* and create a *Automated cloud flow*
-:::image type="content" source="../media/create-flow.png" alt-text="A screenshot of the flow creation." lightbox="../media/create-flow.png":::
+2. From the left side menu, select **My flows** and create a **Automated cloud flow**
 
-3- Name your flow as *EmailTriage*, from triggers search for *email* and choose *When a new email arrives* option then click *create*
-:::image type="content" source="../media/email-flow.png" alt-text="A screenshot of the language flow." lightbox="../media/email-flow.png":::
+    :::image type="content" source="../media/create-flow.png" alt-text="A screenshot of the flow creation screen." lightbox="../media/create-flow.png":::
 
-4- Start by adding the right connection to your email. This connection will be used to access the email content.
+3. Name your flow `EmailTriage`. Below **Choose your flow's triggers**, search for *email* and select **When a new email arrives**. Then click **create**
 
-5- To add a Language connector, search for *Azure Language* 
-:::image type="content" source="../media/language-connector.png" alt-text="A screenshot of azure language connectors." lightbox="../media/language-connector.png":::
+    :::image type="content" source="../media/email-flow.png" alt-text="A screenshot of the email flow triggers." lightbox="../media/email-flow.png":::
 
-6- Search for *CustomSingleLabelClassification*
-:::image type="content" source="../media/single-classification.png" alt-text="A screenshot of Classification connector." lightbox="../media/single-classification.png":::
+4. Add the right connection to your email account. This connection will be used to access the email content.
 
-7- Start by adding the right connection to your connector. This connection will be used to access the classification project.
+5. To add a Language service connector, search for *Azure Language*.
+  
+    :::image type="content" source="../media/language-connector.png" alt-text="A screenshot of available Azure Language service connectors." lightbox="../media/language-connector.png":::
 
-8- In documents id field, add **1**.
+6. Search for *CustomSingleLabelClassification*.
 
-9- In documents text field add *body* from dynamic content.
+    :::image type="content" source="../media/single-classification.png" alt-text="A screenshot of Classification connector." lightbox="../media/single-classification.png":::
 
-10- Fill in the project name and deployment name of your deployed model
+7. Start by adding the right connection to your connector. This connection will be used to access the classification project.
 
-:::image type="content" source="../media/classification.png" alt-text="A screenshot project details." lightbox="../media/classification.png":::
+8. In the documents ID field, add **1**.
 
-11- Add condition to send a Microsoft Teams message to the righ team. Choose *results* from dynamic content and add the condition. For this tutorial, we are looking for *Computer_science* related emails. In the *Yes* condition, choose your desired option to notify the team. In the *No* condition, you can add further condition to check other cases and do alternative actions.
+9. In the documents text field, add **body** from **dynamic content**.
 
-:::image type="content" source="../media/email-triage.png" alt-text="A screenshot of email flow." lightbox="../media/email-triage.png":::
+10. Fill in the project name and deployment name of your deployed custom text classification model.
+
+    :::image type="content" source="../media/classification.png" alt-text="A screenshot project details." lightbox="../media/classification.png":::
+
+11. Add a condition to send a Microsoft Teams message to the right team by:
+    1. Select **results** from **dynamic content**, and add the condition. For this tutorial, we are looking for `Computer_science` related emails. In the **Yes** condition, choose your desired option to notify a team channel. In the **No** condition, you can add additional conditions to perform alternative actions.
+
+    :::image type="content" source="../media/email-triage.png" alt-text="A screenshot of email flow." lightbox="../media/email-triage.png":::
 
 
 ## Next steps
 
-[Language studio overview](../../language-studio.md)
+* [Use the Language service with Power Automate](../../tutorials/power-automate.md)
+* [Available Language service connectors](/connectors/cognitiveservicestextanalytics)

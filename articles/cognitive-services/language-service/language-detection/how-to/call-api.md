@@ -25,9 +25,6 @@ The Language Detection feature can detect a wide range of languages, variants, d
 
 [!INCLUDE [development options](../includes/development-options.md)]
 
-> [!Note]
-> You can use this feature in an [power automate flow](../../tutorials/power-automate.md)
-
 ## Determine how to process the data (optional)
 
 ### Specify the language detection model

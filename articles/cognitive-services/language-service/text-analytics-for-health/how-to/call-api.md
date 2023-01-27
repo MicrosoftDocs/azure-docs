@@ -86,9 +86,6 @@ To receive your result using the **FHIR** structure, you must send the FHIR vers
 
 ## Getting results from the feature
 
-> [!Note]
-> You can use this feature in an [power automate flow](../../tutorials/power-automate.md)
-
 Depending on your API request, and the data you submit to the Text Analytics for health, you will get:
 
 [!INCLUDE [Text Analytics for health features](../includes/features.md)]

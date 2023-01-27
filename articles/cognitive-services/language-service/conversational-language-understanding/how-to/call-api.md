@@ -20,9 +20,6 @@ You can query the deployment programmatically through the [prediction API](https
 
 ## Test deployed model
 
-> [!Note]
-> You can use your custom model in an [power automate flow](../../tutorials/power-automate.md)
-
 You can use Language Studio to submit an utterance, get predictions and visualize the results.
 
 [!INCLUDE [Test model](../includes/language-studio/test-model.md)]

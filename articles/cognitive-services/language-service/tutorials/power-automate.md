@@ -26,7 +26,7 @@ You can use [Power Automate](/power-automate/getting-started) flows to automate 
 ## Prerequisites
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">A Language resource </a>
-    * (optional) A trained model if you're using a custom capability such as [custom NER](../custom-named-entity-recognition/overview.md), [custom text classification](../custom-text-classification/), or [conversational language understanding](../conversational-language-understanding/overview.md).
+    * (optional) A trained model if you're using a custom capability such as [custom NER](../custom-named-entity-recognition/overview.md), [custom text classification](../custom-text-classification/overview.md), or [conversational language understanding](../conversational-language-understanding/overview.md).
     * You will need the key and endpoint from your Language resource to authenticate your Power Automate flow.
 
 ## Create a Power Automate flow
@@ -55,11 +55,11 @@ You can use [Power Automate](/power-automate/getting-started) flows to automate 
 
 7. Add endpoint and key for your Language resource, which will be used for authentication. You can find your key and endpoint by navigating to your resource in the [Azure portal](https://portal.azure.com), and selecting **Keys and endpoint** from the left navigation menu.
 
-    :::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot of language key and endpoint." lightbox="../media/azure-portal-resource-credentials.png":::
+    :::image type="content" source="../media/azure-portal-resource-credentials.png" alt-text="A screenshot of A language resource key and endpoint in the Azure portal." lightbox="../media/azure-portal-resource-credentials.png":::
 
 8. Once you have your key and endpoint, add it to the connector in Power Automate.
  
-    :::image type="content" source="../media/language-auth.png" alt-text="A screenshot of language key and endpoint." lightbox="../media/language-auth.png":::
+    :::image type="content" source="../media/language-auth.png" alt-text="A screenshot of adding the language key and endpoint to the Power Automate flow." lightbox="../media/language-auth.png":::
 
 9. Add the data in the connector
 :::image type="content" source="../media/ner-connector.png" alt-text="A screenshot of the NER connector." lightbox="../media/ner-connector.png":::
