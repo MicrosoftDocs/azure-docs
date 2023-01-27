@@ -85,7 +85,7 @@ items:
 - name: Resources
   expanded: false
   items:
-  - name: FAQs - The MedTech service
+  - name: FAQs
     href: frequently-asked-questions.md
   - name: Open-source projects
     href: git-projects.md     
