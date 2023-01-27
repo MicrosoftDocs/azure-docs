@@ -2,14 +2,15 @@
 title: Configure protected web API apps
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.date: 12/09/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
 ---
 
