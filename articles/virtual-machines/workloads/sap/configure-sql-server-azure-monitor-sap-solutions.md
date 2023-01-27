@@ -74,7 +74,7 @@ GO
 ```
 ## Prerequisites to enable secure communication
 
-To enable [TLS 1.2 or higher](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/sap/enable-tls-azure-monitor-sap-solutions), follow the steps [mentioned here](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/configure-sql-server-encryption?view=sql-server-ver15)
+To enable [TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps [mentioned here](/sql/database-engine/configure-windows/configure-sql-server-encryption?view=sql-server-ver15&preserve-view=true).
 
 ## Install Azure Monitor for SAP solutions provider
 
@@ -86,7 +86,7 @@ To install the provider from Azure Monitor for SAP solutions:
 1. On the **Add provider** page, enter all required information:
     1. For **Type**, select **Microsoft SQL Server**.
     1. For **Name**, enter a name for the provider.
-    1. *Optional* Select **Enable secure communication**, choose a certificate type from drop down
+    1. *Optional* Select **Enable secure communication** and choose a certificate type from the dropdown list.
     1. For **Host name**, enter the IP address of the hostname.
     1. For **Port**, enter the port on which SQL Server is listening. The default is 1433.
     1. For **SQL username**, enter a username for the SQL Server account.
