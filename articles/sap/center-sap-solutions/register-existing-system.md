@@ -35,8 +35,8 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
     - Command to start up sapstartsrv process on SAP VMs: /usr/sap/hostctrl/exe/hostexecstart -start
 - Grant access to your Azure Storage accounts from the virtual network where the SAP system exists. Use one of these options:
     - Allow outbound internet connectivity for the VMs.
-    - Use a [**Storage** service tag](../virtual-network/service-tags-overview.md) to allow connectivity to any Azure storage account from the VMs.
-    - Use a [**Storage** service tag with regional scope](../virtual-network/service-tags-overview.md) to allow storage account connectivity to the Azure storage accounts in the same region as the VMs.
+    - Use a [**Storage** service tag](../../virtual-network/service-tags-overview.md) to allow connectivity to any Azure storage account from the VMs.
+    - Use a [**Storage** service tag with regional scope](../../virtual-network/service-tags-overview.md) to allow storage account connectivity to the Azure storage accounts in the same region as the VMs.
     - Allowlist the region-specific IP addresses for Azure Storage.
 
 ## Supported systems
@@ -66,8 +66,8 @@ Azure Center for SAP solutions uses this user-assigned managed identity to insta
 
 To provide permissions to the SAP system resources to a user-assigned managed identity:
 
-1. [Create a new user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity) if needed or use an existing one.
-1. [Assign **Virtual Machine Contributor** role access](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#manage-access-to-user-assigned-managed-identities) to the user-assigned managed identity on the resource group(s) which have the Virtual Machines of the SAP system and **Reader** role on the resource group(s) which have the Network components on the SAP system resources exist.
+1. [Create a new user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity) if needed or use an existing one.
+1. [Assign **Virtual Machine Contributor** role access](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#manage-access-to-user-assigned-managed-identities) to the user-assigned managed identity on the resource group(s) which have the Virtual Machines of the SAP system and **Reader** role on the resource group(s) which have the Network components on the SAP system resources exist.
 1. Once the permissions are assigned, this managed identity can be used in Azure Center for SAP solutions to register and manage SAP systems.
 
 ## Register SAP system

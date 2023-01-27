@@ -72,7 +72,7 @@ You also can [upload the components manually](#option-2-upload-software-componen
 
 Before you can download the software, set up an Azure Storage account for storing the software.
 
-1. [Create an Azure Storage account through the Azure portal](../storage/common/storage-account-create.md). Make sure to create the storage account in the same subscription as your SAP system infrastructure.
+1. [Create an Azure Storage account through the Azure portal](../../storage/common/storage-account-create.md). Make sure to create the storage account in the same subscription as your SAP system infrastructure.
 
 1. Create a container within the Azure Storage account named `sapbits`.
 

@@ -321,7 +321,7 @@ After deploying infrastructure and applications and before each migration starts
 Several of the checks above are checked in automated way with [SAP on Azure Quality Check Tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck). These checks can be executed automated with the provided open-source project. While no automatic remediation of issues found is performed, the tool will warn about  configuration against Microsoft recommendations.
 
 > [!TIP]
-> Same [quality checks and additional insights](../get-quality-checks-insights.md) are executed regularly when SAP systems are deployed or registered with [Azure Center for SAP solution](../index.yml) as well and are part of the service.  
+> Same [quality checks and additional insights](../center-sap-solutions/get-quality-checks-insights.md) are executed regularly when SAP systems are deployed or registered with [Azure Center for SAP solution](../index.yml) as well and are part of the service.  
 
 Further tools to allow easier deployment checks and document findings, plan next remediation steps and generally optimize your SAP on Azure landscape are:
 - [Azure Well-Architected Framework review](/assessments/?id=azure-architecture-review&mode=pre-assessment) An assessment of your workload focusing on the five main pillars of reliability, security, cost optimization, operation excellence and performance efficiency. Supports SAP workloads and recommended to running a review at start and after every project phase.
