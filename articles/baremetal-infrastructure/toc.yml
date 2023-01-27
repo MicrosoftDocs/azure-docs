@@ -73,19 +73,19 @@
       - name: Monitoring and troubleshooting from HANA side
         href: ../virtual-machines/workloads/sap/hana-monitor-troubleshoot.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Monitor SAP on Azure
-        href: ../center-sap-solutions/monitor/about-azure-monitor-sap-solutions.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../sap/monitor/about-azure-monitor-sap-solutions.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Azure Monitor for SAP solutions providers
-        href: ../center-sap-solutions/monitor/providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../sap/monitor/providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Deploy Azure Monitor for SAP solutions - Azure portal
-        href: ../center-sap-solutions/monitor/quickstart-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../sap/monitor/quickstart-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Configure Alerts in Azure Monitor for SAP solutions
-        href: ../center-sap-solutions/monitor/get-alerts-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../sap/monitor/get-alerts-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Deploy Azure Monitor for SAP solutions - Azure PowerShell
-        href: ../center-sap-solutions/monitor/quickstart-powershell.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../sap/monitor/quickstart-powershell.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Monitor data reference
-        href: ../center-sap-solutions/monitor/data-reference.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../sap/monitor/data-reference.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Azure Monitor for SAP solutions FAQ
-        href: ../center-sap-solutions/monitor/faq.yml?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../sap/monitor/faq.yml?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
     - name: How to
       items:
       - name: HA Setup with STONITH
