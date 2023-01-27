@@ -21,6 +21,8 @@ This quickstart describes how to configure the Microsoft Dev Box service by usin
 
 This quickstart will take you through the process of setting up your Dev Box environment. You'll create a dev center to organize your dev box resources, configure network components to enable dev boxes to connect to your organizational resources, and create a dev box definition that will form the basis of your dev boxes. You’ll then create a project and a dev box pool, which work together to help you give access to users who will manage or use the dev boxes.
 
+After you've completed this quickstart, you'll have a Dev Box configuration ready for user to create and connect to dev boxes.
+
 ## Prerequisites
 
 To complete this quick start, make sure that you have:
@@ -38,7 +40,7 @@ To complete this quick start, make sure that you have:
 
 ## Create a dev center
 
-The following steps show you how to create and configure a dev center.  
+To begin the configuration, you'll create a dev center to enable you to manage your dev box resources. The following steps show you how to create and configure a dev center.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -76,18 +78,20 @@ The following steps show you how to create and configure a dev center.
 
 
 ## Create a network connection
+
 Network connections determine the region into which dev boxes are deployed and allow them to be connected to your existing virtual networks. The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
 
 To create a network connection, you must have:
 
-- An existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Create a virtual network and subnet [Optional]](#create-a-virtual-network-and-subnet-optional) to create them.
+- An existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Create a virtual network and subnet](#create-a-virtual-network-and-subnet) to create them.
 - A configured and working Hybrid AD join or Azure AD join.
     - **Azure AD join:** To learn how to join devices directly to Azure Active Directory (Azure AD), see [Plan your Azure Active Directory join deployment](../active-directory/devices/azureadjoin-plan.md).
     - **Hybrid AD join:** To learn how to join your AD DS domain-joined computers to Azure AD from an on-premises Active Directory Domain Services (AD DS) environment, see [Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-azuread-join-plan.md).
 - If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 
-### Create a virtual network and subnet [Optional]
-If you don't have a vnet and subnet available for your network connection, you can create them using these steps:
+### Create a virtual network and subnet
+
+You must have a vnet and subnet available for your network connection; create them using these steps:
 
 1. In the search box, type *Virtual Network* and then select **Virtual Network** in the search results.
 
@@ -114,7 +118,7 @@ If you don't have a vnet and subnet available for your network connection, you c
 
 ### Create a network connection
 
-Follow these steps to create a network connection:
+Now that you have an available vnet and subnet, you need a network connection to associate the vnet and subnet with the dev center. Follow these steps to create a network connection:
 
 1. In the search box, type *Network connections* and then select **Network connections** in the search results.
 
@@ -165,7 +169,8 @@ Follow these steps to create a network connection:
 1. When the deployment is complete, select **Go to resource**. You'll see the Network Connection overview page.
 
 ## Attach network connection to dev center
-You need to attach a network connection to a dev center before it can be used in projects to create dev box pools.
+
+To provide networking configuration information for dev boxes, you need to associate a network connection with a dev center. In this step, you'll attach the network connection to your dev center.
 
 1. In the search box, type *Dev centers* and then select **Dev centers** in the search results.
 
@@ -182,7 +187,8 @@ After creation, several health checks are run on the network. You can view the s
 To resolve any errors, refer to the [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
 
 ## Create a dev box definition
-The following steps show you how to create and configure a dev box definition. You can use dev box definitions across multiple projects in the same dev center. Dev box definitions define the image and SKU (compute + storage) that will be used in creation of the dev boxes. 
+
+The following steps show you how to create and configure a dev box definition. Dev box definitions define the image and SKU (compute + storage) that will be used in creation of the dev boxes. 
 
 1. Open the dev center in which you want to create the dev box definition.
 
@@ -207,7 +213,8 @@ The following steps show you how to create and configure a dev box definition. Y
 1. Select **Create**.
 
 ## Create a project
-A dev box project is the point of access for the development team members. Within a project, you configure dev box pools that specify the dev box definitions and network connections used when dev boxes are created. Dev box users create dev boxes using the dev box pools in the projects to which they have access.
+
+Dev box projects enable you to manage team level settings, including providing access to development teams so developers can create dev boxes. 
  
 The following steps show you how to create and configure a project in dev box.
 
@@ -239,7 +246,8 @@ The following steps show you how to create and configure a project in dev box.
 
 
 ## Create a dev box pool
-A dev box pool is a collection of dev boxes that have similar settings. Dev box pools specify the dev box definitions and network connections dev boxes will use. You must have a pool before users can create a dev box. 
+
+A dev box pool is a collection of dev boxes that have similar settings. Dev box pools specify the dev box definitions and network connections dev boxes will use. You must have at least one pool associated with your project before users can create a dev box. 
 
 The following steps show you how to create a dev box pool associated with a project. 
 
@@ -278,6 +286,7 @@ The dev box pool will be deployed and health checks will be run to ensure the im
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-grid-populated.png" alt-text="Screenshot showing a list of existing pools.":::
 
 ## Provide access to a dev box project
+
 Before users can create dev boxes based on the dev box pools in a project, you must provide access for them through a role assignment. The Dev Box User role enables dev box users to create, manage and delete their own dev boxes. You must have sufficient permissions to a project before you can add users to it.
 
 1. In the search box, type *Projects* and then select **Projects** in the search results.
@@ -292,22 +301,14 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
 1. Select **Add** > **Add role assignment**.
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/add-role-assignment.png" alt-text="Screenshot showing the Add menu with Add role assignment highlighted.":::
-
-1. On the Add role assignment page, search for *devcenter*, select the **DevCenter Dev Box User** built-in role, and then select **Next**.
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/add-dev-box-user.png" alt-text="Screenshot showing the Add role assignment search box highlighted.":::
-
-1. On the Members page, select **+ Select Members**.
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-user-select-members.png" alt-text="Screenshot showing the Members tab with Select members highlighted.":::
-
-1. On the **Select members** pane, select the Active Directory Users or Groups you want to add, and then select **Select**.
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/select-member.png" alt-text="Screenshot showing the Select members pane with a user account highlighted.":::
-
-1. On the Add role assignment page, select **Review + assign**.
-
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal). 
+ 
+|Setting  |Value  |
+|---------|---------|
+|Role     |    DevCenter Dev Box User    |
+|Assign access to     |    User     |
+|Members     |    Your account     |
+ 
 The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
@@ -315,7 +316,7 @@ The user will now be able to view the project and all the pools within it. They 
 ## Project admins
 
 The Microsoft Dev Box service makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their team, like creating and managing dev box pools. To provide users permissions to manage projects, add them to the DevCenter Project Admin role. 
-To learn how to add a user to the Project Admin role, see [Provide access to projects for project admins](how-to-project-admin.md).
+You can assign the DevCenter Project Admin role by using the [Provide access to a dev box project](#provide-access-to-a-dev-box-project) steps, but selecting the Project Admin role instead of the Dev Box User role. For more information, go to [Provide access to projects for project admins](how-to-project-admin.md).
 
 [!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 ## Next steps
