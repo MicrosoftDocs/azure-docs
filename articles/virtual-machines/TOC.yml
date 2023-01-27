@@ -31,6 +31,9 @@
       href: ./windows/quick-create-portal.md
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
+    - name: Terraform
+      displayName: Terraform
+      href: ./windows/quick-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./windows/quick-create-bicep.md
