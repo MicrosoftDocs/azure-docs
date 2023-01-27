@@ -125,6 +125,7 @@ For more information:, see:
 
 - [Create a new configuration for Azure AD Connect cloud sync](../cloud-sync/how-to-configure.md)
 - [Attribute mapping in Azure AD Connect cloud sync](../cloud-sync/how-to-attribute-mapping.md)
+- [Azure AD cloud sync insights workbook](/azure/active-directory/cloud-sync/how-to-cloud-sync-workbook)
 
 ---
 
