@@ -510,4 +510,4 @@ The output of the commands resembles the following example:
 [share-snapshots-overview]: ../storage/files/storage-snapshots-files.md
 [access-tiers-overview]: ../storage/blobs/access-tiers-overview.md
 [tag-resources]: ../azure-resource-manager/management/tag-resources.md
-[statically-provision-a-volume]: [azure-files-storage-provision.md#statically-provision-a-volume]
+[statically-provision-a-volume]: azure-files-storage-provision.md#statically-provision-a-volume
