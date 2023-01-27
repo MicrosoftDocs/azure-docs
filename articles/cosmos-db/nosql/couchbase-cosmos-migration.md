@@ -431,8 +431,6 @@ There are two ways to migrate data.
 
 * **Use Azure Data Factory:** This is the most recommended method to migrate the data. Configure the source as Couchbase and sink as Azure Cosmos DB for NoSQL, see the Azure [Azure Cosmos DB Data Factory connector](../../data-factory/connector-azure-cosmos-db.md) article for detailed steps.
 
-* **Use the Azure Cosmos DB data import tool:** This option is recommended to migrate using VMs with less amount of data. For detailed steps, see the [Data importer](../import-data.md) article.
-
 ## Next Steps
 
 * To do performance testing, see [Performance and scale testing with Azure Cosmos DB](./performance-testing.md) article.

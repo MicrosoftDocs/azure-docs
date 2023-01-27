@@ -1,6 +1,6 @@
 ---
-title: View reports & logs in entitlement management - Azure AD
-description: Learn how to view the user assignments report and audit logs in Azure Active Directory entitlement management.
+title: View reports & logs in entitlement management
+description: Learn how to view the user assignments report and audit logs in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# View reports and logs in Azure AD entitlement management
+# View reports and logs in entitlement management
 
-The Azure AD entitlement management reports and Azure AD audit log provide additional details about what resources users have access to. As an administrator, you can view the access packages and resource assignments for a user and view request logs for auditing purposes or to determine the status of a user's request. This article describes how to use the entitlement management reports and Azure AD audit logs.
+The entitlement management reports and Azure AD audit log provide additional details about what resources users have access to. As an administrator, you can view the access packages and resource assignments for a user and view request logs for auditing purposes or to determine the status of a user's request. This article describes how to use the entitlement management reports and Azure AD audit logs.
 
 Watch the following video to learn how to view what resources users have access to in entitlement management:
 
@@ -108,5 +108,5 @@ When the user's access package assignment expires, is canceled by the user, or r
 ## Next steps
 
 - [Archive reports and Logs](entitlement-management-logs-and-reporting.md)
-- [Troubleshoot Azure AD entitlement management](entitlement-management-troubleshoot.md)
+- [Troubleshoot entitlement management](entitlement-management-troubleshoot.md)
 - [Common scenarios](entitlement-management-scenarios.md)

@@ -3,7 +3,7 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 09/01/2022
+ms.date: 11/18/2022
 ---
 
 # Create an Azure support request
@@ -59,7 +59,7 @@ We'll walk you through some steps to gather information about your problem and h
 
 ### Problem description
 
-The first step of the support request process is to select an issue type. You'll then be prompted for more information, which can vary depending on what type of issue you selected. If you select **Technical**, you'll need to specify the service that your issue relates to. Depending on the service, you'll see additional options for **Problem type** and **Problem subtype**.
+The first step of the support request process is to select an issue type. You'll then be prompted for more information, which can vary depending on what type of issue you selected. If you select **Technical**, you'll need to specify the service that your issue relates to. Depending on the service, you'll see additional options for **Problem type** and **Problem subtype**. Be sure to select the service (and problem type/subtype if applicable) that is most related to your issue. Selecting an unrelated service may result in delays in addressing your support request.
 
 > [!IMPORTANT]
 > In most cases, you'll need to specify a subscription. Be sure to choose the subscription where you are experiencing the problem. The support engineer assigned to your case will only be able to access resources in the subscription you specify. The access requirement serves as a point of confirmation that the support engineer is sharing information to the right audience, which is a key factor for ensuring the security and privacy of customer data. For details on how Azure treats customer data, see [Data Privacy in the Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/privacy/).
@@ -80,23 +80,23 @@ If you're still unable to resolve the issue, continue creating your support requ
 
 Next, we collect additional details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
 
-1. Complete the **problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can optionally upload one file (or a compressed file such as .zip that contains multiple files), such as a log file or [browser trace](../capture-browser-trace.md). For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
+1. Complete the **Problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can optionally upload one file (or a compressed file such as .zip that contains multiple files), such as a log file or [browser trace](../capture-browser-trace.md). For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
 1. In the **Advanced diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [advanced diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. See the [Advanced diagnostic information logs](#advanced-diagnostic-information-logs) section for more details about the types of files we might collect.
 
-  In some cases, there will be additional options to choose from. For example, for certain types of Virtual Machine problem types, you can choose whether to [allow access to a virtual machine's memory](#memory-dump-collection).
+   In some cases, there will be additional options to choose from. For example, for certain types of Virtual Machine problem types, you can choose whether to [allow access to a virtual machine's memory](#memory-dump-collection).
 
-1. In the **Support method** section, select the severity of impact. The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
+1. In the **Support method** section, select the **Severity** level, depending on the business impact. The [maximum available severity level and time to respond](https://azure.microsoft.com/support/plans/response/) depends on your [support plan](https://azure.microsoft.com/support/plans).
 
 1. Provide your preferred contact method, your availability, and your preferred support language.
 
-1. Next, complete the **Contact info** section so we know how to contact you.
+1. Complete the **Contact info** section so that we know how to reach you.
 
 Select **Next** when you've completed all of the necessary information.
 
 ### Review + create
 
-Before you create your request, review all of the details that you'll send to support. You can select **Previous** to return to any tab if you need to make changes. When you're satisfied the support request is complete, select **Create**.
+Before you create your request, review all of the details that you'll send to support. You can select **Previous** to return to any tab if you want to make changes. When you're satisfied that the support request is complete, select **Create**.
 
 A support engineer will contact you using the method you indicated. For information about initial response times, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
 

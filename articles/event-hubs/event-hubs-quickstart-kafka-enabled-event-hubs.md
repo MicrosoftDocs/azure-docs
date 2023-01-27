@@ -3,7 +3,7 @@ title: 'Quickstart: Data streaming with Azure Event Hubs using the Kafka protoco
 description: 'Quickstart: This article provides information on how to stream into Azure Event Hubs using the Kafka protocol and APIs.'
 ms.topic: quickstart
 ms.date: 11/02/2022
-ms.custom: mode-other
+ms.custom: mode-other, passwordless-java
 ---
 
 # Quickstart: Data streaming with Event Hubs using the Kafka protocol
@@ -17,7 +17,7 @@ This quickstart shows how to stream into Event Hubs without changing your protoc
 
 To complete this quickstart, make sure you have the following prerequisites:
 
-* Read through the [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) article.
+* Read through the [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md) article.
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * Create a Windows virtual machine and install the following components: 
     * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).

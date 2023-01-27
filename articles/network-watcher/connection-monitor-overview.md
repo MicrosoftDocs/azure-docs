@@ -3,18 +3,15 @@ title: Connection Monitor in Azure | Microsoft Docs
 description: Learn how to use Connection Monitor to monitor network communication in a distributed environment.
 services: network-watcher
 documentationcenter: na
-author: vinynigam
-manager: agummadi
-editor: ''
+author: halkazwini
 tags: azure-resource-manager
-
 ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/04/2021
-ms.author: vinigam
-ms.custom: mvc
+ms.date: 10/04/2022
+ms.author: halkazwini
+ms.custom: mvc, engagement-fy23
 #Customer intent: I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
 # Monitor network connectivity by using Connection Monitor

@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 11/15/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -28,9 +28,11 @@ NFS file shares are often used in the following scenarios:
 ## Features
 - Fully POSIX-compliant file system.
 - Hard link support.
-- Symbolic link support.
+- Symbolic link support. 
 - NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, and encryption-in-transit are not supported.
 
+> [!NOTE]
+> Creating a hard link from an existing symbolic link isn't currently supported.
 
 ## Security and networking
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
@@ -60,6 +62,7 @@ The status of items that appear in this table may change over time as support co
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
 | [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#limitations-for-changing-replication-types)|	⛔ |
+| [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md#storage-account-endpoints) | ✔️  |
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
 | Subdirectory mounts|	✔️ |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |

@@ -5,13 +5,12 @@ services: active-directory
 documentationcenter: ''
 author: billmath
 manager: amycolannino
-editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 03/04/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 

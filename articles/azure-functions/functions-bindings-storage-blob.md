@@ -3,7 +3,7 @@ title: Azure Blob storage trigger and bindings for Azure Functions
 description: Learn to use the Azure Blob storage trigger and bindings in Azure Functions.
 
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 11/11/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -99,8 +99,6 @@ This extension version is available from the extension bundle v3 by adding the f
 
 To learn more, see [Update your extensions].
 
-[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
-
 # [Functions 2.x and higher](#tab/functionsv2/csharp-script)
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
@@ -128,8 +126,6 @@ You can add this version of the extension from the extension bundle v3 by adding
 [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
-
-[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
 
 # [Bundle v2.x](#tab/extensionv2)
 

@@ -5,12 +5,12 @@ description: Learn about the latest updates to Azure Machine Learning CLI (v2)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022 engagement-fy23
 ms.topic: reference
 ms.author: hancwang
 author: luigiw
 ms.reviewer: larryfr
-ms.date: 04/12/2022
+ms.date: 11/08/2022
 ---
 
 # Azure Machine Learning CLI (v2) release notes
@@ -23,6 +23,17 @@ In this article, learn about Azure Machine Learning CLI (v2) releases.
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes-v2%22&locale=en-us`
+
+## 2022-11-08
+
+### Azure Machine Learning CLI (v2) v2.11.0
+
+- The CLI is depending on azure-ai-ml 1.1.0.
+- `az ml registry`
+  - Added `ml registry delete` command.
+  - Adjusted registry experimental tags and imports to avoid warning printouts for unrelated operations.
+- `az ml environment`
+   - Prevented registering an already existing environment that references conda file.
 
 ## 2022-10-10
 

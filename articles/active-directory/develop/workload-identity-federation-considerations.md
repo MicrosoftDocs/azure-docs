@@ -41,16 +41,8 @@ The creation of federated identity credentials is available on user-assigned man
 - Germany North
 - Sweden South
 - Sweden Central
-- Switzerland West
-- Brazil Southeast
 - East Asia
-- Southeast Asia
-- Switzerland West
-- South Africa West
 - Qatar Central
-- Australia Central
-- Australia Central2
-- Norway West
 
 Support for creating federated identity credentials in these regions will be rolled out gradually except East Asia where support won't be provided.
 

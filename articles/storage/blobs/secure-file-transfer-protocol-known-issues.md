@@ -1,7 +1,9 @@
 ---
-title: Limitations & known issues with SFTP in Azure Blob Storage| Microsoft Docs
+title: Limitations & known issues with SFTP in Azure Blob Storage
+titleSuffix: Azure Storage
 description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support for Azure Blob Storage.
 author: normesta
+
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
@@ -79,8 +81,10 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
   
-- Maximum file upload size via the SFTP endpoint is 91 GB. 
-  
+- Maximum file upload size via the SFTP endpoint is 100 GB. 
+
+- To change the storage account's redundancy/replication settings or initiate account failover, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed. 
+
 - Special containers such as $logs, $blobchangefeed, $root, $web aren't accessible via the SFTP endpoint. 
 
 - Symbolic links aren't supported.

@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 01/11/2022
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -76,7 +76,7 @@ If you use a **Microsoft account** rather than a **school or organization** acco
 ![A Microsoft Account is used](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### The MFA endpoint cannot be reached
-This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com** cannot be reached and your global admin has MFA enabled.
+This error appears if the endpoint `https://secure.aadcdn.microsoftonline-p.com` cannot be reached and your Hybrid Identity Administrator has MFA enabled.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * If you see this error, verify that the endpoint **secure.aadcdn.microsoftonline-p.com** has been added to the proxy.
@@ -179,12 +179,12 @@ The multi-factor authentication (MFA) challenge was canceled.
 
 <div id="connect-msolservice-failed">
 <!--
-  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  Empty div just to act as an alias for the "Connect To MSOnline Failed" header
   because we used the mentioned id in the code to jump to this section.
 -->
 </div>
 
-### Connect To MS Online Failed
+### Connect To MSOnline Failed
 Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
 <div id="get-msoluserrole-failed">
@@ -205,7 +205,7 @@ User was authenticated successfully. However user is not assigned global admin r
 </div>
 
 ### Privileged Identity Management Enabled
-Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
+Authentication was successful. Privileged identity management has been enabled and you are currently not a Hybrid Identity Administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
 <div id="get-msolcompanyinformation-failed">
 <!--

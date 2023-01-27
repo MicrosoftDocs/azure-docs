@@ -1,10 +1,13 @@
 ---
 title: Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
-services: container-service
-ms.topic: article
+author: asudbring
+ms.author: allensu
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+ms.topic: how-to
 ms.custom: references_regions
-ms.date: 11/08/2022
+ms.date: 12/12/2022
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -17,6 +20,7 @@ With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Net
 > Azure CNI Overlay is currently available only in the following regions:
 > - North Central US
 > - West Central US
+> - East US
 
 ## Overview of overlay networking
 
@@ -37,12 +41,12 @@ Ingress connectivity to the cluster can be achieved using an ingress controller 
 Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address space logically different from the VNet but has scaling and other limitations. The below table provides a detailed comparison between Kubenet and Azure CNI Overlay. If you do not want to assign VNet IP addresses to pods due to IP shortage, then Azure CNI Overlay is the recommended solution.
 
 | Area | Azure CNI Overlay | Kubenet |
-| -- | :--: | -- |
+| -- | -- | -- |
 | Cluster scale | 1000 nodes and 250 pods/node | 400 nodes and 250 pods/node |
 | Network configuration | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet | Additional hop adds minor latency |
 | Kubernetes Network Policies | Azure Network Policies, Calico | Calico |
-| OS platforms supported | Linux only | Linux only |
+| OS platforms supported | Linux and Windows | Linux only |
 
 ## IP address planning
 
@@ -83,13 +87,10 @@ Use the traditional VNet option when:
 
 ## Limitations with Azure CNI Overlay
 
-The overlay solution has the following limitations today
+The overlay solution has the following limitations:
 
-* Only available for Linux and not for Windows.
-* You can't deploy multiple overlay clusters on the same subnet.
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
-* v5 VM SKUs are currently not supported.
 
 ## Install the aks-preview Azure CLI extension
 
@@ -115,13 +116,13 @@ Register the `AzureOverlayPreview` feature flag by using the [az feature registe
 az feature register --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AzureOverlayPreview')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -129,32 +130,21 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Set up overlay clusters
 
-The following steps create a new virtual network with a subnet for the cluster nodes and an AKS cluster that uses Azure CNI Overlay.
+Create a cluster with Azure CNI Overlay. Use the argument `--network-plugin-mode` to specify that this is an overlay cluster. If the pod CIDR is not specified then AKS assigns a default space, viz. 10.244.0.0/16. Replace the values for the variables `clusterName`, `resourceGroup`, and `location`.
 
-1. Create a virtual network with a subnet for the cluster nodes. Replace the values for the variables `resourceGroup`, `vnet` and `location`.
+```azurecli-interactive
+clusterName="myOverlayCluster"
+resourceGroup="myResourceGroup"
+location="westcentralus"
 
-    ```azurecli-interactive
-    resourceGroup="myResourceGroup"
-    vnet="myVirtualNetwork"
-    location="westcentralus"
-    
-    # Create the resource group
-    az group create --name $resourceGroup --location $location
-    
-    # Create a VNet and a subnet for the cluster nodes 
-    az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none
-    az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefix 10.10.0.0/16 -o none
-    ```
-
-2. Create a cluster with Azure CNI Overlay. Use the argument `--network-plugin-mode` to specify that this is an overlay cluster. If the pod CIDR is not specified then AKS assigns a default space, viz. 10.244.0.0/16. Replace the values for the variables `clusterName` and `subscription`.
-
-    ```azurecli-interactive
-    clusterName="myOverlayCluster"
-    subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
-    
-    az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet
-    ```
+az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16
+```
 
 ## Next steps
 
 To learn how to utilize AKS with your own Container Network Interface (CNI) plugin, see [Bring your own Container Network Interface (CNI) plugin](use-byo-cni.md).
+
+<!-- LINKS - internal -->
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show

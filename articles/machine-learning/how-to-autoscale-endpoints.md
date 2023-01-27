@@ -5,8 +5,8 @@ description: Learn to scale up online endpoints. Get more CPU, memory, disk spac
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: shohei1029
-ms.author: shnagata
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
 ms.custom: devplatv2, cliv2, event-tier1-build-2022
 
@@ -24,7 +24,7 @@ Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the 
 
 ## Prerequisites
 
-* A deployed endpoint. [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md). 
+* A deployed endpoint. [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md). 
 
 ## Define an autoscale profile
 

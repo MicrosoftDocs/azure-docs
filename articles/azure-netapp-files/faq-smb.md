@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 08/24/2022
+ms.date: 01/19/2023
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -79,21 +79,25 @@ Azure NetApp Files also supports [`LOCK` response](/openspecs/windows_protocols/
 
 NTLMv2 and Kerberos network authentication methods are supported with SMB volumes in Azure NetApp Files. NTLMv1 and LanManager are disabled and are not supported.
 
-## What is the password rotation policy for the Active Directory machine account for SMB volumes?
+## What is the password rotation policy for the Active Directory computer account for SMB volumes?
 
-The Azure NetApp Files service has a policy that automatically updates the password on the Active Directory machine account that is created for SMB volumes. This policy has the following properties:   
+The Azure NetApp Files service has a policy that automatically updates the password on the Active Directory computer account that is created for SMB volumes. This policy has the following properties:   
 
 * Schedule interval: 4 weeks
 * Schedule randomization period: 120 minutes
 * Schedule: Sunday `@0100`
 
-To see  when the password was last updated on the Azure NetApp Files SMB machine account, check the `pwdLastSet` property on the computer account using the [Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) in the **Active Directory Users and Computers** utility:
+To see  when the password was last updated on the Azure NetApp Files SMB computer account, check the `pwdLastSet` property on the computer account using the [Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) in the **Active Directory Users and Computers** utility:
 
 ![Screenshot that shows the Active Directory Users and Computers utility](../media/azure-netapp-files/active-directory-users-computers-utility.png )
 
 >[!NOTE] 
 > Due to an interoperability issue with the [April 2022 Monthly Windows Update](
-https://support.microsoft.com/topic/april-12-2022-kb5012670-monthly-rollup-cae43d16-5b5d-43ea-9c52-9174177c6277), the policy that automatically updates the Active Directory machine account password for SMB volumes has been suspended until a fix is deployed.
+https://support.microsoft.com/topic/april-12-2022-kb5012670-monthly-rollup-cae43d16-5b5d-43ea-9c52-9174177c6277), the policy that automatically updates the Active Directory computer account password for SMB volumes has been suspended until a fix is deployed.
+
+## Does Azure NetApp Files support Alternate Data Streams (ADS)?
+
+Yes, Azure NetApp Files supports [Alternate Data Streams (ADS)](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) by default on [SMB volumes](azure-netapp-files-create-volumes-smb.md) and [dual-protocol volumes configured with NTFS security style](create-volumes-dual-protocol.md#considerations) when accessed via SMB.
 
 ## Next steps  
 

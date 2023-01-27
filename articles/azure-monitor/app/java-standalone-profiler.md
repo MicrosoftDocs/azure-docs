@@ -2,7 +2,7 @@
 title: Java Profiler for Azure Monitor Application Insights
 description: How to configure the Azure Monitor Application Insights for Java Profiler
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 11/15/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ---
@@ -24,7 +24,7 @@ The Application Insights Java profiler uses the JFR profiler provided by the JVM
 
 This data is gathered on demand when trigger conditions are met. The available triggers are thresholds over CPU usage and Memory consumption.
 
-When a threshold is reached, a profile of the configured type and duration is gathered and uploaded. This profile is then visible within the performance blade of the associated Application Insights Portal UI.
+When a threshold is reached, a profile of the configured type and duration is gathered and uploaded. This profile is then visible within the performance pane of the associated Application Insights Portal UI.
 
 > [!WARNING]
 > The JFR profiler by default executes the "profile-without-env-data" profile. A JFR file is a series of events emitted by the JVM. The "profile-without-env-data" configuration, is similar to the "profile" configuration that ships with the JVM, however has had some events disabled that have the potential to contain sensitive deployment information such as environment variables, arguments provided to the JVM and processes running on the system.
@@ -93,8 +93,8 @@ The following steps will guide you through enabling the profiling component on t
 1. Configure the resource thresholds that will cause a profile to be collected:
     
     1. Browse to the Performance -> Profiler section of the Application Insights instance.
-       :::image type="content" source="./media/java-standalone-profiler/performance-blade.png" alt-text="Screenshot of the link to open performance blade." lightbox="media/java-standalone-profiler/performance-blade.png":::
-       :::image type="content" source="./media/java-standalone-profiler/profiler-button.png" alt-text="Screenshot of the Profiler button from the Performance blade." lightbox="media/java-standalone-profiler/profiler-button.png":::
+       :::image type="content" source="./media/java-standalone-profiler/performance-blade.png" alt-text="Screenshot of the link to open performance pane." lightbox="media/java-standalone-profiler/performance-blade.png":::
+       :::image type="content" source="./media/java-standalone-profiler/profiler-button.png" alt-text="Screenshot of the Profiler button from the Performance pane." lightbox="media/java-standalone-profiler/profiler-button.png":::
        
     2. Select "Triggers"
     

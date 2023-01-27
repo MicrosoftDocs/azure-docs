@@ -4,7 +4,6 @@ description: Learn about openID connect scopes and permissions in the Microsoft 
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -19,13 +18,13 @@ The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-p
 
 In this article, you'll learn about scopes and permissions in the identity platform.
 
-The following list shows are some examples of Microsoft web-hosted resources:
+The following list shows some examples of Microsoft web-hosted resources:
 
 - Microsoft Graph: `https://graph.microsoft.com`
 - Microsoft 365 Mail API: `https://outlook.office.com`
 - Azure Key Vault: `https://vault.azure.net`
 
-The same is true for any third-party resources that have integrated with the Microsoft identity platform. Any of these resources also can define a set of permissions that can be used to divide the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.com) has defined permissions to do the following tasks, among others:
+The same is true for any third-party resources that have integrated with the Microsoft identity platform. Any of these resources can also define a set of permissions that can be used to divide the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.com) has defined permissions to do the following tasks, among others:
 
 - Read a user's calendar
 - Write to a user's calendar

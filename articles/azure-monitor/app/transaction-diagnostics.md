@@ -2,7 +2,7 @@
 title: Application Insights transaction diagnostics | Microsoft Docs
 description: This article explains Application Insights end-to-end transaction diagnostics.
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 11/15/2022
 ms.reviewer: sdash
 ---
 
@@ -67,7 +67,7 @@ If you can't get Snapshot Debugger working, contact snapshothelp\@microsoft.com.
 
 ![Screenshot that shows Profiler integration.](media/transaction-diagnostics/profilerTraces.png)
 
-## FAQ
+## Frequently asked questions
 
 This section provides answers to common questions.
 
