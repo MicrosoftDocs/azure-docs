@@ -1,6 +1,6 @@
 ---
 title: "What are type definitions and how to create custom types in Microsoft Purview"
-description: This tutorial will explain what type definitions are, how to create custom ones and how to initialize assets of those custome types in Microsoft Purview.
+description: This tutorial will explain what type definitions are, how to create custom ones and how to initialize assets of those custom types in Microsoft Purview.
 author: adinastoll.
 ms.author: adnegrau
 ms.service: purview
@@ -11,7 +11,7 @@ ms.date: 01/26/2023
 
 # Tutorial: What are type definitions and how to create custom ones in Microsoft Purview
 
-This tutorial will explain what type definitions are, how to create custom ones and how to initialize assets of custome types in Microsoft Purview.
+This tutorial will explain what type definitions are, how to create custom ones and how to initialize assets of custom types in Microsoft Purview.
 
 In this tutorial, you'll learn:
 > [!div class="checklist"]
