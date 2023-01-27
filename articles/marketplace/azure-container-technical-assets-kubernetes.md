@@ -206,16 +206,19 @@ Ensure the Helm chart adheres to the following rules:
 
 ### Available billing models
 
-| Billing model                   | Definition                                                                                                                     |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Per core                        | Usage is charged for every core used by the Kubernetes application’s extension instance (reported at hourly frequency)         |
-| Per every core in cluster       | Usage is charged based on total number of cores in the Kubernetes cluster (reported at hourly frequency)                       |
-| Per cluster                     | Usage is charged for each instance of the Kubernetes application extension on the cluster (reported at hourly frequency)       |
-| Per every node in cluster       | Usage is charged based on total number of nodes in the cluster (reported at hourly frequency)                                  |
-| Per node                        | Usage is charged for each node on which the Kubernetes application’s extension instance runs on (reported at hourly frequency) |
-| Per pod                         | Usage is charged for each pod on which the Kubernetes application’s extension instance runs (reported at hourly frequency)     |
-| Bring your own licensing (BYOL) | Usage is charged based on existing licensing that the customer can bring in                                                    |
+| Licensing option | Transaction process |
+| ---------------- | ------------------- |
 
+|Free                             | List your offer to customers for free.     |
+| Bring your own licensing (BYOL) | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.*                                                    |
+| Per every core in cluster       | List your Azure Container offer with pricing charged based on the total number of CPU cores in the cluster (reported at hourly frequency). You provide the price for one CPU core and we’ll increment the pricing based on the total number of CPU cores in the cluster.                      |
+| Per core                        | List your Azure Container offer with pricing charged for every core used by the Kubernetes application’s extension instance (reported at hourly frequency). You provide the price for one CPU core and we’ll increment the pricing based on the cores used by the Kubernetes application instance in the cluster.           |
+| Per cluster                     | List your Azure Container offer with pricing charged for each instance of the Kubernetes application extension on the cluster (reported at hourly frequency). You provide the price for one instance of the Kubernetes application and we’ll increment the pricing based on the number of instances of the Kubernetes application on the cluster.       |
+| Per every node in cluster       | List your Azure Container offer with pricing charged based on total number of nodes in the cluster (reported at hourly frequency). You provide the price for one node in the cluster and we’ll increment the pricing based on the size of hardware in the cluster.                  |
+| Per node                        | List your Azure Container offer with pricing charged for each node on which the Kubernetes application’s extension instance runs on (reported at hourly frequency). You provide the price for one node in the cluster and we’ll increment the pricing based on the number of nodes on which the Kubernetes application instance runs in the cluster.   |
+| Per pod                         | List your Azure Container offer with pricing charged for each pod on which the Kubernetes application’s extension instance runs (reported at hourly frequency). You provide the price for one node in the cluster and we’ll increment the pricing based on the number of pods used on which the Kubernetes application instance runs in the cluster.       |
+
+* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
 ### Make updates based on your billing model
 
