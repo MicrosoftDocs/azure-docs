@@ -31,28 +31,24 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
 1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
 
-    :::image type="content" source="media/dynatrace-create/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Marketplace in the Azure portal.":::
+   :::image type="content" source="media/dynatrace-create/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Marketplace in the Azure portal.":::
 
 1. In the Marketplace, search for _Dynatrace_.
 
-    :::image type="content" source="media/dynatrace-create/dynatrace-subscribe.png" alt-text="Screenshot showing Dynatrace in the working pane to create a subscription.":::
+   :::image type="content" source="media/dynatrace-create/dynatrace-subscribe.png" alt-text="Screenshot showing Dynatrace in the working pane to create a subscription.":::
 
 1. Select **Subscribe**.
 
 ## Create a Dynatrace resource in Azure
 
-1. When creating a Dynatrace resource, you see two options: one to create a new Dynatrace environment, and another to link Azure subscription to an existing Dynatrace environment.
-
-    :::image type="content" source="media/dynatrace-create/dynatrace-create.png" alt-text="Screenshot offering to create a Dynatrace resource.":::
-
-1. If you want to create a new Dynatrace environment, select **Create** action under the **Create a new Dynatrace environment** option
-    :::image type="content" source="media/dynatrace-create/dynatrace-create-new-link-existing.png" alt-text="Screenshot showing two options: new Dynatrace or existing Dynatrace.":::
+1. When creating a Dynatrace resource, you see two options: one to create a new Dynatrace environment, and another to link Azure subscription to an existing Dynatrace environment. If you want to create a new Dynatrace environment, select **Create** action under the **Create a new Dynatrace environment** option.
+   :::image type="content" source="media/dynatrace-create/dynatrace-create-new-link-existing.png" alt-text="Screenshot showing two options: new Dynatrace or existing Dynatrace.":::
 
 1. You see a form to create a Dynatrace resource in the working pane.
 
-    :::image type="content" source="media/dynatrace-create/dynatrace-basic-properties.png" alt-text="Screenshot of basic properties needed for new Dynatrace instance.":::
+   :::image type="content" source="media/dynatrace-create/dynatrace-basic-properties.png" alt-text="Screenshot of basic properties needed for new Dynatrace instance.":::
 
-1. Provide the following values:
+   Provide the following values:
 
     | **Property** |   **Description** |
     |--------------|-------------------|
@@ -62,29 +58,29 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
     | **Location**        | Select the region. Select the region where the Dynatrace resource in Azure and the Dynatrace environment is created.|
     | **Pricing plan**   | Select from the list of available plans. |
 
+1. Select **Next: Metrics and Logs**. 
+
 ### Configure metrics and logs
 
-1. Your next step is to configure metrics and logs for your resources. Azure Native Dynatrace Service supports the metrics for both compute and non-compute resources. Compute resources include VMs, app services and more.
+1. Your next step is to configure metrics and logs for your resources. Azure Native Dynatrace Service supports the metrics for both compute and non-compute resources. Compute resources include VMs, app services and more. If you have a _contributor role_ in the subscription, you don't see the option to enable metrics collection because in Azure a contributor can't assign a _monitoring reader_ role to a resource that is required by the metrics crawler to collect metrics. 
 
-    :::image type="content" source="media/dynatrace-create/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
+   :::image type="content" source="media/dynatrace-create/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
     
    - **Metrics for compute resources** – Users can send metrics for the compute resources, virtual machines and app services, by installing the Dynatrace OneAgent extension on the compute resources after the Dynatrace resource has been created.
    - **Metrics for non-compute resources** – These metrics can be collected by configuring the Dynatrace resource to automatically query Azure monitor for metrics. To enable metrics collection, select the checkbox. If you have an **owner access** in your subscription, you can enable and disable the metrics collection using the checkbox. Proceed to the configuring logs. However, if you have contributor access, use the information in the following step.
 
-1.  If you have a _contributor role_ in the subscription, you don't see the option to enable metrics collection because in Azure a contributor can't assign a _monitoring reader_ role to a resource that is required by the metrics crawler to collect metrics. 
- 
-  :::image type="content" source="media/dynatrace-create/dynatrace-contributor-UI.png" alt-text="Screenshot showing contributor view of metrics and logs.":::
-  
-  Complete the resource provisioning excluding the metrics configuration and ask an owner to assign an appropriate role manually to your resource.
-  
-1. If you have an _owner role_ in the subscription, you can take the following steps to grant a monitoring reader identity to a contributor user:
+1.  If you have a _ower role_ in the subscription, you see the option to enable metrics collection. 
 
-   1. Go to the resource created by a contributor.
- 
-   1. Go to **Access control** in the resource menu on the left and select **Add** then **Add role assignment**.
-         :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-1.png" alt-text="Screenshot showing the access control page.":::
+     :::image type="content" source="media/dynatrace-create/dynatrace-contributor-UI.png" alt-text="Screenshot showing contributor view of metrics and logs.":::
 
-   1. In the list, scroll down and select on **Monitoring reader**. Then, select **Next**.
+     Complete the resource provisioning excluding the metrics configuration and ask an owner to assign an appropriate role manually to your resource. If you have an _owner role_ in the subscription, you can take the following steps to grant a monitoring reader identity to a contributor user:
+
+     1. Go to the resource created by a contributor.
+ 
+     1. Go to **Access control** in the resource menu on the left and select **Add** then **Add role assignment**.
+       :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-1.png" alt-text="Screenshot showing the access control page.":::
+
+     1. In the list, scroll down and select on **Monitoring reader**. Then, select **Next**.
     :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-2.png" alt-text="Screenshot showing the process for selecting Monitoring reader role.":::     
 
    1. In **Assign access to**, select **Managed identity**.  Then, **Select members**.
