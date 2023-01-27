@@ -247,35 +247,35 @@ items:
 - name: Azure Center for SAP solutions
   items:
   - name: Overview
-    href: overview.md
+    href: center-sap-solutions/overview.md
   - name: FAQ
-    href: faq.yml
+    href: center-sap-solutions/faq.yml
   - name: How-to guides
     items:
     - name: Deployment
       items:
       - name: Prepare network for deployment
-        href: prepare-network.md
+        href: center-sap-solutions/prepare-network.md
       - name: Deploy S/4HANA infrastructure
-        href: deploy-s4hana.md
+        href: center-sap-solutions/deploy-s4hana.md
       - name: Install SAP software
-        href: install-software.md
+        href: center-sap-solutions/install-software.md
       - name: Register existing SAP system
-        href: register-existing-system.md
+        href: center-sap-solutions/register-existing-system.md
       - name: Management
         items:
         - name: Manage Virtual Instance for SAP solutions
-          href: manage-virtual-instance.md
+          href: center-sap-solutions/manage-virtual-instance.md
         - name: Start and stop SAP systems
-          href: start-stop-sap-systems.md
+          href: center-sap-solutions/start-stop-sap-systems.md
         - name: Get quality checks and insights
-          href: get-quality-checks-insights.md
+          href: center-sap-solutions/get-quality-checks-insights.md
         - name: View cost analysis for SAP system
-          href: view-cost-analysis.md
+          href: center-sap-solutions/view-cost-analysis.md
       - name: Monitoring
         items:
         - name: Monitor SAP system in Azure portal
-          href: monitor-portal.md
+          href: center-sap-solutions/monitor-portal.md
   - name: Reference
     items:
     - name: Azure CLI guide
