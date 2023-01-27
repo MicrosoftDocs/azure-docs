@@ -17,15 +17,14 @@ The table lists Dev Box and Deployments Environments components.
 |  Developer Portal      |     Yes      |         Yes             |
 
 The diagram shows the components of Dev Box and Deployments
-Environments. Note that dev centers and projects are common to both
+Environments. Dev centers and projects are common to both
 services.
 
 :::image type="content" source="media/common-elements.png" alt-text="Diagram showing components of Microsoft Dev Box and Azure Deployment Environments.":::
 
 ## How components appear in the Azure portal
 
-As you work with Dev Box or Deployments Environments in the Azure
-Portal, you can access components from both services.
+As you work with Dev Box or Deployments Environments in the Azure portal, you can access components from both services.
 
 In the dev center overview, you can access options for:
 
@@ -61,7 +60,7 @@ screenshot:
 :::image type="content" source="media/devportal.png" alt-text="Screenshot showing dev boxes and environments in the developer portal.":::
 
 You can create new dev boxes and environments through the developer
-portal menu at the to right.
+portal menu at the top right.
 
 :::image type="content" source="media/developer-portal-menu.png" alt-text="Screenshot of developer portal menu.":::
 
@@ -73,10 +72,6 @@ of managing an environment.
 
 ## Next steps
 
-- To learn how to configure Microsoft Dev Box, go to: [Configure the
-    Microsoft Dev Box Preview
-    service](https://learn.microsoft.com/en-us/azure/dev-box/quickstart-configure-dev-box-service?tabs=AzureADJoin).
+- To learn how to configure Microsoft Dev Box, go to: [Quickstart: Configure the Microsoft Dev Box Preview service](../../articles/dev-box/quickstart-configure-dev-box-service.md).
 
-- To learn how to configure Azure Deployment Environments, go to:
-    [[Create and configure a dev
-    center]{.underline}](https://learn.microsoft.com/en-us/azure/deployment-environments/quickstart-create-and-configure-devcenter).
+- To learn how to configure Azure Deployment Environments, go to: [Quickstart: Create and configure a dev center](../../articles/deployment-environments/quickstart-create-and-configure-devcenter.md).
