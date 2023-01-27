@@ -69,6 +69,19 @@ For each data network that you want to configure, collect all the values in the 
    | The Domain Name System (DNS) server addresses to be provided to the UEs connected to this data network. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses). </br></br>This value may be an empty list if you don't want to configure a DNS server for the data network. In this case, UEs in this data network will be unable to resolve domain names. | **DNS Addresses** |
    |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses.</br></br>If you want to use [UE-to-UE traffic](private-5g-core-overview.md#ue-to-ue-traffic) in this data network, keep NAPT disabled.  |**NAPT**|
 
+## Choose the authentication method for local monitoring tools
+
+Azure Private 5G Core provides dashboards for monitoring your deployment and a web GUI for collecting detailed signal traces. You can access these tools using [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
+
+If you want to access your local monitoring tools using Azure AD, after creating a site you'll need to follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
+
+If you want to access your local monitoring tools using local usernames and passwords, you don't need to set any additional configuration. After deploying the site, set up your username and password by following [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards).
+
+You'll be able to change the authentication method later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
+
+> [!NOTE]
+> While in [disconnected mode](disconnected-mode.md), you won't be able to change the local monitoring authentication method or sign in using Azure AD. If you expect to need access to your local monitoring tools while the ASE is disconnected, consider using the local username and password authentication method instead.
+
 ## Collect local monitoring values
 
 You can use a self-signed or a custom certificate to secure access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) at the edge. We recommend that you provide your own HTTPS certificate signed by a globally known and trusted certificate authority (CA), as this provides additional security to your deployment and allows your browser to recognize the certificate signer.
@@ -97,7 +110,7 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
 
 ## Next steps
 
-You can now use the information you've collected to create the site.
+Use the information you've collected to create the site:
 
-- [Create a site - Azure portal](create-a-site.md)
-- [Create a site - ARM template](create-site-arm-template.md)
+   - [Create a site - Azure portal](create-a-site.md)
+   - [Create a site - ARM template](create-site-arm-template.md)

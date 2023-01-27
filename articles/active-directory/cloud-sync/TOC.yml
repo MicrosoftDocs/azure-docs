@@ -52,6 +52,8 @@
       href: how-to-attribute-mapping.md 
     - name: Use Single Sign-On
       href: how-to-sso.md
+    - name: Directory extensions and custom attributes
+      href: custom-attribute-mapping.md
   - name: Plan and design
     items:
     - name: Topologies and scenarios for Azure AD Connect cloud sync
@@ -70,6 +72,8 @@
       href: how-to-gmsa-cmdlets.md
     - name: How to map usertype with cloud sync
       href: how-to-map-usertype.md
+    - name: Azure AD cloud sync insights workbook
+      href: how-to-cloud-sync-workbook.md
   - name: Develop
     items:
     - name: Transformations
