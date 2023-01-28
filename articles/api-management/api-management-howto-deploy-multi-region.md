@@ -5,7 +5,7 @@ description: Learn how to deploy a Premium tier Azure API Management instance to
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 01/26/2023
 ms.author: danlep
 ---
 
@@ -50,17 +50,15 @@ When adding a region, you configure:
 ## <a name="remove-region"> </a>Remove an API Management service region
 
 1. In the Azure portal, navigate to your API Management service and select **Locations** from the left menu.
-2. For the location you would like to remove, select the context menu using the **...** button at the right end of the table. Select **Delete**.
-3. Confirm the deletion and select **Save** to apply the changes.
+1. For the location you would like to remove, select the context menu using the **...** button at the right end of the table. Select **Delete**.
+1. Confirm the deletion and select **Save** to apply the changes.
+
 
 ## <a name="route-backend"> </a>Route API calls to regional backend services
 
 By default, each API routes requests to a single backend service URL. Even if you've configured Azure API Management gateways in various regions, the API gateway will still forward requests to the same backend service, which is deployed in only one region. In this case, the performance gain will come only from responses cached within Azure API Management in a region specific to the request; contacting the backend across the globe may still cause high latency.
 
 To take advantage of geographical distribution of your system, you should have backend services deployed in the same regions as Azure API Management instances. Then, using policies and `@(context.Deployment.Region)` property, you can route the traffic to local instances of your backend.
-
-> [!TIP]
-> Optionally set the `disableGateway` property in a regional gateway to disable routing of API traffic there. For example, temporarily disable a regional gateway when testing or updating a regional backend service. 
 
 1. Navigate to your Azure API Management instance and select **APIs** from the left menu.
 2. Select your desired API.
@@ -117,6 +115,44 @@ API Management routes the requests to a regional gateway based on [the lowest la
 1. [Configure the API Management regional endpoints in Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). The regional endpoints follow the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net`, for example `https://contoso-westus2-01.regional.azure-api.net`.
 1. [Configure the API Management regional status endpoints in Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). The regional status endpoints follow the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, for example `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
 1. Specify [the routing method](../traffic-manager/traffic-manager-routing-methods.md) of the Traffic Manager.
+
+## Disable routing to a regional gateway
+
+Under some conditions, you might need to temporarily disable routing to one of the regional gateways. For example:
+
+* After adding a new region, to keep it disabled while you configure and test the regional backend service 
+* During regular backend maintenance in a region
+* To redirect traffic to other regions during a planned disaster recovery drill that simulates an unavailable region, or during a regional failure 
+
+To disable routing to a regional gateway in your API Management instance, update the gateway's `disableGateway` property value to `true`. You can set the value using the [Create or update service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API, the [az apim update](/cli/azure/apim#az-apim-update) command in the Azure CLI, the [set-azapimanagement](/powershell/module/az.apimanagement/set-azapimanagement) Azure PowerShell cmdlet, or other Azure tools.
+    
+To disable a regional gateway using the Azure CLI:
+
+1. Use the [az apim show](/cli/azure/apim#az-apim-show) command to show the locations, gateway status, and regional URLs configured for the API Management instance. 
+    ```azurecli
+    az apim show --name contoso --resource-group myResourceGroup \
+        --query "additionalLocations[].{Location:location,Disabled:disableGateway,Url:gatewayRegionalUrl}" \
+        --output table
+    ```
+    Example output:
+
+    ```
+    Location    Disabled    Url
+    ----------  ----------  ------------------------------------------------------------
+    West US 2   True        https://contoso-westus2-01.regional.azure-api.net
+    West Europe True        https://contoso-westeurope-01.regional.azure-api.net
+    ```
+1. Use the [az apim update](/cli/azure/apim#az-apim-update) command to disable the gateway in an available location, such as West US 2.
+    ```azurecli
+    az apim update --name contoso --resource-group myResourceGroup \
+    --set additionalLocations[location="West US 2"].disableGateway=true
+    ```
+
+    The update may take a few minutes. 
+
+1. Verify that traffic directed to the regional gateway URL is redirected to another region. 
+ 
+To restore routing to the regional gateway, set the value of `disableGateway` to `false`. 
 
 ## Virtual networking
 
