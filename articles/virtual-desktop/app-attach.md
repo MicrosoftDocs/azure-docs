@@ -1,15 +1,15 @@
 ---
-title: Use PowerShell to mount MSIX app attach packages - Azure
-description: Learn how to mount MSIX app attach disk images for testing and troubleshooting outside of Azure Virtual Desktop.
+title: Test and troubleshoot packages with MSIX app attach - Azure
+description: Learn how to use MSIX app attach to mount disk images for testing and troubleshooting outside of Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 01/18/2023
 ms.author: helohr
 manager: femila
 ---
-# Use PowerShell to mount MSIX packages
+# Test and troubleshoot MSIX packages with MSIX app attach
 
-This article will show you how to mount MSIX packages outside of Azure Virtual Desktop using PowerShell, which can be useful for testing and troubleshooting.
+This article will show you how to use MSIX app attach to mount MSIX packages outside of Azure Virtual Desktop for testing and troubleshooting.
 
 To use MSIX app attach with Azure Virtual Desktop, you can use [the Azure portal](app-attach-azure-portal.md) or [Azure PowerShell](app-attach-powershell.md) to add and publish applications.
 
@@ -17,12 +17,12 @@ To use MSIX app attach with Azure Virtual Desktop, you can use [the Azure portal
 
 <!--Ask Jim what to put here-->
 
-## Prepare PowerShell scripts for MSIX app attach
+## Phases of MSIX app attach
 
 To use MSIX packages outside of Azure Virtual Desktop, there are four distinct phases that you must perform in the following order, otherwise it won't work:
 
 1. Stage
-2. Register
+2. Mount and register
 3. Deregister
 4. Destage
 
@@ -31,23 +31,19 @@ Staging and destaging are machine-level operations, while registering and deregi
 >[!NOTE]
 >All MSIX application packages include a certificate. You're responsible for making sure the certificates for MSIX applications are trusted in your environment.
 
-## Stage PowerShell script
+## Stage the MSIX package
 
-The first part of setting up app attach with PowerShell involves staging the script. This involves installing the relevant MSIX package from teh NuGet repository, and you'll only need to run the following commands once per machine during image creation.
+The staging script prepares your machine to receive the MSIX package and downloads the relevant package to your machine. You'll only need to run the following commands once per machine.
 
 However, if you're using an image in cim format or a version of PowerShell greater than 5.1, the instructions will look a bit different. Later versions of PowerShell are multi-platform, which means the Windows application parts are split off into their own package called [Windows Runtime](/windows/uwp/winrt-components/). You'll need to use a slightly different version of the commands to install a package with a multi-platform version of PowerShell.
 
 You'll need to run PowerShell as an Administrator to run the commands in the following sections.
 
-Next, you'll need to decide which instructions you need to follow to stage your package based on the following criteria:
-
-- Are you running [a PowerShell version later than 5.1](#install-a-package-using-a-powershell-version-later-than-51)?
-- Are you running [PowerShell version 5.1 or earlier](#install-a-package-using-powershell-51-and-earlier)?
-- Are you [using a cim disk image](#install-a-package-on-a-cimfs-disk-image)?
+Next, you'll need to decide which instructions you need to follow to stage your package based on which version of PowerShell you're using and whether your disk image is in *cim* format.
 
 ### [PowerShell 5.2 and later](#tab/powershell-later)
 
-To stage packages at boot using a PowerShell version greater than 5.1 you will need the following commands before the staging operations to bring the capabilities of the Windows Runtime package you previously installed into the PowerShell session.
+To stage packages at boot using a PowerShell version greater than 5.1, you'll need to run the following commands before the staging operations to bring the capabilities of the Windows Runtime package you previously installed into the PowerShell session.
 
 1. First, run this command to get the package:
 
@@ -142,12 +138,12 @@ To mount a VHD(X) disk image:
    Write-Output $DeviceId
    ```
 
-1. When you're done, proceed to [Finish mounting your disk image](#finish-mounting-your-image).
+1. When you're done, proceed to [Finish mounting your disk image](#finish-mounting-your-disk-image).
 ---
 
-### Finish mounting your image
+### Finish mounting your disk image
 
-Finally, you'll need to run the following command for all image formats. This command will use the `$mount` variable you created when you mounted your disk image in the previous section.
+Finally, you'll need to run the following command for all image formats to complete mounting the disk image. This command will use the `$mount` variable you created when you mounted your disk image in the previous section.
 
 ```powershell
 #Once the volume is mounted we can retrieve the application information
@@ -175,11 +171,11 @@ $stagingResult = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
 Write-Output $stagingResult
 ```
 
-Your application is now ready to be registered.
+Your MSIX package is now ready to be registered.
 
-## Register PowerShell script
+## Register the MSIX package
 
-To run the register script, run the following PowerShell cmdlets with the placeholder values replaced with values that apply to your environment.
+To register your MSIX package, run the following PowerShell cmdlets with the placeholder values replaced with values that apply to your environment.
 
 ```powershell
 $msixPackageFullName = "<package full name>"
@@ -188,19 +184,17 @@ $manifestPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') (Join-Path
 Add-AppxPackage -Path $manifestPath -DisableDevelopmentMode -Register
 ```
 
-The `$msixPackageFullName` parameter should be the full name of the package from the previous section, but you should format it similar to the following example:
-
-```powershell
-Publisher.Application_version_Platform__HashCode
-```
+The `$msixPackageFullName` parameter should be the full name of the package from the previous section, but you should format it similar to the following example: `Publisher.Application_version_Platform__HashCode`.
 
 If you didn't retrieve the parameter after staging your app, you can also find it as the folder name for the app itself in **C:\Program Files\WindowsApps**.
 
-## Deregister PowerShell script
+Now that your MSIX package is registered, you can use it for testing and troubleshooting. When you're finished with testing the package, you can deregister it to prepare it for removal.
 
-Now it's time to Deregister your package. For this, you'll need the `$msixPackageFullName` parameter again.
+## Deregister the MSIX package
 
-To deregister, run the following command after replacing the placeholder text with the relevant values:
+If you're finished with your package and are ready to remove it, now it's time to deregister it. In order to deregister, ou'll need the `$msixPackageFullName` parameter again.
+
+To deregister your package, run the following command after replacing the placeholder text with the relevant values:
 
 ```powershell
 $msixPackageFullName = "<package full name>"
@@ -208,9 +202,9 @@ $msixPackageFullName = "<package full name>"
 Remove-AppxPackage $msixPackageFullName -PreserveRoamableApplicationData
 ```
 
-## Destage PowerShell script
+## Destage the MSIX package
 
-To destage your PowerShell script, make sure you're running an elevated PowerShell prompt. You'll need to run the following PowerShell command to get the disk's `DeviceId` parameter. Replace the placeholder for **$packageFullName** with the name of the package you're testing. In a production deployment, we recommend only running this command when shutting down your deployment.
+To destage your MSIX package, make sure you're running an elevated PowerShell prompt. You'll need to run the following PowerShell command to get the disk's `DeviceId` parameter. Replace the placeholder for `$packageFullName` with the name of the package you're testing. In a production deployment, we recommend only running this command when shutting down your deployment.
 
 ```powershell
 $msixPackageFullName = "<package full name>"
@@ -227,9 +221,9 @@ Remove-AppxPackage -Package $msixPackageFullName
 
 ## Dismount the disks from the system
 
-To finish the destaging process, you'll need to dismount the disks from the system. The command you'll need to use depends on whether your disk image is in [CimFS](#dismount-a-cimfs-image-disk) or [VHD(X)](#dismount-a-vhdx-image-disk) format.
+To finish the destaging process, you'll need to dismount the disks from the system. The command you'll need to use depends on the format of your disk image.
 
-### Dismount a CimFS image disk
+### [CimFS]((#tab/cimfs)
 
 If your image is in CimFS format, run this cmdlet:
 
@@ -237,7 +231,7 @@ If your image is in CimFS format, run this cmdlet:
 DisMount-CimDiskimage -DeviceId $DeviceId
 ```
 
-### Dismount a VHD(X) image disk
+### [VHD(X)](#tab/vhdx)
 
 If your image is in VHD(X) format, run this cmdlet:
 
@@ -245,11 +239,11 @@ If your image is in VHD(X) format, run this cmdlet:
 DisMount-DiskImage -DevicePath $DeviceId.TrimEnd('\')
 ```
 
-Once you finish dismounting your disks, your scripts are all set!
+Once you finish dismounting your disks, you can safely remove the MSIX package.
 
 ## Set up simulation scripts for the MSIX app attach agent
 
-After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
+If you want to add and remove MSIX packages automatically, you can use the PowerShell commands in this article to create scripts that run at startup, logon, logoff, and shutdown. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
 
 Each of these automatic scripts runs one phase of the app attach scripts:
 
@@ -270,10 +264,10 @@ To install the license files, you'll need to use a PowerShell script that calls 
 Here's how to set up the licenses for offline use:
 
 1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
-2. Update the following variables in the script for step 3:
+1. Update the following variables in the script for step 3:
       - `$contentID` is the ContentID value from the Unencoded license file (.xml). You can open the license file in a text editor of your choice.
       - `$licenseBlob` is the entire string for the license blob in the Encoded license file (.bin). You can open the encoded license file in a text editor of your choice.
-3. Run the following script from an Admin PowerShell prompt. A good place to perform license installation is at the end of the [staging script](#stage-powershell-script) that also needs to be run from an Admin prompt.
+2. Run the following script from PowerShell running as an administrator. A good place to perform license installation is at the end of the [staging phase](#stage-the-msix-package) because at that point you also need to run PowerShell as an administrator.
 
       ```powershell
       $namespaceName = "root\cimv2\mdm\dmmap"
