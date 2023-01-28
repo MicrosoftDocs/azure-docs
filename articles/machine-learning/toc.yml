@@ -550,9 +550,14 @@
             - name: Auto-train a natural language processing model
               displayName: nlp, auto ML, automl, SDK
               href: how-to-auto-train-nlp-models.md
-            - name: Auto-train a forecasting model (Python)
-              displayName: forecasting, time series, auto ML, automl, SDK 
-              href: how-to-auto-train-forecast.md
+            - name: Time series forecasting
+              items:
+              - name: Auto-train a forecasting model (Python)
+                displayName: forecasting, time series, auto ML, automl, SDK 
+                href: how-to-auto-train-forecast.md
+              - name: Frequently asked questions
+                displayName: auto ML, time series, forecasting, FAQ
+                href: how-to-automl-forecasting-faq.md
             - name: Understand charts and metrics
               href: how-to-understand-automated-ml.md
             - name: Use ONNX model in .NET application

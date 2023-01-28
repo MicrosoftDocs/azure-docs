@@ -1,7 +1,7 @@
 ---
-title: Set up AutoML for time-series forecasting
+title: Set up AutoML for time-series forecasting (SDKv1)
 titleSuffix: Azure Machine Learning
-description: Set up Azure Machine Learning automated ML to train time-series forecasting models with the Azure Machine Learning Python SDK.
+description: Set up Azure Machine Learning automated ML to train time-series forecasting models with the Azure Machine Learning Python SDKv1.
 services: machine-learning
 author: manashgoswami 
 ms.author: magoswam
@@ -27,7 +27,7 @@ To do so, you:
 > * Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object.
 > * Run predictions with time-series data.
 
-For a low code experience, see the [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md) for a time-series forecasting example using automated ML in the [Azure Machine Learning studio](https://ml.azure.com/).
+For a low code experience, see the [Tutorial: Forecast demand with automated machine learning](../tutorial-automated-ml-forecast.md) for a time-series forecasting example using automated ML in the [Azure Machine Learning studio](https://ml.azure.com/).
 
 Unlike classical time series methods, in automated ML, past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach incorporates multiple contextual variables and their relationship to one another during training. Since multiple factors can influence a forecast, this method aligns itself well with real world forecasting scenarios. For example, when forecasting sales, interactions of historical trends, exchange rate, and price all jointly drive the sales outcome. 
 
@@ -35,9 +35,9 @@ Unlike classical time series methods, in automated ML, past time-series values a
 
 For this article you need, 
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md).
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](../how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
     [!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
 
@@ -48,7 +48,7 @@ The most important difference between a forecasting regression task type and reg
 > [!IMPORTANT]
 > When training a model for forecasting future values, ensure all the features used in training can be used when running predictions for your intended horizon. <br> <br>For example, when creating a demand forecast, including a feature for current stock price could massively increase training accuracy. However, if you intend to forecast with a long horizon, you may not be able to accurately predict future stock values corresponding to future time-series points, and model accuracy could suffer.
 
-You can specify separate [training data and validation data](concept-automated-ml.md#training-validation-and-test-data) directly in the `AutoMLConfig` object. Learn more about the [AutoMLConfig](#configure-experiment).
+You can specify separate [training data and validation data](concept-automated-ml-v1.md#training-validation-and-test-data) directly in the `AutoMLConfig` object. Learn more about the [AutoMLConfig](#configure-experiment).
 
 For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is used for validation by default. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage.
 
@@ -68,9 +68,9 @@ automl_config = AutoMLConfig(task='forecasting',
 ```
 
 
-You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
+You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](../how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
-Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-overfitting).
+Learn more about how AutoML applies cross validation to [prevent over-fitting models](../concept-manage-ml-pitfalls.md#prevent-overfitting).
 
 ## Configure experiment
 
@@ -141,7 +141,7 @@ An `Error exception` is raised for any series in the dataset that does not meet 
 
 ### Featurization steps
 
-In every automated machine learning experiment, automatic scaling and normalization techniques are applied to your data by default. These techniques are types of **featurization** that help *certain* algorithms that are sensitive to features on different scales. Learn more about default featurization steps in [Featurization in AutoML](how-to-configure-auto-features.md#automatic-featurization)
+In every automated machine learning experiment, automatic scaling and normalization techniques are applied to your data by default. These techniques are types of **featurization** that help *certain* algorithms that are sensitive to features on different scales. Learn more about default featurization steps in [Featurization in AutoML](../how-to-configure-auto-features.md#automatic-featurization)
 
 However, the following steps are performed only for `forecasting` task types:
 
@@ -172,7 +172,7 @@ Supported customizations for `forecasting` tasks include:
 |**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (fill_value and median).|
 |**Drop columns** |Specifies columns to drop from being featurized.|
 
-To customize featurizations with the SDK, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. Learn more about [custom featurizations](how-to-configure-auto-features.md#customize-featurization).
+To customize featurizations with the SDK, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. Learn more about [custom featurizations](../how-to-configure-auto-features.md#customize-featurization).
 
 >[!NOTE]
 > The **drop columns** functionality is deprecated as of SDK version 1.19. Drop columns from your dataset as part of data cleansing, prior to consuming it in your automated ML experiment. 
@@ -193,7 +193,7 @@ featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy"
 featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
 ```
 
-If you're using the Azure Machine Learning studio for your experiment, see [how to customize featurization in the studio](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+If you're using the Azure Machine Learning studio for your experiment, see [how to customize featurization in the studio](../how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 ## Optional configurations
 
@@ -237,7 +237,7 @@ automl_config = AutoMLConfig(task='forecasting',
 > [!Warning]
 > When you enable DNN for experiments created with the SDK, [best model explanations](how-to-machine-learning-interpretability-automl.md) are disabled.
 
-To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio UI how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio UI how-to](../how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 
 ### Target rolling window aggregation
@@ -248,7 +248,7 @@ For example, say you want to predict energy demand. You might want to add a roll
 
 The table shows resulting feature engineering that occurs when window aggregation is applied. Columns for **minimum, maximum,** and **sum** are generated on a sliding window of three based on the defined settings. Each row has a new calculated feature, in the case of the timestamp for September 8, 2017 4:00am the maximum, minimum, and sum values are calculated using the **demand values** for September 8, 2017 1:00AM - 3:00AM. This window of three shifts along to populate data for the remaining rows.
 
-![target rolling window](./media/how-to-auto-train-forecast/target-roll.svg)
+![target rolling window](../media/how-to-auto-train-forecast/target-roll.svg)
 
 View a Python code example applying the [target rolling window aggregate feature](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 
@@ -285,12 +285,12 @@ The following table summarizes the available settings for `short_series_handling
 
 A time series whose moments (mean and variance) change over time is called a **non-stationary**. For example, time series that exhibit stochastic trends are non-stationary by nature. To visualize this, the below image plots a series that is generally trending upward. Now, compute and compare the mean (average) values for the first and the second half of the series. Are they the same? Here, the mean of the series in the first half of the plot is significantly smaller than in the second half. The fact that the mean of the series depends on the time interval one is looking at, is an example of the time-varying moments. Here, the mean of a series is the first moment.
 
-:::image type="content" source="media/how-to-auto-train-forecast/non-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a non-stationary time series.":::
+:::image type="content" source="../media/how-to-auto-train-forecast/non-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a non-stationary time series.":::
 
 Next, let's examine the image below, which plots the the original series in first differences, $x_t = y_t - y_{t-1}$ where $x_t$ is the change in retail sales and $y_t$ and $y_{t-1}$ represent the original series and its first lag, respectively. The mean of the series is roughly constant regardless the time frame one is looking at. This is an example of a first order stationary times series. The reason we added the first order term is because the first moment (mean) does not change with time interval, the same cannot be said about the variance, which is a second moment.
 
 
-:::image type="content" source="media/how-to-auto-train-forecast/weakly-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly stationary time series.":::
+:::image type="content" source="../media/how-to-auto-train-forecast/weakly-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly stationary time series.":::
 
 AutoML Machine learning models can not inherently deal with stochastic trends, or other well-known problems associated with non-stationary time series. As a result, their out of sample forecast accuracy will be "poor" if such trends are present.
 
@@ -379,12 +379,12 @@ Grouping is a concept in time series forecasting that allows time series to be c
 
 ### Many models
 
-The Azure Machine Learning many models solution with automated machine learning allows users to train and manage millions of models in parallel. Many models The solution accelerator leverages [Azure Machine Learning pipelines](concept-ml-pipelines.md) to train the model. Specifically, a [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) object and [ParalleRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) are used and require specific configuration parameters set through the [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig). 
+The Azure Machine Learning many models solution with automated machine learning allows users to train and manage millions of models in parallel. Many models The solution accelerator leverages [Azure Machine Learning pipelines](../concept-ml-pipelines.md) to train the model. Specifically, a [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) object and [ParalleRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) are used and require specific configuration parameters set through the [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig). 
 
 
 The following diagram shows the workflow for the many models solution. 
 
-![Many models concept diagram](./media/how-to-auto-train-forecast/many-models.svg)
+![Many models concept diagram](../media/how-to-auto-train-forecast/many-models.svg)
 
 The following code demonstrates the key parameters users need to set up their many models run. See the [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) for a many models forecasting example 
 
@@ -415,11 +415,11 @@ In most applications, customers have a need to understand their forecasts at a m
 
 A hierarchical time series is a structure in which each of the unique series are arranged into a hierarchy based on dimensions such as, geography or product type. The following example shows data with unique attributes that form a hierarchy. Our hierarchy is defined by: the product type such as headphones or tablets, the product category which splits product types into accessories and devices, and the region the products are sold in. 
 
-![Example raw data table for hierarchical data](./media/how-to-auto-train-forecast/hierarchy-data-table.svg)
+![Example raw data table for hierarchical data](../media/how-to-auto-train-forecast/hierarchy-data-table.svg)
  
 To further visualize this, the leaf levels of the hierarchy contain all the time series with unique combinations of attribute values. Each higher level in the hierarchy considers one less dimension for defining the time series and aggregates each set of child nodes from the lower level into a parent node.
  
-![Hierarchy visual for data](./media/how-to-auto-train-forecast/data-tree.svg)
+![Hierarchy visual for data](../media/how-to-auto-train-forecast/data-tree.svg)
 
 The hierarchical time series solution is built on top of the Many Models Solution and share a similar configuration setup.
 
@@ -475,7 +475,7 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 
 ## Next steps
 
-* Learn more about [How to deploy an AutoML model to an online endpoint](how-to-deploy-automl-endpoint.md).
+* Learn more about [How to deploy an AutoML model to an online endpoint](../how-to-deploy-automl-endpoint.md).
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md).
-* Learn about [how AutoML builds forecasting models](./concept-automl-forecasting-methods.md). 
+* Learn about [how AutoML builds forecasting models](../concept-automl-forecasting-methods.md). 
 

@@ -45,6 +45,13 @@ Consider the following configuration changes that may speed up your job:
 ## What modeling configuration should I use?
 
 There are four basic configurations supported by AutoML forecasting:
+
+Configuration | Description | Pros | Cons
+-- | -- | -- | --
+**Default AutoML** | Recommended if the dataset has a small number of time series that have roughly similar historic behavior. | <li> Simple to configure from code/SDK or AzureML Studio <br> <li> AutoML has the chance to cross-learn across different time series since the regression models pool all series together in training. See the [model grouping](./concept-automl-forecasting-methods.md#model-grouping) section for more information. | <li> Regression models may be less accurate if the time series in the training data have divergent behavior <br> <li> Time series models may take a long time to train if there are a large number of series in the training data. See the ["why is AutoML slow on my data"](#why-is-automl-slow-on-my-data) answer for more information.
+**AutoML with deep learning** | Recommended for datasets with more than 1000 observations and, potentially, numerous time series exhibiting complex patterns. When enabled, AutoML will sweep over temporal convolutional neural network (TCN) models during training. See the [enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning) section for more information. | <li> Simple to configure from code/SDK or AzureML Studio <br> <li> Cross-learning opportunities since the TCN pools data over all series <br> <li> Potentially higher accuracy due to the large capacity of DNN models. See the [forecasting models in AutoML](./concept-automl-forecasting-methods.md#forecasting-models-in-automl) section for more information. | Training can take much longer due to the complexity of DNN models
+**Many Models** | Recommended if you need to train and manage a large number of forecasting models in a scalable way. See the [forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale) section for more information. | <li> Scalable <br> <li> Potentially higher accuracy when time series have divergent behavior from one another. | <li> No cross-learning across time series <br> <li> You can't configure or launch Many Models jobs from AzureML Studio, only the code/SDK experience is currently available.
+**Hierarchical Time Series** | HTS is recommended if the series in your data have nested, hierarchical structure and you need to train or make forecasts at aggregated levels of the hierarchy. See the [hierarchical time series forecasting](how-to-auto-train-forecast.md#hierarchical-time-series-forecasting) section for more information. | <li> Training at aggregated levels can reduce noise in the leaf node time series and potentially lead to higher accuracy models. <br> <li> Forecasts can be retrieved for any level of the hierarchy by aggregating or disaggregating forecasts from the training level. | You need to provide the aggregation level for training. AutoML doesn't currently have an algorithm to find an optimal level.
   
 1.  **Default AutoML** is recommended if the dataset has a small number of time series that have roughly similar historic behavior.
 
@@ -105,7 +112,7 @@ AutoML uses machine learning best practices, such as cross-validated model selec
 
 AutoML's forecasting models all require that training data have regularly spaced observations with respect to the calendar. This requirement includes cases like monthly or yearly observations where the number of days between observations may vary. There are two cases where time dependent data may not meet this requirement:
 
-- The data has a well defined frequency, but **there are missing observations that create gaps in the series**. In this case, AutoML will attempt to detect the frequency, fill in new observations for the gaps, and impute missing target and feature values therein. The imputation methods can be optionally configured by the user via SDK settings or through the Web UI. See the [custom featurization](./how-to-auto-train-forecast.md#customize-featurization) 
+- The data has a well defined frequency, but **there are missing observations that create gaps in the series**. In this case, AutoML will attempt to detect the frequency, fill in new observations for the gaps, and impute missing target and feature values therein. The imputation methods can be optionally configured by the user via SDK settings or through the Web UI. See the [custom featurization](./how-to-auto-train-forecast.md#custom-featurization) 
 guide for more information on configuring imputation.
 
 - **The data does not have a well defined frequency**. That is, the duration between observations does not have a discernible pattern. Transactional data, like that from a point-of-sales system, is one example. In this case, you can set AutoML to aggregate your data to a chosen frequency. You can choose a regular frequency that best suites the data and the modeling objectives. See the [data aggregation](./how-to-auto-train-forecast.md#frequency--target-data-aggregation) section for more information.
@@ -149,17 +156,17 @@ We support the following advanced prediction scenarios:
 - Forecasting beyond the forecast horizon
 - Forecasting when there is a gap in time between training and forecasting periods.
 
-See the [advanced forecasting scenarios notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-forecast-function/auto-ml-forecasting-function.ipynb) for examples and details.
+See the [advanced forecasting scenarios notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb) for examples and details.
 
 ## How do I view metrics from forecasting training jobs?
 
-See our [metrics in studio UI](./v1/how-to-log-view-metrics.md#view-run-metrics-in-the-studio-ui) guide for finding training and validation metric values. Note that you can view metrics for any forecasting model trained in AutoML by navigating to a model from the AutoML job UI in the studio and clicking on the "metrics" tab.
+See our [metrics in studio UI](how-to-log-view-metrics.md#view-jobsruns-information-in-the-studio) guide for finding training and validation metric values. Note that you can view metrics for any forecasting model trained in AutoML by navigating to a model from the AutoML job UI in the studio and clicking on the "metrics" tab.
 
 :::image type="content" source="media/how-to-automl-forecasting-faq/metrics_UI.png" alt-text="A view of the metric interface for an AutoML forecasting model.":::
 
 ## How do I debug failures with forecasting training jobs?
 
-If your AutoML forecasting job fails, you will see an error message in the studio UI that may help to diagnose and fix the problem. The best source of information about the failure beyond the error message is the driver log for the job. Check out the [run logs](./v1/how-to-log-view-metrics.md#view-and-download-log-files-for-a-run) guide for instructions on finding driver logs.
+If your AutoML forecasting job fails, you will see an error message in the studio UI that may help to diagnose and fix the problem. The best source of information about the failure beyond the error message is the driver log for the job. Check out the [run logs](how-to-log-view-metrics.md#view-and-download-diagnostic-logs) guide for instructions on finding driver logs.
 
 > [!NOTE]
 > For Many Models or HTS job, training is usually on multi-node compute clusters. Logs for these jobs are present for each node IP address. You will need to search for error logs in each node in this case. The error logs, along with the driver logs, are in the `user_logs` folder for each node IP. 
