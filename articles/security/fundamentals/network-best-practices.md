@@ -56,7 +56,7 @@ When you use network security groups for network access control between subnets,
 **Best practice**: Avoid small virtual networks and subnets to ensure simplicity and flexibility.   
 **Detail**: Most organizations add more resources than initially planned, and re-allocating addresses is labor intensive. Using small subnets adds limited security value, and mapping a network security group to each subnet adds overhead. Define subnets broadly to ensure that you have flexibility for growth.
 
-**Best practice**: Simplify network security group rule management by defining [Application Security Groups](../..virtual-network/application-security-groups.md).  
+**Best practice**: Simplify network security group rule management by defining [Application Security Groups](../../automanage/virtual-network/application-security-groups.md).  
 **Detail**: Define an Application Security Group for lists of IP addresses that you think might change in the future or be used across many network security groups. Be sure to name Application Security Groups clearly so others can understand their content and purpose.
 
 ## Adopt a Zero Trust approach
