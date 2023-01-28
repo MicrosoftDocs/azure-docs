@@ -191,21 +191,26 @@ The following regions are available for public preview.  Provisioning in regions
 
 ## Configuration of network controls
 
-After registration in to the public preview, configuration of NSG / Route Table / and private IP frontend configuration can be conducted via all experiences (REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal).  No API or command changes are introduced with this public preview.
+After registration in to the public preview, configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods (REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal).  No API or command changes are introduced with this public preview.
 
 ## Resource Changes
 
-Upon provisioning of your gateway, you will notice a resource tag is automatically provisioned with the name of **EnhancedNetworkControl** and value of **True**.
-//Add Image Reference
-The resource tag is cosmetic to confirm the gateway has been provisioned with the capabilities to configure any combination of the private only gateway features. Modification or deletion of the tag or value does not change any functional workings of the gateway. The tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
+Upon provisioning of your gateway, you will notice a resource tag is automatically provisioned with the name of **EnhancedNetworkControl** and value of **True**. See the following example:
+
+ ![View the EnhancedNetworkControl tag](./media/application-gateway-private-deployment/tags.png)
+
+The resource tag is cosmetic, and serves to confirm that the gateway has been provisioned with the capabilities to configure any combination of the private only gateway features. Modification or deletion of the tag or value does not change any functional workings of the gateway. 
+
+> [!TIP]
+> The **EnhancedNetworkControl** tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
 
 ## Network Security Group Control
 
-Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, nor require outbound access to the internet.  The only required rule is Allow inbound from AzureLoadBalancer to ensure health probes can reach the gateway.
+Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the internet.  The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
 
-Here is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
+The following is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
 
-// Add image reference
+ ![View the inbound security group rules](./media/application-gateway-private-deployment/inbound-rules.png)
 
 > [!Note]
 > Application Gateway will provide an error asking to ensure the allow LoadBalanceRule is specified if a DenyAll rule inadvertently restricts access to health probes.
