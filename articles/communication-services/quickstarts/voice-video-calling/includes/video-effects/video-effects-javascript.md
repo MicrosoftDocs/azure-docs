@@ -5,14 +5,14 @@ description: Learn how to add video effects in your video calls using Azure Comm
 author: sloanster
 
 ms.author: micahvivion
-ms.date: 01/09/2023
+ms.date: 01/20/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
 
-You can use the Video effects feature to add effects to your video in video calls.
+You can use the Video effects feature to add effects to your video in video calls. This feature enables developers to build background visual effects and background video replacement into the calling experience. Background blur provides users with the mechanism to remove distractions behind a participant so that participants can communicate without disruptive activity or confidential information in the background. This is especially useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or personally identifiable information. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy. In addition to enhanced confidentiality, background blur allows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
 
 >[!IMPORTANT]
 > The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
@@ -23,8 +23,6 @@ You can use the Video effects feature to add effects to your video in video call
 > [!NOTE]
 > The calling effect library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
 
-## Prerequisites
-- Setup Azure Communication Services to be able to start video calls. [Follow this guide](../video-calling/video-calling-javascript.md). You'll need the `LocalVideoStream` to be able to start effects.
 
 ## Using video effects
 ### Install the package
@@ -66,7 +64,7 @@ videoEffectsFeatureApi.on(‘effectsError’, (error) => {
 });
 ```
 
-### Background blur:
+### Background blur
 ```js
 // Create the effect instance 
 const backgroundBlurEffect = new BackgroundBlurEffect(); 
@@ -80,7 +78,7 @@ if (backgroundBlurSupported) {
 }
 ```
 
-### Background replacement with an image:
+### Background replacement with an image
 You need to provide the URL of the image you want as the background to this effect.
 > [!IMPORTANT]
 > The `startEffects` method will fail if the URL is not of an image or is unreachable/unreadable.
