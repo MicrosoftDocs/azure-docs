@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
+ms.reviewer: ssalgado
 ms.date: 08/11/2021
 ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
@@ -170,7 +171,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use an [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory. Instead, access your data by using a [datastore](/python/api/azureml-core/azureml.data).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use an [.ignore file](concept-train-machine-learning-model.md#understand-what-happens-when-you-submit-a-training-job) or don't include it in the source directory. Instead, access your data by using a [datastore](/python/api/azureml-core/azureml.data).
 
 ## Next steps
 In this article, you trained a model by using a custom Docker image. See these other articles to learn more about Azure Machine Learning:

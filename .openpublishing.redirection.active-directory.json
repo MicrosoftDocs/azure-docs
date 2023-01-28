@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-claims-mapping.md",
+      "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/configure-token-lifetimes.md",
+      "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/authentication/how-to-mfa-microsoft-managed.md",
       "redirect_url": "/azure/active-directory/authentication/concept-authentication-default-enablement",
       "redirect_document_id": false
@@ -11044,6 +11054,21 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/microsoft-graph-intro.md",
       "redirect_url": "/graph/overview?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/concept-privileged-access-versus-role-assignable.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/concept-pim-for-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/groups-features.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/concept-pim-for-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/product-data-inventory.md",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/product-data-billable-resources",
       "redirect_document_id": false
     }
   ]

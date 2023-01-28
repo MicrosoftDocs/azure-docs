@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Test Azure IoT Edge in this quickstart by deploying containerized code to a virtual Linux IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an [Azure virtual machine](/azure/virtual-machines/) for your IoT Edge device, which allows you to quickly create a test machine and then delete it when you're finished.
 
@@ -105,8 +105,7 @@ During the runtime configuration, you provide a device connection string. This i
 
 This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md), then return to this quickstart.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
+Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.4) template. Copy the following command into a text editor, replace the placeholder text with your own values, then re-copy and paste the code block into your bash or Cloud Shell console.
 
 Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.1) template.
 
@@ -136,12 +135,6 @@ Use the following CLI command to create your IoT Edge device based on the prebui
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.4) template. Copy the following command into a text editor, replace the placeholder text with your own values, then re-copy and paste the code block into your bash or Cloud Shell console.
 
 * For bash or Cloud Shell users:
@@ -170,9 +163,6 @@ Use the following CLI command to create your IoT Edge device based on the prebui
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
-:::moniker-end
-<!-- end iotedge-2020-11 -->
-
 This template takes the following parameters:
 
 | Parameter | Description |
@@ -199,40 +189,6 @@ The rest of the commands in this quickstart take place on your IoT Edge device i
 
 Once connected to your virtual machine, verify that the runtime was successfully installed and configured on your IoT Edge device.
 
-<!--1.1 -->
-:::moniker range="iotedge-2018-06"
-
-1. Check to see that the IoT Edge security daemon is running as a system service.
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
-
-   :::image type="content" source="./media/quickstart-linux/iotedged-running.png" alt-text="Screenshot of the IoT Edge daemon running as a system service.":::
-
-   >[!TIP]
-   >You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
-
-2. If you need to troubleshoot the service, retrieve the service logs.
-
-   ```bash
-   journalctl -u iotedge
-   ```
-
-3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
-
-   ```bash
-   sudo iotedge list
-   ```
-
-   :::image type="content" source="./media/quickstart-linux/iotedge-list-1.png" alt-text="Screenshot of how to list all modules on your device.":::
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 1. Check to see that IoT Edge is running. The following command should return a list of `aziot` system services and their status, for example **Running** and **Ready**.
 
    ```bash
@@ -255,13 +211,6 @@ Once connected to your virtual machine, verify that the runtime was successfully
    ```bash
    sudo iotedge list
    ```
-
-   After several minutes, you see both **edgeAgent** and **edgeHub** listed.
-
-   :::image type="content" source="./media/quickstart-linux/iotedge-list-command.png" alt-text="Screenshot of information on 'edgeAgent' and 'edgeHub' of your device.":::
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 Your IoT Edge device is now configured. It's ready to run cloud-deployed modules.
 
@@ -297,13 +246,7 @@ Under **IoT Edge Modules**, open the **Add** drop-down menu, and then select **M
 
 :::image type="content" source="./media/quickstart-linux/add-marketplace-module.png" alt-text="Screenshot that shows the 'Add' drop-down menu on the 'Set Modules' tab page.":::
 
-In **IoT Edge Module Marketplace**, search for the `Simulated Temperature Sensor` module. Choose **Select** at the bottom of that card. The module is added to the IoT Edge Modules section with the desired **running** status.
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
-:::moniker-end
-<!--end iotedge-2020-11-->
+In **IoT Edge Module Marketplace**, search for and select the `Simulated Temperature Sensor` module. The module is added to the IoT Edge Modules section with the desired **running** status.
 
 Select **Next: Routes** to continue to the next step of the wizard.
 
@@ -348,15 +291,7 @@ Open the command prompt on your IoT Edge device again, or use the SSH connection
    sudo iotedge list
    ```
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-201806.png)
-:::moniker-end
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 :::image type="content" source="./media/quickstart-linux/list-iotedge-modules.png" alt-text="Screenshot that shows all three modules running, including the temperature sensor one." lightbox="./media/quickstart-linux/list-iotedge-modules.png":::
-:::moniker-end
 
 View the messages being sent from the temperature sensor module:
 

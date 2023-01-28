@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own Windows Client device to see how easy it is to use Azure IoT Edge for Linux on Windows. If you wish to use Windows Server or an Azure VM to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md).
 
@@ -52,13 +52,6 @@ Make sure your IoT Edge device meets the following requirements:
 * Hardware requirements
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
->[!NOTE]
->This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=windowsadmincenter).
-:::moniker-end
-<!-- end 1.1 -->
 
 ## Create an IoT hub
 
@@ -120,51 +113,19 @@ Run the following PowerShell commands on the target device where you want to dep
 
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
-      <!-- 1.1 -->
-   :::moniker range="iotedge-2018-06"
-   ```powershell
-   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-   $ProgressPreference = 'SilentlyContinue'
-   ​Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
-   ```
-   :::moniker-end
-   <!-- end 1.1 -->
+   * **X64/AMD64**
+      ```powershell
+      $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+      $ProgressPreference = 'SilentlyContinue'
+      Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_X64" -OutFile $msiPath
+      ```
 
-   <!-- iotedge-2020-11 -->
-   :::moniker range="iotedge-2020-11"
-      * **X64/AMD64**
-         ```powershell
-         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-         $ProgressPreference = 'SilentlyContinue'
-         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-X64" -OutFile $msiPath
-         ```
-
-      * **ARM64**
-         ```powershell
-         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-         $ProgressPreference = 'SilentlyContinue'
-         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-ARM64" -OutFile $msiPath
-         ```
-   :::moniker-end
-   <!-- end iotedge-2020-11 -->
-
-   <!-- iotedge-1.4 -->
-   :::moniker range=">=iotedge-1.4"
-      * **X64/AMD64**
-         ```powershell
-         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-         $ProgressPreference = 'SilentlyContinue'
-         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_X64" -OutFile $msiPath
-         ```
-
-      * **ARM64**
-         ```powershell
-         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-         $ProgressPreference = 'SilentlyContinue'
-         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64" -OutFile $msiPath
-         ```
-   :::moniker-end
-   <!-- end iotedge-1.4 -->
+   * **ARM64**
+      ```powershell
+      $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+      $ProgressPreference = 'SilentlyContinue'
+      Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64" -OutFile $msiPath
+      ```
 
 1. Install IoT Edge for Linux on Windows on your device.
 
