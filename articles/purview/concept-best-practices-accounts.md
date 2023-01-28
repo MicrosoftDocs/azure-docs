@@ -90,7 +90,7 @@ If Microsoft Purview is not available in your primary Azure region, consider the
 
 - Review the latency between your primary Azure region where data sources are deployed and your secondary Azure region, where Microsoft Purview account will be deployed. For more information, see [Azure network round-trip latency statistics](https://learn.microsoft.com/azure/networking/azure-network-latency).
 
-- Review your data residency requirements. When you scan data sources in the Microsoft Purview Data Map, information related to your metadata is ingested and stored inside your data map in the Azure region where your Microsoft Purview account is deployed. For more information see, [Where is metadata stored](concept-best-practices-security#where-is-metadata-stored)
+- Review your data residency requirements. When you scan data sources in the Microsoft Purview Data Map, information related to your metadata is ingested and stored inside your data map in the Azure region where your Microsoft Purview account is deployed. For more information see, [Where is metadata stored](concept-best-practices-security.md#where-is-metadata-stored)
 
 - Review your network and security requirements if private network connectivity for user access or metadata ingestion is required. 
 
