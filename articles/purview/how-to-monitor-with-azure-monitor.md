@@ -67,90 +67,44 @@ The following table contains the list of metrics available to explore in the Azu
 | Scan Failed | Automated scan | Sum <br> Count | Aggregate the failed data source scans over time period |
 | Scan time taken | Automated scan | Min <br> Max <br> Sum <br> Avg | Aggregate the total time taken by scans over time period |
 
-## Diagnostic Logs to Azure Storage account
+## Sending Diagnostic Logs
 
-Raw telemetry events are emitted to Azure Monitor. Events can be logged to a customer storage account of choice for further analysis. Exporting of logs is done via the Diagnostic settings for the Microsoft Purview account on the Azure portal.
+Raw telemetry events are emitted to Azure Monitor. Events can be sent to a Log Analytics Workspace, archived to a customer storage account of choice, streamed to an event hub or sent to a partner solution for further analysis. Exporting of logs is done via the Diagnostic settings for the Microsoft Purview account on the Azure portal.
 
-Follow the steps to create a Diagnostic setting for your Microsoft Purview account.
+Follow the steps to create a Diagnostic setting for your Microsoft Purview account and send to your preferred destination.
 
-1. Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md). Select the destination only as Azure storage account.
+1. Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Screenshot showing creating diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
+   
+#### Destination - Log Analytics workspace
+2. Select the destination to a log analytics workspace to send the event to. Create a name for the diagnostic setting, select the applicable log category group and select the right subscription and workspace, then click save. The workspace doesn't have to be in the same region as the resource being monitored. Follow this article to [Create a New Log Analytics Workspace](..//services-hub/health/log_analytics_workspace).
 
-2. Log the events to a storage account. A dedicated storage account is recommended for archiving the diagnostic logs. Following this article to [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Screenshot showing assigning log analytics workspace to send event to." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Screenshot showing assigning storage account for diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-one-diagnostic-setting.png" alt-text="Screenshot showing saved diagnostic log event to log analytics workspace." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-one-diagnostic-setting.png":::
 
-Allow up to 15 minutes to start receiving logs in the newly created storage account. [See data retention and schema of resource logs in Azure Storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Once the diagnostic logs are configured, the events flow to the storage account.
+Verify the changes in **Log Analytics Workspace** by perfoming some operations to populate data such as creating/updating/deleting policy. After which you can open the **Log Analytics Workspace**, navigate to **Logs**, enter query filter as **"purviewsecuritylogs"**, then click **"Run"** to execute the query. 
 
-### ScanStatusLogEvent
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-two-diagnostic-setting.png" alt-text="Screenshot showing log results in the Log Analytics Workspace after an query was run." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-otwo-diagnostic-setting.png":::
 
-The event tracks the scan life cycle. A scan operation follows progress through a sequence of states, from Queued, Running and finally a terminal state of Succeeded | Failed | Canceled. An event is logged for each state transition and the schema of the event will have the following properties.
+#### Destination - Storage account
+3. To log the events to a storage account; create a diagnostic setting name, select the log category,. select the destination as archieve to a storage account, select the right subscription and storage account then click save. A dedicated storage account is recommended for archiving the diagnostic logs. Following this article to [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
 
-```JSON
-{
-  "time": "<The UTC time when the event occurred>",
-  "properties": {
-    "dataSourceName": "<Registered data source friendly name>",
-    "dataSourceType": "<Registered data source type>",
-    "scanName": "<Scan instance friendly name>",
-    "assetsDiscovered": "<If the resultType is succeeded, count of assets discovered in scan run>",
-    "assetsClassified": "<If the resultType is succeeded, count of assets classified in scan run>",
-    "scanQueueTimeInSeconds": "<If the resultType is succeeded, total seconds the scan instance in queue>",
-    "scanTotalRunTimeInSeconds": "<If the resultType is succeeded, total seconds the scan took to run>",
-    "runType": "<How the scan is triggered>",
-    "errorDetails": "<Scan failure error>",
-    "scanResultId": "<Unique GUID for the scan instance>"
-  },
-  "resourceId": "<The azure resource identifier>",
-  "category": "<The diagnostic log category>",
-  "operationName": "<The operation that cause the event Possible values for ScanStatusLogEvent category are: 
-                    |AdhocScanRun 
-                    |TriggeredScanRun 
-                    |StatusChangeNotification>",
-  "resultType": "Queued – indicates a scan is queued. 
-                 Running – indicates a scan entered a running state. 
-                 Succeeded – indicates a scan completed successfully. 
-                 Failed – indicates a scan failure event. 
-                 Cancelled – indicates a scan was cancelled. ",
-  "resultSignature": "<Not used for ScanStatusLogEvent category. >",
-  "resultDescription": "<This will have an error message if the resultType is Failed. >",
-  "durationMs": "<Not used for ScanStatusLogEvent category. >",
-  "level": "<The log severity level. Possible values are:
-            |Informational
-            |Error >",
-  "location": "<The location of the Microsoft Purview account>",
-}
-```
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-diagnostic-setting.png" alt-text="Screenshot showing assigning storage account for diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-diagnostic-setting.png":::
 
-The Sample log for an event instance is shown in the below section.
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-one-diagnostic-setting.png" alt-text="Screenshot showing saved log events to storage account." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-one-diagnostic-setting.png":::
+   
+To see logs in the **Storage Account**, create/update/delete a policy, then open the **Storage Account**, navigate to **Containers**, and click on the container name
 
-```JSON
-{
-  "time": "2020-11-24T20:25:13.022860553Z",
-  "properties": {
-    "dataSourceName": "AzureDataExplorer-swD",
-    "dataSourceType": "AzureDataExplorer",
-    "scanName": "Scan-Kzw-shoebox-test",
-    "assetsDiscovered": "0",
-    "assetsClassified": "0",
-    "scanQueueTimeInSeconds": "0",
-    "scanTotalRunTimeInSeconds": "0",
-    "runType": "Manual",
-    "errorDetails": "empty_value",
-    "scanResultId": "0dc51a72-4156-40e3-8539-b5728394561f"
-  },
-  "resourceId": "/SUBSCRIPTIONS/111111111111-111-4EB2/RESOURCEGROUPS/FOOBAR-TEST-RG/PROVIDERS/MICROSOFT.PURVIEW/ACCOUNTS/FOOBAR-HEY-TEST-NEW-MANIFEST-EUS",
-  "category": "ScanStatusLogEvent",
-  "operationName": "TriggeredScanRun",
-  "resultType": "Delayed",
-  "resultSignature": "empty_value",
-  "resultDescription": "empty_value",
-  "durationMs": 0,
-  "level": "Informational",
-  "location": "eastus",
-}
-```
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-two-diagnostic-setting.png" alt-text="Screenshot showing container in storage account where the diagnostic logs have been sent to." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-two-diagnostic-setting.png":::
+
+Navigate to the flie and download it to see the logs
+
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-three-diagnostic-setting.png" alt-text="Screenshot showing folders with details of logs." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-three-diagnostic-setting.png":::
+
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-four-diagnostic-setting.png" alt-text="Screenshot showing details of logs." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-four-diagnostic-setting.png":::
+
 
 ## Next steps
 
