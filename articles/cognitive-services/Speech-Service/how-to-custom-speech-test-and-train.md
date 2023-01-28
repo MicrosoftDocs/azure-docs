@@ -95,6 +95,9 @@ A large training dataset is required to improve recognition. Generally, we recom
 
 Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. Although audio with low recording volume or disruptive background noise is not helpful, it shouldn't limit or degrade your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
 
+> [!IMPORTANT]
+> For more information about the best practices of preparing human-labeled transcripts, see [Human-labeled transcripts with audio](how-to-custom-speech-human-labeled-transcriptions.md). 
+
 Custom Speech projects require audio files with these properties:
 
 | Property                 | Value                               |
