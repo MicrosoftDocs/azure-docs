@@ -45,7 +45,7 @@ Best practices for logically segmenting subnets include:
 **Best practice**: Don't assign allow rules with broad ranges (for example, allow 0.0.0.0 through 255.255.255.255).  
 **Detail**: Ensure troubleshooting procedures discourage or ban setting up these types of rules. These allow rules lead to a false sense of security and are frequently found and exploited by red teams.
 
-**Best practice**: Segment the larger address space into subnets.   
+**Best practice**: Segment the larger address space into subnets.
 **Detail**: Use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-based subnetting principles to create your subnets.
 
 **Best practice**: Create network access controls between subnets. Routing between subnets happens automatically, and you don't need to manually configure routing tables. By default, there are no network access controls between the subnets that you create on an Azure virtual network.   
@@ -53,10 +53,10 @@ Best practices for logically segmenting subnets include:
 
 When you use network security groups for network access control between subnets, you can put resources that belong to the same security zone or role in their own subnets.
 
-**Best practice**: Avoid small virtual networks and subnets to ensure simplicity and flexibility.   
+**Best practice**: Avoid small virtual networks and subnets to ensure simplicity and flexibility.
 **Detail**: Most organizations add more resources than initially planned, and re-allocating addresses is labor intensive. Using small subnets adds limited security value, and mapping a network security group to each subnet adds overhead. Define subnets broadly to ensure that you have flexibility for growth.
 
-**Best practice**: Simplify network security group rule management by defining [Application Security Groups](../../automanage/virtual-network/application-security-groups.md).  
+**Best practice**: Simplify network security group rule management by defining [Application Security Groups](../../virtual-network/application-security-groups.md).  
 **Detail**: Define an Application Security Group for lists of IP addresses that you think might change in the future or be used across many network security groups. Be sure to name Application Security Groups clearly so others can understand their content and purpose.
 
 ## Adopt a Zero Trust approach
