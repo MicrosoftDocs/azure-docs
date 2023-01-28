@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
-ms.date: 11/18/2021
+ms.date: 01/27/2023
 show_latex: true
 ---
 
@@ -80,7 +80,7 @@ You can specify [validation data](concept-automated-ml.md#training-validation-an
 Learn more about how AutoML applies cross validation to [prevent over fitting](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
 ## Compute to run experiment
-AutoML leverages AzureML compute which is a fully managed compute resource that can be used to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
+AutoML leverages AzureML Compute which is a fully managed compute resource that can be used to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
 

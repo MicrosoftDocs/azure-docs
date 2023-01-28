@@ -9,11 +9,14 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: faq
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
-ms.date: 12/15/2022
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
+ms.date: 01/27/2023
 ---
 
 # Frequently asked questions about forecasting in AutoML
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 This article answers common questions about forecasting in AutoML. See the [methods overview article](./concept-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
 ## How do I start building forecasting models in AutoML?
@@ -52,53 +55,12 @@ Configuration | Description | Pros | Cons
 **AutoML with deep learning** | Recommended for datasets with more than 1000 observations and, potentially, numerous time series exhibiting complex patterns. When enabled, AutoML will sweep over temporal convolutional neural network (TCN) models during training. See the [enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning) section for more information. | <li> Simple to configure from code/SDK or AzureML Studio <br> <li> Cross-learning opportunities since the TCN pools data over all series <br> <li> Potentially higher accuracy due to the large capacity of DNN models. See the [forecasting models in AutoML](./concept-automl-forecasting-methods.md#forecasting-models-in-automl) section for more information. | Training can take much longer due to the complexity of DNN models
 **Many Models** | Recommended if you need to train and manage a large number of forecasting models in a scalable way. See the [forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale) section for more information. | <li> Scalable <br> <li> Potentially higher accuracy when time series have divergent behavior from one another. | <li> No cross-learning across time series <br> <li> You can't configure or launch Many Models jobs from AzureML Studio, only the code/SDK experience is currently available.
 **Hierarchical Time Series** | HTS is recommended if the series in your data have nested, hierarchical structure and you need to train or make forecasts at aggregated levels of the hierarchy. See the [hierarchical time series forecasting](how-to-auto-train-forecast.md#hierarchical-time-series-forecasting) section for more information. | <li> Training at aggregated levels can reduce noise in the leaf node time series and potentially lead to higher accuracy models. <br> <li> Forecasts can be retrieved for any level of the hierarchy by aggregating or disaggregating forecasts from the training level. | You need to provide the aggregation level for training. AutoML doesn't currently have an algorithm to find an optimal level.
-  
-1.  **Default AutoML** is recommended if the dataset has a small number of time series that have roughly similar historic behavior.
 
-    Advantages:
-    - Simple to configure from code/SDK or AzureML Studio
-    - AutoML has the chance to cross-learn across different time series since the regression models pool all series together in training. See the [model grouping](./concept-automl-forecasting-methods.md#model-grouping) section for more information.
-
-
-    Disadvantages:
-
-    - Regression models may be less accurate if the time series in the training data have divergent behavior
-    - Time series models may take a long time to train if there are a large number of series in the training data. See the ["why is AutoML slow on my data"](#why-is-automl-slow-on-my-data) answer for more information.
-
-2. **AutoML with deep learning** is recommended for datasets with more than 1000 observations and, potentially, numerous time series exhibiting complex patterns. When enabled, AutoML will sweep over temporal convolutional neural network (TCN) models during training. See the [enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning) section for more information.
-
-    Advantages
-    - Simple to configure from code/SDK or AzureML Studio
-    - Cross-learning opportunities since the TCN pools data over all series
-    - Potentially higher accuracy due to the large capacity of DNN models. See the [forecasting models in AutoML](./concept-automl-forecasting-methods.md#forecasting-models-in-automl) section for more information.
-
-    Disadvantages
-    - Training can take much longer due to the complexity of DNN models
+> [!NOTE]
+> We recommend using compute nodes with GPUs when deep learning is enabled to best take advantage of high DNN capacity. Training time can be much faster in comparison to nodes with only CPUs. See the GPU optimized compute article for more information.
     
-    > [!NOTE]
-    > We recommend using compute nodes with GPUs when deep learning is enabled to best take advantage of high DNN capacity. Training time can be much faster in comparison to nodes with only CPUs. See the [GPU optimized compute](../virtual-machines/sizes-gpu.md) article for more information.
-
-3.  **Many Models** is recommended if you need to train and manage a large number of forecasting models in a scalable way. See the [forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale) section for more information. 
-    
-    Advantages:
-    - Scalable
-    - Potentially higher accuracy when time series have divergent behavior from one another.
-  
-    Disadvantages:
-    - No cross-learning across time series
-    - You can't configure or launch Many Models jobs from AzureML Studio, only the code/SDK experience is currently available.
-
-4. **Hierarchical Time Series**, or HTS, is recommended if the series in your data have nested, hierarchical structure and you need to train or make forecasts at aggregated levels of the hierarchy. See the [hierarchical time series forecasting](how-to-auto-train-forecast.md#hierarchical-time-series-forecasting) section for more information. 
-
-    Advantages
-    - Training at aggregated levels can reduce noise in the leaf node time series and potentially lead to higher accuracy models
-    - Forecasts can be retrieved for any level of the hierarchy by aggregating or disaggregating forecasts from the training level.
-    
-    Disadvantages
-    - You need to provide the aggregation level for training. AutoML doesn't currently have an algorithm to find an optimal level.
-    
-    > [!NOTE]  
-    > HTS is designed for tasks where training or prediction is required at aggregated levels in the hierarchy. For hierarchical data requiring only leaf node training and prediction, use [Many Models](./how-to-auto-train-forecast.md#many-models) instead.
+> [!NOTE]
+> HTS is designed for tasks where training or prediction is required at aggregated levels in the hierarchy. For hierarchical data requiring only leaf node training and prediction, use [Many Models](./how-to-auto-train-forecast.md#many-models) instead.
 
 ## How can I prevent over-fitting and data leakage?
 

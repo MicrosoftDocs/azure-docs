@@ -9,8 +9,8 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
-ms.date: 12/15/2022
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
+ms.date: 01/27/2023
 show_latex: true
 ---
 
@@ -46,9 +46,9 @@ The following table lists the forecasting models implemented in AutoML and what 
 
 Time Series Models | Regression Models
 -------------------| -----------------
-[Naive, Seasonal Naive, Average, Seasonal Average](https://otexts.com/fpp3/simple-methods.html), [ARIMA(X)](https://www.statsmodels.org/dev/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.html), [Exponential Smoothing](https://www.statsmodels.org/dev/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html) | [Linear SGD](https://scikit-learn.org/stable/modules/linear_model.html#stochastic-gradient-descent-sgd), [LARS LASSO](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso), [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net), [Prophet](https://facebook.github.io/prophet/), [K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression), [Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression), [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests), [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees), [Gradient Boosted Trees](https://scikit-learn.org/stable/modules/ensemble.html#regression), [LightGBM](https://lightgbm.readthedocs.io/en/latest/index.html), [XGBoost](https://xgboost.readthedocs.io/en/latest/parameter.html), ForecastTCN
+[Naive, Seasonal Naive, Average, Seasonal Average](https://otexts.com/fpp3/simple-methods.html), [ARIMA(X)](https://www.statsmodels.org/dev/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.html), [Exponential Smoothing](https://www.statsmodels.org/dev/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html) | [Linear SGD](https://scikit-learn.org/stable/modules/linear_model.html#stochastic-gradient-descent-sgd), [LARS LASSO](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso), [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net), [Prophet](https://facebook.github.io/prophet/), [K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression), [Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression), [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests), [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees), [Gradient Boosted Trees](https://scikit-learn.org/stable/modules/ensemble.html#regression), [LightGBM](https://lightgbm.readthedocs.io/en/latest/index.html), [XGBoost](https://xgboost.readthedocs.io/en/latest/parameter.html), [ForecastTCN](./how-to-auto-train-forecast.md#enable-deep-learning)
 
-The models in each category are listed roughly in order of the complexity of patterns they're able to incorporate, also known as the **model capacity**. A Naive model, which simply forecasts the last observed value, has low capacity while the Temporal Convolutional Network (TCN), a deep neural network with potentially millions of tunable parameters, has high capacity.
+The models in each category are listed roughly in order of the complexity of patterns they're able to incorporate, also known as the **model capacity**. A Naive model, which simply forecasts the last observed value, has low capacity while the Temporal Convolutional Network (ForecastTCN), a deep neural network with potentially millions of tunable parameters, has high capacity.
 
 Importantly, AutoML also includes **ensemble** models that create weighted combinations of the best performing models to further improve accuracy. For forecasting, we use a [soft voting ensemble](https://scikit-learn.org/stable/modules/ensemble.html#voting-regressor) where composition and weights are found via the [Caruana Ensemble Selection Algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf).
 
@@ -114,7 +114,7 @@ timestamp | quantity
 
 This series ostensibly has a daily frequency, but there's no observation for 2012-01-02. In this case, AutoML will attempt to fill in the data by adding a new row for 2012-01-02. The new value for the `quantity` column, and any other columns in the data, will then be imputed like other missing values. Clearly, AutoML must know the series frequency in order to fill in observation gaps like this. AutoML automatically detects this frequency, or, optionally, the user can provide it in the configuration.
 
-The imputation method for filling missing values can be configured in the input. The default methods are listed in the following table:
+The imputation method for filling missing values can be [configured](./how-to-auto-train-forecast.md#custom-featurization) in the input. The default methods are listed in the following table:
 
 Column Type | Default Imputation Method 
 ----------- | ---------------
@@ -163,7 +163,7 @@ When a dataset contains more than one time series, as in the given data example,
 
 Each Series in Own Group (1:1) | All Series in Single Group (N:1)
 -------------------| -----------------
-Naive, Seasonal Naive, Average, Seasonal Average, Exponential Smoothing, ARIMA, ARIMAX, Prophet | Linear SGD, LARS LASSO, Elastic Net, K Nearest Neighbors, Decision Tree, Random Forest, Extremely Randomized Trees, Gradient Boosted Trees, LightGBM, XGBoost, Temporal Convolutional Network
+Naive, Seasonal Naive, Average, Seasonal Average, Exponential Smoothing, ARIMA, ARIMAX, Prophet | Linear SGD, LARS LASSO, Elastic Net, K Nearest Neighbors, Decision Tree, Random Forest, Extremely Randomized Trees, Gradient Boosted Trees, LightGBM, XGBoost, ForecastTCN
 
 More general model groupings are possible via AutoML's Many-Models solution; see our [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) and [Hierarchical time series- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-hierarchical-timeseries/auto-ml-forecasting-hierarchical-timeseries.ipynb).
 

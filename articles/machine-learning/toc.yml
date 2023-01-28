@@ -138,7 +138,7 @@
               href: concept-automated-ml.md
             - name: Time series forecasting
               items:
-              - name: Overview of forecasting methods
+              - name: Forecasting methods
                 displayName: auto ML, time series, forecasting, methods
                 href: concept-automl-forecasting-methods.md
               - name: Model sweeping and selection
