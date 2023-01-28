@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 1/12/2023
+ms.date: 1/20/2023
 ms.author: jasteppe
 ---
 
@@ -33,7 +33,7 @@ This article provides assistance troubleshooting and fixing MedTech service erro
 This property represents the operation being performed by the MedTech service when the error has occurred. An operation generally represents the data flow stage while processing a device message. Here's a list of possible values for this property.
 
 > [!NOTE]
-> For information about the different stages of data flow in the MedTech service, see [The MedTech service data flow](data-flow.md).
+> For information about the MedTech service device message data transformation, see [Understand the MedTech service device message data transformation](understand-service.md).
 
 |Data flow stage|Description|
 |---------------|-----------|

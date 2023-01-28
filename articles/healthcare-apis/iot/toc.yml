@@ -6,8 +6,8 @@ items:
   items:
   - name: What is the MedTech service?
     href: overview.md
-  - name: The MedTech service data flow
-    href: data-flow.md
+  - name: Understand the device message data transformation
+    href: understand-service.md
 - name: Quickstarts
   expanded: true
   items:
@@ -39,7 +39,7 @@ items:
   expanded: true
   items: 
   - name: Map
-    expanded: true
+    expanded: false
     items:
     - name: Device
       expanded: false
@@ -60,7 +60,7 @@ items:
   - name: Create copies of mappings
     href: how-to-create-mappings-copies.md
   - name: Monitor
-    expanded: true
+    expanded: false
     items:
     - name: Use the monitoring tab
       href: how-to-use-monitoring-tab.md

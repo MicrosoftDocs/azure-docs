@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about Azure Digital Twins security best practices.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/01/2022
+ms.date: 01/26/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -61,9 +61,9 @@ You can assign roles in two ways:
 * Via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md))
 * Via CLI commands to add or remove a role
 
-For more detailed steps on how to do so, try it out in the Azure Digital Twins [Connect an end-to-end solution](tutorial-end-to-end.md).
+For detailed steps on assigning roles to an Azure Digital Twins instance, see [Set up an instance and authentication](how-to-set-up-instance-portal.md#set-up-user-access-permissions). For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. 
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+You can also create custom Azure roles for your instance. This allows you to grant permission for specific actions in individual data areas, including twins, commands, relationships, event routes, jobs, models, and queries. For more information about custom roles in Azure, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ##### Automating roles
 
