@@ -354,8 +354,337 @@ During the MDM configuration of the Microsoft Enterprise SSO Extension, an optio
 >[!Important]
 >Feature flags set to **null** means that their **default** configuration is in place. Check **[Feature Flag documentation](../develop/apple-sso-plugin.md#more-configuration-options)** for more details
 
- 
+#### MSAL Native Application sign-in Flow
 
- 
+The following section will walk through how to examine the SSO Extension logs for the Native MSAL Application auth flow.  For this example, we're using the [MSAL macOS/iOS sample application](https://github.com/AzureAD/microsoft-authentication-library-for-objc) as the client application, and the application is making a call to the Microsoft Graph API to display the sign-in user's information.
+
+##### MSAL Native: Interactive Flow Walkthrough
+
+The following actions should take place for a successful interactive sign-on:
+
+1. The User will sign-in to the MSAL macOS sample app
+1. The Microsoft SSO Extension Broker will be invoked and handle the request
+1. Microsoft SSO Extension Broker will undergo the bootstrapping process to acquire a PRT for the signed in user
+1. Store the PRT in the Keychain
+1. Check for the presence of a Device Registration object in Azure AD (WPJ)
+1. Return access token to the client application to access the Microsoft Graph scope of User.Read 
+
+>[!IMPORTANT]
+> The sample log snippets that follows, have been annoted with comment headers // that are not seen in the logs. They are used to help illustrate a specific action being undertaken. We have documented the log snippets this way to assist with copy and paste operations. In addition, the log examples have been trimmed to only show lines of significance for troubleshooting.
 
 
+The User clicks on the **Call Microsoft Graph API** button to invoke the sign-in process
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-example-click_callmsftgraph.png" alt-text="Screenshot showing MSAL example app for macOS launched with Call Microsoft Graph API button"::: 
+
+```SSOExtensionLogs
+//////////////////////////
+//get_accounts_operation//                             
+//////////////////////////
+Handling SSO request, requested operation: get_accounts_operation
+(Default accessor) Get accounts.
+(MSIDAccountCredentialCache) retrieving cached credentials using credential query
+(Default accessor) Looking for token with aliases (null), tenant (null), clientId 08dc26ab-e050-465e-beb4-d3f2d66647a5, scopes (null)
+(Default accessor) No accounts found in default accessor.
+(Default accessor) No accounts found in other accessors.
+Completed get accounts SSO request with a personal device mode.
+Request complete
+Request needs UI
+ADB 3.1.40 -[ADBrokerAccountManager allBrokerAccounts:]
+ADB 3.1.40 -[ADBrokerAccountManager allMSIDBrokerAccounts:]
+(Default accessor) Get accounts.
+No existing accounts found, showing webview
+
+/////////
+//login//
+/////////
+Handling SSO request, requested operation: login
+Handling interactive SSO request...
+Starting SSO broker request with payload: {
+    authority = "https://login.microsoftonline.com/common";
+    "client_app_name" = MSALMacOS;
+    "client_app_version" = "1.0";
+    "client_id" = "08dc26ab-e050-465e-beb4-d3f2d66647a5";
+    "client_version" = "1.1.7";
+    "correlation_id" = "3506307A-E90F-4916-9ED5-25CF81AE97FC";
+    "extra_oidc_scopes" = "openid profile offline_access";
+    "instance_aware" = 0;
+    "msg_protocol_ver" = 4;
+    prompt = "select_account";
+    "provider_type" = "provider_aad_v2";
+    "redirect_uri" = "msauth.com.microsoft.idnaace.MSALMacOS://auth";
+    scope = "user.read";
+}
+
+////////////////////////////////////////////////////////////
+//Request PRT from Microsoft Authentication Broker Service//
+////////////////////////////////////////////////////////////
+Using request handler <ADInteractiveDevicelessPRTBrokerRequestHandler: 0x117ea50b0>
+(Default accessor) Looking for token with aliases (null), tenant (null), clientId 29d9ed98-a469-4536-ade2-f981bc1d605e, scopes (null)
+Attempting to get Deviceless Primary Refresh Token interactively.
+Caching AAD Environements
+networkHost: login.microsoftonline.com, cacheHost: login.windows.net, aliases: login.microsoftonline.com, login.windows.net, login.microsoft.com, sts.windows.net
+networkHost: login.partner.microsoftonline.cn, cacheHost: login.partner.microsoftonline.cn, aliases: login.partner.microsoftonline.cn, login.chinacloudapi.cn
+networkHost: login.microsoftonline.de, cacheHost: login.microsoftonline.de, aliases: login.microsoftonline.de
+networkHost: login.microsoftonline.us, cacheHost: login.microsoftonline.us, aliases: login.microsoftonline.us, login.usgovcloudapi.net
+networkHost: login-us.microsoftonline.com, cacheHost: login-us.microsoftonline.com, aliases: login-us.microsoftonline.com
+Resolved authority, validated: YES, error: 0
+[MSAL] Resolving authority: Masked(not-null), upn: Masked(null)
+[MSAL] Resolved authority, validated: YES, error: 0
+[MSAL] Start webview authorization session with webview controller class MSIDAADOAuthEmbeddedWebviewController: 
+[MSAL] Presenting web view contoller. 
+```
+
+The logging sample can be broken down into three segments:
+
+|  |  |  |
+|---------|:---------:|---------|
+|**1**     | **`get_accounts_operation`** |Checks to see if there are any existing accounts in the cache<br> -  **ClientID**: The application ID registered in Azure AD for this MSAL app<br>**ADB 3.1.40** indicates that version of the Microsoft Enterprise SSO Extension Broker plugin        |
+|**2**     |**`login`**                |Broker handles the request for Azure AD:<br> - **Handling interactive SSO request...**: Denotes an interactive request<br> - **correlation_id**: Useful for cross referencing the Azure AD sign-in logs <br> - **scope**: **User.Read** API permission scope being requested from the Microsoft Graph<br> - **client_version**: version of MSAL that the application is running<br> - **redirect_uri**: MSAL apps use the format **`msauth.com.<Bundle ID>://auth`**   |
+|**3**     |**PRT Request**         |Bootstrapping process to acquire a PRT interactively has been initiated and renders the Webview SSO Session<br><br>**Microsoft Authentication Broker Service**<br> - **clientId: 29d9ed98-a469-4536-ade2-f981bc1d605e**<br> - All PRT requests are made to Microsoft Authentication Broker Service         |
+
+The SSO Webview Controller appears and user is prompted to enter their Azure AD login (UPN/email)
+
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-webview-controller-prompt-withlogin.png" alt-text="Screenshot showing the Apple SSO prompt with a User information being entered and more information callout":::
+
+>[!NOTE]
+> Clicking on the ***i*** in the bottom right corner of the webview controller displays more information about the SSO extension and the specifics about the app that has invoked it.
+
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/about-single-sign-on-i-flyout.png" alt-text="Screenshot showing the more information details about the SSO Extension from the prompt SSO screen":::
+After the user successfully enters their Azure AD credentials, the following log entries are written to the SSO Extension logs
+```SSOExtensionLogs
+///////////////
+//Acquire PRT//
+///////////////
+[MSAL] -completeWebAuthWithURL: msauth://microsoft.aad.brokerplugin/?code=(not-null)&client_info=(not-null)&state=(not-null)&session_state=(not-null)
+[MSAL] Dismissed web view contoller.
+[MSAL] Result from authorization session callbackURL host: microsoft.aad.brokerplugin , has error: NO
+[MSAL] (Default accessor) Looking for token with aliases (
+    "login.windows.net",
+    "login.microsoftonline.com",
+    "login.windows.net",
+    "login.microsoft.com",
+    "sts.windows.net"
+), tenant (null), clientId 29d9ed98-a469-4536-ade2-f981bc1d605e, scopes (null)
+Saving PRT response in cache since no other PRT was found
+[MSAL] Saving keychain item, item info Masked(not-null)
+[MSAL] Keychain find status: 0
+Acquired PRT.
+
+///////////////////////////////////////////////////////////////////////
+//Discover if there is an Azure AD Device Registration (WPJ) present //
+//and if so re-acquire a PRT and associate with Device ID            //
+///////////////////////////////////////////////////////////////////////
+WPJ Discovery: do discovery in environment 0
+Attempt WPJ discovery using tenantId.
+WPJ discovery succeeded.
+Using cloud authority from WPJ discovery: https://login.microsoftonline.com/common
+ADBrokerDiscoveryAction completed. Continuing Broker Flow.
+PRT needs upgrade as device registration state has changed. Device is joined 1, prt is joined 0
+Beginning ADBrokerAcquirePRTInteractivelyAction
+Attempting to get Primary Refresh Token interactively.
+Acquiring broker tokens for broker client id.
+Resolving authority: Masked(not-null), upn: auth.placeholder-61945244__domainname.com
+Resolved authority, validated: YES, error: 0
+Enrollment id read from intune cache : (null).
+Handle silent PRT response Masked(not-null), error Masked(null)
+Acquired broker tokens.
+Acquiring PRT.
+Acquiring PRT using broker refresh token.
+Requesting PRT from authority https://login.microsoftonline.com/<TenantID>/oauth2/v2.0/token
+[MSAL] (Default accessor) Looking for token with aliases (
+    "login.windows.net",
+    "login.microsoftonline.com",
+    "login.windows.net",
+    "login.microsoft.com",
+    "sts.windows.net"
+), tenant (null), clientId (null), scopes (null)
+[MSAL] Acquired PRT successfully!
+Acquired PRT.
+ADBrokerAcquirePRTInteractivelyAction completed. Continuing Broker Flow.
+Beginning ADBrokerAcquireTokenWithPRTAction
+Resolving authority: Masked(not-null), upn: auth.placeholder-61945244__domainname.com
+Resolved authority, validated: YES, error: 0
+Handle silent PRT response Masked(not-null), error Masked(null)
+
+//////////////////////////////////////////////////////////////////////////
+//Provide Access Token received from Azure AD back to Client Application// 
+//and complete authorization request                                    //
+//////////////////////////////////////////////////////////////////////////
+[MSAL] (Default cache) Removing credentials with type AccessToken, environment login.windows.net, realm TenantID, clientID 08dc26ab-e050-465e-beb4-d3f2d66647a5, unique user ID dbb22b2f, target User.Read profile openid email
+ADBrokerAcquireTokenWithPRTAction succeeded.
+Composing broker response.
+Sending broker response.
+Returning to app (msauth.com.microsoft.idnaace.MSALMacOS://auth) - protocol version: 3
+hash: 4A07DFC2796FD75A27005238287F2505A86BA7BB9E6A00E16A8F077D47D6D879
+payload: Masked(not-null)
+Completed interactive SSO request.
+Completed interactive SSO request.
+Request complete
+Completing SSO request...
+Finished SSO request.
+
+```
+At this point in the authentication/authorization flow, the PRT has been bootstrapped and it should be visible in the macOS keychain access. See [Checking Keychain Access for PRT](#checking-keychain-access-for-prt). The **MSAL macOS sample** application  uses the access token received from the Microsoft SSO Extension Broker to display the user's information.
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-macos-msftgraph-userinfo.png" alt-text="Screenshot showing the successful userinfo from the access token returned from the SSO Extension Broker":::
+
+Let's examine server-side [Azure AD sign-in logs](../reports-monitoring/reference-basic-info-sign-in-logs.md#correlation-id) based on the correlation ID collected from the client-side SSO Extension logs. For more information, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-sign-ins.md).
+
+###### View Azure AD Sign-in logs by Correlation ID Filter
+
+1. Open the Azure AD sign-ins for the tenant where the application is registered
+1. Select **User sign-ins (interactive)**
+1. Select the **Add Filters** and select the **Correlation Id** radio button
+1. Copy and paste the Correlation ID obtained from the SSO Extension logs and select **Apply**
+
+For the MSAL Interactive Login Flow, we expect to see an interactive sign-in for the resource **Microsoft Authentication Broker** service. This is where the user entered their password to bootstrap the PRT. 
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-interactive-aadsignon-details-interactive-MAB.png" alt-text="Screenshot showing the interactive User Sign-ins from Azure AD showing an interactive sign into the Microsoft Authentication Broker Service":::
+
+We also should see some non-interactive sign-in events, due to the fact the PRT is used to acquire the access token for the client application's request. Follow the [View Azure AD Sign-in logs by Correlation ID Filter](#view-azure-ad-sign-in-logs-by-correlation-id-filter) but in step 2, select **User sign-ins (non-interactive)**.
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-interactive-aadsignon-details-noninteractive-MSFTGraph.png" alt-text="Screenshot showing how the SSO Extension uses the PRT to acquire an access token for the Microsoft Graph":::
+
+|  |  |
+|---------|---------|
+|**Application**     |Display Name of the Application registration in the Azure AD tenant where the client application authenticates         |
+|**Application Id**|Also referred to the ClientID of the application registration in the Azure AD tenant |
+|**Resource**     |The API resource that the client application is trying to obtain access to. In this example, the resource is the **Microsoft Graph API**        |
+|**Incoming Token Type**     |An Incoming token type of **Primary Refresh Token (PRT)** shows the input token being used to obtain an access token for the resource         |
+|**User Agent**     | The user agent string in this example is showing that the **Microsoft SSO Extension** is the application processing this request. A useful indicator that the SSO Extension is being used, and broker auth request is taking place        |
+|**Azure AD app authentication library**     | When an MSAL application is being used the details of the library and the platform are written here        |
+|**Oauth Scope Information**     | The Oauth2 scope information requested for the access token. (**User.Read**,**profile**,**openid**,**email**)        |
+
+##### MSAL Native: Silent Flow Walkthrough
+
+After a period of time, the access token will no longer be valid. So, if the user reclicks on the **Call Microsoft Graph API** button. The SSO Extension will attempt to refresh the access token with the already acquired PRT.
+
+```SSOExtensionLogs
+/////////////////////////////////////////////////////////////////////////
+//refresh operation: Assemble Request based on User information in PRT  /  
+/////////////////////////////////////////////////////////////////////////
+Beginning authorization request
+Request does not need UI
+Handling SSO request, requested operation: refresh
+Handling silent SSO request...
+Looking account up by home account ID dbb22b2f, displayable ID auth.placeholder-61945244__domainname.com
+Account identifier used for request: Masked(not-null), auth.placeholder-61945244__domainname.com
+Starting SSO broker request with payload: {
+    authority = "https://login.microsoftonline.com/<TenantID>";
+    "client_app_name" = MSALMacOS;
+    "client_app_version" = "1.0";
+    "client_id" = "08dc26ab-e050-465e-beb4-d3f2d66647a5";
+    "client_version" = "1.1.7";
+    "correlation_id" = "45418AF5-0901-4D2F-8C7D-E7C5838A977E";
+    "extra_oidc_scopes" = "openid profile offline_access";
+    "home_account_id" = "<UserObjectId>.<TenantID>";
+    "instance_aware" = 0;
+    "msg_protocol_ver" = 4;
+    "provider_type" = "provider_aad_v2";
+    "redirect_uri" = "msauth.com.microsoft.idnaace.MSALMacOS://auth";
+    scope = "user.read";
+    username = "auth.placeholder-61945244__domainname.com";
+}
+//////////////////////////////////////////
+//Acquire Access Token with PRT silently//
+//////////////////////////////////////////
+Using request handler <ADSSOSilentBrokerRequestHandler: 0x127226a10>
+Executing new request
+Beginning ADBrokerAcquireTokenSilentAction
+Beginning silent flow.
+[MSAL] Resolving authority: Masked(not-null), upn: auth.placeholder-61945244__domainname.com
+[MSAL] (Default cache) Removing credentials with type AccessToken, environment login.windows.net, realm <TenantID>, clientID 08dc26ab-e050-465e-beb4-d3f2d66647a5, unique user ID dbb22b2f, target User.Read profile openid email
+[MSAL] (MSIDAccountCredentialCache) retrieving cached credentials using credential query
+[MSAL] Silent controller with PRT finished with error Masked(null)
+ADBrokerAcquireTokenWithPRTAction succeeded.
+Composing broker response.
+Sending broker response.
+Returning to app (msauth.com.microsoft.idnaace.MSALMacOS://auth) - protocol version: 3
+hash: 292FBF0D32D7EEDEB520098E44C0236BA94DDD481FAF847F7FF6D5CD141B943C
+payload: Masked(not-null)
+Completed silent SSO request.
+Request complete
+Completing SSO request...
+Finished SSO request.
+
+```
+The logging sample can be broken down into two segments:
+
+|  |  |  |
+|---------|:---------:|---------|
+|**1**     |**`refresh`**                |Broker handles the request for Azure AD:<br> - **Handling silent SSO request...**: Denotes a silent request<br> - **correlation_id**: Useful for cross referencing the Azure AD sign-in logs <br> - **scope**: **User.Read** API permission scope being requested from the Microsoft Graph<br> - **client_version**: version of MSAL that the application is running<br> - **redirect_uri**: MSAL apps use the format **`msauth.com.<Bundle ID>://auth`**<br><br>**Refresh** has notable differences to the request payload:<br> - **authority**: Contains the Azure AD tenant URL endpoint as opposed to the **common** endpoint<br> - **home_account_id**: Show the User account in the format **\<UserObjectId\>.\<TenantID\>**<br> - **username**:  hashed UPN format **auth.placeholder-XXXXXXXX__domainname.com** |
+|**2**     |**PRT Refresh and Acquire Access Token**         |This operation will revalidate the PRT and refresh it if necessary, before returning the access token back to the calling client application<br><br>
+
+We can again take the **correlation Id** obtained from the client-side **SSO Extension** logs and cross reference with the server-side Azure AD Sign-in logs.
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/msal-silent-aadsignin-accesstoken.png" alt-text="Screenshot showing the Azure AD silent sign-in request using the Enterprise SSO Broker plugin"::: 
+The Azure AD sign-in shows identical information to the Microsoft Graph resource from the **login** operation in the previous [interactive login section](#view-azure-ad-sign-in-logs-by-correlation-id-filter).  
+
+
+#### Non-MSAL/Browser SSO Application Login Flow
+
+The following section will walk through how to examine the SSO Extension logs for the Non-MSAL/Browser Application auth flow.  For this example, we're using the Apple Safari browser as the client application, and the application is making a call to the Office.com (OfficeHome) web application. 
+
+##### Non-MSAL/Browser SSO Flow Walkthrough
+
+The following actions should take place for a successful sign-on:
+
+1. Assume that  User who already has undergone the bootstrapping process has an existing PRT
+1. On a device, with the **Microsoft SSO Extension Broker** deployed the **feature flag configured** will be checked to ensure that the application can be handled
+1. Since the Safari browser adheres to the **Apple Networking Stack**, the SSO Extension will try to intercept the Azure AD auth request
+1. The PRT will be used to acquire a token for the resource being requested
+1. If the device happens to be registered, it will pass the Device ID along with the request
+1. Will populate the header of the Browser request to sign-in to the resource  
+
+The following client-side **SSO Extension** logs show the request being handled transparently by the SSO Extension Broker to fulfill the request.
+```SSOExtensionLogs
+Created Browser SSO request for bundle identifier com.apple.Safari, cookie SSO include-list (
+), use cookie sso for this app 0, initiating origin https://www.office.com
+Init MSIDKeychainTokenCache with keychainGroup: Masked(not-null)
+[Browser SSO] Starting Browser SSO request for authority https://login.microsoftonline.com/common
+[MSAL] (Default accessor) Found 1 tokens
+[Browser SSO] Checking PRTs for deviceId 73796663
+[MSAL] [Browser SSO] Executing without UI for authority https://login.microsoftonline.com/common, number of PRTs 1, device registered 1
+[MSAL] [Browser SSO] Processing request with PRTs and correlation ID in headers (null), query 67b6a62f-6c5d-40f1-8440-a8edac7a1f87
+[MSAL] Resolving authority: Masked(not-null), upn: Masked(null)
+[MSAL] No cached preferred_network for authority
+[MSAL] Caching AAD Environements
+[MSAL] networkHost: login.microsoftonline.com, cacheHost: login.windows.net, aliases: login.microsoftonline.com, login.windows.net, login.microsoft.com, sts.windows.net
+[MSAL] networkHost: login.partner.microsoftonline.cn, cacheHost: login.partner.microsoftonline.cn, aliases: login.partner.microsoftonline.cn, login.chinacloudapi.cn
+[MSAL] networkHost: login.microsoftonline.de, cacheHost: login.microsoftonline.de, aliases: login.microsoftonline.de
+[MSAL] networkHost: login.microsoftonline.us, cacheHost: login.microsoftonline.us, aliases: login.microsoftonline.us, login.usgovcloudapi.net
+[MSAL] networkHost: login-us.microsoftonline.com, cacheHost: login-us.microsoftonline.com, aliases: login-us.microsoftonline.com
+[MSAL] Resolved authority, validated: YES, error: 0
+[MSAL] Found registration registered in login.microsoftonline.com, isSameAsRequestEnvironment: Yes
+[MSAL] Passing device header in browser SSO for device id 43cfaf69-0f94-4d2e-a815-c103226c4c04
+[MSAL] Adding SSO-cookie header with PRT Masked(not-null)
+SSO extension cleared cookies before handling request 1
+[Browser SSO] SSO response is successful 0
+[MSAL] Keychain find status: 0
+[MSAL] (Default accessor) Found 1 tokens
+Request does not need UI
+[MSAL] [Browser SSO] Checking PRTs for deviceId 73796663
+Request complete
+```
+
+
+|  |  |
+|---------|---------|
+|**Created Browser SSO request**     |All Non-MSAL/Browser SSO requests begin with this line:<br> - **bundle identifier**: [Bundle ID](#how-to-find-the-bundle-id-for-an-application-on-macos): `com.apple.Safari`<br> - **initiating origin**: Web URL the browser is accessing before hitting one of the login URLs for Azure AD (https://office.com)         |
+|**Starting Browser SSO request for authority**     |Resolves the number of PRTs and if the Device is Registered:<br>https://login.microsoftonline.com/common, number of **PRTs 1, device registered 1**         |
+|**Correlation ID**     |  [Browser SSO] Processing request with PRTs and correlation ID in headers (null), query **\<CorrelationID\>**. This is important for cross-referencing with the Azure AD sign-in logs        |
+|**Device Registration**     | Optionally if the device is registered, the SSO Extension can handle the device header in Browser SSO requests: <br> - Found registration registered in<br> - **login.microsoftonline.com, isSameAsRequestEnvironment: Yes** <br><br>Passing device header in browser SSO for **device id** `43cfaf69-0f94-4d2e-a815-c103226c4c04`|
+
+Let's now use the Correlation ID obtained from the Browser SSO Extension logs to cross-reference the Azure AD sign-in logs.
+
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/browsersso-azuread-signins-interactive.png" alt-text="Screenshot showing cross reference in the Azure AD sign-in logs for the Browser SSO Extension":::
+
+|  |  |
+|---------|---------|
+|**Application**     |Display Name of the Application registration in the Azure AD tenant where the client application authenticates. In this example, the display name is **OfficeHome**         |
+|**Application Id**|Also referred to the ClientID of the application registration in the Azure AD tenant |
+|**Resource**     |The API resource that the client application is trying to obtain access to. In this example, the resource is the **OfficeHome** web application        |
+|**Incoming Token Type**     |An Incoming token type of **Primary Refresh Token (PRT)** shows the input token being used to obtain an access token for the resource         |
+|**Authentication method detected**     | Under the **Authentication Details** tab, the value of  **Azure AD SSO plug-in** is useful indicator that the SSO Extension is being used to facilitate the Browser SSO request        |
+|**Azure AD SSO extension version**     | Under the **Additional Details** tab, this value shows the version of the Microsoft Enterprise SSO Extension Broker app        |
+|**Device ID**     | If the device is registered, the SSO Extension can pass the Device ID to handle device authentication requests        |
+|**Operating System**|Shows the type of Operating System. This should always be **`MacOs`**, and this field isn't dependent on device registration |
+|**Compliant**|SSO Extension can facilitate Compliance policies by passing the device header. The requirements are:<br> - **Azure AD Device Registration**<br> - **MDM Management**<br> - **Intune or Intune Partner  Compliance** |
+|**Managed**|Indicates that device is under management|
+|**Join Type**|macOS if registered can only be of type: **Azure AD Registered** |
