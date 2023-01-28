@@ -72,7 +72,7 @@ landingContent:
           - text: 'How to: Deploy Fluid applications using Azure Static Web Apps'
             url: how-tos/deploy-fluid-static-web-apps.md
           - text: 'How to: Use JWT tokens'
-            url: how-tos/fluid-json-web-token
+            url: how-tos/fluid-json-web-token.md
           - text: 'How to: Delete a Fluid container'
             url: how-tos/container-deletion.md
           - text: 'How to: Recover Fluid container data'
@@ -102,4 +102,4 @@ landingContent:
         - text: API documentation
           url: https://fluidframework.com/docs/apis/
         - text: Help and support options for Azure Fluid Relay
-          url: resources.support.md
+          url: resources/support.md
