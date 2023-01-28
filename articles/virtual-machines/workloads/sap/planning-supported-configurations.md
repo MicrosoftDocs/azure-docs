@@ -8,7 +8,7 @@ ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 12/19/2022
+ms.date: 01/27/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -27,7 +27,7 @@ Besides the on-premises Active Directory, Azure offers a managed Active Director
 | AD service | Supported applications based on SAP NetWeaver and S/4 HANA on Windows OS  |   Comments | 
 | --- | --- | --- | 
 | On-premises Windows Active Directory | Supported | |
-| Azure Active Directory Domain Services | In testing | Expected to work |
+| Azure Active Directory Domain Services | Supported| |
 | Azure Active Directory | Not supported |  |
 
 The above doesn't affect the usage of Azure Active Directory accounts for single-sign-on (SSO) scenarios with SAP applications. 
