@@ -48,7 +48,7 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 **Sample invoice processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net)**:
 
-:::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of a sample invoice."::: 
+:::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of a sample invoice.":::
 
 ::: moniker-end
 
@@ -166,13 +166,13 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| <ul><li>English</li></ul>| United States (us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
-| <ul><li>Spanish</li></ul>|Spain (es)|
-| <ul><li>German</li></ul>| Germany (de)|
-| <ul><li>French</li></ul>| France (fr) |
-| <ul><li>Italian</li></ul>| Italy (it)|
-| <ul><li>Portuguese</li></ul>| Portugal (-pt), Brazil (-br)|
-| <ul><li>Dutch</li></ul>| Netherlands (de)|
+| &bullet; English | United States (us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
+| &bullet; Spanish |Spain (es)|
+| &bullet; German | Germany (de)|
+| &bullet; French | France (fr) |
+| &bullet; Italian | Italy (it)|
+| &bullet; Portuguese | Portugal (-pt), Brazil (-br)|
+| &bullet; Dutch | Netherlands (de)|
 
 ## Field extraction
 

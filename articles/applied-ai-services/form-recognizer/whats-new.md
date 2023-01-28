@@ -27,6 +27,36 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
+## January 2023
+
+* **Prebuilt receipt model—additional language support**:
+
+   The prebuilt receipt model now has added support for the following languages:
+
+  * English - United Arab Emirates (en-ae)
+  * Dutch - Netherlands (nl-nl)
+  * French - Canada (fr-ca)
+  * Japanese - Japan (ja-jp)
+  * Portuguese - Brazil (pt-br)
+
+* **Prebuilt invoice model—additional language support**
+
+  The prebuilt invoice model now has added support for the following languages:
+
+  * English - Australia (en-au), Canada (en-ca), Great Britain (en-gb), India (en-in)
+  * Portuguese - Brazil (pt-br)
+
+* **Prebuilt invoice model—additional field extraction**
+
+  The prebuilt invoice model now has added support to extract the following fields:
+
+  * Currency code
+  * Payment options
+  * Total discount
+  * Tax items (en-in only)
+
+TODO PREBUILT ID
+
 ## December 2022
 
 * [**Form Recognizer Studio updates**](https://formrecognizer.appliedai.azure.com/studio)

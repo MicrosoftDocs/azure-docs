@@ -163,10 +163,12 @@ The receipt model supports all English receipts and the following locales:
 
 |Supported Languages| Details |
 |:-----|:----:|
-|English| United States (-us), Australia (-au), Great Britain (-gb), India (-in)|
-|French | France (fr) |
-|Spanish | Spain (es) |
-
+|&bullet; English| United States (-us), Australia (-au), Great Britain (-gb), India (-in), United Arab Emirates (-ae)|
+|&bullet; Dutch| Netherlands (nl)|
+|&bullet; French | France (fr) |
+|&bullet; Japanese | Japan (ja)|
+|&bullet; Portuguese| Portugal (-pt), Brazil (-br)|
+|&bullet; Spanish | Spain (es) |
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
