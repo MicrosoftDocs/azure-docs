@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Monitor network communication with virtual machine scale set - Azure portal'
 titleSuffix: Azure Network Watcher
-description: In this tutorial, you'll learn how to monitor network communication between two virtual machine scale sets with Azure Network Watcher connection monitor using the Azure portal.
+description: In this tutorial, you'll learn how to use Azure Network Watcher connection monitor tool to monitor network communication with a virtual machine scale set using the Azure portal.
 services: network-watcher
 author: halkazwini
 tags: azure-resource-manager
@@ -11,7 +11,7 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, mvc, engagement-fy23
-# Customer intent: I need to monitor communication between a virtual machine scale set and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
+# Customer intent: I need to monitor communication between a virtual machine scale set and a virtual machine. If the communication fails, I need to know why, so that I can resolve the problem.
 ---
 
 # Tutorial: Monitor network communication with a virtual machine scale set using the Azure portal
@@ -327,3 +327,4 @@ To learn about all the different responses a connection monitor can return, see 
 
 > [!div class="nextstepaction"]
 > [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md)
+
