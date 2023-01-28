@@ -184,7 +184,7 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 
 The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
 
-Because .NET isolated projects run in a separate worker process, bindings can't take advantage of rich binding classes, such as `ICollector<T>`, `IAsyncCollector<T>`, and `CloudBlockBlob`. There's also no direct support for types inherited from underlying service SDKs, such as [DocumentClient] and [BrokeredMessage]. Instead, bindings rely on strings, arrays, and serializable types, such as plain old class objects (POCOs). 
+Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). You can also bind to [types from some service SDKs](#sdk-types-preview).
 
 For HTTP triggers, you must use [HttpRequestData] and [HttpResponseData] to access the request and response data. This is because you don't have access to the original HTTP request and response objects when using .NET Functions isolated worker process.
 
@@ -207,6 +207,21 @@ The data written to an output binding is always the return value of the function
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
 
 The response from an HTTP trigger is always considered an output, so a return value attribute isn't required.
+
+### SDK types (preview)
+
+For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) may offer. Support for SDK types is currently in preview with limited scenario coverage. 
+
+The following service-specific bindings are currently included in the preview:
+
+| Service | Trigger | Input binding | Output binding |
+|-|-|-|-|
+| [Azure Blobs][blob-sdk-types] | Preview support | Preview support  |  Not yet supported | 
+
+[blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp
+
+> [!NOTE]
+> When using SDK types, [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data aren't supported.
 
 ### HTTP trigger
 
