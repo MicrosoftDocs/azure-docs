@@ -48,7 +48,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **Prebuilt invoice model—additional field extraction**
 
-  The prebuilt invoice model now has added support to extract the following fields:
+  The prebuilt invoice model now has added support for the following field extractions:
 
   * Currency code
   * Payment options
