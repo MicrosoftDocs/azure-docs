@@ -122,7 +122,20 @@ forecasting_job.set_forecast_settings(
 )
 ```
 
-The time column name is a required setting and you should generally set the forecast horizon according to your prediction scenario. Other settings are optional and reviewed in the [optional settings](#optional-configurations) section.
+The time column name is a required setting and you should generally set the forecast horizon according to your prediction scenario. If your data contains multiple time series, you can specify the names of the **time series ID columns**. These are the columns that, when grouped, define the individual series. For example, suppose that you have data consisting of hourly sales from different stores and brands. The following sample shows how to set the time series ID columns assuming the data contains columns named "store" and "brand": 
+
+```python
+# Forecasting specific configuration
+# Add time series IDs for store and brand
+forecasting_job.set_forecast_settings(
+    ...,  # other settings
+    time_series_id_column_names=['store', 'brand']
+)
+```
+
+AutoML attempts to automatically detect time series IDs if none are specified.
+
+Other settings are optional and reviewed in the [optional settings](#optional-configurations) section.
 
 ### Optional configurations
 
@@ -275,7 +288,7 @@ print(f"Created job: {returned_job}")
  
 ## Forecasting with a trained model
 
-Use the best model iteration to forecast values for data that wasn't used to train the model.
+Once you've used to AutoML to train and select a best model, the next step is to evaluate the model and, if it meets your requirements, use it to generate forecasts into the future. This section shows how to write Python scripts for evaluation and prediction (inference). For an example of deploying a trained model with an inference script, see our [example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb).
   
 ### Evaluating model accuracy with a rolling forecast
 
@@ -283,14 +296,56 @@ Before you put a model into production, you should evaluate its accuracy on a te
 
 For example, suppose you train a model on daily sales to predict demand up to two weeks (14 days) into the future. If there is sufficient historic data available, you might reserve the final several months to even a year of the data for the test set. The rolling evaluation begins by generating a 14-day-ahead forecast for the first two weeks of the test set. Then, the forecaster is advanced by some number of days into the test set and you generate another 14-day-ahead forecast from the new position. The process continues until you get to the end of the test set.
 
-To do a rolling evaluation, you call the `rolling_forecast` method of the `fitted_model`, then compute desired metrics on the result. For example, assume you have test set features in a pandas DataFrame called `test_features_df` and the test set actual values of the target in a numpy array called `test_target`. A rolling evaluation using the mean squared error is shown in the following code sample:
+To do a rolling evaluation, you call the `rolling_forecast` method of the `fitted_model`, then compute desired metrics on the result. A rolling evaluation inference script is shown in the following code sample:
 
 ```python
-from sklearn.metrics import mean_squared_error
-rolling_forecast_df = fitted_model.rolling_forecast(
-    test_features_df, test_target, step=1)
-mse = mean_squared_error(
-    rolling_forecast_df[fitted_model.actual_column_name], rolling_forecast_df[fitted_model.forecast_column_name])
+"""
+This is the script that is executed on the compute instance. It relies
+on the model.pt file which is uploaded along with this script to the
+compute instance.
+"""
+
+import os
+
+import pandas as pd
+import numpy as np
+
+from azureml.core import Dataset, Run
+from sklearn.externals import joblib
+from pandas.tseries.frequencies import to_offset
+import torch
+
+
+def init():
+    global target_column_name
+    global fitted_model
+
+    target_column_name = os.environ["TARGET_COLUMN_NAME"]
+    # AZUREML_MODEL_DIR is an environment variable created during deployment
+    # It is the path to the model folder (./azureml-models)
+    # Please provide your model's folder name if there's one
+    model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model.pt")
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    fitted_model = torch.load(model_path, map_location=device)
+
+
+def run(mini_batch):
+    print(f"run method start: {__file__}, run({mini_batch})")
+    resultList = []
+    for test in mini_batch:
+        if not test.endswith(".csv"):
+            continue
+        X_test = pd.read_csv(test, parse_dates=[fitted_model.time_column_name])
+        y_test = X_test.pop(target_column_name).values
+
+        # Make a rolling forecast, advancing the forecast origin by 1 period on each iteration through the test set
+        X_rf = fitted_model.rolling_forecast(
+            X_test, y_test, step=1, ignore_data_errors=True
+        )
+
+        resultList.append(X_rf)
+
+    return pd.concat(resultList, sort=False, ignore_index=True)
 ```
 
 In this sample, the step size for the rolling forecast is set to one which means that the forecaster is advanced one period, or one day in our demand prediction example, at each iteration. The total number of forecasts returned by `rolling_forecast` thus depends on the length of the test set and this step size. For more details and examples see the [rolling_forecast() documentation](/python/api/azureml-training-tabular/azureml.training.tabular.models.forecasting_pipeline_wrapper_base.forecastingpipelinewrapperbase#azureml-training-tabular-models-forecasting-pipeline-wrapper-base-forecastingpipelinewrapperbase-rolling-forecast) and the [Forecasting away from training data notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb). 
@@ -341,7 +396,7 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 > [!IMPORTANT]
-> Many models and hierarchical time series are currently only supported in AzureML v1. Support for AzureML v2 is in progress.
+> Many models and hierarchical time series are currently only supported in AzureML v1. Support for AzureML v2 is forthcoming.
 
 There are scenarios where a single machine learning model is insufficient and multiple machine learning models are needed. For instance, predicting sales for each individual store for a brand, or tailoring an experience to individual users. Building a model for each instance can lead to improved results on many machine learning problems. 
 
