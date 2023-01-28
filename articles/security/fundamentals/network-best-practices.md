@@ -2,16 +2,16 @@
 title: Best practices for network security - Microsoft Azure
 description: This article provides a set of best practices for network security using built in Azure capabilities.
 author: TerryLanfear
-manager: barbkess
-editor: TomShinder
+manager: rkarlin
 
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/02/2019
-ms.author: TomSh
+ms.date: 01/28/2023
+ms.author: terrylan
 
 ---
 # Azure best practices for network security
@@ -49,14 +49,14 @@ Best practices for logically segmenting subnets include:
 **Detail**: Use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-based subnetting principles to create your subnets.
 
 **Best practice**: Create network access controls between subnets. Routing between subnets happens automatically, and you don't need to manually configure routing tables. By default, there are no network access controls between the subnets that you create on an Azure virtual network.   
-**Detail**: Use a [network security group](../../virtual-network/virtual-network-vnet-plan-design-arm.md) to protect against unsolicited traffic into Azure subnets. Network security groups are simple, stateful packet inspection devices that use the 5-tuple approach (source IP, source port, destination IP, destination port, and layer 4 protocol) to create allow/deny rules for network traffic. You allow or deny traffic to and from a single IP address, to and from multiple IP addresses, or to and from entire subnets.
+**Detail**: Use a [network security group](../../virtual-network/manage-network-security-group.md) to protect against unsolicited traffic into Azure subnets. Network security groups are simple, stateful packet inspection devices that use the 5-tuple approach (source IP, source port, destination IP, destination port, and layer 4 protocol) to create allow/deny rules for network traffic. You allow or deny traffic to and from a single IP address, to and from multiple IP addresses, or to and from entire subnets.
 
 When you use network security groups for network access control between subnets, you can put resources that belong to the same security zone or role in their own subnets.
 
 **Best practice**: Avoid small virtual networks and subnets to ensure simplicity and flexibility.   
 **Detail**: Most organizations add more resources than initially planned, and re-allocating addresses is labor intensive. Using small subnets adds limited security value, and mapping a network security group to each subnet adds overhead. Define subnets broadly to ensure that you have flexibility for growth.
 
-**Best practice**: Simplify network security group rule management by defining [Application Security Groups](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
+**Best practice**: Simplify network security group rule management by defining [Application Security Groups](../..virtual-network/application-security-groups.md).  
 **Detail**: Define an Application Security Group for lists of IP addresses that you think might change in the future or be used across many network security groups. Be sure to name Application Security Groups clearly so others can understand their content and purpose.
 
 ## Adopt a Zero Trust approach
@@ -82,7 +82,7 @@ When you put a virtual machine on an Azure virtual network, the VM can connect t
 
 Although the default system routes are useful for many deployment scenarios, there are times when you want to customize the routing configuration for your deployments. You can configure the next-hop address to reach specific destinations.
 
-We recommend that you configure [user-defined routes](../../virtual-network/virtual-networks-udr-overview.md) when you deploy a security appliance for a virtual network. We talk about this in a later section titled [secure your critical Azure service resources to only your virtual networks](network-best-practices.md#secure-your-critical-azure-service-resources-to-only-your-virtual-networks).
+We recommend that you configure [user-defined routes](../../virtual-network/virtual-networks-udr-overview.md#custom-routes) when you deploy a security appliance for a virtual network. We talk about this in a later section titled [secure your critical Azure service resources to only your virtual networks](network-best-practices.md#secure-your-critical-azure-service-resources-to-only-your-virtual-networks).
 
 > [!NOTE]
 > User-defined routes are not required, and the default system routes usually work.
@@ -183,7 +183,7 @@ Point-to-site VPN is more secure than direct RDP or SSH connections because the 
 **Option**: A [site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) connects an entire network to another network over the internet. You can use a site-to-site VPN to connect your on-premises network to an Azure virtual network. Users on your on-premises network connect by using the RDP or SSH protocol over the site-to-site VPN connection. You don't have to allow direct RDP or SSH access over the internet.
 
 **Scenario**: Use a dedicated WAN link to provide functionality similar to the site-to-site VPN.   
-**Option**: Use [ExpressRoute](../../expressroute/index.yml). It provides functionality similar to the site-to-site VPN. The main differences are:
+**Option**: Use [ExpressRoute](../../expressroute/expressroute-introduction.md). It provides functionality similar to the site-to-site VPN. The main differences are:
 
 - The dedicated WAN link doesn't traverse the internet.
 - Dedicated WAN links are typically more stable and perform better.
