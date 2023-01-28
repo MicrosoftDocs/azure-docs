@@ -8,8 +8,8 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
-ms.reviewer: ssalgado
-ms.date: 05/26/2022
+ms.reviewer: franksolomon
+ms.date: 01/23/2023
 ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As an experienced Python developer, I need to read in my data to make it available to a remote compute to train my machine learning models.
 ---
@@ -18,12 +18,12 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022, i
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you use:"]
 > * [v1](v1/how-to-train-with-datasets.md)
 > * [v2 (current version)](how-to-read-write-data-v2.md)
 
-Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2 and the Azure Machine Learning CLI extension v2. 
- 
+Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2 and the Azure Machine Learning CLI extension v2.
+
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
@@ -34,48 +34,48 @@ Learn how to read and write data for your jobs with the Azure Machine Learning P
 
 ## Supported paths
 
-When you provide a data input/output to a Job, you'll need to specify a `path` parameter that points to the data location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
+When you provide a data input/output to a Job, you must specify a `path` parameter that points to the data location. This table shows both the different data locations that Azure Machine Learning supports, and examples for the `path` parameter:
 
 
-|Location  | Examples  | Notes|
-|---------|---------|---------|
-|A path on your local computer     | `./home/username/data/my_data`         ||
-|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    | https path pointing to a folder is not supported since https is not a filesystem. Please use other formats(wasbs/abfss/adl) instead for folder type of data.|
-|A path on Azure Storage     |   `wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/` <br>  `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>  `adl://<accountname>.azuredatalakestore.net/<path_to_data>/`    ||
-|A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      ||
-|A path to a Data Asset  |  `azureml:<my_data>:<version>`  ||
+|Location  | Examples  |
+|---------|---------|
+|A path on your local computer     | `./home/username/data/my_data`         |
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
+|A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/<path>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
+|A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
+|A path to a Data Asset  |  `azureml:<my_data>:<version>`  |
 
 ## Supported modes
 
-When you run a job with data inputs/outputs, you can specify the *mode* - for example, whether you would like the data to be read-only mounted or downloaded to the compute target. The table below shows the possible modes for different type/mode/input/output combinations:
+When you run a job with data inputs/outputs, you can specify the *mode* - for example, whether the data should be read-only mounted, or downloaded to the compute target. This table shows the possible modes for different type/mode/input/output combinations:
 
 Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` | `eval_download` | `eval_mount` 
 ------ | ------ | :---: | :---: | :---: | :---: | :---: | :---: | :---:
 `uri_folder` | Input  |   | ✓  |  ✓  |   | ✓  |  | 
 `uri_file`   | Input |   | ✓  |  ✓  |   | ✓  |  | 
 `mltable`   | Input |   | ✓  |  ✓  |   | ✓  | ✓ | ✓
-`uri_folder` | Output  | ✓  |   |    | ✓  | ✓  |  | 
-`uri_file`   | Output | ✓  |   |    | ✓  | ✓  |  | 
+`uri_folder` | Output  | ✓  |   |    | ✓  |   |  | 
+`uri_file`   | Output | ✓  |   |    | ✓  |   |  | 
 `mltable`   | Output | ✓  |   |    | ✓  | ✓  |  | 
 
 > [!NOTE]
-> `eval_download` and `eval_mount` are unique to `mltable`. Whilst `ro_mount` is the default mode for MLTable, there are scenarios where an MLTable can yield files that are not necessarily co-located with the MLTable file in storage. Alternatively, an `mltable` can subset or shuffle the data that resides in the storage. That view is only visible if the MLTable file is actually evaluated by the engine. These modes will provide that view of the files.
+> `eval_download` and `eval_mount` are unique to `mltable`. The `ro_mount` is the default mode for MLTable. In some scenarios, however, an MLTable can yield files that are not necessarily co-located with the MLTable file in storage. Alternately, an `mltable` can subset or shuffle the data located in the storage resource. That view becomes visible only if the engine actually evaluates the MLTable file. These modes provide that view of the files.
 
 
 ## Read data in a job
 
 # [Azure CLI](#tab/cli)
 
-Create a job specification YAML file (`<file-name>.yml`). Specify in the `inputs` section of the job:
+Create a job specification YAML file (`<file-name>.yml`). In the `inputs` section of the job, specify:
 
-1. The `type`; whether the data is a specific file  (`uri_file`) or a folder location (`uri_folder`) or an `mltable`. 
-1. The `path` of where your data is located; can be any of the paths outlined in the [Supported Paths](#supported-paths) section. 
+1. The `type`; whether the data is a specific file (`uri_file`), a folder location (`uri_folder`), or an `mltable`.
+1. The `path` of your data location; any of the paths outlined in the [Supported Paths](#supported-paths) section will work.
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 
 # Possible Paths for Data:
-# Blob: wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/<file>
+# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
 # Datastore: azureml://datastores/paths/<folder>/<file>
 # Data Asset: azureml:<my_data>:<version>
 
@@ -98,10 +98,10 @@ az ml job create -f <file-name>.yml
 
 # [Python SDK](#tab/python)
 
-The `Input` class allows you to define:
+Use the `Input` class to define:
 
-1. The `type`; whether the data is a specific file  (`uri_file`) or a folder location (`uri_folder`) or an `mltable`. 
-1. The `path` of where your data is located; can be any of the paths outlined in the [Supported Paths](#supported-paths) section. 
+1. The `type`; whether the data is a specific file (`uri_file`), a folder location (`uri_folder`), or an `mltable`.
+1. The `path` of your data location; any of the paths outlined in the [Supported Paths](#supported-paths) section will work.
 
 ```python
 from azure.ai.ml import command
@@ -118,7 +118,7 @@ ml_client = MLClient.from_config()
 # AssetTypes.MLTABLE
 
 # Possible Paths for Data:
-# Blob: wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/<file>
+# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
 # Datastore: azureml://datastores/paths/<folder>/<file>
 # Data Asset: azureml:<my_data>:<version>
 
@@ -143,7 +143,7 @@ returned_job.services["Studio"].endpoint
 ---
 
 ### Read V1 data assets
-This section outlines how you can read V1 `FileDataset` and `TabularDataset` data entities in a V2 job.
+This section explains how to read V1 `FileDataset` and `TabularDataset` data entities in a V2 job.
 
 #### Read a `FileDataset`
 
@@ -174,7 +174,7 @@ az ml job create -f <file-name>.yml
 
 # [Python SDK](#tab/python)
 
-In the `Input` object specify the `type` as `AssetTypes.MLTABLE` and `mode` as `InputOutputModes.EVAL_MOUNT`:
+In the `Input` object, specify the `type` as `AssetTypes.MLTABLE` and `mode` as `InputOutputModes.EVAL_MOUNT`:
 
 ```python
 from azure.ai.ml import command
@@ -205,12 +205,11 @@ job = command(
 
 # submit the command
 returned_job = ml_client.jobs.create_or_update(job)
-# get a URL for the status of the job
+# get a URL for the job status
 returned_job.services["Studio"].endpoint
 ```
 
 ---
-
 
 #### Read a `TabularDataset`
 
@@ -241,7 +240,7 @@ az ml job create -f <file-name>.yml
 
 # [Python SDK](#tab/python)
 
-In the `Input` object specify the `type` as `AssetTypes.MLTABLE` and `mode` as `InputOutputModes.DIRECT`:
+In the `Input` object, specify the `type` as `AssetTypes.MLTABLE`, and `mode` as `InputOutputModes.DIRECT`:
 
 ```python
 from azure.ai.ml import command
@@ -280,18 +279,18 @@ returned_job.services["Studio"].endpoint
 
 ## Write data in a job
 
-In your job you can write data to your cloud-based storage using *outputs*. The [Supported modes](#supported-modes) section showed that only job *outputs* can write data because the mode can be either `rw_mount` or `upload`.
+In your job, you can write data to your cloud-based storage with *outputs*. The [Supported modes](#supported-modes) section showed that only job *outputs* can write data, because the mode can be either `rw_mount` or `upload`.
 
 # [Azure CLI](#tab/cli)
 
-Create a job specification YAML file (`<file-name>.yml`), with the `outputs` section populated with the type and path of where you would like to write your data to:
+Create a job specification YAML file (`<file-name>.yml`), with the `outputs` section populated with the type and path where you'd like to write your data:
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/CommandJob.schema.json
 
 # Possible Paths for Data:
-# Blob: wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/<file>
-# Datastore: azureml://datastores/<datastore_name>/paths/<folder>/<file>
+# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
+# Datastore: azureml://datastores/paths/<folder>/<file>
 # Data Asset: azureml:<my_data>:<version>
 
 code: src
@@ -311,7 +310,7 @@ environment: azureml:<environment_name>@latest
 compute: azureml:cpu-cluster
 ```
 
-Next create a job using the CLI:
+Next, create a job with the CLI:
 
 ```azurecli
 az ml job create --file <file-name>.yml
@@ -331,7 +330,7 @@ from azure.ai.ml.constants import AssetTypes
 # AssetTypes.MLTABLE
 
 # Possible Paths for Data:
-# Blob: wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/<file>
+# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
 # Datastore: azureml://datastores/paths/<folder>/<file>
 # Data Asset: azureml:<my_data>:<version>
 
@@ -361,12 +360,12 @@ returned_job.services["Studio"].endpoint
 
 ---
 
-## Data in pipelines 
+## Data in pipelines
 
-If you're working with Azure Machine Learning pipelines, you can read data into and move data between pipeline components with the Azure Machine Learning CLI v2 extension or the Python SDK v2. 
+If you work with Azure Machine Learning pipelines, you can read data into and move data between pipeline components with the Azure Machine Learning CLI v2 extension, or the Python SDK v2.
 
 ### Azure Machine Learning CLI v2
-The following YAML file demonstrates how to use the output data from one component as the input for another component of the pipeline using the Azure Machine Learning CLI v2 extension:
+This YAML file shows how to use the output data from one component as the input for another component of the pipeline, with the Azure Machine Learning CLI v2 extension:
 
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
@@ -374,11 +373,11 @@ The following YAML file demonstrates how to use the output data from one compone
 
 ### Python SDK v2
 
-The following example defines a pipeline containing three nodes and moves data between each node.
+This example defines a pipeline that contains three nodes, and moves data between each node.
 
-* `prepare_data_node` that loads the image and labels from Fashion MNIST data set into `mnist_train.csv` and `mnist_test.csv`.
-* `train_node` that trains a CNN model with Keras using the training data, `mnist_train.csv` .
-* `score_node` that scores the model using test data, `mnist_test.csv`.
+* `prepare_data_node` loads the image and labels from Fashion MNIST data set into `mnist_train.csv` and `mnist_test.csv`.
+* `train_node` trains a CNN model with Keras, using the `mnist_train.csv` training data.
+* `score_node` scores the model using `mnist_test.csv` test data.
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
