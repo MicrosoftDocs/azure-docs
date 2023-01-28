@@ -39,11 +39,11 @@ To group resources for access:
 * Microsoft Teams groups files, conversation threads, and other resources. Formulate an external access strategy for Microsoft Teams.
   * See, [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
 * Use entitlement management access packages to create and delegate management of packages of applications, groups, teams, SharePoint sites, etc. 
-  * [Create a new access package in entitlement management](/azure/active-directory/governance/entitlement-management-access-package-create) 
+  * [Create a new access package in entitlement management](../governance/entitlement-management-access-package-create.md) 
 * Apply Conditional Access policies to up to 250 applications, with the same access requirements
-  *  [What is Conditional Access?](/azure/active-directory/conditional-access/overview) 
+  *  [What is Conditional Access?](../conditional-access/overview.md) 
 * Use Cross Tenant Access Settings Inbound Access to define access for application groups of external users 
-  *  [Overview: Cross-tenant access with Azure AD External Identities](/azure/active-directory/external-identities/cross-tenant-access-overview) 
+  *  [Overview: Cross-tenant access with Azure AD External Identities](../external-identities/cross-tenant-access-overview.md) 
 
 Document the applications to be grouped. Considerations include:
 

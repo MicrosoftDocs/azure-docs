@@ -123,23 +123,27 @@ When you create or update an action group in the Azure portal, you can **test** 
 
 1. Define an action, as described in the previous few sections. Then select **Review + create**. 
 
-1. On the page that lists the information that you entered, select **Test action group**.
+> [!NOTE]
+> 
+> If you are editing an already exisitng action group, you must save changes to the action group before testing.
+
+2. On the page that lists the information that you entered, select **Test action group**.
 
    :::image type="content" source="./media/action-groups/test-action-group.png" alt-text="Screenshot of test action group start page. A Test action group button is visible.":::
 
-2. Select a sample type and the notification and action types that you want to test. Then select **Test**.
+3. Select a sample type and the notification and action types that you want to test. Then select **Test**.
 
    :::image type="content" source="./media/action-groups/test-sample-action-group.png" alt-text="Screenshot of the Test sample action group page. An email notification type and a webhook action type are visible.":::
 
-3. If you close the window or select **Back to test setup** while the test is running, the test is stopped, and you don't get test results.
+4. If you close the window or select **Back to test setup** while the test is running, the test is stopped, and you don't get test results.
 
    :::image type="content" source="./media/action-groups/stop-running-test.png" alt-text="Screenshot of the Test sample action group page. A dialog box contains a Stop button and asks the user about stopping the test.":::
 
-4. When the test is complete, a test status of either **Success** or **Failed** appears. If the test failed and you'd like to get more information, select **View details**.
+5. When the test is complete, a test status of either **Success** or **Failed** appears. If the test failed and you'd like to get more information, select **View details**.
 
    :::image type="content" source="./media/action-groups/test-sample-failed.png" alt-text="Screenshot of the Test sample action group page. Error details are visible, and a white X on a red background indicates that a test failed.":::
 
-You can use the information in the **Error details** section to understand the issue. Then you can edit and test the action group again.
+You can use the information in the **Error details** section to understand the issue. Then you can edit, save changes, and test the action group again.
 
 When you run a test and select a notification type, you get a message with "Test" in the subject. The tests provide a way to check that your action group works as expected before you enable it in a production environment. All the details and links in test email notifications are from a sample reference set.
 
@@ -250,6 +254,10 @@ An action that uses Functions calls an existing HTTP trigger endpoint in Functio
 When you define the function action, the function's HTTP trigger endpoint and access key are saved in the action definition, for example, `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=<access_key>`. If you change the access key for the function, you need to remove and recreate the function action in the action group.
 
 You may have a limited number of function actions per action group.
+
+   > [!NOTE]
+   >
+   > The function must have access to the storage account. If not, no keys will be available and the function URI will not be accessible.
 
 ### ITSM
 

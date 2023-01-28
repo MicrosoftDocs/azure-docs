@@ -8,10 +8,10 @@ metadata:
   manager: raynew
   ms.topic: faq
   ms.custom: ignite-2022
-  ms.date: 11/24/2022
+  ms.date: 01/24/2023
 title: 'FAQ - Questions about data collection, agents, and workspaces'
 summary: |
-  Defender for Cloud collects data from your Azure virtual machines (VMs), Virtual machine scale sets, IaaS containers, and non-Azure computers (including on-premises machines) to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
+  Defender for Cloud collects data from your Azure virtual machines (VMs), Virtual Machine Scale Sets, IaaS containers, and non-Azure computers (including on-premises machines) to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
   
   
 
@@ -267,7 +267,7 @@ sections:
       - question: |
           What happens when data collection is enabled?
         answer: |
-          When automatic provisioning is enabled, Defender for Cloud provisions the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but manual agent installation is also available. [Learn how to install the Log Analytics agent extension](../azure-monitor/vm/monitor-virtual-machine.md#agents). 
+          When automatic provisioning is enabled, Defender for Cloud provisions the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but manual agent installation is also available. [Learn how to install the Log Analytics agent extension](../azure-monitor/agents/log-analytics-agent.md#installation-options). 
           
           The agent enables the process creation event 4688 and the *CommandLine* field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Defender for Cloud's detection services. For more information on the details recorded for each new process, see [description fields in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). The agent also collects the 4688 events created on the VM and stores them in search.
           

@@ -25,7 +25,7 @@
     href: diagnose-vm-network-routing-problem.md
   - name: Monitor communication between VMs
     href: connection-monitor.md
-  - name: Monitor communication with Virtual Machine Scale Set
+  - name: Monitor communication with virtual machine scale set
     href: connection-monitor-virtual-machine-scale-set.md
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
@@ -49,19 +49,19 @@
     href: connection-monitor-overview.md
   - name: Connection Monitor schema
     href: connection-monitor-schema.md
-  - name: Diagnose VM network traffic filter problems
+  - name: IP flow verify
     href: network-watcher-ip-flow-verify-overview.md
-  - name: Diagnose NSG rules and Traffic filtering
+  - name: NSG Diagnostics
     href: network-watcher-network-configuration-diagnostics-overview.md
-  - name: Diagnose VM routing problems
+  - name: Next hop
     href: network-watcher-next-hop-overview.md
-  - name: Diagnose outbound VM communication problems
+  - name: Connection troubleshoot
     href: network-watcher-connectivity-overview.md
-  - name: Troubleshoot VPN connectivity problems
+  - name: VPN troubleshoot
     href: network-watcher-troubleshoot-overview.md
-  - name: Variable packet capture
+  - name: Packet capture
     href: network-watcher-packet-capture-overview.md
-  - name: Traffic Analytics overview
+  - name: Traffic analytics
     items:
     - name: Overview
       href: traffic-analytics.md
@@ -73,11 +73,11 @@
       href: usage-scenarios-traffic-analytics.md
     - name: Frequently asked questions
       href: traffic-analytics-faq.yml
-  - name: Network security group flow logging
+  - name: NSG flow logs
     href: network-watcher-nsg-flow-logging-overview.md
-  - name: Network security group view
+  - name: Effective security rules
     href: network-watcher-security-group-view-overview.md
-  - name: Azure role-based access control permissions
+  - name: RBAC Permissions
     href: required-rbac-permissions.md
   - name: Security
     items:

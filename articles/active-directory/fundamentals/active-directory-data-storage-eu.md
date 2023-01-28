@@ -2,9 +2,9 @@
 title: Customer data storage and processing for European customers in Azure Active Directory
 description: Learn about where Azure Active Directory stores identity-related data for its European customers.
 services: active-directory
-author: barclayn
-manager: amycolannino
-ms.author: barclayn
+author: davidmu1
+manager: CelesteDG
+ms.author: davidmu
 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -79,7 +79,7 @@ Administrators can choose to enable or disable certain Azure AD features. If the
 
 * **Azure Active Directory Multi Tenant Collaboration** - With multi tenant collaboration scenarios enabled, customers can configure their tenant to collaborate with users from a different tenant. For example, a customer can invite users to their tenant in a B2B context. A customer can create a multi-tenant SaaS application that allows other third party tenants to provision the application in the third party tenant. Or, the customer can make two or more tenants affiliated with one another and act as a single tenant in certain scenarios, such as multi-tenant organization (MTO) formation, tenant to tenant sync, and shared e-mail domain sharing. Customer configuration and use of multi tenant collaboration may occur with tenants outside of the EU Data Residency and EU Data Boundary resulting in some customer data, such as user and device account data, usage data, and service configuration (application, policy, and group) stored and processed in the location of the collaborating tenant.
 * **Application Proxy** - Allows customers to access their on-premises web applications externally. Customers may choose advanced routing configurations that allow customer data to egress outside of the EU Data Residency and EU Data Boundary, including user account data, usage data, and application configuration data.
-* **Microsoft 365 Multi Geo** - Microsoft 365 Multi-Geo provides customers with the ability to expand their Microsoft 365 presence to multiple geographic regions/countries within a single existing Microsoft 365 tenant. Azure Active Directory will egress customer data to perform backup authentication to the locations configured by the customer. Types of customer data include user and device account data, branding data, and service configuration data (application, policy, and group).
+* **Microsoft 365 Multi Geo** - Microsoft 365 Multi-Geo provides customers with the ability to expand their Microsoft 365 presence to multiple geographic countries/regions within a single existing Microsoft 365 tenant. Azure Active Directory will egress customer data to perform backup authentication to the locations configured by the customer. Types of customer data include user and device account data, branding data, and service configuration data (application, policy, and group).
 
 ### Other EU Data Boundary online services
 

@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 12/08/2022
+ms.date: 01/13/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -19,6 +19,22 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 - Bug fixes
 
 Make sure to check back here often to keep up with new updates.
+
+## December 2022
+
+Here's what changed in December 2022:
+
+### FSLogix 2210 now generally available
+
+FSLogix version 2210 is now generally available. This version introduces new features like VHD Disk Compaction, a new process that improves user experience with AppX applications like built-in Windows apps (inbox apps) and Recycle Bin roaming. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-fslogix-2210/ba-p/3695166) or [What’s new in FSLogix](/fslogix/whats-new?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext#fslogix-2210-29836152326).
+	
+### India metadata service now generally available
+
+The Azure Virtual Desktop region in India is now generally available. Customers can now store their Azure Virtual Desktop objects and metadata within a database located in the India geography. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/azure-virtual-desktop-metadata-database-is-now-available-in/ba-p/3670768).
+
+### Confidential Virtual Machine support for Azure Virtual Desktop now in public preview
+
+Azure Confidential Virtual Machine (VM) support is now in public preview. Azure Confidential VMs increase data privacy and security by protecting data in use. The public preview update also adds support for Windows 11 22H2 to Confidential VMs. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/confidential-virtual-machine-support-for-azure-virtual-desktop/ba-p/3686350).
 
 ## November 2022
 

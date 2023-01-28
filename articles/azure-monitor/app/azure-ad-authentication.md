@@ -2,7 +2,7 @@
 title: Azure AD authentication for Application Insights
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 01/10/2023
 ms.devlang: csharp, java, javascript, python
 ms.reviewer: rijolly
 ---
@@ -17,6 +17,7 @@ Using various authentication systems can be cumbersome and risky because it's di
 
 The following are prerequisites to enable Azure AD authenticated ingestion.
 
+- Must be in public cloud
 - Familiarity with:
     - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md). 
     - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).

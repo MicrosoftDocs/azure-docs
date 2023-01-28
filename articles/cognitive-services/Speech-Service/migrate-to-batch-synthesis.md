@@ -43,7 +43,7 @@ The Long Audio API is limited to the following regions:
 
 ## Voices list
 
-Batch synthesis API supports all [text-to-speech voices and styles](language-support.md?tabs=stt-tts).
+Batch synthesis API supports all [text-to-speech voices and styles](language-support.md?tabs=tts).
 
 The Long Audio API is limited to the set of voices returned by a GET request to `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`.
 

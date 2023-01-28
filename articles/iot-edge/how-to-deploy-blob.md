@@ -3,7 +3,7 @@ title: Deploy blob storage on module to your device - Azure IoT Edge
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 3/10/2020
+ms.date: 9/22/2022
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
@@ -17,11 +17,14 @@ There are several ways to deploy modules to an IoT Edge device and all of them w
 ## Prerequisites
 
 - An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
+
 - An IoT Edge device.
 
   If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
 
-- [Visual Studio Code](https://code.visualstudio.com/) and the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) if deploying from Visual Studio Code.
+- [Visual Studio Code](https://code.visualstudio.com/).
+
+- The [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension and the [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension if deploying from Visual Studio Code.
 
 ## Deploy from the Azure portal
 
@@ -132,7 +135,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    ```
 
    > [!NOTE]
-   > If your container target is unnamed or null within `storageContainersForUpload`, a default name will be assigned to the target. If you wanted to stop uploading to a container, it must be removed completely from `storageContainersForUpload`. For more information, see the `deviceToCloudUploadProperties` section of [Store data at the edge with Azure Blob Storage on IoT Edge](how-to-store-data-blob.md?view=iotedge-2020-11&preserve-view=true#devicetoclouduploadproperties).
+   > If your container target is unnamed or null within `storageContainersForUpload`, a default name will be assigned to the target. If you wanted to stop uploading to a container, it must be removed completely from `storageContainersForUpload`. For more information, see the `deviceToCloudUploadProperties` section of [Store data at the edge with Azure Blob Storage on IoT Edge](how-to-store-data-blob.md#devicetoclouduploadproperties).
 
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 

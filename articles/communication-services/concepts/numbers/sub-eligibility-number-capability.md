@@ -30,7 +30,7 @@ Additional details on eligible subscription types are as follows:
 
 \* Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch. 
 
-\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases. Please reach out to phone@microsoft.com for assistance with your application.
+\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases. Please reach out to acstns@microsoft.com for assistance with your application.
 
 ## Number capabilities
 
@@ -54,8 +54,8 @@ The tables below summarize current availability:
 | :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
 | UK                 | Toll-Free      | -        | -        | Public Preview   | Public Preview\* |
 | UK                 | Local          | -        | -        | Public Preview   | Public Preview\* |
-| USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | Public Preview   | Public Preview\* |
-| USA & Puerto Rico  | Local          | -        | -        | Public Preview   | Public Preview\* |
+| USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | General Availability   | General Availability\* |
+| USA & Puerto Rico  | Local          | -        | -        | General Availability   | General Availability\* |
 | Canada             | Toll-Free      | Public Preview       | Public Preview       | Public Preview   | Public Preview\* |
 | Canada             | Local          | -        | -        | Public Preview   | Public Preview\* |
 
@@ -67,8 +67,8 @@ The tables below summarize current availability:
 | :---------------- | :-------- | :------------------- | :------------------- | :------------------- | :--------------- |
 | Ireland           | Toll-Free | -        | -        | Public Preview       | Public Preview\* |
 | Ireland           | Local     | -        | -        | Public Preview       | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview       | Public Preview\* |
-| USA & Puerto Rico | Local     | -        | -        | Public Preview       | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability       | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability       | General Availability\* |
 | Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview       | Public Preview\* |
 | Canada            | Local     | -        | -        | Public Preview       | Public Preview\* |
 | UK                | Toll-Free | -        | -        | Public Preview       | Public Preview\* |
@@ -83,8 +83,8 @@ The tables below summarize current availability:
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
 | Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | -        | -        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
 | Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
 | Canada            | Local     | -        | -        | Public Preview | Public Preview\* |
 | UK                | Toll-Free | -        | -        | Public Preview | Public Preview\* |
@@ -98,8 +98,8 @@ The tables below summarize current availability:
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
 | Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
 | Canada            | Local     | -        | -        | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | -        | -        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
 | UK                | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | UK                | Local     | -        | -        | Public Preview | Public Preview\* |
 
@@ -125,8 +125,8 @@ The tables below summarize current availability:
 | Sweden            | Local     | -        | -        | Public Preview | Public Preview\* |
 | Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
 | Canada            | Local     | -        | -        | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | -        | -        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 

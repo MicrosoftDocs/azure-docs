@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 01/24/2023
 ---
 
 # Application Insights overview
@@ -132,10 +132,10 @@ Supported platforms and frameworks are listed here.
   * [React](./javascript-react-plugin.md)
   * [React Native](./javascript-react-native-plugin.md)
   * [Angular](./javascript-angular-plugin.md)
-* [Windows desktop applications, services, and worker roles](./windows-desktop.md)
-* [Universal Windows app](../app/mobile-center-quickstart.md) (App Center)
-* [Android](../app/mobile-center-quickstart.md) (App Center)
-* [iOS](../app/mobile-center-quickstart.md) (App Center)
+* [Windows desktop applications, services, and worker roles](https://github.com/Microsoft/appcenter)
+* [Universal Windows app](https://github.com/Microsoft/appcenter) (App Center)
+* [Android](https://github.com/Microsoft/appcenter) (App Center)
+* [iOS](https://github.com/Microsoft/appcenter) (App Center)
 
 > [!NOTE]
 > OpenTelemetry-based instrumentation is available in preview for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
@@ -158,7 +158,7 @@ Several other community-supported Application Insights SDKs exist. However, Azur
 
 ## Troubleshooting
 
-### FAQ
+### Frequently asked questions
 
 Review [frequently asked questions](../faq.yml).
 ### Microsoft Q&A questions forum
