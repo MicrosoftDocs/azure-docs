@@ -105,7 +105,6 @@ Navigate to the flie and download it to see the logs
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-four-diagnostic-setting.png" alt-text="Screenshot showing details of logs." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-four-diagnostic-setting.png":::
 
-
 ## Next steps
 
 [Elastic data map in Microsoft Purview](concept-elastic-data-map.md)
