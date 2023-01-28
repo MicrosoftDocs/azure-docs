@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 12/22/2022
+ms.date: 01/27/2023
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
@@ -19,7 +19,7 @@ This article lists the known limitations and issues with Azure Synapse Link for 
 
 This is the list of known limitations for Azure Synapse Link for SQL.
 
-### Azure SQL DB and SQL Server 2022
+### Azure SQL Database and SQL Server 2022
 * Source tables must have primary keys.
 * Only a writeable, primary replica is supported as the data source for Synapse Link for SQL.
 * The following data types aren't supported for primary keys in the source tables:
@@ -72,8 +72,9 @@ This is the list of known limitations for Azure Synapse Link for SQL.
         *    Thai100CaseSensitiveAccentSensitiveSupplementaryCharacters
         *    ThaiCaseSensitiveAccentInsensitiveWidthSensitive
 * Single row updates (including off-page storage) of > 370 MB are not supported.
+* If the primary key column(s) of the table are not the first columns in the table, and columns to the left of the primary key column(s) are deleted, replication may fail. To troubleshoot, see [Troubleshoot: Azure Synapse Link for SQL initial snapshot fails on source table with primary key not listed as the first column in sequence](troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md).
 
-### Azure SQL DB only
+### Azure SQL Database only
 * Azure Synapse Link for SQL isn't supported on Free, Basic or Standard tier with fewer than 100 DTUs.
 * Azure Synapse Link for SQL isn't supported on SQL Managed Instances.
 * Service principal isn't supported for authenticating to source Azure SQL DB, so when creating Azure SQL DB linked Service, choose SQL authentication, user-assigned managed identity (UAMI) or service assigned managed Identity (SAMI).
@@ -114,6 +115,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
     1. Optionally, if you are disabling all of the table groups for a given database, you can also disable change feed on the database with the following command:
         ```sql
         EXEC sys.sp_change_feed_disable_db
+        ```
 
 ### Trying to re-enable change feed on a table for that was recently disabled table will show an error. This is an uncommon behavior.
 
