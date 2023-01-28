@@ -44,7 +44,7 @@ Communication Services offers the following types of logs that you can enable:
 * **Email Send Mail operational logs** - provides detailed information related to the Email service send mail requests.
 * **Email Status Update operational logs** - provides message and recipient level delivery status updates related to the Email service send mail requests.
 * **Email User Engagement operational logs** - provides information related to 'open' and 'click' user engagement metrics for messages sent from the Email service.
-* **Chat operational logs** - provides operational information on Call Automation API requests. These logs can be used to identify failure points, query all requests made in a call and query all requests made by a service application across calls over time. 
+* **Call Automation operational logs** - provides operational information on Call Automation API requests. These logs can be used to identify failure points, query all requests made in a call (using Correlation ID or Server Call ID) or query all requests made by a specific service application in the call (using PArticipant ID).
 
 ### Usage logs schema
 
