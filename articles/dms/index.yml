@@ -39,11 +39,11 @@ landingContent:
           - text: Introduction to Azure Data Migration Service
             url: https://www.microsoft.com/videoplayer/embed/RE2IqVu
           - text: Cloud Migration Strategies and Phases in Migration Journey
-            url: https://youtu.be/68z4XZTpSIA
+            url: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=migrating-to-sql-cloud-migration-strategies-and-phases-in-migration-journey-ep-1
           - text: Discover and Assess SQL Server Data Estate Migrating to Azure SQL
-            url: https://youtu.be/0uek-0cG6bo
+            url: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=migrating-to-sql-discover-and-assess-sql-server-data-estate-migrating-to-azure-sql-ep2
           - text: Get Started with the New Database Migration Guides to Migrate Your Databases to Azure
-            url: https://youtu.be/jd9IqV8HGI4
+            url: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=get-started-with-the-new-database-migration-guides-to-migrate-your-databases-to-azure
           
       - linkListType: whats-new
         links:
@@ -77,7 +77,9 @@ landingContent:
       - linkListType: video
         links:
           - text: How to migrate SQL Server to Azure SQL Database offline using Azure Data Studio
-            url: https://youtu.be/fugG63rRWp8
+            url: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=how-to-migrate-sql-server-to-azure-sql-database-offline-using-azure-data-studio-data-exposed
+          - text: Assess, get recommendations, & migrate SQL Server to Azure using Azure Data Studio 
+            url: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=assess-get-recommendations-migrate-sql-server-to-azure-using-azure-data-studio
 # Card 3
   - title: Migrate open-source databases to Azure
     linkLists:
