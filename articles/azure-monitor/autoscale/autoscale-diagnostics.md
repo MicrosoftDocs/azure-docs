@@ -277,8 +277,8 @@ Logged when autoscale attempts to scale in or out.
     "eventName": "AutoscaleAction",
     ...
     "eventProperties": "{
-        "Description": "The autoscale engine attempting to scale resource '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/    resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan' from 2 instances count to 1 instances     count.",
-        "ResourceName": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/ed-rg-001/providers/Microsoft.Web/    serverFarms/ScaleableAppServicePlan",
+        "Description": "The autoscale engine attempting to scale resource '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan' from 2 instances count to 1 instancescount.",
+        "ResourceName": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan",
         "OldInstancesCount": 2,
         "NewInstancesCount": 1,
         "ActiveAutoscaleProfile": {
@@ -293,7 +293,7 @@ Logged when autoscale attempts to scale in or out.
                     "MetricTrigger": {
                         "Name": "CpuPercentage",
                         "Namespace": "microsoft.web/serverfarms",
-                        "Resource": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.    Web/serverFarms/ScaleableAppServicePlan",
+                        "Resource": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan",
                         "ResourceLocation": "West Central US",
                         "TimeGrain": "PT1M",
                         "Statistic": "Average",
@@ -301,7 +301,7 @@ Logged when autoscale attempts to scale in or out.
                         "TimeAggregation": "Average",
                         "Operator": "GreaterThan",
                         "Threshold": 40.0,
-                        "Source": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.    Web/serverFarms/ScaleableAppServicePlan",
+                        "Source": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan",
                         "MetricType": "MDM",
                         "Dimensions": [],
                         "DividePerInstance": false
@@ -317,7 +317,7 @@ Logged when autoscale attempts to scale in or out.
                     "MetricTrigger": {
                         "Name": "CpuPercentage",
                         "Namespace": "microsoft.web/serverfarms",
-                        "Resource": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.    Web/serverFarms/ScaleableAppServicePlan",
+                        "Resource": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan",
                         "ResourceLocation": "West Central US",
                         "TimeGrain": "PT1M",
                         "Statistic": "Average",
@@ -325,7 +325,7 @@ Logged when autoscale attempts to scale in or out.
                         "TimeAggregation": "Average",
                         "Operator": "LessThanOrEqual",
                         "Threshold": 30.0,
-                        "Source": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.    Web/serverFarms/ScaleableAppServicePlan",
+                        "Source": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/ed-rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan",
                         "MetricType": "MDM",
                         "Dimensions": [],
                         "DividePerInstance": false
@@ -357,7 +357,7 @@ Logged following a scale event.
     "eventCategory": "Autoscale",
     "eventName": "GetOperationStatusResult",
     ...
-    "eventProperties": "{\"OldInstancesCount\":3,\"NewInstancesCount\":2}",
+    "eventProperties": "{"OldInstancesCount":3,"NewInstancesCount":2}",
     ...
     "activityStatusValue": "Succeeded"
 }
@@ -373,7 +373,8 @@ Logged when autoscale can't determine the value of the metric used in the scale 
     "eventCategory": "Autoscale",
     "eventName": "MetricFailure",
     ...
-    "eventProperties": "{\"Notes\":\"To ensure service availability, Autoscale will scale out the resource to the default capacity if it is greater than the current capacity\"}",
+    "eventProperties": "{
+        "Notes":"To ensure service availability, Autoscale will scale out the resource to the default capacity if it is greater than the current capacity}",
     ...
     "activityStatusValue": "Failed"
 }
@@ -395,20 +396,21 @@ Logged when autoscale can once again determine the value of the metric used in t
 ### Predictive Metric Failure
 
 Logged when autoscale can't calculate predicted scale events due to the metric being unavailable.
-
 ```JSON
-"Properties":{
+"Properties": {
     "eventCategory": "Autoscale",
     "eventName": "PredictiveMetricFailure",
     ...
-    "eventProperties": "{\"Notes\":\"To ensure service availability, \Autoscale will scale out the resource to the default capacity if it is greater than the current capacity\"}",
+    "eventProperties": "{
+        "Notes": "To ensure service availability, Autoscale will scale out the resource to the default capacity if it is greater than the current capacity"
+    }",
    ...
     "activityStatusValue": "Failed"
-} 
+}
 ```
 ### Flapping Occurred
 
-Logged when autoscale detects a flapping and scales differently to avoid it.
+Logged when autoscale detects flapping could occur, and scales differently to avoid it.
 
 ```JSON
 "Properties":{
@@ -417,11 +419,11 @@ Logged when autoscale detects a flapping and scales differently to avoid it.
     ...
     "eventProperties": 
         "{"Description":"Scale down will occur with updated instance count to avoid flapping. 
-         Resource: '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/rg-001/providers/Microsoft.Web/serverFarms/      ScaleableAppServicePlan'.
+         Resource: '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan'.
          Current instance count: '6', 
          Intended new instance count: '1'.
          Actual new instance count: '4'",
-        "ResourceName":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/rg-001/providers/Microsoft.Web/serverFarms/    ScaleableAppServicePlan",
+        "ResourceName":"/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan",
         "OldInstancesCount":6,
         "NewInstancesCount":4,
         "ActiveAutoscaleProfile":{"Name":"Auto created scale condition",
@@ -431,3 +433,82 @@ Logged when autoscale detects a flapping and scales differently to avoid it.
     "activityStatusValue": "Succeeded"
 }
 ```
+
+### Flapping
+
+Logged when autoscale detects flapping could occur, and defers scaling in to avoid it.
+
+```JSON
+"Properties": {
+    "eventCategory": "Autoscale",
+    "eventName": "Flapping",
+    "Description": "{"Cannot scale down due to flapping observed. Resource: '/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/rg-001/providers/Microsoft.Compute/virtualMachineScaleSets/mac2'. Current instance count: '2', Intended new instance count '1'",
+    "ResourceName": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourcegroups/rg-001/providers/Microsoft.Compute/virtualMachineScaleSets/mac2",
+    "OldInstancesCount": "2",
+    "NewInstancesCount": "2",
+    "ActiveAutoscaleProfile": "ActiveAutoscaleProfile": {
+        "Name": "Auto created default scale condition",
+        "Capacity": {
+            "Minimum": "1",
+            "Maximum": "2",
+            "Default": "1"
+        },
+        "Rules": [
+            {
+                "MetricTrigger": {
+                    "Name": "StorageSuccesses",
+                    "Namespace": "monitoringbackgroundjob",
+                    "Resource": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/rg-001/providers/microsoft.monitor/accounts/MACAzureInsightsPROD",
+                    "ResourceLocation": "EastUS2",
+                    "TimeGrain": "PT1M",
+                    "Statistic": "Average",
+                    "TimeWindow": "PT10M",
+                    "TimeAggregation": "Average",
+                    "Operator": "LessThan",
+                    "Threshold": 600.0,
+                    "Source": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/rg-001/providers/microsoft.monitor/accounts/MACAzureInsightsPROD",
+                    "MetricType": "MDM",
+                    "Dimensions": [],
+                    "DividePerInstance": false
+                },
+                "ScaleAction": {
+                    "Direction": "Decrease",
+                    "Type": "ChangeCount",
+                    "Value": "1",
+                    "Cooldown": "PT5M"
+                }
+            },
+            {
+                "MetricTrigger": {
+                    "Name": "TimeToStartupInMs",
+                    "Namespace": "armrpclient",
+                    "Resource": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/rg-123/providers/microsoft.monitor/accounts/MACMetricsRP",
+                    "ResourceLocation": "eastus2",
+                    "TimeGrain": "PT1M",
+                    "Statistic": "Percentile99th",
+                    "TimeWindow": "PT10M",
+                    "TimeAggregation": "Average",
+                    "Operator": "GreaterThan",
+                    "Threshold": 70.0,
+                    "Source": "/subscriptions/d1234567-9876-a1b2-a2b1-123a567b9f8767/resourceGroups/rg-123/providers/microsoft.monitor/accounts/MACMetricsRP",
+                    "MetricType": "MDM",
+                    "Dimensions": [],
+                    "DividePerInstance": false
+                },
+                "ScaleAction": {
+                    "Direction": "Increase",
+                    "Type": "ChangeCount",
+                    "Value": "1",
+                    "Cooldown": "PT5M"
+                }
+            }
+        ]
+    }"
+}...
+```
+
+## Next steps
+
+* [Troubleshooting Autoscale](./autoscale-troubleshoot.md)
+* [Autoscale Flapping](./autoscale-flapping.md)
+* [Autoscale settings](./autoscale-understanding-settings.md)
