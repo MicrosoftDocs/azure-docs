@@ -320,7 +320,7 @@ Locate the installer files for the server’s operating system using the followi
 
    This field includes information unique to the source machine. This information is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file). Learn more about [credential less discovery](#credential-less-discovery-in-modernized-architecture).
 
-   ![Image showing source machine string](./media/vmware-physical-mobility-service-overview-modernized/source-machine-string.png)
+   ![Screenshot showing source machine string.](./media/vmware-physical-mobility-service-overview-modernized/source-machine-string.png)
 
 6.	Provide the path of **Mobility Service configuration file** in the Unified Agent configurator.
 7.	Click **Register**.
