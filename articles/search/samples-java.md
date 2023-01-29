@@ -42,7 +42,7 @@ Code samples from the Cognitive Search team are located in [**Azure-Samples/azur
 
 | Samples | Article | 
 |---------|-------------|
-| [search-java-getting-started](https://github.com/Azure-Samples/azure-search-java-samples/tree/main/search-java-getting-started) | Source code for [Quickstart: Create a search index in Java and REST](search-get-started-java.md). |
+| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/main/quickstart) | Source code for [Quickstart: Create a search index in Java and REST](search-get-started-java.md). |
 
 > [!TIP]
 > Try the [Samples browser](/samples/browse/?languages=java&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
