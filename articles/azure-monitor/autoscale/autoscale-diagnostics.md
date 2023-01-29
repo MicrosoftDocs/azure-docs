@@ -19,11 +19,10 @@ Autoscale has two log categories and a set of metrics that can be enabled via th
 
 
 The two categories are 
-* [Autoscale Evaluations](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/autoscaleevaluationslog) containing log data relating to rule evaluation.
+* [Autoscale Evaluations](https://learn.microsoft.com/azure/azure-monitor/reference/tables/autoscaleevaluationslog) containing log data relating to rule evaluation.
 * [Autoscale Scale Actions](https://learn.microsoft.com/azure/azure-monitor/reference/tables/autoscalescaleactionslog) log data relating to each scale event. 
 
-
-Information about Autoscale Metrics can be found in the [Supported metrics](../essentials/metrics-supported#microsoftinsightsautoscalesettings) reference.
+Information about Autoscale Metrics can be found in the [Supported metrics](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) reference.
 
 Both the logs and metrics can be sent to various destinations including:
 * Log Analytics workspaces
@@ -31,7 +30,7 @@ Both the logs and metrics can be sent to various destinations including:
 * Event hubs
 * Partner solutions
 
-For more information on diagnostics, see [Diagnostic settings in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+For more information on diagnostics, see [Diagnostic settings in Azure Monitor](../essentials/diagnostic-settings.md?tabs=portal)
 
 ## Run history
 
