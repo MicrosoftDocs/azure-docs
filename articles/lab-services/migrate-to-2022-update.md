@@ -14,8 +14,7 @@ This article applies to users of Azure Lab Services with labs created with a lab
 
 In this article, you'll learn the sequence to getting started using the features and resources made available beginning in the August 2022 update. The important update to Azure Lab Services August 2022 includes enhancements that boost performance, reliability, and scalability. It also gives you more flexibility in the way you manage labs, use capacity, and track costs. 
 
->[!Important]
-> While you don't have to migrate to the August 2022 update of Azure Lab Services yet, we do recommend you begin using the update for all new labs.
+[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
 ## What's different in the update?
 
@@ -24,7 +23,7 @@ A significant part of the August 2022 update is centered around the fact that th
 If you're moving from the current version of Azure Lab Services to the August 2022 Update, there's likely to be a time when you're using both your existing lab accounts and using the newer lab plans. And that's ok as both are still supported, can coexist in your Azure subscription, and can even share the same external resources.
 
 For a full description of the update, read the article, [What's new in Lab Services?](./lab-services-whats-new.md#lab-plans-replace-lab-accounts).
-## Transition path at-a-glace
+## Transition path at-a-glance
 
 There is a bit of a mental shift to transitioning to the Azure Lab Services Update from August 2022. 
 

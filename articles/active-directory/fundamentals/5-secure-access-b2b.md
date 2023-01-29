@@ -71,7 +71,7 @@ You can use an allowlist or blocklist to from specific organizations. You can us
 Learn more: [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md) 
 
 > [!IMPORTANT]
-> These lists don't apply to users in your directory. By default, they don't apply to OneDrive for Business and SharePoint allowlist or blocklists. These lists are separate, but you can enable [SharePoint-OneDrive B2B integration](/sharepoint/sharepoint-azureb2b-integration.md).  
+> These lists don't apply to users in your directory. By default, they don't apply to OneDrive for Business and SharePoint allowlist or blocklists. These lists are separate, but you can enable [SharePoint-OneDrive B2B integration](/sharepoint/sharepoint-azureb2b-integration).  
 
 Some organizations have a blocklist of bad-actor domains from a managed security provider. For example, if the organization does business with Contoso and uses a com domain, an unrelated organization can use the org domain, and attempt a phishing attack. 
 
@@ -212,7 +212,7 @@ By default, Teams allows external access. The organization can communicate with
 Sharing through SharePoint and OneDrive adds users not in the Entitlement Management process. 
 
 * [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
-* [Block OneDrive use from Office](/office365/troubleshoot/group-policy/block-onedrive-use-from-office.md) 
+* [Block OneDrive use from Office](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) 
 
 ### Documents in email
 

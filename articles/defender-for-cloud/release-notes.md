@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 01/10/2023
+ms.date: 01/29/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -14,7 +14,7 @@ This page is updated frequently, so revisit it often.
 To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
 > [!TIP]
-> If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+> If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
 ## January 2023
 
@@ -22,6 +22,8 @@ Updates in January include:
 
 - [New version of the recommendation to find missing system updates (Preview)](#new-version-of-the-recommendation-to-find-missing-system-updates-preview)
 - [Cleanup of deleted Azure Arc machines in connected AWS and GCP accounts](#cleanup-of-deleted-azure-arc-machines-in-connected-aws-and-gcp-accounts)
+- [Allow continuous export to Event Hub behind a firewall](#allow-continuous-export-to-event-hubs-behind-a-firewall)
+- [The name of the Secure score control Protect your applications with Azure advanced networking solutions has been changed](#the-name-of-the-secure-score-control-protect-your-applications-with-azure-advanced-networking-solutions-has-been-changed)
 - [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports has been deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-has-been-deprecated)
 
 ### New version of the recommendation to find missing system updates (Preview)
@@ -42,6 +44,20 @@ The existing "System updates should be installed on your machines" recommendatio
 A machine connected to an AWS and GCP account and covered by Defender for Servers or Defender for SQL on machines is represented in Defender for Cloud as an Azure Arc machine. Until now, that machine wasn't deleted from the inventory when the machine was deleted from the AWS or GCP account. This leads to unnecessary Azure Arc resources left in Defender for Cloud that represent deleted machines.
 
 Defender for Cloud will now automatically delete Azure Arc machines when those machines are deleted in connected AWS or GCP account.
+
+### Allow continuous export to Event Hubs behind a firewall
+
+You can now enable the continuous export of alerts and recommendations, as a trusted service to Event Hubs that are protected by an Azure firewall.
+
+You can enable this as the alerts or recommendations are generated or you can define a schedule to send periodic snapshots of all of the new data.
+
+Learn how to enable [continuous export to an Event Hub behind an Azure firewall](continuous-export.md#continuously-export-to-an-event-hub-behind-a-firewall).
+
+### The name of the Secure score control Protect your applications with Azure advanced networking solutions has been changed
+
+The secure score control, `Protect your applications with Azure advanced networking solutions` has been changed to `Protect applications against DDoS attacks`.
+
+The updated name is reflected on Azure Resource Graph (ARG), Secure Score Controls API and the `Download CSV report`.
 
 ### The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports has been deprecated 
 

@@ -161,7 +161,7 @@
     "groups": {
       "grp-iot-edge": {
         "dest": "destiotedge",
-        "moniker_range": ">=iotedge-2018-06"
+        "moniker_range": ">=iotedge-1.4"
       },
       "grp-form-recognizer": {
         "dest": "destformrecognizer",
@@ -249,6 +249,23 @@
       ]
     },
     "fileMetadata": {
+      "adobe-target": {
+        "articles/azure-functions/*": true,
+        "articles/container-apps/*": true,
+        "articles/cosmos-db/*": true,
+        "articles/app-service/*": true,
+        "articles/static-web-apps/*": true,
+        "articles/aks/*": true,
+        "articles/kubernetes-fleet/*": true,
+        "articles/api-management/*": true,
+        "articles/messaging-services/*": true,
+        "articles/defender-for-cloud/*": true,
+        "articles/azure-monitor/*": true,
+        "articles/key-vault/*": true
+      },
+      "archive_url": {
+        "articles/iot-edge/*": "/previous-versions/azure/iot-edge/"
+      },
       "author": {
         "articles/advisor/*.md": "ikhapova",
         "articles/aks/**/*.md": "MGoedtel",
@@ -294,8 +311,8 @@
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "davidsmatlak",
         "articles/azure-vmware/**/*.md": "jjaygbay1",
-        "articles/backup/**/*.md": "v-amallick",
-        "articles/backup/**/*.yml": "v-amallick",
+        "articles/backup/**/*.md": "jyothisuri",
+        "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
         "articles/batch/**/*.md": "harperche",
         "articles/blockchain/**/*.md": "PatAltimore",
@@ -360,6 +377,8 @@
         "articles/open-datasets/**/*.yml": "samuel100",
         "articles/openshift/**/*.md": "johnmarco",
         "articles/openshift/**/*.yml": "johnmarco",
+        "articles/partner-solutions/**/*.md": "flang-msft",
+        "articles/partner-solutions/**/*.yml": "flang-msft",
         "articles/quotas/**/*.md": "JnHs",
         "articles/quotas/**/*.yml": "JnHs",
         "articles/service-bus-messaging/*.md": "spelluru",
@@ -672,8 +691,8 @@
         "articles/azure-resource-manager/bicep/**/*.md": "jgao",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "davidsmatlak",
         "articles/azure-vmware/**/*.md": "jacobjaygbay",
-        "articles/backup/**/*.md": "v-amallick",
-        "articles/backup/**/*.yml": "v-amallick",
+        "articles/backup/**/*.md": "jsuri",
+        "articles/backup/**/*.yml": "jyothisuri",
         "articles/baremetal-infrastructure/**/*.md": "kalyank",
         "articles/batch/**/*.md": "prkannap",
         "articles/blockchain/**/*.md": "patricka",
@@ -738,6 +757,8 @@
         "articles/open-datasets/**/*.yml": "samkemp",
         "articles/openshift/**/*.md": "johnmarc",
         "articles/openshift/**/*.yml": "johnmarc",
+        "articles/partner-solutions/**/*.md": "franlanglois",
+        "articles/partner-solutions/**/*.yml": "franlanglois",
         "articles/quotas/**/*.md": "jenhayes",
         "articles/quotas/**/*.yml": "jenhayes",
         "articles/search/*.md": "heidist",
@@ -802,7 +823,7 @@
       },
       "ms.service": {
         "articles/advisor/**/*.md": "advisor",
-        "articles/aks/**/*.md": "container-service",
+        "articles/aks/**/*.md": "azure-kubernetes-service",
         "articles/ansible/**/*.md": "ansible",
         "articles/app-service/**/*.md": "app-service",
         "articles/app-service-mobile/**/*.md": "app-service-mobile",
@@ -901,6 +922,8 @@
         "articles/partner-solutions/logzio/**/*.md": "logzio",
         "articles/partner-solutions/dynatrace/**/*.md": "dynatrace",
         "articles/partner-solutions/nginx/**/*.md": "nginx",
+        "articles/partner-solutions/qumulo/**/*.md": "qumolo",
+        "articles/partner-solutions/qumulo/**/*.md": "new-relic",
         "articles/cognitive-services/Anomaly-Detector/**/*.md": "anomaly-detector",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "bing-autosuggest",
         "articles/cognitive-services/Bing-Custom-Search/**/*.md": "bing-custom-search",
@@ -942,7 +965,7 @@
         "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
+        "articles/iot-edge/**/*.md": ">=iotedge-1.4",
         "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0"
       },
       "recommendations": {

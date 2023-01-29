@@ -544,6 +544,8 @@
         href: competencyiq-tutorial.md
       - name: Compliance ELF
         href: complianceelf-tutorial.md
+      - name: Compliance Genie
+        href: compliance-genie-tutorial.md
       - name: Concur
         href: concur-tutorial.md
       - name: SAP Concur Travel and Expense
@@ -664,6 +666,8 @@
         href: degreed-tutorial.md
       - name: Deputy
         href: deputy-tutorial.md
+      - name: Descartes
+        href: descartes-tutorial.md
       - name: desknet's NEO
         href: desknets-neo-tutorial.md
       - name: Deskradar
@@ -913,8 +917,6 @@
         href: firmex-vdr-tutorial.md
       - name: FirmPlay - Employee Advocacy for Recruiting
         href: firmplay-tutorial.md
-      - name: Firstbird
-        href: firstbird-tutorial.md
       - name: FiscalNote
         href: fiscalnote-tutorial.md
       - name: Five9 Plus Adapter (CTI, Contact Center Agents)
@@ -1925,6 +1927,8 @@
         href: r-and-d-tax-credit-services-tutorial.md
       - name: Rackspace SSO
         href: rackspacesso-tutorial.md
+      - name: Radancy's Employee Referrals
+        href: radancys-employee-referrals-tutorial.md
       - name: Raketa
         href: raketa-tutorial.md
       - name: Rally Software
@@ -1957,6 +1961,8 @@
         href: rescana-tutorial.md
       - name: Resource Central – SAML SSO for Meeting Room Booking System
         href: resource-central-tutorial.md
+      - name: Respondent
+        href: respondent-tutorial.md
       - name: Retail Zipline
         href: retail-zipline-tutorial.md
       - name: RetrieverMediaDatabase
@@ -2331,6 +2337,8 @@
         href: talent-palette-tutorial.md
       - name: Talentsoft
         href: talentsoft-tutorial.md
+      - name: Talon
+        href: talon-tutorial.md
       - name: Tango Analytics
         href: tangoanalytics-tutorial.md
       - name: Tangoe Command Premium Mobile
@@ -2605,6 +2613,8 @@
         href: webce-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
+      - name: WebTMA
+        href: webtma-tutorial.md
       - name: Wedo
         href: wedo-tutorial.md
       - name: Weekdone
@@ -3176,6 +3186,8 @@
         href: starleaf-provisioning-tutorial.md
       - name: Storegate
         href: storegate-provisioning-tutorial.md
+      - name: SurveyMonkey Enterprise
+        href: surveymonkey-enterprise-provisioning-tutorial.md
       - name: Swit
         href: swit-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
