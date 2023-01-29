@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/27/2023
+ms.date: 01/29/2023
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -68,16 +68,32 @@ AD FS adapter will require number matching on supported versions of Windows Serv
 
 ### NPS extension
 
-Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). Until February 27, 2023, users are asked to enter a One-Time Passcode (OTP) for push notifications beginning with NPS extension 1.2.2131.2 _only_ if number matching is enabled. After February 27, 2023, number matching will be enabled by default and all users with push notifications beginning with NPS extension 1.2.2131.2 will be asked to enter an OTP.
+The latest NPS extension doesn't support number matching, but it does support One-Time Passwords (OTP) methods such as SMS, the OTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
 
-The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in Microsoft Authenticator, other software tokens, and so on. For OTP to work, the VPN needs to use PAP protocol. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
+After Feb 27, 2023, when number matching is enabled for all users, anyone who performs a VPN connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with an OTP method instead. No other configuration is required on the NPS Server.
 
->[!NOTE]
->If the user doesn't have an OTP method registered, they'll continue to get the **Approve**/**Deny** experience. A user who can't use an OTP will always see the **Approve**/**Deny** experience with push notifications triggered by a legacy NPS extension.
+Users must have an OTP authentication method registered to see this behavior. Users who don't have an OTP method registered will continue to see **Approve**/**Deny** options. 
 
-Earlier versions of the NPS extension beginning with 1.0.1.40 also support number matching, but you need to create a registry key that overrides push notifications to ask a user to enter an OTP. If you don't create the registry key, or you run a version prior to 1.0.1.40, users who are enabled for number matching will be prompted to **Approve**/**Deny**.
+For OTP to work, the VPN needs to use PAP protocol. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
+ 
+>[!IMPORTANT]
+>Organizations using a RADIUS protocol other than PAP will see user VPN authorization failing, with these events appearing in the **AuthZOptCh** log of the NPS Extension server in Event Viewer:<br>
+>NPS Extension for Azure MFA:  CID: 2f6fa289-6243-4aa3-b317-907ac2324ae8 : Challenge requested in Authentication Ext for User npstesting_app with state 22088b7d-6cb9-45e1-a99c-5de60240a991
 
-To create the registry key that overrides push notifications:
+Prior to the release of NPS extension version 1.2.2216.1 after February 27, 2023, organizations that run any of these earlier versions of NPS extension can modify the registry to require users to enter an OTP:
+
+- 1.2.2131.2
+- 1.2.1959.1
+- 1.2.1916.2
+- 1.1.1892.2
+- 1.0.1850.1
+- 1.0.1.41
+- 1.0.1.40
+
+>[!NOTE] 
+>NPS extensions versions earlier than 1.0.1.40 don't support OTP enforced by number matching. These versions will continue to present users with **Approve**/**Deny**.
+
+The NPS Server where the NPS Extension is installed must be configured to use PAP protocol. To create the registry key to override the **Approve**/**Deny** options in push notifications and require an OTP instead:
 
 1. On the NPS Server, open the Registry Editor.
 1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa.
@@ -86,7 +102,16 @@ To create the registry key that overrides push notifications:
    Value = TRUE
 1. Restart the NPS Service. 
 
-If you're using Remote Desktop Gateway and the user is registered for OTP code along with Microsoft Authenticator push notifications, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to push notifications with Microsoft Authenticator.
+In addition:
+
+- Users who perform OTP must have either Microsoft Authenticator registered as an authentication method, or some other hardware or software OATH token. A user who can't use an OTP method will always see **Approve**/**Deny** options with push notifications if they use a version of NPS extension earlier than 1.2.2216.1.
+- Users must be [enabled for number matching](#enable-number-matching-in-the-portal). 
+- The VPN server must be configured to use PAP protocol. 
+
+  >[!NOTE] 
+  >MSCHAPv2 doesn't support One-Time Passwords. 
+
+If your organization uses Remote Desktop Gateway and the user is registered for OTP code along with Microsoft Authenticator push notifications, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Microsoft Authenticator.
 
 ### Apple Watch supported for Microsoft Authenticator
 
