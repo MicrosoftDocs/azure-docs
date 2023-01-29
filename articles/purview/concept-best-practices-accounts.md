@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 01/27/2023
+ms.date: 01/28/2023
 ---
 
 # Microsoft Purview accounts architectures and best practices  
@@ -88,7 +88,7 @@ Microsoft Purview is an Azure platform as a service solution. You can deploy a M
 
 If Microsoft Purview is not available in your primary Azure region, consider the following factors when choosing a secondary region to deploy your Microsoft Purview account:
 
-- Review the latency between your primary Azure region where data sources are deployed and your secondary Azure region, where Microsoft Purview account will be deployed. For more information, see [Azure network round-trip latency statistics](https://learn.microsoft.com/azure/networking/azure-network-latency).
+- Review the latency between your primary Azure region where data sources are deployed and your secondary Azure region, where Microsoft Purview account will be deployed. For more information, see [Azure network round-trip latency statistics](../networking/azure-network-latency.md).
 
 - Review your data residency requirements. When you scan data sources in the Microsoft Purview Data Map, information related to your metadata is ingested and stored inside your data map in the Azure region where your Microsoft Purview account is deployed. For more information see, [Where is metadata stored](concept-best-practices-security.md#where-is-metadata-stored)
 
