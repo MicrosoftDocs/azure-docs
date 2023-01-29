@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: ignite-2022
 ms.author: benmansheim
 author: bmansheim
-ms.date: 01/03/2023
+ms.date: 01/29/2023
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
@@ -18,15 +18,14 @@ Within Microsoft Defender for Cloud, you can access the built-in workbooks to tr
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="Secure score over time workbook.":::
 
-## Availability
+For pricing check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
-| Aspect | Details |
-|---|:--|
-| Release state: | General availability (GA) |
-| Pricing: | For pricing check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). |
-| Required roles and permissions: | To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
+## Prerequisites
+
+**Required roles and permissions**: To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group
+
+**Clouds**: :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) 
 
 ## Workbooks gallery in Microsoft Defender for Cloud
 
@@ -177,7 +176,10 @@ You can see the details for that alert with the Open Alert View button.
 
 This workbook provides a customizable canvas for data analysis and the creation of rich visual reports. The new DevOps Security workbook in Microsoft Defender for Cloud provides you with a unified interactive experience enabling you to quickly gain visibility and insights into your DevOps security posture in coordination with the newest MDC service Defender for DevOps. The DevOps Security workbook provides you with a customizable foundation that helps you visualize the state of your DevOps posture for the connectors you have configured. You can investigate credential exposure, including types of credentials and repo locations. Then you can do the same for code, dependencies, and hardening.
 
-> [!NOTE] You must have a [Github connector](quickstart-onboard-github.md) or a [DevOps connector](quickstart-onboard-devops.md), connected to your environment in order to utilize this workbook
+:::image type="content" source="media/custom-dashboards-azure-workbooks/devops-workbook.png" alt-text="A screenshot that shows a sample results page once you have selected the DevOps workbook.":::
+
+> [!NOTE] 
+> You must have a [Github connector](quickstart-onboard-github.md) or a [DevOps connector](quickstart-onboard-devops.md), connected to your environment in order to utilize this workbook
 
 **To deploy the workbook**:
 
@@ -185,7 +187,9 @@ This workbook provides a customizable canvas for data analysis and the creation 
 
 1. Navigate to **Microsoft Defender for Cloud** > **Workbooks**.
 
-1. Select 
+1. Select the **DevOps Security (Preview)** workbook.
+
+1. 
 
 
 
