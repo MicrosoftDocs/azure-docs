@@ -5,7 +5,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: MeirMen
 ms.topic: how-to 
-ms.date: 11/22/2022
+ms.date: 01/27/2023
 
 #customer-intent: As an IT manager, I want to understand the steps required to migrate my Splunk deployment to Azure Monitor Logs so that I can decide whether to migrate and plan and execute my migration.
 
@@ -144,6 +144,7 @@ To export your historical data from Splunk:
 
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
 - [Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).
+- Learn more about roles and permissions in Sentinel [Roles and permissions in Microsoft Sentinel](../../sentinel/roles.md).
 - Take the [Analyze logs in Azure Monitor with KQL training module](/training/modules/analyze-logs-with-kql/).
 
 
