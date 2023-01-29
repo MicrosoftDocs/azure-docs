@@ -12,7 +12,7 @@ This article describes the **YS-techsystems YS-FIT2** appliance deployment and i
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L100|
-|**Performance** |  Max bandwidth: 10Mbp/s<br>Max devices: 100|
+|**Performance** |  Max bandwidth: 10Mbps<br>Max devices: 100|
 |**Physical specifications** | Mounting: DIN/VESA<br>Ports: 2x RJ45|
 |**Status** | Supported; Available as pre-configured |
 
@@ -50,7 +50,7 @@ The following image shows a view of the YS-FIT2 back panel:
 This section describes how to install OT sensor software on the YS-FIT2 appliance. Before you install the OT sensor software, you must adjust the appliance's BIOS configuration.
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
 ### Configure the YS-FIT2 BIOS

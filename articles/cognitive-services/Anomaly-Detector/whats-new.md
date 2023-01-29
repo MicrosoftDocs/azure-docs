@@ -15,6 +15,9 @@ We've also added links to some user-generated content. Those items will be marke
 
 ## Release notes
 
+### Jan 2023
+* Multivariate Anomaly Detection will begin charging as of January 10th, 2023. For pricing details see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).
+
 ### Dec 2022
 * Multivariate Anomaly Detection SDK is updated to match with GA API for four languages.
 

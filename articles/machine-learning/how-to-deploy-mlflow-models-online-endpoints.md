@@ -76,13 +76,13 @@ Additionally, you will need to:
     
 # [Python (MLflow SDK)](#tab/mlflow)
 
-- Install the Mlflow SDK package `mlflow` and the Azure Machine Learning plug-in for MLflow `azureml-mlflow`.
+- Install the MLflow SDK package `mlflow` and the Azure Machine Learning plug-in for MLflow `azureml-mlflow`.
 
     ```bash
     pip install mlflow azureml-mlflow
     ```
 
-- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
+- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md) for more details.
 
 # [Studio](#tab/studio)
 
@@ -410,13 +410,11 @@ version = registered_model.version
 
         :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen":::
 
-1. Assign all the traffic to the deployment
-    
-    So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
+1. Assign all the traffic to the deployment: So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -446,7 +444,7 @@ version = registered_model.version
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -551,7 +549,19 @@ You will typically select this workflow when:
 
 Use the following steps to deploy an MLflow model with a custom scoring script.
 
-1. Create a scoring script:
+1. Identify the folder where your MLflow model is placed.
+
+    a. Go to [Azure Machine Learning portal](https://ml.azure.com).
+
+    b. Go to the section __Models__.
+
+    c. Select the model you are trying to deploy and click on the tab __Artifacts__.
+
+    d. Take note of the folder that is displayed. This folder was indicated when the model was registered.
+
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" alt-text="Screenshot showing the folder where the model artifacts are placed.":::
+
+1. Create a scoring script. Notice how the folder name `model` you identified before has been included in the `init()` function.
 
     __score.py__
 
@@ -597,7 +607,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     __conda.yml__
 
-    ```yml
+    ```yaml
     channels:
     - conda-forge
     dependencies:
@@ -624,7 +634,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
-    ```python
+    ```pythonS
     environment = Environment(
         conda_file="sklearn-diabetes/environment/conda.yml",
         image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
@@ -656,7 +666,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     
     Create a deployment configuration file:
     
-    ```yml
+    ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
     name: sklearn-diabetes-custom
     endpoint_name: my-endpoint

@@ -21,12 +21,12 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | [Authentication Event](authentication-normalization-schema.md) | 0.1.2 | Preview |
 | [DNS Activity](normalization-schema-dns.md) | 0.1.6 | Preview |
 | [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
-| [File Activity](file-event-normalization-schema.md) | 0.2 | Preview |
+| [File Activity](normalization-schema-file-event.md) | 0.2 | Preview |
 | [Network Session](normalization-schema.md) | 0.2.5 | Preview |
 | [Process Event](process-events-normalization-schema.md) | 0.1.4 | Preview |
 | [Registry Event](registry-event-normalization-schema.md) | 0.1.2 | Preview |
 | [User Management](user-management-normalization-schema.md) | 0.1 | Preview |
-| [Web Session](web-normalization-schema.md) | 0.2.5 | Preview |
+| [Web Session](normalization-schema-web.md) | 0.2.5 | Preview |
 
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other`. For more information, see [The Device entity](#the-device-entity). |
 |<a name="username"></a>**Username** | String | A valid username in one of the supported [types](#usernametype). For more information, see [The User entity](#the-user-entity). |
 |<a name="usernametype"></a>**UsernameType** | Enumerated | The type of username stored in username fields. For more information and list of supported values, see [The User entity](#the-user-entity). |
-|<a name="useridtype"></a>**UserIdType** | Enumerated | The type of the ID stored in user ID fields. <br><br>Supported values are `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. For more information, see [The User entity](#the-user-entity).  |
+|<a name="useridtype"></a>**UserIdType** | Enumerated | The type of the ID stored in user ID fields. <br><br>Supported values are `SID`, `UIS`, `AADID`, `OktaId`, `AWSId`, and `PUID`. For more information, see [The User entity](#the-user-entity).  |
 |<a name="usertype"></a>**UserType** | Enumerated | The type of a user. For more information and list of allowed values, see [The User entity](#the-user-entity).  |
 |<a name="apptype"></a>**AppType** | Enumerated | The type of an application. Supported values include: `Process`<br>, `Service`,  `Resource`, `URL`, `SaaS application`, `CSP`, and `Other`. |
 |**Country**     |   String      |    A string using [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html), according to the following priority: <br><br> - Alpha-2 codes, such as `US` for the United States. <br> - Alpha-3 codes, such as `USA` for the United States. <br>- Short name.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
@@ -106,7 +106,7 @@ Users are central to activities reported by events. The fields listed in this se
 | <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, an Azure AD tenant domain name. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
 | <a name="userscopeid"></a>**UserScopeId** | Optional | string | The ID of the scope in which [UserId](#userid) and [Username](#username) are defined. For example, an Azure AD tenant directory ID. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
 | <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
-| **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId** | Optional | String | Fields used to store specific user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). Populate the relevant specific ID field, in addition to [UserId](#userid), even if the event has only one ID. |
+| **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId**, **UserPuid** | Optional | String | Fields used to store specific user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). Populate the relevant specific ID field, in addition to [UserId](#userid), even if the event has only one ID. |
 | **UserAADTenant**, **UserAWSAccount** | Optional | String | Fields used to store specific scopes. Use the [UserScope](#userscope) field for the scope associated with the ID stored in the [UserId](#userid) field.  Populate the relevant specific scope field, in addition to [UserScope](#userscope), even if the event has only one ID. | 
 
 The allowed values for a user ID type are:
@@ -118,6 +118,7 @@ The allowed values for a user ID type are:
 | **AADID**| An Azure Active Directory user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
 | **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
 | **AWSId** | An AWS user ID. | `72643944673` |
+| **PUID** | A Microsoft 365 User ID. | `10032001582F435C` |
 
 #### The user name
 

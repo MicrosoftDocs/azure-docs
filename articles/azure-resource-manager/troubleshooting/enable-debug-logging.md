@@ -3,7 +3,7 @@ title: Enable debug logging
 description: Describes how to enable debug logging to troubleshoot Azure resources deployed with Bicep files or Azure Resource Manager templates (ARM templates).
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 12/30/2022
+ms.date: 01/03/2023
 ms.custom: devx-track-azurepowershell
 ---
 

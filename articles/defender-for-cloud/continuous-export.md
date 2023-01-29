@@ -4,7 +4,7 @@ description: Learn how to configure continuous export of security alerts and rec
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 01/19/2023
 ---
 # Continuously export Microsoft Defender for Cloud data
 
@@ -28,7 +28,7 @@ This article describes how to configure continuous export to Log Analytics works
 |----|:----|
 |Release state:|General availability (GA)|
 |Pricing:|Free|
-|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource.</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below, you'll also need permissions for assigning policies</li><li>To export data to Event Hubs, you'll need Write permission on the Event Hubs Policy.</li><li>To export to a Log Analytics workspace:<ul><li>if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
+|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource.</li><li>If you're using the [Azure Policy 'DeployIfNotExist' policies](#configure-continuous-export-at-scale-using-the-supplied-policies), you'll also need permissions for assigning policies</li><li>To export data to Event Hubs, you'll need Write permission on the Event Hubs Policy.</li><li>To export to a Log Analytics workspace:<ul><li>if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
 ## What data types can be exported?
@@ -47,13 +47,13 @@ Continuous export can export the following data types whenever they change:
 
 ## Set up a continuous export 
 
-You can configure continuous export from the Microsoft Defender for Cloud pages in Azure portal, via the REST API, or at scale using the supplied Azure Policy templates. Select the appropriate tab below for details of each.
+You can configure continuous export from the Microsoft Defender for Cloud pages in Azure portal, via the REST API, or at scale using the supplied Azure Policy templates.
 
 ### [**Use the Azure portal**](#tab/azure-portal)
 
 ### Configure continuous export from the Defender for Cloud pages in Azure portal
 
-The steps below are necessary whether you're setting up a continuous export to Log Analytics or Azure Event Hubs.
+If you're setting up a continuous export to Log Analytics or Azure Event Hubs:
 
 1. From Defender for Cloud's menu, open **Environment settings**.
 
@@ -82,9 +82,9 @@ The steps below are necessary whether you're setting up a continuous export to L
 
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration." :::
 
-1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target of a different subscription (for example on a Central Event Hub instance or a central Log Analytics workspace).
+1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target of a different subscription (for example, on a Central Event Hubs instance or a central Log Analytics workspace).
 
-    You can also send the data to an [Event hub or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
+    You can also send the data to an [Event hubs or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
 
 1. Select **Save**.
 
@@ -97,11 +97,11 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 Continuous export can be configured and managed via the Microsoft Defender for Cloud [automations API](/rest/api/defenderforcloud/automations). Use this API to create or update rules for exporting to any of the following possible destinations:
 
-- Azure Event Hub
+- Azure Event Hubs
 - Log Analytics workspace
 - Azure Logic Apps
 
-You can also send the data to an [Event hub or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
+You can also send the data to an [Event Hubs or Log Analytics workspace in a different tenant](#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
 
 Here are some examples of options that you can only use in the API:
 
@@ -120,11 +120,11 @@ Here are some examples of options that you can only use in the API:
 
 Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
 
-To deploy your continuous export configurations across your organization, use the supplied Azure Policy 'DeployIfNotExist' policies described below to create and configure continuous export procedures.
+To deploy your continuous export configurations across your organization, use the supplied Azure Policy 'DeployIfNotExist' policies to create and configure continuous export procedures.
 
 **To implement these policies**
 
-1. From the table below, select the policy you want to apply:
+1. Select the policy you want to apply from this table:
 
     |Goal  |Policy  |Policy ID  |
     |---------|---------|---------|
@@ -181,6 +181,46 @@ To export data to an Azure Event hub or Log Analytics workspace in a different t
 1. Configure the continuous export configuration and select the Event hub or Analytics workspace to send the data to.
 
 You can also configure export to another tenant through the REST API. For more information, see the automations [REST API](/rest/api/defenderforcloud/automations/create-or-update?tabs=HTTP).
+
+## Continuously export to an Event Hub behind a firewall
+
+You can enable continuous export as a trusted service, so that you can send data to an Event Hub that has an Azure Firewall enabled. 
+
+**To grant access to continuous export as a trusted service**: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
+
+1. Select the relevant resource.
+
+1. Select **Continuous export**.
+
+1. Select **Export as a trusted service**.
+
+    :::image type="content" source="media/continuous-export/export-as-trusted.png" alt-text="Screenshot that shows where the checkbox is located to select export as trusted service.":::
+
+You'll now need to add the relevant role assignment on the destination Event Hub.
+
+**To add the relevant role assignment on the destination Event Hub**:
+
+1. Navigate to the selected Event Hub. 
+    
+1. Select **Access Control** > **Add role assignment** 
+    
+    :::image type="content" source="media/continuous-export/add-role-assignment.png" alt-text="Screenshot that shows where the add role assignment button is found." lightbox="media/continuous-export/add-role-assignment.png":::
+    
+1. Select **Azure Event Hubs Data Sender**.
+    
+1. Select the **Members** tab.
+    
+1. Select **+ Select members**. 
+    
+1. Search for and select **Windows Azure Security Resource Provider**.
+
+    :::image type="content" source="media/continuous-export/windows-security-resource.png" alt-text="Screenshot that shows you where to enter and search for Windows Azure Security Resource Provider." lightbox="media/continuous-export/windows-security-resource.png":::
+
+1. Select **Review + assign**.
 
 ##  View exported alerts and recommendations in Azure Monitor
 
@@ -248,7 +288,7 @@ Continuous export can be helpful in to prepare for BCDR scenarios where the targ
 
 Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
 
-### What is the minimum SAS policy permissions required when exporting data to Azure Event Hub?
+### What is the minimum SAS policy permissions required when exporting data to Azure Event Hubs?
 
 **Send** is the minimum SAS policy permissions required. For step-by-step instructions, see **Step 1. Create an Event Hubs namespace and event hub with send permissions** in [this article](./export-to-splunk-or-qradar.md#step-1-create-an-event-hubs-namespace-and-event-hub-with-send-permissions).
 
