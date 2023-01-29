@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/24/2023
+ms.date: 01/29/2023
 ---
 
 # Cloud security explorer
@@ -21,7 +21,7 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
 
 | Aspect | Details |
 |--|--|
-| Release state | Preview |
+| Release state | General Availability (GA) |
 | Prerequisite | - [Enable agentless scanning](enable-vulnerability-assessment-agentless.md) <br> - [Enable Defender for CSPM](enable-enhanced-security.md) <br> - [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This will also give you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer. |
 | Required plans | - Defender Cloud Security Posture Management (CSPM) enabled |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
@@ -37,17 +37,17 @@ You can use the cloud security explorer to build queries that can proactively hu
 
 1. Navigate to **Microsoft Defender for Cloud** > **Cloud Security Explorer**.
 
-    :::image type="content" source="media/concept-cloud-map/cloud-security-explorer.png" alt-text="Screenshot of the cloud security explorer page." lightbox="media/concept-cloud-map/cloud-security-explorer.png":::
+    :::image type="content" source="media/concept-cloud-map/cloud-security-explorer-main-page.png" alt-text="Screenshot of the cloud security explorer page." lightbox="media/concept-cloud-map/cloud-security-explorer-main-page.png":::
 
 1. Select a resource from the drop-down menu.
 
-    :::image type="content" source="media/how-to-manage-cloud-security/select-resource.png" alt-text="Screenshot of the resource drop-down menu.":::
+    :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png" alt-text="Screenshot of the resource drop-down menu." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-select-resource.png":::
 
 1. Select **+** to add other filters to your query. For each filter selected you can add more subfilters as needed.
 
 1. Select **Search**.
 
-    :::image type="content" source="media/how-to-manage-cloud-security/search-query.png" alt-text="Screenshot that shows a full query and where to select on the screen to perform the search.":::
+    :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png" alt-text="Screenshot that shows a full query and where to select on the screen to perform the search." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png":::
 
 The results will populate on the bottom of the page.
 
@@ -55,7 +55,7 @@ The results will populate on the bottom of the page.
 
 You can select an existing query template from the bottom of the page by selecting **Open query**.
 
-:::image type="content" source="media/how-to-manage-cloud-security/query-template.png" alt-text="Screenshot that shows you where the query templates are located.":::
+:::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png" alt-text="Screenshot that shows you where the query templates are located." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png":::
 
 You can alter any template to search for specific results by changing the query and selecting search.
 
