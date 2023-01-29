@@ -11,7 +11,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/28/2023
+ms.date: 01/29/2023
 ms.author: terrylan
 
 ---
@@ -22,4 +22,4 @@ Visit the [Microsoft Security Response Center](https://msrc.microsoft.com/create
 You can also create a tailored, Azure support request in the Azure portal. Visit the Azure portal [here](https://ms.portal.azure.com/#create/Microsoft.Support). Follow the prompts to receive recommended solutions or to log a support request.
 
 ## Next steps
-[MSRC](https://msrc.microsoft.com/create-report) is part of the defender community. Learn more about how MSRC helps to protect customers and the broader ecosystm.
+[MSRC](https://msrc.microsoft.com/create-report) is part of the security community. Learn how MSRC helps to protect customers and the broader ecosystem.
