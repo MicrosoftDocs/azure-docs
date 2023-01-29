@@ -18390,6 +18390,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/sentinel/network-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-network",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/sentinel/dns-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-dns",
             "redirect_document_id": true

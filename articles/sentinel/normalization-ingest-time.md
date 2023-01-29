@@ -29,7 +29,7 @@ Normalized data can be stored in Microsoft Sentinel's native normalized tables, 
 
 Currently, ASIM supports the following native normalized tables as a destination for ingest time normalization:
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) for the [DNS](normalization-schema-dns.md) schema.
-- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](network-normalization-schema.md) schema 
+- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](normalization-schema-network.md) schema 
 
 The advantage of native normalized tables is that they are included by default in the ASIM unifying parsers. Custom normalized tables can be included in the unifying parsers, as discussed in [Manage Parsers](normalization-manage-parsers.md).
 

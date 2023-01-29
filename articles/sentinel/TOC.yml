@@ -568,7 +568,7 @@
         - name: ASIM file event schema
           href: normalization-schema-file-event.md
         - name: ASIM network session schema
-          href: network-normalization-schema.md
+          href: normalization-schema-network.md
         - name: ASIM process event schema
           href: process-events-normalization-schema.md
         - name: ASIM registry event schema
