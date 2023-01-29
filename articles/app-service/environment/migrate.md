@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 12/21/2022
+ms.date: 1/27/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -53,6 +53,7 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - West Central US
 - West Europe
 - West US
+- West US 2
 - West US 3
 
 The following App Service Environment configurations can be migrated using the migration feature. The table gives the App Service Environment v3 configuration you'll end up with when using the migration feature based on your existing App Service Environment. All supported App Service Environments can be migrated to a [zone redundant App Service Environment v3](../../availability-zones/migrate-app-service-environment.md) using the migration feature as long as the environment is [in a region that supports zone redundancy](./overview.md#regions). You can [configure zone redundancy](#choose-your-app-service-environment-v3-configurations) during the migration process.

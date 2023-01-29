@@ -12,6 +12,8 @@ services: iot-edge
 
 # Tutorial: Configure, connect, and verify an IoT Edge module for a GPU
 
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+
 This tutorial shows you how to build a GPU-enabled virtual machine (VM). From the VM, you'll see how to run an IoT Edge device that allocates work from one of its modules to your GPU. 
 
 We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to:
