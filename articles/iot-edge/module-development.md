@@ -12,7 +12,7 @@ services: iot-edge
 
 # Develop your own IoT Edge modules
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Azure IoT Edge modules can connect with other Azure services and contribute to your larger cloud data pipeline. This article describes how you can develop modules to communicate with the IoT Edge runtime and IoT Hub, and therefore the rest of the Azure cloud.
 
@@ -89,26 +89,7 @@ For all languages in the following table, IoT Edge supports development for AMD6
 
 ### Windows
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-For all languages in the following table, IoT Edge supports development for AMD64 Windows containers.
-
-| Development language | Development tools |
-| -------------------- | ----------------- |
-| C | Visual Studio 2017/2019 |
-| C# | Visual Studio Code (no debugging capabilities)<br>Visual Studio 2017/2019 |
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported.
-
-For information about developing with Windows containers, refer to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 ## Module security
 

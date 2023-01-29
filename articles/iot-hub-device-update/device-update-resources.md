@@ -47,18 +47,6 @@ The following Message Routes are automatically configured in your linked IoT hub
 
 :::image type="content" source="media/device-update-resources/consumer-group.png" alt-text="Screenshot of consumer groups." lightbox="media/device-update-resources/consumer-group.png":::
 
-### Configuring access for Azure Device Update service principal in the IoT Hub
-
-Device Update for IoT Hub communicates with the IoT Hub for deployments and manage updates at scale. In order to enable Device Update to do this, users need to set IoT Hub Data Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
-
-Deployment, device and update management and diagnostic actions will not be allowed if these permissions are not set. Operations that will be blocked will include:
-* Create Deployment
-* Cancel Deployment
-* Retry Deployment 
-* Get Device
-
-The permission can be set from IoT Hub Access Control (IAM). Refer to [Configure Access for Azure Device update service principal in linked IoT hub](configure-access-control-device-update.md#configure-access-for-azure-device-update-service-principal-in-linked-iot-hub)
-
 ## Next steps
 
 [Create device update resources](./create-device-update-account.md)
