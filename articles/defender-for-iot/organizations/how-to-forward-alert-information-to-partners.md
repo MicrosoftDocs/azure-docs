@@ -1,7 +1,7 @@
 ---
 title: Forward on-premises OT alert information to partners - Microsoft Defender for IoT
 description: Learn how to forward OT alert details from an OT sensor or on-premises management console to partner services.
-ms.date: 12/08/2022
+ms.date: 01/01/2023
 ms.topic: how-to
 ---
 
@@ -113,7 +113,7 @@ To edit or delete an existing rule:
 
 ## Configure alert forwarding rule actions
 
-This section describes how to configure settings for supported forwarding rule actions.
+This section describes how to configure settings for supported forwarding rule actions, on either an OT sensor or the on-premises management console.
 
 ### Email address action
 
@@ -315,19 +315,14 @@ If your forwarding alert rules aren't working as expected, check the following d
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+> [Microsoft Defender for IoT alerts](alerts.md)
 
 > [!div class="nextstepaction"]
 > [View and manage alerts on your OT sensor](how-to-view-alerts.md)
 
 > [!div class="nextstepaction"]
-> [Accelerate alert workflows on an OT network sensor](how-to-accelerate-alert-incident-response.md)
+> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
 
 > [!div class="nextstepaction"]
 > [OT monitoring alert types and descriptions](alert-engine-messages.md)
 
-> [!div class="nextstepaction"]
-> [Forward alert information](how-to-forward-alert-information-to-partners.md)
-
-> [!div class="nextstepaction"]
-> [Microsoft Defender for IoT alerts](alerts.md)

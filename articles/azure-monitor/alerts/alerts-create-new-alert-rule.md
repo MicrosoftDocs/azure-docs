@@ -73,7 +73,7 @@ Then you define these elements for the resulting alert actions by using:
 
     1. (Optional) Depending on the signal type, you might see the **Split by dimensions** section.
 
-        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. Dimensions can be either number or string columns.
+        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
 
         If you select more than one dimension value, each time series that results from the combination will trigger its own alert and be charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
 
@@ -132,6 +132,9 @@ Then you define these elements for the resulting alert actions by using:
         If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
 
         You can select up to six more splittings for any columns that contain text or numbers.
+        
+        > [!NOTE]
+        > Dimensions can **only** be number or string columns. If for example you want to use a dynamic column as a dimension, you need to convert it to a string first.
 
         You can also decide *not* to split when you want a condition applied to multiple resources in the scope. An example would be if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80 percent.
 
@@ -428,7 +431,7 @@ You can also create an activity log alert on future events similar to an activit
 The current alert rule wizard is different from the earlier experience:
 
 - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1,000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
-    - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, which gives you context for why the alert fired and how to fix the issue.
+    - We recommend using [Dimensions](alerts-types.md#narrow-the-target-by-using-dimensions). Dimensions provide the column value that fired the alert, which gives you context for why the alert fired and how to fix the issue.
     - When you need to investigate in the logs, use the link in the alert to the search results in logs.
     - If you need the raw search results or for any other advanced customizations, use Azure Logic Apps.
 - The new alert rule wizard doesn't support customization of the JSON payload.

@@ -107,7 +107,7 @@ Health status provides insights about the overall health of the service and sub-
 
 |Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
-|`/healthstatus`|GET|[ServiceHealth_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/ServiceHealth_Get)|[GetHealthStatus](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHealthStatus)|
+|`/healthstatus`|GET|[HealthStatus_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/HealthStatus_Get)|[GetHealthStatus](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHealthStatus)|
 
 ## Models
 
@@ -133,7 +133,7 @@ See [Train a model](how-to-custom-speech-train-model.md?pivots=rest-api) and [Cu
 
 ## Projects
 
-Projects are applicable for [Custom Speech](custom-speech-overview.md). Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt-tts). For example, you might create a project for English in the United States.
+Projects are applicable for [Custom Speech](custom-speech-overview.md). Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt). For example, you might create a project for English in the United States.
 
 See [Create a project](how-to-custom-speech-create-project.md?pivots=rest-api) for examples of how to create projects. This table includes all the operations that you can perform on projects.
 

@@ -4,7 +4,7 @@ description: Learn how a deployment manifest declares which modules to deploy, h
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/05/2023
+ms.date: 07/06/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

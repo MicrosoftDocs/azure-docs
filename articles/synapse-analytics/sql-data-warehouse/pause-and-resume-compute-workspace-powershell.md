@@ -18,7 +18,7 @@ You can use Azure PowerShell to pause and resume dedicated SQL pool in a Synapse
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 > [!NOTE]  
-> This article applies to dedicated SQL pools created in Azure Synapse Workspaces and not dedicated SQL pools (formerly SQL DW). There are different PowerShell cmdlets to use for each, for example, use `Suspend-AzSynapsePool` for a dedicated SQL pool (formerly SQL DW), but `Suspend-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For instructions to pause and resume a dedicated SQL pool (formerly SQL DW), see [Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell](pause-and-resume-compute-powershell.md).
+> This article applies to dedicated SQL pools created in Azure Synapse Workspaces and not dedicated SQL pools (formerly SQL DW). There are different PowerShell cmdlets to use for each, for example, use `Suspend-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Suspend-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For instructions to pause and resume a dedicated SQL pool (formerly SQL DW), see [Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell](pause-and-resume-compute-powershell.md).
 > For more on the differences between dedicated SQL pool (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772). 
 
 ## Before you begin
@@ -68,14 +68,14 @@ To save costs, you can pause and resume compute resources on-demand. For example
 > [!NOTE]  
 > There is no charge for compute resources while the pool is paused. However, you continue to be charged for storage.
 
-To pause a pool, use the [Suspend-AzSynapseSqlPool](/powershell/module/az.synapse/suspend-azsynapsepool?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. The following example pauses a SQL pool named `mySampleDataWarehouse` hosted in workspace named `synapseworkspacename`. The server is in an Azure resource group named **myResourceGroup**.
+To pause a pool, use the [Suspend-AzSynapseSqlPool](/powershell/module/az.synapse/suspend-azsynapsesqlpool?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. The following example pauses a SQL pool named `mySampleDataWarehouse` hosted in workspace named `synapseworkspacename`. The server is in an Azure resource group named **myResourceGroup**.
 
 ```powershell
 Suspend-AzSynapseSqlPool –ResourceGroupName "myResourceGroup" `
 -WorkspaceName "synapseworkspacename" –Name "mySampleDataWarehouse"
 ```
 
-The following example retrieves the pool into the `$pool` object. It then pipes the object to [Suspend-AzSynapseSqlPool](/powershell/module/az.synapse/suspend-azsynapsepool?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). The results are stored in the object `$resultPool`. The final command shows the results.
+The following example retrieves the pool into the `$pool` object. It then pipes the object to [Suspend-AzSynapseSqlPool](/powershell/module/az.synapse/suspend-azsynapsesqlpool?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). The results are stored in the object `$resultPool`. The final command shows the results.
 
 ```powershell
 $pool = Get-AzSynapseSqlPool –ResourceGroupName "myResourceGroup" `
@@ -88,19 +88,19 @@ The **Status** output of the resulting `$resultPool` object contains the new sta
 
 ## Resume compute
 
-To start a pool, use the [Resume-AzSynapsePool](/powershell/module/az.synapse/resume-AzSynapsePool?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. The following example starts a pool named `mySampleDataWarehouse` hosted on a workspace named `sqlpoolservername`. The server is in an Azure resource group named **myResourceGroup**.
+To start a pool, use the [Resume-AzSynapseSqlPool](/powershell/module/az.synapse/resume-AzSynapseSqlPool?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. The following example starts a pool named `mySampleDataWarehouse` hosted on a workspace named `sqlpoolservername`. The server is in an Azure resource group named **myResourceGroup**.
 
 ```powershell
-Resume-AzSynapsePool –ResourceGroupName "myResourceGroup" `
+Resume-AzSynapseSqlPool –ResourceGroupName "myResourceGroup" `
 -WorkspaceName "synapseworkspacename" -Name "mySampleDataWarehouse"
 ```
 
-The next example retrieves the pool into the `$pool` object. It then pipes the object to [Resume-AzSynapsePool](/powershell/module/az.synapse/resume-AzSynapsePool?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and stores the results in `$resultpool`. The final command shows the results.
+The next example retrieves the pool into the `$pool` object. It then pipes the object to [Resume-AzSynapseSqlPool](/powershell/module/az.synapse/resume-AzSynapseSqlPool?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and stores the results in `$resultpool`. The final command shows the results.
 
 ```powershell
 $pool = Get-AzSynapseSqlPool –ResourceGroupName "myResourceGroup" `
 -WorkspaceName "synapseworkspacename" –Name "mySampleDataWarehouse"
-$resultPool = $pool | Resume-AzSynapsePool
+$resultPool = $pool | Resume-AzSynapseSqlPool
 $resultPool
 ```
 

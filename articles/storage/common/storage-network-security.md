@@ -649,7 +649,7 @@ You can use the same technique for an account that has the hierarchical namespac
 
 | Service                        | Resource Provider Name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure API Management           | Microsoft.ApiManagement/service        | Enables API Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/authentication-managed-identity-policy.md#use-managed-identity-in-send-request-policy). |
 | Azure Cache for Redis | Microsoft.Cache/Redis | Allows access to storage accounts through Azure Cache for Redis. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md)| 
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Enables Cognitive Services to access storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|

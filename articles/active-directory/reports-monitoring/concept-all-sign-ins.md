@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/05/2023
+ms.date: 01/12/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -262,6 +262,7 @@ When analyzing authentication details, take note of the following details:
 - The **Authentication details** tab can initially show incomplete or inaccurate data until log information is fully aggregated. Known examples include: 
     - A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
     - The **Primary authentication** row isn't initially logged. 
+- If you're unsure of a detail in the logs, gather the **Request ID** and **Correlation ID** to use for further analyzing or troubleshooting.
 
 ## Sign-in data used by other services
 
