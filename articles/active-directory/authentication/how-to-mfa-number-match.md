@@ -287,11 +287,13 @@ GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationM
 
 Number match will be enabled for all users of Microsoft Authenticator after February 27, 2023. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
-### Will the changes on February 27th, 2023, override number matching settings that are configured for a group in the Authentication methods policy?
+### Will the changes after February 27th, 2023, override number matching settings that are configured for a group in the Authentication methods policy?
 
-No, the changes on February 27th won't affect the **Enable and Target** tab for Microsoft Authenticator in the Authentication methods policy. Administrators can continue to target specific users and groups or **All Users** for Microsoft Authenticator **Push** or **Any** authentication mode. 
+No, the changes after February 27th won't affect the **Enable and Target** tab for Microsoft Authenticator in the Authentication methods policy. Administrators can continue to target specific users and groups or **All Users** for Microsoft Authenticator **Push** or **Any** authentication mode. 
 
-When Microsoft begins protecting all organizations by enabling number matching on February 27th, 2023, administrators will see the **Require number matching for push notifications** setting on the **Configure** tab of the Microsoft Authenticator policy is set to **Enabled** for **All users** and can't be disabled. In addition, the **Exclude** option for this setting will be removed.
+When Microsoft begins protecting all organizations by enabling number matching after February 27th, 2023, administrators will see the **Require number matching for push notifications** setting on the **Configure** tab of the Microsoft Authenticator policy is set to **Enabled** for **All users** and can't be disabled. In addition, the **Exclude** option for this setting will be removed.
+
+### What happens for users who aren't specified in the Authentication methods policy but they are enabled for Notifications through mobile app in the legacy MFA tenant-wide policy?
 
 Users who are enabled for MFA push notifications in the legacy MFA policy will also see number match after February 27th, 2023. If the legacy MFA policy has enabled **Notifications through mobile app**, users will see number matching regardless of whether or not it's enabled on the **Enable and Target** tab for Microsoft Authenticator in the Authentication methods policy.
 
@@ -333,17 +335,20 @@ Relevant services will begin deploying these changes after February 27, 2023 and
 
 ### Does number matching only apply if Microsoft Authenticator is set as the default authentication method?
 
-If the user has a different default authentication method, there won't be any change to their default sign-in. If the default method is Microsoft Authenticator and they are members of groups targeted for **Push** or **Any** on the **Enable and Target** tab, they'll start to receive number matching approval after February 27th, 2023.
+If the user has a different default authentication method, there won't be any change to their default sign-in. If the default method is Microsoft Authenticator and the user is specified in either of the following policies, they'll start to receive number matching approval after February 27th, 2023:
+
+- Authentication methods policy (in the portal, click **Security** > **Authentication methods** > **Policies**)
+- Legacy MFA tenant-wide policy (in the portal, click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**)
 
 Regardless of their default method, any user who is prompted to sign-in with Authenticator push notifications will see number match after February 27th, 2023. If the user is prompted for another method, they won't see any change. 
 
 ### Will users who don't use number matching be able to perform MFA?
 
-It depends on how the **Enable and Target** tab is configured. The scope for number match approvals will change under the **Configure** tab to include everyone, but it only applies for users and groups targeted on the **Enable and Target** tab for Push or Any. However, if Target on the **Enable and Target** tab is set to specific groups for Push or Any, and the user isn't a member of those groups, then they won't receive the number matching approvals once the change is implemented on February 27th, 2023 because they aren't a member of the groups defined on the **Enable and Target** tab for Push and/or Any.
+It depends on how the **Enable and Target** tab is configured. The scope for number match approvals will change under the **Configure** tab to include everyone, but it only applies for users and groups targeted on the **Enable and Target** tab for Push or Any. However, if Target on the **Enable and Target** tab is set to specific groups for Push or Any, and the user isn't a member of those groups, then they won't receive the number matching approvals once the change is implemented after February 27th, 2023 because they aren't a member of the groups defined on the **Enable and Target** tab for Push and/or Any.
 
-### Is number matching enforced with MFA server?
+### Is number matching supported with MFA Server?
 
-No, number matching isn't enforced with MFA server, which is [deprecated](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454).
+No, number matching isn't enforced because it's not a supported feature for MFA Server, which is [deprecated](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454).
 
 ### What happens if a user runs an older version of Microsoft Authenticator?
 
