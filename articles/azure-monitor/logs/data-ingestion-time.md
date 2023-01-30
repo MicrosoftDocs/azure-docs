@@ -2,14 +2,14 @@
 title: Log data ingestion time in Azure Monitor | Microsoft Docs
 description: This article explains the different factors that affect latency in collecting log data in Azure Monitor.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author:guywi-ms
+ms.author: guywild
 ms.reviewer: eternovsky
-ms.date: 03/21/2022
+ms.date: 01/31/2023
 
 ---
 
-# Log data ingestion time in Azure Monitor
+# Monitor log ingestion latency in Azure Monitor
 Azure Monitor is a high-scale data service that serves thousands of customers that send terabytes of data each month at a growing pace. There are often questions about the time it takes for log data to become available after it's collected. This article explains the different factors that affect this latency.
 
 ## Typical latency
