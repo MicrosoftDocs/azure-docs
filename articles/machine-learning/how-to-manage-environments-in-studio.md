@@ -51,7 +51,7 @@ Create an environment by selecting one of the following options:
 * Upload existing docker context
 * Use existing docker image with optional conda file
 
-:::image type="content" source="media/how-to-manage-environments-in-studio/create-page.jpg" alt-text="Environment creation wizard":::
+:::image type="content" source="media/how-to-manage-environments-in-studio/create-page.png" alt-text="Environment creation wizard":::
 
 You can customize the configuration file, add tags and descriptions, and review the properties before creating the entity. 
 
@@ -65,7 +65,7 @@ Click on the pencil icons to edit tags, descriptions, configuration files under 
 
 Keep in mind that any changes to the Docker or Conda sections will create a new version of the environment. 
 
-:::image type="content" source="media/how-to-manage-environments-in-studio/details-page.jpg" alt-text="Environments details page":::
+:::image type="content" source="media/how-to-manage-environments-in-studio/details-page.png" alt-text="Environments details page":::
 
 ## View logs
 
