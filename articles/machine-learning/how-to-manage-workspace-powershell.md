@@ -121,13 +121,6 @@ $mlWorkspaceParams = @{
 New-AzMLWorkspace @mlWorkspaceParams
 ```
 
-> [!TIP]
-> If you receive a message that the term `New-AzMLWorkspace` isn't recognized, use the following command to install the Azure Machine Learning Services module:
->
-> ```azurepowershell-interactive
-> Install-Module Az.MachineLearningServices
-> ```
-
 ## Get workspace information
 
 To retrieve a list of workspaces, use the following command:
