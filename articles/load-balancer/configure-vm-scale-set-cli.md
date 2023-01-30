@@ -27,7 +27,7 @@ In this article, you'll learn how to configure a Virtual Machine Scale Set with 
 
 ## Deploy a Virtual Machine Scale Set with existing load balancer
 
-Deploy a Virtual Machine Scale Set with [`az vmss create`](/cli/azure/vmss.md#az-vmss-create).
+Deploy a Virtual Machine Scale Set with [`az vmss create`](/cli/azure/vmss#az-vmss-create).
 Replace the values in brackets with the names of the resources in your configuration.
 
 ```azurecli-interactive
