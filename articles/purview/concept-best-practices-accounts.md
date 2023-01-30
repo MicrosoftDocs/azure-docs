@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 01/28/2023
 ---
 
 # Microsoft Purview accounts architectures and best practices  
@@ -59,7 +59,7 @@ An exception applies to VM-based data sources and Power BI tenants.For more info
 
 ## Default Microsoft Purview account
 
-Having multiple Microsoft Purview accounts in a tenant poses the challenge of which Microsoft Purview account should all other services like PBI, Synapse connect to. 
+Having multiple Microsoft Purview accounts in a tenant poses the challenge of which Microsoft Purview account should all other services such as Power BI tenant or Azure Synapse connect to. 
 
 This is where default Microsoft Purview account will help. An Azure global administrator (or tenant admin) can designate a Microsoft Purview account as **default** Microsoft Purview account at the tenant level. At any point in time a tenant can have only 0 or 1 default accounts. Once this is set any user in your organization has clear understanding that this account is the "right" one, when connecting to Microsoft Purview.
 
@@ -79,7 +79,20 @@ Review [Microsoft Purview Pricing model](https://azure.microsoft.com/pricing/det
 
 Some organizations often have many business units (BUs) that operate separately, and, in some cases, they don't even share billing with each other. In those cases, the organization will end up creating a Microsoft Purview instance for each BU.
 
-For more information about cloud computing cost model in chargeback and showback models, see: [What is cloud accounting?](/azure/cloud-adoption-framework/strategy/cloud-accounting).  
+For more information about cloud computing cost model in chargeback and showback models, see: [What is cloud accounting?](/azure/cloud-adoption-framework/strategy/cloud-accounting). 
+
+## Selecting an Azure region
+
+Microsoft Purview is an Azure platform as a service solution. You can deploy a Microsoft Purview account inside your Azure subscription in any
+[supported Azure regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=purview&regions=all). 
+
+If Microsoft Purview is not available in your primary Azure region, consider the following factors when choosing a secondary region to deploy your Microsoft Purview account:
+
+- Review the latency between your primary Azure region where data sources are deployed and your secondary Azure region, where Microsoft Purview account will be deployed. For more information, see [Azure network round-trip latency statistics](../networking/azure-network-latency.md).
+
+- Review your data residency requirements. When you scan data sources in the Microsoft Purview Data Map, information related to your metadata is ingested and stored inside your data map in the Azure region where your Microsoft Purview account is deployed. For more information see, [Where is metadata stored](concept-best-practices-security.md#where-is-metadata-stored)
+
+- Review your network and security requirements if private network connectivity for user access or metadata ingestion is required. For more information see, [If Microsoft Purview isn't available in your primary region](concept-best-practices-network.md#if-microsoft-purview-isnt-available-in-your-primary-region)
 
 ## Other considerations and recommendations 
 
