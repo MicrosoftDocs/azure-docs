@@ -16,8 +16,9 @@ This glossary provides a brief description of important terms and concepts for t
 | Term | Description | Learn more |
 |--|--|--|
 |**AAC**|Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. |[Adaptive Application Controls](adaptive-application-controls.md)
-|**AAD**| Azure Active Directory (Azure AD) is a cloud-based identity and access management service. [Adaptive Application Controls](../active-directory/fundamentals/active-directory-whatis.md)
+|**AAD**| Azure Active Directory (Azure AD) is a cloud-based identity and access management service.| [Adaptive Application Controls](../active-directory/fundamentals/active-directory-whatis.md)
 | **ACR Tasks** | A suite of features within Azure container registry | [Frequently asked questions - Azure Container Registry](../container-registry/container-registry-faq.yml) |
+|**Adaptive network hardening**|Adaptive network hardening provides recommendations to further harden the [NSG](#n)rules.|[What is Adaptive Network Hardening?](https://learn.microsoft.com/azure/defender-for-cloud/adaptive-network-hardening#what-is-adaptive-network-hardening) |
 |**ADO**|Azure DevOps provides developer services for allowing teams to plan work, collaborate on code development, and build and deploy applications.|[What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops) |
 |**AKS**| Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications.| [Kubernetes Concepts](/azure-stack/aks-hci/kubernetes-concepts)|
 |**Alerts**| Alerts defend your workloads in real-time so you can react immediately and prevent security events from developing.|[Security alerts and incidents](alerts-overview.md)|
@@ -39,7 +40,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
-|**Cacls** | Change access control list, Microsoft Windows native command-line utility often used for modifying the security permission on folders and files.| [access-control-lists](/windows/win32/secauthz/access-control-lists) |
+|**Cacls** | Change access control list, Microsoft Windows native command-line utility often used for modifying the security permission on folders and files.| [Access control lists](/windows/win32/secauthz/access-control-lists) |
 |**CIS Benchmark** | (Kubernetes) Center for Internet Security benchmark| [CIS](../aks/cis-kubernetes.md)|
 |**Cloud security graph** | The cloud security graph is a graph-based context engine that exists within Defender for Cloud. The cloud security graph collects data from your multicloud environment and other data sources| [What is the cloud security graph?](concept-attack-path.md#what-is-cloud-security-graph)|
 |**CORS**| Cross origin resource sharing, an HTTP feature that enables a web application running under one domain to access resources in another domain.| [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)|
@@ -120,6 +121,7 @@ This glossary provides a brief description of important terms and concepts for t
 |--|--|--|
 |**NGAV**| Next Generation Anti-Virus |
 **NIST** | National Institute of Standards and Technology|[National Institute of Standards and Technology](https://www.nist.gov/)
+|**NSG**| Network Security Group |[NSGs](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview)|
 
 ## P
 
