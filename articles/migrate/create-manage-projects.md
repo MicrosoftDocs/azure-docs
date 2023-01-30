@@ -101,7 +101,7 @@ If you created the project in the [previous version](migrate-services-overview.m
 
 ## Delete a project
 
-To delete a peoject, follow these steps: 
+To delete a project, follow these steps: 
 
 1. Open the Azure resource group in which the project was created.
 2. In the resource group page, select **Show hidden types**.
