@@ -1,10 +1,11 @@
 ---
 title: Azure monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
+author:EdB-MSFT
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 01/30/2023
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.reviewer: robb
+ms.reviewer: edbaynash
 ---
 
 # Azure monitoring REST API walkthrough
@@ -13,13 +14,82 @@ This article shows you how to perform authentication so your code can use the [A
 
 The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions, dimension values, and metric values. The data can be saved in a separate data store such as Azure SQL Database, Azure Cosmos DB, or Azure Data Lake. From there, more analysis can be performed as needed.
 
-Besides working with various metric data points, the Azure Monitor API also makes it possible to list alert rules, view activity logs, and do much more. For a full list of available operations, see the [Azure Monitor REST API reference](/rest/api/monitor/).
+The Azure Monitor API also makes it possible to list alert rules, view activity logs. For a full list of available operations, see the [Azure Monitor REST API reference](/rest/api/monitor/).
 
 ## Authenticate Azure Monitor requests
 
-All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. So, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticating the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token.
+Tasks executed using the Azure Monitor API use the Azure Resource Manager authentication model. All requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticating the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token.
 
+
+# [Azure Portal](#tab/portal)
+
+To create an Azure AD service principal using the Azure Portal see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token)
+
+
+# [Azure CLI](#tab/cli)
+
+Run the following script to create a service principal  and app. 
+
+```azurecli
+ad sp create-for-rbac -n <Service principal display name>
+
+```
+The response looks as follows:
+```JSON
+{
+  "appId": "0a123b56-c987-1234-abcd-1a2b3c4d5e6f",
+  "displayName": "AzMonAPIApp",
+  "password": "123456.ABCDE.~XYZ876123ABcEdB7169",
+  "tenant": "a1234bcd-5849-4a5d-a2eb-5267eae1bbc7"
+}
+
+```
+>[!Important]
+> The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control.
+
+For more information on creating a service principal using Azure CLI, see [AA](https://learn.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+
+To retrieve an access token using a REST call submit the following request using the `appId` and `password`:
+
+```http
+
+    POST /<appId>/oauth2/v2.0/token
+    Host: https://login.microsoftonline.com
+    Content-Type: application/x-www-form-urlencoded
+    
+    grant_type=client_credentials
+    &client_id=<app-client-id>
+    &resource=https://management.azure.com
+    &client_secret=<password>
+
+```
+
+For example
+
+```bash
+curl --location --request POST 'https://login.microsoftonline.com/a1234bcd-5849-4a5d-a2eb-5267eae1bbc7/oauth2/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id=0a123b56-c987-1234-abcd-1a2b3c4d5e6f' \
+--data-urlencode 'client_secret123456.ABCDE.~XYZ876123ABceDb0000' \
+--data-urlencode 'resource=https://management.azure.com'
+
+```
+A successful request receives an access token in the response:
+
+```http
+{
+   token_type": "Bearer",
+   "expires_in": "86399",
+   "ext_expires_in": "86399",
+   "access_token": ""eyJ0eXAiOiJKV1QiLCJ.....Ax"
+}
+```
+Use the access token in your Azure Monitor API requests
+
+### [Powershell](#tab/powershell)
 The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walkthrough, see the documentation on [using Azure PowerShell to create a service principal to access resources](/powershell/azure/create-azure-service-principal-azureps). It's also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
+
 
 ```powershell
 $subscriptionId = "{azure-subscription-id}"
@@ -130,7 +200,16 @@ Write-Host "Access Token: " $myvar.AccessToken
 
 Loading the certificate from a .pfx file in PowerShell can make it easier for an admin to manage certificates without having to install the certificate in the certificate store. However, this step shouldn't be done on a client machine because the user could potentially discover the file and the password for it and the method to authenticate. The client credentials flow is only intended to be run in a back-end service-to-service type of scenario where only admins have access to the machine.
 
-After authenticating, queries can then be executed against the Azure Monitor REST API. There are two helpful queries:
+---
+
+
+## Roles 
+Assign role if necessary 
+
+
+
+
+After authenticating and retrieving a token, queries can then be executed against the Azure Monitor REST API. There are two helpful queries:
 
 - List the metric definitions for a resource.
 - Retrieve the metric values.
