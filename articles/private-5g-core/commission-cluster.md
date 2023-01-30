@@ -74,11 +74,11 @@ Invoke-Command -Session $minishellSession -ScriptBlock {Enable-HcsAzureKubernete
 
 Once you've run these commands, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
 
-:::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted.":::
+:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted.":::
 
 Additionally, if you go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
 
-:::image type="content" source="media/commission-a-cluster/commission-a-cluster-ASE-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
+:::image type="content" source="media/commission-cluster/commission-cluster-ase-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
 
 ## Enable high performance networking
 
@@ -105,7 +105,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
     - Create a virtual switch on port 6 with the name **vswitch-port6**.
 
     You should now see something similar to the following image:
-    :::image type="content" source="media/commission-a-cluster/commission-a-cluster-virtual-switch.png" alt-text="Screenshot showing three virtual switches, where the names correspond to the network interface the switch is on. ":::
+    :::image type="content" source="media/commission-cluster/commission-cluster-virtual-switch.png" alt-text="Screenshot showing three virtual switches, where the names correspond to the network interface the switch is on. ":::
     
 1. Create virtual networks representing the following interfaces (which you allocated subnets and IP addresses for in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses)):
     - control plane access interface
@@ -128,7 +128,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
     
   The page should now look like the following image:
 
-  :::image type="content" source="media/commission-a-cluster/commission-a-cluster-advanced-networking.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
+  :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
 
 ## Add compute and IP addresses
 
@@ -147,7 +147,7 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
 
 The page should now look like the following image:
 
-:::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-preview-enabled.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
+:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
 
 ## Start the cluster and set up Arc
 
@@ -157,7 +157,7 @@ If you're running other VMs on your Azure Stack Edge, we recommend that you stop
 
 1. To deploy the cluster, select the **Kubernetes** option and then select the **Add** button to configure the cluster.
 
-   :::image type="content" source="media/commission-a-cluster/commission-a-cluster-add-kubernetes.png" alt-text="Screenshot of Kubernetes Overview pane, showing the Add button to configure Kubernetes service.":::
+   :::image type="content" source="media/commission-cluster/commission-cluster-add-kubernetes.png" alt-text="Screenshot of Kubernetes Overview pane, showing the Add button to configure Kubernetes service.":::
 
 1. For the **Node size**, select **Standard_F16s_HPN**.
 1. Ensure the **Arc enabled Kubernetes** checkbox is selected.
@@ -172,7 +172,7 @@ Once deployed, the portal should show  **Kubernetes service is healthy** on the 
 
 You'll need *kubectl* access to verify that the cluster has deployed successfully. For read-only *kubectl* access to the cluster, you can download a *kubeconfig* file from the ASE local UI. Under **Device**, select **Download config**.
 
-:::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-download-config.png" alt-text="Screenshot of Kubernetes dashboard showing link to download config.":::
+:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-download-config.png" alt-text="Screenshot of Kubernetes dashboard showing link to download config.":::
 
 The downloaded file is called *config.json*. This file has permission to describe pods and view logs, but not to access pods with *kubectl exec*.
 
@@ -194,19 +194,19 @@ For more information, see [Configure cluster access via Kubernetes RBAC](/azure/
 
 Open your **Azure Stack Edge** resource in the Azure portal. Go to the Azure Kubernetes Service pane (shown in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc)) and select the **Manage** link to open the **Arc** pane.
 
-:::image type="content" source="media/commission-a-cluster/commission-a-cluster-manage-kubernetes.png" alt-text="Screenshot of part of the Azure Kubernetes Service (PREVIEW) Overview pane, showing the Manage link for Arc enabled Kubernetes.":::
+:::image type="content" source="media/commission-cluster/commission-cluster-manage-kubernetes.png" alt-text="Screenshot of part of the Azure Kubernetes Service (PREVIEW) Overview pane, showing the Manage link for Arc enabled Kubernetes.":::
 
 Explore the cluster using the options in the **Kubernetes resources (preview)** menu:
 
-:::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-resources.png" alt-text="Screenshot of Kubernetes resources (preview) menu, showing namespaces, workloads, services and ingresses, storage and configuration options.":::
+:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-resources.png" alt-text="Screenshot of Kubernetes resources (preview) menu, showing namespaces, workloads, services and ingresses, storage and configuration options.":::
 
 You'll initially be presented with a sign-in request box. The token to use for signing in is obtained from the *kubeconfig* file retrieved from the local UI in [Set up kubectl access](#set-up-kubectl-access). There's a string prefixed by *token:* near the end of the *kubeconfig* file. Copy this string into the box in the portal (ensuring you don't have line break characters copied), and select **Sign in**.
 
-:::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-sign-in.png" alt-text="Screenshot of sign-in screen for Kubernetes resource. There's a box to enter your service account bearer token and a sign-in button.":::
+:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-sign-in.png" alt-text="Screenshot of sign-in screen for Kubernetes resource. There's a box to enter your service account bearer token and a sign-in button.":::
 
 You can now view information about what’s running on the cluster – the following is an example from the **Workloads** pane:
 
-:::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-workload-pane.png" alt-text="Screenshot of Workloads pane in Kubernetes resources (preview). The pods tab is active and shows details about what's running.":::
+:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-workload-pane.png" alt-text="Screenshot of Workloads pane in Kubernetes resources (preview). The pods tab is active and shows details about what's running.":::
 
 ## Verify the cluster configuration
 
