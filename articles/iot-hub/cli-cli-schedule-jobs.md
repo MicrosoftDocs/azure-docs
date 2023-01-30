@@ -104,7 +104,7 @@ To create and start a simulated device:
     az iot hub device-identity create -d {DeviceName} -n {HubName} 
     ```
 
-1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command, replacing the following placeholders with their corresponding values. This command uses the device identity you created in the previous step to simulate a device that returns a status code and payload when a direct method is invoked on the simulated device. 
+1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command, replacing the following placeholders with their corresponding values. This command simulates the device you created in the previous step. The simulated device is configured to return a status code and payload whenever a direct method is invoked. 
 
     | Placeholder | Value |
     | --- | --- |
