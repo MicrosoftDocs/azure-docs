@@ -694,6 +694,12 @@
         href: connect-syslog.md
       - name: Microsoft Purview Information Protection
         href: connect-microsoft-purview.md
+      - name: Microsoft services via diagnostic settings-based 
+        href: connect-services-diagnostic-setting-based.md
+      - name: Microsoft services via Windows agent-based 
+        href: connect-services-windows-based.md
+      - name: Microsoft services via API-based 
+        href: connect-services-api-based.md
       - name: Microsoft Sentinel Data Collector API
         href: connect-rest-api-template.md
       - name: Azure Functions API connection
