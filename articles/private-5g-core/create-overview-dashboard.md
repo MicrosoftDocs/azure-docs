@@ -12,6 +12,9 @@ ms.custom: template-how-to
 
 # Create an overview Log Analytics dashboard using an ARM template
 
+> [!IMPORTANT] 
+> Monitoring Azure Private 5G Core using Log Analytics will soon become unsupported. If you're considering integrating Log Analytics into your deployment, we recommend contacting your support representative to discuss options to suit your cloud monitoring needs.
+
 Log Analytics dashboards can visualize all of your saved log queries, giving you the ability to find, correlate, and share data about your private mobile network. In this how-to guide, you'll learn how to create an example overview dashboard using an Azure Resource Manager (ARM) template. This dashboard includes charts to monitor important Key Performance Indicators (KPIs) for a packet core instance's operation, including throughput and the number of connected devices.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
