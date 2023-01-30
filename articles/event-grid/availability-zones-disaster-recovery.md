@@ -45,7 +45,7 @@ Disaster recovery is measured with two metrics:
 - Recovery Point Objective (RPO): the minutes or hours of data that may be lost. 
 - Recovery Time Objective (RTO): the minutes or hours the service may be down. 
 
-Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions.) and data (events). If you need different specification from the following ones, you can still implement your own client-side fail over using the topic health apis. 
+Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions.) and data (events). If you need different specification from the following ones, you can still implement your own client-side failover using the topic health apis. 
 
 ### Recovery point objective (RPO)
 - **Metadata RPO**: zero minutes. For applicable resources, when a resource is created/updated/deleted, the resource definition is synchronously replicated to the geo-pair. When a failover occurs, no metadata is lost.
