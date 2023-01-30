@@ -64,7 +64,7 @@ You can define three parameter values
 - executor cores
 - executor memory
 
-in Azure Machine Learning Spark jobs. You should consider an Azure Machine Learning Apache Spark executor as an equivalent of Azure Spark worker nodes. An example will explain these parameters. Let's say that you have defined number of executors as 6 (equivalent to six worker nodes), executor cores as 4, and executor memory as 28 GB. Your Spark job will then have access to a cluster with 24 cores and 168-GB memory.
+in Azure Machine Learning Spark jobs. You should consider an Azure Machine Learning Apache Spark executor as an equivalent of Azure Spark worker nodes. An example will explain these parameters. Let's say that you have defined number of executors as 6 (equivalent to six worker nodes), executor cores as 4, and executor memory as 28 GB. Your Spark job will then have access to a cluster with 24 cores and 168-GB memory. 
 
 ## Ensuring resource access for Spark jobs
 To access data and other resources, a Spark job can either use either user identity passthrough, or a managed identity. This table summarizes the different mechanisms Spark jobs use to access resources.
