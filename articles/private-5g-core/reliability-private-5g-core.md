@@ -5,8 +5,7 @@ author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: overview
-ms.custom: subject-reliability
-ms.custom: references_regions 
+ms.custom: subject-reliability, references_regions
 ms.date: 01/31/2022
 ---
 
