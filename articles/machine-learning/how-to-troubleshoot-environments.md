@@ -1748,7 +1748,7 @@ If you aren't using a virtual network, or if you've configured it correctly, tes
 **Potential causes:**
 * AzureML isn't authorized to store your build logs in your storage account
 * A transient error occurred while saving your build logs
-* Your image build didn't occur due to a system error before the build had a chance to start
+* A system error occurred before an image build was triggered
 
 **Affected areas (symptoms):**
 * A successful build, but no available logs.
