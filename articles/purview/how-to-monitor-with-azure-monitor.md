@@ -78,8 +78,8 @@ Create a new diagnostic setting to collect platform logs and metrics by followin
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Screenshot showing creating diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 
 You can send your logs to: 
-- [A log analytics workspace](#destination-Log-Analytics-Workspace)
-- [A storage account](#destination-Storage-account)
+- [A log analytics workspace](#destination---Log-Analytics-Workspace)
+- [A storage account](#destination---Storage-account)
    
 #### Destination - Log Analytics Workspace
 Select the destination to a log analytics workspace to send the event to. Create a name for the diagnostic setting, select the applicable log category group and select the right subscription and workspace, then click save. The workspace doesn't have to be in the same region as the resource being monitored. Follow this article to [Create a New Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md).
