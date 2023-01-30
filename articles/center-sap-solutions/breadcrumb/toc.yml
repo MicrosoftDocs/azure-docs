@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Center for SAP solutions
-    tocHref: /azure/center-sap-solutions/
-    topicHref: /azure/center-sap-solutions/index
