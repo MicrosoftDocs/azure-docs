@@ -107,7 +107,7 @@ The following table is a summary of the express installation wizard pages, the c
 
 With the custom settings installation, you have more choices and options in the wizard.
 
-:::image type="content" source="media/how-to-connect-install-express/customize.png" alt-text="Screenshot that shows the Express Settings page in Azure AD Connect, with the Customize button highlighted.":::
+:::image type="content" source="media/reference-connect-accounts-permissions/customize.png" alt-text="Screenshot that shows the Express Settings page in Azure AD Connect, with the Customize button highlighted.":::
 
 ### Custom installation wizard summary
 
@@ -178,8 +178,8 @@ The sync service can run under different accounts. It can run under a *virtual s
 
 | Type of account | Installation option | Description |
 | --- | --- | --- |
-| [VSA](#virtual-service-account) | Express and custom, 2017 April and later | This option is used for all express installations, except for installations on a domain controller. For custom settings, it's the default option. |
-| [gMSA](#group-managed-service-account) | Custom, 2017 April and later | If you use a remote instance of SQL Server, we recommend that you use a gMSA. |
+| [VSA](#vsa) | Express and custom, 2017 April and later | This option is used for all express installations, except for installations on a domain controller. For custom settings, it's the default option. |
+| [gMSA](#gmsa) | Custom, 2017 April and later | If you use a remote instance of SQL Server, we recommend that you use a gMSA. |
 | [User account](#user-account) | Express and custom, 2017 April and later | A user account prefixed with *AAD_* is created during installation only when Azure AD Connect is installed on Windows Server 2008 and when it's installed on a domain controller. |
 | [User account](#user-account) | Express and custom, 2017 March and earlier | A local account prefixed with *AAD_* is created during installation. In a custom installation, you can specify a different account. |
 
