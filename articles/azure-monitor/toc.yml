@@ -5,10 +5,6 @@ items:
   items:
   - name: Azure Monitor Overview
     href: overview.md
-  - name: Observability data in Azure Monitor
-    href: observability-data.md
-  - name: What can you monitor?
-    href: monitor-reference.md
   - name: Getting started
     items:
     - name: Get started with Azure Monitor
