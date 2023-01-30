@@ -83,12 +83,19 @@ Use the following commands to create these resources and retrieve the Azure Reso
 
 1. Create the Azure Storage Account:
 
-    ```azurepowershell-interactive
-    $Storage = 'MyStorage'
-    New-AzStorageAccount -Name $Storage -ResourceGroupName $ResourceGroup -Location $Location `
-                        -SkuName Standard_LRS -Kind StorageV2
-    $storeid = (Get-AzResource -Name $Storage -ResourceGroupName $ResourceGroup).ResourceId
-    ```
+   ```azurepowershell-interactive
+   $Storage = 'MyStorage'
+
+   $storageParams = @{
+     Name = $Storage
+     ResourceGroupName = $ResourceGroup
+     Location = $Location
+     SkuName = 'Standard_LRS'
+     Kind = 'StorageV2'
+   }
+   New-AzStorageAccount @storageParams
+
+   $storeid = (Get-AzResource -Name $Storage -ResourceGroupName $ResourceGroup).ResourceId
 
 ## Create a workspace
 
