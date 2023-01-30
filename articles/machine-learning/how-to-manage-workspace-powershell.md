@@ -22,6 +22,12 @@ Use the Azure PowerShell module for Azure Machine Learning to create and manage 
 - An **Azure subscription**. If you don't have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 - The [Azure PowerShell module](https://www.powershellgallery.com/packages/Az). To make sure you have the latest version, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
+  > [!IMPORTANT]
+  > While the **Az.MachineLearningServices** PowerShell module is in preview, you must install it
+  > separately using the `Install-Module` cmdlet.
+
+  ```azurepowershell-interactive
+  Install-Module -Name Az.MachineLearningServices -Scope CurrentUser -Repository PSGallery -Force
 ## Sign in to Azure
 
 Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
