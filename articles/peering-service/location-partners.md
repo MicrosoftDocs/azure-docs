@@ -5,10 +5,10 @@ services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 10/03/2022
+ms.date: 01/30/2023
 ms.author: halkazwini
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Peering Service partners
@@ -56,9 +56,7 @@ The table in this article provides information on the Peering Service connectivi
 ## Next steps
 
 - To learn about Peering Service, see [Peering Service overview](about.md).
-- To learn about Peering Service FAQs, see [Peering Service FAQ](faq.yml).
-- To learn about partners onboarding and Peering Service configuration, see [Peering Service configuration](connection.md).
+- To learn about onboarding a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To learn about onboarding a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
 
