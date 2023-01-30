@@ -48,6 +48,8 @@ items:
       href: distributed-tracing.md
     - name: Packet core dashboards
       href: packet-core-dashboards.md
+  - name: Reliability
+    href: reliability-private-5g-core.md
   - name: Security
     href: security.md
   - name: Azure Stack Edge disconnects 
