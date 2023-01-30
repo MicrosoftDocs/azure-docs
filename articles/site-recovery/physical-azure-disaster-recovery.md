@@ -3,7 +3,7 @@ title: Set up disaster recovery of physical on-premises servers with Azure Site 
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/16/2023
+ms.date: 01/30/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23

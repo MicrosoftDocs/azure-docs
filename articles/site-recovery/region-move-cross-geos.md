@@ -4,7 +4,7 @@ description: Use Azure Site Recovery to move Azure VMs between Azure Government 
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/30/2022
+ms.date: 01/30/2023
 ms.author: ankitadutta
 ms.custom: MVC, engagement-fy23
 ---
