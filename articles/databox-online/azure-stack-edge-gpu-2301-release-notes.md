@@ -19,13 +19,13 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2301** release, which maps to software version **2.2.2111.1002**.
+This article applies to the **Azure Stack Edge 2301** release, which maps to software version **2.2.2162.730**.
 
 ## Supported upgrade paths
 
 This software can be applied to your device if you're running **Azure Stack Edge 2207 or later** (2.2.2026.5318).
 
-You can also upgrade to the latest version using the following upgrade paths:
+You can upgrade to the latest version using the following upgrade paths:
 
 | Current version     | Upgrade to | Then apply |
 | --------------------| -----------| -----------|
@@ -36,7 +36,7 @@ You can also upgrade to the latest version using the following upgrade paths:
 
 The 2301 release has the following new features and enhancements:
 
-- Starting March 2023, Azure Stack Edge devices will be required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended to update to the latest version as soon as possible.
+- Starting March 2023, Azure Stack Edge devices will be required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you upgrade to the latest version as soon as possible.
 - Beginning in this release, you can deploy Azure Kubernetes service (AKS) on an Azure Stack Edge cluster. This feature is supported only for SAP and PMEC customers. 
 
 ## Issues fixed in this release

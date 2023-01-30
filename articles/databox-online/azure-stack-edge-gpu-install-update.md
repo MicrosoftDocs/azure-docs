@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 01/30/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -20,9 +20,9 @@ The procedure described in this article was performed using a different version 
 
 ## About latest updates
 
-The current update is Update 2210. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
+The current update is Update 2301. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
 
-- Device software version: Azure Stack Edge 2210 (2.2.2111.1002)
+- Device software version: Azure Stack Edge 2310 (2.2.2162.730)
 - Device Kubernetes version: Azure Stack Kubernetes Edge 2210 (2.2.2111.1002)
 - Kubernetes server version: v1.23.8
 - IoT Edge version: 0.1.0-beta15
