@@ -34,6 +34,8 @@ You'll have access to Azure services across all regions within a geopolitical re
 
 [!INCLUDE [expressroute-azure-regions-geopolitical-region](../../includes/expressroute-azure-regions-geopolitical-region.md)]
 
+## <a name="partners"></a>ExpressRoute connectivity providers
+
 The following table shows locations by service provider. If you want to view available providers by location, see [Service providers by location](expressroute-locations-providers.md).
 
 
