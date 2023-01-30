@@ -4,7 +4,7 @@ description: The article describes how to manage the update settings for your Wi
 ms.service: update-management-center
 author: snehasudhirG
 ms.author: sudhirsneha
-ms.date: 04/21/2022
+ms.date: 01/30/2023
 ms.topic: conceptual
 ---
 
@@ -22,7 +22,7 @@ The article describes how to configure update settings from Update management ce
 To configure update settings on your machines on a single VM, follow these steps:
 
 >[!NOTE]
-> You can schedule updates from the Overview or Machines blade in update management center (preview) page or from the selected VM.
+> You can schedule updates from the Overview blade or Machines blade in update management center (preview) page or from the selected VM.
 
 # [From Overview blade](#tab/manage-single-overview)
 
@@ -38,11 +38,11 @@ To configure update settings on your machines on a single VM, follow these steps
 
    - **Periodic assessment** - The **periodic Assessment** is set to run every 24 hours. You can either enable or disable this setting.
      
-    - **Hot patching** - for Azure VMs, you can enable [hot patching](../automanage/automanage-hotpatch.md) on supported Windows Server Azure Edition Virtual Machines (VMs) don't require a reboot after installation. You can use update management center (preview) to install patches with other patch classifications or to schedule patch installation when you require immediate critical patch deployment. You can enable, disable or reset this setting.
+    - **Hot patch** - For Azure VMs, you can enable [hot patching](../automanage/automanage-hotpatch.md). Windows Server Azure Edition Virtual Machines (VMs) don't require a reboot after installation. You can use update management center (preview) to install patches with other patch classifications or to schedule patch installation when you require immediate critical patch deployment. You can enable, disable or reset this setting.
 
     - **Patch orchestration** option provides the following:
 
-      - **Automatic by OS (Windows Automatic Updates)** - When the workload running on the VM doesn't have to meet availability targets, operating system updates are automatically downloaded and installed. Machines are rebooted as needed.
+      - **Automatic by OS (Windows Automatic Updates)** - When the workload running on the VM doesn't have to meet availability targets, the operating system updates are automatically downloaded and installed. Machines are rebooted as needed.
       - **Azure-orchestrated** - Patch orchestration set to Azure-orchestrated for an Azure VM (not applicable for Arc-enabled server) has two different implications depending on whether customer [schedule](../update-center/scheduled-patching.md#) is attached to it or not.
       
         | Patch orchestration type | Description
@@ -52,7 +52,7 @@ To configure update settings on your machines on a single VM, follow these steps
 
       - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
       - **Manual updates** - Configures the Windows Update agent by setting [configure automatic updates](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates).
-      - **Image Default** - Only supported for Linux Virtual Machines, this mode honors the default patching configuration in the image used to create the VM.
+      - **Image Default** - Only supported for Linux Virtual Machines, this mode uses the default patching configuration in the image used to create the VM.
 
 1. After you make the selection, select **Save**.
 
@@ -60,7 +60,7 @@ To configure update settings on your machines on a single VM, follow these steps
 # [From Machines blade](#tab/manage-single-machines)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In **Update management center**, select **Machines**, your **subscription**, and select the checkbox of your machine from the list and select **Update settings**.
+1. In **Update management center**, select **Machines** > your **subscription**. 1. Select the checkbox of your machine from the list and select **Update settings**.
 1. Select **Update Settings** to proceed with the type of update for your machine.
 1. In **Change update settings**, select **+Add machine** to select the machine for which you want to change the update settings.
 1. In **Select resources**, select the machine and select **Add** and follow the procedure from step 5 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
@@ -81,7 +81,7 @@ A notification appears to confirm that the update settings are successfully chan
 To configure update settings on your machines at scale, follow these steps:
 
 >[!NOTE]
-> You can schedule updates from the Overview or Machines blade.
+> You can schedule updates from the Overview blade or Machines blade.
 
 # [From Overview blade](#tab/manage-scale-overview)
  
@@ -89,12 +89,12 @@ To configure update settings on your machines at scale, follow these steps:
 
 1. In **Update management center**, select **Overview**, select your **Subscription** and select **Update settings**.
 
-1. In **Change update settings**, select the update settings that you want to change for your machines follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
+1. In **Change update settings**, select the update settings that you want to change for your machines. Follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
 
 # [From Machines blade](#tab/manage-scale-machines)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In **Update management center**, select **Machines**, your **subscription**, and select the checkbox for all your machines from the list and select **Update settings**.
+1. In **Update management center**, select **Machines** > your **subscription**, and select the checkbox for all your machines from the list.
 1. Select **Update Settings** to proceed with the type of update for your machines.
 1. In **Change update settings**, you can select the update settings that you want to change for your machine and follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
 
