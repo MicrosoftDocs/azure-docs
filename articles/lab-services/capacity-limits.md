@@ -63,7 +63,7 @@ To overcome the Azure region restriction, you have the following options:
 
 	    | Field  | Value  |
         | ------ | ------ |
-        | **Summary** | Enter *Remove regional restriction*. |
+        | **Summary** | Enter *Remove region restriction*. |
         | **Issue type** | *Technical* |
         | **Subscription** | Select your Azure subscription. |
         | **Service** | Select *My Services*. |
