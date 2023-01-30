@@ -57,7 +57,7 @@ You can access your dev boxes and deployment environments through the
 existing dev boxes and environments displayed as shown in this
 screenshot:
 
-:::image type="content" source="media/devportal.png" alt-text="Screenshot showing dev boxes and environments in the developer portal.":::
+:::image type="content" source="media/developer-portal.png" alt-text="Screenshot showing dev boxes and environments in the developer portal.":::
 
 You can create new dev boxes and environments through the developer
 portal menu at the top right.
