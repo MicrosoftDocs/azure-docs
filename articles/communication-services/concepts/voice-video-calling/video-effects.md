@@ -17,7 +17,7 @@ ms.subservice: calling
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 >[!IMPORTANT]
-> The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
+> The Calling Video effects are available starting on the public preview version [1.10.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.10.0-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
 
 > [!NOTE]
 > This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
@@ -67,7 +67,7 @@ To use video effects with the Azure Communication Calling client library, once y
 ### Code examples
 ```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
-import { BackgroundBlur, BackgroundReplacement } from '@azure/communication-calling-effects'; 
+import { BackgroundBlurEffect, BackgroundReplacement } from '@azure/communication-calling-effects'; 
 
 /** Assuming you have initialized the Azure Communication Calling client library and have created a LocalVideoStream 
 (reference <link to main SDK npm>) 
@@ -92,7 +92,7 @@ videoEffectsFeatureApi.on(‘effectsError’, (error) => {
 }); 
 
 // Create the effect instance 
-const backgroundBlurEffect = new BackgroundBlur(); 
+const backgroundBlurEffect = new BackgroundBlurEffect(); 
 
 // Recommended: Check if backgroundBlur is supported
 const backgroundBlurSupported = await backgroundBlurEffect.isSupported(); 
