@@ -10,7 +10,7 @@ author: deeikele
 ms.reviewer: larryfr
 ms.date: 01/26/2023
 ms.topic: how-to
-ms.custom: powershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage Azure Machine Learning workspaces using Azure PowerShell
