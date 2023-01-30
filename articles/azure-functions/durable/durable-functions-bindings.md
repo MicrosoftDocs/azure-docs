@@ -414,10 +414,10 @@ public static Task Run(
 [Function("QueueStart")]
 public static Task Run(
     [QueueTrigger("durable-function-trigger")] string input,
-    [DurableClient] DurableClientContext durableContext)
+    [DurableClient] DurableTaskClient client)
 {
     // Orchestration input comes from the queue message content.
-    return durableContext.Client.ScheduleNewOrchestrationInstanceAsync("HelloWorld", input);
+    return client.ScheduleNewOrchestrationInstanceAsync("HelloWorld", input);
 }
 ```
 

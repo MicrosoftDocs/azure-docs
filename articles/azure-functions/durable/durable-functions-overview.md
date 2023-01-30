@@ -784,10 +784,10 @@ public static async Task Run(
 [Function("RaiseEventToOrchestration")]
 public static async Task Run(
     [HttpTrigger] string instanceId,
-    [DurableClient] DurableClientContext durableContext)
+    [DurableClient] DurableTaskClient client)
 {
     bool isApproved = true;
-    await durableContext.Client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
 }
 ```
 

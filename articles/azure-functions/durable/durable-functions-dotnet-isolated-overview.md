@@ -135,8 +135,8 @@ This table isn't an exhaustive list of changes.
 
 | 2.x | Isolated |
 | ---- | ---- |
-| `IDurableOrchestrationClient` | `DurableClientContext` |
-| `IDurableOrchestrationClient.StartNewAsync` | `DurableClientContext.Client.ScheduleNewOrchestrationInstanceAsync` |
+| `IDurableOrchestrationClient` | `DurableTaskClient` |
+| `IDurableOrchestrationClient.StartNewAsync` | `DurableTaskClient.ScheduleNewOrchestrationInstanceAsync` |
 | `IDurableOrchestrationContext` | `TaskOrchestrationContext` |
 | `IDurableOrchestrationContext.GetInput<T>()` | `TaskOrchestrationContext.GetInput<T>()` or inject input as a parameter: `MyOrchestration([OrchestrationTrigger] TaskOrchestrationContext context, T input)` |
 | `DurableActivityContext` | No equivalent |
