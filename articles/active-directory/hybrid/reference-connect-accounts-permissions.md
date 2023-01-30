@@ -24,7 +24,7 @@ Learn about the Azure AD Connect accounts that are used and created and required
 
 Azure AD Connect uses three accounts to synchronize information from on-premises Windows Server Active Directory (Windows Server AD) to Azure Active Directory (Azure AD):
 
-- **AD DS Connector account**: Used to read and write information to Windows Server AD.
+- **AD DS Connector account**: Used to read and write information to Windows Server AD by using Active Directory Domain Services (AD DS).
 
 - **ADSync service account**: Used to run the synchronization service and access the SQL database.
 
@@ -36,7 +36,7 @@ You also need the following accounts to install Azure AD Connect:
 
 - **AD DS Enterprise Administrator account**: Optionally used to create the required AD DS Connector account.
 
-- **Azure AD Global Administrator account**:  Used to create the Azure AD Connector account and to configure Azure AD.  You can view Hybrid Identity Administrator accounts in the Azure portal.  See [List Azure AD role assignments](../../active-directory/roles/view-assignments.md).
+- **Azure AD Global Administrator account**:  Used to create the Azure AD Connector account and to configure Azure AD. You can view Hybrid Identity Administrator accounts in the Azure portal. See [List Azure AD role assignments](../../active-directory/roles/view-assignments.md).
 
 - **SQL SA account (optional)**: Used to create the ADSync database when you use the full version of SQL Server. The instance of SQL Server may be local or remote to the Azure AD Connect installation. This account may be the same account as the Enterprise Administrator account. Provisioning the database can now be performed out-of-band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner permissions. For more information, see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).
 
@@ -66,7 +66,7 @@ In express settings, you enter this information in the installation wizard:
 
 ### AD DS Enterprise Administrator credentials
 
-The AD DS Enterprise Administrator account is used to configure on-premises Active Directory. These credentials are used only during installation. The Enterprise Administrator, not the Domain Administrator, should make sure that the permissions in Active Directory can be set in all domains.
+The AD DS Enterprise Administrator account is used to configure Windows Server AD. These credentials are used only during installation. The Enterprise Administrator, not the Domain Administrator, should make sure that the permissions in Active Directory can be set in all domains.
 
 If you're upgrading from DirSync, the AD DS Enterprise Administrator credentials are used to reset the password for the account used by DirSync. You also need Azure AD Global Administrator credentials.
 
@@ -82,7 +82,7 @@ The AD DS Connector account is created for reading and writing to Windows Server
 
 | Permission | Used for |
 | --- | --- |
-| <li>Replicate Directory Changes</li><li>Replicate Directory Changes All |Password hash sync |
+| - Replicate Directory Changes<br />- Replicate Directory Changes All |Password hash sync |
 | Read/Write all properties User |Import and Exchange hybrid |
 | Read/Write all properties iNetOrgPerson |Import and Exchange hybrid |
 | Read/Write all properties Group |Import and Exchange hybrid |
@@ -93,21 +93,21 @@ The AD DS Connector account is created for reading and writing to Windows Server
 
 With the express settings installation, the wizard creates some accounts and settings for you.
 
-![Express installation](./media/reference-connect-accounts-permissions/express.png)
+:::image type="content" source="media/how-to-connect-install-express/express.png" alt-text="Screenshot that shows the Express Settings page in Azure AD Connect.":::
 
 The following table is a summary of the express installation wizard pages, the credentials that are collected, and what they're used for:
 
 | Wizard page | Credentials collected | Permissions required | Used for |
 | --- | --- | --- | --- |
-| N/A |The user that's running the installation wizard |Administrator of the local server |- Creates the ADSync service account that is used to run the sync service. |
-| Connect to Azure AD |Azure AD directory credentials |Global Administrator role in Azure AD |- Enable sync in the Azure AD directory.<br /> - Create the Azure AD Connector account that's used for ongoing sync operations in Azure AD. |
-| Connect to AD DS |On-premises Active Directory credentials |Member of the Enterprise Admins group in Active Directory |- Creates the AD DS Connector account in Active Directory and grants permissions to it. This created account is used to read and write directory information during synchronization. |
+| N/A |The user that's running the installation wizard. |Administrator of the local server. |- Creates the ADSync service account that is used to run the sync service. |
+| Connect to Azure AD |Azure AD directory credentials. |Global Administrator role in Azure AD. |- Enable sync in the Azure AD directory.<br /> - Create the Azure AD Connector account that's used for ongoing sync operations in Azure AD. |
+| Connect to AD DS |Windows Server AD credentials. |Member of the Enterprise Admins group in Active Directory. |- Creates the AD DS Connector account in Active Directory and grants permissions to it. This created account is used to read and write directory information during synchronization. |
 
 ## Custom installation settings
 
 With the custom settings installation, you have more choices and options in the wizard.
 
-![Screenshot that shows the custom installation wizard pages.](./media/reference-connect-accounts-permissions/customize.png)
+:::image type="content" source="media/how-to-connect-install-express/customize.png" alt-text="Screenshot that shows the Express Settings page in Azure AD Connect, with the Customize button highlighted.":::
 
 ### Custom installation wizard summary
 
@@ -115,14 +115,14 @@ The following table is a summary of the custom installation wizard pages, the cr
 
 | Wizard page | Credentials collected | Permissions required | Used for |
 | --- | --- | --- | --- |
-| N/A |The user that's running the installation wizard |- Administrator of the local server.<br />- If using an instance of full SQL Server, the user must be System Administrator in SQL Server.</li> |By default, creates the local account that's used as the sync engine service account. The account is created only when the admin doesn't specify an account. |
-| Install synchronization services, service account option |Active Directory or local user account credentials |User, permissions are granted by the installation wizard |If the admin specifies an account, this account is used as the service account for the sync service. |
-| Connect to Azure AD |Azure AD directory credentials |Global Administrator role in Azure AD |- Enable sync in the Azure AD directory.<br />- Create the Azure AD Connector account that's used for ongoing sync operations in Azure AD. |
-| Connect your directories |On-premises Active Directory credentials for each forest that is connected to Azure AD |The permissions depend on which features you enable and can be found in Create the AD DS Connector account |This account is used to read and write directory information during synchronization. |
-| AD FS Servers |For each server in the list, the wizard collects credentials when the sign-in credentials of the user running the wizard are insufficient to connect |Domain Administrator |Installation and configuration of the AD FS server role. |
-| Web application proxy servers |For each server in the list, the wizard collects credentials when the sign-in credentials of the user running the wizard are insufficient to connect |Local admin on the target machine |Installation and configuration of WAP server role. |
-| Proxy trust credentials |Federation service trust credentials (the credentials the proxy uses to enroll for a trust certificate from the FS |Domain account that is a local administrator of the AD FS server |Initial enrollment of FS-WAP trust certificate. |
-| AD FS Service Account page, "Use a domain user account option" |AD user account credentials |Domain user |The Azure AD user account whose credentials are provided is used as the sign-in account of the AD FS service. |
+| N/A |The user that's running the installation wizard. |- Administrator of the local server.<br />- If using an instance of full SQL Server, the user must be System Administrator in SQL Server.</li> |By default, creates the local account that's used as the sync engine service account. The account is created only when the admin doesn't specify an account. |
+| Install synchronization services, service account option |The Active Directory or local user account credentials. |User and permissions are granted by the installation wizard. |If the admin specifies an account, this account is used as the service account for the sync service. |
+| Connect to Azure AD |Azure AD directory credentials. |Global Administrator role in Azure AD. |- To enable sync in the Azure AD directory.<br />- To create the Azure AD Connector account that's used for ongoing sync operations in Azure AD. |
+| Connect your directories |Windows Server AD credentials for each forest that is connected to Azure AD. |The permissions depend on which features you enable and can be found in [Create the AD DS Connector account](#create-the-ad-ds-connector-account). |This account is used to read and write directory information during sync. |
+| AD FS Servers |For each server in the list, the wizard collects credentials when the sign-in credentials of the user running the wizard are insufficient to connect. |The Domain Administrator account. |Installation and configuration of the Active Directory Federation Services (AD FS) server role. |
+| Web application proxy servers |For each server in the list, the wizard collects credentials when the sign-in credentials of the user running the wizard are insufficient to connect. |Local admin on the target machine. |Installation and configuration of the web application proxy (WAP) server role. |
+| Proxy trust credentials |Federation service trust credentials (the credentials the proxy uses to enroll for a trust certificate from the federation services (FS). |The domain account that's a local administrator of the AD FS server. |Initial enrollment of FS-WAP trust certificate. |
+| AD FS Service Account page **Use a domain user account option** |The Active Directory user account credentials. |A domain user. |The Azure AD user account whose credentials are provided is used as the sign-in account of the AD FS service. |
 
 ### Create the AD DS Connector account
 
@@ -131,7 +131,7 @@ The following table is a summary of the custom installation wizard pages, the cr
 >
 > For more information, see [Azure AD Connect: Configure AD DS Connector account permission](how-to-connect-configure-ad-ds-connector-account.md).
 
-The account you specify on the **Connect your directories** page must be present in Active Directory before installation. Azure AD Connect version 1.1.524.0 and later has the option to let the Azure AD Connect wizard create the AD DS Connector account that's used to connect to Active Directory.  
+The account you specify on the **Connect your directories** page must be present in Active Directory before installation. Azure AD Connect version 1.1.524.0 and later has the option to let the Azure AD Connect wizard create the AD DS Connector account that's used to connect to Active Directory.
 
 The account you specify also must have the required permissions. The installation wizard doesn't verify the permissions, and any issues are found only during synchronization.
 
@@ -158,7 +158,7 @@ When you upgrade from one version of Azure AD Connect to a new release, you need
 | The user that's running the installation wizard |If you use a full instance of SQL Server: DBO (or similar) of the sync engine database |Make database-level changes, such as updating tables with new columns. |
 
 > [!IMPORTANT]
-> In build 1.1.484, a regression bug was introduced in Azure AD Connect. The bug requires sysadmin permissions to upgrade the SQL Server database. The bug is corrected in build 1.1.647.  If you're upgrading to this build, you'll need sysadmin permissions. In this scenario, database owner (DBO) permissions aren't sufficient. If you attempt to upgrade Azure AD Connect without sysadmin permissions, the upgrade fails and Azure AD Connect no longer functions correctly afterward.
+> In build 1.1.484, a regression bug was introduced in Azure AD Connect. The bug requires sysadmin permissions to upgrade the SQL Server database. The bug is corrected in build 1.1.647. If you're upgrading to this build, you'll need sysadmin permissions. In this scenario, database owner (DBO) permissions aren't sufficient. If you attempt to upgrade Azure AD Connect without sysadmin permissions, the upgrade fails and Azure AD Connect no longer functions correctly afterward.
 
 ## More information about the created accounts
 
@@ -170,7 +170,7 @@ If you use express settings, an account that's used for syncing is created in Ac
 
 :::image type="content" source="media/reference-connect-accounts-permissions/adsyncserviceaccount.png" alt-text="Screenshot that shows an AD DS Connector account with the MSOL prefix in Azure AD Connect.":::
 
-If you use custom settings, you're responsible for creating the account before you start the installation.  See [Create the AD DS Connector account](#create-the-ad-ds-connector-account).
+If you use custom settings, you're responsible for creating the account before you start the installation. See [Create the AD DS Connector account](#create-the-ad-ds-connector-account).
 
 ### ADSync service account
 
@@ -218,7 +218,7 @@ The VSA feature requires Windows Server 2008 R2 or later. If you install Azure A
 
 #### gMSA
 
-If you use a remote instance of SQL Server, we recommend that you use a gMSA. For more information about how to prepare your Active Directory for gMSA, see [Group managed service accounts overview](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+If you use a remote instance of SQL Server, we recommend that you use a gMSA. For more information about how to prepare Active Directory for gMSA, see [Group managed service accounts overview](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
 To use this option, on the [Install required components](how-to-connect-install-custom.md#install-required-components) page, select **Use an existing service account**, and then select **Managed Service Account**.
 
