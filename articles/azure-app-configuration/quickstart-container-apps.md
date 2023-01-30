@@ -16,7 +16,7 @@ In this quickstart, learn how to connect a container app to Azure App Configurat
 
 ## Prerequisites
 
-- This quickstart assumes that you have completed the quickstart [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
+- This quickstart assumes that you've completed the quickstart [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - The [Azure CLI](/cli/azure/install-azure-cli)
 
@@ -36,9 +36,9 @@ In this quickstart, learn how to connect a container app to Azure App Configurat
     dotnet published/TestAppConfig.dll
     ```
 
-1. Navigate to the URL displayed in the output to check that the deployment was successful. For example `https://localhost:5001`
+1. Navigate to the URL displayed in the output to check that the deployment was successful. For example, `https://localhost:5001`
 
-1. Create a file named *Dockerfile* in the directory containing your .csproj, open it in a text editor and enter the content below. A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
+1. Create a file named *Dockerfile* in the directory containing your .csproj file, open it in a text editor and enter the content below. A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
 
     ```docker
     FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
@@ -91,7 +91,7 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 1. Create a container registry following the [Azure Container Registry quickstart](/azure/container-registry/container-registry-get-started-portal).
 
 1. Once the deployment is complete, open your ACR instance and from the left menu, select **Settings > Access keys**.
-1. Take note of the **Login server** value listed on this page. You will use this information in a later step.
+1. Take note of the **Login server** value listed on this page. You'll use this information in a later step.
 1. Switch **Admin user** to *Enabled*. This option lets you connect the ACR to Azure Container Apps using admin user credentials.
 
 #### [Azure CLI](#tab/azure-cli)
@@ -109,12 +109,12 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
     |--------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
     | `--resource-group` | `AppConfigTestResources` | Enter the name of your resource group.                                                                                                         |
     | `--name`           | `myregistry`             | Enter a name of your container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.   |
-    | `--admin-enabled`  | `true`                   | Enter `true`to enable the option to connect to connect the container registry to Azure Container Apps using admin user credentials. |
+    | `--admin-enabled`  | `true`                   | Enter `true`to enable the option to connect the container registry to Azure Container Apps using admin user credentials. |
     | `--sku`            | `Basic`                  | Enter `Basic`. The basic tier is a cost-optimized entry point appropriate for lower usage scenarios.                                               |
 
 1. In the command output, take note of the ACR login server value listed after `loginServer`.
 
-1. Retrieve the ACR username and password by running `az acr credential show --name myregistry`. You will need these values later.
+1. Retrieve the ACR username and password by running `az acr credential show --name myregistry`. You'll need these values later.
 
 ---
 
@@ -137,7 +137,7 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
     > [!TIP]
     > To review the list of your existing docker images and tags, run `docker image ls`.
 
-1. Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the container registry. This example creates the *aspnetapp* repository in ACR containing the `aspnetapp` image. In the example below, replace the placeholders `<login-server`, `<image-name>` and `<tag>` by the ACR's login server value, the image name and the image tag.
+1. Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the container registry. This example creates the *aspnetapp* repository in ACR containing the `aspnetapp` image. In the example below, replace the placeholders `<login-server`, `<image-name>` and `<tag>` by the ACR's log-in server value, the image name and the image tag.
 
     Method:
 
@@ -197,7 +197,7 @@ az containerapp create \
 
 | Parameter             | Suggested value                   | Description                                                                                          |
 |-----------------------|-----------------------------------|------------------------------------------------------------------------------------------------------|
-| `--image`             | `myregistry.azurecr.io/aspnetapp` | Enter the ACR's  login server value followed by `/` and the name of your image.      |
+| `--image`             | `myregistry.azurecr.io/aspnetapp` | Enter the ACR's  log-in server value followed by `/` and the name of your image.      |
 | `--name`              | `mycontainerapp`                  | Enter a name of your container app.                                                                  |
 | `--resource-group`    | `AppConfigTestResources`          | Enter the name of your resource group.                                                               |
 | `--environment`       | `MyContainerAppEnv`               | Enter the name of your Azure Container Apps Environment. |
@@ -215,14 +215,14 @@ In the next step, connect the container app to Azure App Configuration using [Se
 
 Connect the app to Azure App Configuration following the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md) and enter the following settings.
 
-    | Setting               | Suggested value       | Description                                                                                                            |
-    |-----------------------|-----------------------|------------------------------------------------------------------------------------------------------------------------|
-    | **Container**         | *mycontainerapp*      | Select your Container Apps instance.                                                                                   |
-    | **Service type**      | *App Configuration*   | Select *App Configuration* to connect to your App Configuration store to Azure Container Apps.                         |
-    | **Connection name**   | Generated unique name | A connection name is automatically generated. This name identifies the connection between your container app and the App Configuration store. |
-    | **Subscription**      | MySubscription        | Select the subscription containing the App Configuration store. The default value is the subscription for your container app. |
-    | **App Configuration** | *MyAppConfiguration*  | Select the name of the App Configuration store referenced in your app.                                                 |
-    | **Client type**       | *.NET*                | Select the application stack that works with the target service you selected.                                          |
+| Setting               | Suggested value       | Description                                                                                                            |
+|-----------------------|-----------------------|------------------------------------------------------------------------------------------------------------------------|
+| **Container**         | *mycontainerapp*      | Select your Container Apps instance.                                                                                   |
+| **Service type**      | *App Configuration*   | Select *App Configuration* to connect to your App Configuration store to Azure Container Apps.                         |
+| **Connection name**   | Generated unique name | A connection name is automatically generated. This name identifies the connection between your container app and the App Configuration store. |
+| **Subscription**      | MySubscription        | Select the subscription containing the App Configuration store. The default value is the subscription for your container app. |
+| **App Configuration** | *MyAppConfiguration*  | Select the name of the App Configuration store referenced in your app.                                                 |
+| **Client type**       | *.NET*                | Select the application stack that works with the target service you selected.                                          |
 
 1. Select **Next: Authentication** and select **Connection string**.
 1. Select **Next: Network** to select the network configuration. Then select **Configure firewall rules to enable access to target service**.
@@ -239,7 +239,7 @@ az containerapp connection create appconfig \
     --container mycontainerapp \ #container where the connection information will be saved
     --target-resource-group AppConfigTestResources \ # the resource group that contains the App Configuration store
     --app-config MyAppConfiguration \  # the name of the App Configuration store
-    --system-identity #the authentication method
+    --secret #the authentication method
 ```
 
 | Parameter                | Suggested value          | Description                                                                             |
@@ -249,7 +249,7 @@ az containerapp connection create appconfig \
 | `--container`            | `mycontainerapp`         | Enter the name of the container app.                                                    |
 | `--target-resource-group`| `AppConfigTestResources` | Enter the resource group that contains the App Configuration store.                     |
 | `--app-config`           | `MyAppConfiguration`     | Enter the name of the App Configuration store.                                          |
-| `--system-identity`      | Leave blank              | Enter `--system-identity` to authenticate with with a system-assigned managed identity |
+| `--secret`               | Leave blank              | Enter `--secret` to authenticate with connection string                                 |
 
 ---
 
