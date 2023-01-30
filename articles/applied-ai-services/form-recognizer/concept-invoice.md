@@ -25,7 +25,7 @@ recommendations: false
 
 The Form Recognizer invoice model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from sales invoices, utility bills, and purchase orders. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
 
-**Supported document types:
+**Supported document types:**
 
 * Invoices
 * Utility bills
