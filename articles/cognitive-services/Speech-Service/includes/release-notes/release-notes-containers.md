@@ -20,6 +20,8 @@ Fix Hypothesis mode issue
 
 Fix HTTP Proxy issue
 
+Custom Speech-to-Text container disconnected mode
+
 Add CNV Disconnected container support to TTS Frontend
 
 Add support for these locale-voices:
