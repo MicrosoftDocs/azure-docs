@@ -71,13 +71,10 @@ You can use the cloud security explorer to build queries that can proactively hu
 
 The results will populate on the bottom of the page
 
-## Share a query
-
-Select **Share query link**. The link is copied to your clipboard.
 
 ## Query templates
 
-Query templates are pre-formatted searches using ly-used filters. You can select an existing query template from the bottom of the page by selecting **Open query**.
+Query templates are pre-formatted searches using commonly-used filters. You can select an existing query template from the bottom of the page by selecting **Open query**.
 
 :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png" alt-text="Screenshot that shows you where the query templates are located." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png":::
 
@@ -96,6 +93,12 @@ The following information can be queried in the cloud security explorer:
 - **Connections** - Connections that are identified between cloud resources in your environment.
 
 You can review the [full list of recommendations, insights and connections](attack-path-reference.md). 
+
+## Share a query
+
+Use the query link to share a query with other people. After creating a query, select **Share query link**. The link is copied to your clipboard.
+
+:::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-share-query.png" alt-text="Screenshot showing the Share Query Link icon." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-share-query.png":::
 
 ## Next steps
 
