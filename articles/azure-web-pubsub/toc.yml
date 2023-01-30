@@ -1,6 +1,5 @@
 - name: Azure Web PubSub service documentation
   href: index.yml
-
 - name: Overview
   expanded: true
   items:
@@ -116,7 +115,6 @@
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
-
 - name: Concepts
   expanded: true
   items:
@@ -138,7 +136,6 @@
       href: concept-azure-ad-authorization.md
     - name: Metrics
       href: concept-metrics.md
-
 - name: Reference
   items:
     - name: WebSocket subprotocols
@@ -158,6 +155,8 @@
       href: reference-cloud-events-amqp.md
     - name: Functions trigger and bindings
       href: reference-functions-bindings.md
+    - name: Azure policy definitions
+      href: policy-definitions.md
     - name: Data plane REST API and SDKs
       items:
         - name: REST API

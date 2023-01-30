@@ -33,7 +33,7 @@ In this article, you learn about:
 
 After you train a machine learning model, you need to deploy the model so that others can use it to do inferencing. In Azure Machine Learning, you can use **endpoints** and **deployments** to do so.
 
-An **endpoint** is an HTTPS endpoint that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
+An **endpoint**, in this context, is an HTTPS path that provides an interface for clients to send requests (input data) and receive the inferencing (scoring) output of a trained model. An endpoint provides:
 - Authentication using "key & token" based auth 
 - SSL termination 
 - A stable scoring URI (endpoint-name.region.inference.ml.azure.com)
@@ -43,7 +43,7 @@ A **deployment** is a set of resources required for hosting the model that does 
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
-Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [online endpoints](#what-are-online-endpoints) and [batch endpoints](#what-are-batch-endpoints).
+Azure Machine Learning allows you to implement both [online endpoints](#what-are-online-endpoints) and [batch endpoints](#what-are-batch-endpoints).
 
 ### Multiple developer interfaces
 

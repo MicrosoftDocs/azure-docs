@@ -74,15 +74,6 @@ This article assumes that you use a machine running Windows as your development 
 * Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. For example, install [Docker Community Edition](https://docs.docker.com/install/).
 * To develop modules with **Linux containers**, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-* To develop modules with **Windows containers**, use a Windows computer running version 1809/build 17763 or newer. For more information, see, [Windows containers](support.md#windows-containers).
-
-* Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you're developing.
-
-:::moniker-end
-<!-- end 1.1 -->
-
 * Create an [Azure Container Registry](../container-registry/index.yml) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) to store your module images.
 
   > [!TIP]
@@ -231,15 +222,6 @@ To initialize the tool in Visual Studio:
 ### Build and debug a single module
 
 Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules. The IoT Edge simulator tool allows you to run a single module in isolation a send messages over port 53000.
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
->[!TIP]
->Depending on the type of IoT Edge module you are developing, you may need to enable the correct Docker container mode: either Linux or Windows. From the Docker Desktop menu, you can toggle between the two types of modes. Select **Switch to Windows containers** or select **Switch to Linux containers**. For this tutorial, we use Linux.
->
->:::image type="content" source="./media/how-to-visual-studio-develop-module/system-tray.png" alt-text="Screenshot of how to find and select the menu item named 'Switch to Windows containers'.":::
-:::moniker-end
-<!-- end 1.1 -->
 
 1. In **Solution Explorer**, select and highlight the module project folder (for example, *IotEdgeModule1*). Set the custom module as the startup project. Select **Project** > **Set as StartUp Project** from the menu.
 

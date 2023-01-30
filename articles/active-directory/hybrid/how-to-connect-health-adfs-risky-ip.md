@@ -11,7 +11,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
@@ -35,8 +35,8 @@ Azure Active Directory (Azure AD) Connect Health now provides the *Risky IP repo
 
 > [!NOTE]
 > To use this report, you must ensure that AD FS auditing is enabled. For more information, see [Enable auditing for AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs).
-> To access this preview release, you need Global Admin or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permissions.  
 >
+> To access this preview release, you need Global Administrator or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permissions.  
 
 ## What's in the report?
 
@@ -121,21 +121,19 @@ Private IP addresses (*10.x.x.x, 172.x.x.x* and *192.168.x.x*) and Exchange IP a
 
 If you're seeing load balancer IP addresses, it's highly likely that your external load balancer isn't sending the client IP address when it passes the request to the Web Application Proxy server. Configure your load balancer correctly to pass forward the client IP address. 
 
-**What do I do to block the IP address?**
+**How can I block the IP address?**
 
-You should add the identified malicious IP address to the firewall or block in Exchange.
+You should add the identified malicious IP address to the firewall or block it in Exchange.
 
-
-**Why am I not seeing any items in this report?**
+**Why can't I see any items in this report?**
 
 - Failed sign-in activities aren't exceeding the threshold settings.
 - Ensure that no “Health service isn't up to date” alert is active in your AD FS server list.  Read more about [how to troubleshoot this alert](how-to-connect-health-data-freshness.md).
 - Audits aren't enabled in AD FS farms.
 
-**Why am I seeing no access to the report?**
+**Why can't I access the report?**
 
-Global Admin or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permission is required. Contact your global administrator to get access.
-
+You need to have Global Administrator or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permissions. Contact your Global Administrator for access.
 
 ## Next steps
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
