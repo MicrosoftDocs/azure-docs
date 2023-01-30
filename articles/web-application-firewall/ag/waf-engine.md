@@ -37,7 +37,7 @@ There are many new features that are only supported in the Azure WAF engine. The
 * [Increased scale limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)
   * HTTP listeners limit
   * WAF IP address ranges per match condition
-  * exclusions limit
+  * Exclusions limit
 
 New WAF features will only be released with later versions of CRS on the new WAF engine. 
 
