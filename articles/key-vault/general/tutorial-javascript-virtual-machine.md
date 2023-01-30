@@ -173,8 +173,8 @@ On the virtual machine, install the two npm libraries we'll be using in our Java
         return (await client.getSecret(secretName)).value;
     }
     
-    getSecret("mySecret").then(secretValue => {
-        console.log(`The value of secret 'mySecret' in '${keyVaultName}' is: '${secretValue}'`);
+    getSecret(secretName).then(secretValue => {
+        console.log(`The value of secret '${secretName}' in '${keyVaultName}' is: '${secretValue}'`);
     }).catch(err => {
         console.log(err);
     })
