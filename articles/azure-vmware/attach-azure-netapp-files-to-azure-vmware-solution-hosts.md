@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 01/25/2023
+ms.date: 01/30/2023
 ms.custom: references_regions
 ---
 
@@ -211,4 +211,4 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within the same Azure VMware Solution SDDC?**
 
-    Yes, you can select multiple datastores at the time of datastore creation. Additional clusters may be added or removed after the initial creation as well.
+    Yes, you can select multiple clusters at the time of datastore creation. Additional clusters may be added or removed after the initial creation as well.
