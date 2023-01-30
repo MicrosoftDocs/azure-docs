@@ -4,7 +4,7 @@ description: Use Azure Functions to schedule a task that connects to Azure SQL D
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/04/2021
+ms.date: 01/30/2023
 ms.devlang: csharp
 ---
 
@@ -123,7 +123,10 @@ Now, you can add the C# function code that connects to your SQL Database.
 
     On the first execution, you should update 32 rows of data. Following runs update no data rows, unless you make changes to the SalesOrderHeader table data so that more rows are selected by the `UPDATE` statement.
 
-If you plan to [publish this function](functions-develop-vs.md#publish-to-azure), remember to change the `TimerTrigger` attribute to a more reasonable [cron schedule](functions-bindings-timer.md#ncrontab-expressions) than every 15 seconds. Also, you need to ensure that the Function Apps instance has network access to the Azure SQL Database instance by granting access to Azure IP addresses.
+If you plan to [publish this function](functions-develop-vs.md#publish-to-azure), remember to change the `TimerTrigger` attribute to a more reasonable [cron schedule](functions-bindings-timer.md#ncrontab-expressions) than every 15 seconds. You also need to make sure that your function app can access the Azure SQL Database or Azure SQL Managed Instance. For more information, see one of the following links based on your type of Azure SQL: 
+
++ [Azure SQL Database](/azure/azure-sql/database/firewall-configure#connections-from-inside-azure.)
++ [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance#connect-azure-app-service)
 
 ## Next steps
 
