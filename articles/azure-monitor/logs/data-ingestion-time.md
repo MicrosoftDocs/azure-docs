@@ -18,7 +18,7 @@ Latency refers to the time that data is created on the monitored system and the 
 ## Factors affecting latency
 The total ingestion time for a particular set of data can be broken down into the following high-level areas:
 
-- **Agent time**: The time to discover an event, collect it, and then send it to an Azure Monitor Logs ingestion point as a log record. In most cases, this process is handled by an agent. More latency might be introduced by the network.
+- **Data collection time**: The time to discover an event, collect it, and then send it to an Azure Monitor Logs ingestion point as a log record. In most cases, this process is handled by an agent. More latency might be introduced by the network.
 - **Pipeline time**: The time for the ingestion pipeline to process the log record. This time period includes parsing the properties of the event and potentially adding calculated information.
 - **Indexing time**: The time spent to ingest a log record into an Azure Monitor big data store.
 
@@ -58,18 +58,7 @@ Azure data adds more time to become available at an Azure Monitor Logs ingestion
 
 - **Azure platform metrics** are available in under a minute in the metrics database, but they take another 3 minutes to be exported to the Azure Monitor Logs ingestion point.
 - **Resource logs** typically add 30 to 90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5-minute intervals. Work is in progress to improve this time further. To examine this latency in your environment, see the [query that follows](#check-ingestion-time).
-- **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them to Azure Monitor Logs. They might take 10 to 15 minutes if you instead use the legacy integration.
-
-### Data collection by management solutions 
-
-**Typical latency: Varies**
-
-Some solutions don't collect data with an agent and might use a collection method that introduces more latency. Some solutions collect data at regular intervals without attempting near real-time collection. Specific examples include:
-
-- The Microsoft 365 solution polls activity logs by using the Management Activity API, which currently doesn't provide any near real-time latency guarantees.
-- The Windows Analytics solution (Update Compliance, for example) collects data on a daily basis.
-
-To determine a solution's collection frequency, see the [documentation for each solution](../insights/solutions.md).
+- **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them to Azure Monitor Logs.
 
 ### Pipeline-process time
 
