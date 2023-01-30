@@ -594,6 +594,8 @@ items:
                 href: /dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
               - name: Auth from on-premises apps
                 href: /dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            - name: Shared access signature (SAS)
+              href: sas-token-authorize.md
           - name: Container actions
             items:
             - name: Create a container
