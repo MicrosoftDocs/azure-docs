@@ -434,6 +434,8 @@ new PoolAddParameter
     }
 }
 ```
+> [!NOTE]
+> Looking for examples of alternate scripts no #C-based? check here in [Mount Azure File to Azure Batch Pool](https://techcommunity.microsoft.com/t5/azure-paas-blog/mount-azure-file-share-to-azure-batch-pool-via-azure-powershell/ba-p/2243992)
 
 ## Diagnose mount errors
 
