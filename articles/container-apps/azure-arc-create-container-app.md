@@ -83,7 +83,7 @@ myConnectedEnvironment = az containerapp connected-env list --custom-location cu
 The following example creates a Node.js app.
 
 ```azurecli-interactive
- az container app create \
+ az containerapp create \
     --resource-group myResourceGroup \
     --name myContainerApp \
     --environment myConnectedEnvironment \

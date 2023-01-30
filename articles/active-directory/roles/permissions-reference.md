@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 12/29/2022
+ms.date: 01/28/2023
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -221,7 +221,7 @@ Users in this role can create attack payloads but not actually launch or schedul
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation responses and associated training |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
 
 ## Attack Simulation Administrator
 
@@ -231,7 +231,7 @@ Users in this role can create and manage all aspects of attack simulation creati
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation responses and associated training |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Create and manage attack simulation templates in Attack Simulator |
 
 ## Attribute Assignment Administrator
@@ -389,7 +389,7 @@ Users with this role **cannot** do the following:
 
 ## Azure AD Joined Device Local Administrator
 
-This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
+This role is available for assignment only as an additional local administrator in [Device settings](../devices/assign-local-admin.md). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -636,7 +636,7 @@ Users with this role have the ability to manage Azure Active Directory Condition
 
 ## Customer LockBox Access Approver
 
-Manages [Customer Lockbox requests](/office365/admin/manage/customer-lockbox-requests) in your organization. They receive email notifications for Customer Lockbox requests and can approve and deny requests from the Microsoft 365 admin center. They can also turn the Customer Lockbox feature on or off. Only Global Administrators can reset the passwords of people assigned to this role.
+Manages [Microsoft Purview Customer Lockbox requests](/microsoft-365/compliance/customer-lockbox-requests) in your organization. They receive email notifications for Customer Lockbox requests and can approve and deny requests from the Microsoft 365 admin center. They can also turn the Customer Lockbox feature on or off. Only Global Administrators can reset the passwords of people assigned to this role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -831,10 +831,10 @@ Users with this role can manage (read, add, verify, update, and delete) domain n
 
 ## Dynamics 365 Administrator
 
-Users with this role have global permissions within Microsoft Dynamics 365 Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Use the service admin role to manage your Azure AD organization](/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+Users with this role have global permissions within Microsoft Dynamics 365 Online, when the service is present, as well as the ability to manage support tickets and monitor service health. For more information, see [Use service admin roles to manage your tenant](/power-platform/admin/use-service-admin-role-manage-tenant).
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Dynamics 365 Service Administrator." It is "Dynamics 365 Administrator" in the [Azure portal](https://portal.azure.com).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named Dynamics 365 Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named Dynamics 365 Administrator.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -859,10 +859,10 @@ Users in this role can create and manage the enterprise site list required for I
 
 ## Exchange Administrator
 
-Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. For more information, see [About admin roles in the Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Exchange Service Administrator." It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com). It is "Exchange Online administrator" in the [Exchange admin center](https://go.microsoft.com/fwlink/p/?LinkID=529144).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named Exchange Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named Exchange Administrator. In the [Exchange admin center](/exchange/exchange-admin-center), it is named Exchange Online administrator.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -885,7 +885,7 @@ Users with this role have global permissions within Microsoft Exchange Online, w
 
 ## Exchange Recipient Administrator
 
-Users with this role have read access to recipients and write access to the attributes of those recipients in Exchange Online. More information at [Exchange Recipients](/exchange/recipients/recipients).
+Users with this role have read access to recipients and write access to the attributes of those recipients in Exchange Online. For more information, see [Recipients in Exchange Server](/exchange/recipients/recipients).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1097,14 +1097,14 @@ Users with this role **cannot** do the following:
 > [!NOTE]
 > Global Reader role has the following limitations:
 >
->- [OneDrive admin center](https://admin.onedrive.com/) - OneDrive admin center does not support the Global Reader role
->- [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global Reader can't read integrated apps. You won't find the **Integrated apps** tab under **Settings** in the left pane of Microsoft 365 admin center.
+>- OneDrive admin center - OneDrive admin center does not support the Global Reader role
+>- [Microsoft 365 admin center](/microsoft-365/admin/admin-overview/admin-center-overview) - Global Reader can't read integrated apps. You won't find the **Integrated apps** tab under **Settings** in the left pane of Microsoft 365 admin center.
 >- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - Global Reader can't read SCC audit logs, do content search, or see Secure Score.
->- [Teams admin center](https://admin.teams.microsoft.com) - Global Reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management**, and **App catalog**. For more information, see [Use Microsoft Teams administrator roles to manage Teams](/microsoftteams/using-admin-roles).
->- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global Reader role.
+>- [Teams admin center](/microsoftteams/manage-teams-in-modern-portal) - Global Reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management**, and **App catalog**. For more information, see [Use Microsoft Teams administrator roles to manage Teams](/microsoftteams/using-admin-roles).
+>- [Privileged Access Management](/microsoft-365/compliance/privileged-access-management) doesn't support the Global Reader role.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Global Reader is supported [for central reporting](/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
-> - [SharePoint](https://admin.microsoft.com/sharepoint) - Global Reader currently can't access SharePoint using PowerShell.
-> - [Power Platform admin center](https://admin.powerplatform.microsoft.com) - Global Reader is not yet supported in the Power Platform admin center.
+> - [SharePoint](/sharepoint/get-started-new-admin-center) - Global Reader currently can't access SharePoint using PowerShell.
+> - [Power Platform admin center](/power-platform/admin/admin-documentation) - Global Reader is not yet supported in the Power Platform admin center.
 > - Microsoft Purview doesn't support the Global Reader role.
 
 > [!div class="mx-tableFixed"]
@@ -1256,7 +1256,7 @@ Users with this role **cannot** do the following:
 
 Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units](administrative-units.md).
 
-This role was previously called "Password Administrator" in the [Azure portal](https://portal.azure.com/). The "Helpdesk Administrator" name in Azure AD now matches its name in Azure AD PowerShell and the Microsoft Graph API.
+This role was previously named Password Administrator in the [Azure portal](../../azure-portal/azure-portal-overview.md). It was renamed to Helpdesk Administrator to align with the existing name in the Microsoft Graph API and Azure AD PowerShell.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1390,12 +1390,12 @@ Users in this role can access a set of dashboards and insights via the Microsoft
 
 ## Intune Administrator
 
-Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](/intune/role-based-access-control).
+Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. For more information, see [Role-based administration control (RBAC) with Microsoft Intune](/intune/fundamentals/role-based-access-control).
 
 This role can create and manage all security groups. However, Intune Administrator does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the organization. However, he/she can manage the Office group that he creates which comes as a part of his/her end-user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Intune Service Administrator." It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named Intune Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named Intune Administrator.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1533,7 +1533,7 @@ Users in this role can monitor all notifications in the Message Center, includin
 
 ## Message Center Reader
 
-Users in this role can monitor notifications and advisory health updates in [Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Microsoft 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
+Users in this role can monitor notifications and advisory health updates in [Message center](/microsoft-365/admin/manage/message-center) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Microsoft 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1789,10 +1789,10 @@ Learn more about Permissions Management roles and polices at [View information a
 
 ## Power BI Administrator
 
-Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI Administrator role](/power-bi/service-admin-role).
+Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. For more information, see [Understanding Power BI administrator roles](/power-bi/admin/service-admin-role).
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the [Azure portal](https://portal.azure.com).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named Power BI Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named Power BI Administrator.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1976,7 +1976,7 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | Assign roles<br>Manage machine groups<br>Configure endpoint threat detection and automated remediation<br>View, investigate, and respond to alerts<br/>View machines/device inventory
 [Intune](/intune/role-based-access-control) | Views user, device, enrollment, configuration, and application information<br>Cannot make changes to Intune
 [Microsoft Defender for Cloud Apps](/defender-cloud-apps/manage-admins) | Add admins, add policies and settings, upload logs and perform governance actions
-[Microsoft 365 service health](/office365/enterprise/view-service-health) | View the health of Microsoft 365 services
+[Microsoft 365 service health](/microsoft-365/enterprise/view-service-health) | View the health of Microsoft 365 services
 [Smart lockout](../authentication/howto-password-smart-lockout.md) | Define the threshold and duration for lockouts when failed sign-in events happen.
 [Password Protection](../authentication/concept-password-ban-bad.md) | Configure custom banned password list or on-premises password protection.
 
@@ -2033,7 +2033,7 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/allEntities/basic/update | Update basic properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation responses and associated training |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Create and manage attack simulation templates in Attack Simulator |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
@@ -2084,7 +2084,7 @@ Identity Protection Center | Read all security reports and settings information 
 [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | View and investigate alerts<br/>When you turn on role-based access control in Microsoft Defender for Endpoint, users with read-only permissions such as the Security Reader role lose access until they are assigned a Microsoft Defender for Endpoint role.
 [Intune](/intune/role-based-access-control) | Views user, device, enrollment, configuration, and application information. Cannot make changes to Intune.
 [Microsoft Defender for Cloud Apps](/defender-cloud-apps/manage-admins) | Has read permissions.
-[Microsoft 365 service health](/office365/enterprise/view-service-health) | View the health of Microsoft 365 services
+[Microsoft 365 service health](/microsoft-365/enterprise/view-service-health) | View the health of Microsoft 365 services
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2108,17 +2108,17 @@ Identity Protection Center | Read all security reports and settings information 
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/read | Read all properties of attack payloads in Attack Simulator |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation responses and associated training |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/read | Read all properties of attack simulation templates in Attack Simulator |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
 ## Service Support Administrator
 
-Users with this role can create and manage support requests with Microsoft for Azure and Microsoft 365 services, and view the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role can create and manage support requests with Microsoft for Azure and Microsoft 365 services, and view the service dashboard and message center in the [Azure portal](../../azure-portal/azure-portal-overview.md) and [Microsoft 365 admin center](/microsoft-365/admin/admin-overview/admin-center-overview). For more information, see [About admin roles in the Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the existing name in Microsoft Graph API and Azure AD PowerShell.
+> This role was previously named Service Administrator in the [Azure portal](../../azure-portal/azure-portal-overview.md) and [Microsoft 365 admin center](/microsoft-365/admin/admin-overview/admin-center-overview). It was renamed to Service Support Administrator to align with the existing name in the Microsoft Graph API and Azure AD PowerShell.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2132,10 +2132,10 @@ Users with this role can create and manage support requests with Microsoft for A
 
 ## SharePoint Administrator
 
-Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. For more information, see [About admin roles in the Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "SharePoint Service Administrator." It is "SharePoint Administrator" in the [Azure portal](https://portal.azure.com).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named SharePoint Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named SharePoint Administrator.
 
 > [!NOTE]
 > This role also grants scoped permissions to the Microsoft Graph API for Microsoft Intune, allowing the management and configuration of policies related to SharePoint and OneDrive resources.
@@ -2161,10 +2161,10 @@ Users with this role have global permissions within Microsoft SharePoint Online,
 
 ## Skype for Business Administrator
 
-Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business admin center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. More information at [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) and Teams licensing information at [Skype for Business and Microsoft Teams add-on licensing](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business admin center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. For more information, see [Skype for Business Online Admin](/skypeforbusiness/skype-for-business-online) and Teams licensing information at [Skype for Business add-on licensing](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing).
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Lync Service Administrator." It is "Skype for Business Administrator" in the [Azure portal](https://portal.azure.com/).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named Lync Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named Skype for Business Administrator.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2258,7 +2258,7 @@ Users in this role can troubleshoot communication issues within Microsoft Teams 
 
 ## Teams Devices Administrator
 
-Users with this role can manage [Teams-certified devices](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) from the Teams admin center. This role allows viewing all devices at single glance, with ability to search and filter devices. The user can check details of each device including logged-in account, make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device.
+Users with this role can manage [Teams-certified devices](https://www.microsoft.com/microsoft-teams/across-devices/devices) from the Teams admin center. This role allows viewing all devices at single glance, with ability to search and filter devices. The user can check details of each device including logged-in account, make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
