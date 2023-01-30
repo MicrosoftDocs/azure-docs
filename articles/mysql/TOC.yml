@@ -329,9 +329,6 @@
     items:
     - name: Create a MySQL Single Server
       items:
-       - name: Azure portal
-         href: single-server/quickstart-create-mysql-server-database-using-azure-portal.md
-         displayName: portal, create, server
        - name: Azure CLI
          href: single-server/quickstart-create-mysql-server-database-using-azure-cli.md
          displayName: cli, create, server
@@ -519,8 +516,6 @@
       items:
       - name: Design a database
         items:
-        - name: Azure portal
-          href: single-server/tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: single-server/tutorial-design-database-using-cli.md
         - name: Azure PowerShell
