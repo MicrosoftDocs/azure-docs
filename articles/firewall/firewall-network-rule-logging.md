@@ -1,6 +1,6 @@
 ---
-title: Azure network rule name logging (preview)
-description: Learn about Azure network rule name logging (preview)
+title: Azure Firewall network rule name logging (preview)
+description: Learn about Azure Firewall network rule name logging (preview)
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,7 +9,7 @@ ms.date: 01/25/2023
 ms.author: victorh
 ---
 
-# Azure network rule name logging (preview)
+# Azure Firewall network rule name logging (preview)
 
 
 > [!IMPORTANT]

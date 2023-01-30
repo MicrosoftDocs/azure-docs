@@ -254,6 +254,10 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     4. The link will show the Overview of the NIC resource, which contains the property Private IP address. 
     5. Verify that this is the correct IP address that is specified in the A record.
 
+* If you are connecting from an on-prem resource to a Key Vault, ensure you have all required conditional forwarders in the on-prem environment enabled.
+    1. Review [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for the zones needed, and make sure you have conditional forwarders for both `vault.azure.net` and `vaultcore.azure.net` on your on-prem DNS.
+    2. Ensure that you have conditional forwarders for those zones that route to an [Azure Private DNS Resolver](../../dns/dns-private-resolver-overview.md) or some other DNS platform with access to Azure resolution.
+
 ## Limitations and Design Considerations
 
 **Limits**: See [Azure Private Link limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits)
