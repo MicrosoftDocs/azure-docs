@@ -11,7 +11,7 @@
   items:
   - name: Create a cache
     items: 
-    - name: Create Azure Cahce for Redis
+    - name: Create Azure Cache for Redis in the Basic, Standard and Premium tiers
       href: quickstart-create-redis.md
     - name: Enterprise tiers
       href: quickstart-create-redis-enterprise.md
