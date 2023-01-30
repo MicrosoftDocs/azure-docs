@@ -60,6 +60,8 @@
       items:
         - name: Configure diagnostic logging alerts
           href: ddos-diagnostic-alert-templates.md
+        - name: Configure metric alerts through portal
+          href: alerts.md
     - name: Test with simulation partners
       href: test-through-simulations.md
     - name: Manage permissions and restrictions
