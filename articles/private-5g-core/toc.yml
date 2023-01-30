@@ -56,10 +56,14 @@ items:
     href: azure-stack-edge-disconnects.md
 - name: How-to guides
   items:
-  - name: Private mobile networks
+  - name: Initial setup
     items:
     - name: Complete the prerequisite tasks for deploying a private mobile network
       href: complete-private-mobile-network-prerequisites.md
+    - name: Commission the AKS cluster
+      href: commission-cluster.md
+  - name: Private mobile networks
+    items:
     - name: Collect the required information to deploy a private mobile network
       href: collect-required-information-for-private-mobile-network.md
     - name: Deploy a private mobile network - Azure portal
