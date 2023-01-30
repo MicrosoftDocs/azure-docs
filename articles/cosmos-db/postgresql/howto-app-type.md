@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 01/30/2023
 ---
 
 # Determining application type for Azure Cosmos DB for PostgreSQL

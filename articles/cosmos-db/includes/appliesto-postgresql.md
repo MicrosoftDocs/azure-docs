@@ -5,7 +5,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.custom: ignite-2022
 ms.topic: include
-ms.date: 09/01/2022
+ms.date: 01/30/2023
 ---
 
 APPLIES TO:

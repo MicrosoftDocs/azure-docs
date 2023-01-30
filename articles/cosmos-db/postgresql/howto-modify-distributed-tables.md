@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 01/30/2023
 ---
 
 # Distribute and modify tables in Azure Cosmos DB for PostgreSQL

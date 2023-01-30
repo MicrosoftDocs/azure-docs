@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui, ignite-2022
 ms.topic: quickstart
-ms.date: 09/28/2022
+ms.date: 01/30/2023
 ---
 
 # Connect to a cluster with psql - Azure Cosmos DB for PostgreSQL
