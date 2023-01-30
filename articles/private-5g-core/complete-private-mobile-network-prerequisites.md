@@ -184,4 +184,4 @@ Do the following for each site you want to add to your private mobile network. D
 
 You can now commission the Azure Kubernetes Service (AKS) cluster on your Azure Stack Edge Pro device to get it ready to deploy Azure Private 5G Core.
 
-- [Commission an AKS cluster](commission-a-cluster.md)
+- [Commission an AKS cluster](commission-cluster.md)
