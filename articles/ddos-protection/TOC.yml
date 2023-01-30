@@ -62,6 +62,10 @@
         href: ddos-configure-log-analytics-workspace.md
       - name: Configure metric alerts through portal
         href: alerts.md
+    - name: View Monitoring and Logging
+      items: 
+        - name: View alerts in Microsoft Defender for Cloud
+          href: ddos-view-alerts-defender-for-cloud.md
     - name: Test with simulation partners
       href: test-through-simulations.md
     - name: Manage permissions and restrictions
