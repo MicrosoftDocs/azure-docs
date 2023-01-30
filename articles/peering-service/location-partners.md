@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.workload: Infrastructure-services
 ms.date: 01/30/2023
 ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+ms.custom: template-concept, references_regions, engagement-fy23
 ---
 
 # Peering Service partners
@@ -59,4 +59,5 @@ The table in this article provides information on the Peering Service connectivi
 - To learn about onboarding a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
+
 
