@@ -20,18 +20,20 @@ The Azure Monitor API also makes it possible to list alert rules, view activity 
 
 Tasks executed using the Azure Monitor API use the Azure Resource Manager authentication model. All requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticating the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token.
 
+## Create an service principal
 
-# [Azure Portal](#tab/portal)
+### [Azure Portal](#tab/portal)
 
 To create an Azure AD service principal using the Azure Portal see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token)
 
+### [Azure CLI](#tab/cli)
 
-# [Azure CLI](#tab/cli)
 
-Run the following script to create a service principal  and app. 
+##
+Run the following script to create a service principal and app. 
 
 ```azurecli
-ad sp create-for-rbac -n <Service principal display name>
+az ad sp create-for-rbac -n <Service principal display name> 
 
 ```
 The response looks as follows:
@@ -47,7 +49,19 @@ The response looks as follows:
 >[!Important]
 > The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control.
 
-For more information on creating a service principal using Azure CLI, see [AA](https://learn.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+Add a role and scope for the resouces that you want to access using the API
+
+```azurecli
+az role assignment create --assignee <`appId`> --role <Role> --scope <resource URI>
+```
+
+The example below assigns the `Reader` role to the service principal for all resources in the `rg-001`resource group:
+```azurecli
+ az role assignment create --assignee 0a123b56-c987-1234-abcd-1a2b3c4d5e6f --role Reader --scope '\/subscriptions/a1234bcd-5849-4a5d-a2eb-5267eae1bbc7/resourceGroups/rg-001'
+```
+For more information on creating a service principal using Azure CLI, see [Create an Azure service principal with the Azure CLI](https://learn.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+
+
 
 To retrieve an access token using a REST call submit the following request using the `appId` and `password`:
 
@@ -203,19 +217,13 @@ Loading the certificate from a .pfx file in PowerShell can make it easier for an
 ---
 
 
-## Roles 
-Assign role if necessary 
-
-
-
-
-After authenticating and retrieving a token, queries can then be executed against the Azure Monitor REST API. There are two helpful queries:
-
+After authenticating and retrieving a token, queries can then be executed against the Azure Monitor REST API. 
+For metrics, the two most used queries are:
 - List the metric definitions for a resource.
 - Retrieve the metric values.
 
 > [!NOTE]
-> For more information on authenticating with the Azure REST API, see the [Azure REST API reference](/rest/api/azure/).
+> For more information on working with the Azure REST API, see the [Azure REST API reference](/rest/api/azure/).
 >
 
 ## Retrieve metric definitions
