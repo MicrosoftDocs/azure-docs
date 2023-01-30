@@ -76,7 +76,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
         ![Screenshot of the Unity Project Settings dialog. The Quality entry is selected in the list on the left. The context menu for the default quality level is opened on the right. The low entry is selected.](./media/settings-quality.png)
 
     > [!NOTE]
-    > If you would like to use the Universal Render Pipeline, see [Unity Render Pipelines](../../../how-tos/unity/unity-render-pipelines.md) for additional setup steps.
+    > In the scope of this tutorial, we stick with the Unity built-in render pipeline. If you would like to use the Universal Render Pipeline, see [Unity Render Pipelines](../../../how-tos/unity/unity-render-pipelines.md) for additional setup steps.
 
 1. Select **XR Plugin Management** from the left list menu
     1. Click the **Install XR Plugin Management** button.
