@@ -70,14 +70,14 @@ AD FS adapter will require number matching on supported versions of Windows Serv
 
 The latest NPS extension doesn't support number matching, but it does support One-Time Passwords (OTP) methods such as the OTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
 
-After Feb 27, 2023, when number matching is enabled for all users, anyone who performs a VPN connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with an OTP method instead. The NPS Server where the NPS extension is installed must be configured to use PAP protocol. 
+After Feb 27, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with an OTP method instead. The NPS Server where the NPS extension is installed must be configured to use PAP protocol. 
 
 Users must have an OTP authentication method registered to see this behavior. Users who don't have an OTP method registered will continue to see **Approve**/**Deny** options. 
 
 For OTP to work, the VPN needs to use PAP protocol. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
  
 >[!IMPORTANT]
->Organizations using a RADIUS protocol other than PAP will see user VPN authorization failing, with events appearing in the **AuthZOptCh** log of the NPS Extension server in Event Viewer:<br>
+>Organizations using a RADIUS protocol other than PAP will see user authorization failing, with events appearing in the **AuthZOptCh** log of the NPS Extension server in Event Viewer:<br>
 >NPS Extension for Azure MFA: Challenge requested in Authentication Ext for User npstesting_ap. 
 
 Prior to the release of NPS extension version 1.2.2216.1 after February 27, 2023, organizations that run any of these earlier versions of NPS extension can modify the registry to require users to enter an OTP:
