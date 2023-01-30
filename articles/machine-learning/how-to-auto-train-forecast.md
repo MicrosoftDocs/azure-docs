@@ -133,11 +133,11 @@ forecasting_job.set_forecast_settings(
 )
 ```
 
-AutoML attempts to automatically detect time series IDs if none are specified.
+AutoML tries to automatically detect time series ID columns in your data if none are specified.
 
-Other settings are optional and reviewed in the [optional settings](#optional-configurations) section.
+Other settings are optional and reviewed in the [optional settings](#optional-settings) section.
 
-### Optional configurations
+### Optional settings
 
 Additional optional configurations are available for forecasting tasks, such as enabling deep learning and specifying a target rolling window aggregation. A complete list of additional parameters is available in the [forecast_settings API doc](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) for a full list of settings.
 
@@ -237,9 +237,31 @@ forecasting_job.set_forecast_settings(
 )
 ```
 
+#### Custom cross-validation settings
+
+There are two customizable settings that control cross-validation for forecasting jobs: the number of folds, `n_cross_validations`, and the step size defining the time offset between folds, `cv_step_size`. See [forecasting model selection](./concept-automl-forecasting-sweeping.md#model-selection) for more information on the meaning of these parameters. By default, AutoML sets both of these automatically based on characteristics of your data, but advanced users may want to set them manually. For example, suppose you have daily sales data and you want your validation setup to consist of five folds with a seven day offset between adjacent folds. 
+
+```python
+from azure.ai.ml import automl
+
+# Create a job with five CV folds
+forecasting_job = automl.forecasting(
+    ...,  # other training parameters
+    n_cross_validations=5,
+)
+
+# Set the step size between folds to seven days
+forecasting_job.set_forecast_settings(
+    ...,  # other settings
+    cv_step_size=7
+)
+```
+
+One or both these settings can be set to `"auto"` if you want AutoML to make the determination. 
+
 ### Custom featurization
 
-By default, AutoML augments training data with engineered features to increase the accuracy of the models. See [automated feature engineering](./concept-automl-forecasting-methods.md#automated-feature-engineering) for information. Some of the preprocessing steps can be customized using the `set_featurization()` method of the forecasting job.
+By default, AutoML augments training data with engineered features to increase the accuracy of the models. See [automated feature engineering](./concept-automl-forecasting-methods.md#automated-feature-engineering) for more information. Some of the preprocessing steps can be customized using the `set_featurization()` method of the forecasting job.
 
 Supported customizations for forecasting include:
 
@@ -284,6 +306,9 @@ returned_job = ml_client.jobs.create_or_update(
 )
 
 print(f"Created job: {returned_job}")
+
+# Get a URL for the status of the job
+returned_job.services["Studio"].endpoint
 ``` 
  
 ## Forecasting with a trained model
