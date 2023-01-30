@@ -70,7 +70,7 @@ AD FS adapter will require number matching on supported versions of Windows Serv
 
 The latest NPS extension doesn't support number matching, but it does support One-Time Passwords (OTP) methods such as the OTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
 
-After Feb 27, 2023, when number matching is enabled for all users, anyone who performs a VPN connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with an OTP method instead. No other configuration is required on the NPS Server.
+After Feb 27, 2023, when number matching is enabled for all users, anyone who performs a VPN connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with an OTP method instead. The NPS Server where the NPS extension is installed must be configured to use PAP protocol. 
 
 Users must have an OTP authentication method registered to see this behavior. Users who don't have an OTP method registered will continue to see **Approve**/**Deny** options. 
 
@@ -93,7 +93,7 @@ Prior to the release of NPS extension version 1.2.2216.1 after February 27, 2023
 >[!NOTE] 
 >NPS extensions versions earlier than 1.0.1.40 don't support OTP enforced by number matching. These versions will continue to present users with **Approve**/**Deny**.
 
-The NPS Server where the NPS Extension is installed must be configured to use PAP protocol. To create the registry key to override the **Approve**/**Deny** options in push notifications and require an OTP instead:
+To create the registry key to override the **Approve**/**Deny** options in push notifications and require an OTP instead:
 
 1. On the NPS Server, open the Registry Editor.
 1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa.
