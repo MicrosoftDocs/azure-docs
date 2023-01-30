@@ -21,5 +21,8 @@ The debug information can be retrieved from `CallComposite`:
 let callComposite = CallComposite()
 ...
 let debugInfo = callComposite.debugInfo
-let currentOrLastCallId = debugInfo.currentOrLastCallId
+let callHistoryRecords = debugInfo.callHistoryRecords
+let callHistoryRecord = callHistoryRecords.last
+let callDate = callHistoryRecord?.callStartedOn
+let callIds = callHistoryRecord?.callIds
 ```
