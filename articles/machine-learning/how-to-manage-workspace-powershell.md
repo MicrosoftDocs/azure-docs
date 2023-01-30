@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 # Manage Azure Machine Learning workspaces using Azure PowerShell
 
-Use the Azure PowerShell module for Azure Machine Learning to create and manage your Azure Machine Learning workspaces. For a full list of the Azure PowerShell cmdlets for Azure Machine Learning, see the [Az.MachineLearningSerevices](/powershell/module/az.machinelearningservices) reference.
+Use the Azure PowerShell module for Azure Machine Learning to create and manage your Azure Machine Learning workspaces. For a full list of the Azure PowerShell cmdlets for Azure Machine Learning, see the [Az.MachineLearningServices](/powershell/module/az.machinelearningservices) reference documentation.
 
 ## Prerequisites
 
