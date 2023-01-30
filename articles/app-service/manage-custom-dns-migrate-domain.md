@@ -117,11 +117,11 @@ DNS queries should start resolving to your App Service app immediately after DNS
 - [Can I add a App Service managed certificate when migrating a live domain?](#can-i-add-a-app-service-managed-certificate-when-migrating-a-live-domain)
 - [How do I migrate a domain from another app?](#how-do-i-migrate-a-domain-from-another-app)
 
-## Can I add a App Service managed certificate when migrating a live domain?
+#### Can I add a App Service managed certificate when migrating a live domain?
 
 You can add an App Service managed certificate to a migrated live domain, but only after you [remap the active DNS name](#4-remap-the-active-dns-name). To add the App Service managed certificate, see [Create a free managed certificate](configure-ssl-certificate.md#create-a-free-managed-certificate).
 
-## How do I migrate a domain from another app?
+#### How do I migrate a domain from another app?
 
 You can migrate an active custom domain in Azure, between subscriptions or within the same subscription. However, such a migration without downtime requires the source app and the target app are assigned the same custom domain at a certain time. Therefore, you need to make sure that the two apps aren't deployed to the same deployment unit (internally known as a webspace). A domain name can be assigned to only one app in each deployment unit.
 
