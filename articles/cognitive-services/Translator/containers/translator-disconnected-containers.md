@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 # Use Translator containers in disconnected environments
 
- Azure Cognitive Services Translator containers allow you to use Translator Service APIs with the benefits of containerization. Translator disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Translator Service features for a fixed fee, at a predictable total cost, based on the needs of your workload.
+ Azure Cognitive Services Translator containers allow you to use Translator Service APIs with the benefits of containerization. Disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Translator Service features for a fixed fee, at a predictable total cost, based on the needs of your workload.
 
 ## Get started
 
@@ -46,7 +46,7 @@ Access is limited to customers that meet the following requirements:
 
 1. Create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
 
-2. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
+1. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
 
     > [!NOTE]
     >
@@ -54,7 +54,7 @@ Access is limited to customers that meet the following requirements:
 
     :::image type="content" source="../media/create-resource-offline-container.png" alt-text="A screenshot showing resource creation on the Azure portal.":::
 
-3. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**.
+1. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**.
 
 ## Gather required parameters
 
@@ -64,7 +64,7 @@ There are three required parameters for all Cognitive Services' containers:
 * The endpoint URL for your resource from the Azure portal.
 * The API key for your resource from the Azure portal.
 
-Both the endpoint URL and API key are needed when you first run the container to configure it for disconnected usage. You can find the key and endpoint on the **Key and endpoint** page for your resource in the Azure portal.
+Both the endpoint URL and API key are needed when you first run the container to configure it for disconnected usage. You can find the key and endpoint on the **Key and endpoint** page for your resource in the Azure portal:
 
   :::image type="content" source="../media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
@@ -97,7 +97,7 @@ Now that you've downloaded your container, you'll need to execute the `docker ru
 > [!IMPORTANT]
 > The `docker run` command will generate a template that you can use to run the container. The template contains parameters you'll need for the downloaded models and configuration file. Make sure you save this template.
 
-The following example shows the formatting of the `docker run` command with placeholder values. Replace these placeholder values with your own values.
+The following example shows the formatting for the `docker run` command with placeholder values. Replace these placeholder values with your own values.
 
 | Placeholder | Value | Format|
 |-------------|-------|---|
@@ -105,10 +105,10 @@ The following example shows the formatting of the `docker run` command with plac
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
  | `{MODEL_MOUNT_PATH}`| The path where the machine translation models will be downloaded, and mounted.  Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, in the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`32-character-string`|
+| `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`{string}`|
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 
-  **Example `docker pull` command**
+  **Example `docker run` command**
 
 ```docker
 
@@ -133,7 +133,7 @@ docker run --rm -it -p 5000:5000
 [image]
 ```
 
-### Translation models and container configuration
+### Translator translation models and container configuration
 
 After you've [configured the container](#configure-the-container-to-run-in-a-disconnected-environment), the values for the downloaded translation models and container configuration will be generated and displayed in the container output:
 
@@ -188,7 +188,7 @@ docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \
 
 ## Other parameters and commands
 
-Here are a few more parameters and commands you may need to run the container.
+Here are a few more parameters and commands you may need to run the container:
 
 #### Usage records
 
@@ -218,14 +218,14 @@ https://<service>/records/usage-logs/
 
   **Example HTTPS endpoint**
 
-  `http://localhost:5000/records/usage-logs`.
+  `http://localhost:5000/records/usage-logs`
 
-This usage-logs endpoint will return a JSON response similar to this example:
+The usage-logs endpoint will return a JSON response similar to the following example:
 
 ```json
 {
-"apiType": "noop",
-"serviceName": "noop",
+"apiType": "string",
+"serviceName": "string",
 "meters": [
 {
     "name": "string",
@@ -243,7 +243,7 @@ The following endpoint will provide a report summarizing usage over a specific m
 https://<service>/records/usage-logs/{MONTH}/{YEAR}
 ```
 
-This usage-logs endpoint will return a JSON response similar to this example:
+This usage-logs endpoint will return a JSON response similar to the following example:
 
 ```json
 {
@@ -262,7 +262,7 @@ This usage-logs endpoint will return a JSON response similar to this example:
 
 Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase more unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
-You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
+You can choose a different commitment plan in the **Commitment tier pricing** settings of your resource under the **Resource Management** section.
 
 ### End a commitment plan
 
@@ -270,7 +270,7 @@ You can choose a different commitment plan in the **Commitment Tier pricing** se
 
 ## Troubleshooting
 
-Run the container with an output mount and logging enabled. These settings will enable the container to generate log files that are helpful for troubleshooting issues that happen while starting or running the container.
+Run the container with an output mount and logging enabled. These settings will enable the container to generate log files that are helpful for troubleshooting issues that occur while starting or running the container.
 
 > [!TIP]
 > For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](../../containers/disconnected-container-faq.yml).
