@@ -5,7 +5,7 @@ author: kalyaninamuduri
 ms.author: kanamudu 
 ms.service: azure-center-sap-solutions
 ms.topic: conceptual
-ms.date: 01/19/2023
+ms.date: 01/31/2023
 ms.custom: template-concept 
 ---
 
@@ -15,29 +15,32 @@ ms.custom: template-concept
 
 [!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
 
-[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) enables granular access management for Azure. You can use Azure RBAC to manage access to your SAP resources and workloads within Azure Center for SAP solutions. For example, you can separate duties within your team and grant only the amount of access that users need to perform their jobs.
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) enables granular access management for Azure. You can use Azure RBAC to manage Virtual Instance for SAP solutions resources within Azure Center for SAP solutions. For example, you can separate duties within your team and grant only the amount of access that users need to perform their jobs.
 
 *Users* or *user-assigned managed identities* require minimum roles or permissions to use the different capabilities in Azure Center for SAP solutions.
 
 There are [Azure built-in roles](../role-based-access-control/built-in-roles.md) for Azure Center for SAP solutions, or you can [create Azure custom roles](../role-based-access-control/custom-roles.md) for more control. Azure Center for SAP solutions provides the following built-in roles to deploy and manage SAP systems on Azure: 
 
-- **Azure Center for SAP solutions Administrator** has the required permissions for a user to deploy infrastructure, install SAP, and manage SAP systems. The role allows users to:
-    - Register existing SAP systems as a [Virtual Instance for SAP solutions (VIS)](overview.md#what-is-a-virtual-instance-for-sap-solutions).
+- The **Azure Center for SAP solutions administrator** role has the required permissions for a user to deploy infrastructure, install SAP, and manage SAP systems from Azure Center for SAP solutions. The role allows users to:
+    - Deploy infrastructure for a new SAP system
+    - Install SAP software
+    - Register existing SAP systems as a [Virtual Instance for SAP solutions (VIS)](overview.md#what-is-a-virtual-instance-for-sap-solutions) resource.
+    - View the health and status of SAP systems.
     - Perform operations such as **Start** and **Stop** on the VIS resource.
     - Do all possible actions with Azure Center for SAP solutions, including the deletion of the VIS resource.
-- **Azure Center for SAP solutions Service** is intended for use by the user-assigned managed identity. The Azure Center for SAP solutions service uses this identity to deploy and manage SAP systems. This role has permissions to support the deployment and management capabilities in Azure Center for SAP solutions.
-- **Azure Center for SAP solutions Reader** has permissions to view all VIS resources.
+- The **Azure Center for SAP solutions service** role is intended for use by the user-assigned managed identity. The Azure Center for SAP solutions service uses this identity to deploy and manage SAP systems. This role has permissions to support the deployment and management capabilities in Azure Center for SAP solutions.
+- The **Azure Center for SAP solutions reader** role has permissions to view all VIS resources.
 
 > [!NOTE]
-> If you're creating a new user-assigned managed identity when you deploy a new SAP system or register an existing system, the user must also have the **Managed Identity Contributor** role.  
+> If you're creating a new user-assigned managed identity when you deploy a new SAP system or register an existing system, the user must also have the **Managed Identity Contributor** role. This role is required to make role assignments to a user-assigned managed identity.
 
 ## Deploy infrastructure for new SAP system
 
-To deploy infrastructure for a new SAP system, a *user* or *user-assigned managed identity* requires the following role or permissions.
+To deploy infrastructure for a new SAP system, a *user* and *user-assigned managed identity* requires the following role or permissions.
 
-| Minimum roles for *users* | 
+| Built-in roles for *users* | 
 | ------------------------- |
-| **Azure Center for SAP solutions Administrator** |
+| **Azure Center for SAP solutions administrator** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
@@ -56,10 +59,17 @@ To deploy infrastructure for a new SAP system, a *user* or *user-assigned manage
 | `Microsoft.Compute/sshPublicKeys/write` |
 | `Microsoft.Compute/sshPublicKeys/read` |
 | `Microsoft.Compute/sshPublicKeys /*/generateKeyPair/action` |
+| `Microsoft.Storage/storageAccounts/read` |
+| `Microsoft.Storage/storageAccounts/blobServices/read` |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/read` |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
+| `Microsoft.Storage/storageAccounts/fileServices/read` |
+| `Microsoft.Storage/storageAccounts/fileServices/shares/read` |
 
-| Minimum roles for *user-assigned managed identities* |
+
+| Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
-| **Azure Center for SAP solutions Service** |
+| **Azure Center for SAP solutions service** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
@@ -94,23 +104,23 @@ To deploy infrastructure for a new SAP system, a *user* or *user-assigned manage
 | `Microsoft.Network/virtualNetworks/subnets/joinLoadBalancer/action` |
 | `Microsoft.Network/virtualNetworks/subnets/join/action` |
 | `Microsoft.Storage/storageAccounts/read` |
-| `Microsoft.Storage/storageAccounts/listAccountSas/action` |
 | `Microsoft.Storage/storageAccounts/write` |
+| `Microsoft.Storage/storageAccounts/listAccountSas/action` |
+| `Microsoft.Storage/storageAccounts/PrivateEndpointConnectionsApproval/action` |
+| `Microsoft.Storage/storageAccounts/blobServices/read` |
 | `Microsoft.Storage/storageAccounts/blobServices/containers/read` |
 | `Microsoft.Storage/storageAccounts/fileServices/read` |
 | `Microsoft.Storage/storageAccounts/fileServices/write` |
 | `Microsoft.Storage/storageAccounts/fileServices/shares/read` |
 | `Microsoft.Storage/storageAccounts/fileServices/shares/write` |
-| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` |
 
 ## Install SAP software
 
-To install SAP software, a *user* or *user-assigned managed identity* requires the following role or permissions.
+To install SAP software, a *user* and *user-assigned managed identity* requires the following role or permissions.
 
-| Minimum roles for *users* | 
+| Built-in roles for *users* | 
 | ------------------------- |
-| **Azure Center for SAP solutions Administrator** |
+| **Azure Center for SAP solutions administrator** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
@@ -122,9 +132,9 @@ To install SAP software, a *user* or *user-assigned managed identity* requires t
 | `Microsoft.Workloads/Operations/read` |
 | `Microsoft.Workloads/Locations/OperationStatuses/read` |
 
-| Minimum roles for *user-assigned managed identities* |
+| Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
-| **Azure Center for SAP solutions Service role** |
+| **Azure Center for SAP solutions service** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
@@ -154,17 +164,17 @@ To install SAP software, a *user* or *user-assigned managed identity* requires t
 
 To register an existing SAP system and manage that system with Azure Center for SAP solutions,  a *user* or *user-assigned managed identity* requires the following role or permissions.
 
-| Minimum roles for *users* | 
+| Built-in roles for *users* | 
 | ------------------------- |
-| **Azure Center for SAP solutions Administrator** |
+| **Azure Center for SAP solutions administrator** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
 | `Microsoft.Workloads/sapVirtualInstances/write` |
 
-| Minimum roles for *user-assigned managed identities* |
+| Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
-| **Azure Center for SAP solutions Service** |
+| **Azure Center for SAP solutions service** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
@@ -185,9 +195,9 @@ To register an existing SAP system and manage that system with Azure Center for 
 
 To view VIS resources, a *user* or *user-assigned managed identity* requires the following role or permissions.
 
-| Minimum roles for *users* | 
+| Built-in roles for *users* | 
 | ------------------------- |
-| **Azure Center for SAP solutions Reader** |
+| **Azure Center for SAP solutions reader** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
@@ -204,29 +214,29 @@ To view VIS resources, a *user* or *user-assigned managed identity* requires the
 | `Microsoft.Insights/Metrics/Read` |
 | `Microsoft.ResourceHealth/AvailabilityStatuses/read` |
 
-| Minimum roles for *user-assigned managed identities* |
+| Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
 | This scenario isn't applicable to *user-assigned managed identities*. |
 
-| Minimum permissions for *user-assigned managed identities* |
+| Built-in permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
 | This scenario isn't applicable to *user-assigned managed identities*. |
 
 ## Start SAP system
 
-To start the SAP system, a *user* or *user-assigned managed identity* requires the following role or permissions.
+To start the SAP system from a VIS resource, a *user* and *user-assigned managed identity* requires the following role or permissions.
 
-| Minimum roles for *users* | 
+| Built-in roles for *users* | 
 | ------------------------- |
-| **Azure Center for SAP solutions Administrator** |
+| **Azure Center for SAP solutions administrator** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
 | `Microsoft.Workloads/sapVirtualInstances/start/action` |
 
-| Minimum roles for *user-assigned managed identities* |
+| Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
-| **Azure Center for SAP solutions Service** |
+| **Azure Center for SAP solutions service** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
@@ -237,19 +247,19 @@ To start the SAP system, a *user* or *user-assigned managed identity* requires t
 
 ## Stop SAP system
 
-To stop the SAP system, a *user* or *user-assigned managed identity* requires the following role or permissions.
+To stop the SAP system from a VIS resource, a *user* and *user-assigned managed identity* requires the following role or permissions.
 
-| Minimum roles for *users* | 
+| Built-in roles for *users* | 
 | ------------------------- |
-| **Azure Center for SAP solutions Administrator** |
+| **Azure Center for SAP solutions administrator** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
 | `Microsoft.Workloads/sapVirtualInstances/stop/action` |
 
-| Minimum roles for *user-assigned managed identities* |
+| Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
-| **Azure Center for SAP solutions Service** |
+| **Azure Center for SAP solutions service** |
 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
@@ -260,9 +270,9 @@ To stop the SAP system, a *user* or *user-assigned managed identity* requires th
 
 ## View cost analysis
 
-To view the cost analysis, a *user* or *user-assigned managed identity* requires the following role or permissions.
+To view the cost analysis, a *user* requires the following role or permissions.
 
-| Minimum roles for *users* | 
+| Built-in roles for *users* | 
 | ------------------------- |
 | **Cost Management Reader** |
 
@@ -275,7 +285,7 @@ To view the cost analysis, a *user* or *user-assigned managed identity* requires
 | `Microsoft.Resources/subscriptions/resourceGroups/read` |
 | `Microsoft.Billing/billingProperty/read` |
 
-| Minimum roles for *user-assigned managed identities* |
+| Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
 | This scenario isn't applicable to *user-assigned managed identities*. |
 
@@ -285,9 +295,9 @@ To view the cost analysis, a *user* or *user-assigned managed identity* requires
 
 ## View Quality Insights
 
-To view Quality Insights, a *user* or *user-assigned managed identity* requires the following role or permissions.
+To view Quality Insights, a *user* requires the following role or permissions.
 
-| Minimum roles for *users* | 
+| Built-in roles for *users* | 
 | ------------------------- |
 | **Reader** |
 
@@ -295,7 +305,7 @@ To view Quality Insights, a *user* or *user-assigned managed identity* requires 
 | ------------------------------- |
 | None, except the minimum role assignment. |
 
-| Minimum roles for *user-assigned managed identities* |
+| Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
 | This scenario isn't applicable to *user-assigned managed identities*. |
 
@@ -305,9 +315,9 @@ To view Quality Insights, a *user* or *user-assigned managed identity* requires 
 
 ## Set up Azure Monitor for SAP solutions
 
-To set up Azure Monitor for SAP solutions for your SAP resources, a *user* or *user-assigned managed identity* requires the following role or permissions.
+To set up Azure Monitor for SAP solutions for your SAP resources, a *user* requires the following role or permissions.
 
-| Minimum roles for *users* | 
+| Built-in roles for *users* | 
 | ------------------------- |
 | **Contributor** |
 
@@ -315,7 +325,7 @@ To set up Azure Monitor for SAP solutions for your SAP resources, a *user* or *u
 | ------------------------------- |
 | None, except the minimum role assignment. |
 
-| Minimum roles for *user-assigned managed identities* |
+| Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
 | This scenario isn't applicable to *user-assigned managed identities*. |
 
@@ -327,15 +337,15 @@ To set up Azure Monitor for SAP solutions for your SAP resources, a *user* or *u
 
 To delete a VIS resource, a *user* or *user-assigned managed identity* requires the following role or permissions.
 
-| Minimum roles for *users* | 
+| Built-in roles for *users* | 
 | ------------------------- |
-| **Azure Center for SAP solutions Administrator** |
+| **Azure Center for SAP solutions administrator** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
 | `Microsoft.Workloads/sapVirtualInstances/delete` |
 
-| Minimum roles for *user-assigned managed identities* |
+| Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
 | This scenario isn't applicable to *user-assigned managed identities*. |
 
