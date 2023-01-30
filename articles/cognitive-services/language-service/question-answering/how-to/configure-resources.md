@@ -21,12 +21,12 @@ If you create a language resource and its dependencies (such as Search) through 
 
 1.  Go to your language resource in the Azure portal.
 
-2.  Select **Features** and select the Azure Cognitive Search service you want to link with your language resource.
+2.  Select **Features**, select the service you want to link with your existing language resource and tick the checkbox beside **Sync keys linked ot the selected Azure Cognitive Search device**.
 
 > [!div class="mx-imgBorder"]
 > ![Add QnA to TA](../media/configure-resources/update-custom-feature.png)
 
-3.  Select **Save**.
+3.  Select **Apply**.
 
 ## Next steps
 

@@ -100,4 +100,4 @@ When the user question is received by the service, you would need to pass on the
 
 ## Create a separate language resource for each domain
 
-Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access knowledge bases on Surface and Xbox. In this case, it is advised to create two question answering resources - one for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource.
+Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access knowledge bases on Surface and Xbox. In this case, it is advised to create two question answering resources - one for Surface and another for Xbox. You can however define distinct roles using [role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) for users accessing the same resource.
