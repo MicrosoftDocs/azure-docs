@@ -107,7 +107,7 @@ To successfully create a data connection, users must first ensure that they have
 
 7.  Select **+Add** to create an ingestor.  Follow the same steps outlined above to add the EASM API as an ingestor.  
 
-8.  Your database is now ready to connect to Defender EASM. You will need the cluster name, database name and region in the following format when configuring your Data Connection:	ClusterName=XXX;Region=YYY;DatabaseName=ZZZ” 
+8.  Your database is now ready to connect to Defender EASM. You will need the cluster name, database name and region in the following format when configuring your Data Connection:	ClusterName=XXX;Region=YYY;DatabaseName=ZZZ 
 
 
 
@@ -117,15 +117,16 @@ To successfully create a data connection, users must first ensure that they have
 Users can connect their Defender EASM data to either Log Analytics or Azure Data Explorer. To do so, simply select **Add connection** for the appropriate tool from the Data Connections page.  
 
 A configuration pane will open on the right-hand side of the Data Connections screen. The following four fields are required:  
+- **Name**: enter a name for this data connection.  
+- **Connection String**: enter the details required to connect your Defender EASM resource to another tool.  For Log Analytics, users enter the workspaceID and coinciding API key associated to their account. For Azure Data Explorer, users enter the cluster name, region and database name associated to their account. Both values must be entered in the format shown when the field is blank.  
+- **Content**: users can select to integrate asset data, attack surface insights or both datasets. 
+- **Frequency**: select the frequency that the Defender EASM connection sends updated data to the tool of your choice. Available options are daily, weekly and monthly. 
 
-    - **Name**: enter a name for this data connection.  
-    - **Connection String**: enter the details required to connect your Defender EASM resource to another tool.  For Log Analytics, users enter the workspaceID and coinciding API key associated to their account. For Azure Data Explorer, users enter the cluster name, region and database name associated to their account. Both values must be entered in the format shown when the field is blank.  
-    - **Content**: users can select to integrate asset data, attack surface insights or both datasets. 
-    - **Frequency**: select the frequency that the Defender EASM connection sends updated data to the tool of your choice. Available options are daily, weekly and monthly. 
 
-       ![Screenshot of "add a data connection" pop-up box.](media/dataconnector-8.png)
+     ![Screenshot of "add a data connection" pop-up box.](media/dataconnector-8.png)
 
-      Once all four fields are configured, select **Add** to create the data connection. At this point, the Data Connections page will display a banner that indicates the resource has been successfully created and data will begin populating within 30 minutes. Once connections are created, they will be listed under the applicable tool on the main Data Connections page.  
+
+Once all four fields are configured, select **Add** to create the data connection. At this point, the Data Connections page will display a banner that indicates the resource has been successfully created and data will begin populating within 30 minutes. Once connections are created, they will be listed under the applicable tool on the main Data Connections page.  
 
 
 
