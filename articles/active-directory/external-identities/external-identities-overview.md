@@ -29,7 +29,7 @@ The following capabilities make up External Identities:
 
 - **Azure AD B2C** - Publish modern SaaS apps or custom-developed apps (excluding Microsoft apps) to consumers and customers, while using Azure AD B2C for identity and access management.
 
-- **Azure AD multi-tenant organization** - Collaborate with multiple tenants in a single Azure AD organization, via cross-tenant synchronization.  
+- **Azure AD multi-tenant organization** - Collaborate with multiple tenants in a single Azure AD organization via cross-tenant synchronization.  
 
 Depending on how you want to interact with external organizations and the types of resources you need to share, you can use a combination of these capabilities.
 
@@ -105,7 +105,7 @@ Cross-tenant access settings let you manage B2B collaboration and B2B direct con
 
 For more information, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
 
-Azure AD has a new feature called multi-tenant organizations. Multi-tenant organizations are using cross-tenant synchronization (preview) for seamless collaboration experience across Azure AD tenants. Cross-tenant synchronization settings are also configured under the **Organization-specific access settings**. To learn more about multi-tenant organizations and cross-tenant synchronization see the [Multi-tenant organizations documentation](/azure/active-directory/multi-tenant-organizations).
+Azure AD has a new feature for multi-tenant organizations called cross-tenant synchronization (preview), which allows for a seamless collaboration experience across Azure AD tenants. Cross-tenant synchronization settings are configured under the **Organization-specific access settings**. To learn more about multi-tenant organizations and cross-tenant synchronization see the [Multi-tenant organizations documentation](/azure/active-directory/multi-tenant-organizations).
 
 ### Microsoft cloud settings for B2B collaboration (preview)
 
