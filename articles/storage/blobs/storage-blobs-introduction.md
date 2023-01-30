@@ -55,13 +55,13 @@ To learn how to create a storage account, see [Create a storage account](../comm
 
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
-A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
+A container name must be a valid DNS name, as it forms part of the unique URL used to address the container or its blobs. Follow these rules when naming a container:
 
 - Container names can be between 3 and 63 characters long.
 - Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.
 - Two or more consecutive dash characters aren't permitted in container names.
 
-The URI for a container is similar to:
+The URL for a container is similar to:
 
 `https://myaccount.blob.core.windows.net/mycontainer`
 
@@ -77,7 +77,7 @@ Azure Storage supports three types of blobs:
 
 For more information about the different types of blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
-The URI for a blob is similar to:
+The URL for a blob is similar to:
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob`
 
