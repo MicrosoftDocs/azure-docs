@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2023
+ms.date: 01/30/2023
 ms.author: abell
 ---
 
@@ -53,7 +53,7 @@ In this article, you'll learn how to configure a Log Analytics workspace for Azu
     | Setting | Value |
     |--|--|
     | Diagnostic setting name | Enter **myDiagnosticSettings**. |
-    |**Logs**| Select **allLogs** and **audit**.|
+    |**Logs**| Select **allLogs**.|
     |**Metrics**| Select **AllMetrics**. |
     |**Destination details**| Select **Send to Log Analytics workspace**.|
     | Subscription | Select your Azure subscription. |   
