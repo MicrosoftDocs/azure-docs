@@ -21,10 +21,7 @@ Scenarios for creating a token include:
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
-> [!IMPORTANT]
-> This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
-
-## Preview limitations
+## Limitations
 
 * You can't currently assign repository-scoped permissions to an Azure Active Directory identity, such as a service principal or managed identity.
 * You can't create a scope map in a registry enabled for [anonymous pull access](container-registry-faq.yml#how-do-i-enable-anonymous-pull-access-).
@@ -150,7 +147,7 @@ You can use the Azure portal to create tokens and scope maps. As with the `az ac
 The following example creates a token, and creates a scope map with the following permissions on the `samples/hello-world` repository: `content/write` and `content/read`.
 
 1. In the portal, navigate to your container registry.
-1. Under **Repository permissions**, select **Tokens (Preview) > +Add**.
+1. Under **Repository permissions**, select **Tokens > +Add**.
 
       :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="Create token in portal":::
 1. Enter a token name.
@@ -171,7 +168,7 @@ After the token is validated and created, token details appear in the **Tokens**
 To use a token created in the portal, you must generate a password. You can generate one or two passwords, and set an expiration date for each one. New passwords created for tokens are available immediately. Regenerating new passwords for tokens will take 60 seconds to replicate and be available. 
 
 1. In the portal, navigate to your container registry.
-1. Under **Repository permissions**, select **Tokens (Preview)**, and select a token.
+1. Under **Repository permissions**, select **Tokens**, and select a token.
 1. In the token details, select **password1** or **password2**, and select the Generate icon.
 1. In the password screen, optionally set an expiration date for the password, and select **Generate**. It's recommended to set an expiration date.
 1. After generating a password, copy and save it to a safe location. You can't retrieve a generated password after closing the screen, but you can generate a new one.
@@ -259,7 +256,7 @@ az acr scope-map update \
 In the Azure portal:
 
 1. Navigate to your container registry.
-1. Under **Repository permissions**, select **Scope maps (Preview)**, and select the scope map to update.
+1. Under **Repository permissions**, select **Scope maps**, and select the scope map to update.
 1. Under **Repositories**, enter `samples/nginx`, and under **Permissions**, select `content/read` and `content/write`. Then select **+Add**.
 1. Under **Repositories**, select `samples/hello-world` and under **Permissions**, deselect `content/write`. Then select **Save**.
 
@@ -341,7 +338,7 @@ Sample output:
 
 ### List scope maps
 
-Use the [az acr scope-map list][az-acr-scope-map-list] command, or the **Scope maps (Preview)** screen in the portal, to list all the scope maps configured in a registry. For example:
+Use the [az acr scope-map list][az-acr-scope-map-list] command, or the **Scope maps** screen in the portal, to list all the scope maps configured in a registry. For example:
 
 ```azurecli
 az acr scope-map list \
@@ -361,14 +358,14 @@ MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 
 ### Show token details
 
-To view the details of a token, such as its status and password expiration dates, run the [az acr token show][az-acr-token-show] command, or select the token in the **Tokens (Preview)** screen in the portal. For example:
+To view the details of a token, such as its status and password expiration dates, run the [az acr token show][az-acr-token-show] command, or select the token in the **Tokens** screen in the portal. For example:
 
 ```azurecli
 az acr scope-map show \
   --name MyScopeMap --registry myregistry
 ```
 
-Use the [az acr token list][az-acr-token-list] command, or the **Tokens (Preview)** screen in the portal, to list all the tokens configured in a registry. For example:
+Use the [az acr token list][az-acr-token-list] command, or the **Tokens** screen in the portal, to list all the tokens configured in a registry. For example:
 
 ```azurecli
 az acr token list --registry myregistry --output table
@@ -397,7 +394,7 @@ az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-In the portal, on the **Tokens (preview)** screen, select the token, and under **Scope map**, select a different scope map.
+In the portal, on the **Tokens** screen, select the token, and under **Scope map**, select a different scope map.
 
 > [!TIP]
 > After updating a token with a new scope map, you might want to generate new token passwords. Use the [az acr token credential generate][az-acr-token-credential-generate] command or regenerate a token password in the Azure portal.
@@ -413,7 +410,7 @@ az acr token update --name MyToken --registry myregistry \
   --status disabled
 ```
 
-In the portal, select the token in the **Tokens (Preview)** screen, and select **Disabled** under **Status**.
+In the portal, select the token in the **Tokens** screen, and select **Disabled** under **Status**.
 
 To delete a token to permanently invalidate access by anyone using its credentials, run the [az acr token delete][az-acr-token-delete] command. 
 
@@ -421,7 +418,7 @@ To delete a token to permanently invalidate access by anyone using its credentia
 az acr token delete --name MyToken --registry myregistry
 ```
 
-In the portal, select the token in the **Tokens (Preview)** screen, and select **Discard**.
+In the portal, select the token in the **Tokens** screen, and select **Discard**.
 
 ## Next steps
 
@@ -430,7 +427,7 @@ In the portal, select the token in the **Tokens (Preview)** screen, and select *
 * Learn about [connected registries](intro-connected-registry.md) and using tokens for [access](overview-connected-registry-access.md).
 
 <!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az_acr_login
