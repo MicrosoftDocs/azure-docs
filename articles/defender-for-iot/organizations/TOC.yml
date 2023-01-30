@@ -70,7 +70,7 @@
         href: ot-pre-configured-appliances.md
       - name: OT monitoring with virtual appliances
         href: ot-virtual-appliances.md
-    - name: Supported OT protocols
+    - name: Supported protocols
       href: concept-supported-protocols.md
     - name: Defender for IoT alerts
       href: alerts.md

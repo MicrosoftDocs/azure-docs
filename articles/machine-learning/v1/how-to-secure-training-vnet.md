@@ -106,6 +106,49 @@ For more information on using Azure Databricks in a virtual network, see [Deploy
 
 ## Compute instance/cluster with no public IP
 
+> [!IMPORTANT]
+> If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20 (when the feature is generally available).
+> 
+> If you were previously using the preview of no public IP, you may also need to modify what traffic you allow inbound and outbound, as the requirements have changed for general availability:
+> * Outbound requirements - Two additional outbound, which are only used for the management of compute instances and clusters. The destination of these service tags are owned by Microsoft:
+>     - `AzureMachineLearning` service tag on UDP port 5831.
+>     - `BatchNodeManagement` service tag on TCP port 443.
+
+The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** a compute instances/clusters configured for no public IP:
+
++ Your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
+
++ In your VNet, allow **outbound** traffic to the following service tags or fully qualified domain names (FQDN):
+
+    | Service tag | Protocol | Port | Notes |
+    | ----- |:-----:|:-----:| ----- |
+    | `AzureMachineLearning` | TCP<br>UDP | 443/8787/18881<br>5831 | Communication with the Azure Machine Learning service.|
+    | `BatchNodeManagement.<region>` | ANY | 443| Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
+    | `Storage.<region>` | TCP | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
+
+    > [!IMPORTANT]
+    > The outbound access to `Storage.<region>` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. For more information, see the [Azure Machine Learning data exfiltration prevention](../how-to-prevent-data-loss-exfiltration.md) article.
+
+    | FQDN | Protocol | Port | Notes |
+    | ---- |:----:|:----:| ---- |
+    | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. |
+    | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
+    | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
+    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
+    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
+    | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
+    | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
+    | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
+
+
++ Create either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic. Since the compute has no public IP address, it can't communicate with resources on the public internet without this configuration. For example, it wouldn't be able to communicate with Azure Active Directory or Azure Resource Manager. Installing Python packages from public sources would also require this configuration. 
+
+    For more information on the outbound traffic that is used by Azure Machine Learning, see the following articles:
+    - [Configure inbound and outbound network traffic](../how-to-access-azureml-behind-firewall.md).
+    - [Azure's outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections#scenarios).
+
+Use the following information to create a compute instance or cluster with no public IP address:
+
 To create a compute instance or compute cluster with no public IP, use the Azure Machine Learning studio UI to create the resource:
 
 1. Sign in to the [Azure Machine Learning studio](https://ml.azure.com), and then select your subscription and workspace.

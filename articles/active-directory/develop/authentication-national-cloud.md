@@ -2,7 +2,7 @@
 title: Azure AD authentication & national clouds
 description: Learn about app registration and authentication endpoints for national clouds.
 services: active-directory
-author: negoe
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/03/2021
-ms.author: negoe
-ms.reviewer: marsma, negoe,celested
+ms.author: henrymbugua
+ms.reviewer: negoe
 ms.custom: aaddev,references_regions
 ---
 
