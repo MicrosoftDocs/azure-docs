@@ -86,3 +86,18 @@ landingContent:
             url: self-service-sign-up-user-flow.md
           - text: Define custom attributes for user flows
             url: user-flow-add-custom-attributes.md
+  - title: Multi-tenant organizations 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is a multi-tenant organization in Azure AD?
+            url: ../../active-directory/multi-tenant-organizations/overview.md
+      - linkListType: concept
+        links:
+          - text: Topologies for cross-tenant synchronization
+            url: ../../active-directory/multi-tenant-organizations/cross-tenant-synchronization-topology.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure cross-tenant synchronization
+            url: ../../active-directory/multi-tenant-organizations/cross-tenant-synchronization-overview.md
+             
