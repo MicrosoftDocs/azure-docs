@@ -55,11 +55,11 @@ The Azure Private 5G Core service is now live in West Europe. It is now possible
 
 **Date available:** February 1, 2023
 
-You can now gather gather diagnostics for a Site remotely using the Azure portal. Diagnostics packages will be collected from the edge site and uploaded to an Azure storage account, which can be shared as a SAS URI to AP5GC support or others for assistance with issues.
+You can now gather gather diagnostics for a Site remotely using the Azure portal. Diagnostics packages will be collected from the edge site and uploaded to an Azure storage account, which can be shared as a SAS URI to AP5GC support or others for assistance with issues. Follow [Gather diagnostics using the Azure portal](gather-diagnostics.md) to gather a remote diagnostics package for an Azure Private 5G Core site using the Azure portal.
 
 ### Diagnose and resolve problems
 
-**Type:** ??
+**Type:** Feature
 
 **Date available:** January 17, 2023
 
@@ -73,18 +73,18 @@ The **Diagnose and solve problems** option in the left content menu can now prov
 
 **Date available:** December 16, 2022
 
-If you're experiencing issues with your packet core deployment, you can now re-install the packet core to return it to a known state. Re-installing the packet core deletes the existing packet core deployment and attempts to deploy the packet core at the edge with the existing site configurations. Already created Site dependent resources such as the PacketCoreControlPlane, PacketCoreDataPlane and AttachedDataNetwork will continue to be used in the deployment.
+If you're experiencing issues with your packet core deployment, you can now re-install the packet core to return it to a known state. Re-installing the packet core deletes the existing packet core deployment and attempts to deploy the packet core at the edge with the existing site configurations. Already created Site dependent resources such as the **PacketCoreControlPlane**, **PacketCoreDataPlane** and **AttachedDataNetwork** will continue to be used in the deployment.
 
-You can check the Installation state on the PacketCoreControlPlane overview. Upon successful redeployment, the Installation state will change from “Reinstalling” to either “Installed” or “Failed”, depending on the outcome.  You can re-install the packet core regardless if the  Installation state is in either “Installed” or “Failed” status.
+You can check the Installation state on the **Packet Core Control Plane overview**. Upon successful redeployment, the Installation state will change from **Reinstalling** to either **Installed** or **Failed**, depending on the outcome.  You can re-install the packet core regardless if the  Installation state is in either **Installed** or **Failed** status.
 
 If re-install is attempted after upgrade, re-deployment would be attempted with the upgraded packet core version. The reinstallation is done using the latest packet core version currently defined in the ARM API version.
 
 This feature has the following limitations:
 
-- The provisioning state of resources PacketCoreControlPlane, PacketCoreDataPlane and AttachedDataNetwork will not change with re-install.
-- The status of the reinstallation operation can tracked only via Activity Logs.
+- The provisioning state of resources **PacketCoreControlPlane**, **PacketCoreDataPlane** and **AttachedDataNetwork** will not change with re-install.
+- The status of the reinstallation operation can tracked only via **Activity Logs**.
 - Re-installing the packet core may take 45 minutes or more.
-- Updated Installation states are only reflected when the PacketCoreControlPlane overview page is refreshed.
+- Updated Installation states are only reflected when the **Packet Core Control Plane overview** page is refreshed.
 
 ### HTTPS Certificates at the Edge
 
@@ -92,13 +92,13 @@ This feature has the following limitations:
 
 **Date available:** December 19, 2022
 
-It is now possible to secure access to a site’s local monitoring tools with a custom, user-provided HTTPS certificate. Certificates can be uploaded to an Azure Key Vault and specified in the Packet Core Control Plane “local access” configuration to be provisioned down to the edge.
+It is now possible to secure access to a site’s local monitoring tools with a custom, user-provided HTTPS certificate. Certificates can be uploaded to an Azure Key Vault and specified in the P**acket Core Control Plane** **local access** configuration to be provisioned down to the edge.
 
 This feature has the following limitations:
 
 - Certificate deletion requires a pod restart to be reflected at the edge.
 - User-assigned managed identities are not currently supported for certificate provisioning.
-- Actions on KeyVaults/Certificates not involving a modification on the Packet Core Control Plane object can take up to an hour to be reflected at the edge.
+- Actions on KeyVaults/Certificates not involving a modification on the **Packet Core Control Plane** object can take up to an hour to be reflected at the edge.
 
 ## November 2022
 
