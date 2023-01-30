@@ -1726,7 +1726,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | machines | Yes | Yes |
 > | machines / assessPatches | No | No |
-> | machines / extensions | Yes | Yes |
+> | machines / extensions | No | No |
 > | machines / installPatches | No | No |
 > | machines / privateLinkScopes | No | No |
 > | privateLinkScopes | Yes | Yes |
