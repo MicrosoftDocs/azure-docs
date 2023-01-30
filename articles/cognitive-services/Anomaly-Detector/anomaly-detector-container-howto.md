@@ -50,10 +50,6 @@ You must meet the following prerequisites before using Anomaly Detector containe
 
 <!--* [Azure IoT Edge](../../iot-edge/index.yml). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
-## Anomaly Detector container image
-
-The Anomaly Detector container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/decision` repository and is named `anomaly-detector`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector`.
-
 To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [image tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/decision/anomaly-detector/tags).
 
 ### Container requirements and recommendations
@@ -71,14 +67,18 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 ## Get the container image with `docker pull`
 
-> [!TIP]
-> When using [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/), pay close attention to the casing of the container registry, repository, container image name and corresponding tag. they are case sensitive.
+## Anomaly Detector container image
+
+The Anomaly Detector container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/decision` repository and is named `anomaly-detector`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector`.
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 | Container | Repository |
 |-----------|------------|
 | cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
+
+> [!TIP]
+> When using [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/), pay close attention to the casing of the container registry, repository, container image name and corresponding tag. they are case sensitive.
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
