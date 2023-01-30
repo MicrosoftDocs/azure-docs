@@ -19,11 +19,11 @@ The default answer for a project is meant to be returned when an answer is not f
 
 |Default answer|Description of answer|
 |--|--|
-|KB answer when no answer is determined|`No good match found in KB.` - When the question answering API finds no matching answer to the question it displays a default text response. In question answering, you can set this text in the **Settings** of your project. |
+|KB answer when no answer is determined|`No good match found in KB.` - When the question answering API finds no matching answer to the question it displays a default text response. In Custom question answering, you can set this text in the **Settings** of your project. |
 
 ### Client application integration
 
-For a client application, such as a bot with the **Azure Bot service**, you can choose from the common following scenarios:
+For a client application, such as a bot with the [Azure Bot service](/azure/bot-service/bot-builder-howto-qna), you can choose from the following scenarios:
 
 * Use your project/knowledge base's setting
 * Use different text in the client application to distinguish when an answer is returned but doesn't meet the score threshold. This text can either be static text stored in code, or can be stored in the client application's settings list.
@@ -32,7 +32,7 @@ For a client application, such as a bot with the **Azure Bot service**, you can 
 
 The knowledge base default answer is returned when no answer is returned from question answering.
 
-1. Sign in to the [Language Studio](https://language.azure.com) and select your project from the list.
+1. Sign in to the [Language Studio](https://language.azure.com). Go to Custom question answering and select your project from the list.
 1. Select **Settings** from the left navigation bar.
 1. Change the value of **Default answer when no answer found** > Select **Save**.
 
