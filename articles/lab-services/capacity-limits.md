@@ -57,22 +57,28 @@ To overcome the Azure region restriction, you have the following options:
 
 - Contact Azure support to remove the region restriction for your subscription.
 
-	1. In the [Azure portal](https://portal.azure.com), go to your lab plan.
-    1. In the left navigation menu, select **New Support Request**.
-    1. On the **Problem description** tab, enter the following information, and then select **Next**.
+### Request removal of region restriction
 
-	    | Field  | Value  |
-        | ------ | ------ |
-        | **Summary** | Enter *Remove region restriction*. |
-        | **Issue type** | *Technical* |
-        | **Subscription** | Select your Azure subscription. |
-        | **Service** | Select *My Services*. |
-        | **Service type** | Select *Lab Services with lab plan*. |
-        | **Resource** | *Select your lab plan*. |
-        | **Problem type** | Select *Labs Portal (labs.azure.com)*. |
-        | **Problem subtype** | Select *Problem creating a new lab*. |
+You can contact Azure support and create a support ticket to lift the region restriction from your subscription.
 
-    1. On the **Review + create** page, select **Create** to create the support request.
+1. In the [Azure portal](https://portal.azure.com), go to your lab plan.
+1. In the left navigation menu, select **New Support Request**.
+1. On the **Problem description** tab, enter the following information, and then select **Next**.
+
+    | Field  | Value  |
+    | ------ | ------ |
+    | **Summary** | Enter *Remove region restriction*. |
+    | **Issue type** | *Technical* |
+    | **Subscription** | Select your Azure subscription. |
+    | **Service** | Select *My Services*. |
+    | **Service type** | Select *Lab Services with lab plan*. |
+    | **Resource** | *Select your lab plan*. |
+    | **Problem type** | Select *Labs Portal (labs.azure.com)*. |
+    | **Problem subtype** | Select *Problem creating a new lab*. |
+
+    :::image type="content" source="./media/capacity-limits/support-request-region-restriction.png" alt-text="Screenshot that shows how to create an Azure support request in the Azure portal to remove the region restriction." lightbox="./media/capacity-limits/support-request-region-restriction.png":::
+
+1. On the **Review + create** page, select **Create** to create the support request.
 
 ## Best practices for requesting a limit increase
 [!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
