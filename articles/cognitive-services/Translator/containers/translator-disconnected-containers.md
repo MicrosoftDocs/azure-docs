@@ -118,7 +118,7 @@ docker run --rm -it -p 5000:5000
 
 -v {LICENSE_MOUNT_PATH} \
 
-Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
+-e Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
 
 -e DownloadLicense=true \
 
@@ -173,9 +173,9 @@ docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \
 
 -v {OUTPUT_MOUNT_PATH} \
 
-Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
+-e Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
 
-Mounts:Output={CONTAINER_OUTPUT_DIRECTORY} \
+-e Mounts:Output={CONTAINER_OUTPUT_DIRECTORY} \
 
 -e MODELS={MODELS_DIRECTORY_LIST} \
 
