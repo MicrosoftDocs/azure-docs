@@ -338,9 +338,9 @@ The following fields exist in version 0.1 only, and were removed in [version 0.2
 |---------|---------|
 |**Removed because duplicates exist, without the `Dvc` string in the field name**     |  - DstDvcIpAddr<br> - DstDvcMacAddr<br>- SrcDvcIpAddr<br>- SrcDvcMacAddr       |
 |**Removed to align with ASIM handling of URLs**     |  - UrlHostname       |
-|**Removed because these fields are not typically provided as part of Network Session events.**<br><br>If an event includes these fields, use the [Process Event schema](process-events-normalization-schema.md) to understand how to describe device properties. |     - SrcDvcOs<br>-&nbsp;SrcDvcModelName<br>-&nbsp;SrcDvcModelNumber<br>- DvcMacAddr<br>- DvcOs         |
+|**Removed because these fields are not typically provided as part of Network Session events.**<br><br>If an event includes these fields, use the [Process Event schema](normalization-schema-process-event.md) to understand how to describe device properties. |     - SrcDvcOs<br>-&nbsp;SrcDvcModelName<br>-&nbsp;SrcDvcModelNumber<br>- DvcMacAddr<br>- DvcOs         |
 |**Removed to align with ASIM file representation guidance**     |   - FilePath<br>- FileExtension      |
-|**Removed as this field indicates that a different schema should be used, such as the [Authentication schema](authentication-normalization-schema.md).**     |  - CloudAppOperation       |
+|**Removed as this field indicates that a different schema should be used, such as the [Authentication schema](normalization-schema-authentication.md).**     |  - CloudAppOperation       |
 |**Removed as it duplicates `DstHostname`**     |  - DstDomainHostname         |
 
 
@@ -350,8 +350,8 @@ The following fields exist in version 0.1 only, and were removed in [version 0.2
 For more information, see:
 
 - [Normalization in Microsoft Sentinel](normalization.md)
-- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Microsoft Sentinel authentication normalization schema reference (Public preview)](normalization-schema-authentication.md)
 - [Microsoft Sentinel file event normalization schema reference (Public preview)](normalization-schema-file-event.md)
 - [Microsoft Sentinel DNS normalization schema reference](normalization-schema-dns.md)
-- [Microsoft Sentinel process event normalization schema reference](process-events-normalization-schema.md)
-- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Microsoft Sentinel process event normalization schema reference](normalization-schema-process-event.md)
+- [Microsoft Sentinel registry event normalization schema reference (Public preview)](normalization-schema-registry-event.md)
