@@ -52,7 +52,7 @@ Artifacts:
   - Type: Custom Fabrikam authorization artifact (issued either by Azure AD or a different authorization service)
 - Artifact C
   - Type: Azure Communication Services resource authorization artifact. 
-  - Source: "Authorization" HTTP header with either a bearer token for [Azure AD authentication](../authentication#azure-ad-authentication) or a Hash-based Message Authentication Code (HMAC) payload and a signature for [access key-based authentication](../authentication#access-key) (access key or connection string).
+  - Source: "Authorization" HTTP header with either a bearer token for [Azure AD authentication](../authentication.md#azure-ad-authentication) or a Hash-based Message Authentication Code (HMAC) payload and a signature for [access key-based authentication](../authentication.md#access-key) (access key or connection string).
 - Artifact D
   - Type: Azure Communication Services access token
   - Audience: _`Azure Communication Services`_ — data plane
