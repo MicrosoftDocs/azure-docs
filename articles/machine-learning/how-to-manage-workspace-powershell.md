@@ -62,6 +62,11 @@ An Azure Machine Learning workspace depends on the following Azure resources:
 
 Use the following commands to create these resources and retrieve the Azure Resource Manager ID for each of them:
 
+> [!NOTE]
+> The Microsoft.Insights resource provider must be registered for your subscription prior to running
+> the following commands. This is a one time registration. Use
+> `Register-AzResourceProvider -ProviderNamespace Microsoft.Insights` to perform the registration.
+
 1. Create the Application Insights instance:
 
     ```azurepowershell-interactive
