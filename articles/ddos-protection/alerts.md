@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 01/13/2023
+ms.date: 01/30/2023
 ms.author: abell
 ---
 # Configure Azure DDoS Protection metric alerts through portal

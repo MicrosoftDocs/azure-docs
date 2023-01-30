@@ -56,7 +56,7 @@
     href: monitor-ddos-protection-reference.md
 - name: How-to guides
   items:
-    - name: Configure DDoS alerts
+    - name: Configure Monitoring and Logging
       items:
         - name: Configure metric alerts through portal
           href: alerts.md
