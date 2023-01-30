@@ -25,7 +25,8 @@ In this article, you will learn to how to use the export and import APIs to repl
 
 ##  Prerequisites
 
-* Two Azure Language resources in different Azure regions. [Create your resources](./how-to/create-project.md#create-a-language-resource) and connect them to an Azure storage account. It's recommended that you connect both of your Language resources to the same storage account, though this might introduce slightly higher latency when importing your project, and training a model. 
+* Two Azure Language resources in different Azure regions. [Create your resources](./how-to/create-project.md#create-a-language-resource) and connect them to an Azure storage account. It's recommended that you connect each of your Language resources to different storage accounts. Each storage account should be located in the same respective regions that your separate Language resources are in. You can follow the [quickstart](./quickstart.md?pivots=rest-api#create-a-new-azure-language-resource-and-azure-storage-account) to create an additional Language resource and storage account.
+
 
 ## Get your resource keys endpoint
 
@@ -34,8 +35,8 @@ Use the following steps to get the keys and endpoint of your primary and seconda
 [!INCLUDE [Get keys and endpoint Azure Portal](./includes/get-keys-endpoint-azure.md)]
 
 > [!TIP]
-> Keep a note of keys and endpoints for both primary and secondary resources. Use these values to replace the following placeholders:
-`{PRIMARY-ENDPOINT}`, `{PRIMARY-RESOURCE-KEY}`, `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}`.
+> Keep a note of keys and endpoints for both primary and secondary resources as well as the primary and secondary container names. Use these values to replace the following placeholders:
+`{PRIMARY-ENDPOINT}`, `{PRIMARY-RESOURCE-KEY}`, `{PRIMARY-CONTAINER-NAME}`, `{SECONDARY-ENDPOINT}`, `{SECONDARY-RESOURCE-KEY}`, and `{SECONDARY-CONTAINER-NAME}`.
 > Also take note of your project name, your model name and your deployment name. Use these values to replace the following placeholders:  `{PROJECT-NAME}`, `{MODEL-NAME}` and `{DEPLOYMENT-NAME}`.
 
 ## Export your primary project assets
@@ -63,7 +64,7 @@ Now go ahead and import the exported project assets in your new project in the s
 
 ### Submit import job
 
-Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
+Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}`, `{SECONDARY-RESOURCE-KEY}`, and `{SECONDARY-CONTAINER-NAME}` that you obtained in the first step.
 
 [!INCLUDE [Import project using the REST API](./includes/rest-api/import-project.md)]
 

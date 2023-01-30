@@ -2,23 +2,24 @@
 title: Disable user sign-in for application
 description: How to disable an enterprise application so that no users may sign in to it in Azure Active Directory
 services: active-directory
-author: eringreenlee
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/06/2022
-ms.author: ergreenl
+ms.author: jomondi
+ms.reviewer: ergreenl
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 #customer intent: As an admin, I want to disable user sign-in for an application so that no user can sign in to it in Azure Active Directory.
 ---
 # Disable user sign-in for an application
 
-There may be situations while configuring or managing an application where you don't want tokens to be issued for an application. Or, you may want to preemptively block an application that you do not want your employees to try to access. To accomplish this, you can disable user sign-in for the application, which will prevent all tokens from being issued for that application.
+There may be situations while configuring or managing an application where you don't want tokens to be issued for an application. Or, you may want to block an application that you don't want your employees to try to access. To block user access to an application, you can disable user sign-in for the application, which will prevent all tokens from being issued for that application.
 
-In this article, you will learn how to prevent users from signing in to an application in Azure Active Directory through both the Azure portal and PowerShell. If you are looking for how to block specific users from accessing an application, use [user or group assignment](./assign-user-or-group-access-portal.md).
+In this article, you'll learn how to prevent users from signing in to an application in Azure Active Directory through both the Azure portal and PowerShell. If you're looking for how to block specific users from accessing an application, use [user or group assignment](./assign-user-or-group-access-portal.md).
 
 
 
@@ -41,9 +42,9 @@ To disable user sign-in, you need:
 
 ## Use Azure AD PowerShell to disable an unlisted app
 
-Ensure you have installed the AzureAD module (use the command Install-Module -Name AzureAD). In case you are prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
+Ensure you've installed the AzureAD module (use the command Install-Module -Name AzureAD). In case you're prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
 
-If you know the AppId of an app that doesn't appear on the Enterprise apps list (for example, because you deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft), you can manually create the service principal for the app and then disable it by using the cmdlet below.
+You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft), you can manually create the service principal for the app and then disable it by using the following cmdlet.
 
 ```PowerShell
 # The AppId of the app to be disabled

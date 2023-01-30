@@ -71,6 +71,34 @@ NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 timertask linux       Enabled                           BASE_IMAGE, TIMER
 ```
 
+
+Also, a simple example, of the task running with source code context. The following task triggers running the `hello-world` image from Microsoft Container Registry every day at 21:00 UTC. 
+
+Follow the [Prerequisites](/azure/container-registry/container-registry-tutorial-quick-task#prerequisites) to build the source code context and then create a scheduled task with context.
+ 
+```azurecli
+az acr task create \
+  --name timertask \
+  --registry $ACR_NAME \
+  --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#master \
+  --file Dockerfile \
+  --image timertask:{{.Run.ID}} \
+  --git-access-token $GIT_PAT \
+  --schedule "0 21 * * *"
+```
+
+Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured. By default, the base image update trigger is also enabled.
+
+```azurecli
+az acr task show --name timertask --registry $ACR_NAME --output table
+```
+
+Run the [az acr task run][az-acr-task-run ] command to trigger the task manually.
+
+```azurecli
+az acr task run --name timertask --registry $ACR_NAME
+```
+
 ## Trigger the task
 
 Trigger the task manually with [az acr task run][az-acr-task-run] to ensure that it is set up properly:

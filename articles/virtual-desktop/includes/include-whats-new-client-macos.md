@@ -9,10 +9,10 @@ ms.date: 01/06/2023
 
 The following table lists the current versions available for the public and beta releases:
 
-| Release | Latest version |
-|---------|----------------|
-| Public  | 10.8.0         |
-| Beta    | N/A            |
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public  | 10.8.0         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.8.1         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
 
 ## Updates for Version 10.8.0
 

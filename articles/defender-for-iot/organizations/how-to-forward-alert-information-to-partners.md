@@ -113,7 +113,7 @@ To edit or delete an existing rule:
 
 ## Configure alert forwarding rule actions
 
-This section describes how to configure settings for supported forwarding rule actions.
+This section describes how to configure settings for supported forwarding rule actions, on either an OT sensor or the on-premises management console.
 
 ### Email address action
 

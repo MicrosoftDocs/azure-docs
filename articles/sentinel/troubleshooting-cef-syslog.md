@@ -20,6 +20,10 @@ For more information, see [Connect your external solution using Common Event For
 
 If you've deployed your connector using a method different than the documented procedure and are having issues, we recommend that you purge the deployment and install again as documented.
 
+> [!IMPORTANT]
+>
+> On **February 28th 2023**, we will introduce [changes to the CommonSecurityLog table schema](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). This means that custom queries will require being reviewed and updated. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) will be updated by Microsoft Sentinel.
+
 ## How to use this article
 
 When information in this article is relevant only for Syslog or only for CEF connectors, we've organized the page into tabs. Make sure that you're using the instructions on the correct tab for your connector type.

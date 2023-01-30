@@ -276,7 +276,7 @@ For OT sensor versions 22.1.3 and higher, you can use the new sensor health widg
 
 We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied.
 
-For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
+For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health) and [Sensor health message reference](sensor-health-messages.md).
 
 ## July 2022
 
@@ -397,7 +397,7 @@ Now, for locally managed sensors, you can upload that diagnostic log directly on
 For more information, see:
 
 - [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
-- [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
+- [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 
 ### Improved security for uploading protocol plugins
 

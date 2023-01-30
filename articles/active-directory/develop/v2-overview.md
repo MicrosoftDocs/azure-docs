@@ -2,7 +2,7 @@
 title: Microsoft identity platform overview
 description: Learn about the components of the Microsoft identity platform and how they can help you build identity and access management (IAM) support into your applications.
 services: active-directory
-author: CelesteDG
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: overview
 ms.workload: identity
 ms.date: 11/16/2022
-ms.author: celested
+ms.author: owenrichards
 ms.reviewer: saeeda
 # Customer intent: As an application developer, I want a quick introduction to the Microsoft identity platform so I can decide if this platform meets my application development requirements.
 ---
