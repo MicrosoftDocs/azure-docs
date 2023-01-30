@@ -31,7 +31,7 @@ After you complete the setup steps, you'll be able to run the simulated live vid
 - An IoT Edge device on which you have admin privileges:
   - [Deploy to an IoT Edge device](deploy-iot-edge-device.md)
   - [Deploy to an IoT Edge for Linux on Windows](deploy-iot-edge-linux-on-windows.md)
-- [Visual Studio Code](https://code.visualstudio.com/), with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension.
+- [Visual Studio Code](https://code.visualstudio.com/), with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension.
 
 [!INCLUDE [install-docker-prompt](./includes/common-includes/install-docker-prompt.md)]
 

@@ -27,7 +27,7 @@ Containers enable you to run Cognitive Services APIs in your own environment, an
 
 Disconnected container usage is also available for the following Applied AI service:
 
-* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#required-containers)
+* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md)
 
 Before attempting to run a Docker container in an offline environment, make sure you know the steps to successfully download and use the container. For example:
 

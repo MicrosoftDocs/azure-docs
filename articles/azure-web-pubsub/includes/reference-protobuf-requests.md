@@ -1,3 +1,11 @@
+---
+author: vicancy
+ms.author: lianwei
+ms.service: azure-web-pubsub
+ms.topic: include 
+ms.date: 01/24/2023
+---
+
 ### Join groups
 
 Format:
@@ -18,7 +26,7 @@ Set `leave_group_message.group` to the group name.
 
 Format:
 
-* `ackId`:  The unique identity of each request. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
+* `ackId`: The unique identity of each request. The service sends an [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
 * `dataType`:  The data format, which can be `protobuf`, `text`, or `binary` depending on the `data` in `MessageData`. The receiving clients can use `dataType` to correctly process the content.
 
@@ -129,7 +137,7 @@ There's an implicit `dataType`, which can be `protobuf`, `text`, or `binary`, de
 
 * `text`: When you set `event_message.data.text_data`, the implicit `dataType` is `text`. The `text_data` value should be a string. The event handler receives a UTF-8-encoded string.
 
-* `binary`: When you set `event_message.data.binary_data`, the implicit `dataType` is `binary`. The `binary_data` value should be a byte array. The event handler receives the simple WebSocket binary frame.
+* `binary`: When you set `event_message.data.binary_data`, the implicit `dataType` is `binary`. The `binary_data` value should be a byte array. The event handler receives the raw binary frame.
 
 #### Case 1: Send an event with text data
 

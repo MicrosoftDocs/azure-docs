@@ -87,6 +87,9 @@ An `aksManagedAutoUpgradeSchedule` has the following properties:
 
 There are currently three available schedule types: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`. These schedule types are only applicable to `aksManagedClusterAutoUpgrade` configurations.
 
+> [!NOTE]
+> All of the fields shown for each respective schedule type are required.
+
 #### Weekly schedule
 
 A `Weekly` schedule may look like *"every two weeks on Friday"*:
@@ -126,6 +129,8 @@ A `RelativeMonthly` schedule may look like *"every two months, on the last Monda
     }
 }
 ```
+
+Valid values for `weekIndex` are `First`, `Second`, `Third`, `Fourth`, and `Last`.
 
 ## Add a maintenance window configuration with Azure CLI
 
