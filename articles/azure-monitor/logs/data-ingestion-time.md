@@ -22,7 +22,7 @@ The total ingestion time for a particular set of data can be broken down into th
 - **Pipeline time**: The time for the ingestion pipeline to process the log record. This time period includes parsing the properties of the event and potentially adding calculated information.
 - **Indexing time**: The time spent to ingest a log record into an Azure Monitor big data store.
 
-Details on the different latency introduced in this process are described in the following sections.
+The following sections details the latency introduced in this process.
 
 ### Agent collection latency
 
