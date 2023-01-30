@@ -23,6 +23,82 @@ To help you stay up to date with the latest developments, this article covers:
 This page is updated regularly with the latest developments in Azure Private 5G Core. <!-- TODO: maybe update with agreed update frequency -->
 <!-- In future: If you're looking for items older than six months, you can find them in Archive for What's new in Azure Private 5G Core. -->
 
+## January 2023
+
+### Multiple Network Slices
+
+**Type:** Feature
+
+**Date available:** January 31, 2023
+
+The Azure Private 5G Core now supports multiple network slices for 5G packet core deployments. Network slices allow customers to host multiple independent logical networks in the same Azure Private 5G Core deployment. Slices are assigned to SIM policies and static IP addresses, providing isolated end-to-end networks that can be customized for different bandwidth and latency requirements.
+
+### Enhanced provisioning status reporting
+
+**Type:** New Feature
+
+**Date available:** January 31, 2023
+
+The Azure Private 5G Core online service now reports the provisioning status of SIMs per-site, on both the SIM and Site resource views, to allow you to accurately determine where individual SIMs have been provisioned.
+
+### West Europe region
+
+**Type:** New Feature
+
+**Date available:** January 17, 2023
+
+The Azure Private 5G Core service is now live in West Europe. It is now possible to deploy and manage AP5GC resources in West Europe.
+
+### Diagnostic Package Collection
+
+**Type:** New Feature
+
+**Date available:** February 1, 2023
+
+You can now gather gather diagnostics for a Site remotely using the Azure portal. Diagnostics packages will be collected from the edge site and uploaded to an Azure storage account, which can be shared as a SAS URI to AP5GC support or others for assistance with issues.
+
+### Diagnose and resolve problems
+
+**Type:** ??
+
+**Date available:** January 17, 2023
+
+The **Diagnose and solve problems** option in the left content menu can now provide troubleshooting suggestions for your AP5GC resources.
+
+## December 2022
+
+### Packet Core Reinstallation
+
+**Type:** Feature
+
+**Date available:** December 16, 2022
+
+If you're experiencing issues with your packet core deployment, you can now re-install the packet core to return it to a known state. Re-installing the packet core deletes the existing packet core deployment and attempts to deploy the packet core at the edge with the existing site configurations. Already created Site dependent resources such as the PacketCoreControlPlane, PacketCoreDataPlane and AttachedDataNetwork will continue to be used in the deployment.
+
+You can check the Installation state on the PacketCoreControlPlane overview. Upon successful redeployment, the Installation state will change from “Reinstalling” to either “Installed” or “Failed”, depending on the outcome.  You can re-install the packet core regardless if the  Installation state is in either “Installed” or “Failed” status.
+
+If re-install is attempted after upgrade, re-deployment would be attempted with the upgraded packet core version. The reinstallation is done using the latest packet core version currently defined in the ARM API version.
+
+This feature has the following limitations:
+
+- The provisioning state of resources PacketCoreControlPlane, PacketCoreDataPlane and AttachedDataNetwork will not change with re-install.
+- The status of the reinstallation operation can tracked only via Activity Logs.
+- Re-installing the packet core may take 45 minutes or more.
+- Updated Installation states are only reflected when the PacketCoreControlPlane overview page is refreshed.
+
+### HTTPS Certificates at the Edge
+
+**Type:** Feature
+
+**Date available:** December 19, 2022
+
+It is now possible to secure access to a site’s local monitoring tools with a custom, user-provided HTTPS certificate. Certificates can be uploaded to an Azure Key Vault and specified in the Packet Core Control Plane “local access” configuration to be provisioned down to the edge.
+
+This feature has the following limitations:
+
+- Certificate deletion requires a pod restart to be reflected at the edge.
+- User-assigned managed identities are not currently supported for certificate provisioning.
+- Actions on KeyVaults/Certificates not involving a modification on the Packet Core Control Plane object can take up to an hour to be reflected at the edge.
 
 ## November 2022
 
@@ -115,6 +191,7 @@ The following is a comparison of templates using the 2022-04-01-preview and the 
 ```
 
 # [2022-11-01 API](#tab/2022-11-01)
+
 ```json
 {
     ...
@@ -172,15 +249,15 @@ The 2211 release for the Azure Private 5G Core packet core is now available. For
 
 You can now configure up to three Attached Data Networks for each Packet Core instead of one. To use this feature, you must upgrade to the 2211 packet core release.
 
-The operator can provision UEs as subscribed in one or more Data Networks and apply Data Network-specific policy and QoS, allowing UEs to use multiple Layer 3 uplink networks selected based on policy or UE preference. 
+The operator can provision UEs as subscribed in one or more Data Networks and apply Data Network-specific policy and QoS, allowing UEs to use multiple Layer 3 uplink networks selected based on policy or UE preference.
 
-Each Data Network can have its own configuration for DNS, UE IP address pools, N6 IP, and NAT. This concept also maps directly to 4G APNs. 
+Each Data Network can have its own configuration for DNS, UE IP address pools, N6 IP, and NAT. This concept also maps directly to 4G APNs.
 
-This feature has the following limitations: 
+This feature has the following limitations:
 
 - Once more than a single Data Network is configured, further configuration changes require the packet core to be reinstalled. To ensure this reinstall happens only after you have made all your changes, you must follow the process for installing and modifying as described in the documentation.
 
-- VLAN separation of Data Networks is not supported. Only Layer 3 separation is supported (meaning you can't have overlapping IP address spaces across the Data Networks). 
+- VLAN separation of Data Networks is not supported. Only Layer 3 separation is supported (meaning you can't have overlapping IP address spaces across the Data Networks).
 
 - Metrics are not yet reported on a per-Data Network basis.
 
@@ -201,7 +278,6 @@ Previously, you had to delete all the ARM resources associated with a site befor
 **Date available:** December 5, 2022
 
 You can no longer choose a packet core version that is incompatible with your ASE version when installing or upgrading the packet core. The install or upgrade will be blocked and the portal will display an error message. This only applies when using the Azure portal.
-
 
 ## October 2022
 
