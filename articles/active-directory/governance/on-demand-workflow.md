@@ -9,7 +9,6 @@ ms.subservice: compliance
 ms.workload: identity
 ms.topic: how-to 
 ms.date: 01/30/2023
-ms.subservice: compliance
 ms.custom: template-how-to 
 ---
 
