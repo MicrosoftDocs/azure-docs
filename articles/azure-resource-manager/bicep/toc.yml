@@ -500,6 +500,8 @@
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
+  - name: Kubernetes provider
+      href: bicep-kubernetes-provider.md
   - name: Contribute to Bicep
     href: contribute.md
 - name: Reference
