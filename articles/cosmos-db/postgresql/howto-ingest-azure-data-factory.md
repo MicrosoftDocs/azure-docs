@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/21/2022
 ---
 
-# How to ingest data by using Azure Data Factory
+# How to ingest data by using Azure Data Factory in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

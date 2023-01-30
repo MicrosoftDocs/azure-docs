@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 09/28/2022
 ---
 
-# Connect to a cluster with psql
+# Connect to a cluster with psql - Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

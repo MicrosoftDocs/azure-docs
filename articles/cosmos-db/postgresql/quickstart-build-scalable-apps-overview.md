@@ -11,7 +11,7 @@ recommendations: false
 ms.date: 08/11/2022
 ---
 
-# Build scalable apps
+# Build scalable apps in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

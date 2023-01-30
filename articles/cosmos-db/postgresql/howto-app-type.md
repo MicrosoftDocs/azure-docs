@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/17/2020
 ---
 
-# Determining Application Type
+# Determining application type for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

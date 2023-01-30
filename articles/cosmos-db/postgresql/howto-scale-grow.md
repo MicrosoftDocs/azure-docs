@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/24/2022
 ---
 
-# Scale a cluster
+# Scale a cluster in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

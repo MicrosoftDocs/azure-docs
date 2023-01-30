@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 07/15/2022
 ---
 
-# Clusters
+# Clusters in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

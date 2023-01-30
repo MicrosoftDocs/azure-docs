@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/25/2022
 ---
 
-# Upgrade cluster
+# Upgrade cluster in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

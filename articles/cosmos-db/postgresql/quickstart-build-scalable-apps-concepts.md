@@ -10,7 +10,7 @@ recommendations: false
 ms.date: 08/11/2022
 ---
 
-# Fundamental concepts for scaling
+# Fundamental concepts for scaling in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

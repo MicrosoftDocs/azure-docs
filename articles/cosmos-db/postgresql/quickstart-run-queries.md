@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 08/11/2022
 ---
 
-# Run queries
+# Run queries in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

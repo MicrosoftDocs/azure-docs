@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/01/2022
 ---
 
-# Choose shard count
+# Choose shard count in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

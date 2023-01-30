@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/29/2022
 ---
 
-# Cluster upgrades
+# Cluster upgrades in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

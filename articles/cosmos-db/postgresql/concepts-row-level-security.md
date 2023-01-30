@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/30/2022
 ---
 
-# Row-level security
+# Row-level security in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

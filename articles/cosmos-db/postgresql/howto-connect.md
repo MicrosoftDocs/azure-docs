@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/21/2022
 ---
 
-# Connect to a cluster
+# Connect to a cluster in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

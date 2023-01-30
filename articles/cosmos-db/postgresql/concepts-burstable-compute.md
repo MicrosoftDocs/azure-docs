@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/18/2023
 ---
 
-# Burstable compute
+# Burstable compute in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

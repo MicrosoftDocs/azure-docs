@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/24/2022
 ---
 
-# Distribute and modify tables
+# Distribute and modify tables in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

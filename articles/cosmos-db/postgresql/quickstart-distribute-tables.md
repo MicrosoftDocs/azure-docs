@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 11/01/2022
 ---
 
-# Create and distribute tables
+# Create and distribute tables in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

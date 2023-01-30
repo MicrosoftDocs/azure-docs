@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ---
 
-# Configure high availability
+# Configure high availability in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

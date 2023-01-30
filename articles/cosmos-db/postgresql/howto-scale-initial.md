@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 08/03/2021
 ---
 
-# Pick initial size for cluster
+# Pick initial size for cluster in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

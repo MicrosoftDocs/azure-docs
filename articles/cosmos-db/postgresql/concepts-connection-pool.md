@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/20/2022
 ---
 
-# Azure Cosmos DB for PostgreSQL connection pooling
+# Connection pooling in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

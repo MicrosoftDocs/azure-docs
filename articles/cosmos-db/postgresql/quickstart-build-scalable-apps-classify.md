@@ -10,7 +10,7 @@ recommendations: false
 ms.date: 08/11/2022
 ---
 
-# Classify application workload
+# Classify application workload in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

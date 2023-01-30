@@ -10,7 +10,7 @@ recommendations: false
 ms.date: 08/11/2022
 ---
 
-# Model multi-tenant SaaS apps
+# Model multi-tenant SaaS apps in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
