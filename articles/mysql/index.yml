@@ -145,7 +145,7 @@ landingContent:
           - text: Deploy Java Spring Boot app on AKS with Flexible Server
             url: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
           - text: Deploy WordPress on App Service with Flexible Server
-            url: flexible-server/tutorial-wordpress-app-service.md
+            url: ../app-service/quickstart-wordpress.md
 
 # Card 7
   - title: Single Server

@@ -34,8 +34,6 @@ landingContent:
         links:
           - text: Configure the Microsoft Dev Box service
             url: quickstart-configure-dev-box-service.md
-          - text: Configure Dev Box Projects
-            url: quickstart-configure-dev-box-project.md
           - text: Create a Dev Box
             url: quickstart-create-dev-box.md  
           - text: Use the Remote Desktop client to connect to a dev box

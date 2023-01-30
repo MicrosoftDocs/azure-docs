@@ -5,7 +5,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: MeirMen
 ms.topic: how-to 
-ms.date: 11/22/2022
+ms.date: 01/27/2023
 
 #customer-intent: As an IT manager, I want to understand the steps required to migrate my Splunk deployment to Azure Monitor Logs so that I can decide whether to migrate and plan and execute my migration.
 
@@ -115,7 +115,7 @@ This table lists the tools Azure Monitor provides for collecting data from vario
 | --- | --- | --- |
 | **Azure** | [Diagnostic settings](../essentials/diagnostic-settings.md)  | | **Azure tenant** - Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
 | **Application** | [Application insights](../app/app-insights-overview.md) |Splunk Application Performance Monitoring| Application performance monitoring data. |
-| **Container** |[Container insights](../containers/container-insights-overview.md)|Splunk App for Infrastructure| Container performance data. |
+| **Container** |[Container insights](../containers/container-insights-overview.md)|Container Monitoring| Container performance data. |
 | **Operating system** | [Azure Monitor Agent](../vm/monitor-virtual-machine-agent.md) |Universal Forwarder, Heavy Forwarder | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
 | **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) |HTTP Event Collector (HEC)| File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
 
@@ -144,6 +144,7 @@ To export your historical data from Splunk:
 
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
 - [Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).
+- Learn more about roles and permissions in Sentinel [Roles and permissions in Microsoft Sentinel](../../sentinel/roles.md).
 - Take the [Analyze logs in Azure Monitor with KQL training module](/training/modules/analyze-logs-with-kql/).
 
 
