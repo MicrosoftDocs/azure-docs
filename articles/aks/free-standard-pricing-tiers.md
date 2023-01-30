@@ -1,22 +1,22 @@
 ---
-title: Azure Kubernetes Service (AKS) Free and Standard pricing tiers for control plane management
-description: Learn about the Azure Kubernetes Service (AKS) Free and Standard pricing tiers for control plane management
+title: Azure Kubernetes Service (AKS) Free and Standard pricing tiers for cluster management
+description: Learn about the Azure Kubernetes Service (AKS) Free and Standard pricing tiers for cluster management
 services: container-service
 ms.topic: conceptual
 ms.date: 01/20/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Free and Standard pricing tiers for Azure Kubernetes Service (AKS) control plane management
+# Free and Standard pricing tiers for Azure Kubernetes Service (AKS) cluster management
 
-Azure Kubernetes Service (AKS) is now offering two pricing tiers for control plane management: the **Free tier** and the **Standard tier**.
+Azure Kubernetes Service (AKS) is now offering two pricing tiers for cluster management: the **Free tier** and the **Standard tier**.
 
 |                  |Free tier|Standard tier|
 |------------------|---------|--------|
 |**When to use**|• You want to experiment with AKS at no extra cost <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA|
 |**Supported cluster types**|• Development clusters or small scale testing environments <br> • Clusters with fewer than 10 nodes|• Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes|
 |**Pricing**|• Free cluster management <br> • Pay-as-you-go for resources you consume|• Pay-as-you-go for resources you consume|
-|**Feature comparison**|• Recommended for clusters with fewer than 10 nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• Uptime SLA is enabled by default <br> • Greater control plane reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features
+|**Feature comparison**|• Recommended for clusters with fewer than 10 nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• Uptime SLA is enabled by default <br> • Greater cluster reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features
 
 For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
