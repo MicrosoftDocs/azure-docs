@@ -56,9 +56,15 @@ Using customer-managed keys with Azure Cosmos DB requires you to set two propert
     - [How to use soft-delete with PowerShell](../key-vault/general/key-vault-recovery.md)
     - [How to use soft-delete with Azure CLI](../key-vault/general/key-vault-recovery.md)
 
-1. Once these settings have been enabled, on the access policy tab, you can choose your preferred permission model to use. Access policies are set by default, but Azure role-based access control is supported as well.
+
+### Choosing the preferred security model 
+
+Once purge protection and soft-delete have been enabled, on the access policy tab, you can choose your preferred permission model to use. Access policies are set by default, but Azure role-based access control is supported as well.
 
 The necessary permissions must be given for allowing Cosmos DB to use your encryption key. This step varies depending on whether the Azure Key Vault is using either Access policies or role-based access control.
+
+> [!NOTE]
+> It is important to note that only one security model can be active at a time, so there is no need to seed the role based access control if the Azure Key Vault is set to use access policies and vice versa)
 
 ### Add an access policy
 

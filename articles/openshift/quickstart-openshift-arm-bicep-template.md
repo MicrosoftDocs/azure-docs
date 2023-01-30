@@ -793,7 +793,7 @@ az deployment group create \
     --parameters location=$LOCATION \
     --parameters domain=$DOMAIN \
     --parameters pullSecret=$PULL_SECRET \
-    --parameters clusterName=$ARO_CLUSTER_NAME \
+    --parameters clusterName=$CLUSTER \
     --parameters aadClientId=$SP_CLIENT_ID \
     --parameters aadObjectId=$SP_OBJECT_ID \
     --parameters aadClientSecret=$SP_CLIENT_SECRET \
@@ -809,7 +809,7 @@ To connect to your new cluster, review the steps in [Connect to an Azure Red Hat
 Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
 
 ```azurecli-interactive
-az aro delete --resource-group $RESOURCEGROUP --name $ARO_CLUSTER_NAME
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
 > [!TIP]

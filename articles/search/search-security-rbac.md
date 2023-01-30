@@ -1,5 +1,5 @@
 ---
-title: Use Azure role-based access control
+title: Connect using Azure roles
 titleSuffix: Azure Cognitive Search
 description: Use Azure role-based access control for granular permissions on service administration and content tasks.
 
@@ -12,7 +12,7 @@ ms.date: 01/12/2023
 ms.custom: subject-rbac-steps, references_regions
 ---
 
-# Use Azure role-based access controls (Azure RBAC) in Azure Cognitive Search
+# Connect to Azure Cognitive Search using Azure role-based access control (Azure RBAC)
 
 Azure provides a global [role-based access control authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can:
 
@@ -224,13 +224,13 @@ This approach assumes Postman as the REST client and uses a Postman collection a
    az login
    ```
 
-1. Get your subscription ID. You'll provide this value as variable in a future step.
+1. Get your subscription ID. You'll provide this value as variable in a future step. 
 
    ```azurecli
    az account show --query id -o tsv
    ````
 
-1. Create a resource group for your security principal, specifying a location and name. This example uses the West US region. You'll provide this value as variable in a future step.
+1. Create a resource group for your security principal, specifying a location and name. This example uses the West US region. You'll provide this value as variable in a future step. The role you'll create will be scoped to the resource group.
 
    ```azurecli
    az group create -l westus -n MyResourceGroup
