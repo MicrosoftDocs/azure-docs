@@ -24,7 +24,7 @@ In this tutorial:
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-* This Azure account must have permissions to manage applications. Use the least privileged of the following roles that needed to register the application:
+* This Azure account must have permissions to manage applications. Use the least privileged of the following roles needed to register the application:
   * Application administrator
   * Application developer
   * Cloud application administrator
