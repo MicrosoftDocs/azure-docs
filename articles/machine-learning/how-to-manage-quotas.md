@@ -219,11 +219,11 @@ When you're requesting a quota increase, select the service that you have in min
  
 1. Scroll to **Machine Learning Service: Virtual Machine Quota**.
  
-    :::image type="content" source="./media/how-to-manage-quotas/virtual-machine-quota.png" lightbox="./media/how-to-manage-quotas/virtual-machine-quota.png" alt-text="Screenshot of the quota details form.":::
+    :::image type="content" source="./media/how-to-manage-quotas/virtual-machine-quota.png" lightbox="./media/how-to-manage-quotas/virtual-machine-quota.png" alt-text="Screenshot of the VM quota details form.":::
 
 2. Under **Additonal Details** specify the request details with the number of additional vCPUs required to run your Machine Learning Endpoint.
  
-    :::image type="content" source="./media/how-to-manage-quotas/VM-quota-request-additonal-info.png" lightbox="./media/how-to-manage-quotas/VM-quota-request-additonal-info.png" alt-text="Screenshot of the VM quota additional details form.":::
+    :::image type="content" source="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" lightbox="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" alt-text="Screenshot of the VM quota additional details form.":::
 
 > [!NOTE]
 > [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../cost-management-billing/manage/upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
