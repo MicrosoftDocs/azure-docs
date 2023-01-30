@@ -116,6 +116,38 @@ This step is optional. If you're interested in learning how the database resourc
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
 
+## Run the app
+
+Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
+
+1. In the git terminal window, `cd` to the sample code folder.
+
+    ```bash
+    cd azure-cosmos-java-getting-started
+    ```
+
+2. In the git terminal window, use the following command to install the required Java packages.
+
+    ```bash
+    mvn package
+    ```
+
+3. In the git terminal window, use the following command to start the Java application (replace SYNCASYNCMODE with `sync` or `async` depending on which sample code you would like to run, replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal)
+
+    ```bash
+    mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
+
+    ```
+
+    The terminal window displays a notification that the FamilyDB database was created. 
+    
+4. The app creates database with name `AzureSampleFamilyDB`
+5. The app creates container with name `FamilyContainer`
+6. The app will perform point reads using object IDs and partition key value (which is lastName in our sample). 
+7. The app will query items to retrieve all families with last name in ('Andersen', 'Wakefield', 'Johnson')
+
+8. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources).  from your account so that you don't incur charges.
+
 # [Async API](#tab/async)
 
 ### Managing database resources using the asynchronous (async) API
@@ -145,6 +177,38 @@ This step is optional. If you're interested in learning how the database resourc
 * As with the sync API, SQL queries over JSON are performed using the `queryItems` method.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
+
+## Run the app
+
+Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
+
+1. In the git terminal window, `cd` to the sample code folder.
+
+    ```bash
+    cd azure-cosmos-java-getting-started
+    ```
+
+2. In the git terminal window, use the following command to install the required Java packages.
+
+    ```bash
+    mvn package
+    ```
+
+3. In the git terminal window, use the following command to start the Java application (replace SYNCASYNCMODE with `sync` or `async` depending on which sample code you would like to run, replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal)
+
+    ```bash
+    mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
+
+    ```
+
+    The terminal window displays a notification that the FamilyDB database was created. 
+    
+4. The app creates database with name `AzureSampleFamilyDB`
+5. The app creates container with name `FamilyContainer`
+6. The app will perform point reads using object IDs and partition key value (which is lastName in our sample). 
+7. The app will query items to retrieve all families with last name in ('Andersen', 'Wakefield', 'Johnson')
+
+8. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources).  from your account so that you don't incur charges.
 
 [!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
 
@@ -195,6 +259,38 @@ You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by ad
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncPasswordlessMain.java?name=QueryItems)]
 
+## Run the app
+
+Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
+
+1. In the git terminal window, `cd` to the sample code folder.
+
+    ```bash
+    cd azure-cosmos-java-getting-started
+    ```
+
+2. In the git terminal window, use the following command to install the required Java packages.
+
+    ```bash
+    mvn package
+    ```
+
+3. In the git terminal window, use the following command to start the Java application (replace SYNCASYNCMODE with `sync-passwordless` or `async-passwordless` depending on which sample code you would like to run, replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal)
+
+    ```bash
+    mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
+
+    ```
+
+    The terminal window displays a notification that the FamilyDB database was created. 
+
+4. The app will reference the database and container you created via Azure CLI earlier. 
+    
+5. The app will perform point reads using object IDs and partition key value (which is lastName in our sample). 
+6. The app will query items to retrieve all families with last name in ('Andersen', 'Wakefield', 'Johnson')
+
+7. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources).  from your account so that you don't incur charges.
+
 ## [Passwordless Aync API](#tab/passwordlessasync)
 
 [!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/java-default-azure-credential-overview.md)]
@@ -244,8 +340,6 @@ You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by ad
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncPasswordlessMain.java?name=QueryItems)]
 
----
-
 ## Run the app
 
 Now go back to the Azure portal to get your connection string information and launch the app with your endpoint information. This enables your app to communicate with your hosted database.
@@ -262,7 +356,7 @@ Now go back to the Azure portal to get your connection string information and la
     mvn package
     ```
 
-3. In the git terminal window, use the following command to start the Java application (replace SYNCASYNCMODE with `sync` or `async` depending on which sample code you would like to run, replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal)
+3. In the git terminal window, use the following command to start the Java application (replace SYNCASYNCMODE with `sync-passwordless` or `async-passwordless` depending on which sample code you would like to run, replace YOUR_COSMOS_DB_HOSTNAME with the quoted URI value from the portal, and replace YOUR_COSMOS_DB_MASTER_KEY with the quoted primary key from portal)
 
     ```bash
     mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
@@ -270,13 +364,16 @@ Now go back to the Azure portal to get your connection string information and la
     ```
 
     The terminal window displays a notification that the FamilyDB database was created. 
+
+4. The app will reference the database and container you created via Azure CLI earlier. 
     
-4. The app creates database with name `AzureSampleFamilyDB`
-5. The app creates container with name `FamilyContainer`
-6. The app will perform point reads using object IDs and partition key value (which is lastName in our sample). 
-7. The app will query items to retrieve all families with last name in ('Andersen', 'Wakefield', 'Johnson')
+5. The app will perform point reads using object IDs and partition key value (which is lastName in our sample). 
+6. The app will query items to retrieve all families with last name in ('Andersen', 'Wakefield', 'Johnson')
 
 7. The app doesn't delete the created resources. Switch back to the portal to [clean up the resources](#clean-up-resources).  from your account so that you don't incur charges.
+
+---
+
 
 ## Review SLAs in the Azure portal
 
