@@ -1,6 +1,6 @@
 ---
 title: Schedule jobs with Azure IoT Hub (Azure CLI) | Microsoft Docs
-description: How to schedule an Azure IoT Hub job to invoke a direct method on multiple devices. You use the Azure IoT SDKs for Node.js to implement the simulated device apps and a service app to run the job.
+description: How to schedule an Azure IoT Hub job to invoke a direct method and update device twin properties. You use the Azure CLI to simulate a device and schedule jobs for that simulated device.
 author: kgremban
 
 ms.author: kgremban
