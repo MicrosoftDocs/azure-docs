@@ -277,7 +277,7 @@ Before you move your data onto a Data Box device, you'll need to download some h
    sudo apt-get install jq
    ```
 
-3. Install the [Requests](https://2.python-requests.org/en/master/) python package.
+3. Install the [Requests](https://pypi.org/project/requests/) python package.
 
    ```bash
 

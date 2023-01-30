@@ -80,3 +80,4 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 ### See also
 
 - [Soft delete for blobs](soft-delete-blob-overview.md)
+- [Blob versioning](versioning-overview.md)
