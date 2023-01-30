@@ -65,20 +65,18 @@ You can use the cloud security explorer to build queries that can proactively hu
 
 1. Select **+** to add other filters to your query. For each filter selected you can add more subfilters as needed.
 
-1. Select **Search**.
+1. After you finish building your query, select **Search** to run the query.The results will populate on the bottom of the page.
 
     :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png" alt-text="Screenshot that shows a full query and where to select on the screen to perform the search." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search.png":::
-
-The results will populate on the bottom of the page
 
 
 ## Query templates
 
-Query templates are pre-formatted searches using commonly-used filters. You can select an existing query template from the bottom of the page by selecting **Open query**.
+Query templates are pre-formatted searches using commonly-used filters. You can use one of the existing query templates from the bottom of the page by selecting **Open query**.
 
 :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png" alt-text="Screenshot that shows you where the query templates are located." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png":::
 
-You can alter any template to search for specific results by changing the query and selecting search.
+You can alter any template to search for specific results by changing the query and selecting **Search**.
 
 ## Query options
 
@@ -102,6 +100,6 @@ Use the query link to share a query with other people. After creating a query, s
 
 ## Next steps
 
-View the [reference list of attack paths and cloud security graph components](attack-path-reference.md)
+View the [reference list of attack paths and cloud security graph components](attack-path-reference.md).
 
-Learn about the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options)
+Learn about the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
