@@ -80,7 +80,7 @@ For example, the name resolution will be:
 
 |Name |Type |Value |Remark |
 |-----|-----|------|-------|
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--Azure creates this entry in Azure Public DNS to point the app service to the privatelink and this record is managed by us|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--Azure creates this CNAME entry in Azure Public DNS to point the app address to the private endpoint address|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--You manage this entry in your DNS system to point to your private endpoint IP address|
 
 After this DNS configuration, you can reach your app privately with the default name mywebappname.azurewebsites.net. You must use this name, because the default certificate is issued for *.azurewebsites.net.
