@@ -112,7 +112,7 @@ Configuring an alternative sign-in ID for AD FS consists of two main steps:
 
 1. Provide the domain administrator credentials.
 
-   ![Screenshot that shows the "Connect to Azure AD" page with sample credentials entered.](./media/how-to-connect-fed-management/AddNewADFSServer3.PNG)
+   ![Screenshot that shows the "Connect to Azure AD" page, with sample credentials entered.](./media/how-to-connect-fed-management/AddNewADFSServer3.PNG)
 
 1. Azure AD Connect asks for the password of the PFX file that you provided when you configured your new AD FS farm with Azure AD Connect. Select **Enter Password** to provide the password for the PFX file.
 
@@ -160,7 +160,7 @@ Configuring an alternative sign-in ID for AD FS consists of two main steps:
 
 1. On the **Ready to configure** page, the wizard shows the list of actions that will be performed.
 
-   ![Screenshot that shows the "Ready to configure" page with a list of actions to be performed.](./media/how-to-connect-fed-management/WapServer7.PNG)
+   ![Screenshot that shows the "Ready to configure" page, with a list of actions to be performed.](./media/how-to-connect-fed-management/WapServer7.PNG)
 
 1. Select **Install** to finish the configuration. After the configuration is complete, the wizard gives you the option to verify the connectivity to the servers. Select **Verify** to check connectivity.
 
@@ -176,15 +176,15 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 
 1. On the next page of the wizard, provide the global administrator credentials for Azure AD.
 
-   ![Screenshot of the "Additional tasks" pane for selecting "Add an additional Azure AD domain".](./media/how-to-connect-fed-management/AdditionalDomain2.PNG)
+   ![Screenshot that shows the "Additional tasks" pane for selecting "Add an additional Azure AD domain".](./media/how-to-connect-fed-management/AdditionalDomain2.PNG)
 
 1. On the **Remote access credentials** page, provide the domain administrator credentials.
 
-   ![Screenshot of the "Additional tasks" pane for selecting "Add an additional Azure AD domain".](./media/how-to-connect-fed-management/additionaldomain3.PNG)
+   ![Screenshot showing the "Additional tasks" pane for selecting "Add an additional Azure AD domain".](./media/how-to-connect-fed-management/additionaldomain3.PNG)
 
 1. On the next page, the wizard provides a list of Azure AD domains that you can federate your on-premises directory with. Choose the domain from the list.
 
-   ![Screenshot of the "Additional tasks" pane for selecting "Add an additional Azure AD domain".](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
+   ![Screenshot of the "Additional tasks" pane, showing how to add an additional Azure AD domain.](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
     After you choose the domain, the wizard informs you about further actions that it will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard helps you verify the domain. For more information, see [Add your custom domain name to Azure Active Directory](../fundamentals/add-custom-domain.md).
 
@@ -192,7 +192,7 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 
    The **Ready to configure** page lists the actions that Azure AD Connect will perform. 
 
-   ![Screenshot of the "Additional tasks" pane for selecting "Add an additional Azure AD domain".](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
+   ![Screenshot of the "Additional tasks" pane that shows how to add an additional Azure AD domain.](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 
 1. Select **Install** to finish the configuration.
 
@@ -277,7 +277,7 @@ With this rule, you're simply checking the temporary flag `idflag`. You decide w
 
 ### SSO with a subdomain UPN
 
-You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](how-to-connect-fed-management.md#addfeddomain). Azure AD Connect versions 1.1.553.0 and later create the correct claim rule for `issuerID` automatically. If you can't use Azure AD Connect version 1.1.553.0 or later, we recommend that you use the [Azure AD RPT Claim Rules](https://aka.ms/aadrptclaimrules) tool to generate and set correct claim rules for the Azure AD relying party trust.
+You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](how-to-connect-fed-management.md#add-a-federated-domain). Azure AD Connect versions 1.1.553.0 and later create the correct claim rule for `issuerID` automatically. If you can't use Azure AD Connect version 1.1.553.0 or later, we recommend that you use the [Azure AD RPT Claim Rules](https://aka.ms/aadrptclaimrules) tool to generate and set correct claim rules for the Azure AD relying party trust.
 
 ## Next steps
 
