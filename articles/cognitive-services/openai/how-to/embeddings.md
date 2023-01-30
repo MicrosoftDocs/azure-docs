@@ -29,11 +29,19 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
   -H 'api-key: YOUR_API_KEY' \
   -d '{"input": "Sample Document goes here"}'
 ```
+
 # [python](#tab/python)
 ```python
+import openai
+
+openai.api_type = "azure"
+openai.api_key = YOUR_API_KEY
+openai.api_base = "https://YOUR_RESOURCE_NAME.openai.azure.com"
+openai.api_version = "2022-12-01"
+
 response = openai.Embedding.create(
     input="Your text string goes here",
-    model="YOUR_DEPLOYMENT_NAME"
+    engine="YOUR_DEPLOYMENT_NAME"
 )
 embeddings = response['data'][0]['embedding']
 ```
