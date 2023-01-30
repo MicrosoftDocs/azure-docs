@@ -108,7 +108,7 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | Corelight | Zeek | 
 | GCP | Cloud DNS | 
 | Infoblox | NIOS | 
-| Microsoft | - AAD<br> - Azure<br> - Azure Firewall<br> - Azure Blob Storage<br>    - Azure File Storage<br>    - Azure NSG flows<br> - Azure Queue Storage<br>  - Azure Table Storage <br>      -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br>- SharePoint<br>- OneDrive<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData
+| Microsoft | - Microsoft Azure Active Directory (Azure AD)<br> - Azure<br> - Azure Firewall<br> - Azure Blob Storage<br>    - Azure File Storage<br>    - Azure NSG flows<br> - Azure Queue Storage<br>  - Azure Table Storage <br>      -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br>- SharePoint<br>- OneDrive<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData
 | Linux | - su<br> - sudo |
 | Okta | - Okta<br> - Auth0 | 
 | OpenBSD | OpenSSH |
