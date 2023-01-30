@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 01/25/2022
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
 ---
@@ -640,6 +640,10 @@ When you use Azure PowerShell deployment scripts, you can use the `Invoke-RestMe
 ### Permissions
 
 The identity that your deployment script uses needs to be authorized to work with the Microsoft Graph API, with the appropriate permissions for the operations it performs. You must authorize the identity outside of your template deployment, such as by pre-creating a user-assigned managed identity and assigning it an app role for Microsoft Graph. For more information, [see this quickstart example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad).
+
+## Access private virtual network
+
+The supporting resources including the container instance can't be deployed to a private virtual network. To access a private virtual network from your deployment script, you can create another virtual network with a publicly accessible virtual machine or a container instance, and create a peering from this virtual network to the private virtual network.
 
 ## Next steps
 

@@ -9,7 +9,7 @@ metadata:
   ms.workload: identity
   ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 10/04/2022
+  ms.date: 01/30/2023
   ms.author: sarahlipsey
   ms.reviewer: besiler
   ms.collection: M365-identity-device-management
@@ -71,7 +71,7 @@ sections:
       - question: |
           How many records I can download from the Azure portal?
         answer: |
-          You can download up to 250,000 records from the Azure portal. The records are sorted by *most recent* and by default. You can use [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up to a million records at any given point.
+          You can download up to 250,000 records from the Azure portal. To download data sets larger than 250,000 records, use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data.
 
       - question: |
           How long does Azure AD store activity logs?
