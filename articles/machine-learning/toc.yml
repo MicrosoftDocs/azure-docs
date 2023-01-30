@@ -117,6 +117,17 @@
   items:
     - name: What is v2?
       href: concept-v2.md
+    - name: Work with Data
+      items:
+        - name: Data concepts in Azure ML
+          href: concept-data.md
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
+        - name: Compliance
+          items:
+          - name: Export and delete data
+            displayName: GDPR
+            href: how-to-export-delete-data.md
     - name: Train models
       items:
         - name: Model training
@@ -136,6 +147,20 @@
             - name: Automated ML overview
               displayName: automl, auto ml
               href: concept-automated-ml.md
+            - name: Time series forecasting
+              items:
+              - name: Overview of forecasting methods
+                displayName: auto ML, time series, forecasting, methods
+                href: concept-automl-forecasting-methods.md
+              - name: Model sweeping and selection
+                displayName: auto ML, time series, forecasting, model selection, sweeping
+                href: concept-automl-forecasting-sweeping.md
+              - name: Calendar features
+                displayName: auto ML, time series, calendar features, holiday features
+                href: concept-automl-forecasting-calendar-features.md
+              - name: Lag features
+                displayName: auto ML, time series, lags
+                href: concept-automl-forecasting-lags.md
             - name: Overfitting & imbalanced data
               displayName: automl, auto ml, risks
               href: concept-manage-ml-pitfalls.md
@@ -218,17 +243,6 @@
         - name: Compute target
           displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
           href: concept-compute-target.md
-    - name: Work with Data
-      items:
-        - name: Access data
-          href: concept-data.md
-        - name: Sourcing human data responsibly
-          href: concept-sourcing-human-data.md
-        - name: Compliance
-          items:
-          - name: Export and delete data
-            displayName: GDPR
-            href: how-to-export-delete-data.md
     - name: Security
       items:
         - name: Enterprise security overview
@@ -409,6 +423,9 @@
             - name: Use a terminal
               displayName: git, github, clone, kernel, package
               href: how-to-access-terminal.md
+            - name: Manage compute sessions
+              displayName: sessions, terminal, kernel
+              href: how-to-manage-compute-sessions.md
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
@@ -426,6 +443,9 @@
         - name: Create datastores
           displayName: Create datastores
           href: how-to-datastore.md
+        - name: Create data assets
+          displayName: Create data assets
+          href: how-to-create-data-assets.md
         - name: Access and explore your data
           items:
             - name: Access data during interactive development
@@ -461,11 +481,6 @@
             - name: Interactive Data Wrangling with Apache Spark
               displayName: Interactive Data Wrangling with Apache Spark
               href: interactive-data-wrangling-with-apache-spark-azure-ml.md
-        - name: Share and Version Data
-          items:
-            - name: Create data assets
-              displayName: Create data assets
-              href: how-to-create-data-assets.md
         - name: Data administration and authentication
           displayName: Data administration and authentication
           href: how-to-administrate-data-authentication.md
@@ -675,12 +690,12 @@
                   href: how-to-mlflow-batch.md
                 - name: Deploy and run MLflow models in Spark jobs
                   href: how-to-deploy-mlflow-model-spark-jobs.md
-    - name: Manage the ML lifecycle
+    - name: Manage the ML lifecycle (MLOps)
       items:
+        - name: Setup MLOps with Azure DevOps
+          href: how-to-setup-mlops-azureml.md
         - name: Manage models
           href: how-to-manage-models.md
-        - name: Manage models with MLflow
-          href: how-to-manage-models-mlflow.md
         - name: Automation
           items:
             - name: Azure Pipelines for CI/CD
@@ -822,6 +837,12 @@
               href: reference-automl-images-cli-multilabel-classification.md
             - name: AutoML Image Object Detection
               href: reference-automl-images-cli-object-detection.md
+            - name: AutoML NLP Text Classification
+              href: reference-automl-nlp-cli-text-classification.md  
+            - name: AutoML NLP Multilabel Classification
+              href: reference-automl-nlp-cli-multilabel-classification.md
+            - name: AutoML NLP NER
+              href: reference-automl-nlp-cli-ner.md              
         - name: Datastore
           items:
             - name: Azure Blob
@@ -850,7 +871,7 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.machinelearningservices/
     - name: Service limits
       href: resource-limits-capacity.md

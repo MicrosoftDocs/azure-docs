@@ -2,15 +2,15 @@
 title: Set up a test environment for your app
 description: Learn how to set up an Azure Active Directory test environment so you can test your application integrated with Microsoft identity platform. Evaluate whether you need a separate tenant for testing or if you can use your production tenant.
 services: active-directory
-author: arcrowe
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.date: 05/11/2022
-ms.author: arcrowe
-ms.reviewer: marsma, ryanwi
+ms.author: cwerner
+ms.reviewer: ryanwi, arcrowe
 # Customer intent: As a developer, I want to set up a test environment so that I can test my app integrated with Microsoft identity platform.
 ---
 

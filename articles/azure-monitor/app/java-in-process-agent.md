@@ -2,7 +2,7 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. The article also discusses distributed tracing and the application map.
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 01/18/2023
 ms.devlang: java
 ms.custom: devx-track-java, ignite-2022
 ms.reviewer: mmcc
@@ -32,38 +32,20 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.4.7.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.7/applicationinsights-agent-3.4.7.jar) file.
+Download the [applicationinsights-agent-3.4.8.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.8/applicationinsights-agent-3.4.8.jar) file.
 
 > [!WARNING]
 >
-> If you're upgrading from an earlier 3.x version:
->
-> Starting from 3.4.0:
->
->    - Rate-limited sampling is now the default, if you haven't configured a fixed percentage previously. By default, it will capture at most around five requests per second, along with their dependencies, traces, and custom events. See [fixed-percentage sampling](./java-standalone-config.md#fixed-percentage-sampling) if you want to revert to the previous behavior of capturing 100% of requests.
->
-> Starting from 3.3.0:
->
->    - `LoggingLevel` isn't captured by default as part of Traces' custom dimension because that data is already captured in the `SeverityLevel` field. For information on how to reenable it, see the [config options](./java-standalone-config.md#logging-level-as-a-custom-dimension).
->    - Exception records are no longer recorded for failed dependencies. They're only recorded for failed requests.
->
-> Starting from 3.2.0:
->
->    - Controller `InProc` dependencies are no longer captured by default. For information on how to reenable these dependencies, see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
->    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
->    This change can affect custom dashboards or alerts if they relied on the previous values.
->    For more information, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
->
-> Starting from 3.1.0:
->
->    - The operation names and request telemetry names are now prefixed by the HTTP method, such as `GET` and `POST`.
->    This change can affect custom dashboards or alerts if they relied on the previous values.
->    For more information, see the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0).
->
+> If you are upgrading from an earlier 3.x version, you may be impacted by changing defaults or slight differences in the data we collect. See the migration notes at the top of the release notes for
+> [3.4.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.4.0),
+> [3.3.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.3.0),
+> [3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0), and
+> [3.1.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
+> for more details.
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:"path/to/applicationinsights-agent-3.4.7.jar"` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.4.8.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -80,7 +62,7 @@ If you develop a Spring Boot application, you can replace the JVM argument by a 
         APPLICATIONINSIGHTS_CONNECTION_STRING=<Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.7.jar` with the following content:
+   - Create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.8.jar` with the following content:
 
         ```json
         {
@@ -520,7 +502,7 @@ Structured logging (attaching custom dimensions to your logs) can be accomplishe
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.7</version>
+      <version>3.4.8</version>
     </dependency>
     ```
 

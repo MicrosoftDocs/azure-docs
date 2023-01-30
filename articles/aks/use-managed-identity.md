@@ -89,6 +89,9 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 
 ## Update an AKS cluster to use a managed identity
 
+> [!NOTE]
+> If AKS has custom private DNS zone, AKS does not support to use system-assigned managed identity. 
+
 To update an AKS cluster currently using a service principal to work with a system-assigned managed identity, run the following CLI command.
 
 ```azurecli-interactive

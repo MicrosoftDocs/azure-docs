@@ -64,8 +64,8 @@ Each schema has a standard set of filtering parameters documented in the relevan
 - [Audit Event](normalization-schema-audit.md)
 - [Authentication](authentication-normalization-schema.md)
 - [DNS](normalization-schema-dns.md#filtering-parser-parameters)
-- [Network Session](network-normalization-schema.md#filtering-parser-parameters)
-- [Web Session](web-normalization-schema.md#filtering-parser-parameters)
+- [Network Session](normalization-schema-network.md#filtering-parser-parameters)
+- [Web Session](normalization-schema-web.md#filtering-parser-parameters)
 
 Every schema that supports filtering parameters supports at least the `starttime` and `endtime` parameters and using them is often critical for optimizing performance.
 
