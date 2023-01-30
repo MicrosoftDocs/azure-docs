@@ -69,11 +69,10 @@ Use the following commands to create these resources and retrieve the Azure Reso
 
 1. Create the Application Insights instance:
 
-    ```azurepowershell-interactive
-    $AppInsights = 'MyAppInsights'
-    New-AzApplicationInsights -Name $AppInsights -ResourceGroupName $ResourceGroup -Location $Location
-    $appid = (Get-AzResource -Name $AppInsights -ResourceGroupName $ResourceGroup).ResourceId
-    ```
+   ```azurepowershell-interactive
+   $AppInsights = 'MyAppInsights'
+   New-AzApplicationInsights -Name $AppInsights -ResourceGroupName $ResourceGroup -Location $Location
+   $appid = (Get-AzResource -Name $AppInsights -ResourceGroupName $ResourceGroup).ResourceId
 
 1. Create the Azure Key Vault:
 
