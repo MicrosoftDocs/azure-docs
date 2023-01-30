@@ -11,7 +11,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Get debug information
 
-When troubleshooting happens for voice or video calls, user may be asked to provide a CallID; this ID is used to identify Communication Services calls. Every call may have multiple Call Ids
+When troubleshooting happens for voice or video calls, user may be asked to provide a CallID; this ID is used to identify Communication Services calls. Every call may have multiple Call Ids.
 
 Call ID can be retrieved from `CallComposite`:
 
