@@ -5,6 +5,7 @@ author: OWinfreyATL
 ms.author: owinfrey
 manager: amycolannino
 ms.service: active-directory
+ms.subservice: compliance
 ms.workload: identity
 ms.topic: how-to 
 ms.date: 01/30/2023

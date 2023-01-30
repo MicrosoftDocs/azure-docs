@@ -42,8 +42,8 @@ resourceGroupName='myResourceGroup'
 accountName='mybatchaccount'
 
 az batch account create \
-    -n $accountName \
-    -g $resourceGroupName \
+    --name $accountName \
+    --resource-group $resourceGroupName \
     --locations regionName='West US 2' \
     --identity 'SystemAssigned'
 ```
@@ -52,8 +52,8 @@ After the account is created, you can verify that system-assigned managed identi
 
 ```azurecli
 az batch account show \
-    -n $accountName \
-    -g $resourceGroupName \
+    --name $accountName \
+    --resource-group $resourceGroupName \
     --query identity
 ```
 
@@ -109,14 +109,14 @@ In the [Azure portal](https://portal.azure.com/), go to the Batch account page. 
 
 ### Azure CLI
 
-After the Batch account is created with system-assigned managed identity and the access to Key Vault is granted, update the Batch account with the `{Key Identifier}` URL under `keyVaultProperties` parameter. Also set **encryption_key_source** as `Microsoft.KeyVault`.
+After the Batch account is created with system-assigned managed identity and the access to Key Vault is granted, update the Batch account with the `{Key Identifier}` URL under `keyVaultProperties` parameter. Also set `--encryption-key-source` as `Microsoft.KeyVault`.
 
 ```azurecli
 az batch account set \
-    -n $accountName \
-    -g $resourceGroupName \
-    --encryption_key_source Microsoft.KeyVault \
-    --encryption_key_identifier {YourKeyIdentifier} 
+    --name $accountName \
+    --resource-group $resourceGroupName \
+    --encryption-key-source Microsoft.KeyVault \
+    --encryption-key-identifier {YourKeyIdentifier}
 ```
 
 ## Create a Batch account with user-assigned managed identity and customer-managed keys
@@ -159,9 +159,9 @@ You can also use Azure CLI to update the version.
 
 ```azurecli
 az batch account set \
-    -n $accountName \
-    -g $resourceGroupName \
-    --encryption_key_identifier {YourKeyIdentifierWithNewVersion} 
+    --name $accountName \
+    --resource-group $resourceGroupName \
+    --encryption-key-identifier {YourKeyIdentifierWithNewVersion}
 ```
 
 ## Use a different key for Batch encryption
@@ -176,9 +176,9 @@ You can also use Azure CLI to use a different key.
 
 ```azurecli
 az batch account set \
-    -n $accountName \
-    -g $resourceGroupName \
-    --encryption_key_identifier {YourNewKeyIdentifier} 
+    --name $accountName \
+    --resource-group $resourceGroupName \
+    --encryption-key-identifier {YourNewKeyIdentifier}
 ```
 
 ## Frequently asked questions
