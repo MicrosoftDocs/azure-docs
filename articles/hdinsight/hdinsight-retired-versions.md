@@ -16,6 +16,7 @@ The following table lists the retired versions of HDInsight.
 
 | HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability in the Azure portal |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.6 |HDP 2.5 |Ubuntu 16.0.4 LTS |April 4, 2017 |June 30, 2021 |October 1, 2022 |Yes |No |
 | HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |September 30, 2016 |September 5, 2017 |June 28, 2018 |Yes |No |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |March 29, 2016 |December 29, 2016 |January 9, 2018 |Yes |No |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |December 2, 2015 |June 27, 2016 |July 31, 2018 |Yes |No |
