@@ -8,10 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 01/04/2023
 ---
 
-# Java code samples for Azure Cognitive Search
+# Java samples for Azure Cognitive Search
 
 Learn about the Java code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/java/api/overview/azure/search-documents-readme) for the [**Azure SDK for Java**](/azure/developer/java/sdk), which you can explore through the following links.
 
@@ -38,20 +38,11 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 
 ## Doc samples
 
-Code samples from the Cognitive Search team demonstrate features and workflows. Many of these samples are referenced in tutorials, quickstarts, and how-to articles. You can find these samples in [**Azure-Samples/azure-search-java-samples**](https://github.com/Azure-Samples/azure-search-java-samples) on GitHub.
+Code samples from the Cognitive Search team are located in [**Azure-Samples/azure-search-java-samples**](https://github.com/Azure-Samples/azure-search-java-samples) on GitHub.
 
 | Samples | Article | 
 |---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/quickstart) | Source code for [Quickstart: Create a search index in Java and REST](search-get-started-java.md). This sample has not been updated for the Java SDK. It calls the REST APIs. |
+| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/main/quickstart) | Source code for [Quickstart: Create a search index in Java and REST](search-get-started-java.md). |
 
-> [!Tip]
+> [!TIP]
 > Try the [Samples browser](/samples/browse/?languages=java&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
-
-## Other samples
-
-The following samples are also published by the Cognitive Search team, but are not referenced in documentation. Associated readme files provide usage instructions.
-
-| Samples | Description |
-|---------|-------------|
-| [search-java-getting-started](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-getting-started) | Uses the Java SDK client library to create, load, and query a search index. This sample is currently standalone. |
-| [search-java-indexer-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/search-java-indexer-demo) | Demonstrates an Azure Cosmos DB indexer in Java. This sample has not been updated for the Java SDK. It calls the REST APIs.|

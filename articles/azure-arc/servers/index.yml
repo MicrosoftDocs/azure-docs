@@ -19,6 +19,9 @@ landingContent:
             url: overview.md
           - text: Azure Connected Machine agent overview
             url: agent-overview.md
+          - text: VMware FAQ
+            url: vmware-faq.md
+
       - linkListType: architecture
         links:
           - text: Manage configurations for hybrid servers 
@@ -70,7 +73,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.connectedmachine/
           - text: .NET
-            url: /dotnet/api/overview/azure/hybridcompute/management
+            url: /dotnet/api/overview/azure/hybridcompute/management/management-hybridcompute
           - text: REST
             url: /rest/api/hybridcompute/
           - text: Java
@@ -84,7 +87,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Learning path
-            url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc         
+            url: /training/paths/manage-hybrid-infrastructure-with-azure-arc         
 
  # Card
   - title: Azure service integration
@@ -100,4 +103,4 @@ landingContent:
           - text: Microsoft Sentinel
             url: scenario-onboard-azure-sentinel.md
           - text: Microsoft Defender for Cloud
-            url: ../../defender-for-cloud/quickstart-onboard-machines.md?bc=%2fazure%2fazure-arc%2fservers%2fbreadcrumb%2ftoc.json&pivots=azure-arc&toc=%2fazure%2fazure-arc%2fservers%2ftoc.json
+            url: ../../defender-for-cloud/quickstart-onboard-machines.md?bc=/azure/azure-arc/servers/breadcrumb/toc.json&pivots=azure-arc&toc=/azure/azure-arc/servers/toc.json

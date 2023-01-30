@@ -2,23 +2,160 @@
 title: Azure Health Data Services monthly releases
 description: This article provides details about the Azure Health Data Services monthly features and enhancements.
 services: healthcare-apis
-author: dougseven
+author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/09/2022
-ms.author: dseven
+ms.date: 01/25/2023
+ms.author: mikaelw
 ms.custom: references_regions
 ---
 
 # Release notes: Azure Health Data Services
 
->[!Note]
+>[Note]
 > Azure Health Data Services is Generally Available. 
 >
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
+## December 2022
+
+### Azure Health Data Services
+
+**Azure Health Data services General Available (GA) in new regions**
+
+General availability (GA) of Azure Health Data services in France Central, North Central US and Qatar Central Regions.
+
+   
+### DICOM service
+
+
+ **DICOM Events available in public preview**
+
+Azure Health Data Services [Events](events/events-overview.md) now include a public preview of [two new event types](events/events-message-structure.md#dicom-events-message-structure) for the DICOM service.  These new event types enable applications that use Event Grid to use event-driven workflows when DICOM images are created or deleted.
+
+
+## November 2022
+### FHIR service
+
+**Fixed the Error generated when resource is updated using if-match header and PATCH**
+
+Bug is now fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
+
+
+### Toolkit and Samples Open Source
+
+
+**Azure Health Data Services Toolkit is released**
+
+The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit), which was previously in a pre-release state, is now in **Public Preview** . The toolkit is open-source project and allows customers to more easily customize and extend the functionality of their Azure Health Data Services implementations. The NuGet packages of the toolkit are available for download from the NuGet gallery, and you can find links to them from the repo documentation. 
+
+## October 2022
+### MedTech service
+
+
+ **Added Deploy to Azure button**
+
+ Customers can now deploy the MedTech service fully, including Event Hubs, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service using an Azure Resource Manager template](./iot/deploy-new-arm.md)
+
+
+
+**Added the Dropped Event Metrics**
+
+Customers can now determine if their mappings are working as intended, as they can now see dropped events as a metric to ensure that data is flowing through accurately. 
+
+
+## September 2022
+
+### Azure Health Data Services 
+
+#### **Bug Fixes**
+
+| Bug Fix |Related information |
+| :------------------- | :--------------- |
+| Querying with :not operator was returning more results than expected | The issue is now fixed and querying with :not operator should provide correct results. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2785). |
+
+#### **Known Issues**
+
+| Known Issue | Description |
+| :------------------------ | :------------------------------- |
+| Using [token type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.hl7.org%2Ffhir%2Fsearch.html%23token&data=05%7C01%7CKetki.Sheth%40microsoft.com%7C7ec4c7dad9b940b74a8508da60395511%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637928096596122743%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=VmAG2iHUyxtNZI88HqKeSSwFV28zFSs2qgkAQRPnZ%2Bw%3D&reserved=0) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations  | No workaround. |
+
+### FHIR Service 
+
+#### **Bug Fixes**
+
+| Bug Fix |Related information |
+| :------------------- | :--------------- |
+| Error message is provided for failure in export resulting from long time span  |  With failure in export job due to a long time span, customer will see `RequestEntityTooLarge` HTTP status code. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2790).|
+|In a query sort, functionality throws an error when chained search is performed with same field value.  | Sort functionality returns a response. For more information, see [#2794](https://github.com/microsoft/fhir-server/pull/2794). 
+| Server doesn't indicate `_text` not supported | When passed as URL parameter,`_text` returns an error in response when using the `Prefer` heading with `value handling=strict`. For more information, see [#2779](https://github.com/microsoft/fhir-server/pull/2779). |
+| Verbose error message is not provided for invalid resource type  | Verbose error message is added when resource type is invalid or empty for `_include` and `_revinclude` searches. For more information, see [#2776](https://github.com/microsoft/fhir-server/pull/2776).
+
+### DICOM service
+
+#### **Features**
+
+| Enhancements/Improvements | Related information |
+| :------------------------ | :------------------------------- |
+| Export is GA |The export feature for the DICOM service is now generally available. Export enables a user-supplied list of studies, series, and/or instances to be exported in bulk to an Azure Storage account. Learn more about the [export feature](dicom/export-dicom-files.md).  |
+|Improved deployment performance  |Performance improvements have cut the time to deploy new instances of the DICOM service by more than 55% at the 50th percentile.    |
+| Reduced strictness when validating STOW requests |Some customers have run into issues storing DICOM files that do not perfectly conform to the specification.  To enable those files to be stored in the DICOM service, we have reduced the strictness of the validation performed on STOW. <p>The service will now accept the following: <p><ul><li>DICOM UIDs that contain trailing whitespace <li>IS, DS, SV, and UV VRs that are not valid numbers<li>Invalid private creator tags |
+
+### Toolkit and Samples Open Source
+
+#### **Features**
+
+| Enhancements/Improvements | Related information |
+| :------------------------ | :------------------------------- |
+| Azure Health Data Services Toolkit  | The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit) is now in the public preview. The toolkit is open-source and allows to easily customize and extend the functionality of their Azure Health Data Services implementations.  |
+
+## August 2022
+
+### FHIR service
+
+#### **Features**
+
+| Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+| Azure Health Data services availability expands to new regions | Azure Health Data services is now available in the following regions:  Central India, Korea Central, and Sweden Central.   
+| `$import` is generally available. | `$import` API is now generally available in Azure Health Data Services API version 2022-06-01. See [Executing the import](./../healthcare-apis/fhir/import-data.md) by invoking the `$import` operation on FHIR service in Azure Health Data Services.
+| `$convert-data` updated by adding STU3-R4 support. |`$convert-data` added support for FHIR STU3-R4 conversion. See [Data conversion for Azure API for FHIR](./../healthcare-apis/azure-api-for-fhir/convert-data.md). |  
+| Analytics pipeline now supports data filtering. | Data filtering is now supported in FHIR to data lake pipeline. See [FHIR-Analytics-Pipelines_Filter FHIR data](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Filter%20FHIR%20data%20in%20pipeline.md) microsoft/FHIR-Analytics-Pipelines github.com. |
+| Analytics pipeline now supports FHIR extensions. | Analytics pipeline can process FHIR extensions to generate parquet data. See [FHIR-Analytics-Pipelines_Process](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Process%20FHIR%20extensions.md) in pipeline.md at main.
+
+#### **Bug fixes**
+
+|Bug fixes |Related information |
+| :----------------------------------- | :--------------- |
+| History bundles were sorted with the oldest version first |We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last. <br><br>This bug fix, addresses FHIR server behavior for sorting history bundle. <br><br>We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. <br><br>For example: `<server URL>/_history?_sort=_lastUpdated` <br><br>For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689).  |
+| Queries not providing consistent result count after appended with `_sort` operator. | Issue is now fixed and queries should provide consistent result count, with and without sort operator. 
+
+#### **Known issues**
+
+| Known Issue | Description |
+| :------------------------ | :------------------------------- |
+| Using [token type fields](https://www.hl7.org/fhir/search.html#token) of more than 128 characters in length can result in undesired behavior on `create`, `search`, `update`, and `delete` operations.  | Currently, no workaround available. |
+
+For more information about the currently known issues with the FHIR service, see [Known issues: FHIR service](known-issues.md).
+
+### MedTech service
+
+#### **Features and enhancements**
+
+|Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|New Metric Chart  |Customers can now see predefined metrics graphs in the MedTech landing page, complete with alerts to ease customers' burden of monitoring their MedTech service.  |
+|Availability of Diagnostic Logs  |There are now pre-defined queries with relevant logs for common issues so that customers can easily debug and diagnose issues in their MedTech service.   |
+
+### DICOM service
+
+#### **Features and enhancements**
+
+|Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|Modality worklists (UPS-RS) is GA.   |The modality worklists (UPS-RS) service is now generally available. Learn more about the [worklists service](./../healthcare-apis/dicom/dicom-services-conformance-statement.md).  |
 
 ## July 2022
 
@@ -28,7 +165,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
-| (Open Source) History bundles were sorted with the oldest version first.   | We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<Server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
+| (Open Source) History bundles were sorted with the oldest version first.   | We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
 
 #### **Known issues**
 
@@ -66,7 +203,7 @@ For more information about the currently known issues with the FHIR service, see
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
 |Export Job not being queued for execution.  |Fixes issue with export job not being queued due to duplicate job definition caused due to reference to container URL. For more information, see [#2648](https://github.com/microsoft/fhir-server/pull/2648). |
-|Queries not providing consistent result count after appended with the `_sort operator.   |Fixes the issue with the help of distinct operator to resolve inconsistency and record duplication in response.  For more information, see [#2680](https://github.com/microsoft/fhir-server/pull/2680). |
+|Queries not providing consistent result count after appended with the `_sort` operator.   |Fixes the issue with the help of distinct operator to resolve inconsistency and record duplication in response.  For more information, see [#2680](https://github.com/microsoft/fhir-server/pull/2680). |
 
 
 ## May 2022
@@ -338,7 +475,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Bug fixes | Related information |
 | :------------------- | :------------------------------- |
-| MedTech service normalized improvements with calculations to support and enhance health data standardization. | See [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Functions](./../healthcare-apis/iot/how-to-use-calculated-functions-mappings.md)  |
+| MedTech service normalized improvements with calculations to support and enhance health data standardization. | See [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Content Templates](./../healthcare-apis/iot/how-to-use-calculatedcontenttemplate-mappings.md)  |
 
 ## Next steps
 
@@ -352,4 +489,4 @@ For information about the features and bug fixes in Azure API for FHIR, see
 >[!div class="nextstepaction"]
 >[Release notes: Azure API for FHIR](./azure-api-for-fhir/release-notes.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

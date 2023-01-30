@@ -12,6 +12,8 @@ ms.date: 08/20/2022
 
 # 997 functional acknowledgments and error codes for X12 messages in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 In Azure Logic Apps, you can create workflows that handle X12 messages for Electronic Data Interchange (EDI) communication when you use **X12** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**X12 Decode** action](logic-apps-enterprise-integration-x12-decode.md) can return one or more types of acknowledgments to the sender, based on which acknowledgment types are enabled and the specified level of validation.
 
 For example, the receiver reports the status from validating the Functional Group Header (GS) and Functional Group Trailer (GE) in the received X12-encoded message by sending a *997 functional acknowledgment (ACK)* along with each error that happens during processing. The **X12 Decode** action always generates a 4010-compliant 997 ACK, while both the [**X12 Encode** action](logic-apps-enterprise-integration-x12-encode.md) and **X12 Decode** action can validate a 5010-compliant 997 ACK.

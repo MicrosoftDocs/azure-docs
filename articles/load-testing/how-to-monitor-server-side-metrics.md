@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 02/08/2022
+ms.date: 01/18/2023
 ms.topic: how-to
 
 ---
@@ -84,4 +84,4 @@ When you update the configuration of a load test, all future test runs will use 
 
 - Learn how to [set up a high-scale load test](./how-to-high-scale-load.md).
 
-- Learn how to [configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).

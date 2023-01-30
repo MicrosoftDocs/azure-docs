@@ -2,13 +2,14 @@
 title: Enable or disable the controller in Permissions Management after onboarding is complete
 description: How to enable or disable the controller in Permissions Management after onboarding is complete.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Enable or disable the controller after onboarding is complete
@@ -55,7 +56,7 @@ This article also describes how to enable the controller in Amazon Web Services 
     The **Cloud Infrastructure Entitlement Management assignments** page appears, displaying the roles assigned to you.
 
     - If you have read-only permission, the **Role** column displays **Reader**.
-    - If you have administrative permission, the **Role** column displays **User Access Administrative**.
+    - If you have administrative permission, the **Role** column displays **User Access Administrator**.
 
 1. To add the administrative role assignment, return to the **Access control (IAM)** page, and then select **Add role assignment**.
 1. Add or remove the role assignment for Cloud Infrastructure Entitlement Management.

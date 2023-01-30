@@ -2,8 +2,8 @@
 title: Kubernetes monitoring with Container insights | Microsoft Docs
 description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Container insights.
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.reviewer: aul
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 
 # Monitor your Kubernetes cluster performance with Container insights
@@ -24,7 +24,7 @@ The main differences in monitoring a Windows Server cluster with Container insig
 
 To view the health status of all Kubernetes clusters deployed, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.
 
-![Screenshot that shows an Azure Monitor multi-cluster dashboard example.](./media/container-insights-analyze/azmon-containers-multiview.png)
+:::image type="content" source="./media/container-insights-analyze/azmon-containers-multiview.png" alt-text="Screenshot that shows an Azure Monitor multi-cluster dashboard example." lightbox="media/container-insights-analyze/azmon-containers-multiview.png":::
 
 You can scope the results presented in the grid to show clusters that are:
 
@@ -35,14 +35,13 @@ You can scope the results presented in the grid to show clusters that are:
 
 To view clusters from a specific environment, select it from **Environment** in the upper-left corner.
 
-![Screenshot that shows an Environment selector example.](./media/container-insights-analyze/clusters-multiview-environment-pill.png)
+:::image type="content" source="./media/container-insights-analyze/clusters-multiview-environment-pill.png" alt-text="Screenshot that shows an Environment selector example." lightbox="media/container-insights-analyze/clusters-multiview-environment-pill.png":::
 
 On the **Monitored clusters** tab, you learn the following:
 
 - How many clusters are in a critical or unhealthy state versus how many are healthy or not reporting (referred to as an Unknown state).
 - Whether all of the [Azure Kubernetes Engine (AKS Engine)](https://github.com/Azure/aks-engine) deployments are healthy.
 - How many nodes and user and system pods are deployed per cluster.
-- How much disk space is available and if there's a capacity issue.
 
 The health statuses included are:
 
@@ -94,7 +93,7 @@ Access to Container insights is available directly from an AKS cluster by select
 
 The default page opens and displays four line performance charts that show key performance metrics of your cluster.
 
-![Screenshot that shows example performance charts on the Cluster tab.](./media/container-insights-analyze/containers-cluster-perfview.png)
+:::image type="content" source="./media/container-insights-analyze/containers-cluster-perfview.png" alt-text="Screenshot that shows example performance charts on the Cluster tab." lightbox="media/container-insights-analyze/containers-cluster-perfview.png":::
 
 The performance charts display four performance metrics:
 
@@ -135,7 +134,7 @@ You can [split](../essentials/metrics-charts.md#apply-splitting) a metric to vie
 
 When you switch to the **Nodes**, **Controllers**, and **Containers** tabs, a property pane automatically displays on the right side of the page. It shows the properties of the item selected, which includes the labels you defined to organize Kubernetes objects. When a Linux node is selected, the **Local Disk Capacity** section also shows the available disk space and the percentage used for each disk presented to the node. Select the **>>** link in the pane to view or hide the pane.
 
-As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you also can view Kubernetes container logs (stdout/stderror), events, and pod metrics by selecting the **View live data (preview)** link at the top of the pane. For more information about the configuration required to grant and control access to view this data, see [Set up the Live Data (preview)](container-insights-livedata-setup.md). 
+As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you also can view Kubernetes container logs (stdout/stderror), events, and pod metrics by selecting the **Live Events** tab at the top of the pane. For more information about the configuration required to grant and control access to view this data, see [Set up the Live Data (preview)](container-insights-livedata-setup.md). 
 
 While you review cluster resources, you can see this data from the container in real time. For more information about this feature, see [How to view Kubernetes logs, events, and pod metrics in real time](container-insights-livedata-overview.md).
 
@@ -147,23 +146,23 @@ Specifying a filter in one tab continues to be applied when you select another. 
 
 Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object model, which starts with a node in your cluster. Expand the node to view one or more pods running on the node. If more than one container is grouped to a pod, they're displayed as the last row in the hierarchy. You also can view how many non-pod-related workloads are running on the host if the host has processor or memory pressure.
 
-![Screenshot that shows an example of the Kubernetes Node hierarchy in the performance view.](./media/container-insights-analyze/containers-nodes-view.png)
+:::image type="content" source="./media/container-insights-analyze/containers-nodes-view.png" alt-text="Screenshot that shows an example of the Kubernetes Node hierarchy in the performance view." lightbox="media/container-insights-analyze/containers-nodes-view.png":::
 
 Windows Server containers that run the Windows Server 2019 OS are shown after all the Linux-based nodes in the list. When you expand a Windows Server node, you can view one or more pods and containers that run on the node. After a node is selected, the properties pane shows version information.
 
-![Screenshot that shows an example Node hierarchy with Windows Server nodes listed.](./media/container-insights-analyze/nodes-view-windows.png)
+:::image type="content" source="./media/container-insights-analyze/nodes-view-windows.png" alt-text="Screenshot that shows an example Node hierarchy with Windows Server nodes listed." lightbox="media/container-insights-analyze/nodes-view-windows.png":::
 
 Azure Container Instances virtual nodes that run the Linux OS are shown after the last AKS cluster node in the list. When you expand a Container Instances virtual node, you can view one or more Container Instances pods and containers that run on the node. Metrics aren't collected and reported for nodes, only for pods.
 
-![Screenshot that shows an example Node hierarchy with Container Instances listed.](./media/container-insights-analyze/nodes-view-aci.png)
+:::image type="content" source="./media/container-insights-analyze/nodes-view-aci.png" alt-text="Screenshot that shows an example Node hierarchy with Container Instances listed." lightbox="media/container-insights-analyze/nodes-view-aci.png":::
 
 From an expanded node, you can drill down from the pod or container that runs on the node to the controller to view performance data filtered for that controller. Select the value under the **Controller** column for the specific node.
 
-![Screenshot that shows the drill-down from node to controller in the performance view.](./media/container-insights-analyze/drill-down-node-controller.png)
+:::image type="content" source="./media/container-insights-analyze/drill-down-node-controller.png" alt-text="Screenshot that shows the drill-down from node to controller in the performance view." lightbox="media/container-insights-analyze/drill-down-node-controller.png" border="false":::
 
 Select controllers or containers at the top of the page to review the status and resource utilization for those objects. To review memory utilization, in the **Metric** dropdown list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
 
-![Screenshot that shows a Container nodes performance view.](./media/container-insights-analyze/containers-node-metric-dropdown.png)
+:::image type="content" source="./media/container-insights-analyze/containers-node-metric-dropdown.png" alt-text="Screenshot that shows a Container nodes performance view." lightbox="media/container-insights-analyze/containers-node-metric-dropdown.png":::
 
 **Memory working set** shows both the resident memory and virtual memory (cache) included and is a total of what the application is using. **Memory RSS** shows only main memory, which is nothing but the resident memory. This metric shows the actual capacity of available memory. What's the difference between resident memory and virtual memory?
 
@@ -172,15 +171,15 @@ Select controllers or containers at the top of the page to review the status and
 
 By default, performance data is based on the last six hours, but you can change the window by using the **TimeRange** option at the upper left. You also can filter the results within the time range by selecting **Min**, **Avg**, **50th**, **90th**, **95th**, and **Max** in the percentile selector.
 
-![Screenshot that shows a percentile selection for data filtering.](./media/container-insights-analyze/containers-metric-percentile-filter.png)
+:::image type="content" source="./media/container-insights-analyze/containers-metric-percentile-filter.png" alt-text="Screenshot that shows a percentile selection for data filtering." lightbox="media/container-insights-analyze/containers-metric-percentile-filter.png":::
 
 When you hover over the bar graph under the **Trend** column, each bar shows either CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes. After you select the trend chart through a keyboard, use the Alt+Page up key or Alt+Page down key to cycle through each bar individually. You get the same details that you would if you hovered over the bar.
 
-![Screenshot that shows a Trend bar chart hover-over example.](./media/container-insights-analyze/containers-metric-trend-bar-01.png)
+:::image type="content" source="./media/container-insights-analyze/containers-metric-trend-bar-01.png" alt-text="Screenshot that shows a Trend bar chart hover-over example." lightbox="media/container-insights-analyze/containers-metric-trend-bar-01.png":::
 
-In the next example, for the first node in the list, *aks-nodepool1-*, the value for **Containers** is 9. This value is a rollup of the total number of containers deployed.
+In the next example, for the first node in the list, *aks-nodepool1-*, the value for **Containers** is 25. This value is a rollup of the total number of containers deployed.
 
-![Screenshot that shows a rollup of containers-per-node example.](./media/container-insights-analyze/containers-nodes-containerstotal.png)
+:::image type="content" source="./media/container-insights-analyze/containers-nodes-containerstotal.png" alt-text="Screenshot that shows a rollup of containers-per-node example." lightbox="media/container-insights-analyze/containers-nodes-containerstotal.png":::
 
 This information can help you quickly identify whether you have a proper balance of containers between nodes in your cluster.
 
@@ -209,19 +208,19 @@ It's calculated by *Total usage from CAdvisor* - *Usage from containerized proce
 
 In the selector, select **Controllers**.
 
-![Screenshot that shows selecting Controllers.](./media/container-insights-analyze/containers-controllers-tab.png)
+:::image type="content" source="./media/container-insights-analyze/containers-controllers-tab.png" alt-text="Screenshot that shows selecting Controllers.]" lightbox="media/container-insights-analyze/containers-controllers-tab.png":::
 
 Here you can view the performance health of your controllers and Container Instances virtual node controllers or virtual node pods not connected to a controller.
 
-![Screenshot that shows a \<Name> controllers performance view.](./media/container-insights-analyze/containers-controllers-view.png)
+:::image type="content" source="./media/container-insights-analyze/containers-controllers-view.png" alt-text="Screenshot that shows a \<Name> controllers performance view." lightbox="media/container-insights-analyze/containers-controllers-view.png":::
 
 The row hierarchy starts with a controller. When you expand a controller, you view one or more pods. Expand a pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill down to the node it's running on to view performance data filtered for that node. Container Instances pods not connected to a controller are listed last in the list.
 
-![Screenshot that shows an example Controllers hierarchy with Container Instances pods listed.](./media/container-insights-analyze/controllers-view-aci.png)
+:::image type="content" source="./media/container-insights-analyze/controllers-view-aci.png" alt-text="Screenshot that shows an example Controllers hierarchy with Container Instances pods listed." lightbox="media/container-insights-analyze/controllers-view-aci.png":::
 
 Select the value under the **Node** column for the specific controller.
 
-![Screenshot that shows an example drill-down from controller to node in the performance view.](./media/container-insights-analyze/drill-down-controller-node.png)
+:::image type="content" source="./media/container-insights-analyze/drill-down-controller-node.png" alt-text="Screenshot that shows an example drill-down from controller to node in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png" border="false":::
 
 The information that's displayed when you view controllers is described in the following table.
 
@@ -250,15 +249,15 @@ The status icon displays a count based on what the pod provides. It shows the wo
 
 In the selector, select **Containers**.
 
-![Screenshot that shows selecting Containers.](./media/container-insights-analyze/containers-containers-tab.png)
+:::image type="content" source="./media/container-insights-analyze/containers-containers-tab.png" alt-text="Screenshot that shows selecting Containers." lightbox="media/container-insights-analyze/containers-containers-tab.png":::
 
 Here you can view the performance health of your AKS and Container Instances containers.
 
-![Screenshot that shows a \<Name> containers performance view.](./media/container-insights-analyze/containers-containers-view.png)
+:::image type="content" source="./media/container-insights-analyze/containers-containers-view.png" alt-text="Screenshot that shows a \<Name> containers performance view." lightbox="media/container-insights-analyze/containers-containers-view.png":::
 
 From a container, you can drill down to a pod or node to view performance data filtered for that object. Select the value under the **Pod** or **Node** column for the specific container.
 
-![Screenshot that shows an example drill-down from node to containers in the performance view.](./media/container-insights-analyze/drill-down-controller-node.png)
+:::image type="content" source="./media/container-insights-analyze/drill-down-container-node.png" alt-text="Screenshot that shows an example drill-down from node to containers in the performance view." lightbox="media/container-insights-analyze/drill-down-controller-node.png" border="false":::
 
 The information that's displayed when you view containers is described in the following table.
 

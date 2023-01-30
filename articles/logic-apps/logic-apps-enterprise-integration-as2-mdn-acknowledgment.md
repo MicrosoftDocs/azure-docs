@@ -7,10 +7,12 @@ author: S-Jindal
 ms.author: shivamjindal
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 08/30/2022
+ms.date: 08/23/2022
 ---
 
 # MDN acknowledgments for AS2 messages in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 In Azure Logic Apps, you can create workflows that handle AS2 messages for Electronic Data Interchange (EDI) communication when you use **AS2** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**AS2 Decode** action](logic-apps-enterprise-integration-as2.md#decode) can return a Message Disposition Notification (MDN) or acknowledgment to the sender. An MDN verifies the following items:
 

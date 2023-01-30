@@ -4,7 +4,7 @@ description: Understand the Operations tab in the Synchronization Service Manage
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/13/2017
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017

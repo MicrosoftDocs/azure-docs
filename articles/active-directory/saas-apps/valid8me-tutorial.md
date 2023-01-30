@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/29/2022
+ms.date: 01/25/2023
 ms.author: jeedes
 
 ---
@@ -51,6 +51,8 @@ To configure the integration of valid8Me into Azure AD, you need to add valid8Me
 1. In the **Add from the gallery** section, type **valid8Me** in the search box.
 1. Select **valid8Me** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for valid8Me
 
 Configure and test Azure AD SSO with valid8Me using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user at valid8Me.
@@ -76,15 +78,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-1. Click **Set additional URLs** and perform the following step, if you wish to configure the application in **SP** initiated mode:
+1. If you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign on URL** textbox, type a URL using one of the following patterns:
-
-    | **Sign on URL** |
-    |------------|
-    | `https://login.valid8me.com` |
-    | `https://login.valid8me.com/?idp=https://sts.windows.net/${TenantID}/` |
-    | `https://<<client_name>>.valid8me.com` |
+    In the **Sign on URL (Optional)** text box, type a URL using the following pattern:
+    `https://login.valid8me.com/?idp=https://sts.windows.net/${TenantID}/`
 
     > [!Note]
     > This value is not real. Update this value with the actual Sign on URL. Contact [valid8Me support team](mailto:support@valid8me.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

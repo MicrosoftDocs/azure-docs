@@ -4,15 +4,13 @@ description: This document details how to enable device writeback using Azure AD
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
-editor: curtand
-
+manager: amycolannino
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/27/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -33,7 +31,7 @@ This provides additional security and assurance that access to applications is g
 
 > [!IMPORTANT]
 > <li>Devices must be located in the same forest as the users. Since devices must be written back to a single forest, this feature does not currently support a deployment with multiple user forests.</li>
-> <li>Only one device registration configuration object can be added to the on-premises Active Directory forest. This feature is not compatible with a topology where the on-premises Active Directory is synchronized to multiple Azure AD directories.</li>
+> <li>Only one device registration configuration object can be added to the on-premises Active Directory forest. This feature isn't compatible with a topology where the on-premises Active Directory is synchronized to multiple Azure AD directories.</li>
 
 ## Part 1: Install Azure AD Connect
 Install Azure AD Connect using Custom or Express settings. Microsoft recommends to start with all users and groups successfully synchronized before you enable device writeback.
@@ -46,22 +44,22 @@ Install Azure AD Connect using Custom or Express settings. Microsoft recommends 
     >[!NOTE]
     > The new Configure device options is available only in version 1.1.819.0 and newer.
 
-2. On the device options page, select **Configure device writeback**. Option to **Disable device writeback** will not be available until device writeback is enabled. Click on **Next** to move to the next page in the wizard.
+2. On the device options page, select **Configure device writeback**. Option to **Disable device writeback** won't be available until device writeback is enabled. Click on **Next** to move to the next page in the wizard.
     ![Chose device operation](./media/how-to-connect-device-writeback/configuredevicewriteback1.png)
 
-3. On the writeback page, you will see the supplied domain as the default Device writeback forest.
+3. On the writeback page, you'll see the supplied domain as the default Device writeback forest.
    ![Custom Install device writeback target forest](./media/how-to-connect-device-writeback/writebackforest.png)
 
 4. **Device container** page provides option of preparing the active directory by using one of the two available options:
 
     a. **Provide enterprise administrator credentials**: If the enterprise administrator credentials are provided for the forest where devices need to be written back, Azure AD Connect will prepare the forest automatically during the configuration of device writeback.
 
-    b. **Download PowerShell script**: Azure AD Connect auto-generates a PowerShell script that can prepare the active directory for device writeback. In case the enterprise administrator credentials cannot be provided in Azure AD Connect, it is suggested to download the PowerShell script. Provide the downloaded PowerShell script **CreateDeviceContainer.ps1** to the enterprise administrator of the forest where devices will be written back to.
+    b. **Download PowerShell script**: Azure AD Connect auto-generates a PowerShell script that can prepare the active directory for device writeback. In case the enterprise administrator credentials can't be provided in Azure AD Connect, it's suggested to download the PowerShell script. Provide the downloaded PowerShell script **CreateDeviceContainer.ps1** to the enterprise administrator of the forest where devices will be written back to.
     ![Prepare active directory forest](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     The following operations are performed for preparing the active directory forest:
-    * If they do not exist already, creates and configures new containers and objects under CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
-    * If they do not exist already, creates and configures new containers and objects under CN=RegisteredDevices,[domain-dn]. Device objects will be created in this container.
+    * If they don't exist already, creates and configures new containers and objects under CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
+    * If they don't exist already, creates and configures new containers and objects under CN=RegisteredDevices,[domain-dn]. Device objects will be created in this container.
     * Sets necessary permissions on the Azure AD Connector account, to manage devices on your Active Directory.
     * Only needs to run on one forest, even if Azure AD Connect is being installed on multiple forests.
 
@@ -82,12 +80,12 @@ Detailed instructions to enable this scenario are available within [Setting up O
 
 ## Troubleshooting
 ### The writeback checkbox is still disabled
-If the checkbox for device writeback is not enabled even though you have followed the steps above, the following steps will guide you through what the installation wizard is verifying before the box is enabled.
+If the checkbox for device writeback isn't enabled even though you've followed the steps above, the following steps will guide you through what the installation wizard is verifying before the box is enabled.
 
 First things first:
 
 * The forest where the devices are present must have the forest schema upgraded to Windows 2012 R2 level so that the device object and associated attributes are present .
-* If the installation wizard is already running, then any changes will not be detected. In this case, complete the installation wizard and run it again.
+* If the installation wizard is already running, then any changes won't be detected. In this case, complete the installation wizard and run it again.
 * Make sure the account you provide in the initialization script is actually the correct user used by the Active Directory Connector. To verify this, follow these steps:
   * From the start menu, open **Synchronization Service**.
   * Open the **Connectors** tab.
@@ -102,11 +100,11 @@ Verify configuration in Active Directory:
 
 ![Troubleshoot, DeviceRegistrationService in configuration namespace](./media/how-to-connect-device-writeback/troubleshoot1.png)
 
-* Verify there is only one configuration object by searching the configuration namespace. If there is more than one, delete the duplicate.
+* Verify there's only one configuration object by searching the configuration namespace. If there's more than one, delete the duplicate.
 
 ![Troubleshoot, search for the duplicate objects](./media/how-to-connect-device-writeback/troubleshoot2.png)
 
-* On the Device Registration Service object, make sure the attribute msDS-DeviceLocation is present and has a value. Lookup this location and make sure it is present with the objectType msDS-DeviceContainer.
+* On the Device Registration Service object, make sure the attribute msDS-DeviceLocation is present and has a value. Lookup this location and make sure it's present with the objectType msDS-DeviceContainer.
 
 ![Troubleshoot, msDS-DeviceLocation](./media/how-to-connect-device-writeback/troubleshoot3.png)
 

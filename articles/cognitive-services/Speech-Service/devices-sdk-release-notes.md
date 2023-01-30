@@ -34,7 +34,7 @@ The following sections list changes in the most recent releases.
 ## Speech Devices SDK 1.11.0:
 
 - Support for arbitrary microphone array geometries and setting the working angle through a [configuration file](https://aka.ms/sdsdk-micarray-json).
-- Support for [Urbetter DDK](http://www.urbetter.com/products_56/278.html).
+- Support for [Urbetter DDK](https://urbetters.com/collections).
 - Released binaries for the [GGEC Speaker](https://aka.ms/sdsdk-download-speaker) used in our [Voice Assistant sample](https://aka.ms/sdsdk-speaker).
 - Released binaries for [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) and [Linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) for Raspberry Pi and similar devices.
 - Updated the [Speech SDK](./speech-sdk.md) component to version 1.11.0. For more information, see its [release notes](./releasenotes.md).

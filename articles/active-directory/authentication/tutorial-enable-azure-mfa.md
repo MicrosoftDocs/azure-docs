@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 06/10/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -38,7 +38,7 @@ In this tutorial you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
+* A working Azure AD tenant with Azure AD Premium P1 or trial licenses enabled.
     * If you need to, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An account with *Conditional Access Administrator*, *Security Administrator*, or *Global Administrator* privileges. Some MFA settings can also be managed by an *Authentication Policy Administrator*. For more information, see [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).

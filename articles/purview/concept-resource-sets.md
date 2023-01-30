@@ -1,12 +1,12 @@
 ---
 title: Understanding resource sets
 description: This article explains what resource sets are and how Microsoft Purview creates them.
-author: djpmsft
-ms.author: daperlov
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 01/23/2023
 ---
 
 # Understanding resource sets
@@ -59,7 +59,7 @@ These properties can be found on the asset details page of the resource set.
 
 ### Turning on advanced resource sets
 
-Advanced resource sets is off by default in all new Microsoft Purview instances. Advanced resource sets can be enabled from **Account information** in the management hub.
+Advanced resource sets is off by default in all new Microsoft Purview instances. Advanced resource sets can be enabled from **Account information** in the management hub. Only those users who are added to the Data Curator role at root collection, can manage Advanced Resource Sets settings.
 
 :::image type="content" source="media/concept-resource-sets/advanced-resource-set-toggle.png" alt-text="Turn on Advanced resource set." border="true":::
 

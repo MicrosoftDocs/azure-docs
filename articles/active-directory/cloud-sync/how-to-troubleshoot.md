@@ -3,8 +3,8 @@ title: Azure AD Connect cloud sync troubleshooting
 description: This article describes how to troubleshoot problems that might arise with the cloud provisioning agent.
 author: billmath
 ms.author: billmath
-manager: karenhoran
-ms.date: 10/13/2021
+manager: amycolannino
+ms.date: 01/18/2023
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs

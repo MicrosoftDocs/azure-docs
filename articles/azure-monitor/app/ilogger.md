@@ -2,7 +2,7 @@
 title: Application Insights logging with .NET
 description: Learn how to use Application Insights with the ILogger interface in .NET.
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 01/24/2023
 ms.devlang: csharp
 ms.reviewer: casocha
 ---
@@ -226,6 +226,8 @@ namespace WebApplication
 
 ## Console application
 
+The following example uses the Microsoft.Extensions.Logging.ApplicationInsights package. The Microsoft.Extensions.Logging.ApplicationInsights package should be used in a console application or whenever you want a bare minimum implementation of Application Insights without the full feature set such as metrics, distributed tracing, sampling, and telemetry initializers.
+
 Here are the installed packages:
 
 ```xml
@@ -284,7 +286,7 @@ namespace ConsoleApp
 
 ```
 
-The preceding example uses the `Microsoft.Extensions.Logging.ApplicationInsights` package. By default, this configuration uses the "bare minimum" `TelemetryConfiguration` setup for sending data to Application Insights: the `InMemoryChannel` channel. There's no sampling and no standard `TelemetryInitializer` instance. You can override this behavior for a console application, as the following example shows.
+The previous example demonstrates the default behavior for a console application. As the following example shows, you can override this default behavior.
 
 Also install this package:
 

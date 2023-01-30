@@ -6,7 +6,7 @@ manager: roshar
 ms.service: storage
 ms.collection: windows
 ms.topic: article
-ms.date: 08/02/2022
+ms.date: 12/09/2022
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
@@ -18,38 +18,26 @@ ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
 When you create a new virtual machine (VM) in a resource group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default operating system (OS) disk is usually 127 GiB (some images have smaller OS disk sizes by default). You can add data disks to your VM (the amount depends on the VM SKU you selected) and we recommend installing applications and CPU-intensive workloads on data disks. You may need to expand the OS disk if you're supporting a legacy application that installs components on the OS disk or if you're migrating a physical PC or VM from on-premises that has a larger OS disk. This article covers expanding either OS disks or data disks.
 
 > [!IMPORTANT]
-> Unless you use [Expand without downtime (preview)](#expand-without-downtime-preview), expanding a data disk requires the VM to be deallocated.
+> Unless you use [Expand without downtime](#expand-without-downtime), expanding a data disk requires the VM to be deallocated.
 >
 > Shrinking an existing disk isn’t supported and may result in data loss.
 > 
 > After expanding the disks, you need to [Expand the volume in the operating system](#expand-the-volume-in-the-operating-system) to take advantage of the larger disk.
 
-## Expand without downtime (preview)
+## Expand without downtime
 
 You can now expand your data disks without deallocating your VM.
 
-The preview for this has the following limitations:
+This feature has the following limitations:
 
 [!INCLUDE [virtual-machines-disks-expand-without-downtime-restrictions](../../../includes/virtual-machines-disks-expand-without-downtime-restrictions.md)]
-
-To register for the feature, use the following command:
-
-```azurepowershell
-Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
-```
-
-It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
-
-```azurepowershell
-Get-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
-```
 
 ## Resize a managed disk in the Azure portal
 
 > [!IMPORTANT]
-> If you've enabled **LiveResize** and your disk meets the requirements in [Expand without downtime (preview)](#expand-without-downtime-preview), you can skip step 1. To expand a disk without downtime in the Azure portal, you must use the following link: [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize)
+> If your disk meets the requirements in [Expand without downtime](#expand-without-downtime), you can skip step 1.
 
-1. In the [Azure portal](https://aka.ms/iaasexp/DiskLiveResize), go to the virtual machine in which you want to expand the disk. Select **Stop** to deallocate the VM.
+1. In the [Azure portal](https://portal.azure.com/), go to the virtual machine in which you want to expand the disk. Select **Stop** to deallocate the VM.
 1. In the left menu under **Settings**, select **Disks**.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Screenshot that shows the Disks option selected in the Settings section of the menu.":::
@@ -102,7 +90,7 @@ $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 > [!IMPORTANT]
-> If you've enabled **LiveResize** and your disk meets the requirements in [expand without downtime (preview)](#expand-without-downtime-preview), you can skip step 4 and 6.
+> If your disk meets the requirements in [expand without downtime](#expand-without-downtime), you can skip step 4 and 6.
 
 Stop the VM before resizing the disk:
    
@@ -162,6 +150,30 @@ When you've expanded the disk for the VM, you need to go into the OS and expand 
 1. Follow the steps you should be able to see the disk with updated capacity:
 
     :::image type="content" source="media/expand-os-disk/disk-mgr-3.png" alt-text="Screenshot showing the larger C: volume in Disk Manager.":::
+
+## Expanding without downtime classic VM SKU support
+
+If you're using a classic VM SKU, it might not support expanding disks without downtime.
+
+Use the following PowerShell script to determine which VM SKUs it's available with:
+
+```azurepowershell
+Connect-AzAccount
+$subscriptionId="yourSubID"
+$location="desiredRegion"
+Set-AzContext -Subscription $subscriptionId
+$vmSizes=Get-AzComputeResourceSku -Location $location | where{$_.ResourceType -eq 'virtualMachines'}
+
+foreach($vmSize in $vmSizes){
+    foreach($capability in $vmSize.Capabilities)
+    {
+       if(($capability.Name -eq "EphemeralOSDiskSupported" -and $capability.Value -eq "True") -or ($capability.Name -eq "PremiumIO" -and $capability.Value -eq "True") -or ($capability.Name -eq "HyperVGenerations" -and $capability.Value -match "V2"))
+        {
+            $vmSize.Name
+       }
+   }
+}
+```
 
 ## Next steps
 

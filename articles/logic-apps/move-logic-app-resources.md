@@ -36,7 +36,9 @@ To move a resource, such as a logic app or integration account, to another Azure
 
 1. In the [Azure portal](https://portal.azure.com), find and select the logic app resource that you want to move.
 
-1. On the resource's **Overview** page, next to **Subscription**, select the **change** link.
+1. On the resource navigation menu, select **Overview**. Next to the **Subscription** label, select **move**.
+
+    You can also go to the resource's **Properties** page, and under **Subscription Name**, select **Change subscription**.
 
 1. On the **Move resources** page, select the logic app resource and any related resources that you want to move.
 

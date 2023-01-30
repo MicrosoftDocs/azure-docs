@@ -1,9 +1,11 @@
 ---
 title: Quickstart to create an Azure Recovery Services vault using an Azure Resource Manager template.
 description: In this quickstart, you learn how to create an Azure Recovery Services vault using an Azure Resource Manager template (ARM template).
-ms.date: 04/28/2021
+ms.date: 09/21/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Quickstart: Create a Recovery Services vault using an ARM template
@@ -15,6 +17,8 @@ planned and unplanned outages. Site Recovery manages disaster recovery of on-pre
 Azure virtual machines (VM), including replication, failover, and recovery.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+To protect VMware or physical server, see [Modernized architecture](./physical-server-azure-architecture-modernized.md).
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

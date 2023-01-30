@@ -10,9 +10,9 @@ The Speech SDK for C# is compatible with Windows, Linux, and macOS.
 
 # [Windows](#tab/windows)
 
-On Windows, you must use the x64 target architecture.
+On Windows, you must use the 64-bit target architecture.
 
-You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
+You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 
 # [Linux](#tab/linux)
 

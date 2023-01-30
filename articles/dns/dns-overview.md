@@ -1,11 +1,11 @@
 ---
 title: What is Azure DNS?
 description: Overview of DNS hosting service on Microsoft Azure. Host your domain on Microsoft Azure.
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 4/22/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
 
@@ -67,4 +67,4 @@ For more information, see [Overview of Azure DNS alias records](dns-alias.md).
 
 * For frequently asked questions about Azure DNS, see the [Azure DNS FAQ](dns-faq.yml).
 
-* [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
+* [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).

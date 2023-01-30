@@ -35,7 +35,7 @@ You can create an identity and access token for Teams external users on Azure po
 
 With a valid identity, access token, and Teams meeting URL, you can use [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/story/composites-call-with-chat-jointeamsmeeting--join-teams-meeting) to join Teams meeting without any code.
 
->[!VIDEO https://www.youtube.com/embed/chMHVHLFcao]
+>[!VIDEO https://www.youtube.com/embed/FF1LS516Bjw]
 
 ### Single-click deployment
 
@@ -49,7 +49,7 @@ The data flow for joining Teams meetings is available at the [client and server 
 
 High-level coding articles:
 - [Authenticate as Teams external user](../../../quickstarts/identity/access-token-teams-external-users.md) 
-- [Stateful Client (Meeting)](https://azure.github.io/communication-ui-library/?path=/story/composites-meeting-basicexample--basic-example)
+- [Call with Chat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example)
 
 Low-level coding articles:
 - [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
@@ -76,7 +76,6 @@ The following table show supported use cases for Teams external user with Azure 
 ## Pricing
 Any licensed Teams users can schedule Teams meetings and share the invite with external users. External users can join the Teams meeting experience via existing Teams desktop, mobile, and web clients without additional charge. External users joining via Azure Communication Services SDKs will pay
 [standard Azure Communication Services consumption](https://azure.microsoft.com/pricing/details/communication-services/) for audio, video, and chat. There's no additional fee for the interoperability capability itself.
-
 
 ## Next steps
 

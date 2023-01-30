@@ -4,14 +4,14 @@ description: Lists the attributes that are synchronized to Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 04/15/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -461,6 +461,7 @@ Device objects are created in Active Directory. These objects can be devices joi
 
 ## Notes
 * When using an Alternate ID, the on-premises attribute userPrincipalName is synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, for example mail, is synchronized with the Azure AD attribute userPrincipalName.
+* Although there is no enforcement of uniqueness on the Azure AD onPremisesUserPrincipalName attribute, it is not supported to sync the same UserPrincipalName value to the Azure AD onPremisesUserPrincipalName attribute for multiple different Azure AD users.
 * In the lists above, the object type **User** also applies to the object type **iNetOrgPerson**.
 
 ## Next steps

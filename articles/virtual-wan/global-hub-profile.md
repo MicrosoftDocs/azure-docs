@@ -15,7 +15,7 @@ Azure Virtual WAN offers two types of connection profiles for User VPN clients: 
 
 ## <a name="global"></a>Global profiles
 
-The global profile associated with a User VPN configuration points to a Global Traffic Manager. The Global Traffic Manager includes all active User VPN hubs that are using that User VPN configuration. However, you can choose to exclude hubs if necessary. A user connected to the global profile is directed to the hub that's closest to the user's geographic location. This is especially useful if you have users that travel between multiple locations frequently.
+The global profile associated with a User VPN configuration points to a Global Traffic Manager. The Global Traffic Manager includes all active User VPN hubs that are using that User VPN configuration. However, you can choose to exclude hubs from the Global Traffic Manager if necessary. A user connected to the global profile is directed to the hub that's closest to the user's geographic location. This is especially useful if you have users that travel between multiple locations frequently.
 
 For example, a User VPN Configuration is associated with two different hubs for the same virtual WAN, one in West US and one in Southeast Asia. If a user connects to the global profile associated with the User VPN configuration, they'll connect to the closest Virtual WAN hub based on their location.
 

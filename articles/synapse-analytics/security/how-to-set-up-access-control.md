@@ -84,7 +84,7 @@ Synapse workspaces use default storage containers for:
 Identify the following information about your storage:
 
 - The ADLS Gen2 account to use for your workspace. This document calls it `storage1`. `storage1` is considered the "primary" storage account for your workspace.
-- The container inside `workspace1` that your Synapse workspace will use by default. This document calls it `container1`.
+- The container inside `storage1` that your Synapse workspace will use by default. This document calls it `container1`.
 
 - Select **Access control (IAM)**.
 
@@ -238,7 +238,9 @@ You can grant access to a **single**, dedicated, SQL pool database. Use these st
     ```sql
     --Create user in the database
     CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
+    -- For Service Principals you would need just the display name and @domain.com is not required
     ```
+    
 
 2. Grant the user a role to access the database:
 

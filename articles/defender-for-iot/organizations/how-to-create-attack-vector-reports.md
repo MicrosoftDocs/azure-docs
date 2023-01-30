@@ -5,56 +5,71 @@ ms.date: 02/03/2022
 ms.topic: how-to
 ---
 
-# Attack vector reporting
+# Create attack vector reports
 
-## About attack vector reports
+Attack vector reports show a chain of vulnerable devices in a specified attack path, for devices detected by a specific OT network sensor. Simulate an attack on a specific target in your network to discover vulnerable devices and analyze attack vectors in real time.
 
-Attack vector reports provide a graphical representation of a vulnerability chain of exploitable devices. These vulnerabilities can give an attacker access to key network devices. The Attack Vector Simulator calculates attack vectors in real time and analyzes all attack vectors for a specific target.
+Attack vector reports can also help evaluate mitigation activities to ensure that you're taking all required steps to reduce the risk to your network. For example, use an attack vector report to understand whether a software update would disrupt the attacker's path, or if an alternate attack path still remains.
 
-Working with the attack vector lets you evaluate the effect of mitigation activities in the attack sequence. You can then determine, for example, if a system upgrade disrupts the attacker's path by breaking the attack chain, or if an alternate attack path remains. This information helps you prioritize remediation and mitigation activities.
+## Prerequisites
 
-> [!NOTE]
-> Administrators and security analysts can perform the procedures described in this section.
+To create attack vector reports, you must be able to access the OT network sensor you want to generate data for, as an **Admin** or **Security Analyst** user.
 
-## Create an attack vector report
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 
-This section describes how to create Attack Vector reports.
+## Generate an attack vector simulation
 
-**To create an attack vector simulation:**
+Generate an attack vector simulation so that you can view the resulting report.
 
-1. Select **Attack vector** from the sensor side menu. 
-1. Select **Add simulation**.
+**To generate an attack vector simulation:**
 
-2. Enter simulation properties:
+1. Sign into the sensor console and select **Attack vector** on the left.
+1. Select **Add simulation** and enter the following values:
 
-   - **Name**: Simulation name.
+    | Property  | Description  |
+    |---------|---------|
+    | **Name** | Simulation name |
+    | **Maximum Vectors** | The maximum number of attack vectors you want to include in the simulation. |
+    | **Show in Device Map** | Select to show the attack vector as a group in the **Device map**. |
+    | **Show All Source Devices** | Select to consider all devices as a possible attack source. |
+    | **Attack Source** | Appears only, and required, if the **Show All Source Devices** option is toggled off. Select one or more devices to consider as the attack source.|
+    | **Show All Target Devices** | Select to consider all devices as possible attack targets.|
+    | **Attack Target** | Appears only, and required, if the **Show All Target Devices** option is toggled off. Select one or more devices to consider as the attack target.|
+    | **Exclude Devices** | Select one or more devices to exclude from the attack vector simulation.|
+    | **Exclude Subnets** | Select one or more subnets to exclude from the attack vector simulation.|
 
-   - **Maximum vectors**: The maximum number of vectors in a single simulation.
+1. Select **Save**. Your simulation is added to the list, with the number of attack paths indicated in parenthesis.
 
-   - **Show in Device map**: Show the attack vector as a group in the Device map.
+1. Expand your simulation to view the list of possible attack vectors, and select one to view more details on the right.
 
-   - **All Source devices**: The attack vector will consider all devices as an attack source.
+    For example:
 
-   - **Attack Source**: The attack vector will consider only the specified devices as an attack source.
+    :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Screen shot of Attack vectors report." lightbox="media/how-to-generate-reports/sample-attack-vectors.png":::
 
-   - **All Target devices**: The attack vector will consider all devices as an attack target.
+## View an attack vector in the Device Map
 
-   - **Attack Target**: The attack vector will consider only the specified devices as an attack target.
+The Device map provides a graphical representation of vulnerable devices detected in attack vector reports. To view an attack vector in the Device map:
 
-   - **Exclude devices**: Specified devices will be excluded from the attack vector simulation.
+1. In the **Attack vector** page, make sure your simulation has **Show in Device map** toggled on.
+1. Select **Device map** from the side menu.
+1. Select your simulation and then select an attack vector to visualize the devices in your map. 
 
-   - **Exclude Subnets**: Specified subnets will be excluded from the attack vector simulation.
+    For example:
 
-3. Select **Save**.
-1. Select the report that is saved from the Attack vector page and review:
-    - network attack paths and insights
-    - a risk score
-    - source and target devices
-    -  a graphical representation of attack vectors
+    :::image type="content" source="media/how-to-generate-reports/sample-device-map.png" alt-text="Screen shot of Device map." lightbox="media/how-to-generate-reports/sample-device-map.png":::
 
-   :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Screen shot of Attack vectors report.":::
-
+For more information, see [Investigate sensor detections in the Device map](how-to-work-with-the-sensor-device-map.md).
 
 ## Next steps
 
-For more information, see [Attack vector reporting](how-to-create-attack-vector-reports.md).
+- Enhance security posture with Azure security [recommendations](recommendations.md).
+
+- View additional reports based on cloud-connected sensors in the Azure portal. For more information, see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)
+
+- Continue creating other reports for more security data from your OT sensor. For more information, see:
+
+    - [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+    
+    - [Sensor data mining queries](how-to-create-data-mining-queries.md)
+    
+    - [Create trends and statistics dashboards](how-to-create-trends-and-statistics-reports.md)

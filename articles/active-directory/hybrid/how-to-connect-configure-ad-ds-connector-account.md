@@ -3,11 +3,11 @@ title: 'Azure AD Connect: Configure AD DS Connector Account Permissions  | Micro
 description: This document details how to configure the AD DS Connector account with the new ADSyncConfig PowerShell module
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -86,7 +86,7 @@ By default, all the set permissions cmdlets will try to set AD DS permissions on
 
 You can also set permissions on a specific OU or AD DS object by using the parameter `-ADobjectDN` followed by the DN of the target object where you want to set permissions. When using a target ADobjectDN, the cmdlet will set permissions on this object only and not on the domain root or AdminSDHolder container. This parameter can be useful when you have certain OUs or AD DS objects that have permission inheritance disabled (see Locate AD DS objects with permission inheritance disabled) 
 
-Exceptions to these common parameters are the `Set-ADSyncRestrictedPermissions` cmdlet which is used to set the permissions on the AD DS Connector Account itself, and the `Set-ADSyncPasswordHashSyncPermissions` cmdlet since the permissions required for Password Hash Sync are only set at the domain root, hence this cmdlet does not include the `-ObjectDN` or `-SkipAdminSdHolders` parameters.
+Exceptions to these common parameters are the `Set-ADSyncRestrictedPermissions` cmdlet which is used to set the permissions on the AD DS Connector Account itself, and the `Set-ADSyncPasswordHashSyncPermissions` cmdlet since the permissions required for Password Hash Sync are only set at the domain root, hence this cmdlet does not include the `-ObjectDN` or `-IncludeAdminSdHolders` parameters.
 
 ### Determine your AD DS Connector Account 
 In case Azure AD Connect is already installed and you want to check what is the AD DS Connector Account currently in use by Azure AD Connect, you can execute the cmdlet: 
@@ -119,7 +119,7 @@ Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>'
 To set basic read-only permissions for the AD DS Connector account when not using any Azure AD Connect feature, run: 
 
 ``` powershell
-Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-IncludeAdminSdHolders] [<CommonParameters>] 
 ```
 
 
@@ -149,7 +149,7 @@ This cmdlet will set the following permissions:
 To set permissions for the AD DS Connector account when using the ms-Ds-Consistency-Guid attribute as the source anchor (also known as “Let Azure manage the source anchor for me” option), run: 
 
 ``` powershell
-Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-IncludeAdminSdHolders] [<CommonParameters>] 
 ```
 
 or; 
@@ -189,7 +189,7 @@ This cmdlet will set the following permissions:
 To set permissions for the AD DS Connector account when using Password Writeback, run: 
 
 ``` powershell
-Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-IncludeAdminSdHolders] [<CommonParameters>] 
 ```
 
 
@@ -210,7 +210,7 @@ This cmdlet will set the following permissions:
 To set permissions for the AD DS Connector account when using Group Writeback, run: 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-IncludeAdminSdHolders] [<CommonParameters>] 
 ```
 or; 
 
@@ -230,7 +230,7 @@ This cmdlet will set the following permissions:
 To set permissions for the AD DS Connector account when using Exchange Hybrid deployment, run: 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-IncludeAdminSdHolders] [<CommonParameters>] 
 ```
 
 
@@ -254,7 +254,7 @@ This cmdlet will set the following permissions:
 To set permissions for the AD DS Connector account when using Exchange Mail Public Folders feature, run: 
 
 ``` powershell
-Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-IncludeAdminSdHolders] [<CommonParameters>] 
 ```
 
 
@@ -275,7 +275,7 @@ This PowerShell script will tighten permissions for the AD Connector Account pro
 - Disable inheritance on the specified object 
 - Remove all ACEs on the specific object, except ACEs specific to SELF as we want to keep the default permissions intact when it comes to SELF. 
  
-  The -ADConnectorAccountDN parameter is the AD account whose permissions need to be tightened. This is typically the MSOL_nnnnnnnnnnnn domain account that is configured in the AD DS Connector (see Determine your AD DS Connector Account). The -Credential parameter is necessary to specify the Administrator account that has the necessary privileges to restrict Active Directory permissions on the target AD object. This is typically the Enterprise or Domain Administrator.  
+  The -ADConnectorAccountDN parameter is the AD account whose permissions need to be tightened. This is typically the MSOL_nnnnnnnnnnnn domain account that is configured in the AD DS Connector (see Determine your AD DS Connector Account). The -Credential parameter is necessary to specify the Administrator account that has the necessary privileges to restrict Active Directory permissions on the target AD object (this account must be different from the ADConnectorAccountDN account). This is typically the Enterprise or Domain Administrator.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
@@ -285,7 +285,7 @@ For Example:
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN 'CN=ADConnectorAccount,OU=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 This cmdlet will set the following permissions: 

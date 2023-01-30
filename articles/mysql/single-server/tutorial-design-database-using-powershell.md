@@ -15,6 +15,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on MySQL
 Community Edition database engine. In this tutorial, you use PowerShell and other utilities to learn
 how to:

@@ -48,7 +48,7 @@ Once you have configured administrative units, you can apply this scope to your 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as a Global Administrator, User Administrator, or Group Administrator.
 
-1. Select **Azure Active Directory** > **User settings** > **User feature ** > **Manage user feature settings**.
+1. Select **Azure Active Directory** > **User settings** > **User feature** > **Manage user feature settings**.
 
 1. Under **Administrators can access My Staff**, you can choose to enable for all users, selected users, or no user access.
 
@@ -114,8 +114,6 @@ To manage a user's phone number, you must be assigned one of the following roles
 ## Search
 
 You can search for administrative units and users in your organization using the search bar in My Staff. You can search across all administrative units and users in your organization, but you can only make changes to users who are in an administrative unit over which you have been given admin permissions.
-
-You can also search for a user within an administrative unit. To do this, use the search bar at the top of the user list.
 
 ## Audit logs
 

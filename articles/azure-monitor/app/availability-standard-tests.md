@@ -2,7 +2,7 @@
 title: Availability Standard test - Azure Monitor Application Insights
 description: Set up Standard tests in Application Insights to check for availability of a website with a single request test. 
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 11/15/2022
 ---
 
 # Standard test

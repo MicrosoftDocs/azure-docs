@@ -89,7 +89,7 @@ The following software must be installed:
 * The latest version of **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**
-  * **Universal Windows Platform (UWP) development**
+  * **Universal Windows Platform (UWP) development** 
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **GIT** [(download)](https://git-scm.com/downloads)
 * Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Ensure that the latest version is installed by checking for updates in the store.
@@ -116,11 +116,16 @@ ARR for Unity 2019 supports both the legacy **built-in XR** integration for Wind
 For Unity 2020, use latest version of Unity 2020.3.
 
 > [!IMPORTANT]
-> When working with the OpenXR version of the plugin, it has to be verified that the *Universal Render Pipeline* (URP) has version 10.5.1 or higher. To check that, open the *Package Manager* from the Unity *Windows* menu and refer to the *Universal RP* section:
+> When working with the OpenXR version of the plugin and the *Universal Render Pipeline* (URP), it has to be verified that the *Universal Render Pipeline* has version 10.5.1 or higher. To check that, open the *Package Manager* from the Unity *Windows* menu and refer to the *Universal RP* section:
 > ![Version of the Universal RP](./media/unity-universal-rp-version-10-5-1.png)
 
-> [!IMPORTANT]
-> The **WMR (Windows Mixed Reality) plugin for Unity 2020.3** currently has a performance degradation with ARR. For a better experience, we suggest to either stay on Unity 2019.X or switch to the OpenXR version.
+### Unity 2021
+
+For Unity 2021, use latest version of Unity 2021.3.
+
+### WMR vs. OpenXR
+
+In Unity 2019 and Unity 2020, you can still choose between the WMR (Windows Mixed Reality) and OpenXR plugin. WMR has been deprecated for Unity 2021 and onwards. A known limitation of the WMR version is that it doesn't work in linear color space.
 
 ## Next steps
 

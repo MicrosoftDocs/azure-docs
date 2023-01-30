@@ -72,7 +72,7 @@ Web categories lets administrators allow or deny user access to web site categor
 |Professional networking   | Sites that enable professional networking for online communities.   |
 |Search engines + portals   |Sites enabling the searching of the Web, newsgroups, images, directories, and other online content. Includes portal and directory sites such as white/yellow pages.    |
 |Translators     |   Sites that translate Web pages or phrases from one language to another. These sites bypass the proxy server, presenting the risk that unauthorized content may be accessed, similar to using an anonymizer.       |
-|File repository     |  Web pages including collections of shareware, freeware, open source, and other software downloads.        |
+|Web repository + storage   |  Web pages including collections of shareware, freeware, open source, and other software downloads.        |
 |Web-based email     | Sites that enable users to send and receive email through a web accessible email account.         |
 |     |         |
 

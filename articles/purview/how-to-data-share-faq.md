@@ -22,7 +22,7 @@ Here are some frequently asked questions for Microsoft Purview Data Sharing.
 * **Recipient** - A recipient is a user or service principal to which the share is sent. 
 
 ##	Can I use the API or SDK for storage in-place sharing?
-Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider/) for programmatic experience to share data.
+Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overview/azure/purview) for programmatic experience to share data.
 
 ##	What are the roles and permissions required to share data or receive shares?
 
@@ -77,6 +77,9 @@ Data provider's source storage account can support up to 20 targets, and data co
 ## How do I troubleshoot data sharing issues?
 
 To troubleshoot issues with sharing data, refer to the [Troubleshoot section of How to share data](how-to-share-data.md#troubleshoot). To troubleshoot issues with receiving share, refer to the [Troubleshoot section of How to receive share](how-to-receive-share.md#troubleshoot).
+
+## Is there support for Private endpoints, VNET and IP restrictions?
+Private endpoints, VNET, and IP restrictions are supported for data share for storage. Blob should be chosen as the target sub-resource when creating a private endpoint for storage accounts.
 
 ## Next steps
 

@@ -115,5 +115,5 @@ If one or multiple instances show a high resource usage, it could impact the tes
 ## Next steps
 
 - For more information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
 - More information about [service limits and quotas in Azure Load Testing](./resource-limits-quotas-capacity.md).

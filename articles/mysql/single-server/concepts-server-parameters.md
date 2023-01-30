@@ -3,8 +3,8 @@ title: Server parameters - Azure Database for MySQL
 description: This topic provides guidelines for configuring server parameters in Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.topic: conceptual
 ms.date: 06/20/2022
 ---
@@ -12,6 +12,8 @@ ms.date: 06/20/2022
 # Server parameters in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL.
 

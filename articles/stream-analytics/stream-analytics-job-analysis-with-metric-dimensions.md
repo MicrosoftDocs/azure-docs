@@ -1,12 +1,12 @@
 ---
 title: Analyze Stream Analytics job performance by using metrics and dimensions
 description: This article describes how to use Azure Stream Analytics metrics and dimensions to analyze a job's performance.
-author: xujiang1
+author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.custom: 
-ms.date: 07/07/2022
+ms.custom: ignite-2022
+ms.date: 12/8/2022
 ---
 # Analyze Stream Analytics job performance by using metrics and dimensions
 
@@ -57,6 +57,8 @@ As shown in the example, the partitions (0 and 1) that have a high watermark del
 
 Streaming nodes that process partitions with higher data skew will exhibit higher CPU and/or streaming unit (SU) utilization. This utilization will affect the job's performance and increase watermark delay. To mitigate this, you need to repartition your input data more evenly.
 
+You can also debug this issue with physical job diagram, see [Physical job diagram: Identify the uneven distributed input events (data-skew)](./stream-analytics-job-physical-diagram-with-metrics.md#identify-the-uneven-distributed-input-events-data-skew).
+
 ## Overloaded CPU or memory increases watermark delay
 
 When an embarrassingly parallel job has an increasing watermark delay, it might happen on not just one or several partitions, but all of the partitions. How do you confirm that your job is falling into this case? 
@@ -83,6 +85,8 @@ When an embarrassingly parallel job has an increasing watermark delay, it might 
 You might want to reduce the partition count for each streaming node to reduce the input data for each streaming node. To achieve this, you can double the SUs to have each streaming node handle data from two partitions. Or you can quadruple the SUs to have each streaming node handle data from one partition. For information about the relationship between SU assignment and streaming node count, see [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md).
 
 What should you do if the watermark delay is still increasing when one streaming node is handling data from one partition? Repartition your input with more partitions to reduce the amount of data in each partition. For details, see [Use repartitioning to optimize Azure Stream Analytics jobs](./repartition.md).
+
+You can also debug this issue with physical job diagram, see [Physical job diagram: Identify the cause of overloaded CPU or memory](./stream-analytics-job-physical-diagram-with-metrics.md#identify-the-cause-of-overloaded-cpu-or-memory).
 
 ## Next steps
 

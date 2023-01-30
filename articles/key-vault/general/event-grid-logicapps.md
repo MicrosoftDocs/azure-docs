@@ -8,13 +8,13 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 01/11/2023
 ms.author: mbaldwin
 
 ---
 # Use Logic Apps to receive email about status changes of key vault secrets
 
-In this guide you will learn how to respond to Azure Key Vault events that are received via [Azure Event Grid](../../event-grid/index.yml) by using [Azure Logic Apps](../../logic-apps/index.yml). By the end, you will have an Azure logic app set up to send a notification email every time a secret is created in Azure Key Vault.
+In this guide, you will learn how to respond to Azure Key Vault events that are received via [Azure Event Grid](../../event-grid/index.yml) by using [Azure Logic Apps](../../logic-apps/index.yml). By the end, you will have an Azure logic app set up to send a notification email every time a secret is created in Azure Key Vault.
 
 For an overview of Azure Key Vault / Azure Event Grid integration, see [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md).
 
@@ -27,16 +27,16 @@ For an overview of Azure Key Vault / Azure Event Grid integration, see [Monitori
 
 ## Create a Logic App via Event Grid
 
-First, create Logic App with event grid handler and subscribe to Azure Key Vault "SecretNewVersionCreated" events.
+First, create Logic App with Event Grid handler and subscribe to Azure Key Vault "SecretNewVersionCreated" events.
 
 To create an Azure Event Grid subscription, follow these steps:
 
-1. In the Azure portal, go to your key vault, select **Events > Get Started** and click **Logic Apps**
+1. In the Azure portal, go to your key vault, select **Events > Get Started** and select **Logic Apps**
 
     
     ![Key Vault - events page](../media/eventgrid-logicapps-kvsubs.png)
 
-1. On **Logic Apps Designer** validate the connection and click **Continue** 
+1. On **Logic Apps Designer** validate the connection and select **Continue** 
  
     ![Logic App Designer - connection](../media/eventgrid-logicappdesigner1.png)
 
@@ -61,8 +61,8 @@ To create an Azure Event Grid subscription, follow these steps:
 
     ![Logic App Designer - email body](../media/eventgrid-logicappdesigner4.png)
 
-8. Click **Save as**.
-9. Enter a **name** for new logic app and click **Create**.
+8. Select **Save as**.
+9. Enter a **name** for new logic app and select **Create**.
     
     ![Logic App Designer - create](../media/eventgrid-logicappdesigner5.png)
 

@@ -12,7 +12,7 @@ ms.date: 12/01/2021
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Flexible Server in about five minutes using the Azure portal.
 
@@ -83,7 +83,7 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 
     :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="The Notifications pane":::
 
-   By default, a **postgres** database is created under your server. The [postgres](https://www.postgresql.org/docs/12/static/app-initdb.html) database is a default database that's meant for use by users, utilities, and third-party applications. (The other default database is **azure_maintenance**. Its function is to separate the managed service processes from user actions. You cannot access this database.)
+   By default, a **postgres** database is created under your server. The [postgres](https://www.postgresql.org/docs/current/static/app-initdb.html) database is a default database that's meant for use by users, utilities, and third-party applications. (The other default database is **azure_maintenance**. Its function is to separate the managed service processes from user actions. You cannot access this database.)
 
     > [!NOTE]
     > Connections to your Azure Database for PostgreSQL server communicate over port 5432. When you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed by your network's firewall. If so, you can't connect to your server unless your IT department opens port 5432.

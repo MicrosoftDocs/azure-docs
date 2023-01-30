@@ -4,7 +4,7 @@ description: Learn how to complete an access review of Azure resource and Azure 
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to

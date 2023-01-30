@@ -15,6 +15,8 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 > [!IMPORTANT]
 > The [az mysql up](/cli/azure/mysql#az-mysql-up) Azure CLI command is in preview.
 

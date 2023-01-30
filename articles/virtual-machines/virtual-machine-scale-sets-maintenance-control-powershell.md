@@ -1,21 +1,21 @@
 ---
-title: Maintenance control for OS image upgrades on Azure virtual machine scale sets using PowerShell
-description: Learn how to control when automatic OS image upgrades are rolled out to your Azure virtual machine scale sets using Maintenance control and PowerShell.
+title: Maintenance control for OS image upgrades on Azure Virtual Machine Scale Sets using PowerShell
+description: Learn how to control when automatic OS image upgrades are rolled out to your Azure Virtual Machine Scale Sets using Maintenance control and PowerShell.
 author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/11/2020
+ms.date: 11/22/2022
 ms.author: jushiman 
 ms.custom: devx-track-azurepowershell
-#pmcontact: shants
+#pmcontact: PPHILLIPS
 ---
 
-# Maintenance control for OS image upgrades on Azure virtual machine scale sets using PowerShell
+# Maintenance control for OS image upgrades on Azure Virtual Machine Scale Sets using PowerShell
 
 **Applies to:** :heavy_check_mark: Uniform scale sets
 
-Maintenance control lets you decide when to apply automatic guest OS image upgrades to your virtual machine scale sets. This topic covers the Azure PowerShell options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+Maintenance control lets you decide when to apply automatic guest OS image upgrades to your Virtual Machine Scale Sets. This topic covers the Azure PowerShell options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure Virtual Machine Scale Sets](virtual-machine-scale-sets-maintenance-control.md).
 
 
 ## Enable the PowerShell module
@@ -87,11 +87,11 @@ You can query for available maintenance configurations using [Get-AzMaintenanceC
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-## Associate your virtual machine scale set to the maintenance configuration
+## Associate your Virtual Machine Scale Set to the maintenance configuration
 
-A virtual machine scale set can be associated to any Maintenance configuration regardless of the region and subscription of the Maintenance configuration. By opting in to the Maintenance configuration, new OS image updates for the scale set will be automatically scheduled on the next available maintenance window.
+A Virtual Machine Scale Set can be associated to any Maintenance configuration regardless of the region and subscription of the Maintenance configuration. By opting in to the Maintenance configuration, new OS image updates for the scale set will be automatically scheduled on the next available maintenance window.
 
-Use [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) to associate your virtual machine scale set the maintenance configuration.
+Use [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) to associate your Virtual Machine Scale Set the maintenance configuration.
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -106,7 +106,7 @@ New-AzConfigurationAssignment `
 
 ## Enable automatic OS upgrade
 
-You can enable automatic OS upgrades for each virtual machine scale set that is going to use maintenance control. For more information about enabling automatic OS upgrades on your virtual machine scale set, see [Azure virtual machine scale set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
+You can enable automatic OS upgrades for each Virtual Machine Scale Set that is going to use maintenance control. For more information about enabling automatic OS upgrades on your Virtual Machine Scale Set, see [Azure Virtual Machine Scale Set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 
 ## Next steps

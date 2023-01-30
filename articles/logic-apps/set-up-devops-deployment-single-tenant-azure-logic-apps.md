@@ -66,7 +66,7 @@ The following diagram shows the dependencies between your logic app project and 
 
 ## Deploy logic app resources (zip deploy)
 
-After you push your logic app project to your source repository, you can set up build and release pipelines that deploy logic apps to infrastructure either inside or outside Azure.
+After you push your logic app project to your source repository, you can set up build and release pipelines either inside or outside Azure that deploy logic apps to infrastructure.
 
 ### Build your project
 
@@ -226,7 +226,7 @@ For Azure DevOps deployments, you can deploy your logic app by using the [Azure 
   displayName: 'Deploy logic app workflows'
   inputs:
      azureSubscription: 'MyServiceConnection'
-     appType: 'workflowapp'
+     appType: 'functionAppLinux' ## Default: functionApp 
      appName: 'MyLogicAppName'
      package: 'MyBuildArtifact.zip'
      deploymentMethod: 'zipDeploy'

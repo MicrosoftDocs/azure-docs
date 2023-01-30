@@ -3,7 +3,7 @@ metadata:
   title: 'Azure DevTest Labs FAQ'
   description: 'This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.'
   ms.topic: faq
-  ms.service: azure
+  ms.service: devtest-lab
   ms.author: rosemalcolm
   author: RoseHJM
   ms.date: 07/17/2020 
@@ -269,7 +269,7 @@ sections:
       - question: |
           How can I set up an easily repeatable process to bring my custom organizational images into a DevTest Labs environment?
         answer: |
-          See this [video on Image Factory pattern](https://sec.ch9.ms/ch9/8e8a/9ea0b8d4-b803-4f23-bca4-4808d9368e8a/dtlimagefactory_mid.mp4). This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
+          See this [video on Image Factory pattern](/shows/Visual-Studio-Toolbox/Design-Patterns-Factories). This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
           
           For detailed information on creating an image factory, see [Create a custom image factory in Azure DevTest Labs](image-factory-create.md).
           

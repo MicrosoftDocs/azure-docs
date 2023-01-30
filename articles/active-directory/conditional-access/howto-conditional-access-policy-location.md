@@ -11,7 +11,7 @@ ms.date: 08/22/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb, lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
@@ -24,7 +24,7 @@ With the location condition in Conditional Access, you can control access to you
 
 ## Define locations
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 1. Choose **New location**.
 1. Give your location a name.
@@ -38,7 +38,7 @@ More information about the location condition in Conditional Access can be found
 
 ## Create a Conditional Access policy
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.

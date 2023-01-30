@@ -15,6 +15,9 @@ ms.date: 01/07/2022
 
 # How to use the Dashboard to improve your app
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Find and fix problems with your trained app's intents when you are using example utterances. The dashboard displays overall app information, with highlights of intents that should be fixed.
 
 Review Dashboard analysis is an iterative process, repeat as you change and improve your model.
