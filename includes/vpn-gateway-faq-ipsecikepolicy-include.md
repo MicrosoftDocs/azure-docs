@@ -25,44 +25,15 @@ The following table lists the supported cryptographic algorithms and key strengt
 
 [!INCLUDE [Important requirements table](vpn-gateway-ipsec-ike-requirements-include.md)]
 
-### Does everything need to match between the Azure VPN gateway policy and my on-premises VPN device configurations?
-
-Your on-premises VPN device configuration must match or contain the following algorithms and parameters that you specify on the Azure IPsec/IKE policy:
-
-* IKE encryption algorithm
-* IKE integrity algorithm
-* DH Group
-* IPsec encryption algorithm
-* IPsec integrity algorithm
-* PFS Group
-* Traffic Selector (*)
-
-The SA lifetimes are local specifications only. They don't need to match.
-
-If you enable **UsePolicyBasedTrafficSelectors**, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
-
-* 10.1.0.0/16 <====> 192.168.0.0/16
-* 10.1.0.0/16 <====> 172.16.0.0/16
-* 10.2.0.0/16 <====> 192.168.0.0/16
-* 10.2.0.0/16 <====> 172.16.0.0/16
-
 For more information, see [Connect multiple on-premises policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name ="DH"></a>Which Diffie-Hellman Groups are supported?
 
-The table below lists the supported Diffie-Hellman Groups for IKE (DHGroup) and IPsec (PFSGroup):
+The following table lists the corresponding Diffie-Hellman groups supported by the custom policy:
 
-| **Diffie-Hellman Group**  | **DHGroup**              | **PFSGroup** | **Key length** |
-| ---                       | ---                      | ---          | ---            |
-| 1                         | DHGroup1                 | PFS1         | 768-bit MODP   |
-| 2                         | DHGroup2                 | PFS2         | 1024-bit MODP  |
-| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bit MODP  |
-| 19                        | ECP256                   | ECP256       | 256-bit ECP    |
-| 20                        | ECP384                   | ECP384       | 384-bit ECP    |
-| 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
-|                           |                          |              |                |
+[!INCLUDE [Diffie-Hellman groups](vpn-gateway-ipsec-ike-diffie-hellman-include.md)]
 
-For more information, see [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114).
+Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.
 
 ### Does the custom policy replace the default IPsec/IKE policy sets for Azure VPN gateways?
 
