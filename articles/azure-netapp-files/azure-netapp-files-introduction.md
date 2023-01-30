@@ -53,7 +53,7 @@ Azure NetApp Files is designed to provide high availability for your file storag
   Volumes can be deployed in an Availability Zones of choice, enabling you to build HA application architectures for increased application availability.
 * Data replication:  
   Azure NetApp Files supports data replication between different Azure regions and Availability Zones, which helps to ensure that your data is always available, even in an outage.
-* Azure NetApp Files provides a high [availability SLA](https://azure.microsoft.com/support/legal/sla/netapp/v1_1/).
+* Azure NetApp Files provides a high [availability SLA](https://azure.microsoft.com/support/legal/sla/netapp/).
 
 All these features work together to provide a high-availability file storage solution to ensure that your data is always available, recoverable, and accessible to your applications, even in an outage.
 
