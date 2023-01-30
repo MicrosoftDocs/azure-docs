@@ -68,7 +68,7 @@ AD FS adapter will require number matching on supported versions of Windows Serv
 
 ### NPS extension
 
-The latest NPS extension doesn't support number matching, but it does support One-Time Passwords (OTP) methods such as SMS, the OTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
+The latest NPS extension doesn't support number matching, but it does support One-Time Passwords (OTP) methods such as the OTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
 
 After Feb 27, 2023, when number matching is enabled for all users, anyone who performs a VPN connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with an OTP method instead. No other configuration is required on the NPS Server.
 
