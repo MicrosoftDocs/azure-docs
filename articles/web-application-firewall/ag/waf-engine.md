@@ -34,7 +34,7 @@ There are many new features that are only supported in the Azure WAF engine. The
   * Increased file upload limit to 4 GB
 * [WAF v2 metrics](application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics)
 * [Per rule exclusions](application-gateway-waf-configuration.md#per-rule-exclusions) and support for [exclusion attributes by name](application-gateway-waf-configuration.md#request-attributes-by-keys-and-values).
-* [Increased HTTP listener limit to 200](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)
+* [Increased HTTP listener limit to 200](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)
 
 New WAF features will only be released with later versions of CRS on the new WAF engine. 
 
