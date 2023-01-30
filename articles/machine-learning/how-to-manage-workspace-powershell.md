@@ -76,11 +76,10 @@ Use the following commands to create these resources and retrieve the Azure Reso
 
 1. Create the Azure Key Vault:
 
-    ```azurepowershell-interactive
-    $KeyVault = 'MyKeyVault'
-    New-AzKeyVault -Name $KeyVault -ResourceGroupName $ResourceGroup -Location $Location
-    $kvid = (Get-AzResource -Name $KeyVault -ResourceGroupName $ResourceGroup).ResourceId
-    ```
+   ```azurepowershell-interactive
+   $KeyVault = 'MyKeyVault'
+   New-AzKeyVault -Name $KeyVault -ResourceGroupName $ResourceGroup -Location $Location
+   $kvid = (Get-AzResource -Name $KeyVault -ResourceGroupName $ResourceGroup).ResourceId
 
 1. Create the Azure Storage Account:
 
