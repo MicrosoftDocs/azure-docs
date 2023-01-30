@@ -43,8 +43,6 @@
         href: containers/index.yml
       - name: Cognitive Services containers overview
         href: cognitive-services-container-support.md
-      - name: Container image tags and releases notes
-        href: ./containers/container-image-tags.md
       - name: General container FAQ
         href: ./containers/container-faq.yml
       - name: Use containers in disconnected environments
