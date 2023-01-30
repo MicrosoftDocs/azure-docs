@@ -78,6 +78,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
+| **IaaS** | Infrastructure as a service, a type of cloud computing service that offers essential compute, storage, and networking resources on demand, on a pay-as-you-go basis. |[What is IaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-iaas/)
 | **IAM** | Identity and Access management |[Introduction to IAM](https://www.microsoft.com/security/business/security-101/what-is-identity-access-management-iam)|
 
 ## J
@@ -116,6 +117,12 @@ This glossary provides a brief description of important terms and concepts for t
 |**NGAV**| Next Generation Anti-Virus |
 **NIST** | National Institute of Standards and Technology|[National Institute of Standards and Technology](https://www.nist.gov/)
 
+## P
+
+| Term | Description | Learn more |
+|--|--|--|
+|**PaaS**| Platform as a service (PaaS) is a complete development and deployment environment in the cloud, with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications. |[What is PaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-paas/)
+
 ## R
 
 | Term | Description | Learn more |
@@ -124,12 +131,14 @@ This glossary provides a brief description of important terms and concepts for t
 |**RBAC**| Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. | [RBAC Overview](../role-based-access-control/overview.md)|
 |**RDP** | Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device.| [RDP Bandwidth Requirements](../virtual-desktop/rdp-bandwidth.md)|
 |**Recommendations**|Recommendations secure your workloads with step-by-step actions that protect your workloads from known security risks.| [What are security policies, initiatives, and recommendations?](security-policy-concept.md)|
-**Regulatory Compliance** | Regulatory compliance refers to the discipline and process of ensuring that a company follows the laws enforced by governing bodies in their geography or rules required | [Regulatory Compliance Overview](/azure/cloud-adoption-framework/govern/policy-compliance/regulatory-compliance) |
+|**Regulatory Compliance** | Regulatory compliance refers to the discipline and process of ensuring that a company follows the laws enforced by governing bodies in their geography or rules required | [Regulatory Compliance Overview](/azure/cloud-adoption-framework/govern/policy-compliance/regulatory-compliance) |
 
 ## S
 
 | Term | Description | Learn more |
 |--|--|--|
+|**SAS**| Shared access signature that provides secure delegated access to resources in your storage account.|[Storage SAS Overview](https://learn.microsoft.com/azure/storage/common/storage-sas-overview)|
+|**SaaS**| Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet. Common examples are email, calendaring, and office tools (such as Microsoft Office 365). SaaS provides a complete software solution that you purchase on a pay-as-you-go basis from a cloud service provider.|[What is SaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-saas/)|
 |**Secure Score**|Defender for Cloud continually assesses your cross-cloud resources for security issues. It then aggregates all the findings into a single score that represents your current security situation: the higher the score, the lower the identified risk level.|[Security posture for Microsoft Defender for Cloud](secure-score-security-controls.md)|
 |**Security Initiative** | A collection of Azure Policy Definitions, or rules, that are grouped together towards a specific goal or purpose. | [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
 |**Security Policy**| An Azure rule about specific security conditions that you want controlled.|[Understanding Security Policies](security-policy-concept.md)|
