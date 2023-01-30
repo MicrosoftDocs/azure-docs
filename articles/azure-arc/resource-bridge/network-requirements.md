@@ -48,7 +48,7 @@ There are only two certificates that should be relevant when deploying the Arc r
 
 ## Exclusion list for excluding private subnets from being sent to the proxy
 
-The following table contains the list of addresses that must be excluded by using the `-noProxy` parameter in [`New-AksHciProxySetting`](./reference/ps/new-akshciproxysetting.md).
+The following table contains the list of addresses that must be excluded by using the `-noProxy` parameter in the `createconfig` command.
 
 |      **IP Address**       |    **Reason for exclusion**    |  
 | ----------------------- | ------------------------------------ |
