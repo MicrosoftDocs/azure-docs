@@ -22,12 +22,22 @@ An embedding is a special format of data representation that can be easily utili
 
 To obtain an embedding vector for a piece of text, we make a request to the embeddings endpoint as shown in the following code snippets:
 
+# [console](#tab/console)
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-12-01\
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{"input": "Sample Document goes here"}'
 ```
+# [python](#tab/python)
+```python
+response = openai.Embedding.create(
+    input="Your text string goes here",
+    model="YOUR_DEPLOYMENT_NAME"
+)
+embeddings = response['data'][0]['embedding']
+```
+---
 
 ## Best Practices
 
