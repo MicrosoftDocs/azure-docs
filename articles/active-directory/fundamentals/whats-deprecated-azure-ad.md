@@ -57,9 +57,9 @@ Use the definitions in this section help clarify the state, availability, and su
 
 #### Terminology
 
-* **End-of-life** - 
-* **Tenant, current** - The date the change goes into effect for tenants created before the New tenant change date
-* **Tenant, new** - The date the change goes into effect for tenants created after the change date
+* **End-of-life** - Engineering investments have ended, and the feature is unavailable to any customer
+* **Tenant, current** - The change date goes into effect for tenants created before the new tenant change date
+* **Tenant, new** - The change date goes into effect for tenants created after the change date
 
 ### Next steps
 [What's new in Azure Active Directory](../../active-directory/fundamentals/whats-new.md)
