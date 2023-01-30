@@ -41,7 +41,7 @@ If you use Priority or Weighted traffic manager profiles, your configuration wil
 
 ## Enable SRMR  
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your resource's page.
 1. Under the **Resource Management** section on the left pane, select the Regions tab and choose a routing method.
    :::image type="content" source="media/disaster-recovery/routing-method.png" alt-text="Screenshot of the routing method select menu in the Azure portal.":::
