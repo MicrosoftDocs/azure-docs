@@ -28,7 +28,7 @@ The support lifetime for version 2301 will end on March 31, 2023. Please be prep
 
 - **Multiple attached data networks improvements** – These improvements remove the need for additional manual steps when deploying or editing configuration for multiple data networks for your packet core. Additional guidance for configuring multiple data networks is also provided. All other support for multiple data network functionality remains as per the 2211 release. 
 
-- **User plane packet capture** - This feature delivers a new debugging tool for use during system turn-up. The tool allows you to capture packet trace on N3 and N6 interfaces in order to debug network connectivity. See ... for more details. 
+- **User plane packet capture** - This feature delivers a new debugging tool for use during system turn-up. The tool allows you to capture packet trace on N3 and N6 interfaces in order to debug network connectivity. For more details, see [Perform data plane packet capture for a packet core instance](data-plane-packet-capture.md).
 
 ## Issues fixed in the AP5GC 2301 release
 
