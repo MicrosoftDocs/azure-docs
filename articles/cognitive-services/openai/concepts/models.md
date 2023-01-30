@@ -169,7 +169,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Text-davinci-003 | Yes | No | East US | N/A |
 | Text-davinci-fine-tune-002* | Yes | No | N/A | East US, West Europe |
 
-\*Models available by request only. Please open a support request.
+\*Models available by request only. We are currently unable to onboard new customers at this time.
 
 ### Codex Models
 |  Model  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions |	
@@ -178,7 +178,7 @@ When using our Embeddings models, keep in mind their limitations and risks.
 | Code-Davinci-002 | Yes | No | East US,  West Europe |  N/A |
 | Code-Davinci-Fine-tune-002* | Yes | No | N/A | East US, West Europe |
 
-\*Models available for Fine-tuning by request only. Please open a support request.
+\*Models available for Fine-tuning by request only. We are currently unable to enable new cusetomers at this time.
 
 
 
