@@ -53,9 +53,9 @@ To overcome the Azure region restriction, you have the following options:
 
 - [Delete all labs](./how-to-manage-labs.md#delete-a-lab) in one of the other regions to reduce the total number of regions in which you have labs.
 
-- Contact Azure support and [request a limit increase](./how-to-request-capacity-increase.md) for the additional region in which you want to create a lab.
+- Contact Azure support to [request the removal of the region restriction](#request-removal-of-region-restriction) for your subscription.
 
-- Contact Azure support to remove the region restriction for your subscription.
+- Contact Azure support to [request a limit increase](./how-to-request-capacity-increase.md). When a limit increase is granted, the region restriction is lifted for your subscription. We recommend that you request a small limit increase for any SKU to lift the restriction for your subscription.
 
 ### Request removal of region restriction
 
@@ -77,6 +77,8 @@ You can contact Azure support and create a support ticket to lift the region res
     | **Problem subtype** | Select *Problem creating a new lab*. |
 
     :::image type="content" source="./media/capacity-limits/support-request-region-restriction.png" alt-text="Screenshot that shows how to create an Azure support request in the Azure portal to remove the region restriction." lightbox="./media/capacity-limits/support-request-region-restriction.png":::
+
+1. On the **Additional details** page, enter *Requesting lift of regional restrictions* in the **Description** field, and then select **Next**.
 
 1. On the **Review + create** page, select **Create** to create the support request.
 
