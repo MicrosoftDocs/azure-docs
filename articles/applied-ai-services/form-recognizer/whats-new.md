@@ -39,14 +39,12 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * Japanese - Japan (ja-jp)
   * Portuguese - Brazil (pt-br)
 
-* **[Prebuilt invoice model](concept-invoice.md#supported-languages-and-locales)—additional language support**
+* **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
 
   The prebuilt invoice model now has added support for the following languages:
 
   * English - Australia (en-au), Canada (en-ca), Great Britain (en-gb), India (en-in)
   * Portuguese - Brazil (pt-br)
-
-* **[Prebuilt invoice model](concept-invoice.md#field-extraction)—additional field extractions**
 
   The prebuilt invoice model now has added support for the following field extractions:
 
