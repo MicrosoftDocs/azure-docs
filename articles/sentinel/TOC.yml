@@ -560,21 +560,21 @@
         - name: ASIM audit event schema
           href: normalization-schema-audit.md
         - name: ASIM authentication schema
-          href: authentication-normalization-schema.md
+          href: normalization-schema-authentication.md
         - name: ASIM DNS schema
           href: normalization-schema-dns.md
         - name: ASIM DHCP schema
-          href: dhcp-normalization-schema.md
+          href: normalization-schema-dhcp.md
         - name: ASIM file event schema
           href: normalization-schema-file-event.md
         - name: ASIM network session schema
-          href: network-normalization-schema.md
+          href: normalization-schema-network.md
         - name: ASIM process event schema
-          href: process-events-normalization-schema.md
+          href: normalization-schema-process-event.md
         - name: ASIM registry event schema
-          href: registry-event-normalization-schema.md
+          href: normalization-schema-registry-event.md
         - name: ASIM user management schema
-          href: user-management-normalization-schema.md
+          href: normalization-schema-user-management.md
         - name: ASIM web session schema
           href: normalization-schema-web.md
         - name: Legacy network normalization schema
