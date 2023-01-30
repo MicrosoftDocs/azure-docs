@@ -4,8 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 12/08/2022
-ms.custom: ignite-fall-2021
+ms.date: 01/31/2023
 ---
 
 # What's new in Microsoft Sentinel
@@ -19,6 +18,8 @@ See these [important announcements](#announcements) about recent changes to feat
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## February 2023
+
+- [Advanced scheduling for analytics rules (Preview)](#advanced-scheduling-for-analytics-rules-preview)
 
 ### Advanced scheduling for analytics rules (Preview)
 
