@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: How to set up screen capture protection for Azure Virtual Desktop.
 author: femila
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 01/27/2023
 ms.author: femila
 ms.service: virtual-desktop
 ---
@@ -23,7 +23,7 @@ You must connect to Azure Virtual Desktop with one of the following clients to u
 
 - The Windows Desktop client supports screen capture protection for full desktops.
 - The macOS client (version 10.7.0 or later) supports screen capture protection for both RemoteApps and full desktops.
-- The Windows Desktop client supports screen capture protection for RemoteApps in VMs running Windows 11, Version 22H2 or later.
+- The Windows Desktop client (running Windows 11, Version 22H2 or later) supports screen capture protection for RemoteApps.
 
 ## Configure screen capture protection
 

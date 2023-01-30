@@ -309,6 +309,10 @@ Repeat the previous steps for each instance profile.
    
 You can use an access control list (ACL) to filter the access to a server port. For more information, see [SAP note 1495075](https://launchpad.support.sap.com/#/notes/1495075).
 
+### To enable secure communication
+
+To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md) with SAP NetWeaver provider please execute steps mentioned on this [SAP document](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/4923501ebf5a1902e10000000a42189c.html?version=201909.002)
+
 ### Install NetWeaver provider
 
 To install the NetWeaver provider in the Azure portal:
@@ -322,6 +326,8 @@ To install the NetWeaver provider in the Azure portal:
 1. Select **Add provider**.
 
    1. For **Type**, select **SAP NetWeaver**.
+
+   1. *Optional* Select **Enable Secure communcation**, choose certificate from drop down. 
 
    1. For **Hostname**, enter the host name of the SAP system.
 
