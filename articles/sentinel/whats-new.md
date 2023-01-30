@@ -18,6 +18,10 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## February 2023
+
+- [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules) (in [Announcements](#announcements) section below)
+
 ## January 2023
 
 - [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
@@ -126,7 +130,7 @@ A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-
 
 ### New behavior for alert grouping in analytics rules
 
-As of **February 2, 2023**, Microsoft Sentinel is changing the way that incidents are created from analytics rules with certain event and alert grouping settings, and also the way that such incidents are updated by automation rules. This change is being made in order to produce incidents with more complete information and to simplify automation triggered by the creating and updating of incidents.
+Starting **February 6, 2023** and continuing through the end of February, Microsoft Sentinel is rolling out a change in the way that incidents are created from analytics rules with certain event and alert grouping settings, and also the way that such incidents are updated by automation rules. This change is being made in order to produce incidents with more complete information and to simplify automation triggered by the creating and updating of incidents.
 
 The affected analytics rules are those with both of the following two settings:
 - **Event grouping** is set to **Trigger an alert for each event** (sometimes referred to as "alert per row" or "alert per result").
