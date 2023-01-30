@@ -20,7 +20,7 @@ This article describes how to create the Azure Arc data controller in direct con
 
 Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](create-data-controller-direct-prerequisites.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Deploy Arc data controller
 
@@ -321,6 +321,6 @@ kubectl get datacontrollers --namespace arc
 
 ## Next steps
 
-[Create an Azure Arc-enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md)
+[Create an Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 
 [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md)

@@ -1,14 +1,14 @@
 ---
 title: Migrate VMs to Resource Manager using Azure CLI 
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager by using Azure CLI.
-author: tanmaygore
+author: oriwolman
 manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/06/2020
-ms.author: tagore 
+ms.date: 01/23/2023
+ms.author: oriwolman 
 ms.custom: devx-track-azurecli
 
 ---
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurecli
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
 These steps show you how to use CLI commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure classic CLI](/cli/azure/install-classic-cli). Since Azure CLI only applies to Azure Resource Manager resources, it cannot be used for this migration.
 

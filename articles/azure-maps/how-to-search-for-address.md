@@ -40,7 +40,7 @@ In this example, we'll use the Azure Maps [Get Search Address API](/rest/api/map
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. In this request, we're searching for a specific address: `400 Braod St, Seattle, WA 98109`. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
-    https://atlas.microsoft.com/search/address/json?&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
+    https://atlas.microsoft.com/search/address/json?&subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
     ```
 
 3. Click the blue **Send** button. The response body will contain data for a single location.
@@ -72,7 +72,7 @@ In this example, we'll use Fuzzy Search to search the entire world for `pizza`. 
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
-    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza
+    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&language=en-US&query=pizza
     ```
 
     >[!NOTE]
@@ -120,7 +120,7 @@ In this example, we'll be making reverse searches using a few of the optional pa
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key. The request should look like the following URL:
 
     ```http
-    https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700&number=1
+    https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&language=en-US&query=47.591180,-122.332700&number=1
     ```
 
 3. Click **Send**, and review the response body. You should see one query result. The response includes key address information about Safeco Field.
@@ -156,7 +156,7 @@ In this example, we'll search for a cross street based on the coordinates of an 
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key. The request should look like the following URL:
   
     ```http
-    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
+    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
     :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Search cross street.":::

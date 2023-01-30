@@ -98,7 +98,7 @@ When **_AG1_** is created, go to **Health probes** tab under **Settings** sectio
 
 ### Quick test
 
-* Try with an invalid client request https://asrs1.service.signalr.net/client and it returns *400* with error message *'hub' query parameter is required.* It means the request arrived at the SignalR Service and did the request validation.
+* Try with an invalid client request `https://asrs1.service.signalr.net/client` and it returns *400* with error message *'hub' query parameter is required.* It means the request arrived at the SignalR Service and did the request validation.
     ```bash
     curl -v https://asrs1.service.signalr.net/client
     ```
@@ -196,7 +196,7 @@ Go to the **Backend pools** tab for **_AG1_**, and select **signalr**:
 
 ### Quick test
 
-* Now let's visit https://asrs1.service.signalr.net/client again. With public access disabled, it returns *403* instead.
+* Now let's visit `https://asrs1.service.signalr.net/client` again. With public access disabled, it returns *403* instead.
     ```bash
     curl -v https://asrs1.service.signalr.net/client
     ```
@@ -244,7 +244,7 @@ Under folder samples/Chatroom, run the below commands:
 
 ```bash
 # Build and publish the assemblies to publish folder
-dotnet publish -os linux -o publish
+dotnet publish --os linux -o publish
 # zip the publish folder as app.zip
 cd publish
 zip -r app.zip .

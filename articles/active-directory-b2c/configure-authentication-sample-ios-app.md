@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/29/2021
+ms.date: 01/06/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -110,10 +110,10 @@ This sample acquires an access token with the relevant scopes that the mobile ap
 
 ## Step 4: Get the iOS mobile app sample
 
-1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/archive/refs/heads/vNext.zip), or clone the sample web app from the [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal). 
+1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/archive/refs/heads/master.zip), or clone the sample web app from the [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal). 
 
     ```bash
-    git clone https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/tree/vNext.git
+    git clone https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal
     ``` 
 
 1. Use [CocoaPods](https://cocoapods.org/) to install the MSAL library. In a terminal window, go to the project root folder. This folder contains the *podfile* file. Run the following command:
@@ -148,7 +148,7 @@ Update the following class members:
 
 ## Step 6: Run and test the mobile app
 
-1. Build and run the project with a [simulator of a connected iOS device](https://developer.apple.com/documentation/xcode/running-your-app-in-the-simulator-or-on-a-device).
+1. Build and run the project with a [simulator of a connected iOS device](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device).
 
 1. Select **Sign In**, and then sign up or sign in with your Azure AD B2C local or social account.
 

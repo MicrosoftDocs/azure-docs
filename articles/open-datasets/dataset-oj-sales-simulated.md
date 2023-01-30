@@ -136,9 +136,9 @@ named_ds = registered_ds.as_named_input(ds_name)
 
 ```
 # This is a package in preview.
-# You need to pip install azureml-opendatasets in Databricks cluster. https://docs.microsoft.com/en-us/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
+# You need to pip install azureml-opendatasets in Databricks cluster. https://learn.microsoft.com/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
 # Download or mount OJ Sales raw files Azure Machine Learning file datasets.
-# This works only for Linux based compute. See https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets to learn more about datasets.
+# This works only for Linux based compute. See https://learn.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets to learn more about datasets.
 
 from azureml.opendatasets import OjSalesSimulated
 

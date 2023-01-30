@@ -3,12 +3,12 @@ metadata:
   title: FAQs about the DICOM service - Azure Health Data Services
   description: Get answers to frequently asked questions about the DICOM service, such as what are the key requirements to use DICOM service.
   services: healthcare-apis
-  author: stevewohl
+  author: mmitrik
   ms.service: healthcare-apis
   ms.subservice: fhir
   ms.topic: reference
   ms.date: 03/22/2022
-  ms.author: aersoy
+  ms.author: mmitrik
 title: Frequently asked questions about the DICOM service
 summary: |
 

@@ -53,6 +53,10 @@ Azure provides Red Hat Update Infrastructure only for pay-as-you-go RHEL VMs. RH
 
 RHEL images connected to RHUI update by default to the latest minor version of RHEL when a `yum update` is run. This behavior means that a RHEL 7.4 VM might get upgraded to RHEL 7.7 if a `yum update` operation is run on it. This behavior is by design for RHUI. To mitigate this upgrade behavior, switch from regular RHEL repositories to [Extended Update Support repositories](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
+## Red Hat Middleware
+
+Microsoft and Azure have partnered to develop a variety of solutions for running Red Hat Middleware on Azure. Learn more about JBoss EAP on Azure Virtual Machines and Azure App service at [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure).
+
 ## Next steps
 
 * Learn more about [RHEL images on Azure](./redhat-images.md).

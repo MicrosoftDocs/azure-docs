@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script sample - Calculate the total billing size of a blob container | Microsoft Docs
+title: Azure PowerShell script sample - Calculate the total billing size of a blob container
 description: Calculate the total size of a container in Azure Blob storage for billing purposes.
 services: storage
 author: stevenmatthew

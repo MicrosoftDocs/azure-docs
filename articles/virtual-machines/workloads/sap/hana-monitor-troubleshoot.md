@@ -6,7 +6,6 @@ documentationcenter:
 author: lauradolan
 manager: bburns
 ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -169,7 +168,7 @@ Do an SAP HANA Health Check through HANA\_Configuration\_Minichecks. This tool r
 
 ## Next steps
 
-Learn how to set up high availability on the SUSE operating system using the STONITH device.
+Learn how to set up high availability on the SUSE operating system using the fencing device.
 
 > [!div class="nextstepaction"]
-> [High availability set up in SUSE using the STONITH](ha-setup-with-stonith.md)
+> [High availability set up in SUSE using a fencing device](ha-setup-with-fencing-device.md)

@@ -16,17 +16,17 @@ Defender for IoT can detect the following protocols when identifying assets and 
 
 |Brand / Vendor |Protocols  |
 |---------|---------|
-|**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)      |
+|**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)<br> CNCP<br> RNRP<br>      |
 |**ASHRAE**     |    BACnet<br> BACnet BACapp<br> BACnet BVLC     |
 |**Beckhoff**     |   AMS (ADS)<br> Twincat       |
 |**Cisco**     |   CAPWAP Control<br> CAPWAP Data<br> CDP<br>  LWAPP      |
 |**DNP. org**     |   DNP3      |
-|**Emerson**     |   DeltaV<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
+|**Emerson**     |   DeltaV<br> DeltaV - Discovery<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
 |**Emerson Fischer**     |  ROC       |
 |**Eurocontrol**     |      ASTERIX   |
 |**GE**     | Bentley Nevada (System 1 / BN3500)<br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br>  SRTP (GE)        |
 |**Generic Applications** | Active Directory<br> RDP<br> Teamviewer<br> VNC<br>  |
-|**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA     |
+|**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA<br> Honeywell EUCN <br> Honeywell Discovery     |
 |**IEC**     |    Codesys V3<br>IEC 60870-5-7 (IEC 62351-3 + IEC 62351-5)<br> IEC 60870-5-101 (encapsulated serial)<br> IEC 60870-5-103 (encapsulated serial)<br> IEC 60870-5-104<br> IEC 60870-5-104 ASDU_APCI<br> IEC 60870 ICCP TASE.2<br>  IEC 61850 GOOSE<br> IEC 61850 MMS<br> IEC 61850 SMV (SAMPLED-VALUES)<br> LonTalk (LonWorks)    |
 |**IEEE**     |     LLC<br> STP<br> VLAN    |
 |**IETF**     |  ARP<br> DHCP<br> DCE RPC<br> DNS<br> FTP (FTP_ADAT<br> FTP_DATA)<br> GSSAPI (RFC2743)<br> HTTP<br> ICMP<br> IPv4<br> IPv6<br> LLDP<br> MDNS<br> NBNS<br> NTLM (NTLMSSP Auth Protocol)<br> RPC<br> SMB / Browse / NBDGM<br> SMB / CIFS<br> SNMP<br> SPNEGO (RFC4178)<br> SSH<br> Syslog<br> TCP<br> Telnet<br> TFTP<br> TPKT<br> UDP       |
@@ -35,6 +35,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Microsoft**     | Horizon community dissectors<br> Horizon proprietary dissectors (developed by customers)        |
 |**Mitsubishi**     |   Melsoft / Melsec (Mitsubishi Electric)      |
 |**Omron**     |  FINS       |
+|**OPC**     |  UA       |
 |**Oracle**     |   TDS<br> TNS      |
 |**Rockwell Automation**     |   ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above      |
 |**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)<br> Schneider TSAA        |
@@ -43,7 +44,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Schneider Electric / Wonderware**     |    Wonderware Suitelink     |
 |**Siemens**     | CAMP<br> PCS7<br> PCS7 WinCC – Historian<br> Profinet DCP<br> Profinet Realtime<br> Siemens PHD<br> Siemens S7<br> Siemens S7-Plus<br> Siemens SICAM<br> Siemens WinCC        |
 |**Toshiba**     |Toshiba Computer Link         |
-|**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> Vnet/IP      |
+|**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> FA-M3<br> Vnet/IP      |
 
 [!INCLUDE [active-monitoring-protocols](includes/active-monitoring-protocols.md)]
 
@@ -72,9 +73,10 @@ The Horizon ICS community shares knowledge between domain experts in critical in
 
 To join the Horizon community, email us at: [horizon-community@microsoft.com](mailto:horizon-community@microsoft.com)
 
+
 ## Next steps
 
 For more information:
 
-- [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules)
-- [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information)
+- [Create custom alert rules on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor)
+- [Forward OT alert information](how-to-forward-alert-information-to-partners.md)

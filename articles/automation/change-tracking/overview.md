@@ -67,13 +67,25 @@ To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation
 
 ### Python requirement
 
-Change Tracking and Inventory only supports Python2. If your machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+Change Tracking and Inventory now support Python 2 and Python 3. If your machine uses a distro that doesn't include either of the versions, you must install them by default. The following sample commands will install Python 2 and Python 3 on different distros.
 
+> [!NOTE]
+> To use the OMS agent compatible with Python 3, ensure that you first uninstall Python 2; otherwise, the OMS agent will continue to run with python 2 by default.
+
+#### [Python 2](#tab/python-2)                                                                                                                                                      
 - Red Hat, CentOS, Oracle: `yum install -y python2`
 - Ubuntu, Debian: `apt-get install -y python2`
 - SUSE: `zypper install -y python2`
+> [!NOTE]
+> The Python 2 executable must be aliased to *python*.
 
-The python2 executable must be aliased to *python*.
+#### [Python 3](#tab/python-3)
+
+- Red Hat, CentOS, Oracle: `yum install -y python3`
+- Ubuntu, Debian: `apt-get install -y python3`
+- SUSE: `zypper install -y python3`
+
+--- 
 
 ## Network requirements
 
@@ -189,6 +201,15 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 |ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion!= "8.0.11081.0"|Useful for seeing which machines have outdated or noncompliant software version installed. This query reports the last reported configuration state, but doesn't report changes.|
 |ConfigurationChange <br>&#124; where RegistryKey == @"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Useful for tracking changes to crucial antivirus keys.|
 |ConfigurationChange <br>&#124; where RegistryKey contains @"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Useful for tracking changes to firewall settings.|
+
+
+## Update Log Analytics agent to latest version 
+
+For Change Tracking & Inventory, machines use the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Windows services, Windows registry and files, and Linux daemons on monitored servers. Soon, Azure will no longer accept connections from older versions of the Windows Log Analytics (LA) agent, also known as the Windows Microsoft Monitoring Agent (MMA), that uses an older method for certificate handling. We recommend to upgrade your agent to the latest version as soon as possible. 
+
+[Agents that are on version - 10.20.18053 (bundle) and 1.0.18053.0 (extension)](../../virtual-machines/extensions/oms-windows.md#agent-and-vm-extension-version) or newer aren't affected in response to this change. If you’re on an agent prior to that, your agent will be unable to connect, and the Change Tracking & Inventory pipeline & downstream activities can stop. You can check the current LA agent version in HeartBeat table within your LA Workspace. 
+
+Ensure to upgrade to the latest version of the Windows Log Analytics agent (MMA) following these [guidelines](../../azure-monitor/agents/agent-manage.md). 
 
 ## Next steps
 

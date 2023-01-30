@@ -25,8 +25,8 @@ call oneToOneCall = callAgent.startCall(appContext, participants, startCallOptio
 ```
 
 ### Place a 1:n call with users and PSTN
-> [!WARNING]
-> Currently PSTN calling is not available
+> [!NOTE]
+> Please check [details of PSTN calling offering](../../../../concepts/numbers/sub-eligibility-number-capability.md). For preview program access, [apply to the early adopter program](https://aka.ms/ACS-EarlyAdopter).
 
 To place a 1:n call to a user and a PSTN number you have to specify the phone number of callee.
 Your Communication Services resource must be configured to allow PSTN calling:
@@ -74,6 +74,17 @@ public Call retrieveIncomingCall() {
     return incomingCall;
 }
 ```
+
+## Join a room call
+
+Use the `CallAgent` and `RoomCallLocator` to join a room call by specifying a `roomId`. The `CallAgent.join` method will return a `Call` object:
+
+```Java
+val roomCallLocator = RoomCallLocator(roomId)
+call = callAgent.join(applicationContext, roomCallLocator, joinCallOptions)
+```
+
+A `room` offers application developers better control over **who** can join a call, **when** they meet and **how** they collaborate. To learn more about `rooms`, you can read the [conceptual documentation](../../../../concepts/rooms/room-concept.md) or follow the [quick start guide](../../../../quickstarts/rooms/join-rooms-call.md).
 
 ## Join a group call
 To start a new group call or join an ongoing group call you have to call the 'join' method and pass an object with a `groupId` property. The value has to be a GUID.

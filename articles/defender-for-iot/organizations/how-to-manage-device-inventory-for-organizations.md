@@ -18,28 +18,42 @@ For more information, see [What is a Defender for IoT committed device?](archite
 
 ## View the device inventory
 
-This procedure describes how to view detected devices in the **Device inventory** page in the Azure portal.
+To view detected devices in the **Device inventory** page in the Azure portal, go to **Defender for IoT** > **Device inventory**.
 
-1. In Defender for IoT in the Azure portal, select **Device inventory**.
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Screenshot of the Device inventory page in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png":::
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Screenshot of the Device inventory page in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png":::
+Use any of the following options to modify or filter the devices shown:
 
-    Use any of the following options to modify or filter the devices shown:
-
-    |Option  |Steps  |
-    |---------|---------|
-    | **Sort devices** | Select a column header to sort the devices by that column. Select it again to change the sort direction. |
-    |**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br>In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br>You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page.|
-    |**Modify columns shown**     |   Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select the **+ Add Column** button to add new columns to the grid.<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
-    | **Group devices** | From the **Group by** above the gird, select either **Type** or **Class** to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
-
-1. Select a device row to view more details about that device. Initial details are shown in a pane on the right, where you can also select **View full details** to drill down more.
-
-    For example:
-
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Screenshot of a device details pane and the View full details button in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
+|Option  |Steps  |
+|---------|---------|
+| **Sort devices** | Select a column header to sort the devices by that column. Select it again to change the sort direction. |
+|**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br>In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br>You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page.|
+|**Modify columns shown**     |   Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select the **+ Add Column** button to add new columns to the grid.<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
+| **Group devices** | From the **Group by** above the gird, select either **Type** or **Class** to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 
 For more information, see [Device inventory column reference](#device-inventory-column-reference).
+
+### View full device details
+
+To view full details about a specific device, select the device row. Initial details are shown in a pane on the right, where you can also select **View full details** to open the device details page and drill down more.
+
+For example:
+
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Screenshot of a device details pane and the View full details button in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
+
+The device details page displays comprehensive device information, including the following tabs:
+
+|Section  |Description  |
+|---------|---------|
+| **Attributes** | Displays full device details such as class, data source, firmware details, activity, type, protocols, Purdue level, sensor, site, zone, and more. |
+| **Backplane** | Displays the backplane hardware configuration, including slot and rack information. Select a slot in the backplane view to see the details of the underlying devices. The backplane tab is usually visible for Purdue level 1 devices that have slots in use, such as PLC, RTU, and DCS devices. |
+|**Vulnerabilities** | Displays current vulnerabilities specific to the device. Vulnerability data is based on the repository of standards based vulnerability data documented at the US government National Vulnerability Database (NVD). Select the CVE name to see the CVE details and description. You can also view vulnerability data across your network with the [Defender for IoT Vulnerability workbook](workbooks.md#view-workbooks). |
+|**Alerts** | Displays current open alerts related to the device. Select any alert to view more details, and then select **View full details** to open the alert page to view the full alert information and take action. For more information on the alerts page, see [View alerts on the Azure portal](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal). |
+|**Recommendations** | Displays current recommendations for the device, such as Review PLC operating mode and Review unauthorized devices. For more information on recommendations, see [Enhance security posture with security recommendations](recommendations.md). |
+
+For example:
+
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-details-page.png" alt-text="Screenshot of the backplane tab in on the full device details page. " lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-details-page.png":::
 
 ### Identify devices that aren't connecting successfully
 

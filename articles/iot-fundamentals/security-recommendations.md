@@ -1,14 +1,13 @@
 ---
 title:  Security recommendations for Azure IoT | Microsoft Docs
 description: This article summarizes additional steps to ensure security in your Azure IoT Hub solution. 
-author: dsk-2015
-
+author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 08/24/2022
-ms.author: dkshir
-ms.custom: [security-recommendations, amqp, mqtt]
+ms.author: dobett
+ms.custom: security-recommendations, amqp, mqtt, ignite-2022
 ---
 
 # Security recommendations for Azure Internet of Things (IoT) deployment
@@ -33,7 +32,7 @@ Some of the recommendations included in this article can be automatically monito
 | Recommendation | Comments |
 |-|----|
 | Define access control for the hub | [Understand and define the type of access](iot-security-deployment.md#securing-the-cloud) each component will have in your IoT Hub solution, based on the functionality. The allowed permissions are *Registry Read*, *RegistryReadWrite*, *ServiceConnect*, and *DeviceConnect*. Default [shared access policies in your IoT hub](../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions) can also help define the permissions for each component based on its role. |
-| Define access control for backend services | Data ingested by your IoT Hub solution can be consumed by other Azure services such as [Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml), and [Blob storage](../storage/blobs/storage-blobs-introduction.md). Make sure to understand and allow appropriate access permissions as documented for these services. |
+| Define access control for backend services | Data ingested by your IoT Hub solution can be consumed by other Azure services such as [Azure Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml), and [Blob storage](../storage/blobs/storage-blobs-introduction.md). Make sure to understand and allow appropriate access permissions as documented for these services. |
 
 ## Data protection
 

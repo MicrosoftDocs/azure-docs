@@ -21,9 +21,9 @@ There are some limits on the number of metrics and events per application, that 
 | [Availability multistep test](../articles/azure-monitor/app/availability-multistep.md) detailed results retention | 90 days | 90 days | This resource provides detailed results of each step.
 | Maximum telemetry item size | 64 KB | 64 KB | |
 | Maximum telemetry items per batch | 64,000 | 64,000 | |
-| Property and metric name length | 150 | 150 | See [type schemas](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
-| Property value string length | 8,192 | 8,192 | See [type schemas](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
-| Trace and exception message length | 32,768 | 32,768 | See [type schemas](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
+| Property and metric name length | 150 | 150 | See [type schemas](../articles/azure-monitor/app/data-model.md).
+| Property value string length | 8,192 | 8,192 | See [type schemas](../articles/azure-monitor/app/data-model.md).
+| Trace and exception message length | 32,768 | 32,768 | See [type schemas](../articles/azure-monitor/app/data-model.md).
 | [Availability tests](../articles/azure-monitor/app/monitor-web-app-availability.md) count per app | 100 | 100 | |
 | [Profiler](../articles/azure-monitor/app/profiler.md) and [Snapshot](../articles/azure-monitor/app/snapshot-debugger.md) data retention | Two weeks | [Contact support.](https://azure.microsoft.com/support/options/) Maximum retention limit is six months. | |
 | [Profiler](../articles/azure-monitor/app/profiler.md) data sent per day | No limit | No limit | |

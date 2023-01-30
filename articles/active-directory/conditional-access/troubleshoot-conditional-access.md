@@ -54,7 +54,7 @@ More information can be found about the problem by clicking **More Details** in 
 
 To find out which Conditional Access policy or policies applied and why do the following.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or global reader.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Global Reader.
 1. Browse to **Azure Active Directory** > **Sign-ins**.
 1. Find the event for the sign-in to review. Add or remove filters and columns to filter out unnecessary information.
    1. Add filters to narrow the scope:

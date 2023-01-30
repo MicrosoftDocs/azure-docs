@@ -29,7 +29,7 @@ ISV app license management currently supports:
 
 To manage your ISV app licenses, you need to comply with the following pre-requisites.
 
-1. Have a valid [Microsoft Partner Network account](/partner-center/mpn-create-a-partner-center-account).
+1. Have a valid [Microsoft Cloud Partner Program account](/partner-center/mpn-create-a-partner-center-account).
 1. Be signed up for commercial marketplace program. For more information, see [Create a commercial marketplace account in Partner Center](create-account.md).
 1. Be signed up for the [ISV Connect program](https://partner.microsoft.com/solutions/business-applications/isv-overview). For more information, see [Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide](business-applications-isv-program.md).
 1. Your developer team has the development environments and tools required to create Dataverse solutions. Your Dataverse solution must include model-driven applications (currently these are the only type of solution components that are supported through the license management feature).

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 10/11/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 
@@ -38,7 +38,7 @@ These steps can differ slightly based on the type of application you're building
 
 ## Web applications
 
-For web applications (including .NET, PHP, Java, Ruby, Python, and Node.js) that are hosted on a server and accessed through a browser, Azure AD B2C supports [OpenID Connect](protocols-overview.md) for all user experiences. In the Azure AD B2C implementation of OpenID Connect, your web application initiates user experiences by issuing authentication requests to Azure AD. The result of the request is an `id_token`. This security token represents the user's identity. It also provides information about the user in the form of claims:
+For web applications (including .NET, PHP, Java, Ruby, Python, and Node.js) that are hosted on a web server and accessed through a browser, Azure AD B2C supports [OpenID Connect](protocols-overview.md) for all user experiences. In the Azure AD B2C implementation of OpenID Connect, your web application initiates user experiences by issuing authentication requests to Azure AD. The result of the request is an `id_token`. This security token represents the user's identity. It also provides information about the user in the form of claims:
 
 ```json
 // Partial raw id_token
@@ -69,7 +69,7 @@ Validation of the `id_token` by using a public signing key that is received from
 
 To see this scenario in action, try one of the web application sign-in code samples in our [Getting started section](overview.md).
 
-In addition to facilitating simple sign in, a web server application might also need to access a back-end web service. In this case, the web application can perform a slightly different [OpenID Connect flow](openid-connect.md) and acquire tokens by using authorization codes and refresh tokens. This scenario is depicted in the following [Web APIs section](#web-apis).
+In addition to facilitating simple sign in, a web application might also need to access a back-end web service. In this case, the web application can perform a slightly different [OpenID Connect flow](openid-connect.md) and acquire tokens by using authorization codes and refresh tokens. This scenario is depicted in the following [Web APIs section](#web-apis).
 
 ## Single-page applications
 

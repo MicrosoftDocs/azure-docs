@@ -3,7 +3,7 @@ title: 'Parallel and combined identity infrastructure options'
 description: This article describes the various options available for organizations to run multiple tenants and multi-cloud scenarios
 services: active-directory
 author: martincoetzer
-manager: martincoetzer
+manager: travisgr
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

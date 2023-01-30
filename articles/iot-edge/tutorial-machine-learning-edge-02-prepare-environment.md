@@ -8,10 +8,11 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "=iotedge-2018-06"
 ---
 # Tutorial: Set up an environment for machine learning on IoT Edge
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 This article helps you prepare your environment for development and deployment. First, set up a development machine with all the tools you need. Then, create the necessary cloud resources in Azure.
 
@@ -39,12 +40,13 @@ The development VM will be set up with:
 * [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop)
 * [Git for Windows](https://gitforwindows.org/)
 * [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
-* [.NET Core SDK](https://dotnet.microsoft.com/)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](/powershell/azure/)
 * [VS Code Extensions](https://marketplace.visualstudio.com/search?target=VSCode)
-  * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+  * [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+  * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
@@ -144,7 +146,8 @@ Now that you have connected to the development machine, add some useful extensio
 
 1. The script will run for a few minutes installing VS code extensions:
 
-    * Azure IoT Tools
+    * Azure IoT Edge
+    * Azure IoT Hub
     * Python
     * C#
     * Docker

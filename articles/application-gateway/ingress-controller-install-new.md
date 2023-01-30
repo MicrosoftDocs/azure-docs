@@ -46,9 +46,9 @@ Follow the steps below to create an Azure Active Directory (Azure AD) [service p
     The `appId` and `password` values from the JSON output will be used in the following steps
 
 
-1. Use the `appId` from the previous command's output to get the `objectId` of the new service principal:
+1. Use the `appId` from the previous command's output to get the `id` of the new service principal:
     ```azurecli
-    objectId=$(az ad sp show --id $appId --query "objectId" -o tsv)
+    objectId=$(az ad sp show --id $appId --query "id" -o tsv)
     ```
     The output of this command is `objectId`, which will be used in the Azure Resource Manager template below
 
@@ -79,7 +79,8 @@ This step will add the following components to your subscription:
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/deploy/azuredeploy.json -O template.json
     ```
 
-1. Deploy the Azure Resource Manager template using `az cli`. The deployment might take up to 5 minutes.
+1. Deploy the Azure Resource Manager template using the Azure CLI. The deployment might take up to 5 minutes.
+
     ```azurecli
     resourceGroupName="MyResourceGroup"
     location="westus2"
@@ -249,8 +250,13 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
     nano helm-config.yaml
     ```
 
+   > [!NOTE]
+   > **For deploying to Sovereign Clouds (e.g., Azure Government)**, the `appgw.environment` configuration parameter must be added and set to the appropriate value as documented below.
+
+
    Values:
      - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
+     - `appgw.environment`: Sets cloud environment. Possbile values: `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, `AZUREPUBLICCLOUD`, `AZUREUSGOVERNMENTCLOUD`
      - `appgw.subscriptionId`: The Azure Subscription ID in which Application Gateway resides. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
      - `appgw.resourceGroup`: Name of the Azure Resource Group in which Application Gateway was created. Example: `app-gw-resource-group`
      - `appgw.name`: Name of the Application Gateway. Example: `applicationgatewayd0f0`
@@ -273,7 +279,7 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
 1. Install the Application Gateway ingress controller package:
 
     ```bash
-    helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure
+    helm install -f helm-config.yaml --generate-name application-gateway-kubernetes-ingress/ingress-azure
     ```
 
 ## Install a Sample App
@@ -290,7 +296,7 @@ metadata:
     app: aspnetapp
 spec:
   containers:
-  - image: "mcr.microsoft.com/dotnet/core/samples:aspnetapp"
+  - image: "mcr.microsoft.com/dotnet/samples:aspnetapp"
     name: aspnetapp-image
     ports:
     - containerPort: 80
@@ -312,7 +318,7 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: aspnetapp
@@ -324,8 +330,11 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: aspnetapp
-          servicePort: 80
+          service:
+            name: aspnetapp
+            port:
+              number: 80
+        pathType: Exact
 EOF
 ```
 

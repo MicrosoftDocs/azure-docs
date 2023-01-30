@@ -1,16 +1,16 @@
 ---
-title: Create Azure Cosmos containers and databases in autoscale mode.
-description: Learn about the benefits, use cases, and how to provision Azure Cosmos databases and containers in autoscale mode.
+title: Create Azure Cosmos DB containers and databases in autoscale mode.
+description: Learn about the benefits, use cases, and how to provision Azure Cosmos DB databases and containers in autoscale mode.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/01/2022
-ms.custom: "seo-nov-2020"
+ms.custom: seo-nov-2020, ignite-2022
 ---
 
-# Create Azure Cosmos containers and databases with autoscale throughput
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+# Create Azure Cosmos DB containers and databases with autoscale throughput
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 In Azure Cosmos DB, you can configure either standard (manual) or autoscale provisioned throughput on your databases and containers. Autoscale provisioned throughput in Azure Cosmos DB allows you to **scale the throughput (RU/s) of your database or container automatically and instantly**. The throughput is scaled based on the usage, without impacting the availability, latency, throughput, or performance of the workload.
 
@@ -18,7 +18,7 @@ Autoscale provisioned throughput is well suited for mission-critical workloads t
 
 ## Benefits of autoscale
 
-Azure Cosmos databases and containers that are configured with autoscale provisioned throughput have the following benefits:
+Azure Cosmos DB databases and containers that are configured with autoscale provisioned throughput have the following benefits:
 
 * **Simple:** Autoscale removes the complexity of managing RU/s with custom scripting or manually scaling capacity. 
 
@@ -38,7 +38,7 @@ The use cases of autoscale include:
 
 * **Infrequently used applications:** If you have an application that's only used for a few hours several times a day, week, or month — such as a low-volume application/web/blog site — autoscale adjusts the capacity to handle peak usage and scales down when it's over. 
 
-* **Development and test workloads:** If you or your team use Azure Cosmos databases and containers during work hours, but don't need them on nights or weekends, autoscale helps save cost by scaling down to a minimum when not in use. 
+* **Development and test workloads:** If you or your team use Azure Cosmos DB databases and containers during work hours, but don't need them on nights or weekends, autoscale helps save cost by scaling down to a minimum when not in use. 
 
 * **Scheduled production workloads/queries:** If you have a series of scheduled requests, operations, or queries that you want to run during idle periods, you can do that easily with autoscale. When you need to run the workload, the throughput will automatically scale to what's needed and scale down afterward. 
 
@@ -79,10 +79,8 @@ For more detail, see this [documentation](how-to-choose-offer.md) on how to choo
 
 * Review the [autoscale FAQ](autoscale-faq.yml).
 * Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
-* Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
+* Learn how to [provision autoscale throughput on an Azure Cosmos DB database or container](how-to-provision-autoscale-throughput.md).
 * Learn more about [partitioning](partitioning-overview.md) in Azure Cosmos DB.
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
-
-

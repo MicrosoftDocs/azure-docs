@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 09/06/2022
+ms.date: 01/05/2023
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -15,34 +15,36 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory (Azure AD) application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure AD](../fundamentals/whats-new.md).
 
-## August 2022
+## December 2022
 
 ### Updated articles
 
-- [Hide an enterprise application](hide-application-from-user-portal.md)
+- [Grant consent on behalf of a single user by using PowerShell](grant-consent-single-user.md)
+- [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-aad-password-less-vpn.md)
+- [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md)
+- [Deploy F5 BIG-IP Virtual Edition VM in Azure](f5-bigip-deployment-guide.md)
+- [End-user experiences for applications](end-user-experiences.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos single sign-on](f5-big-ip-kerberos-easy-button.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP single sign-on](f5-big-ip-ldap-header-easybutton.md)
+## November 2022
 
-## July 2022
+### Updated articles
 
-### New articles
-
-- [Create an enterprise application from a multi-tenant application in Azure Active Directory](create-service-principal-cross-tenant.md)
-- [Deletion and recovery of applications FAQ](delete-recover-faq.yml)
-- [Recover deleted applications in Azure Active Directory FAQs](recover-deleted-apps-faq.md)
+- [Review permissions granted to enterprise applications](manage-application-permissions.md)
+- [Assign users and groups to an application](assign-user-or-group-access-portal.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort](silverfort-azure-ad-integration.md)
+- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
 - [Restore an enterprise application in Azure AD](restore-application.md)
-- [SAML Request Signature Verification (Preview)](howto-enforce-signed-saml-authentication.md)
-- [Tutorial: Configure Cloudflare with Azure Active Directory for secure hybrid access](cloudflare-azure-ad-integration.md)
-- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle JD Edwards](datawiza-azure-ad-sso-oracle-jde.md)
+
+## October 2022
 
 ### Updated articles
 
-- [Delete an enterprise application](delete-application-portal.md)
-- [Configure Azure Active Directory SAML token encryption](howto-saml-token-encryption.md)
-- [Review permissions granted to applications](manage-application-permissions.md)
-- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza](datawiza-with-azure-ad.md)
-
-## June 2022
-
-### Updated articles
-
-- [Protect against consent phishing](protect-against-consent-phishing.md)
-- [Request to publish your application in the Azure AD application gallery](v2-howto-app-gallery-listing.md)
+- [Configure how users consent to applications](configure-user-consent.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos single sign-on](f5-big-ip-kerberos-easy-button.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP single sign-on](f5-big-ip-ldap-header-easybutton.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort](silverfort-azure-ad-integration.md)

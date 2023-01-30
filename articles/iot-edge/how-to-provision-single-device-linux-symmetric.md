@@ -5,19 +5,23 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 9/12/2022
 ms.author: patricka
 ---
 
 # Create and provision an IoT Edge device on Linux using symmetric keys
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
-This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, including installing IoT Edge.
+This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, which includes installing IoT Edge.
 
-Every device that connects to an IoT hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
+Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes: 
 
-The steps in this article walk through a process called manual provisioning, where you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
+* IoT hub hostname
+* Device ID
+* Authentication details to connect to IoT Hub
+
+The steps in this article walk through a process called *manual provisioning*, where you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
 
 * **Symmetric keys**: When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating.
 
@@ -38,23 +42,36 @@ This article covers using symmetric keys as your authentication method. If you w
 
 ## Prerequisites
 
-This article covers registering your IoT Edge device and installing IoT Edge on it. These tasks have different prerequisites and utilities used to accomplish them. Make sure you have all the prerequisites covered before proceeding.
+This article shows how to register your IoT Edge device and install IoT Edge (also called IoT Edge runtime) on your device. Make sure you have the device management tool of your choice, for example Azure CLI, and device requirements before you register and install your device.
 
 <!-- Device registration prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
+[!INCLUDE [iot-edge-prerequisites-register-device.md](includes/iot-edge-prerequisites-register-device.md)]
 
 <!-- Device requirements H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-device-requirements-linux.md](../../includes/iot-edge-prerequisites-device-requirements-linux.md)]
+[!INCLUDE [iot-edge-prerequisites-device-requirements-linux.md](includes/iot-edge-prerequisites-device-requirements-linux.md)]
+
+<!-- Azure IoT extensions for Visual Studio Code-->
+### Visual Studio Code extensions
+
+If you are using Visual Studio Code, there are helpful Azure IoT extensions that will make the device creation and management process easier.
+
+Install both the Azure IoT Edge and Azure IoT Hub extensions:
+
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+
+* [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+
+<!-- Prerequisites end -->
 
 <!-- Register your device and View provisioning information H2s and content -->
-[!INCLUDE [iot-edge-register-device-symmetric.md](../../includes/iot-edge-register-device-symmetric.md)]
+[!INCLUDE [iot-edge-register-device-symmetric.md](includes/iot-edge-register-device-symmetric.md)]
 
 <!-- Install IoT Edge on Linux H2 and content -->
-[!INCLUDE [install-iot-edge-linux.md](../../includes/iot-edge-install-linux.md)]
+[!INCLUDE [install-iot-edge-linux.md](includes/iot-edge-install-linux.md)]
 
 ## Provision the device with its cloud identity
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to set up the device with its cloud identity and authentication information.
+Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
@@ -94,103 +111,138 @@ After entering the provisioning information in the configuration file, restart t
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
-You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
+1. You can quickly configure your IoT Edge device with symmetric key authentication using the following command. Replace `PASTE_DEVICE_CONNECTION_STRING_HERE` with your own connection string.
 
    ```bash
-   sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
+   sudo iotedge config mp --connection-string `PASTE_DEVICE_CONNECTION_STRING_HERE`
    ```
 
-   The `iotedge config mp` command creates a configuration file on the device and enters your connection string in the file.
+   This `iotedge config mp` command creates a configuration file on the device and enters your connection string in the configuration file.
 
-Apply the configuration changes.
+1. Apply the configuration changes.
 
    ```bash
    sudo iotedge config apply
    ```
 
-If you want to see the configuration file, you can open it:
+1. To view the configuration file, you can open it:
 
    ```bash
    sudo nano /etc/aziot/config.toml
    ```
-
+Verify successful configuration
 <!-- end iotedge-2020-11 -->
 ::: moniker-end
+
+## Deploy modules
+
+To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
+
+1. Select **Devices** from the IoT Hub menu.
+
+1. Select your device to open its page.
+
+1. Select the **Set Modules** tab.
+
+1. Since we want to deploy the IoT Edge default modules (edgeAgent and edgeHub), we don't need to add any modules to this pane, so select **Review + create** at the bottom.
+
+1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.<br>
+   
+For more information, see [Deploy a module](quickstart-linux.md#deploy-a-module).
 
 ## Verify successful configuration
 
 Verify that the runtime was successfully installed and configured on your IoT Edge device.
 
->[!TIP]
->You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
+> [!TIP]
+> You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
 
-Check to see that the IoT Edge system service is running.
+1. Check to see that the IoT Edge system service is running.
 
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
+   <!-- 1.1 -->
+   ::: moniker range="iotedge-2018-06"
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-::: moniker-end
+   ::: moniker-end
 
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
+   <!-- iotedge-2020-11 -->
+   ::: moniker range=">=iotedge-2020-11"
 
    ```bash
    sudo iotedge system status
    ```
 
-A successful status response is `Ok`.
+   A successful status response shows the `aziot` services as running or ready.
 
-::: moniker-end
+   ::: moniker-end
 
-If you need to troubleshoot the service, retrieve the service logs.
+1. To troubleshoot the service, retrieve the service logs.
 
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
+   <!-- 1.1 -->
+   ::: moniker range="iotedge-2018-06"
 
    ```bash
    journalctl -u iotedge
    ```
 
-::: moniker-end
+   ::: moniker-end
 
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
+   <!-- iotedge-2020-11 -->
+   ::: moniker range=">=iotedge-2020-11"
 
    ```bash
    sudo iotedge system logs
    ```
 
-::: moniker-end
+   ::: moniker-end
 
-Use the `check` tool to verify configuration and connection status of the device.
+1. Use the `check` tool to verify configuration and connection status of the device.
 
    ```bash
    sudo iotedge check
    ```
 
->[!TIP]
->Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
+   You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red).
 
-View all the modules running on your IoT Edge device. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
+   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/config-checks.png" alt-text="Screenshot of sample responses from the check command." lightbox="media/how-to-provision-single-device-linux-symmetric/config-checks.png":::
+
+   >[!TIP]
+   >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
+
+   >[!NOTE]
+   >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+   >
+   >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+   >**Could not check current state of edgeHub container**
+   >
+   >This error is expected on a newly provisioned device because the IoT Edge Hub module is not yet running. Be sure your IoT Edge modules were deployed in the previous steps. Deployment resolves this error.
+   >
+   >Alternatively, you may see a status code as `417 -- The device's deployment configuration is not set`. Once your modules are deployed, this status will change.
+   >
+
+1. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
+
+   Check that your device and modules are deployed and running, by viewing your device page in the Azure portal.
+
+   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal.":::   
+
+   Once your modules are deployed and running, list them in your device or virtual machine with the following command:
 
    ```bash
    sudo iotedge list
    ```
 
-When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
-
 ## Offline or specific version installation (optional)
 
 The steps in this section are for scenarios not covered by the standard installation steps. This may include:
 
-* Install IoT Edge while offline
-* Install a release candidate version
+* Installing IoT Edge while offline
+* Installing a release candidate version
 
-Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
+Use the steps in this section if you want to install a [specific version of the Azure IoT Edge runtime](version-history.md) that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
 
@@ -238,7 +290,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
 
    2. Use the copied link in the following command to install that version of the identity service:
 
-      # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+      # [Ubuntu / Debian](#tab/ubuntu+debian)
       ```bash
       curl -L <identity service link> -o aziot-identity-service.deb && sudo apt-get install ./aziot-identity-service.deb
       ```
@@ -253,7 +305,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
 
    4. Use the copied link in the following command to install that version of IoT Edge.
 
-      # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+      # [Ubuntu / Debian](#tab/ubuntu+debian)
       ```bash
       curl -L <iotedge link> -o aziot-edge.deb && sudo apt-get install ./aziot-edge.deb
       ```
@@ -287,7 +339,7 @@ sudo apt-get autoremove iotedge
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/ubuntu+debian)
 ```bash
 sudo apt-get autoremove --purge aziot-edge
 ```
@@ -316,7 +368,7 @@ sudo docker rm -f <container name>
 
 Finally, remove the container runtime from your device.
 
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/ubuntu+debian)
 ```bash
 sudo apt-get autoremove --purge moby-engine
 ```

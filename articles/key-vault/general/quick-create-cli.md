@@ -19,7 +19,7 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -33,7 +33,7 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/cli-rg-delete.md)]
+[!INCLUDE [Delete a key vault](../../../includes/cli-rg-delete.md)]
 
 ## Next steps
 

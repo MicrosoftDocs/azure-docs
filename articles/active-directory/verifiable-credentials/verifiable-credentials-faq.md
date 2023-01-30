@@ -21,6 +21,7 @@ This page contains commonly asked questions about Verifiable Credentials and Dec
 - [Conceptual questions about decentralized identity](#conceptual-questions)
 - [Questions about using Verifiable Credentials preview](#using-the-preview)
 
+
 ## The basics
 
 ### What is a DID? 
@@ -136,7 +137,7 @@ The tutorials for deploying and running the [samples](verifiable-credentials-con
 - Java - [Deploy to App Service](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux-development-environment-maven#4---deploy-the-app). You need to add the maven plugin for Azure App Service to the sample.
 - Python - [Deploy using VSCode](../../app-service/quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#3---deploy-your-application-code-to-azure)
 
-Regardless of which language of the sample you are using, they will pick up the Azure App Service hostname (https://something.azurewebsites.net/) and use it as the public endpoint. You don't need to configure something extra to make it work. If you make changes to the code or configuration, you need to redeploy the sample to Azure App Service. Troubleshooting/debugging will not be as easy as running the sample on your local machine, where traces to the console window show you errors, but you can achieve almost the same by using the [Log Stream](../../app-service/troubleshoot-diagnostic-logs.md#stream-logs).
+Regardless of which language of the sample you are using, they will pickup the Azure AppService hostname `https://something.azurewebsites.net` and use it as the public endpoint. You don't need to configure something extra to make it work. If you make changes to the code or configuration, you need to redeploy the sample to Azure AppServices. Troubleshooting/debugging will not be as easy as running the sample on your local machine, where traces to the console window shows you errors, but you can achieve almost the same by using the [Log Stream](../../app-service/troubleshoot-diagnostic-logs.md#stream-logs).
  
 ## Next steps
 

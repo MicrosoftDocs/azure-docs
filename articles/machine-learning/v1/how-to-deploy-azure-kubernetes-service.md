@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: contperf-fy21q1, deploy, cliv1, sdkv1
-ms.author: larryfr
-author: blackmist
+author: bozhong68
+ms.author: bozhlin
 ms.reviewer: larryfr
-ms.date: 08/15/2022
+ms.date: 11/16/2022
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster with v1
@@ -44,6 +44,8 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -88,11 +90,15 @@ The front-end component (azureml-fe) that routes incoming inference requests to 
 > [!IMPORTANT]
 > When using a cluster configured as __dev-test__, the self-scaler is **disabled**. Even for FastProd/DenseProd clusters, Self-Scaler is only enabled when telemetry shows that it's needed.
 
+> [!NOTE]
+> The maximum request payload is 100MB.
+
 Azureml-fe scales both up (vertically) to use more cores, and out (horizontally) to use more pods. When making the decision to scale up, the time that it takes to route incoming inference requests is used. If this time exceeds the threshold, a scale-up occurs. If the time to route incoming requests continues to exceed the threshold, a scale-out occurs.
 
 When scaling down and in, CPU usage is used. If the CPU usage threshold is met, the front end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens. Scaling up and out will only occur if there are enough cluster resources available.
 
 When scale-up or scale-down, azureml-fe pods will be restarted to apply the cpu/memory changes. Inferencing requests aren't affected by the restarts.
+
 
 <a id="connectivity"></a>
 
@@ -164,7 +170,7 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 
 <a id="using-the-cli"></a>
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
