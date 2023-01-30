@@ -142,6 +142,8 @@ items:
      href: /rest/api/mobilenetwork
    - name: Region code names
      href: region-code-names.md
+   - name: ASE VM sizing
+     href: azure-stack-edge-virtual-machine-sizing.md
 - name: Resources
   items:
   - name: Azure Private 5G Core product page

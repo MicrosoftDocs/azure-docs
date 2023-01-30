@@ -142,3 +142,12 @@ landingContent:
           - text: Gather diagnostics
             url: gather-diagnostics.md
             
+  # Card
+  - title: Learn about Azure Private 5G Core architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Deploy private 5G networks on Azure
+            url: /azure/architecture/industries/telecommunications/deploy-private-mobile-network
+          - text: Build a private 5G network
+            url: /azure/architecture/industries/telecommunications/build-private-5g-network
