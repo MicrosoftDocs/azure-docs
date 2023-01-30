@@ -137,4 +137,6 @@ landingContent:
             url: modify-local-access-configuration.md      
           - text: Export, upload and share traces for diagnostics
             url: distributed-tracing-share-traces.md
+          - text: Gather diagnostics
+            url: gather-diagnostics.md
             
