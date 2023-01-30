@@ -21,10 +21,6 @@ No further work is required to configure or manage availability zones. Failover 
 
 Azure Private 5G Core is currently available in the EastUS and WestEurope regions.
 
-### SLA improvements
-
-There are no increased SLAs for Azure Private 5G Core. For more information, see [SLA summary for Azure services](https://azure.microsoft.com/support/legal/sla/summary/).
-
 ### Zone down experience
 
 In a zone-wide outage scenario, users should experience no impact because the service will move to take advantage of the healthy zone automatically. At the start of a zone-wide outage, you may see in-progress ARM requests time-out or fail. New requests will be directed to healthy nodes with zero impact on users and any failed operations should be retried. You'll still be able to create new resources and update, monitor and manage existing resources during the outage.
