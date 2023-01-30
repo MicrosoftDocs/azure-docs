@@ -249,9 +249,9 @@ from mlflow.models import infer_signature
 
 mlflow.xgboost.autolog(log_models=False)
 
-encoder = OrdinalEncoder(handle_unknown='ignore')
-X_train['thal'] = enc.fit_transform(X_train['thal'])
-X_test['thal'] = enc.transform(X_test['thal'])
+encoder = OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=np.nan)
+X_train['thal'] = encoder.fit_transform(X_train['thal'].to_frame())
+X_test['thal'] = encoder.transform(X_test['thal'].to_frame())
 
 model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
 model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)
