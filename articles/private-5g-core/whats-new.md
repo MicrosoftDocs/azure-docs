@@ -39,7 +39,7 @@ The Azure Private 5G Core now supports multiple network slices for 5G packet cor
 
 **Date available:** January 31, 2023
 
-The Azure Private 5G Core online service now reports the provisioning status of SIMs per-site, on both the SIM and Site resource views, to allow you to accurately determine where individual SIMs have been provisioned.
+The Azure Private 5G Core online service now reports the provisioning status of SIMs per-site, on both the **SIM** and **Site** resource views, to allow you to accurately determine where individual SIMs have been provisioned.
 
 ### West Europe region
 
@@ -73,9 +73,9 @@ The **Diagnose and solve problems** option in the left content menu can now prov
 
 **Date available:** December 16, 2022
 
-If you're experiencing issues with your packet core deployment, you can now re-install the packet core to return it to a known state. Re-installing the packet core deletes the existing packet core deployment and attempts to deploy the packet core at the edge with the existing site configurations. Already created Site dependent resources such as the **PacketCoreControlPlane**, **PacketCoreDataPlane** and **AttachedDataNetwork** will continue to be used in the deployment.
+If you're experiencing issues with your packet core deployment, you can now re-install the packet core to return it to a known state. Re-installing the packet core deletes the existing packet core deployment and attempts to deploy the packet core at the edge with the existing site configurations. Already created **Site** dependent resources such as the **PacketCoreControlPlane**, **PacketCoreDataPlane** and **AttachedDataNetwork** will continue to be used in the deployment.
 
-You can check the Installation state on the **Packet Core Control Plane overview**. Upon successful redeployment, the Installation state will change from **Reinstalling** to either **Installed** or **Failed**, depending on the outcome.  You can re-install the packet core regardless if the  Installation state is in either **Installed** or **Failed** status.
+You can check the Installation state on the **Packet Core Control Plane overview**. Upon successful redeployment, the Installation state will change from **Reinstalling** to either **Installed** or **Failed**, depending on the outcome.  You can re-install the packet core regardless if the **Installation state** is in either **Installed** or **Failed** status.
 
 If re-install is attempted after upgrade, re-deployment would be attempted with the upgraded packet core version. The reinstallation is done using the latest packet core version currently defined in the ARM API version.
 
@@ -92,7 +92,7 @@ This feature has the following limitations:
 
 **Date available:** December 19, 2022
 
-It is now possible to secure access to a site’s local monitoring tools with a custom, user-provided HTTPS certificate. Certificates can be uploaded to an Azure Key Vault and specified in the P**acket Core Control Plane** **local access** configuration to be provisioned down to the edge.
+It is now possible to secure access to a site’s local monitoring tools with a custom, user-provided HTTPS certificate. Certificates can be uploaded to an Azure Key Vault and specified in the **Packet Core Control Plane** **local access** configuration to be provisioned down to the edge.
 
 This feature has the following limitations:
 
