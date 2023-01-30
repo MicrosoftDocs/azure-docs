@@ -182,7 +182,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 
 Note the following points:
 
-* The name of the Azure data factory must be globally unique. If you receive the following error, change the name and try again.
+* The name of the Azure Data Factory must be globally unique. If you receive the following error, change the name and try again.
 
     ```
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
