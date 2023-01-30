@@ -142,9 +142,9 @@ Once the file has been created, upload it to an append blob in Azure Blob Storag
 
 ### Run the import job
 
-Now you can proceed with [bulk import API]() operations. For detailed instructions and SDK examples that use the bulk import API for each resource type, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets), [twins](how-to-manage-twin.md#create-twins-in-bulk), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk). You can also upload all of these resources at once to create a full graph in one API call. For more about that process, see [Upload models, twins, and relationships with bulk import API](how-to-manage-graph.md#upload-models-twins-and-relationships-with-bulk-import-api).
+Now you can proceed with [bulk import API]() operations. For detailed instructions on importing a full graph in one API call, see  [Upload models, twins, and relationships with bulk import API](how-to-manage-graph.md#upload-models-twins-and-relationships-with-bulk-import-api). You can also use the bulk API to import each resource type independently. For more information on using the bulk import API with individual resource types, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets), [twins](how-to-manage-twin.md#create-twins-in-bulk), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk).
 
-As the import job executes, a structured output log is generated and stored in your blob container. When the job is complete, you can see the total number of ingested entities in the [Azure Digital Twins metrics](how-to-monitor.md).
+As the import job executes, a structured output log is generated and stored in a new file in your blob container. When the job is complete, you can see the total number of ingested entities in the [Azure Digital Twins metrics](how-to-monitor.md).
 
 It's also possible to cancel a running import job and delete it. For more information about this, see [Cancel API](/jobs/imports/cancel?api-version=2023-02-27-preview).
 
