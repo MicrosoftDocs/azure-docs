@@ -55,7 +55,16 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * Total discount
   * Tax items (en-in only)
 
-TODO PREBUILT ID
+* **Prebuilt ID document model additional field extraction**
+
+  The prebuilt ID document model now has added support for the following document types:
+
+  * Passport, driver's license, and residence permit ID expansion.
+  * US military ID
+  * India ID
+  * Australian ID
+  * Canada ID
+  * UK ID
 
 ## December 2022
 
