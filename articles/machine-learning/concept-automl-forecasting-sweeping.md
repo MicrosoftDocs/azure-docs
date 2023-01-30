@@ -27,7 +27,7 @@ Naive, Seasonal Naive, Average, Seasonal Average | Time series | No sweeping wit
 Exponential Smoothing, ARIMA(X) | Time series | Grid search for within-class sweeping
 Prophet | Regression | No sweeping within class
 Linear SGD, LARS LASSO, Elastic Net, K Nearest Neighbors, Decision Tree, Random Forest, Extremely Randomized Trees, Gradient Boosted Trees, LightGBM, XGBoost | Regression | AutoML's [model recommendation service](https://www.microsoft.com/research/publication/probabilistic-matrix-factorization-for-automated-machine-learning/) dynamically explores hyper-parameter spaces
-Temporal Convolutional Network | Regression | Static list of models followed by random search over network size, dropout ratio, and learning rate.
+ForecastTCN | Regression | Static list of models followed by random search over network size, dropout ratio, and learning rate.
 
 For a description of the different model types, see the [forecasting models](./concept-automl-forecasting-methods.md#forecasting-models-in-automl) section of the methods overview article.
 

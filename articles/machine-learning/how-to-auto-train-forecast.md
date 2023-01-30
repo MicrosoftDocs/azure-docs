@@ -243,10 +243,10 @@ By default, AutoML augments training data with engineered features to increase t
 
 Supported customizations for forecasting include:
 
-|Customization|Definition|
-|--|--|
-|**Column purpose update**|Override the auto-detected feature type for the specified column.|
-|**Transformer parameter update**|Update the parameters for the specified *Imputer* (fill_value and median).|
+|Customization|Description|Options
+|--|--|---
+|**Column purpose update**|Override the auto-detected feature type for the specified column.|"Categorical", "DateTime", "Numeric"
+|**Transformer parameter update**|Update the parameters for the specified imputer.|`{"strategy": "constant", "fill_value": <value>}`, `{"strategy": "median"}`, `{"strategy": "ffill"}`
 
 For example, suppose you have a retail demand scenario where the data includes features like price, an "on sale" flag, and a product type. The following sample shows how you can set customized types and imputers for these features:
 
