@@ -17,9 +17,9 @@ Microsoft Defender External Attack Surface Management (Defender EASM) now offers
 
 The data connector sends Defender EASM asset data to two different platforms: Microsoft Log Analytics and Azure Data Explorer. Users need to be active customers to export Defender EASM data to either tool, and data connections are subject to the pricing model for each respective platform.  
 
-[Microsoft Log Analytics](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview) provides SIEM (security information and event management) and SOAR (security orchestration, automation and response) capabilities. Defender EASM asset or insights information can be used in Log Analytics to enrich existing workflows in conjunction with other security data. This information can supplement firewall and configuration information, threat intelligence, compliance data and more to provide visibility into your external-facing infrastructure on the open internet. Users can create or enrich security incidents, build investigation playbooks, train machine learning algorithms, or trigger remediation actions.  
+[Microsoft Log Analytics](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview) provides SIEM (security information and event management) and SOAR (security orchestration, automation and response) capabilities. Defender EASM asset or insights information can be used in Log Analytics to enrich existing workflows in conjunction with other security data. This information can supplement firewall and configuration information, threat intelligence, compliance data and more to provide visibility into your external-facing infrastructure on the open internet. Users can create or enrich security incidents, build investigation playbooks, train machine learning algorithms, or trigger remediation actions.  
 
-[Azure Data Explorer](https://learn.microsoft.com/en-us/azure/data-explorer/data-explorer-overview) is a big data analytics platform that helps users analyze high volumes of data from various sources with flexible customization capabilities. Defender EASM asset and insights data can be integrated to leverage visualization, query, ingestion and management capabilities within the platform. Whether building custom reports with Power BI or hunting for assets that match precise KQL queries, exporting Defender EASM data to Azure Data Explorer enables users to leverage their attack surface data with endless customization potential. 
+[Azure Data Explorer](https://learn.microsoft.com/azure/data-explorer/data-explorer-overview) is a big data analytics platform that helps users analyze high volumes of data from various sources with flexible customization capabilities. Defender EASM asset and insights data can be integrated to leverage visualization, query, ingestion and management capabilities within the platform. Whether building custom reports with Power BI or hunting for assets that match precise KQL queries, exporting Defender EASM data to Azure Data Explorer enables users to leverage their attack surface data with endless customization potential. 
 
 ![View of Data Connections page from Defender EASM resource.](media/dataconnector-1.png)
 
@@ -56,9 +56,9 @@ To successfully create a data connection, users must first ensure that they have
 
 #### Configuring Log Analytics permissions  
 
-1. Open the Log Analytics workspace that will ingest your Defender EASM data, or [create a new workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal).
+1. Open the Log Analytics workspace that will ingest your Defender EASM data, or [create a new workspace](https://learn.microsoft.com/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal).
 
-2. Select **Access control (IAM)** from the left-hand navigation pane. For more information on access control, see [identity documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/decision-guides/identity/). 
+2. Select **Access control (IAM)** from the left-hand navigation pane. For more information on access control, see [identity documentation](https://learn.microsoft.com/azure/cloud-adoption-framework/decision-guides/identity/). 
 
 ![Log Analytics workspace with Access Control (IAM) highlighted in left-hand navigation pane.](media/dataconnector-3.png)
 
@@ -77,7 +77,7 @@ To successfully create a data connection, users must first ensure that they have
 
 #### Configuring Data Explorer permissions 
 
-1. Open the Data Explorer cluster that will ingest your Defender EASM data or [create a new cluster](https://learn.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal).  
+1. Open the Data Explorer cluster that will ingest your Defender EASM data or [create a new cluster](https://learn.microsoft.com/azure/data-explorer/create-cluster-database-portal).  
 
 2. Select **Databases** in the Data section of the left-hand navigation menu. 
 
@@ -145,9 +145,9 @@ To edit or delete a data connection:
 
 ## Next steps 
 
-- [Defender for EASM REST API documentation](https://learn.microsoft.com/en-us/rest/api/defenderforeasm/)
-- [Understanding asset details](https://learn.microsoft.com/en-us/azure/external-attack-surface-management/understanding-asset-details)
-- [Inventory filters overview](https://learn.microsoft.com/en-us/azure/external-attack-surface-management/inventory-filters)
+- [Defender for EASM REST API documentation](https://learn.microsoft.com/rest/api/defenderforeasm/)
+- [Understanding asset details](https://learn.microsoft.com/azure/external-attack-surface-management/understanding-asset-details)
+- [Inventory filters overview](https://learn.microsoft.com/azure/external-attack-surface-management/inventory-filters)
 
 
 
