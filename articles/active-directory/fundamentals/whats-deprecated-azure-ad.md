@@ -43,7 +43,7 @@ Use the following table to learn about changes including deprecations, retiremen
 
 See the following two sections for definitions of categories, change state, etc.
 
-### Deprecation, retirement, breaking change, feature change, and rebranding
+## Deprecation, retirement, breaking change, feature change, and rebranding
 
 Use the definitions in this section help clarify the state, availability, and support of features, services, and functionality. 
 
@@ -55,15 +55,15 @@ Use the definitions in this section help clarify the state, availability, and su
 |Feature change|Change to an IDNA feature that requires no customer action, but is noticeable to them. Typically, these changes are in the user interface/user experperience (UI/UX).|4 times per year: March, June, September, and December|
 |Rebranding|A new name, term, symbol, design, concept or combination thereof for an established brand to develop a differentiated experience.|As scheduled or announced|
 
-#### Terminology
+## Terminology
 
 * **End-of-life** - Engineering investments have ended, and the feature is unavailable to any customer
 * **Tenant, current** - The change date goes into effect for tenants created before the new tenant change date
 * **Tenant, new** - The change date goes into effect for tenants created after the change date
 
-### Next steps
+## Next steps
 [What's new in Azure Active Directory](../../active-directory/fundamentals/whats-new.md)
 
-### Resources
+## Resources
 * [Microsoft Entra Change Announcement blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-november-2022-train/ba-p/2967452)
 * Devices: [End-of-life management and recycling](https://www.microsoft.com/legal/compliance/recycling)
