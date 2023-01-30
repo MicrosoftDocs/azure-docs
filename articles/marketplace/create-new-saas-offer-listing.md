@@ -21,7 +21,7 @@ The information you provide on the **Offer listing** page for your software as a
 On the **Offer listing** page, under **Marketplace details**, complete the following steps. To learn more about these required details, see [Offer listing details](plan-azure-application-offer.md#offer-listing-details).
 
 1. The **Name** box is prefilled with the name you entered earlier in the  **New offer** dialog box. You can change the name at any time.
-1. In the **Search results summary** box, enter up to 50 characters of text. This summary is used in the marketplace listing search results.
+1. In the **Search results summary** box, enter up to 100 characters of text. This summary is used in the marketplace listing search results.
 1. In the **Description** box, enter a description for your offer. This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 5,000 characters of text in this box, which includes HTML markup and spaces. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
 1. In the **Getting started instructions** box, provide instructions to help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
 1. (Optional) In the **Search keywords** boxes, enter up to three search keywords that customers can use to find your offer in the commercial marketplace. You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
