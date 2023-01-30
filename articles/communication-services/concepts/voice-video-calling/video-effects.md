@@ -67,7 +67,7 @@ To use video effects with the Azure Communication Calling client library, once y
 ### Code examples
 ```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
-import { BackgroundBlur, BackgroundReplacement } from '@azure/communication-calling-effects'; 
+import { BackgroundBlurEffect, BackgroundReplacementEffect } from '@azure/communication-calling-effects'; 
 
 /** Assuming you have initialized the Azure Communication Calling client library and have created a LocalVideoStream 
 (reference <link to main SDK npm>) 
@@ -92,7 +92,7 @@ videoEffectsFeatureApi.on(‘effectsError’, (error) => {
 }); 
 
 // Create the effect instance 
-const backgroundBlurEffect = new BackgroundBlur(); 
+const backgroundBlurEffect = new BackgroundBlurEffect(); 
 
 // Recommended: Check if backgroundBlur is supported
 const backgroundBlurSupported = await backgroundBlurEffect.isSupported(); 
@@ -114,7 +114,7 @@ Supported image formats are – png, jpg, jpeg, tiff, bmp.
 const backgroundImage = 'https://linkToImageFile'; 
 
 // Create the effect instance 
-const backgroundReplacementEffect = new BackgroundReplacement({ 
+const backgroundReplacementEffect = new BackgroundReplacementEffect({ 
 
     backgroundImageUrl: backgroundImage 
 
