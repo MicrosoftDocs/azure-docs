@@ -233,7 +233,7 @@ Complete the following steps to add identifier in the *Per core* billing model:
 
 - Add a billing identifier value for `global.azure.billingidentifier` in `values.yaml`.
 
-    :::image type="content" source="./media/azure-container/billing-identifier-value.png" alt-text="A screenshot of a properly formatted values.yaml file, showing the global > azure > billingIdentifier field.":::
+    :::image type="content" source="./media/azure-container/billing-identifier-value.png" alt-text="A screenshot of a properly formatted values.yaml file, showing the global > Azure > billingIdentifier field.":::
 
 Complete the following steps to add a billing identifier label in the *Per pod* and *Per node* billing model:
 
