@@ -55,7 +55,7 @@ The following release notes are for version 16.0.0.0 of the Azure File Sync agen
 - Improved Azure File Sync service availability
 	- Azure File Sync is now a zone-redundant service which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or Geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see: [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy).
 	> [!Note]
-	> Azure File Sync is zone-redundant in all regions that [support zones](https://learn.microsoft.com/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support) except US Gov Virginia and China North 3. Azure File Sync will be zone-redundant in these regions in the near future.
+	> Azure File Sync is zone-redundant in all regions that [support zones](https://learn.microsoft.com/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support) except US Gov Virginia. Azure File Sync will be zone-redundant in these regions in the near future.
 
 - Sync upload performance improvements
 	- Sync upload performance has improved (performance numbers to be posted in the near future). This improvement will mainly benefit file share migrations (initial upload) and high churn events on the server in which a large number of files need to be uploaded. 
