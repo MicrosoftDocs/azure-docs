@@ -103,11 +103,16 @@ The following command creates the workspace and configures it to use the service
 
 ```azurepowershell-interactive
 $Workspace = 'MyWorkspace'
-New-AzMLWorkspace -Name $Workspace -ResourceGroupName $ResourceGroup -Location $Location `
-                  -ApplicationInsightID $appid `
-                  -KeyVaultId $kvid `
-                  -StorageAccountId $storeid `
-                  -IdentityType 'SystemAssigned'
+$mlWorkspaceParams = @{
+  Name = $Workspace
+  ResourceGroupName = $ResourceGroup
+  Location = $Location
+  ApplicationInsightID = $appid
+  KeyVaultId = $kvid
+  StorageAccountId = $storeid
+  IdentityType = 'SystemAssigned'
+}
+New-AzMLWorkspace @mlWorkspaceParams
 ```
 
 > [!TIP]
