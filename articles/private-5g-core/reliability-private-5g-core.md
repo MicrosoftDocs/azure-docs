@@ -97,7 +97,7 @@ The Azure Stack Edge device is currently running the packet core software and is
 
 **Connect the Azure Stack Edge device to the new region**
 <br></br>
-Follow the instructions in [Commission the AKS cluster](/azure/private-5g-core/commission-a-cluster) to redeploy the Azure Kubernetes Service cluster on your Azure Stack Edge device. Ensure that you use a different name for this new installation to avoid clashes when the failed region recovers. As part of this process you'll get a new custom location ID for the cluster, which you should note down.
+Follow the instructions in [Commission the AKS cluster](/azure/private-5g-core/commission-cluster) to redeploy the Azure Kubernetes Service cluster on your Azure Stack Edge device. Ensure that you use a different name for this new installation to avoid clashes when the failed region recovers. As part of this process you'll get a new custom location ID for the cluster, which you should note down.
 
 **Reinstall and validation**
 <br></br>
