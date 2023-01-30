@@ -43,12 +43,12 @@ pip install pandas
 
 ### Download sample data
 
-This quickstart uses the `sample_data_5_3000.zip` file that can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/multivariate_sample_data/sample_data_5_3000.zip)
+This quickstart uses the `sample_data_5_3000.zip` file that can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/multivariate/multivariate_sample_data_5_3000.zip)
 
  You can also download the sample data by running:
 
 ```cmd
-curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/samples-multivariate/multivariate_sample_data/sample_data_5_3000.zip" --output sample_data_5_3000_.zip
+curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/multivariate/multivariate_sample_data_5_3000.zip" --output sample_data_5_3000_.zip
 ```
 
 ### Generate SAS URL
