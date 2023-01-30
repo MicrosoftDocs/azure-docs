@@ -13,7 +13,7 @@ ms.date: 10/18/2022
 
 # Tutorial: Register an application with the Microsoft identity platform
 
-Before an application can be authenticated with the Microsoft identity platform, it must be registered with a tenant on the Azure portal. This establishes the unidirectional trust relationship, where the application trusts the Microsoft identity platform but not the other way around. This tutorial shows you how to register a web application on the Azure portal.
+Before an application can be authenticated with the Microsoft identity platform, it must be registered in a tenant on the Azure portal. This establishes the unidirectional trust relationship, where the application trusts the Microsoft identity platform but not the other way around. This tutorial shows you how to register a web application on the Azure portal.
 
 In this tutorial:
 
@@ -24,36 +24,27 @@ In this tutorial:
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-* This Azure account must have permissions to manage applications. Use the least privileged of the following roles that you need to register the application:
+* This Azure account must have permissions to manage applications. Use the least privileged of the following roles that needed to register the application:
   * Application administrator
   * Application developer
   * Cloud application administrator
 * Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
 
-## Register the application
+## Register the application abd record identifiers
 
-The application needs to be registered on the Azure portal before continuing. Once registered, the application identifiers can be used to complete the application configuration steps.
-
-### Enter a registration name and select the account type
-
-Give the application a name, specify the type of supported accounts and register the application.
+To complete registration, provide the application a name and specify the supported account types. Once registered, the application **Overview** page will display the identifiers needed in the source code.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
-1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Under **Manage**, select **App registrations > New registration**.
 1. Enter a **Name** for the application, such as *NewWebApp1*.
-1. Accept the selection of **Accounts in this organizational directory only (Contoso only - Single tenant)** for the **Supported account type**.
+1. For **Supported account types**, select **Accounts in this organizational directory only (Contoso only - Single tenant)**.
 1. Select **Register**.
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/register-application.png" alt-text="Screenshot of process to enter a name and select the account type.":::
 
-### Record the identifiers for the application
-
-For this tutorial series, the **Directory (tenant) ID** and the **Application (client) ID** are needed to complete the configuration of the application.
-
-1. Locate the **Directory (tenant) ID** and the **Application (client) ID** on the **Overview** page of the application.
-1. Record these values to be used in later steps.
+1. On the **Overview** page, locate the **Directory (tenant) ID** and the **Application (client) ID** to be used in later steps.
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/record-identifiers.png" alt-text="Screenshot of recording the identifier values on the overview page.":::
 
