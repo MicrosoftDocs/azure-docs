@@ -168,7 +168,7 @@ If you have an existing module on your IoT Edge device, adding a configuration u
    You should see the parameters you specified for `DeviceRequests` in the JSON printout in the console.
 
 > [!NOTE]
-> To understand the `DeviceRequests` parameter better, view the source code: [moby/host_config.go](https://github.com/moby/moby/blob/master/api/types/container/host_config.go)
+> To understand the `DeviceRequests` parameter better, view the source code: [moby/host_config.go](https://github.com/moby/moby/blob/master/api/types/container/hostconfig.go)
 
 ### Enable a GPU in a prefabricated NVIDIA module
 
