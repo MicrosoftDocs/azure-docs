@@ -25,8 +25,7 @@ To learn more about this feature along with known issues and limitations, see [M
 ## Set tags
 
 You can set index tags if your code has authorized access to blob data through one of the following mechanisms:
-- Azure AD built-in role assigned as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or higher
-- Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write](../../role-based-access-control/resource-provider-operations.md#microsoftstorage)
+- Security principal that is assigned an Azure RBAC role with the [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) action. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) is a built-in role that includes this action.
 - Shared Access Signature with permission to access the blob's tags (`t` permission)
 - Account key
 
@@ -47,8 +46,7 @@ You can delete all tags by passing an empty `dict` object into the `set_blob_tag
 ## Get tags
 
 You can get index tags if your code has authorized access to blob data through one of the following mechanisms:
-- Azure AD built-in role assigned as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or higher
-- Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read](../../role-based-access-control/resource-provider-operations.md#microsoftstorage)
+- Security principal that is assigned an Azure RBAC role with the [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) action. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) is a built-in role that includes this action.
 - Shared Access Signature with permission to access the blob's tags (`t` permission)
 - Account key
 
@@ -65,8 +63,7 @@ The following example shows how to retrieve and iterate over the blob's tags:
 ## Filter and find data with blob index tags
 
 You can use index tags to find and filter data if your code has authorized access to blob data through one of the following mechanisms:
-- Azure AD built-in role assigned as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or higher
-- Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage)
+- Security principal that is assigned an Azure RBAC role with the [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) action. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) is a built-in role that includes this action.
 - Shared Access Signature with permission to find blobs by tags (`f` permission)
 - Account key
 

@@ -10,7 +10,7 @@ ms.date: 01/29/2023
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-On this page, you'll learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might impact things like your secure score or workflows.
+On this page, you'll learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
 
 If you're looking for the latest release notes, you'll find them in the [What's new in Microsoft Defender for Cloud](release-notes.md).
 
@@ -40,7 +40,7 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 
 The [Running container images should have vulnerability findings resolved](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation is currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy and isn't included in the calculations of your secure score.
 
-We recommend that you use the recommendation to remediate vulnerabilities in your containers so that the recommendation won't impact your secure score when the recommendation is released as GA. Learn about [recommendation remediation](implement-security-recommendations.md).
+We recommend that you use the recommendation to remediate vulnerabilities in your containers so that the recommendation won't affect your secure score when the recommendation is released as GA. Learn about [recommendation remediation](implement-security-recommendations.md).
 
 ### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault is set to be deprecated
 
