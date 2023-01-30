@@ -4,16 +4,15 @@ description: Learn about Azure infrastructure integrity and the steps Microsoft 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 01/30/2023
 ms.author: terrylan
 
 ---
@@ -21,7 +20,7 @@ ms.author: terrylan
 # Azure infrastructure integrity
 
 ## Software installation
-All components in the software stack that are installed in the Azure environment are custom built following the Microsoft Security Development Lifecycle (SDL) process. All software components, including operating system (OS) images and SQL Database, are deployed as part of the change management and release management process. The OS that runs on all nodes is a customized version of Windows Server 2008 or Windows Server 2012. The exact version is chosen by the fabric controller (FC) according to the role it intends for the OS to play. In addition, the host OS does not allow installation of any unauthorized software components.
+All components in the software stack that are installed in the Azure environment are custom built following the Microsoft Security Development Lifecycle (SDL) process. All software components, including operating system (OS) images and SQL Database, are deployed as part of the change management and release management process. The OS that runs on all nodes is a customized version. The exact version is chosen by the fabric controller (FC) according to the role it intends for the OS to play. In addition, the host OS does not allow installation of any unauthorized software components.
 
 Some Azure components are deployed as Azure customers on a guest VM running on a guest OS.
 
