@@ -64,9 +64,9 @@ You need to add the NuGet package that contains the SqlClient library. This data
 
 1. In Solution Explorer, right-click the function app project and choose **Manage NuGet Packages**.
 
-1. On the **Browse** tab, search for ```System.Data.SqlClient``` and, when found, select it.
+1. On the **Browse** tab, search for ```Microsoft.Data.SqlClient``` and, when found, select it.
 
-1. In the **System.Data.SqlClient** page, select version `4.8.3` and then click **Install**.
+1. In the **Microsoft.Data.SqlClient** page, select version `5.1.0` and then click **Install**.
 
 1. When the install completes, review the changes and then click **OK** to close the **Preview** window.
 
@@ -85,7 +85,7 @@ Now, you can add the C# function code that connects to your SQL Database.
 1. Open the new code file and add the following using statements at the top of the file:
 
     ```cs
-    using System.Data.SqlClient;
+    using Microsoft.Data.SqlClient;
     using System.Threading.Tasks;
     ```
 
