@@ -21,7 +21,7 @@ The following table lists the current versions available for the public and beta
 In this release, we've made the following changes:
 
 - Bug fixes and feature updates.
-- Teams redirection for Azure Virtual Desktop now supports noise cancellation and give and take control.
+- Teams redirection for Azure Virtual Desktop now supports Noise Cancellation and Give/Take Control.
 - Fixed connection blocking issues that affected a small number of users.
 - Updated Azure Virtual Desktop diagnostics to address a reporting error.
 - New clipboard redirection options including bidirectional clipboard syncing, local to remote, or remote to local.
