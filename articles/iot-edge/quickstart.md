@@ -188,11 +188,11 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. On the upper bar, select **Set Modules**.
 
-   :::image type="content" source="./media/quickstart-linux/select-set-modules.png" alt-text="Screenshot that shows where to select the Set Modules tab.":::
+   :::image type="content" source="./media/quickstart-linux/select-set-modules.png" alt-text="Screenshot that shows where to select the Set Modules tab." lightbox="./media/quickstart-linux/select-set-modules.png":::
 
 1. Under **IoT Edge Modules**, open the **Add** drop-down menu, and then select **Marketplace Module**.
 
-   :::image type="content" source="./media/quickstart-linux/add-marketplace-module.png" alt-text="Screenshot that shows the Add drop-down menu.":::
+   :::image type="content" source="./media/quickstart-linux/add-marketplace-module.png" alt-text="Screenshot that shows the Add drop-down menu." lightbox="./media/quickstart-linux/add-marketplace-module.png":::
 
 1. In **IoT Edge Module Marketplace**, search for and select the `Simulated Temperature Sensor` module.
 
@@ -200,11 +200,11 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Select **Next: Routes** to continue to the next step of the wizard.
 
-   :::image type="content" source="./media/quickstart-linux/view-temperature-sensor-next-routes.png" alt-text="Screenshot that shows how to continue to the next step after the module is added.":::
+   :::image type="content" source="./media/quickstart-linux/view-temperature-sensor-next-routes.png" alt-text="Screenshot that shows how to continue to the next step after the module is added." lightbox="./media/quickstart-linux/view-temperature-sensor-next-routes.png":::
 
 1. On the **Routes** tab select **Next: Review + create** to continue to the next step of the wizard.
 
-   :::image type="content" source="./media/quickstart-linux/route-next-review-create.png" alt-text="Screenshot that shows how to go to the next step.":::
+   :::image type="content" source="./media/quickstart-linux/route-next-review-create.png" alt-text="Screenshot that shows how to go to the next step." lightbox="./media/quickstart-linux/route-next-review-create.png":::
 
 1. Review the JSON file, and then select **Create**. The JSON file defines all of the modules that you deploy to your IoT Edge device. You'll see the **SimulatedTemperatureSensor** module and the two runtime modules, **edgeAgent** and **edgeHub**.
 
