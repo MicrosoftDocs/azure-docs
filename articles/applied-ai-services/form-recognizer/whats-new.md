@@ -31,7 +31,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales-v30) —additional language support**:
 
-   The prebuilt receipt model now has added support for the following languages:
+   The **prebuilt receipt model** now has added support for the following languages:
 
   * English - United Arab Emirates (en-ae)
   * Dutch - Netherlands (nl-nl)
@@ -41,12 +41,12 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
 
-  The prebuilt invoice model now has added support for the following languages:
+  The **prebuilt invoice model** now has added support for the following languages:
 
   * English - Australia (en-au), Canada (en-ca), Great Britain (en-gb), India (en-in)
   * Portuguese - Brazil (pt-br)
 
-  The prebuilt invoice model now has added support for the following field extractions:
+  The **prebuilt invoice model** now has added support for the following field extractions:
 
   * Currency code
   * Payment options
@@ -55,7 +55,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * **[Prebuilt ID document model](concept-id-document.md#document-types)—additional document types support**
 
-  The prebuilt ID document model now has added support for the following document types:
+  The **prebuilt ID document model** now has added support for the following document types:
 
   * Passport, driver's license, and residence permit ID expansion.
   * US military ID
