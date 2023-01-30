@@ -17,6 +17,8 @@ ms.custom: devx-track-azurepowershell
 
 Use the Azure PowerShell module for Azure Machine Learning to create and manage your Azure Machine Learning workspaces. For a full list of the Azure PowerShell cmdlets for Azure Machine Learning, see the [Az.MachineLearningServices](/powershell/module/az.machinelearningservices) reference documentation.
 
+You can also manage workspaces [using the Azure CLI](how-to-manage-workspace-cli.md), [Azure Portal and Python SDK](how-to-manage-workspace.md), or [via the VS Code extension](how-to-setup-vs-code.md).
+
 ## Prerequisites
 
 - An **Azure subscription**. If you don't have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
@@ -76,12 +78,18 @@ Use the following commands to create these resources and retrieve the Azure Reso
 
 1. Create the Azure Key Vault:
 
+    > [!IMPORTANT]
+    > Each key vault must have a unique name. Replace `MyKeyVault` with the name of your key vault in the following example.
+
    ```azurepowershell-interactive
    $KeyVault = 'MyKeyVault'
    New-AzKeyVault -Name $KeyVault -ResourceGroupName $ResourceGroup -Location $Location
    $kvid = (Get-AzResource -Name $KeyVault -ResourceGroupName $ResourceGroup).ResourceId
 
 1. Create the Azure Storage Account:
+
+    > [!IMPORTANT]
+    > Each storage account must have a unique name. Replace `MyStorage` with the name of your storage account in the following example. You can use `Get-AzStorageAccountNameAvailability -Name 'YourUniqueName'` to verify the name before running the following example.
 
    ```azurepowershell-interactive
    $Storage = 'MyStorage'
