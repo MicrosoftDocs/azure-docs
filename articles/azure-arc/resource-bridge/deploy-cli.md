@@ -20,7 +20,7 @@ The `createconfig` command features two modes: interactive and non-interactive. 
 
 ## az arcappliance validate
 
-Checks the configuration files for a valid schema, cloud and core validations (such as deployment host to SFS connectivity), network settings, and no proxy settings.  
+Checks the configuration files for a valid schema, cloud and core validations (such as management machine connectivity to required URLs), network settings, and no proxy settings.  
 
 ## az arcappliance prepare
 
