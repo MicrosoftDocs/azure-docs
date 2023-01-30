@@ -16,7 +16,7 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
 
 ## Prerequisites
 
-* [Complete the prerequisite tasks for deploying a private mobile network]* (complete-private-mobile-network-prerequisites.md).
+* [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
 * You will need Owner permission on the resource group for your Azure Stack Edge resource.
 
@@ -37,7 +37,7 @@ WinRM may already be enabled on your machine, as you only need to do it once. En
 
 ### Start the minishell session
 
-1. From a PowerShell window, enter the ASE IP address (including quotation marks, for example `"10.10.5.90"`): <!-- Which IP address? Does it really only have one? -->
+1. From a PowerShell window, enter the ASE management IP address (including quotation marks, for example `"10.10.5.90"`):
     ```powershell
    $ip = "*ASE IP address*"
    
@@ -100,7 +100,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
 1. Configure three virtual switches. There must be a virtual switch associated with each port before the next step. The virtual switches may already be present if you have other virtual network functions (VNFs) set up.
 
     Select **Add virtual switch** and fill in the side panel appropriately for each switch before selecting **Modify** to save that configuration.
-    - Create a virtual switch on the port that should have compute enabled (the management port). We recommend using the format **vswitch-portX**, where **X** is the number of the port. For example, create **vswitch-port*3* on port 3.  
+    - Create a virtual switch on the port that should have compute enabled (the management port). We recommend using the format **vswitch-portX**, where **X** is the number of the port. For example, create **vswitch-port3** on port 3.  
     - Create a virtual switch on port 5 with the name **vswitch-port5**.
     - Create a virtual switch on port 6 with the name **vswitch-port6**.
 
@@ -172,15 +172,11 @@ Once deployed, the portal should show  **Kubernetes service is healthy** on the 
 
 ## Set up kubectl access
 
-<!--Is there an advantage to doing this during setup, or should we move this elsewhere, or remove it? -->
-
 For read-only *kubectl* access to the cluster, you can download a *kubeconfig* file from the local UI. Under **Device**, select **Download config**.
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-download-config.png" alt-text="Screenshot of Kubernetes dashboard showing link to download config.":::
 
-The downloaded file is called *config.json*. By default, *kubectl* expects its configuration file to just be called *config*. <!-- And so you should change the name to remove the file extension? Or the extension's fine, but you shouldn't change the name? -->
-
-This file has permission to describe pods and view logs, but not to access pods with kubectl exec.
+The downloaded file is called *config.json*. This file has permission to describe pods and view logs, but not to access pods with kubectl exec.
 
 The Azure Private 5G Core deployment uses the *core* namespace. If you need to collect diagnostics, you can download a *kubeconfig* file with full access to the *core* namespace using the following minishell commands.
 
@@ -226,7 +222,7 @@ To view all the running pods, run:
 
 `kubectl get pods -A`
 
-Additionally, your AKS cluster cluster should now be visible in the Azure portal. <!-- can we provide some details on where/how to view it/how it should look if all is well? -->
+Additionally, your AKS cluster should now be visible from your Azure Stack Edge resource in the portal.
 
 ## Install Kubernetes extensions
 
@@ -250,8 +246,7 @@ You can obtain the *\<resource name\>* (the name of the AKS cluster) by using th
 1. Prepare your shell environment:
 
     ```azurecli-interactive
-    az cloud set --name AzureCloud
-    az account set --subscription "$ARG_SUBSCRIPTION_ID"
+    az account set --subscription "$SUBSCRIPTION_ID"
     ```
 
 1. Create the Network Function Operator Kubernetes extension:
@@ -281,7 +276,7 @@ You can obtain the *\<resource name\>* (the name of the AKS cluster) by using th
     --scope cluster \
     --release-namespace azurehybridnetwork \
     --release-train preview \
-    --configuration-settings-file $TEMP_FILE 
+    --config-settings-file $TEMP_FILE 
     ```
 
 1. Create the Packet Core Monitor Kubernetes extension:
