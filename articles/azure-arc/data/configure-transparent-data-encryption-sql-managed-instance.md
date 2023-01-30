@@ -176,10 +176,9 @@ When you back up credentials from the managed instance, the credentials are stor
 
 Similar to above, to restore the credentials, copy them into the container and run the corresponding T-SQL afterwards.
 
+
 > [!NOTE]
-
 > If the `kubectl cp` command is run from Windows, the command may fail when using absolute Windows paths. Use relative paths or the commands specified below.
-
 > To restore database backups that have been taken before enabling TDE, you would need to disable TDE on the SQL Managed Instance, restore the database backup and enable TDE again.
 
 1. Copy the certificate from your file system to the container.
