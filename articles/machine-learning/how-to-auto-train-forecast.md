@@ -257,7 +257,7 @@ forecasting_job.set_forecast_settings(
 )
 ```
 
-One or both these settings can be set to `"auto"` if you want AutoML to make the determination. 
+One or both of these settings can be set to `"auto"` if you want AutoML to make the determination. 
 
 ### Custom featurization
 
