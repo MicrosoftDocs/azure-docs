@@ -155,7 +155,7 @@ These circumstances result in unpredictable behavior when evaluating the conditi
 
     In these cases, incorrect evaluation of an incident's condition may cause automation rules to run when they shouldn't, or not to run when they should. The result of this would be that the wrong actions would be taken on an incident, or that the right actions would not be taken.
 
-- **Information in later alerts being ignored when playbooks are run on the incident:**
+- **Information in later alerts being unavailable to playbooks run on the incident:**
 
     When an automation rule calls a playbook, it passes the incident's detailed information to the playbook. Because of the behavior mentioned above, a playbook might only receive the details (entities, custom details, and so on) of the first alert in an incident, but not those from subsequent alerts. This means that the playbook's actions would not have access to all the information in the incident.
 
