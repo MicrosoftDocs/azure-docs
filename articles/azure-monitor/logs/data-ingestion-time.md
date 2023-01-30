@@ -13,7 +13,7 @@ ms.date: 03/21/2022
 Azure Monitor is a high-scale data service that serves thousands of customers that send terabytes of data each month at a growing pace. There are often questions about the time it takes for log data to become available after it's collected. This article explains the different factors that affect this latency.
 
 ## Typical latency
-Latency refers to the time that data is created on the monitored system and the time that it becomes available for analysis in Azure Monitor. The typical latency to ingest log data is *between 20 seconds and 3 minutes*. The specific latency for any particular data will vary depending on several factors that are explained in this article.
+Latency refers to the time that data is created on the monitored system and the time that it becomes available for analysis in Azure Monitor. The typical latency to ingest log data is *between 20 seconds and 3 minutes*. 
 
 ## Factors affecting latency
 The total ingestion time for a particular set of data can be broken down into the following high-level areas:
@@ -26,7 +26,7 @@ Details on the different latency introduced in this process are described in the
 
 ### Agent collection latency
 
-**Time varies**
+**Typical latency: Varies**
 
 Agents and management solutions use different strategies to collect data from a virtual machine, which might affect the latency. Some specific examples are listed in the following table.
 
@@ -40,19 +40,19 @@ Agents and management solutions use different strategies to collect data from a 
 
 ### Agent upload frequency
 
-**Under 1 minute**
+**Typical latency: Under one minute**
 
 To ensure the Log Analytics agent is lightweight, the agent buffers logs and periodically uploads them to Azure Monitor. Upload frequency varies between 30 seconds and 2 minutes depending on the type of data. Most data is uploaded in under 1 minute.
 
 ### Network
 
-**Varies**
+**Typical latency: Varies**
 
 Network conditions might negatively affect the latency of this data to reach an Azure Monitor Logs ingestion point.
 
 ### Azure metrics, resource logs, activity log
 
-**30 seconds to 15 minutes**
+**Typical latency: 30 seconds to 15 minutes**
 
 Azure data adds more time to become available at an Azure Monitor Logs ingestion point for processing:
 
@@ -62,7 +62,7 @@ Azure data adds more time to become available at an Azure Monitor Logs ingestion
 
 ### Management solutions collection
 
-**Varies**
+**Typical latency: Varies**
 
 Some solutions don't collect their data from an agent and might use a collection method that introduces more latency. Some solutions collect data at regular intervals without attempting near real time collection. Specific examples include:
 
@@ -73,7 +73,7 @@ To determine a solution's collection frequency, see the [documentation for each 
 
 ### Pipeline-process time
 
-**30 to 60 seconds**
+**Typical latency: 30 to 60 seconds**
 
 After the data is available at an ingestion point, it takes another 30 to 60 seconds to be available for querying.
 
@@ -89,13 +89,13 @@ When a new type of custom data is created from a [custom log](../agents/data-sou
 
 ### Surge protection
 
-**Typically less than 1 minute, but can be more**
+**Typical latency: Less than a minute, but can be more**
 
 The top priority of Azure Monitor is to ensure that no customer data is lost, so the system has built-in protection for data surges. This protection includes buffers to ensure that even under immense load, the system will keep functioning. Under normal load, these controls add less than a minute. In extreme conditions and failures, they could add significant time while ensuring data is safe.
 
 ### Indexing time
 
-**5 minutes or less**
+**Typical latency: 5 minutes or less**
 
 There's a built-in balance for every big data platform between providing analytics and advanced search capabilities as opposed to providing immediate access to the data. With Azure Monitor, you can run powerful queries on billions of records and get results within a few seconds. This performance is made possible because the infrastructure transforms the data dramatically during its ingestion and stores it in unique compact structures. The system buffers the data until enough of it is available to create these structures. This process must be completed before the log record appears in search results.
 
