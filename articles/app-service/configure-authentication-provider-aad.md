@@ -52,7 +52,7 @@ You can configure App Service authentication to use an existing app registration
 - You want to use an app registration from a different Azure AD tenant than the one your app is in.
 - The option to create a new registration is not available for government clouds.
 
-### <a name="register"> </a>Step 1: Create an app registration in Azure AD for your App Service app
+#### <a name="register"> </a>Step 1: Create an app registration in Azure AD for your App Service app
 
 During creation of the app registration, collect the following information which you will need later when you configure the authentication in the App Service app:
 
@@ -88,7 +88,7 @@ To register the app, perform the following steps:
     1. In the **Value** field, copy the client secret value. It won't be shown again once you navigate away from this page.
 1. (Optional) To add multiple **Reply URLs**, select **Authentication**.
 
-### <a name="secrets"> </a>Enable Azure Active Directory in your App Service app
+#### <a name="secrets"> </a>Step 2: Enable Azure Active Directory in your App Service app
 
 1. Sign in to the [Azure portal] and navigate to your app.
 1. From the left navigation, select **Authentication** > **Add identity provider** > **Microsoft**.
@@ -113,7 +113,7 @@ To register the app, perform the following steps:
 
 You're now ready to use the Microsoft identity platform for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
-## Add authorization policy
+## Add customized authorization policy
 
 The created app registration authenticates incoming requests for your Azure AD tenant. By default, it also lets anyone within the tenant to access the application, which is fine for many applications. However, some applications need to restrict access further by making authorization decisions. Your application code is often the best place to handle custom authorization logic. However, for common scenarios, the Microsoft identity platform provides built-in checks that you can use to limit access.
 
