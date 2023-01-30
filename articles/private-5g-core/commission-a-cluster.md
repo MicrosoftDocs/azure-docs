@@ -1,6 +1,6 @@
 ---
 title: Commission an AKS cluster 
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to commission the Azure Kubernetes Cluster on Azure Stack Edge to get it ready to deploy Azure Private 5G Core.
 author: robswain
 ms.author: robswain
@@ -82,7 +82,7 @@ Additionally, if you go to the Azure portal and navigate to your **Azure Stack E
 
 ## Enable high performance networking
 
-Azure Private 5G Core private requires high performance networking (HPN) to be enabled on Azure Stack Edge using a minishell command. You can continue to use the minishell session you started in [Enter a minishell session](#enter-a-minishell-session). Run the following command:
+Azure Private 5G Core requires high performance networking (HPN) to be enabled on Azure Stack Edge using a minishell command. You can continue to use the minishell session you started in [Enter a minishell session](#enter-a-minishell-session). Run the following command:
 
 ```powershell
 Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsNumaLpMapping -UseSkuPolicy}
@@ -112,9 +112,9 @@ You can input all the settings on this page before selecting **Apply** at the bo
     - user plane access interface
     - user plane data interface(s)
 
-    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, if you’re deploying a 5G core, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a deployment with multiple data networks (DNs); just **N6** for a single DN deployment). The following example is for a 5G multi-DN deployment.
+    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a 5G deployment with multiple data networks (DNs); just **N6** for a single DN deployment). The following example is for a 5G multi-DN deployment.
 
-1. Carry out the following procedure three times plus once for each of the supplementary data networks (so five times in total if you have three data networks): 
+1. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have three data networks): 
 
     1. Select **Add virtual network** and fill in the side panel:
           - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
@@ -136,13 +136,11 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
 
 1. Under **Compute virtual switch**, select **Modify**.
       1. Select the management vswitch (for example, *vswitch-port3*)
-      1.- Enter six IP addresses in a range for the node IP addresses on the management network.
+      1. Enter six IP addresses in a range for the node IP addresses on the management network.
       1. Enter one IP address in a range for the service IP address, also on the management network.
       1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Under **Virtual network**, select a virtual network (from **N2**, **N3**, **N6-DN1**, **N6-DN2**, and **N6-DN3**). In the side panel:
-      1. Enable the virtual network for Kubernetes and add a pool of IP addresses.
-        - Add a range of one IP address for the appropriate address (N2, N3, N6-DN1, N6-DN2 or N6-DN3 as collected earlier.
-        - For example, *10.10.10.20-10.10.10.20*.
+      1. Enable the virtual network for Kubernetes and add a pool of IP addresses. Add a range of one IP address for the appropriate address (N2, N3, N6-DN1, N6-DN2 or N6-DN3 as collected earlier. For example, *10.10.10.20-10.10.10.20*.
       1. Repeat for each of the N2, N3, N6-DN1, N6-DN2, and N6-DN3 virtual networks.
       1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 15 minutes.
@@ -172,11 +170,11 @@ Once deployed, the portal should show  **Kubernetes service is healthy** on the 
 
 ## Set up kubectl access
 
-For read-only *kubectl* access to the cluster, you can download a *kubeconfig* file from the local UI. Under **Device**, select **Download config**.
+You'll need *kubectl* access to verify that the cluster has deployed successfully. For read-only *kubectl* access to the cluster, you can download a *kubeconfig* file from the ASE local UI. Under **Device**, select **Download config**.
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-download-config.png" alt-text="Screenshot of Kubernetes dashboard showing link to download config.":::
 
-The downloaded file is called *config.json*. This file has permission to describe pods and view logs, but not to access pods with kubectl exec.
+The downloaded file is called *config.json*. This file has permission to describe pods and view logs, but not to access pods with *kubectl exec*.
 
 The Azure Private 5G Core deployment uses the *core* namespace. If you need to collect diagnostics, you can download a *kubeconfig* file with full access to the *core* namespace using the following minishell commands.
 
@@ -186,7 +184,7 @@ The Azure Private 5G Core deployment uses the *core* namespace. If you need to c
     Invoke-Command -Session $minishellSession -ScriptBlock {New-HcsKubernetesUser -UserName "core"} | Out-File -FilePath .\kubeconfig-core.yaml
     Invoke-Command -Session $minishellSession -ScriptBlock {Grant-HcsKubernetesNamespaceAccess -Namespace "core" -UserName "core"}
     ```
-- If you need to retrieve the saved *kubeconfig* later:
+- If you need to retrieve the saved *kubeconfig* file later:
     ```powershell
     Invoke-Command -Session $miniShellSession -ScriptBlock { Get-HcsKubernetesUserConfig -UserName "core" }
     ```
@@ -202,7 +200,7 @@ Explore the cluster using the options in the **Kubernetes resources (preview)** 
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-resources.png" alt-text="Screenshot of Kubernetes resources (preview) menu, showing namespaces, workloads, services and ingresses, storage and configuration options.":::
 
-You'll initially be presented with a sign-in request box. The token to use for signing in is obtained from the *kubeconfig* file retrieved from the local UI in [Set up kubectl access](#set-up-kubectl-access). There's a string prefixed by *token:*, near the end of the *kubeconfig* file. Copy this string into the box in the portal (ensuring you don't have line break characters copied), and select **Sign in**.
+You'll initially be presented with a sign-in request box. The token to use for signing in is obtained from the *kubeconfig* file retrieved from the local UI in [Set up kubectl access](#set-up-kubectl-access). There's a string prefixed by *token:* near the end of the *kubeconfig* file. Copy this string into the box in the portal (ensuring you don't have line break characters copied), and select **Sign in**.
 
 :::image type="content" source="media/commission-a-cluster/commission-a-cluster-kubernetes-sign-in.png" alt-text="Screenshot of sign-in screen for Kubernetes resource. There's a box to enter your service account bearer token and a sign-in button.":::
 
@@ -228,18 +226,18 @@ Additionally, your AKS cluster should now be visible from your Azure Stack Edge 
 
 The Azure Private 5G Core private mobile network requires a custom location and specific Kubernetes extensions that you need to set up using the Azure CLI in Azure Cloud Shell.
 
-You can obtain the *\<resource name\>* (the name of the AKS cluster) by using the **Manage** link in the **Azure Kubernetes Service** pane in the Azure portal.
+You can obtain the *<resource name>* (the name of the AKS cluster) by using the **Manage** link in the **Azure Kubernetes Service** pane in the Azure portal.
 
 1. Log in to the Azure CLI using Azure Cloud Shell.
 
 1. Set the following environment variables using the required values for your deployment:
 
     ```azurecli-interactive
-    export SUBSCRIPTION_ID=*subscription ID*
-    export RESOURCE_GROUP_NAME=*resource group name*
-    export LOCATION=*deployment region, for example eastus*
-    export CUSTOM_LOCATION=*custom location for the AKS cluster*
-    export RESOURCE_NAME=*resource name*
+    export SUBSCRIPTION_ID=<subscription ID>
+    export RESOURCE_GROUP_NAME=<resource group name>
+    export LOCATION=<deployment region, for example eastus>
+    export CUSTOM_LOCATION=<custom location for the AKS cluster>
+    export RESOURCE_NAME=<resource name>
     export TEMP_FILE=./tmpfile
     ```
 
@@ -252,7 +250,6 @@ You can obtain the *\<resource name\>* (the name of the AKS cluster) by using th
 1. Create the Network Function Operator Kubernetes extension:
 
     ```azurecli-interactive
-
     cat > $TEMP_FILE <<EOF
     {
       "helm.versions": "v3",
@@ -282,7 +279,6 @@ You can obtain the *\<resource name\>* (the name of the AKS cluster) by using th
 1. Create the Packet Core Monitor Kubernetes extension:
 
     ```azurecli-interactive
-
     az k8s-extension create \
     --name packet-core-monitor \
     --cluster-name "$RESOURCE_NAME" \
