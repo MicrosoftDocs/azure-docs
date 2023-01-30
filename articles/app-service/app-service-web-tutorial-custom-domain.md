@@ -89,7 +89,7 @@ Create two records according to the following table:
 
 # [Subdomain (e.g. www.contoso.com)](#tab/subdomain)
 
-# [With an A record](#tab/subdomain/a)
+### [With an A record](#tab/subdomain/a)
 
 Create two records according to the following table:
 
@@ -100,7 +100,7 @@ Create two records according to the following table:
 
 ![Screenshot that shows a DNS records subdomain page.](./media/app-service-web-tutorial-custom-domain/a-record-subdomain.png)
 
-# [With a CNAME record](#tab/subdomain/cname)
+### [With a CNAME record](#tab/subdomain/cname)
 
 Create two records according to the following table:
 
@@ -111,7 +111,7 @@ Create two records according to the following table:
 
 ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
----
+-----
 
 # [Wildcard (CNAME)](#tab/wildcard)
 

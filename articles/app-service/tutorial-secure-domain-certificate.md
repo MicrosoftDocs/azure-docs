@@ -143,7 +143,7 @@ The App Service managed certificate doesn't expire as long as it's configured fo
 
 #### What else can I do with the App Service managed certificate for my app?
 
-The managed certificate is provided for free for the sole purpose of securing your app's configured custom domain. To do more, such as download the certificate, or use it in your application code, you can upload your own certificate, purchase an App Service certificate, or import a Key Vault certificate. For more information, see [Add a private certificate to your app](configure-ssl-certificate.md).
+The managed certificate is provided for free for the sole purpose of securing your app's configured custom domain. It comes with [a number of limitations](configure-ssl-certificate.md#create-a-free-managed-certificate). To do more, such as download the certificate, or use it in your application code, you can upload your own certificate, purchase an App Service certificate, or import a Key Vault certificate. For more information, see [Add a private certificate to your app](configure-ssl-certificate.md).
 
 #### How do I use a certificate I already have to secure my custom domain?
 
