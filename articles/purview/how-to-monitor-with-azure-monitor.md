@@ -73,12 +73,16 @@ Raw telemetry events are emitted to Azure Monitor. Events can be sent to a Log A
 
 Follow the steps to create a Diagnostic setting for your Microsoft Purview account and send to your preferred destination.
 
-1. Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
+Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Screenshot showing creating diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
+
+You can send your logs to: 
+- [A log analytics workspace](#destination-Log-Analytics-Workspace)
+- [A storage account](#destination-Storage-account)
    
-#### Destination - Log Analytics workspace
-2. Select the destination to a log analytics workspace to send the event to. Create a name for the diagnostic setting, select the applicable log category group and select the right subscription and workspace, then click save. The workspace doesn't have to be in the same region as the resource being monitored. Follow this article to [Create a New Log Analytics Workspace](..//services-hub/health/log_analytics_workspace).
+#### Destination - Log Analytics Workspace
+Select the destination to a log analytics workspace to send the event to. Create a name for the diagnostic setting, select the applicable log category group and select the right subscription and workspace, then click save. The workspace doesn't have to be in the same region as the resource being monitored. Follow this article to [Create a New Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md).
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Screenshot showing assigning log analytics workspace to send event to." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
@@ -86,10 +90,10 @@ Follow the steps to create a Diagnostic setting for your Microsoft Purview accou
 
 Verify the changes in **Log Analytics Workspace** by perfoming some operations to populate data such as creating/updating/deleting policy. After which you can open the **Log Analytics Workspace**, navigate to **Logs**, enter query filter as **"purviewsecuritylogs"**, then click **"Run"** to execute the query. 
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-two-diagnostic-setting.png" alt-text="Screenshot showing log results in the Log Analytics Workspace after an query was run." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-otwo-diagnostic-setting.png":::
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-two-diagnostic-setting.png" alt-text="Screenshot showing log results in the Log Analytics Workspace after an query was run." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-two-diagnostic-setting.png":::
 
 #### Destination - Storage account
-3. To log the events to a storage account; create a diagnostic setting name, select the log category,. select the destination as archieve to a storage account, select the right subscription and storage account then click save. A dedicated storage account is recommended for archiving the diagnostic logs. Following this article to [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
+To log the events to a storage account; create a diagnostic setting name, select the log category,. select the destination as archieve to a storage account, select the right subscription and storage account then click save. A dedicated storage account is recommended for archiving the diagnostic logs. Following this article to [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-three-diagnostic-setting.png" alt-text="Screenshot showing assigning storage account for diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-three-diagnostic-setting.png":::
 
