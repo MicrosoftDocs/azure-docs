@@ -32,255 +32,145 @@ Learn more about each of these capabilities in these articles:
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This article shows you how to create two Node.js apps:
+This article shows you how to create two Azure CLI sessions:
 
-* A Node.js simulated device app, **simDevice.js**, that implements a direct method called **lockDoor**, which can be called by the back-end app.
+* A session that creates a simulated device which returns a status code and JSON payload when any direct method is invoked from the device.
 
-* A Node.js console app, **scheduleJobService.js**, that creates two jobs. One job calls the **lockDoor** direct method and another job sends desired property updates to multiple devices.
-
-> [!NOTE]
-> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
+* A session that creates two scheduled jobs. The first job invokes a direct method and the second job updates a desired device twin property on the simulated device created in the other session.
 
 ## Prerequisites
+
+* Azure CLI. You can also run the commands in this article using the Azure Cloud Shell, an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run az --version to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this article on either Windows or Linux.
-
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## Create a simulated device app
+## Prepare the Cloud Shell
 
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated **lockDoor** method.
+If you want to use the Azure Cloud Shell, you must first launch and configure it. If you use the CLI locally, skip to the section [Prepare two CLI sessions](#prepare-two-cli-sessions).
 
-1. Create a new empty folder called **simDevice**.  In the **simDevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
+To prepare the Cloud Shell:
 
-   ```console
-   npm init
-   ```
+1. Select the **Cloud Shell** button on the top-right menu bar in the Azure portal.
 
-2. At your command prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+    ![Azure portal Cloud Shell button](media/quickstart-send-telemetry-cli/cloud-shell-button.png)
 
-   ```console
-   npm install azure-iot-device azure-iot-device-mqtt --save
-   ```
+    > [!NOTE]
+    > If this is the first time you've used the Cloud Shell, it prompts you to create storage, which is required to use the Cloud Shell.  Select a subscription to create a storage account and Microsoft Azure Files share.
 
-3. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
+2. Select your preferred CLI environment in the **Select environment** dropdown. This article uses the **Bash** environment. You can also use the **PowerShell** environment. 
 
-4. Add the following 'require' statements at the start of the **simDevice.js** file:
+    > [!NOTE]
+    > Some commands require different syntax or formatting in the **Bash** and **PowerShell** environments.  For more information, see [Tips for using the Azure CLI successfully](/cli/azure/use-cli-effectively?tabs=bash%2Cbash2).
 
-    ```javascript
-    'use strict';
+    ![Select CLI environment](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
-    var Client = require('azure-iot-device').Client;
-    var Protocol = require('azure-iot-device-mqtt').Mqtt;
-    ```
+## Prepare two CLI sessions
 
-5. Add a **connectionString** variable and use it to create a **Client** instance. Replace the `{yourDeviceConnectionString}` placeholder value with the device connection string you copied previously.
-
-    ```javascript
-    var connectionString = '{yourDeviceConnectionString}';
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
-
-6. Add the following function to handle the **lockDoor** method.
-
-    ```javascript
-    var onLockDoor = function(request, response) {
-
-        // Respond the cloud app for the direct method
-        response.send(200, function(err) {
-            if (err) {
-                console.error('An error occurred when sending a method response:\n' + err.toString());
-            } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
-            }
-        });
-
-        console.log('Locking Door!');
-    };
-    ```
-
-7. Add the following code to register the handler for the **lockDoor** method.
-
-   ```javascript
-   client.open(function(err) {
-        if (err) {
-            console.error('Could not connect to IotHub client.');
-        }  else {
-            console.log('Client connected to IoT Hub. Register handler for lockDoor direct method.');
-            client.onDeviceMethod('lockDoor', onLockDoor);
-        }
-   });
-   ```
-
-8. Save and close the **simDevice.js** file.
+Next, you must prepare two Azure CLI sessions. If you're using the Cloud Shell, you'll run these sessions in separate Cloud Shell tabs. If using a local CLI client, you'll run separate CLI instances. Use the separate CLI sessions for the following tasks:
+- The first session simulates an IoT device that communicates with your IoT hub. 
+- The second session schedules jobs for your simulated device with your IoT hub. 
 
 > [!NOTE]
-> To keep things simple, this article does not implement a retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> Azure CLI requires you to be logged into your Azure account. If you're using the Cloud Shell, you're automatically logged into your Azure account. If you're using a local CLI client, you must log into each CLI session. All communication between your Azure CLI shell session and your IoT hub is authenticated and encrypted. As a result, this article doesn't need extra authentication that you'd use with a real device, such as a connection string. For more information about logging in with Azure CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-## Get the IoT Hub connection string
+1. In the first CLI session, run the [az extension add](/cli/azure/extension#az-extension-add) command. The command adds the Microsoft Azure IoT Extension for Azure CLI to your CLI shell. The extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI. After you install the extension, you don't need to install it again in any Cloud Shell session.
 
-[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+   ```azurecli
+   az extension add --name azure-iot
+   ```
 
-[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## Schedule jobs for calling a direct method and updating a device twin's properties
+2. Open the second CLI session.  If you're using the Cloud Shell in a browser, select the **Open new session** button on the toolbar of your first CLI session. If using the CLI locally, open a second CLI instance.
 
-In this section, you create a Node.js console app that initiates a remote **lockDoor** on a device using a direct method and update the device twin's properties.
+    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-new-session.png" alt-text="Screenshot of an Azure Cloud Shell session, highlighting the Open New Session button in the toolbar.":::
 
-1. Create a new empty folder called **scheduleJobService**.  In the **scheduleJobService** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
+## Create and simulate a device
 
-    ```console
-    npm init
+In this section, you create a device identity for your IoT hub in the first CLI session, and then simulate a device using that device identity. The simulated device responds to the jobs that you schedule in the second CLI session.
+
+To create and start a simulated device:
+
+1. In the first CLI session, run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command, replacing the following placeholders with their corresponding values. This command creates the device identity for your simulated device.
+
+    | Placeholder | Value |
+    | --- | --- |
+    |{HubName} | The name of your IoT hub. |
+    |{DeviceName} | The name of your simulated device. |
+
+    ```azurecli
+    az iot hub device-identity create -d {DeviceName} -n {HubName} 
     ```
 
-2. At your command prompt in the **scheduleJobService** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
+1. In the first CLI session, run the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command, replacing the following placeholders with their corresponding values. This command uses the device identity you created in the previous step to simulate a device that returns a status code and payload when a direct method is invoked on the simulated device. 
 
-    ```console
-    npm install azure-iothub uuid --save
+    | Placeholder | Value |
+    | --- | --- |
+    |{DeviceName} | The name of your simulated device. |
+    |{HubName} | The name of your IoT hub. |
+    
+    ```azurecli
+    az iot device simulate -d {DeviceName} -n {HubName} \
+                           --mrc 201 --mrp '{"result":"Direct method successful"}'
     ```
 
-3. Using a text editor, create a new **scheduleJobService.js** file in the **scheduleJobService** folder.
+    > [!TIP]
+    > By default, the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command sends 100 device-to-cloud messages with an interval of 3 seconds between messages. The simulation ends after all messages have been sent. If you want the simulation to run longer, you can use the `--msg-count` parameter to specify more messages or the `--msg-interval` parameter to specify a longer interval between messages. You can also run the command again to restart the simulated device. 
 
-4. Add the following 'require' statements at the start of the **scheduleJobService.js** file:
+## Schedule a job to invoke a direct method
 
-    ```javascript
-    'use strict';
+In this section, you schedule a job in the second CLI session to invoke a direct method on the simulated device running in the first CLI session.
 
-    var uuid = require('uuid');
-    var JobClient = require('azure-iothub').JobClient;
+1. Confirm that the simulated device in the first CLI session is running.  If not, restart it by running the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command again from [Create and simulate a device](#create-and-simulate-a-device).
+
+1. In the second CLI session, run the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, there's no preexisting method for the device. The command calls an example method name on the simulated device and returns a payload.
+
+    | Placeholder | Value |
+    | --- | --- |
+    |{JobName} | The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.|
+    |{HubName} | The name of your IoT hub. |
+    |{MethodName} | The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command. |
+    |{DeviceName} | The name of your simulated device. |
+
+    ```azurecli
+    az iot hub job create --job-id {JobName} --jt scheduleDeviceMethod -n {HubName} \
+                          --method-name {MethodName} --method-payload 1 \
+                          --query-condition "deviceId = '{DeviceName}'"
     ```
+1. In the first CLI session, confirm that the output shows the method invocation. In the following screenshot, we used `SampleMethod` for the `{MethodName}` placeholder in the `az iot hub job create` CLI command from the previous step. 
 
-5. Add the following variable declarations. Replace the `{iothubconnectionstring}` placeholder value with the value you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). If you registered a device different than **myDeviceId**, be sure to change it in the query condition.
+    :::image type="content" source="./media/cli-cli-schedule-jobs/sim-device-direct-method.png" alt-text="Screenshot of a simulated device displaying output after a method was invoked.":::
 
-    ```javascript
-    var connectionString = '{iothubconnectionstring}';
-    var queryCondition = "deviceId IN ['myDeviceId']";
-    var startTime = new Date();
-    var maxExecutionTimeInSeconds =  300;
-    var jobClient = JobClient.fromConnectionString(connectionString);
+## Schedule a job to update a device twin's properties
+
+In this section, you schedule a job in the second CLI session to update a desired device twin property on the simulated device running in the first CLI session.
+
+1. Confirm that the simulated device in the first CLI session is running.  If not, restart it by running the [az iot device simulate](/cli/azure/iot/device#az-iot-device-simulate) command again from [Create and simulate a device](#create-and-simulate-a-device).
+
+1. In the second CLI session, run the [az iot hub job create](/cli/azure/iot/hub/job#az-iot-hub-job-create) command, replacing the following placeholders with their corresponding values. In this example, we're scheduling a job to set the value of the desired twin property `BuildingNo` to 45 for our simulated device.
+
+    | Placeholder | Value |
+    | --- | --- |
+    |{JobName} | The name of your scheduled job. Job names are unique, so choose a different job name each time you run this command.|
+    |{HubName} | The name of your IoT hub. |
+    |{MethodName} | The name of your direct method. The simulated device doesn't have a pre-existing method, so you can choose any name you want for this command. |
+    |{DeviceName} | The name of your simulated device. |
+
+    ```azurecli
+    az iot hub job create --job-id {JobName} --jt scheduleUpdateTwin -n {HubName} \
+                          --twin-patch '{"properties":{"desired": {"BuildingNo": 45}}}' \
+                          --query-condition "deviceId = '{DeviceName}'"
     ```
+1. In the first CLI session, confirm the output shows the update for the desired device twin property. 
 
-6. Add the following function that is used to monitor the execution of the job:
-
-    ```javascript
-    function monitorJob (jobId, callback) {
-        var jobMonitorInterval = setInterval(function() {
-            jobClient.getJob(jobId, function(err, result) {
-            if (err) {
-                console.error('Could not get job status: ' + err.message);
-            } else {
-                console.log('Job: ' + jobId + ' - status: ' + result.status);
-                if (result.status === 'completed' || result.status === 'failed' || result.status === 'cancelled') {
-                clearInterval(jobMonitorInterval);
-                callback(null, result);
-                }
-            }
-            });
-        }, 5000);
-    }
-    ```
-
-7. Add the following code to schedule the job that calls the device method:
-  
-    ```javascript
-    var methodParams = {
-        methodName: 'lockDoor',
-        payload: null,
-        responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
-    };
-
-    var methodJobId = uuid.v4();
-    console.log('scheduling Device Method job with id: ' + methodJobId);
-    jobClient.scheduleDeviceMethod(methodJobId,
-                                queryCondition,
-                                methodParams,
-                                startTime,
-                                maxExecutionTimeInSeconds,
-                                function(err) {
-        if (err) {
-            console.error('Could not schedule device method job: ' + err.message);
-        } else {
-            monitorJob(methodJobId, function(err, result) {
-                if (err) {
-                    console.error('Could not monitor device method job: ' + err.message);
-                } else {
-                    console.log(JSON.stringify(result, null, 2));
-                }
-            });
-        }
-    });
-    ```
-
-8. Add the following code to schedule the job to update the device twin:
-
-    ```javascript
-    var twinPatch = {
-       etag: '*',
-       properties: {
-           desired: {
-               building: '43',
-               floor: 3
-           }
-       }
-    };
-
-    var twinJobId = uuid.v4();
-
-    console.log('scheduling Twin Update job with id: ' + twinJobId);
-    jobClient.scheduleTwinUpdate(twinJobId,
-                                queryCondition,
-                                twinPatch,
-                                startTime,
-                                maxExecutionTimeInSeconds,
-                                function(err) {
-        if (err) {
-            console.error('Could not schedule twin update job: ' + err.message);
-        } else {
-            monitorJob(twinJobId, function(err, result) {
-                if (err) {
-                    console.error('Could not monitor twin update job: ' + err.message);
-                } else {
-                    console.log(JSON.stringify(result, null, 2));
-                }
-            });
-        }
-    });
-    ```
-
-9. Save and close the **scheduleJobService.js** file.
-
-## Run the applications
-
-You are now ready to run the applications.
-
-1. At the command prompt in the **simDevice** folder, run the following command to begin listening for the reboot direct method.
-
-    ```console
-    node simDevice.js
-    ```
-
-2. At the command prompt in the **scheduleJobService** folder, run the following command to trigger the jobs to lock the door and update the twin
-
-    ```console
-    node scheduleJobService.js
-    ```
-
-3. You see the device response to the direct method and the job status in the console.
-
-   The following shows the device response to the direct method:
-
-   ![Simulated device app output](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
-
-   The following shows the service scheduling jobs for the direct method and device twin update, and the jobs running to completion:
-
-   ![Run the simulated device app](./media/iot-hub-node-node-schedule-jobs/schedule-job-service.png)
+    :::image type="content" source="./media/cli-cli-schedule-jobs/sim-device-update-twin.png" alt-text="Screenshot of a simulated device displaying output after a device twin property was updated.":::
 
 ## Next steps
 
-In this article, you scheduled jobs to run a direct method and update the device twin's properties.
+In this article, you used Azure CLI to simulate a device and schedule jobs to run a direct method and update the device twin's properties for that simulated device.
 
-To continue exploring IoT Hub and device management patterns, update an image in [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
+To continue exploring IoT hub and device management patterns, update an image in [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
