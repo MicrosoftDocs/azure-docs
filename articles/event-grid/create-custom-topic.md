@@ -74,7 +74,7 @@ On the **Security** page of the **Create Topic**  or **Create Event Grid Domain*
 
     The **Cross-Geo** option allows Microsoft-initiated failover to the paired region in case of a region failure. For more information, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md). Microsoft-initiated failover is exercised by Microsoft in rare situations to fail over Event Grid resources from an affected region to the corresponding geo-paired region. This process doesn't require an intervention from user. Microsoft reserves right to make a determination of when this path will be taken. The mechanism doesn't involve a user consent before the user's topic or domain is failed over. For more information, see [How do I recover from a failover?](./event-grid-faq.yml).
 
-    If you select the **Regional** option, you may define your own disaster recovery plan. For more information, see [Build your own disaster recovery plan for Azure Event Grid topics and domains](custom-disaster-recovery.md).
+    If you select the **Regional** option, you may define your own disaster recovery plan. 
 3. Select **Next: Tags** to move to the **Tags** page. 
 
 ## Tags page

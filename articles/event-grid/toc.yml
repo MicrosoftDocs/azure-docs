@@ -316,12 +316,8 @@ items:
       href: cloudevents-schema.md
     - name: Manage topics with Event Domains
       href: how-to-event-domains.md
-    - name: Disaster recovery
-      items:
-      - name: Build your own disaster recovery plan
-        href: custom-disaster-recovery.md
-      - name: Build your own client-side disaster recovery
-        href: custom-disaster-recovery-client-side.md
+    - name: Build your own client-side disaster recovery
+      href: custom-disaster-recovery-client-side.md
     - name: Track asynchronous REST operations
       href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
     - name: Move
