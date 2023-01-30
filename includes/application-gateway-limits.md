@@ -45,7 +45,7 @@ ms.author: greglin
 | WAF IP address ranges per match condition|540<br>600 - with CRS 3.2 or newer|
 | Maximum WAF exclusions per Application Gateway|40<br>200 - with CRS 3.2 or newer|
 
-<sup>1</sup> For WAF-enabled SKUs with CRS 3.1 or lower, you must limit the number of resources to 40.  For CRS 3.2 or higher, the WAF-enabled SKUs have the same limits as that of Standard SKUs. For more information, see [WAF engine](../azure/web-application-firewall/ag/waf-engine.md).
+<sup>1</sup> For WAF-enabled SKUs with CRS 3.1 or lower, you must limit the number of resources to 40.  For CRS 3.2 or higher, the WAF-enabled SKUs have the same limits as that of Standard SKUs. For more information, see [WAF engine](https://learn.microsoft.com/azure/web-application-firewall/ag/waf-engine).
 
 <sup>2</sup> Limit is per Application Gateway instance not per Application Gateway resource.
 
