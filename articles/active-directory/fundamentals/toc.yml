@@ -98,6 +98,8 @@ items:
     items:
     - name: Azure AD and data residency
       href: azure-ad-data-residency.md
+    - name: Data protection considerations
+      href: data-protection-considerations.md
     - name: Customer data storage and processing for Europe
       href: active-directory-data-storage-eu.md
     - name: Customer data storage for Australia and New Zealand
