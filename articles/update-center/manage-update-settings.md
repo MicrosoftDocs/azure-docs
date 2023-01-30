@@ -60,7 +60,8 @@ To configure update settings on your machines on a single VM, follow these steps
 # [From Machines blade](#tab/manage-single-machines)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In **Update management center**, select **Machines** > your **subscription**. 1. Select the checkbox of your machine from the list and select **Update settings**.
+1. In **Update management center**, select **Machines** > your **subscription**. 
+1. Select the checkbox of your machine from the list and select **Update settings**.
 1. Select **Update Settings** to proceed with the type of update for your machine.
 1. In **Change update settings**, select **+Add machine** to select the machine for which you want to change the update settings.
 1. In **Select resources**, select the machine and select **Add** and follow the procedure from step 5 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
