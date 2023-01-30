@@ -214,19 +214,13 @@
       href: search-howto-move-across-regions.md
   - name: Security
     items:
-    - name: Data encryption
-      items:
-      - name: Customer-managed keys
-        href: search-security-manage-encryption-keys.md
-      - name: Find encrypted objects
-        href: search-security-get-encryption-keys.md
     - name: Inbound connections
       items:
-      - name: Use key authentication
+      - name: Connect using API keys
         href: search-security-api-keys.md
-      - name: Use Azure roles
+      - name: Connect using Azure roles
         href: search-security-rbac.md
-      - name: Authenticate apps with Azure AD
+      - name: Configure apps for Azure AD
         href: search-howto-aad.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
@@ -244,6 +238,12 @@
         href: search-indexer-howto-access-ip-restricted.md
       - name: Connect through private endpoints
         href: search-indexer-howto-access-private.md
+    - name: Data encryption
+      items:
+      - name: Customer-managed keys
+        href: search-security-manage-encryption-keys.md
+      - name: Find encrypted objects
+        href: search-security-get-encryption-keys.md
     - name: Document-level security
       items:
       - name: Security filters

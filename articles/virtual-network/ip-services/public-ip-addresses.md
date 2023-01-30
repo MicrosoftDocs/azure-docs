@@ -133,7 +133,7 @@ Public IP addresses with a standard SKU can be created as non-zonal, zonal, or z
 
 A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "non-zonal" public IP addresses are placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
 
-In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.
+In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  A public IP's availability zone can't be changed after the public IP's creation.
 
 > [!NOTE]
 > All basic SKU public IP addresses are created as non-zonal.  Any IP that is upgraded from a basic SKU to standard SKU remains non-zonal.

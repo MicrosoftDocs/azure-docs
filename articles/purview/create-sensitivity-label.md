@@ -1,8 +1,8 @@
 ---
 title: Labeling in the Microsoft Purview Data Map
 description: Start utilizing sensitivity labels and classifications to enhance your Microsoft Purview assets
-author: batamig
-ms.author: bagol
+author: aashishr
+ms.author: aashishr
 ms.service: purview
 ms.subservice: purview-data-map
 ms.custom: ignite-2022

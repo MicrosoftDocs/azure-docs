@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 In addition to the details that are provided during Update Management deployment, you can search the logs stored in your Log Analytics workspace. To search the logs from your Automation account, select **Update management** and open the Log Analytics workspace associated with your deployment.
 
-You can also customize the log queries or use them from different clients. See [Log Analytics search API documentation](https://dev.loganalytics.io/).
+You can also customize the log queries or use them from different clients. See [Log Analytics search API documentation](/rest/api/loganalytics/).
 
 ## Query update records
 

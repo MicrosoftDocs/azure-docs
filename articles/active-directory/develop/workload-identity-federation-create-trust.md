@@ -27,7 +27,7 @@ In this article, you learn how to create, list, and delete federated identity cr
 
 ## Important considerations and restrictions
 
-To create, update, or delete a federated identity credential, the account performing the action must have the [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator), [Application Developer](/azure/active-directory/roles/permissions-reference#application-developer), [Cloud Application Administrator](/azure/active-directory/roles/permissions-reference#cloud-application-administrator), or Application Owner role.  The [microsoft.directory/applications/credentials/update permission](/azure/active-directory/roles/custom-available-permissions#microsoftdirectoryapplicationscredentialsupdate) is required to update a federated identity credential.
+To create, update, or delete a federated identity credential, the account performing the action must have the [Application Administrator](../roles/permissions-reference.md#application-administrator), [Application Developer](../roles/permissions-reference.md#application-developer), [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator), or Application Owner role.  The [microsoft.directory/applications/credentials/update permission](../roles/custom-available-permissions.md#microsoftdirectoryapplicationscredentialsupdate) is required to update a federated identity credential.
 
 [!INCLUDE [federated credential configuration](./includes/federated-credential-configuration-considerations.md)]
 
@@ -181,7 +181,7 @@ To delete a federated identity credential, select the **Delete** icon for the cr
 
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - [Create an app registration](quickstart-register-app.md) in Azure AD.  Grant your app access to the Azure resources targeted by your external software workload.
 - Find the object ID, app (client) ID, or identifier URI of the app, which you need in the following steps.  You can find these values in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, get the **Object ID**, **Application (client) ID**, or **Application ID URI** value, which you need in the following steps.

@@ -123,7 +123,7 @@ There are two main patterns for connecting spoke virtual networks to each other:
 
 Use [Azure Virtual Network Manager (AVNM)](../../virtual-network-manager/overview.md) to create new (and onboard existing) hub and spoke virtual network topologies for the central management of connectivity and security controls.
 
-### Private networking and replication across Azure regions and virtual networks.
+### Replication across Azure regions and virtual networks with private networking
 
 Database replication is the process of copying data from a central or primary server to multiple servers known as replicas. The primary server accepts read and write operations whereas the replicas serve read-only transactions. The primary server and replicas collectively form a database cluster.The goal of database replication is to ensure redundancy, consistency, high availability, and accessibility of data, especially in high-traffic, mission-critical applications.
 

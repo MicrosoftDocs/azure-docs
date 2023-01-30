@@ -711,6 +711,8 @@ If your application is behind a firewall and can't connect directly to Applicati
 }
 ```
 
+You can also set the http proxy using the environment variable `APPLICATIONINSIGHTS_PROXY`, which takes the format `https://<host>:<port>`. It then takes precedence over the proxy specified in the JSON configuration.
+
 Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties if they're set, and `http.nonProxyHosts`, if needed.
 
 ## Recovery from ingestion failures

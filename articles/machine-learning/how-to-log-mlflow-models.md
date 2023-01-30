@@ -160,7 +160,7 @@ class ModelWrapper(PythonModel):
 Then, a custom model can be logged in the run like this:
 
 ```python
-mport mlflow
+import mlflow
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
 from mlflow.models import infer_signature
@@ -231,7 +231,7 @@ class ModelWrapper(PythonModel):
         
         self._encoder = pickle.loads(context.artifacts["encoder"])
         self._model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-        model.load_model(context.artifacts["model"])
+        self._model.load_model(context.artifacts["model"])
 
     def predict(self, context: PythonModelContext, data):
         return self._model.predict_proba(data)

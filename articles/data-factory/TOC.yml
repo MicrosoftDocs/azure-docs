@@ -207,7 +207,11 @@ items:
     href: concepts-pipeline-execution-triggers.md
     displayName: retry
   - name: Integration runtime
-    href: concepts-integration-runtime.md
+    items:
+    - name: Integration runtime overview
+      href: concepts-integration-runtime.md
+    - name: Choose the right integration runtime configuration for your scenario
+      href: choose-the-right-integration-runtime-configuration.md
   - name: Data flows
     items:
     - name: Transform data with mapping data flows
@@ -676,7 +680,7 @@ items:
       href: control-flow-azure-function-activity.md
       displayName: timeout, control flow
     - name: Custom activity
-      href: transform-data-using-dotnet-custom-activity.md
+      href: transform-data-using-custom-activity.md
     - name: Databricks Jar activity
       href: transform-data-databricks-jar.md
       displayName: data bricks

@@ -42,7 +42,7 @@ New-AzResourceGroup @rg
 
 ### Create the virtual network
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location with the DDoS Protection Standard enabled:
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location:
 
 ```azurepowershell-interactive
 $vnet = @{
@@ -51,7 +51,7 @@ $vnet = @{
     Location = 'EastUS'
     AddressPrefix = '10.0.0.0/16'
 }
-$virtualNetwork = New-AzVirtualNetwork @vnet -EnableDdosProtection
+$virtualNetwork = New-AzVirtualNetwork @vnet
 ```
 
 ### Add a subnet

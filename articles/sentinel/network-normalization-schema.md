@@ -63,10 +63,11 @@ The following filtering parameters are available:
 | **dstipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
 | **ipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) or [source IP address field](#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.<br><br>The field [ASimMatchingIpAddr](normalization-common-fields.md#asimmatchingipaddr) is set with the one of the values `SrcIpAddr`, `DstIpAddr`, or `Both` to reflect the matching fields or fields. |
 | **dstportnum** | Int | Filter only network sessions with the specified destination port number. |
-| **hostname_has_any** | dynamic | Filter only network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. The length of the list is limited to 10,000 items.<br><br> The field [ASimMatchingHostname](normalization-common-fields.md#asimmatchinghostname) is set with the one of the values `SrcHostname`, `DstHostname`, or `Both` to reflect the matching fields or fields. |
-| **dvcaction** | dynamic | Filter only network sessions for which the [Device Action field](#dvcaction) is any of the values listed. | 
+| **hostname_has_any** | dynamic/string | Filter only network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. The length of the list is limited to 10,000 items.<br><br> The field [ASimMatchingHostname](normalization-common-fields.md#asimmatchinghostname) is set with the one of the values `SrcHostname`, `DstHostname`, or `Both` to reflect the matching fields or fields. |
+| **dvcaction** | dynamic/string | Filter only network sessions for which the [Device Action field](#dvcaction) is any of the values listed. | 
 | **eventresult** | String | Filter only network sessions with a specific **EventResult** value. |
 
+Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`
 
 For example, to filter only network sessions for a specified list of domain names, use:
 

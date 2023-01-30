@@ -75,7 +75,7 @@ Regular monthly updates including security upgrades and vulnerability fixes.
 
 #### Neural text-to-speech v2.5.0
 
-Add support for these [prebuilt neural voices](../../language-support.md?tabs=stt-tts):
+Add support for these [prebuilt neural voices](../../language-support.md?tabs=tts):
    * `az-az-babekneural`
    * `az-az-banuneural`
    * `fa-ir-dilaraneural`

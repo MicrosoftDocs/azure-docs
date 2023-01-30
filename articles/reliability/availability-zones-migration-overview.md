@@ -53,6 +53,7 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure App Service: App Service Environment](migrate-app-service-environment.md)|
 | [Azure Cache for Redis](migrate-cache-redis.md)|
 | [Azure Container Instances](migrate-container-instances.md) |
+| [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md) |
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)|
 | Azure Storage: [Files Storage](migrate-storage.md)|
 | Virtual Machines: [Azure Dedicated Host](migrate-vm.md) |

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 01/12/2023
 ms.author: anfdocs
 ---
 
@@ -24,7 +24,7 @@ This article describes Azure NetApp Files feature availability in Azure Governme
 
 ## Feature availability
 
-For Azure Government regions supported by Azure NetApp Files, see the *[Products Available by Region page](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia)*.  
+For Azure Government regions supported by Azure NetApp Files, see the *[Products Available by Region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true)*.  
 
 All [Azure NetApp Files features](whats-new.md) available on Azure public cloud are also available on supported Azure Government regions ***except for the features listed in the following table***: 
 
@@ -32,6 +32,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 |:--- |:--- |:--- |
 | Azure NetApp Files cross-region replication | Generally available (GA) | [Limited](cross-region-replication-introduction.md#supported-region-pairs) |
 | Azure NetApp Files backup | Public preview | No |
+| Standard network features | Generally available (GA) | No |
 
 ## Portal access
 

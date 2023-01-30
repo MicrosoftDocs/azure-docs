@@ -70,13 +70,13 @@
     items:
       - name: Global identity solutions
         href: azure-ad-b2c-global-identity-solutions.md
-      - name: Funnel-based design considerations
+      - name: Funnel-based design
         href: azure-ad-b2c-global-identity-funnel-based-design.md
-      - name: Region-based design considerations
+      - name: Region-based design
         href: azure-ad-b2c-global-identity-region-based-design.md
       - name: Funnel-based proof of concept 
         href: azure-ad-b2c-global-identity-proof-of-concept-funnel.md
-      - name: Regional-based proof of concept 
+      - name: Region-based proof of concept 
         href: azure-ad-b2c-global-identity-proof-of-concept-regional.md
   - name: Azure AD B2C best practices
     href: best-practices.md

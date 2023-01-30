@@ -24,6 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network and the resource group containing it.
+- Identify the Azure region in which you deployed your private mobile network.
 - Choose a name for the new SIM group to which your SIMs will be added. 
 - Identify the SIM policy you want to assign to the SIMs you're provisioning. You must have already created this SIM policy using the instructions in [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md). 
 
@@ -86,8 +87,8 @@ The following Azure resources are defined in the template.
 
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
-    - **Region:** select **East US**.
-    - **Location:** enter *eastus*.
+    - **Region:** select the region in which you deployed the private mobile network.
+    - **Location:** enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
     - **Existing Sim Policy Name:** enter the name of the SIM policy you want to assign to the SIMs.
     - **Sim Group Name:** enter the name for the new SIM group.
@@ -95,12 +96,12 @@ The following Azure resources are defined in the template.
 
     :::image type="content" source="media/provision-sims-arm-template/sims-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the SIMs ARM template.":::
 
-1. Select **Review + create**.
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+2. Select **Review + create**.
+3. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to provision your SIMs. The Azure portal will display a confirmation screen when the SIMs have been provisioned.
+4. Once your configuration has been validated, you can select **Create** to provision your SIMs. The Azure portal will display a confirmation screen when the SIMs have been provisioned.
 
 ## Review deployed resources
 

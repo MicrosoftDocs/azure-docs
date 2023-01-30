@@ -133,7 +133,7 @@ To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type 
         --assign-identity $IDENTITY_ID
     ```
 
-## Disable OutboundNAT for Windows
+## Disable OutboundNAT for Windows (preview)
 
 Windows OutboundNAT can cause certain connection and communication issues with your AKS pods. Some of these issues include:
 
@@ -142,6 +142,9 @@ Windows OutboundNAT can cause certain connection and communication issues with y
 * **Invalid traffic routing to internal service endpoints**: When you create a load balancer service with `externalTrafficPolicy` set to *Local*, kube-proxy on Windows doesn't create the proper rules in the IPTables to route traffic to the internal service endpoints.
 
 Windows enables OutboundNAT by default. You can now manually disable OutboundNAT when creating new Windows agent pools.
+
+> [!NOTE]
+> OutboundNAT can only be disabled on Windows Server 2019 nodepools.
 
 ### Prerequisites
 

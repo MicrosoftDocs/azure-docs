@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Check cloud-to-device connectivity
 > * Check device twin synchronization
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

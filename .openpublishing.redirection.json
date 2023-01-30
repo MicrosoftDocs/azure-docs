@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/storage/blobs/storage-quickstart-blobs-php.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-quickstart-blobs-ruby.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-ruby",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/backup/backup-afs.md",
             "redirect_url": "/azure/backup/backup-azure-files",
             "redirect_document_id": false
@@ -28,16 +38,6 @@
         {
             "source_path_from_root": "/articles/backup/backup-center-community.md",
             "redirect_url": "/azure/backup/backup-center-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
-            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
-            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
         },
         {
@@ -163,16 +163,6 @@
         {
             "source_path_from_root": "/articles/aks/workload-identity-migration-sidecar.md",
             "redirect_url": "/azure/aks/workload-identity-migrate-from-pod-identity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/api-management/zone-redundancy.md",
-            "redirect_url": "/azure/availability-zones/migrate-api-mgt",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/api-management/developer-portal-implement-widgets.md",
-            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
         },
         {
@@ -553,11 +543,6 @@
         {
             "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-upgrade.md",
             "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-upgrade",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/api-management/import-api-app-as-api.md",
-            "redirect_url": "/azure/api-management/import-app-service-as-api",
             "redirect_document_id": false
         },
         {
@@ -1163,6 +1148,11 @@
             "redirect_url": "/azure",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/add-user-without-invite.md",
+            "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
+            "redirect_document_id": true
+    	 },
         {
             "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-landing-custom.md",
             "redirect_url": "/azure/active-directory-b2c",
@@ -2716,71 +2706,6 @@
         {
             "source_path_from_root": "/articles/analysis-services/tutorials/aas-supplemental-lesson-ragged-hierarchies.md",
             "redirect_url": "/azure/analysis-services/analysis-services-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-product.md",
-            "redirect_url": "/azure/api-management/api-management-howto-add-products",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/graphql-validation-policies.md",
-            "redirect_url": "/azure/api-management/graphql-policies",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-policy-reference.md",
-            "redirect_url": "/azure/api-management/api-management-policies",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-docker.md",
-            "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-docker",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-k8s.md",
-            "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-kubernetes",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-get-started.md",
-            "redirect_url": "/azure/api-management/import-and-publish",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-create-apis.md",
-            "redirect_url": "/azure/api-management/import-and-publish",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-import-api.md",
-            "redirect_url": "/azure/api-management/import-and-publish",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-add-operations.md",
-            "redirect_url": "/azure/api-management/mock-api-responses",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/policy-samples.md",
-            "redirect_url": "/azure/api-management/policy-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-security-attributes.md",
-            "redirect_url": "/azure/api-management/security-baseline",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-security-controls.md",
-            "redirect_url": "/azure/api-management/security-baseline",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-product-with-rules.md",
-            "redirect_url": "/azure/api-management/transform-api",
             "redirect_document_id": false
         },
         {
@@ -5989,6 +5914,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management-enable.md",
+            "redirect_url": "/azure/automation/automation-solution-vm-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/update-center/enable-machines.md",
             "redirect_url": "/azure/update-center/updates-maintenance-schedules",
             "redirect_document_id": false
@@ -6971,11 +6901,6 @@
         {
             "source_path_from_root": "/articles/functions/functions-scale.md",
             "redirect_url": "/azure/azure-functions/functions-scale",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md",
-            "redirect_url": "/azure/api-management/export-api-power-platform",
             "redirect_document_id": false
         },
         {
@@ -14759,6 +14684,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/load-balancer/update-load-balancer-with-vm-scale-set.md",
+            "redirect_url": "/azure/load-balancer/configure-inbound-nat-rules-vm-scale-set",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-arm-cli.md",
             "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-cli",
             "redirect_document_id": false
@@ -18334,6 +18265,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/sentinel/file-event-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-file-event",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/service-bus/index.md",
             "redirect_url": "/azure/service-bus-messaging/index",
             "redirect_document_id": false
@@ -18536,11 +18472,6 @@
         {
             "source_path_from_root": "/articles/service-fabric/service-fabric-cluster-delete.md",
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-delete-cluster",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/service-fabric/service-fabric-api-management-quick-start.md",
-            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-api-management",
             "redirect_document_id": false
         },
         {
@@ -24529,11 +24460,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-api-management-certs.md",
-            "redirect_url": "/previous-versions/azure/azure-api-management-certs",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/batch-ai/cli-samples.md",
             "redirect_url": "/previous-versions/azure/batch-ai/cli-samples",
             "redirect_document_id": false
@@ -27757,7 +27683,77 @@
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sapase.md",
             "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sapase",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_general.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-general",
+            "redirect_document_id": false
         },  
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_ibm.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-ibm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_maxdb.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-maxdb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_oracle.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-oracle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sqlserver.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sqlserver",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-supported-product-on-azure.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/supported-product-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-rise-integration.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/rise-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/proximity-placement-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-planning-supported-configurations.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/planning-supported-configurations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-iq-deployment-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sapiq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-certifications.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/certifications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ha-availability-zones.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/high-availability-zones",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-deployment-checklist.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/deployment-checklist",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-get-started-classic.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/migrate/how-to-scale-assessment.md",
             "redirect_url": "scale-hyper-v-assessment",

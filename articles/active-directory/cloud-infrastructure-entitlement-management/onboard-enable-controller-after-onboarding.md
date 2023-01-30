@@ -56,7 +56,7 @@ This article also describes how to enable the controller in Amazon Web Services 
     The **Cloud Infrastructure Entitlement Management assignments** page appears, displaying the roles assigned to you.
 
     - If you have read-only permission, the **Role** column displays **Reader**.
-    - If you have administrative permission, the **Role** column displays **User Access Administrative**.
+    - If you have administrative permission, the **Role** column displays **User Access Administrator**.
 
 1. To add the administrative role assignment, return to the **Access control (IAM)** page, and then select **Add role assignment**.
 1. Add or remove the role assignment for Cloud Infrastructure Entitlement Management.

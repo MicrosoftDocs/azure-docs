@@ -9,13 +9,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 12/28/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-up and sign-in with generic OpenID Connect using Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
 
 [OpenID Connect](openid-connect.md) is an authentication protocol built on top of OAuth 2.0 that can be used for secure user sign-in. Most identity providers that use this protocol are supported in Azure AD B2C. 
 

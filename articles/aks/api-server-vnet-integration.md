@@ -12,8 +12,6 @@ ms.custom: references_regions
 
 An Azure Kubernetes Service (AKS) cluster configured with API Server VNet Integration (Preview) projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. API Server VNet Integartion enables network communication between the API server and the cluster nodes without requiring a private link or tunnel. The API server is available behind an Internal Load Balancer VIP in the delegated subnet, which the nodes are configured to utilize. By using API Server VNet Integration, you can ensure network traffic between your API server and your node pools remains on the private network only.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## API server connectivity
 
 The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. A customer's cluster or node pool is in the customer's subscription. The server and the virtual machines that make up the cluster nodes can communicate with each other through the API server VIP and pod IPs that are projected into the delegated subnet.
@@ -31,33 +29,37 @@ API Server VNet Integration is available in all global Azure regions except the 
 * Azure CLI with aks-preview extension 0.5.97 or later.
 * If using ARM or the REST API, the AKS API version must be 2022-04-02-preview or later.
 
-### Install the aks-preview CLI extension
+## Install the aks-preview Azure CLI extension
 
-```azurecli-interactive
-# Install the aks-preview extension
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli
 az extension add --name aks-preview
+```
 
-# Update the extension to make sure you have the latest version installed
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
 az extension update --name aks-preview
 ```
 
-### Register the `EnableAPIServerVnetIntegrationPreview` preview feature
+## Register the 'EnableAPIServerVnetIntegrationPreview' feature flag
 
-To create an AKS cluster with API Server VNet Integration, you must enable the `EnableAPIServerVnetIntegrationPreview` feature flag on your subscription.
-
-Register the `EnableAPIServerVnetIntegrationPreview` feature flag by using the `az feature register` command, as shown in the following example:
+Register the `EnableAPIServerVnetIntegrationPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAPIServerVnetIntegrationPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the `az feature list` command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "EnableAPIServerVnetIntegrationPreview"
 ```
 
-When the feature has been registered, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -227,11 +229,12 @@ az aks update -n <cluster-name> \
 For associated best practices, see [Best practices for network connectivity and security in AKS][operator-best-practices-network].
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [private-endpoint-service]: ../private-link/private-endpoint-overview.md
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md

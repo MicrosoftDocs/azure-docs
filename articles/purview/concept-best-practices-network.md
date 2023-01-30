@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 01/13/2023
 ms.custom: fasttrack-edit
 ---
 
@@ -28,6 +28,7 @@ This guide covers the following network options:
 - Use [Azure public endpoints](#option-1-use-public-endpoints). 
 - Use [private endpoints](#option-2-use-private-endpoints). 
 - Use [private endpoints and allow public access on the same Microsoft Purview account](#option-3-use-both-private-and-public-endpoints). 
+- Use Azure [public endpoints to access Microsoft Purview governance portal and private endpoints for ingestion](#option-4-use-private-endpoints-for-ingestion-only).
 
 This guide describes a few of the most common network architecture scenarios for Microsoft Purview. Though you're not limited to those scenarios, keep in mind the [limitations](#current-limitations) of the service when you're planning networking for your Microsoft Purview accounts. 
 
@@ -229,7 +230,7 @@ You might choose an option in which a subset of your data sources uses private e
 If you need to scan some data sources by using an ingestion private endpoint and some data sources by using public endpoints or a service endpoint, you can:
 
 1. Use private endpoints for your Microsoft Purview account.
-1. Set **Public network access** to **allow** on your Microsoft Purview account.
+1. Set **Public network access** to **Enabled from all networks** on your Microsoft Purview account.
 
 ### Integration runtime options 
 
@@ -254,6 +255,27 @@ If you need to scan some data sources by using an ingestion private endpoint and
   - Make sure that your credentials are stored in an Azure key vault and registered inside Microsoft Purview.
 
   - You must create a credential in Microsoft Purview based on each secret that you create in Azure Key Vault. At minimum, assign _get_ and _list_ access for secrets for Microsoft Purview on the Key Vault resource in Azure. Otherwise, the credentials won't work in the Microsoft Purview account. 
+
+## Option 4: Use private endpoints for ingestion only
+
+You might choose this option if you need to:
+
+- Scan all data sources using ingestion private endpoint. 
+- Managed resources must be configured to disable public network.
+- Enable access to Microsoft Purview governance portal through public network.  
+
+To enable this option:
+
+1. Configure ingestion private endpoint for your Microsoft Purview account.
+1. Set **Public network access** to **Disabled for ingestion only (Preview)** on your [Microsoft Purview account](catalog-firewall.md).
+
+### Integration runtime options 
+
+Follow recommendation for option 2.
+
+### Authentication options  
+
+Follow recommendation for option 2.
 
 ## Self-hosted integration runtime network and proxy recommendations
 

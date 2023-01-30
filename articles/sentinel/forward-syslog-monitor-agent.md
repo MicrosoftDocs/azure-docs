@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial 
-ms.date: 08/18/2022
+ms.date: 01/05/2023
 ms.custom: template-tutorial
 #Customer intent: As a security-engineer, I want to get syslog data into Microsoft Sentinel so that I can use the data with other data to do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get syslog data into my Log Analytics workspace to monitor my linux-based devices.
 ---

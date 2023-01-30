@@ -98,6 +98,7 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 * East Asia
 * US Gov Virginia
 * UK South
+* West Europe
 
 > [!NOTE]
 > You can only deploy your cross-region load balancer or Public IP in Global tier in one of the regions above.

@@ -51,10 +51,9 @@ Microsoft Defender External Attack Surface Management contains both global data 
 
 For security purposes, Microsoft collects users' IP addresses when they log in. This data is stored for up to 30 days but may be stored longer if needed to investigate potential fraudulent or malicious use of the product.
 
-In the case of a region down scenario, customers should see no downtime as Defender EASM uses technologies that replicate data to a backup region.
+In the case of a region down scenario, customers should see no downtime as Defender EASM uses technologies that replicate data to a backup region. Defender EASM processes customer data. By default, customer data is replicated to the paired region.
 
-
-Defender EASM processes customer data. By default, customer data is replicated to the paired region.
+The Microsoft compliance framework requires that all customer data be deleted within 180 days in accordance with [Azure subscription states](https://learn.microsoft.com/azure/cost-management-billing/manage/subscription-states) handling.  This also includes storage of customer data in offline locations, such as database backups. 
 
 ## Next Steps
 

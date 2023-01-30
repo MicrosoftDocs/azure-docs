@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
-ms.date: 12/10/2021
+ms.date: 1/9/2023
 ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -93,7 +93,7 @@ In case the role expires, you can **extend** or **renew** these assignments.
 
 ## Plan the project
 
-When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders) and that stakeholder roles in the project are well understood.
+When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan a pilot
 

@@ -78,7 +78,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
-|[C2 Technology Solutions](https://www.c2techsol.com)|
+|[C2 Technology Solutions](https://c2techsol.com/)|
 |[CACI Inc - Federal](https://www.caci.com/)|
 |[Cambria Solutions, Inc.](https://www.cambriasolutions.com/)|
 |[Capgemini Government Solutions LLC](https://www.capgemini.com/us-en/service/capgemini-government-solutions/)|
@@ -92,7 +92,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CBTS](https://www.cbts.com/)|
 |[CDO Technologies Inc.](https://www.cdotech.com/contact/)|
 |[CDW-G, LLC](https://www.cdwg.com)|
-|[Centurylink](https://www.centurylink.com/public-sector/federal-government.html)|
+|[Centurylink](https://www.centurylink.com/)|
 |[cFocus Software Incorporated](https://cfocussoftware.com)|
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
@@ -346,7 +346,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Protected Trust](https://www.proarch.com/)|
 |[Protera Technologies](https://www.protera.com)|
 |[Pueo Business Solutions, LLC](https://www.pueo.com/)|
-|[Quad M Tech](https://www.quadmtech.com/)|
 |[Quality Technology Services LLC](https://www.qtsdatacenters.com/)|
 |[Quest Media & Supplies Inc.](https://www.questsys.com/)|
 |[Quisitive](https://quisitive.com)|

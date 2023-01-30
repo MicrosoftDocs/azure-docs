@@ -28,7 +28,7 @@ This article walks you through the options for modifying the default behaviors o
 
 If the original version of group writeback is already enabled and in use in your environment, all your Microsoft 365 groups have already been written back to Active Directory. Instead of disabling all Microsoft 365 groups, review any use of the previously written-back groups. Disable only those that are no longer needed in on-premises Active Directory. 
 
-### Disable automatic writeback of all Microsoft 365 groups 
+### Disable automatic writeback of new Microsoft 365 groups 
 
 To configure directory settings to disable automatic writeback of newly created Microsoft 365 groups, use one of these methods:
 
@@ -45,13 +45,32 @@ To configure directory settings to disable automatic writeback of newly created 
 
 - Microsoft Graph: Use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta&preserve-view=true) resource type. 
 
-### Disable writeback for each existing Microsoft 365 group 
+### Disable writeback for all existing Microsoft 365 group 
+
+To disable writeback of all Microsoft 365 groups that were created before these modifications, use one of the folowing methods:
 
 - Portal: Use the [Microsoft Entra admin portal](../enterprise-users/groups-write-back-portal.md).
-- PowerShell: Use the [Microsoft Identity Tools PowerShell module](https://www.powershellgallery.com/packages/MSIdentityTools/2.0.16). For example: 
+- PowerShell: Use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
   
-  `Get-mggroup -filter "groupTypes/any(c:c eq 'Unified')" | Update-MsIdGroupWritebackConfiguration -WriteBackEnabled $false` 
-- Microsoft Graph: Use a [group object](/graph/api/group-update?tabs=http&view=graph-rest-beta&preserve-view=true). 
+  ```PowerShell
+    #Import-module
+    Import-module Microsoft.Graph
+
+    #Connect to MgGraph and select the Beta API Version
+    Connect-MgGraph -Scopes Group.ReadWrite.All
+    Select-MgProfile -Name beta
+
+    #List all Microsoft 365 Groups
+    $Groups = Get-MgGroup -All | Where-Object {$_.GroupTypes -like "*unified*"}
+
+    #Disable Microsoft 365 Groups
+    Foreach ($group in $Groups) 
+    {
+        Update-MgGroup -GroupId $group.id -WritebackConfiguration @{isEnabled=$false}
+    }
+> We recomend using Microsoft Graph PowerShell SDK with [Windows PowerShell 7](/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.3&preserve-view=true)
+  
+- Microsoft Graph Explorer: Use a [group object](/graph/api/group-update?tabs=http&view=graph-rest-beta&preserve-view=true). 
 
 ## Delete groups when they're disabled for writeback or soft deleted 
 

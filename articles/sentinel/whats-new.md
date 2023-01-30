@@ -16,6 +16,17 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## January 2023
+
+### Microsoft Purview Information Protection connector (Preview)
+
+With the new [Microsoft Purview Information Protection connector](connect-microsoft-purview.md), you can stream data from Microsoft Purview Information Protection (formerly Microsoft Information Protection or MIP) to Microsoft Sentinel. You can use the data ingested from the Microsoft Purview labeling clients and scanners to track, analyze, report on the data, and use it for compliance purposes.
+
+This connector replaces the Azure Information Protection (AIP) data connector, aligned with the retirement of the AIP analytics and audit logs public preview as of **March 31, 2023**.
+
+The new connector streams audit logs into the standardized 
+`MicrosoftPurviewInformationProtection` table, which has been adjusted to enhance the deprecated schema used by AIP, with more fields and easier access to parameters. Data is gathered through the [Office Management API](/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. Review the list of supported [audit log record types and activities](microsoft-purview-record-types-activities.md).
+
 ## December 2022
 
 - [Create and run playbooks on entities on-demand (Preview)](#create-and-run-playbooks-on-entities-on-demand-preview)
