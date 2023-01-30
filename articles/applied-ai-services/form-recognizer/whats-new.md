@@ -29,7 +29,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## January 2023
 
-* **Prebuilt receipt model—additional language support**:
+* **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales-v30) —additional language support**:
 
    The prebuilt receipt model now has added support for the following languages:
 
@@ -39,14 +39,14 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * Japanese - Japan (ja-jp)
   * Portuguese - Brazil (pt-br)
 
-* **Prebuilt invoice model—additional language support**
+* **[Prebuilt invoice model](concept-invoice.md#supported-languages-and-locales)—additional language support**
 
   The prebuilt invoice model now has added support for the following languages:
 
   * English - Australia (en-au), Canada (en-ca), Great Britain (en-gb), India (en-in)
   * Portuguese - Brazil (pt-br)
 
-* **Prebuilt invoice model—additional field extraction**
+* **[Prebuilt invoice model](concept-invoice.md#fields-extraction)—additional field extraction**
 
   The prebuilt invoice model now has added support for the following field extractions:
 
@@ -55,7 +55,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * Total discount
   * Tax items (en-in only)
 
-* **Prebuilt ID document model additional field extraction**
+* **[Prebuilt ID document model](concept-id-document.md#document-types) additional document types support**
 
   The prebuilt ID document model now has added support for the following document types:
 
