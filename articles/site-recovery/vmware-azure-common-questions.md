@@ -5,6 +5,7 @@ ms.date: 12/28/2022
 ms.topic: conceptual
 ms.author: ankitadutta
 author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 ---
 # Common questions about VMware to Azure replication
 

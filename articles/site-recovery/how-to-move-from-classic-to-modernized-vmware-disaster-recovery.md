@@ -6,6 +6,7 @@ author: ankitaduttaMSFT
 manager: jsuri
 ms.topic: how-to
 ms.date: 01/13/2023
+ms.custom: engagement-fy23
 ---
 
 # How to move from classic to modernized VMware disaster recovery  

@@ -5,6 +5,7 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/13/2023
 author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 ---
 
 # Move from classic to modernized VMware disaster recovery   
