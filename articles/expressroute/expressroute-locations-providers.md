@@ -1,11 +1,11 @@
 ---
-title: 'Locations and connectivity providers for Azure ExpressRoute'
+title: Locations and connectivity providers for Azure ExpressRoute
 description: This article provides a detailed overview of available providers and services per each ExpressRoute location to connect to Azure regions.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 02/01/2023
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -32,8 +32,6 @@ ExpressRoute locations (sometimes referred to as peering locations or meet-me-lo
 You'll have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. 
 
 [!INCLUDE [expressroute-azure-regions-geopolitical-region](../../includes/expressroute-azure-regions-geopolitical-region.md)]
-
-## <a name="partners"></a>ExpressRoute connectivity providers
 
 The following table shows connectivity locations and the service providers for each location. If you want to view service providers and the locations for which they can provide service, see [Locations by service provider](expressroute-locations.md).
 
@@ -162,9 +160,8 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Shanghai** | China Telecom | n/a | Supported | China Telecom |
 | **Shanghai2** | GDS | n/a | Supported | China Telecom, China Unicom, GDS |
 
-To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/).
+To learn more, see [ExpressRoute in China](https://www.azure.cn/home/features/expressroute/).
 
-## <a name="c1partners"></a>Connectivity through Exchange providers
 If your connectivity provider isn't listed in previous sections, you can still create a connection.
 
 * Check with your connectivity provider to see if they're connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
@@ -190,7 +187,6 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
 * [Viasat](http://www.directcloud.viasatbusiness.com/)
 
-## <a name="c1partners"></a>Connectivity through additional service providers
 | Location | Exchange | Connectivity providers |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Interxion, Level 3 Communications | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, Kalaam Telecom Bahrain B.S.C, MainOne, Nianet, POST Telecom Luxembourg, Proximus, RETN, TDC Erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH, Telia |
@@ -238,3 +234,5 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Location map"
+
+
