@@ -245,7 +245,7 @@ Add this code to the end of the `try` block:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_ListBlobs":::
 
-To learn more about listing blobs, and to explore more code samples, see [List blobs with Python](storage-blob-list-python.md).
+To learn more about listing blobs, and to explore more code samples, see [List blobs with Python](storage-blobs-list-python.md).
 
 ### Download blobs
 
