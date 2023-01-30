@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2023
+ms.date: 01/30/2023
 ms.author: abell
 ---
 
@@ -16,7 +16,7 @@ ms.author: abell
 
 Azure DDoS Protection provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
-In this article, you'll learn how to configure diagnostic logging alerts through Azure Monitor.
+In this article, you'll learn how to configure diagnostic logging alerts through Azure Monitor and Logic App.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ The Azure Monitor alert rule template will run a query against the diagnostic lo
     | Subscription | Select your Azure subscription. |   
     | Resource Group | Select your Resource group. | 
     | Region | Select your Region. |
-    | Workspace Name | Enter **myLogAnalyticsWorkspace**. | 
+    | Workspace Name | Enter your workspace name. In this example the *Workspace name* is **myLogAnalyticsWorkspace**. | 
     | Location | Enter **East US**. |
 
     > [!NOTE]
@@ -77,7 +77,7 @@ This DDoS Mitigation Alert Enrichment template deploys the necessary components 
     | Alert Name | Leave as default. | 
     | Security Team Email | Enter the required email address. |
     | Company Domain | Enter the required domain. |
-    | Workspace Name | Enter **myLogAnalyticsWorkspace**. |
+    | Workspace Name | Enter your workspace name. In this example the *Workspace name* is **myLogAnalyticsWorkspace**. |
 
 1. Select **Review + create** and then select **Create** after validation passes. 
 
