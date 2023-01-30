@@ -89,9 +89,8 @@ compute](concepts-burstable-compute.md) and regular compute.
 | Resource | Resource value |
 |----------|----------------|
 | Burstable compute, vCores | 1, 2 |
-| Burstable compute memory per vCore, GiB | 4 |
-| Storage size, GiB | 32, 64, 128 |
-| Storage IOPS | Up to 500 |
+| Burstable compute memory per vCore, GiB | 2 |
+| Storage size, GiB (IOPS, up to) | 32 (120), 64 (240), 128 (500) |
 | Storage type | General purpose (SSD) |
 
 **Regular compute**
