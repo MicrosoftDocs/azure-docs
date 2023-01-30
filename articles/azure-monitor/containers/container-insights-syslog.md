@@ -37,11 +37,11 @@ az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring --enable-sys
  
 Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in your Log Analytics workspace. You can create your own [log queries](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md) to analyze this data or use any of the [prebuilt queries](../logs/log-query-overview.md).
 
-:::image type="content" source="media/container-insights-syslog/AzMon3.png" lightbox="media/container-insights-syslog/AzMon3.png" alt-text="Syslog query loaded in the query editor in the Azure Monitor Portal UI" border="false":::    
+:::image type="content" source="media/container-insights-syslog/AzMon3.png" lightbox="media/container-insights-syslog/AzMon3.png" alt-text="Screenshot of Syslog query loaded in the query editor in the Azure Monitor Portal UI." border="false":::    
 
 You can open Log Analytics from the **Logs** menu in the **Monitor** menu to access Syslog data for all clusters or from the AKs cluster's menu to access Syslog data for only that cluster.
  
-:::image type="content" source="media/container-insights-syslog/AKS4.png" lightbox="media/container-insights-syslog/AKS4.png" alt-text="Query editor with Syslog query." border="false":::
+:::image type="content" source="media/container-insights-syslog/AKS4.png" lightbox="media/container-insights-syslog/AKS4.png" alt-text="Screenshot of Query editor with Syslog query." border="false":::
   
 ### Sample queries
   
@@ -60,17 +60,17 @@ To modify the configuration for your Syslog collection, you modify the [data col
 
 Select **Data Collection Rules** from the **Monitor** menu in the Azure portal. 
 
-:::image type="content" source="media/container-insights-syslog/DCR1.png" lightbox="media/container-insights-syslog/DCR1.png" alt-text="Data Collection Rules tab in the Azure Monitor portal UI" border="false":::
+:::image type="content" source="media/container-insights-syslog/DCR1.png" lightbox="media/container-insights-syslog/DCR1.png" alt-text="Screenshot of Data Collection Rules tab in the Azure Monitor portal UI." border="false":::
 
 Select your DCR and then **View data sources**. Select the **Linux Syslog** data source to view the Syslog collection details.
 >[!NOTE]
 > A DCR is created automatically when you enable syslog. The DCR follows the naming convention `MSCI-<WorkspaceRegion>-<ClusterName>`.
 
-:::image type="content" source="media/container-insights-syslog/DCR3.png" lightbox="media/container-insights-syslog/DCR3.png" alt-text="Data Sources tab for Syslog data collection rule" border="false":::
+:::image type="content" source="media/container-insights-syslog/DCR3.png" lightbox="media/container-insights-syslog/DCR3.png" alt-text="Screenshot of Data Sources tab for Syslog data collection rule." border="false":::
 
 Select the minimum log level for each facility that you want to collect.
 
-:::image type="content" source="media/container-insights-syslog/DCR4.png" lightbox="media/container-insights-syslog/DCR4.png" alt-text="Configuration panel for Syslog data collection rule" border="false":::
+:::image type="content" source="media/container-insights-syslog/DCR4.png" lightbox="media/container-insights-syslog/DCR4.png" alt-text="Screenshot of Configuration panel for Syslog data collection rule." border="false":::
 
 
 ## Known limitations
