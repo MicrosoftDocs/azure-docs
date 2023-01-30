@@ -15,8 +15,9 @@ ms.author: aahi
 
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs disconnected from the internet. Currently, the following containers can be run in this manner:
 
-* [Speech to Text (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
-* [Neural Text to Speech](../speech-service/speech-container-howto.md?tabs=ntts)
+* [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt)
+* [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt)
+* [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts)
 * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
 * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md)
 * Azure Cognitive Service for Language
@@ -160,9 +161,9 @@ If you're using the [Translator container](../translator/containers/translator-h
 -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
 ```
 
-#### Speech-to-text and Neural text-to-speech containers
+#### Speech-to-text, Custom Speech-to-Text and Neural text-to-speech containers
 
-The [speech-to-text](../speech-service/speech-container-howto.md?tabs=stt) and [neural text-to-speech](../speech-service/speech-container-howto.md?tabs=ntts) containers provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+The [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt), [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt) and [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts) containers provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
 
 When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
 
