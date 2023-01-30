@@ -25,7 +25,7 @@ Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-sour
 
 ## Limitations
 
-- Previously, Chaos Mesh faults didn't work with private clusters. You can now use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking).
+- Previously, Chaos Mesh faults didn't work with private clusters. You can now use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking.md).
 
 ## Set up Chaos Mesh on your AKS cluster
 
