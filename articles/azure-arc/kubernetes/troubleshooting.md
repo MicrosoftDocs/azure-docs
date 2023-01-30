@@ -1,6 +1,6 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-ms.date: 01/23/2022
+ms.date: 01/23/2023
 ms.topic: how-to
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 ---
@@ -449,7 +449,7 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 ### Flux v2 - `microsoft.flux` extension installation CPU and memory limits
 
-The controllers installed in your Kubernetes cluster with the Microsoft.Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
+The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
 
 | Container Name | CPU limit | Memory limit |
 | -------------- | ----------- | -------- |
