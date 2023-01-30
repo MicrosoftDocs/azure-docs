@@ -95,9 +95,9 @@ The following table gives a detailed comparison of the security policy and compl
 |**Policy** |**B2B collaboration users**  |**B2B direct connect users**|
 | :------------ | :-------------- | :----- |
 |**Grant controls—Block access**   |   Supported       |   Supported      |
-|**Grant controls — MFA**     |  Supported        |   Supported Requires Accept within Cross-tenant access settings       |
-|**Grant controls — Compliant Device**     | Supported Requires Accept within Cross-tenant access settings         | Supported Requires Accept within Cross-tenant access settings         |
-|**Grant controls — Hybrid Azure AD Join**   |  Supported Requires Accept within Cross-tenant access settings        |   Supported Requires Accept within Cross-tenant access settings       |
+|**Grant controls — MFA**     |  Supported        |   Supported by accepting MFA from the organization within cross-tenant access settings       |
+|**Grant controls — Compliant Device**     | Supported by accepting compliant devices from the organization within cross-tenant access settings      | Supported by accepting compliant devices from the organization within cross-tenant access settings         |
+|**Grant controls — Hybrid Azure AD Join**   |  Supported by accepting Hybrid Azure AD joined devices from the organization within cross-tenant access settings  |   Supported by accepting Hybrid Azure AD joined devices from the organization within cross-tenant access settings       |
 |**Grant controls — Require Approved client app**    | Not supported         |   Not supported       |
 |**Grant controls — Require App protection policy**     |  Not supported        |  Not supported        |
 |**Grant controls — Require password change**     |  Not supported        |    Not supported      |
