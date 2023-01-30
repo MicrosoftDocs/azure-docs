@@ -5,10 +5,10 @@ description: Learn how to create and manage environments in the Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: saachigopal
-ms.author:  sagopal
+author: osiotugo
+ms.author:  ositanachi
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 01/30/2023
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -67,9 +67,14 @@ Keep in mind that any changes to the Docker or Conda sections will create a new 
 
 :::image type="content" source="media/how-to-manage-environments-in-studio/details-page.jpg" alt-text="Environments details page":::
 
-## View image build logs
+## View logs
 
-Click on the **Build log** tab within the details page to view the image build logs of an environment version. 
+Click on the **Build log** tab within the details page to view the logs of an environment version and the environment log analysis. Environment log analysis (Preview) is a feature that provides insight and relevant troubleshooting documentation to explain environment definition issues or iamge build failures. If you have feedback on the feature or the documentation, please file it at https://aka.ms/azureml/environment/log-analysis-feedback
+* Build log contains the bare output from an Azure Container Registry (ACR) task or an Image Build Compute job.
+* Image build analysis is an analysis of the build log used to see the cause of the image build failure.
+* Environment definition analysis provides information about the environment definition if it goes against best practices for reproducibility, supportability, or security.
+
+For an overview of common build failures, see https://aka.ms/azureml/environment/troubleshooting-guide
 
 ## Rebuild an environment
 
