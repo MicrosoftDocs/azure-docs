@@ -12,12 +12,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 01/30/2023
 ms.author: anfdocs
 ---
 # Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes
 
 When you [create an NFS volume](azure-netapp-files-create-volumes.md), you have the option to enable the LDAP with extended groups feature (the **LDAP** option) for the volume. This feature enables Active Directory LDAP users and extended groups (up to 1024 groups) to access files and directories in the volume. You can use the LDAP with extended groups feature with both NFSv4.1 and NFSv3 volumes. 
+
+> [!NOTE]
+> By default, in Active Directory LDAP servers, the `MaxPageSize` attribute is set to a default of 1,000. This setting means that groups beyond 1,000 are truncated in LDAP queries. To enable full support with the 1,024 value for extended groups, the `MaxPageSiz`e attribute must be modified to reflect the 1,024 value. For information about how to change that value, see [How to view and set LDAP policy in Active Directory by using Ntdsutil.exe](/roubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil)
 
 Azure NetApp Files supports fetching of extended groups from the LDAP name service rather than from the RPC header. Azure NetApp Files interacts with LDAP by querying for attributes such as usernames, numeric IDs, groups, and group memberships for NFS protocol operations.
 
