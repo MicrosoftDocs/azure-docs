@@ -582,6 +582,18 @@ items:
           items:
           - name: Get started
             href: storage-blob-dotnet-get-started.md
+          - name: Authorize access to data
+            items:
+            - name: Azure Active Directory
+              items:
+              - name: Auth using developer service principals
+                href: /dotnet/azure/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth using developer accounts
+                href: /dotnet/azure/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Auth from Azure-hosted apps
+                href: /dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+              - name: Auth from on-premises apps
+                href: /dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
           - name: Container actions
             items:
             - name: Create a container

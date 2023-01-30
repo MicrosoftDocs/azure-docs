@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 01/30/2023
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp
@@ -27,7 +27,6 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 
 - Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
-
 
 ## Set up your project
 
