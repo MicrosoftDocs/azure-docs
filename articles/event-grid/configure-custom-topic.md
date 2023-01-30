@@ -63,7 +63,7 @@ When you use Azure portal, you can assign one system assigned identity and up to
     1. Select **Add**. 
 1. Refresh the list in the **User assigned** tab to see the added user-assigned identity.
 
-You can use similar steps to enable an identity for an event grid domain.
+You can use similar steps to enable an identity for an Event Grid domain.
 
 ## Configure data residency
 
