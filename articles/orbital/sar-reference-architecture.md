@@ -1,15 +1,15 @@
 ---
-title: SAR reference architecture - Azure Orbital Analytics
-description: Learn about how SAR data is processed horizontally.
+title: Process Synthetic Aperture Radar (SAR) data - Azure Orbital Analytics
+description: View a reference architecture that enables processing SAR/Remote Sensing data on Azure by using Apache Spark on Azure Synapse.
 author: meaghanlewis
 ms.service: orbital
 ms.topic: conceptual
 ms.custom: ga
-ms.date: 10/11/2022
+ms.date: 10/20/2022
 ms.author: harjsin
 ---
 
-# SAR reference architecture
+# Process Synthetic Aperture Radar (SAR) data in Azure
 
 SAR is a form of radar that is used to create two-dimensional images of three-dimensional reconstructions of objects, such as landscapes. SAR uses the motion of the radar antenna over a target to provide finer spatial resolution than conventional stationary beam-scanning radars.
 
@@ -138,7 +138,7 @@ Additional contributors:
 
 - [Azure Maps Geospatial Services](https://microsoft.github.io/SynapseML/docs/features/geospatial_services/GeospatialServices%20-%20Overview)
 - [Getting geospatial insights from big data using SynapseML](https://techcommunity.microsoft.com/t5/azure-maps-blog/getting-geospatial-insides-in-big-data-using-synapseml/ba-p/3154717)
-- [Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
+- [Get started with Azure Synapse Analytics](../synapse-analytics/get-started.md)
 - [Explore Azure Synapse Studio](/training/modules/explore-azure-synapse-studio)
 - [SpaceBorne Data Analysis](https://github.com/MicrosoftDocs/architecture-center/blob/main/docs/industries/aerospace/geospatial-processing-analytics-content.md)
 

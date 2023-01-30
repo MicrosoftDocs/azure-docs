@@ -10,7 +10,7 @@ ms.date: 06/16/2021
 
 # Support lifecycle for Azure Red Hat OpenShift 4
 
-Red Hat releases minor versions of Red Hat OpenShift Container Platform (OCP) roughly every three months. These releases include new features and improvements. Patch releases are more frequent (typically weekly) and are only intended for critical bug fixes within a minor version. These patch releases may include fixes for security vulnerabilities or major bugs.
+Red Hat releases minor versions of Red Hat OpenShift Container Platform (OCP) roughly every four months. These releases include new features and improvements. Patch releases are more frequent (typically weekly) and are only intended for critical bug fixes within a minor version. These patch releases may include fixes for security vulnerabilities or major bugs.
 
 Azure Red Hat OpenShift is built from specific releases of OCP. This article covers the versions of OCP that are supported for Azure Red Hat OpenShift and details about upgrades, deprecations, and support policy.
 

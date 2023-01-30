@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -68,7 +68,7 @@ When a user selects **Yes** on the *Stay signed in?* option during sign-in, a pe
 
 If you have an Azure AD Premium 1 license, we recommend using Conditional Access policy for *Persistent browser session*. This policy overwrites the *Stay signed in?* setting and provides an improved user experience. If you don't have an Azure AD Premium 1 license, we recommend enabling the stay signed in setting for your users.
 
-For more information on configuring the option to let users remain signed-in, see [Customize your Azure AD sign-in page](../fundamentals/customize-branding.md#learn-about-the-stay-signed-in-prompt).
+For more information on configuring the option to let users remain signed-in, see [Customize your Azure AD sign-in page](../fundamentals/active-directory-users-profile-azure-portal.md#learn-about-the-stay-signed-in-prompt).
 
 ### Remember Multi-Factor Authentication  
 

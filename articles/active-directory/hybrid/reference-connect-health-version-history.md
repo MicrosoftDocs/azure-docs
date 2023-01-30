@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
 manager: amycolannino
-editor: curtand
 
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
 ms.service: active-directory
@@ -13,7 +12,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 08/10/2020
+ms.date: 01/19/2023
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
@@ -27,6 +26,11 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
+
+## 19 January 2023 
+**Agent Update**
+- Azure AD Connect Health agent for Azure AD Connect (version 3.2.2188.23)
+   - We fixed a bug where, under certain circumstances, Azure AD Connect sync errors were not getting uploaded or shown in the portal.
 
 ## September 2021
 **Agent Update**

@@ -20,13 +20,13 @@ Azure Database for PostgreSQL Single Server planning the root certificate change
 
 Historically, Azure database for PostgreSQL users could only use the predefined certificate to connect to their PostgreSQL server, which is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). However, [Certificate Authority (CA) Browser forum](https://cabforum.org/) recently published reports of multiple certificates issued by CA vendors to be non-compliant.
 
-As per the industry's compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for MySQL used one of these non-compliant certificates, we needed to rotate the certificate to the compliant version to minimize the potential threat to your MySQL servers.
+As per the industry's compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for PostgreSQL used one of these non-compliant certificates, we needed to rotate the certificate to the compliant version to minimize the potential threat to your Postgres servers.
 
 The new certificate is rolled out and in effect starting December, 2022 (12/2022). 
 
 ## What change will be performed starting December 2022 (12/2022)?
 
-Starting December 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity.
+Starting December 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity.
 
 ## Do I need to make any changes on my client to maintain connectivity?
 
@@ -144,14 +144,19 @@ To verify if you are using SSL connection to connect to the server refer [SSL ve
 
 No. There's no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
 
-### 13. What if you are using docker image of PgBouncer sidecar provided by Microsoft?
-A new docker image which supports both [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) is published to below [here](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (Latest tag). You can pull this new image to avoid any interruption in connectivity starting December, 2022. 
+
+### 13. How can I check the certificate that is sent by the server?
+
+There are many tools that you can use. For example, DigiCert has a handy [tool](https://www.digicert.com/help/) that will show you the certificate chain of any server name. (This tool will only work with publicly accessible server; it cannot connect to server that is contained in a virtual network (VNET)). 
+Another tool you can use is OpenSSL in the command line, you can use the syntax below:
+```bash
+openssl s_client -showcerts -connect <your-postgresql-server-name>:443
+```
 
 ### 14. What if I have further questions?
-If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help please create a [support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request):
+If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help please create a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md):
 * For *Issue type*, select *Technical*.  
 * For *Subscription*, select your *subscription*.  
 * For *Service*, select *My Services*, then select *Azure Database for PostgreSQL – Single Server*.
 * For *Problem type*, select *Security*.  
 * For *Problem subtype*, select  *Azure Encryption and Infrastructure Double Encryption*
-

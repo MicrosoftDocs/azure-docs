@@ -93,5 +93,5 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 For more information, see:
 
 * [V1 - Experiment](/python/api/azureml-core/azureml.core.experiment)
-* [V2 - Command Job](/python/api/azure-ai-ml/azure.ai.ml.md#azure-ai-ml-command)
+* [V2 - Command Job](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command)
 * [Train models with the Azure ML Python SDK v2](how-to-train-sdk.md)

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 08/17/2022
+ms.date: 01/29/2023
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -338,7 +338,7 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [windows-join]: join-windows-vm.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-phs]: tutorial-configure-password-hash-sync.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/availability-zones-overview.md
 [portal-deploy]: ../azure-resource-manager/templates/deploy-portal.md
 [powershell-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [scoped-sync]: scoped-synchronization.md

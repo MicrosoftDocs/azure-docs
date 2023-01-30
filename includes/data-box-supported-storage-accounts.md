@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
-ms.date: 08/09/2022
+ms.date: 10/21/2022
 ms.author: alkohli
 ---
 
@@ -22,6 +22,7 @@ For import orders, following table shows the supported storage accounts.
 | General-purpose v2 Premium  |  |Y | |  |
 | Azure Premium FileStorage |  |  | Y |  |  
 | Blob storage Standard | Y | | | Hot, Cool |
+| Block Blob storage Premium |Y | | | Hot, Cool |
 
 
 <sup>1</sup> *Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*

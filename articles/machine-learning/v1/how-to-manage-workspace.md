@@ -5,8 +5,9 @@ description: Learn how to manage Azure Machine Learning workspaces in the Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sgilley
-author: sdgilley
+ms.author: deeikele
+author: deeikele
+ms.reviewer: sgilley
 ms.date: 03/08/2022
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022

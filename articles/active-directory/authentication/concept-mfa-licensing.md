@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -59,6 +59,7 @@ The following table provides a list of the features that are available in the va
 | Access Reviews | | | | | ● |
 | Entitlements Management | | | | | ● |
 | Privileged Identity Management (PIM), just-in-time access | | | | | ● |
+| Lifecycle Workflows (preview) | | | | | ● |
 
 ## Compare multi-factor authentication policies
 

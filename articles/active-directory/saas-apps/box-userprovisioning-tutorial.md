@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Configure Box for automatic user provisioning

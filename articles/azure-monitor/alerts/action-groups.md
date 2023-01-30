@@ -1,7 +1,7 @@
 ---
 title: Manage action groups in the Azure portal
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure Functions.
-author: dkamstra
+author: jacegummersall
 ms.topic: conceptual
 ms.date: 09/07/2022
 ms.author: jagummersall
@@ -49,8 +49,8 @@ An action group is a **global** service, so there's no dependency on a specific 
 
       | Option | Behavior |
       | ------ | -------- |
-      | Global | The action groups service decides where to store the action group. The action group is persisted in at least two regions to ensure regional resiliency. Processing of actions may be done in any [geographic region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview).<br></br>Voice, SMS and email actions performed as the result of [service health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal) are resilient to Azure live-site-incidents. |
-      | Regional | The action group is stored within the selected region. The action group is [zone-redundant](/azure/availability-zones/az-region#highly-available-services). Processing of actions is performed within the region.</br></br>Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). |
+      | Global | The action groups service decides where to store the action group. The action group is persisted in at least two regions to ensure regional resiliency. Processing of actions may be done in any [geographic region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview).<br></br>Voice, SMS and email actions performed as the result of [service health alerts](../../service-health/alerts-activity-log-service-notifications-portal.md) are resilient to Azure live-site-incidents. |
+      | Regional | The action group is stored within the selected region. The action group is [zone-redundant](../../availability-zones/az-region.md#highly-available-services). Processing of actions is performed within the region.</br></br>Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). |
    
    The action group is saved in the subscription, region and resource group that you select.
 
@@ -123,23 +123,27 @@ When you create or update an action group in the Azure portal, you can **test** 
 
 1. Define an action, as described in the previous few sections. Then select **Review + create**. 
 
-1. On the page that lists the information that you entered, select **Test action group**.
+> [!NOTE]
+> 
+> If you are editing an already exisitng action group, you must save changes to the action group before testing.
 
-   :::image type="content" source="./media/action-groups/test-action-group.png" alt-text="Screenshot of the Review + create tab of the Create action group dialog box. A Test action group button is visible.":::
+2. On the page that lists the information that you entered, select **Test action group**.
 
-1. Select a sample type and the notification and action types that you want to test. Then select **Test**.
+   :::image type="content" source="./media/action-groups/test-action-group.png" alt-text="Screenshot of test action group start page. A Test action group button is visible.":::
+
+3. Select a sample type and the notification and action types that you want to test. Then select **Test**.
 
    :::image type="content" source="./media/action-groups/test-sample-action-group.png" alt-text="Screenshot of the Test sample action group page. An email notification type and a webhook action type are visible.":::
 
-1. If you close the window or select **Back to test setup** while the test is running, the test is stopped, and you don't get test results.
+4. If you close the window or select **Back to test setup** while the test is running, the test is stopped, and you don't get test results.
 
    :::image type="content" source="./media/action-groups/stop-running-test.png" alt-text="Screenshot of the Test sample action group page. A dialog box contains a Stop button and asks the user about stopping the test.":::
 
-1. When the test is complete, a test status of either **Success** or **Failed** appears. If the test failed and you'd like to get more information, select **View details**.
+5. When the test is complete, a test status of either **Success** or **Failed** appears. If the test failed and you'd like to get more information, select **View details**.
 
    :::image type="content" source="./media/action-groups/test-sample-failed.png" alt-text="Screenshot of the Test sample action group page. Error details are visible, and a white X on a red background indicates that a test failed.":::
 
-You can use the information in the **Error details** section to understand the issue. Then you can edit and test the action group again.
+You can use the information in the **Error details** section to understand the issue. Then you can edit, save changes, and test the action group again.
 
 When you run a test and select a notification type, you get a message with "Test" in the subject. The tests provide a way to check that your action group works as expected before you enable it in a production environment. All the details and links in test email notifications are from a sample reference set.
 
@@ -197,7 +201,7 @@ You might have a limited number of Azure app actions per action group.
 
 ### Email
 
-Ensure that your email filtering is configured appropriately. Emails are sent from the following email addresses:
+Ensure that your email filtering and any malware/spam prevention services are configured appropriately. Emails are sent from the following email addresses:
  
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
@@ -251,6 +255,10 @@ When you define the function action, the function's HTTP trigger endpoint and ac
 
 You may have a limited number of function actions per action group.
 
+   > [!NOTE]
+   >
+   > The function must have access to the storage account. If not, no keys will be available and the function URI will not be accessible.
+
 ### ITSM
 
 An ITSM action requires an ITSM connection. To learn how to create an ITSM connection, see [ITSM integration](./itsmc-overview.md).
@@ -263,7 +271,15 @@ You may have a limited number of Logic Apps actions per action group.
 
 ### Secure webhook
 
-When you use a secure webhook action, you can use Azure AD to secure the connection between your action group and your protected web API, which is your webhook endpoint. For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality. 
+When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your protected web API, which is your webhook endpoint. 
+ 
+The secure webhook Action authenticates to the protected API using a Service Principal instance in the AD tenant of the "AZNS AAD Webhook" AAD Application. To make the action group work, this AAD Webhook Service Principal needs to be added as member of a role on the target AAD application that grants access to the target endpoint.
+ 
+For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md). Follow these steps to take advantage of the secure webhook functionality.
+
+> [!NOTE]
+>
+> Basic authentication is not supported for SecureWebhook. To use basic authentication you must use Webhook.
 
 > [!NOTE]
 >
@@ -448,12 +464,15 @@ Webhook action groups use the following rules:
 
 - The first call waits 10 seconds for a response.
 
-- The second and third attempts wait 30 seconds for a response.
+- Between the first and second call it waits 20 seconds for a response.
+
+- Between the second and third call it waits 40 seconds for a response.
 
 - The call is retried if any of the following conditions are met:
 
   - A response isn't received within the timeout period.
-  - One of the following HTTP status codes is returned: 408, 429, 503, or 504.
+  - One of the following HTTP status codes is returned: 408, 429, 503, 504 or TaskCancellationException.
+  - If any one of the above errors is encountered an additonal 5 seconds wait for the response.
 
 - If three attempts to call the webhook fail, no action group calls the endpoint for 15 minutes.
 

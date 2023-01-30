@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-ms.reviewer: larryfr
+ms.reviewer: lagayhar
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020

@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-vmware/send-logs-to-log-analytics.md",
+            "redirect_url": "/azure/azure-vmware/configure-vmware-syslogs",
+            "redirect_document_id": false
+        }
+    ]
+}

@@ -3,14 +3,14 @@ title: Set up sign-in for an Azure AD organization
 titleSuffix: Azure AD B2C
 description: Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/11/2022
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
@@ -81,7 +81,7 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. Select **Add optional claim**.
 1. For the **Token type**, select **ID**.
 1. Select the optional claims to add, `family_name` and `given_name`.
-1. Select **Add**. If **Turn on the Microsoft Graph email permission (required for claims to appear in token)** appears, enable it, and then select **Add** again.
+1. Select **Add**. If **Turn on the Microsoft Graph profile permission (required for claims to appear in token)** appears, enable it, and then select **Add** again.
 
 ## [Optional] Verify your app authenticity
 

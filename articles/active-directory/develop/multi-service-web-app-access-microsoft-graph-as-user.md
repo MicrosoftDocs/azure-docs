@@ -5,7 +5,7 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/25/2022
@@ -14,6 +14,7 @@ ms.reviewer: stsoneff
 ms.devlang: csharp, javascript
 ms.custom: azureday1
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph from a web app for a signed-in user.
+ms.subservice: web-apps
 ---
 
 # Tutorial: Access Microsoft Graph from a secured app as the user

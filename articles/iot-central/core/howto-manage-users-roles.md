@@ -25,7 +25,7 @@ Every user must have a user account before they can sign in and access an applic
 
 1. To add a user to an IoT Central application, go to the **Users** page in the **Permissions** section.
 
-    :::image type="content" source="media/howto-manage-users-roles/manage-users.png" alt-text="Screenshot of manage users page in IoT Central." lightbox="media/howto-manage-users-roles/manage-users.png":::  
+    :::image type="content" source="media/howto-manage-users-roles/manage-users.png" alt-text="Screenshot that shows the manage users page in IoT Central." lightbox="media/howto-manage-users-roles/manage-users.png":::  
 
 1. To add a user on the **Users** page, choose **+ Assign user**. To add a service principal on the **Users** page, choose **+ Assign service principal**. To add an Azure Active Directory group on the **Users** page, choose **+ Assign group**. Start typing the name of the Active Directory group or service principal to auto-populate the form.
 
@@ -36,7 +36,7 @@ Every user must have a user account before they can sign in and access an applic
 
 1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article.
 
-    :::image type="content" source="media/howto-manage-users-roles/add-user.png" alt-text="Screenshot to add a user and select a role." lightbox="media/howto-manage-users-roles/add-user.png":::
+    :::image type="content" source="media/howto-manage-users-roles/add-user.png" alt-text="Screenshot showing how to add a user and select a role." lightbox="media/howto-manage-users-roles/add-user.png":::
 
     The available roles depend on the organization the user is associated with. You can assign **App** roles to users associated with the root organization, and **Org** roles to users associated with any other organization in the hierarchy.
 
@@ -69,7 +69,7 @@ To delete users, select one or more check boxes on the **Users** page. Then sele
 
 Roles enable you to control who within your organization is allowed to do various tasks in IoT Central. There are three built-in roles you can assign to users of your application. You can also [create custom roles](#create-a-custom-role) if you require finer-grained control.
 
-:::image type="content" source="media/howto-manage-users-roles/manage-roles.png" alt-text="Screenshot to Manage roles selection." lightbox="media/howto-manage-users-roles/manage-roles.png":::
+:::image type="content" source="media/howto-manage-users-roles/manage-roles.png" alt-text="Screenshot that shows how to manage roles." lightbox="media/howto-manage-users-roles/manage-roles.png":::
 
 ### App Administrator
 
@@ -169,6 +169,16 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Read global | None   |
 | Manage global | Read global |
 | Full Control | Read instance, Manage instance, Read global, Manage global <br/> Other dependencies: View device templates, device groups, device instances |
+
+**Edge deployment manifests**
+
+| Name | Dependencies |
+| ---- | -------- |
+| Read instance | None <br/> Other dependencies: View device templates, device groups, device instances |
+| Manage instance | Read instance <br /> Other dependencies: View device templates, device groups, device instances |
+| Read global | None   |
+| Manage global | Read global |
+| Full Control | Read instance, Manage instance, Read global, Manage global <br/> Other dependencies: View device templates, device groups, device instances. Update device instances |
 
 **Jobs permissions**
 

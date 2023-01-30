@@ -72,6 +72,10 @@ To fix this error:
 1. Move Windows pods from existing Windows agent pools to new Windows agent pools.
 1. Delete old Windows agent pools.
 
+## Why is there an unexpected user named "sshd" on my VM node?
+
+AKS adds a user named "sshd" when installing the OpenSSH service. This user is not malicious. We recommend that customers update their alerts to ignore this unexpected user account.
+
 ## How do I rotate the service principal for my Windows node pool?
 
 Windows node pools do not support service principal rotation. To update the service principal, create a new Windows node pool and migrate your pods from the older pool to the new one. After your pods are migrated to the new pool, delete the older node pool.

@@ -347,7 +347,7 @@ public class EventHubReceiver {
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file.
+Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 
@@ -434,7 +434,7 @@ The following table explains the trigger configuration properties that you set i
 
 ## Usage
 
-To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Event Hubs trigger](../articles/azure-functions/event-driven-scaling.md#event-hubs-trigger).
+To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Event Hubs trigger](../articles/azure-functions/event-driven-scaling.md#event-hubs-triggers).
 
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Hubs output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 

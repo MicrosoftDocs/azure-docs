@@ -171,8 +171,6 @@
   items:
   - name: Develop
     items:
-    - name: Create a namespace
-      href: service-bus-create-namespace-portal.md
     - name: Send and receive messages using PHP
       href: service-bus-php-how-to-use-queues.md
     - name: Publish and subscribe for messages using PHP
@@ -217,6 +215,8 @@
       href: migrate-jms-activemq-to-servicebus.md
     - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
       href: deprecate-service-bus-management.md
+    - name: Migrate to Passwordless Connections
+      href: service-bus-migrate-azure-credentials.md
   - name: Monitor
     items:
     - name: End-to-end tracing and diagnostics
@@ -237,8 +237,8 @@
       href: enable-duplicate-detection.md
     - name: Enable partitions (basic / standard)
       href: enable-partitions-basic-standard.md
-    - name: Enable partitions (premium tier)
-      href: enable-partitions-premium.md
+    - name: Enable partitions for queues or topics in premium tier
+      href: enable-partitions-premium.md      
     - name: Enable auto forwarding for a queue or subscription
       href: enable-auto-forward.md
     - name: Enable dead lettering for a queue or subscription

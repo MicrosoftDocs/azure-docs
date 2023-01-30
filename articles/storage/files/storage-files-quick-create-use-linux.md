@@ -4,7 +4,7 @@ description: This tutorial covers how to use the Azure portal to deploy a Linux 
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/17/2022
+ms.date: 10/21/2022
 ms.author: kendownie
 ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
@@ -144,7 +144,7 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
 ### Disable secure transfer
 
-Azure Files doesn't currently support encryption with the NFS protocol and relies instead on network-level security. Therefore, you'll need to disable secure transfer.
+Azure Files doesn't currently support encryption-in-transit with the NFS protocol and relies instead on network-level security. Therefore, you'll need to disable secure transfer.
 
 1. Select **Home** and then **Storage accounts**.
 
@@ -196,7 +196,7 @@ Now that you've created an NFS share, to use it you have to mount it on your Lin
 1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a provided mounting script.
 
    > [!IMPORTANT]
-   > The provided mounting script will mount the NFS share only until the Linux machine is rebooted. To automatically mount the share every time the machine reboots, [add an entry in /etc/fstab](storage-how-to-use-files-linux.md#static-mount-with-etcfstab). For more information, enter the command `man fstab` from the Linux command line.
+   > The provided mounting script will mount the NFS share only until the Linux machine is rebooted. To automatically mount the share every time the machine reboots, see [Mount an NFS share using /etc/fstab](storage-files-how-to-mount-nfs-shares.md#mount-an-nfs-share-using-etcfstab).
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/mount-nfs-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-quick-create-use-linux/mount-nfs-share.png" border="true":::
 

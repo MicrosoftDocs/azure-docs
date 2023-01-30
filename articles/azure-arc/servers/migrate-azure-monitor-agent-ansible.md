@@ -93,7 +93,7 @@ This workflow performs the following tasks:
 
 ### Create template to install Azure Connected Machine agent
 
-This template is responsible for installing the Azure Arc [Connected Machine agent](/azure/azure-arc/servers/agent-overview) on hosts within the provided inventory. A successful run will have installed the agent on all machines. 
+This template is responsible for installing the Azure Arc [Connected Machine agent](./agent-overview.md) on hosts within the provided inventory. A successful run will have installed the agent on all machines. 
 
 Follow the steps below to create the template:
 
@@ -101,7 +101,7 @@ Follow the steps below to create the template:
 1. Select **Add**.
 1. Select **Add job template**, then complete the fields of the form as follows:
 
-    **Name:** Content Lab - Install Arc Agent
+    **Name:** Content Lab - Install Arc Connected Machine Agent
 
     **Job Type:** Run
 
@@ -144,7 +144,7 @@ Follow the steps below to create the template:
 1. Select **Add**.
 1. Select **Add job template**, then complete the fields of the form as follows:
 
-    **Name:** Content Lab - Replace Log Analytics agent with Arc agent
+    **Name:** Content Lab - Replace Log Analytics agent with Arc Connected Machine agent
 
     **Job Type:** Run
 
@@ -217,10 +217,10 @@ An automation controller workflow allows you to construct complex automation by 
 
 1. Select **Save**.
 1. Select **Start** to begin the workflow designer.
-1. Set **Node Type** to "Job Template" and select **Content Lab - Replace Log Analytics with Arc Agent**.
+1. Set **Node Type** to "Job Template" and select **Content Lab - Replace Log Analytics with Arc Connected Machine Agent**.
 1. Select **Next**.
 1. Select **Save**.
-1. Hover over the **Content Lab - Replace Log Analytics with Arc Agent** node and select the **+** button.
+1. Hover over the **Content Lab - Replace Log Analytics with Arc Connected Machine Agent** node and select the **+** button.
 1. Select **On Success**.
 1. Select **Next**.
 1. Set **Node Type** to "Job Template" and select **Content Lab - Uninstall Log Analytics Agent**.
@@ -287,4 +287,3 @@ After following the steps in this article, you have created an automation workfl
 ## Next steps
 
 Learn more about [connecting machines using Ansible playbooks](onboard-ansible-playbooks.md).
-

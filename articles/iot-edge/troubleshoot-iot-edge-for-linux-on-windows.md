@@ -3,7 +3,7 @@ title: Troubleshoot your IoT Edge for Linux on Windows device | Microsoft Docs
 description: Learn standard diagnostic skills for troubleshooting Azure IoT Edge for Linux on Windows (EFLOW) like retrieving component status and logs.
 author: PatAltimore
 ms.author: fcabrera
-ms.date: 08/03/2022
+ms.date: 11/15/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -11,7 +11,7 @@ services: iot-edge
 
 # Troubleshoot your IoT Edge for Linux on Windows device
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 If you experience issues running Azure IoT Edge for Linux on Windows (EFLOW) in your environment, use this article as a guide for troubleshooting and diagnostics. 
 

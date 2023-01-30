@@ -119,7 +119,7 @@ If you're [importing a project](../how-to/create-project.md#import-project) into
 | `length` | ` ` |  The character length of the entity.      |`5`|
 | `listKey`| ` ` | A normalized value for the list of synonyms to map back to in prediction. | `Microsoft` |
 | `values`| `{VALUES-FOR-LIST}` | A list of comma separated strings that will be matched exactly for extraction and map to the list key. | `"msft", "microsoft", "MS"` |
-| `regexKey`| `{REGEX-PATTERN}` | A regular expression. | `ProductPattern1` |
+| `regexKey`| `{REGEX-PATTERN}` | A normalized value for the regular expression to map back to in prediction. | `ProductPattern1` |
 | `regexPattern`| `{REGEX-PATTERN}` | A regular expression. | `^pre` |
 | `prebuilts`| `{PREBUILT-COMPONENTS}` | The prebuilt components that can extract common types. You can find the list of prebuilts you can add [here](../prebuilt-component-reference.md). | `Quantity.Number` |
 | `requiredComponents` | `{REQUIRED-COMPONENTS}` |  A setting that specifies a requirement that a specific component be present to return the entity. You can learn more [here](./entity-components.md#required-components). The possible values are `learned`, `regex`, `list`, or `prebuilts`   |`"learned", "prebuilt"`|

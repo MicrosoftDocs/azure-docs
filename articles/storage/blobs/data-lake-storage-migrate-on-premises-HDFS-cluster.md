@@ -1,7 +1,9 @@
 ---
 title: Migrate from on-prem HDFS store to Azure Storage with Azure Data Box
+titleSuffix: Azure Storage
 description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
 author: normesta
+
 ms.service: storage
 ms.date: 06/16/2022
 ms.author: normesta
@@ -275,7 +277,7 @@ Before you move your data onto a Data Box device, you'll need to download some h
    sudo apt-get install jq
    ```
 
-3. Install the [Requests](https://2.python-requests.org/en/master/) python package.
+3. Install the [Requests](https://pypi.org/project/requests/) python package.
 
    ```bash
 

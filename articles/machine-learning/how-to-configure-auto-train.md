@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK v2 using Azure Machine Learning automated ML.
 ms.author: shoja
 author: shouryaj
-ms.reviewer: ssalgadodev
+ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -180,7 +180,7 @@ Automated ML supports tabular data based tasks (classification, regression, fore
 
 Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there's no need for you to specify the algorithm. 
 
-The task method determines the list of algorithms/models, to apply. Use the `allowed_algorithms` or `blocked_training_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
+The task method determines the list of algorithms/models, to apply. Use the `allowed_training_algorithms` or `blocked_training_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
 
 In the following list of links you can explore the supported algorithms per machine learning task listed below.
 
@@ -207,9 +207,9 @@ Classification | Regression | Time Series Forecasting
 
 With additional algorithms below.
 
-* [Image Classification Multi-class Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
-* [Image Classification Multi-label Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
-* [Image Object Detection Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
+* [Image Classification Multi-class Algorithms](how-to-auto-train-image-models.md#supported-model-architectures)
+* [Image Classification Multi-label Algorithms](how-to-auto-train-image-models.md#supported-model-architectures)
+* [Image Object Detection Algorithms](how-to-auto-train-image-models.md#supported-model-architectures)
 * [NLP Text Classification Multi-label Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 * [NLP Text Named Entity Recognition (NER) Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 
@@ -421,7 +421,7 @@ def automl_classification(
             automl_output=Input(type="mlflow_model")
         ),
         command="ls ${{inputs.automl_output}}",
-        environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1"
+        environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:latest"
     )
     show_output = command_func(automl_output=classification_node.outputs.best_model)
 
@@ -440,4 +440,4 @@ For more examples on how to do include AutoML in your pipelines, please check ou
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
++ Learn more about [how and where to deploy a model](./how-to-deploy-online-endpoints.md).

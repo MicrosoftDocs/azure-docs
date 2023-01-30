@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 01/26/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.reviewer: krbain
@@ -18,6 +18,11 @@ ms.collection: M365-identity-device-management
 
 You can remove workflows that are no longer needed. Deleting these workflows allows you to make sure your lifecycle strategy is up to date. When a workflow is deleted, it enters a soft delete state. During this period, it's still able to be viewed within the deleted workflows list, and can be restored if needed. 30 days after a workflow enters a soft delete state it will be permanently removed. If you don't wish to wait 30 days for a workflow to permanently delete you can always manually delete it yourself.
 
+## Prerequisites
+
+- Azure AD Premium P2
+
+For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
 
 ## Delete a workflow using the Azure portal
 
@@ -59,7 +64,7 @@ After deleting workflows, you can view them on the **Deleted Workflows (Preview)
 
 ## Delete a workflow using Microsoft Graph
 
-To delete a workflow using API via Microsoft Graph, see: [Delete workflow (lifecycle workflow)](/graph/api/identitygovernance-workflow-delete?view=graph-rest-beta).
+To delete a workflow using API via Microsoft Graph, see: [Delete workflow (lifecycle workflow)](/graph/api/identitygovernance-workflow-delete?view=graph-rest-beta&preserve-view=true).
 
 
 To view

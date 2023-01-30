@@ -59,67 +59,72 @@ List of supported operators:
 
 ## Basic editor
 
-Assume you have the following virtual networks in your subscription. Each virtual network has either a *Production* or *Test* tag associated. You only want to select virtual networks with the Production tag and contain **VNet-A** in the name.
+Assume you have the following virtual networks in your subscription. Each virtual network has an associated tag named **environment** with the respective value of *Production* or *Test*. 
+* myVNet01-EastUS - *Production*
+* myVNet01-WestUS - *Production*
+* myVNet02-WestUS - *Test*
+* myVNet03-WestUS - *Test*
 
-* VNet-A-EastUS - *Production*
-* VNet-A-WestUS - *Production*
-* VNet-B-WestUS - *Test*
-* VNet-C-WestUS - *Test*
-* VNetA - *Production*
-* VNetB - *Test*
+You only want to select virtual networks that contain **VNet-A** in the name. To begin using the basic editor to create your conditional statement, you need to create a new network group.
 
-To begin using the basic editor to create your conditional statement, you need to create a new network group.
-
-1. Go to your Azure Virtual Network Manager instance and select **Network Groups** under *Settings*. Then select **+ Create** to create a new network group.
-
+1. Go to your Azure Virtual Network Manager instance and select **Network Groups** under **Settings**. Then select **+ Create** to create a new network group.
 1. Enter a **Name** and an optional **Description** for the network group, and select **Add**.
 1. Select the network group from the list and select **Create Azure Policy**.
 1. Enter a **Policy name** and leave the **Scope** selections unless changes are needed.
-1. Under **Criteria**, select **Tags** from the drop-down under *Parameter* and then select **Exist** from the drop-down under *Operator*.
+1. Under **Criteria**, select **Name** from the drop-down under **Parameter** and then select **Contains** from the drop-down under *Operator*.
+1. Enter **WestUS** under **Condition**, then select **Save**. 
+1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-WestUS, myVNet02-WestUS, and myVNet03-WestUS show up in the list.
 
-1. Enter **Prod** under *Condition*, then select **Save**. 
-1. After a few minutes, select your network group and select **Group Members** under *Settings*. You should only see VNet-A-EastUS, VNet-A-WestUS, and VNetA show up in the list.
-
-> [!NOTE] 
-> The **basic editor** is only available during the creation of an Azure Policy. 
+> [!IMPORTANT] 
+> The **basic editor** is only available during the creation of an Azure Policy. Once a policy is created, all edits will be done using JSON in the **Policies** section of virtual network manager or via Azure Policy.
+>
+> When using the basic editor, your condition options will be limited through the portal experience. For complex conditions like creating a network group for VNets based on a customer-defined tag, you can used the advanced editor. Learn more about [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
 
 ## Advanced editor
 
-The advanced editor can be used to select virtual network during the creation of a network group or when updating an existing network group. Based in [JSON](../governance/policy/concepts/assignment-structure.md), the advanced editor is useful for creating and updating complex Azure Policy conditional statements by experienced users.
+The advanced editor can be used to select virtual networks during the creation of a network group or when updating an existing network group. Based in [JSON](../governance/policy/concepts/assignment-structure.md), the advanced editor is useful for creating and updating complex Azure Policy conditional statements by experienced users.
 
-1. Select the network group created in the previous section. Then select the **Conditional statements** tab.
+### Create a new policy with advanced editor
 
-1. You'll see the conditional statements for the network group in the advance editor view as followed:
+1. Go to your Azure Virtual Network Manager instance and select **Network Groups** under **Settings**. Then select **+ Create** to create a new network group.
+1. Enter a **Name** and an optional **Description** for the network group, and select **Add**.
+1. Select the network group from the list and select **Create Azure Policy**.
+1. Enter a **Policy name** and leave the **Scope** selections unless changes are needed.
+1. Under **Criteria**, select **Advanced (JSON) editor** to open the editor.
+1. Enter the following JSON code into the text box and select **Save**:
+
+   ```json
+      {
+      "field": "Name",
+      "contains": "myVNet01"
+      }
+   ```
+1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-WestUS and myVNet01-EastUS.
+
+### Edit an existing policy
+
+1. Select the network group created in the previous section. Then select the **Policies** tab.
+1. Select the policy created in the previous section.
+1. You'll see the conditional statements for the network group in the advance editor view as follows:
 
     ```json
-    {
-       "allOf": [
-          {
-             "field": "tags['Environment']",
-             "exists": true
-          },
-          {
-             "field": "Name",
-             "contains": "VNet-A"
-          }
-       ]
-    }
+    [
+      {
+         "field": "Name",
+         "contains": "myVNet01"
+      }
+    ]
     ```
 
-    The `"allOf"` parameter contains both the conditional statements that are separated by the **AND** logical operator.
-
-1. To add another conditional statement for a *Name* field *not containing* **WestUS**, enter the following into the advanced editor:
+1. To add another conditional statement for a **Name** field *not containing* **WestUS**, enter the following into the advanced editor:
 
     ```json
     {
        "allOf": [
-          {
-             "field": "tags['Environment']",
-             "exists": true
-          },
+
           {
              "field": "Name",
-             "contains": "VNet-A"
+             "contains": "VNet01"
           },
           {
              "field": "Name",
@@ -129,13 +134,14 @@ The advanced editor can be used to select virtual network during the creation of
     }
     ```
 
-1. Then select **Evaluate**. You should only see VNet-A-EastUS virtual network in the list.
+    The `"allOf"` parameter contains both the conditional statements that are separated by the **AND** logical operator.
+1. Select Save. 
+1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-EastUS.
 
-1. Select **Review + save** and then select **Save** once validation has passed.
-
-See [Parameter and operators](#parameters) for the complete list of parameters and operators you can use with the advanced editor. See below for more examples:
-
+See [Parameter and operators](#parameters) for the complete list of parameters and operators you can use with the advanced editor. 
 ## More examples
+
+Here are more examples of conditional statements in the advanced editor.
 
 ### Example 1: OR operator only
 
@@ -152,11 +158,11 @@ This example uses the **OR** logical operator to separate two conditional statem
        "anyOf": [
           {
              "field": "Name",
-             "contains": "VNet-A"
+             "contains": "myVNet01"
           },
           {
              "field": "Name",
-             "contains": "VNetA"
+             "contains": "myVNet02"
           }
        ]
     }
@@ -179,11 +185,11 @@ The `"anyOf"` parameter contains both the conditional statements that are separa
          "anyOf": [
             {
                "field": "Name",
-               "contains": "VNet-A"
+               "contains": "myVNet01"
             },
             {
                "field": "Name",
-               "contains": "VNetA"
+               "contains": "myVNet02"
             }
          ]
       },
@@ -194,12 +200,34 @@ The `"anyOf"` parameter contains both the conditional statements that are separa
    ]
 }
 ```
-
 Both `"allOf"` and `"anyOf"` are used in the code. Since the **AND** operator is last in the list, it is on the outer part of the code containing the two conditional statements with the **OR** operator.
 
-> [!NOTE]
-> Conditionals should filter on resource type Microsoft.Network/virtualNetwork to improve efficiency.
-> This condition is prepended for you on any conditionals specified through the portal.
+### Example 3: Using custom tag values with advanced editor
+
+In this example, a conditional statement is created that finds virtual networks where the name includes **myVNet** AND the **environment** tag equals **production**.
+
+* Advanced editor:
+
+   ```json
+
+     {
+          "allOf": [
+            {
+               "field": "Name",
+               "contains": "myVNet"
+            },      
+            {
+               "field": "tags['environment']",
+               "equals": "production"
+            }
+          ]    
+     }
+
+   ```
+
+   > [!NOTE]
+   > Conditionals should filter on resource type Microsoft.Network/virtualNetwork to improve efficiency.
+   > This condition is prepended for you on any conditionals specified through the portal.
 ## Next steps
 
 - Learn about [Network groups](concept-network-groups.md).

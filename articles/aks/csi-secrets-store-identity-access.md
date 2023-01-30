@@ -3,7 +3,7 @@ title: Provide an access identity to the Azure Key Vault Provider for Secrets St
 description: Learn about the various methods that you can use to allow the Azure Key Vault Provider for Secrets Store CSI Driver to integrate with your Azure key vault.
 author: nickomang 
 ms.author: nickoman
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 09/27/2022
 ms.custom: devx-track-azurecli
@@ -18,7 +18,7 @@ The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides a variet
 An [Azure AD workload identity][workload-identity] is an identity used by an application running on a pod that can authenticate itself against other Azure services that support it, such as Storage or SQL. It integrates with the capabilities native to Kubernetes to federate with external identity providers. In this security model, the AKS cluster acts as token issuer where Azure Active Directory uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
 
 > [!NOTE]
-> This authentication method replaces pod-managed identity (preview).
+> This authentication method replaces Azure AD pod-managed identity (preview). The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 ### Prerequisites
 

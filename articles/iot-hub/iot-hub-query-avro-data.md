@@ -165,6 +165,6 @@ In this section, you query Avro data and export it to a CSV file in Azure Blob s
 
 In this tutorial, you learned how to query Avro data to efficiently route messages from Azure IoT Hub to Azure services.
 
-To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
+* To learn more about message routing in IoT Hub, see [Use IoT Hub message routing](iot-hub-devguide-messages-d2c.md).
 
-To learn more about message routing in IoT Hub, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+* To learn more about routing query syntax, see [IoT Hub message routing query syntax](iot-hub-devguide-routing-query-syntax.md).

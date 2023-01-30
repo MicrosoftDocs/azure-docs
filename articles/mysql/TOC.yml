@@ -50,6 +50,8 @@
             href: flexible-server/connect-azure-cli.md
           - name: PHP
             href: flexible-server/connect-php.md
+          - name: Azure Data Studio
+            href: /sql/azure-data-studio/quickstart-mysql
           - name: MySQL Workbench
             href: flexible-server/connect-workbench.md
           - name: Python
@@ -120,7 +122,8 @@
       items:
       - name: Data-in replication
         href: flexible-server/concepts-data-in-replication.md
-        displayName: replication, read replica
+      - name: Data-out replication
+        href: flexible-server/concepts-data-out-replication.md
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
     - name: Backup & Restore
@@ -135,9 +138,17 @@
         href: flexible-server/concepts-customer-managed-key.md        
   - name: Integrations
     items:
+    - name: Power Automate
+      href: flexible-server/tutorial-power-automate-with-mysql.md
     - name: Power BI
       href: flexible-server/connect-with-powerbi-desktop.md
-    - name: Azure advisor
+    - name: Azure Redis
+      href: flexible-server/tutorial-add-redis-to-mysql.md
+    - name: Azure Logic Apps
+      href: flexible-server/tutorial-logic-apps-with-mysql.md
+    - name: Azure Cognitive Search
+      href: ../search/search-howto-index-mysql.md
+    - name: Azure Advisor
       href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
     - name: Azure Data factory
       href: ../data-factory/connector-azure-database-for-mysql.md
@@ -146,7 +157,7 @@
     - name: Application Development
       items:
       - name: WordPress on App Service
-        href: flexible-server/tutorial-wordpress-app-service.md
+        href: ../app-service/quickstart-wordpress.md
       - name: WordPress on Azure Kubernetes
         href: flexible-server/tutorial-deploy-wordpress-on-aks.md
       - name: PHP (Laravel) app on App Service in VNet
@@ -234,6 +245,9 @@
       - name: Configure data-in replication
         href: flexible-server/how-to-data-in-replication.md
         displayName: data-in replication, replica, failover
+      - name: Configure data-out replication
+        href: flexible-server/how-to-data-out-replication.md
+        displayName: data-out replication, replica, failover
       - name: Create read replicas
         items:
         - name: Azure portal
@@ -676,15 +690,15 @@
 - name: Migration
   items:
   - name: FAQ
-    href: /azure/dms/faq-mysql-single-to-flex?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
+    href: ../dms/faq-mysql-single-to-flex.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Choose the right tools for migration to Azure Database for MySQL
     href: migrate/how-to-decide-on-right-migration-tools.md
   - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
     href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
   - name: Migrate MySQL - Single Server to Flexible Server offline using DMS
-    href: /azure/dms/tutorial-mysql-azure-single-to-flex-offline-portal?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
+    href: ../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Migrate MySQL - Single Server to Flexible Server online using DMS
-    href: /azure/dms/tutorial-mysql-azure-single-to-flex-online-portal?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
+    href: ../dms/tutorial-mysql-azure-single-to-flex-online-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Migrate data with mysqldump or phpmyadmin
     href: single-server/concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
@@ -753,6 +767,8 @@
     href: single-server/concept-monitoring-best-practices.md
   - name: Performance best practices
     href: single-server/concept-performance-best-practices.md
+  - name: Performance benchmark best practices
+    href: single-server/concept-perf-benchmark-best-practices.md
   - name: Application Development best practices
     href: single-server/app-development-best-practices.md
     displayName: application

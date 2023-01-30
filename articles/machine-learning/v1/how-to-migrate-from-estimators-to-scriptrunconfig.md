@@ -3,8 +3,8 @@ title: Migrate from Estimators to ScriptRunConfig
 titleSuffix: Azure Machine Learning
 description: Migration guide for migrating from Estimators to ScriptRunConfig for configuring training jobs.
 services: machine-learning
-author: blackmist
-ms.author: larryfr
+ms.author: balapv
+author: balapv
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core

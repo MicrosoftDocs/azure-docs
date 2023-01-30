@@ -44,7 +44,7 @@ Sample solutions that do CRUD operations and other common operations on Azure Co
 
 ## Database examples
 
-The [cosmos_client.go](https://github.com/Azure/azure-sdk-for-go/blob/sdk/data/azcosmos/v0.3.2/sdk/data/azcosmos/cosmos_client.go) Go sample shows how to do the following tasks. To learn about the Azure Cosmos DB databases before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+To learn about the Azure Cosmos DB databases before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -54,7 +54,7 @@ The [cosmos_client.go](https://github.com/Azure/azure-sdk-for-go/blob/sdk/data/a
 
 ## Container examples
 
-The [cosmos_database.go](https://github.com/Azure/azure-sdk-for-go/blob/sdk/data/azcosmos/v0.3.2/sdk/data/azcosmos/cosmos_database.go) Go sample shows how to do the following tasks. To learn about the Azure Cosmos DB collections before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+To learn about the Azure Cosmos DB collections before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
