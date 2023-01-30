@@ -182,7 +182,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Event Grid (Microsoft.EventGrid/topics) / topic | privatelink.eventgrid.azure.cn | eventgrid.azure.cn |
 | Azure Event Grid (Microsoft.EventGrid/domains) / domain | privatelink.eventgrid.azure.cn | eventgrid.azure.cn |
 | Azure Web Apps (Microsoft.Web/sites) / sites | privatelink.chinacloudsites.cn | chinacloudsites.cn |
-| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.ml.azure.cn<br/>privatelink.notebooks.chinacloudapi.cn | api.ml.azure.cn<br/>notebooks.chinacloudapi.cn |
+| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.ml.azure.cn<br/>privatelink.notebooks.chinacloudapi.cn | api.ml.azure.cn<br/>notebooks.chinacloudapi.cn<br/>instances.azureml.cn<br/>aznbcontent.net<br/>inference.ml.azure.cn |
 | SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.signalr.azure.cn | service.signalr.azure.cn |
 | Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.cn  |  afs.azure.cn  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.cn  |  datafactory.azure.cn  |
