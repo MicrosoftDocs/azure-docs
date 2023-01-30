@@ -36,7 +36,7 @@
   - name: Manage resources
     href: manage-resources.md
   - name: Disaster recovery
-    href: disaster-recover.md
+    href: disaster-recovery.md
   - name: Deploy
     items:
     - name: Containers
