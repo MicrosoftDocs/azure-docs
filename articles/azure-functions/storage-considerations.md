@@ -93,7 +93,7 @@ You can use the following strategies to avoid host ID collisions:
 
 You can explicitly set a specific host ID for your function app in the application settings by using the `AzureFunctionsWebHost__hostid` setting. For more information, see [AzureFunctionsWebHost__hostid](functions-app-settings.md#azurefunctionswebhost__hostid). 
 
-When the collision occurs between slots, you may need to mark this setting as a slot setting. To learn how to create app settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+When the collision occurs between slots, you must set a specific host ID for each slot, including the production slot. You must also mark these settings as [deployment settings](functions-deployment-slots.md#create-a-deployment-setting) so they don't get swapped. To learn how to create app settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 ## Azure Arc-enabled clusters
 
