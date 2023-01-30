@@ -110,9 +110,12 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/configure-custom-domain-validate.png" alt-text="A screenshot showing how to validate your DNS record settings in the Add a custom domain dialog." border="true":::
 
-1. If the **Domain validation** section shows green check marks next for both domain records, then you've configured them correctly. Select **Add**. If it shows any red X, fix any errors in the DNS record settings in your domain provider's website.
+1. If the **Domain validation** section shows green check marks next for both domain records, then you've configured them correctly. Select **Add**. If you see any errors or warnings, fix it in the DNS record settings on your domain provider's website.
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/configure-custom-domain-add.png" alt-text="A screenshot showing the Add button activated after validation." border="true":::
+
+    > [!NOTE]
+    > If you configured the TXT record but not the A or CNAME record, App Service treats it as a [domain migration](manage-custom-dns-migrate-domain.md) scenario and allows the validation to succeed, but you won't see green check marks next to the records.
 
 1. You should see the custom domain added to the list. You may also see a red X with **No binding**. 
 
