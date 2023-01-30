@@ -62,14 +62,14 @@ Deploy Azure IoT Edge for Linux on Windows on your target device.
    >   Deploy-Eflow -cpuCount 1 -memoryInMB 1024 -vmDataSize 2
    >   ```
    >
-   >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
+   >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions#deploy-eflow).
 
    >[!WARNING]
    >By default, the EFLOW Linux virtual machine has no DNS configuration. Deployments using DHCP will try to obtain the DNS configuration propagated by the DHCP server. Please check your DNS configuration to ensure internet connectivity. For more information, see [AzEFLOW-DNS](https://aka.ms/AzEFLOW-DNS).
 
-   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](/articles/iot-edge/gpu-acceleration.md).
+   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](/azure/iot-edge/gpu-acceleration).
 
-   To use a GPU passthrough, add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
+   To use a GPU passthrough, add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions#deploy-eflow).
 
    >[!WARNING]
    >Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
