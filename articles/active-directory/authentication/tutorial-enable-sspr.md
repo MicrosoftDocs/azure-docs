@@ -145,7 +145,7 @@ This section explains common questions from administrators and end-users who try
 
 - Why aren't on-premises password policies displayed during SSPR?
 
-  At this time, Azure AD Connect doesn't support sharing password policy details with the cloud. SSPR only displays the cloud password policy details, and can't show on-premises policies.
+  At this time, Azure AD Connect and cloud sync don't support sharing password policy details with the cloud. SSPR only displays the cloud password policy details, and can't show on-premises policies.
 
 - Why do federated users wait up to 2 minutes after they see **Your password has been reset** before they can use passwords that are synchronized from on-premises?
 
