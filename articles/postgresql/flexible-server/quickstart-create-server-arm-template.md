@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure DB for PostgresSQL Flexible Server - ARM template'
-description: In this Quickstart, learn how to create an Azure Database for PostgresSQL Flexible server using ARM template.
+title: 'Quickstart: Create an Azure DB for PostgreSQL Flexible Server - ARM template'
+description: In this Quickstart, learn how to create an Azure Database for PostgreSQL Flexible server using ARM template.
 author: mksuni
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -26,7 +26,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the template
 
-An Azure Database for PostgresSQL Server is the parent resource for one or more databases within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, and configurations.
+An Azure Database for PostgreSQL Server is the parent resource for one or more databases within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, and configurations.
 
 Create a _postgres-flexible-server-template.json_ file and copy the following JSON script into it.
 

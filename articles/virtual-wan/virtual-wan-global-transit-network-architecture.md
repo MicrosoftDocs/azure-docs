@@ -112,9 +112,9 @@ The Remote User-to-branch path lets remote users who are using a point-to-site c
 The VNet-to-VNet transit enables VNets to connect to each other in order to interconnect multi-tier applications that are implemented across multiple VNets. Optionally, you can connect VNets to each other through VNet Peering and this may be suitable for some scenarios where transit via the VWAN hub isn't necessary.
 
 
-## <a name="DefaultRoute"></a>Force tunneling and default route
+## <a name="DefaultRoute"></a>Forced tunneling and default route
 
-Force Tunneling can be enabled by configuring the enable default route on a VPN, ExpressRoute, or Virtual Network connection in Virtual WAN.
+Forced Tunneling can be enabled by configuring the enable default route on a VPN, ExpressRoute, or Virtual Network connection in Virtual WAN.
 
 A virtual hub propagates a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if enable default flag is 'Enabled' on the connection. 
 

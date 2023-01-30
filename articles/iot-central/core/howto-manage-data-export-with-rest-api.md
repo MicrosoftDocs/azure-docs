@@ -119,7 +119,7 @@ The response to this request looks like the following example:
             "id": "9742a8d9-c3ca-4d8d-8bc7-357bdc7f39d9",
             "displayName": "Webhook destination",
             "type": "webhook@v1",
-            "url": "http://requestbin.net/r/f7x2i1ug",
+            "url": "https://eofnjsh68jdytan.m.pipedream.net",
             "headerCustomizations": {},
             "status": "error",
         }

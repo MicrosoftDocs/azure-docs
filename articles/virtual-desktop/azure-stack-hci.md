@@ -3,7 +3,7 @@ title: Set up Azure Virtual Desktop for Azure Stack HCI (preview) - Azure
 description: How to set up Azure Virtual Desktop for Azure Stack HCI (preview).
 author: dansisson
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 1/24/2023
 ms.author: v-dansisson
 ms.reviewer: daknappe
 manager: femila
@@ -57,6 +57,17 @@ To set up Azure Virtual Desktop for Azure Stack HCI:
 7. Follow the directions in [Create app groups and manage user assignments](manage-app-groups.md) to create an app group for testing and assign user access to it.
 
 8. Go to [the web client](./user-documentation/connect-web.md) and grant your users access to the new deployment.
+
+## Windows OS activation
+
+Windows VMs must be licensed and activated before you can use them on Azure Stack HCI.
+
+For activating your multi-session OS VMs (Windows 10, Windows 11, or later), enable Azure Benefits on the VM once it is created. Make sure that Azure Benefits are also enabled on the host computer. For more information, see [Azure Benefits on Azure Stack HCI](/azure-stack/hci/manage/azure-benefits).
+
+> [!NOTE]
+> You must manually enable access for each VM that requires Azure Benefits.
+
+For all other OS images (such as Windows Server or single-session OS), Azure Benefits is not required. Continue to use the existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
 
 ## Optional configurations
 

@@ -21,8 +21,15 @@ The following Fast Healthcare Interoperability Resources (FHIR&#174;) resource e
  |**FhirResourceUpdated** |The event emitted after a FHIR resource gets updated successfully.|
  |**FhirResourceDeleted** |The event emitted after a FHIR resource gets soft deleted successfully.|
 
-## Example event
-This section contains examples of what events message data would look like for each FHIR resource event.
+These events are triggered when a DICOM image is created or deleted by calling the DICOM service REST APIs.
+
+ |Event name|Description|
+ |----------|-----------|
+ |**DicomImageCreated** |The event emitted after a DICOM image gets created successfully.|
+ |**DicomImageDeleted** |The event emitted after a DICOM image gets deleted successfully.|
+
+## Example events
+This section contains examples of what events message data would look like for each FHIR resource and DICOM image event.
 
 > [!Note]
 > Events data looks similar to these examples with the `metadataVersion` property set to a value of `1`.
@@ -151,6 +158,92 @@ This section contains examples of what events message data would look like for e
     "resourceFhirId": "e87ef649-abe1-485c-8c09-549d85dfe30b",
     "resourceVersionId": 3
   }
+}
+```
+---
+
+### DicomImageCreated
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+```json
+{
+  "id": "d621839d-958b-4142-a638-bb966b4f7dfd",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "data": {
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 1
+  },
+  "eventType": "Microsoft.HealthcareApis.DicomImageCreated",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2022-09-15T01:14:04.5613214Z"
+}
+```
+# [CloudEvent schema](#tab/cloud-event-schema)
+
+```json
+{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "type": "Microsoft.HealthcareApis.DicomImageCreated",
+  "time": "2022-09-15T01:14:04.5613214Z",
+  "id": "d621839d-958b-4142-a638-bb966b4f7dfd",
+  "data": {
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 1
+  },
+  "specVersion": "1.0"
+}
+```
+---
+
+### DicomImageDeleted
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+```json
+{
+  "id": "eac1c1a0-ffa8-4b28-97cc-1d8b9a0a6021",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "data": {
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 2
+  },
+  "eventType": "Microsoft.HealthcareApis.DicomImageDeleted",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2022-09-15T01:16:07.5692209Z"
+}
+```
+# [CloudEvent schema](#tab/cloud-event-schema)
+
+```json
+{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.HealthcareApis/workspaces/{workspace-name}",
+  "subject": "{dicom-account}.dicom.azurehealthcareapis.com/v1/studies/1.2.3.4.3/series/1.2.3.4.3.9423673/instances/1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+  "type": "Microsoft.HealthcareApis.DicomImageDeleted",
+  "time": "2022-09-15T01:14:04.5613214Z",
+  "id": "eac1c1a0-ffa8-4b28-97cc-1d8b9a0a6021",
+  "data": {
+    "imageStudyInstanceUid": "1.2.3.4.3",
+    "imageSeriesInstanceUid": "1.2.3.4.3.9423673",
+    "imageSopInstanceUid": "1.3.6.1.4.1.45096.2.296485376.2210.1633373143.864442",
+    "serviceHostName": "{dicom-account}.dicom.azurehealthcareapis.com",
+    "sequenceNumber": 2
+  },
+  "specVersion": "1.0"
 }
 ```
 ---

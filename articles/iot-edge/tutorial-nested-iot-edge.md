@@ -4,16 +4,15 @@ description: This tutorial shows you how to create a hierarchical structure of I
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/31/2022
+ms.date: 08/31/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices
 
-[!INCLUDE [iot-edge-version-202011](includes/iot-edge-version-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Deploy Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it. This setup is also known as "nested edge".
 

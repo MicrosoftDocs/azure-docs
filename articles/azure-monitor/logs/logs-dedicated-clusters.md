@@ -4,15 +4,13 @@ description: Customers meeting the minimum commitment tier could use dedicated c
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 05/01/2022
+ms.date: 01/01/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Azure Monitor Logs Dedicated Clusters
 
-Azure Monitor Logs Dedicated Clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs customers. Customers can select which of their Log Analytics workspaces should be hosted on dedicated clusters.
-
-Dedicated clusters require customers to commit for at least 500 GB of data ingestion per day. You can link existing workspace to a dedicated cluster and unlink it with no data loss or service interruption. 
+Log Analytics Dedicated clusters in Azure Monitor enable advanced capabilities, and higher query utilization, provided to linked Log Analytics workspaces. Clusters require a minimum ingestion commitment of 500 GB per day. You can link and unlink workspaces from a dedicated cluster without any data loss or service interruption. 
 
 Capabilities that require dedicated clusters:
 
@@ -36,7 +34,7 @@ Capabilities that require dedicated clusters:
   | West US 3 | | | | |
 
 
-## Management 
+## Cluster management
 
 Dedicated clusters are managed with an Azure resource that represents Azure Monitor Log clusters. Operations are performed programmatically using [CLI](/cli/azure/monitor/log-analytics/cluster), [PowerShell](/powershell/module/az.operationalinsights) or the [REST](/rest/api/loganalytics/clusters).
 
@@ -56,12 +54,36 @@ Provide the following properties when creating new dedicated cluster:
 - **ResourceGroupName**: You should use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review Design a Log Analytics workspace configuration(../logs/workspace-design.md).
 - **Location**
 - **SkuCapacity**: The Commitment Tier (formerly called capacity reservations) can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
+- **Managed identity**: Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): System-assigned and User-assigned managed identity, while a single identity can be defined in a cluster depending on your scenario. 
+  - System-assigned managed identity is simpler and being generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations.
+
+    *Identity in Cluster's REST Call*
+    ```json
+    {
+      "identity": {
+        "type": "SystemAssigned"
+        }
+    }
+    ```
+  - User-assigned managed identity lets you configure Customer-managed key at cluster creation, when granting it permissions in your Key Vault before cluster creation.
+
+    *Identity in Cluster's REST Call*
+    ```json
+    {
+    "identity": {
+      "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+        }
+      }  
+    }
+    ```
 
 The user account that creates the clusters must have the standard Azure resource creation permission: `Microsoft.Resources/deployments/*` and cluster write permission `Microsoft.OperationalInsights/clusters/write` by having in their role assignments this specific action or `Microsoft.OperationalInsights/*` or `*/write`.
 
 After you create your cluster resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
-You can have up to five active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to seven reserved clusters per subscription per region (active or recently deleted).
+You can have up to five active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to seven clusters per subscription and region, five active, plus two deleted in past 14 days.
 
 > [!NOTE]
 > Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
@@ -570,7 +592,7 @@ The cluster's billing stops when deleted, regardless the 30 days commitment tier
 If you delete your cluster while workspaces are linked, Workspaces get automatically unlinked from the cluster before the cluster delete, and new data sent to workspaces gets ingested to Log Analytics store instead. If the retention of data in workspaces older than the period it was linked to the cluster, you can query workspace for the time range before the link to cluster and after the unlink, and the service performs cross-cluster queries seamlessly.
 
 > [!NOTE] 
-> - There is a limit of seven clusters per subscription, five active, plus two deleted in past 14 days.
+> - There is a limit of seven clusters per subscription and region, five active, plus two deleted in past 14 days.
 > - Cluster's name remain reserved for 14 days after deletion, and can't be used for creating a new cluster.
 
 Use the following commands to delete a cluster:
@@ -612,7 +634,7 @@ Authorization: Bearer <token>
 
 - A maximum of five active clusters can be created in each region and subscription.
 
-- A maximum number of seven reserved clusters (active or recently deleted) can exist in each region and subscription.
+- A maximum of seven cluster allowed per subscription and region, five active, plus two deleted in past 14 days.
 
 - A maximum of 1,000 Log Analytics workspaces can be linked to a cluster.
 

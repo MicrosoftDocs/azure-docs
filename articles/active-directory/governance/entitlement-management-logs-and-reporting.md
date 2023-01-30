@@ -1,5 +1,5 @@
 ---
-title: Archive & report with Azure Monitor - Microsoft Entra entitlement management
+title: Archive & report with Azure Monitor - entitlement management
 description: Learn how to archive logs and create reports with Azure Monitor in entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 5/19/2021
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management 

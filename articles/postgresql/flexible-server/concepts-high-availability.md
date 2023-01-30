@@ -1,8 +1,8 @@
 ---
 title: Overview of high availability with Azure Database for PostgreSQL - Flexible Server 
 description: Learn about the concepts of high availability with Azure Database for PostgreSQL - Flexible Server
-ms.author: srranga
-author: sr-msft
+ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -229,7 +229,7 @@ Flexible servers that are configured with high availability, log data is replica
 
 * Restarting the primary database server also restarts standby replica. 
 
-* Configuring additional read replicas are not supported.
+* Configuring additional standbys is not supported.
 
 * Configuring customer initiated management tasks cannot be scheduled during managed maintenance window.
 
@@ -276,10 +276,10 @@ Here are some failure scenarios and how Flexible server automatically recovers:
 
 Here are some failure scenarios that require user action to recover:
 
-| **Scenario** | **Recovery plan** |
-| ---------- | ---------- |
-| <b> Availability zone failure | If the region supports multiple availability zones, then the backups are automatically stored in zone-redundant backup storage. In the event of a zone failure, you can restore from the backup to another availability zone. This provides zone-level resiliency. However, this incurs time to restore and recovery. There could be some data loss as not all WAL records may have been copied to the backup storage. <br> <br> If you prefer to have a short downtime and high uptime, we recommend you to configure your server with zone-redundant high availability. |
-| <b> Logical/user errors | Recovery from user errors, such as accidentally dropped tables or incorrectly updated data, involves performing a [point-in-time recovery](./concepts-backup-restore.md) (PITR), by restoring and recovering the data until the time just before the error had occurred.<br> <br>  If you want to restore only a subset of databases or specific tables rather than all databases in the database server, you can restore the database server in a new instance, export the table(s) via [pg_dump](https://www.postgresql.org/docs/13/app-pgdump.html), and then use [pg_restore](https://www.postgresql.org/docs/13/app-pgrestore.html) to restore those tables into your database. |
+| **Scenario** | **Recovery plan**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <b> Availability zone failure | If the region supports multiple availability zones, then the backups are automatically stored in zone-redundant backup storage. In the event of a zone failure, you can restore from the backup to another availability zone. This provides zone-level resiliency. However, this incurs time to restore and recovery. There could be some data loss as not all WAL records may have been copied to the backup storage. <br> <br> If you prefer to have a short downtime and high uptime, we recommend you to configure your server with zone-redundant high availability.                                                                                                                      |
+| <b> Logical/user errors | Recovery from user errors, such as accidentally dropped tables or incorrectly updated data, involves performing a [point-in-time recovery](./concepts-backup-restore.md) (PITR), by restoring and recovering the data until the time just before the error had occurred.<br> <br>  If you want to restore only a subset of databases or specific tables rather than all databases in the database server, you can restore the database server in a new instance, export the table(s) via [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html), and then use [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) to restore those tables into your database. |
 
 ## Frequently asked questions
 

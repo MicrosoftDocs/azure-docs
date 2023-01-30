@@ -11,9 +11,7 @@ zone_pivot_groups: app-service-containers-code
 # Mount Azure Storage as a local share in App Service
 
 ::: zone pivot="code-windows"
-> [!NOTE]
-> Mounting Azure Storage as a local share for App Service on Windows code (non-container) is currently in preview.
->
+
 This guide shows how to mount Azure Storage Files as a network share in Windows code (non-container) in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:
 
 - Configure persistent storage for your App Service app and manage the storage separately.
@@ -164,6 +162,7 @@ The following features are supported for Linux containers:
     | **Share name** | Files share to mount. |
     | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
     | **Mount path** | Directory inside your app service that you want to mount. Only `/mounts/pathname` is supported.|
+    | **Deployment slot setting** | When checked, the storage mount settings also apply to deployment slots.|
     ::: zone-end
     ::: zone pivot="container-windows"
     | Setting | Description |
@@ -174,6 +173,7 @@ The following features are supported for Linux containers:
     | **Share name** | Files share to mount. |
     | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
     | **Mount path** | Directory inside your Windows container that you want to mount. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`) as it's not supported.|
+    | **Deployment slot setting** | When checked, the storage mount settings also apply to deployment slots.|    
     ::: zone-end
     ::: zone pivot="container-linux"
     | Setting | Description |
@@ -185,6 +185,7 @@ The following features are supported for Linux containers:
     | **Storage container** or **Share name** | Files share or Blobs container to mount. |
     | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
     | **Mount path** | Directory inside the Linux container to mount to Azure Storage. Do not use `/` or `/home`.|
+    | **Deployment slot setting** | When checked, the storage mount settings also apply to deployment slots.|    
     ::: zone-end
 
 # [Azure CLI](#tab/cli)
@@ -239,6 +240,9 @@ To validate that the Azure Storage is mounted successfully for the app:
 ## Best practices
 
 ::: zone pivot="code-windows"
+
+- Azure Storage mounts can be configured as a virtual directory to serve static content. To configure the virtual directory, in the left navigation click **Configuration** > **Path Mappings** > **New Virtual Application or Directory**. Set the **Physical path** to the **Mount path** defined on the Azure Storage mount.
+
 - To avoid potential issues related to latency, place the app and the Azure Storage account in the same Azure region. Note, however, if the app and Azure Storage account are in same Azure region, and if you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../storage/common/storage-network-security.md), then these IP restrictions are not honored.
 
 - In the Azure Storage account, avoid [regenerating the access key](../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Azure App Services stores Azure storage account key. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
@@ -268,7 +272,7 @@ To validate that the Azure Storage is mounted successfully for the app:
 
 - To avoid potential issues related to latency, place the app and the Azure Storage account in the same Azure region. Note, however, if the app and Azure Storage account are in same Azure region, and if you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../storage/common/storage-network-security.md), then these IP restrictions are not honored.
 
-- In the Azure Storage account, avoid [regenerating the access key](../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
+- In the Azure Storage account, avoid [regenerating the access key](../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Azure App Services stores Azure storage account key. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
 
     1. Regenerate **key2**. 
     1. In the storage mount configuration, update the access the key to use the regenerated **key2**.
@@ -297,7 +301,7 @@ To validate that the Azure Storage is mounted successfully for the app:
 
 - Mounting the storage to `/home` is not recommended because it may result in performance bottlenecks for the app. 
  
-- In the Azure Storage account, avoid [regenerating the access key](../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
+- In the Azure Storage account, avoid [regenerating the access key](../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Azure App Services stores Azure storage account key. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
 
     1. Regenerate **key2**. 
     1. In the storage mount configuration, update the access the key to use the regenerated **key2**.

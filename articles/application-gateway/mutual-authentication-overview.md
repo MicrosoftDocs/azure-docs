@@ -4,7 +4,7 @@ description: This article is an overview of mutual authentication on Application
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 11/03/2022
+ms.date: 12/21/2022
 ms.topic: conceptual 
 ms.author: greglin
 
@@ -75,7 +75,7 @@ With mutual TLS authentication, there are additional server variables that you c
 
 When a client initiates a connection to an Application Gateway configured with mutual TLS authentication, not only can the certificate chain and issuer's distinguished name be validated, but revocation status of the client certificate can be checked with OCSP (Online Certificate Status Protocol). During validation, the certificate presented by the client will be looked up via the defined OCSP responder defined in its Authority Information Access (AIA) extension. In the event the client certificate has been revoked, the application gateway will respond to the client with an HTTP 400 status code and reason.  If the certificate is valid, the request will continue to be processed by application gateway and forwarded on to the defined backend pool.
 
-Client certificate revocation can be enabled via REST API, ARM, Bicep, or PowerShell.
+Client certificate revocation can be enabled via REST API, ARM, Bicep, CLI, or PowerShell.
 
 # [Azure PowerShell](#tab/powershell)
 To configure client revocation check on an existing Application Gateway via Azure PowerShell, the following commands can be referenced:
@@ -111,16 +111,17 @@ A list of all Azure CLI references for client authentication configuration on Ap
 # [Azure portal](#tab/portal)
 Azure portal support is currently not available.
 
-To verify OCSP revocation status has been evaluated, [access logs](./application-gateway-diagnostics.md#access-log) will contain a property called "sslClientVerify", with the status of the OCSP response.
+---
+
+To verify OCSP revocation status has been evaluated for the client request, [access logs](./application-gateway-diagnostics.md#access-log) will contain a property called "sslClientVerify", with the status of the OCSP response.
 
 It is critical that the OCSP responder is highly available and network connectivity between Application Gateway and the responder is possible. In the event Application Gateway is unable to resolve the fully qualified domain name (FQDN) of the defined responder or network connectivity is blocked to/from the responder, certificate revocation status will fail and Application Gateway will return a 400 HTTP response to the requesting client.
 
 Note: OCSP checks are validated via local cache based on the nextUpdate time defined by a previous OCSP response. If the OCSP cache has not been populated from a previous request, the first response may fail. Upon retry of the client, the response should be found in the cache and the request will be processed as expected. 
 
-Limitations
+## Notes
 - Revocation check via CRL is not supported
 - Client revocation check was introduced in API version 2022-05-01
-- Azure portal support is not available
 
 ## Next steps
 

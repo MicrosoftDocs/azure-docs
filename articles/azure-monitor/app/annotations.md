@@ -2,7 +2,7 @@
 title: Release annotations for Application Insights | Microsoft Docs
 description: Learn how to create annotations to track deployment or other significant events with Application Insights.
 ms.topic: conceptual
-ms.date: 07/20/2021
+ms.date: 01/24/2023
 ms.reviewer: casocha
 
 ---
@@ -215,7 +215,7 @@ Create a separate API key for each of your Azure Pipelines release templates.
 
 
    > [!NOTE]
-   > Limits for API keys are described in the [REST API rate limits documentation](https://dev.applicationinsights.io/documentation/Authorization/Rate-limits).
+   > Limits for API keys are described in the [REST API rate limits documentation](/rest/api/yammer/rest-api-rate-limits).
 
 ### Transition to the new release annotation
 
