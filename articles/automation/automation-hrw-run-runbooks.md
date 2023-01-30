@@ -63,7 +63,7 @@ Define permissions for your runbook to run on the Hybrid Runbook Worker in the f
 
 * Have the runbook provide its own authentication to local resources.
 * Configure authentication using [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
-* Specify a Run As account to provide a user context for all runbooks.
+* Specify Hybrid Worker credentials to provide a user context for all runbooks.
 
 ### Use runbook authentication to local resources
 
@@ -217,105 +217,6 @@ By default, the Hybrid jobs run under the context of System account. However, to
   >[!NOTE]
   >Linux Hybrid Worker doesn't support Hybrid Worker credentials.
     
-## <a name="runas-script"></a>Install Run As account certificate
-
-As part of your automated build process for deploying resources in Azure, you might require access to on-premises systems to support a task or set of steps in your deployment sequence. To provide authentication against Azure using the Run As account, you must install the Run As account certificate.
-
->[!NOTE]
->This PowerShell runbook currently does not run on Linux machines. It runs only on Windows machines.
-
-
-The following PowerShell runbook, called **Export-RunAsCertificateToHybridWorker**, exports the Run As certificate from your Azure Automation account. The runbook downloads and imports the certificate into the local machine certificate store on a Hybrid Runbook Worker that is connected to the same account. Once it completes that step, the runbook verifies that the worker can successfully authenticate to Azure using the Run As account.
-
->[!NOTE]
->This PowerShell runbook is not designed or intended to be run outside of your Automation account as a script on the target machine.
->
-
-```azurepowershell-interactive
-<#PSScriptInfo
-.VERSION 1.0
-.GUID 3a796b9a-623d-499d-86c8-c249f10a6986
-.AUTHOR Azure Automation Team
-.COMPANYNAME Microsoft
-.COPYRIGHT
-.TAGS Azure Automation
-.LICENSEURI
-.PROJECTURI
-.ICONURI
-.EXTERNALMODULEDEPENDENCIES
-.REQUIREDSCRIPTS
-.EXTERNALSCRIPTDEPENDENCIES
-.RELEASENOTES
-#>
-
-<#
-.SYNOPSIS
-Exports the Run As certificate from an Azure Automation account to a hybrid worker in that account.
-
-.DESCRIPTION
-This runbook exports the Run As certificate from an Azure Automation account to a hybrid worker in that account. Run this runbook on the hybrid worker where you want the certificate installed. This allows the use of the AzureRunAsConnection to authenticate to Azure and manage Azure resources from runbooks running on the hybrid worker.
-
-.EXAMPLE
-.\Export-RunAsCertificateToHybridWorker
-
-.NOTES
-LASTEDIT: 2016.10.13
-#>
-
-# Generate the password used for this certificate
-Add-Type -AssemblyName System.Web -ErrorAction SilentlyContinue | Out-Null
-$Password = [System.Web.Security.Membership]::GeneratePassword(25, 10)
-
-# Stop on errors
-$ErrorActionPreference = 'stop'
-
-# Get the management certificate that will be used to make calls into Azure Service Management resources
-$RunAsCert = Get-AutomationCertificate -Name "AzureRunAsCertificate"
-
-# location to store temporary certificate in the Automation service host
-$CertPath = Join-Path $env:temp  "AzureRunAsCertificate.pfx"
-
-# Save the certificate
-$Cert = $RunAsCert.Export("pfx",$Password)
-Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose
-
-Write-Output ("Importing certificate into $env:computername local machine root store from " + $CertPath)
-$SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
-Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword | Write-Verbose
-
-Remove-Item -Path $CertPath -ErrorAction SilentlyContinue | Out-Null
-
-# Test to see if authentication to Azure Resource Manager is working
-$RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
-
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $RunAsConnection.TenantId `
-    -ApplicationId $RunAsConnection.ApplicationId `
-    -CertificateThumbprint $RunAsConnection.CertificateThumbprint | Write-Verbose
-
-Set-AzContext -Subscription $RunAsConnection.SubscriptionID | Write-Verbose
-
-# List automation accounts to confirm that Azure Resource Manager calls are working
-Get-AzAutomationAccount | Select-Object AutomationAccountName
-```
-
->[!NOTE]
->For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. When searching your library items, if you do not see `Connect-AzAccount`, you can use `Add-AzAccount`, or you can update your modules in your Automation account.
-
-To finish preparing the Run As account:
-
-1. Save the **Export-RunAsCertificateToHybridWorker** runbook to your computer with a **.ps1** extension.
-1. Import it into your Automation account.
-1. Edit the runbook, changing the value of the `Password` variable to your own password.
-1. Publish the runbook.
-1. Run the runbook, targeting the Hybrid Runbook Worker group that runs and authenticates runbooks using the Run As account. 
-1. Examine the job stream to see that it reports the attempt to import the certificate into the local machine store, followed by multiple lines. This behavior depends on how many Automation accounts you define in your subscription and the degree of success of the authentication.
-
->[!NOTE]
->  In case of unrestricted access, a user with VM Contributor rights or having permissions to run commands against the hybrid worker machine can use the Automation Account Run As certificate from the hybrid worker machine, using other sources like Azure cmdlets which could potentially allow a malicious user access as a subscription contributor. This could jeopardize the security of your Azure environment. </br> </br>
->  We recommend that you divide the tasks within the team and grant the required permissions/access to users as per their job. Do not provide unrestricted permissions to the machine hosting the hybrid runbook worker role.
-
 ## Start a runbook on a Hybrid Runbook Worker
 
 [Start a runbook in Azure Automation](start-runbooks.md) describes different methods for starting a runbook. Starting a runbook on a Hybrid Runbook Worker uses a **Run on** option that allows you to specify the name of a Hybrid Runbook Worker group. When a group is specified, one of the workers in that group retrieves and runs the runbook. If your runbook does not specify this option, Azure Automation runs the runbook as usual.

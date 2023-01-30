@@ -36,8 +36,6 @@
     href: telemetry.md
   - name: View and configure DDoS diagnostic logging
     href: diagnostic-logging.md
-  - name: View and configure DDoS alerts
-    href: alerts.md
 - name: Concepts
   items:
   - name: Types of attacks
@@ -62,6 +60,8 @@
       items:
       - name: Configure Log Analytics workspace 
         href: ddos-configure-log-analytics-workspace.md
+      - name: Configure metric alerts through portal
+        href: alerts.md
     - name: Test with simulation partners
       href: test-through-simulations.md
     - name: Manage permissions and restrictions
