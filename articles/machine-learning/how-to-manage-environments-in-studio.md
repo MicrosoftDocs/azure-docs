@@ -33,7 +33,7 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 
 ## Browse curated environments
 
-Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images, which reduces the job preparation cost and support training and inferencing scenarios. 
+Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images, which reduce the job preparation cost and support training and inferencing scenarios. 
 
 Click on an environment to see detailed information about its contents. For more information, see [Azure Machine Learning curated environments](resource-curated-environments.md). 
 
@@ -69,7 +69,7 @@ Keep in mind that any changes to the Docker or Conda sections will create a new 
 
 ## View logs
 
-Click on the **Build log** tab within the details page to view the logs of an environment version and the environment log analysis. Environment log analysis (Preview) is a feature that provides insight and relevant troubleshooting documentation to explain environment definition issues or iamge build failures. If you have feedback on the feature or the documentation, file it at https://aka.ms/azureml/environment/log-analysis-feedback
+Click on the **Build log** tab within the details page to view the logs of an environment version and the environment log analysis. Environment log analysis (Preview) is a feature that provides insight and relevant troubleshooting documentation to explain environment definition issues or image build failures. If you have feedback on the feature or the documentation, file it at https://aka.ms/azureml/environment/log-analysis-feedback
 * Build log contains the bare output from an Azure Container Registry (ACR) task or an Image Build Compute job.
 * Image build analysis is an analysis of the build log used to see the cause of the image build failure.
 * Environment definition analysis provides information about the environment definition if it goes against best practices for reproducibility, supportability, or security.
