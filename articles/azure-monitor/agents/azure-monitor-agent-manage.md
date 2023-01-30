@@ -4,7 +4,7 @@ description: Options for managing Azure Monitor Agent on Azure virtual machines 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/9/2022
+ms.date: 1/30/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: shseth
 
@@ -259,6 +259,9 @@ N/A
 ---
 
 ## Update
+
+> [!NOTE]
+> The recommendation is to enable [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) which may take **up to a month** after a new version is released, to update installed extensions to the released (latest) version across all regions.
 
 #### [Portal](#tab/azure-portal)
 
