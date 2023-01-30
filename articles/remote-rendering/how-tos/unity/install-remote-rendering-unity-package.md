@@ -35,8 +35,8 @@ To update your local package, just select a newer version from the Mixed Reality
 
 To install the Remote Rendering package manually, you need to:
 
-1. Download the package from the Mixed Reality Packages NPM feed at `https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry`.
-    * You can either use [NPM](https://www.npmjs.com/get-npm) and run the following command to download the package to the current folder.
+1. Download the package from the Mixed Reality Packages npm feed at `https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry`.
+    * You can either use [npm](https://www.npmjs.com/get-npm) and run the following command to download the package to the current folder.
 
       ```cmd
       npm pack com.microsoft.azure.remote-rendering --registry https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry
