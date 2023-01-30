@@ -1,19 +1,17 @@
 ---
 title: Deploy Arc resource bridge (preview) by using Azure CLI commands
 description: Learn how to use Azure CLI commands to manage your Azure Arc resource bridge (preview) deployment.
-ms.date: 01/30/2023
+ms.date: 01/31/2023
 ms.topic: overview
 ---
 
 # Deploy Arc resource bridge (preview) by using Azure CLI commands
 
-Arc resource bridge can be deployed using Azure CLI commands. These commands are executed in the order shown here.
-
-This topic provides a brief description of these commands, with tips on how to use them.
+You can use Azure CLI commands to deploy Arc resource bridge (preview). This topic provides an overview of these commands, in the order in which they are used for deployment.
 
 ## az arcappliance createconfig
 
-Creates the configuration files used by Arc resource bridge. The credentials that are provided during `createconfig` (ex: vCenter credentials for VMware) are stored in a configuration file and locally within Arc resource bridge. The credentials should be a separate user account used only by Arc resource bridge with permission to view, create, delete, and manage on-premises resources. If the credentials change, then the credentials on the bridge should be rotated.
+Creates the configuration files used by Arc resource bridge. Credentials that are provided during `createconfig`, such as vCenter credentials for VMware vSphere, are stored in a configuration file and locally within Arc resource bridge. These credentials should be a separate user account used only by Arc resource bridge, with permission to view, create, delete, and manage on-premises resources. If the credentials change, then the credentials on the resource bridge should be rotated.
 
 The `createconfig` command features two modes: interactive and non-interactive. Interactive mode provides helpful prompts that explain the parameter and what to pass. To initiate interactive mode, pass only the three required parameters. Non-interactive mode allows you to pass all the parameters needed to create the configuration files without being prompted, which saves time and is useful for automation scripts. Three configuration files are generated: resource.yaml, appliance.yaml and infra.yaml.  These files should be kept and stored in a secure location, as they're required for maintenance of Arc resource bridge.
 
@@ -28,7 +26,7 @@ Checks the configuration files for a valid schema, cloud and core validations (s
 
 Downloads the OS images from Microsoft and uploads them to the on-premises cloud image gallery to prepare for the creation of the appliance VM.
 
-This command can take up to 30 minutes to complete, depending on the network download speed. Allow the command to complete before running more commands.
+This command can take up to 30 minutes to complete, depending on the network download speed. Allow the command to complete before continuing with the deployment.
 
 ## az arcappliance deploy
 
@@ -36,7 +34,7 @@ Deploys an on-premises instance of Arc resource bridge as an appliance VM, boots
 
 ## az arcappliance create
 
-Creates Arc resource bridge in Azure as an ARM resource and establishes the connection between the ARM resource and on-premises appliance VM.
+Creates Arc resource bridge in Azure as an ARM resource, then establishes the connection between the ARM resource and on-premises appliance VM.
 
 Running this command is the last step in the deployment process.  
 
