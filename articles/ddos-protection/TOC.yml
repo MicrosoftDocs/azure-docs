@@ -58,8 +58,10 @@
   items:
     - name: Configure Monitoring and Logging
       items:
-        - name: Configure metric alerts through portal
-          href: alerts.md
+      - name: Configure Log Analytics workspace 
+        href: ddos-configure-log-analytics-workspace.md
+      - name: Configure metric alerts through portal
+        href: alerts.md
     - name: View Monitoring and Logging
       items: 
         - name: View alerts in Microsoft Defender for Cloud
