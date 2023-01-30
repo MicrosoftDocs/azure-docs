@@ -315,7 +315,7 @@
         - name: Use Azure CLI
           href: how-to-manage-workspace-cli.md
         - name: Use Azure PowerShell
-          href: How-to-manage-workspace-powershell.md
+          href: how-to-manage-workspace-powershell.md
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
