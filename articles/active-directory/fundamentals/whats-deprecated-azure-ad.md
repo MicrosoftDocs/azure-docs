@@ -22,7 +22,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 ## Upcoming changes
 
-Use the following table to learn about changes including deprecations, retirements, breaking changes and rebranding as well as key dates and recommended next steps.
+Use the following table to learn about changes including deprecations, retirements, breaking changes and rebranding. Also find key dates and recommendedations.
 
    > [!NOTE]
    > Dates and times are United States Pacific Standard Time, and are subject to change. 
@@ -55,14 +55,14 @@ Use the definitions in this section help clarify the state, availability, and su
 |Feature change|Change to an IDNA feature that requires no customer action, but is noticeable to them. Typically, these changes are in the user interface/user experperience (UI/UX).|4 times per year: March, June, September, and December|
 |Rebranding|A new name, term, symbol, design, concept or combination thereof for an established brand to develop a differentiated experience.|As scheduled or announced|
 
-## Terminology
+### Terminology
 
 * **End-of-life** - Engineering investments have ended, and the feature is unavailable to any customer
 * **Tenant, current** - The change date goes into effect for tenants created before the new tenant change date
 * **Tenant, new** - The change date goes into effect for tenants created after the change date
 
 ## Next steps
-[What's new in Azure Active Directory](../../active-directory/fundamentals/whats-new.md)
+[What's new in Azure Active Directory?](../../active-directory/fundamentals/whats-new.md)
 
 ## Resources
 * [Microsoft Entra Change Announcement blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-november-2022-train/ba-p/2967452)
