@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/13/2022
+ms.date: 01/13/2023
 ms.custom: subject-rbac-steps, engagement-fy23
 ---
 # Replicate on-premises machines by using private endpoints
