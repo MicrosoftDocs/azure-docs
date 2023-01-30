@@ -46,7 +46,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * English - Australia (en-au), Canada (en-ca), Great Britain (en-gb), India (en-in)
   * Portuguese - Brazil (pt-br)
 
-* **[Prebuilt invoice model](concept-invoice.md#field-extraction)—additional field extraction**
+* **[Prebuilt invoice model](concept-invoice.md#field-extraction)—additional field extractions**
 
   The prebuilt invoice model now has added support for the following field extractions:
 
@@ -55,16 +55,16 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * Total discount
   * Tax items (en-in only)
 
-* **[Prebuilt ID document model](concept-id-document.md#document-types) additional document types support**
+* **[Prebuilt ID document model](concept-id-document.md#document-types)—additional document types support**
 
   The prebuilt ID document model now has added support for the following document types:
 
   * Passport, driver's license, and residence permit ID expansion.
   * US military ID
   * India ID
-  * Australian ID
+  * Australia ID
   * Canada ID
-  * UK ID
+  * United Kingdom ID
 
 ## December 2022
 
