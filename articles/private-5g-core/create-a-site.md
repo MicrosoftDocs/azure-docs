@@ -66,7 +66,7 @@ In this step, you'll create the mobile network site resource representing the ph
     Once you've finished filling out the fields, select **Attach**.
 
 1. Repeat the previous step for each additional data network you want to configure.
-1. If you decided you want to to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificate for this site, select **Next : Identity >**.  
+1. If you decided you want to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificate for this site, select **Next : Identity >**.  
 If you decided not to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificates for this site, you can skip this step.
     1. Select **+ Add** to configure a user assigned managed identity.
     1. In the **Select Managed Identity** side panel:
