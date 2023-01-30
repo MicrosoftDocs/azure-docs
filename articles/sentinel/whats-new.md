@@ -18,6 +18,14 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## February 2023
+
+### Advanced scheduling for analytics rules (Preview)
+
+To give you more flexibility in scheduling your analytics rule execution times, and avoid potential conflicts, Microsoft Sentinel now allows you to determine when newly created analytics rules will run for the first time. The default behavior is as it has been: for them to run immediately upon creation.
+
+[Learn more about advanced scheduling](detect-threats-custom.md#query-scheduling-and-alert-threshold).
+
 ## January 2023
 
 - [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
