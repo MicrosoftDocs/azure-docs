@@ -99,6 +99,12 @@ Use the following commands to create these resources and retrieve the Azure Reso
 
 ## Create a workspace
 
+> [!NOTE]
+> The Microsoft.MachineLearningServices resource provider must be registered for your subscription
+> prior to running the following commands. This is a one time registration. Use
+> `Register-AzResourceProvider -ProviderNamespace Microsoft.MachineLearningServices` to perform the
+> registration.
+
 The following command creates the workspace and configures it to use the services created previously. It also configures the workspace to use a system-assigned managed identity, which is used to access these services. For more information on using managed identities with Azure Machine Learning, see the [Set up authentication to other services](how-to-identity-based-service-authentication.md) article.
 
 ```azurepowershell-interactive
