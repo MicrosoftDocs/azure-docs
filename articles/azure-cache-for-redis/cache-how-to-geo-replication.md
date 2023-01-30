@@ -164,7 +164,8 @@ There's no need to run the CLIENT UNPAUSE command as the new geo-primary does re
 
 - [Can I use geo-replication with a Standard or Basic tier cache?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
 - [Is my cache available for use during the linking or unlinking process?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
-- Can I track the health of the geo-replication link?
+- [When can I write to the new geo-primary after initiating failover?](#when-can-i-write-to-the-new-geo-primary-after-initiating-failover)
+- [Can I track the health of the geo-replication link?](#can-i-track-the-health-of-the-geo-replication-link)
 - [Can I link more than two caches together?](#can-i-link-more-than-two-caches-together)
 - [Can I link two caches from different Azure subscriptions?](#can-i-link-two-caches-from-different-azure-subscriptions)
 - [Can I link two caches with different sizes?](#can-i-link-two-caches-with-different-sizes)
@@ -188,6 +189,10 @@ No, passive geo-replication is only available in the Premium tier. A more advanc
 - The primary linked cache remains available until the linking process completes.
 - The secondary linked cache isn't available until the linking process completes.
 - Both caches remain available until the unlinking process completes.
+
+### When can I write to the new geo-primary after initiating failover?
+
+When the failover process is initiated, you'll see the link provisioning status update to **Deleting**, which indicates that the previous link is being cleaned up. After this completes, the link provisioning status will update to **Creating**. This indicates that the new geo-primary is up-and-running and attempting to re-establish a geo-replication link to the old geo-primary cache. At this point, you'll be able to immediately connect to the new geo-primary cache instance for both reads and writes. 
 
 ### Can I track the health of the geo-replication link?
 
