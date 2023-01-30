@@ -30,14 +30,16 @@ Use the following table to learn about changes including deprecations, retiremen
 |Functionality, feature, or service|Change|New tenant change date |Current tenant change date|
 |---|---|---|---|
 |Microsoft Authenticator app [Number matching](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677)|Feature change|Feb 27, 2023|Feb 27, 2023|
-|Azure AD DS [virtual network deployments](../../active-directory-domain-services/migrate-from-classic-vnet.md)|Retirement|Mar 1, 2023|Mar 1, 2023|N/A|N/A|
+|Azure AD DS [virtual network deployments](../../active-directory-domain-services/migrate-from-classic-vnet.md)|Retirement|Mar 1, 2023|Mar 1, 2023|
 |[License management API, PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/migrate-your-apps-to-access-the-license-managements-apis-from/ba-p/2464366)|Retirement|Nov 1, 2022|Mar 31, 2023|
 |[Azure AD Graph API](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Deprecation|Jun 30, 2022|Jun 30, 2022|
 |[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Jun 2023|Jun 2023|
 |[Azure AD PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Jun 30, 2023|Jun 30, 2023|
 |[Azure AD MFA Server](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Sep 30, 2024|Sep 30, 2024|
 
-   > [!IMPORTANT] Later versions of functionality, features, and services might not meet current security requirements. Microsoft may be unable to provide security updates for older products. 
+
+   > [!IMPORTANT]
+   > Later versions of functionality, features, and services might not meet current security requirements. Microsoft may be unable to provide security updates for older products. 
 
 See the following two sections for definitions of categories, change state, etc.
 
