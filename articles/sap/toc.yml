@@ -2,6 +2,9 @@ items:
 - name: SAP on Azure documentation
   href: index.yml
 
+- name: Overview
+  href: sap-on-azure-overview.md
+
 - name: SAP on Azure VM workloads
   items:
   - name: Overview
@@ -247,14 +250,6 @@ items:
     href: overview.md
   - name: FAQ
     href: faq.yml
-  - name: Quickstarts
-    items:
-    - name: Azure Monitor for SAP solutions
-      items:
-      - name: Get started with Azure Monitor for SAP solutions - Azure portal
-        href: monitor/quickstart-portal.md
-      - name: Get started with Azure Monitor for SAP solutions - PowerShell
-        href: monitor/quickstart-powershell.md
   - name: How-to guides
     items:
     - name: Deployment
@@ -407,6 +402,12 @@ items:
     href: monitor/about-azure-monitor-sap-solutions.md
   - name: FAQ
     href: monitor/faq.yml
+  - name: Quickstarts
+    items:
+    - name: Get started with Azure Monitor for SAP solutions - Azure portal
+      href: monitor/quickstart-portal.md
+    - name: Get started with Azure Monitor for SAP solutions - PowerShell
+      href: monitor/quickstart-powershell.md
   - name: Concepts
     items:
     - name: Providers in Azure Monitor for SAP solutions
