@@ -49,17 +49,17 @@ Users can search for the Power BI artifact by name, description, or other detail
 
 :::image type="content" source="./media/how-to-lineage-powerbi/powerbi-lineage.png" alt-text="Screenshot showing how lineage is rendered for Power BI." lightbox="./media/how-to-lineage-powerbi/powerbi-lineage.png":::
 
-Below is an example of column lineage and transformation inside of Power BI Datasets when using Azure SQL Database as source in Power BI. For measures, you can further click into the column -> Properties -> expression to see the transformation details.
+The following is an example of column lineage and transformation inside of Power BI Datasets when using Azure SQL Database as source. For measures, you can further click into the column -> Properties -> expression to see the transformation details.
 
 :::image type="content" source="./media/how-to-lineage-powerbi/powerbi-lineage-subartifacts.png" alt-text="Screenshot showing how Power BI subartifacts lineage is rendered." lightbox="./media/how-to-lineage-powerbi/powerbi-lineage-subartifacts.png":::
 
 # Known limitations
 
-* Limited information is currently shown for the Data sources from which the PowerBI Dataflow or PowerBI Dataset is created. E.g.: For SQL server source of a PowerBI datasets only server name is captured.
+* Limited information is currently shown for the Data sources from which the Power BI Dataflow or Power BI Dataset is created. E.g.: For SQL server source of a Power BI datasets, only server/database name is captured.
 * Column lineage (Power BI sub-artifact lineage) and transformations inside of Power BI Datasets is supported when using Azure SQL Database as source in Power BI. Other sources are currently not supported.
-* Few measures are not shown in the sub-artifact lineage, e.g. COUNTROWS.
-* In the lineage graph, when selecting measure that is derived by columns using COUNT function, underlying column is not selected automatically. Check the measure expression in the column properties tab to identify the underlying column.
-* If you used to scan Power BI before sub-artifact lineage is supported, you may see a database asset along with the new table assets in the lineage graph, which is not removed.
+* Few measures aren't shown in the sub-artifact lineage, for example, `COUNTROWS`.
+* In the lineage graph, when selecting measure that is derived by columns using COUNT function, underlying column isn't selected automatically. Check the measure expression in the column properties tab to identify the underlying column.
+* If you used to scan Power BI before sub-artifact lineage is supported, you may see a database asset along with the new table assets in the lineage graph, which isn't removed.
 
 ## Next steps
 
