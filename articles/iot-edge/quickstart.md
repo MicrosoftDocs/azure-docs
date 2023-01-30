@@ -155,7 +155,7 @@ Run the following PowerShell commands on the target device where you want to dep
 
 1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference. A successful deployment is pictured below.
 
-   :::image type="content" source="./media/quickstart/successful-powershell-deployment.png" alt-text="Screenshot that show that a successful deployment will say Deployment successful at the end of the messages in the console.":::
+   :::image type="content" source="./media/quickstart/successful-powershell-deployment.png" alt-text="Screenshot that show that a successful deployment will say Deployment successful at the end of the messages in the console." lightbox="./media/quickstart/successful-powershell-deployment.png":::
 
 1. Provision your device using the device connection string that you retrieved in the previous section. Replace the placeholder text with your own value.
 
@@ -215,7 +215,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
    You should see three modules: **$edgeAgent**, **$edgeHub**, and **SimulatedTemperatureSensor**. If one or more of the modules has **Yes** under **Specified in Deployment** but not under **Reported by Device**, your IoT Edge device is still starting them. Wait a few minutes, and then refresh the page.
 
-   :::image type="content" source="./media/quickstart-linux/view-deployed-modules.png" alt-text="Screenshot that shows the Simulated Temperature Sensor in the list of deployed modules..":::
+   :::image type="content" source="./media/quickstart-linux/view-deployed-modules.png" alt-text="Screenshot that shows the Simulated Temperature Sensor in the list of deployed modules." lightbox="./media/quickstart-linux/view-deployed-modules.png":::
 
 ## View the generated data
 
@@ -238,7 +238,7 @@ The module that you pushed generates sample environment data that you can use fo
    sudo iotedge list
    ```
 
-   :::image type="content" source="./media/quickstart/iotedge-list-screen.png" alt-text="Screenshot that shows where to verify that your temperature sensor, agent, and hub modules are running.":::
+   :::image type="content" source="./media/quickstart/iotedge-list-screen.png" alt-text="Screenshot that shows where to verify that your temperature sensor, agent, and hub modules are running." lightbox="./media/quickstart/iotedge-list-screen.png":::
 
 1. View the messages being sent from the temperature sensor module to the cloud using the following Linux command:
 
@@ -249,7 +249,7 @@ The module that you pushed generates sample environment data that you can use fo
    >[!IMPORTANT]
    >IoT Edge commands are case-sensitive when they refer to module names.
 
-   :::image type="content" source="./media/quickstart/temperature-sensor-screen.png" alt-text="Screenshot that shows the output logs of the Simulated Temperature Sensor module when it's running.":::
+   :::image type="content" source="./media/quickstart/temperature-sensor-screen.png" alt-text="Screenshot that shows the output logs of the Simulated Temperature Sensor module when it's running." lightbox="./media/quickstart/temperature-sensor-screen.png":::
 
 You can also use the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to watch messages arrive at your IoT hub.
 
