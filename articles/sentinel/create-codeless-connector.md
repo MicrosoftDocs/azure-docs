@@ -406,7 +406,7 @@ After the user returns to the client via the redirect URL, the application will 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| **FlowName** | String | Mandatory. Defines an OAuth2 flow.<br><br>Supported values:<br>- `AuthCode` - requires an authorization flow |
+| **FlowName** | String | Mandatory. Defines an OAuth2 flow.<br><br>Supported value: `AuthCode` - requires an authorization flow |
 | **AccessToken** | String | Optional. Defines an OAuth2 access token, relevant when the access token doesn't expire. |
 | **AccessTokenPrepend** | String | Optional. Defines an OAuth2 access token prepend. Default is `Bearer`. |
 | **RefreshToken** | String | Mandatory for OAuth2 auth types. Defines the OAuth2 refresh token. |
