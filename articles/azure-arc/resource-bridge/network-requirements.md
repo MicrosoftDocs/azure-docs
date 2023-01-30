@@ -46,7 +46,7 @@ Azure Arc resource bridge must be configured for proxy so that it can connect to
 
 There are only two certificates that should be relevant when deploying the Arc resource bridge behind an SSL proxy: the SSL certificate for your SSL proxy (so that the host and guest trust your proxy FQDN and can establish an SSL connection to it), and the SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
 
-## Exclusion list for excluding private subnets from being sent to the proxy
+## Exclusion list for no proxy
 
 The following table contains the list of addresses that must be excluded by using the `-noProxy` parameter in the `createconfig` command.
 
