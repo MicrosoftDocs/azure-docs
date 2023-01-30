@@ -31,11 +31,7 @@ The application ensures that all cloud state is replicated between availability 
 
 ## Disaster recovery: cross-region failover
 
-Where Azure Private 5G Core is available in a multi-region (3+N) geography, the service automatically replicates SIM credentials to a backup region in the same geography. This means that there's no loss of data in the event of region failure. Within four hours of the failure, all resources in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered.
-
-In single region (3+0) geographies, there's no replication of data outside the region.
-
-In either scenario, the packet running at the Edge continues to operate without interruption and network connectivity will be maintained.
+Azure Private 5G Core is only available in multi-region (3+N) geographies. The service automatically replicates SIM credentials to a backup region in the same geography. This means that there's no loss of data in the event of region failure. Within four hours of the failure, all resources in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered. the packet running at the Edge continues to operate without interruption and network connectivity will be maintained.
 
 To view all regions that support Azure Private 5G Core, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
@@ -53,18 +49,9 @@ Azure Private 5G Core resources deployed in the failed region will become read-o
 
 The packet core running at the Edge continues to operate without interruption and network connectivity will be maintained.
 
-### Single-region geography disaster recovery
-
-In a single region geography, disaster recovery of the Azure resources is your responsibility. The Azure resources will not be available through the ARM API or portal if the region fails. The packet will continue running at the edge in the event of region failure and network connectivity will be unaffected.
-
-If you have a requirement to view, manage or monitor the Azure resources during a region failure then you should follow the instructions in [Set up disaster recovery and outage detection](#set-up-disaster-recovery-and-outage-detection) to set up your own backup deployment. This must be in a different geography to your primary deployment.
-
 ### Set up disaster recovery and outage detection
 
-This section describes what action you can take to ensure you have a fully active management plane for the Azure Private 5G Core service in the event of a region failure. This is required:
-
-- In multi-region geographies, if you want be able to modify your resources
-- In single-region geographies, if you want to be able to view and manage your resources in the event of a region failure. 
+This section describes what action you can take to ensure you have a fully active management plane for the Azure Private 5G Core service in the event of a region failure. This is required if you want be able to modify your resources in the event of a region failure. 
 
 Note that this will cause an outage of your packet core service and interrupt network connectivity to your UEs for up to eight hours, so we recommend you only use this procedure if you have a business-critical reason to manage resources while the Azure region is down.
 
