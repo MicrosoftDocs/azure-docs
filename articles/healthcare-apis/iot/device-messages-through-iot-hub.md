@@ -44,7 +44,7 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 - [Visual Studio Code](https://code.visualstudio.com/Download) installed locally.
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) installed in Visual Studio Code. Azure IoT Tools is a collection of extensions that makes it easy to connect to IoT hubs, create devices, and send messages. In this tutorial, you use the Azure IoT Hub extension in Visual Studio Code to connect to your deployed IoT hub, create a device, and send a test message from the device to your IoT hub.
+- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) installed in Visual Studio Code. Azure IoT Tools is a collection of extensions that makes it easy to connect to IoT hubs, create devices, and send messages. In this tutorial, you use the Azure IoT Hub extension in Visual Studio Code to connect to your deployed IoT hub, create a device, and send a test message from the device to your IoT hub.
 
 When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
