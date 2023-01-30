@@ -200,6 +200,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 |-------|-------|------|-------------|
 | <a name="dstuserid"></a>**DstUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the destination user. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `S-1-12` |
 | **DstUserScope** | Optional | String | The scope, such as Azure AD tenant, in which [DstUserId](#dstuserid) and [DstUsername](#dstusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| **DstUserScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [DstUserId](#dstuserid) and [DstUsername](#dstusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="dstuseridtype"></a>**DstUserIdType** | Conditional | UserIdType | The type of the ID stored in the [DstUserId](#dstuserid) field. For a list of allowed values and further information, refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
 | <a name="dstusername"></a>**DstUsername** | Optional | String | The destination username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [DstUsernameType](#dstusernametype) field. If other username formats are available, store them in the fields `DstUsername<UsernameType>`.<br><br>Example: `AlbertE` |
 | <a name="user"></a>**User** | Alias | | Alias to [DstUsername](#dstusername). |
@@ -257,6 +258,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 |-------|-------|------|-------------|
 | <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `S-1-12` |
 | **SrcUserScope** | Optional | String | The scope, such as Azure AD tenant, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| **SrcUserScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Conditional | UserIdType | The type of the ID stored in the [SrcUserId](#srcuserid) field. For a list of allowed values and further information, refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The source username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other username formats are available, store them in the fields `SrcUsername<UsernameType>`.<br><br>Example: `AlbertE` |
 | <a name="srcusernametype"></a>**SrcUsernameType** | Conditional | UsernameType | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. For a list of allowed values and further information, refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows` |
@@ -325,14 +327,14 @@ The following fields are used to represent that inspection which a security devi
 | <a name="threatfield"></a>**ThreatField** | Conditional | Enumerated | The field for which a threat was identified. The value is either `SrcIpAddr` or `DstIpAddr`. |
 | **ThreatConfidence** | Optional | Integer | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
 | **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
-| **ThreatIsActive** | Optional | Boolean | True ID the threat identified is considered an active threat. | 
+| **ThreatIsActive** | Optional | Boolean | True if the threat identified is considered an active threat. | 
 | **ThreatFirstReportedTime** | Optional | datetime | The first time the IP address or domain were identified as a threat.  | 
 | **ThreatLastReportedTime** | Optional | datetime | The last time the IP address or domain were identified as a threat.| 
 
 
 ### Other fields
 
-If the event is reported by one of the endpoints of the network session, it might include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](process-events-normalization-schema.md) is used to normalize this information.
+If the event is reported by one of the endpoints of the network session, it might include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](normalization-schema-process-event.md) is used to normalize this information.
 
 ### Schema updates
 
@@ -366,6 +368,7 @@ The following are the changes in version 0.2.4 of the schema:
  
 The following are the changes in version 0.2.5 of the schema: 
 - Added the fields `DstUserScope`, `SrcUserScope`, `SrcDvcScopeId`, `SrcDvcScope`, `DstDvcScopeId`, `DstDvcScope`, `DvcScopeId`, and `DvcScope`.
+
 
 ## Next steps
 
