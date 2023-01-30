@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 12/07/2021
+ms.date: 01/27/2023
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs
 > [!div class="op_single_selector"]
-> * [PowerShell (REST)]()
+> * [PowerShell (REST)](search-get-started-powershell.md)
 > * [C#](./search-get-started-dotnet.md)
 > * [REST](search-get-started-rest.md)
 > * [Python](search-get-started-python.md)

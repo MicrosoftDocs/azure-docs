@@ -41,7 +41,7 @@ You can deploy Azure AD-joined VMs directly from the Azure portal when you [crea
 
 > [!NOTE]
 > - Host pools should only contain VMs of the same domain join type. For example, Azure AD-joined VMs should only be with other Azure AD VMs, and vice-versa.
-> - The host pool VMs must be Windows 11 or Windows 10 single-session or multi-session, version 2004 or later.
+> - The VMs in the host pool must be Windows 11 or Windows 10 single-session or multi-session, version 2004 or later, or Windows Server 2022 or Windows Server 2019.
 
 ### Assign user access to host pools
 

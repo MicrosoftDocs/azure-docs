@@ -41,7 +41,7 @@ Each of these training methods can use different types of compute resources for 
 
 The Azure Machine Learning SDK for Python allows you to build and run machine learning workflows with Azure Machine Learning. You can interact with the service from an interactive Python session, Jupyter Notebooks, Visual Studio Code, or other IDE.
 
-* [Install/update the SDK](/python/api/overview/azure/ml/installv2)
+* [Install/update the SDK](/python/api/overview/azure/ai-ml-readme)
 * [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md)
 
 ### Submit a command
