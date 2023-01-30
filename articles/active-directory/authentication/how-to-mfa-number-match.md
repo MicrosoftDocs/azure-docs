@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 01/30/2023
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -77,8 +77,8 @@ Users must have an OTP authentication method registered to see this behavior. Us
 For OTP to work, the VPN needs to use PAP protocol. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
  
 >[!IMPORTANT]
->Organizations using a RADIUS protocol other than PAP will see user VPN authorization failing, with these events appearing in the **AuthZOptCh** log of the NPS Extension server in Event Viewer:<br>
->NPS Extension for Azure MFA:  CID: 2f6fa289-6243-4aa3-b317-907ac2324ae8 : Challenge requested in Authentication Ext for User npstesting_app with state 22088b7d-6cb9-45e1-a99c-5de60240a991
+>Organizations using a RADIUS protocol other than PAP will see user VPN authorization failing, with events appearing in the **AuthZOptCh** log of the NPS Extension server in Event Viewer:<br>
+>NPS Extension for Azure MFA: Challenge requested in Authentication Ext for User npstesting_ap. 
 
 Prior to the release of NPS extension version 1.2.2216.1 after February 27, 2023, organizations that run any of these earlier versions of NPS extension can modify the registry to require users to enter an OTP:
 
