@@ -17,9 +17,11 @@ ms.collection:
 
 # Data operational considerations
 
+In this article, learn about data operational considerations for your configuration. There's information about how log files and other features work in relation to Azure Active Directory (Azure AD), such as usage data and operator security. You’ll learn about physical security considerations in addition to guidance on how the Azure AD team defines deployments and change. 
+
 ## Log files
 
-Azure Active Directory (Azure AD) generates log files for auditing, investigation, and debugging for actions and events in the service. Log files might contain data about users, devices, and Azure AD configuration, for instance policies, apps, and groups. Log files are created and stored in Azure Storage in the data center where the Azure AD service runs.  
+Azure AD generates log files for auditing, investigation, and debugging for actions and events in the service. Log files might contain data about users, devices, and Azure AD configuration, for instance policies, apps, and groups. Log files are created and stored in Azure Storage in the data center where the Azure AD service runs.  
 
 Log files are used for local debugging, security, usage analysis, system-health monitoring, and service-wide analysis. These logs are copied over a Transport Layer Security (TLS) connection to Microsoft reporting machine learning systems, which are in Microsoft-owned data centers in the continental United States.  
 
@@ -47,7 +49,7 @@ To roll out changes to the service across data centers, the Azure AD team define
 
 ## Resources
 
-[Azure AD and data residency](azure-ad-data-residency.md)
-[Microsoft Service Trust Documents](https://servicetrust.microsoft.com/Documents/TrustDocuments)
-[Microsoft Azure Trusted Cloud](https://azure.microsoft.com/explore/trusted-cloud/)
-[Where is my data? Office 365 documentation](http://o365datacentermap.azurewebsites.net/)
+* [Azure AD and data residency](azure-ad-data-residency.md)
+* [Microsoft Service Trust Documents](https://servicetrust.microsoft.com/Documents/TrustDocuments)
+* [Microsoft Azure Trusted Cloud](https://azure.microsoft.com/explore/trusted-cloud/)
+* [Office 365 data centers](https://social.technet.microsoft.com/wiki/contents/articles/37502.office-365-how-to-change-data-center-regions.aspx#Moving_Office_365_Data_Centers)
