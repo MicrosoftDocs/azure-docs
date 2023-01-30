@@ -125,8 +125,8 @@ Now, you can add the C# function code that connects to your SQL Database.
 
 If you plan to [publish this function](functions-develop-vs.md#publish-to-azure), remember to change the `TimerTrigger` attribute to a more reasonable [cron schedule](functions-bindings-timer.md#ncrontab-expressions) than every 15 seconds. You also need to make sure that your function app can access the Azure SQL Database or Azure SQL Managed Instance. For more information, see one of the following links based on your type of Azure SQL: 
 
-+ [Azure SQL Database](../azure-sql/database/firewall-configure.md#connections-from-inside-azure.)
-+ [Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md#connect-azure-app-service)
++ [Azure SQL Database](/azure/azure-sql/database/firewall-configure#connections-from-inside-azure.)
++ [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance#connect-azure-app-service)
 
 ## Next steps
 
