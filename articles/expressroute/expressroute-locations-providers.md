@@ -33,6 +33,8 @@ You'll have access to Azure services across all regions within a geopolitical re
 
 [!INCLUDE [expressroute-azure-regions-geopolitical-region](../../includes/expressroute-azure-regions-geopolitical-region.md)]
 
+## <a name="partners"></a>ExpressRoute connectivity providers
+
 The following table shows connectivity locations and the service providers for each location. If you want to view service providers and the locations for which they can provide service, see [Locations by service provider](expressroute-locations.md).
 
 * **Local Azure Regions** refers to the regions that can be accessed by [ExpressRoute Local](expressroute-faqs.md#expressroute-local) at each peering location. **n/a** indicates that ExpressRoute Local isn't available at that peering location.
@@ -161,6 +163,8 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Shanghai2** | GDS | n/a | Supported | China Telecom, China Unicom, GDS |
 
 To learn more, see [ExpressRoute in China](https://www.azure.cn/home/features/expressroute/).
+
+## <a name="c1partners"></a>Connectivity through Exchange providers
 
 If your connectivity provider isn't listed in previous sections, you can still create a connection.
 
