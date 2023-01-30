@@ -1,6 +1,6 @@
 ---
-title: Data connections overview
-titleSuffix: Defender EASM data connections overview
+title: Data connections overview (preview)
+titleSuffix: Defender EASM data connections overview (preview)
 description: This article describes the data connections functionality in Defender EASM, enabling users to easily export asset or attack surface insight data to either Log Analytics or Azure Data Explorer. 
 author: danielledennis
 ms.author: dandennis
@@ -9,7 +9,7 @@ ms.date: 1/30/2022
 ms.topic: how-to
 ---
 
-# Data connections overview
+# Data connections overview (preview)
 
 Microsoft Defender External Attack Surface Management (Defender EASM) now offers data connections to help users seamlessly integrate their attack surface data into other Microsoft solutions to supplement existing workflows with new insights.  Users must get data from Defender EASM into the other security tools they use for remediation purposes to best operationalize their attack surface data.  
 
