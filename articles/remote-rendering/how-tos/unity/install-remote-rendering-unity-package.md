@@ -92,6 +92,10 @@ To install the Remote Rendering package manually, you need to:
 
 To update a local package, just repeat the respective download steps you used and reimport the package. Updating the package may occasionally lead to console errors. If you see errors in the console, try closing and reopening the project.
 
+## Unity render pipelines
+
+Supported Unity render pipelines are documented in this dedicated article: [Unity Render Pipelines](unity-render-pipelines.md)
+
 ## Next steps
 
 * [Unity Render Pipelines](unity-render-pipelines.md)
