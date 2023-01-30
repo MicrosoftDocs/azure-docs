@@ -239,7 +239,7 @@ Now it's time to download and install Azure AD Connect.  Once it has been instal
 6. On the User Sign-in screen, select **Federation with AD FS** and click **Next**.
 ![Screenshot that shows where to select Federation with AD FS.](media/tutorial-federation/fed1.png)
 
-1. On the Connect to Azure AD screen, enter the username and password of the global admin we created above and click **Next**.
+1. On the Connect to Azure AD screen, enter the username and password of the Global Administrator we created above and click **Next**.
 2. On the Connect your directories screen, click **Add Directory**.  Then select **Create new AD account** and enter the contoso\Administrator username and password and click **OK**.
 3. Click **Next**.
 4. On the Azure AD sign-in configuration screen, select **Continue without matching all UPN suffixes to verified domains** and click **Next.**

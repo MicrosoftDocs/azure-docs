@@ -34,7 +34,7 @@ To follow along, you need:
     - Security Admin
     - Security Reader
     - Reports Reader
-    - Global Admin
+    - Global Administrator
     
 ## Navigate to the Log Analytics workspace
 

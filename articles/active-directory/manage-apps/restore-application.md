@@ -62,7 +62,7 @@ Replace id with the object ID of the service principal that you want to restore.
 
 :::zone pivot="ms-powershell"
 
-1. Run `connect-MgGraph -Scopes "Application.ReadWrite.All"` and sign in with a Global Admin user account.
+1. Run `connect-MgGraph -Scopes "Application.ReadWrite.All"` and sign in with a Global Administrator user account.
 
 1. To view the recently deleted enterprise applications, run the following command:
    

@@ -164,7 +164,7 @@ The following table shows example settings:
 
 | Role| Require MFA| Notification| Incident ticket| Require approval| Approver| Activation duration| Perm admin |
 | --- | --- | --- |--- |--- |--- |--- |--- |
-| Global Admin| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other Global Admin| 1 Hour| Emergency access accounts |
+| Global Administrator| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other Global Administrator| 1 Hour| Emergency access accounts |
 | Exchange Admin| :heavy_check_mark:| :heavy_check_mark:| :x:| :x:| None| 2 Hour| None |
 | Helpdesk Admin| :x:| :x:| :heavy_check_mark:| :x:| None| 8 Hour| None |
 

@@ -25,7 +25,7 @@ The following are benefits of using managed identities:
 
 * You don't need to manage credentials. With managed identities, credentials are fully managed, rotated, and protected by Azure. Identities are automatically provided and deleted with Azure resources. Managed identities enable Azure resources to communicate with all services that support Azure AD authentication.
 
-* No one (including any Global admin) has access to the credentials, so they cannot be accidentally leaked by, for example, being included in code.
+* No one (including any Global Administrator) has access to the credentials, so they cannot be accidentally leaked by, for example, being included in code.
 
 ## When to use managed identities?
 

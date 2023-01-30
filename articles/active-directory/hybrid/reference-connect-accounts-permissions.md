@@ -72,7 +72,7 @@ The AD DS Enterprise Admin account is used to configure your on-premises Active 
 
 If you are upgrading from DirSync, the AD DS Enterprise Admins credentials are used to reset the password for the account used by DirSync. You also need Azure AD Global Administrator credentials.
 
-### Azure AD Global Admin credentials
+### Azure AD Global Administrator credentials
 These credentials are only used during the installation and are not used after the installation has completed. It is used to create the Azure AD Connector account used for synchronizing changes to Azure AD. The account also enables sync as a feature in Azure AD.
 
 For more information on Global Administrator accounts, see [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator).
