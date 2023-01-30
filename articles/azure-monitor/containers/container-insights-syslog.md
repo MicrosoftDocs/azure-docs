@@ -16,7 +16,7 @@ Container Insights offers the ability to collect Syslog events from Linux nodes 
 - Minimum versions of Azure components
   - **Azure CLI**: Minimum version required for Azure CLI is [2.44.1 (link to release notes)](/cli/azure/release-notes-azure-cli#january-11-2023). See [How to update the Azure CLI](/cli/azure/update-azure-cli) for upgrade instructions. 
   - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [ 0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
-  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](../../aks/node-image-upgrade) for upgrade help. 
+  - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/azure/aks/node-image-upgrade) for upgrade help. 
 
 ## How to enable Syslog
   
