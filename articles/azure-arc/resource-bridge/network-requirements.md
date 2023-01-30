@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge (preview) network requirements
 description: Learn about network requirements for Azure Arc resource bridge (preview) including URLs that must be allowlisted.
 ms.topic: conceptual
-ms.date: 01/27/2023
+ms.date: 01/30/2023
 ---
 
 # Azure Arc resource bridge (preview) network requirements
@@ -35,9 +35,7 @@ DNS Server must have internal and external endpoint resolution. The appliance VM
 
 ## Additional network requirements
 
-In addition, resource bridge (preview) requires connectivity to the Arc-enabled Kubernetes endpoints.
-
-[!INCLUDE [network-requirements](../kubernetes/includes/network-requirements.md)]
+In addition, resource bridge (preview) requires connectivity to the [Arc-enabled Kubernetes endpoints](../network-requirements-consolidated.md?tabs=azure-cloud).
 
 > [!NOTE]
 > The URLs listed here are required for Arc resource bridge only. Other Arc products (such as Arc-enabled VMware vSphere) may have additional required URLs. For details, see [Azure Arc network requirements](../network-requirements-consolidated.md).
@@ -47,6 +45,21 @@ In addition, resource bridge (preview) requires connectivity to the Arc-enabled 
 Azure Arc resource bridge must be configured for proxy so that it can connect to the Azure services. This configuration is handled automatically. However, proxy configuration of the management machine isn't configured by the Azure Arc resource bridge.
 
 There are only two certificates that should be relevant when deploying the Arc resource bridge behind an SSL proxy: the SSL certificate for your SSL proxy (so that the host and guest trust your proxy FQDN and can establish an SSL connection to it), and the SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
+
+## Exclusion list for excluding private subnets from being sent to the proxy
+
+The following table contains the list of addresses that must be excluded by using the `-noProxy` parameter in [`New-AksHciProxySetting`](./reference/ps/new-akshciproxysetting.md).
+
+|      **IP Address**       |    **Reason for exclusion**    |  
+| ----------------------- | ------------------------------------ |
+| localhost, 127.0.0.1  | Localhost traffic  |
+| .svc | Internal Kubernetes service traffic (.svc) where _.svc_ represents a wildcard name. This is similar to saying \*.svc, but none is used in this schema. |
+| 10.0.0.0/8 | private network address space |
+| 172.16.0.0/12 |Private network address space - Kubernetes Service CIDR |
+| 192.168.0.0/16 | Private network address space - Kubernetes Pod CIDR |
+| .contoso.com | You may want to exempt your enterprise namespace (.contoso.com) from being directed through the proxy. To exclude all addresses in a domain, you must add the domain to the `noProxy` list. Use a leading period rather than a wildcard (\*) character. In the sample, the addresses `.contoso.com` excludes addresses `prefix1.contoso.com`, `prefix2.contoso.com`, and so on. |
+
+The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16`. While these default values will work for many networks, you may need to add more subnet ranges and/or names to the exemption list. For example, you may want to exempt your enterprise namespace (.contoso.com) from being directed through the proxy. You can achieve that by specifying the values in the `noProxy` list.
 
 ## Next steps
 
