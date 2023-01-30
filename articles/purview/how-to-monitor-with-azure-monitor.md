@@ -18,7 +18,7 @@ Microsoft Purview admins can use Azure Monitor to track the operational state of
 
 ## Aggregated metrics
 
-The metrics can be accessed from the Azure portal for a Microsoft Purview account. Access to the metrics are controlled by the role assignment of Microsoft Purview account. Users need to be part of the "Monitoring Reader" role in Microsoft Purview to see the metrics. Check out [Monitoring Reader Role permissions](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) to learn more about the roles access levels.
+The metrics can be accessed from the Azure portal for a Microsoft Purview account. Access to the metrics is controlled by the role assignment of Microsoft Purview account. Users need to be part of the "Monitoring Reader" role in Microsoft Purview to see the metrics. Check out [Monitoring Reader Role permissions](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) to learn more about the roles access levels.
 
 The person who created the Microsoft Purview account automatically gets permissions to view metrics. If anyone else wants to see metrics, add them to the **Monitoring Reader** role, by following these steps:
 
@@ -90,7 +90,7 @@ Select the destination to a log analytics workspace to send the event to. Create
 
 Verify the changes in **Log Analytics Workspace** by perfoming some operations to populate data such as creating/updating/deleting policy. After which you can open the **Log Analytics Workspace**, navigate to **Logs**, enter query filter as **"purviewsecuritylogs"**, then click **"Run"** to execute the query. 
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-two-diagnostic-setting.png" alt-text="Screenshot showing log results in the Log Analytics Workspace after an query was run." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-two-diagnostic-setting.png":::
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-two-diagnostic-setting.png" alt-text="Screenshot showing log results in the Log Analytics Workspace after a query was run." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-two-diagnostic-setting.png":::
 
 #### Destination - Storage account
 To log the events to a storage account; create a diagnostic setting name, select the log category,. select the destination as archieve to a storage account, select the right subscription and storage account then click save. A dedicated storage account is recommended for archiving the diagnostic logs. Following this article to [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
