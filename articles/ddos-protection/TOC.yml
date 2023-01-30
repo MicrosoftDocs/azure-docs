@@ -56,11 +56,7 @@
     href: monitor-ddos-protection-reference.md
 - name: How-to guides
   items:
-    - name: Configure DDoS alerts
-      items:
-        - name: Configure metric alerts through portal
-          href: alerts.md
-    - name: View DDoS alerts
+    - name: View Monitoring and Logging
       items: 
         - name: View alerts in Microsoft Defender for Cloud
           href: ddos-view-alerts-defender-for-cloud.md

@@ -7,9 +7,8 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: how-to
 ms.tgt_pltfrm: na
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 01/14/2023
+ms.date: 01/30/2023
 ms.author: abell
 ---
 
@@ -23,6 +22,13 @@ There are two specific alerts that you'll see for any DDoS attack detection and 
 To view the alerts, open **Defender for Cloud** in the Azure portal and select **Security alerts**. Under **Threat Protection**, select **Security alerts**. The following screenshot shows an example of the DDoS attack alerts.
 
     :::image type="content" source="./media/manage-ddos-protection/ddos-alert-asc.png" alt-text="Screenshot of DDoS Alert in Microsoft Defender for Cloud." lightbox="./media/manage-ddos-protection/ddos-alert-asc.png":::
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection (Preview)](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
+
+## View alerts in Microsoft Defender for Cloud
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Microsoft Defender for Cloud**. Select **Microsoft Defender for Cloud** in the search results.
