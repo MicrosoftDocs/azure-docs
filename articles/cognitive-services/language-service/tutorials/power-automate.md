@@ -23,6 +23,8 @@ You can use [Power Automate](/power-automate/getting-started) flows to automate 
 * Summarize meetings.
 * Remove personal data from files before saving them.
 
+In this tutorial, you'll create a Power Automate flow to extract entities found in text, using [Named entity recognition](../named-entity-recognition/overview.md).
+
 ## Prerequisites
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">A Language resource </a>
