@@ -249,12 +249,12 @@ Learn more about Kubernetes services in the [Kubernetes services documentation][
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [azure-lb-comparison]: ../load-balancer/skus.md
-[use-kubenet]: configure-kubenet.md
+[use-kubenet]: ../configure-kubenet.md
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [different-subnet]: #specify-a-different-subnet
-[aks-vnet-subnet]: configure-kubenet.md#create-a-virtual-network-and-subnet
-[unique-subnet]: use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet
+[aks-vnet-subnet]: ../configure-kubenet.md#create-a-virtual-network-and-subnet
+[unique-subnet]: ../use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet
