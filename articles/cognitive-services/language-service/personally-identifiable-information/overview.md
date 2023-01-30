@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 08/02/2022
+ms.date: 01/10/2023
 ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
@@ -27,6 +27,10 @@ PII comes into two shapes:
 
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
+
+## Get started with PII detection
+
+[!INCLUDE [development options](./includes/development-options.md)]
 
 [!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 

@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 01/23/2023
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -44,7 +44,7 @@ The following table shows connectivity locations and the service providers for e
 * **ER Direct** refers to [ExpressRoute Direct](expressroute-erdirect-about.md) support at each peering location. If you want to view the available bandwidth at a location, see [Determine available bandwidth](expressroute-howto-erdirect.md#resources)
 
 ### Global commercial Azure
-| **Location** | **Address** | **Zone** | **Local Azure regions** | **ER Direct** | **Service providers** |
+| Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
 | --- | --- | --- | --- | --- | --- |
 | **Abu Dhabi** | Etisalat KDC | 3 | UAE Central | Supported | |
 | **Amsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | West Europe | Supported | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
@@ -142,7 +142,7 @@ The following table shows connectivity locations and the service providers for e
 Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others.
 
 ### US Government cloud
-| **Location** | **Address** | **Local Azure regions**| **ER Direct** | **Service providers** |
+| Location | Address | Local Azure regions | ER Direct | Service providers |
 | --- | --- | --- | --- | --- |
 | **Atlanta** | [Equinix AT1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at1/) | n/a | Supported | Equinix |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | n/a | Supported | AT&T NetBond, British Telecom, Equinix, Level 3 Communications, Verizon |
@@ -155,7 +155,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD East, US Gov Virginia | Supported | AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### China
-| **Location** | **Address** | **Local Azure regions** | **ER Direct** | **Service providers** |
+| Location | Address | Local Azure regions | ER Direct | Service providers |
 | --- | --- | --- | --- | --- |
 | **Beijing** | China Telecom | n/a | Supported | China Telecom |
 | **Beijing2** | GDS | n/a | Supported | China Telecom, China Unicom, GDS |
@@ -191,7 +191,7 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 * [Viasat](http://www.directcloud.viasatbusiness.com/)
 
 ## <a name="c1partners"></a>Connectivity through additional service providers
-| **Location** | **Exchange** | **Connectivity providers** |
+| Location | Exchange | Connectivity providers |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Interxion, Level 3 Communications | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, Kalaam Telecom Bahrain B.S.C, MainOne, Nianet, POST Telecom Luxembourg, Proximus, RETN, TDC Erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Crown Castle
@@ -224,7 +224,7 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 ## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
 
-| **Continent** | **System integrators** |
+| Continent | System integrators |
 | --- | --- |
 | **Asia** |Avanade Inc., OneAs1a |
 | **Australia** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |

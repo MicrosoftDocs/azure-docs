@@ -5,10 +5,10 @@ author: OWinfreyATL
 ms.author: owinfrey
 manager: amycolannino
 ms.service: active-directory
+ms.subservice: compliance
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/23/2022
-ms.subservice: compliance
+ms.date: 01/26/2023
 ---
 # Lifecycle Workflow built-in tasks (preview)
 
@@ -25,10 +25,6 @@ Lifecycle Workflow's built-in tasks each include an identifier, known as **taskD
 ## Common task parameters (preview)
 
 Common task parameters are the non-unique parameters contained in every task. When adding tasks to a new workflow, or a workflow template, you can customize and configure these parameters so that they match your requirements.
-
-
-> [!NOTE]
-> The user's employee hire date is used as the start time for the Temporary Access Pass. Please make sure that the TAP lifetime task setting and the [time portion of your user's hire date](how-to-lifecycle-workflow-sync-attributes.md#importance-of-time) are set appropriately so that the TAP is still valid when the user starts their first day.
 
 |Parameter  |Definition  |
 |---------|---------|
@@ -123,12 +119,15 @@ For Microsoft Graph the parameters for the **Send onboarding reminder email** ta
 
 ### Generate Temporary Access Pass and send via email to user's manager
 
-When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Pass(TAP), and have it sent to the new user's manager.
+When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Pass (TAP), and have it sent to the new user's manager.
+
+> [!NOTE]
+> The user's employee hire date is used as the start time for the Temporary Access Pass. Please make sure that the TAP lifetime task setting and the [time portion of your user's hire date](how-to-lifecycle-workflow-sync-attributes.md#importance-of-time) are set appropriately so that the TAP is still valid when the user starts their first day. If the hire date at the time of workflow execution is already in the past, the current time is used as the start time.
 
 With this task in the Azure portal, you're able to give the task a name and description. You must also set:
 
-**Activation duration**- How long the password is active.
-**One time use**- If the password is one use only.
+- **Activation duration**- How long the passcode is active.
+- **One time use**- If the passcode can only be used once.
 :::image type="content" source="media/lifecycle-workflow-task/tap-task.png" alt-text="Screenshot of Workflows task: TAP task.":::
  
 
@@ -136,8 +135,7 @@ The Azure AD prerequisites to run the **Generate Temporary Access Pass and send 
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
-- An enabled TAP tenant policy. For more information, see [Enable the Temporary Access Pass policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
- 
+- The TAP tenant policy must be enabled and the selected values for activation duration and one time use must be within the allowed range of the policy. For more information, see [Enable the Temporary Access Pass policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy)
 
 > [!IMPORTANT]
 > A user having this task run for them in a workflow must also not have any other authentication methods, sign-ins, or AAD role assignments for this task to work for them.
@@ -174,10 +172,6 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Pass and 
 }
 
 ```
-
-> [!NOTE]
-> The employee hire date is the same as the startDateTime used for the tapLifetimeInMinutes parameter.
-
 
 ### Add user to groups
 

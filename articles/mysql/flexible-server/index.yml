@@ -35,7 +35,7 @@ landingContent:
           - text: Deploy Spring Boot app on AKS with flexible server
             url: tutorial-deploy-springboot-on-aks-vnet.md
           - text: Deploy WordPress on App Service with flexible server
-            url: tutorial-wordpress-app-service.md
+            url: ../../app-service/quickstart-wordpress.md
       - linkListType: whats-new
         links:
           - text: What's new in Flexible Server?
@@ -116,6 +116,8 @@ landingContent:
           url: connect-php.md
         - text: Connect using MySQL workbench
           url: connect-workbench.md
+        - text: Connect using Azure Data Studio
+          url: /sql/azure-data-studio/quickstart-mysql
         - text: Connect using Python
           url: connect-python.md
       - linkListType: tutorial

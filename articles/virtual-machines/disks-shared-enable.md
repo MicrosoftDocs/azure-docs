@@ -295,7 +295,7 @@ Update-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Dis
 ```azurecli
 #Modifying a disk to enable or modify sharing configuration
 
-az disk update --name mySharedDisk --max-shares 5
+az disk update --name mySharedDisk --max-shares 5 --resource-group myResourceGroup
 ```
 
 ## Using Azure shared disks with your VMs

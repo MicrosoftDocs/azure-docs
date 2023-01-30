@@ -228,6 +228,8 @@ items:
         href: ingestion-client.md
       - name: Telephony Integration
         href: call-center-telephony-integration.md
+    - name: Gaming integration
+      href: gaming-concepts.md
     - name: Language learning
       items:
         - name: Pronunciation Assessment with speech to text

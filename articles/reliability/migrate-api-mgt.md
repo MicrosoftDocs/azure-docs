@@ -6,7 +6,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 07/07/2022
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 
 ---
 

@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 01/28/2023
 ms.custom: fasttrack-edit
 ---
 
@@ -28,6 +28,7 @@ This guide covers the following network options:
 - Use [Azure public endpoints](#option-1-use-public-endpoints). 
 - Use [private endpoints](#option-2-use-private-endpoints). 
 - Use [private endpoints and allow public access on the same Microsoft Purview account](#option-3-use-both-private-and-public-endpoints). 
+- Use Azure [public endpoints to access Microsoft Purview governance portal and private endpoints for ingestion](#option-4-use-private-endpoints-for-ingestion-only).
 
 This guide describes a few of the most common network architecture scenarios for Microsoft Purview. Though you're not limited to those scenarios, keep in mind the [limitations](#current-limitations) of the service when you're planning networking for your Microsoft Purview accounts. 
 
@@ -199,6 +200,32 @@ For performance and cost optimization, we highly recommended deploying one or mo
 
 :::image type="content" source="media/concept-best-practices/network-pe-multi-region.png" alt-text="Screenshot that shows Microsoft Purview with private endpoints in a scenario of multiple virtual networks and multiple regions."lightbox="media/concept-best-practices/network-pe-multi-region.png":::
 
+### If Microsoft Purview isn't available in your primary region
+
+> [!NOTE]
+> Follow recommendations under this section if Microsoft Purview is not supported in your primary Azure region. For more information, see [Selecting an Azure region](concept-best-practices-accounts.md#selecting-an-azure-region)
+
+If Microsoft Purview is not available in your primary Azure region, and secure connectivity for metadata ingestion or user access is required to access Microsoft Purview governance portal. 
+For example, if your primary Azure region for majority of your Azure data services is Australia Southeast, and you need to deploy a Microsoft Purview account in a closest supported Azure region, meanwhile all of your Azure services are deployed in the same Azure geography, you can choose Australia East region to deploy your Microsoft Purview account. To enable private network connectivity for ingestion and portal access, you can choose any of the following architectural designs:
+
+**Option 1: Deploy Microsoft Purview account in a secondary region and deploy all private endpoints in primary region where all your Azure data sources are located.** For the scenario above:
+- Deploy a Microsoft Purview account in your secondary region (e.g. Australia East).
+- Deploy all Microsoft Purview private endpoints including account, portal and ingestion in your primary region (e.g. Australia Southeast).
+- This is the recommended option, if Australia Southeast is the primary region for all your data sources and you have all network resources deployed in your primary region. 
+- Deploy all [Microsoft Purview self-hosted integration runtime]( manage-integration-runtimes.md) VMs in your primary region (e.g. Australia Southeast). This helps to reduce cross region traffic as the Data Map scans will happen in the local region where data sources are located and only metadata is ingested int your secondary region where your Microsoft Purview account is deployed.
+- If you use [Microsoft Purview Managed VNets](catalog-managed-vnet.md) for metadata ingestion, Managed VNet Runtime and all managed private endpoints will be automatically deployed in the region where your Microsoft Purview is deployed (e.g. Australia East).
+
+**Option 2: Deploy Microsoft Purview account in a secondary region and deploy private endpoints in primary or secondary region where most of your Azure data sources are located.** For the example above:
+
+- Deploy a Microsoft Purview account in your secondary region (e.g. Australia East).
+- Deploy Microsoft Purview portal private endpoint in primary region (e.g. Australia Southeast) for user access to Microsoft Purview governance portal.
+- Deploy Microsoft Purview account and ingestion private endpoints in your primary region (e.g. Australia southeast) to scan data sources locally in the primary region.
+- Deploy Microsoft Purview account and ingestion private endpoints in your secondary region (e.g. Australia East) to scan data sources locally in the secondary region.
+- Deploy [Microsoft Purview self-hosted integration runtime]( manage-integration-runtimes.md) VMs in both primary and secondary regions. This will help to keep data Map scan traffic in the local region and send only metadata to Microsoft Purview Data Map where is configured in your secondary region (e.g. Australia East).
+- This option is recommended if you have data sources in both primary and secondary regions and users are connected through primary region. 
+- If you use [Microsoft Purview Managed VNets](catalog-managed-vnet.md) for metadata ingestion, Managed VNet Runtime and all managed private endpoints will be automatically deployed in the region where your Microsoft Purview is deployed (e.g. Australia East).
+
+
 ### DNS configuration with private endpoints
 
 #### Name resolution for multiple Microsoft Purview accounts
@@ -229,7 +256,7 @@ You might choose an option in which a subset of your data sources uses private e
 If you need to scan some data sources by using an ingestion private endpoint and some data sources by using public endpoints or a service endpoint, you can:
 
 1. Use private endpoints for your Microsoft Purview account.
-1. Set **Public network access** to **allow** on your Microsoft Purview account.
+1. Set **Public network access** to **Enabled from all networks** on your Microsoft Purview account.
 
 ### Integration runtime options 
 
@@ -254,6 +281,27 @@ If you need to scan some data sources by using an ingestion private endpoint and
   - Make sure that your credentials are stored in an Azure key vault and registered inside Microsoft Purview.
 
   - You must create a credential in Microsoft Purview based on each secret that you create in Azure Key Vault. At minimum, assign _get_ and _list_ access for secrets for Microsoft Purview on the Key Vault resource in Azure. Otherwise, the credentials won't work in the Microsoft Purview account. 
+
+## Option 4: Use private endpoints for ingestion only
+
+You might choose this option if you need to:
+
+- Scan all data sources using ingestion private endpoint. 
+- Managed resources must be configured to disable public network.
+- Enable access to Microsoft Purview governance portal through public network.  
+
+To enable this option:
+
+1. Configure ingestion private endpoint for your Microsoft Purview account.
+1. Set **Public network access** to **Disabled for ingestion only (Preview)** on your [Microsoft Purview account](catalog-firewall.md).
+
+### Integration runtime options 
+
+Follow recommendation for option 2.
+
+### Authentication options  
+
+Follow recommendation for option 2.
 
 ## Self-hosted integration runtime network and proxy recommendations
 
