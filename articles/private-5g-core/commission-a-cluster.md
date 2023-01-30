@@ -226,7 +226,7 @@ Additionally, your AKS cluster should now be visible from your Azure Stack Edge 
 
 The Azure Private 5G Core private mobile network requires a custom location and specific Kubernetes extensions that you need to set up using the Azure CLI in Azure Cloud Shell.
 
-You can obtain the *<resource name>* (the name of the AKS cluster) by using the **Manage** link in the **Azure Kubernetes Service** pane in the Azure portal.
+You can obtain the *\<resource name\>* (the name of the AKS cluster) by using the **Manage** link in the **Azure Kubernetes Service** pane in the Azure portal.
 
 1. Log in to the Azure CLI using Azure Cloud Shell.
 
