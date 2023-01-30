@@ -76,7 +76,7 @@ The DNS record type you need to add with your domain provider depends on the dom
 
 Select the type of record to create and follow the instructions. You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service.
 
-# [Root domain (e.g. contoso.com)](#tab/root)
+### [Root domain (e.g. contoso.com)](#tab/root)
 
 Create two records according to the following table:
 
@@ -87,11 +87,11 @@ Create two records according to the following table:
 
 ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-# [Subdomain (e.g. www.contoso.com)](#tab/subdomain)
+### [Subdomain (e.g. www.contoso.com)](#tab/subdomain)
 
 [!INCLUDE [dns-record-creation](includes/tutorial-secure-domain-certificate/dns-record-creation.md)]
 
-# [Wildcard (CNAME)](#tab/wildcard)
+### [Wildcard (CNAME)](#tab/wildcard)
 
 For a wildcard name like `*` in `*.contoso.com`, create two records according to the following table:
 
@@ -102,7 +102,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
----
+-----
 
 ## 3. Validate and complete
 
