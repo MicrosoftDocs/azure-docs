@@ -24,6 +24,9 @@ Static web apps are commonly built using libraries and web frameworks like Angul
 
 With Static Web Apps, static assets are separated from a traditional web server and are instead served from points geographically distributed around the world. This distribution makes serving files much faster as files are physically closer to end users. In addition, API endpoints are hosted using a [serverless architecture](../azure-functions/functions-overview.md), which avoids the need for a full back-end server altogether.
 
+>[!NOTE] 
+>Your app's static assets are globally distributed. When you create your app, you select a region where the managed Azure Functions app is deployed. If you need your Functions app in a region that doesn't support managed functions, you can use the Bring your own Functions app feature with a Functions app you deploy separately.
+
 ## Key features
 
 - **Web hosting** for static content like HTML, CSS, JavaScript, and images.
