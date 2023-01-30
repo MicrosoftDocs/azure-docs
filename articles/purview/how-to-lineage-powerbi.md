@@ -53,7 +53,7 @@ The following is an example of column lineage and transformation inside of Power
 
 :::image type="content" source="./media/how-to-lineage-powerbi/powerbi-lineage-subartifacts.png" alt-text="Screenshot showing how Power BI subartifacts lineage is rendered." lightbox="./media/how-to-lineage-powerbi/powerbi-lineage-subartifacts.png":::
 
-# Known limitations
+## Known limitations
 
 * Limited information is currently shown for the Data sources from which the Power BI Dataflow or Power BI Dataset is created. E.g.: For SQL server source of a Power BI datasets, only server/database name is captured.
 * Column lineage (Power BI sub-artifact lineage) and transformations inside of Power BI Datasets is supported when using Azure SQL Database as source in Power BI. Other sources are currently not supported.
