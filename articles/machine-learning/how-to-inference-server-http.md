@@ -156,6 +156,8 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
     1. Start debugging session in VS Code. Select "Run" -> "Start Debugging" (or `F5`).
 
 -  **Attach mode**: start the AzureML Inference HTTP Server in a command line and use VS Code + Python Extension to attach to the process.
+    > [!NOTE]
+    > If you're using Linux environment, first install the `gdb` package by running `sudo apt-get install -y gdb`.
    1. Add the following configuration to `launch.json` for that workspace in VS Code:
         
         **launch.json**
@@ -173,11 +175,13 @@ There are two ways to use Visual Studio Code (VS Code) and [Python Extension](ht
             ]
         }
         ```
-   1. Start the inference server using CLI (`azmlinfsrv --entry_script score.py`).
-   1. Start debugging session in VS Code.
+   2. Start the inference server using CLI (`azmlinfsrv --entry_script score.py`).
+   3. Start debugging session in VS Code.
       1. In VS Code, select "Run" -> "Start Debugging" (or `F5`).
-      1. Enter the process ID using the logs (from the inference server) displayed in the CLI.
+      2. Enter the process ID of the `azmlinfsrv` (not the `gunicorn`) using the logs (from the inference server) displayed in the CLI.
         :::image type="content" source="./media/how-to-inference-server-http/debug-attach-pid.png" alt-text="Screenshot of the CLI which shows the process ID of the server":::
+        > [!NOTE]
+        > If you're using Linux environment, install `gdb` package 
 
 In both ways, you can set [breakpoint](https://code.visualstudio.com/docs/editor/debugging#_breakpoints) and debug step by step.
 
