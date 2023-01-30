@@ -1,15 +1,15 @@
 ---
-title: Log data ingestion time in Azure Monitor | Microsoft Docs
+title: Monitor data ingestion latency in Azure Monitor Logs
 description: This article explains the different factors that affect latency in collecting log data in Azure Monitor.
 ms.topic: conceptual
-author:guywi-ms
+author: guywi-ms
 ms.author: guywild
 ms.reviewer: eternovsky
 ms.date: 01/31/2023
 
 ---
 
-# Monitor log ingestion latency in Azure Monitor
+# Monitor data ingestion latency in Azure Monitor Logs
 Azure Monitor is a high-scale data service that serves thousands of customers that send terabytes of data each month at a growing pace. There are often questions about the time it takes for log data to become available after it's collected. This article explains the different factors that affect this latency.
 
 ## Typical latency
@@ -48,7 +48,7 @@ To ensure the Log Analytics agent is lightweight, the agent buffers logs and per
 
 **Typical latency: Varies**
 
-Network conditions might negatively affect the latency of this data to reach an Azure Monitor Logs ingestion point.
+Network conditions can affect how long it takes for data to reach an Azure Monitor Logs ingestion point.
 
 ### Azure metrics, resource logs, activity log
 
@@ -58,16 +58,16 @@ Azure data adds more time to become available at an Azure Monitor Logs ingestion
 
 - **Azure platform metrics** are available in under a minute in the metrics database, but they take another 3 minutes to be exported to the Azure Monitor Logs ingestion point.
 - **Resource logs** typically add 30 to 90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5-minute intervals. Work is in progress to improve this time further. To examine this latency in your environment, see the [query that follows](#check-ingestion-time).
-- **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them into Azure Monitor Logs. They might take 10 to 15 minutes if you instead use the legacy integration.
+- **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them to Azure Monitor Logs. They might take 10 to 15 minutes if you instead use the legacy integration.
 
-### Management solutions collection
+### Data collection by management solutions 
 
 **Typical latency: Varies**
 
-Some solutions don't collect their data from an agent and might use a collection method that introduces more latency. Some solutions collect data at regular intervals without attempting near real time collection. Specific examples include:
+Some solutions don't collect data with an agent and might use a collection method that introduces more latency. Some solutions collect data at regular intervals without attempting near real-time collection. Specific examples include:
 
-- Microsoft 365 solution polls activity logs by using the Management Activity API, which currently doesn't provide any near real time latency guarantees.
-- Windows Analytics solutions (Update Compliance, for example) data is collected by the solution at a daily frequency.
+- The Microsoft 365 solution polls activity logs by using the Management Activity API, which currently doesn't provide any near real-time latency guarantees.
+- The Windows Analytics solution (Update Compliance, for example) collects data on a daily basis.
 
 To determine a solution's collection frequency, see the [documentation for each solution](../insights/solutions.md).
 
