@@ -55,7 +55,7 @@ The following is an example of column lineage and transformation inside of Power
 
 ## Known limitations
 
-* Limited information is currently shown for the Data sources from which the Power BI Dataflow or Power BI Dataset is created. E.g.: For SQL server source of a Power BI datasets, only server/database name is captured.
+* Limited information is currently shown for the Data sources from which the Power BI Dataflow or Power BI Dataset is created. For example, for SQL server source of Power BI dataset, only server/database name is captured.
 * Column lineage (Power BI sub-artifact lineage) and transformations inside of Power BI Datasets is supported when using Azure SQL Database as source in Power BI. Other sources are currently not supported.
 * Few measures aren't shown in the sub-artifact lineage, for example, `COUNTROWS`.
 * In the lineage graph, when selecting measure that is derived by columns using COUNT function, underlying column isn't selected automatically. Check the measure expression in the column properties tab to identify the underlying column.
