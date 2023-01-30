@@ -17,7 +17,7 @@ ms.subservice: calling
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 >[!IMPORTANT]
-> The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
+> The Calling Video effects are available starting on the public preview version [1.10.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.10.0-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
 
 > [!NOTE]
 > This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
@@ -53,7 +53,7 @@ Currently the video effects support the following ability:
 
 ## Browser support: 
 
-Currently creating video effects is only supported on Chrome Desktop Browser and Mac Safari Desktop.
+Currently creating video effects is only supported on Chrome and Edge Desktop Browser and Mac Safari Desktop.
 
 ## Class model:
 
