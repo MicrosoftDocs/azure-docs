@@ -64,13 +64,11 @@ Azure data adds more time to become available at an Azure Monitor Logs ingestion
 
 **Typical latency: 30 to 60 seconds**
 
-After the data is available at an ingestion point, it takes another 30 to 60 seconds to be available for querying.
+Tt takes 30 to 60 seconds before data that arrives at an ingestion point is available for querying.
 
 After log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5 to 15 seconds.
 
-Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, Azure Network Performance Monitoring aggregates incoming data over 3-minute intervals, which effectively adds 3-minute latency.
-
-Another process that adds latency is the process that handles custom logs. In some cases, this process might add a few minutes of latency to logs that are collected from files by the agent.
+In some cases, a few minutes of latency are introduced when Azure Monitor Agent collects logs from files.
 
 ### New custom data types provisioning
 
