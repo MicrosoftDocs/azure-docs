@@ -115,6 +115,8 @@ az storage blob upload \
 
 This operation creates the blob if it doesn't already exist, and overwrites it if it does. Upload as many files as you like before continuing.
 
+++When you upload a blob using AZ CLI, AZ CLI issues respective REST API calls: https://learn.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api via http and https protocols. 
+
 To upload multiple files at the same time, you can use the [az storage blob upload-batch](/cli/azure/storage/blob) command.
 
 ## List the blobs in a container
