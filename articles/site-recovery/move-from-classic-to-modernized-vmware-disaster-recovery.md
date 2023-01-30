@@ -3,8 +3,9 @@ title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware replications from classic to modernized protection architecture.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2022
+ms.date: 01/13/2023
 author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 ---
 
 # Move from classic to modernized VMware disaster recovery   
