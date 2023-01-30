@@ -58,7 +58,7 @@ In this quickstart, learn how to connect a container app to Azure App Configurat
 1. Execute the container locally using the command below and replace `<connection-string>` with the connection string of your App Configuration store.
 
     ```bash
-    docker run –-detach --publish 8080:80 --name myapp aspnetapp --env AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
+    docker run --detach --publish 8080:80 --name myapp aspnetapp --env AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
     ```
 
     | Name        | Description                                                                                                                                            |
@@ -69,7 +69,7 @@ In this quickstart, learn how to connect a container app to Azure App Configurat
 
     The command returns a long ID back.
 
-1. Check if the container is running by executing the command `docker ps`. An output similar to be one below is displayed:
+1. Check if the container is running by executing the command `docker ps`. An output similar to the one below is displayed:
 
     ```output
     CONTAINER ID   IMAGE       COMMAND                  CREATED          STATUS          PORTS                  NAMES
@@ -93,8 +93,6 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 1. Once the deployment is complete, open your ACR instance and from the left menu, select **Settings > Access keys**.
 1. Take note of the **Login server** value listed on this page. You will use this information in a later step.
 1. Switch **Admin user** to *Enabled*. This option lets you connect the ACR to Azure Container Apps using admin user credentials.
-
-    :::image type="content" border="true" source="media\connect-container-app\admin-user.png" alt-text="Screenshot of the Azure platform enabling admin user.":::
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -215,12 +213,7 @@ In the next step, connect the container app to Azure App Configuration using [Se
 
 #### [Portal](#tab/azure-portal)
 
-1. Browse to your container app and select **Service Connector (preview)** from the left table of contents.
-1. Select **Create connection**.
-
-    :::image type="content" border="true" source="..\service-connector\media\container-apps-quickstart\select-service-connector.png" alt-text="Screenshot of the Azure portal, connecting cloud services with Service Connector.":::
-
-1. Select or enter the following settings.
+Connect the app to Azure App Configuration following the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md) and enter the following settings.
 
     | Setting               | Suggested value       | Description                                                                                                            |
     |-----------------------|-----------------------|------------------------------------------------------------------------------------------------------------------------|
