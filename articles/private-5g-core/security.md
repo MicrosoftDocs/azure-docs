@@ -61,6 +61,10 @@ We recommend that you replace certificates at least once per year, including rem
 
 For more information on how to generate a Key Vault certificate, see [Certificate creation methods](../key-vault/certificates/create-certificate.md).
 
+## Personally identifiable information
+
+[Diagnostics packages](gather-diagnostics.md) may contain *personally identifiable information (PII)*. When providing diagnostics package to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any PII that it contains.
+
 ### Access authentication
 
 You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password to access the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). 

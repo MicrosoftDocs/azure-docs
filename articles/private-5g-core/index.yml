@@ -130,11 +130,15 @@ landingContent:
           - text: Enable Log Analytics for Azure Private 5G Core
             url: enable-log-analytics-for-private-5g-core.md
           - text: Create an overview Log Analytics dashboard
-            url: create-overview-dashboard.md 
+            url: create-overview-dashboard.md  
+          - text: Perform data plane packet capture for a packet core instance
+            url: data-plane-packet-capture.md 
           - text: Enable Azure Active Directory
             url: enable-azure-active-directory.md
           - text: Modify a site's local access configuration
-            url: modify-local-access-configuration.md      
+            url: modify-local-access-configuration.md
           - text: Export, upload and share traces for diagnostics
             url: distributed-tracing-share-traces.md
+          - text: Gather diagnostics
+            url: gather-diagnostics.md
             
