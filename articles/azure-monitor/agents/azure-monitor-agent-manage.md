@@ -261,7 +261,7 @@ N/A
 ## Update
 
 > [!NOTE]
-> The recommendation is to enable [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) which may take **up to a month** after a new version is released, to update installed extensions to the released (latest) version across all regions.
+> The recommendation is to enable [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) which may take **up to 5 weeks** after a new extension version is released for it to update installed extensions to the released (latest) version across all regions. Upgrades are issued in batches, so you may see some of your virtual machines, scale-sets or Arc-enabled servers get upgraded before others. If you need to upgrade an extension immediately, you may use the manual instructions below.
 
 #### [Portal](#tab/azure-portal)
 
