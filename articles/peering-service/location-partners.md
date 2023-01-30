@@ -34,7 +34,7 @@ The table in this article provides information on the Peering Service connectivi
 | [DE-CIX](https://www.de-cix.net/)|Europe, North America |
 | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |North America, Asia|
 | [IIJ](https://www.iij.ad.jp/en/) |Japan |
-| [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
+| [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
 | [LINX](https://www.linx.net/services/microsoft-azure-peering/) |Europe|
 | [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) |Africa  |
@@ -61,3 +61,4 @@ The table in this article provides information on the Peering Service connectivi
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
 - To learn about onboarding a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
+
