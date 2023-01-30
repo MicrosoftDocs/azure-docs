@@ -6,6 +6,7 @@ ms.author: robswain
 ms.service: private-5g-core
 ms.topic: overview
 ms.custom: subject-reliability
+ms.custom: references_regions 
 ms.date: 01/31/2022
 ---
 
@@ -43,7 +44,7 @@ Microsoft is responsible for outage detection, notification and support for the 
 
 Microsoft monitors the underlying resources providing the Azure Private 5G Core service in each region. If those resources start to show failures or health monitoring alerts that aren't restricted to a single availability zone then Microsoft will move the service to another supported region in the same geography. This is an Active-Active pattern. The service health for a particular region can be found on [Azure Service Health](https://status.azure.com/status) (Azure Private 5G Core is listed in the **Networking** section). You'll be notified of any region failures through normal Azure communications channels.
 
-The service automatically replicates SIM credentials owned by the service to the backup region using CosmosDB multi-region writes, so there's no loss of data in the event of region failure.
+The service automatically replicates SIM credentials owned by the service to the backup region using Cosmos DB multi-region writes, so there's no loss of data in the event of region failure.
 
 Azure Private 5G Core resources deployed in the failed region will become read-only, but resources in all other regions will continue to operate unaffected. If you need to be able to write resources at all times, follow the instructions in [Set up disaster recovery and outage detection](#set-up-disaster-recovery-and-outage-detection) to perform your own disaster recovery operation and set up the service in another region.
 
@@ -51,7 +52,7 @@ The packet core running at the Edge continues to operate without interruption an
 
 ### Set up disaster recovery and outage detection
 
-This section describes what action you can take to ensure you have a fully active management plane for the Azure Private 5G Core service in the event of a region failure. This is required if you want be able to modify your resources in the event of a region failure. 
+This section describes what action you can take to ensure you have a fully active management plane for the Azure Private 5G Core service in the event of a region failure. This is required if you want to be able to modify your resources in the event of a region failure. 
 
 Note that this will cause an outage of your packet core service and interrupt network connectivity to your UEs for up to eight hours, so we recommend you only use this procedure if you have a business-critical reason to manage resources while the Azure region is down.
 
@@ -92,7 +93,7 @@ You must repeat this process for every packet core in your mobile network.
 
 **Disconnect the Azure Stack Edge device from the failed region**
 <br></br>
-The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate you Azure Stack Edge device](/azure/databox-online/azure-stack-edge-reset-reactivate-device). Note that this will remove ALL software currently running on your Azure Stack Edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this Azure Stack Edge device.
+The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate your Azure Stack Edge device](/azure/databox-online/azure-stack-edge-reset-reactivate-device). Note that this will remove ALL software currently running on your Azure Stack Edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this Azure Stack Edge device.
 
 **Connect the Azure Stack Edge device to the new region**
 <br></br>
