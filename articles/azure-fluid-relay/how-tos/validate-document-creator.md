@@ -1,5 +1,5 @@
 ---
-title: "How to: Validate a User Created a Container"
+title: "How to: Validate a user who created a container"
 description: How to validate that the user who created a container is the same user who is claiming to be accessing the container.
 services: azure-fluid
 author: hickeys
@@ -10,7 +10,7 @@ ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/apis/azure-client/itokenprovider/
 ---
 
-# How to: Validate a user created a container
+# How to: Validate a user who created a container
 
 When you create a container in Azure Fluid Relay, the JWT provided by the [ITokenProvider](https://fluidframework.com/docs/apis/azure-client/itokenprovider-interface) for the creation request can only be used once. After creating a container, the client must generate a new JWT that contains the document ID (which is really the container ID) provided by the service at creation time. If an application has an authorization service that manages container access control, it will need to know who created a container with a given ID in order to authorize the generation of a new JWT for access to that container.
 
