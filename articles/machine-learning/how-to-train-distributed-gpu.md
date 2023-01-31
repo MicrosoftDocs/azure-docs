@@ -132,7 +132,7 @@ You can use a [curated environment](resource-curated-environments.md#azure-conta
 
 ### DeepSpeed example
 
-- For DeepSpeed training and autotuning examples, see [here](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/deepspeed).
+- For DeepSpeed training and autotuning examples, see [these folders](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/deepspeed).
 
 ## TensorFlow
 
