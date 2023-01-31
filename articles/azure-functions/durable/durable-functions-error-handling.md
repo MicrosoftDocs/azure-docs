@@ -327,7 +327,7 @@ When using the .NET or Java, you also have the option to implement retry handler
 # [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
-RetryOptions retryOptions = new RetryOptions(new RetryOptions(
+RetryOptions retryOptions = new RetryOptions(
     firstRetryInterval: TimeSpan.FromSeconds(5),
     maxNumberOfAttempts: int.MaxValue)
     {
