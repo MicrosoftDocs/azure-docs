@@ -1773,6 +1773,8 @@
         href: pendo-tutorial.md
       - name: Penji
         href: penji-tutorial.md
+      - name: Pennylane
+        href: pennylane-tutorial.md
       - name: People
         href: people-tutorial.md
       - name: Peoplecart

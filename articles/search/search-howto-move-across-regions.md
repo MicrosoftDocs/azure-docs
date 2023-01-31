@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 10/06/2021
+ms.date: 01/30/2023
 ---
 
 # Move your Azure Cognitive Search service to another Azure region

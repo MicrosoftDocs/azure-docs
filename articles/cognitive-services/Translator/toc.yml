@@ -12,7 +12,7 @@ items:
     href: language-support.md
   - name: Pricing
     displayName: cost,free,standard,custom,tier,S1,S2,S3,S4,C2,C3,C4,D3,hosting
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator
   - name: What's new?
     displayName: release,ga,update,support
     href: whats-new.md

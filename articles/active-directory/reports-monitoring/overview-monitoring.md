@@ -27,7 +27,7 @@ Currently, you can route the logs to:
 - An Azure event hub, so you can integrate with your Splunk and Sumologic instances.
 - Azure Log Analytics workspace, wherein you can analyze the data, create dashboard and alert on specific events
 
-**Prerequisite role**: Global Admin
+**Prerequisite role**: Global Administrator
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 

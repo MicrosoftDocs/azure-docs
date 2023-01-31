@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 01/30/2022
 ---
 # How to get lineage from Power BI into Microsoft Purview
 
@@ -14,8 +14,8 @@ This article elaborates on the data lineage aspects of Power BI source in Micros
 
 >[!IMPORTANT]
 > Currently, supported sources for Power BI Lineage are:
-> * Azure SQL
-> * Azure Storage
+> * Azure SQL Database
+> * Azure Blob Storage
 > * Azure Data Lake Store Gen1
 > * Azure Data Lake Store Gen2
 
@@ -29,28 +29,37 @@ This article elaborates on the data lineage aspects of Power BI source in Micros
 
 ## Power BI artifacts in Microsoft Purview
 
-Once the [scan of your Power BI](../purview/register-scan-power-bi-tenant.md) is complete, following Power BI artifacts will be inventoried in Microsoft Purview
+Once the [scan of your Power BI](../purview/register-scan-power-bi-tenant.md) is complete, following Power BI artifacts will be inventoried in Microsoft Purview:
 
-* Capacity
 * Workspaces
-* Dataflow
-* Dataset 
-* Report
-* Dashboard
+* Dashboards
+* Reports
+* Datasets
+* Dataflows
+* Datamarts
 
-The workspace artifacts will show lineage of Dataflow -> Dataset -> Report -> Dashboard
+The workspace artifacts will show lineage of Dataflow -> Dataset -> Report -> Dashboard.
 
 :::image type="content" source="./media/how-to-lineage-powerbi/powerbi-overview.png" alt-text="Screenshot showing how Overview tab is rendered for Power BI assets." lightbox="./media/how-to-lineage-powerbi/powerbi-overview.png":::
-
->[!Note]
-> * Column lineage and transformations inside of PowerBI Datasets is currently not supported
-> * Limited information is currently shown for the Data sources from which the PowerBI Dataflow or PowerBI Dataset is created. E.g.: For SQL server source of a PowerBI datasets only server name is captured. 
 
 ## Lineage of Power BI artifacts in Microsoft Purview
 
 Users can search for the Power BI artifact by name, description, or other details to see relevant results. Under the asset overview & properties tab the basic details such as description, classification and other information are shown. Under the lineage tab, asset relationships are shown with the upstream and downstream dependencies.
 
 :::image type="content" source="./media/how-to-lineage-powerbi/powerbi-lineage.png" alt-text="Screenshot showing how lineage is rendered for Power BI." lightbox="./media/how-to-lineage-powerbi/powerbi-lineage.png":::
+
+The following is an example of column lineage and transformation inside of Power BI Datasets when using Azure SQL Database as source. For measures, you can further click into the column -> Properties -> expression to see the transformation details.
+
+:::image type="content" source="./media/how-to-lineage-powerbi/power-bi-lineage-subartifacts.png" alt-text="Screenshot showing how Power BI subartifacts lineage is rendered." lightbox="./media/how-to-lineage-powerbi/power-bi-lineage-subartifacts.png":::
+
+## Known limitations
+
+* Limited information is currently shown for the Data sources from which the Power BI Dataflow or Power BI Dataset is created. For example, for SQL server source of Power BI dataset, only server/database name is captured.
+* Column lineage (Power BI sub-artifact lineage) and transformations inside of Power BI Datasets is supported when using Azure SQL Database as source in Power BI. Other sources are currently not supported.
+* Few measures aren't shown in the sub-artifact lineage, for example, `COUNTROWS`.
+* In the lineage graph, when selecting measure that is derived by columns using COUNT function, underlying column isn't selected automatically. Check the measure expression in the column properties tab to identify the underlying column.
+* If you used to scan Power BI before sub-artifact lineage is supported, you may see a database asset along with the new table assets in the lineage graph, which isn't removed.
+* In case you have the dataset table connected to another dataset table, when the middle dataset disables "Enable load" option inside the Power BI desktop, the lineage cannot be extracted.
 
 ## Next steps
 
