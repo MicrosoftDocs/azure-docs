@@ -32,13 +32,14 @@ There are two ways to call the service:
 
 ## Specify the Text Analytics for health model
 
-By default, Text Analytics for health will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform operations provided by the Text Analytics for health.
+By default, Text Analytics for health will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform operations provided by the Text Analytics for health. Extraction of social determinants of health entities is supported with the new preview model version "2023-01-01-preview".
 
 | Supported Versions | latest version |
 |--|--|
+| `2023-01-01-preview` | `2023-01-01-preview`   |
 | `2022-08-15-preview` | `2022-08-15-preview`   |
 | `2022-03-01` | `2022-03-01`   |
-| `2021-05-15` | `2021-05-15`   |
+
 
 
 ### Text Analytics for health container
