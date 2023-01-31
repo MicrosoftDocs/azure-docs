@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 01/30/2023
 ms.author: vikurpad
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
@@ -31,6 +31,16 @@ A labeled dataset consists of several files:
   * The Studio runs each of the documents through the [Layout API](concept-layout.md). The layout response for each of the sample files in the dataset is added as `{file}.ocr.json`. The layout response is used to generate the field labels when a specific span of text is labeled.
 
   * A `{file}.labels.json` file is created or updated when a field is labeled in a document. The label file contains the spans of text and associated polygons from the layout output for each span of text the user adds as a value for a specific field.
+
+## Video: Custom label tips and pointers (part 1)
+
+* The following is the first of two videos intended to help you build custom
+models with higher accuracy. Here, we'll look at the
+concept of a balanced data set and see how selecting the right
+documents to label can set you on the path to a higher quality model. 
+
+*The second video presents [Best practices for labeling documents]()
+
 
 ## Create a balanced dataset
 
