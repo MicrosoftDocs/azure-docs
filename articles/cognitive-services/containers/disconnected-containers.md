@@ -198,7 +198,7 @@ To download all the required models into your Custom Speech-to-Text container fo
 
 After all required models have been downloaded into your container, you need to download the disconnected license file using the instructions in the above chapter, titled [Configure the container to be run in a disconnected environment](./disconnected-containers.md#configure-the-container-to-be-run-in-a-disconnected-environment), using the Speech resource from step 2.
 
-To run the container in disconnected mode follow the instructions from above chapter [Run the container in a disconnected environment](./disconnected-containers.md#run-the-container-in-a-disconnected-environment).
+To run the container in disconnected mode, follow the instructions from above chapter titled [Run the container in a disconnected environment](./disconnected-containers.md#run-the-container-in-a-disconnected-environment).
 
 The [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
 
