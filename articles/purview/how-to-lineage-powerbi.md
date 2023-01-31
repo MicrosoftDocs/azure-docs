@@ -29,15 +29,14 @@ This article elaborates on the data lineage aspects of Power BI source in Micros
 
 ## Power BI artifacts in Microsoft Purview
 
-Once the [scan of your Power BI](../purview/register-scan-power-bi-tenant.md) is complete, following Power BI artifacts will be inventoried in Microsoft Purview
+Once the [scan of your Power BI](../purview/register-scan-power-bi-tenant.md) is complete, following Power BI artifacts will be inventoried in Microsoft Purview:
 
-* Capacity
 * Workspaces
-* Dataflow
-* Dataset 
-* Report
-* Dashboard
-* Datamart
+* Dashboards
+* Reports
+* Datasets
+* Dataflows
+* Datamarts
 
 The workspace artifacts will show lineage of Dataflow -> Dataset -> Report -> Dashboard.
 
