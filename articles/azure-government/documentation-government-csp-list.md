@@ -1,11 +1,11 @@
 ---
 title: Azure Government authorized reseller list
-description: Comprehensive list of Azure Government Cloud Solution Providers, resellers, and distributors.
-services: azure-government
-cloud: gov
+description: Comprehensive list of Azure Government cloud solution providers, resellers, and distributors.
 ms.service: azure-government
 ms.topic: article
-ms.date: 07/05/2022
+author: todorgb
+ms.author: todorb
+ms.date: 01/18/2023
 ---
 
 # Azure Government authorized reseller list
@@ -414,7 +414,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[SyCom Technologies](https://www.sycomtech.com)|
 |[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
-|[Systems Engineering Inc](https://www.seisystems.com)|
+|[Systems Engineering Inc](https://www.systemsengineering.com)|
 |[Systems Solutions Inc](https://www.ssi-net.com/)|
 |[Syvantis Technologies, Inc.](https://www.syvantis.com)|
 |[Taborda Solutions](https://tabordasolutions.com)|

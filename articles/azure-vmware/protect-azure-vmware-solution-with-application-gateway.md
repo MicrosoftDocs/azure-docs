@@ -113,7 +113,7 @@ This procedure shows you how to define backend address pools using VMs running o
 
 6. Configure the corresponding backend pool and HTTP settings. Select **Add**.
 
-7. Test the connection. Open your preferred browser and navigate to the different websites hosted on your Azure VMware Solution environment, for example, http://www.fabrikam.com.
+7. Test the connection. Open your preferred browser and navigate to the different websites hosted on your Azure VMware Solution environment.
 
     :::image type="content" source="media/application-gateway/app-gateway-multi-backend-pool-07.png" alt-text="Screenshot of browser page showing successful test the connection.":::
 
