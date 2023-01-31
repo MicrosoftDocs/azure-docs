@@ -43,7 +43,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     az account set --subscription $subscriptionID
     az identity create --name $UAMI --resource-group $resourceGroupName
     export USER_ASSIGNED_CLIENT_ID="$(az identity show -g $resourceGroupName --name $UAMI --query 'clientId' -o tsv)"
-    export IDENTITY_TENANT=$(az aks show --name $clusterName --resource-group $resourceGroupName --query aadProfile.tenantId -o tsv)
+    export IDENTITY_TENANT=$(az aks show --name $clusterName --resource-group $resourceGroupName --query identity.tenantId -o tsv)
     ```
 
 2. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the `az keyvault set-policy` command shown below.
