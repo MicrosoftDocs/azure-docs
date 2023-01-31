@@ -405,6 +405,9 @@ items:
       - name: Rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
+      - name: Query Prometheus metrics in workbooks
+        displayName: Prometheus
+        href: essentials/prometheus-workbooks.md
       - name: Remote-write
         items:
         - name: Overview
@@ -994,6 +997,8 @@ items:
         href: containers/container-insights-deployment-hpa-metrics.md
       - name: Monitor Persistent Volumes (PVs)
         href: containers/container-insights-persistent-volumes.md
+      - name: Monitor Security with Syslog 
+        href: containers/container-insights-syslog.md  
       - name: Reports tab
         href: containers/container-insights-reports.md
       - name: Custom metrics
