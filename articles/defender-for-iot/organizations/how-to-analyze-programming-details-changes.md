@@ -15,7 +15,7 @@ When working with DeltaV traffic, use the OT sensor to watch for programming eve
   - **Corrupted programming automation**: Programming errors due to automation failures.
   - **Hacked systems**: Unauthorized users logged into a programming device.
 
-Use the **Programming timeline** areas on your OT network sensor to review programming data. For example, when investigating an alert about unauthorized programming, after a planned controller update, or when a process or machine isn't working correctly and you want to understand who made the last update and when.
+Use the **Programming timeline** on your OT network sensor to review programming data. For example, when investigating an alert about unauthorized programming, after a planned controller update, or when a process or machine isn't working correctly and you want to understand who made the last update and when.
 
 Programming activity shown on OT sensors include both *authorized* and *unauthorized* events. Authorized events are performed by devices that are either learned or manually defined as programming devices. Unauthorized events are performed by devices that haven't been learned or manually defined as programming devices.
 
@@ -26,12 +26,12 @@ Programming activity shown on OT sensors include both *authorized* and *unauthor
 
 To perform the procedures in this article, make sure that you have:
 
-- A sensor installed and configured
+- An OT sensor installed and configured.
 - Access to the sensor as a **Viewer**, **Security analyst** or **Admin** user.
 
 ## Access programming data
 
-Programming data is available from unauthorized programming alerts, and the **Device map**, **Device inventory**, and **Event timeline** pages.
+The **Programming timeline** can be accessed from unauthorized programming alerts, and the **Device map**, **Device inventory**, and **Event timeline** pages in the sensor console.
 
 ### Access programming data from an alert
 
@@ -43,13 +43,13 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
 1. Filter the alerts to find the alert you want to analyze.
 
-1. Select the alert to open the alert details in the pane on the right.
+1. Select the alert to open the alert details pane on the right.
 
 1. Select **Programming** to open the **Programming timeline**.
 
     :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Screenshot of unauthorized programming alerts.":::
 
-### Access programming data from a device map
+### Access programming data from the device map
 
 1. Sign into the sensor console and go to **Device map**.
 
@@ -61,23 +61,9 @@ Unauthorized programming alerts are triggered when unauthorized programming devi
 
 1. Select a file to view programming details. You can also download the file, or compare it to other recent files. For more information, see [Programming timeline activities](#programming-timeline-activities).
 
-### Access programming data from an event timeline
-
-Use the event timeline to display a timeline of events in which programming changes were detected.
-
-1. Sign into the sensor console and go to **Event timeline**.
-
-1. Filter events by keyword **DeltaV** (optional).
-
-1. Select the event you want to analyze to open the event details pane on the right.
-
-1. Select **View programming** to open the programming timeline. You can also download the file, or compare it to other recent files. For more information, see [Programming timeline activities](#programming-timeline-activities).
-
-    :::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="Screenshot of the event timeline.":::
-
 ### Access programming data from the device inventory
 
-The device inventory indicates if a device is a programming device, and the device properties window provides information on the last programming event detected on the device.
+The device inventory indicates if a device is a programming device, and the device properties page provides information on the last programming event detected on the device.
 
 **To access the programming timeline from the device inventory**:
 
@@ -90,6 +76,20 @@ The device inventory indicates if a device is a programming device, and the devi
 1. On the device properties page, go to the **Programming timeline** tab to select a file and view programming details. You can also download the file, or compare it to other recent files. For more information, see [Programming timeline activities](#programming-timeline-activities). For example:
 
     :::image type="content" source="media/analyze-programming/programming-timeline-window-device-inventory.png" alt-text="Screenshot of programming timeline tab on device properties page.":::
+
+### Access programming data from an event timeline
+
+Use the event timeline to display a timeline of events in which programming changes were detected.
+
+1. Sign into the sensor console and go to **Event timeline**.
+
+1. Filter events by keyword **DeltaV**.
+
+1. Select the event you want to analyze to open the event details pane on the right.
+
+1. Select **View programming** to open the programming timeline. You can also download the file, or compare it to other recent files. For more information, see [Programming timeline activities](#programming-timeline-activities).
+
+    :::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="Screenshot of the event timeline.":::
 
 ## Programming timeline activities
 
@@ -116,9 +116,11 @@ Open specific files to review programming details.
 
 1. Select an event period from the **Recent Events** pane.
 
-1. Select a file from the **File** pane. The file appears in the pane on the right. For example, from a device properties page: 
+1. Select a file from the **File** pane. The file appears in the pane on the right. For example, from a device properties page:
 
    :::image type="content" source="media/analyze-programming/programming-timeline-2.png" alt-text="Screenshot of the programming timeline window." lightbox="media/analyze-programming/programming-timeline-2.png":::
+
+    Review the programming details, download the file, or compare it to another file. 
 
 ### Compare programming detail files
 
@@ -138,13 +140,11 @@ You may want to compare the programming details of multiple files to determine i
 
     :::image type="content" source="media/analyze-programming/compare-file-pane.png" alt-text="Screenshot of compare files pane.":::
 
-    The selected file opens up in a new pane for side by side comparison with the first file. The first file will always appear on the right, and is indicated with the *Current* :::image type="icon" source="media/analyze-programming/current-file-indication.png" border="false"::: label.
+    The selected file opens up in a new pane for side by side comparison with the first file. The current file installed on the programmed device will always appear on the right, and is indicated with the *Current* :::image type="icon" source="media/analyze-programming/current-file-indication.png" border="false"::: label.
 
     :::image type="content" source="media/analyze-programming/compare-files-side-by-side.png" alt-text="Screenshot of programming file comparison side by side.":::
 
-    Scroll through the files to see the programming details and any differences. Any differences between the two files are highlighted, in green for the current file and red for the comparison file.
-
-    Compare and download files as needed.
+    Scroll through the files to see the programming details and any differences between the files. Differences between the two files are highlighted, in green for the current file and in red for the comparison file.
 
 ## Next steps
 
