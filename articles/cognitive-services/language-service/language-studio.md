@@ -78,7 +78,7 @@ See the following example for how you should structure conversational text you w
 
 *Agent: I’m sorry to hear that. Let’s see what we can do to fix this issue.*
 
-Note that the names of the two participants in the conversation, *Agent* and *Customer* begin each line, and that there is only one participant per line of dialog. 
+Note that the names of the two participants in the conversation (*Agent* and *Customer*) begin each line, and that there is only one participant per line of dialog. 
 
 :::image type="content" source="./media/language-studio-conversation-example.png" alt-text="A screenshot showing an example conversation input in Language Studio." lightbox="./media/language-studio-conversation-example.png":::
 
