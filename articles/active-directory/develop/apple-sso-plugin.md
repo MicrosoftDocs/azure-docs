@@ -97,7 +97,7 @@ Common settings:
 ### More configuration options
 You can add more configuration options to extend SSO functionality to other apps.
 
-#### Enable SSO for apps that don't use a Microsoft Authentication Library
+#### Enable SSO for apps that don't use MSAL
 
 The SSO plug-in allows any application to participate in SSO even if it wasn't developed by using a Microsoft SDK like Microsoft Authentication Library (MSAL).
 
