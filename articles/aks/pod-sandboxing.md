@@ -3,7 +3,7 @@ title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as VM Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 01/30/2023
+ms.date: 01/31/2023
 
 ---
 
@@ -257,7 +257,23 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
     Inactive:          12824 kB
     ```
 
-## Cleanup 
+## Cleanup
+
+If you are finished evaluating this feature, to avoid Azure charges, clean up your unnecessary resources. If you deployed a new cluster as part of your evaluation or testing, you can delete the cluster using the [az aks delete][az-aks-delete] command.
+
+```azurecli
+az aks delete --resource-group myResourceGroup --name myAKSCluster
+```
+
+If you enabled Pod Sandboxing (preview) on an existing cluster, you can remove the pod(s) using the [kubectl delete pod][kubectl-delete-pod] command.
+
+```bash
+kubectl delete pod pod-name
+```
+
+## Next steps
+
+
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
 [azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
@@ -265,6 +281,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 [install-kubectl-linux]: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [container-resource-manifest]: https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/
+[kubectl-delete-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure/install-azure-cli
@@ -274,3 +291,4 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 [dv3-series]: ../virtual-machines/dv3-dsv3-series.md#dsv3-series
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [create-ssh-public-key-linux]: ../virtual-machines/linux/mac-create-ssh-keys.md
+[az-aks-delete]: /cli/azure/aks#az-aks-delete
