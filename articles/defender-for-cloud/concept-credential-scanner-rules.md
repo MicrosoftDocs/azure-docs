@@ -10,7 +10,7 @@ ms.date: 01/31/2023
 
 Defender for DevOps supports many types of files and rules. This article explains all of the available file types and rules that are available.
 
-## Supported file types and exit codes
+## Supported file types
 
 Credential scanning supports the following file types:
 
@@ -67,7 +67,7 @@ Credential scanning supports the following file types:
 |\*.code-workspace | hubot |\*.orig |\*.sample |\*.vizfx |  |
 |\*.coffee |\*.idl |\*.out |\*.SAMPLE |\*.vue |  |
 
-## Exit codes
+## Supported exit codes
 
 The following exit codes are available for credential scanning:
 

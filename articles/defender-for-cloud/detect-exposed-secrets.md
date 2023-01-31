@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's secret scanning for Defender for DevOps.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/24/2023
+ms.date: 01/31/2023
 ---
 
 # Detect exposed secrets in code
@@ -14,7 +14,7 @@ When passwords and other secrets are stored in source code, it poses a significa
 > [!NOTE]
 > During the Defender for DevOps preview period, GitHub Advanced Security for Azure DevOps (GHAS for AzDO) is also providing a free trial of secret scanning.
 
-Check the list of [supported file types and exit codes](#supported-file-types-and-exit-codes).
+Check the list of supported [file types](concept-credential-scanner-rules.md#supported-file-types), [exit codes](concept-credential-scanner-rules.md#supported-exit-codes) and [rules and descriptions](concept-credential-scanner-rules.md#rules-and-descriptions).
 
 ## Prerequisites
 
