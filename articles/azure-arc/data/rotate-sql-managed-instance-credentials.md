@@ -47,26 +47,15 @@ Before you proceed with this article, you must have an Azure Arc-enabled SQL Man
 
 ## How to rotate service managed credentials in a managed instance
 
-Get current managed credentials generation from spec:
+Run the following 2 commands to get current service managed credentials generation from spec and generate new generation of service managed credentials:
 
 ```console
-kubectl get sqlmi <sqlmi-name> -o jsonpath='{.spec.update.managedCredentialsGeneration}' -n <namespace>
+rotateCredentialGeneration=$(($(kubectl get sqlmi <sqlmi-name> -o jsonpath='{.spec.update.managedCredentialsGeneration}' -n <namespace>) + 1)) 
 ```
 ---
 
-Update managedCredentialsGeneration to n+1, where n is current value. 
-
 ```console
-update:
-   desiredVersion: "v1_arc"
-   managedCredentialsGeneration: n+1
-```   
---- 
-
-Run kubectl patch to update SQLMI that will generate new credentials:
-
-```console
-kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "update": { "managedCredentialsGeneration": <managed-credentials-generation> } } }'
+kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "update": { "managedCredentialsGeneration": '$rotateCredentialGeneration'} } }' 
 ```
 ---
 
@@ -75,10 +64,24 @@ The managedCredentialsGeneration will be the target generation for the service m
 
 ## How to rollback service managed credentials in a managed instance
 
-Rollabck is same as triggering rotation of credentials that would lead to a rollback of credentials to previous generation without generating a new one.
-
 > [!NOTE]
 > Rollback is required when credential rotation failed for any reasons. Rollback to previous credentials generation is supported only once to n-1 where n is current generation.
 
+Run the following 2 commands to get current service managed credentials generation from spec and generate new generation of service managed credentials:
+
+```console
+rotateCredentialGeneration=$(($(kubectl get sqlmi <sqlmi-name> -o jsonpath='{.spec.update.managedCredentialsGeneration}' -n <namespace>) - 1)) 
+```
+---
+
+```console
+kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "update": { "managedCredentialsGeneration": '$rotateCredentialGeneration'} } }' 
+```
+---
+
+Rollabck is same as triggering rotation of credentials that would lead to a rollback of credentials to previous generation without generating a new one.
+
 
 ## Next steps
+- [View the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards)
+- [View SQL Managed Instance in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)
