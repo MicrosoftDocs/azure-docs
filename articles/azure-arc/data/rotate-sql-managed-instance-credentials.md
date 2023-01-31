@@ -47,7 +47,7 @@ Before you proceed with this article, you must have an Azure Arc-enabled SQL Man
 
 ## How to rotate service managed credentials in a managed instance
 
-Run the following command to get current service managed credentials generation from spec and generate new generation of service managed credentials:
+Run the following two command to get current service managed credentials generation from spec and generate new generation of service managed credentials:
 
 ```console
 rotateCredentialGeneration=$(($(kubectl get sqlmi <sqlmi-name> -o jsonpath='{.spec.update.managedCredentialsGeneration}' -n <namespace>) + 1)) 
@@ -67,7 +67,7 @@ The managedCredentialsGeneration will be the target generation for the service m
 > [!NOTE]
 > Rollback is required when credential rotation failed for any reasons. Rollback to previous credentials generation is supported only once to n-1 where n is current generation.
 
-Run the following 2 commands to get current service managed credentials generation from spec and generate new generation of service managed credentials:
+Run the following two commands to get current service managed credentials generation from spec and rollback to previous generation of service managed credentials:
 
 ```console
 rotateCredentialGeneration=$(($(kubectl get sqlmi <sqlmi-name> -o jsonpath='{.spec.update.managedCredentialsGeneration}' -n <namespace>) - 1)) 
