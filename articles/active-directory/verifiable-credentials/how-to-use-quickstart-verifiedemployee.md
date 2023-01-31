@@ -46,7 +46,7 @@ If you already have a test user, you can skip this section. If you want to creat
 1. Find the new user, select to **view profile** and select **Edit**. Update the following attributes then select Save:
     - Job Title
     - Email (in the Contact Info section. Doesn't have to be an existing email address) 
-    - Photo (select JPG/PNG file with low, thumbnail like, resolution)
+    - Photo (select JPG file with low, thumbnail like, resolution. Maximum size is 2MB.)
 1. Open a new, private, browser window and navigate to page like [https://myapps.microsoft.com/](https://myapps.microsoft.com/) and sign in with your new user. The user name would be something like meganb@yourtenant.onmicrosoft.com. You'll be prompted to change your password
 
 ## Set up the user for Microsoft Authenticator
@@ -108,6 +108,11 @@ The configuration file depends on the sample in-use.
 - **node** - [config.json](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/config.json)
 - **python** - [config.json](https://github.com/Azure-Samples/active-directory-verifiable-credentials-python/blob/main/1-python-api-idtokenhint/config.json)
 - **Java** - values are set as environment variables in [run.cmd](https://github.com/Azure-Samples/active-directory-verifiable-credentials-java/blob/main/1-java-api-idtokenhint/run.cmd) and [run.sh](https://github.com/Azure-Samples/active-directory-verifiable-credentials-java/blob/main/1-java-api-idtokenhint/run.sh) or docker-run.cmd/docker-run.sh when using docker.
+
+## Remarks
+
+>[!NOTE]
+> This schema is fixed and it is not supported to add or remove claims in the schema. The attestation flow for directory based claims is also fixed and it is unsupported to try and change it to become a custom credential with id token hint attestation flow, for example.
 
 ## Next steps
 
