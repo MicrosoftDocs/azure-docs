@@ -83,7 +83,7 @@ Initiate the increase of limit for your resource by submitting the Support Reque
 * Select the Anomaly Detector Resource for which you would like to increase the limit
 * Select New support request (Support + troubleshooting group)
 * A new window will appear with auto-populated information about your Azure Subscription and Azure Resource
-* Enter Summary (like "Increase Anomaly Detector TPS limit")
+5. Enter Summary (like "Increase Anomaly Detector TPS limit")
 * In Problem type, select *"Quota or usage validation"*
 * Select Next: Solutions
 * Proceed further with the request creation
