@@ -1,5 +1,35 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/security/develop/security-code-analysis-customize.md",
+      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/security-code-analysis-faq.yml",
+      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/security-code-analysis-onboard.md",
+      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-onboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/security-code-analysis-overview.md",
+      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/security-code-analysis-releases.md",
+      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-releases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/yaml-configuration.md",
+      "redirect_url": "/previous-versions/azure/security/develop/yaml-configuration",
+      "redirect_document_id": false
+    },
         {
             "source_path": "articles/vmware-cloudsimple/access-cloudsimple-portal.md",
             "redirect_url": "/previous-versions/azure/vmware-cloudsimple/access-cloudsimple-portal",
