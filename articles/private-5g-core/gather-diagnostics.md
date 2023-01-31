@@ -1,6 +1,6 @@
 ---
 title: Gather remote diagnostics
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to gather remote diagnostics for a site using the Azure portal. 
 author: James-Green-Microsoft
 ms.author: jamesgreen
