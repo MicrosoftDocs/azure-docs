@@ -23,8 +23,6 @@ Azure makes it possible to deploy and use storage in ways not easily achievable 
 
 Azure Storage provides the following four services: Blob storage, Table storage, Queue storage, and File storage. To learn more, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md).
 
-The [Azure Storage security guide](../../storage/blobs/security-recommendations.md) is a great source for detailed information about Azure Storage and security. This best practices article addresses at a high level some of the concepts found in the security guide and links to the security guide, as well as other sources, for more information.
-
 This article addresses the following best practices:
 
 - Shared access signatures (SAS)
@@ -36,9 +34,9 @@ This article addresses the following best practices:
 ## Use a shared access signature instead of a storage account key
 Access control is critical. To help you control access to Azure Storage, Azure generates two 512-bit storage account keys (SAKs) when you create a storage account. The level of key redundancy makes it possible for you to avoid service interruptions during routine key rotation. 
 
-Storage access keys are high priority secrets and should only be accessible to those responsible for storage access control. If the wrong people get access to these keys, they will have complete control of storage and could replace, delete, or add files to storage. This includes malware and other types of content that can potentially compromise your organization or your customers.
+Storage access keys are high priority secrets and should only be accessible to people responsible for storage access control. If the wrong people get access to these keys, they'll have complete control of storage and could replace, delete, or add files to storage. This includes malware and other types of content that can potentially compromise your organization or your customers.
 
-You still need a way to provide access to objects in storage. To provide more granular access you can take advantage of shared access signature (SAS). The SAS makes it possible for you to share specific objects in storage for a pre-defined time-interval and with specific permissions. A shared access signature allows you to define:
+You still need a way to provide access to objects in storage. To provide more granular access, you can take advantage of shared access signature (SAS). The SAS makes it possible for you to share specific objects in storage for a pre-defined time-interval and with specific permissions. A shared access signature allows you to define:
 
 - The interval over which the SAS is valid, including the start time and the expiry time.
 - The permissions granted by the SAS. For example, a SAS on a blob might grant a user read and write permissions to that blob, but not delete permissions.
@@ -50,11 +48,11 @@ SAS allows you to share content the way you want to share it without giving away
 To learn more about shared access signature, see [Using shared access signatures](../../storage/common/storage-sas-overview.md).
 
 ## Use Azure role-based access control
-Another way to manage access is to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). With Azure RBAC, you focus on giving employees the exact permissions they need, based on the need to know and least privilege security principles. Too many permissions can expose an account to attackers. Too few permissions means that employees can't get their work done efficiently. Azure RBAC helps address this problem by offering fine-grained access management for Azure. This is imperative for organizations that want to enforce security policies for data access.
+Another way to manage access is to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). With Azure RBAC, you focus on giving employees the exact permissions they need, based on the need to know and least privilege security principles. Too many permissions can expose an account to attackers. Too few permissions means that employees can't get their work done efficiently. Azure RBAC helps address this problem by offering fine-grained access management for Azure. Access control is imperative for organizations that want to enforce security policies for data access.
 
-You can use Azure built-in roles in Azure to assign privileges to users. For example, use Storage Account Contributor for cloud operators that need to manage storage accounts and Classic Storage Account Contributor role to manage classic storage accounts. For cloud operators that need to manage VMs but not the virtual network or storage account to which they are connected, you can add them to the Virtual Machine Contributor role.
+You can use Azure built-in roles in Azure to assign privileges to users. For example, use Storage Account Contributor for cloud operators that need to manage storage accounts and Classic Storage Account Contributor role to manage classic storage accounts. For cloud operators that need to manage VMs but not the virtual network or storage account to which they're connected, you can add them to the Virtual Machine Contributor role.
 
-Organizations that do not enforce data access control by using capabilities such as Azure RBAC may be giving more privileges than necessary for their users. This can lead to data compromise by allowing some users access to data they shouldn't have in the first place.
+Organizations that don't enforce data access control by using capabilities such as Azure RBAC may be giving more privileges than necessary for their users. More privileges than necessary can lead to data compromise by allowing some users access to data they shouldn't have in the first place.
 
 To learn more about Azure RBAC see:
 
@@ -63,7 +61,7 @@ To learn more about Azure RBAC see:
 - [Security recommendations for Blob storage](../../storage/blobs/security-recommendations.md)
 
 ## Use client-side encryption for high value data
-Client-side encryption enables you to programmatically encrypt data in transit before uploading to Azure Storage, and programmatically decrypt data when retrieving it. This provides encryption of data in transit but it also provides encryption of data at rest. Client-side encryption is the most secure method of encrypting your data but it does require you to make programmatic changes to your application and put key management processes in place.
+Client-side encryption enables you to programmatically encrypt data in transit before uploading to Azure Storage, and programmatically decrypt data when retrieving it. Client-side encryption provides encryption of data in transit but it also provides encryption of data at rest. Client-side encryption is the most secure method of encrypting your data but it does require you to make programmatic changes to your application and put key management processes in place.
 
 Client-side encryption also enables you to have sole control over your encryption keys. You can generate and manage your own encryption keys. It uses an envelope technique where the Azure storage client library generates a content encryption key (CEK) that is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in [Azure Key Vault](../../key-vault/general/overview.md).
 
