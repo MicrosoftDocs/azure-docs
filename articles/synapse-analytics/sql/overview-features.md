@@ -47,7 +47,7 @@ Consumption models in Synapse SQL enable you to use different database objects. 
 
 Query languages used in Synapse SQL can have different supported features depending on consumption model. The following table outlines the most important query language differences in Transact-SQL dialects:
 
-| Query language | Dedicated | Serverless |
+| Statement | Dedicated | Serverless |
 | --- | --- | --- |
 | **SELECT statement** | Yes. `SELECT` statement is supported, but some Transact-SQL query clauses, such as [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), OFFSET/FETCH  are not supported. | Yes, `SELECT` statement is supported, but some Transact-SQL query clauses like [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), GROUPNG SETS, and the query hints are not supported. |
 | **INSERT statement** | Yes | No. Upload new data to Data Lake using Spark or other tools. Use Azure Cosmos DB with the analytical storage for highly transactional workloads. You can use [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) to create an external table and insert data. |
@@ -75,7 +75,7 @@ Query languages used in Synapse SQL can have different supported features depend
 
 Synapse SQL pools enable you to use built-in security features to secure your data and control access. The following table compares high-level differences between Synapse SQL consumption models.
 
-| Security | Dedicated | Serverless |
+| Feature | Dedicated | Serverless |
 | --- | --- | --- |
 | **Logins** | N/A (only contained users are supported in databases) | Yes, server-level Azure AD and SQL logins are supported. |
 | **Users** |  N/A (only contained users are supported in databases) | Yes, database users are supported. |
@@ -139,7 +139,7 @@ Most of the applications use standard Transact-SQL language can query both dedic
 
 Data that is analyzed can be stored on various storage types. The following table lists all available storage options:
 
-| Storage type  | Dedicated | Serverless |
+| Storage type | Dedicated | Serverless |
 | --- | --- | --- |
 | **Internal storage** | Yes | No, data is placed in Azure Data Lake or [Azure Cosmos DB analytical storage](query-cosmos-db-analytical-store.md). |
 | **Azure Data Lake v2** | Yes | Yes, you can use external tables and the `OPENROWSET` function to read data from ADLS. Learn here how to [setup access control](develop-storage-files-storage-access-control.md). |
@@ -156,7 +156,7 @@ Data that is analyzed can be stored on various storage types. The following tabl
 
 Data that is analyzed can be stored in various storage formats. The following table lists all available data formats that can be analyzed:
 
-| Data formats  | Dedicated | Serverless |
+| Data format | Dedicated | Serverless |
 | --- | --- | --- |
 | **Delimited** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, you can [query delimited files](query-single-csv-file.md). |
 | **CSV** | Yes (multi-character delimiters not supported) |  Yes, you can [query CSV files](query-single-csv-file.md). For better performance use PARSER_VERSION 2.0 that provides [faster parsing](develop-openrowset.md#fast-delimited-text-parsing). If you are appending rows to your CSV files, make sure that you [query the files as appendable](query-single-csv-file.md#querying-appendable-files). |
