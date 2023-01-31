@@ -15,47 +15,7 @@ items:
   href: automation/toc.yml
 
 - name: Azure Monitor for SAP solutions
-  items:
-  - name: Overview
-    href: monitor/about-azure-monitor-sap-solutions.md
-  - name: FAQ
-    href: monitor/faq.yml
-  - name: Quickstarts
-    items:
-    - name: Get started with Azure Monitor for SAP solutions - Azure portal
-      href: monitor/quickstart-portal.md
-    - name: Get started with Azure Monitor for SAP solutions - PowerShell
-      href: monitor/quickstart-powershell.md
-  - name: Concepts
-    items:
-    - name: Providers in Azure Monitor for SAP solutions
-      href: monitor/providers.md
-  - name: How-to guides
-    items:
-    - name: Set up network for Azure Monitor for SAP solutions
-      href: monitor/set-up-network.md
-    - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
-      href: monitor/get-alerts-portal.md
-    - name: Enable TLS in Azure Monitor for SAP solutions
-      href: monitor/enable-tls-azure-monitor-sap-solutions.md
-    - name: Provider configuration
-      items:
-      - name: Configure NetWeaver provider
-        href: monitor/provider-netweaver.md
-      - name: Configure SAP HANA provider
-        href: monitor/provider-hana.md
-      - name: Configure Microsoft SQL Server provider
-        href: monitor/provider-sql-server.md
-      - name: Configure High-availability cluster (Pacemaker) provider
-        href: monitor/provider-ha-pacemaker-cluster.md
-      - name: Configure OS (Linux) provider
-        href: monitor/provider-linux.md
-      - name: Configure IBM Db2 provider
-        href: monitor/provider-ibm-db2.md
-  - name: Reference
-    items:
-    - name: Data reference for Azure Monitor for SAP solutions
-      href: monitor/data-reference.md
+  href: monitor/toc.yml
 
 - name: SAP HANA on Azure (Large Instances)
   items:
