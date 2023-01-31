@@ -49,38 +49,38 @@ To use TLS with [Let's Encrypt][lets-encrypt] certificates, you'll deploy [cert-
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use `az acr import` to import the following images into your ACR.
+* Use `az acr import` to import the following images into your ACR.
 
-```azurecli
-REGISTRY_NAME=<REGISTRY_NAME>
-CERT_MANAGER_REGISTRY=quay.io
-CERT_MANAGER_TAG=v1.8.0
-CERT_MANAGER_IMAGE_CONTROLLER=jetstack/cert-manager-controller
-CERT_MANAGER_IMAGE_WEBHOOK=jetstack/cert-manager-webhook
-CERT_MANAGER_IMAGE_CAINJECTOR=jetstack/cert-manager-cainjector
+    ```azurecli
+    REGISTRY_NAME=<REGISTRY_NAME>
+    CERT_MANAGER_REGISTRY=quay.io
+    CERT_MANAGER_TAG=v1.8.0
+    CERT_MANAGER_IMAGE_CONTROLLER=jetstack/cert-manager-controller
+    CERT_MANAGER_IMAGE_WEBHOOK=jetstack/cert-manager-webhook
+    CERT_MANAGER_IMAGE_CAINJECTOR=jetstack/cert-manager-cainjector
 
-az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG
-az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG
-az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG
-```
+    az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG
+    az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG
+    az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG
+    ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Use `Import-AzContainerRegistryImage` to import the following images into your ACR.
+* Use `Import-AzContainerRegistryImage` to import the following images into your ACR.
 
-```azurepowershell
-$RegistryName = "<REGISTRY_NAME>"
-$ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
-$CertManagerRegistry = "quay.io"
-$CertManagerTag = "v1.8.0"
-$CertManagerImageController = "jetstack/cert-manager-controller"
-$CertManagerImageWebhook = "jetstack/cert-manager-webhook"
-$CertManagerImageCaInjector = "jetstack/cert-manager-cainjector"
+    ```azurepowershell
+    $RegistryName = "<REGISTRY_NAME>"
+    $ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
+    $CertManagerRegistry = "quay.io"
+    $CertManagerTag = "v1.8.0"
+    $CertManagerImageController = "jetstack/cert-manager-controller"
+    $CertManagerImageWebhook = "jetstack/cert-manager-webhook"
+    $CertManagerImageCaInjector = "jetstack/cert-manager-cainjector"
 
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageController}:${CertManagerTag}"
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageWebhook}:${CertManagerTag}"
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageCaInjector}:${CertManagerTag}"
-```
+    Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageController}:${CertManagerTag}"
+    Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageWebhook}:${CertManagerTag}"
+    Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageCaInjector}:${CertManagerTag}"
+    ```
 
 ---
 
@@ -103,15 +103,15 @@ When you upgrade your ingress controller, you must pass a parameter to the Helm 
 
 1. Get the resource group name of the AKS cluster with the [`az aks show`][az-aks-show] command.
 
-```azurecli-interactive
-az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-```
+    ```azurecli-interactive
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    ```
 
 2. Create a public IP address with the *static* allocation method using the [`az network public-ip create`][az-network-public-ip-create] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
 
-```azurecli-interactive
-az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
-```
+    ```azurecli-interactive
+    az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
+    ```
 
 > [!NOTE]
 > Alternatively, you can create an IP address in a different resource group, which you can manage separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following are true:
@@ -123,30 +123,30 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 4. Add the `--set controller.service.loadBalancerIP="<STATIC_IP>"` parameter. Specify your own public IP address that was created in the previous step.
 
-```azurecli-interactive
-DNS_LABEL="<DNS_LABEL>"
-NAMESPACE="ingress-basic"
-STATIC_IP=<STATIC_IP>
+    ```azurecli-interactive
+    DNS_LABEL="<DNS_LABEL>"
+    NAMESPACE="ingress-basic"
+    STATIC_IP=<STATIC_IP>
 
-helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
-  --namespace $NAMESPACE \
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL \
-  --set controller.service.loadBalancerIP=$STATIC_IP
-```
+    helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
+      --namespace $NAMESPACE \
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL \
+      --set controller.service.loadBalancerIP=$STATIC_IP
+    ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 1. Get the resource group name of the AKS cluster with the [`Get-AzAksCluster`][get-az-aks-cluster] command.
 
-```azurepowershell-interactive
-(Get-AzAksCluster -ResourceGroupName $ResourceGroup -Name myAKSCluster).NodeResourceGroup
-```
+    ```azurepowershell-interactive
+    (Get-AzAksCluster -ResourceGroupName $ResourceGroup -Name myAKSCluster).NodeResourceGroup
+    ```
 
 2. Create a public IP address with the *static* allocation method using the [`New-AzPublicIpAddress`][new-az-public-ip-address] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
 
-```azurepowershell-interactive
-(New-AzPublicIpAddress -ResourceGroupName MC_myResourceGroup_myAKSCluster_eastus -Name myAKSPublicIP -Sku Standard -AllocationMethod Static -Location eastus).IpAddress
-```
+    ```azurepowershell-interactive
+    (New-AzPublicIpAddress -ResourceGroupName MC_myResourceGroup_myAKSCluster_eastus -Name myAKSPublicIP -Sku Standard -AllocationMethod Static -Location eastus).IpAddress
+    ```
 
 > [!NOTE]
 > Alternatively, you can create an IP address in a different resource group, which you can manage separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following are true:
@@ -158,16 +158,16 @@ helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
 
 4. Add the --set controller.service.loadBalancerIP="<STATIC_IP>" parameter. Specify your own public IP address that was created in the previous step.
 
-```azurepowershell-interactive
-$DnsLabel = "<DNS_LABEL>"
-$Namespace = "ingress-basic"
-$StaticIP = "<STATIC_IP>"
+    ```azurepowershell-interactive
+    $DnsLabel = "<DNS_LABEL>"
+    $Namespace = "ingress-basic"
+    $StaticIP = "<STATIC_IP>"
 
-helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
-  --namespace $Namespace `
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
-  --set controller.service.loadBalancerIP=$StaticIP
-```
+    helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
+      --namespace $Namespace `
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
+      --set controller.service.loadBalancerIP=$StaticIP
+    ```
 
 ---
 
@@ -177,11 +177,11 @@ For more information, see [Use a static public IP address and DNS label with the
 
 An Azure public IP address is created for your ingress controller upon creation. The public IP address is static for the lifespan of your ingress controller. The public IP address *doesn't* remain if you delete your ingress controller. If you create a new ingress controller, it will be assigned a new public IP address.
 
-Use the `kubectl get service` command to get the public IP address for your ingress controller.
+* Use the `kubectl get service` command to get the public IP address for your ingress controller.
 
-```console
-kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
-```
+    ```console
+    kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
+    ```
 
 Your output should look similar to the following example output:
 
