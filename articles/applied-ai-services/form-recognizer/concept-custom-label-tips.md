@@ -25,7 +25,7 @@ models with higher accuracy.
 * This video (part two), explores the best practices for labeling your selected documents. With consistent labeling and following these best practices, you
 should see an improvement in model performance.
 
-> [!VIDEO ]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fZKB ]
 
 * The first video (part one) explores [How to create a balanced data set](concept-custom-label.md#video-custom-label-tips-and-pointers-part-one).
 
