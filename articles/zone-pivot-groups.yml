@@ -2055,3 +2055,12 @@ groups:
     title: Application provisioning
   - id: cross-tenant-synchronization
     title: Cross-tenant synchronization
+# Owner: daknappe (Azure Virtual Desktop)
+- id: azure-virtual-desktop-host-pool-types
+  title: Azure Virtual Desktop host pool management type
+  prompt: Choose a host pool management type
+  pivots:
+  - id: host-pool-automated
+    title: Automated host pool
+  - id: host-pool-standard
+    title: Standard host pool
