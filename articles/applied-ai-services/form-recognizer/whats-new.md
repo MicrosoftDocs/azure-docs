@@ -60,7 +60,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
   The **prebuilt ID document model** now has added support for the following document types:
 
-  * Passport, driver's license, and residence permit ID expansion.
+  * Passport, driver's license, and residence permit ID expansion
   * US military ID cards and documents
   * India ID cards and documents
   * Australia ID cards and documents
