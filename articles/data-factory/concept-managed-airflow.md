@@ -14,7 +14,7 @@ ms.date: 01/20/2023
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
-> This feature is in public preview. For questions or feature suggestions, please send an email on ManagedAirflow@microsoft.commailto:abnarain@microsoft.com with the details.
+> This feature is in public preview. For questions or feature suggestions, please send an email to mailto:ManagedAirflow@microsoft.com with the details.
 
 > [!NOTE]
 > Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
