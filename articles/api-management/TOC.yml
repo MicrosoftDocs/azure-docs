@@ -290,7 +290,6 @@
               href: authorizations-overview.md
             - name: Configure and use authorization - Azure AD
               href: authorizations-how-to-azure-ad.md
-              href: authorizations-how-to-github.md
             - name: Configure and use authorization - GitHub
               href: authorizations-how-to-github.md
           - name: Set up backend authentication
