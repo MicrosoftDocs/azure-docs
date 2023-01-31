@@ -6,7 +6,6 @@ ms.date: 11/29/2022
 ms.author: eur
 ---
 
-
 ### 2023-January release
 
 #### New container versions
@@ -136,3 +135,4 @@ Regular monthly updates including security upgrades and vulnerability fixes.
 Add support for these prebuilt neural voices: `am-et-amehaneural`, `am-et-mekdesneural`, `so-so-muuseneural` and `so-so-ubaxneural`.
 
 Regular monthly updates including security upgrades and vulnerability fixes.
+
