@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/06/2023
+ms.date: 01/31/2023
 ---
 
 ## Latest client versions
