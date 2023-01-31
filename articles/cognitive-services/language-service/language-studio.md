@@ -80,6 +80,8 @@ See the following example for how you should structure conversational text you w
 
 Note that the names of the two participants in the conversation, *Agent* and *Customer* begin each line, and that there is only one participant per line of dialog. 
 
+:::image type="content" source="./media/language-studio-conversation-example.png" alt-text="A screenshot showing an example conversation input in Language Studio." lightbox="./media/language-studio-conversation-example.png":::
+
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
