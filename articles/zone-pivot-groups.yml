@@ -1762,6 +1762,17 @@ groups:
     title: Azure portal
   - id: azure-cli
     title: Azure CLI
+# Owner: cshoe
+- id: arm-azure-cli-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-cli
+    title: Azure CLI
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-resource-manager
+    title: ARM template
 # Owner: cebundy
 - id: container-apps-interface-types
   title: Interaction type
@@ -1832,6 +1843,15 @@ groups:
   pivots:
   - id: aad-powershell
     title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+## Template without portal and Azure AD Graph
+- id: enterprise-apps-minus-portal-aad
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
   - id: ms-powershell
     title: Microsoft Graph PowerShell
   - id: ms-graph
@@ -2003,3 +2023,12 @@ groups:
     title: Recovery Services vault
   - id: vaults-backup-vault
     title: Backup vault
+# Owner: rolyon
+- id: app-provisioning-cross-tenant-synchronization
+  title: Application provisioning or cross-tenant synchronization
+  prompt: Choose an option
+  pivots:
+  - id: app-provisioning
+    title: Application provisioning
+  - id: cross-tenant-synchronization
+    title: Cross-tenant synchronization

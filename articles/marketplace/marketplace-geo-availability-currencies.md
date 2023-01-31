@@ -200,8 +200,8 @@ Once a plan is created and saved, the prices in all local currencies are static 
 
 As an ISV, you have several options available to minimize impact of foreign exchange fluctuations:
 
-- [Stop selling in a specific market or markets](/azure/marketplace/update-existing-offer)
-- [Update the prices of a published offer, to set specific local currency prices, using 1 of 2 options](/azure/marketplace/price-changes-faq):
+- [Stop selling in a specific market or markets](./update-existing-offer.md)
+- [Update the prices of a published offer, to set specific local currency prices, using 1 of 2 options](./price-changes-faq.yml):
 
    - You can review the local market prices, using the Export capability in Pricing & Availability, and then update any local market prices (using Import), and then republish the plan – don’t forget to update all the plans in an offer.
    - Modify the USD base price of a plan, save and republish the plan. This will update the local market prices using the most recent available foreign exchange rate. It takes at least 90 days for price increases to be visible to customers.
@@ -214,8 +214,3 @@ As an ISV, you have several options available to minimize impact of foreign exch
    - If possible, set up the Private Offer as an upfront one-time payment, so that the exchange rate variations are as small as possible
    - If possible, have the customer billing profile to be set in USD
    - For multi-year deals, plan them as several one-year private offers, each with an upfront one-time payment
-
-
-
-
-

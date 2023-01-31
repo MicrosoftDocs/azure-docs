@@ -12,7 +12,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to Microsoft scripts that I can use to generate test certificates. 
 ---
 
-# Tutorial: Using Microsoft-supplied scripts to create test certificates
+# Tutorial: Use Microsoft-supplied scripts to create test certificates
 
 Microsoft provides PowerShell and Bash scripts to help you understand how to create your own X.509 certificates and authenticate them to an IoT Hub. The scripts are located in a GitHub [repository](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates). They are provided for demonstration purposes only. Certificates created by them must not be used for production. The certificates contain hard-coded passwords (“1234”) and expire after 30 days. For a production environment, you'll need to use your own best practices for certificate creation and lifetime management.
 
@@ -46,9 +46,9 @@ Run `New-CACertsCertChain [ecc|rsa]`. ECC is recommended for CA certificates but
 * RootCA.cer
 * RootCA.pem
 
-After running the script, add the new CA certificate (RootCA.pem) to your IoT Hub:
+After running the script, add the new CA certificate (RootCA.pem) to your IoT hub:
 
-1. Go to your IoT Hub and navigate to Certificates.
+1. Go to your IoT hub and navigate to Certificates.
 
 1. Select **Add**.
 
@@ -66,21 +66,21 @@ If you didn't choose to automatically verify the certificate during upload, you 
 
 1. Select the new CA certificate.
 
-1. Select **Generate Verification Code** in the **Certificate Details** dialog. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).
+1. Select **Generate Verification Code** in the **Certificate Details** dialog. For more information, see [Tutorial: Upload and verify a CA certificate to IoT Hub](tutorial-x509-prove-possession.md).
 
 1. Create a certificate that contains the verification code. For example, if the verification code is `"106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288"`, run the following to create a new certificate in your working directory containing the subject `CN = 106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288`. The script creates a certificate named `VerifyCert4.cer`.
 
     `New-CACertsVerificationCert "106A5SD242AF512B3498BD609C4941E66R34H268DDB3288"`
 
-1. Upload `VerifyCert4.cer` to your IoT Hub in the **Certificate Details** dialog.
+1. Upload `VerifyCert4.cer` to your IoT hub in the **Certificate Details** dialog.
 
 1. Select **Verify**.
 
 ### Step 4 - Create a new device
 
-Create a device for your IoT Hub:
+Create a device for your IoT hub:
 
-1. In your IoT Hub, navigate to the **IoT Devices** section.
+1. In your IoT hub, navigate to the **IoT Devices** section.
 
 1. Add a new device with ID `mydevice`.
 
@@ -95,7 +95,7 @@ Create a device for your IoT Hub:
 
 ### Step 5 - Test your device certificate
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub. You will need the PFX version of your certificate, `mydevice.pfx`.
+Go to [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT hub. You will need the PFX version of your certificate, `mydevice.pfx`.
 
 ### Step 6 - Cleanup
 
@@ -119,13 +119,13 @@ From the start menu, open **Manage Computer Certificates** and navigate to  **Ce
     * azure-iot-test-only.intermediate.cert.pem
     * azure-iot-test-only.root.ca.cert.pem
 
-1. Go to your IoT Hub and navigate to **Certificates**.
+1. Go to your IoT hub and navigate to **Certificates**.
 
 1. Select **Add**.
 
 1. Enter a display name for the CA certificate.
 
-1. Upload only the CA certificate to your IoT Hub. The name of the certificate is `./certs/azure-iot-test-only.root.ca.cert.pem.`
+1. Upload only the CA certificate to your IoT hub. The name of the certificate is `./certs/azure-iot-test-only.root.ca.cert.pem.`
 
 1. Select **Save**.
 
@@ -133,7 +133,7 @@ From the start menu, open **Manage Computer Certificates** and navigate to  **Ce
 
 1. Select the new CA certificate created in the preceding step.
 
-1. Select **Generate Verification Code** in the **Certificate Details** dialog. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).
+1. Select **Generate Verification Code** in the **Certificate Details** dialog. For more information, see [Tutorial: Upload and verify a CA certificate to IoT Hub](tutorial-x509-prove-possession.md).
 
 1. Create a certificate that contains the verification code. For example, if the verification code is `"106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288"`, run the following to create a new certificate in your working directory named `verification-code.cert.pem` which contains the subject `CN = 106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288`.
 
@@ -147,7 +147,7 @@ From the start menu, open **Manage Computer Certificates** and navigate to  **Ce
 
 Create a device for your IoT hub:
 
-1. In your IoT Hub, navigate to the IoT Devices section.
+1. In your IoT hub, navigate to the IoT Devices section.
 
 1. Add a new device with ID `mydevice`.
 
@@ -157,7 +157,7 @@ Create a device for your IoT hub:
 
 ### Step 5 - Test your device certificate
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub. You will need the PFX version of your certificate, `new-device.cert.pfx`.
+Go to [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT hub. You will need the PFX version of your certificate, `new-device.cert.pfx`.
 
 ### Step 6 - Cleanup
 
@@ -165,4 +165,4 @@ Because the bash script simply creates certificates in your working directory, j
 
 ## Next Steps
 
-To test your certificate, go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub.
+To test your certificate, go to [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT hub.

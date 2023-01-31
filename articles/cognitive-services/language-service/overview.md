@@ -19,7 +19,9 @@ Azure Cognitive Service for Language is a cloud-based service that provides Natu
 
 ## Available features
 
-This Language service unifies Text Analytics, QnA Maker, and LUIS and provides several new features as well. These features can either be:
+This Language service unifies the following previously available Cognitive Services: Text Analytics, QnA Maker, and LUIS. If you need to migrate from these services, see [the migration section](#migrate-from-text-analytics-qna-maker-or-language-understanding-luis) below.
+
+The Language service also provides several new features as well, which can either be:
 
 * Pre-configured, which means the AI models that the feature uses are not customizable. You just send your data, and use the feature's output in your applications.
 * Customizable, which means you'll train an AI model using our tools to fit your data specifically.
@@ -36,7 +38,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/named-entity-recognition.png" alt-text="A screenshot of a named entity recognition example."  lightbox="media/studio-examples/named-entity-recognition.png":::
    :::column-end:::
    :::column span="":::
-      [Named entity recognition](./named-entity-recognition/overview.md) is a pre-configured feature that identifies entities in unstructured text across several pre-defined categories. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories.md).
+      [Named entity recognition](./named-entity-recognition/overview.md) is a pre-configured feature that categorizes entities (words or phrases) in unstructured text across several pre-defined category groups. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories.md).
 
    :::column-end:::
 :::row-end:::
@@ -106,7 +108,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/entity-linking.png" alt-text="A screenshot of an entity linking example." lightbox="media/studio-examples/entity-linking.png":::
    :::column-end:::
    :::column span="":::
-      [Entity linking](./entity-linking/overview.md) is a pre-configured feature that disambiguates the identity of entities found in unstructured text and returns links to Wikipedia. 
+      [Entity linking](./entity-linking/overview.md) is a pre-configured feature that disambiguates the identity of entities (words or phrases) found in unstructured text and returns links to Wikipedia. 
    :::column-end:::
 :::row-end:::
 
@@ -128,7 +130,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/single-classification.png" alt-text="A screenshot of a custom text classification example." lightbox="media/studio-examples/single-classification.png":::
    :::column-end:::
    :::column span="":::
-      [Custom text classification](./custom-text-classification/overview.md) enables you to build custom AI models to classify text into custom classes you define.
+      [Custom text classification](./custom-text-classification/overview.md) enables you to build custom AI models to classify unstructured text documents into custom classes you define.
    :::column-end:::
 :::row-end:::
 
@@ -140,7 +142,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/custom-named-entity-recognition.png" alt-text="A screenshot of a custom NER example." lightbox="media/studio-examples/custom-named-entity-recognition.png":::
    :::column-end:::
    :::column span="":::
-      [Custom NER](custom-named-entity-recognition/overview.md) enables you to build custom AI models to extract custom entity categories, using unstructured text that you provide. 
+      [Custom NER](custom-named-entity-recognition/overview.md) enables you to build custom AI models to extract custom entity categories (labels for words or phrases), using unstructured text that you provide. 
    :::column-end:::
 :::row-end:::
 

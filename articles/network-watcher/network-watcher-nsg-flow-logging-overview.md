@@ -4,16 +4,14 @@ titleSuffix: Azure Network Watcher
 description: This article explains how to use the NSG flow logs feature of Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: harsha-cs
-
+author: halkazwini
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 10/06/2022
 ms.custom: engagement-fy23
-ms.author: harshacs
-
+ms.author: halkazwini
 ---
 
 # Introduction to flow logging for network security groups

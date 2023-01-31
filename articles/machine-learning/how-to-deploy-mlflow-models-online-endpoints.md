@@ -410,13 +410,11 @@ version = registered_model.version
 
         :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen":::
 
-1. Assign all the traffic to the deployment
-    
-    So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
+1. Assign all the traffic to the deployment: So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -446,7 +444,7 @@ version = registered_model.version
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -551,7 +549,19 @@ You will typically select this workflow when:
 
 Use the following steps to deploy an MLflow model with a custom scoring script.
 
-1. Create a scoring script:
+1. Identify the folder where your MLflow model is placed.
+
+    a. Go to [Azure Machine Learning portal](https://ml.azure.com).
+
+    b. Go to the section __Models__.
+
+    c. Select the model you are trying to deploy and click on the tab __Artifacts__.
+
+    d. Take note of the folder that is displayed. This folder was indicated when the model was registered.
+
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-model-folder-name.png" alt-text="Screenshot showing the folder where the model artifacts are placed.":::
+
+1. Create a scoring script. Notice how the folder name `model` you identified before has been included in the `init()` function.
 
     __score.py__
 

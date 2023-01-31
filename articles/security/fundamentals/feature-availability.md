@@ -6,7 +6,7 @@ ms.author: terrylan
 ms.service: security
 ms.custom: ignite-2022
 ms.topic: reference
-ms.date: 12/30/2021
+ms.date: 01/13/2023
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -505,11 +505,11 @@ The following table displays the current Microsoft Defender for IoT feature avai
 
 ## Azure Attestation
 
-Microsoft Azure Attestation is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service receives evidence from the platform, validates it with security standards, evaluates it against configurable policies, and produces an attestation token for claims-based applications (e.g., relying parties, auditing authorities). 
+Microsoft Azure Attestation is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service receives evidence from the platform, validates it with security standards, evaluates it against configurable policies, and produces an attestation token for claims-based applications (e.g., relying parties, auditing authorities).
 
 Azure Attestation is currently available in multiple regions across Azure public and Government clouds. In Azure Government, the service is available in preview status across US Gov Virginia and US Gov Arizona. 
 
-For more information, see Azure Attestation [public documentation](../../attestation/overview.md). 
+For more information, see Azure Attestation [public documentation](../../attestation/overview.md).
 
 | Feature | Azure | Azure Government |
 |--|--|--|

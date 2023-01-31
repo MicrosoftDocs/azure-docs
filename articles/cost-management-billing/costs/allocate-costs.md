@@ -3,7 +3,7 @@ title: Allocate Azure costs
 description: This article explains how create cost allocation rules to distribute costs of subscriptions, resource groups, or tags to others.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/08/2022
+ms.date: 01/27/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -122,6 +122,8 @@ The following items are currently unsupported by the cost allocation public prev
 - [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
 Cost allocation data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API is supported by the 2021-10-01 version or later. However, cost allocation data results might be empty if you're using an unsupported API or if you don't have any cost allocation rules.
+
+If you have cost allocation rules enabled, the `UnitPrice` field in your usage details file will be 0. We recommend that you use price sheet data to get unit price information until it's available in the usage details file.
 
 ## Next steps
 
