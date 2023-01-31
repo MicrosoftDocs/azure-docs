@@ -32,6 +32,8 @@ Use the `npm install` command to install the Azure Communication Services Effect
 ```console
 npm install @azure/communication-calling-effects --save
 ```
+> [!NOTE]
+Currently browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
 
 > [!NOTE]
 > Currently there are two available video effects:
