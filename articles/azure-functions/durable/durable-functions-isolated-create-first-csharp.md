@@ -66,7 +66,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 Visual Studio Code installs the Azure Functions Core Tools if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
-## Add nuget package references
+## Add NuGet package references
 
 Add the following to your app project: 
 
@@ -245,11 +245,11 @@ The Azure Functions template creates a project that can be published to a functi
     | **Function** | Empty | Creates an empty function app. |
     | **Storage account**  | Storage Emulator | A storage account is required for durable function state management. |
 
-5. Select **Create** to create an empty function project. This project has the basic configuration files needed to run your functions. Make sure the box for _"Use Azurite for runtime storage account (AzureWebJobStorage)"_ is checked. This the will use Azurite emulator.
+5. Select **Create** to create an empty function project. This project has the basic configuration files needed to run your functions. Make sure the box for _"Use Azurite for runtime storage account (AzureWebJobStorage)"_ is checked. This will use Azurite emulator.
 
 Note that there are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-storage-providers) to learn more about different storage options and what benefits they provide. 
 
-## Add nuget package references
+## Add NuGet package references
 
 Add the following to your app project: 
 
