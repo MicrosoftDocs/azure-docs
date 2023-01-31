@@ -13,10 +13,10 @@ You can use the Microsoft Defender for IoT Horizon SDK to develop your plugins t
 
 Horizon provides:
 
-  - Unlimited, full support for common, proprietary, custom protocols or protocols that deviate from any standard.
-  - A new level of flexibility and scope for DPI development.
-  - A tool that exponentially expands OT visibility and control, without the need to upgrade to new versions.
-  - The security of allowing proprietary development without divulging sensitive information.
+- Unlimited, full support for common, proprietary, custom protocols or protocols that deviate from any standard.
+- A new level of flexibility and scope for DPI development.
+- A tool that exponentially expands OT visibility and control, without the need to upgrade to new versions.
+- The security of allowing proprietary development without divulging sensitive information.
 
 Use the Horizon SDK to design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.
 
@@ -46,7 +46,6 @@ After you've developed and tested a dissector plugin for proprietary protocols, 
     The **Protocols DPI (Horizon Plugins)** page lists all of the infrastructure plugins provided out-of-the-box by Defender for IoT and any other plugin you've created and uploaded to the sensor.
 
     :::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols D P I (Horizon Plugins) page." lightbox="media/release-notes/horizon.png":::
-
 
 1. Select **Upload signing certificate**, and then browse to and select the certificate you created for your plugin.
 
