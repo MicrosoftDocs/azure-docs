@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 1/31/2022
+ms.date: 1/31/2023
 ms.author: jingruhan
 ms.custom: 
 ---
