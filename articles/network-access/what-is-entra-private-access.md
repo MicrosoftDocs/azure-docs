@@ -4,7 +4,7 @@ description: What is Entra Private Network Access provides control and visibilit
 author: kenwith
 ms.author: kenwith
 ms.topic: overview
-ms.date: 03/17/2022
+ms.date: 01/31/2023
 ms.service: network-access
 ms.custom: 
 ---

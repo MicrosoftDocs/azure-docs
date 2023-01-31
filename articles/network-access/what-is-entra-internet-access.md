@@ -4,7 +4,7 @@ description: Entra Network Access provides control and visibility in an Internet
 author: kenwith
 ms.author: kenwith
 ms.topic: overview
-ms.date: 03/17/2022
+ms.date: 01/31/2023
 ms.service: network-access
 ms.custom: 
 ---

@@ -1,24 +1,24 @@
 ### YamlMime:Landing
 
-title: Azure Zero Trust Network Access documentation
-summary: Azure Zero Trust Network Access provides secure network access for both public Internet and private clouds.
+title: Entra Network Access documentation
+summary: Entra Network Access provides secure network access for both public Internet and private clouds.
 
 metadata: 
-   title: Zero Trust Network Access documentation
-   description: Azure Zero Trust Network Access provides secure network access for both public Internet and private clouds.
+   title: Entra Network Access documentation
+   description: Entra Network Access provides secure network access for both public Internet and private clouds.
    ms.service: network-access
    ms.subservice: app-proxy
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 04/05/2022
+   ms.date: 01/31/2023
    author: kenwith
    ms.author: kenwith
    manager: 
 
 landingContent:
-  - title: About Zero Trust Network Access
+  - title: About Entra Network Access
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Zero Trust Network Access?
+          - text: What is Entra Network Access?
             url: what-is-network-access.md
