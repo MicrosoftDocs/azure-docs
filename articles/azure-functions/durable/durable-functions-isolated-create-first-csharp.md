@@ -142,7 +142,7 @@ Your app needs a storage for runtime information. To use [Azurite](https://learn
   }
 }
 ```
- You can install the Azurite extension on Visual Studio Code and start it by running `Azurite: Start` in the command palette. 
+You can install the Azurite extension on Visual Studio Code and start it by running `Azurite: Start` in the command palette. 
 
 There are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-storage-providers) to learn more about different storage options and what benefits they provide. 
 
