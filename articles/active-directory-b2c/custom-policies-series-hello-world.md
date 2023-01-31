@@ -81,7 +81,7 @@ If you haven't already done so, create the following encryption keys. To automat
     ```
     Replace `yourtenant` with the subdomain part of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name). 
 
-    The XML elements define the top-level `TrustFrameworkPolicy` element of a policy file with its policy ID and tenant name. The TrustFrameworkPolicy element contains other XML elements that you will use in this series.
+    The XML elements define the top-level `TrustFrameworkPolicy` element of a policy file with its policy ID and tenant name. The TrustFrameworkPolicy element contains other XML elements that you'll use in this series.
 
 1. To declare a claim, add the following code in `BuildingBlocks` section of the `ContosoCustomPolicy.XML` file: 
 
@@ -147,7 +147,7 @@ If you haven't already done so, create the following encryption keys. To automat
       </UserJourney>
     ```
     
-    We've added a [UserJourney](userjourneys.md). The user journey specifies the business logic the end user goes through as Azure AD B2C processes a request. This user journey has only one step that issues a JTW token with the claims the you will define in the next step.
+    We've added a [UserJourney](userjourneys.md). The user journey specifies the business logic the end user goes through as Azure AD B2C processes a request. This user journey has only one step that issues a JTW token with the claims that you'll define in the next step.
 
 1.  In the `RelyingParty` section of the `ContosoCustomPolicy.XML` file, add the following code:
 

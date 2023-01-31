@@ -50,16 +50,16 @@ Use the steps outlined in [Create the Facebook key](identity-provider-facebook.m
 
 To configure sign in with Facebook, you need to perform the following steps:
 
-- Declare additional claims
-- Define additional Claims transformations to help with claims manipulations such as creating *AlternativeSecurityId*.
+- Declare more claims
+- Define more claims transformations to help with claims manipulations such as creating *AlternativeSecurityId*.
 - Configure Facebook claims provider
-- Configure Azure AD Technical Profiles to read and write the social account from and to the Azure AD database.
-- Configure a SelfAsserted technical profile (for accepting additional input from user or updating user details) and its content definition. 
+- Configure Azure AD technical profiles to read and write the social account from and to the Azure AD database.
+- Configure a self-asserted technical profile (for accepting additional input from user or updating user details) and its content definition. 
 
 
-### Step 3.1 - Declare additional claims 
+### Step 3.1 - Declare more claims 
 
-In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and then declare additional claims by using the following code:
+In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and then declare more claims by using the following code:
 
 ```xml
     <!--<ClaimsSchema>-->
@@ -152,7 +152,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsTransformations* elemen
     <!--</ClaimsTransformations>-->
  ```
 
-We've defined three Claims Transformations, which we use to generate values for *alternativeSecurityId* and *userPrincipalName* claims. These ClaimsTransformations are invoked in the OAuth2 Technical Profile in [step 3.3](#step-33---configure-facebook-claims-provider).   
+We've defined three Claims Transformations, which we use to generate values for *alternativeSecurityId* and *userPrincipalName* claims. These ClaimsTransformations are invoked in the OAuth2 technical profile in [step 3.3](#step-33---configure-facebook-claims-provider).   
 
 ### Step 3.3 - Configure Facebook claims provider
 
@@ -259,7 +259,7 @@ Just like in sign-in with a local account, you need to configure the [Azure AD T
 
 1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).  
  
-1. In the `ContosoCustomPolicy.XML` file add another Azure AD technical profile after the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
+1. In the `ContosoCustomPolicy.XML` file, add another Azure AD technical profile after the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
 
      ```xml
         <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
@@ -502,7 +502,7 @@ Notice the identity provider, `"idp": "facebook.com"`, has been included in the 
 
 ## A combined local and social sign-in
 
-In this article, our user journey orchestration steps only references technical profiles that enable a user to sign in by using a social account. We can modify the orchestration steps to enable a user to sign in by using either a local account or  a social account. To do so, the first orchestration step's `ClaimsProviderSelections` element lists the sign in options available to the user. 
+In this article, our user journey orchestration steps only reference technical profiles that enable a user to sign in by using a social account. We can modify the orchestration steps to enable a user to sign in by using either a local account or  a social account. To do so, the first orchestration step's `ClaimsProviderSelections` element lists the sign-in options available to the user. 
 
 Use the following steps to add a combined local and social account: 
 
@@ -525,7 +525,7 @@ Use the following steps to add a combined local and social account:
         <!--</UserJourneys>-->
     ```
 
-1. In the user journey you just created, *LocalAndSocialSignInAndSignUp*, add orchestration steps by using the following code:
+1. In the user journey you've created, *LocalAndSocialSignInAndSignUp*, add orchestration steps by using the following code:
  
     ```xml
         <!--<UserJourneys>
@@ -680,7 +680,7 @@ Use the following steps to add a combined local and social account:
 
 1. Use the procedure in [step 6](#step-6---upload-policy) and [step 7](#step-7---test-policy) to upload and run your policy. After you run the policy, you'll see a screen similar to the following screenshot.
 
-    :::image type="content" source="media/custom-policies-series-sign-up-or-sign-in-federation/screenshot-combined-local-and-social-sign-up-or-sign-in.png" alt-text="A screenshot combined local and social sign up or sign in interface.":::
+    :::image type="content" source="media/custom-policies-series-sign-up-or-sign-in-federation/screenshot-combined-local-and-social-sign-up-or-sign-in.png" alt-text="A screenshot of combined local and social sign-up or sign-in interface.":::
 
     You can observe that a user can sign up or sign in by using either a local account or a social account. 
 

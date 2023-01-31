@@ -45,15 +45,15 @@ Azure AD B2C custom policy provides a OpenID Connect technical profile, which yo
 
 ## Step 1 - Configure OpenID Connect technical profile
 
-To configure an OpenID Connect Technical Profile you need to perform three steps: 
+To configure an OpenID Connect technical profile, you need to perform three steps: 
 
-- Declare additional claims. 
+- Declare more claims. 
 - Register apps in your Azure portal.
 - Finally, configure OpenID Connect Technical Profile itself
 
-### Step 1.1 - Declare additional claims
+### Step 1.1 - Declare more claims
 
-In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and then add additional claims by using the following code:
+In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and then add more claims by using the following code:
 
 ```xml
     <!--<ClaimsSchema>-->
@@ -98,9 +98,9 @@ Azure AD B2C requires you to register two applications that it uses to sign up a
 
 If you haven't already done so, register the following applications. To automate the walk-through below, visit the [IEF Setup App](https://aka.ms/iefsetup) and follow the instructions:
 
-1. Follow the steps in [Register the IdentityExperienceFramework application](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-the-identityexperienceframework-application) to register the Identity Experience Framework application. Copy the **Application (client) ID**, *appID*, for the Identity Experience Framework application registration for use on the next step.  
+1. Use the steps in [Register the IdentityExperienceFramework application](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-the-identityexperienceframework-application) to register the Identity Experience Framework application. Copy the **Application (client) ID**, *appID*, for the Identity Experience Framework application registration for use on the next step.  
 
-1. For low the steps in [Register the ProxyIdentityExperienceFramework application](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-the-proxyidentityexperienceframework-application) to register Proxy Identity Experience Framework application. Copy the **Application (client) ID**, *proxyAppID*, for the Proxy Identity Experience Framework application registration for use on the next step.
+1. Use the steps in [Register the ProxyIdentityExperienceFramework application](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-the-proxyidentityexperienceframework-application) to register Proxy Identity Experience Framework application. Copy the **Application (client) ID**, *proxyAppID*, for the Proxy Identity Experience Framework application registration for use on the next step.
 
 ### Step 1.3 - Configure OpenID Connect technical profile
 
@@ -191,7 +191,7 @@ In the `ContosoCustomPolicy.XML` file, locate the `SignInUser` technical profile
     </TechnicalProfile>
 ```
 
-We've added a SelfAsserted Technical Profile, *UserSignInCollector*, which displays the sign-in form to the user. We've configured the technical profile to collect the user’s email address as their sign-in name as indicated in the `setting.operatingMode` metadata. The sign in form includes a sign-up link, which leads the user to a sign-up form as indicated by the `SignUpTarget` metadata. You'll see how we set up the *SignUpWithLogonEmailExchange* `ClaimsExchange` in the orchestration steps.
+We've added a SelfAsserted Technical Profile, *UserSignInCollector*, which displays the sign-in form to the user. We've configured the technical profile to collect the user’s email address as their sign-in name as indicated in the `setting.operatingMode` metadata. The sign-in form includes a sign-up link, which leads the user to a sign-up form as indicated by the `SignUpTarget` metadata. You'll see how we set up the *SignUpWithLogonEmailExchange* `ClaimsExchange` in the orchestration steps.
 
 Also, we've added the *SignInUser* OpenID Connect Technical Profile as a *ValidationTechnicalProfile*. So, the *SignInUser* technical profile executes when the user selects the **Sign in** button (see screenshot in [step 5](#step-5---test-policy)).    
 

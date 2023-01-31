@@ -208,7 +208,7 @@ We use the `ClaimGenerator` technical profile to execute three claims transforma
 
 ## Step 5 - Update the user journey orchestration steps 
 
-Locate your `HelloWorldJourney` user journey and add replace all the orchestration steps with the following code: 
+Locate your `HelloWorldJourney` user journey and replace all the orchestration steps with the following code: 
 
 ```xml
     <!--<OrchestrationSteps>-->
@@ -274,7 +274,7 @@ After the policy finishes execution, and you receive your ID token, check that t
 
 In our *AAD-UserWrite* Azure AD Technical Profile, we specify that if the user already exists, we raise an error message.
 
-Test your custom policy again by using the same **Email Address**. Instead of the policy executing to completion to issues an ID token, you should see an error message similar to the screenshot below. 
+Test your custom policy again by using the same **Email Address**. Instead of the policy executing to completion to issue an ID token, you should see an error message similar to the screenshot below. 
 
 :::image type="content" source="media/custom-policies-series-store-user/screenshot-of-error-account-already-exists.png" alt-text="A screenshot of error as account already exists.":::  
 
@@ -313,7 +313,7 @@ To declare the claim, in the `ContosoCustomPolicy.XML` file, locate the `ClaimsS
 
 Azure AD B2C uses [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) to verify an email address. This technical profile can generate and send a code to an email address or verifies the code depending on how you configure it.
 
-In the `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` element and add the a claims provider by using the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` element and add the claims provider by using the following code: 
 
 ```xml
     <ClaimsProvider>
@@ -344,7 +344,7 @@ In the `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` element and 
     </ClaimsProvider>
 ```
 
-We've configured two technical profiles `AadSspr-SendCode` and `AadSspr-VerifyCode`. `AadSspr-SendCode` generates and sends a code to the email address address specified in the `InputClaims` section whereas `AadSspr-VerifyCode` verifies the code. You specify the action you want to perform in the  technical profile's metadata.
+We've configured two technical profiles `AadSspr-SendCode` and `AadSspr-VerifyCode`. `AadSspr-SendCode` generates and sends a code to the email address specified in the `InputClaims` section whereas `AadSspr-VerifyCode` verifies the code. You specify the action you want to perform in the  technical profile's metadata.
 
 ### Configure a display control 
 
@@ -401,11 +401,11 @@ To configure a display control, use the following steps:
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
     ```
 
-1. Use the the procedure in [step 6](#step-6---upload-policy) and [step 7](#step-7---test-policy) to upload you policy file, and test it. This time, you must verify your email address before a user account is created.  
+1. Use the procedure in [step 6](#step-6---upload-policy) and [step 7](#step-7---test-policy) to upload your policy file, and test it. This time, you must verify your email address before a user account is created.  
 
 ## Update user account by using Azure AD technical profile
 
-You can configure a Azure AD technical profile to update a user account instead of attempting to create a new one. To do so, set the Azure AD technical profile to throw an error if the specified user account doesn't already exist in the `Metadata` collection by using the following code. The *Operation* needs to be set to *Write*:
+You can configure an Azure AD technical profile to update a user account instead of attempting to create a new one. To do so, set the Azure AD technical profile to throw an error if the specified user account doesn't already exist in the `Metadata` collection by using the following code. The *Operation* needs to be set to *Write*:
 
 ```xml
     <!--<Item Key="Operation">Write</Item>-->
@@ -414,7 +414,7 @@ You can configure a Azure AD technical profile to update a user account instead 
 
 ## Use custom attributes 
 
-In this article, you've learnt how to store user details using [built-in User profile attributes](user-profile-attributes.md). However, you often need to create your own custom attributes to manage your specific scenario. To do so, follow the instructions in  [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md) article.
+In this article, you've learned how to store user details using [built-in user profile attributes](user-profile-attributes.md). However, you often need to create your own custom attributes to manage your specific scenario. To do so, follow the instructions in  [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md) article.
 
 ## Next steps 
 

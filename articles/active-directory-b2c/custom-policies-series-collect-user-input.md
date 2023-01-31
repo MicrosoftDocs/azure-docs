@@ -45,7 +45,7 @@ In this article, you'll learn how to write a custom policy that collects user in
 
 [!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
 
-## Step 1 - Declare Claims
+## Step 1 - Declare claims
 
 Declare additional claims alongside *objectId* and *message*: 
 
@@ -82,7 +82,7 @@ Declare additional claims alongside *objectId* and *message*:
 - **DisplayName** specifies the label for the UI control that appears on the user interface if you want to collect the value of the claim from the user.
 
 
-## Step 2 - Define Claims Transformations 
+## Step 2 - Define claims transformations 
 
 A [ClaimsTransformation](claimstransformations.md) contains a function that you use to convert a given claim into another one. For instance, you can change a string claim from lower case to upper case. Learn more about [Claims transformations supported by Azure AD B2C](claimstransformations.md#claims-transformations-reference). 
 
@@ -138,7 +138,7 @@ A [ClaimsTransformation](claimstransformations.md) contains a function that you 
     
     -  *CreateMessageTransformation* concatenates *Hello* and *displayName* to form *message*. 
 
-## Step 3 - Configure Content Definitions
+## Step 3 - Configure content definitions
 
 [ContentDefinitions](contentdefinitions.md) allow you to specify URL to HTML templates that control the layout of the web pages you show to your users. You can specify specific user interfaces for each step, such as sign-in or sign-up, password reset, or error pages.
 
@@ -154,7 +154,7 @@ To add content definition, add the following code in `BuildingBlocks` section of
     </ContentDefinitions>
 ```   
 
-## Step 4 - Configure Technical Profiles  
+## Step 4 - Configure technical profiles  
 
 In a custom policy, a [TechnicalProfile](technicalprofiles.md) is the element that implements functionality. Now that you've defined Claims and Claims Transformations, you need Technical Profiles to execute your definitions. A technical profile is declared inside the `ClaimsProvider` elements.
 
@@ -162,7 +162,7 @@ Azure AD B2C provides a set of technical profiles. Each technical profile perfor
 
 ### Set values for your claims 
  
-To set values for *objectId*, *displayName* and *message* claims, you configure a technical profile that executes the *GenerateRandomObjectIdTransformation*, *CreateDisplayNameTransformation*, and *CreateMessageTransformation* claims transformations. The claims transformation are executed by the order defined in the OutputClaimsTransformations element. For example, it first creates the display name, then the message. 
+To set values for *objectId*, *displayName* and *message* claims, you configure a technical profile that executes the *GenerateRandomObjectIdTransformation*, *CreateDisplayNameTransformation*, and *CreateMessageTransformation* claims transformations. The claims transformations are executed by the order defined in the `OutputClaimsTransformations` element. For example, it first creates the display name, then the message. 
 
 1. Add the following `ClaimsProvider` as a child of the `ClaimsProviders` section. 
     
@@ -233,7 +233,7 @@ You generate the *displayName* claim from *givenName* and *surname*, so you need
 
     Notice the two display claims for the *givenName* and *surname* claims. Both of the claims are marked as required, so the user must enter the values before they submit the form displayed to them. The claims are displayed on the screen in the order defined in the *DisplayClaims* element such as, the **Given Name** and then the **Surname**. 
 
-## Step 5 - Define User Journeys
+## Step 5 - Define user journeys
 
 You use user journeys to define order in which the technical profiles are called. You use the `OrchestrationSteps` element to specify the steps in a user journey. 
 
@@ -257,7 +257,7 @@ Replace the existing contents of the `HelloWorldJourney` User Journey with the f
 
 According to the orchestration steps, we collect user inputs, set values for *objectId*, *displayName* and *message* claims, and finally send the Jwt token. 
 
-## Step 6 - Update Relying Party 
+## Step 6 - Update relying party 
 
 Replace the contents of the `OutputClaims` element of the `RelyingParty` section with the following code: 
 
