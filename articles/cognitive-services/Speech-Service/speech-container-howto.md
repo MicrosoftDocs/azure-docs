@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 01/18/2023
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -83,11 +83,11 @@ Fill out and submit the [request form](https://aka.ms/csgate) to request access 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-## Get the container image with docker pull
-
-Container images for Speech are available in the following container registry.
+## Speech container images
 
 # [Speech-to-text](#tab/stt)
+
+The Speech-to-text container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `speech-to-text`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text`. You can find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/tags).
 
 | Container | Repository |
 |-----------|------------|
@@ -95,17 +95,29 @@ Container images for Speech are available in the following container registry.
 
 # [Custom speech-to-text](#tab/cstt)
 
+The Custom Speech-to-text container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text`. 
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags).
+
 | Container | Repository |
 |-----------|------------|
 | Custom speech-to-text | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest` |
 
 # [Neural text-to-speech](#tab/ntts)
 
+The Neural Text-to-speech container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `neural-text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/about).
+
 | Container | Repository |
 |-----------|------------|
 | Neural text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest` |
 
 # [Speech language identification](#tab/lid)
+
+The Speech language detection container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `language-detection`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/language-detection/tags).
 
 > [!TIP]
 > To get the most useful results, use the Speech language identification container with the speech-to-text or custom speech-to-text containers.
@@ -118,7 +130,7 @@ Container images for Speech are available in the following container registry.
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### Docker pull for the Speech containers
+### Get the container image with docker pull
 
 # [Speech-to-text](#tab/stt)
 

@@ -230,11 +230,11 @@ Updates in this version of the solution include:
 
 - **Playbook updates**: The **Microsoft Defender for IoT** solution now supports the following SOC automation functionality with new playbooks:
 
-    - **Automation with CVE details**: Use the *AD4IoT-CVEAutoWorkflow* playbook to enrich incident comments with CVEs of related devices based on Defender for IoT data. The incidents are triaged, and if the CVE is critical, the asset owner is notified about the incident by email.
+  - **Automation with CVE details**: Use the *AD4IoT-CVEAutoWorkflow* playbook to enrich incident comments with CVEs of related devices based on Defender for IoT data. The incidents are triaged, and if the CVE is critical, the asset owner is notified about the incident by email.
 
-    - **Automation for email notifications to device owners**. Use the *AD4IoT-SendEmailtoIoTOwner* playbook to have a notification email automatically sent to a device's owner about new incidents. Device owners can then reply to the email to update the incident as needed. Device owners are defined at the site level in Defender for IoT.
+  - **Automation for email notifications to device owners**. Use the *AD4IoT-SendEmailtoIoTOwner* playbook to have a notification email automatically sent to a device's owner about new incidents. Device owners can then reply to the email to update the incident as needed. Device owners are defined at the site level in Defender for IoT.
 
-    - **Automation for incidents with sensitive devices**:  Use the *AD4IoT-AutoTriageIncident* playbook to automatically update an incident's severity based on the devices involved in the incident, and their sensitivity level or importance to your organization. For example, any incident involving a sensitive device can be automatically escalated to a higher severity level.
+  - **Automation for incidents with sensitive devices**:  Use the *AD4IoT-AutoTriageIncident* playbook to automatically update an incident's severity based on the devices involved in the incident, and their sensitivity level or importance to your organization. For example, any incident involving a sensitive device can be automatically escalated to a higher severity level.
 
 For more information, see [Investigate Microsoft Defender for IoT incidents with Microsoft Sentinel](../../sentinel/iot-advanced-threat-monitoring.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json).
 
@@ -423,7 +423,7 @@ The **IoT OT Threat Monitoring with Defender for IoT** solution now ensures that
 
 This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
 
-Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new **AD4IoT-AutoAlertStatusSync** playbook. After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-advanced-threat-monitoring.md?#update-alert-statuses-in-defender-for-iot) to ensure that the new playbook works as expected. 
+Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new **AD4IoT-AutoAlertStatusSync** playbook. After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-advanced-threat-monitoring.md?#update-alert-statuses-in-defender-for-iot) to ensure that the new playbook works as expected.
 
 For more information, see:
 
@@ -441,7 +441,6 @@ We've also recently optimized and enhanced our documentation as follows:
 
 - [Updated appliance catalog for OT environments](#updated-appliance-catalog-for-ot-environments)
 - [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
-
 
 ### Updated appliance catalog for OT environments
 
@@ -479,7 +478,6 @@ Check out our new structure to follow through viewing devices and assets, managi
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
 >
 
-
 ## April 2022
 
 - [Extended device property data in the Device inventory](#extended-device-property-data-in-the-device-inventory)
@@ -507,7 +505,6 @@ For more information, see [Manage your device inventory from the Azure portal](h
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
-
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 
@@ -551,7 +548,6 @@ Starting in this version, CLI users are automatically signed out of their sessio
 
 For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
 
-
 ## February 2022
 
 **Sensor software version**: 22.1.1
@@ -572,7 +568,7 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
 Previously, you needed to use separate dialogs to upload a sensor activation file, verify your sensor network configuration, and configure your SSL/TLS certificates.
 
-Now, when installing a new sensor or a new sensor version, our installation wizard provides a streamlined interface to do all these tasks from a single location. 
+Now, when installing a new sensor or a new sensor version, our installation wizard provides a streamlined interface to do all these tasks from a single location.
 
 For more information, see [Defender for IoT installation](how-to-install-software.md).
 
@@ -610,7 +606,7 @@ These features are now Generally Available (GA). Updates include the general loo
 
 - The **Simplified Map View** option has been removed.
 
-We've also implemented global readiness and accessibility features to comply with Microsoft standards. In the on-premises sensor console, these updates include both high contrast and regular screen display themes and localization for over 15 languages. 
+We've also implemented global readiness and accessibility features to comply with Microsoft standards. In the on-premises sensor console, these updates include both high contrast and regular screen display themes and localization for over 15 languages.
 
 For example:
 
@@ -644,7 +640,7 @@ For more information, see [Download a diagnostics log for support](how-to-manage
 
 Alerts are now available in Defender for IoT in the Azure portal. Work with alerts to enhance the security and operation of your IoT/OT network.
 
-The new **Alerts** page is currently in Public Preview, and provides: 
+The new **Alerts** page is currently in Public Preview, and provides:
 
 - An aggregated, real-time view of threats detected by network sensors.
 - Remediation steps for devices and network processes.
@@ -709,7 +705,7 @@ As part of the containerized sensor, the following CLI commands have been modifi
 
 The `sudo cyberx-xsense-limit-interface-I eth0 -l value` CLI command was removed. This command was used to limit the interface bandwidth that the sensor uses for day-to-day procedures, and is no longer supported.
 
-For more information, see [Defender for IoT installation](how-to-install-software.md) and [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+For more information, see [Defender for IoT installation](how-to-install-software.md), [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md), and [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
 ### Update to version 22.1.x
 
@@ -744,6 +740,7 @@ This version of Defender for IoT provides improved support for:
 - Windows endpoint detection
 
 For more information, see [Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols](concept-supported-protocols.md).
+
 ### Modified, replaced, or removed options and configurations
 
 The following Defender for IoT options and configurations have been moved, removed, and/or replaced:
