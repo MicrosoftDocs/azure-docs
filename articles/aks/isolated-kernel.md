@@ -3,7 +3,7 @@ title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as VM Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 01/26/2023
+ms.date: 01/30/2023
 
 ---
 
@@ -14,8 +14,6 @@ Container workloads running on Azure Kubernetes Service (AKS) share kernel and c
 Pod Sandboxing compliments other security measures or data protection controls with your overall architecture to help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
 This article helps you understand this new feature, and how to implement it.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -77,7 +75,7 @@ What limitations need to be specified?
 
 ## How it works
 
-To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing extends the benefits of hardware isolation such as separate kernel for each Kata pod. Hardware isolation allocates resources for each pod that aren't shared with other Kata Containers or namespace containers that run on the same host.
+To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing extends the benefits of hardware isolation such as a separate kernel for each Kata pod. Hardware isolation allocates resources for each pod that aren't shared with other Kata Containers or namespace containers that run on the same host.
 
 The solution architecture is based on the following components:
 
@@ -87,7 +85,7 @@ The solution architecture is based on the following components:
 * Microsoft Hyper-V Hypervisor
 * Integration with Kata Container framework
 
-Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers, the deployment includes kata-runtime options that can be defined in the pod template.
+Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers. The deployment includes kata-runtime options that can be defined in the pod template.
 
 For a pod to use the this feature, the only difference is to add **runtimeClassName** *kata-mshv-vm-isolation* to the pod spec.
 
@@ -122,9 +120,9 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
 
 ## Deploy to an existing cluster
 
-To update an existing AKS cluster, if the cluster is running version 1.24.0 and higher, you can use the following command to enable Pod Sandboxing (preview).
+To use this feature with an existing AKS cluster, if the cluster is running version 1.24.0 and higher, you can use the following command to enable Pod Sandboxing (preview) by creating a node pool to host it.
 
-1. Update the AKS cluster using the [az aks nodepool add][az-aks-nodepool-add] command and specifying the following parameters:
+1. Add a nodepool to your AKS cluster using the [az aks nodepool add][az-aks-nodepool-add] command. Specify the following parameters:
 
    * **--resource-group**: Enter the name of an existing resource group to create the AKS cluster in.
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
@@ -133,7 +131,7 @@ To update an existing AKS cluster, if the cluster is running version 1.24.0 and 
      * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in the preview release.
      * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
-   The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
+   The following example adds a node pool to *myAKSCluster* with one node in *nodepool2* in the *myResourceGroup*:
 
     ```azurecli
     az aks nodepool add --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
@@ -207,17 +205,36 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 1. To access a container inside the AKS cluster, start a shell session by running the [kubectl exec][kubectl-exec] command.
 
     ```bash
-    kubectl exec -it trusted -- /bin/bash
+    kubectl exec -it untrusted -- /bin/bash
     ```
 
-   Kubectl connects to your cluster, runs `/bin/sh` inside the first container within the *trusted* pod, and forward your terminal's input and output streams to the container's process. You can also start a shell session to the container hosting the *untrusted* pod.
+   Kubectl connects to your cluster, runs `/bin/sh` inside the first container within the *untrusted* pod, and forward your terminal's input and output streams to the container's process. You can also start a shell session to the container hosting the *trusted* pod.
 
-2. After starting a shell to the container to either the *untrusted* or *trusted* pod, you can run the following commands to verify that the untrusted container is running in a VM that has different number of CPUs and memory from the trusted container.
+2. After starting a shell to the container to either the *trusted* pod, you can run the following commands to verify that the untrusted container is running in a VM that has different number of CPUs and memory from the trusted container.
 
    To see the number of CPUs available, run:
 
     ```bash
     cat /proc/cpuinfo
+    ```
+
+   The consolidated output from the command resembles the following:
+
+    ```output
+    root@untrusted:/# cat /proc/cpuinfo
+    processor       : 0
+    vendor_id       : GenuineIntel
+    cpu family      : 6
+    model           : 85
+    model name      : Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+    stepping        : 7
+    microcode       : 0xffffffff
+    cpu MHz         : 2593.905
+    cache size      : 36608 KB
+    physical id     : 0
+    siblings        : 1
+    core id         : 0
+    cpu cores       : 1
     ```
 
    To see the how much memory is available, run:
@@ -226,6 +243,21 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
     cat /proc/meminfo
     ```
 
+   The consolidated output from the command resembles the following:
+
+    ```output
+    root@untrusted:/# cat /proc/meminfo
+    MemTotal:        2042616 kB
+    MemFree:         1963160 kB
+    MemAvailable:    1949004 kB
+    Buffers:               0 kB
+    Cached:            55648 kB
+    SwapCached:            0 kB
+    Active:             1228 kB
+    Inactive:          12824 kB
+    ```
+
+## Cleanup 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
 [azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
