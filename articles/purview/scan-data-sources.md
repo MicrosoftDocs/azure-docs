@@ -46,12 +46,12 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
 1. Navigate to the **Data map** -> **Sources** to view your registered sources either in a map or table view.
 1. Find your source and select the **New Scan** icon.
 
-   :::image type="content" source="media/scan-data-sources/register-blob-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
+   :::image type="content" source="media/scan-data-sources/register-blob-new-scan.png" alt-text="Screenshot the new scan button highlighted by a registered source and the new scan window.":::
 
 1. Provide a **Name** for the scan.
 1. Select your authentication method. Here we chose the Purview MSI (managed identity.)
 
-   :::image type="content" source="media/scan-data-sources/register-blob-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
+   :::image type="content" source="media/scan-data-sources/register-blob-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan.":::
 
 1. Choose the current collection, or a sub collection for the scan. The collection you choose will house the metadata discovered during the scan.
 
@@ -59,19 +59,19 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
 
 1. Depending on the source, you can scope your scan to a specific subset of data. For Azure Blob Storage, we can select folders and subfolders by choosing the appropriate items in the list.
 
-   :::image type="content" source="media/scan-data-sources/register-blob-scope-scan.png" alt-text="Scope your scan":::
+   :::image type="content" source="media/scan-data-sources/register-blob-scope-scan.png" alt-text="Screenshot showing the scope your scan window with files and folders selected.":::
 
 1. Select a scan rule set. The scan rule set contains the kinds of data [classifications](concept-classification.md) your scan will check for. You can choose between the system default (that will contain all classifications available for the source), existing custom rule sets made by others in your organization, or [create a new rule set inline](create-a-scan-rule-set.md).
 
-   :::image type="content" source="media/scan-data-sources/register-blob-scan-rule-set.png" alt-text="Scan rule set":::
+   :::image type="content" source="media/scan-data-sources/register-blob-scan-rule-set.png" alt-text="Screenshot of the select a scan rule set page with the default set selected.":::
 
 1. Choose your scan trigger. You can set up a schedule (monthly or weekly) or run the scan once.
 
-   :::image type="content" source="media/scan-data-sources/register-blob-scan-trigger.png" alt-text="scan trigger":::
+   :::image type="content" source="media/scan-data-sources/register-blob-scan-trigger.png" alt-text="Screenshot of the set a scan trigger page showing a recurring monthly schedule.":::
 
 1. Review your scan and select **Save and run**.
 
-   :::image type="content" source="media/scan-data-sources/register-blob-review-scan.png" alt-text="review scan":::
+   :::image type="content" source="media/scan-data-sources/register-blob-review-scan.png" alt-text="Screenshot of the scan review page with the save and run button highlighted.":::
 
 ## View a scan
 
@@ -79,17 +79,17 @@ Depending on the amount of data in your data source, a scan can take some time t
 
 1. Navigate to the _data source_ in the _Collection_ and select **View Details** to check the status of the scan
 
-   :::image type="content" source="media/scan-data-sources/register-blob-view-scan.png" alt-text="view scan":::
+   :::image type="content" source="media/scan-data-sources/register-blob-view-scan.png" alt-text="Screenshot of the data map with a source's view details button highlighted.":::
 
-1. The scan details indicate the progress of the scan in the **Last run status** and the number of assets _scanned_ and _classified_
+1. The scan details indicate the progress of the scan in the **Last run status** and the number of assets _scanned_ and _classified_.
 
-   :::image type="content" source="media/scan-data-sources/register-blob-scan-details.png" alt-text="view scan details":::
+   :::image type="content" source="media/scan-data-sources/register-blob-scan-details.png" alt-text="Screenshot of a source detail page, with the assets and scans highlighted.":::
 
 1. The **Last run status** will be updated to **In progress** and then **Completed** once the entire scan has run successfully
 
-   :::image type="content" source="media/scan-data-sources/register-blob-scan-in-progress.png" alt-text="view scan in progress":::
+   :::image type="content" source="media/scan-data-sources/register-blob-scan-in-progress.png" alt-text="Screenshot of a source detail page with a scan showing an in progress status.":::
 
-   :::image type="content" source="media/scan-data-sources/register-blob-scan-completed.png" alt-text="view scan completed":::
+   :::image type="content" source="media/scan-data-sources/register-blob-scan-completed.png" alt-text="Screenshot of a source detail page with a scan showing a completed status.":::
 
 ## Manage a scan
 
@@ -97,15 +97,15 @@ After a scan is complete, it can be managed or run again.
 
 1. Select the **Scan name** to manage the scan
 
-   :::image type="content" source="media/scan-data-sources/register-blob-manage-scan.png" alt-text="manage scan":::
+   :::image type="content" source="media/scan-data-sources/register-blob-manage-scan.png" alt-text="Screenshot of a source details page with the scan name link highlighted.":::
 
 1. You can _run the scan_ again, _edit the scan_, _delete the scan_  
 
-   :::image type="content" source="media/scan-data-sources/register-blob-manage-scan-options.png" alt-text="manage scan options":::
+   :::image type="content" source="media/scan-data-sources/register-blob-manage-scan-options.png" alt-text="Screenshot of a manage scan page with the run, edit, and delete buttons highlighted.":::
 
 1. You can run a full scan, which will scan all the content in your scope, but some sources also have **incremental scan** available. Incremental scan will scan only those resources that have been updated since the last scan. Check the **supported capabilities** table in your source page to see if incremental scan is available for your source after the first scan.
 
-   :::image type="content" source="media/scan-data-sources/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
+   :::image type="content" source="media/scan-data-sources/register-blob-full-inc-scan.png" alt-text="Screenshot of the run scan now button showing the full and incremental scan options.":::
 
 ## Troubleshooting
 
