@@ -171,10 +171,6 @@ When you're mounting these directories to the container with the `docker run -v`
 
 Below is a sample command to set file/directory ownership.
 
-
-
-
-
 ```bash
 sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
 ```
@@ -186,10 +182,6 @@ The [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntt
 When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
 
 Below is a sample command to set file/directory ownership.
-
-
-
-
 
 ```bash
 sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
@@ -299,3 +291,4 @@ If you run the container with an output mount and logging enabled, the container
 ## Next steps
 
 [Azure Cognitive Services containers overview](../cognitive-services-container-support.md)
+
