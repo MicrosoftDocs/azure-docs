@@ -147,16 +147,21 @@ To get started, follow these instructions to list all your recommendations using
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 1. Select **GET** as the HTTP method from the dropdown.
 1. Set the API version to **beta**.
-1. Add the following query to use the [List recommendations](/graph/api/directory-list-recommendation)
+1. Add the following query to use the [List recommendations](/graph/api/directory-list-recommendation).
+1. 
     ```http
     GET https://graph.microsoft.com/beta/directory/recommendations
     ```
+
 1. Select **Run query** to list any recommendations in your tenant.
 1. To view the details of a recommendation in the list, use the following API. The example is using the [Convert from per-user MFA to Conditional Access MFA](recommendation-turn-off-per-user-mfa.md) recommendation as an example.
+1. 
     ```http
     GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'switchFromPerUserMFA'
     ```
+
 1. To view the impacted resources for the recommendation, find the response object `id` and enter it into the following API:
+1. 
     ```http
     GET https://graph.microsoft.com/beta/directory/recommendations?$filter=id eq '0cb31920-84b9-471f-a6fb-468c1a847088_Microsoft.Identity.IAM.Insights.switchFromPerUserMFA'&$expand=impactedResources
     ```
