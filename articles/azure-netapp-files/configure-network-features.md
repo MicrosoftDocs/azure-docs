@@ -52,7 +52,7 @@ Two settings are available for network features:
 
 * You can create Basic volumes from Basic volume snapshots and Standard volumes from Standard volume snapshots. Creating a Basic volume from a Standard volume snapshot is not supported. Creating a Standard volume from a Basic volume snapshot is not supported.
 
-* When restoring a backup to a new volume, you have the option to select Basic or Standard network features on the new volume. 
+* When restoring a backup to a new volume, the new volume can be configure with Basic or Standard network features. 
 
 * Conversion between Basic and Standard networking features in either direction is not currently supported.
   
