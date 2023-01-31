@@ -93,6 +93,22 @@ Common settings:
   - `https://login.chinacloudapi.cn`
   - `https://login.microsoftonline.us`
   - `https://login-us.microsoftonline.com`
+
+### Deployment guides
+
+Use the following deployment guides to enable the SSO plug-in using your chosen MDM solution:
+
+* Intune:
+iOS Guide: Link TBD
+macOS Guide: Link TBD
+
+* Jamf Pro:
+iOS Guide: Link TBD
+macOS Guide: Link TBD
+
+* Other MDM:
+iOS Guide: Link TBD
+macOS Guide: Link TBD
   
 ### More configuration options
 You can add more configuration options to extend SSO functionality to other apps.
