@@ -24,6 +24,8 @@ You learn how to:
 > * Generate metrics by consuming APIs on the self-hosted gateway.
 > * Use the metrics from the OpenTelemetry Collector.
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 ## Prerequisites
 
 - [Create an Azure API Management instance](get-started-create-service-instance.md)
@@ -87,10 +89,7 @@ Now that we have the chart repository configured, we can deploy the OpenTelemetr
 1. Create a local configuration file called `opentelemetry-collector-config.yml` with the following configuration:
 
     ```yaml
-    agentCollector:
-      enabled: false
-    standaloneCollector:
-      enabled: true
+    mode: deployment
     config:
       exporters:
         prometheus:

@@ -2,7 +2,7 @@
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data. 
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 12/13/2022
 ---
 
 # Storage considerations for Azure Functions
@@ -36,6 +36,8 @@ Every function app requires a storage account to operate. When that account is d
 ### Storage account location
 
 For best performance, your function app should use a storage account in the same region, which reduces latency. The Azure portal enforces this best practice. If for some reason you need to use a storage account in a region different than your function app, you must create your function app outside of the portal. 
+
+The storage account must be accessible to the function app. If you need to use a secured storage account, consider [restricting your storage account to a virtual network](./functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).s
 
 ### Storage account connection setting
 

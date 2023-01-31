@@ -281,5 +281,5 @@ az devcenter dev environment list --dev-center <devcenter-name> --project-name <
 **Delete an environment**
 
 ```azurecli
-az devcenter environment delete --dev-center <devcenter-name>  --project-name <project-name> -n <name> --user-id "me"
+az devcenter dev environment delete --dev-center <devcenter-name>  --project-name <project-name> -n <name> --user-id "me"
 ```

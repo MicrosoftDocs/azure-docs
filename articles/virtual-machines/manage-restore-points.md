@@ -49,7 +49,7 @@ Call the [Restore Point Collections - Get](/rest/api/compute/restore-point-colle
 
 ### Step 2: Create a disk
 
-After you have the list of disk restore point IDs, you can use the [Disks - Create Or Update](/rest/api/compute/disks/create-or-update) API to create a disk from the disk restore points.
+After you have the list of disk restore point IDs, you can use the [Disks - Create Or Update](/rest/api/compute/disks/create-or-update) API to create a disk from the disk restore points. You can choose a zone while creating the disk. The zone can be different from zone in which the disk restore point exists.
 
 ## Restore a VM with a restore point
 

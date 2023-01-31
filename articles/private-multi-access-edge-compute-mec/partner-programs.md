@@ -35,7 +35,6 @@ Our system integrators and non-operator MSP partners include:
 - American Tower
 - Capgemini
 - Cognizant
-- Expeto
 - Federated Wireless
 - Fujitsu
 - HCL
@@ -51,12 +50,12 @@ Azure Private MEC platform partners provide critical hardware and software compo
 Network functions partners include software vendors that provide mobile packet core, firewalls, routers, SD-WAN, vRAN, and RAN optimization. The breadth of third-party network functions available enable customers to securely integrate the Azure private MEC solution into their existing edge and cloud environments. The Azure private MEC current network function partners include:
 
 
-|Mobile Packet Core |Firewall, Routers, & SD-WAN |RAN Partners (software) |
-|---------|---------|---------|---------|
-|Celona  |   128 Technology      |    AirHop   |
-|Expeto	  |      Arista   |      	ASOCS  |
-|HSS by HPE    |  Fortinet    |   Celona      |
-| Nokia Digital Automation Cloud  | NetFoundry |  Commscope|
+|Firewall, Routers, & SD-WAN |RAN Partners (software) |
+|---------|---------|
+|   128 Technology      |    AirHop   |
+|      Arista   |      	ASOCS  |
+|  Fortinet    |   Celona      |
+| NetFoundry |  Commscope|
 | | Nuage Networks by Nokia |  Nokia|
 |  |Palo Alto Networks |  |
 |  |Versa Networks |  |
@@ -70,9 +69,9 @@ SIM & Device partners provide wireless authentication technologies and embedded 
 |SIM|Devices |RAN (hardware)|
 |---------|---------|---------|
 |Commscope   |  Cradlepoint by Ericsson    |ASOCS |
-|G+D     |     Multitech |Celona |
-|Gemalto    |  Sierra Wireless        |Commscope |
-|IDEMIA  |         |Nokia |
+|G+D     |     Multitech |Commscope |
+|Gemalto    |  Sierra Wireless        |Nokia|
+|IDEMIA  |         | |
 |   JCI US (Contour Networks)  |         ||
 ||||
 

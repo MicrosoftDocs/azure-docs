@@ -283,7 +283,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `AUDriversLicense` to the `piiCategories` parameter. `AUDriversLicense` will be returned in the API response if detected.
+        To get this entity category, add `AUDriversLicenseNumber` to the `piiCategories` parameter. `AUDriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -319,7 +319,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ATPassportNumber` to the `piiCategories` parameter. `ATPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `AUPassportNumber` to the `piiCategories` parameter. `AUPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -336,7 +336,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ATTaxIdentificationNumber` to the `piiCategories` parameter. `ATTaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `AUTaxFileNumber` to the `piiCategories` parameter. `AUTaxFileNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -370,6 +370,28 @@ The following entities are grouped and listed by country:
       
    :::column-end:::
 :::row-end:::
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Belgium national number V2
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        To get this entity category, add `BENationalNumberV2` to the `piiCategories` parameter. `BENationalNumberV2` will be returned in the API response if detected.
+      
+        Also returned with `domain=phi`.
+    :::column-end:::
+    :::column span="":::
+      **Supported document languages**
+
+      `fr`, `de`
+      
+   :::column-end:::
+:::row-end:::
+
 :::row:::
     :::column span="":::
 

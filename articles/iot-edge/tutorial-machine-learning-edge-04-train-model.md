@@ -13,7 +13,7 @@ monikerRange: "=iotedge-2018-06"
 
 # Tutorial: Train and deploy an Azure Machine Learning model
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 In this article, we do the following tasks:
 

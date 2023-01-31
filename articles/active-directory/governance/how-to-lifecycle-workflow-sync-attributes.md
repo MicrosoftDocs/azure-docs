@@ -12,6 +12,7 @@ ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
 ---
+
 # How to synchronize attributes for Lifecycle workflows
 Workflows, contain specific tasks, which can run automatically against users based on the specified execution conditions. Automatic workflow scheduling is supported based on the employeeHireDate and employeeLeaveDateTime user attributes in Azure AD.
 

@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected System Center Virtual Machine Manager (preview)
 description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager (preview).
-ms.date: 05/25/2022
+ms.date: 12/07/2022
 ms.topic: conceptual
 ms.services: azure-arc
 author: jyothisuri
@@ -52,6 +52,22 @@ Azure Arc-enabled SCVMM (preview) is currently supported in the following region
 
 - East US
 - West Europe
+
+### Resource bridge networking requirements
+
+The following firewall URL exceptions are needed for the Azure Arc resource bridge VM:
+
+[!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
+
+In addition, SCVMM requires the following exception:
+
+| **Service** | **Port** | **URL** | **Direction** | **Notes**|
+| --- | --- | --- | --- | --- |
+| SCVMM management Server | 443 | URL of the SCVMM management server | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
+
+[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
+
+For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
 
 ## Next steps
 

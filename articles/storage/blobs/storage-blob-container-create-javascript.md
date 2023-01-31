@@ -1,16 +1,16 @@
 ---
-title: Create a blob container with JavaScript - Azure Storage 
+title: Create a blob container with JavaScript
+titleSuffix: Azure Storage 
 description: Learn how to create a blob container in your Azure Storage account using the JavaScript client library.
-services: storage
-author: normesta
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/28/2022
-ms.author: normesta
+ms.date: 11/30/2022
+ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Create a container in Azure Storage with JavaScript
@@ -33,13 +33,17 @@ The URI for a container is in this format:
 
 ## Create a container
 
-To create a container, call the following method from the BlobStorageClient:
+
+To create a container, create a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object or [ContainerClient](storage-blob-javascript-get-started.md#create-a-containerclient-object) object, then use one of the following create methods:
 
 - [BlobServiceClient.createContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-createcontainer)
+- [ContainerClient.create](/javascript/api/@azure/storage-blob/containerclient?#@azure-storage-blob-containerclient-create)
+- [ContainerClient.createIfNotExists](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-createifnotexists)
+
 
 Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another. An exception is thrown if a container with the same name already exists. 
 
-The following example creates a container asynchronously:
+The following example creates a container asynchronously from the BlobServiceClient:
 
 ```javascript
 async function createContainer(blobServiceClient, containerName){

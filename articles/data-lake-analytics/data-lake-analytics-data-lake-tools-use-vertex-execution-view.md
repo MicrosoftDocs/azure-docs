@@ -10,6 +10,7 @@ ms.date: 10/13/2016
 # Use the Vertex Execution View in Data Lake Tools for Visual Studio
 Learn how to use the Vertex Execution View to exam Data Lake Analytics jobs.
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## Open the Vertex Execution View
 Open a U-SQL job in Data Lake Tools for Visual Studio. Click **Vertex Execution View** in the bottom left corner. You may be prompted to load profiles first and it can take some time depending on your network connectivity.

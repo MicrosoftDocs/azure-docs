@@ -4,7 +4,7 @@ description: This article describes how to troubleshoot problems that might aris
 author: billmath
 ms.author: billmath
 manager: amycolannino
-ms.date: 10/13/2021
+ms.date: 01/18/2023
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs

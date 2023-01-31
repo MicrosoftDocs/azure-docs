@@ -29,7 +29,7 @@ This quickstart uses Azure Container Registry as the registry of choice. You're 
 Create a container registry by following the instructions in [Quickstart: Create a private container registry using the Azure portal](../../../container-registry/container-registry-get-started-portal.md).
 
 > [!IMPORTANT]
-> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#configure-app-service-to-deploy-the-image-from-the-registry).
+> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#vi-configure-the-web-app).
 
 ## 2 - Sign in
 

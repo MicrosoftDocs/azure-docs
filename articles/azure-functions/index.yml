@@ -70,3 +70,11 @@ landingContent:
             url: https://www.serverlesslibrary.net/
           - text: Azure Resource Manager templates
             url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
+      - linkListType: tutorial
+        links:
+          - text: Functions with Logic Apps
+            url: functions-twitter-email.md
+          - text: Develop Python functions with VS Code
+            url: create-first-function-vs-code-python.md
+          - text: Create serverless APIs using Visual Studio
+            url: openapi-apim-integrate-visual-studio.md

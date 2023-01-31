@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 08/23/2022 
+ms.date: 11/15/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell, ignite-2022
 ---
@@ -32,7 +32,7 @@ Change Analysis detects various types of changes, from the infrastructure layer 
 
 The following diagram illustrates the architecture of Change Analysis:
 
-![Architecture diagram of how Change Analysis gets change data and provides it to client tools](./media/change-analysis/overview.png)
+:::image type="content" source="./media/change-analysis/architecture-overview.png" alt-text="Architecture diagram of how Change Analysis gets change data and provides it to client tools.":::
 
 ## Supported resource types
 
@@ -126,6 +126,8 @@ Currently the following dependencies are supported in **Web App Diagnose and sol
 - **App Services file changes**: File changes take up to 30 minutes to display.
 - **App Services configuration changes**: Due to the snapshot approach to configuration changes, timestamps of configuration changes could take up to 6 hours to display from when the change actually happened.
 - **Web app deployment and configuration changes**: Since these changes are collected by a site extension and stored on disk space owned by your application, data collection and storage is subject to your application's behavior. Check to see if a misbehaving application is affecting the results.
+- **Snapshot retention for all changes**: The Change Analysis data for resources is tracked by Azure Resource Graphs (ARG). ARG keeps snapshot history of tracked resources only for 14 days.
+
 
 ## Next steps
 

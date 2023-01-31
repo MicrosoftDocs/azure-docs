@@ -56,7 +56,7 @@ You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workfl
 
 Azure Load Testing test engines abstract the required infrastructure for [running a high-scale load test](./how-to-high-scale-load.md). The test engines run the Apache JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. When you create a load test based on a URL, Azure Load Testing automatically generates a JMeter test script for you. To scale out the load test, you can configure the number of test engines.
 
-Azure Load Testing uses Apache JMeter version 5.4.3 for running load tests. You can use Apache JMeter plugins that are available on https://jmeter-plugins.org in your test script.
+Azure Load Testing uses Apache JMeter version 5.4.3 for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md).
 
 The application can be hosted anywhere: in Azure, on-premises, or in other clouds. To load test services that have no public endpoint, [deploy Azure Load Testing in a virtual network](./how-to-test-private-endpoint.md).
 
@@ -74,6 +74,10 @@ Data stored in your Azure Load Testing resource is automatically encrypted with 
 
 > [!NOTE]
 > The overview image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components. Learn more about the [supported Azure resource types](./resource-supported-azure-resource-types.md).
+
+## In-region data residency
+
+Azure Load Testing doesn't store or process customer data outside the region you deploy the service instance in.
 
 ## Next steps
 

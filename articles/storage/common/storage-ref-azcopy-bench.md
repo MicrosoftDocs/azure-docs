@@ -1,5 +1,5 @@
 ---
-title: azcopy bench | Microsoft Docs
+title: azcopy bench
 description: This article provides reference information for the azcopy bench command.
 author: normesta
 ms.service: storage

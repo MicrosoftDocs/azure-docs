@@ -15,14 +15,11 @@ There are other function app configuration options in the [host.json](functions-
 Example connection string values are truncated for readability.
 
 > [!NOTE]
-> You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). Changes to function app settings require your function app to be restarted.
-
-> [!IMPORTANT]
-> Do not use an [instrumentation key](../azure-monitor/app/separate-resources.md#about-resources-and-instrumentation-keys) and a [connection string](../azure-monitor/app/sdk-connection-string.md#overview) simultaneously. Whichever was set last will take precedence.
+> You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). Changes to function app settings require your function app to be restarted. 
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
-The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`. When Application Insights runs in a sovereign cloud, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+The instrumentation key for Application Insights. Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. When possible, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. When Application Insights runs in a sovereign cloud, you must use `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
 |Key|Sample value|
 |---|------------|
@@ -32,7 +29,7 @@ The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_I
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
-The connection string for Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead of `APPINSIGHTS_INSTRUMENTATIONKEY` in the following cases:
+The connection string for Application Insights. When possible, use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead of `APPINSIGHTS_INSTRUMENTATIONKEY`. Using `APPLICATIONINSIGHTS_CONNECTION_STRING` is required in the following cases:
 
 + When your function app requires the added customizations supported by using the connection string.
 + When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.
@@ -136,7 +133,9 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsFeatureFlags|`feature1,feature2`|
+|AzureWebJobsFeatureFlags|`feature1,feature2,EnableProxies`|
+
+Add `EnableProxies` to this list to re-enable proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Re-enable proxies in Functions v4.x](./legacy-proxies.md#re-enable-proxies-in-functions-v4x). 
 
 ## AzureWebJobsKubernetesSecretName 
 

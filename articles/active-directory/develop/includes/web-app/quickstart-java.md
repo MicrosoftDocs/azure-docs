@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 11/17/2021
+ms.date: 01/18/2023
 ms.author: dmwendia 
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 ---

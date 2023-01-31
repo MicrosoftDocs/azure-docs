@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "how-to-ingest-opcua-data.md",
+      "redirect_url": "https://github.com/digitaltwinconsortium/ManufacturingOntologies#manufacturing-ontologies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "how-to-monitor-metrics.md",
       "redirect_url": "/azure/digital-twins/how-to-monitor",
       "redirect_document_id": true
@@ -112,8 +117,13 @@
     },
     {
       "source_path": "overview-differences.md",
-      "redirect_url": "/azure/digital-twins/resources-compare-original-release",
-      "redirect_document_id": true
+      "redirect_url": "/azure/digital-twins/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "resources-compare-original-release.md",
+      "redirect_url": "/azure/digital-twins/overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "concepts-convert-models.md",

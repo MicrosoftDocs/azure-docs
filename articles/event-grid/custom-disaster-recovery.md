@@ -45,6 +45,9 @@ Traffic Manager it's a global resource that provides a unique DNS name, like: `h
 
 At this moment you have your resources deployed and running, and can start sending events to your traffic manager endpoint, in case you don't want to keep active the secondary endpoint in your traffic manager you may be interested to [disable the endpoint](../traffic-manager/traffic-manager-manage-endpoints.md#to-disable-an-endpoint).
 
+> [!NOTE]
+> If you see the `RemoteCertificateNameMisMatch` error when calling the Azure Traffic Manager in your application, you can proceed by suppressing the warning.
+
 ## Integrate deployment scripts in your CI/CD process
 
 Now that you ensure your configuration is working as expected and your events are delivered to the regions you defined, you'll need to integrate your template with an automation tool, see [Quickstart: Integrate Bicep with Azure Pipelines](../azure-resource-manager/bicep/add-template-to-azure-pipelines.md) or [Quickstart: Deploy Bicep files by using GitHub Actions](../azure-resource-manager/bicep/deploy-github-actions.md) for more information.

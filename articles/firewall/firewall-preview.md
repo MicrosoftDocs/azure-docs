@@ -111,6 +111,8 @@ Additional KQL log queries were added to query structured firewall logs.
 > [!NOTE]
 > Existing Workbooks and any Sentinel integration will be adjusted to support the new structured logs when **Resource Specific** mode is selected.
 
+For more information, see [Exploring the New Resource Specific Structured Logging in Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/exploring-the-new-resource-specific-structured-logging-in-azure/ba-p/3620530).
+
 ### Policy Analytics (preview)
 
 Policy Analytics provides insights, centralized visibility, and control to Azure Firewall. IT teams today are challenged to keep Firewall rules up to date, manage existing rules, and remove unused rules. Any accidental rule updates can lead to a significant downtime for IT teams. 

@@ -33,7 +33,7 @@ Using Azure Synapse Link, you can now build no-ETL HTAP solutions by directly li
 
 ## Features of analytical store 
 
-When you enable analytical store on an Azure Cosmos DB container, a new column-store is internally created based on the operational data in your container. This column store is persisted separately from the row-oriented transactional store for that container. The inserts, updates, and deletes to your operational data are automatically synced to analytical store. You don't need the Change Feed or ETL to sync the data.
+When you enable analytical store on an Azure Cosmos DB container, a new column-store is internally created based on the operational data in your container. This column store is persisted separately from the row-oriented transactional store for that container, in a storage account that is fully managed by Azure Cosmos DB, in an internal subscription. Customers don't need to spend time with storage administration. The inserts, updates, and deletes to your operational data are automatically synced to analytical store. You don't need the Change Feed or ETL to sync the data.
 
 ## Column store for analytical workloads on operational data
 
@@ -327,7 +327,7 @@ Here's a map of all the property data types and their representations in the ana
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
-##### Using full fidelity schema on Spark
+##### Using full fidelity schema with Spark
 
 Spark will manage each datatype as a column when loading into a `DataFrame`. Let's assume a collection with the documents below.
 
@@ -388,7 +388,7 @@ sql_results = spark.sql("SELECT sum(price.float64),count(*) FROM Pizza where tim
 sql_results.show()
 ```
 
-##### Using full fidelity schema on SQL
+##### Using full fidelity schema with SQL
 
 Considering the same documents of the Spark example above, customers can use the following syntax example:
 
@@ -468,10 +468,13 @@ FROM OPENROWSET('CosmosDB',
 
 It's possible to use full fidelity Schema for API for NoSQL accounts, instead of the default option, by setting the schema type when enabling Synapse Link on an Azure Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
 
- * This option is only valid for accounts that **don't** have Synapse Link already enabled.
- * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
- * Currently Azure Cosmso DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
- * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well-defined schema.
+* Currently, if you enable Synapse Link in your NoSQL API account using the Azure Portal, it will be enabled as well-defined schema.
+* Currently, if you want to use full fidelity schema with NoSQL or Gremlin API accounts, you have to set it at account level in the same CLI or PowerShell command that will enable Synapse Link at account level.
+* Currently Azure Cosmso DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+* It's not possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
+* Currently, containers schema in analytical store are defined when the container is created, even if Synapse Link has not been enabled in the database account.
+  * Containers or graphs created before Synapse Link was enabled with full fidelity schema at account level will have well-defined schema.
+  * Containers or graphs created after Synapse Link was enabled with full fidelity schema at account level will have full fidelity schema.
  
 The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
  
@@ -539,8 +542,8 @@ After the analytical store is enabled, based on the data retention needs of the 
 
 Analytical store relies on Azure Storage and offers the following protection against physical failure:
 
- * Single region Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) Azure Storage accounts.
- * If any geo-region replication is configured for the Azure Cosmos DB database account, analytical store is allocated in Zone-Redundant Storage (ZRS) Azure storage accounts.
+ * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts.
+ * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in ZRS.
 
 ## Backup
 
@@ -552,10 +555,7 @@ Although analytical store has built-in protection against physical failures, bac
 Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 
 * Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account.
-* Continuous backup mode isn't fully supported yet:
-  * Database accounts with Synapse Link enabled currently can't use continuous backup mode. 
-  * Database accounts with continuous backup mode enabled can enable Synapse Link through a support case. This capability is in preview now.
-  * Database accounts that have neither continuous backup nor Synapse Link enabled can use these two features together through a support case. This capability is in preview now.
+* Currently Continuous backup mode and Synapse Link aren't supported in the same database account. Customers have to choose one of these two features and this decision can't be changed.
 
 ### Backup Polices
 

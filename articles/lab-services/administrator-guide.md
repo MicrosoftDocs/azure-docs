@@ -225,7 +225,7 @@ When you're assigning roles, it helps to follow these tips:
 - To give educators the ability to create new labs and manage the labs that they create, you need only assign them the Lab Creator role.
 - To give educators the ability to manage specific labs, but *not* the ability to create new labs, assign them either the Owner or Contributor role for each lab that they'll manage. For example, you might want to allow a professor and a teaching assistant to co-own a lab.
 - 
-For more detail about the permissions assigned to each role, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles#lab-assistant)
+For more detail about the permissions assigned to each role, see [Azure built-in roles](../role-based-access-control/built-in-roles.md#lab-assistant)
 
 ## Content filtering
 

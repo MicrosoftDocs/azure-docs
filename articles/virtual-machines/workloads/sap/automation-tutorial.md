@@ -93,7 +93,7 @@ The system deployment consists of the virtual machines that will be running the 
 
 The [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation) is available on GitHub.
 
-You need an SSH client to connect to the Deployer. Use any SSH client that you feel comfortable with.
+You need to deploy Azure Bastion or use an SSH client to connect to the Deployer. Use any SSH client that you feel comfortable with.
 
 
 
@@ -164,6 +164,8 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
     cd ~/Azure_SAP_Automated_Deployment
 
     git clone https://github.com/Azure/sap-automation.git
+
+    git clone https://github.com/Azure/sap-automation-samples.git
     ```
 
 1. Optionally, validate the versions of Terraform and the Azure CLI available on your instance of the Cloud Shell.
@@ -174,9 +176,9 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
     To run the automation framework, update to the following versions.
 
-    - `az` version 2.28.0 or higher
+    - `az` version 2.4.0 or higher
 
-    - `terraform` version 1.1.4 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
+    - `terraform` version 1.2.8 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
 
 
 ## Create service principal
@@ -227,36 +229,23 @@ The SAP automation deployment framework uses service principals for deployment. 
 
     az role assignment create --assignee ${appId} \
       --role "User Access Administrator" \
-      --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}
+      --scope /subscriptions/${subscriptionId}
     ```
 
 > [!NOTE] 
-> If you do not assign the User Access Adminstrator role to the Service Principal you will not be able to assign permissions using the automation.
+> If you do not assign the User Access Administrator role to the Service Principal you will not be able to assign permissions using the automation.
 
 ## View configuration files
 
-> [!IMPORTANT]
-> Always treat the GitHub repository as read-only. Work in a copy of the `WORKSPACES` folder to make configuration changes. This method keeps the configuration stable if the repository changes.
 
-1. Copy the sample configurations to a local workspace directory:
+1. Open VS Code from Cloud Shell
 
     ```cloudshell-interactive
-    cd ~/Azure_SAP_Automated_Deployment
-
-    cp -Rp ./sap-automation/training-materials/WORKSPACES .
-    ```
-
-2. Open VS Code from Cloud Shell
-
-    ```cloudshell-interactive
+    cd ~/Azure_SAP_Automated_Deployment/sap-automation-samples/Terraform
     code .
     ```
 
-    > [!NOTE]
-    > Does not work in the Safari browser.
-
-
-    Expand the **WORKSPACES** directory. There are five subfolders: **DEPLOYER**, **LANDSCAPE**, **LIBRARY**, **SYSTEM**, and **BOMS**. Expand each of these folders to find regional deployment configuration files.
+    Expand the **WORKSPACES** directory. There are five subfolders: **CONFIGURATION**, **DEPLOYER**, **LANDSCAPE**, **LIBRARY**, **SYSTEM**, and **BOMS**. Expand each of these folders to find regional deployment configuration files.
 
     Find the appropriate four-character code that corresponds to the Azure region you're using.
 
@@ -276,26 +265,33 @@ The SAP automation deployment framework uses service principals for deployment. 
 
     ```terraform
     # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
-    environment="MGMT"
+    environment = "MGMT"
     # The location/region value is a mandatory field, it is used to control where the resources are deployed
-    location="westeurope"
+    location = "westeurope"
 
     # management_network_address_space is the address space for management virtual network
-    management_network_address_space="10.10.20.0/25"
+    management_network_address_space = "10.10.20.0/25"
     # management_subnet_address_prefix is the address prefix for the management subnet
-    management_subnet_address_prefix="10.10.20.64/28"
-    # management_firewall_subnet_address_prefix is the address prefix for the firewall subnet
-    management_firewall_subnet_address_prefix="10.10.20.0/26"
+    management_subnet_address_prefix = "10.10.20.64/28"
 
-    deployer_enable_public_ip=true
-    firewall_deployment=true
+    # management_firewall_subnet_address_prefix is the address prefix for the firewall subnet
+    management_firewall_subnet_address_prefix = "10.10.20.0/26"
+    firewall_deployment = true
+
+    # management_bastion_subnet_address_prefix is the address prefix for the bastion subnet
+    management_bastion_subnet_address_prefix = "10.10.20.128/26"
+    bastion_deployment = true
+
+
+    deployer_enable_public_ip = true
+    
     ```
 
     Note the Terraform variable file locations for future edits during deployment.
 
 ## Deploy control plane
 
-Use the [prepare_region](bash/automation-prepare-region.md) script to deploy the Deployer and Library. These deployment pieces make up the
+Use the [deploy_controlplane.sh](bash/automation-prepare-region.md) script to deploy the Deployer and Library. These deployment pieces make up the
 control plane for a chosen automation area.
 
 - The deployment goes through cycles of deploying the infrastructure, refreshing the state, and uploading the Terraform state files to the Library storage account. All of these steps are packaged into a single deployment script. The script needs the location of the configuration file for the Deployer and Library, and some other parameters as follows.
@@ -317,9 +313,11 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
     export    region_code="<region_code>"
 
     export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+    export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation-samples/Terraform/WORKSPACES"
+    export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
     export ARM_SUBSCRIPTION_ID="${subscriptionId}"
 
-    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                                       \
+    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                                  \
         --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-DEP00-INFRASTRUCTURE/${env_code}-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
         --library_parameter_file LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars                      \
         --subscription "${subscriptionId}"                                                                                                         \
@@ -374,7 +372,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
     The file must contain the environment attribute!!
     ```
 
-- The following error is transient. Rerun the same command, `prepare_region.sh`.
+- The following error is transient. Rerun the same command, `prepare_controlplane.sh`.
 
     ```text
     Error: file provisioner error
@@ -383,7 +381,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
     ```
 
 
-- If you have authentication issues directly after running the script `prepare_region.sh`, run:
+- If you have authentication issues directly after running the script `prepare_controlplane.sh`, run:
 
     ```azurecli
     az logout
@@ -908,7 +906,7 @@ Run the following command.
 ```bash
 export region_code="NOEU"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                                          \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_controlplane.sh                                                                          \
     --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
     --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars
 ```

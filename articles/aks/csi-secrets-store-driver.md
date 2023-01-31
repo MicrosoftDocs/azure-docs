@@ -312,6 +312,9 @@ The following table lists the metrics provided by the Secrets Store CSI Driver:
 |total_rotation_reconcile_error|The total number of rotation reconciles with error|`os_type=<runtime os>`, `rotated=<true or false>`, `error_type=<error code>`|
 |total_rotation_reconcile_error|The distribution of how long it took to rotate secrets-store content for pods|`os_type=<runtime os>`|
 
+## Troubleshooting
+You can find generic troubleshooting steps for the _Azure Key Vault Provider for Secrets Store CSI Driver_ [here](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/)
+
 ## Next steps
 
 Now that you've learned how to use the Azure Key Vault Provider for Secrets Store CSI Driver with an AKS cluster, see [Enable CSI drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers].

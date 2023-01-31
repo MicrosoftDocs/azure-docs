@@ -299,6 +299,17 @@ Inbound access from the `BatchNodeManagement` service tag to the virtual network
 
 Follow these steps to [enable inbound access](/azure/load-testing/how-to-test-private-endpoint#configure-traffic-access) for the `BatchNodeManagement` service tag.
 
+### Creating or updating the load test fails with `Route Table has next hop set for address prefix 0.0.0.0/0`
+
+Your subnet route table has the next hop set type set to **Virtual appliance** for route [0.0.0.0/0](/azure/virtual-network/virtual-networks-udr-overview#default-route). This configuration would cause asymmetric routing for network packets while provisioning the virtual machines in the subnet. 
+
+Perform either of two actions to resolve this error:
+
+- Use a different subnet, which doesn't have custom routes.
+- [Modify the subnet route table](/azure/virtual-network/manage-route-table) and set the next hop type for route 0.0.0.0/0 to **Internet**.
+
+Learn more about [virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview).
+
 ### Creating or updating the load test fails with `Subnet is in a different subscription than resource (ALTVNET011)`
 
 The virtual network isn't in the same subscription and region as your Azure load testing resource. Either move or recreate the Azure virtual network or the Azure load testing resource to the same subscription and region.

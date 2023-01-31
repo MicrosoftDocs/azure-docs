@@ -1,5 +1,5 @@
 ---
-title: Download blobs from Azure Blob Storage by using AzCopy v10 | Microsoft Docs
+title: Download blobs from Azure Blob Storage by using AzCopy v10
 description: This article contains a collection of AzCopy example commands that help you download blobs from Azure Blob Storage. 
 author: normesta
 ms.service: storage

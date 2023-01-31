@@ -23,7 +23,7 @@ An embedding is a special format of data representation that can be easily utili
 To obtain an embedding vector for a piece of text, we make a request to the embeddings endpoint as shown in the following code snippets:
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-06-01-preview\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-12-01\
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{"input": "Sample Document goes here"}'
@@ -49,4 +49,5 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 
 ## Next steps
 
-Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
+* Learn more about using Azure OpenAI and embeddings to perform document search with our [embeddings tutorial](../tutorials/embeddings.md).
+* Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).

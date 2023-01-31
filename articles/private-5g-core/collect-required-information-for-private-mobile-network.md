@@ -30,7 +30,7 @@ Collect all of the following values for the mobile network resource that will re
    |The Azure subscription to use to deploy the mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. You identified this subscription in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
    |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*).                |**Project details: Resource group**|
    |The name for the private mobile network.           |**Instance details: Mobile network name**|
-   |The region in which you're deploying the private mobile network. We recommend you use the East US region.                         |**Instance details: Region**|
+   |The region in which you're deploying the private mobile network. This can be the East US or the West Europe region.                           |**Instance details: Region**|
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
    |The mobile network code for the private mobile network.     |**Network configuration: Mobile network code (MNC)**|
 
@@ -44,10 +44,10 @@ If you want to provision SIMs as part of deploying your private mobile network:
 
 1. Choose one of the following encryption types for the new SIM group to which all of the SIMs you provision will be added:  
 Note that once the SIM group is created, the encryption type cannot be changed.
-    - Microsoft-managed keys (MMK) that Microsoft manages internally for [Encryption at rest](/azure/security/fundamentals/encryption-atrest).
+    - Microsoft-managed keys (MMK) that Microsoft manages internally for [Encryption at rest](../security/fundamentals/encryption-atrest.md).
     - Customer-managed keys (CMK) that you must manually configure.  
-    You must create a Key URI in your [Azure Key Vault](/azure/key-vault/) and a [User-assigned identity](/azure/active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key.
-         - The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
+    You must create a Key URI in your [Azure Key Vault](../key-vault/index.yml) and a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with read, wrap, and unwrap access to the key.
+         - The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](../key-vault/keys/how-to-configure-key-rotation.md).
          - The SIM group accesses the key via the user-assigned identity.
          - For additional information on configuring CMK for a SIM group, see [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk).
 

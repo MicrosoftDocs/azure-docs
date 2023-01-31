@@ -11,10 +11,11 @@ ms.author: duau
 
 # Migrate Azure Front Door (classic) to Standard/Premium tier using the Azure portal (Preview)
 
-> [!NOTE]
-> Migration capability for Azure Front Door is currently in Public Preview without an SLA and isn't recommended for production environments.
-
 Azure Front Door Standard and Premium tier bring the latest cloud delivery network features to Azure. With enhanced security features and an all-in-one service, your application content is secured and closer to your end users with the Microsoft global network. This article will guide you through the migration process to migrate your Front Door (classic) profile to either a Standard or Premium tier profile to begin using these latest features.
+
+> [!IMPORTANT]
+> Migration capability for Azure Front Door is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 

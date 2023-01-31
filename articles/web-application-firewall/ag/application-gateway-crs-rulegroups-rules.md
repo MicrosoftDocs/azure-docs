@@ -5,7 +5,7 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 06/21/2022
+ms.date: 11/08/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -18,7 +18,7 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 The Application Gateway WAF comes pre-configured with CRS 3.2 by default, but you can choose to use any other supported CRS version.
  
-CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
+CRS 3.2 offers a new engine and new rule sets defending against Java injections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 
 > [!div class="mx-imgBorder"]
 > ![Manages rules](../media/application-gateway-crs-rulegroups-rules/managed-rules-01.png)
@@ -52,9 +52,9 @@ When you use CRS, your WAF is configured to use anomaly scoring by default. Traf
 | Warning | 3 |
 | Notice | 2 |
 
-If the anomaly score is 5 or greater, WAF blocks the request.
+If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the request is blocked. If the anomaly score is 5 or greater, and the WAF is in Detection mode, the request is logged but not blocked.
 
-For example, a single *Critical* rule match is enough for the WAF to block a request, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
+For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there is a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
 
 ### OWASP CRS 3.2
 
@@ -144,6 +144,16 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 |**[crs_41_xss_attacks](#crs41xss)**|Protect against cross-site scripting  attacks|
 |**[crs_42_tight_security](#crs42)**|Protect against path-traversal attacks|
 |**[crs_45_trojans](#crs45)**|Protect against backdoor trojans|
+
+### Bot rules
+
+You can enable a managed bot protection rule set to take custom actions on requests from all bot   categories.
+
+|Rule group|Description|
+|---|---|
+|**[BadBots](#bot100)**|Protect against bad bots|
+|**[GoodBots](#bot200)**|Identify good bots|
+|**[UnknownBots](#bot300)**|Identify unknown bots|
 
 The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
@@ -1113,6 +1123,33 @@ The following rule groups and rules are available when using Web Application Fir
 |950110|Backdoor access|
 |950921|Backdoor access|
 |950922|Backdoor access|
+
+# [Bot rules](#tab/bot)
+
+## <a name="bot"></a> Bot Manager rule sets
+
+### <a name="bot100"></a> Bad bots
+|RuleId|Description|
+|---|---|
+|Bot100100|Malicious bots detected by threat intelligence|
+|Bot100200|Malicious bots that have falsified their identity|
+
+### <a name="bot200"></a> Good bots
+|RuleId|Description|
+|---|---|
+|Bot200100|Search engine crawlers|
+|Bot200200|Unverified search engine crawlers|
+
+### <a name="bot300"></a> Unknown bots
+|RuleId|Description|
+|---|---|
+|Bot300100|Unspecified identity|
+|Bot300200|Tools and frameworks for web crawling and attacks|
+|Bot300300|General purpose HTTP clients and SDKs|
+|Bot300400|Service agents|
+|Bot300500|Site health monitoring services|
+|Bot300600|Unknown bots detected by threat intelligence<br />(This rule also includes IP addresses matched to the Tor network.)|
+|Bot300700|Other bots|
 
 ---
 

@@ -5,8 +5,8 @@ ms.service: postgresql
 ms.subservice: migration-guide
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 5/6/2019
 ---
 

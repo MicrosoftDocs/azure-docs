@@ -29,6 +29,16 @@
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Run failback
       href: azure-to-azure-tutorial-failback.md
+  - name: Disaster recovery for Azure Public Multi-Access Edge Compute (MEC) VMs  
+    items:
+    - name: Set up disaster recovery to another region using PowerShell
+      href: tutorial-replicate-vms-edge-zone-to-azure-region.md
+    - name: Set up disaster recovery to another Public MEC using PowerShell 
+      href: tutorial-replicate-vms-edge-zone-to-another-zone.md
+    - name: Set up disaster recovery using the Recovery Services vault
+      href: disaster-recovery-for-edge-zone-vm-tutorial.md
+    - name: Set up disaster recovery when creating a VM
+      href: disaster-recovery-for-edge-zone-via-vm-flow-tutorial.md
   - name: Move to modernized VMware VM disaster recovery
     items:
     - name: Classic to modernized VMware disaster recovery
@@ -111,6 +121,12 @@
   items:
   - name: Common questions about Site Recovery
     href: site-recovery-faq.yml
+  - name: About Backup center
+    items:
+    - name: Backup center overview
+      href: ../backup/backup-center-overview.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
+    - name: Support requirements for Backup center
+      href: ../backup/backup-center-support-matrix.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: About Azure VM disaster recovery
     items:
     - name: Azure to Azure disaster recovery architecture
@@ -127,6 +143,8 @@
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-expressroute.md
+    - name: Azure VM Disaster Recovery - High Churn Support (Public Preview)
+      href: concepts-azure-to-azure-high-churn-support.md
   - name: About moving Azure VMs to another region
     href: azure-to-azure-move-overview.md
   - name: Migrate to availability zone support
@@ -219,6 +237,12 @@
       href: transport-layer-security.md
 - name: How-to Guides
   items:
+  - name: Use Backup center
+    items:
+    - name: Obtain insights
+      href: ../backup/backup-center-obtain-insights.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
+    - name: Perform actions
+      href: ../backup/backup-center-actions.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: Azure to Azure disaster recovery
     items:
     - name: Set up networking
@@ -535,6 +559,8 @@
   items:
   - name: Common questions about monitoring
     href: monitoring-common-questions.md
+  - name: Monitor and operate backups and disaster recovery using Backup center
+    href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: Monitor Site Recovery
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Monitor Site Recovery with Azure Monitor Logs

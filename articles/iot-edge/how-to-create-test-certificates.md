@@ -12,7 +12,7 @@ services: iot-edge
 
 # Create demo certificates to test IoT Edge device features
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 IoT Edge devices require certificates for secure communication between the runtime, the modules, and any downstream devices.
 If you don't have a certificate authority to create the required certificates, you can use demo certificates to try out IoT Edge features in your test environment.
@@ -171,7 +171,7 @@ If you want multiple root CA certificates, be sure to manage them in separate fo
 
 ---
 
-This certificate is required before you can create more certificates for your IoT Edge devices and leaf devices as described in the next sections.
+This certificate is required before you can create more certificates for your IoT Edge devices and downstream devices as described in the next sections.
 
 ## Create identity certificate for the IoT Edge device
 

@@ -13,7 +13,7 @@ monikerRange: "=iotedge-2018-06"
 
 # PowerShell scripts for IoT Edge with Windows containers
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 Understand the PowerShell scripts that install, update, or uninstall IoT Edge on Windows devices.
 

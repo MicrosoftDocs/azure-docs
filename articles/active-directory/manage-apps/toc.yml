@@ -248,6 +248,12 @@
         href: restore-application.md   
   - name: Reference
     items:
+    - name: Application API - Microsoft Graph
+      href: /graph/api/resources/application?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Service principals API - Microsoft Graph
+      href: /graph/api/resources/serviceprincipal?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Manage apps using Microsoft Graph
+      href: /graph/tutorial-applications-basics?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
     - name: Deletion and recovery FAQ
       href: delete-recover-faq.yml
     - name: Admin consent workflow FAQ

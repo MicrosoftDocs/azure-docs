@@ -4,12 +4,12 @@ description: Learn how to categorize, manage, and query for blob objects by usin
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/28/2022
+ms.date: 11/30/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: "devx-track-js"
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Use blob index tags to manage and find data in Azure Blob Storage (JavaScript)
@@ -29,7 +29,7 @@ You can set and get index tags if your code has authorized access by using an ac
 
 #### Set tags
 
-You can set tags at blob upload time or by using the following method:
+To set tags at blob upload time, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method:
 
 - [BlobClient.setTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-settags)
 
@@ -64,7 +64,7 @@ You can delete all tags by passing an empty JSON object into the setTags method.
 
 #### Get tags
 
-You can get tags by using either of the following methods: 
+To get tags, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method: 
 
 - [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags
 )
@@ -105,7 +105,7 @@ The following table shows some query strings:
 |`@container = 'my-container' AND createdBy = 'Jill'`|**Filter by container** and specific property. In this query, `createdBy` is a text match and doesn't indicate an authorization match through Active Directory. |
 
 
-You can find data by using the following method: 
+To find blobs, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method: 
 
 - [BlobServiceClient.findBlobsByTags](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-findblobsbytags)
 

@@ -53,7 +53,7 @@ To create a cache, follow these steps:
 1. Configure your settings for clustering and/or RDB persistence.  
 
     > [!NOTE]
-    > Zone redundancy doesn't support AOF persistence or work with geo-replication currently.
+    > Zone redundancy doesn't support AOF persistence with 2 or more replicas or work with geo-replication currently.
     >
 
 1. Select **Create**.

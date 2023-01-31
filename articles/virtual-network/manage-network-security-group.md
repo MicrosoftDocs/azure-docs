@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/09/2022
+ms.date: 11/16/2022
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -16,7 +16,7 @@ ms.custom: template-how-to, engagement-fy23
 
 Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. To learn more about network security groups, see [Network security group overview](./network-security-groups-overview.md). Next, complete the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial to gain some experience with network security groups.
 
-## Before you begin
+## Prerequisites
 
 If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
 

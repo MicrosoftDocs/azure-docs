@@ -2,7 +2,7 @@
 title: Configure role claim for enterprise Azure AD apps
 description: Learn how to configure the role claim issued in the SAML token for enterprise applications in Azure Active Directory
 services: active-directory
-author: jeevansd
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/11/2021
-ms.author: jeedes
+ms.author: davidmu
 ---
 
 # Configure the role claim issued in the SAML token for enterprise applications

@@ -199,7 +199,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
         empty: none
     ```
 
-8. Run the following commands using **sdutil** to see its working fine.  Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`. If you run into errors with these commands, refer to the [SDUTIL tutorial](/tutorials/tutorial-seismic-ddms-sdutil.md). See [How to generate a refresh token](how-to-generate-refresh-token.md). Once you've generated the token, store it in a place where you'll be able to access it in the future.
+8. Run the following commands using **sdutil** to see its working fine.  Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`. If you run into errors with these commands, refer to the [SDUTIL tutorial](./tutorial-seismic-ddms-sdutil.md). See [How to generate a refresh token](how-to-generate-refresh-token.md). Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
     > [!NOTE]
     > when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
@@ -227,7 +227,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
 
 10. Create the manifest file (otherwise known as the records file)
 
-    ZGY conversion uses a manifest file that you'll upload to your storage account in order to run the conversion. This manifest file is created by using multiple JSON files and running a script. The JSON files for this process are stored [here](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/doc/sample-records/volve). For more information on Volve, such as where the dataset definitions come from, visit [their website](https://www.equinor.com/en/what-we-do/digitalisation-in-our-dna/volve-field-data-village-download.html). Complete the following steps in order to create the manifest file:
+    ZGY conversion uses a manifest file that you'll upload to your storage account in order to run the conversion. This manifest file is created by using multiple JSON files and running a script. The JSON files for this process are stored [here](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/doc/sample-records/volve). For more information on Volve, such as where the dataset definitions come from, visit [their website](https://www.equinor.com/energy/volve-data-sharing). Complete the following steps in order to create the manifest file:
 
     * Clone the [repo](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/) and navigate to the folder doc/sample-records/volve
     * Edit the values in the `prepare-records.sh` bash script. Recall that the format of the legal tag will be prefixed with the Microsoft Energy Data Services instance name and data partition name, so it looks like `<instancename>`-`<datapartitionname>`-`<legaltagname>`.
@@ -316,4 +316,4 @@ OSDU&trade; is a trademark of The Open Group.
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [How to convert segy to ovds](/azure/energy-data-services/how-to-convert-segy-to-ovds)
+> [How to convert segy to ovds](./how-to-convert-segy-to-ovds.md)

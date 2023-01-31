@@ -70,7 +70,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
      - The **Controller** column displays if the controller is enabled or disabled.
 
 
-1. On the **Configuration** tab, to update the **Time Interval**, from the **Time Range** dropdown, select **90 Days**, **60 Days**, or **30 Days**, and then select **Save**.
+1. Select **Save**.
 
 ## View statistical anomaly triggers
 

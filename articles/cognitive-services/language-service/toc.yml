@@ -1131,6 +1131,7 @@ items:
   - name: Multilingual and emoji support
     href: concepts/multilingual-emoji-support.md
   - name: Migrate from LUIS, QnA Maker, and Text Analytics
+    displayName: text analytics, luis, qna
     href: concepts/migrate.md
   - name: Model lifecycle
     href: concepts/model-lifecycle.md

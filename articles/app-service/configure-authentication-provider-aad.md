@@ -103,6 +103,38 @@ To register the app, perform the following steps:
 
 You're now ready to use the Microsoft identity platform for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
+## Additional validations (optional)
+
+The steps defined above allow you to authenticate incoming requests for your Azure AD tenant. This allows anyone within the tenant to access the application, which is fine for many applications. However, some applications need to restrict access further by making authorization decisions. Your application code is often the best place to handle custom authorization logic. However, for common scenarios, the platform provides built-in checks that you can use to limit access.
+
+This section shows how to enable built-in checks using the [App Service authentication V2 API](./configure-authentication-api-version.md). Currently, the only way to configure these built-in checks is via [Azure Resource Manager templates](/azure/templates/microsoft.web/sites/config-authsettingsv2) or the [REST API](/rest/api/appservice/web-apps/update-auth-settings-v2).
+
+Within the API object, the Azure Active Directory identity provider configuration has a `valdation` section that can include a `defaultAuthorizationPolicy` object as in the following structure:
+
+```json
+{
+    "validation": {
+        "defaultAuthorizationPolicy": {
+            "allowedApplications": [],
+            "allowedPrincipals": {
+                "identities": []
+            }
+        }
+    }
+}
+```
+
+| Property                                 | Description |
+|------------------------------------------|-------------|
+| `defaultAuthorizationPolicy`             | A grouping of requirements that must be met in order to access the app. Access is granted based on a logical `AND` over each of its configured properties. When `allowedApplications` and `allowedPrincipals` are both configured, the incoming request must satisfy both requirements in order to be accepted. |
+| `allowedApplications`                    | An allowlist of string application **client IDs** representing the client resource that is calling into the app. When this property is configured as a nonempty array, only tokens obtained by an application specified in the list will be accepted.<br/><br/>This policy evaluates the `appid` or `azp` claim of the incoming token, which must be an access token. See the [Microsoft Identity Platform claims reference]. |
+| `allowedPrincipals`                      | A grouping of checks that determine if the principal represented by the incoming request may access the app. Satisfaction of `allowedPrincipals` is based on a logical `OR` over its configured properties. |
+| `identities` (under `allowedPrincipals`) | An allowlist of string **object IDs** representing users or applications that have access. When this property is configured as a nonempty array, the `allowedPrincipals` requirement can be satisfied if the user or application represented by the request is specified in the list.<br/><br/>This policy evaluates the `oid` claim of the incoming token. See the [Microsoft Identity Platform claims reference]. |
+
+Requests that fail these built-in checks are given an HTTP `403 Forbidden` response.
+
+[Microsoft Identity Platform claims reference]: ../active-directory/develop/access-tokens.md#payload-claims
+
 ## Configure client apps to access your App Service
 
 In the prior section, you registered your App Service or Azure Function to authenticate users. This section explains how to register native client or daemon apps so that they can request access to APIs exposed by your App Service on behalf of users or themselves. Completing the steps in this section is not required if you only wish to authenticate users.

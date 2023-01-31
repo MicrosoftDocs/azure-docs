@@ -87,15 +87,15 @@ Create and assign persistent environment variables for your key and endpoint.
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 ```
 
 ```CMD
-setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 ```CMD
-setx ANOMALY_DETECTOR_DATA_SOURCE "REPLACE_WITH_YOUR_SAS_URL_TO_THE_SAMPLE_ZIP_FILE" 
+setx ANOMALY_DETECTOR_DATA_SOURCE "REPLACE_WITH_YOUR_SAS_URL_TO_THE_SAMPLE_ZIP_FILE"
 ```
 
 # [PowerShell](#tab/powershell)
@@ -184,7 +184,7 @@ print("Get detection result...(it may take a few seconds)")
 while r.summary.status != DetectionStatus.READY and r.summary.status != DetectionStatus.FAILED:
     r = ad_client.get_detection_result(result_id)
     time.sleep(1)
-            
+
 print("Result ID:\t", r.result_id)
 print("Result status:\t", r.summary.status)
 print("Result length:\t", len(r.results))
@@ -222,40 +222,40 @@ Model training complete.
 New Model ID GUID
 Get detection result...(it may take a few seconds)
 Result ID: GUID
-Result status:	 READY
-Result length:	 721
-timestamp: 2021-01-02 12:06:00+00:00, is_anomaly: True , anomaly score: 0.5633, severity: 0.3278, contributor count: 5   
-	correlation changes: series_2  , contribution score: 0.2950
-	correlation changes: series_3  , contribution score: 0.2281
-	correlation changes: series_1  , contribution score: 0.2148
-	correlation changes: series_4  , contribution score: 0.1927
-	correlation changes: series_0  , contribution score: 0.0694
-timestamp: 2021-01-02 12:27:00+00:00, is_anomaly: True , anomaly score: 0.4873, severity: 0.2836, contributor count: 5   
-	correlation changes: series_2  , contribution score: 0.4787
-	correlation changes: series_4  , contribution score: 0.2131
-	correlation changes: series_1  , contribution score: 0.1528
-	correlation changes: series_3  , contribution score: 0.1338
-	correlation changes: series_0  , contribution score: 0.0215
-timestamp: 2021-01-02 13:08:00+00:00, is_anomaly: True , anomaly score: 0.5176, severity: 0.3012, contributor count: 5   
-	correlation changes: series_1  , contribution score: 0.4417
-	correlation changes: series_4  , contribution score: 0.1921
-	correlation changes: series_3  , contribution score: 0.1730
-	correlation changes: series_0  , contribution score: 0.1591
-	correlation changes: series_2  , contribution score: 0.0341
-timestamp: 2021-01-02 13:19:00+00:00, is_anomaly: True , anomaly score: 0.6038, severity: 0.3514, contributor count: 5   
-	correlation changes: series_0  , contribution score: 0.3545
-	correlation changes: series_3  , contribution score: 0.3002
-	correlation changes: series_2  , contribution score: 0.2700
-	correlation changes: series_4  , contribution score: 0.0608
-	correlation changes: series_1  , contribution score: 0.0144
-timestamp: 2021-01-02 13:22:00+00:00, is_anomaly: True , anomaly score: 0.5010, severity: 0.2915, contributor count: 5   
+Result status:     READY
+Result length:     721
+timestamp: 2021-01-02 12:06:00+00:00, is_anomaly: True , anomaly score: 0.5633, severity: 0.3278, contributor count: 5
+    correlation changes: series_2  , contribution score: 0.2950
+    correlation changes: series_3  , contribution score: 0.2281
+    correlation changes: series_1  , contribution score: 0.2148
+    correlation changes: series_4  , contribution score: 0.1927
+    correlation changes: series_0  , contribution score: 0.0694
+timestamp: 2021-01-02 12:27:00+00:00, is_anomaly: True , anomaly score: 0.4873, severity: 0.2836, contributor count: 5
+    correlation changes: series_2  , contribution score: 0.4787
+    correlation changes: series_4  , contribution score: 0.2131
+    correlation changes: series_1  , contribution score: 0.1528
+    correlation changes: series_3  , contribution score: 0.1338
+    correlation changes: series_0  , contribution score: 0.0215
+timestamp: 2021-01-02 13:08:00+00:00, is_anomaly: True , anomaly score: 0.5176, severity: 0.3012, contributor count: 5
+    correlation changes: series_1  , contribution score: 0.4417
+    correlation changes: series_4  , contribution score: 0.1921
+    correlation changes: series_3  , contribution score: 0.1730
+    correlation changes: series_0  , contribution score: 0.1591
+    correlation changes: series_2  , contribution score: 0.0341
+timestamp: 2021-01-02 13:19:00+00:00, is_anomaly: True , anomaly score: 0.6038, severity: 0.3514, contributor count: 5
+    correlation changes: series_0  , contribution score: 0.3545
+    correlation changes: series_3  , contribution score: 0.3002
+    correlation changes: series_2  , contribution score: 0.2700
+    correlation changes: series_4  , contribution score: 0.0608
+    correlation changes: series_1  , contribution score: 0.0144
+timestamp: 2021-01-02 13:22:00+00:00, is_anomaly: True , anomaly score: 0.5010, severity: 0.2915, contributor count: 5
 ```
 
 We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) to help you get started.
 
 ## Clean up resources
 
-If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.2#using-the-environment-provider-and-item-cmdlets&preserve-view=true) you created if you no longer intend to use them.
+If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables#using-the-environment-provider-and-item-cmdlets) you created if you no longer intend to use them.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

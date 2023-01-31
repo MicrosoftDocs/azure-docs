@@ -1,7 +1,7 @@
 ---
 title: Migrating to the latest Device Update for IoT Hub release | Microsoft Docs
 description: Understand how to migrate to latest Device Update for IoT Hub release
-author: EshaShah
+author: eshashah-msft
 ms.author: eshashah
 ms.date: 9/15/2022
 ms.topic: how-to

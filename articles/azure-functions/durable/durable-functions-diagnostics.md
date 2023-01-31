@@ -3,7 +3,7 @@ title: Diagnostics in Durable Functions - Azure
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
 ---
@@ -235,19 +235,17 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ```java
 @FunctionName("FunctionChain")
-public String functionChain(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState,
+public void functionChain(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx,
         ExecutionContext functionContext) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        Logger log = functionContext.getLogger();
-        log.info("Calling F1.");
-        ctx.callActivity("F1").await();
-        log.info("Calling F2.");
-        ctx.callActivity("F2").await();
-        log.info("Calling F3.");
-        ctx.callActivity("F3").await();
-        log.info("Done!");
-    });
+    Logger log = functionContext.getLogger();
+    log.info("Calling F1.");
+    ctx.callActivity("F1").await();
+    log.info("Calling F2.");
+    ctx.callActivity("F2").await();
+    log.info("Calling F3.");
+    ctx.callActivity("F3").await();
+    log.info("Done!");
 }
 ```
 
@@ -356,19 +354,17 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ```java
 @FunctionName("FunctionChain")
-public String functionChain(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState,
+public void functionChain(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx,
         ExecutionContext functionContext) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        Logger log = functionContext.getLogger();
-        if (!ctx.getIsReplaying()) log.info("Calling F1.");
-        ctx.callActivity("F1").await();
-        if (!ctx.getIsReplaying()) log.info("Calling F2.");
-        ctx.callActivity("F2").await();
-        if (!ctx.getIsReplaying()) log.info("Calling F3.");
-        ctx.callActivity("F3").await();
-        log.info("Done!");
-    });
+    Logger log = functionContext.getLogger();
+    if (!ctx.getIsReplaying()) log.info("Calling F1.");
+    ctx.callActivity("F1").await();
+    if (!ctx.getIsReplaying()) log.info("Calling F2.");
+    ctx.callActivity("F2").await();
+    if (!ctx.getIsReplaying()) log.info("Calling F3.");
+    ctx.callActivity("F3").await();
+    log.info("Done!");
 }
 ```
 
@@ -446,19 +442,17 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ```java
 @FunctionName("SetStatusTest")
-public String setStatusTest(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        // ...do work...
+public void setStatusTest(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    // ...do work...
 
-        // update the status of the orchestration with some arbitrary data
-        ctx.setCustomStatus(new Object() {
-            public final double completionPercentage = 90.0;
-            public final String status = "Updating database records";
-        });
-
-        // ...do more work...
+    // update the status of the orchestration with some arbitrary data
+    ctx.setCustomStatus(new Object() {
+        public final double completionPercentage = 90.0;
+        public final String status = "Updating database records";
     });
+
+    // ...do more work...
 }
 ```
 

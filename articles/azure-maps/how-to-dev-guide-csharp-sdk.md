@@ -151,7 +151,7 @@ var client = new MapsSearchClient(credential);
 SearchAddressResult searchResult = client.FuzzySearch( 
     "Starbucks", new FuzzySearchOptions 
     { 
-        Coordinates = new GeoPosition(-122.31, 47.61), 
+        Coordinates = new GeoPosition(-122.34255, 47.61010), 
         Language = SearchLanguage.EnglishUsa 
     }); 
 
@@ -160,8 +160,7 @@ SearchAddressResult searchResult = client.FuzzySearch(
 foreach (var result in searchResult.Results) 
 { 
     Console.WriteLine($""" 
-        * {result.PointOfInterest.Name} 
-          {result.Address.StreetNumber} {result.Address.StreetName} 
+        * {result.Address.StreetNumber} {result.Address.StreetName} 
           {result.Address.Municipality} {result.Address.CountryCode} {result.Address.PostalCode} 
           Coordinate: ({result.Position.Latitude:F4}, {result.Position.Longitude:F4}) 
         """); 
@@ -185,46 +184,36 @@ dotnet run
 You should see a list of Starbucks address and coordinate results:
 
 ```text
-* Starbucks 
-  1600, East Jefferson Street 
-  Seattle US 98122 
-  Coordinate: (47.6065, -122.3110) 
-* Starbucks 
-  800, 12th Avenue 
-  Seattle US 98122
-  Coordinate: (47.6093, -122.3165) 
-* Starbucks 
-  2201, East Madison Street 
-  Seattle US 98112 
-  Coordinate: (47.6180, -122.3036) 
-* Starbucks
-  101, Broadway East 
-  Seattle US 98102 
-  Coordinate: (47.6189, -122.3213) 
-* Starbucks 
-  2300, South Jackson Street 
-  Seattle US 98144 
-  Coordinate: (47.5995, -122.3020) 
-* Starbucks 
-  1600, East Olive Way 
-  Seattle US 98102 
-  Coordinate: (47.6195, -122.3251) 
-* Starbucks 
-  1730, Howell Street 
+* 1912 Pike Place 
   Seattle US 98101 
-  Coordinate: (47.6172, -122.3298) 
-* Starbucks 
-  505, 5Th Ave S 
+  Coordinate: 47.61016, -122.34248 
+* 2118 Westlake Avenue 
+  Seattle US 98121 
+  Coordinate: 47.61731, -122.33782 
+* 2601 Elliott Avenue 
+  Seattle US 98121 
+  Coordinate: 47.61426, -122.35261 
+* 1730 Howell Street 
+  Seattle US 98101 
+  Coordinate: 47.61716, -122.3298 
+* 220 1st Avenue South 
   Seattle US 98104 
-  Coordinate: (47.5977, -122.3285) 
-* Starbucks 
-  121, Lakeside Avenue South 
-  Seattle US 98122 
-  Coordinate: (47.6020, -122.2851) 
-* Starbucks Regional Office 
-  220, 1st Avenue South 
+  Coordinate: 47.60027, -122.3338 
+* 400 Occidental Avenue South 
   Seattle US 98104 
-  Coordinate: (47.6003, -122.3338) 
+  Coordinate: 47.5991, -122.33278 
+* 1600 East Olive Way 
+  Seattle US 98102 
+  Coordinate: 47.61948, -122.32505 
+* 500 Mercer Street 
+  Seattle US 98109 
+  Coordinate: 47.62501, -122.34687 
+* 505 5Th Ave S 
+  Seattle US 98104 
+  Coordinate: 47.59768, -122.32849 
+* 425 Queen Anne Avenue North 
+  Seattle US 98109 
+  Coordinate: 47.62301, -122.3571 
 ```
 
 ## Search an address
@@ -378,6 +367,7 @@ The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 [Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
 
 [authentication]: azure-maps-authentication.md
+[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [.NET standard]: /dotnet/standard/net-standard?tabs=net-standard-2-0
 [Rest API]: /rest/api/maps/
 [.NET Standard versions]: https://dotnet.microsoft.com/platform/dotnet-standard#versions
@@ -391,7 +381,7 @@ The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 [rendering readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Rendering/README.md
 [rendering sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Rendering/samples
 [geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
-[geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.geolocation/README.md
+[geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Geolocation/README.md
 [geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
 [FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
 [Azure.Maps Namespace]: /dotnet/api/azure.maps

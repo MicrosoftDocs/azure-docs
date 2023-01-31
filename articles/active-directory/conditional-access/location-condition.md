@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 01/09/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -78,16 +78,14 @@ If you select **Determine location by IP address (IPv4 only)**, the system will 
 
 If you select **Determine location by GPS coordinates**, the user will need to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system will contact the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
 
-The first time the user is required to share their location from the Microsoft Authenticator app, the user will receive a notification in the app. The user will need to open the app and grant location permissions. 
+The first time the user is required to share their location from the Microsoft Authenticator app, the user will receive a notification in the app. The user will need to open the app and grant location permissions.
 
-For the next 24 hours, if the user is still accessing the resource and granted the app permission to run in the background, the device's location is shared silently once per hour. 
-
-- After 24 hours, the user must open the app and approve the notification. 
-- Users who have number matching or additional context enabled in the Microsoft Authenticator app won't receive notifications silently and must open the app to approve  notifications. 
+Every hour the user is accessing resources covered by the policy they will need to approve a push notification from the app.
  
 Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. 
 
-A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
+> [!NOTE]
+>A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
 
 GPS location doesn't work with [passwordless authentication methods](../authentication/concept-authentication-passwordless.md). 
 
