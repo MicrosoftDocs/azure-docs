@@ -1,9 +1,10 @@
 ---
-title: Connect devices with X.509 certificates in an Azure IoT Central application
-description: How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application
+title: Connect devices with X.509 certificates to your application
+titleSuffix: Azure IoT Central
+description: This article describes how devices can use X.509 certificates to authenticate to your application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2022
+ms.date: 12/14/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -89,7 +90,7 @@ Make a note of the location of these files. You need it later.
 
 1. Open your IoT Central application and navigate to **Permissions**  in the left pane and select **Device connection groups**.
 
-1. Select **+ New** to create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**.
+1. Select **+ New** to create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**. You can create enrollment groups for either IoT devices or IoT Edge devices.
 
 1. In the enrollment group you created, select **Manage primary**.
 
@@ -366,9 +367,9 @@ This section assumes you're using a group enrollment to connect your IoT Edge de
 To connect the IoT Edge device to IoT Central using the X.509 device certificate:
 
 - Copy the device certificate and key files onto your IoT Edge device. In the previous group enrollment example, these files were called **sampleDevice01_key.pem** and **sampleDevice01_cert.pem**.
-- On the IoT Edge device, edit `provisioning` section in the **/etc/iotedge/config.yaml** configuration file as follows:
+- On the IoT Edge device, edit `provisioning` section in the **/etc/aziot/config.toml** configuration file as follows:
 
-    ```yaml
+    ```toml
     # DPS X.509 provisioning configuration
     provisioning:
       source: "dps"
@@ -381,6 +382,17 @@ To connect the IoT Edge device to IoT Central using the X.509 device certificate
         identity_pk: "file:///<path>/sampleDevice01_key.pem"
     #  always_reprovision_on_startup: true
     #  dynamic_reprovisioning: false
+
+    [provisioning]
+    source = "dps"
+    global_endpoint = "https://global.azure-devices-provisioning.net"
+    id_scope = "<SCOPE_ID>"
+    
+    [provisioning.attestation]
+    method = "x509"
+    registration_id = "env-sens-001"
+    identity_pk = "file:///<path>/envSens001_key.pem"
+    identity_cert = "file:///<path>/envSens001_cert.pem"
     ```
 
     > [!TIP]
@@ -389,7 +401,7 @@ To connect the IoT Edge device to IoT Central using the X.509 device certificate
 - Run the following command to restart the IoT Edge runtime:
 
     ```bash
-    sudo systemctl restart iotedge
+    sudo iotedge config apply
     ```
 
 To learn more, see [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](../../iot-edge/how-to-provision-devices-at-scale-linux-x509.md).

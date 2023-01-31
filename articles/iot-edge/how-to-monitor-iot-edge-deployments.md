@@ -4,7 +4,7 @@ description: High-level monitoring including edgeHub and edgeAgent reported prop
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 04/21/2020
+ms.date: 9/22/2022
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 
@@ -12,7 +12,7 @@ services: iot-edge
 ---
 # Monitor IoT Edge deployments
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge provides reporting that lets you monitor real-time information on the modules deployed to your IoT Edge devices. The IoT Hub service retrieves the status from the devices and makes them available to the operator. Monitoring is also important for [deployments made at scale](module-deployment-monitoring.md) that include automatic deployments and layered deployments.
 

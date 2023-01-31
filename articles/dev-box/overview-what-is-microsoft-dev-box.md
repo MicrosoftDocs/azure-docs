@@ -65,10 +65,9 @@ Microsoft Dev Box bridges the gap between development teams and IT, bringing con
         - Require multi-factor authentication (MFA) sign-in.
         - Configure risk-based sign-in policies for Dev Boxes that access sensitive source code and customer data.    
 
-
+[!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 ## Next steps
 
 Start using Microsoft Dev Box:
 - [Quickstart: Configure the Microsoft Dev Box Preview service](./quickstart-configure-dev-box-service.md)
-- [Quickstart: Configure a Microsoft Dev Box Preview project](./quickstart-configure-dev-box-project.md)
 - [Quickstart: Create a Dev Box](./quickstart-create-dev-box.md)

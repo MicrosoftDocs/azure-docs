@@ -5,7 +5,7 @@ description: Learn how to get a PHP app working in Azure, with connection to a M
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 07/22/2022
+ms.date: 01/31/2023
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, devdivchpfy22
 ---
 

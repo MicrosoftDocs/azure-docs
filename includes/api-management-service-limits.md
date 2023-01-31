@@ -33,8 +33,8 @@ ms.custom: Include file
 | Maximum request URL size<sup>9</sup> | 16,384 bytes |
 | Maximum length of URL path segment<sup>10</sup> | 1,024 characters |
 | Maximum size of API schema used by [validation policy](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 MB |
-| Maximum number of [schemas](../articles/api-management/validation-policies.md#schemas-for-content-validation)<sup>10</sup> | 100 |
-| Maximum size of request or response body in [validate-content policy](../articles/api-management/validation-policies.md#validate-content)<sup>10</sup> | 100 KB |
+| Maximum number of [schemas](../articles/api-management/validate-content-policy.md#schemas-for-content-validation)<sup>10</sup> | 100 |
+| Maximum size of request or response body in [validate-content policy](../articles/api-management/validate-content-policy.md)<sup>10</sup> | 100 KB |
 | Maximum number of self-hosted gateways<sup>11</sup> | 25 |
 | Maximum number of active WebSocket connections per unit | 200<sup>12</sup> |
 | Maximum number of tags supported by an API Management resource|15|

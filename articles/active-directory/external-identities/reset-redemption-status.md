@@ -7,10 +7,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/07/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
 ms.collection: engagement-fy23, M365-identity-device-management
@@ -32,7 +32,7 @@ To manage these scenarios previously, you had to manually delete the guest userâ
 
 To reset a user's redemption status, you'll need one of the following roles:
 
-- [Guest Inviter](../roles/permissions-reference.md#guest-inviter) (least privileged)
+- [Helpdesk Administrator](../roles/permissions-reference.md#helpdesk-administrator) (least privileged)
 - [User Administrator](../roles/permissions-reference.md#user-administrator)
 - [Global Administrator](../roles/permissions-reference.md#global-administrator)
 
@@ -76,7 +76,7 @@ If a user wants to sign in using a different email:
 
 ```powershell
 Install-Module Microsoft.Graph
-Select-MgProfile -Name beta
+Select-MgProfile -Name v1.0
 Connect-MgGraph -Scopes "User.ReadWrite.All"
 
 $user = Get-MgUser -Filter "startsWith(mail, 'john.doe@fabrikam.net')"
@@ -93,7 +93,7 @@ New-MgInvitation `
 To use the [Microsoft Graph invitation API](/graph/api/resources/invitation), set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property.
 
 ```json
-POST https://graph.microsoft.com/beta/invitations  
+POST https://graph.microsoft.com/v1.0/invitations  
 Authorization: Bearer eyJ0eX...  
 ContentType: application/json  
 {  

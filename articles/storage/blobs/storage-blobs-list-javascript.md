@@ -88,9 +88,9 @@ async function listBlobsFlatWithPageMarker(containerClient) {
 
   // some options for filtering list
   const listOptions = {
-    includeMetadata: true,
+    includeMetadata: false,
     includeSnapshots: false,
-    includeTags: true,
+    includeTags: false,
     includeVersions: false,
     prefix: ''
   };
@@ -123,9 +123,12 @@ async function listBlobsFlatWithPageMarker(containerClient) {
 The sample output is similar to:
 
 ```console
-Flat listing: 1: a0/blob-0.txt
-Flat listing: 2: a1/blob-1.txt
-Flat listing: 3: a2/blob-2.txt
+Flat listing: 1: a1
+Flat listing: 2: a2
+Flat listing: 3: folder1/b1
+Flat listing: 4: folder1/b2
+Flat listing: 5: folder2/sub1/c
+Flat listing: 6: folder2/sub1/d
 ```
 
 ## Use a hierarchical listing
@@ -138,25 +141,27 @@ The following example lists the blobs in the specified container using a hierarc
 
 ```javascript
 // Recursively list virtual folders and blobs
-async function listBlobHierarchical(containerClient, virtualHierarchyDelimiter='/') {
+// Pass an empty string for prefixStr to list everything in the container
+async function listBlobHierarchical(containerClient, prefixStr) {
 
   // page size - artificially low as example
   const maxPageSize = 2;
 
   // some options for filtering list
   const listOptions = {
-    includeMetadata: true,
+    includeMetadata: false,
     includeSnapshots: false,
-    includeTags: true,
+    includeTags: false,
     includeVersions: false,
-    prefix: ''
+    prefix: prefixStr
   };
 
+  let delimiter = '/';
   let i = 1;
-  console.log(`Folder ${virtualHierarchyDelimiter}`);
+  console.log(`Folder ${delimiter}${prefixStr}`);
 
   for await (const response of containerClient
-    .listBlobsByHierarchy(virtualHierarchyDelimiter, listOptions)
+    .listBlobsByHierarchy(delimiter, listOptions)
     .byPage({ maxPageSize })) {
 
     console.log(`   Page ${i++}`);
@@ -166,9 +171,8 @@ async function listBlobHierarchical(containerClient, virtualHierarchyDelimiter='
 
       // Do something with each virtual folder
       for await (const prefix of segment.blobPrefixes) {
-
-        // build new virtualHierarchyDelimiter from current and next
-        await listBlobHierarchical(containerClient, `${virtualHierarchyDelimiter}${prefix.name}`);
+        // build new prefix from current virtual folder
+        await listBlobHierarchical(containerClient, prefix.name);
       }
     }
 
@@ -184,27 +188,23 @@ async function listBlobHierarchical(containerClient, virtualHierarchyDelimiter='
 The sample output is similar to:
 
 ```console
-Hier listing: Folder /
+Folder /
    Page 1
-Hier listing: Folder /a0/
+        BlobItem: name - a1
+        BlobItem: name - a2
+   Page 2
+Folder /folder1/
    Page 1
-        BlobItem: name - a0/blob-0.txt
-        BlobItem: name - a1/blob-1.txt
-   Page 2
-        BlobItem: name - a2/blob-2.txt
-Hier listing: Folder /a1/
+        BlobItem: name - folder1/b1
+        BlobItem: name - folder1/b2
+Folder /folder2/
    Page 1
-        BlobItem: name - a0/blob-0.txt
-        BlobItem: name - a1/blob-1.txt
-   Page 2
-        BlobItem: name - a2/blob-2.txt
-   Page 2
-Hier listing: Folder /a2/
+Folder /folder2/sub1/
    Page 1
-        BlobItem: name - a0/blob-0.txt
-        BlobItem: name - a1/blob-1.txt
+        BlobItem: name - folder2/sub1/c
+        BlobItem: name - folder2/sub1/d
    Page 2
-        BlobItem: name - a2/blob-2.txt
+        BlobItem: name - folder2/sub1/e
 ```
 
 > [!NOTE]

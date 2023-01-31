@@ -4,11 +4,11 @@ description: Learn how to use the Azure CLI to find image URNs and purchase plan
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 12/9/2022
 author: ebolton-cyber
-ms.author: edewebolton
+ms.author: mattmcinnes
 ms.collection: linux
-ms.custom: contperf-fy21q3-portal, devx-track-azurecli
+ms.custom: contperf-fy21q3-portal, devx-track-azurecli, GGAL-freshness922
 ---
 # Find Azure Marketplace image information using the Azure CLI
 
@@ -29,7 +29,7 @@ A Marketplace image in Azure has the following attributes:
 
 These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest` to use the latest version of the image.
 
-If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Check the purchase plan information](#check-the-purchase-plan-information).
+If the image publisher provides extra license and purchase terms, then you must accept those terms before you can use the image.  For more information, see [Check the purchase plan information](#check-the-purchase-plan-information).
 
 
 
@@ -41,7 +41,7 @@ You can run the [az vm image list --all](/cli/azure/vm/image) to see all of the 
 az vm image list --output table
 ```
 
-The output includes the image URN. You can also use the *UrnAlias* which is a shortened version created for popular images like *UbuntuLTS*.
+The output includes the image URN. You can also use the *UrnAlias*, which is a shortened version created for popular images like *UbuntuLTS*.
 
 ```output
 Offer                         Publisher               Sku                                 Urn                                     UrnAlias                 Version
@@ -79,7 +79,7 @@ az vm image list --offer Debian --all --output table
  
 Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image), [az vm image list-offers](/cli/azure/vm/image), and [az vm image list-skus](/cli/azure/vm/image) commands in sequence. With these commands, you determine these values:
 
-1. List the image publishers for a location. In this example, we are looking at the *West US* region.
+1. List the image publishers for a location. In this example, we're looking at the *West US* region.
     
     ```azurecli
     az vm image list-publishers --location westus --output table
@@ -107,20 +107,20 @@ Another way to find an image in a location is to run the [az vm image list-publi
         --all --output table
     ```
 
-Pass this value of the URN column with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm) command. You can also replace the version number in the URN with "latest", to simply use the latest version of the image. 
+Pass this value of the URN column with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm) command. You can also replace the version number in the URN with "latest", to use the latest version of the image. 
 
 If you deploy a VM with a Resource Manager template, you set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 
 
 ## Check the purchase plan information
 
-Some VM images in the Azure Marketplace have additional license and purchase terms that you must accept before you can deploy them programmatically.  
+Some VM images in the Azure Marketplace have extra license and purchase terms that you must accept before you can deploy them programmatically.  
 
 To deploy a VM from such an image, you'll need to accept the image's terms the first time you use it, once per subscription. You'll also need to specify *purchase plan* parameters to deploy a VM from that image
 
-To view an image's purchase plan information, run the [az vm image show](/cli/azure/image) command with the URN of the image. If the `plan` property in the output is not `null`, the image has terms you need to accept before programmatic deployment.
+To view an image's purchase plan information, run the [az vm image show](/cli/azure/image) command with the URN of the image. If the `plan` property in the output isn't `null`, the image has terms you need to accept before programmatic deployment.
 
-For example, the Canonical Ubuntu Server 18.04 LTS image doesn't have additional terms, because the `plan` information is `null`:
+For example, the Canonical Ubuntu Server 18.04 LTS image doesn't have extra terms, because the `plan` information is `null`:
 
 ```azurecli
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
@@ -206,7 +206,7 @@ az vm image terms accept --urn bitnami:rabbitmq:rabbitmq:latest
 
 With information about the image, you can deploy it using the `az vm create` command. 
 
-To deploy an image that does not have plan information, like the latest Ubuntu Server 18.04 image from Canonical, pass the URN for `--image`:
+To deploy an image that doesn't have plan information, like the latest Ubuntu Server 18.04 image from Canonical, pass the URN for `--image`:
 
 ```azurecli-interactive
 az group create --name myURNVM --location westus
@@ -235,12 +235,12 @@ az vm create \
    --plan-publisher bitnami
 ```
 
-If you get a message about accepting the terms of the image, review section [Accept the terms](#accept-the-terms). Make sure the output of `az vm image accept-terms` returns the value `"accepted": true,` showing that you have accepted the terms of the image.
+If you get a message about accepting the terms of the image, review section [Accept the terms](#accept-the-terms). Make sure the output of `az vm image accept-terms` returns the value `"accepted": true,` showing that you've accepted the terms of the image.
 
 
 ## Using an existing VHD with purchase plan information
 
-If you have an existing VHD from a VM that was created using a paid Azure Marketplace image, you might need to supply the purchase plan information when you create a new VM from that VHD. 
+If you have an existing VHD from a VM that was created using a paid Azure Marketplace image, you might need to give the purchase plan information when creating a new VM from that VHD. 
 
 If you still have the original VM, or another VM created using the same marketplace image, you can get the plan name, publisher, and product information from it using [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view). This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information.
 
@@ -248,7 +248,7 @@ If you still have the original VM, or another VM created using the same marketpl
 az vm get-instance-view -g myResourceGroup -n myVM --query plan
 ```
 
-If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://portal.azure.com/#create/Microsoft.Support). They'll need the VM name, subscription ID and the time stamp of the delete operation.
 
 Once you have the plan information, you can create the new VM using the `--attach-os-disk` parameter to specify the VHD.
 

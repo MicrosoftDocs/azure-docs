@@ -211,4 +211,4 @@ You can check component details and manage the component using CLI (v2). Use `az
 
 ## Next steps
 
-- Try out [CLI v2 component example](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components)
+- Try out [CLI v2 component example](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components)

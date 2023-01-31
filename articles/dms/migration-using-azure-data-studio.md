@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Migrate databases by using the Azure SQL Migration extension for Azure Data Studio
 
-Learn how to use the unified experience in [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) to assess your database requirements, get right-sized SKU recommendations for Azure resources, and migrate your SQL Server database to Azure.
+Learn how to use the unified experience in [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension). Helps you to assess your database requirements, get the right-sized SKU recommendations for Azure resources, and migrate your SQL Server database to Azure.
 
 The Azure SQL Migration extension for Azure Data Studio offers these key benefits:
 
@@ -45,11 +45,11 @@ SQL Server to Azure SQL Database (preview)| [Offline](./tutorial-sql-server-azur
 > [!IMPORTANT]
 > If your target is Azure SQL Database, make sure you deploy the database schema before you begin the migration. You can use tools like the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
 
-The following 16-minute video explains recent updates and features added to the Azure SQL Migration extension for Azure Data Studio, including the new workflow for SQL Server database assessments and SKU recommendations:
+The following video explains recent updates and features added to the Azure SQL Migration extension for Azure Data Studio:
 
 <br />
 
-> [!VIDEO https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=assess-get-recommendations-migrate-sql-server-to-azure-using-azure-data-studio]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=how-to-migrate-sql-server-to-azure-sql-database-offline-using-azure-data-studio-data-exposed]
 
 ## Architecture of the Azure SQL Migration extension for Azure Data Studio
 
@@ -83,6 +83,8 @@ The following list describes each step in the workflow:
 > If your migration target is Azure SQL Database, you don't need backups for this migration. Database migration to Azure SQL Database is considered a logical migration that involves the database's pre-creation and data movement (performed by Database Migration Service).
 
 > [!IMPORTANT]
+> The Azure SQL Migration extension for Azure Data Studio doesn't take database backups, or neither initiate any database backups on your behalf. Instead, the service uses existing database backup files for the migration.
+>
 > In online migration mode, Database Migration Service continuously uploads the backup source files to your Azure storage account and restores them to the target until you complete the final step of cutting over to the target.
 >
 > In offline migration mode, Database Migration Service uploads the backup source files to Azure storage and restores them to the target without requiring a cutover.
@@ -150,11 +152,15 @@ To monitor database migrations in the Azure portal:
   - Server roles
   - Server audit
 
+  For a complete list of metadata and server objects that you need to move, refer to the detailed information available in [Manage Metadata When Making a Database Available on Another Server](/sql/relational-databases/databases/manage-metadata-when-making-a-database-available-on-another-server).
+
 - SQL Server 2008 and earlier as target versions aren't supported for migrations to SQL Server on Azure Virtual Machines.
 
 - If you use SQL Server 2014 or SQL Server 2012, you must store your source database backup files in an Azure storage blob container instead of by using the network share option. Store the backup files as page blobs. Block blobs are supported only in SQL Server 2016 and later versions.
 
 - You can't use an existing self-hosted integration runtime that was created in Azure Data Factory for database migrations with Database Migration Service. Initially, create the self-hosted integration runtime by using the Azure SQL Migration extension for Azure Data Studio. You can reuse that self-hosted integration runtime in future database migrations.
+
+- Azure Data Studio currently supports both Azure Active Directory (Azure AD)/Windows authentication and SQL logins for connecting to the source SQL Server instance. For the Azure SQL targets, only SQL logins are supported.
 
 ## Pricing
 

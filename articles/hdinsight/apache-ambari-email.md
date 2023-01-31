@@ -10,7 +10,10 @@ ms.date: 04/11/2022
 
 # Tutorial: Configure Apache Ambari email notifications in Azure HDInsight
 
-In this tutorial, you'll configure Apache Ambari email notifications using SendGrid. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) simplifies the management and monitoring of an HDInsight cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters, and is used to monitor the cluster and make configuration changes. [SendGrid](https://sendgrid.com/solutions/) is a free cloud-based email service that provides reliable transactional email delivery, scalability, and real-time analytics along with flexible APIs that make custom integration easy. Azure customers can unlock 25,000 free emails each month.
+In this tutorial, you'll configure Apache Ambari email notifications using SendGrid as an example. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) simplifies the management and monitoring of an HDInsight cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters, and is used to monitor the cluster and make configuration changes. [SendGrid](https://sendgrid.com/solutions/) is a free cloud-based email service that provides reliable transactional email delivery, scalability, and real-time analytics along with flexible APIs that make custom integration easy. Azure customers can unlock 25,000 free emails each month.
+
+> [!NOTE]
+> SendGrid is not mandatory to configure Apache Ambari email notifications. You can also use other third party email box. For example, outlook, gmail and so on.
 
 In this tutorial, you learn how to:
 

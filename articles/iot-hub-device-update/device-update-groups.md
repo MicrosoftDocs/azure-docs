@@ -67,7 +67,6 @@ Below are the devices and the possible groups that can be created for them.
 | Device4 | DefaultGroup1-(deviceClassId) |
 
 
-
 ## Next steps
 
 [Create a device group](./create-update-group.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Provision devices for geolatency in Azure IoT Hub Device Provisioning Service
+title: Tutorial - Provision devices for geo latency in Azure IoT Hub Device Provisioning Service
 description: This tutorial shows how to provision devices for geolocation/geolatency with your Device Provisioning Service (DPS) instance
 author: kgremban
 ms.author: kgremban
@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 ---
 
-# Tutorial: Provision for geolatency
+# Tutorial: Provision for geo latency
 
-This tutorial shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). IoT Hub Device Provisioning Service (DPS) supports a variety of allocation scenarios through its built-in allocation policies and its support for custom allocation policies.
+This tutorial shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). IoT Hub Device Provisioning Service (DPS) supports various allocation scenarios through its built-in allocation policies and its support for custom allocation policies.
 
-Provisioning for **Geolocation/ GeoLatency** is a common allocation scenario. As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The built-in **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
+Provisioning for *Geolocation/Geo latency* is a common allocation scenario. As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The built-in **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
 
 This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices across regions. You'll perform the following steps in this tutorial:
 
@@ -33,7 +33,7 @@ This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create two regional IoT hubs
 
@@ -64,9 +64,9 @@ In this section, you'll create an Azure resource group, and two new regional IoT
 
     This command may take a few minutes to complete.
 
-## Create an enrollment for geolatency
+## Create an enrollment for geo latency
 
-In this section, you'll create a new enrollment group for the your devices.  
+In this section, you'll create a new enrollment group for your devices.  
 
 For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
@@ -252,7 +252,7 @@ For each VM:
 
 When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key from the enrollment group key for each device. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments).
 
-In this part of the tutorial, you'll generate a device key from the you group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result will then be converted into Base64 format.
+In this part of the tutorial, you'll generate a device key from the group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result will then be converted into Base64 format.
 
 >[!IMPORTANT]
 >Don't include your group master key in your device code.
@@ -317,7 +317,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Uncomment the function calls, and replace the placeholder values (including the angle brackets) with the unique registration IDs and derived device keys for each device that you derived in the previous section. The keys shown below are for example purposes only. Use the keys you generated earlier.
+    Uncomment the function calls, and replace the placeholder values (including the angle brackets) with the unique registration IDs and derived device keys for each device that you derived in the previous section. The keys shown below are examples. Use the keys you generated earlier.
 
     East US:
     ```c
@@ -403,11 +403,7 @@ To delete the resource group by name:
 
 ## Next steps
 
-* To learn more about reprovisioning, see:
+To learn more about custom allocation policies, see
 
 > [!div class="nextstepaction"]
-> [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
-
-* To learn more about deprovisioning, see
-> [!div class="nextstepaction"]
-> [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)
+> [Understand custom allocation policies](concepts-custom-allocation.md)

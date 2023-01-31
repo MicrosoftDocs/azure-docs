@@ -1,6 +1,5 @@
 ---
-title: Key concepts for new users
-titleSuffix: Azure Load Testing
+title: Key concepts for Azure Load Testing
 description: Learn how Azure Load Testing works, and the key concepts behind it.
 services: load-testing
 ms.service: load-testing

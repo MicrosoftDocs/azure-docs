@@ -60,7 +60,8 @@ The installation wizard starts to run, and you can select the interfaces you wan
 
 Complete the wizard to apply your changes.
 
-For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
+For more information, see [Install OT monitoring software on OT sensors](../how-to-install-software.md).
+
 ## Sample configuration on a Cisco switch
 
 The following code shows a sample `ifconfig` output for ERSPAN configured on a Cisco switch:

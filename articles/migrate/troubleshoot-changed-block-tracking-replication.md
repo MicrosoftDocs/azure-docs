@@ -5,13 +5,13 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: troubleshooting
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
 
 # Troubleshooting replication issues in agentless VMware VM migration
 
-This article describes some common issues and specific errors that you might encounter when you replicate on-premises VMware VMs using the Azure Migrate: Server Migration agentless method.
+This article describes some common issues and specific errors that you might encounter when you replicate on-premises VMware VMs using the Migration and modernization agentless method.
 
 When you replicate a VMware virtual machine using the agentless replication method, data from the virtual machine's disks (vmdks) are replicated to replica managed disks in your Azure subscription. When replication starts for a VM, an initial replication cycle occurs, in which full copies of the disks are replicated. After the initial replication completes, incremental replication cycles are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
 
@@ -232,7 +232,7 @@ The possible causes include:
 
 Error Message: 'Encountered an error while trying to fetch change blocks'
 
-The agentless replication method uses VMware's changed block tracking technology (CBT) to replicate data to Azure. CBT lets Server Migration tool track and replicate only the blocks that have changed since the last replication cycle. This error occurs if changed block tracking for a replicating virtual machine is reset or if the changed block tracking file is corrupt.
+The agentless replication method uses VMware's changed block tracking technology (CBT) to replicate data to Azure. CBT lets the Migration and modernization tool track and replicate only the blocks that have changed since the last replication cycle. This error occurs if changed block tracking for a replicating virtual machine is reset or if the changed block tracking file is corrupt.
 
 This error can be resolved in the following two ways:
 

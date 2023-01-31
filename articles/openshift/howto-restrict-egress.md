@@ -5,18 +5,15 @@ author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 06/02/2022
+ms.date: 12/15/2022
 ---
-# Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)
+# Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster
 
 This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). With the release of the [Egress Lockdown Feature](./concepts-egress-lockdown.md), all of the required connections for a private cluster will be proxied through the service. There are additional destinations that you may want to allow to use features such as Operator Hub, or Red Hat telemetry.  An [example](#private-aro-cluster-setup) will be provided at the end on how to configure these requirements with Azure Firewall. Keep in mind, you can apply this information to Azure Firewall or to any outbound restriction method or appliance.
 
 ## Before you begin
 
 This article assumes that you're creating a new cluster. If you need a basic ARO cluster, see the [ARO quickstart](./tutorial-create-cluster.md).
-
-> [!IMPORTANT]
-> ARO preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. ARO previews are partially covered by customer support on a best-effort basis.
 
 ## Minimum Required FQDN - Proxied through ARO service
 
@@ -43,9 +40,10 @@ The following FQDNs are proxied through the service, and will not need additiona
 
 ## List of optional FQDNs
 
-### INSTALLING AND DOWNLOADING PACKAGES AND TOOLS
+### ADDITIONAL CONTAINER IMAGES
 
 - **`registry.redhat.io`**: Used to provide images for things such as Operator Hub. 
+- **`*.quay.io`**: May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images. If your firewall cannot use wildcards, you can find the [full list of subdomains in the Red Hat documentation.](https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html)
 
 ---
 
@@ -62,7 +60,6 @@ In OpenShift Container Platform, customers can opt out of reporting health and u
 
 ### OTHER POSSIBLE OPENSHIFT REQUIREMENTS
 
-- **`*.quay.io`**: May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images. If your firewall cannot use wildcards, you can find the [full list of subdomains in the Red Hat documentation.](https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html)
 - **`mirror.openshift.com`**: Required to access mirrored installation content and images. This site is also a source of release image signatures.
 - **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is used in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
 - **`api.openshift.com`**: Used by the cluster for release graph parsing. https://access.redhat.com/labs/ocpupgradegraph/ can be used as an alternative.

@@ -18,23 +18,23 @@ ms.author: barclayn
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 
-A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses multiple attestations types produces an issuance flow where claims comes from more than one source. For instance you may be required to present an existing credential and also manually enter values for claims in Microsoft Authenticator.  
+A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses multiple attestations types produces an issuance flow where claims come from more than one source. For instance you may be required to present an existing credential and also manually enter values for claims in Microsoft Authenticator.  
 
-In this how-to guide, we will extend the [Id token hint attestation](how-to-use-quickstart-idtoken.md) example by adding a self attested claim that the user have to enter in the Authenticator during issuance. The issuance request to Verified ID will contain an id token hint with the claim values for `given_name` and `family_name` and a self issued attestation type for claim `displayName` that the user enters themselves.
+In this how-to guide, we will extend the [ID token hint attestation](how-to-use-quickstart-idtoken.md) example by adding a self attested claim that the user has to enter in the Authenticator during issuance. The issuance request to Verified ID will contain an ID token hint with the claim values for `given_name` and `family_name` and a self issued attestation type for claim `displayName` that the user enters themselves.
   
 ## Create a custom credential with multiple attestation types
 
 In the Azure portal, when you select **Add credential**, you get the option to launch two quickstarts. Select **custom credential**, and then select **Next**. 
 
-![Screenshot of the "Issue credentials" quickstart for creating a custom credential.](media/how-to-use-quickstart/quickstart-startscreen.png)
+![Screenshot of the Issue credentials quickstart for creating a custom credential.](media/how-to-use-quickstart/quickstart-startscreen.png)
 
 On the **Create a new credential** page, enter the JSON code for the display and the rules definitions. In the **Credential name** box, give the credential a type name. To create the credential, select **Create**.
 
-![Screenshot of the "Create a new credential" page, displaying JSON samples for the display and rules files.](media/how-to-use-quickstart/quickstart-create-new.png)
+![Screenshot of the Create a new credential page, displaying JSON samples for the display and rules files.](media/how-to-use-quickstart/quickstart-create-new.png)
 
 ## Sample JSON display definitions
 
-The JSON display definition has one extra claim named **displayName** compared to the [Id token hint display definition](how-to-use-quickstart-idtoken.md#sample-json-display-definitions). 
+The JSON display definition has one extra claim named **displayName** compared to the [ID token hint display definition](how-to-use-quickstart-idtoken.md#sample-json-display-definitions). 
 
 ```json
 {
@@ -76,7 +76,7 @@ The JSON display definition has one extra claim named **displayName** compared t
 
 ## Sample JSON rules definitions
 
-The JSON rules definition contains two different attestations that instructs the Authenticator to get claim values from two different sources. The issuance request to the Request Service API provides the values for the claims **given_name** and **family_name** to satisfy the **idTokenHints** attestation. The user will be requested to enter the claim value for **displayName** in the Authenticator during issuance. 
+The JSON rules definition contains two different attestations that instruct the Authenticator to get claim values from two different sources. The issuance request to the Request Service API provides the values for the claims **given_name** and **family_name** to satisfy the **idTokenHints** attestation. The user will be requested to enter the claim value for **displayName** in the Authenticator during issuance. 
 
 ```json
 {

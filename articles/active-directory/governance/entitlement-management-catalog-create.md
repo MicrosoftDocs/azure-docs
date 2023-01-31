@@ -1,6 +1,6 @@
 ---
 title: Create and manage a catalog of resources in entitlement management - Azure AD
-description: Learn how to create a new container of resources and access packages in Microsoft Entra entitlement management.
+description: Learn how to create a new container of resources and access packages in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 8/31/2021
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about the options available for creating and managing a catalog so that I can most effectively use catalogs in my organization.
 
 ---
-# Create and manage a catalog of resources in Microsoft Entra entitlement management
+# Create and manage a catalog of resources in entitlement management
 
-This article shows you how to create and manage a catalog of resources and access packages in Microsoft Entra entitlement management.
+This article shows you how to create and manage a catalog of resources and access packages in entitlement management.
 
 ## Create a catalog
 
@@ -138,7 +138,7 @@ To require attributes for access requests:
 1. If you chose **Built-in**, select an attribute from the dropdown list. If you chose **Directory schema extension**, enter the attribute name in the text box.
 
     > [!NOTE]
-    > The User.mobilePhone attribute can be updated only for non-administrator users. Learn more at [this website](/graph/permissions-reference#remarks-5).
+    > The User.mobilePhone attribute is a sensitive property that can be updated only by some administrators. Learn more at [Who can update sensitive user attributes?](/graph/api/resources/users#who-can-update-sensitive-attributes).
 
 1.	Select the answer format you want requestors to use for their answer. Answer formats include **short text**, **multiple choice**, and **long text**.
 

@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: juliakm
 ms.author: jukullam
+ms.reviewer: larryfr
 ms.date: 11/11/2022
 ms.topic: how-to
 ms.custom: devops-pipelines-deploy
