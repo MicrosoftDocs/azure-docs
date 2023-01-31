@@ -82,7 +82,7 @@ For a price decrease to a Software as a service offer to take effect on the firs
 
 For a price increase to a Software as a service offer to take effect on the first of a future month, 90 days out, publish the price change at least four days before the end of the current month.
 > [!Note]
-> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](/azure/marketplace/marketplace-geo-availability-currencies#how-we-convert-currency).
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](./marketplace-geo-availability-currencies.md#how-we-convert-currency).
 ## Changing the flat fee of a SaaS or Azure app offer
 
 To update the monthly or yearly price of a SaaS or Azure app offer:

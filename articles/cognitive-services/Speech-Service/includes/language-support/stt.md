@@ -23,7 +23,7 @@ ms.author: eur
 | `ar-LY` | Arabic (Libya) | Plain text |
 | `ar-MA` | Arabic (Morocco) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `ar-OM` | Arabic (Oman) | Plain text |
-| `ar-PS` | Arabic (Palestinian Territories) | Plain text |
+| `ar-PS` | Arabic (Palestinian Authority) | Plain text |
 | `ar-QA` | Arabic (Qatar) | Plain text |
 | `ar-SA` | Arabic (Saudi Arabia) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `ar-SY` | Arabic (Syria) | Plain text |
@@ -33,7 +33,7 @@ ms.author: eur
 | `bg-BG` | Bulgarian (Bulgaria) | Plain text |
 | `bn-IN` | Bengali (India) | Plain text |
 | `bs-BA` | Bosnian (Bosnia and Herzegovina) | Plain text |
-| `ca-ES` | Catalan (Spain) | Plain text<br/><br/>Pronunciation |
+| `ca-ES` | Catalan | Plain text<br/><br/>Pronunciation |
 | `cs-CZ` | Czech (Czechia) | Plain text<br/><br/>Pronunciation |
 | `cy-GB` | Welsh (United Kingdom) | Plain text |
 | `da-DK` | Danish (Denmark) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |

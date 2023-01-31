@@ -166,16 +166,15 @@ Currently, the only external resource that a search service writes customer data
 
 ### Exceptions to data residency commitments
 
-Although customer data isn't stored outside of your region, object names (considered as customer data), will appear in the telemetry logs used by Microsoft Support to troubleshoot your service issues. Telemetry logs include names of indexes, indexers, data sources, skillsets, containers, and key vault store.
+Object names will be stored and processed outside of your selected region or location. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. This data will appear in the telemetry logs used by Microsoft to provide support for the service. Object names include names of indexes, indexers, data sources, skillsets, containers, and key vault store.
 
->[!IMPORTANT]
->Object names aren't obfuscated in the telemetry logs. If possible, please avoid using names that convey sensitive information.
-
-Telemetry logs are retained for one and a half years. During that period, support engineers might access and reference object names under the following conditions:
+Telemetry logs are retained for one and a half years. During that period, Microsoft might access and reference object names under the following conditions:
 
 + Diagnose an issue, improve a feature, or fix a bug. In this scenario, data access is internal only, with no third-party access.
 
-+ Proactively suggest to the original customer a workaround or alternative. For example, "Based on your usage of the product, consider using `<feature name>` since it would perform better." In this scenario, Microsoft might expose an object name through dashboards visible to the customer.
++ During support, this information may be used to make suggestions to the customer. For example, "Based on your usage of the product, consider using `<feature name>` since it would perform better." 
+
++ Microsoft might expose an object name in dashboards visible to the customer.
 
 Upon request, Microsoft can shorten the retention interval or remove references to specific objects in the telemetry logs. Remember that if you request data removal, Microsoft won't have a full history of your service, which could impede troubleshooting of the object in question.
 

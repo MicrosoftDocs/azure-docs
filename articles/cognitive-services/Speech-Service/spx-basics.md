@@ -149,7 +149,7 @@ spx synthesize --voices
 Here's a command for using one of the voices you've discovered.
 
 ```console
-spx synthesize --text "Bienvenue chez moi." --voice fr-CA-Caroline --speakers
+spx synthesize --text "Bienvenue chez moi." --voice fr-FR-AlainNeural --speakers
 ```
 
 > [!TIP]

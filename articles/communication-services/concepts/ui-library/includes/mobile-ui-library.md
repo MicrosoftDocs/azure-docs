@@ -13,28 +13,28 @@ ms.custom: kr2b-contr-experiment
 
 *Composites* are turn-key solutions that implement common communication scenarios. You can add video calling experiences to your applications. Composites are open-source higher-order components that developers can take advantage of to reduce development time and engineering complexity.
 
-## Composites Overview
+## Composites overview
 
 | Composite | Use Cases |
 | :-------- | :-------- |
 | [CallComposite](../../../quickstarts/ui-library/get-started-composites.md)  | Calling experience that allows users to start or join a call. Inside the experience, users can configure their devices, participate in the call with video, and see other participants, including those ones with video turned on. For Teams interoperability, `CallComposite` includes lobby functionality so that users can wait to be admitted. |
 | [ChatComposite](../../../quickstarts/ui-library/get-started-chat-ui-library.md)  | The `ChatComposite` brings a real-time text messaging experience to users. Specifically, users can send and receive a chat message with events from typing indicators and read receipt. In addition, users can also receive system messages such as participant added or removed and changes to chat title. |
 
-## Composites Scenarios for Calling
+## Composites scenarios for calling
 
-### Joining a Video/Audio Call
+### Joining a video/audio call
 
 Users can join a call using the *Teams meeting URL* or they can set up an Azure Communication Services Call. This approach offers a simpler experience, just like the Teams application.
 
 :::image type="content" source="../../media/mobile-ui/android-composite.gif" alt-text="Gif animation shows the pre-meeting experience and joining experience on Android.":::
 
-### Pre-call Experience
+### Pre-call experience
 
 As a participant of the call, you can provide a name and set up a default configuration for audio and video devices. Then you're ready to jump into the call.
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Screenshot shows the pre-meeting experience, a page with a message for the participant.":::
 
-### Call Experience
+### Call experience
 
 The calling composite provides an end-to-end experience, optimizes development time, and focuses on clean layout.  
 
@@ -42,19 +42,19 @@ The calling composite provides an end-to-end experience, optimizes development t
 
 The calling experience provides all these capabilities in one composite component, providing a clear path without complex code, which leads to faster development time.
 
-### Quality and Security
+### Quality and security
 
 Mobile composites for calling are initialized using [Azure Communication Services access tokens](../../../quickstarts/access-tokens.md).
 
-### More Details
+### More details
 
 If you need more details about mobile composites for calling, see [use cases](../ui-library-use-cases.md#calling-use-cases).
 
-## Composites Scenarios for Chat
+## Composites scenarios for chat
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 
-### Chat Experience
+### Chat experience
 
 The `ChatComposite` delivers real time text messaging experiences. With the flexibility and scalability in mind, the `ChatComposite` can adapt to different layout or views from your applications without complexibility. You could also choose to not have the `ChatComposite` view shown and only receive notifications to meet your different business needs. 
 
@@ -63,11 +63,11 @@ The `ChatComposite` delivers real time text messaging experiences. With the flex
 | :::image type="content" source="../../media/mobile-ui/ios-chat-composite.gif" alt-text="Gif animation shows the chat experience on iOS."::: | :::image type="content" source="../../media/mobile-ui/android-chat-composite.gif" alt-text="Gif animation shows the chat experience on Android.":::  |
 
 
-### Quality and Security
+### Quality and security
 
 Similar to the `CallComposite`, the `ChatComposite` also utilizes [Azure Communication Services access tokens](../../../quickstarts/access-tokens.md). To ensure only users with appropriate permission can access chat, their user tokens need to be added into a valid [chat thread](../../../quickstarts/chat/get-started.md) prior to starting the Chat experience. 
 
-### More Details
+### More details
 
 If you need more details about mobile composites for chat, see [use cases](../ui-library-use-cases.md#chat-use-cases).
 

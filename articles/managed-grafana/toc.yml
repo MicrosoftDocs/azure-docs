@@ -35,9 +35,9 @@ items:
     href: how-to-permissions.md
   - name: Create a dashboard
     href: how-to-create-dashboard.md
-  - name: Share a Managed Grafana instance
+  - name: Share an Azure Managed Grafana instance
     href: how-to-share-grafana-workspace.md
-  - name: Monitor a Managed Grafana instance
+  - name: Monitor Azure Managed Grafana
     href: how-to-monitor-managed-grafana-workspace.md
   - name: Use service accounts
     href: how-to-service-accounts.md
@@ -47,7 +47,7 @@ items:
     href: how-to-enable-zone-redundancy.md
   - name: Use deterministic outbound IPs
     href: how-to-deterministic-ip.md
-  - name: Subscribe to a Grafana Enterprise plan
+  - name: Enable Grafana Enterprise
     href: how-to-grafana-enterprise.md
   - name: Transition to grafana.azure.com domain
     href: how-to-transition-domain.md
