@@ -114,10 +114,6 @@ After following the steps to [download and import certificate](data-box-deploy-c
 
 1. Configure the Ethernet adapter on the laptop you are using to connect to the device with a static IP address of 192.168.100.5 and subnet 255.255.255.0. 
 1. Connect to MGMT port of your device and access its local web UI at https\://192.168.100.10. This may take up to 5 minutes after you turned on the device.
-1. Click **Details** and then click **Go on to the webpage**.
-
-   ![Connect to local web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
-
 1. You see a **Sign in** page for the local web UI. Ensure that the device serial number matches across both the portal UI and the local web UI. The device is locked at this point.
 
 1. [!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
