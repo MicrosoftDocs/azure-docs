@@ -57,7 +57,7 @@ Azure File Sync is a cloud service, which continuously introduces new features a
 - Major agent versions are supported for at least six months from the date of initial release.
 - We guarantee there is an overlap of at least three months between the support of major agent versions. 
 - Warnings are issued for registered servers using a soon-to-be expired agent at least three months prior to expiration. You can check if a registered server is using an older version of the agent under the registered servers section of a Storage Sync Service.
-- The lifetime of a minor agent version is bound to the associated major version. For example, when agent version 12.0.0.0 is set to expire, agent versions 12.\*.\*.\* will all be set to expire together.
+- The lifetime of a minor agent version is bound to the associated major version. For example, when agent version 14.0.0.0 is set to expire, agent versions 14.\*.\*.\* will all be set to expire together.
 
 > [!Note]
 > Installing an agent version with an expiration warning will display a warning but succeed. Attempting to install or connect with an expired agent version is not supported and will be blocked.
