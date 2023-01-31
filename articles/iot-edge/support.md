@@ -201,7 +201,7 @@ IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see 
 
 ## Virtual Machines
 
-Azure IoT Edge can be run in virtual machines, such as an [Azure Virtual Machine](https://azure.microsoft.com/free/virtual-machines/). Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. The family of the host VM OS must match the family of the guest OS used inside a module's container. This requirement is the same as when Azure IoT Edge is run directly on a device. Azure IoT Edge is agnostic of the underlying virtualization technology and works in VMs powered by platforms like Hyper-V and vSphere.
+Azure IoT Edge can be run in virtual machines, such as an [Azure Virtual Machine](../virtual-machines/index.yml). Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. The family of the host VM OS must match the family of the guest OS used inside a module's container. This requirement is the same as when Azure IoT Edge is run directly on a device. Azure IoT Edge is agnostic of the underlying virtualization technology and works in VMs powered by platforms like Hyper-V and vSphere.
 
 <br>
 
