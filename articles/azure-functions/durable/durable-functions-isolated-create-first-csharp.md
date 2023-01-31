@@ -149,7 +149,7 @@ There are other storage options you can use for your Durable Functions app. See 
 
 ## Test the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.
+Azure Functions Core Tools lets you run an Azure Functions project locally. You're prompted to install these tools the first time you start a function from Visual Studio Code.
 
 1. To test your function, set a breakpoint in the `SayHello` activity function code and press <kbd>F5</kbd> to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
