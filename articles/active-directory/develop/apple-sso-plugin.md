@@ -277,7 +277,7 @@ If an application prompts your users to sign in even though the Microsoft Enterp
 
 Apps that use MSAL will always invoke SSO extension natively for interactive requests. On some iOS devices, it might be not desirable. Specifically, if the user also needs to complete the multi-factor authentication inside the Microsoft Authenticator app, an interactive redirect to that app might provide a better user experience. 
 
-This behavior can be configured using the `disable_inapp_sso_signin` flag. If this flag is enabled, apps that use a Microsoft Authentication Library will redirect to the Microsoft Authenticator app for all interactive requests. This flag will not impact silent token requests from those apps, behavior of apps that don't use a Microsoft Authentication Library, or macOS apps. This flag is disabled by default. 
+This behavior can be configured using the `disable_inapp_sso_signin` flag. If this flag is enabled, apps that use MSAL will redirect to the Microsoft Authenticator app for all interactive requests. This flag will not impact silent token requests from those apps, behavior of apps that don't use MSAL, or macOS apps. This flag is disabled by default. 
 
 - **Key**: `disable_inapp_sso_signin`
 - **Type**: `Integer`
