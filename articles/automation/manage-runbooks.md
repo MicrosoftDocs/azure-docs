@@ -3,7 +3,7 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/02/2021
+ms.date: 01/16/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -215,6 +215,100 @@ If your runbook normally runs within a time constraint, have the script implemen
 
 > [!NOTE]
 > The local time on the Azure sandbox process is set to UTC. Calculations for date and time in your runbooks must take this fact into consideration.
+
+## Retry logic in runbook to avoid transient failures
+
+Runbooks often make calls to remote systems such as Azure via ARM, Azure Resource Graph, SQL services and other web services.
+When the system that the runbooks are calling is busy, temporary unavailable or implementing throttling under load, the calls are vulnerable to have runtime errors. To build resiliency in the runbooks, you must implement retry logic when making the calls so that the runbooks can handle a transient problem without failing. 
+
+For more information, refer [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) and [General REST and retry guidelines](https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific#general-rest-and-retry-guidelines).
+
+### Example 1: If your runbook makes only one or two calls
+
+```powershell
+$searchServiceURL = "https://$searchServiceName.search.windows.net"
+$resource = Get-AzureRmResource -ResourceType "Microsoft.Search/searchServices" -ResourceGroupName $searchResourceGroupName -ResourceName  $searchServiceName -ApiVersion 2015-08-19
+$searchAPIKey = (Invoke-AzureRmResourceAction -Action listAdminKeys -ResourceId $resource.ResourceId -ApiVersion 2015-08-19 -Force).PrimaryKey
+```
+When you call `Invoke-AzureRmResourceAction`, you may observe transient failures. In such scenario, we recommend that you implement the following basic pattern around the call to the cmdlet.
+
+```powershell
+$searchServiceURL = "https://$searchServiceName.search.windows.net"
+$resource = Get-AzureRmResource -ResourceType "Microsoft.Search/searchServices" -ResourceGroupName $searchResourceGroupName -ResourceName  $searchServiceName -ApiVersion 2015-08-19
+
+    # Adding in a retry
+    $Stoploop = $false
+    $Retrycount = 0
+ 
+    do {
+        try   {
+               $searchAPIKey = (Invoke-AzureRmResourceAction -Action listAdminKeys -ResourceId $resource.ResourceId -ApiVersion 2015-08-19 -Force).PrimaryKey
+               write-verbose "Invoke-AzureRmResourceAction on $resource.ResourceId completed"
+               $Stoploop = $true
+              }
+        catch {
+               if ($Retrycount -gt 3)
+                 {
+                  Write-verbose "Could not Invoke-AzureRmResourceAction on $resource.ResourceId after 3 retrys."
+                  $Stoploop = $true
+                 }
+               else  
+                 {
+                  Write-verbose "Could not Invoke-AzureRmResourceAction on $resource.ResourceId retrying in 30 seconds..."
+                  Start-Sleep -Seconds 30
+                  $Retrycount = $Retrycount + 1
+                 }
+               }
+        }
+    While ($Stoploop -eq $false)
+```
+>[!NOTE]
+>The attempt to retry the call is up to three times, sleeping for 30 seconds each time.
+
+### Example 2 : If the runbook is making frequent remote calls
+
+If the runbook is making frequent remote calls then it could experience transient runtime issues. Create a function that implements the retry logic for each call that is made and pass the call to be made in as a script block to execute.
+
+```powershell
+Function ResilientRemoteCall {
+
+         param(
+               $scriptblock
+               )
+        
+         $Stoploop = $false
+         $Retrycount = 0
+ 
+         do {
+             try   {
+                    Invoke-Command -scriptblock $scriptblock 
+                    write-verbose "Invoked $scriptblock completed"
+                    $Stoploop = $true
+                   }
+             catch {
+                    if ($Retrycount -gt 3)
+                      {
+                       Write-verbose "Invoked $scriptblock failed 3 times and we will not try again."
+                       $Stoploop = $true
+                      }
+                    else  
+                      {
+                       Write-verbose "Invoked $scriptblock failed  retrying in 30 seconds..."
+                       Start-Sleep -Seconds 30
+                       $Retrycount = $Retrycount + 1
+                      }
+                    }
+             }
+         While ($Stoploop -eq $false)
+}
+```
+
+You can then pass each remote call into the function as </br>
+
+`ResilientRemoteCall { Get-AzVm }` </br> or </br>
+
+`ResilientRemoteCall { $searchAPIKey = (Invoke-AzureRmResourceAction -Action listAdminKeys -ResourceId $resource.ResourceId -ApiVersion 2015-08-19 -Force).PrimaryKey}`
+
 
 ## Work with multiple subscriptions
 

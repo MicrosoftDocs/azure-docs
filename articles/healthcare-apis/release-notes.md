@@ -2,23 +2,69 @@
 title: Azure Health Data Services monthly releases
 description: This article provides details about the Azure Health Data Services monthly features and enhancements.
 services: healthcare-apis
-author: judegnan
+author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/09/2022
+ms.date: 01/25/2023
 ms.author: mikaelw
 ms.custom: references_regions
 ---
 
 # Release notes: Azure Health Data Services
 
->[!Note]
+>[Note]
 > Azure Health Data Services is Generally Available. 
 >
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
+## December 2022
+
+### Azure Health Data Services
+
+**Azure Health Data services General Available (GA) in new regions**
+
+General availability (GA) of Azure Health Data services in France Central, North Central US and Qatar Central Regions.
+
+   
+### DICOM service
+
+
+ **DICOM Events available in public preview**
+
+Azure Health Data Services [Events](events/events-overview.md) now include a public preview of [two new event types](events/events-message-structure.md#dicom-events-message-structure) for the DICOM service.  These new event types enable applications that use Event Grid to use event-driven workflows when DICOM images are created or deleted.
+
+
+## November 2022
+### FHIR service
+
+**Fixed the Error generated when resource is updated using if-match header and PATCH**
+
+Bug is now fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
+
+
+### Toolkit and Samples Open Source
+
+
+**Azure Health Data Services Toolkit is released**
+
+The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit), which was previously in a pre-release state, is now in **Public Preview** . The toolkit is open-source project and allows customers to more easily customize and extend the functionality of their Azure Health Data Services implementations. The NuGet packages of the toolkit are available for download from the NuGet gallery, and you can find links to them from the repo documentation. 
+
+## October 2022
+### MedTech service
+
+
+ **Added Deploy to Azure button**
+
+ Customers can now deploy the MedTech service fully, including Event Hubs, AHDS workspace, FHIR service, MedTech service, and managed identity roles, all by clicking the "Deploy to Azure" button. [Deploy the MedTech service using an Azure Resource Manager template](./iot/deploy-new-arm.md)
+
+
+
+**Added the Dropped Event Metrics**
+
+Customers can now determine if their mappings are working as intended, as they can now see dropped events as a metric to ensure that data is flowing through accurately. 
+
 
 ## September 2022
 
@@ -443,4 +489,4 @@ For information about the features and bug fixes in Azure API for FHIR, see
 >[!div class="nextstepaction"]
 >[Release notes: Azure API for FHIR](./azure-api-for-fhir/release-notes.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

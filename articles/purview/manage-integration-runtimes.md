@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/31/2023
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -117,7 +117,9 @@ You can register multiple nodes for a self-hosted integration runtime using the 
 
 You can edit a self-hosted integration runtime by navigating to **Integration runtimes** in the Microsoft Purview governance portal, hover on the IR then select the **Edit** button. 
 
-In the **Settings** tab, you can update the description, copy the key, or regenerate new keys. In the **Nodes** tab, you can manage the registered nodes. And in the **Version** tab, you can see the IR version status.
+- In the **Settings** tab, you can update the description, copy the key, or regenerate new keys. 
+- In the **Nodes** tab, you can see a list of the registered nodes, along with the status, IP address, and the option of node deletion. Learn more from [High availability and scalability](#high-availability-and-scalability).
+- In the **Version** tab, you can see the IR version status. Learn more from [Self-hosted integration runtime auto-update and expire notification](self-hosted-integration-runtime-version.md).
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="edit IR details.":::
 
@@ -127,7 +129,7 @@ You can delete a self-hosted integration runtime by navigating to **Integration 
 
 If you move your cursor over the icon or message in the notification area, you can see details about the state of the self-hosted integration runtime.
 
-:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::||
+:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::
 
 ### Service account for Self-hosted integration runtime
 
