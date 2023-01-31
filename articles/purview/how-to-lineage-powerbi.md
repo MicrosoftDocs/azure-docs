@@ -60,6 +60,7 @@ The following is an example of column lineage and transformation inside of Power
 * Few measures aren't shown in the sub-artifact lineage, for example, `COUNTROWS`.
 * In the lineage graph, when selecting measure that is derived by columns using COUNT function, underlying column isn't selected automatically. Check the measure expression in the column properties tab to identify the underlying column.
 * If you used to scan Power BI before sub-artifact lineage is supported, you may see a database asset along with the new table assets in the lineage graph, which isn't removed.
+* In case you have the dataset table connected to another dataset table, when the middle dataset disables "Enable load" option inside the Power BI desktop, the lineage cannot be extracted.
 
 ## Next steps
 
