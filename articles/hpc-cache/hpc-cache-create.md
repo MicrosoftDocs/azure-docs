@@ -122,7 +122,7 @@ This table explains important differences among the three cache types.
 | Attribute | Read-Write Standard Caching | Read-Only Caching | Read-Write Premium Caching |
 |--|--|--|--|
 | Throughput sizes | 2, 4, or 8 GB/sec | 4.5, 9, or 16 GB/sec | 5, 10, or 20 GB/sec |
-| Cache sizes | 3, 6, or 12 TB for 2 GB/sec<br/> 6, 12, or 24 TB for 4 GB/sec<br/> 12, 24, or 48 TB for 8 GB/sec| 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec | 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec |
+| Cache sizes | 3, 6, or 12 TB for 2 GB/sec<br/> 6, 12, or 24 TB for 4 GB/sec<br/> 12, 24, or 48 TB for 8 GB/sec| 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec | 21 TB for 5 GB/sec <br/> 42 TB for 10 GB/sec <br/> 84 TB for 20 GB/sec |
 | Compatible storage target types | Azure Blob <br/> NFS (on-premises)<br />ADLS-NFS (NFSv3-enabled Azure Blob) | NFS (on-premises)<br />ADLS-NFS (NFSv3-enabled Azure Blob) | Azure Blob <br/> NFS (on-premises)<br />ADLS-NFS (NFSv3-enabled Azure Blob) |
 | Caching styles | Read caching or read-write caching | Read caching only | Read-write caching |
 | Cache can be stopped to save cost when not needed | Yes | No | No |
