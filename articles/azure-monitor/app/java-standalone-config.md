@@ -692,6 +692,8 @@ Starting from version 3.0.3, you can change this interval:
 }
 ```
 
+Starting from 3.4.9 GA, you can also set the `metricIntervalSeconds` by using the environment variable `APPLICATIONINSIGHTS_METRIC_INTERVAL_SECONDS`. It then takes precedence over the `metricIntervalSeconds` specified in the JSON configuration.
+
 The setting applies to the following metrics:
 
 * **Default performance counters**: For example, CPU and memory
