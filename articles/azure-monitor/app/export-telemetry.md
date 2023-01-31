@@ -219,7 +219,7 @@ For export samples, see:
 
 On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) Hadoop clusters in the cloud. HDInsight provides various technologies for managing and analyzing big data. You can use it to process data that's been exported from Application Insights.
 
-## Q & A
+## Frequently asked questions
 
 This section provides answers to common questions.
 

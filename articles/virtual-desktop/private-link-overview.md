@@ -46,7 +46,7 @@ The public preview of using Private Link with Azure Virtual Desktop has the foll
 
 - You'll need to [re-register your resource provider](private-link-setup.md#re-register-your-resource-provider) in order to use Private Link.
 
-- You can't use the [manual connection approval method](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow) when using Private Link with Azure Virtual Desktop. We're aware of this issue and are working on fixing it.
+- You can't use the [manual connection approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) when using Private Link with Azure Virtual Desktop. We're aware of this issue and are working on fixing it.
 
 - All Azure Virtual Desktop clients are compatible with Private Link, but we currently only offer troubleshooting support for the web client version of Private Link.
 

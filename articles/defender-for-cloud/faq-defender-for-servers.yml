@@ -1,82 +1,82 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ — Microsoft Defender for Servers
-  description: This article provides answers to common questions about Microsoft Defender for Servers.
+  title: FAQ for Microsoft Defender for Servers
+  description: Get answers to common questions about Microsoft Defender for Servers.
   ms.topic: faq
   ms.service: defender-for-cloud
   author: bmansheim
   ms.author: benmansheim
   ms.date: 11/29/2022
-title: Frequently asked questions – Defender for Servers
-summary: This article answers common questions about Microsoft Defender for Servers.
+title: Frequently asked questions for Defender for Servers
+summary: Get answers to common questions about Microsoft Defender for Servers.
 
 
 sections:
   - name: Ignored
     questions:
       - question: |
-          Can I enable on a subset of machines in a subscription?
+          Can I enable Defender for Servers on a subset of machines in a subscription?
         answer: |
-          No. When you enable Microsoft Defender for Servers on an Azure subscription or a connected AWS account/GCP project, all of the connected machines are protected by Defender for Servers. This includes servers that don't have the Log Analytics/Azure Monitor agent installed.
+          No. When you enable Microsoft Defender for Servers on an Azure subscription or on a connected AWS account or GCP project, all connected machines are protected by Defender for Servers. This includes servers that don't have the Log Analytics agent or Azure Monitor agent installed.
 
       - question: |
-          Can I get a discount if I already have Microsoft Defender for Endpoint license?
+          Can I get a discount if I already have a Microsoft Defender for Endpoint license?
         answer: |
-          If you already have a license for Microsoft Defender for Endpoint for Servers, you won't have to pay for that part of your Microsoft Defender for Servers Plan 2 license. 
+          If you already have a license for Microsoft Defender for Endpoint for Servers, you don't pay for that part of your Microsoft Defender for Servers Plan 2 license. 
 
-          To request your discount, contact Defender for Cloud's support team via the portal.
+          To request your discount, contact the Defender for Cloud support team through the Azure portal.
 
-          - You'll need to provide the relevant workspace ID, region, and number of Defender for Endpoint for servers licenses applied for machines in the given workspace.
-          - The discount will be effective starting from the approval date, and won't take place retroactively.
+          - Provide the relevant workspace ID, region, and number of Defender for Endpoint for Servers licenses that are applied to machines in the workspace.
+          - The discount is effective starting on the approval date. The discount isn't retroactive.
 
       - question: |
           What servers do I pay for in a subscription?
         answer: |
-          When you enable Defender for Servers on a subscription, you're charged for all machines, in accordance with their power state.
+          When you enable Defender for Servers on a subscription, you're charged for all machines based on their power states.
 
           **Azure VMs:**
 
           State | Details | Billing
           --- | --- | ---
-          Starting | VM starting up | Not billed
-          Running | Normal working state | Billed
-          Stopping | Transitional, will move to Stopped state when complete. | Billed
-          Stopped | VM shut down from within guest OS or using PowerOff APIs. Hardware is still allocated and the machine remains on the host. | Billed
-          Deallocating | Transitional, will move to Deallocated state when complete. | Not billed
+          Starting | VM starting up. | Not billed
+          Running | Normal working state. | Billed
+          Stopping | Transitional. Moves to Stopped state when finished. | Billed
+          Stopped | VM shut down from within guest OS or by using PowerOff APIs. Hardware is still allocated, and the machine remains on the host. | Billed
+          Deallocating | Transitional. Moves to Deallocated state when finished. | Not billed
           Deallocated | VM stopped and removed from the host. | Not billed 
 
           **Azure Arc machines:**
 
-          **State** | **Details* | **Billing**
+          **State** | **Details** | **Billing**
           --- | --- | ---
-          Connecting | Servers connected but heartbeat not yet received | Not billed
-          Connected | Receiving regular heartbeat from Connected Machine agent | Billed
-          Offline/Disconnected | No heartbeat received with 15-30 minutes | Not billed
-          Expired | If disconnected for 45 days status can change to Expired. | Not billed
+          Connecting | Servers connected, but heartbeat not yet received. | Not billed
+          Connected | Receiving regular heartbeat from Connected Machine agent. | Billed
+          Offline/Disconnected | No heartbeat received in 15-30 minutes. | Not billed
+          Expired | If disconnected for 45 days, status might change to Expired. | Not billed
 
   
       - question: |
-          Do I need to enable on the subscription and workspace?
+          Do I need to enable Defender for Servers on the subscription and on the workspace?
         answer: |
-          When you enable the Servers plan on the subscription level, Defender for Cloud automatically enables the plan on your default workspaces automatically. If you're using a custom workspace, you need to select it to enable the plan. Note that:
+          Defender for Servers Plan 1 does not depend on Log Analytics. When you enable Defender for Servers Plan 2 at the subscription level, Defender for Cloud automatically enables the plan on your default Log Analytics workspaces. If you use a custom workspace, make sure you enable the plan on the workspace. Here's more information:
           
           - If you turn on Defender for Servers for a subscription and for a connected custom workspace, you aren't charged for both. The system identifies unique VMs.
           - If you enable Defender for Servers on cross-subscription workspaces:
-            - For the Log Analytics agent, connected machines from all subscriptions are billed, including subscriptions that don't have the servers plan enabled.
+            - For the Log Analytics agent, connected machines from all subscriptions are billed, including subscriptions that don't have the Defender for Servers plan enabled.
             - For the Azure Monitor agent, billing and feature coverage for Defender for Servers depends only on the plan being enabled in the subscription.
           
           
       - question: |
-          Is the free allowance per workspace or per machine?
+          Is the free allowance applied per workspace or per machine?
         answer: |
-          You get 500-MB free data ingestion per day, for every VM connected to the workspace. This is specifically for the security data types that are directly collected by Defender for Cloud.
+          For every VM that's connected to the workspace, you get 500 MB of free data ingestion per day. The allowance is specifically for the security data types that are directly collected by Defender for Cloud.
           
-          This data is a daily rate averaged across all nodes. Your total daily free limit is equal to [number of machines] x 500 MB. So even if some machines send 100 MB and others send 800 MB, if the total doesn't exceed your total daily free limit, you won't be charged extra.
+          This allowance is a daily rate that's averaged across all nodes. Your total daily free limit is equal to \[number of machines\] &times; 500 MB. Even if some machines send 100 MB and others send 800 MB, if the total doesn't exceed your total daily free limit, you aren't charged extra.
 
       - question: |
           What data types are included in the daily allowance?
         answer: |
-          Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
+          Defender for Cloud billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides an allocation of 500 MB per node per day for machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 
           - [SecurityAlert](/azure/azure-monitor/reference/tables/securityalert)
           - [SecurityBaseline](/azure/azure-monitor/reference/tables/securitybaseline)
@@ -88,17 +88,17 @@ sections:
           - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
           - [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
 
-          If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
+          If the workspace is in the legacy per-node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
 
       - question: |
-          Am I charged for machines without Log Analytics installed?
+          Am I charged for machines that don't have Log Analytics installed?
         answer: |
-          Yes. When you enable Microsoft Defender for Servers on an Azure subscription or a connected AWS/GCP account/project, you'll be charged for all machines that are connected to your Azure subscription or AWS account. The term machines include Azure virtual machines, Azure Virtual Machine Scale Sets instances, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
+          Yes. When you enable Defender for Servers on an Azure subscription, connected AWS account, or connected GCP project, you're charged for all machines that are connected to your Azure subscription or your AWS account. The term *machines* includes Azure virtual machines, instances of Azure Virtual Machine Scale Sets, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
 
       - question: |
           If an agent reports to multiple workspaces, am I charged twice?
         answer: |
-          If a machine, reports to multiple workspaces, and all of them have Defender for Servers enabled, the machines will be billed for each attached workspace.
+          If a machine reports to multiple workspaces and all of them have Defender for Servers enabled, the machines are billed for each attached workspace.
 
       
 

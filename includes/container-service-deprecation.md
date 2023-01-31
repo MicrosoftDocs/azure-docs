@@ -1,6 +1,6 @@
 ---
 author: iainfoulds
-ms.service: container-service 
+ms.service: azure-kubernetes-service
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou

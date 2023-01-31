@@ -57,7 +57,7 @@ The SLA attainment is truncated at three places after the decimal. Numbers are n
 | September | 99.999% | 99.998% |
 | October   | 99.999% | 99.999% |
 | November  | 99.998% | 99.999% |
-| December  | 99.978% |         |
+| December  | 99.978% | 99.999% |
 
 ### How is Azure AD SLA measured? 
 

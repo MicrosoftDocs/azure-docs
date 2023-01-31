@@ -98,7 +98,9 @@ MLflow includes built-in deployment tools that model developers can use to test 
 
 ### Batch vs Online endpoints
 
-Azure Machine Learning supports deploying models to both online and batch endpoints. Online Endpoints compare to [MLflow built-in server](https://www.mlflow.org/docs/latest/models.html#built-in-deployment-tools) and they provide a scalable, synchronous, and lightweight way to run models for inference. Batch Endpoints, on the other hand, provide a way to run asynchronous inference over long running inferencing processes that can scale to big amounts of data. This capability is not present by the moment in MLflow server although similar capability can be achieved using Spark jobs. The rest of this section mostly applies to online endpoints but you can learn more of batch endpoint at [What are Azure Machine Learning endpoints?](concept-endpoints.md).
+Azure Machine Learning supports deploying models to both online and batch endpoints. Online Endpoints compare to [MLflow built-in server](https://www.mlflow.org/docs/latest/models.html#built-in-deployment-tools) and they provide a scalable, synchronous, and lightweight way to run models for inference. Batch Endpoints, on the other hand, provide a way to run asynchronous inference over long running inferencing processes that can scale to big amounts of data. This capability is not present by the moment in MLflow server although similar capability can be achieved [using Spark jobs](how-to-deploy-mlflow-model-spark-jobs.md). 
+
+The rest of this section mostly applies to online endpoints but you can learn more of batch endpoint and MLflow models at [Use MLflow models in batch deployments](how-to-mlflow-batch.md).
 
 ### Input formats
 

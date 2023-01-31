@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual Linux IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine and then delete it when you're finished.
 
@@ -33,7 +33,7 @@ If you don't have an active Azure subscription, create a [free account](https://
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Cloud resources:
 
@@ -99,43 +99,6 @@ During the runtime configuration, you provide a device connection string. This i
 
 This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md), then return to this quickstart.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.1) template.
-
-* For bash or Cloud Shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or Cloud Shell window:
-
-   ```azurecli-interactive
-   az deployment group create \
-   --resource-group IoTEdgeResources \
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.1/edgeDeploy.json" \
-   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
-   --parameters adminUsername='azureUser' \
-   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
-   --parameters authenticationType='password' \
-   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
-   ```
-
-* For PowerShell users, copy the following command into your PowerShell window, then replace the placeholder text with your own information:
-
-   ```azurecli
-   az deployment group create `
-   --resource-group IoTEdgeResources `
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.1/edgeDeploy.json" `
-   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
-   --parameters adminUsername='azureUser' `
-   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
-   --parameters authenticationType='password' `
-   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
-   ```
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.4) template.
 
 * For bash or Cloud Shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or Cloud Shell window:
@@ -163,8 +126,6 @@ Use the following CLI command to create your IoT Edge device based on the prebui
    --parameters authenticationType='password' `
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 This template takes the following parameters:
 
@@ -192,39 +153,6 @@ The rest of the commands in this quickstart take place on your IoT Edge device i
 
 Once connected to your virtual machine, verify that the runtime was successfully installed and configured on your IoT Edge device.
 
-<!--1.1 -->
-:::moniker range="iotedge-2018-06"
-
-1. Check to see that the IoT Edge security daemon is running as a system service.
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
-
-   ![See the IoT Edge daemon running as a system service](./media/quickstart-linux/iotedged-running.png)
-
-   >[!TIP]
-   >You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
-
-2. If you need to troubleshoot the service, retrieve the service logs.
-
-   ```bash
-   journalctl -u iotedge
-   ```
-
-3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
-
-   ```bash
-   sudo iotedge list
-   ```
-
-   ![View one module on your device](./media/quickstart-linux/iotedge-list-1.png)
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 1. Check to see that IoT Edge is running. The following command should return a status of **Ok** if IoT Edge is running, or provide any service errors.
 
    ```bash
@@ -245,9 +173,6 @@ Once connected to your virtual machine, verify that the runtime was successfully
    ```bash
    sudo iotedge list
    ```
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 Your IoT Edge device is now configured. It's ready to run cloud-deployed modules.
 
@@ -289,12 +214,6 @@ Under **IoT Edge Modules**, open the **Add** drop-down menu, and then select **M
 
 In **IoT Edge Module Marketplace**, search for and select the `Simulated Temperature Sensor` module. The module is added to the IoT Edge Modules section with the desired **running** status.
 
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
-:::moniker-end
-<!--end iotedge-2020-11-->
-
 Select **Next: Routes** to continue to the next step of the wizard.
 
    ![Screenshot that shows continuing to the next step after the module is added.](./media/quickstart/view-temperature-sensor-next-routes.png)
@@ -332,15 +251,7 @@ Open the command prompt on your IoT Edge device again, or use the SSH connection
    sudo iotedge list
    ```
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-   ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-201806.png)
-:::moniker-end
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-   ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-202011.png)
-:::moniker-end
+![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-1.4.png)
 
 View the messages being sent from the temperature sensor module:
 
