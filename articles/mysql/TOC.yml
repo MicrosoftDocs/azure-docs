@@ -20,8 +20,6 @@
     displayName: version policy
 - name: Flexible Server
   items:
-  - name: Flexible Server documentation
-    href: flexible-server/index.yml
   - name: Overview
     items:
     - name: What is Flexible Server?
@@ -310,9 +308,6 @@
         href: flexible-server/scripts/sample-cli-slow-query-logs.md
 - name: Single Server
   items:
-  - name: Single Server documentation
-    href: single-server/index.yml
-    displayName: single server
   - name: What's happening to Single Server?
     href: single-server/whats-happening-to-mysql-single-server.md
     displayName: What's happening to Single Server?

@@ -4174,7 +4174,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/autoscale-resource-log-schema.md",
-            "redirect_url": "/azure/azure-monitor/autoscale/autoscale-resource-log-schema",
+            "redirect_url": "/azure/azure-monitor/autoscale/autoscale-diagnostics",
             "redirect_document_id": false
         },
         {
@@ -5680,6 +5680,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/windows-desktop.md",
             "redirect_url": "https://github.com/Microsoft/appcenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/autoscale/autoscale-resource-log-schema.md",
+            "redirect_url": "/azure/azure-monitor/autoscale/autoscale-diagnostics",
             "redirect_document_id": false
         }
     ]
