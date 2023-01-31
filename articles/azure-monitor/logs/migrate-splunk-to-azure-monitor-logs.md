@@ -42,7 +42,7 @@ The benefits of migrating to Azure Monitor include:
 |Splunk Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that runs over the Azure Monitor platform to provide intelligent security analytics and threat intelligence across the enterprise.|
 ## Introduction to key concepts
 
-|Azure Monitor Logs |Similar Splunk concept|Description|
+|Azure Monitor Logs|Similar Splunk concept|Description|
 |---|---|---|
 |[Log Analytics workspace](../logs/log-analytics-workspace-overview.md)|Namespace|A Log Analytics workspace is an environment in which you can collect log data from all Azure and non-Azure monitored resources. The data in the workspace is available for querying and analysis, Azure Monitor features, and other Azure services. Similar to a Splunk namespace, you can manage access to the data and artifacts, such as alerts and workbooks, in your Log Analytics workspace. |
 |[Table management](../logs/manage-logs-tables.md)|Indexing|Azure Monitor Logs ingests log data into tables in a managed [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) database. During ingestion, the service automatically indexes and timestamps the data, which means you can store various types of data and access the data quickly using Kusto Query Language (KQL) queries.<br/>Use table properties to manage the table schema, data retention and archive, and whether to store the data for occasional auditing and troubleshooting or for ongoing analysis and use by features and services.<br/>For a comparison of Splunk and Azure Data Explorer data handling and querying concepts, see [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet).||
@@ -53,7 +53,7 @@ The benefits of migrating to Azure Monitor include:
 |[Data collection rules](../essentials/data-collection-rule-overview.md)|Data inputs, data pipeline|Define which data to collect, how to transform that data, and where to send the data. |
 |[Kusto Query Language (KQL)](/azure/kusto/query/)|Splunk Search Processing Language (SPL)|Azure Monitor Logs uses a large subset of KQL that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. Use the [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet) to translate your Splunk SPL knowledge to KQL. You can also [learn KQL with tutorials](../logs/get-started-queries.md) and [KQL training modules](/training/modules/analyze-logs-with-kql/).|
 |[Log Analytics](../logs/log-analytics-tutorial.md)|Splunk Web, Search app, Pivot tool|A tool in the Azure portal for editing and running log queries in Azure Monitor Logs. Log Analytics also provides a rich set of tools for exploring and visualizing data without using KQL.|
-|[Cost optimization](../../azure-monitor/best-practices-cost.md)||Azure Monitor provides [tools and best practices to help you understand, monitor, and optimize your costs](../../azure-monitor/best-practices-cost.md) based on your needs. |
+|[Cost optimization](../../azure-monitor/best-practices-cost.md)| |Azure Monitor provides [tools and best practices to help you understand, monitor, and optimize your costs](../../azure-monitor/best-practices-cost.md) based on your needs. |
 
 ## 1. Understand your current usage
 
