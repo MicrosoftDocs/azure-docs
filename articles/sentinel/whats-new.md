@@ -29,13 +29,9 @@ To give you more flexibility in scheduling your analytics rule execution times a
 
 ## January 2023
 
-- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
+- [Monitor SAP system health (Preview)](#monitor-sap-system-health-and-role-preview)
 - [Microsoft Purview Information Protection connector (Preview)](#microsoft-purview-information-protection-connector-preview)
-
-### Monitor SAP system health and role (Preview)
-
-To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ### New incident investigation experience (Preview)
 
@@ -48,6 +44,10 @@ While triaging, investigating, and responding to a security incident, analysts r
 Learn more about the new investigation experience:
 - [Understand Microsoft Sentinel's incident investigation and case management capabilities](incident-investigation.md)
 - [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
+
+### Monitor SAP system health and role (Preview)
+
+To ensure proper functioning and performance of your SAP systems, you can now use the SAP data connector page to [monitor information about the health of your SAP systems](monitor-sap-system-health.md) and the status of the SAP roles for the system. You can also use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ### Microsoft Purview Information Protection connector (Preview)
 

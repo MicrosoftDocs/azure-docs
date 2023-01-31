@@ -121,7 +121,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
         :::image type="content" source="media/tutorial-detect-threats-custom/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
     
-        Future runnings of the rule will occur at the specified interval after the first running (see **Advanced scheduling** note below).
+        Future runnings of the rule will occur at the specified interval after the first running.
 
     The line of text under the **Start running** setting (with the information icon at its left) summarizes the current query scheduling and lookback settings.
 
@@ -130,10 +130,6 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     > **Query intervals and lookback period**
     >
     >  These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
-    >
-    > **Advanced scheduling**
-    >
-    > If you choose to start the running of a rule at a specific time (instead of automatically upon creation), be aware that the **actual** first run time of the rule may vary from the time you specified by up to half an hour in either direction. In any case, the interval for future runnings will be measured from the actual starting time of the previous run, not from the specified time.
     >
     > **Ingestion delay**
     >
