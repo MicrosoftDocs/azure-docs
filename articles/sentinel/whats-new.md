@@ -20,6 +20,7 @@ See these [important announcements](#announcements) about recent changes to feat
 ## February 2023
 
 - [Audit and monitor the health of your analytics rules (Preview)](#audit-and-monitor-the-health-of-your-analytics-rules-preview)
+- [Advanced scheduling for analytics rules (Preview)](#advanced-scheduling-for-analytics-rules-preview)
 
 ### Audit and monitor the health of your analytics rules (Preview)
 
@@ -29,6 +30,11 @@ Learn more about [auditing and health monitoring in Microsoft Sentinel](health-a
 - [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
 - [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md)
 
+### Advanced scheduling for analytics rules (Preview)
+
+To give you more flexibility in scheduling your analytics rule execution times and to help you avoid potential conflicts, Microsoft Sentinel now allows you to determine when newly created analytics rules will run for the first time. The default behavior is as it has been: for them to run immediately upon creation.
+
+[Learn more about advanced scheduling](detect-threats-custom.md#query-scheduling-and-alert-threshold).
 ## January 2023
 
 - [New incident investigation experience (Preview)](#new-incident-investigation-experience-preview)
