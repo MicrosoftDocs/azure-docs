@@ -63,30 +63,30 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Fixed an XSS issue on input from textbox
 
 **2.1.19**
-- Accessibility Bug Fixes
+- Fixed accessibility bugs
 - Handle Undefined Error message for existing user sign up
 - Move Password Mismatch Error to Inline instead of Page Level
 - Accessibility changes related to High Contrast button display and anchor focus improvements
 
 **2.1.18**
-- Include Asterisk Required
+- Add asterisk for required fields
 - TOTP Store Icons position fixes for Classic Template
 - Activate input items only when verification code is verified
 - Add Alt Text for Background Image
 - Added customization for server errors by TOTP verification
 
 **2.1.17**
-- Add descriptive error message and fix forgotPassword link
+- Add descriptive error message and fixed forgotPassword link
 - Make checkbox as group
 - Enforce Validation Error Update on control change and enable continue on email verified
 - Added additional field to error code to validation failure response
 	
 **2.1.16**
-- Fix verifycode conflicts bug
+- Fixed "Claims for verification control have not been verified" bug while verifying code.
 - Hide error message on validation succeeds and send code to verify
 
 **2.1.15**
-- Fixed QR code generator bug that the generation will overflow for a range of QR text length
+- Fixed QR code generation bug due to QR text length
 
 **2.1.14**
 - Fixed WCAG 2.1 accessibility bug for the TOTP multifactor authentication screens.
@@ -188,11 +188,11 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
 **2.1.9**
-- Accessibility Bug Fixes
+- Fix accessibility bugs
 - Accessibility changes related to High Contrast button display and anchor focus improvements
 	
 **2.1.8**
-- Add descriptive error message and fix forgotPassword link!
+- Add descriptive error message and fixed forgotPassword link!
 
 **2.1.7**
 
