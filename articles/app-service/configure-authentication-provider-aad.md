@@ -94,7 +94,7 @@ To register the app, perform the following steps:
 1. From the left navigation, select **Authentication** > **Add identity provider** > **Microsoft**.
 1. For **App registration type**, choose one of the following:
     - **Pick an existing app registration in this directory**: Choose an app registration from the current tenant and automatically gather the necessary app information. 
-    - **Provide the details of an existing app registration**: Specify details for an app registration from another tenant or if your account do not have permission in the current tenant to query the registrations. For this option, you will need to fill in the following configuration details:
+    - **Provide the details of an existing app registration**: Specify details for an app registration from another tenant or if your account does not have permission in the current tenant to query the registrations. For this option, you will need to fill in the following configuration details:
 
         |Field|Description|
         |-|-|
