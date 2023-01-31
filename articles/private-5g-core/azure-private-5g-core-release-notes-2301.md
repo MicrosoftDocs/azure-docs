@@ -5,7 +5,7 @@ author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: release-notes
-ms.date: 01/30/2022
+ms.date: 01/31/2023
 ---
 
 # Azure Private 5G Core 2301 release notes
