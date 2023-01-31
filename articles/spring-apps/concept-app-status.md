@@ -30,7 +30,7 @@ To view general status of an application type, select **Apps** in the left navig
 * **Running instance**: Shows how many app instances are running and how many app instances you desire. If you stop the app, this column shows **stopped**.
 * **Registered Instance**: Shows how many app instances are registered to Eureka and how many app instances you desire. If you stop the app, this column shows **stopped**. Eureka isn't applicable to enterprise tier. For more information if you're using the enterprise tier, see [Use Service Registry](how-to-enterprise-service-registry.md).
 
-:::image type="content" source="media/spring-cloud-concept-app-status/apps-ui-status.png" alt-text="Shows the status of an application type in an Azure Spring Apps.":::
+:::image type="content" source="media/spring-cloud-concept-app-status/apps-ui-status.png" alt-text="Shows the status of an application type in an Azure Spring Apps." lightbox="media/spring-cloud-concept-app-status/apps-ui-status.png":::
 
 
 ## Deployment status
@@ -63,7 +63,7 @@ The *app instance* status represents every instance of the app. To view the stat
 * **Status**: Whether the instance is running or its current state
 * **DiscoveryStatus**: The registered status of the app instance in the Eureka server
 
-:::image type="content" source="media/spring-cloud-concept-app-status/apps-ui-instance-status.png" alt-text="Shows the status of an application instance in Assure Spring Apps.":::
+:::image type="content" source="media/spring-cloud-concept-app-status/apps-ui-instance-status.png" alt-text="Shows the status of an application instance in Assure Spring Apps." lightbox="media/spring-cloud-concept-app-status/apps-ui-instance-status.png":::
 
 
 ### App instance status
