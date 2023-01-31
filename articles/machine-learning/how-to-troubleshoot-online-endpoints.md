@@ -189,9 +189,9 @@ There are two supported tracing headers:
 - `x-request-id` is reserved for server tracing. We override this header to ensure it's a valid GUID.
 
    > [!Note]
-   > When you create a support ticket for a failed request, attach the failed request ID to expedite investigation.
+   > When you create a support ticket for a failed request, attach the failed request ID to expedite the investigation.
    
-- `x-ms-client-request-id` is available for client tracing scenarios. We sanitize this header to remove non-alphanumeric symbols. This header is truncated to 72 characters.
+- `x-ms-client-request-id` is available for client tracing scenarios. This header is sanitized to only accept alphanumeric characters, hyphens and underscores, and is truncated to a maximum of 40 characters.
 
 ## Common deployment errors
 
