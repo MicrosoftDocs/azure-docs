@@ -67,7 +67,7 @@ The following Azure resources are defined in the template.
     |---------|---------|
     |**Subscription**     | Select the Azure subscription you want to use to create your private mobile network.        |
     |**Resource group**     | Create a new resource group.        |
-    |**Region**     | Select **East US**.        |
+    |**Region**     | Select the region in which you're deploying the private mobile network.        |
     |**Location**     | Leave this field unchanged.        |
     |**Mobile Network Name**     | Enter a name for the private mobile network.        |
     |**Mobile Country Code**     | Enter the mobile country code for the private mobile network.        |

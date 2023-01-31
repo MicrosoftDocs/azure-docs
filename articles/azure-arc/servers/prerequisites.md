@@ -36,7 +36,7 @@ The following versions of the Windows and Linux operating system are officially 
 * CentOS Linux 7 and 8
 * Rocky Linux 8
 * SUSE Linux Enterprise Server (SLES) 12 and 15
-* Red Hat Enterprise Linux (RHEL) 7 and 8
+* Red Hat Enterprise Linux (RHEL) 7, 8 and 9
 * Amazon Linux 2
 * Oracle Linux 7
 

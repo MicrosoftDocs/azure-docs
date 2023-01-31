@@ -1,11 +1,12 @@
 ---
 title: Restrict egress traffic in Azure Kubernetes Service (AKS)
 description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
-services: container-service
-ms.topic: article
-ms.author: jpalma
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+ms.topic: how-to
+ms.author: allensu
 ms.date: 07/26/2022
-author: palma21
+author: asudbring
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---

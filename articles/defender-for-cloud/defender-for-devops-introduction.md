@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for DevOps - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for
-ms.date: 10/24/2022
+ms.date: 01/24/2023
 ms.topic: overview
 ms.custom: references_regions
 ---

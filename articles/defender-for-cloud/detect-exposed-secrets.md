@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's secret scanning for Defender for DevOps.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 01/17/2023
+ms.date: 01/24/2023
 ---
 
 # Detect exposed secrets in code
@@ -252,5 +252,4 @@ The following exit codes are available in CredScan:
 | CSCAN-WORK0010 | Slack Access Token | slack_token= xoxp-abcdef-abcdef-abcdef-abcdef ; <br> slack_token= xoxb-abcdef-abcdef ; <br> slack_token= xoxa-2-abcdef-abcdef-abcdef-abcdef ; <br>slack_token= xoxr-abcdef-abcdef-abcdef-abcdef ; | [Token types](https://api.slack.com/authentication/token-types) |
 
 ## Next steps
-
-- Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud to remediate secrets in code before they're shipped to production.
++ Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud to remediate secrets in code before they're shipped to production.

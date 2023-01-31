@@ -73,7 +73,7 @@
   - name: Node.js
     href: /javascript/api/@azure/cognitiveservices-contentmoderator/
   - name: Python
-    href: /python/api/overview/azure/cognitiveservices/contentmoderator
+    href: /python/api/overview/azure/content-moderator
   - name: Go
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
 - name: Resources

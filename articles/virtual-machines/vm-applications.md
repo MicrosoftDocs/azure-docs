@@ -17,13 +17,13 @@ ms.custom:
 
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing, and global distribution of applications for your virtual machines.
 
-> [!IMPORTANT]
-> Deploying VM applications in Azure Compute Gallery **do not currently support using Azure policies**.
 
 
 While you can create an image of a VM with apps pre-installed, you would need to update your image each time you have application changes. Separating your application installation from your VM images means there’s no need to publish a new image for every line of code change.
 
 Application packages provide benefits over other deployment and packaging methods:
+
+- VM Applications have support for [Azure Policies](/azure/governance/policy/overview)
 
 - Grouping and versioning of your packages
 
