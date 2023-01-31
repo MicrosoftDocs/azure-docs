@@ -39,7 +39,7 @@ The price change feature supports the following scenarios:
 - Increase or decrease the [monthly/yearly flat fee](#changing-the-flat-fee-of-a-saas-or-azure-app-offer).
 - Increase or decrease the [per-user monthly/yearly SaaS fee](#changing-the-per-user-fee-of-a-saas-offer).
 - Increase or decrease the [price per unit of a meter dimension](#changing-the-meter-dimension-of-a-saas-or-azure-app-offer).
-- Increase or decrease the [price per vCPU or per vCPU size](#changing-the-vCPU-price-of-a-virtual-machine).
+- Increase or decrease the [price per vCPU or per vCPU size](#changing-the-vcpu-price-of-a-virtual-machine).
    
 ### Supported offer types
 
