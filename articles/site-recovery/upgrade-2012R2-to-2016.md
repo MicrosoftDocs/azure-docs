@@ -17,7 +17,7 @@ This article shows you how to upgrade Windows Server 2012 R2 hosts and System Ce
 Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy. The service ensures that your virtual machine (VM) workloads remain available when expected and unexpected outages occur.
 
 > [!IMPORTANT]
-> When you upgrade Windows Server 2012 R2 hosts that are already configured for replication with Azure Site Recovery, you must follow the steps mentioned in this article. Any alternative path chosen for upgrade can result in unsupported states and can result in a break in replication or in the ability to perform failover.
+> When you upgrade Windows Server 2012 R2 hosts that are already configured for replication with Azure Site Recovery, you must follow the steps mentioned in this article. Any alternative path chosen for upgrade can result in unsupported states and can affect replication or the ability to perform failover.
 
 In this article, you learn how to upgrade the following configurations in your environment:
 
@@ -33,7 +33,7 @@ Before you upgrade, note the following:
 - If you have Windows Server 2012 R2 hosts that VMM doesn't manage, and it's a standalone environment setup, there will be a break in replication if you try to perform the upgrade.
 - If you selected **Do not store my keys in Active Directory under Distributed Key Management** while installing VMM 2012 R2, the upgrades won't finish successfully.
 
-- If you're using System Center VMM 2012 R2:
+- If you're using VMM 2012 R2:
 
   - Check the database information on VMM. You can find it by going to the VMM console and selecting **Settings** > **General** > **Database connection**.
   - Check the service accounts that you're using for the System Center Virtual Machine Manager Agent service.
@@ -57,7 +57,7 @@ The following steps apply to the user configuration from [Hyper-V hosts to Azure
 
 1. Follow the [steps to perform the rolling cluster upgrade](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process).
 2. With every new Windows Server 2016 host that's introduced in the cluster, remove the reference of a Windows Server 2012 R2 host from Azure Site Recovery by [following these steps]. This should be the host that you chose to drain and evict from the cluster.
-3. After you run the `Update-VMVersion` command for all virtual machines, the upgrades are completed.
+3. Run the `Update-VMVersion` command for all virtual machines to complete the upgrades.
 4. [Use these steps](./hyper-v-azure-tutorial.md#source-settings) to register the new Windows Server 2016 host to Azure Site Recovery. Note that the Hyper-V site is already active and you just need to register the new host in the cluster.
 5. Go to the Azure portal and verify the replicated health status inside the Recovery Services vault.
 
@@ -92,10 +92,7 @@ Before you upgrade your Windows Server 2012 R2 hosts, you need to upgrade VMM 20
 
 ## Upgrade Windows Server 2012 R2 hosts that a highly available VMM 2012 R2 server manages
 
-Before you upgrade your Windows Server 2012 R2 hosts, you need to upgrade VMM 2012 R2 to VMM 2016. The following modes of upgrade are supported while you're upgrading VMM 2012 R2 servers configured with:
-
-- Site Recovery mixed mode with no additional VMM servers.
-- Site Recovery mixed mode with additional VMM servers.
+Before you upgrade your Windows Server 2012 R2 hosts, you need to upgrade VMM 2012 R2 to VMM 2016. The following modes of upgrade are supported while you're upgrading VMM 2012 R2 servers configured with Site Recovery mixed mode (either with or without additional VMM servers).
 
 ### Upgrade VMM 2012 R2 to VMM 2016
 
