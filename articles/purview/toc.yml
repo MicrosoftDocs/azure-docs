@@ -154,7 +154,11 @@ items:
       href: manage-credentials.md
       displayName: Create and manage credentials
     - name: Manage integration runtimes
-      href: manage-integration-runtimes.md
+      items:
+        - name: Create and manage a self-hosted integration runtime
+          href: manage-integration-runtimes.md
+        - name: Self-hosted integration runtime auto-update and expiration
+          href: self-hosted-integration-runtime-version.md
     - name: Manage assets with Metamodel
       href: how-to-metamodel.md
     - name: Create Service Principal
