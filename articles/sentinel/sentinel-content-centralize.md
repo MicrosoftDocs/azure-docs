@@ -1,5 +1,5 @@
 ---
-title: [Coming Soon] Content hub centralization changes in Microsoft Sentinel
+title: (Coming Soon) Content hub centralization changes in Microsoft Sentinel
 description: This article describes the centralization changes about to take place for out-of-the-box content in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: conceptual
@@ -40,29 +40,22 @@ The active or custom items created in any manner (from templates or otherwise) a
 Any OOTB content templates installed from content hub (identifiable as *Content source = Content hub*) are NOT affected by this change.
 
 ### What's changing?
-All template galleries will display an in-product warning banner. This will contain a link to a tool within the Sentinel portal. Activating the tool will initiate a guided experience to help reinstate in-use templates centrally in content hub for all galleries in the current workspace. This tool is expected to be executed only once per workspace. Once the tool runs successfully, the warning banner will resolve and no longer be visible from the template galleries of that workspace. 
+All template galleries will display an in-product warning banner. This will contain a link to a tool that will run within the Sentinel portal. Activating the tool will initiate a guided experience to reinstate the content hub version of templates that are in-use active items originally based on gallery templates. This tool only runs once per workspace so be sure to plan with your organization. Once the tool runs successfully, the warning banner will resolve and no longer be visible from the template galleries of that workspace. 
 
 Specific impact to the gallery content templates for each of these galleries are detailed below. The following changes will be visible when the OOTB content centralization changes goes live. 
 
-Data connectors  
-The templates identifiable as content source = "Gallery content" and Status = "Not connected" will no longer appear in the data connectors gallery.  
-
-Analytics templates 
-The templates identifiable as source name = "Gallery content" will no longer appear in the Analytics template gallery. 
-
-Hunting  
-The templates with Content source = "Gallery content" will no longer appear in the Hunting gallery. 
-
-Workbooks templates 
-The templates with Content source = "Gallery content" will no longer appear in the Workbooks template gallery. 
-
-Playbooks templates  
-The templates identifiable as source name = "Gallery content" will no longer appear in the Automation Playbook templates gallery.
+| Gallery | Changes |
+| ------- | ------- |
+| [Data connectors](conntect-data-sources.md) | The templates identifiable as content source = "Gallery content" and Status = "Not connected" will no longer appear in the data connectors gallery. |
+| [Analytics templates](detect-threats-built-in#view-built-in-detections) | The templates identifiable as source name = "Gallery content" will no longer appear in the Analytics template gallery. |
+| [Hunting](hunting#use-built-in-queries) | The templates with Content source = "Gallery content" will no longer appear in the Hunting gallery. |
+| [Workbooks templates](get-visibility#use-built-in-workbooks) | The templates with Content source = "Gallery content" will no longer appear in the Workbooks template gallery. |
+| [Playbooks templates](use-playbook-templates#explore-playbook-templates) | The templates identifiable as source name = "Gallery content" will no longer appear in the Automation Playbook templates gallery. |
 
 ## Action needed
-1. Starting now, install new OOTB content from Content hub and update solutions as needed to have the latest version of the templates. The gallery content in the above-listed feature galleries may be out-of-date.  
-1. Plan to execute the tool when the change goes live. 
-1. Spread awareness of the OOTB content centralization change in your organization.  
+- Starting now, install new OOTB content from Content hub and update solutions as needed to have the latest version of the templates. The gallery content in the above-listed feature galleries may be out-of-date.  
+- Plan to run the tool when you see the banner and the change goes live.  [expand]
+- Spread awareness of the OOTB content centralization change in your organization.  
 
 ## Next steps
 
