@@ -290,7 +290,7 @@
 		</g>
 		<g id="shape30-73" v:mID="30" v:groupContext="shape" v:layerMember="0" transform="translate(85.6875,-481.875)">
 			<title>Message.2514</title>
-			<desc>Opens www.contoso.com</desc>
+			<desc>Opens www.fabrikam.com</desc>
 			<v:userDefs>
 				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
 				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
@@ -301,10 +301,10 @@
 			<v:textRect cx="67.5" cy="649.875" width="93.68" height="17.6036"/>
 			<path d="M0 649.88 L127.02 649.88" class="st10"/>
 			<rect v:rectContext="textBkgnd" x="25.5709" y="645.075" width="83.8584" height="9.59985" class="st12"/>
-			<text x="25.57" y="652.28" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Opens www.contoso.com</text>		</g>
+			<text x="25.57" y="652.28" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Opens www.fabrikam.com</text>		</g>
 		<g id="shape31-81" v:mID="31" v:groupContext="shape" v:layerMember="0" transform="translate(220.688,-466.167)">
 			<title>Message.2515</title>
-			<desc>Opens www.contoso.com</desc>
+			<desc>Opens www.fabrikam.com</desc>
 			<v:userDefs>
 				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
 				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
@@ -315,7 +315,7 @@
 			<v:textRect cx="55.4357" cy="649.875" width="93.68" height="17.6036"/>
 			<path d="M0 649.88 L102.89 649.88" class="st10"/>
 			<rect v:rectContext="textBkgnd" x="13.5066" y="645.075" width="83.8584" height="9.59985" class="st12"/>
-			<text x="13.51" y="652.28" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Opens www.contoso.com</text>		</g>
+			<text x="13.51" y="652.28" class="st13" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Opens www.fabrikam.com</text>		</g>
 		<g id="shape32-88" v:mID="32" v:groupContext="shape" v:layerMember="0" transform="translate(331.559,-448.167)">
 			<title>Return Message.2516</title>
 			<desc>Request for authorization</desc>
