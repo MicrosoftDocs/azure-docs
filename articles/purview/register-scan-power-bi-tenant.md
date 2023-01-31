@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 01/31/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -19,6 +19,19 @@ This article outlines how to register a Power BI tenant in a **same-tenant scena
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
 | [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)| No |
+
+When scanning Power BI source, Microsoft Purview supports:
+
+- Extracting technical metadata including:
+
+    - Workspaces
+    - Dashboards
+    - Reports
+    - Datasets including the tables and columns
+    - Dataflows
+    - Datamarts
+
+- Fetching static lineage on assets relationships among above Power BI artifacts as well as external data source assets. Learn more from [Power BI lineage](how-to-lineage-powerbi.md).
 
 For a list of metadata available for Power BI, see our [available metadata documentation](available-metadata.md).
 
