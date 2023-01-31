@@ -198,13 +198,14 @@ To download all the required models into your Custom Speech-to-Text container fo
 
 After all required models have been downloaded to your host computer, you need to download the disconnected license file using the instructions in the above chapter, titled [Configure the container to be run in a disconnected environment](./disconnected-containers.md#configure-the-container-to-be-run-in-a-disconnected-environment), using the Speech resource from step 2.
 
-To run the container in disconnected mode, follow the instructions from above chapter titled [Run the container in a disconnected environment](./disconnected-containers.md#run-the-container-in-a-disconnected-environment) and add an additional -v parameter to mount the directory containing your custom speech model.
+To run the container in disconnected mode, follow the instructions from above chapter titled [Run the container in a disconnected environment](./disconnected-containers.md#run-the-container-in-a-disconnected-environment) and add an additional `-v` parameter to mount the directory containing your custom speech model.
+
 Example for running a Custom Speech-to-Text container in disconnected mode:
 ```bash
 docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
 -v {LICENSE_MOUNT} \ 
 -v {OUTPUT_PATH} \
--v {VOLUME_MOUNT} \
+-v {MODEL_PATH} \
 {IMAGE} \
 eula=accept \
 Mounts:License={CONTAINER_LICENSE_DIRECTORY}
