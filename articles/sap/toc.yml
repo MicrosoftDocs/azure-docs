@@ -103,6 +103,10 @@ items:
       items:
       - name: General DBMS deployment
         href: workloads/dbms-guide-general.md
+      - name: Install SAP HANA on Azure VMs
+        href: workloads/hana-get-started.md
+      - name: Configure SAP HANA on Azure VMs
+        href: workloads/hana-vm-operations.md
       - name: SQL Server on Azure VMs
         href: workloads/dbms-guide-sqlserver.md
       - name: Oracle on Azure VMs
@@ -117,10 +121,6 @@ items:
         href: workloads/dbms-guide-sapiq.md
     - name: High availability (HA)
       items:
-      - name: Install SAP HANA on Azure VMs
-        href: workloads/hana-get-started.md
-      - name: Configure SAP HANA on Azure VMs
-        href: workloads/hana-vm-operations.md
       - name: HANA
         items:
         - name: RHEL
@@ -473,6 +473,16 @@ items:
         href: large-instances/hana-storage-architecture.md
       - name: HLI supported scenarios
         href: large-instances/hana-supported-scenario.md
+    - name: Infrastructure and connectivity
+      items:
+      - name: HLI deployment
+        href: large-instances/hana-overview-infrastructure-connectivity.md
+      - name: Connecting Azure VMs to HANA Large Instances
+        href: large-instances/hana-connect-azure-vm-large-instances.md
+      - name: Connecting a VNet to HANA Large Instance ExpressRoute
+        href: large-instances/hana-connect-vnet-express-route.md
+      - name: Additional network requirements
+        href: large-instances/hana-additional-network-requirements.md
     - name: High availability and disaster recovery
       items:
       - name: Options and considerations
@@ -485,22 +495,12 @@ items:
         href: large-instances/hana-failover-procedure.md
       - name: Large instances HA for SAP on RHEL
         href: large-instances/large-instance-high-availability-rhel.md
-      - name: Troubleshoot and monitor
-        items:
-        - name: Monitoring HLI
-          href: large-instances/troubleshooting-monitoring.md
-        - name: Monitoring and troubleshooting from HANA side
-          href: large-instances/hana-monitor-troubleshoot.md
-      - name: Infrastructure and connectivity
-        items:
-        - name: HLI deployment
-          href: large-instances/hana-overview-infrastructure-connectivity.md
-        - name: Connecting Azure VMs to HANA Large Instances
-          href: large-instances/hana-connect-azure-vm-large-instances.md
-        - name: Connecting a VNet to HANA Large Instance ExpressRoute
-          href: large-instances/hana-connect-vnet-express-route.md
-        - name: Additional network requirements
-          href: large-instances/hana-additional-network-requirements.md
+    - name: Troubleshoot and monitor
+      items:
+      - name: Monitoring HLI
+        href: large-instances/troubleshooting-monitoring.md
+      - name: Monitoring and troubleshooting from HANA side
+        href: large-instances/hana-monitor-troubleshoot.md
   - name: How-to guides
     items:
       - name: Validate the configuration
