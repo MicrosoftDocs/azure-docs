@@ -1,6 +1,6 @@
 ---
-title: What is Zero Trust Network Access?
-description: Zero Trust Network Access provides control and visibility in an Internet first world. The concept is often referred to as Network as a Service (NaaS).
+title: Entra Private Access training videos
+description: Training videos for Entra Private Access.
 author: kenwith
 ms.author: kenwith
 ms.topic: overview
@@ -15,7 +15,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# What is Zero Trust Network Access?
+# Entra Private Access Training Videos
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 

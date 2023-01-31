@@ -1,7 +1,42 @@
-   - name: Zero Trust Network Access documentation
-     href: index.yml
-   - name: Overview
-     expanded: true
-     items:
-     - name: What is Zero Trust Network Access?
-       href: what-is-network-access.md
+items:
+- name: Entra Network Access documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Entra Network Access?
+    href: what-is-network-access.md
+  - name: What is Entra Internet Access?
+    href: what-is-entra-internet-access.md
+  - name: What is Entra Private Access?
+    href: what-is-entra-private-access.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Entra Internet Access
+    expanded: false
+  - name: Getting Started with Entra Internet Access
+    href: get-started-with-entra-internet-access.md
+  - name: Getting Started with Entra Private Access
+    href: get-started-with-entra-private-access.md
+  - name: Troubleshoot
+    expanded: false
+    items:
+    - name: Troubleshoot Entra Internet Access
+      href: troubleshoot-entra-internet-access.md
+    - name: Troubleshoot Entra Private Access
+      href: troubleshoot-entra-private-access.md
+    - name: Training videos
+      expanded: false
+      items:
+      - name: Get started with Entra Internet Access training videos
+        href: entra-internet-access-training-videos.md
+      - name: Get started with Entra Private Access training videos
+        href: entra-private-access-training-videos.md
+  - name: Reference
+    expanded: false
+    items:
+    - name: Entra Internet Access FAQ
+      href: entra-internet-access-faq.md
+    - name: Entra Private Access FAQ
+      href: entra-private-access-faq.md
