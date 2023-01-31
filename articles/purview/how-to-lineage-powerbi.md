@@ -51,7 +51,7 @@ Users can search for the Power BI artifact by name, description, or other detail
 
 The following is an example of column lineage and transformation inside of Power BI Datasets when using Azure SQL Database as source. For measures, you can further click into the column -> Properties -> expression to see the transformation details.
 
-:::image type="content" source="./media/how-to-lineage-powerbi/powerbi-lineage-subartifacts.png" alt-text="Screenshot showing how Power BI subartifacts lineage is rendered." lightbox="./media/how-to-lineage-powerbi/powerbi-lineage-subartifacts.png":::
+:::image type="content" source="./media/how-to-lineage-powerbi/power-bi-lineage-subartifacts.png" alt-text="Screenshot showing how Power BI subartifacts lineage is rendered." lightbox="./media/how-to-lineage-powerbi/power-bi-lineage-subartifacts.png":::
 
 ## Known limitations
 
