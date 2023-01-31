@@ -5,6 +5,7 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
+ms.service: site-recovery
 ms.author: ankitadutta
 ms.date: 08/19/2021
 ---
