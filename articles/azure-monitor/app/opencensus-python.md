@@ -154,7 +154,7 @@ LOGGING = {
         "azure": {
             "level": "DEBUG",
         "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-            "instrumentation_key": "<your-ikey-here>",
+            "connection_string": "<your-application-insights-connection-string>",
          },
         "console": {
             "level": "DEBUG",
