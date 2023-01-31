@@ -15,7 +15,6 @@
   expanded: true
 - name: Resources
   items:
-  - name: Microsoft Security Code Analysis
   - name: Microsoft Threat Modeling tool
     displayName: stride
     href: threat-modeling-tool.md
