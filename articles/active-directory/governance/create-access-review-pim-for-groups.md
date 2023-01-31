@@ -47,7 +47,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
      ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/create-privileged-access-groups-review.png)
 
 > [!NOTE]  
-> When a PIM for Groups (PAG) is selected, the users under review for the group will include all eligible users and active users in that group. 
+> When a PIM for Groups is selected, the users under review for the group will include all eligible users and active users in that group. 
 
 6. Now you can select a scope for the review. Your options are:
     - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
