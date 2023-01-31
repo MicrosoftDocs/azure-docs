@@ -110,6 +110,27 @@ It's also recommended to check that you enabled the ICF ports.
     2. Configure **SDF/SMON** metrics to be aggregated every minute.
     3. recommended scheduling **SDF/SMON** as a background job in your target SAP client each minute. 
 
+5. **To enable secure communication**
+
+    To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md) with SAP NetWeaver provider please execute steps mentioned on this [SAP document](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/4923501ebf5a1902e10000000a42189c.html?version=201909.002)
+    
+    [!NOTE] Verify TLS 1.2 or higher 
+    Configured TLS 1.2 or higher in SAP DEFAULT profileS
+    Check if SAP systems are configured for secure communication using TLS 1.2 or higher.
+    1.	Go to transaction RZ10.
+    2.	Open DEFAULT profile, select Extended Maintenance and click change.
+    3.	Below configuration is for TLS1.2 the bit mask will be 544: PFS. If TLS version is higher, then bit mask will be greater than 544.
+    	![image](https://user-images.githubusercontent.com/80987225/215883122-75f03dd5-dde0-42ed-b06e-b28151dc47d5.png)
+    
+    Verify HTTPS port           
+    Check HTTPS port to be provided during the create provide process.
+    1.	Go to the Transaction SMICM. 
+    2.	Choose from the menu GOTO -> Services.
+    3.	Verify if HTTPS protocol is in Active status.
+    	![image](https://user-images.githubusercontent.com/80987225/215883239-345f913e-46d9-4eae-aef1-ed37f601c503.png)
+
+ 
+
 ### Adding NetWeaver provider
 
 Ensure all the pre-requisites are successfully completed. To add the NetWeaver provider:
@@ -308,10 +329,6 @@ $sapcntrl.$Function($FunctionObject)
 Repeat the previous steps for each instance profile.
    
 You can use an access control list (ACL) to filter the access to a server port. For more information, see [SAP note 1495075](https://launchpad.support.sap.com/#/notes/1495075).
-
-### To enable secure communication
-
-To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md) with SAP NetWeaver provider please execute steps mentioned on this [SAP document](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/4923501ebf5a1902e10000000a42189c.html?version=201909.002)
 
 ### Install NetWeaver provider
 
