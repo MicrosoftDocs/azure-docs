@@ -10,7 +10,7 @@ ms.reviewer: abinetabate
 
 # Application Insights for Azure VMs and virtual machine scale sets
 
-Enabling monitoring for your ASP.NET and ASP.NET Core IIS-hosted applications running on [Azure Virtual Machine](https://azure.microsoft.com/services/virtual-machines/) or [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
+Enabling monitoring for your ASP.NET and ASP.NET Core IIS-hosted applications running on [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) or [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
 
 This article walks you through enabling Application Insights monitoring by using the Application Insights Agent. It also provides preliminary guidance for automating the process for large-scale deployments.
 
