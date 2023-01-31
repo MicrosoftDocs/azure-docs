@@ -137,6 +137,8 @@ The following configurations are in addition to those listed in the [Prerequisit
     - [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
     - [Azure's outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections#scenarios).
 
+    For more information on service tags that can be used with Azure Firewall, see the [Virtual network service tags](/azure/virtual-network/service-tags-overview) article.
+
 Use the following information to create a compute instance or cluster with no public IP address:
 
 # [Azure CLI](#tab/cli)

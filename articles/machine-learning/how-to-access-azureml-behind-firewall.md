@@ -28,7 +28,9 @@ The following terms and information are used throughout this article:
 * __Azure service tags__: A service tag is an easy way to specify the IP ranges used by an Azure service. For example, the `AzureMachineLearning` tag represents the IP addresses used by the Azure Machine Learning service.
 
     > [!IMPORTANT]
-    > Azure service tags are only supported by some Azure services. If you are using a non-Azure solution such as a 3rd party firewall, download a list of [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). Extract the file and search for the service tag within the file. The IP addresses may change periodically.
+    > Azure service tags are only supported by some Azure services. For a list of service tags supported with network security groups and Azure Firewall, see the [Virtual network service tags](/azure/virtual-network/service-tags-overview) article.
+    > 
+    > If you are using a non-Azure solution such as a 3rd party firewall, download a list of [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). Extract the file and search for the service tag within the file. The IP addresses may change periodically.
 
 * __Region__: Some service tags allow you to specify an Azure region. This limits access to the service IP addresses in a specific region, usually the one that your service is in. In this article, when you see `<region>`, substitute your Azure region instead. For example, `BatchNodeManagement.<region>` would be `BatchNodeManagement.uswest` if your Azure Machine Learning workspace is in the US West region.
 
