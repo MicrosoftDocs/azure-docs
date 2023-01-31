@@ -1,7 +1,7 @@
 ---
 title: Azure monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
-author:EdB-MSFT
+author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 01/30/2023
 ms.custom: has-adal-ref, devx-track-azurepowershell
@@ -18,13 +18,13 @@ The Azure Monitor API also makes it possible to list alert rules, view activity 
 
 ## Authenticate Azure Monitor requests
 
-Tasks executed using the Azure Monitor API use the Azure Resource Manager authentication model. All requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticating the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token.
+Tasks executed using the Azure Monitor API use the Azure Resource Manager authentication model. All requests must be authenticated with Azure Active Directory (Azure Active Directory). One approach to authenticating the client application is to create an Azure Active Directory service principal and retrieve the authentication (JWT) token.
 
 ## Create an service principal
 
 ### [Azure Portal](#tab/portal)
 
-To create an Azure AD service principal using the Azure Portal see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token)
+To create an Azure Active Directory service principal using the Azure Portal see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token)
 
 ### [Azure CLI](#tab/cli)
 
@@ -102,7 +102,7 @@ A successful request receives an access token in the response:
 Use the access token in your Azure Monitor API requests
 
 ### [Powershell](#tab/powershell)
-The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walkthrough, see the documentation on [using Azure PowerShell to create a service principal to access resources](/powershell/azure/create-azure-service-principal-azureps). It's also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
+The following sample script demonstrates creating an Azure Active Directory service principal via PowerShell. For a more detailed walkthrough, see the documentation on [using Azure PowerShell to create a service principal to access resources](/powershell/azure/create-azure-service-principal-azureps). It's also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 
 ```powershell
@@ -116,7 +116,7 @@ Connect-AzAccount -SubscriptionId $subscriptionId
 $pwd = "{service-principal-password}"
 $secureStringPassword = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 
-# Create a new Azure AD application
+# Create a new Azure Active Directory application
 $azureAdApplication = New-AzADApplication `
                         -DisplayName "My Azure Monitor" `
                         -HomePage "https://localhost/azure-monitor" `
@@ -522,7 +522,7 @@ The resulting JSON response body would be similar to the following example:
 
 ### Use ARMClient
 
-Another approach is to use [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. ARMClient handles the Azure AD authentication (and resulting JWT token) automatically. The following steps outline the use of ARMClient for retrieving metric data:
+Another approach is to use [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. ARMClient handles the Azure Active Directory authentication (and resulting JWT token) automatically. The following steps outline the use of ARMClient for retrieving metric data:
 
 1. Install [Chocolatey](https://chocolatey.org/) and [ARMClient](https://github.com/projectkudu/armclient).
 1. In a terminal window, enter **armclient.exe login**. Doing so prompts you to sign in to Azure.
