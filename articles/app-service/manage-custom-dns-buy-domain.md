@@ -196,7 +196,21 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
     After the operation is complete, the domain is released from your subscription and available for anyone to purchase again. 
 
-## Direct default URL to a custom directory
+## Frequently asked questions
+
+- [Why do I see "This subscription does not have the billing support to purchase an App Service domain"?](#why-do-i-see-this-subscription-does-not-have-the-billing-support-to-purchase-an-app-service-domain)
+- [Why do I get a SubscriptionExceededMaxDomainLimit error when creating an App Service domain?](#why-do-i-get-a-subscriptionexceededmaxdomainlimit-error-when-creating-an-app-service-domain)
+- [How do I direct the default URL to a custom directory?](#how-do-i-direct-the-default-url-to-a-custom-directory)
+
+#### Why do I see "This subscription does not have the billing support to purchase an App Service domain"?
+
+Free subscriptions, which don't require a confirmed credit card, do not have the permissions to buy App Service domains in Azure.
+
+#### Why do I get a SubscriptionExceededMaxDomainLimit error when creating an App Service domain?
+
+The number of App Service domains a subscription can have depends on the subscription type. Subscriptions that have a monthly credit allotment, like Visual Studio Enterprise Subscription, have a limit of 1 App Service domain. To increase your limit, convert to a pay-per-use subscription. If you already have a pay-per-use subscription and see this error, contact Azure support to increase your limit.
+
+#### How do I direct the default URL to a custom directory?
 
 This is not a DNS resolution scenario. By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Redirect to a custom directory](configure-common.md#redirect-to-a-custom-directory).
 

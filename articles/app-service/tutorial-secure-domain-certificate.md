@@ -15,7 +15,6 @@ The `<app-name>.azurewebsites.net` name is already secured by a wildcard certifi
 
 * [Create an App Service app](./index.yml).
 * Make sure you can edit the DNS records for your custom domain. To edit DNS records, you need access to the DNS registry for your domain provider, such as GoDaddy. For example, to add DNS entries for `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain. Your custom domains must be in a public DNS zone; private DNS zone is only supported on Internal Load Balancer (ILB) App Service Environment (ASE).
-* Make sure your root domain satisfies the [limitations of App Service managed certificates](configure-ssl-certificate.md#create-a-free-managed-certificate).
 * If you don't have a custom domain yet, you can [purchase an App Service domain](manage-custom-dns-buy-domain.md).
 
 ## A. Scale up your app
