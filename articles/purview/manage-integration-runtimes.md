@@ -129,7 +129,7 @@ You can delete a self-hosted integration runtime by navigating to **Integration 
 
 If you move your cursor over the icon or message in the notification area, you can see details about the state of the self-hosted integration runtime.
 
-:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::||
+:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::
 
 ### Service account for Self-hosted integration runtime
 

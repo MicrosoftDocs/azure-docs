@@ -27,7 +27,7 @@ Auto update is enabled by default when you install a self-hosted integration run
 
 The self-hosted integration runtime will be automatically updated to newer version. When new version is available while not yet scheduled for your instance, you can also trigger the update from the portal.
 
-:::image type="content" source="media/create-self-hosted-integration-runtime/shir-auto-update-with-new-version.png" alt-text="Screenshot of checking the self-hosted integration runtime version and trigger update.":::
+:::image type="content" source="media/self-hosted-integration-runtime-version/shir-auto-update-with-new-version.png" alt-text="Screenshot of checking the self-hosted integration runtime version and trigger update.":::
 
 > [!NOTE]
 > If you have multiple self-hosted integration runtime nodes, there is no downtime during auto-update. The auto-update happens in one node first while others are working on tasks. When the first node finishes the update, it will take over the remain tasks when other nodes are updating. If you only have one self-hosted integration runtime node, then it has some downtime during the auto-update.
