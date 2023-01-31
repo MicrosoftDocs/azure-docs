@@ -1,7 +1,7 @@
 ---
 title: Track network and sensor activity with the event timeline in Microsoft Defender for IoT
 description: Track network and sensor activity in the event timeline.
-ms.date: 01/23/2023
+ms.date: 01/31/2023
 ms.topic: how-to
 ---
 
@@ -9,7 +9,9 @@ ms.topic: how-to
 
 Activity detected by your Microsoft Defender for IoT sensors is recorded in the event timeline. Activity includes alerts and alert management actions, network events, and user operations such as user sign-in or user deletion.
 
-The event timeline provides a chronological view of all activity that took place in the network. Use the event timeline during investigations, to understand and analyze the chain of events that preceded and followed an attack or incident.
+The event timeline provides a chronological view and context of all network activity, to help determine the cause and effect of incidents. The timeline view makes it easy to extract information from network events, and more efficiently analyze alerts and events observed on the network. With the ability to store vast amounts of data, the event timeline view can be a valuable resource for security teams to perform investigations and gain a deeper understanding of network activity.
+
+Use the event timeline during investigations, to understand and analyze the chain of events that preceded and followed an attack or incident. The centralized view of multiple security-related events on the same timeline helps to identify patterns and correlations, and enable security teams to quickly assess the impact of incidents and respond accordingly.
 
 Enhance your security analysis and incident investigations with the event timeline, with the following options:
 
@@ -102,12 +104,11 @@ For example:
 
 :::image type="content" source="media/track-sensor-activity/create-new-event.png" alt-text="Screenshot of creating a new event in the timeline.":::
 
-## Maximum event capacity
+## Event timeline capacity
 
-The maximum number of events shown in the event timeline is dependent on [the hardware profile](ot-appliance-sizing.md) selected during sensor installation.
-Each profile has a maximum capacity of events that will show on the event timeline. Once the maximum event capacity is reached, the oldest events will be rolled over and deprecated.
+The amount of data that can be stored in the event timeline depends on various factors, such as the size of the network, the frequency of events, and the storage capacity of your sensor. The data stored in the event timeline can include information about network traffic, security events, and other relevant data points.
 
-For more information on the maximum event capacity for each hardware profile, see [OT event timeline retention](/azure/defender-for-iot/organizations/references-data-retention?branch=pr-en-us-221446).
+The maximum number of events shown in the event timeline is dependent on [the hardware profile](ot-appliance-sizing.md) selected during sensor installation. Each hardware profile has a maximum capacity of events. For more information on the maximum event capacity for each hardware profile, see [OT event timeline retention](/azure/defender-for-iot/organizations/references-data-retention?branch=pr-en-us-221446).
 
 ## Next steps
 
