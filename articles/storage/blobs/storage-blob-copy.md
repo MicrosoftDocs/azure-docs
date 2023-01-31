@@ -13,9 +13,9 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Copy a blob with Azure Storage using the .NET client library
+# Copy a blob with .NET
 
-This article demonstrates how to copy a blob in an Azure Storage account. It also shows how to abort an asynchronous copy operation. The example code uses the Azure Storage client libraries.
+This article shows how to copy a blob in a storage account using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). It also shows how to abort an asynchronous copy operation.
 
 ## About copying blobs
 
