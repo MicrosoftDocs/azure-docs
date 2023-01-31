@@ -65,19 +65,19 @@ Read more about [data type support for different clouds in Microsoft Sentinel](d
 | **AlertInfo**     | GA         | GA  | Public preview | Public preview |
 | **AlertEvidence** | GA         | GA  | Public preview | Public preview |
 |
-| Microsoft 365 Defender Alerts:<br>SecurityAlert |Public preview |Public preview |Public preview |Public preview |
-| Microsoft Defender for Endpoint Alerts (standalone connector):<br>SecurityAlert (MDATP) |Public preview |Public preview |Public preview |Public preview |
-| Microsoft Defender for Office 365 Alerts (standalone connector):<br>SecurityAlert (OATP) |Public preview |Public preview |Public preview |Public preview |
-| Microsoft Defender for Identity Alerts (standalone connector):<br>SecurityAlert (AATP) |Public preview |Unsupported |Unsupported |Unsupported |
-| Microsoft Defender for Cloud Apps Alerts (standalone connector):<br>SecurityAlert (MCAS), |Public preview |Unsupported |Unsupported |Unsupported |
-| Microsoft Defender for Cloud Apps Alerts (standalone connector):<br>McasShadowItReporting |Public preview |Unsupported |Unsupported |Unsupported |
+| Microsoft 365 Defender Alerts:<br>SecurityAlert | Public preview | Public preview | Public preview | Public preview |
+| Microsoft Defender for Endpoint Alerts (standalone connector):<br>SecurityAlert (MDATP) | Public preview | Public preview | Public preview | Public preview |
+| Microsoft Defender for Office 365 Alerts (standalone connector):<br>SecurityAlert (OATP) | Public preview | Public preview | Public preview | Public preview |
+| Microsoft Defender for Identity Alerts (standalone connector):<br>SecurityAlert (AATP) | Public preview | Unsupported | Unsupported | Unsupported |
+| Microsoft Defender for Cloud Apps Alerts (standalone connector):<br>SecurityAlert (MCAS) | Public preview | Unsupported | Unsupported | Unsupported |
+| Microsoft Defender for Cloud Apps Alerts (standalone connector):<br>McasShadowItReporting | Public preview | Unsupported | Unsupported | Unsupported |
 
 ## Azure Active Directory Identity Protection
 
-|Data type  |Commercial  |GCC  |GCC-High |DoD |
-|---------|---------|---------|---------|---------|
-|SecurityAlert (IPC) |Public preview/GA |Supported |Supported |Supported |
-|AlertEvidence |Public preview |Unsupported |Unsupported |Unsupported |
+| Data type         | Commercial | GCC | GCC-High       | DoD            |
+| ----------------- | ---------- | --- | -------------- | -------------- |
+| SecurityAlert (IPC) | Public preview/GA | Supported | Supported | Supported |
+| AlertEvidence | Public preview | Unsupported | Unsupported | Unsupported |
 
 ## Next steps
 
