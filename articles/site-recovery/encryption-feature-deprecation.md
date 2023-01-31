@@ -16,7 +16,7 @@ This article describes the deprecation details and the remediation action that y
 
 ## Deprecation information
 
-The Site Recovery data encryption feature was available for customers who wanted to protect replicated data for Hyper-V VMs against security threats. This feature was be deprecated on *April 30, 2022*. It was replaced by the [encryption at rest](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) feature, which uses [service-side encryption](../storage/common/storage-service-encryption.md) (SSE).
+The Site Recovery data encryption feature was available for customers who wanted to protect replicated data for Hyper-V VMs against security threats. This feature was deprecated on *April 30, 2022*. It was replaced by the [encryption at rest](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) feature, which uses [service-side encryption](../storage/common/storage-service-encryption.md) (SSE).
 
 With SSE, data is encrypted before persisting to storage and decrypted on retrieval. Upon failover to Azure, your VMs will run from the encrypted storage accounts to help improve recovery time objective (RTO).
 

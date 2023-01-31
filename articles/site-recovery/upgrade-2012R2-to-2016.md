@@ -63,7 +63,7 @@ The following steps apply to the user configuration from [Hyper-V hosts to Azure
 
 ## Upgrade Windows Server 2012 R2 hosts that a standalone Virtual Machine Manager 2012 R2 server manages
 
-Before you upgrade your Windows Sever 2012 R2 hosts, you need to upgrade Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016. Use the following steps.
+Before you upgrade your Windows Server 2012 R2 hosts, you need to upgrade Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016. Use the following steps.
 
 ### Upgrade standalone Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016
 
@@ -92,7 +92,7 @@ Before you upgrade your Windows Sever 2012 R2 hosts, you need to upgrade Virtual
 
 ## Upgrade Windows Server 2012 R2 hosts that a highly available Virtual Machine Manager 2012 R2 server manages
 
-Before you upgrade your Windows Sever 2012 R2 hosts, you need to upgrade Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016. The following modes of upgrade are supported while you're upgrading Virtual Machine Manager 2012 R2 servers configured with:
+Before you upgrade your Windows Server 2012 R2 hosts, you need to upgrade Virtual Machine Manager 2012 R2 to Virtual Machine Manager 2016. The following modes of upgrade are supported while you're upgrading Virtual Machine Manager 2012 R2 servers configured with:
 
 - Site Recovery mixed mode with no additional Virtual Machine Manager servers.
 - Site Recovery mixed mode with additional Virtual Machine Manager servers.
