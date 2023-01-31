@@ -14,7 +14,7 @@ ms.custom:
 ---
 
 # Anomaly Detector service quotas and limits
-This article contains both a quick reference and detailed description of Azure Anomaly Detector service Quotas and Limits for all pricing tiers. It also contains some best practices to avoid request throttling.
+This article contains both a quick reference and detailed description of Azure Anomaly Detector service quotas and limits for all pricing tiers. It also contains some best practices to help avoid request throttling.
 
 The quotas and limits apply to all the versions within Azure Anomaly Detector service.
 
