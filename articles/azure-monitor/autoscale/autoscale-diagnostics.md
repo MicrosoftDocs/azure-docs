@@ -15,7 +15,7 @@ ms.reviewer: akkumari
 
 Autoscale has two log categories and a set of metrics that can be enabled via the **Diagnostics settings** tab on the autoscale setting page.
 
-:::image type="content" source="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png" alt-text="A screenshot showing the menu in the autoscale setting page":::
+:::image type="content" source="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png" alt-text="A screenshot showing the menu in the autoscale setting page.":::
 
 
 The two categories are 
@@ -36,7 +36,7 @@ For more information on diagnostics, see [Diagnostic settings in Azure Monitor](
 
 View the history of your autoscale activity in the run history tab. The run history tab includes a chart of resource instance counts over time and the resource activity log entries for autoscale.
 
-:::image type="content" source="./media/autoscale-diagnostics/autoscale-run-history.png" alt-text="A screenshot showing the run history tab on the autoscale setting page":::
+:::image type="content" source="./media/autoscale-diagnostics/autoscale-run-history.png" alt-text="A screenshot showing the run history tab on the autoscale setting page.":::
 
 ## Resource log schemas 
 
