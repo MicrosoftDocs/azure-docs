@@ -98,11 +98,11 @@ Learn more: [Plan a Microsoft Entra access reviews deployment](../governance/dep
 
 ## Using entitlement management automation
 
-* [Working with the Azure AD entitlement management API](/graph/api/resources/entitlementmanagement-overview?view=graph-rest-1.0)
-* [accessPackage resource type](/graph/api/resources/accesspackage?view=graph-rest-1.0)
-* [Azure AD access reviewss](/graph/api/resources/accessreviewsv2-overview?view=graph-rest-1.0)
-* [connectedOrganization resource type](/graph/api/resources/connectedorganization?view=graph-rest-1.0)
-* [entitlementManagementSettings resource type](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-1.0)
+* [Working with the Azure AD entitlement management API](/graph/api/resources/entitlementmanagement-overview?view=graph-rest-1.0&preserve-view=true )
+* [accessPackage resource type](/graph/api/resources/accesspackage?view=graph-rest-1.0&preserve-view=true )
+* [Azure AD access reviewss](/graph/api/resources/accessreviewsv2-overview?view=graph-rest-1.0&preserve-view=true )
+* [connectedOrganization resource type](/graph/api/resources/connectedorganization?view=graph-rest-1.0&preserve-view=true )
+* [entitlementManagementSettings resource type](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-1.0&preserve-view=true )
 
 ## External access governance recommendations 
 
@@ -115,7 +115,7 @@ We recommend the following practices to govern external access with entitlement 
 * If you have B2B users in your directory, you can assign them to access packages.
 * You can assign access in the Azure portal or with Microsoft Graph
   * [View, add, and remove assignments for an access package in entitlement management](../governance/entitlement-management-access-package-assignments.md)
-  * [Create a new access package in entitlement management](../governance/entitlement-management-access-package-create)
+  * [Create a new access package in entitlement management](../governance/entitlement-management-access-package-create.md)
 
 ### Identity Governance - Settings 
 
