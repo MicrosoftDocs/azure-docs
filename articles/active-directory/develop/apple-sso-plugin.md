@@ -284,7 +284,7 @@ This behavior can be configured using the `disable_inapp_sso_signin` flag. If th
 - **Value**: 1 or 0. This value is set to 0 by default.
 
 #### Configure Azure AD device registration
-For Intune-managed devices, the Microsoft Enterprise SSO plug-in can perform AAD device registration when a user is trying to access resources. This enables a more streamlined end-user experience. 
+For Intune-managed devices, the Microsoft Enterprise SSO plug-in can perform Azure AD device registration when a user is trying to access resources. This enables a more streamlined end-user experience. 
 
 Use the following configuration to enable Just in Time Registration for iOS/iPadOS with Microsoft Intune:
 
