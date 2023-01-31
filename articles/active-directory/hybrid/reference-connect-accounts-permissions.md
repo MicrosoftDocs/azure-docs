@@ -57,6 +57,8 @@ The Azure AD Connect installation wizard offers two paths:
 - **Express settings**: In Azure AD Connect express settings, the wizard requires more permissions so that it can easily configure your installation. The wizard creates users and sets up permissions so that you don't have to.
 - **Custom settings**: In Azure AD Connect custom settings, you have more choices and options in the wizard. However, for some scenarios, it's important to ensure that you have the correct permissions yourself.
 
+<a name="express-settings-installation"></a>
+
 ## Express settings
 
 In express settings, you enter this information in the installation wizard:
@@ -103,6 +105,8 @@ The following table is a summary of the express settings wizard pages, the crede
 | Connect to Azure AD |Azure AD directory credentials. |Global Administrator role in Azure AD. |- Used to enable sync in the Azure AD directory.<br /> - Used to create the Azure AD Connector account that's used for ongoing sync operations in Azure AD. |
 | Connect to AD DS |Windows Server AD credentials. |Member of the Enterprise Admins group in Windows Server AD. |Used to create the AD DS Connector account in Windows Server AD and grant permissions to it. This created account is used to read and write directory information during sync. |
 
+<a name="custom-installation-settings"></a>
+
 ## Custom settings
 
 In a custom settings installation, you have more choices and options in the wizard.
@@ -124,7 +128,7 @@ The following table is a summary of the custom settings wizard pages, the creden
 | Proxy trust credentials |Federation service trust credentials (the credentials the proxy uses to enroll for a trust certificate from the federation services (FS)). |The domain account that's a Local Administrator of the AD FS server. |Initial enrollment of the FS-WAP trust certificate. |
 | AD FS Service Account page **Use a domain user account option** |The Windows Server AD user account credentials. |A domain user. |The Azure AD user account whose credentials are provided is used as the sign-in account of the AD FS service. |
 
-### AD DS Connector account required permissions for custom settings
+### Create the AD DS Connector account
 
 > [!IMPORTANT]
 > A new PowerShell Module named *ADSyncConfig.psm1* was introduced with build 1.1.880.0 (released in August 2018). The module includes a collection of cmdlets that help you configure the correct Windows Server AD permissions for the Azure AD DS Connector account.
@@ -147,7 +151,9 @@ Which permissions you require depends on the optional features you enable. If yo
 | Device writeback |Permissions granted with a PowerShell script as described in [Device writeback](how-to-connect-device-writeback.md). |
 | Group writeback |Allows you to writeback *Microsoft 365 Groups* to a forest that has Exchange installed.|
 
-## Required permissions to upgrade
+<a name="upgrade"></a>
+
+## Permissions required to upgrade
 
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:
 
