@@ -169,10 +169,10 @@ Also see the following SAP resources:
 
 For more information about threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
-- [SAP security content reference](/sentinel/sap/sap-solution-security-content)
+- [SAP security content reference](/azure/sentinel/sap/sap-solution-security-content)
 - [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-microsoft-sentinel-s-soar-capabilities-with-sap/ba-p/3251485)
-- [Deploy the Microsoft Sentinel solution for SAP](/sentinel/sap/deploy-sap-security-content)
-- [Microsoft Sentinel SAP solution data reference](/sentinel/sap/sap-solution-log-reference)
+- [Deploy the Microsoft Sentinel solution for SAP](/azure/sentinel/sap/deploy-sap-security-content)
+- [Microsoft Sentinel SAP solution data reference](/azure/sentinel/sap/sap-solution-log-reference)
 
 ### SAP BTP
 

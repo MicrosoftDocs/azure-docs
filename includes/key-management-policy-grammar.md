@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 11/18/2022
+ms.date: 01/31/2023
 ms.author: mbaldwin
 ---
 
@@ -18,7 +18,13 @@ value =
 
 (* The operators supported for claim value comparison *)
 operator =
-  "equals:";
+  "equals:" |
+  "notEquals:" |
+  "less:" |
+  "lessOrEquals:" |
+  "greater:" |
+  "greaterOrEquals:" |
+  "exists:";
 
 (* A JSON condition that evaluates the value of a claim *)
 claim_condition =
