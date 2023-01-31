@@ -6,6 +6,7 @@ services: machine-learning
 author: abeomor
 ms.author: osomorog
 ms.service: machine-learning
+ms.reviewer: larryfr
 ms.subservice: mlops
 ms.date: 11/29/2022
 ms.topic: conceptual
@@ -201,7 +202,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
 > Make sure you understand the [Architectural Patterns](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) of the solution accelerator before you checkout the MLOps v2 repo and deploy the infrastructure. In examples you'll use the [classical ML project type](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2#classical-machine-learning-architecture).
 
 ### Run Azure infrastructure pipeline
-1. Go to the first repo you imported in the previous section, `mlops-v2-ado-demo`, select the **config-infra-dev.yml** file.
+1. Go to the first repo you imported in the previous section, `mlops-v2-ado-demo`. Make sure you have the `main` branch selected and then select the **config-infra-dev.yml** file.
    
    ![Screenshot of Repo in ADO.](./media/how-to-setup-mlops-azureml/ADO-repo.png)
    

@@ -42,9 +42,7 @@ The location selected during tenant creation will map to one of the following ge
 * North America
 * Worldwide  
 
-Azure AD handles Core Store data based on usability, performance, residency and/or other requirements based on geo-location. The term residency indicates Microsoft provides assurance the data isn’t persisted outside the geo-location.
-
-Azure AD replicates each tenant through its scale unit, across data centers, based on the following criteria: 
+Azure AD handles Core Store data based on usability, performance, residency and/or other requirements based on geo-location. Azure AD replicates each tenant through its scale unit, across data centers, based on the following criteria: 
 
 * Azure AD Core Store data, stored in data centers closest to the tenant-residency location, to reduce latency and provide fast user sign-in times
 * Azure AD Core Store data stored in geographically isolated data centers to assure availability during unforeseen single-datacenter, catastrophic events

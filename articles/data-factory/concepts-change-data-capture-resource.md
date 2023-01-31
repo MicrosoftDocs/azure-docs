@@ -41,7 +41,6 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 
 * Avro
 * Azure SQL Database
-* Azure Synapse Analytics
 * Delimited Text
 * Delta
 * JSON

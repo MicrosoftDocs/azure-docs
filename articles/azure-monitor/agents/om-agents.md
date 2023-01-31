@@ -2,7 +2,7 @@
 title: Connect Operations Manager to Azure Monitor | Microsoft Docs
 description: To maintain your investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your workspace.
 ms.topic: conceptual
-ms.date: 11/18/2022
+ms.date: 01/30/2023
 ms.reviewer: JeffWo
 
 ---
@@ -33,8 +33,8 @@ If your IT security policies don't allow computers on your network to connect to
 
 Before you start, review the following requirements.
 
->[!NOTE]
->Starting February 1, 2023, System Center Operations Manager versions earlier than [2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents&preserve-view=true) will stop sending data to Log Analytics workspaces. Ensure that your agents are on System Center Operations Manager Agent version 10.19.10177.0 ([2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents&preserve-view=true) or later) or 10.22.10056.0 ([2022 RTM](/system-center/scom/release-build-versions?view=sc-om-2022#agents&preserve-view=true)). Also make sure that the System Center Operations Manager Management Group version is System Center Operations Manager 2022 and 2019 UR3 or a later version.
+>[!Note]
+>From April 14, 2023, System Center Operations Manager versions lower than [2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents&preserve-view=true) will stop sending data to Log Analytics workspaces. Ensure that your agents are on System Center Operations Manager Agent version 10.19.10177.0 ([2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents&preserve-view=true) or later) or 10.22.10056.0 ([2022 RTM](/system-center/scom/release-build-versions?view=sc-om-2022#agents&preserve-view=true)) and that the System Center Operations Manager Management Group version is the System Center Operations Manager 2022 and 2019 UR3 or later version.
 
 * Azure Monitor supports:
     * System Center Operations Manager 2022

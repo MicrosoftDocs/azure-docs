@@ -1,8 +1,8 @@
 ---
 title: "Azure Synapse Analytics security white paper: Threat detection"
 description: Audit, protect, and monitor Azure Synapse Analytics.
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual

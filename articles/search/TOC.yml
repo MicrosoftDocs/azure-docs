@@ -196,6 +196,8 @@
       href: search-sku-manage-costs.md
     - name: Availability and recovery
       href: search-performance-optimization.md
+    - name: Availability migration guidance
+      href: /azure/reliability/migrate-search-service
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
   - name: Service management
@@ -493,7 +495,7 @@
     - name: Search API
       href: /dotnet/api/overview/azure/search.documents-readme
     - name: Management API
-      href: /dotnet/api/overview/azure/search/management/management-search
+      href: /dotnet/api/microsoft.azure.management.search
   - name: Java
     items:
     - name: Search API

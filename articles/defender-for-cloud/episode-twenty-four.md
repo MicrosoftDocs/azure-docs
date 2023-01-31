@@ -3,7 +3,7 @@ title: Enhancements in Defender for SQL vulnerability assessment | Defender for 
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Enhancements in Defender for SQL Vulnerability Assessment
 ms.topic: reference
-ms.date: 01/18/2023
+ms.date: 01/24/2023
 ---
 
 # Enhancements in Defender for SQL vulnerability assessment | Defender for Cloud in the field

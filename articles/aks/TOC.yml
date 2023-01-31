@@ -208,8 +208,8 @@
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
-        - name: Use Uptime SLA
-          href: uptime-sla.md
+        - name: Free and Standard pricing tiers for AKS
+          href: free-standard-pricing-tiers.md
         - name: Use Draft (preview)
           href: draft.md
         - name: Use proximity placement groups
