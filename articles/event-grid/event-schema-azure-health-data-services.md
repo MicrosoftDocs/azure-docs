@@ -7,7 +7,7 @@ ms.date: 01/31/2023
 
 # Azure Health Data Services as an Event Grid source
 
-This article provides the properties and schema for Azure Health Data Services events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for Azure Health Data Services Events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Available Event types
 
