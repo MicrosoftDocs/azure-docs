@@ -14,7 +14,7 @@ ms.date: 01/20/2023
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
-> Managed Apache Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
+> Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
 Azure Data Factory Managed Airflow orchestrates your workflows using Directed Acyclic Graphs (DAGs) written in Python. You must provide your DAGs and plugins in Azure Blob Storage. Airflow requirements or library dependencies can be installed during the creation of the new Managed Airflow environment or by editing an existing Managed Airflow environment. Then run and monitor your DAGs by launching the Airflow UI from ADF using a command line interface (CLI) or a software development kit (SDK).
 
