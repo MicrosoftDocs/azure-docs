@@ -22,7 +22,7 @@ Use the entitlement management feature to manage identity and access lifecycle. 
 Learn more:
 
 * [What is entitlement management?](../governance/entitlement-management-overview.md)
-* [What are acess packages and what resources can I manage with them?](../governance/entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them)
+* [What are access packages and what resources can I manage with them?](../governance/entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them)
 * [What is provisioning?](../governance/what-is-provisioning.md)
 
 ## Enable entitlement management
@@ -73,7 +73,7 @@ Access packages can include mandatory approval for access. Approvals can be sing
 
 ### Expiration  
 
-Access packages can include an expiration date: a day you set, or a number of days for access. When the access package expires, and access ends, the B2B guest user object representing the user can be deleted or blocked from signing in. We recommend you enforce expiration on access packages for external users. Not all access packages have expirations.
+Access packages can include an expiration date or a number of days you set for access. When the access package expires, and access ends, the B2B guest user object representing the user can be deleted or blocked from signing in. We recommend you enforce expiration on access packages for external users. Not all access packages have expirations.
 
 > [!IMPORTANT]
 > For packages without expiration, perform regular access reviews.
@@ -100,7 +100,7 @@ Learn more: [Plan a Microsoft Entra access reviews deployment](../governance/dep
 
 * [Working with the Azure AD entitlement management API](/graph/api/resources/entitlementmanagement-overview?view=graph-rest-1.0&preserve-view=true )
 * [accessPackage resource type](/graph/api/resources/accesspackage?view=graph-rest-1.0&preserve-view=true )
-* [Azure AD access reviewss](/graph/api/resources/accessreviewsv2-overview?view=graph-rest-1.0&preserve-view=true )
+* [Azure AD access reviews](/graph/api/resources/accessreviewsv2-overview?view=graph-rest-1.0&preserve-view=true )
 * [connectedOrganization resource type](/graph/api/resources/connectedorganization?view=graph-rest-1.0&preserve-view=true )
 * [entitlementManagementSettings resource type](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-1.0&preserve-view=true )
 
@@ -125,13 +125,13 @@ Use **Identity Governance - Settings** to remove users from your directory when 
 
 ### Delegate catalog and package management
 
-You can delegate catalog and package managment to business owners, who have more information on who should access. See, [Delegation and roles in entitlement managements](../governance/entitlement-management-delegate.md)
+You can delegate catalog and package management to business owners, who have more information on who should access. See, [Delegation and roles in entitlement managements](../governance/entitlement-management-delegate.md)
 
    ![Screenshot of options and entries under Roles and administrators.](media/secure-external-access/6-catalog-management.png)
 
 ### Enforce access package expiration
 
-You can to which external users have access. See, [Change lifecycle settings for an access package in entitlement management](../governance/entitlement-management-access-package-lifecycle-policy.md).
+You can enforce access expiration for external users. See, [Change lifecycle settings for an access package in entitlement management](../governance/entitlement-management-access-package-lifecycle-policy.md).
 
    ![Screenshot of options and entries for Expiration.](media/secure-external-access/6-access-package-expiration.png)
 
@@ -146,7 +146,7 @@ You can enforce reviews of guest-access packages to avoid inappropriate access f
 
    ![Screenshot of options and entries under New access package.](media/secure-external-access/6-new-access-package.png)
 
-* Enforce quartlery reviews
+* Enforce quarterly reviews
 * For compliance-related projects, set the reviewers to be reviewers, rather than self-review for external users. 
   * You can use access package managers as reviewers
 * For less sensitive projects, users self-reviewing reduces the burden to remove access from users no longer with the organization.
@@ -167,7 +167,7 @@ See the following articles to learn more about securing external access to resou
 
 5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) (You are here)
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) (You're here)
 
 7. [Manage external access with Conditional Access policies](7-secure-access-conditional-access.md)
 
