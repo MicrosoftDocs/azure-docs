@@ -196,30 +196,30 @@ If you're using a custom domain, you need to add an *A* record to your DNS zone.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Add an *A* record to your DNS zone with the external IP address of the NGINX service using [`az network dns record-set a add-record`][az-network-dns-record-set-a-add-record].
+* Add an *A* record to your DNS zone with the external IP address of the NGINX service using [`az network dns record-set a add-record`][az-network-dns-record-set-a-add-record].
 
-```azurecli
-az network dns record-set a add-record \
-    --resource-group myResourceGroup \
-    --zone-name MY_CUSTOM_DOMAIN \
-    --record-set-name "*" \
-    --ipv4-address MY_EXTERNAL_IP
-```
+    ```azurecli
+    az network dns record-set a add-record \
+        --resource-group myResourceGroup \
+        --zone-name MY_CUSTOM_DOMAIN \
+        --record-set-name "*" \
+        --ipv4-address MY_EXTERNAL_IP
+    ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Add an *A* record to your DNS zone with the external IP address of the NGINX service using [`New-AzDnsRecordSet`][new-az-dns-recordset-create-a-record].
+* Add an *A* record to your DNS zone with the external IP address of the NGINX service using [`New-AzDnsRecordSet`][new-az-dns-recordset-create-a-record].
 
-```azurepowershell
-$Records = @()
-$Records += New-AzDnsRecordConfig -IPv4Address <External IP>
-New-AzDnsRecordSet -Name "*" `
-    -RecordType A `
-    -ResourceGroupName <Name of Resource Group for the DNS Zone> `
-    -ZoneName <Custom Domain Name> `
-    -TTL 3600 `
-    -DnsRecords $Records
-```
+    ```azurepowershell
+    $Records = @()
+    $Records += New-AzDnsRecordConfig -IPv4Address <External IP>
+    New-AzDnsRecordSet -Name "*" `
+        -RecordType A `
+        -ResourceGroupName <Name of Resource Group for the DNS Zone> `
+        -ZoneName <Custom Domain Name> `
+        -TTL 3600 `
+        -DnsRecords $Records
+    ```
 
 ---
 
@@ -381,34 +381,34 @@ Before certificates can be issued, cert-manager requires one of the following is
 
 For more information, see the [cert-manager issuer][cert-manager-issuer] documentation.
 
-Create a cluster issuer, such as `cluster-issuer.yaml`, using the following example manifest. Replace `MY_EMAIL_ADDRESS` with a valid address from your organization.
+1. Create a cluster issuer, such as `cluster-issuer.yaml`, using the following example manifest. Replace `MY_EMAIL_ADDRESS` with a valid address from your organization.
 
-```yaml
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt
-spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: MY_EMAIL_ADDRESS
-    privateKeySecretRef:
+    ```yaml
+    apiVersion: cert-manager.io/v1
+    kind: ClusterIssuer
+    metadata:
       name: letsencrypt
-    solvers:
-    - http01:
-        ingress:
-          class: nginx
-          podTemplate:
-            spec:
-              nodeSelector:
-                "kubernetes.io/os": linux
-```
+    spec:
+      acme:
+        server: https://acme-v02.api.letsencrypt.org/directory
+        email: MY_EMAIL_ADDRESS
+        privateKeySecretRef:
+          name: letsencrypt
+        solvers:
+        - http01:
+            ingress:
+              class: nginx
+              podTemplate:
+                spec:
+                  nodeSelector:
+                    "kubernetes.io/os": linux
+    ```
 
-To create the issuer, use the `kubectl apply` command.
+2. Apply the issuer using the `kubectl apply` command.
 
-```console
-kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
-```
+    ```console
+    kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+    ```
 
 ## Update your ingress routes
 
@@ -426,80 +426,80 @@ In the following example, traffic is routed as such:
 > For example, if your FQDN is *demo-aks-ingress.eastus.cloudapp.azure.com*, replace *hello-world-ingress.MY_CUSTOM_DOMAIN* with *demo-aks-ingress.eastus.cloudapp.azure.com* in `hello-world-ingress.yaml`.
 >
 
-Create or update the `hello-world-ingress.yaml` file using the following example YAML file. Update the `spec.tls.hosts` and `spec.rules.host` to the DNS name you created in a previous step.
+1. Create or update the `hello-world-ingress.yaml` file using the following example YAML file. Update the `spec.tls.hosts` and `spec.rules.host` to the DNS name you created in a previous step.
 
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: hello-world-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    cert-manager.io/cluster-issuer: letsencrypt
-spec:
-  ingressClassName: nginx
-  tls:
-  - hosts:
-    - hello-world-ingress.MY_CUSTOM_DOMAIN
-    secretName: tls-secret
-  rules:
-  - host: hello-world-ingress.MY_CUSTOM_DOMAIN
-    http:
-      paths:
-      - path: /hello-world-one(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: aks-helloworld-one
-            port:
-              number: 80
-      - path: /hello-world-two(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: aks-helloworld-two
-            port:
-              number: 80
-      - path: /(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: aks-helloworld-one
-            port:
-              number: 80
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: hello-world-ingress-static
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /static/$2
-spec:
-  ingressClassName: nginx
-  tls:
-  - hosts:
-    - hello-world-ingress.MY_CUSTOM_DOMAIN
-    secretName: tls-secret
-  rules:
-  - host: hello-world-ingress.MY_CUSTOM_DOMAIN
-    http:
-      paths:
-      - path: /static(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: aks-helloworld-one
-            port: 
-              number: 80
-```
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: hello-world-ingress
+      annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /$2
+        nginx.ingress.kubernetes.io/use-regex: "true"
+        cert-manager.io/cluster-issuer: letsencrypt
+    spec:
+      ingressClassName: nginx
+      tls:
+     - hosts:
+        - hello-world-ingress.MY_CUSTOM_DOMAIN
+        secretName: tls-secret
+      rules:
+     - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+        http:
+          paths:
+          - path: /hello-world-one(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-one
+                port:
+                  number: 80
+          - path: /hello-world-two(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-two
+                port:
+                  number: 80
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-one
+                port:
+                  number: 80
+    ---
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: hello-world-ingress-static
+      annotations:
+        nginx.ingress.kubernetes.io/ssl-redirect: "false"
+        nginx.ingress.kubernetes.io/rewrite-target: /static/$2
+    spec:
+      ingressClassName: nginx
+      tls:
+     - hosts:
+        - hello-world-ingress.MY_CUSTOM_DOMAIN
+        secretName: tls-secret
+      rules:
+     - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+        http:
+          paths:
+          - path: /static(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-one
+                port: 
+                  number: 80
+    ```
 
-Update the ingress resource using the `kubectl apply` command.
+2. Update the ingress resource using the `kubectl apply` command.
 
-```console
-kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
-```
+    ```console
+    kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+    ```
 
 ## Verify a certificate object has been created
 
@@ -535,59 +535,61 @@ This article used Helm to install the ingress components, certificates, and samp
 
 ### Delete the sample namespace and all resources
 
-To delete the entire sample namespace, use the `kubectl delete` command and specify your namespace name. All the resources in the namespace will be deleted.
+Deleting the sample namespace also deletes all the resources in the namespace.
 
-```console
-kubectl delete namespace ingress-basic
-```
+* Delete the entire sample namespace using the `kubectl delete` command and specifying your namespace name.
+
+    ```console
+    kubectl delete namespace ingress-basic
+    ```
 
 ### Delete resources individually
 
 Alternatively, you can delete the resource individually.
 
-First, remove the cluster issuer resources.
+1. Remove the cluster issuer resources.
 
-```console
-kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
-```
+    ```console
+    kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
+    ```
 
-List the Helm releases with the `helm list` command. Look for charts named *nginx* and *cert-manager*, as shown in the following example output.
+2. List the Helm releases with the `helm list` command. Look for charts named *nginx* and *cert-manager*, as shown in the following example output.
 
-```console
-$ helm list --namespace ingress-basic
+    ```console
+    $ helm list --namespace ingress-basic
 
-NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-cert-manager            ingress-basic   1               2020-01-15 10:23:36.515514 -0600 CST    deployed        cert-manager-v0.13.0    v0.13.0    
-nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0  
-```
+    NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+    cert-manager            ingress-basic   1               2020-01-15 10:23:36.515514 -0600 CST    deployed        cert-manager-v0.13.0    v0.13.0    
+    nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0  
+    ```
 
-Uninstall the releases with the `helm uninstall` command. The following example uninstalls the NGINX ingress and cert-manager deployments.
+3. Uninstall the releases using the `helm uninstall` command. The following example uninstalls the NGINX ingress and cert-manager deployments.
 
-```console
-$ helm uninstall cert-manager nginx --namespace ingress-basic
+    ```console
+    $ helm uninstall cert-manager nginx --namespace ingress-basic
 
-release "cert-manager" uninstalled
-release "nginx" uninstalled
-```
+    release "cert-manager" uninstalled
+    release "nginx" uninstalled
+    ```
 
-Next, remove the two sample applications.
+4. Remove the two sample applications.
 
-```console
-kubectl delete -f aks-helloworld-one.yaml --namespace ingress-basic
-kubectl delete -f aks-helloworld-two.yaml --namespace ingress-basic
-```
+    ```console
+    kubectl delete -f aks-helloworld-one.yaml --namespace ingress-basic
+    kubectl delete -f aks-helloworld-two.yaml --namespace ingress-basic
+    ```
 
-Remove the ingress route that directed traffic to the sample apps.
+5. Remove the ingress route that directed traffic to the sample apps.
 
-```console
-kubectl delete -f hello-world-ingress.yaml --namespace ingress-basic
-```
+    ```console
+    kubectl delete -f hello-world-ingress.yaml --namespace ingress-basic
+    ```
 
-Finally, you can delete the itself namespace. Use the `kubectl delete` command and specify your namespace name.
+6. Delete the itself namespace. Use the `kubectl delete` command and specify your namespace name.
 
-```console
-kubectl delete namespace ingress-basic
-```
+    ```console
+    kubectl delete namespace ingress-basic
+    ```
 
 ## Next steps
 
