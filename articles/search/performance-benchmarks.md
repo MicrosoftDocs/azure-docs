@@ -38,7 +38,7 @@ The following graph gives a visual example of what the test's query load looks l
 Each scenario used at least 10,000 unique queries to avoid tests being overly skewed by caching.
 
 > [!IMPORTANT]
-> These tests only include query workloads. If you expect to have a high volumn of indexing operations, be sure to factor that into your estimation and performance testing. Sample code for simulating indexing can be found in this [tutorial](tutorial-optimize-indexing-push-api.md).
+> These tests only include query workloads. If you expect to have a high volume of indexing operations, be sure to factor that into your estimation and performance testing. Sample code for simulating indexing can be found in this [tutorial](tutorial-optimize-indexing-push-api.md).
 
 ### Definitions
 
