@@ -84,7 +84,7 @@ All of the claims in the Verified employee credential come from attributes in th
 | `jobTitle` | `jobTitle` | The user's job title. This attribute doesn't have a value by default in the user's profile. If the user's profile has no value specified, there's no `jobTitle` claim in the issued VC. |
 | `preferredLanguage` | `preferredLanguage` | Should follow [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) and contain a value like `en-us`. There's no default value specified. If there's no value, no claim  is included in the issued VC. |
 | `mail` | `mail` | The user's email address. The `mail` value isn't the same as the UPN. It's also an attribute that doesn't have a value by default. 
-| `photo` | `photo` | The uploaded photo for the user. The image type (JPEG, PNG, etc.), depends on the uploaded image type. When presenting the photo claim to a verifier, the photo claim is in the UrlEncode(Base64Encode(photo)) format. To use the photo, the verifier application has to Base64Decode(UrlDecode(photo)).
+| `photo` | `photo` | The uploaded photo for the user. The image type should be JPEG and the maximum size is 2MB. When presenting the photo claim to a verifier, the photo claim is in the UrlEncode(Base64Encode(photo)) format. To use the photo, the verifier application has to Base64Decode(UrlDecode(photo)).
 
 See full Azure AD user profile [properties reference](/graph/api/resources/user).
 
