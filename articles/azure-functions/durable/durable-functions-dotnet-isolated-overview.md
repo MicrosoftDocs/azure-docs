@@ -17,6 +17,12 @@ This article is an overview of Durable Functions in the [.NET isolated worker](.
 
 Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated worker process. For more information, see [here](../dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process). Additionally, this new SDK includes some new [features](#feature-improvements-over-in-process-durable-functions).
 
+### Feature improvements over in-process Durable Functions
+
+- Orchestration input can be injected directly: `MyOrchestration([OrchestrationTrigger] TaskOrchestrationContext context, T input)`
+- Support for strongly typed calls and class-based activities and orchestrations (NOTE: in preview. For more information, see [here](#source-generator-and-class-based-activities-and-orchestrations).)
+- Plus all the benefits of the Azure Functions .NET isolated worker.
+
 ### Feature parity with in-process Durable Functions
 
 Not all features from in-process Durable Functions have been migrated to the isolated worker yet. Some known missing features that will be addressed at a later date are:
@@ -24,24 +30,16 @@ Not all features from in-process Durable Functions have been migrated to the iso
 - Durable Entities
 - `CallHttpAsync`
 
-### Feature improvements over in-process Durable Functions
-
-- Orchestration input can be injected directly: `MyOrchestration([OrchestrationTrigger] TaskOrchestrationContext context, T input)`
-- Support for strongly typed calls and class-based activities and orchestrations (NOTE: in preview. For more information, see [here](#source-generator-and-class-based-activities-and-orchestrations).)
-- Plus all the benefits of the Azure Functions .NET isolated worker.
-
 ### Source generator and class-based activities and orchestrations
 
 **Requirement**: add `<PackageReference Include="Microsoft.DurableTask.Generators" Version="1.0.0-preview.1" />` to your project.
 
 By adding the source generator package, you get access to two new features:
 
-1. Class-based activities and orchestrations, an alternative way to write Durable Functions. Instead of "function-based", you write strongly-typed classes, which inherit types from the Durable SDK.
-2. Strongly typed extension methods for invoking sub orchestrations and activities. These extension methods can also be used from "function-based" activities and orchestrations.
+1. **Class-based activities and orchestrations**, an alternative way to write Durable Functions. Instead of "function-based", you write strongly-typed classes, which inherit types from the Durable SDK.
+2. **Strongly typed extension methods** for invoking sub orchestrations and activities. These extension methods can also be used from "function-based" activities and orchestrations.
 
-Example:
-
-#### Function-based
+#### Function-based Example
 
 ```csharp
 public static class MyFunctions
@@ -61,7 +59,7 @@ public static class MyFunctions
 }
 ```
 
-#### Class-based
+#### Class-based Example
 
 ```csharp
 [DurableTask(nameof(MyActivity))]
@@ -99,11 +97,7 @@ This guide assumes you're starting with a .NET Durable Functions 2.x project.
 
 ### Update your project
 
-The first step is to update your project to [Azure Functions .NET isolated](../migrate-version-3-version-4.md). Then, update your Durable Functions NuGet package references:
-
-The following changes are required in the `.csproj` XML project file:
-
-1. Replace the existing in-process Durable Functions packages with their isolated worker alternative:
+The first step is to update your project to [Azure Functions .NET isolated](../migrate-version-3-version-4.md). Then, update your Durable Functions NuGet package references.
 
 Old:
 
