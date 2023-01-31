@@ -16,4 +16,4 @@ Skip this section if you've already installed Azure Storage Explorer and connect
 
     :::image type="content" source="./media/functions-storage-explorer-connect/storage-explorer-connect-azure-account.png" alt-text="Screenshot of the sign-in to your Azure account window.":::
 
-After you successfully sign in to your account, you see all of the Azure subscriptions associated with your account.
+After you successfully sign in to your account, you see all of the Azure subscriptions associated with your account. Choose your subscription and select **Open Explorer**. 
