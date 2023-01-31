@@ -28,7 +28,7 @@ You can set IP rules in the Azure portal, as described in this article, or use t
 
 ## Set IP ranges in Azure portal
 
-1. Sign in to Azure portal annd go to your Azure Cognitive Search service page.
+1. Sign in to Azure portal and go to your Azure Cognitive Search service page.
 
 1. Select **Networking** on the left navigation pane. 
 
