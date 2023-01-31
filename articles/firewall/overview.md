@@ -14,8 +14,6 @@ ms.date: 11/07/2022
 
 # What is Azure Firewall?
 
-<!--- ![ICSA certification](media/overview/icsa-cert-firewall-small.png) --->
-
 Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful, firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
 Azure Firewall is offered in three SKUs: Standard, Premium, and Basic.
