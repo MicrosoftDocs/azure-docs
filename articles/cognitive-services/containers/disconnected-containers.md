@@ -160,13 +160,67 @@ If you're using the [Translator container](../translator/containers/translator-h
 -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
 ```
 
-#### Speech-to-text and Neural text-to-speech containers
+
+#### Speech containers
+
+[Speech-to-Text](#tab/stt)
+
+The [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
+[Neural Text-to-Speech](#tab/ntts)
+
+The [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
+[Custom Speech-to-Text](#tab/cstt)
+
+In order to prepare and configure the Custom Speech-to-Text container you will need two separate speech resources:
+
+1. A regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This will be used to train your custom speech models and download and configure them for use in your container.
+1. An Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
+   
+To download all the required models into your Custom Speech-to-Text container follow the instructions for Custom Speech-to-Text containers on the [Install and run Speech containers](../speech-service/speech-container-howto.md?tabs=cstt) page and use the #1 speech resource.
+
+After all required models have been downloaded into your container you need to download the disconnected license file the instruction from above chapter [Configure the container to be run in a disconnected environment](./disconnected-containers#configure-the-container-to-be-run-in-a-disconnected-environment) and use the #2 speech resource.
+
+To run the container in disconnected mode follow the instructions from above chapter [Run the container in a disconnected environment](./disconnected-containers#run-the-container-in-a-disconnected-environment).
+
+The [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
+#### -to-text and Neural text-to-speech containers
 
 The [speech-to-text](../speech-service/speech-container-howto.md?tabs=stt) and [neural text-to-speech](../speech-service/speech-container-howto.md?tabs=ntts) containers provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
 
 When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
 
 Below is a sample command to set file/directory ownership.
+
 
 ```bash
 sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
@@ -254,3 +308,4 @@ If you run the container with an output mount and logging enabled, the container
 ## Next steps
 
 [Azure Cognitive Services containers overview](../cognitive-services-container-support.md)
+
